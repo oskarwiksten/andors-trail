@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="app_name">Andor\'s Trail</string>
+	
+	<string name="exit">Exit</string>
+	<string name="exit_to_menu">Exit to menu</string>
+	<string name="menu_pause">Pause</string>
+	
+	<string name="dialog_loading_message">Loading resources...</string>
+	
+	<string name="dialog_close">Close</string>
+	
+	<string name="dialog_confirmexit_title">Exit</string>
+	<string name="dialog_confirmexit_message">Are you sure you want to exit?</string>
+	
+	<string name="dialog_paused_title">Paused</string>
+	<string name="dialog_paused_message">Game is paused</string>
+	<string name="dialog_paused_resume">Resume</string>
+
+	<string name="dialog_monsterencounter_title">Encounter</string>
+	<string name="dialog_monsterencounter_message">Do you want to attack?\nDifficulty: %s</string>
+	<string name="dialog_monsterencounter_info">Info</string>
+
+	<string name="status_hp">HP:</string>
+	<string name="status_mp">MP:</string>
+	<string name="status_ap">AP:</string>
+	<string name="status_exp">Level:</string>
+
+	<string name="heroinfo_char">Overview</string>
+	<string name="heroinfo_inv">Inventory</string>
+	<string name="heroinfo_wear">Equipped</string>
+	<string name="heroinfo_skill">Skills</string>
+	<string name="heroinfo_spell">Spells</string>
+	<string name="heroinfo_levelup">Level up</string>
+	<string name="heroinfo_level">Level</string>
+	<string name="heroinfo_totalexperience">Total experience</string>	
+	<string name="heroinfo_wornequipment">Worn equipment</string>
+	<string name="heroinfo_inventory">Inventory</string>
+	<string name="heroinfo_gold">Gold: %d</string>
+	<string name="heroinfo_actionpoints">Action points (AP):</string>
+	
+	<string name="combat_attack">Attack (%d AP)</string>
+	<string name="combat_move">Move (%d AP)</string>
+	<string name="combat_use">Use item</string>
+	<string name="combat_spell">Spell</string>
+	<string name="combat_endturn">End turn</string>
+	<string name="combat_endcombat">End combat</string>
+	<string name="combat_status_ap">AP: %d</string>
+	<string name="combat_monsterhealth">HP:</string>
+	<string name="combat_monsteraction">%s is attacking.</string>
+	<string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters.</string>
+	<string name="combat_result_monstermiss">%s misses!</string>
+	<string name="combat_result_monsterhit">%s hits you for %d hp!</string>
+	<string name="combat_result_monsterhitcritical">%s gets a critical hit for %d hp!</string>
+	<string name="combat_result_heromiss">Your attack misses.</string>
+	<string name="combat_result_herohit">You hit %s for %d hp!</string>
+	<string name="combat_result_herohitcritical">You get a critical hit on %s for %d hp!</string>
+	<string name="combat_result_herokillsmonster">%s dies!</string>
+	<string name="combat_not_enough_ap">Not enough AP left this round.</string>
+	<string name="combat_hero_dies">You fall unconscious but fortunately wake up alive. You lost %d experience.</string>
+		
+	<string name="inventory_info">Info</string>
+	<string name="inventory_equip">Equip</string>
+	<string name="inventory_unequip">Unequip</string>
+	<string name="inventory_use">Use</string>
+	<string name="inventory_drop">Drop</string>
+	<string name="inventory_item_used">You used %s.</string>
+	<string name="inventory_item_dropped">%s was dropped.</string>
+	<string name="inventory_item_equipped">You equipped %s.</string>
+
+	<string name="dialog_loot_pickall">Pick up all</string>
+	<string name="dialog_loot_foundgold">You found %d gold. </string>
+	<string name="dialog_groundloot_title">Items</string>
+	<string name="dialog_groundloot_message">You found some items. </string>
+	<string name="dialog_monsterloot_title">Victory</string>
+	<string name="dialog_monsterloot_message">You survived the encounter. </string>
+	<string name="dialog_monsterloot_gainedexp">You gained %d experience. </string>
+    
+    <string name="monster_difficulty_veryeasy">Very easy</string>
+    <string name="monster_difficulty_easy">Easy</string>
+    <string name="monster_difficulty_normal">Normal</string>
+    <string name="monster_difficulty_hard">Hard</string>
+    <string name="monster_difficulty_veryhard">Very hard</string>
+
+    <string name="actorinfo_class">Class:</string>
+    <string name="actorinfo_difficulty">Difficulty:</string>
+    <string name="actorinfo_health">Health:</string>
+    <string name="actorinfo_attacksperturn">Attacks/turn:</string>
+    <string name="actorinfo_movesperturn">Movement/turn:</string>
+    <string name="actorinfo_attack">Attack:</string>
+    <string name="actorinfo_criticalhit">Critical hit:</string>
+    <string name="actorinfo_defense">Defense:</string>
+    <string name="actorinfo_movecost">Move cost (AP):</string>
+    <string name="actorinfo_basetraits">Unequipped combat statistics (base)</string>
+    <string name="actorinfo_currenttraits">Equipped combat statistics (current)</string>
+    
+    <string name="traitsinfo_attack_cost">Attack cost (AP):</string>
+    <string name="traitsinfo_attack_chance">Attack chance:</string>
+    <string name="traitsinfo_attack_damage">Attack damage:</string>
+    <string name="traitsinfo_criticalhit_chance">Critical hit chance:</string>
+    <string name="traitsinfo_criticalhit_multiplier">Critical multiplier:</string>
+    <string name="traitsinfo_defense_chance">Block chance:</string>
+    <string name="traitsinfo_defense_damageresist">Damage resistance:</string>
+    
+	<string name="key_required">A specific key is required to pass.</string>
+
+	<string name="iteminfo_category">Category: </string>
+	<string name="iteminfo_action_use">Use</string>
+	<string name="iteminfo_action_equip">Equip</string>
+	<string name="iteminfo_action_unequip">Unequip</string>
+	<string name="iteminfo_action_use_ap">Use (%d AP)</string>
+	<string name="iteminfo_action_equip_ap">Equip (%d AP)</string>
+	<string name="iteminfo_action_unequip_ap">Unequip (%d AP)</string>
+	<string name="iteminfo_effect_heal">Restores %s HP</string>	
+
+	<string name="itemcategory_money">Money</string>
+	<string name="itemcategory_weapon">Weapon</string>
+	<string name="itemcategory_shield">Shield</string>
+	<string name="itemcategory_wearable_head">Wearable (head)</string>
+	<string name="itemcategory_wearable_body">Wearable (body)</string>
+	<string name="itemcategory_wearable_hand">Wearable (hands)</string>
+	<string name="itemcategory_wearable_feet">Wearable (feet)</string>
+	<string name="itemcategory_wearable_neck">Wearable (neck)</string>
+	<string name="itemcategory_wearable_ring">Wearable (ring)</string>
+	<string name="itemcategory_potion">Potion</string>
+	<string name="itemcategory_other">Other</string>
+	
+	<string name="startscreen_continue">Continue current game</string>
+	<string name="startscreen_newgame">New game</string>
+	<string name="startscreen_newgame_confirm">This will destroy the current game and your current character, are you sure you want to start a new game?</string>
+	<string name="startscreen_about">About/help</string>
+	<string name="startscreen_currenthero">%s, level %d</string>
+	<string name="startscreen_enterheroname">Enter hero name</string>
+	
+	<string name="conversation_title">%s says</string>
+	<string name="conversation_rewardexp"> [You gained %d experience]</string>
+	<string name="conversation_rewardgold"> [You gained %d gold]</string>
+	
+	<string name="shop_buy">Buy</string>
+	<string name="shop_sell">Sell</string>
+	<string name="shop_infoitem">Info</string>
+	<string name="shop_buyitem">Buy (%d gold)</string>
+	<string name="shop_sellitem">Sell (%d gold)</string>
+	<string name="shop_yourgold">Your gold: %d</string>
+	
+	<string name="levelup_title">Level up</string>
+	<string name="levelup_description">Welcome to level %d!</string>
+	<string name="levelup_buttontext">Level up</string>
+	<string name="levelup_add_health">Increase health</string>
+	<string name="levelup_add_health_description">Adds %d to your maximum health.</string>
+	<string name="levelup_add_attackchance">Increase attack chance</string>
+	<string name="levelup_add_attackchance_description">Adds %d\% to your base attack chance.</string>
+	<string name="levelup_add_attackdamage">Increase attack damage</string>
+	<string name="levelup_add_attackdamage_description">Adds %d\% to your base attack damage.</string>
+	<string name="levelup_add_blockchance">Increase block chance</string>
+	<string name="levelup_add_blockchance_description">Adds %d\% to your base block chance.</string>
+	
+	<string name="dialog_rest_title">Rest</string>
+	<string name="dialog_rest_confirm_message">Do you want to rest here?</string>
+	<string name="dialog_rest_message">You have rested and regained your full health.</string>
+
+	<string name="about_button1">Help</string>
+	<string name="about_button2">Authors</string>
+	<string name="about_button3">License</string>
+	<string name="about_contents1">
+		Welcome to Andor\'s Trail, a roguelike RPG on Android.&lt;br /&gt;
+		&lt;br /&gt;
+		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Project homepage on code.google.com&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		I should really add some info here about how to play the game :)&lt;br /&gt;
+	</string>
+	<string name="about_contents2">
+		Programming by Oskar Wiksten&lt;br /&gt;
+		&lt;a href="http://telles0808.deviantart.com/art/RPG-Maker-VX-RTP-Tileset-159218223"&gt;Map tilesets graphics by telles0808&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://ails.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453"&gt;Item tilesets graphics by Ails&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://redknight91.deviantart.com/art/Arena-Game-Sprites-154661559"&gt;Hero graphics by RedKnight91&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://nacred.deviantart.com/art/Sprite-Sheet-171751308"&gt;Additional monster graphics by nacred&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://rltiles.sourceforge.net"&gt;Monster tileset graphics by rltiles.sourceforge.net&lt;/a&gt;&lt;br /&gt;
+		Part of (or All) the graphic tiles used in this program is the public domain roguelike tileset "RLTiles".
+		Some of the tiles have been modified by Oskar Wiksten.
+		You can find the original tileset at &lt;a href="http://rltiles.sf.net"&gt;http://rltiles.sf.net&lt;/a&gt;&lt;br /&gt;
+	</string>
+	<string name="about_contents3">
+		Copyright (C) 2010 Oskar Wiksten&lt;br /&gt;
+		&lt;br /&gt;
+		This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&lt;br /&gt;
+		&lt;br /&gt;
+		This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.&lt;br /&gt;
+		&lt;br /&gt;
+		You should have received a copy of the GNU General Public License along with this program; if not, see &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		For source code and feature requests, please visit the project page at &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+	</string>
+	
+	<string name="dialog_newversion_title">Welcome</string>
+	<string name="dialog_newversion_message">
+		Thank you for downloading Andor\'s Trail!\n\n
+		Please note that this version is the INITIAL RELEASE of Andor\'s Trail, which means that the maps are not yet complete.\n
+		You are however of course free to explore Crossglen village as much as you like.\n
+		This inital release is intended as a bug-hunt before we start adding content.\n
+		Please visit the homepage to get more info or to contribute to the project (see "about").\n
+	</string>
+	
+</resources>

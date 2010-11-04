@@ -1,0 +1,97 @@
+package com.gpl.rpg.AndorsTrail.model.map;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
+import com.gpl.rpg.AndorsTrail.util.Range;
+
+public final class MonsterSpawnArea {
+	public final CoordRect area;
+	public final Range quantity;
+	private final Range spawnChance;
+	public final int[] monsterTypeIDs;
+	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
+	public final boolean isUnique; // unique == non-respawnable
+	
+	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, int[] monsterTypeIDs, boolean isUnique) {
+		this.area = area;
+		this.quantity = quantity;
+		this.spawnChance = spawnChance;
+		this.monsterTypeIDs = monsterTypeIDs;
+		this.isUnique = isUnique;
+	}
+
+	public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
+	public Monster getMonsterAt(final int x, final int y) {
+		for (Monster m : monsters) {
+			if (m.rectPosition.contains(x, y)) return m;
+		}
+		return null;
+	}
+	public Monster getMonsterAt(final CoordRect p) {
+		for (Monster m : monsters) {
+			if (m.rectPosition.intersects(p)) return m;
+		}
+		return null;
+	}
+
+	public void spawn(Coord p, WorldContext context) {
+		final int monsterTypeID = monsterTypeIDs[ModelContainer.rnd.nextInt(monsterTypeIDs.length)];
+		spawn(p, monsterTypeID, context);
+	}
+	public MonsterType getRandomMonsterType(WorldContext context) {
+		final int monsterTypeID = monsterTypeIDs[ModelContainer.rnd.nextInt(monsterTypeIDs.length)];
+		return context.monsterTypes.getMonsterType(monsterTypeID);
+	}
+	public void spawn(Coord p, int monsterTypeID, WorldContext context) {
+		spawn(p, context.monsterTypes.getMonsterType(monsterTypeID));
+	}
+	public void spawn(Coord p, MonsterType type) {
+		monsters.add(new Monster(type, p));
+		quantity.current++;
+	}
+	
+	public void remove(Monster m) {
+		if (monsters.remove(m)) quantity.current--;
+	}
+	
+	public boolean isSpawnable(boolean includeUniqueMonsters) {
+		if (isUnique && !includeUniqueMonsters) return false;
+		return quantity.current < quantity.max;
+	}
+
+	public boolean rollShouldSpawn() {
+		return ModelContainer.rollResult(spawnChance);
+	}
+
+	public void reset() {
+		monsters.clear();
+		quantity.current = 0;
+	}
+	
+	
+	// ====== PARCELABLE ===================================================================
+
+	public void readFromParcel(DataInputStream src, WorldContext world) throws IOException {
+		monsters.clear();
+		quantity.current = src.readInt();
+		for(int i = 0; i < quantity.current; ++i) {
+			monsters.add(Monster.readFromParcel(src, world));
+		}
+	}
+	
+	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+		dest.writeInt(monsters.size());
+		for (Monster m : monsters) {
+			m.writeToParcel(dest, flags);
+		}
+	}
+}

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:padding="@dimen/dialog_margin"
+	>
+	
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:id="@+id/levelup_titlelayout"
+		>
+		<ImageView 
+			android:id="@+id/levelup_image"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content" 
+			android:src="@drawable/char_hero"
+			android:paddingRight="@dimen/dialog_iconpadding_right"
+			android:paddingBottom="@dimen/dialog_iconpadding_bottom"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_title" 
+			android:textSize="@dimen/titletext"
+			/>
+	</LinearLayout>
+
+	<TextView 
+		android:id="@+id/levelup_description"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/levelup_titlelayout"
+		android:layout_alignParentLeft="true"
+		android:text="Welcome to level N!"
+		/>
+		
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/levelup_description"
+		android:layout_alignParentLeft="true"
+		>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			>
+			<Button
+				android:id="@+id/levelup_add_health"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/levelup_add_health"
+				/>
+			<Button
+				android:id="@+id/levelup_add_attackchance"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/levelup_add_attackchance"
+				/>
+			<Button
+				android:id="@+id/levelup_add_attackdamage"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/levelup_add_attackdamage"
+				/>
+			<Button
+				android:id="@+id/levelup_add_blockchance"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/levelup_add_blockchance"
+				/>
+		</LinearLayout>
+		
+	</ScrollView>
+
+</RelativeLayout>

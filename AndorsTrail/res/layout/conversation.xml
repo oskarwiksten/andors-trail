@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		android:padding="@dimen/dialog_margin"
+		>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal"
+			android:gravity="center_vertical"
+			>
+			<ImageView 
+				android:id="@+id/conversation_image"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/char_hero" 
+				android:paddingRight="@dimen/dialog_iconpadding_right"
+				android:paddingBottom="@dimen/dialog_iconpadding_bottom"
+				/>
+			<TextView
+				android:id="@+id/conversation_title"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="NPC name" 
+				android:textSize="@dimen/titletext"
+				/>
+		</LinearLayout>
+	
+		<TextView 
+			android:id="@+id/conversation_text"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		style="@android:style/ButtonBar"
+		>
+		<Button 
+			android:id="@+id/conversation_reply1"
+			android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+			android:text="Reply 1"
+			/>
+			
+		<Button 
+			android:id="@+id/conversation_reply2"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="Reply 2"
+			/>
+			
+		<Button 
+			android:id="@+id/conversation_reply3"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="Reply 3"
+			/>
+	</LinearLayout>
+</LinearLayout>

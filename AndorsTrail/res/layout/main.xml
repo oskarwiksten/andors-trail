@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:id="@+id/main_container"
+	>
+
+	<com.gpl.rpg.AndorsTrail.view.StatusView
+		android:id="@+id/main_statusview"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.CombatView
+		android:id="@+id/main_combatview"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:visibility="gone"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.MainView
+		android:id="@+id/main_mainview"
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_above="@id/main_statusview"
+		android:layout_alignParentTop="true"
+		/>
+ 
+	<TextView 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/main_combatview"
+		android:layout_margin="5dp"
+		android:background="@drawable/ui_statustext"
+		android:id="@+id/statusview_statustext"
+		android:textSize="@dimen/smalltext"
+		/>
+
+</RelativeLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="conversationlist_debug">
+
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{debug||||||debug2|dialog2||||debug1|||||||||};
+{debug1|Welcome adventurer!|dialog2|||Trade|S||||Bye|X||||Debug|debug3||||};
+{debug2|Welcome back!||||Trade|S||||Bye|X||||Debug|debug3||||};
+{debug3|Debug 3\nTest||5|5|Iron sword*2|debug||sword1|2|Iron sword*1|debug||sword1|1|Iron longsword*1|debug||sword2|1|};
+
+{test1|Hello, test message||||Bye|X||||Shop|S||||Keytest|testmain||||};
+{testmain|Keytest main||||Back|test1||||Add key|test2||||I have it!|test3|testkey|||};
+{test2|Key added!|testkey|||Ok|testmain||||||||||||||};
+{test3|This is only reachable if you have testkey||||Back|testmain||||||||||||||};
+
+	</string>
+	
+	
+	<string name="conversationlist_mikhail">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{mikhail_start_select||||||mikhail_visited|mikhail_visited||||mikhail_gamestart|||||||||};
+{mikhail_gamestart|Oh good, you are awake.||||Next|mikhail_visited||||||||||||||};
+{mikhail_visited|I can\'t seem to find your brother anywhere. He hasn\'t been back since he left yesterday.|mikhail_visited|||Next|mikhail3||||||||||||||};
+{mikhail3|Nevermind, he will probably be back soon.||||Next|mikhail_default||||||||||||||};
+{mikhail_default|Anything else I can help you with?||||Bread|mikhail_bread_select||||Rats|mikhail_rats_select||||Bye|X||||};
+
+{mikhail_bread_select||||||mikhail_bread_complete2|qmikhail_bread_complete||||mikhail_bread_continue|qmikhail_bread||||mikhail_bread_start||||};
+{mikhail_bread_start|Oh, I almost forgot. If you have time, please stop by Mara at the town hall and buy me some more bread.|qmikhail_bread|||I already have some bread|mikhail_bread_complete||bread|1|Sure|mikhail_default|||||||||};
+{mikhail_bread_continue|Did you get the bread from Mara at the town hall that i asked for?||||Yes, i got it|mikhail_bread_complete||bread|1|No, not yet|mikhail_default|||||||||};
+{mikhail_bread_complete|Thanks a lot, now i can get my breakfast. Here, take these coins for your help.|qmikhail_bread_complete||20|Back|mikhail_default||||Bye|X|||||||||};
+{mikhail_bread_complete2|Thanks for the bread earlier.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
+
+{mikhail_rats_select||||||mikhail_rats_complete2|qmikhail_rats_complete||||mikhail_rats_continue|qmikhail_rats||||mikhail_rats_start||||};
+{mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go check our garden if they are still there? Please kill any rats that you see.|qmikhail_rats|||I already killed them|mikhail_rats_complete||tail_trainingrat|2|Sure|mikhail_default|||||||||};
+{mikhail_rats_continue|Did you kill those rats in our garden?||||Yes|mikhail_rats_complete||tail_trainingrat|2|No, not yet|mikhail_default|||||||||};
+{mikhail_rats_complete|Thanks a lot for your help.|qmikhail_rats_complete|20||Back|mikhail_default||||Bye|X|||||||||};
+{mikhail_rats_complete2|Thanks for your help with the rats earlier.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
+
+	</string>
+	
+	<string name="conversationlist_crossglen">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{leta1|Hey, this is my house, get out of here!||||But I was just...|leta2||||Bye|X|||||||||};
+{leta2|Beat it kid, get out of my house!||||Bye|X||||||||||||||};
+{audir1|Welcome to my shop!\n\nPlease browse my selection of fine wares.||||Shop|S||||Bye|X|||||||||};
+{arambold1|Oh my, will I ever get any sleep with those drunkards singing like that?\n\nSomeone should do something about them.||||Can I rest here?|arambold2||||Trade|S||||Bye|X||||};
+{arambold2|Sure kid, you may rest here.\n\nPick any bed you want.||||Thanks, bye|X||||||||||||||};
+{tharal1|Embrace the one true god||||Trade|S||||Bye|X|||||||||};
+{drunk1|Drink drink drink, drink some more.\nDrink drink drink \'til you\'re on the floor.\n\nHey kid, wanna join us in our drinking game?||||No thanks|X||||||||||||||};
+{mara1|Never mind those drunken fellas, they\'re always causing trouble.\n\nWant something to eat?||||Trade|S||||Bye|X|||||||||};
+{gruil1|Psst, hey.\n\nWanna trade?||||Trade|S||||Bye|X|||||||||};
+{leonid1|Begone, peasant.||||Bye|X||||||||||||||};
+{farm1|Please do not disturb me, i have work to do.||||Bye|X||||||||||||||};
+{farm2|What?! Can\'t you see i\'m busy? Go bother someone else.||||Bye|X||||||||||||||};
+	</string>
+</resources>

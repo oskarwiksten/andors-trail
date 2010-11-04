@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+
+	<ImageButton 
+		android:id="@+id/status_image"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="10sp"
+		/>
+		
+	<com.gpl.rpg.AndorsTrail.view.RangeBar
+		android:id="@+id/statusview_health"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/status_image"
+		android:layout_marginTop="5sp"
+		/>
+	<com.gpl.rpg.AndorsTrail.view.RangeBar
+		android:id="@+id/statusview_exp"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/status_image"
+		android:layout_below="@id/statusview_health"
+		/>
+		
+</merge>

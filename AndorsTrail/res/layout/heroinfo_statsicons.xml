@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:gravity="right"
+	>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:background="@drawable/ui_boxshape"
+		android:layout_margin="@dimen/boxshape_margin"
+		android:padding="@dimen/boxshape_margin"
+		
+		>
+		<ImageView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/icon_coin"
+			android:layout_marginRight="@dimen/boxshape_margin"
+			/>
+		<TextView 
+			android:id="@+id/heroinfo_stats_gold"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/smalltext"
+			android:text="Gold: 0"
+			/>
+	</LinearLayout>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:background="@drawable/ui_boxshape"
+		android:layout_margin="@dimen/boxshape_margin"
+		android:padding="@dimen/boxshape_margin"
+		>
+		<ImageView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/equip_weapon"
+			android:layout_marginRight="@dimen/boxshape_margin"
+			/>
+		<TextView 
+			android:id="@+id/heroinfo_stats_attack"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/smalltext"
+			android:text="Atk: "
+			/>
+	</LinearLayout>
+
+	<LinearLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		android:background="@drawable/ui_boxshape"
+		android:layout_margin="@dimen/boxshape_margin"
+		android:padding="@dimen/boxshape_margin"
+		>
+		<ImageView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/equip_shield"
+			android:layout_marginRight="@dimen/boxshape_margin"
+			/>
+		<TextView 
+			android:id="@+id/heroinfo_stats_defense"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:textSize="@dimen/smalltext"
+			android:text="Def: "
+			/>
+	</LinearLayout>
+	
+</LinearLayout>

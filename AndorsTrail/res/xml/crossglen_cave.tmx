@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA7WUMQ6DMAxFnZAbwDFYuTFT12Tq2iPQG3ARsFqplmU7TqIOT2L4PMfEeA8A+x9JEeAINlPU3y8su9zZM9jMUXcXll3BB3VTZ2lwaKAzG9+wx2n5LDSfdUc9Xuz51TA3Un3u5D7q4HMzC3OJNTQfuqjDmhFag56T+pZYv0MJyZc6XciD9VsGzoY8BZ+nJ08uV3Kt/42UG913OEfvr7O29zycxFfbex42+LDC73mEC43y7sVABgAA
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGJpAhBWCkfnogA2LGDowYWJgKGbBLlfNzMAQCcTGTBDzxXCYtxmH/lIc4sgAZDYh8IWRsBpk+4gxk1K76GVuBjtxZhLrZ1A8SuBJF4TcCUt3oHQTygwRW8ICsR+W3j5iMR9bWjAh0s2g9OnJjN+PILN2EJHekEE11P0dJOoDgV8kqEX2J3o4fMYR3jB1p4i0A5s5/5mJUw9Th8stgwF4UdltblQyDwBpMKe7QAYAAA==
+  </data>
+ </layer>
+ <layer name="Above" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoD34z0xd/e+pbB6lgNrmjQIIoEa4IptBjXRDjhkfsOgh1yyYXmLEyDWPEreBALpeYt2GLZywAWLN+8JIXXWkAGL9QiwYrGUWADoAkuRABgAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHMVYASV6iQW0sGMgw4JYc6kdb7RIC9RSi08NMYBY80gF6HpJMQtfOsFlPjFuIMY8QuaQai82/1MjDY0E8wAlhSf8QAYAAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="20" height="20">
+  <object name="entrance" type="mapchange" x="64" y="608" width="32" height="32">
+   <properties>
+    <property name="map" value="crossglen"/>
+    <property name="place" value="cave"/>
+   </properties>
+  </object>
+  <object name="Cracked sign" type="sign" x="224" y="320" width="96" height="32">
+   <properties>
+    <property name="text" value="The sign on the wall is cracked in several places. You cannot make out anything comprehensible from the writing."/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="20" height="20">
+  <object name="crossglen_caverat" type="spawn" x="128" y="352" width="384" height="160">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="crossglen_caverat2" type="spawn" x="544" y="288" width="64" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="crossglen_caveboss" type="spawn" x="64" y="129" width="34" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossglen_caverat" type="spawn" x="224" y="96" width="352" height="128">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="20"/>
+</map>

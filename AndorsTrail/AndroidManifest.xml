@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest 
+	xmlns:android="http://schemas.android.com/apk/res/android" 
+	package="com.gpl.rpg.AndorsTrail"
+	android:versionCode="4"
+	android:versionName="0.4"
+	android:installLocation="auto"
+	>
+	<uses-sdk 
+		android:minSdkVersion="4" 
+		android:targetSdkVersion="8"
+		/>
+	
+	<application android:label="@string/app_name" android:name=".AndorsTrailApplication" android:icon="@drawable/icon">
+		<activity 
+			android:name=".activity.MainActivity" 
+			android:label="@string/app_name" 
+			android:theme="@style/Theme.NoBackground"
+			>
+		</activity>
+		<activity android:name=".activity.HeroinfoActivity" />
+		<activity android:name=".activity.MonsterInfoActivity" android:theme="@android:style/Theme.Dialog" />
+		<activity android:name=".activity.ItemInfoActivity" android:theme="@android:style/Theme.Dialog" />
+		<activity android:name=".activity.StartScreenActivity">
+			<intent-filter>
+				<action android:name="android.intent.action.MAIN" />
+				<category android:name="android.intent.category.LAUNCHER" />
+			</intent-filter>
+		</activity>
+		<activity android:name=".activity.LevelUpActivity" android:theme="@android:style/Theme.Dialog" />
+		<activity android:name=".activity.MonsterEncounterActivity" android:theme="@android:style/Theme.Dialog" />
+		<activity android:name=".activity.ConversationActivity" android:theme="@android:style/Theme.Dialog" />
+		<activity android:name=".activity.ShopActivity" />
+		<activity android:name=".activity.AboutActivity" />
+	</application>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+</manifest>
