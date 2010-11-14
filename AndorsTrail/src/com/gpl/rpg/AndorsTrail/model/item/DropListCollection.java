@@ -29,7 +29,7 @@ public final class DropListCollection {
 		final ConstRange five = new ConstRange(5, 5);
 		final ConstRange always = one;
 		
-		if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
 			items.clear();
 			items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), new ConstRange(100, 100), new ConstRange(10, 0)));
 			items.add(new DropItem(itemTypes.getItemType(1), new ConstRange(100, 10), new ConstRange(1, 1)));
@@ -47,7 +47,7 @@ public final class DropListCollection {
 		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), always, new ConstRange(12, 12)));
 		items.add(new DropItem(itemTypes.getItemTypeByTag("club1"), always, one));
 		items.add(new DropItem(itemTypes.getItemTypeByTag("shirt1"), always, one));
-		if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
+		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
 			items.add(new DropItem(itemTypes.getItemTypeByTag("ring_mikhail"), always, one));
 		}
 		droplists.put(DROPLIST_STARTITEMS, new DropList(items));
@@ -131,29 +131,51 @@ public final class DropListCollection {
 		droplists.put("trainingrat", new DropList(items));
 		
 		final ConstRange seldom = new ConstRange(100, 30);
+		final ConstRange very_seldom = new ConstRange(100, 5);
 		//final ConstRange sometimes = new ConstRange(100, 50);
 		final ConstRange often = new ConstRange(100, 70);
 		final ConstRange animalpart = seldom;
 		
 		items.clear();
-		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), always, new ConstRange(2, 0)));
+		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), always, new ConstRange(4, 2)));
 		items.add(new DropItem(itemTypes.getItemTypeByTag("rat_tail"), animalpart, one));
 		droplists.put("rat", new DropList(items));
 		
 		items.clear();
 		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), always, ten));
 		items.add(new DropItem(itemTypes.getItemTypeByTag("tail_caverat"), always, one));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("gem1"), very_seldom, one));
 		droplists.put("caveratboss", new DropList(items));
 
 		items.clear();
-		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(4, 1)));
+		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(4, 2)));
 		items.add(new DropItem(itemTypes.getItemTypeByTag("Insect wing"), animalpart, one));
 		droplists.put("wasp", new DropList(items));
 		
 		items.clear();
-		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(4, 1)));
+		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(4, 2)));
 		items.add(new DropItem(itemTypes.getItemTypeByTag("shell"), animalpart, one));
 		droplists.put("insect", new DropList(items));
+		
+		items.clear();
+		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(6, 3)));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("gem1"), very_seldom, one));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("meat"), animalpart, one));
+		droplists.put("canine", new DropList(items));
+		
+		items.clear();
+		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(6, 3)));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("meat"), animalpart, one));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("gland"), very_seldom, one));
+		droplists.put("snake", new DropList(items));
+		
+		items.clear();
+		items.add(new DropItem(itemTypes.getItemType(ItemTypeCollection.ITEMTYPE_GOLD), often, new ConstRange(10, 7)));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("hair"), animalpart, one));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("gem1"), seldom, one));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("meat"), animalpart, one));
+		items.add(new DropItem(itemTypes.getItemTypeByTag("boots1"), seldom, one));
+		droplists.put("canineboss", new DropList(items));
 
 	}
 }

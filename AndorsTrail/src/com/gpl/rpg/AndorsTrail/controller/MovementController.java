@@ -88,7 +88,6 @@ public final class MovementController {
     	player.position.set(newPosition);
     	view.combatController.setCombatSelection(null, null);
 		view.mainActivity.mainview.notifyPlayerMoved();
-		view.mainActivity.redrawAll();
 		
 		if (handleEvents) {
 	    	for (MapObject o : currentMap.eventObjects) {

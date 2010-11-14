@@ -9,6 +9,7 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -31,7 +32,6 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
 	private ListView shoplist_buy;
 	private ListView shoplist_sell;
 	private ItemContainer container_buy;
-	private ItemContainer container_sell;
 	private TextView shop_buy_gc;
 	private TextView shop_sell_gc;
 	
@@ -97,7 +97,6 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
         Loot merchantLoot = new Loot();
         npcType.dropList.createRandomLoot(merchantLoot);
         container_buy = merchantLoot.items;
-        container_sell = player.inventory;
         
 		shoplist_buy.setAdapter(new ShopItemContainerAdapter(
 				this
@@ -110,7 +109,7 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
         		this
         		, world.tileStore
         		, player
-				, container_sell
+				, player.inventory
         		, this
         		, true));
         
@@ -167,11 +166,13 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
 
 	private void sell(ItemType itemType) {
 		ItemController.sell(player, itemType, container_buy);
+		Toast.makeText(this, getResources().getString(R.string.shop_item_sold, itemType.name), Toast.LENGTH_SHORT).show();
 		update();
 	}
 
 	private void buy(ItemType itemType) {
 		ItemController.buy(player, itemType, container_buy);
+		Toast.makeText(this, getResources().getString(R.string.shop_item_bought, itemType.name), Toast.LENGTH_SHORT).show();
 		update();
 	}
 

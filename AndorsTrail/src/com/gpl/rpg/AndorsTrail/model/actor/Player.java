@@ -67,7 +67,7 @@ public final class Player extends Actor {
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems);
 		inventory.add(startItems);
 		
-		if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
 			spawnMap = "debugmap";
 			spawnPlace = "start";
 		} else {

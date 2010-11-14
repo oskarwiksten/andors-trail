@@ -40,12 +40,15 @@ public final class EffectController {
 	        		isAlive = false;
 	        	}
 	    	}
-	    	view.redrawFromDoubleBuffer();
+	    	view.redrawArea(area, MainView.REDRAW_AREA_EFFECT_COMPLETED);
 	    	EffectController.this.currentEffect = null;
         }
 	    
 	    public void killjoin() {
 	    	isAlive = false;
+	    	safejoin();
+	    }
+	    public void safejoin() {
 	    	try {
 	    		join();
 	    	} catch (InterruptedException e) {}
@@ -93,8 +96,15 @@ public final class EffectController {
 			this.currentTileID = newTileID;
 			this.textYOffset = -2 * (currentFrame);
 			if (changed) {
-				view.redrawTileWithEffect(area, this);
+				view.redrawAreaWithEffect(area, this);
 			}
+		}
+	}
+
+	public void waitForCurrentEffect() {
+		EffectAnimation e = currentEffect;
+		if (e != null) {
+			e.safejoin();
 		}
 	}
 }

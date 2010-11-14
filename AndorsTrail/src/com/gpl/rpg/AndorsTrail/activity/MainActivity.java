@@ -99,6 +99,7 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
     	AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
     	this.view = new ViewContext(app, this);
     	app.currentView = new WeakReference<ViewContext>(this.view);
+    	app.setup.createNewCharacter = false;
         
         setContentView(R.layout.main);
         mainview = (MainView) findViewById(R.id.main_mainview);
@@ -123,7 +124,7 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
 
         removeDialog(DIALOG_LOADING);
         
-        if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) {
         	addDebugButtons(new DebugButton[] {
     			new DebugButton("Add monster", new OnClickListener() {
 		    		@Override
@@ -136,14 +137,16 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(99, 99);
-		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=99", Toast.LENGTH_SHORT);
+		    			world.model.player.traits.attackChance = 200;
+		    			world.model.player.traits.attackCost = 1;
+		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT).show();
 					}
 				})
     			,new DebugButton("dmg=1", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(1, 1);
-		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
+		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT).show();
 					}
 				})
     			,new DebugButton("exp+=100", new OnClickListener() {
@@ -276,11 +279,11 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
 		return super.onPrepareOptionsMenu(menu);
 	}
 	
-	public void redrawAll() {
-		this.mainview.redrawAll();
+	public void redrawAll(int why) {
+		this.mainview.redrawAll(why);
 	}
-	public void redrawTile(final Coord pos) {
-		this.mainview.redrawTile(pos);
+	public void redrawTile(final Coord pos, int why) {
+		this.mainview.redrawTile(pos, why);
 	}
 	public void message(String msg) {
 		StringBuilder sb = new StringBuilder();

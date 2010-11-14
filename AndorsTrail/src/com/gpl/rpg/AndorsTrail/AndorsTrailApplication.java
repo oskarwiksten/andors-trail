@@ -11,9 +11,13 @@ import android.content.Context;
 
 public final class AndorsTrailApplication extends Application {
 
-	public static final boolean DEVELOPMENT_VERSION = false;
-	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
-    
+	public static final boolean DEVELOPMENT_DEBUGRESOURCES = false;
+	public static final boolean DEVELOPMENT_QUICKSTART = false;
+	public static final boolean DEVELOPMENT_DEBUGBUTTONS = false;
+	public static final boolean DEVELOPMENT_VALIDATEDATA = false;
+	public static final boolean DEVELOPMENT_DEBUGMESSAGES = false;
+	public static final int CURRENT_VERSION = 5;
+	
 	public final WorldContext world = new WorldContext();
 	public WorldSetup setup = new WorldSetup(world, this);
 	public WeakReference<ViewContext> currentView;

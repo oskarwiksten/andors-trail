@@ -19,13 +19,14 @@ public final class ResourceLoader {
 	public static void loadResources(WorldContext world, Resources r) {
     	
         final TileStore tiles = world.tileStore;
-        tiles.displayTileSize = DynamicTileLoader.measureBitmapWidth(r, R.drawable.equip_body);
-        final int mTileSize = 32; //tiles.displayTileSize;
-        L.log("displayTileSize=" + mTileSize);
+        tiles.displayTileSize = DynamicTileLoader.measureBitmapWidth(r, R.drawable.equip_body); // Should be 32 on regular size.
+        L.log("displayTileSize=" + tiles.displayTileSize);
+        final int mTileSize = tiles.displayTileSize;
+        L.log("mTileSize=" + mTileSize);
         
-        final Size dst_sz2x2 = new Size(mTileSize*2, mTileSize*2);
-        final Size dst_sz2x3 = new Size(mTileSize*2, mTileSize*3);
-        final Size dst_sz4x3 = new Size(mTileSize*4, mTileSize*3);
+        //final Size dst_sz2x2 = new Size(mTileSize*2, mTileSize*2);
+        //final Size dst_sz2x3 = new Size(mTileSize*2, mTileSize*3);
+        //final Size dst_sz4x3 = new Size(mTileSize*4, mTileSize*3);
         final Size dst_sz1x1 = new Size(mTileSize, mTileSize);
         final Size defaultTileSize = dst_sz1x1;
         final Size src_sz1x1 = new Size(1, 1);
@@ -57,7 +58,7 @@ public final class ResourceLoader {
         assert(world.itemTypes.getItemTypeByTag("gold").id == ItemTypeCollection.ITEMTYPE_GOLD);
         world.itemTypes.initialize(loader, r.getString(R.string.itemlist_weapons));
         world.itemTypes.initialize(loader, r.getString(R.string.itemlist_armour));
-        if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_debug));
         } else {
         	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_rings));
@@ -72,59 +73,52 @@ public final class ResourceLoader {
 
         // ========================================================================
         // Conversation
-        if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_debug));
         } else {
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_mikhail));
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_leta));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_odair));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_jan));
         }
         
         // ========================================================================
         // Load monster icons
-        if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
-	        loader.prepareTileset(R.drawable.monsters_armor1, "monsters_armor1", src_sz1x1, defaultTileSize);
-        }
-        loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", src_sz1x1, dst_sz2x2);
-        if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
-        	loader.prepareTileset(R.drawable.monsters_demon2, "monsters_demon2", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_dogs, "monsters_dogs", src_sz7x1, defaultTileSize);
-        }
-        loader.prepareTileset(R.drawable.monsters_dragons, "monsters_dragons", src_sz7x1, defaultTileSize);
-        if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
-        	loader.prepareTileset(R.drawable.monsters_eye1, "monsters_eye1", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_eye2, "monsters_eye2", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_eye3, "monsters_eye3", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_eye4, "monsters_eye4", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_ghost1, "monsters_ghost1", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_ghost2, "monsters_ghost2", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_hydra1, "monsters_hydra1", src_sz1x1, dst_sz2x2);
-        }
+        //loader.prepareTileset(R.drawable.monsters_armor1, "monsters_armor1", src_sz1x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", src_sz1x1, dst_sz2x2);
+        //loader.prepareTileset(R.drawable.monsters_demon2, "monsters_demon2", src_sz1x1, defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_dogs, "monsters_dogs", src_sz7x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_dragons, "monsters_dragons", src_sz7x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_eye1, "monsters_eye1", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_eye2, "monsters_eye2", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_eye3, "monsters_eye3", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_eye4, "monsters_eye4", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_ghost1, "monsters_ghost1", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_ghost2, "monsters_ghost2", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_hydra1, "monsters_hydra1", src_sz1x1, dst_sz2x2);
         loader.prepareTileset(R.drawable.monsters_insects, "monsters_insects", src_sz6x1, defaultTileSize);
-        if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
-        	loader.prepareTileset(R.drawable.monsters_liches, "monsters_liches", new Size(4, 1), defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_mage2, "monsters_mage2", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_mage3, "monsters_mage3", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_mage4, "monsters_mage4", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
-        }
+        //loader.prepareTileset(R.drawable.monsters_liches, "monsters_liches", new Size(4, 1), defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_mage2, "monsters_mage2", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_mage3, "monsters_mage3", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_mage4, "monsters_mage4", src_sz1x1, defaultTileSize);
+	    //loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_man1, "monsters_man1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_men, "monsters_men", new Size(9, 1), defaultTileSize);
-	    loader.prepareTileset(R.drawable.monsters_misc, "monsters_misc", new Size(12, 1), defaultTileSize);
-        if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
-        	loader.prepareTileset(R.drawable.monsters_rats, "monsters_rats", new Size(5, 1), defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_rogue1, "monsters_rogue1", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_skeleton1, "monsters_skeleton1", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_skeleton2, "monsters_skeleton2", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_snakes, "monsters_snakes", src_sz6x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_cyclops, "monsters_cyclops", src_sz1x1, dst_sz2x3);
-	        loader.prepareTileset(R.drawable.monsters_warrior1, "monsters_warrior1", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_wraiths, "monsters_wraiths", new Size(3, 1), defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_zombie1, "monsters_zombie1", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_zombie2, "monsters_zombie2", src_sz1x1, defaultTileSize);
-	        loader.prepareTileset(R.drawable.monsters_dragon1, "monsters_dragon1", src_sz1x1, dst_sz4x3);
-        }
+	    //loader.prepareTileset(R.drawable.monsters_misc, "monsters_misc", new Size(12, 1), defaultTileSize);
+    	loader.prepareTileset(R.drawable.monsters_rats, "monsters_rats", new Size(5, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_rogue1, "monsters_rogue1", src_sz1x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_skeleton1, "monsters_skeleton1", src_sz1x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_skeleton2, "monsters_skeleton2", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_snakes, "monsters_snakes", src_sz6x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_cyclops, "monsters_cyclops", src_sz1x1, dst_sz2x3);
+        loader.prepareTileset(R.drawable.monsters_warrior1, "monsters_warrior1", src_sz1x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_wraiths, "monsters_wraiths", new Size(3, 1), defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_zombie1, "monsters_zombie1", src_sz1x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_zombie2, "monsters_zombie2", src_sz1x1, defaultTileSize);
+        //loader.prepareTileset(R.drawable.monsters_dragon1, "monsters_dragon1", src_sz1x1, dst_sz4x3);
         
-        if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_debug));
         	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_misc));
         }
@@ -135,7 +129,7 @@ public final class ResourceLoader {
         // ========================================================================
         // Load map icons
         loader.prepareTileset(R.drawable.map_tiles_1_1, "map_tiles_1_1.png", src_mapTileSize, defaultTileSize);
-        if (!AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (!AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
 	        loader.prepareTileset(R.drawable.map_tiles_1_2, "map_tiles_1_2.png", src_mapTileSize, defaultTileSize);
 	        loader.prepareTileset(R.drawable.map_tiles_1_3, "map_tiles_1_3.png", src_mapTileSize, defaultTileSize);
 	        loader.prepareTileset(R.drawable.map_tiles_1_4, "map_tiles_1_4.png", src_mapTileSize, defaultTileSize);
@@ -154,7 +148,7 @@ public final class ResourceLoader {
         }
         TMXMapReader mapReader = new TMXMapReader();
         
-        if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	mapReader.read(r.getXml(R.xml.debugmap), "debugmap");
         } else {
 	        mapReader.read(r.getXml(R.xml.home), "home");
@@ -164,6 +158,10 @@ public final class ResourceLoader {
 	        mapReader.read(r.getXml(R.xml.crossglen_hall), "crossglen_hall");
 	        mapReader.read(r.getXml(R.xml.crossglen_smith), "crossglen_smith");
 	        mapReader.read(r.getXml(R.xml.crossglen_cave), "crossglen_cave");
+	        mapReader.read(r.getXml(R.xml.wild1), "wild1");
+	        mapReader.read(r.getXml(R.xml.wild2), "wild2");
+	        mapReader.read(r.getXml(R.xml.wild3), "wild3");
+	        mapReader.read(r.getXml(R.xml.jan_pitcave1), "jan_pitcave1");
         }
         
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes));
@@ -180,9 +178,10 @@ public final class ResourceLoader {
         
         loader = null;
         // ========================================================================
+        
     }
     
-    public static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);
+	public static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);
     public static final String columnSeparator = "\\|";
 	public static int parseImage(DynamicTileLoader tileLoader, String s) {
 	   	String[] parts = s.split(":");

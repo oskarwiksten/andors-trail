@@ -105,6 +105,7 @@ public final class DynamicTileLoader {
 		Options o = new Options();
 		o.inScaled = false;
 		Bitmap sourceImage = BitmapFactory.decodeResource(r, b.resourceId, o);
+		sourceImage.setDensity(Bitmap.DENSITY_NONE);
 		b.calculateFromSourceImageSize(sourceImage.getWidth(), sourceImage.getHeight());
 		return sourceImage;
 	}

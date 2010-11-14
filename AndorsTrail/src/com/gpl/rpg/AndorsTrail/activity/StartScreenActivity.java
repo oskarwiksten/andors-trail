@@ -81,7 +81,7 @@ public class StartScreenActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         app.setup.startResourceLoader(getResources());
         
-        if (AndorsTrailApplication.DEVELOPMENT_VERSION) {
+        if (AndorsTrailApplication.DEVELOPMENT_QUICKSTART) {
         	continueGame(true, "Debug player");
         }
     }
@@ -105,9 +105,9 @@ public class StartScreenActivity extends Activity {
 		final String v = "lastversion";
 		SharedPreferences s = getSharedPreferences(ModelContainer.PREFERENCE_MODEL_LASTRUNVERSION, MODE_PRIVATE);
 		int lastversion = s.getInt(v, 0);
-		if (lastversion >= ModelContainer.CURRENT_VERSION) return false;
+		if (lastversion >= AndorsTrailApplication.CURRENT_VERSION) return false;
 		Editor e = s.edit();
-		e.putInt(v, ModelContainer.CURRENT_VERSION);
+		e.putInt(v, AndorsTrailApplication.CURRENT_VERSION);
 		e.commit();
 		return true;
 	}
@@ -118,6 +118,7 @@ public class StartScreenActivity extends Activity {
         startscreen_newgame.setEnabled(true);
         if (hasExistingGame) {
         	startscreen_currenthero.setText(getResources().getString(R.string.startscreen_currenthero, player.traits.name, player.level));
+        	startscreen_enterheroname.setText(player.traits.name);
         	startscreen_enterheroname.setVisibility(View.GONE);
         } else {
         	startscreen_currenthero.setText(R.string.startscreen_enterheroname);
@@ -135,7 +136,7 @@ public class StartScreenActivity extends Activity {
 	private void createNewGame() {
 		String name = startscreen_enterheroname.getText().toString().trim();
 		if (name == null || name.length() <= 0) {
-			Toast.makeText(this, R.string.startscreen_enterheroname, Toast.LENGTH_SHORT);
+			Toast.makeText(this, R.string.startscreen_enterheroname, Toast.LENGTH_SHORT).show();
 			return;
 		}
 		continueGame(true, name);

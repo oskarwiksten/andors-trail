@@ -84,11 +84,14 @@ public final class ConversationActivity extends Activity {
     	}
     	
     	String message = phrase.message;
-    	if (phrase.rewardExperience > 0) {
-    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, phrase.rewardExperience);
-    	}
-    	if (phrase.rewardGold > 0) {
-    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, phrase.rewardGold);
+    	if (phrase.rewardGold > 0 || phrase.rewardExperience > 0) {
+    		message += "\n";
+	    	if (phrase.rewardExperience > 0) {
+	    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, phrase.rewardExperience);
+	    	}
+	    	if (phrase.rewardGold > 0) {
+	    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, phrase.rewardGold);
+	    	}
     	}
 
     	text.setText(message);

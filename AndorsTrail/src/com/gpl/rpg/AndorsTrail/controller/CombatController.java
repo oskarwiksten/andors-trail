@@ -22,6 +22,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class CombatController {
 	private final ViewContext context;
@@ -81,14 +82,14 @@ public final class CombatController {
 		Coord previousSelection = model.uiSelections.selectedPosition;
 		if (model.uiSelections.selectedPosition != null) {
 			model.uiSelections.selectedPosition = null;
-			context.mainActivity.redrawTile(previousSelection);
+			context.mainActivity.redrawTile(previousSelection, MainView.REDRAW_TILE_SELECTION_REMOVED);
 		}
 		model.uiSelections.selectedMonster = selectedMonster;
 		model.uiSelections.selectedPosition = selectedPosition;
 		context.mainActivity.combatview.updateCombatSelection(selectedMonster, selectedPosition);
 		if (selectedPosition != null) {
 			model.uiSelections.isInCombat = true;
-			context.mainActivity.redrawTile(selectedPosition);
+			context.mainActivity.redrawTile(selectedPosition, MainView.REDRAW_TILE_SELECTION_ADDED);
 		}
 	}
 	public void setCombatSelection(Coord p) {
@@ -138,6 +139,8 @@ public final class CombatController {
 	}
 	
 	private void executeAttack() {
+		context.effectController.waitForCurrentEffect();
+		
 		if (!useAPs(model.player.traits.attackCost)) return;
 		Monster target = model.uiSelections.selectedMonster;
 			
@@ -236,6 +239,8 @@ public final class CombatController {
 	}
 	
 	private void handleNextMonsterAction() {
+		context.effectController.waitForCurrentEffect();
+		
 		currentActiveMonster = determineNextMonster(currentActiveMonster);
 		if (currentActiveMonster == null) {
 			endMonsterTurn();

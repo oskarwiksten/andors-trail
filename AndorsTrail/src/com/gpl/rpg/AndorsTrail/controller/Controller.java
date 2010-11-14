@@ -16,6 +16,7 @@ import com.gpl.rpg.AndorsTrail.model.map.KeyArea;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class Controller {
 	private static final int PERCENT_EXP_LOST_WHEN_DIED = 30;
@@ -68,7 +69,7 @@ public final class Controller {
     	if (view.monsterMovementController.moveMonsters()) hasChanged = true;
     	if (model.currentMap.maybeSpawn(world)) hasChanged = true;
     	
-    	if (hasChanged) view.mainActivity.redrawAll(); //TODO: should only redraw spawned tiles
+    	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
     	
     	queueAnotherTick();
     }

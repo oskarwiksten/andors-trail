@@ -30,6 +30,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
+import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class Dialogs {
 	
@@ -168,7 +169,7 @@ public final class Dialogs {
 			public void onDismiss(DialogInterface arg0) {
 				if (loot.isEmpty()) {
 					context.model.currentMap.removeGroundLoot(loot);
-					context.mainActivity.redrawTile(loot.position);
+					context.mainActivity.redrawTile(loot.position, MainView.REDRAW_TILE_BAG_REMOVED);
 				}
 				context.mainActivity.statusview.update();
 				context.controller.resume();

@@ -27,22 +27,34 @@
 
 {mikhail_bread_select||||||mikhail_bread_complete2|qmikhail_bread_complete||||mikhail_bread_continue|qmikhail_bread||||mikhail_bread_start||||};
 {mikhail_bread_start|Oh, I almost forgot. If you have time, please stop by Mara at the town hall and buy me some more bread.|qmikhail_bread|||I already have some bread|mikhail_bread_complete||bread|1|Sure|mikhail_default|||||||||};
-{mikhail_bread_continue|Did you get the bread from Mara at the town hall that i asked for?||||Yes, i got it|mikhail_bread_complete||bread|1|No, not yet|mikhail_default|||||||||};
-{mikhail_bread_complete|Thanks a lot, now i can get my breakfast. Here, take these coins for your help.|qmikhail_bread_complete||20|Back|mikhail_default||||Bye|X|||||||||};
+{mikhail_bread_continue|Did you get the bread from Mara at the town hall that I asked for?||||Yes, I got it|mikhail_bread_complete||bread|1|No, not yet|mikhail_default|||||||||};
+{mikhail_bread_complete|Thanks a lot, now I can get my breakfast. Here, take these coins for your help.|qmikhail_bread_complete||20|Back|mikhail_default||||Bye|X|||||||||};
 {mikhail_bread_complete2|Thanks for the bread earlier.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
 
 {mikhail_rats_select||||||mikhail_rats_complete2|qmikhail_rats_complete||||mikhail_rats_continue|qmikhail_rats||||mikhail_rats_start||||};
-{mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go check our garden if they are still there? Please kill any rats that you see.|qmikhail_rats|||I already killed them|mikhail_rats_complete||tail_trainingrat|2|Sure|mikhail_default|||||||||};
+{mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go check our garden if they are still there? Please kill any rats that you see.|qmikhail_rats|||I already killed them|mikhail_rats_complete||tail_trainingrat|2|Sure|mikhail_rats_start2|||||||||};
+{mikhail_rats_start2|If you get hurt by the rats, come back here and rest in your bed. That way you can regain your strength.||||Next|mikhail_rats_start3||||||||||||||};
+{mikhail_rats_start3|Also, don\'t forget to check your inventory. You probably still have that old ring i gave you. Make sure you wear it.||||Ok|mikhail_default||||||||||||||};
 {mikhail_rats_continue|Did you kill those rats in our garden?||||Yes|mikhail_rats_complete||tail_trainingrat|2|No, not yet|mikhail_default|||||||||};
-{mikhail_rats_complete|Thanks a lot for your help.|qmikhail_rats_complete|20||Back|mikhail_default||||Bye|X|||||||||};
-{mikhail_rats_complete2|Thanks for your help with the rats earlier.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
-
+{mikhail_rats_complete|Oh you did? Wow, thanks a lot for your help!\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.|qmikhail_rats_complete|20||Back|mikhail_default||||Bye|X|||||||||};
+{mikhail_rats_complete2|Thanks for your help with the rats earlier.\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
 	</string>
 	
+	<string name="conversationlist_crossglen_leta">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{leta1|Hey, this is my house, get out of here!||||But I was just...|leta2||||Oromir|leta_oromir_select||||Bye|X||||};
+{leta2|Beat it kid, get out of my house!||||Oromir|leta_oromir_select||||Bye|X|||||||||};
+{leta_oromir_select||||||leta_oromir_complete2|qleta_complete||||leta_oromir1|||||||||};
+{leta_oromir1|Do you know anything about my husband? He should be helping with the farm today, but is missing as usual.\nSigh.||||No idea|leta_oromir2||||Found him|leta_oromir_complete|oromir||||||||};
+{leta_oromir2|If you see him, tell him to hurry back here and help me with the housework.\nNow get out of here!||||Bye|X||||||||||||||};
+{leta_oromir_complete|Hiding is he? That\'s not really the way forward. I\'ll go let him know who\'s the boss around here.\nThanks for letting me know though.|qleta_complete|30||Bye|X||||||||||||||};
+{leta_oromir_complete2|Thanks for telling me about Oromir earlier. I will go get him in just a minute.||||Bye|X||||||||||||||};
+{oromir1|Oh you startled me.\nHello.||||Hello|oromir2||||||||||||||};
+{oromir2|I\'m hiding here from my wife Leta. She is always getting angry at me for not helping out on the farm. Please don\'t tell her that i\'m here.|oromir|||Sure|X||||||||||||||};
+	</string>
+
 	<string name="conversationlist_crossglen">
 [ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
-{leta1|Hey, this is my house, get out of here!||||But I was just...|leta2||||Bye|X|||||||||};
-{leta2|Beat it kid, get out of my house!||||Bye|X||||||||||||||};
 {audir1|Welcome to my shop!\n\nPlease browse my selection of fine wares.||||Shop|S||||Bye|X|||||||||};
 {arambold1|Oh my, will I ever get any sleep with those drunkards singing like that?\n\nSomeone should do something about them.||||Can I rest here?|arambold2||||Trade|S||||Bye|X||||};
 {arambold2|Sure kid, you may rest here.\n\nPick any bed you want.||||Thanks, bye|X||||||||||||||};
@@ -51,7 +63,28 @@
 {mara1|Never mind those drunken fellas, they\'re always causing trouble.\n\nWant something to eat?||||Trade|S||||Bye|X|||||||||};
 {gruil1|Psst, hey.\n\nWanna trade?||||Trade|S||||Bye|X|||||||||};
 {leonid1|Begone, peasant.||||Bye|X||||||||||||||};
-{farm1|Please do not disturb me, i have work to do.||||Bye|X||||||||||||||};
+{farm1|Please do not disturb me, I have work to do.||||Bye|X||||||||||||||};
 {farm2|What?! Can\'t you see i\'m busy? Go bother someone else.||||Bye|X||||||||||||||};
+	</string>
+	
+	<string name="conversationlist_crossglen_odair">
+
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{odair1|Oh, it\'s you. You with that brother of yours. Always causing trouble.||||Next|odair_select||||||||||||||};
+{odair_select||||||odair_complete2|qodair_complete||||odair_continue|qodair||||odair2||||};
+{odair2|Hm, maybe you could be of use to me. Could you help me with a small task do you think?||||Task|odair3||||Bye|X|||||||||};
+{odair3|I recently went in to that cave over there *points west*, to check on our supplies. But apparently, the cave has been infested with rats.||||Next|odair4||||||||||||||};
+{odair4|In particular, I saw one rat that was larger than the other rats. Do you think you have what it takes to help me with my task?||||Sure|odair5||||No thanks|odair_cowards|||||||||};
+{odair5|I need you to get into that cave and kill the large rat, that way maybe we can stop the rat infestation in the cave and start using it as our old supply cave again.|qodair|||Ok|X||||No thanks|odair_cowards|||||||||};
+{odair_cowards|I didn\'t think so either. You and that brother of yours always were cowards.||||Bye|X||||||||||||||};
+{odair_continue|Did you kill that large rat in the cave west of here?||||Yes|odair_complete||tail_caverat|1|What?|odair5||||Not yet|odair_cowards||||};
+{odair_complete|Thanks a lot for you help kid! Maybe you and that brother of yours aren\'t as cowardly as I thought. Here, take these coins for your help.|qodair_complete|30|20|Thanks|X||||||||||||||};
+{odair_complete2|Thanks a lot for your help earlier. Now we might start using that cave as our old supply cave again.||||Bye|X||||||||||||||};
+
+	</string>
+	
+	<string name="conversationlist_jan">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{jan1|TODO||||Bye|X||||||||||||||};
 	</string>
 </resources>

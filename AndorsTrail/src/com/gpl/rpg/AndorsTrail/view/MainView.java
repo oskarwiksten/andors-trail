@@ -16,10 +16,10 @@ import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
@@ -43,8 +43,6 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     private final SurfaceHolder holder;
     private final Paint mPaint = new Paint();
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
-    private Bitmap doubleBuffer; 
-    private Canvas doubleBufferCanvas; 
 	private boolean hasSurface = false;
 
     private final Coord lastTouchPosition = new Coord();
@@ -116,19 +114,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 				(w - (displayTileSize * screenSizeTileCount.width)) / 2
 				,(h - (displayTileSize * screenSizeTileCount.height)) / 2
 			);
-    	
-		if (doubleBuffer != null) {
-    		doubleBuffer.recycle();
-    	}
-		doubleBuffer = Bitmap.createBitmap(displayTileSize * screenSizeTileCount.width, displayTileSize * screenSizeTileCount.height, Bitmap.Config.RGB_565);
-    	doubleBufferCanvas = new Canvas(doubleBuffer);
-    	//doubleBufferCanvas.clipRect(0, 0, displayTileSize * screenSizeTileCount.width, displayTileSize * screenSizeTileCount.height);
 	    	
     	if (model.currentMap != null) {
     		notifyMapChanged();
     	}
     	
-    	redrawAll();
+    	redrawAll(REDRAW_ALL_SURFACE_CHANGED);
 	}
 
 	@Override
@@ -140,11 +131,6 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		hasSurface = false;
 		L.log("surfaceDestroyed");
-		if (doubleBuffer != null) {
-    		doubleBufferCanvas = null;
-    		doubleBuffer.recycle();
-    		doubleBuffer = null;
-    	}
 	}
 
     private void onClick() {
@@ -198,31 +184,37 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 				);
 	}
 
-	public void redrawAll() {
-		updateDoubleBuffer(mapViewArea);
-		redrawFromDoubleBuffer();
-	}
-	
-	public void redrawTile(final Coord p) {
+    public static final int REDRAW_ALL_SURFACE_CHANGED = 1;
+    public static final int REDRAW_ALL_MAP_CHANGED = 2;
+    public static final int REDRAW_ALL_PLAYER_MOVED = 3;
+    public static final int REDRAW_ALL_MONSTER_MOVED = 4;
+    public static final int REDRAW_AREA_EFFECT_STARTING = 5;
+    public static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
+    public static final int REDRAW_TILE_SELECTION_REMOVED = 7;
+    public static final int REDRAW_TILE_SELECTION_ADDED = 8;
+    public static final int REDRAW_TILE_BAG_REMOVED = 9;
+	public void redrawAll(int why) {
+		redrawArea_(mapViewArea);
+	}	
+	public void redrawTile(final Coord p, int why) {
 		p1x1.topLeft.set(p);
-		updateDoubleBuffer(p1x1);
-		redrawFromDoubleBuffer();
+		redrawArea_(p1x1);
+		//redrawAll(why);
 	}
-	private void updateDoubleBuffer(final CoordRect area) {
-		if (!hasSurface) return;
-		doDrawRect(doubleBufferCanvas, area);
+	public void redrawArea(final CoordRect area, int why) {
+		redrawArea_(area);
+		//redrawAll(why);
 	}
-	public void redrawFromDoubleBuffer() {
+	private void redrawArea_(final CoordRect area) {
 		if (!hasSurface) return;
 		
-		//L.log("Redraw ");
-		//long start = System.currentTimeMillis();
-		
+		calculateRedrawRect(area);
 		Canvas c = null;
 		try {
-	        c = holder.lockCanvas(null);
+	        c = holder.lockCanvas(redrawRect);
 	        synchronized (holder) {
-	        	c.drawBitmap(doubleBuffer, screenOffset.x, screenOffset.y, mPaint);
+	        	c.translate(screenOffset.x, screenOffset.y);
+	        	doDrawRect(c, area);
 	        }
 	    } finally {
 	        // do this in a finally so that if an exception is thrown
@@ -232,19 +224,19 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        	holder.unlockCanvasAndPost(c);
 	        }
 	    }
-	    //long stop = System.currentTimeMillis();
-		//L.log("draw: " + (stop-start) + "ms");
 	}
 	
-	public void redrawTileWithEffect(final CoordRect area, final EffectAnimation effect) {
+	private final Rect redrawRect = new Rect();
+	public void redrawAreaWithEffect(final CoordRect area, final EffectAnimation effect) {
 		if (!hasSurface) return;
 		
+		calculateRedrawRect(area);
 		Canvas c = null;
 		try {
-	        c = holder.lockCanvas(null);
+	        c = holder.lockCanvas(redrawRect);
 	        synchronized (holder) {
 	        	c.translate(screenOffset.x, screenOffset.y);
-	        	c.drawBitmap(doubleBuffer, 0, 0, mPaint);
+	        	doDrawRect(c, area);
 	        	drawFromMapPosition(c, area, effect.position.x, effect.position.y, effect.currentTileID);
     			if (effect.displayText != null) {
     				drawEffectText(c, area, effect);
@@ -259,7 +251,33 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        }
 	    }
 	}
+	private void clearCanvas() {
+		Canvas c = null;
+		try {
+			c = holder.lockCanvas(null);
+	        synchronized (holder) {
+	        	c.drawColor(Color.BLACK);
+	        }
+	    } finally {
+	        // do this in a finally so that if an exception is thrown
+	        // during the above, we don't leave the Surface in an
+	        // inconsistent state
+	        if (c != null) {
+	        	holder.unlockCanvasAndPost(c);
+	        }
+	    }
+	}
 	
+	private void calculateRedrawRect(final CoordRect area) {
+		worldCoordsToScreenCords(area, redrawRect);
+	}
+	
+	private void worldCoordsToScreenCords(final CoordRect worldArea, Rect destScreenRect) {
+		destScreenRect.left = screenOffset.x + (worldArea.topLeft.x - mapViewArea.topLeft.x) * displayTileSize;
+		destScreenRect.top = screenOffset.y + (worldArea.topLeft.y - mapViewArea.topLeft.y) * displayTileSize;
+		destScreenRect.right = destScreenRect.left + worldArea.size.width * displayTileSize;
+		destScreenRect.bottom = destScreenRect.top + worldArea.size.height * displayTileSize;
+	}
 	
 	/*
 	private void doDraw(Canvas canvas) {
@@ -435,11 +453,14 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     			,Math.min(screenSizeTileCount.height, model.currentMap.size.height)
 			);
 		mapViewArea = new CoordRect(mapTopLeft, mapViewSize);
-		notifyPlayerMoved();
-		doubleBufferCanvas.drawColor(Color.BLACK);
-		redrawAll();
+		
+		clearCanvas();
+	    
+		recalculateMapTopLeft();
+		redrawAll(REDRAW_ALL_MAP_CHANGED);
 	}
-	public void notifyPlayerMoved() {
+	
+	private void recalculateMapTopLeft() {
 		mapTopLeft.set(0, 0);
 		
 		final LayeredWorldMap currentMap = model.currentMap;
@@ -453,5 +474,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     		mapTopLeft.y = Math.max(0, playerpos.y - mapViewArea.size.height/2);
     		mapTopLeft.y = Math.min(mapTopLeft.y, currentMap.size.height - mapViewArea.size.height);
     	}
+	}
+	
+	public void notifyPlayerMoved() {
+		recalculateMapTopLeft();
+		redrawAll(REDRAW_ALL_PLAYER_MOVED);
 	}
 }

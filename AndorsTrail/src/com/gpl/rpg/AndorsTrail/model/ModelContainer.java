@@ -26,7 +26,6 @@ public final class ModelContainer {
 	//public static final String PREFERENCE_MODEL_SAVE = "savegame";
 	public static final String PREFERENCE_MODEL_QUICKSAVE = "quicksave";
 	public static final String PREFERENCE_MODEL_LASTRUNVERSION = "lastversion";
-	public static final int CURRENT_VERSION = 4;
 	
 	public final Player player;
 	public final InterfaceData uiSelections;
