@@ -120,6 +120,7 @@ public final class WorldSetup {
 	    	FileOutputStream fos = androidContext.openFileOutput(FILENAME_SAVEGAME, Context.MODE_PRIVATE);
 	    	DataOutputStream dest = new DataOutputStream(fos);
 	    	final int flags = 0;
+	    	dest.writeInt(AndorsTrailApplication.CURRENT_VERSION);
 	    	world.maps.writeToParcel(dest, flags);
 	    	world.model.writeToParcel(dest, flags);
 	    	dest.close();
@@ -132,8 +133,10 @@ public final class WorldSetup {
     	try {
 	    	FileInputStream fos = androidContext.openFileInput(FILENAME_SAVEGAME);
 	    	DataInputStream src = new DataInputStream(fos);
-	    	world.maps.readFromParcel(src, world);
-	    	world.model = new ModelContainer(src, world);
+	    	int fileversion = src.readInt();
+	    	if (fileversion == 11) fileversion = 5;
+	    	world.maps.readFromParcel(src, world, fileversion);
+	    	world.model = new ModelContainer(src, world, fileversion);
 	    	src.close();
 	    	fos.close();
     	} catch (IOException e) {

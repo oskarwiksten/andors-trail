@@ -5,7 +5,9 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class MapCollection {
 	public final ArrayList<LayeredWorldMap> predefinedMaps = new ArrayList<LayeredWorldMap>();
@@ -16,6 +18,9 @@ public final class MapCollection {
     	for (LayeredWorldMap m : predefinedMaps) {
     		if (m.name.equals(name)) return m;
     	}
+    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			L.log("WARNING: Cannot find LayeredWorldMap for name \"" + name + "\".");
+		}
     	return null;
     }
 
@@ -28,10 +33,15 @@ public final class MapCollection {
 
 	// ====== PARCELABLE ===================================================================
 
-	public void readFromParcel(DataInputStream src, WorldContext world) throws IOException {
-		final int size = src.readInt();
+	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		int size;
+		if (fileversion == 5) {
+			size = 11;
+		} else {
+			size = src.readInt();
+		}
 		for(int i = 0; i < size; ++i) {
-			predefinedMaps.get(i).readFromParcel(src, world);
+			predefinedMaps.get(i).readFromParcel(src, world, fileversion);
 		}
 	}
 	

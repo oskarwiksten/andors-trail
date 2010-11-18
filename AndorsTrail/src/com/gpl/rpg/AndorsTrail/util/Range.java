@@ -51,7 +51,7 @@ public final class Range {
 
 	// ====== PARCELABLE ===================================================================
 
-	public Range(DataInputStream src) throws IOException {
+	public Range(DataInputStream src, int fileversion) throws IOException {
 		this.max = src.readInt();
 		this.current = src.readInt();
 	}

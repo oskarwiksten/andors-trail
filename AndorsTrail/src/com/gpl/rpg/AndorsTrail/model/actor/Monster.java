@@ -32,9 +32,9 @@ public final class Monster extends Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public static Monster readFromParcel(DataInputStream src, WorldContext world) throws IOException {
+	public static Monster readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		MonsterType monsterType = world.monsterTypes.getMonsterType(src.readUTF());
-		Coord position = new Coord(src);
+		Coord position = new Coord(src, fileversion);
 		Monster m = new Monster(monsterType, position);
 		m.ap.current = src.readInt();
 		m.health.current = src.readInt();

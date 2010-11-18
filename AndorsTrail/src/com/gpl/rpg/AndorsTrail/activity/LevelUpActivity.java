@@ -113,6 +113,7 @@ public final class LevelUpActivity extends Activity {
     	switch (selectionID) {
     	case SELECT_HEALTH:
     		player.health.max += Controller.LEVELUP_EFFECT_HEALTH;
+    		player.traits.maxHP += Controller.LEVELUP_EFFECT_HEALTH;
     		player.health.current += Controller.LEVELUP_EFFECT_HEALTH;
     		break;
     	case SELECT_ATK_CH:

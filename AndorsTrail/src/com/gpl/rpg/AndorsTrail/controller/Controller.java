@@ -110,6 +110,7 @@ public final class Controller {
 	}
 
 	public void handlePlayerDeath() {
+		view.effectController.waitForCurrentEffect();		
 		final Player player = model.player;
 		int lostExp = player.levelExperience.current / (100 / PERCENT_EXP_LOST_WHEN_DIED);
 		player.addExperience(-lostExp);

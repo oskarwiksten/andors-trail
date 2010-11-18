@@ -130,7 +130,7 @@ public class StartScreenActivity extends Activity {
 		final WorldSetup setup = AndorsTrailApplication.getApplicationFromActivity(this).setup;
 		setup.createNewCharacter = createNewCharacter;
 		setup.newHeroName = name;
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, LoadingActivity.class));
 	}
 
 	private void createNewGame() {

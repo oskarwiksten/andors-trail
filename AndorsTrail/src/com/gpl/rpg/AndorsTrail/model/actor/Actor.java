@@ -42,11 +42,11 @@ public class Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Actor(DataInputStream src, WorldContext world) throws IOException {
-		this.traits = new ActorTraits(src, world);
-		this.ap = new Range(src);
-		this.health = new Range(src);
-		this.position = new Coord(src);
+	public Actor(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		this.traits = new ActorTraits(src, world, fileversion);
+		this.ap = new Range(src, fileversion);
+		this.health = new Range(src, fileversion);
+		this.position = new Coord(src, fileversion);
 		this.rectPosition = new CoordRect(position, traits.tileSize);
 	}
 	

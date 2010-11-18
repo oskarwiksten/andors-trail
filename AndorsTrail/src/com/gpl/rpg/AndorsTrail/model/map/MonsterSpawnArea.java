@@ -80,11 +80,11 @@ public final class MonsterSpawnArea {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public void readFromParcel(DataInputStream src, WorldContext world) throws IOException {
+	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		monsters.clear();
 		quantity.current = src.readInt();
 		for(int i = 0; i < quantity.current; ++i) {
-			monsters.add(Monster.readFromParcel(src, world));
+			monsters.add(Monster.readFromParcel(src, world, fileversion));
 		}
 	}
 	

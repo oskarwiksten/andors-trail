@@ -118,15 +118,15 @@ public final class Player extends Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Player(DataInputStream src, WorldContext world) throws IOException {
-		super(src, world);
-		this.lastPosition = new Coord(src);
-		this.nextPosition = new Coord(src);
+	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		super(src, world, fileversion);
+		this.lastPosition = new Coord(src, fileversion);
+		this.nextPosition = new Coord(src, fileversion);
 		this.level = src.readInt();
 		this.totalExperience = src.readInt();
 		this.levelExperience = new Range();
 		this.recalculateLevelExperience();
-		this.inventory = new Inventory(src, world);
+		this.inventory = new Inventory(src, world, fileversion);
 		this.keys.clear();
 		final int size1 = src.readInt();
 		for(int i = 0; i < size1; ++i) {

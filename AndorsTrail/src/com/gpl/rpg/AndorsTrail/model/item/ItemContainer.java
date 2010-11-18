@@ -23,7 +23,7 @@ public class ItemContainer {
 		
 		// ====== PARCELABLE ===================================================================
 
-		public ItemEntry(DataInputStream src, WorldContext world) throws IOException {
+		public ItemEntry(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 			this.itemType = world.itemTypes.getItemTypeByTag(src.readUTF()); 
 			this.quantity = src.readInt();
 		}
@@ -86,10 +86,10 @@ public class ItemContainer {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public ItemContainer(DataInputStream src, WorldContext world) throws IOException {
+	public ItemContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
-			items.add(new ItemEntry(src, world));
+			items.add(new ItemEntry(src, world, fileversion));
 		}
 	}
 	

@@ -207,6 +207,9 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	private void redrawArea_(final CoordRect area) {
 		if (!hasSurface) return;
+		final LayeredWorldMap currentMap = model.currentMap;
+        boolean b = currentMap.isOutside(area);
+        if (b) return;
 		
 		calculateRedrawRect(area);
 		Canvas c = null;
@@ -229,6 +232,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private final Rect redrawRect = new Rect();
 	public void redrawAreaWithEffect(final CoordRect area, final EffectAnimation effect) {
 		if (!hasSurface) return;
+		final LayeredWorldMap currentMap = model.currentMap;
+        if (currentMap.isOutside(area)) return;
 		
 		calculateRedrawRect(area);
 		Canvas c = null;

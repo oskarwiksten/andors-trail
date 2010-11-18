@@ -64,7 +64,7 @@ public final class CombatView extends FrameLayout {
 			@Override
 			public void onClick(View arg0) {
 				if (c.canExitCombat()) {
-					c.exitCombat();
+					c.exitCombat(true);
 				} else {
 					((MainActivity) context).message(getResources().getString(R.string.combat_cannotexitcombat));
 				}

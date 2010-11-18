@@ -61,8 +61,8 @@ public final class Inventory extends ItemContainer {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Inventory(DataInputStream src, WorldContext world) throws IOException {
-		super(src, world);
+	public Inventory(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		super(src, world, fileversion);
 		gold = src.readInt();
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {

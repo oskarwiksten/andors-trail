@@ -67,11 +67,14 @@ public final class ModelContainer {
 
 	// ====== PARCELABLE ===================================================================
 
-	public ModelContainer(DataInputStream src, WorldContext world) throws IOException {
-		this.player = new Player(src, world);
+	public ModelContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		this.player = new Player(src, world, fileversion);
 		this.currentMap = world.maps.findPredefinedMap(src.readUTF());
-		this.uiSelections = new InterfaceData(src, world);
-		this.statistics = new GameStatistics(src, world);
+		this.uiSelections = new InterfaceData(src, world, fileversion);
+		if (uiSelections.selectedPosition != null) {
+			this.uiSelections.selectedMonster = currentMap.getMonsterAt(uiSelections.selectedPosition);
+		}
+		this.statistics = new GameStatistics(src, world, fileversion);
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

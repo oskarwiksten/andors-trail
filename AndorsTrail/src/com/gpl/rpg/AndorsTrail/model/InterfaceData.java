@@ -20,13 +20,14 @@ public final class InterfaceData {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public InterfaceData(DataInputStream src, WorldContext world) throws IOException {
+	public InterfaceData(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this.isTicking = src.readBoolean();
 		this.isInCombat = src.readBoolean();
 		final boolean hasSelectedPosition = src.readBoolean();
 		if (hasSelectedPosition) {
-			this.selectedPosition = new Coord(src);
-			this.selectedMonster = world.model.currentMap.getMonsterAt(selectedPosition);
+			this.selectedPosition = new Coord(src, fileversion);
+		} else {
+			this.selectedPosition = null;
 		}
 		this.selectedTabHeroInfo = src.readUTF();
 	}

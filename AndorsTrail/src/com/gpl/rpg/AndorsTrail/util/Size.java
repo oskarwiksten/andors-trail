@@ -26,7 +26,7 @@ public final class Size {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Size(DataInputStream src) throws IOException {
+	public Size(DataInputStream src, int fileversion) throws IOException {
 		this.width = src.readInt();
 		this.height = src.readInt();
 	}

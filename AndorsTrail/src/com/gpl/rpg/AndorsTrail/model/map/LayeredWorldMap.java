@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -13,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
+import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LayeredWorldMap {
@@ -69,6 +71,12 @@ public final class LayeredWorldMap {
     	if (x >= size.width) return true;
     	if (y >= size.height) return true;
     	return false;
+    }
+    public final boolean isOutside(final CoordRect area) { 
+    	if (isOutside(area.topLeft)) return true; 
+    	if (area.topLeft.x + area.size.width > size.width) return true;
+    	if (area.topLeft.y + area.size.height > size.height) return true;
+    	return false; 
     }
     
     public MapObject findEventObject(int objectType, String name) {
@@ -151,6 +159,12 @@ public final class LayeredWorldMap {
 		if (b != null) return b;
 		b = new Loot();
 		b.position.set(position);
+		if (isOutside(position)) {
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				L.log("WARNING: trying to place bag outside map. Map is " + size.toString() + ", bag tried to place at " + position.toString());
+			}
+			return b;
+		}
 		groundBags.add(b);
 		return b;
 	}
@@ -172,19 +186,19 @@ public final class LayeredWorldMap {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public void readFromParcel(DataInputStream src, WorldContext world) throws IOException {
+	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		final int size1 = src.readInt();
 		for(int i = 0; i < size1; ++i) {
-			this.spawnAreas[i].readFromParcel(src, world);
+			this.spawnAreas[i].readFromParcel(src, world, fileversion);
 		}
 		
-		/*
+		if (fileversion <= 5) return;
+		
 		groundBags.clear();
 		final int size2 = src.readInt();
 		for(int i = 0; i < size2; ++i) {
-			groundBags.add(new Loot(src, world));
+			groundBags.add(new Loot(src, world, fileversion));
 		}
-		*/
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -193,11 +207,9 @@ public final class LayeredWorldMap {
 			a.writeToParcel(dest, flags);
 		}
 		
-		/*
 		dest.writeInt(groundBags.size());
 		for(Loot l : groundBags) {
 			l.writeToParcel(dest, flags);
 		}
-		*/
 	}
 }

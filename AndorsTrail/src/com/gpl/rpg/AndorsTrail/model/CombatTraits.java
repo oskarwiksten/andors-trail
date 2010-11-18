@@ -42,12 +42,12 @@ public class CombatTraits {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public CombatTraits(DataInputStream src) throws IOException {
+	public CombatTraits(DataInputStream src, int fileversion) throws IOException {
 		this.attackCost = src.readInt();
 		this.attackChance = src.readInt();
 		this.criticalChance = src.readInt();
 		this.criticalMultiplier = src.readInt();
-		this.damagePotential = new Range(src);
+		this.damagePotential = new Range(src, fileversion);
 		this.blockChance = src.readInt();
 		this.damageResistance = src.readInt();
 	}

@@ -6,7 +6,6 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.WorldSetup;
-import com.gpl.rpg.AndorsTrail.WorldSetup.OnSceneLoadedListener;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -18,8 +17,6 @@ import com.gpl.rpg.AndorsTrail.view.MainView;
 import com.gpl.rpg.AndorsTrail.view.StatusView;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -34,10 +31,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnSceneLoadedListener {
+public class MainActivity extends Activity {
 
-    private static final int DIALOG_LOADING = 1;
-    
     public static final int INTENTREQUEST_HEROINFO = 1;
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
     public static final int INTENTREQUEST_ITEMINFO = 3;
@@ -60,47 +55,15 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         L.log("onCreate");
+    	//Debug.startMethodTracing(ICICLE_KEY);
+        
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
-        
-        //Debug.startMethodTracing(ICICLE_KEY);
-        
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        showDialog(DIALOG_LOADING);
-        app.setup.startCharacterSetup(this);
-    }
-    	
-    @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		switch (requestCode) {
-		case INTENTREQUEST_HEROINFO:
-			statusview.update();
-			combatview.updatePlayerAP(world.model.player.ap);
-			break;
-		case INTENTREQUEST_MONSTERENCOUNTER:
-			if (resultCode == Activity.RESULT_OK) {
-				view.combatController.enterCombat();
-			} else {
-				view.combatController.exitCombat();
-			}
-			break;
-		case INTENTREQUEST_CONVERSATION:
-			statusview.update();
-			break;
-		}
-	}
-    
-    @Override
-	public void onSceneLoaded() {
-    	L.log("onSceneLoaded");
-        
-    	AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-    	this.view = new ViewContext(app, this);
+        this.view = new ViewContext(app, this);
     	app.currentView = new WeakReference<ViewContext>(this.view);
-    	app.setup.createNewCharacter = false;
-        
+    	
         setContentView(R.layout.main);
         mainview = (MainView) findViewById(R.id.main_mainview);
         statusview = (StatusView) findViewById(R.id.main_statusview);
@@ -121,8 +84,6 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
         }
 
         view.controller.resume();
-
-        removeDialog(DIALOG_LOADING);
         
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) {
         	addDebugButtons(new DebugButton[] {
@@ -166,6 +127,27 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
         	});
         }
     }
+    	
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+		case INTENTREQUEST_HEROINFO:
+			statusview.update();
+			combatview.updatePlayerAP(world.model.player.ap);
+			break;
+		case INTENTREQUEST_MONSTERENCOUNTER:
+			if (resultCode == Activity.RESULT_OK) {
+				view.combatController.enterCombat();
+			} else {
+				view.combatController.exitCombat(false);
+			}
+			break;
+		case INTENTREQUEST_CONVERSATION:
+			statusview.update();
+			break;
+		}
+	}
     
     private class DebugButton {
     	public final String text;
@@ -234,19 +216,6 @@ public class MainActivity extends Activity implements OnSceneLoadedListener {
         if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
 
         view.controller.resume();
-    }
-
-    @Override
-    protected Dialog onCreateDialog(final int id) {
-        switch(id) {
-        case DIALOG_LOADING:
-            ProgressDialog dialog = new ProgressDialog(this);
-            dialog.setMessage(getResources().getText(R.string.dialog_loading_message));
-            dialog.setIndeterminate(true);
-            dialog.setCancelable(false);
-            return dialog;
-        }
-        return super.onCreateDialog(id);
     }
 
 	@Override

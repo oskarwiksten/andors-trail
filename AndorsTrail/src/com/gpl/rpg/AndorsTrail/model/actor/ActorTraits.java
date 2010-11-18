@@ -40,15 +40,15 @@ public class ActorTraits extends CombatTraits {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public ActorTraits(DataInputStream src, WorldContext world) throws IOException {
-		super(src);
+	public ActorTraits(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		super(src, fileversion);
 		this.iconID = src.readInt();
-		this.tileSize = new Size(src);
+		this.tileSize = new Size(src, fileversion);
 		this.maxAP = src.readInt();
 		this.maxHP = src.readInt();
 		this.name = src.readUTF();
 		this.moveCost = src.readInt();
-		this.baseCombatTraits = new CombatTraits(src);
+		this.baseCombatTraits = new CombatTraits(src, fileversion);
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

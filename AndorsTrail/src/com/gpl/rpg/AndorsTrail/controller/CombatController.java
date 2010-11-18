@@ -46,27 +46,27 @@ public final class CombatController {
     	context.mainActivity.clearMessages();
     	newPlayerTurn();
     }
-    public void exitCombat() {
+    public void exitCombat(boolean displayLootDialog) {
     	setCombatSelection(null, null);
 		context.mainActivity.combatview.setVisibility(View.GONE);
 		model.uiSelections.isInCombat = false;
     	context.mainActivity.clearMessages();
     	currentActiveMonster = null;
     	if (!killedMonsters.isEmpty()) {
-    		lootMonsters(killedMonsters);
+    		lootMonsters(killedMonsters, displayLootDialog);
     		killedMonsters.clear();
     	}
     	context.controller.queueAnotherTick();
     }
     
-    private void lootMonsters(ArrayList<Monster> killedMonsters) {
+    private void lootMonsters(ArrayList<Monster> killedMonsters, boolean displayLootDialog) {
     	Loot loot = model.currentMap.getBagOrCreateAt(killedMonsters.get(0).position);
     	for(Monster m : killedMonsters) {
     		m.createLoot(loot);
     		model.statistics.addMonsterKill(m.monsterType);
     	}
     	if (loot.isEmpty()) return;
-    	Dialogs.showMonsterLoot(context.mainActivity, context, loot);
+    	if (displayLootDialog) Dialogs.showMonsterLoot(context.mainActivity, context, loot);
     	ItemController.consumeLoot(loot, model.player);
     	context.mainActivity.statusview.update();
 	}
@@ -134,7 +134,7 @@ public final class CombatController {
 		} else if (world.model.uiSelections.selectedPosition != null) {
 			executeMove();
 		} else if (canExitCombat()) {
-			exitCombat();
+			exitCombat(true);
 		}
 	}
 	
@@ -171,7 +171,7 @@ public final class CombatController {
 				killedMonsters.add(target);
 				Monster nextMonster = getAdjacentMonster();
 				if (nextMonster == null) {
-					exitCombat();
+					exitCombat(true);
 				} else {
 					setCombatSelection(nextMonster, nextMonster.position);
 				}
@@ -262,7 +262,7 @@ public final class CombatController {
 				message(r.getString(R.string.combat_result_monsterhit, monsterName, attack.damage));
 			}
 			if (attack.targetDied) {
-				exitCombat();
+				exitCombat(false);
 				context.controller.handlePlayerDeath();
 				return;
 			}

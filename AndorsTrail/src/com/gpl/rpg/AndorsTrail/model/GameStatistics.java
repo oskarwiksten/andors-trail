@@ -27,7 +27,7 @@ public final class GameStatistics {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public GameStatistics(DataInputStream src, WorldContext world) throws IOException {
+	public GameStatistics(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this.deaths = src.readInt();
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {

@@ -37,11 +37,11 @@ public final class Loot {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Loot(DataInputStream src, WorldContext world) throws IOException {
+	public Loot(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this.exp = src.readInt();
 		this.gold = src.readInt();
-		this.items = new ItemContainer(src, world);
-		this.position = new Coord(src);
+		this.items = new ItemContainer(src, world, fileversion);
+		this.position = new Coord(src, fileversion);
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

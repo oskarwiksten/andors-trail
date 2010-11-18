@@ -21,6 +21,9 @@ public final class MonsterTypeCollection {
 		for (MonsterType t : monsterTypes) {
 			if (t.name.equalsIgnoreCase(name)) return t;
 		}
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			L.log("WARNING: Cannot find MonsterType for name \"" + name + "\".");
+		}
 		return null;
 	}
 

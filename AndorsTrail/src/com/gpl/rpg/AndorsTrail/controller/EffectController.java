@@ -91,6 +91,7 @@ public final class EffectController {
 		
 		private void setCurrentTile(int currentFrame) {
 			if (currentFrame > effect.lastFrame) currentFrame = effect.lastFrame;
+			if (currentFrame < 0) currentFrame = 0;
 			int newTileID = effect.frameIconIDs[currentFrame];
 			final boolean changed = newTileID != this.currentTileID;
 			this.currentTileID = newTileID;
