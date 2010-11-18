@@ -67,7 +67,7 @@ public final class CombatController {
     	}
     	if (loot.isEmpty()) return;
     	if (displayLootDialog) Dialogs.showMonsterLoot(context.mainActivity, context, loot);
-    	ItemController.consumeLoot(loot, model.player);
+    	ItemController.consumeLoot(loot, model.player, model.currentMap);
     	context.mainActivity.statusview.update();
 	}
 

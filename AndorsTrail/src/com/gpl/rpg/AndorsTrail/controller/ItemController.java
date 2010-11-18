@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
 
 public final class ItemController {
 	private static final int MARKET_PRICEFACTOR_PERCENT = 15;
@@ -87,7 +88,7 @@ public final class ItemController {
 
 	public void handleLootBag(Loot loot) {
     	Dialogs.showGroundLoot(view.mainActivity, view, loot);
-    	consumeLoot(loot, model.player);
+    	consumeLoot(loot, model.player, model.currentMap);
 	}
 	
 	private void applyUseEffect(Actor actor, ItemType t) {
@@ -111,11 +112,14 @@ public final class ItemController {
 		}
 	}
 
-	public static void consumeLoot(Loot loot, Player player) {
+	public static void consumeLoot(Loot loot, Player player, LayeredWorldMap currentMap) {
 		player.addExperience(loot.exp);
 		loot.exp = 0;
 		player.inventory.gold += loot.gold;
 		loot.gold = 0;
+		if (loot.isEmpty()) {
+			currentMap.removeGroundLoot(loot);
+		}
 	}
 	
 	public static int getBuyingPrice(Player player, ItemType itemType) {

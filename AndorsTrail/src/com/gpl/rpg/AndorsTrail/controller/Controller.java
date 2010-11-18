@@ -44,6 +44,7 @@ public final class Controller {
 
         @Override
         public void handleMessage(Message msg) {
+        	if (!hasQueuedTick) return;
         	hasQueuedTick = false;
             Controller.this.tick();
         }
@@ -81,6 +82,7 @@ public final class Controller {
     }
     public void pause() {
     	//L.log(id + " : Controller::pause()");
+    	hasQueuedTick = false;
     	model.uiSelections.isTicking = false;
     }
     
