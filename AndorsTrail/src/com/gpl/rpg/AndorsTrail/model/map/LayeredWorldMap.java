@@ -32,6 +32,7 @@ public final class LayeredWorldMap {
 	//public final boolean hasFOW;
 	//public final boolean[][] isVisible;
 	public final boolean[][] isWalkable;
+	public boolean visited = false;
 	
 	public LayeredWorldMap(String name, Size size, MapLayer[] layers, boolean[][] isWalkable, MapObject[] eventObjects, KeyArea[] keyAreas, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
 		this.name = name;
@@ -85,6 +86,14 @@ public final class LayeredWorldMap {
     	}
     	return null;
     }
+    public MapObject getEventObjectAt(final Coord p) {
+    	for (MapObject o : eventObjects) {
+    		if (o.position.contains(p)) {
+    			return o;
+    		}
+    	}
+		return null;
+	}
     
     public Monster getMonsterAt(final CoordRect p) {
     	for (MonsterSpawnArea a : spawnAreas) {
@@ -119,14 +128,22 @@ public final class LayeredWorldMap {
 			p.topLeft.set(
 					area.topLeft.x + ModelContainer.rnd.nextInt(area.size.width)
 					,area.topLeft.y + ModelContainer.rnd.nextInt(area.size.height));
-			if (!isWalkable(p)) continue;
-			if (getMonsterAt(p) != null) continue;
+			if (!monsterCanMoveTo(p)) continue;
 			return p.topLeft;
 		} 
 		return null; // Couldn't find a free spot.
 	}
 	
-	public void spawnAll(WorldContext context, boolean respawnUniqueMonsters) {
+	public boolean monsterCanMoveTo(final CoordRect p) {
+		if (!isWalkable(p)) return false;
+		if (getMonsterAt(p) != null) return false;
+		if (getEventObjectAt(p.topLeft) != null) return false;
+    	return true;
+	}
+	
+	public void spawnAll(WorldContext context) {
+		boolean respawnUniqueMonsters = false;
+		if (!visited) respawnUniqueMonsters = true;
 		for (MonsterSpawnArea a : spawnAreas) {
 			while (a.isSpawnable(respawnUniqueMonsters)) {
 				spawnInArea(a, context);
@@ -180,6 +197,7 @@ public final class LayeredWorldMap {
 		for(MonsterSpawnArea a : spawnAreas) {
 			a.reset();
 		}
+		visited = false;
 	}
 	
 	
@@ -199,6 +217,9 @@ public final class LayeredWorldMap {
 		for(int i = 0; i < size2; ++i) {
 			groundBags.add(new Loot(src, world, fileversion));
 		}
+
+		if (fileversion <= 11) return;
+		visited = src.readBoolean();
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -206,10 +227,10 @@ public final class LayeredWorldMap {
 		for(MonsterSpawnArea a : spawnAreas) {
 			a.writeToParcel(dest, flags);
 		}
-		
 		dest.writeInt(groundBags.size());
 		for(Loot l : groundBags) {
 			l.writeToParcel(dest, flags);
 		}
+		dest.writeBoolean(visited);
 	}
 }

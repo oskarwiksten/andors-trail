@@ -30,6 +30,44 @@ public final class MapCollection {
     	}
 	}
 
+	// Selftest method. Not part of the game logic.
+	public void verifyData(WorldContext world) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (LayeredWorldMap m : predefinedMaps) {
+				for (MapObject o : m.eventObjects) {
+					if (o.type == MapObject.MAPEVENT_NEWMAP) {
+						final String desc = "Map \"" + m.name + "\", place \"" + o.title + "\"";
+						if (o.map == null || o.map.length() <= 0) {
+							L.log("OPTIMIZE: " + desc + " has no destination map.");
+						} else if (o.place_or_key == null || o.place_or_key.length() <= 0) {
+							L.log("OPTIMIZE: " + desc + " has no destination place.");
+						} else {
+							LayeredWorldMap destination = findPredefinedMap(o.map);
+							if (destination == null) {
+								L.log("WARNING: " + desc + " references non-existing destination map \"" + o.map + "\".");
+								continue;
+							}
+							MapObject place = destination.findEventObject(MapObject.MAPEVENT_NEWMAP, o.place_or_key);
+							if (place == null) {
+								L.log("WARNING: " + desc + " references non-existing destination place \"" + o.place_or_key + "\" on map \"" + o.map + "\".");
+								continue;
+							}
+							
+							if (!m.name.equalsIgnoreCase(place.map)) {
+								L.log("WARNING: " + desc + " references destination place \"" + o.place_or_key + "\" on map \"" + o.map + "\", but that place does not reference back to this map.");
+								continue;
+							}
+							if (!o.title.equalsIgnoreCase(place.place_or_key)) {
+								L.log("WARNING: " + desc + " references destination place \"" + o.place_or_key + "\" on map \"" + o.map + "\", but that place does not reference back to this place.");
+								continue;
+							}
+						}
+					}
+				}
+	    	}
+		}
+	}
+
 
 	// ====== PARCELABLE ===================================================================
 

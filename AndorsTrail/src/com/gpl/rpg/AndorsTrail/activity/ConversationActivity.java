@@ -18,10 +18,13 @@ import com.gpl.rpg.AndorsTrail.controller.ConversationController;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public final class ConversationActivity extends Activity {
+	public static final int RESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
+	
 	private WorldContext world;
 	private Player player;
 	
@@ -42,6 +45,7 @@ public final class ConversationActivity extends Activity {
         
         Uri uri = getIntent().getData();
         final int monsterTypeID = Integer.parseInt(uri.getQueryParameter("monsterTypeID"));
+        final String phraseID = uri.getLastPathSegment().toString(); 
         
         monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
         
@@ -57,10 +61,17 @@ public final class ConversationActivity extends Activity {
         reply2 = (Button) findViewById(R.id.conversation_reply2);
         reply3 = (Button) findViewById(R.id.conversation_reply3);
         
-        setPhrase(uri.getLastPathSegment().toString());
+        setPhrase(phraseID);
+    }
+
+    private void markMonsterAsAgressive() {
+    	Monster m = world.model.currentMap.getMonsterAt(world.model.player.nextPosition);
+    	assert (m != null);
+		assert (m.monsterType.id == monsterType.id);
+    	m.forceAggressive = true;
     }
     
-    public void setPhrase(String phraseID) {
+	public void setPhrase(String phraseID) {
     	if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
     		ConversationActivity.this.finish();
     		return;
@@ -69,6 +80,11 @@ public final class ConversationActivity extends Activity {
     		Intent intent = new Intent(this, ShopActivity.class);
     		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/shop/" + monsterType.id));
     		startActivityForResult(intent, MainActivity.INTENTREQUEST_SHOP);
+    		return;
+    	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
+    		markMonsterAsAgressive();
+			ConversationActivity.this.setResult(RESULT_ATTACK);
+    		ConversationActivity.this.finish();
     		return;
     	}
     	
@@ -84,13 +100,16 @@ public final class ConversationActivity extends Activity {
     	}
     	
     	String message = phrase.message;
-    	if (phrase.rewardGold > 0 || phrase.rewardExperience > 0) {
+    	if (phrase.rewardGold != 0 || phrase.rewardExperience > 0) {
     		message += "\n";
 	    	if (phrase.rewardExperience > 0) {
 	    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, phrase.rewardExperience);
 	    	}
 	    	if (phrase.rewardGold > 0) {
 	    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, phrase.rewardGold);
+	    	}
+	    	if (phrase.rewardGold < 0) {
+	    		message += "\n" + getResources().getString(R.string.conversation_lostgold, -phrase.rewardGold);
 	    	}
     	}
 

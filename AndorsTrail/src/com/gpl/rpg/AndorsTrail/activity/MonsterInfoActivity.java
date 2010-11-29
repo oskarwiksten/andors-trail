@@ -69,6 +69,7 @@ public final class MonsterInfoActivity extends Activity {
 		else if (difficulty >= 60) return R.string.monster_difficulty_easy;
 		else if (difficulty >= 40) return R.string.monster_difficulty_normal;
 		else if (difficulty >= 20) return R.string.monster_difficulty_hard;
+		else if (difficulty == 0) return R.string.monster_difficulty_impossible;
 		else return R.string.monster_difficulty_veryhard;
 	}
 }

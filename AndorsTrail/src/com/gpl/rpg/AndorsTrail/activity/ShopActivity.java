@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Window;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -39,16 +38,16 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
         this.player = world.model.player;
         
+        AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
+        
         Uri uri = getIntent().getData();
         String monsterTypeID = uri.getLastPathSegment().toString();
         final MonsterType npcType = world.monsterTypes.getMonsterType(Integer.parseInt(monsterTypeID));
-        
-        
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         final Player player = world.model.player;
         
@@ -164,17 +163,33 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
 		}
 	}
 
-	private void sell(ItemType itemType) {
+    private void sell(ItemType itemType) {
 		ItemController.sell(player, itemType, container_buy);
-		Toast.makeText(this, getResources().getString(R.string.shop_item_sold, itemType.name), Toast.LENGTH_SHORT).show();
-		update();
+		final String msg = getResources().getString(R.string.shop_item_sold, itemType.name);
+		displayStoreAction(msg);
 	}
 
 	private void buy(ItemType itemType) {
 		ItemController.buy(player, itemType, container_buy);
-		Toast.makeText(this, getResources().getString(R.string.shop_item_bought, itemType.name), Toast.LENGTH_SHORT).show();
+		final String msg = getResources().getString(R.string.shop_item_bought, itemType.name);
+		displayStoreAction(msg);
+	}
+	
+	private Toast lastToast = null;
+	private void displayStoreAction(final String msg) {
+		if (lastToast != null) {
+			lastToast.setText(msg);
+		} else {
+			lastToast = Toast.makeText(this, msg, Toast.LENGTH_SHORT);
+		}
+		lastToast.show();
 		update();
 	}
+	@Override
+    protected void onPause() {
+		super.onPause();
+    	lastToast = null;
+    }
 
 	private void update() {
         updateBuyItemList();

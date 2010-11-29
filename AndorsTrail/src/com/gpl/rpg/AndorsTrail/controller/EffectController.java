@@ -108,4 +108,10 @@ public final class EffectController {
 			e.safejoin();
 		}
 	}
+	public void killCurrentEffect() {
+		EffectAnimation e = currentEffect;
+		if (e != null) {
+			e.killjoin();
+		}
+	}
 }

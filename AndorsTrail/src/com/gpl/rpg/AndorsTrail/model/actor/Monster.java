@@ -15,6 +15,7 @@ public final class Monster extends Actor {
 	public final int millisecondsPerMove;
 	public Coord movementDestination = null;
 	public long nextActionTime = 0;
+	public boolean forceAggressive = false;
 	
 	public Monster(MonsterType monsterType, Coord position) {
 		super(monsterType);
@@ -29,6 +30,10 @@ public final class Monster extends Actor {
 		monsterType.dropList.createRandomLoot(container);
 	}
 	
+	public boolean isAgressive() {
+		return monsterType.phraseID == null || forceAggressive;
+	}
+	
 	
 	// ====== PARCELABLE ===================================================================
 
@@ -38,6 +43,9 @@ public final class Monster extends Actor {
 		Monster m = new Monster(monsterType, position);
 		m.ap.current = src.readInt();
 		m.health.current = src.readInt();
+		if (fileversion >= 12) {
+			m.forceAggressive = src.readBoolean();
+		}
 		return m;
 	}
 	
@@ -46,5 +54,6 @@ public final class Monster extends Actor {
 		position.writeToParcel(dest, flags);
 		dest.writeInt(ap.current);
 		dest.writeInt(health.current);
+		dest.writeBoolean(forceAggressive);
 	}
 }

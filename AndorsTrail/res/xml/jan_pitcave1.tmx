@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA32OwQ2AQAgEgQ60DbumA+0AO7AEO5HNSUSCPuaxexNulYnU2QsiRAcP7HZyF8zenTyAt5UuWOghvNx1aONp2Rs5e5P/z/Leixxuvgc370W25maHcX/zzwPrB3i7AMA2ea2QAQAA
+   H4sIAAAAAAAAC32OwQ2AQAgEgQ60DbumA+0AO7AEO5HNSUSCPuaxexNulYnU2QsiRAcP7HZyF8zenTyAt5UuWOghvNx1aONp2Rs5e5P/z/Leixxuvgc370W25maHcX/zzwPrB3i7AMA2ea2QAQAA
   </data>
  </layer>
  <layer name="Objects" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgIA34MGMXf8iKyo8BqmNDEjNigtCCbJhiS1gwzfvIiMovBaq5SZpTcYL/UD8YMqGKs7Fiqt3BglALci8fOwODDTOm3v9o4QLzE7J/iQEAxGswVZABAAA=
+   H4sIAAAAAAAAC2NgIA34MGMXf8iKyo8BqmNDEjNigtCCbJhiS1gwzfvIiMovBaq5SZpTcYL/UD8YMqGKs7Fiqt3BglALci8fOwODDTOm3v9o4QLzE7J/iQEAxGswVZABAAA=
   </data>
  </layer>
  <layer name="Above" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgwA3+MxMn9h5N7AMzphix5lNbHTaxT4yYYrjc+4FIu7GZSQ4AAD4LQA+QAQAA
+   H4sIAAAAAAAAC2NgwA3+MxMn9h5N7AMzphix5lNbHTaxT4yYYrjc+4FIu7GZSQ4AAD4LQA+QAQAA
   </data>
  </layer>
  <layer name="Walkable" width="10" height="10" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAxNkYGAQpAFmwCGGLo4LENKHy05i1OFyH7Fm4tJLjF8IYQAWouACkAEAAA==
+   H4sIAAAAAAAACxNkYGAQpAFmwCGGLo4LENKHy05i1OFyH7Fm4tJLjF8IYQAWouACkAEAAA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="10" height="10">
@@ -83,12 +83,8 @@
   </object>
  </objectgroup>
  <objectgroup name="Spawn" width="10" height="10">
-  <object name="pitcave1" type="spawn" x="128" y="224" width="160" height="64">
-   <properties>
-    <property name="quantity" value="1"/>
-   </properties>
-  </object>
-  <object name="pitcave1" type="spawn" x="128" y="64" width="160" height="64"/>
+  <object name="pitcave1" type="spawn" x="128" y="256" width="96" height="32"/>
+  <object name="pitcave1" type="spawn" x="128" y="96" width="160" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="10" height="10"/>
 </map>

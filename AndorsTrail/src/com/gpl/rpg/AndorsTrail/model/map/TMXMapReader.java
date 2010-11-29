@@ -255,12 +255,14 @@ public final class TMXMapReader {
 					if (object.type.equalsIgnoreCase("sign")) {
 						String title = object.name; 
 						String text = null;
+						String enableKey = null;
 						for (TMXProperty p : object.properties) {
 							if(p.name.equalsIgnoreCase("text")) text = p.value;
 							else if(p.name.equalsIgnoreCase("title")) title = p.value;
+							else if(p.name.equalsIgnoreCase("enablekey")) enableKey = p.value;
 							else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "  has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapSignEvent(position, title, text));
+						mapObjects.add(MapObject.createMapSignEvent(position, title, text, enableKey));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
 						String map = null;
 						String place = null;

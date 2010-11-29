@@ -75,14 +75,23 @@
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="480" y="448" width="32" height="32"/>
   <object name="north" type="mapchange" x="128" y="0" width="32" height="32">
    <properties>
     <property name="map" value="crossglen"/>
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="cave" type="mapchange" x="64" y="288" width="32" height="32"/>
+  <object name="cave" type="mapchange" x="64" y="288" width="32" height="32">
+   <properties>
+    <property name="map" value="snakecave1"/>
+    <property name="place" value="south"/>
+   </properties>
+  </object>
+  <object name="Map not complete" type="sign" x="480" y="448" width="32" height="32">
+   <properties>
+    <property name="text" value="This map is not yet done. Please come back in a later version of the game."/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="15">
   <object name="forestant" type="spawn" x="32" y="320" width="320" height="128">
@@ -91,7 +100,7 @@
    </properties>
   </object>
   <object name="forestant" type="spawn" x="576" y="288" width="64" height="160"/>
-  <object name="forestsnake" type="spawn" x="416" y="0" width="192" height="96"/>
+  <object name="forestsnake" type="spawn" x="416" y="32" width="192" height="96"/>
   <object name="forestsnake" type="spawn" x="384" y="224" width="160" height="160"/>
  </objectgroup>
  <objectgroup name="Keys" width="20" height="15"/>

@@ -15,12 +15,13 @@
 	<string name="itemlist_weapons">
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
 {club1|items_tiles:126|Wooden club|0|7||5|10|||0-1|||};
-{club3|items_tiles:128|Iron club|0|253||5|5|||2-7|||};
+{club3|items_tiles:128|Iron club|0|253||6|5|||2-7|||};
 {ironsword0|items_tiles:70|Iron sword|0|12||5|10|||0-1|||};
 {hammer0|items_tiles:129|Iron hammer|0|12||5|10|||0-1|||};
+{hammer1|items_tiles:129|Giant hammer|0|121||10|5|||4-7|||};
 {dagger0|items_tiles:84|Iron dagger|0|12||5|10|||0-1|||};
-{dagger1|items_tiles:84|Sharp iron dagger|0|53||3|20|||1-2|||};
-{dagger2|items_tiles:84|Superior iron dagger|0|70||3|20|||2-3|||};
+{dagger1|items_tiles:84|Sharp iron dagger|0|53||4|20|||1-2|||};
+{dagger2|items_tiles:84|Superior iron dagger|0|70||4|25|||1-2|||};
 {shortsword1|items_tiles:85|Iron shortsword|0|78||4|15|||1-2|||};
 {ironsword1|items_tiles:70|Iron sword|0|78||5|10|||1-3|||};
 {ironsword2|items_tiles:71|Iron longsword|0|121||5|10|||1-4|||};
@@ -29,6 +30,7 @@
 {steelsword1|items_tiles:77|Steel sword|0|874||4|25|||3-8|||};
 {axe1|items_tiles:140|Woodcutter axe|0|24||5|5|||1-3|||};
 {axe2|items_tiles:140|Iron axe|0|312||6|5|||2-5|||};
+{quickdagger1|items_tiles:84|Quickstrike dagger|0|512||3|20|||0|-20||};
 	</string>
 	
 	
@@ -42,13 +44,22 @@
 {ring_block1|items_tiles:266|Ring of block|7|1239|||||||10||};
 {ring_block2|items_tiles:266|Ring of block|7|3866|||||||15||};
 {ring_atkch1|items_tiles:266|Ring of surehit|7|215|||15||||||};
+{ring1|items_tiles:266|Mundane ring|7|13|||||||||};
+{ring2|items_tiles:266|Polished ring|7|21|||||||||};
 	</string>
 
+	<string name="itemlist_necklaces">
+[Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
+{jewel_fallhaven|items_tiles:272|Jewel of Fallhaven|6|3125||-1|||||||};
+{necklace_shield1|items_tiles:273|Shielding necklace|6|935|||||||9||};
+{necklace_shield2|items_tiles:273|Shielding necklace|6|1255|||||||12||};
+	</string>
 	
 <string name="itemlist_armour">
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
 {shirt1|items_tiles:182|Cloth shirt|3|16|||||||2||};
 {shirt2|items_tiles:182|Fine shirt|3|72|||||||5||};
+{shirt_dmgresist|items_tiles:183|Hardened shirt|3|1633|||||||5|1|};
 {armor1|items_tiles:183|Leather armour|3|464|||||||8||};
 {armor2|items_tiles:183|Superior leather armour|3|624|||||||9||};
 {armor3|items_tiles:184|Hard leather armour|3|2407|||||||13||};
@@ -69,17 +80,16 @@
 {boots2|items_tiles:196|Superior leather boots|5|38|||||||4||};
 {boots3|items_tiles:197|Snakeskin boots|5|146|||||||6||};
 {boots5|items_tiles:198|Reinforced boots|5|226|||||||7||};
+{gloves_attack1|items_tiles:203|Gloves of swift attack|4|150|||15||||-9||};
+{gloves_attack2|items_tiles:203|Fine gloves of swift attack|4|221|||17||||-9||};
 	</string>
 	
 <string name="itemlist_food">
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
-{health_minor|items_tiles:35|Minor potion of health|20|5|5||||||||};
-{health|items_tiles:49|Regular potion of health|20|40|10||||||||};
-{health_major|items_tiles:28|Major potion of health|20|210|40||||||||};
 {apple_green|items_tiles:2|Green apple|21|9|4||||||||};
 {apple_red|items_tiles:3|Red apple|21|15|6||||||||};
 {meat|items_tiles:25|Meat|21|45|12||||||||};
-{meat_cooked|items_tiles:27|Cooked meat|21|105|21||||||||};
+{meat_cooked|items_tiles:27|Cooked meat|21|78|21||||||||};
 {|items_tiles:8|Strawberry|21|1|1||||||||};
 {|items_tiles:15|Carrot|21|9|4||||||||};
 {|items_tiles:21|Bread|21|6|5||||||||};
@@ -88,15 +98,29 @@
 {|items_tiles:20|Eggs|21|8|3||||||||};
 {|items_tiles:14|Radish|21|5|2||||||||};
 	</string>
+
+	<string name="itemlist_potions">
+[Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
+{vial_empty1|items_tiles:56|Small empty vial|31|2|||||||||};
+{vial_empty2|items_tiles:57|Empty vial|31|4|||||||||};
+{vial_empty3|items_tiles:59|Empty flask|31|6|||||||||};
+{vial_empty4|items_tiles:58|Empty potion|31|11|||||||||};
+{health_minor|items_tiles:35|Minor potion of health|20|5|5||||||||};
+{health|items_tiles:49|Regular potion of health|20|40|10||||||||};
+{health_major|items_tiles:28|Major potion of health|20|210|40||||||||};
+{mead|items_tiles:51|Mead|20|15|1||||||||};
+{milk|items_tiles:55|Milk|20|21|2||||||||};
+{bonemeal_potion|items_tiles:34|Bonemeal potion|20|45|40||||||||};
+	</string>
 	
 	<string name="itemlist_animal">
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
 {hair|items_tiles:258|Animal hair|31|2|||||||||};
-{|items_tiles:262|Insect wing|31|3|||||||||};
-{|items_tiles:254|Bone|31|2|||||||||};
+{insectwing|items_tiles:262|Insect wing|31|3|||||||||};
+{bone|items_tiles:254|Bone|31|2|||||||||};
 {|items_tiles:255|Eye|31|6|||||||||};
 {|items_tiles:256|Bat wing|31|2|||||||||};
-{|items_tiles:257|Claws|31|2|||||||||};
+{claws|items_tiles:257|Claws|31|2|||||||||};
 {shell|items_tiles:264|Insect shell|31|2|||||||||};
 {|items_tiles:226|Feather|31|6|||||||||};
 {|items_tiles:225|Red feather|31|11|||||||||};
@@ -108,17 +132,12 @@
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
 {clay|items_tiles:289|Lump of clay|31|1|||||||||};
 {rock|items_tiles:238|Small rock|31|1|||||||||};
-{vial_empty1|items_tiles:56|Small empty vial|31|2|||||||||};
-{vial_empty2|items_tiles:57|Empty vial|31|4|||||||||};
-{vial_empty3|items_tiles:59|Empty flask|31|6|||||||||};
-{vial_empty4|items_tiles:58|Empty potion|31|11|||||||||};
 {gem1|items_tiles:210|Glass gem|31|2|||||||||};
 {gem2|items_tiles:211|Ruby gem|31|6|||||||||};
 {gem3|items_tiles:212|Polished gem|31|8|||||||||};
 {gem4|items_tiles:213|Sharpened gem|31|13|||||||||};
 {gem5|items_tiles:215|Polished sparkling gem|31|15|||||||||};
 {gem6|items_tiles:214|Shimmering gem|31|26|||||||||};
-{gem7|items_tiles:216|Heartstone|31|40|||||||||};
 {gem8|items_tiles:330|Brilliant gem|31|68|||||||||};
 	</string>
 	
@@ -128,5 +147,11 @@
 {tail_trainingrat|items_tiles:103|Small rat tail|31|0|||||||||};
 {rest|items_tiles:33|Potion of restoration|20|0|99||||||||};
 {ring_mikhail|items_tiles:266|Mikhail\'s ring|7|15|||10||||||};
+{neck_irogotu|items_tiles:273|Irogotu\'s necklace|6|30|||||||5|1|};
+{ring_gandir|items_tiles:266|Gandir\'s ring|31|0|||||||||};
+{dagger_venom|items_tiles:87|Venomous Dagger|0|15||4|20|20|3|1-2|||};
+{key_luthor|items_tiles:231|Key of Luthor|31|0|||||||||};
+{calomyran_secrets|items_tiles:406|Calomyran secrets|31|0|||||||||};
+{heartstone|items_tiles:216|Heartstone|31|40|||||||||};
 	</string>
 </resources>

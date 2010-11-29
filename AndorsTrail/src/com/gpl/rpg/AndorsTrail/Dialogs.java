@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.gpl.rpg.AndorsTrail.R;
@@ -23,14 +24,16 @@ import com.gpl.rpg.AndorsTrail.activity.ItemInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
+import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
+import com.gpl.rpg.AndorsTrail.model.InterfaceData;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
-import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class Dialogs {
 	
@@ -95,7 +98,8 @@ public final class Dialogs {
 		showDialogAndPause(d, context);
 	}
 	
-	public static void showConversation(final MainActivity currentActivity, final String phraseID, final Monster npc) {
+	public static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, final Monster npc) {
+		context.controller.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		Uri.Builder b = Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID).buildUpon();
 		b.appendQueryParameter("monsterTypeID", Integer.toString(npc.monsterType.id));
@@ -103,7 +107,8 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
 	}
 	
-	public static void showMonsterEncounter(final MainActivity currentActivity, final Monster m) {
+	public static void showMonsterEncounter(final MainActivity currentActivity, final ViewContext context, final Monster m) {
+		context.controller.pause();
 		Intent intent = new Intent(currentActivity, MonsterEncounterActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterencounter/" + m.monsterType.id));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_MONSTERENCOUNTER);
@@ -124,8 +129,8 @@ public final class Dialogs {
 	}
 	
 	private static void showLoot(final Context androidContext, final ViewContext context, final Loot loot, final int title, final int message) {
-		if (loot.isEmpty()) return;
-		
+		if (ItemController.removeEmptyLoot(context, loot)) return;
+
 		String msg = androidContext.getString(message);
 		if (loot.exp > 0) {
 			msg += androidContext.getString(R.string.dialog_monsterloot_gainedexp, loot.exp);
@@ -134,6 +139,19 @@ public final class Dialogs {
 			msg += androidContext.getString(R.string.dialog_loot_foundgold, loot.gold);
 		}
 		
+		if (context.model.uiSelections.displayLoot != InterfaceData.DISPLAYLOOT_DIALOG) {
+			if (context.model.uiSelections.displayLoot == InterfaceData.DISPLAYLOOT_TOAST) {
+				if (!loot.items.items.isEmpty()) {
+					msg += androidContext.getString(R.string.dialog_loot_pickedupitems, loot.items.items.size());
+				}
+				Toast.makeText(androidContext, msg, Toast.LENGTH_LONG).show();
+			}
+			ItemController.pickupAll(loot, context.model);
+        	ItemController.removeEmptyLoot(context, loot);
+			context.controller.resume();
+			return;
+		}
+
 		final ListView itemList = new ListView(androidContext);
 		itemList.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
@@ -149,29 +167,28 @@ public final class Dialogs {
 		});
 		itemList.setAdapter(new ItemContainerAdapter(androidContext, context.tileStore, loot.items));
 		
-		Dialog d = new AlertDialog.Builder(androidContext)
+		AlertDialog.Builder db = new AlertDialog.Builder(androidContext)
         .setTitle(title)
         .setMessage(msg)
         .setIcon(new BitmapDrawable(context.tileStore.bitmaps[TileStore.iconID_groundbag]))
-        .setPositiveButton(R.string.dialog_loot_pickall, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            	context.model.player.inventory.add(loot.items);
-            	loot.clear();
-            }
-        })
         .setNegativeButton(R.string.dialog_close, null)
-        .setView(itemList)
-        .create();
+        .setView(itemList);
+		
+		if (!loot.items.isEmpty()) {
+			db.setPositiveButton(R.string.dialog_loot_pickall, new DialogInterface.OnClickListener() {
+	            @Override
+	            public void onClick(DialogInterface dialog, int which) {
+	            	ItemController.pickupAll(loot, context.model);
+	            }
+	        });
+		}
+		
+		final Dialog d = db.create();
 		
 		showDialogAndPause(d, context, new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
-				if (loot.isEmpty()) {
-					context.model.currentMap.removeGroundLoot(loot);
-					context.mainActivity.redrawTile(loot.position, MainView.REDRAW_TILE_BAG_REMOVED);
-				}
-				context.mainActivity.statusview.update();
+				ItemController.removeEmptyLoot(context, loot);
 				context.controller.resume();
 			}
 		});
@@ -192,16 +209,19 @@ public final class Dialogs {
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/levelup"));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_LEVELUP);
 	}
+
 	public static void showRest(final Activity currentActivity, final ViewContext viewContext) {
+		if (!viewContext.model.uiSelections.confirmRest) {
+			Controller.ui_playerRested(currentActivity, viewContext);
+			return;
+		}
 		Dialog d = new AlertDialog.Builder(currentActivity)
         .setTitle(R.string.dialog_rest_title)
         .setMessage(R.string.dialog_rest_confirm_message)
         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-            	Controller.playerRested(viewContext, false);
-            	viewContext.mainActivity.statusview.update();
-            	Dialogs.showRested(currentActivity, viewContext);
+        		Controller.ui_playerRested(currentActivity, viewContext);
             }
         })
         .setNegativeButton(android.R.string.no, null)
@@ -226,5 +246,9 @@ public final class Dialogs {
         .setNeutralButton(android.R.string.ok, null)
         .show();
 	}
-
+	
+	public static void showPreferences(final Activity currentActivity) {
+		Intent intent = new Intent(currentActivity, Preferences.class);
+		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_PREFERENCES);
+	}
 }

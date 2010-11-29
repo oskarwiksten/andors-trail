@@ -9,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.WorldSetup;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -23,7 +24,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -38,7 +38,8 @@ public class MainActivity extends Activity {
     public static final int INTENTREQUEST_ITEMINFO = 3;
     public static final int INTENTREQUEST_CONVERSATION = 4;
     public static final int INTENTREQUEST_SHOP = 5;
-    public static final int INTENTREQUEST_LEVELUP = 6;   
+    public static final int INTENTREQUEST_LEVELUP = 6;
+    public static final int INTENTREQUEST_PREFERENCES = 7;
 	
     private ViewContext view;
     private WorldContext world;
@@ -57,13 +58,12 @@ public class MainActivity extends Activity {
         L.log("onCreate");
     	//Debug.startMethodTracing(ICICLE_KEY);
         
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
         this.view = new ViewContext(app, this);
     	app.currentView = new WeakReference<ViewContext>(this.view);
-    	
+    	AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
+        
         setContentView(R.layout.main);
         mainview = (MainView) findViewById(R.id.main_mainview);
         statusview = (StatusView) findViewById(R.id.main_statusview);
@@ -90,8 +90,13 @@ public class MainActivity extends Activity {
     			new DebugButton("Add monster", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
-						MonsterType type = world.monsterTypes.getMonsterType("Winged demon");
-						world.model.currentMap.TEST_spawnInArea(world.model.currentMap.spawnAreas[0], type);
+		    			final String name = "Winged demon";
+						MonsterType type = world.monsterTypes.getMonsterType(name);
+						if (type == null) {
+							Toast.makeText(MainActivity.this, "Cannot find monster type \"" + name + "\", unable to spawn.", Toast.LENGTH_LONG).show();
+						} else {
+							world.model.currentMap.TEST_spawnInArea(world.model.currentMap.spawnAreas[0], type);
+						}
 					}
 				})
     			,new DebugButton("dmg=99", new OnClickListener() {
@@ -133,7 +138,6 @@ public class MainActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case INTENTREQUEST_HEROINFO:
-			statusview.update();
 			combatview.updatePlayerAP(world.model.player.ap);
 			break;
 		case INTENTREQUEST_MONSTERENCOUNTER:
@@ -144,9 +148,22 @@ public class MainActivity extends Activity {
 			}
 			break;
 		case INTENTREQUEST_CONVERSATION:
-			statusview.update();
+			if (resultCode == ConversationActivity.RESULT_ATTACK) {
+				final Coord p = world.model.player.nextPosition;
+				Monster m = world.model.currentMap.getMonsterAt(p);
+				if (m != null) {
+			    	view.combatController.setCombatSelection(m, p);
+					view.combatController.enterCombat();
+				} else {
+					//Shouldn't happen.
+				}
+			}
+			break;
+		case INTENTREQUEST_PREFERENCES:
+			Preferences.read(this, world.model.uiSelections);
 			break;
 		}
+		mainview.inhibitClicks = false;
 	}
     
     private class DebugButton {
@@ -239,6 +256,15 @@ public class MainActivity extends Activity {
 				return true;
 			}
 		}).setEnabled(false);
+		menu.add(R.string.menu_settings)
+		.setIcon(android.R.drawable.ic_menu_preferences)
+		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(MenuItem arg0) {
+				Dialogs.showPreferences(MainActivity.this);
+				return true;
+			}
+		});
 		return true;
 	}
 	

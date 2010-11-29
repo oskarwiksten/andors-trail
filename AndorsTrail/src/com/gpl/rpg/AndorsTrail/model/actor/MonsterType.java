@@ -31,8 +31,4 @@ public final class MonsterType extends ActorTraits {
 		}
 		return false;
 	}
-	
-	public boolean isAgressive() {
-		return phraseID == null;
-	}
 }

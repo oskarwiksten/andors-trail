@@ -2,18 +2,16 @@
 
 <resources>
 	<string name="conversationlist_debug">
-
 [ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
 {debug||||||debug2|dialog2||||debug1|||||||||};
-{debug1|Welcome adventurer!|dialog2|||Trade|S||||Bye|X||||Debug|debug3||||};
-{debug2|Welcome back!||||Trade|S||||Bye|X||||Debug|debug3||||};
-{debug3|Debug 3\nTest||5|5|Iron sword*2|debug||sword1|2|Iron sword*1|debug||sword1|1|Iron longsword*1|debug||sword2|1|};
+{debug1|Welcome adventurer!|dialog2|||Trade items long text|S||||Bye|X||||Debug|debug3||||};
+{debug2|Welcome back!||||Trade items very very long text|S||||Bye|X||||Debug|debug3||||};
+{debug3|Debug 3\nTest||5|5|Iron sword*2|debug||sword1|2|Iron sword*1|debug||sword1|1|Fight|F||||};
 
 {test1|Hello, test message||||Bye|X||||Shop|S||||Keytest|testmain||||};
 {testmain|Keytest main||||Back|test1||||Add key|test2||||I have it!|test3|testkey|||};
 {test2|Key added!|testkey|||Ok|testmain||||||||||||||};
 {test3|This is only reachable if you have testkey||||Back|testmain||||||||||||||};
-
 	</string>
 	
 	
@@ -23,21 +21,24 @@
 {mikhail_gamestart|Oh good, you are awake.||||Next|mikhail_visited||||||||||||||};
 {mikhail_visited|I can\'t seem to find your brother anywhere. He hasn\'t been back since he left yesterday.|mikhail_visited|||Next|mikhail3||||||||||||||};
 {mikhail3|Nevermind, he will probably be back soon.||||Next|mikhail_default||||||||||||||};
-{mikhail_default|Anything else I can help you with?||||Bread|mikhail_bread_select||||Rats|mikhail_rats_select||||Bye|X||||};
+{mikhail_default|Anything else I can help you with?||||Tasks|mikhail_tasks||||Brother|mikhail_andor1||||Bye|X||||};
+{mikhail_tasks|Oh yes, there were some things I need help with.||||Bread|mikhail_bread_select||||Rats|mikhail_rats_select||||Back|mikhail_default||||};
+{mikhail_andor1|As I said, Andor went out yesterday and hasn\'t been back since. I\'m starting to worry about him. Please go look for your brother, he said he would only be out a short while.||||Next|mikhail_andor2||||||||||||||};
+{mikhail_andor2|Maybe he went into that supply cave again and got stuck. Or maybe he\'s in Leta\'s basement training with that wooden sword again. Please go look for him in town.||||Back|mikhail_default||||||||||||||};
 
 {mikhail_bread_select||||||mikhail_bread_complete2|qmikhail_bread_complete||||mikhail_bread_continue|qmikhail_bread||||mikhail_bread_start||||};
-{mikhail_bread_start|Oh, I almost forgot. If you have time, please stop by Mara at the town hall and buy me some more bread.|qmikhail_bread|||I already have some bread|mikhail_bread_complete||bread|1|Sure|mikhail_default|||||||||};
-{mikhail_bread_continue|Did you get the bread from Mara at the town hall that I asked for?||||Yes, I got it|mikhail_bread_complete||bread|1|No, not yet|mikhail_default|||||||||};
-{mikhail_bread_complete|Thanks a lot, now I can get my breakfast. Here, take these coins for your help.|qmikhail_bread_complete||20|Back|mikhail_default||||Bye|X|||||||||};
-{mikhail_bread_complete2|Thanks for the bread earlier.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
+{mikhail_bread_start|Oh, I almost forgot. If you have time, please stop by Mara at the town hall and buy me some more bread.|qmikhail_bread|||Ok|mikhail_default||||||||||||||};
+{mikhail_bread_continue|Did you get the bread from Mara at the town hall that I asked for?||||Done|mikhail_bread_complete||bread|1|Not yet|mikhail_default|||||||||};
+{mikhail_bread_complete|Thanks a lot, now I can get my breakfast. Here, take these coins for your help.|qmikhail_bread_complete||20|Back|mikhail_default||||||||||||||};
+{mikhail_bread_complete2|Thanks for the bread earlier.||||You\'re welcome|mikhail_default||||||||||||||};
 
 {mikhail_rats_select||||||mikhail_rats_complete2|qmikhail_rats_complete||||mikhail_rats_continue|qmikhail_rats||||mikhail_rats_start||||};
-{mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go check our garden if they are still there? Please kill any rats that you see.|qmikhail_rats|||I already killed them|mikhail_rats_complete||tail_trainingrat|2|Sure|mikhail_rats_start2|||||||||};
+{mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go check our garden if they are still there? Please kill any rats that you see.|qmikhail_rats|||Done|mikhail_rats_complete||tail_trainingrat|2|Sure|mikhail_rats_start2|||||||||};
 {mikhail_rats_start2|If you get hurt by the rats, come back here and rest in your bed. That way you can regain your strength.||||Next|mikhail_rats_start3||||||||||||||};
-{mikhail_rats_start3|Also, don\'t forget to check your inventory. You probably still have that old ring i gave you. Make sure you wear it.||||Ok|mikhail_default||||||||||||||};
-{mikhail_rats_continue|Did you kill those rats in our garden?||||Yes|mikhail_rats_complete||tail_trainingrat|2|No, not yet|mikhail_default|||||||||};
-{mikhail_rats_complete|Oh you did? Wow, thanks a lot for your help!\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.|qmikhail_rats_complete|20||Back|mikhail_default||||Bye|X|||||||||};
-{mikhail_rats_complete2|Thanks for your help with the rats earlier.\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.||||You\'re welcome|mikhail_default||||Bye|X|||||||||};
+{mikhail_rats_start3|Also, don\'t forget to check your inventory. You probably still have that old ring I gave you. Make sure you wear it.||||Ok|mikhail_default||||||||||||||};
+{mikhail_rats_continue|Did you kill those two rats in our garden?||||Yes|mikhail_rats_complete||tail_trainingrat|2|Not yet|mikhail_default|||||||||};
+{mikhail_rats_complete|Oh you did? Wow, thanks a lot for your help!\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.|qmikhail_rats_complete|20||Back|mikhail_default||||||||||||||};
+{mikhail_rats_complete2|Thanks for your help with the rats earlier.\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.||||You\'re welcome|mikhail_default||||||||||||||};
 	</string>
 	
 	<string name="conversationlist_crossglen_leta">
@@ -50,25 +51,74 @@
 {leta_oromir_complete|Hiding is he? That\'s not really the way forward. I\'ll go let him know who\'s the boss around here.\nThanks for letting me know though.|qleta_complete|30||Bye|X||||||||||||||};
 {leta_oromir_complete2|Thanks for telling me about Oromir earlier. I will go get him in just a minute.||||Bye|X||||||||||||||};
 {oromir1|Oh you startled me.\nHello.||||Hello|oromir2||||||||||||||};
-{oromir2|I\'m hiding here from my wife Leta. She is always getting angry at me for not helping out on the farm. Please don\'t tell her that i\'m here.|oromir|||Sure|X||||||||||||||};
+{oromir2|I\'m hiding here from my wife Leta. She is always getting angry at me for not helping out on the farm. Please don\'t tell her that I\'m here.|oromir|||Sure|X||||||||||||||};
 	</string>
 
 	<string name="conversationlist_crossglen">
 [ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
 {audir1|Welcome to my shop!\n\nPlease browse my selection of fine wares.||||Shop|S||||Bye|X|||||||||};
-{arambold1|Oh my, will I ever get any sleep with those drunkards singing like that?\n\nSomeone should do something about them.||||Can I rest here?|arambold2||||Trade|S||||Bye|X||||};
+{arambold1|Oh my, will I ever get any sleep with those drunkards singing like that?\n\nSomeone should do something about them.||||Rest|arambold2||||Trade|S||||Bye|X||||};
 {arambold2|Sure kid, you may rest here.\n\nPick any bed you want.||||Thanks, bye|X||||||||||||||};
-{tharal1|Embrace the one true god||||Trade|S||||Bye|X|||||||||};
+
 {drunk1|Drink drink drink, drink some more.\nDrink drink drink \'til you\'re on the floor.\n\nHey kid, wanna join us in our drinking game?||||No thanks|X||||||||||||||};
-{mara1|Never mind those drunken fellas, they\'re always causing trouble.\n\nWant something to eat?||||Trade|S||||Bye|X|||||||||};
-{gruil1|Psst, hey.\n\nWanna trade?||||Trade|S||||Bye|X|||||||||};
-{leonid1|Begone, peasant.||||Bye|X||||||||||||||};
-{farm1|Please do not disturb me, I have work to do.||||Bye|X||||||||||||||};
-{farm2|What?! Can\'t you see i\'m busy? Go bother someone else.||||Bye|X||||||||||||||};
+{mara_default|Never mind those drunken fellas, they\'re always causing trouble.\n\nWant something to eat?||||Trade|S||||Bye|X|||||||||};
+{mara1||||||mara_thanks|qodair_complete||||mara_default|||||||||};
+{mara_thanks|I heard you helped Odair clean out that old supply cave. Thanks a lot, we\'ll start using it soon.||||My pleasure|mara_default||||||||||||||};
+
+{farm1|Please do not disturb me, I have work to do.||||Brother|farm_andor||||Bye|X|||||||||};
+{farm2|What?! Can\'t you see I\'m busy? Go bother someone else.||||Brother|farm_andor||||Bye|X|||||||||};
+{farm_andor|Andor? No, I haven\'t seen him around lately.||||Bye|X||||||||||||||};
+
+{snakemaster|Well well, what have we here? A visitor, how nice. I\'m impressed you got this far through all my minions.\n\nNow prepare to die, puny creature.||||Fight!|F||||||||||||||};
+{haunt|Oh mortal, free me from this cursed world!||||Leave|F||||||||||||||};
+	</string>
+
+	<string name="conversationlist_crossglen_tharal">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{tharal1|Walk in the glow of the shadow, my child.||||Trade|S||||Bonemeal|tharal_bonemeal_select|qleonid_bonemeal|||Bye|X||||};
+{tharal_bonemeal_select||||||tharal_bonemeal4|qtharal_complete||||tharal_bonemeal1|||||||||};
+{tharal_bonemeal1|Bonemeal? We shouldn\'t talk about that. It\'s not allowed anymore. Issued by Lord Geomyr.||||Please?|tharal_bonemeal2_1||||Bye|X|||||||||};
+{tharal_bonemeal2_1|No, we really shouldn\'t talk about that.||||Oh come on|tharal_bonemeal2||||Bye|X|||||||||};
+{tharal_bonemeal2|Well if you really are that persistent. Bring me 5 insect wings that I can use for making potions and maybe we can talk more.||||I have it|tharal_bonemeal3||insectwing|5|Ok|X|||||||||};
+{tharal_bonemeal3|Thanks kid. I knew I could count on you.|qtharal_complete|||Next|tharal_bonemeal4||||||||||||||};
+{tharal_bonemeal4|Oh yes, bonemeal. Mixed with the right components it can be one of the most effective healing agents around.||||Next|tharal_bonemeal5||||||||||||||};
+{tharal_bonemeal5|We used to use it extensively before. But now that bastard Lord Geomyr has banned all use of it.||||Next|tharal_bonemeal6||||||||||||||};
+{tharal_bonemeal6|How am I supposed to heal people now? Using regular healing potions? Bah, they\'re so ineffective.||||Next|tharal_bonemeal7||||||||||||||};
+{tharal_bonemeal7|I know someone that still has a supply of Bonemeal if you are interested. Go talk to Thoronir, a fellow priest in Fallhaven. Tell him my password \'Glow of the shadow\'.||||Thanks, bye|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_crossglen_gruil">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{gruil1|Psst, hey.\n\nWanna trade?||||Trade|S||||Brother|gruil_select|qleonid_andor|||Bye|X||||};
+{gruil_select||||||gruil_return|qgruil_andor_complete||||gruil2|||||||||};
+{gruil2|Your brother? Oh you mean Andor? I might know something, but that information will cost you. Bring me a poison gland from one of those poisonous snakes and maybe I\'ll tell you.|qgruil_andor|||I have it|gruil_complete||gland|1|Ok, bye|X|||||||||};
+{gruil_complete|Thanks a lot kid. This will do just fine. |qgruil_andor_complete|||Next|gruil_andor1||||||||||||||};
+{gruil_return|Look kid, I already told you.||||Next|gruil_andor1||||||||||||||};
+{gruil_andor1|I talked to him yesterday. He asked if I knew someone called Umar or something like that. I have no idea who he was talking about.||||Next|gruil_andor2||||||||||||||};
+{gruil_andor2|He seemed really upset about something and left in a hurry. Something about the Thieves Guild in Fallhaven.||||Next|gruil_andor3||||||||||||||};
+{gruil_andor3|That\'s all I know. Maybe you should ask around in Fallhaven. Look for my friend Gaela, he probably knows more.||||Bye|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_crossglen_leonid">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{leonid1|Hello kid. You\'re Mikhail\'s son aren\'t you? With that brother of yours.\n\nI\'m Leonid, steward of Crossglen village.||||Brother|leonid_andor||||Crossglen|leonid_crossglen||||Bye|leonid_bye||||};
+{leonid_andor|Your brother? No, I haven\'t seen him here today. I think I saw him in here yesterday talking to Gruil. Maybe he knows more?|qleonid_andor|||Thanks|leonid_continue||||Bye|leonid_bye|||||||||};
+{leonid_continue|Anything else I can help you with?||||Brother|leonid_andor||||Crossglen|leonid_crossglen||||Bye|leonid_bye||||};
+{leonid_crossglen|As you know, this is Crossglen village. Mostly a farming community. ||||Next|leonid_crossglen1||||||||||||||};
+{leonid_crossglen1|We have Audir with his smithy to the southwest, Leta and her husband\'s cabin to the west, this town hall here and your father\'s cabin to the northwest.||||Next|leonid_crossglen2||||||||||||||};
+{leonid_crossglen2|That\'s pretty much it. We try to live a peaceful life.||||Recent activity|leonid_crossglen3||||Back|leonid_continue|||||||||};
+{leonid_crossglen3|There were some recent disturbances some weeks ago that you may have noticed. Some villagers got into a fight over the new decree from Lord Geomyr.||||Next|leonid_crossglen4||||||||||||||};
+{leonid_crossglen4|Lord Geomyr issued a statement regarding the unlawful use of Bonemeal as healing substance. Some villagers argued that we should oppose Lord Geomyr\'s word and still use it ourselves.|qleonid_bonemeal|||Next|leonid_crossglen4_1||||||||||||||};
+{leonid_crossglen4_1|Tharal, our priest, was particularly upset and suggested we do something about Lord Geomyr.||||Next|leonid_crossglen5||||||||||||||};
+{leonid_crossglen5|Other villagers argued that we should follow Lord Geomyr\'s wish.\n\nPersonally, I haven\'t decided what my thoughts are.||||Next|leonid_crossglen6||||||||||||||};
+{leonid_crossglen6|On one hand, Lord Geomyr supports Crossglen with a lot of protection. *points to the soldiers in the hall*||||Next|leonid_crossglen7||||||||||||||};
+{leonid_crossglen7|But on the other hand, the tax and the recent changes of what\'s allowed and not are really hitting hard on Crossglen.||||Next|leonid_crossglen8||||||||||||||};
+{leonid_crossglen8|Someone should go to castle Geomyr and talk to the steward about our situation here in Crossglen.|qleonid_crossglen|||Next|leonid_crossglen9||||||||||||||};
+{leonid_crossglen9|In the meantime, we\'ve banned all use of Bonemeal as healing substance.||||Back|leonid_continue||||Bye|leonid_bye|||||||||};
+{leonid_bye|Shadow be with you.||||Exit|X||||||||||||||};
 	</string>
 	
 	<string name="conversationlist_crossglen_odair">
-
 [ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
 {odair1|Oh, it\'s you. You with that brother of yours. Always causing trouble.||||Next|odair_select||||||||||||||};
 {odair_select||||||odair_complete2|qodair_complete||||odair_continue|qodair||||odair2||||};
@@ -80,11 +130,249 @@
 {odair_continue|Did you kill that large rat in the cave west of here?||||Yes|odair_complete||tail_caverat|1|What?|odair5||||Not yet|odair_cowards||||};
 {odair_complete|Thanks a lot for you help kid! Maybe you and that brother of yours aren\'t as cowardly as I thought. Here, take these coins for your help.|qodair_complete|30|20|Thanks|X||||||||||||||};
 {odair_complete2|Thanks a lot for your help earlier. Now we might start using that cave as our old supply cave again.||||Bye|X||||||||||||||};
-
 	</string>
-	
+
 	<string name="conversationlist_jan">
 [ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
-{jan1|TODO||||Bye|X||||||||||||||};
+{jan_start_select||||||jan_complete2|qjan_complete||||jan_return|qjan||||jan_default||||};
+{jan_default|Hello kid. Please leave me to my mourning.||||Mourning|jan_default2||||Ok, bye|X|||||||||};
+{jan_default2|Oh, it\'s so sad. I really don\'t want to talk about it.||||Please do|jan_default3||||Ok, bye|X|||||||||};
+{jan_default3|Well, I guess it\'s ok to tell you. You seem to be a nice enough kid.||||Next|jan_default4||||||||||||||};
+{jan_default4|Me, my friend Gandir and his friend Irogotu were down here digging this hole. We had heard there was a hidden treasure down here.||||Next|jan_default5||||||||||||||};
+{jan_default5|We started digging and finally broke through to the cave system below. That\'s when we discovered them. The critters and bugs.||||Next|jan_default6||||||||||||||};
+{jan_default6|Oh those critters. Damn bastards. Nearly killed me they did.\n\nMe and Gandir told Irogotu that we should abort the digging and leave while we still could.||||Next|jan_default7||||||||||||||};
+{jan_default7|But Irogotu wanted to continue deeper into the dungeon. He and Gandir got into an argument and started fighting.||||Next|jan_default8||||||||||||||};
+{jan_default8|That\'s when it happened.\n\n*sob*\n\nOh what have we done?||||Next|jan_default9||||||||||||||};
+{jan_default9|Irogotu killed Gandir with his bare hands. You could see the fire in his eyes. He almost seemed to enjoy it.||||Next|jan_default10||||||||||||||};
+{jan_default10|I fled and haven\'t dared go back down there because of the critters and Irogotu himself.||||Next|jan_default11||||||||||||||};
+{jan_default11|Oh that damn Irogotu. If only I could get to him. I\'d show him one thing and another.||||Next|jan_default11_1|!qjan|||Next|jan_default13|qjan||||||||};
+{jan_default11_1|Do you think you could help me?||||I could help|jan_default12||||Bye|X|||||||||};
+{jan_default12|Really? You think you could help? Hm, maybe you could. Beware of those bugs though, they\'re really tough bastards.|qjan|||Next|jan_default13||||||||||||||};
+{jan_default13|If you really want to help, go find Irogotu down in the cave, and get me back Gandir\'s ring.||||Sure|jan_default14||||Background|jan_background||||Bye|X||||};
+{jan_default14|Return to me when you are done. Bring me Gandir\'s ring from Irogotu down in the cave.||||Ok, bye|X||||||||||||||};
+{jan_return|Hello again kid. Did you find Irogotu down in the cave?||||Not yet|jan_default14||||Background|jan_background||||Yes|jan_complete||ring_gandir|1|};
+{jan_background|Didn\'t you listen the first time I told you the story? Do I really have to tell you the story one more time?||||Yes|jan_default3||||No|jan_default14|||||||||};
+{jan_complete2|Thanks for dealing with Irogotu earlier! I am forever in debt to you.||||Bye|X||||||||||||||};
+{jan_complete|Wait, what? You actually went down there and returned alive? How did you manage that? Wow, I almost died going into that cave.\n\nOh thank you so much for bringing me back Gandir\'s ring! Now I can have something to remember him by.|qjan_complete|150||Bye|X||||||||||||||};
+
+{irogotu|Well hello there. Another adventurer. This is MY CAVE. The treasure will be MINE!||||Gandir|irogotu1|qjan|||Bye|X|||||||||};
+{irogotu1|That whelp Gandir? He was in my way. I merely used him as a tool to dig deeper into the cave.||||Next|irogotu2||||||||||||||};
+{irogotu2|Besides, I never really liked him anyway.||||Ring|irogotu3||||||||||||||};
+{irogotu3|NO! You cannot have it. It\'s mine! And what are you anyway kid, coming down here to disturb me?!||||Ring|irogotu4||||||||||||||};
+{irogotu4|No. If you want it you would have to take if from me by force, and I should tell you that my powers are great. Besides, you probably wouldn\'t dare fight me anyway.||||Fight!|F||||Leave|X|||||||||};
 	</string>
+	
+	<string name="conversationlist_fallhaven">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+
+{fallhaven_citizen1|Hello there. Nice weather ain\'t it?||||Brother|fallhaven_andor_1||||Bye|X|||||||||};
+{fallhaven_citizen2|Hello. Anything you want from me?||||Brother|fallhaven_andor_2||||Bye|X|||||||||};
+{fallhaven_citizen3|Hi. Can I help you?||||Brother|fallhaven_andor_3||||Bye|X|||||||||};
+{fallhaven_citizen4|You\'re that kid from Crossglen village right?||||Brother|fallhaven_andor_4||||Bye|X|||||||||};
+{fallhaven_citizen5|Out of the way, peasant.||||Bye|X||||||||||||||};
+{fallhaven_citizen6|Good day to you.||||Brother|fallhaven_andor_6||||Bye|X|||||||||};
+{fallhaven_andor_1|No, sorry. I haven\'t seen anyone by that description.||||Bye|X||||||||||||||};
+{fallhaven_andor_2|Some other kid you say? Hm, let me think.||||Next|fallhaven_andor_1||||||||||||||};
+{fallhaven_andor_3|Hm, I might have seen someone matching that description a few days ago. Can\'t remember where though.||||Bye|X||||||||||||||};
+{fallhaven_andor_4|Oh yes, there was another kid from Crossglen village here a few days ago. Not sure he matched your description though.||||Next|fallhaven_andor_4_1||||Bye|X|||||||||};
+{fallhaven_andor_4_1|There were some shady looking people following him around. Didn\'t see any more than that.||||Bye|X||||||||||||||};
+{fallhaven_andor_6|Nope. Haven\'t seen him.||||Bye|X||||||||||||||};
+
+{fallhaven_guard|Keep out of trouble.||||Bye|X||||||||||||||};
+{fallhaven_priest|Shadow be with you.||||Shadow|priest_shadow_1||||Bye|X|||||||||};
+{priest_shadow_1|The shadow protects us. It keeps us safe and comforts us when we sleep.||||Next|priest_shadow_2||||||||||||||};
+{priest_shadow_2|It follows us wherever we go. Go with the shadow my child.||||Bye|X||||||||||||||};
+{fallhaven_warden|State your business.||||Prisoner|warden_prisoner_1||||Bye|X|||||||||};
+{warden_prisoner_1|That thief? He was caught in the act. Trespassing he was. Trying to get down into the catacombs of Fallhaven church.||||Next|warden_prisoner_2||||||||||||||};
+{warden_prisoner_2|Luckily, we caught him before he could get down there. Now he\'ll serve as an example to all other thieves.||||Next|warden_prisoner_3||||||||||||||};
+{warden_prisoner_3|Damn thieves. There must be a nest of them around here somewhere. If only I could find where they hide.||||Bye|X||||||||||||||};
+
+{rigmor|Well hello there! Aren\'t you a cute little fellow.||||Brother|rigmor_1||||Bye|rigmor_leave_select|||||||||};
+{rigmor_1|Your brother you say? His name is Andor? No. I can\'t recall meeting anyone like that.||||Bye|rigmor_leave_select||||||||||||||};
+{rigmor_leave_select||||||rigmor_thanks|qfallhaven_oldman_complete||||X|||||||||};
+{rigmor_thanks|I heard you helped my old man find his book, thank you. He had been talking about that book for weeks. Poor thing, he tends to forget things.||||Bye|X||||||||||||||};
+{fallhaven_clothes|Welcome to my shop. Please browse my selection of fine clothing and jewelry.||||Trade|S||||Bye|X|||||||||};
+{fallhaven_potions|Welcome to my shop. Please browse my fine selection of everyday potions.||||Trade|S||||Bye|X|||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_bucus">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{bucus_welcome|Hi again, welcome to the .. Oh wait, I thought you were someone else.||||Brother|bucus_andor_select||||Thieves Guild|bucus_thieves_select|!qbucus_complete|||Bye|X||||};
+{bucus_andor_select||||||bucus_umar_1|qbucus_complete||||bucus_andor_no_1|||||||||};
+{bucus_andor_no_1|How interesting that you should ask. What if I had seen him? Why would I tell you?||||Next|bucus_andor_no_2||||||||||||||};
+{bucus_andor_no_2|No, I can\'t tell you. Now please leave.||||Bye|X||||||||||||||};
+{bucus_thieves_select||||||bucus_thieves_continue|qbucus||||bucus_thieves_1|qbucus_thieves||||bucus_thieves_no||||};
+{bucus_thieves_no|Wh, what? No, I don\'t know anything about that.||||Bye|X||||||||||||||};
+{bucus_umar_1|Ok kid. You\'ve proven yourself to me. Yes, I saw some other kid by that description running around here a few days ago.||||Next|bucus_umar_2||||||||||||||};
+{bucus_umar_2|I don\'t know what he was up to though. Kept asking lots of questions. Kind of like you do. *snicker*||||Next|bucus_umar_3||||||||||||||};
+{bucus_umar_3|Anyway, that\'s all I know. You should go talk to Umar, he probably knows more. Down that hatch over there.|qfallhaven_derelict|||Ok, bye|X||||||||||||||};
+{bucus_thieves_1|Who told you that? Argh.\n\nOk so you found us. Now what?||||Join|bucus_thieves_2||||Bye|X|||||||||};
+{bucus_thieves_2|Hah! Join the thieves guild?! You?!\n\nYou\'re one funny kid.||||I\'m serious|bucus_thieves_3||||Bye|X|||||||||};
+{bucus_thieves_3|Ok, tell you what kid. Do a task for me and maybe I\'ll consider giving you more info.||||Task|bucus_thieves_4||||Bye|X|||||||||};
+{bucus_thieves_4|Bring me the key of Luthor and we can talk more. I don\'t know anything about the key itself, but rumor has it that it is located somewhere in the catacombs beneath Fallhaven Church.|qbucus|||Ok|X||||||||||||||};
+{bucus_thieves_continue|How is the search for the key of Luthor going?||||Background|bucus_thieves_4||||I have it|bucus_thieves_complete_1||key_luthor|1|Bye|X||||};
+{bucus_thieves_complete_1|Wow, you actually got the key of Luthor? I didn\'t think you would make it out of there.|qbucus_complete|215||Next|bucus_thieves_complete_2||||||||||||||};
+{bucus_thieves_complete_2|Well done kid.||||Next|bucus_thieves_complete_3||||||||||||||};
+{bucus_thieves_complete_3|So, let\'s talk. What do you want to know?||||Brother|bucus_umar_1||||Bye|X|||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_drunk">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{fallhaven_drunk|No problem. No sireee! Not causing any more trouble now. I sits here outside now.||||Next|fallhaven_drunk_2||||Bye|X|||||||||};
+{fallhaven_drunk_2|Wait, who are you again? Are you that guard?||||Yes|fallhaven_drunk_3_1||||No|fallhaven_drunk_3_2|||||||||};
+{fallhaven_drunk_3_1|Oh, sir. I\'m not causing any trouble anymore, see? Sits outside now as you says, ok?||||Next|fallhaven_drunk_4||||||||||||||};
+{fallhaven_drunk_3_2|Oh good. That guard threw me out of the tavern. If I see him again I\'ll show him one thing or another.||||Next|fallhaven_drunk_4||||||||||||||};
+{fallhaven_drunk_4|Drink drink drink, drink some more. Drink, drink .. Uh how did it go again?||||Next|fallhaven_drunk_5||||||||||||||};
+{fallhaven_drunk_5|Were you saying something? Where was I? Yes, so we were in this dungeon.||||Next|fallhaven_drunk_6||||||||||||||};
+{fallhaven_drunk_6|Or was it a house? I can\'t remember.||||Next|fallhaven_drunk_7||||||||||||||};
+{fallhaven_drunk_7|No no, it was outside! Now I remember.||||Next|fallhaven_drunk_8|!qfallhaven_drunk|||Next|fallhaven_drunk_11|qfallhaven_drunk||||||||};
+{fallhaven_drunk_8|That\'s where we..\n\nHey, where did my mead go? Did you take it from me? ||||Yes|fallhaven_drunk_9_1||||No|fallhaven_drunk_9_2|||||||||};
+{fallhaven_drunk_9_1|Well then give it back! Or go buy me another mead.||||Here, have it|fallhaven_drunk_10||mead|1|Bye|X|||||||||};
+{fallhaven_drunk_9_2|I must have drunk it then. Could you get me a new mead do you think? ||||Here, have it|fallhaven_drunk_10||mead|1|Bye|X|||||||||};
+{fallhaven_drunk_10|Oh sweet drinks of joy. May the sssshadow be with you kid. *makes big eyes*|qfallhaven_drunk|||Next|fallhaven_drunk_11||||||||||||||};
+{fallhaven_drunk_11|*takes a gulp of the mead*\n\nThat\'s good stuff!||||Next|fallhaven_drunk_12||||||||||||||};
+{fallhaven_drunk_12|Yeah, me and Unnmir had good times. Go ask him yourself, he is usually in the barn to the east of here. I wonder where that treasure went.|qfallhaven_drunk_complete|||Bye|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_oldman">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{fallhaven_oldman||||||fallhaven_oldman_complete_2|qfallhaven_oldman_complete||||fallhaven_oldman_continue|qfallhaven_oldman||||fallhaven_oldman_1||||};
+{fallhaven_oldman_1|Would you help an old man please?||||Sure|fallhaven_oldman_2||||Bye|X|||||||||};
+{fallhaven_oldman_2|I recently lost a very valuable book ok mine.||||Next|fallhaven_oldman_3||||||||||||||};
+{fallhaven_oldman_3|I know I had it with me yesterday. Now I can\'t seem to find it.||||Next|fallhaven_oldman_4||||||||||||||};
+{fallhaven_oldman_4|I never lose things! Someone must have stolen it, that\'s my guess.||||Next|fallhaven_oldman_5||||||||||||||};
+{fallhaven_oldman_5|Would you please go look for my book? It\'s called \'Calomyran secrets\'.|qfallhaven_oldman|||Next|fallhaven_oldman_6||||||||||||||};
+{fallhaven_oldman_6|I have no idea where it might be. You could go ask Arcir, he seems very fond of his books. *points at the house to the south*||||Bye|X||||||||||||||};
+{fallhaven_oldman_continue|How is the search for my book going? It\'s called \'Calomyran secrets\'. Have you found my book?||||Yes|fallhaven_oldman_complete||calomyran_secrets|1|No|fallhaven_oldman_6||||Background|fallhaven_oldman_2||||};
+{fallhaven_oldman_complete|My book! Thank you, thank you! Where was it? No, don\'t tell me. Here, have these coins as help for your trouble.|qfallhaven_oldman_complete|60|51|Bye|X||||||||||||||};
+{fallhaven_oldman_complete_2|Thank you so much for finding my book!||||Bye|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_nocmar">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{nocmar|Hello. I\'m Nocmar.||||Trade|nocmar_trade_select||||Unnmir|nocmar_quest_select|qnocmar_unnmir|||Bye|X||||};
+{nocmar_quest_select||||||nocmar_complete_5|qnocmar_complete||||nocmar_continue|qnocmar||||nocmar_quest||||};
+{nocmar_trade_select||||||S|qnocmar_complete||||nocmar_trade_1|||||||||};
+{nocmar_trade_1|I don\'t have any items for sale. I used to have a lot of things for sale, but nowadays I\'m not allowed to sell anything.||||Next|nocmar_trade_2||||||||||||||};
+{nocmar_trade_2|I was once one of the greatest smiths in Fallhaven. Then that bastard Lord Geomyr banned my use of heartsteel.||||Next|nocmar_trade_3||||||||||||||};
+{nocmar_trade_3|By decree of Lord Geomyr, noone in Fallhaven is allowed to even use heartsteel weapons. Much less sell any.||||Next|nocmar_trade_4||||||||||||||};
+{nocmar_trade_4|So now I have to hide the few weapons I have left. And I won\'t dare sell any of them anymore.||||Next|nocmar_trade_4_1||||||||||||||};
+{nocmar_trade_4_1|I haven\'t seen the heartsteel glow in several years now that Lord Geomyr has banned them.||||Next|nocmar_trade_5||||||||||||||};
+{nocmar_trade_5|So, unfortunately I can\'t sell you any of my weapons.||||Bye|X||||||||||||||};
+{nocmar_quest|Unnmir sent you huh? I guess it must be important then.|qnocmar|||Next|nocmar_quest_1||||||||||||||};
+{nocmar_quest_1|Ok, these old weapons have lost their inner glow now that they haven\'t been used in a while.||||Next|nocmar_quest_2||||||||||||||};
+{nocmar_quest_2|To make the heartsteel glow again, we will need a heartstone. ||||Next|nocmar_quest_3||||||||||||||};
+{nocmar_quest_3|Years ago, we used to fight the liches of Undertell. I have no idea if they still haunt that place.||||Undertell|nocmar_quest_4||||||||||||||};
+{nocmar_quest_4|Undertell; the pits of the lost souls. Travel south and enter the caverns of the Dwarves. Follow the horrid smell from there.||||Next|nocmar_quest_5||||||||||||||};
+{nocmar_continue|Have you found a heartstone yet?||||Yes|nocmar_complete||heartstone|1|Background|nocmar_quest_1||||Not yet|nocmar_continue_2||||};
+{nocmar_continue_2|Please keep looking. Unnmir must have something important planned for you.||||Bye|X||||||||||||||};
+{nocmar_quest_5|Beware the liches of Undertell, if they still are around. Those things can kill you by their gaze alone.||||Bye|X||||||||||||||};
+{nocmar_complete|By the shadow. You actually found a heartstone. I thought I wouldn\'t live to see the day.|qnocmar_complete|120||Next|nocmar_complete_2||||||||||||||};
+{nocmar_complete_2|Can you see the glow? It\'s literally pulsating.||||Next|nocmar_complete_3||||||||||||||};
+{nocmar_complete_3|Quick. Let\'s get these old heartsteel weapons glow again.||||Next|nocmar_complete_4||||||||||||||};
+{nocmar_complete_4|*Nocmar places the heartstone among the heartsteel weapons*||||Next|nocmar_complete_5||||||||||||||};
+{nocmar_complete_5|Can you feel it? The heartsteel is glowing again.||||Trade|S||||Bye|X|||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_tavern">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{bela|Welcome to Fallhaven Tavern. Have a seat anywhere.||||Trade|S||||Room|bela_room_select||||Bye|X||||};
+{bela_room_1|A room for the night will cost you 10 gold.||||Buy [10 gold]|bela_room_2||||Back|bela|||||||||};
+{bela_room_2|Thanks. Take the last room down at the end of the hall.|qfallhaven_tavern_room2||-10|Back|bela||||Bye|X|||||||||};
+{bela_room_3|I hope the room suits your needs. It\'s the last room down at the end of the hall.||||Back|bela||||Bye|X|||||||||};
+{bela_room_select||||||bela_room_3|qfallhaven_tavern_room2||||bela_room_1|||||||||};
+{ganos|You seem familiar somehow.||||Trade|S||||Thieves guild|ganos_1|qgruil_andor_complete|||Bye|X||||};
+{ganos_1|Thieves guild? How would I know? Do I look like a thief to you?! Hrmpf.||||Leave|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_arcir">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{arcir_start|Hello. I\'m Arcir.||||Elythara|arcir_elythara_1|qarcir|||Books|arcir_books_1||||Bye|X||||};
+{arcir_anythingelse|Anything else you wanted to ask?||||Elythara|arcir_elythara_1|qarcir|||Books|arcir_books_1||||Bye|X||||};
+{arcir_elythara_1|You found my statue in the basement I guess?\n\nYes, Elythara is my protector.||||Back|arcir_anythingelse||||||||||||||};
+{arcir_books_1|I find great pleasure in my books. They contain past generations\' accumulated knowledge.||||Calomyran secrets|arcir_calomyran_select|qfallhaven_oldman|||Back|arcir_anythingelse|||||||||};
+{arcir_calomyran_1|\'Calomyran Secrets\'? Hm, yes I think I have one of those in my basement.||||Next|arcir_calomyran_2||||||||||||||};
+{arcir_calomyran_2|Old man Benradas came by last week, wanting to sell me that book. Since it\'s not really my kind of book, I declined.||||Next|arcir_calomyran_3||||||||||||||};
+{arcir_calomyran_3|He seemed upset that I didn\'t like his book, and threw it at me while storming out of the house.||||Next|arcir_calomyran_4||||||||||||||};
+{arcir_calomyran_4|Poor old man Benradas, he probably forgot that he left it here. He tends to forget things.||||Back|arcir_anythingelse||||||||||||||};
+{arcir_calomyran_5|You looked downstairs but didn\'t find it? And a note you say? I guess there must have been someone in my house.||||Next|arcir_calomyran_6||||||||||||||};
+{arcir_calomyran_select||||||arcir_calomyran_complete|qfallhaven_oldman_complete||||arcir_calomyran_5|qcalomyran_tornpage||||arcir_calomyran_1||||};
+{arcir_calomyran_complete|I heard you found it and gave it back to old man Benradas. Thank you. He tends to forget things.||||Back|arcir_anythingelse||||Bye|X|||||||||};
+{arcir_calomyran_6|What did the note say?\n\nLarcal.. I know of him. Always causing trouble. He is usually in the barn to the east of here.||||Thanks, bye|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_church">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{chapelgoer|Shadow, embrace me.||||Bye|X||||||||||||||};
+{thoronir_default|Bask in the shadow, my child.||||Shadow|thoronir_shadow_1||||Church|thoronir_church_1||||Trade|thoronir_trade_bonemeal|qthoronir_complete|||};
+{thoronir_shadow_1|Shadows protect us from the dangers of the night. It keeps us safe and comforts us when we sleep.||||Glow of the shadow|thoronir_tharal_select|qtharal_complete|||Back|thoronir_default||||Bye|X||||};
+{thoronir_church_1|This is our chapel of worship in Fallhaven. Our community turns to us for support.||||Next|thoronir_church_2||||||||||||||};
+{thoronir_church_2|This church has withstood hundreds of years, and has been kept safe from graverobbers.||||Next|thoronir_church_3||||||||||||||};
+{thoronir_tharal_select||||||thoronir_trade_bonemeal|qthoronir_complete||||thoronir_tharal_1|||||||||};
+{thoronir_tharal_1|Glow of the shadow indeed my child. So my old friend Tharal in Crossglen village sent you?||||Next|thoronir_tharal_2||||||||||||||};
+{thoronir_church_3|The catacombs beneath the church houses great leaders of the past. Our great Luthor is rumored to be buried there.||||Enter|thoronir_church_4|qbucus|||Back|thoronir_default||||Bye|X||||};
+{thoronir_church_4|Noone is allowed down in the catacombs, except for Athamyr, my apprentice. He is the only one that has been down there for years.|qthoronir_catacombs|||Back|thoronir_default||||||||||||||};
+{thoronir_tharal_2|Shhh, we shouldn\'t talk so loud about using Bonemeal. As you know, Lord Geomyr issued a ban on all use of Bonemeal.||||Next|thoronir_tharal_3||||||||||||||};
+{thoronir_tharal_3|When the ban came, I did not dare keep any, so I threw away my whole supply. Quite foolish now that I look back at it.||||Next|thoronir_tharal_4||||||||||||||};
+{thoronir_tharal_4|Do you think you could find me 5 skeletal bones that I can use for mixing a bonemeal potion? The bonemeal is very potent in healing old wounds.||||Sure|thoronir_tharal_5||||Done|thoronir_tharal_complete||bone|5|Bye|X||||};
+{thoronir_tharal_5|Thank you, please be back soon. I heard there were some undead near an old abandoned house just north of Fallhaven. Maybe you can check for bones there?||||Back|thoronir_default||||Bye|X|||||||||};
+{thoronir_tharal_complete|Thank you, these bones will do fine. Now I can start creating a bonemeal healing potion for you.|qthoronir_complete|90||Next|thoronir_complete_2||||||||||||||};
+{thoronir_complete_2|Give me some time to mix the bonemeal potion. It is a very potent healing potion.||||Bye|X||||||||||||||};
+{thoronir_trade_bonemeal|The bonemeal potions are ready. Please use them with care, and don\'t let the guards see you. We are not actually allowed to use them anymore.||||Trade|S||||Back|thoronir_default||||Bye|X||||};
+{catacombguard|Turn back while you still can, mortal. This is no place for you. Only death awaits you here.||||Turn back|X||||Proceed|catacombguard1|||||||||};
+{catacombguard1|Nooo, you shall not pass!||||Fight|F||||||||||||||};
+{luthor|*hissss* What mortal distubs my sleep?||||Fight|F||||||||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_athamyr">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{athamyr|Walk with the shadow.||||Catacombs|athamyr_select|qthoronir_catacombs|||Bye|X|||||||||};
+{athamyr_1|Yes, I have been down in the catacombs beneath Fallhaven Church. ||||Next|athamyr_2||||||||||||||};
+{athamyr_2|But I\'m the only one that both has the permission and the bravery to go down there.||||Permission|athamyr_3||||||||||||||};
+{athamyr_3|You want to go down in the catacombs? Hm, maybe we can make a deal.||||Next|athamyr_4||||||||||||||};
+{athamyr_4|Bring me some of that fine cooked meat from the tavern and you can have my permission to go down in the catacombs beneath Fallhaven Church.||||Done|athamyr_complete||meat_cooked|1|Bye|X|||||||||};
+{athamyr_complete_2|Thanks for helping me. You have my permission to go down in the catacombs beneath Fallhaven Church.|qfallhaven_church|||Bye|X||||||||||||||};
+{athamyr_select||||||athamyr_complete_2|qathamyr_complete||||athamyr_1|||||||||};
+{athamyr_complete|Thanks, this will do nicely.|qathamyr_complete|70||Next|athamyr_complete_2||||||||||||||};
+	</string>
+	
+	<string name="conversationlist_fallhaven_larcal">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{larcal|I don\'t have time for you kid. Get lost.||||Calomyran Secrets|larcal_1|qcalomyran_tornpage|||Bye|X|||||||||};
+{larcal_1|Now now, what have we here? Are you implying that I have been down in Arcir\'s basement?||||Next|larcal_2||||||||||||||};
+{larcal_2|So, maybe I was. The book is mine anyway.||||Next|larcal_3||||||||||||||};
+{larcal_3|Look, let\'s solve this peacefully. You walk away and forget about that book, and you might still live.||||Leave|larcal_4||||No|larcal_5|||||||||};
+{larcal_4|Good boy. Now run away.||||Bye|X||||||||||||||};
+{larcal_5|Ok, now you\'re starting to annoy me kid. Get lost while you still can.||||Leave|X||||No|larcal_6|||||||||};
+{larcal_6|Still here? Ok then, if you want the book that bad you will have to take it from me!||||Fight|F||||Leave|X|||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_unnmir">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{unnmir|Hi there.||||Drunken story|unnmir_1|qfallhaven_drunk_complete|||Bye|X|||||||||};
+{unnmir_1|That old drunk over at the tavern told you his story did he?||||Next|unnmir_2||||||||||||||};
+{unnmir_2|Same old story. We used to travel together a few years back.||||Next|unnmir_3||||||||||||||};
+{unnmir_3|Real adventuring you know, swords and spells.||||Next|unnmir_4||||||||||||||};
+{unnmir_4|But then we stopped. Can\'t really say why, I guess we got tired of life on the road. We settled down here in Fallhaven.||||Next|unnmir_5||||||||||||||};
+{unnmir_5|Nice little town here. Many thieves around though, but they don\'t bother me.||||Next|unnmir_6||||||||||||||};
+{unnmir_6|So what\'s your story kid? How did you end up here in Fallhaven?||||Brother|unnmir_7||||Bye|X|||||||||};
+{unnmir_7|Yeah yeah, I get it. Your brother has probably run off to some dungeon wanting to do adventuring. *rolls eyes*||||Next|unnmir_8||||||||||||||};
+{unnmir_8|Or maybe he has gone to the one of the bigger cities to the north.||||Next|unnmir_9||||||||||||||};
+{unnmir_9|Can\'t say I blame him for wanting to see the world.||||Next|unnmir_10||||||||||||||};
+{unnmir_10|Hey by the way, are you also looking to be an adventurer?||||Yes|unnmir_11||||Not really|unnmir_12|||||||||};
+{unnmir_11|Nice. I\'ll give you a hint kid. *snickering*. Go see Nocmar over by the west side of town. Tell him I sent you.|qnocmar_unnmir|||Next|unnmir_13||||||||||||||};
+{unnmir_12|Smart move. Adventuring leads to a lot of scars. If you know what I mean.||||Bye|X||||||||||||||};
+{unnmir_13|His house is just southwest of the tavern.||||Thanks|X||||||||||||||};
+	</string>
+
+	<string name="conversationlist_fallhaven_gaela">
+[ID|Text|EnableKey|RwdExp|RwdGold|Rep_text0|Rep_id0|Rep_reqKey0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqKey1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqKey2|Rep_itemTag2|Rep_itemQty2|];
+{gaela|Swift is my blade. Poisoned is my tongue. Or was it the other way around?||||Thieves|gaela_1||||Bye|X|||||||||};
+{gaela_1|Yes, we thieves have a strong presence here in Fallhaven.||||Next|gaela_2|qgruil_andor_complete|||Bye|X|||||||||};
+{gaela_2|I heard that you helped Gruil, a fellow thief in Crossglen village.||||Next|gaela_3||||||||||||||};
+{gaela_3|Word has also reached me that you are looking for someone. I might be able to help you.||||Next|gaela_4||||||||||||||};
+{gaela_4|You should go talk to Bucus in the derelict house a bit southwest of here. Tell him you want to know more about the Thieves guild.|qbucus_thieves|||Thanks|gaela_5||||||||||||||};
+{gaela_5|Consider it a favor done in return for you helping Gruil.||||Bye|X||||||||||||||};
+	</string>
+
 </resources>

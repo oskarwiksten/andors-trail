@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="19" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="19" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA8tiYGDIoiJOYWJgSGaijIaZVQJkFzNRRsPMMqACRjbrLQsDwzsWhBw6n5AaZLP+AsX+IalD5xNSk8xEPT8WQ+MggZk65oHigBrmgLAhFTEAsQVNvvgCAAA=
+  </data>
+ </layer>
+ <layer name="Objects" width="19" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoD7IYGdg2MyO4KOzjVhQxdHVEwM4WMlzWwULgr2XHZUPk+djR+X3A/mRzITN5ofqWwmkk1nwq8UF7NHCoY7EcFmCxd5+HGZgU0tN4I8WZvOA7lgPxQuA+AkbJKyR3QESQ1dHbljiAwDtX1vq+AIAAA==
+  </data>
+ </layer>
+ <layer name="Above" width="19" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoC74zzw0zZrJTj2zSAEjwaz3eMxKZqGePaQAAO+fA1f4AgAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="19" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHAEYBtDZyHxsYrjMwqWOgQQ1tDALG8Anh00tKeqJMQ/dbFxxg0sNIf3kYAC3Wh01+AIAAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="19" height="10">
+  <object name="up" type="mapchange" x="576" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_church"/>
+    <property name="place" value="down"/>
+   </properties>
+  </object>
+  <object name="down" type="mapchange" x="32" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="catacombs2"/>
+    <property name="place" value="up"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="19" height="10"/>
+ <objectgroup name="Spawn" width="19" height="10">
+  <object name="catacombguard1" type="spawn" x="224" y="224" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn_rats" width="19" height="10" visible="0">
+  <object name="catacombrat1" type="spawn" x="64" y="128" width="512" height="160">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -46,6 +46,9 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private boolean hasSurface = false;
 
     private final Coord lastTouchPosition = new Coord();
+    public boolean inhibitClicks = false;
+    private long lastTouchEventTime = 0;
+    private static final long MINIMUM_INPUT_INTERVAL = 200;
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -157,24 +160,24 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
+		if (inhibitClicks) return true;
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
+		case MotionEvent.ACTION_MOVE:
+			final long now = System.currentTimeMillis();
+			if ((now - lastTouchEventTime) < MINIMUM_INPUT_INTERVAL) return true;
+			
+			lastTouchEventTime = now;
 			lastTouchPosition.set((int)event.getX(), (int)event.getY());
 			if (!model.uiSelections.isInCombat) {
 				final Coord tilePosition = getScreenToTilePosition(lastTouchPosition);
 				final int dx = tilePosition.x - model.player.position.x;
 				final int dy = tilePosition.y - model.player.position.y;
-				view.movementController.movePlayer(sgn(dx), sgn(dy));
+				movePlayer(dx, dy);
 				return true;
 			}
 		}
 		return super.onTouchEvent(event);
-	}
-	
-	private static int sgn(final int v) { 
-		if (v == 0) return 0;
-		else if (v > 0) return 1;
-		else return -1;
 	}
     
     private Coord getScreenToTilePosition(Coord c) {

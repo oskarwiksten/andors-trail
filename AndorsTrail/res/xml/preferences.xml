@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="Display">
+		<CheckBoxPreference
+			android:title="Fullscreen"
+			android:defaultValue="true"
+			android:summary="Displays the game in fullscreen mode. (Requires restart)"
+			android:key="fullscreen" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="Dialog confirmation">
+		<CheckBoxPreference
+			android:title="Confirm rest"
+			android:defaultValue="true"
+			android:summary="Gives a question about whether you want to rest when entering a bed. Otherwise, you will always automatically rest."
+			android:key="confirm_rest" />
+		<CheckBoxPreference
+			android:title="Confirm attack"
+			android:defaultValue="true"
+			android:summary="Enables the 'Do you want to attack..?' dialog box when attacking a monster."
+			android:key="confirm_attack" />
+		<ListPreference
+			android:title="Display monster loot"
+			android:summary="Choose how you want to show the results of a fight to be shown (gold, experience, items)."
+			android:key="display_lootdialog"
+			android:defaultValue="0"
+			android:entries="@array/display_loot"
+			android:entryValues="@array/display_loot_values" />
+	</PreferenceCategory>
+</PreferenceScreen>

@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA51UOw7CMAxtaMo92GCEgVaIudwAxM4FkPjMMDF14CwdOAj34AiQkFh9MUna8qQocW2/PMdJV1mSbNRYeeZCjVIkX+T2+zhr1hq1NHZh7RAXxRPfKHPzcI0gHXlA30L85vgwAn2EnHH1xRZquEi3joey9/I3h8dzvrkw49ChrokdaBP/xPJx7ESzh2+E9q2s5n/OKbYnItaP0P3Q0L2trI/nxvIQoX5Qrs/PNXDgOyE+jqN049u0/ntXfXrwrlJ9+FbXmdG3juzXphn7eWX9vnV8uwhf/cOe/cYYjJ0NzPxKlTZV91TZpwCX70zoDjzsmb3TxrdU66c0vCHEzlmjVP67cDXp//EZOEMcFxajuWgmxP5NeL9r8H8AFk9r+UAGAAA=
+   H4sIAAAAAAAAA51UOxLCIBANBryHnZZaGMexjjfQsfcCzviptbJK4VlSeBDv4REUhJ08ViDRN8PAht3HW3bJUmXZWo9lYJ7pUYrsg8J9H6pmbVBLa8+cHeMif+IbKD8O1wjSUUT0zcV3TAgD0EcoGNev2EAOZ+nncdf2Tn7HcH/ONxV27DvkNXIDbeIfOT6OrWjOCI3YuZXT/M89pc5EpOoR6w8DU9vK7fHYVBwiVg+KDe1zDRz4ToiP4yB9/zat//ZqSA/2KuWHb3WlrL5V4rw2zVjPC6v3tePbRYTy7/9Yb/RB30nPzs9ca9N5j7V9jHCF7oR64O7u7JU3ewu9fkjLG0Pqng1KvX8TvibzPz6BHePA/jU+hotmQurfhP1dw/4blUBDTkAGAAA=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
@@ -63,7 +63,7 @@
    H4sIAAAAAAAAA2NgIB9osNJWPa0AKe5QZ6Wtu2ltPjXN7kczC+Z2bH4g1l/U9D+6+0gFpLqFWPXk+g/dfHUs5iCrcUOjKXEPrdLkf2YIhgFiwhCXGpA579HMwwUIhQlInhhzSDFzEiNx9pJiTxiB9EBvAABrtsfWQAYAAA==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA61UMRIAIAjyC/7/s00tXgKh3LWUoqKZEZHgXChvnV21R36djcrJgGpyuJAWyIfl5qJquoWJTk6MGkfV9bcfSj4uXrlM423Ww3RW5sjpy9afQztH4ej4lBzR/WSGGR/jVGvf2qkHOTGxsEAGAAA=
   </data>
@@ -86,7 +86,12 @@
     <property name="place" value="east"/>
    </properties>
   </object>
-  <object name="east" type="mapchange" x="608" y="224" width="32" height="32"/>
+  <object name="east" type="mapchange" x="608" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_nw"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
   <object name="jan_pitcave" type="mapchange" x="192" y="544" width="32" height="32">
    <properties>
     <property name="map" value="jan_pitcave1"/>
@@ -94,7 +99,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="Jan" type="spawn" x="192" y="416" width="32" height="32"/>
   <object name="forestwasp" type="spawn" x="352" y="512" width="288" height="128">
    <properties>
@@ -106,7 +111,7 @@
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="forestant" type="spawn" x="480" y="0" width="160" height="96">
+  <object name="forestant" type="spawn" x="448" y="64" width="160" height="96">
    <properties>
     <property name="quantity" value="2"/>
    </properties>

@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 
+import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
@@ -81,6 +82,7 @@ public final class WorldSetup {
 				} else {
 					continueWorld();
 				}
+		    	Preferences.read(androidContext.get(), world.model.uiSelections);
 				return null;
 			}
 
@@ -105,7 +107,7 @@ public final class WorldSetup {
 		if (world.model != null) world.reset();
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
-		Controller.playerRested(world, true);
+		Controller.playerRested(world);
 		MovementController.respawnPlayer(world);
 	}
 

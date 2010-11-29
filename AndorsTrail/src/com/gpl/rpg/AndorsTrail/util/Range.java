@@ -45,7 +45,10 @@ public final class Range {
 	public boolean isMax() { return current >= max;	}
 	public void setMax() { current = max; }
 	public int average() {
-		return current + (max - current);
+		return (max + current) / 2;
+	}
+	public float averagef() {
+		return ((float) max + current) / 2f;
 	}
 	
 

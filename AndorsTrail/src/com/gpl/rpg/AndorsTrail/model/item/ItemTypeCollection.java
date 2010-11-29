@@ -20,6 +20,7 @@ public final class ItemTypeCollection {
 	public ItemType getItemTypeByTag(String searchTag) {
 		for(ItemType t : itemTypes) {
 			if (t.searchTag.equalsIgnoreCase(searchTag)) return t;
+			if (t.name.equalsIgnoreCase(searchTag)) return t;
 		}
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			L.log("WARNING: Cannot find ItemType for searchtag \"" + searchTag + "\".");
@@ -50,8 +51,10 @@ public final class ItemTypeCollection {
         			, ResourceLoader.parseCombatTraits(parts, 6)
     			));
     		
-    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA && getItemTypeByTag(searchTag).id != nextId) {
-    			L.log("OPTIMIZE: Item " + searchTag + " may be duplicated.");
+    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+    			if (getItemTypeByTag(searchTag).id != nextId) {
+    				L.log("OPTIMIZE: Item " + searchTag + " may be duplicated.");
+    			}
     		}
     		
         	++nextId;

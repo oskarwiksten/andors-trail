@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="12" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="20" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA5WQzQ3CMAxGTRJZ6kycemABJNagbJATCwATAMvBBnDCVmTlh7hJDk9Kvziv8jcBwKSw34yjucS3mJxalt61fN7kcHbB+M3nK3HDPt8MkZ0N2R1jxucH8cS+PlIfw3uVmSBvtD4Y2UXe+A5f2VGK7LK1uqf01WbPqL9p+Vr/XfO9HPVCvF3sbsRXzh/J421gMev91ijnP+Q7EV8X7g6QM8N/NsIPFURebcADAAA=
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGBiwjhk/n1igxQrBe9H0o/OJBZZAs6xYITQymMLOwBDARrp5PayE1ehgUQMKj1x2BJsUsJuFgWEPC6oYcnjgCptkFkwxkNtOA8XPoMm9h4bFFHb8+nEBZD9vJCKMkEE3WjzkMUMwDBzEYh7MjgQk98Lc0MKOqR4ZXISqY2ZH+BEkBnJHAZJeH6g65DAB6aljg2BaAAD4BnpfwAMAAA==
+  </data>
+ </layer>
+ <layer name="Above" width="20" height="12">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoC/4z0ycGCnmebEyMGixooq1sJNvHjaxZBbqmkeqHhh4j0UOmxgu88gNl2Vo4UtueGAD+PwbgMW95ISfAB5/EzKPUPhSqp4SAADY4MOGwAMAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="12" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHMU0xcgAnY8uR6qZ2MyjhjuJMY8BC41NLzHmEgtwhSkhv+ByJynmoYc7trjAJ4bPXHIxALHjO9TAAwAA
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="20" height="12">
+  <object name="entrance" type="mapchange" x="128" y="352" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_ne"/>
+    <property name="place" value="clothes"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="20" height="12">
+  <object name="fallhaven_clothes" type="spawn" x="160" y="96" width="384" height="224"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="12"/>
+</map>

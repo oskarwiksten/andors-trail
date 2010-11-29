@@ -52,11 +52,11 @@ public final class Player extends Actor {
 		traits.baseCombatTraits.set(combat);
 		
 		traits.maxAP = 10;
-		traits.maxHP = 20;
+		traits.maxHP = 25;
 		
 		traits.name = name;
 		traits.moveCost = 6;
-		useItemCost = 2;
+		useItemCost = 5;
 		reequipCost = 5;
 
 		level = 1;
@@ -140,6 +140,13 @@ public final class Player extends Actor {
 		}
 		this.spawnMap = src.readUTF();
 		this.spawnPlace = src.readUTF();
+		
+		if (fileversion <= 12) {
+			this.useItemCost = 5;
+			this.health.max += 5;
+			this.health.current += 5;
+			this.traits.maxHP += 5;
+		}
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

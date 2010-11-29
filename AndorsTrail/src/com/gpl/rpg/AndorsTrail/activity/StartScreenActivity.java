@@ -15,7 +15,6 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
@@ -34,9 +33,12 @@ public class StartScreenActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AndorsTrailApplication.setWindowParameters(this);
         setContentView(R.layout.startscreen);
 
+        TextView tv = (TextView) findViewById(R.id.startscreen_version);
+        tv.setText("v" + AndorsTrailApplication.CURRENT_VERSION_DISPLAY);
+        
         startscreen_currenthero = (TextView) findViewById(R.id.startscreen_currenthero);
         startscreen_enterheroname = (EditText) findViewById(R.id.startscreen_enterheroname);
         startscreen_enterheroname.setImeOptions(EditorInfo.IME_ACTION_DONE);
@@ -82,7 +84,8 @@ public class StartScreenActivity extends Activity {
         app.setup.startResourceLoader(getResources());
         
         if (AndorsTrailApplication.DEVELOPMENT_QUICKSTART) {
-        	continueGame(true, "Debug player");
+        	final boolean startNewGame = false;
+        	continueGame(startNewGame, "Debug player");
         }
     }
 	

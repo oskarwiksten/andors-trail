@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="8" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC1vCyMCwBYgvQzEzEwPDEkYIPgLFMD4LUO4xIwQLM0HUgsRgeg9DzRIBiukwIDBIrQiSXpg6ZDXYMDHqprITp24pVN0SNHWbseiD+Rdm5mGkMNgMxTA+AA+VUetAAQAA
+  </data>
+ </layer>
+ <layer name="Objects" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgIA2IsDIwfGQlTq0QGwODMROqXmRgApTbwQJht7EzMFxmg4g9AdIr2RHqQPxkFgT/MRofH9iBRd1/Zgj9mRFCf2FEyH1mxFSPDwAAeLjQdEABAAA=
+  </data>
+ </layer>
+ <layer name="Above" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NggID/zAxEAWzq0MVA/PdQsTJ2hDhIbCY7bn3IIJmFOHWE3IYNfGEkTh0xAACc2nRdQAEAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="10" height="8" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAACxNkYGAQpAGGAWqrY8CjDx/AZh4x7iDkNgAS/qKtQAEAAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="10" height="8">
+  <object name="south" type="mapchange" x="64" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="hauntedhouse3"/>
+    <property name="place" value="north"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="10" height="8" visible="0">
+  <object name="skeletonmaster" type="spawn" x="192" y="96" width="96" height="128"/>
+  <object name="skeleton1" type="spawn" x="32" y="64" width="160" height="128"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="10" height="8"/>
+</map>

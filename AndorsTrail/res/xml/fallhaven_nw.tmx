@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2WTQrCMBCFw0APk6WLnkHEtYi41L0L3XuBXkRvoKczQgtDOr9NAi5cfIxJ04Y3My8xhhDiyL4LYd3xMYZ21NxzAzzS3nhuCzzcvgfgodZPOvHcEXg8Or16L8Dj0SnppbgDTy29pdTU6+GUvnuGeWyt95q+e4N5bK13hRjQb6yfek/yqse/cdyXykPu0y+SVy3+teSBOgMlr3r1epC8WqK3BE1vq3xoelvlQzuftedLc6Cdz9rzPAdLvFnSH5N/S73p7Q+pLtTdWqs/pLrg2tS6T7k7m8N6n2rn+G7E2lOPNH4CH/P6WXrFsu6Vxm/go9YnVK9Y1vWIIRv3RP0s/8Os6yYGZv7P7/EBww+lixAOAAA=
+  </data>
+ </layer>
+ <layer name="Objects" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC6VWvU7DMBAmisMT9AW68QQ0AwMSVVV1pYrITAfECGok2LpApUqFiacozB1gZ2HkATIiITEisUCO3MmXy9lN1E+yktiX+3y/dhrt/KOHTx9iJgPysfIPn3fJAFKhS0NTXW0AvFIvIY78PKtwu73cb/hn6lh/DutzTeIF2A/sGAZ1eznGu+XzMaw+XfvyITfW3kFg9wycr6YqO0Hel4KvE5VPgGG8puEeeF4Rb+r4d4TrXVxfKHJ7LXkvjOVd4hz4Ad5n6BNYXzK9tE7vPL/66Ksz4TMNB0E13nL41iE3uJ/GyDfx8HZFfAFzIS9jLTFA3hzlOmwP/L2v6OG8TbBidTQQ9rr2OXbwzhrEg0D1Ozd1XsLIY0us+JlqE2r2J7TfGjJTzzkAz0XKTZIBTqPwUm3ymj13cEM9uXLONc9BvBn6GnKE/HRVcF57bPblRhLV60/7l9ck15d5Yg9ygwY9Y23KfIBB9X7o8BOgy3TK/pxjfBOUoT7+jfKyJglaf7qLrL2JsEP2Z7KXQDlx64mLC1SbpE+rR15znHdq6vLaeaH1cqrNTb2TRtyy5/Bezmv2g9nrOl/J/7kjfpknz96N9ZesWeJtg3WLfgeAnLvEf6aOuPkg++tKyalhWA6A7z40w/ogG55YHD7x/Y3p5/Wi3b2A86Rhjvt6pwuyvqmegfNU+OXIVGUAC9Gv+Dn6G+rzfH9yn+C3XjEX4/xN8X1srAzXo91tAF/sDJR9R8pOhY0Uj4fimdDeWtxtthkEbc++u1ymyK/FGSvP3Cyy37Le+HcaVe8R2l1E63+uPsJ1/AEQQaAnEA4AAA==
+  </data>
+ </layer>
+ <layer name="Above" width="30" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC8WWzQ3CMAyFg9JuwA7puWKCCrEIJxbhVIlRO0LBhwjLcvKcn8InVWrkJLWf7TTOlRFG56axcFHnvVafXn85tfuF9piZPfpwBWtews/AxjEGtMfC7D3itLL77zvyMSLjrWFj3/1lvJFgyCuC6yA1oXHOrvEPHYhWHTirx3OIXZnXo99nsGZL+Me/XaPHcnDuUlrweGPNabWovSMePq0FivfWeEageJFd6qD9TzQtULy1eqRAOml9YrXLvFt7k0j1Sc5O+uZ6FvVmC7mezeWmtU5zoNwdBeXGcnbKfMT6SGliudNZzk7KR8k9rFdN7ZnzjPtG3If6mtK+a5kTPs/U0O8SrUfPI56D9tL+MRx57vS4Lx5N6V2uZcx5DvU+l/IGyDNzbxAOAAA=
+  </data>
+ </layer>
+ <layer name="Walkable" width="30" height="30" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+WTUQ6AMAhDe4Xd/7J+mRgdoyV0xkjih5PxoNQBYPz0wUvMM+5nbt6M4WRn8+Ly7p6ZCbfWDt91xqy3qNesxk5uVbOs1+p+M7bKjf6jClfx4qovto+OULVn8xRfMTXZ71EeExUum7PyKaPzPS/r2+WXr3FX/uvkAs95u3RR77NcVkd2BnYfTu6M0TlvVE/lYnFP8VSkA+uXqic7Yqdf1P066h64+UhYEA4AAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="30" height="30">
+  <object name="east2" type="mapchange" x="928" y="864" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_ne"/>
+    <property name="place" value="west2"/>
+   </properties>
+  </object>
+  <object name="east1" type="mapchange" x="928" y="416" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_ne"/>
+    <property name="place" value="west1"/>
+   </properties>
+  </object>
+  <object name="west" type="mapchange" x="0" y="128" width="32" height="32">
+   <properties>
+    <property name="map" value="wild3"/>
+    <property name="place" value="east"/>
+   </properties>
+  </object>
+  <object name="Signpost" type="sign" x="64" y="224" width="32" height="32">
+   <properties>
+    <property name="text" value="Welcome to Fallhaven. Watch out for pickpockets!"/>
+   </properties>
+  </object>
+  <object name="rigmor" type="mapchange" x="352" y="160" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_rigmor"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="church" type="mapchange" x="768" y="256" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_church"/>
+    <property name="place" value="southwest"/>
+   </properties>
+  </object>
+  <object name="tavern" type="mapchange" x="256" y="416" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_tavern"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="prison" type="mapchange" x="416" y="768" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_prison"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="derelict" type="mapchange" x="128" y="832" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_derelict"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="arcir" type="mapchange" x="800" y="800" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_arcir"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="athamyr" type="mapchange" x="672" y="544" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_athamyr"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="nocmar" type="mapchange" x="160" y="672" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_nocmar"/>
+    <property name="place" value="entrance"/>
+   </properties>
+  </object>
+  <object name="Map not completed" type="sign" x="256" y="928" width="32" height="32">
+   <properties>
+    <property name="text" value="This map is not yet done. Please come back in a later version of the game."/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Citizens" width="30" height="30" visible="0">
+  <object name="fallhaven_citizen1" type="spawn" x="32" y="256" width="737" height="317"/>
+  <object name="fallhaven_citizen2" type="spawn" x="160" y="256" width="480" height="448"/>
+  <object name="fallhaven_citizen4" type="spawn" x="544" y="320" width="352" height="384"/>
+ </objectgroup>
+ <objectgroup name="NPCs" width="30" height="30">
+  <object name="fallhaven_oldman" type="spawn" x="864" y="608" width="32" height="32"/>
+  <object name="fallhaven_guard" type="spawn" x="448" y="832" width="32" height="32"/>
+  <object name="fallhaven_drunk" type="spawn" x="320" y="480" width="32" height="32"/>
+  <object name="fallhaven_priest" type="spawn" x="672" y="320" width="96" height="64"/>
+ </objectgroup>
+</map>

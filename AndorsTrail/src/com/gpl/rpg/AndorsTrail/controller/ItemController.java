@@ -10,7 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class ItemController {
 	private static final int MARKET_PRICEFACTOR_PERCENT = 15;
@@ -88,7 +88,7 @@ public final class ItemController {
 
 	public void handleLootBag(Loot loot) {
     	Dialogs.showGroundLoot(view.mainActivity, view, loot);
-    	consumeLoot(loot, model.player, model.currentMap);
+    	consumeNonItemLoot(loot, model);
 	}
 	
 	private void applyUseEffect(Actor actor, ItemType t) {
@@ -112,14 +112,29 @@ public final class ItemController {
 		}
 	}
 
-	public static void consumeLoot(Loot loot, Player player, LayeredWorldMap currentMap) {
-		player.addExperience(loot.exp);
+	public static void consumeNonItemLoot(Loot loot, ModelContainer model) {
+		model.player.addExperience(loot.exp);
 		loot.exp = 0;
-		player.inventory.gold += loot.gold;
+		model.player.inventory.gold += loot.gold;
 		loot.gold = 0;
 		if (loot.isEmpty()) {
-			currentMap.removeGroundLoot(loot);
+			model.currentMap.removeGroundLoot(loot);
 		}
+	}
+
+	public static void pickupAll(Loot loot, ModelContainer model) {
+		model.player.inventory.add(loot.items);
+		consumeNonItemLoot(loot, model);
+    	loot.clear();
+	}
+	
+	public static boolean removeEmptyLoot(final ViewContext context, final Loot loot) {
+		if (loot.isEmpty()) {
+			context.model.currentMap.removeGroundLoot(loot);
+			context.mainActivity.redrawTile(loot.position, MainView.REDRAW_TILE_BAG_REMOVED);
+			return true;
+		}
+		return false;
 	}
 	
 	public static int getBuyingPrice(Player player, ItemType itemType) {

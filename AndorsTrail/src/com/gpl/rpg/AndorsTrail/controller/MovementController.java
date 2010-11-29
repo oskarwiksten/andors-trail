@@ -25,6 +25,7 @@ public final class MovementController {
 	
 	public void placePlayerAt(String mapName, String placeName) { 
 		placePlayerAt(world, mapName, placeName); 
+		view.mainActivity.clearMessages();
 		view.mainActivity.mainview.notifyMapChanged();
     }
 	public static void placePlayerAt(final WorldContext world, String mapName, String placeName) {
@@ -43,6 +44,8 @@ public final class MovementController {
 		model.currentMap = newMap;
 		model.player.position.set(place.position.topLeft);
 		model.player.lastPosition.set(model.player.position);
+		if (!newMap.visited) newMap.spawnAll(world);
+		newMap.visited = true;
 	}
     
 	public boolean mayMovePlayer() {
@@ -54,24 +57,43 @@ public final class MovementController {
     	if (!mayMovePlayer()) return;
     	//if (isInCombat) return;
 
-    	final Player player = model.player;
-		player.nextPosition.set(
-				player.position.x + dx
-    			,player.position.y + dy
-			);
-    	final Coord newPosition = player.nextPosition;
-    	if (!model.currentMap.isWalkable(newPosition)) {
-    		return;
-    	} 
+    	if (!findWalkablePosition(dx, dy)) return;
     	
-    	Monster m = model.currentMap.getMonsterAt(newPosition);
+    	Monster m = model.currentMap.getMonsterAt(model.player.nextPosition);
 		if (m != null) {
-			view.controller.steppedOnMonster(m, newPosition);
+			view.controller.steppedOnMonster(m, model.player.nextPosition);
 			return;
 		}
 
 		moveToNextIfPossible(true);
     }
+    
+    private boolean findWalkablePosition(int dx, int dy) {
+    	if (tryWalkablePosition(sgn(dx), sgn(dy))) return true;
+    	if (dx == 0 || dy == 0) return false;
+    	if (abs(dx) > abs(dy)) return tryWalkablePosition(sgn(dx), 0);
+    	return tryWalkablePosition(0, sgn(dy));
+    }
+    private boolean tryWalkablePosition(int dx, int dy) {
+    	final Player player = model.player;
+    	player.nextPosition.set(
+				player.position.x + dx
+    			,player.position.y + dy
+			);
+    	if (model.currentMap.isWalkable(player.nextPosition)) return true;
+    	return false;
+    }
+	
+	private static int sgn(final int v) { 
+		if (v == 0) return 0;
+		else if (v > 0) return 1;
+		else return -1;
+	}
+	private static int abs(final int v) { 
+		if (v == 0) return 0;
+		else if (v > 0) return v;
+		else return -v;
+	}
     
     public void moveToNextIfPossible(boolean handleEvents) {
     	final Player player = model.player;
@@ -90,16 +112,11 @@ public final class MovementController {
 		view.mainActivity.mainview.notifyPlayerMoved();
 		
 		if (handleEvents) {
-	    	for (MapObject o : currentMap.eventObjects) {
-	    		if (o.position.contains(newPosition)) {
-	    			view.controller.handleMapEvent(o);
-	    		}
-	    	}
+			MapObject o = currentMap.getEventObjectAt(newPosition);
+			if (o != null) view.controller.handleMapEvent(o);
 	    	
 	    	Loot loot = currentMap.getBagAt(newPosition);
-	    	if (loot != null) {
-	    		view.itemController.handleLootBag(loot);
-	    	}
+	    	if (loot != null) view.itemController.handleLootBag(loot);
 		}
     }
 

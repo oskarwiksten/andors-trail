@@ -73,30 +73,43 @@ public final class LevelUpActivity extends Activity {
         lv.setAdapter(new LevelUpSelectionAdapter(this, items));
         */
         
-        ((Button) findViewById(R.id.levelup_add_health)).setOnClickListener(new OnClickListener() {
+        Button b;
+        
+        b = (Button) findViewById(R.id.levelup_add_health);
+        b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				levelup(SELECT_HEALTH);
 			}
 		});
-        ((Button) findViewById(R.id.levelup_add_attackchance)).setOnClickListener(new OnClickListener() {
+        b.setText(getString(R.string.levelup_add_health, Controller.LEVELUP_EFFECT_HEALTH));
+        
+        b = (Button) findViewById(R.id.levelup_add_attackchance);
+        b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				levelup(SELECT_ATK_CH);
 			}
 		});
-        ((Button) findViewById(R.id.levelup_add_attackdamage)).setOnClickListener(new OnClickListener() {
+        b.setText(getString(R.string.levelup_add_attackchance, Controller.LEVELUP_EFFECT_ATK_CH));
+        
+        b = (Button) findViewById(R.id.levelup_add_attackdamage);
+        b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				levelup(SELECT_ATK_DMG);
 			}
 		});
-        ((Button) findViewById(R.id.levelup_add_blockchance)).setOnClickListener(new OnClickListener() {
+        b.setText(getString(R.string.levelup_add_attackdamage, Controller.LEVELUP_EFFECT_ATK_DMG));
+        
+        b = (Button) findViewById(R.id.levelup_add_blockchance);
+        b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				levelup(SELECT_DEF_CH);
 			}
 		});
+        b.setText(getString(R.string.levelup_add_blockchance, Controller.LEVELUP_EFFECT_DEF_CH));
     }
 
     private static final int SELECT_HEALTH = 0;

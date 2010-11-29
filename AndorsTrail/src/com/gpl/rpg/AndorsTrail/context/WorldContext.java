@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.context;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.EffectCollection;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -46,5 +47,20 @@ public class WorldContext {
 	}
 	public void reset() {
 		maps.reset();
+	}
+	
+	// Selftest method. Not part of the game logic.
+	public void verifyData() {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			//Ensure that all phrases that require an item have some droplist that contains them
+			conversations.verifyData(dropLists);
+			
+			//Ensure that all phrases are requested at least once, either by NPCs or by other phrases.
+			conversations.verifyData(monsterTypes);
+			
+			//TODO: Ensure that all items have at least one corresponding droplist
+			//TODO: Ensure that all droplists are used by monsters
+			//TODO: Ensure that all monsters are used in spawnareas
+		}
 	}
 }

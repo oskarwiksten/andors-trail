@@ -39,6 +39,15 @@
 				android:maxLines="1"
 				/>
 		</LinearLayout>
+		
+		<TextView
+			android:id="@+id/startscreen_version"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentRight="true"
+			android:text="v0.0.1"
+			/>
 	</RelativeLayout>
 
 	<Button
@@ -52,6 +61,7 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
+		android:gravity="center_vertical"
 		>
 		<Button
 			android:id="@+id/startscreen_newgame"

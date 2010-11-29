@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA1NjYGBQowCnM+HGuORhesuZcGNc8jC9AUjYkhmCYXx0eWRxXHLU0AvyG7l6y/HoxWUuIZzOhNtcfNiTGaLPlAETB2ARw4YB0qlcUFgCAAA=
+  </data>
+ </layer>
+ <layer name="Objects" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoA5Yx8zAcIQdwV7JhpDzZkGl0cFeZuxsEIgG6mFlhdDIQAcoJsWK4K8G6hME2r+fDVXdVaC+HqC6XjRxVXYEuwyo5j9Q/3kkNUJI7LlI7F1o7gOZ/R9J7D+aPDI4BZS7CsRHofg0EL9HUg9i32dH4AfsuM0iBcwDmrMeiBcAcTKOOAABVSrZBwIAe8d6l1gCAAA=
+  </data>
+ </layer>
+ <layer name="Above" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoAz8ZyZfHl1uNTN+eUJyyGK0tPc2kvxuNLXn2BkYziPhC+zEmQsC99hxyxHSiw+8p0AvuQAACG4FRVgCAAA=
+  </data>
+ </layer>
+ <layer name="Walkable" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHMKYAY84A5I8NnW45LEBQnrx6SdFLz5/kgpINQdfeBIKb3QMANMM0CxYAgAA
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="15" height="10">
+  <object name="entrance" type="mapchange" x="160" y="288" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_nw"/>
+    <property name="place" value="prison"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="15" height="10">
+  <object name="fallhaven_prisoner" type="spawn" x="288" y="96" width="160" height="96"/>
+  <object name="fallhaven_guard" type="spawn" x="416" y="224" width="32" height="32"/>
+  <object name="fallhaven_guard" type="spawn" x="32" y="224" width="32" height="32"/>
+  <object name="fallhaven_warden" type="spawn" x="96" y="128" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="15" height="10"/>
+</map>

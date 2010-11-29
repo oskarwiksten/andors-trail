@@ -55,12 +55,12 @@
  </layer>
  <layer name="Objects" width="21" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC4VU2w3CMBBrpXSWdoIGMUAr8U9ZgBHoAO0HYh9+WIQB2ISc1FMOx1csRZWS2Ofco2NTVZe0RvM9pBWd/aGuqta5jzy7H9ISRNgXiCbyFNd01tc5XmfOEBJj2s6PibOGrGvRbjosHoPemUPmWx7Lh2INpV6Etyyh3MN8LESH6drY6JPFRnhx9O2M/yR5xnePTVkH9M7OPZ7Xn9Yrvl85lvdPl/nB+kbwwfisv+dQ1kzROXpMV/gfyLfMwdmJ78078zEb3Rk0bT5wrtEPainuIc+s9fkwd7WXfryA1mpqLnovc67z1dd53erSC8O0kxsPJ6Pt9ak3ZyOJI3cH8Iu63jx7dRegpt7f6wfNs9dHqmn75L3z7xLf+P/Ed6nmtNVW/9/sy3S+rZJQreQGAAA=
+   H4sIAAAAAAAAC4VU2w3CMBBrpXSWdgKCGKCV+KcswAJIdID2A7EPPyzCAGxCTuoph+MrlqJKSexz7tGhqapzWoP57tOKzn5fV1Xr3Eee3Q9pCSLsC0QTeYpLOtvVOV5nzhASY1zPD4mzhKxr0a46LB6D3plC5lsey4diCaVehLfModzDfMxEh+na2OiTxUZ4cfTtjP8kecZ3D01ZB/TOzj2e15/WK75fOZb3T5f5wfpG8MH4rL+nUNZM0Tl6TFf4H8i3zMHJie/NO/MxGd0JNG0+cK7RD2op7iHPrPX5MHe1l368gNZiai56L3Ou87Wr87rVpReGcSM3DNcU62i0vT715mwgceRuD35R15tnr+4C1NT7W/2gefb6SDVtn7w3/l3iG/+f+C7VHNfa6v+bfZnOF8CeSGTkBgAA
   </data>
  </layer>
  <layer name="Above" width="21" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGDjgxkp9M9WBZmpgMRebGLHmjTSAKwyJAdj0IYchSB6f+TBxdDXkuocQINY9MDeRYz4hAMoHbiTaQ6vwIAVQI29QswyAmUVJXkdOD4TyAbXLBnW0tE9JPiQEkM0lNQ6w+RubOwmZS2r4kRseAGIKVj3kBgAA
+   H4sIAAAAAAAAC2NgGDjgxkp9M9WBZmpgMRebGLHmjTSAKwyJAdj0IYchSB6f+TBxdDXkuocQINY9MDeRYz4hAMoHbiTaQ6vwIAVQI29QswyAmUVJXkdOD4TyAbXLBnW0tE9JPiQEkM0lNQ6I9Tchc0kNP3LDAwCSEKc95AYAAA==
   </data>
  </layer>
  <layer name="Walkable" width="21" height="21">
@@ -81,8 +81,22 @@
     <property name="place" value="north"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="384" y="0" width="32" height="32"/>
-  <object name="east" type="mapchange" x="640" y="32" width="32" height="32"/>
+  <object name="east" type="mapchange" x="640" y="32" width="32" height="32">
+   <properties>
+    <property name="map" value="wild4"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
+  <object name="Signpost" type="sign" x="128" y="512" width="32" height="32">
+   <properties>
+    <property name="text" value="West: Crossglen\nSouth: Fallhaven"/>
+   </properties>
+  </object>
+  <object name="Map not complete" type="sign" x="384" y="0" width="32" height="32">
+   <properties>
+    <property name="text" value="This map is not yet done. Please come back in a later version of the game."/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Spawn" width="21" height="21">
   <object name="forestdog" type="spawn" x="96" y="64" width="224" height="224">

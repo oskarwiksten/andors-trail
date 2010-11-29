@@ -57,12 +57,12 @@ public final class MonsterMovementController {
     				,m.monsterType.tileSize
 				);
     		
-    		if (!monsterCanMoveTo(p)) {
+    		if (!model.currentMap.monsterCanMoveTo(p)) {
     			cancelCurrentMonsterMovement(m);
     			return false;
     		}
 			if (p.contains(model.player.position)) {
-				if (!m.monsterType.isAgressive()) {
+				if (!m.isAgressive()) {
 					cancelCurrentMonsterMovement(m);
 					return false;
 				}
@@ -79,12 +79,6 @@ public final class MonsterMovementController {
     	m.movementDestination = null;
 		m.nextActionTime += m.millisecondsPerMove * ModelContainer.rollValue(ModelContainer.monsterWaitTurns);
     }
-
-	private boolean monsterCanMoveTo(final CoordRect p) {
-		if (!model.currentMap.isWalkable(p)) return false;
-		if (model.currentMap.getMonsterAt(p) != null) return false;
-    	return true;
-	}
 
 	private static int sgn(int i) {
 		if (i <= -1) return -1;

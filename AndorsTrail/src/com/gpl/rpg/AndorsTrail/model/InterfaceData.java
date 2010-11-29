@@ -15,6 +15,16 @@ public final class InterfaceData {
 	public Coord selectedPosition;
 	public String selectedTabHeroInfo = "";
 	
+	//Loaded from shared preferences, should not be parceled.
+	public boolean confirmRest = true;
+	public boolean confirmAttack = true;
+	public int displayLoot = DISPLAYLOOT_DIALOG;
+	public static final int DISPLAYLOOT_DIALOG = 0;
+	public static final int DISPLAYLOOT_TOAST = 1;
+	public static final int DISPLAYLOOT_NONE = 2;
+	public boolean fullscreen = true;
+	
+	
 	public InterfaceData() { }
 	
 	

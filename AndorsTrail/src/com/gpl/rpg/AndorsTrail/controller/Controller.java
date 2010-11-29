@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
@@ -77,24 +78,30 @@ public final class Controller {
     
     public void resume() {
     	//L.log(id + " : Controller::resume()");
-    	model.uiSelections.isTicking = true;
+		view.mainActivity.statusview.update();
+		model.uiSelections.isTicking = true;
+    	view.mainActivity.mainview.inhibitClicks = false;
     	queueAnotherTick();
     }
     public void pause() {
     	//L.log(id + " : Controller::pause()");
     	hasQueuedTick = false;
     	model.uiSelections.isTicking = false;
+    	view.mainActivity.mainview.inhibitClicks = true;
     }
     
     public void handleMapEvent(MapObject o) {
 		switch (o.type) {
 		case MapObject.MAPEVENT_SIGN:
+			if (o.place_or_key != null && o.place_or_key.length() > 0) {
+				model.player.addKey(o.place_or_key);
+			}
 			if (o.text == null) return;
 			Dialogs.showMapSign(view.mainActivity, view, o.title, o.text);
 			break;
 		case MapObject.MAPEVENT_NEWMAP:
-			if (o.map == null || o.place == null) return;
-			view.movementController.placePlayerAt(o.map, o.place);
+			if (o.map == null || o.place_or_key == null) return;
+			view.movementController.placePlayerAt(o.map, o.place_or_key);
 			break;
 		case MapObject.MAPEVENT_REST:
 			Dialogs.showRest(view.mainActivity, view);
@@ -103,11 +110,15 @@ public final class Controller {
 	}
 
 	public void steppedOnMonster(Monster m, Coord p) {
-		if (m.monsterType.isAgressive()) {
+		if (m.isAgressive()) {
 			view.combatController.setCombatSelection(m, p);
-			Dialogs.showMonsterEncounter(view.mainActivity, m);
+			if (!model.uiSelections.confirmAttack) {
+				view.combatController.enterCombat();
+			} else {
+				Dialogs.showMonsterEncounter(view.mainActivity, view, m);
+			}
 		} else {
-			Dialogs.showConversation(view.mainActivity, m.monsterType.phraseID, m);
+			Dialogs.showConversation(view.mainActivity, view, m.monsterType.phraseID, m);
 		}
 	}
 
@@ -117,22 +128,28 @@ public final class Controller {
 		int lostExp = player.levelExperience.current / (100 / PERCENT_EXP_LOST_WHEN_DIED);
 		player.addExperience(-lostExp);
 		model.statistics.addPlayerDeath(lostExp);
-		playerRested(world, false);
+		playerRested(world);
 		MovementController.respawnPlayer(world);
 		final MainActivity act = view.mainActivity;
+		act.statusview.update();
 		act.mainview.notifyMapChanged();
 		act.message(act.getResources().getString(R.string.combat_hero_dies, lostExp));
-		act.statusview.update();
 	}
 	
-	public static void playerRested(final WorldContext world, boolean respawnUniqueMonsters) {
+	public static void playerRested(final WorldContext world) {
 		final Player player = world.model.player;
 		player.setMaxAP();
 		player.setMaxHP();
 		for (LayeredWorldMap m : world.maps.predefinedMaps) {
-        	m.spawnAll(world, respawnUniqueMonsters);
+        	if (m.visited) m.spawnAll(world);
         }
 	}
+	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext) {
+		playerRested(viewContext);
+		viewContext.mainActivity.statusview.update();
+    	Dialogs.showRested(currentActivity, viewContext);
+	}
+
 	
 	public boolean handleKeyArea(KeyArea area) {
 		if (view.model.player.hasKey(area.requiredKey)) return true;

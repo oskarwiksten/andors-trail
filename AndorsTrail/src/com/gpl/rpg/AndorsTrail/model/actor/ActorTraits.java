@@ -30,9 +30,7 @@ public class ActorTraits extends CombatTraits {
 		this.tileSize = tileSize;
 		this.baseCombatTraits = baseCombatTraits;
 	}
-	public int getAttacksPerTurn() {
-		return (int) Math.floor(maxAP / attackCost);
-	}
+	public int getAttacksPerTurn() { return getAttacksPerTurn(maxAP); }
 	public int getMovesPerTurn() {
 		return (int) Math.floor(maxAP / moveCost);
 	}

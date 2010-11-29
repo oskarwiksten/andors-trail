@@ -21,7 +21,6 @@ import android.view.ContextMenu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -65,7 +64,7 @@ public class HeroinfoActivity extends TabActivity {
         this.world = app.world;
         this.view = app.currentView.get();
         
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
         
         this.player = world.model.player;
         

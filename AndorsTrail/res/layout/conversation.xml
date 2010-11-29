@@ -34,32 +34,39 @@
 				/>
 		</LinearLayout>
 	
-		<TextView 
-			android:id="@+id/conversation_text"
+		<ScrollView
 			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			/>
+			android:layout_height="fill_parent"
+			>
+			<TextView 
+				android:id="@+id/conversation_text"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+				/>
+		</ScrollView>
 	</LinearLayout>
 
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
+		android:gravity="center_vertical"
 		style="@android:style/ButtonBar"
 		>
 		<Button 
 			android:id="@+id/conversation_reply1"
 			android:layout_width="0dip"
-            android:layout_weight="1"
+			android:layout_weight="1"
             android:layout_height="wrap_content"
-			android:text="Reply 1"
+			android:text="Reply with very long text that does not fit on the button"
 			/>
 			
 		<Button 
 			android:id="@+id/conversation_reply2"
 			android:layout_width="0dip"
 			android:layout_weight="1"
-			android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
 			android:text="Reply 2"
 			/>
 			
@@ -67,7 +74,7 @@
 			android:id="@+id/conversation_reply3"
 			android:layout_width="0dip"
 			android:layout_weight="1"
-			android:layout_height="wrap_content"
+            android:layout_height="wrap_content"
 			android:text="Reply 3"
 			/>
 	</LinearLayout>

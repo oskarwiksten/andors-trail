@@ -12,7 +12,7 @@ public final class MapObject {
 	public final String text;
 	public final String title;
 	public final String map;
-	public final String place;
+	public final String place_or_key;
 	
 	private MapObject(final CoordRect position, final int type, final String title, final String text, final String map, final String place) {
 		this.position = new CoordRect(position);
@@ -20,11 +20,11 @@ public final class MapObject {
 		this.title = title;
 		this.text = text;
 		this.map = map;
-		this.place = place;
+		this.place_or_key = place;
 	}
 	
-	public static MapObject createMapSignEvent(final CoordRect position, final String title, final String text) {
-		return new MapObject(position, MAPEVENT_SIGN, title, text, null, null);
+	public static MapObject createMapSignEvent(final CoordRect position, final String title, final String text, final String enableKey) {
+		return new MapObject(position, MAPEVENT_SIGN, title, text, null, enableKey);
 	}
 	public static MapObject createNewMapEvent(final CoordRect position, final String thisMapTitle, final String destinationMap, final String destinationPlace) {
 		return new MapObject(position, MAPEVENT_NEWMAP, thisMapTitle, null, destinationMap, destinationPlace);

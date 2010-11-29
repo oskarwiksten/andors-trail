@@ -18,6 +18,7 @@ public final class DynamicTileLoader {
 	private final Resources r;
 	
 	private final ArrayList<TilesetBitmap> preparedTilesets = new ArrayList<TilesetBitmap>();
+	//private final HashMap<String, Integer> DEBUG_tilefrequency = new HashMap<String, Integer>();
 	private int allocatedTiles = 0;
 	private int currentTileStoreIndex;
 	
@@ -31,6 +32,9 @@ public final class DynamicTileLoader {
 		allocatedTiles = 0;
 		preparedTilesets.clear();
 		currentTileStoreIndex = store.bitmaps.length;
+		/*if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			DEBUG_tilefrequency.clear();
+		}*/
 	}
 	
 	public void prepareTileset(int resourceId, String tilesetName, Size numTiles, Size destinationTileSize) {
@@ -74,6 +78,15 @@ public final class DynamicTileLoader {
 			++allocatedTiles;
 			tileset.tilesToLoad.put(localId, tileStoreIndex);
 		}
+		/*if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			final int x = localId % tileset.numTiles.width;
+			final int y = (localId - x) / tileset.numTiles.width;
+			final String s = tileset.tilesetName + "(" + x + "," + y + ")";
+			int n = 0;
+			if (DEBUG_tilefrequency.containsKey(s)) n = DEBUG_tilefrequency.get(s);
+			++n;
+			DEBUG_tilefrequency.put(s, n);
+		}*/
 		return tileStoreIndex;
 	}
 	
@@ -97,6 +110,19 @@ public final class DynamicTileLoader {
 			}
 			if (recycle) tilesetImage.recycle();
 		}
+		
+		/*if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			ArrayList<Entry<String, Integer>> l = new ArrayList<Entry<String,Integer>>(DEBUG_tilefrequency.entrySet());
+			Collections.sort(l, new Comparator<Entry<String, Integer>>() {
+				@Override
+				public int compare(Entry<String, Integer> a, Entry<String, Integer> b) {
+					return b.getValue() - a.getValue();
+				}
+			});
+			for (Entry<String, Integer> e : l) {
+				L.log("INFO: " + e.getValue() + " times requested " + e.getKey());
+			}
+		}*/
 		
 		initialize();
 	}

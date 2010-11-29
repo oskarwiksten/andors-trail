@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -34,7 +33,7 @@ public final class ItemInfoActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
         
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();

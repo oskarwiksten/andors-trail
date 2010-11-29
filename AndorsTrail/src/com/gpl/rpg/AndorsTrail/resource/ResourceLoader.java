@@ -62,8 +62,10 @@ public final class ResourceLoader {
         	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_debug));
         } else {
         	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_rings));
+            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_necklaces));
         	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_junk));
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_food));
+            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_potions));
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_animal));
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_quest));
         }
@@ -78,9 +80,27 @@ public final class ResourceLoader {
         } else {
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_mikhail));
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_gruil));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_leonid));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_tharal));
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_leta));
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_odair));
 	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_jan));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_arcir));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_bucus));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_church));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_athamyr));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_drunk));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_nocmar));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_oldman));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_tavern));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_larcal));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_unnmir));
+	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_gaela));
+        }
+        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+        	world.conversations.verifyData();
         }
         
         // ========================================================================
@@ -94,22 +114,23 @@ public final class ResourceLoader {
 	    //loader.prepareTileset(R.drawable.monsters_eye2, "monsters_eye2", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_eye3, "monsters_eye3", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_eye4, "monsters_eye4", src_sz1x1, defaultTileSize);
-	    //loader.prepareTileset(R.drawable.monsters_ghost1, "monsters_ghost1", src_sz1x1, defaultTileSize);
-	    //loader.prepareTileset(R.drawable.monsters_ghost2, "monsters_ghost2", src_sz1x1, defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_ghost1, "monsters_ghost1", src_sz1x1, defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_ghost2, "monsters_ghost2", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_hydra1, "monsters_hydra1", src_sz1x1, dst_sz2x2);
         loader.prepareTileset(R.drawable.monsters_insects, "monsters_insects", src_sz6x1, defaultTileSize);
-        //loader.prepareTileset(R.drawable.monsters_liches, "monsters_liches", new Size(4, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_liches, "monsters_liches", new Size(4, 1), defaultTileSize);
 	    loader.prepareTileset(R.drawable.monsters_mage2, "monsters_mage2", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_mage3, "monsters_mage3", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_mage4, "monsters_mage4", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_man1, "monsters_man1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_men, "monsters_men", new Size(9, 1), defaultTileSize);
-	    //loader.prepareTileset(R.drawable.monsters_misc, "monsters_misc", new Size(12, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_men2, "monsters_men2", new Size(10, 1), defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_misc, "monsters_misc", new Size(12, 1), defaultTileSize);
     	loader.prepareTileset(R.drawable.monsters_rats, "monsters_rats", new Size(5, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_rogue1, "monsters_rogue1", src_sz1x1, defaultTileSize);
-        //loader.prepareTileset(R.drawable.monsters_skeleton1, "monsters_skeleton1", src_sz1x1, defaultTileSize);
-        //loader.prepareTileset(R.drawable.monsters_skeleton2, "monsters_skeleton2", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_skeleton1, "monsters_skeleton1", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_skeleton2, "monsters_skeleton2", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_snakes, "monsters_snakes", src_sz6x1, defaultTileSize);
         //loader.prepareTileset(R.drawable.monsters_cyclops, "monsters_cyclops", src_sz1x1, dst_sz2x3);
         loader.prepareTileset(R.drawable.monsters_warrior1, "monsters_warrior1", src_sz1x1, defaultTileSize);
@@ -121,10 +142,17 @@ public final class ResourceLoader {
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_debug));
         	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_misc));
+        } else {
+	        world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_animals));
+	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_npcs));
+	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_animals));
+	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_npcs));
         }
-        world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_animals));
-    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_npcs));
         loader.flush();
+
+        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+        	world.monsterTypes.verifyData(world);
+        }
         
         // ========================================================================
         // Load map icons
@@ -162,12 +190,45 @@ public final class ResourceLoader {
 	        mapReader.read(r.getXml(R.xml.wild2), "wild2");
 	        mapReader.read(r.getXml(R.xml.wild3), "wild3");
 	        mapReader.read(r.getXml(R.xml.jan_pitcave1), "jan_pitcave1");
+	        mapReader.read(r.getXml(R.xml.jan_pitcave2), "jan_pitcave2");
+	        mapReader.read(r.getXml(R.xml.jan_pitcave3), "jan_pitcave3");
+	        mapReader.read(r.getXml(R.xml.fallhaven_nw), "fallhaven_nw");
+	        mapReader.read(r.getXml(R.xml.snakecave1), "snakecave1");
+	        mapReader.read(r.getXml(R.xml.snakecave2), "snakecave2");
+	        mapReader.read(r.getXml(R.xml.snakecave3), "snakecave3");
+	        mapReader.read(r.getXml(R.xml.wild4), "wild4");
+	        mapReader.read(r.getXml(R.xml.hauntedhouse1), "hauntedhouse1");
+	        mapReader.read(r.getXml(R.xml.hauntedhouse2), "hauntedhouse2");
+	        mapReader.read(r.getXml(R.xml.fallhaven_ne), "fallhaven_ne");
+	        mapReader.read(r.getXml(R.xml.fallhaven_church), "fallhaven_church");
+	        mapReader.read(r.getXml(R.xml.fallhaven_barn), "fallhaven_barn");
+	        mapReader.read(r.getXml(R.xml.fallhaven_potions), "fallhaven_potions");
+	        mapReader.read(r.getXml(R.xml.fallhaven_gravedigger), "fallhaven_gravedigger");
+	        mapReader.read(r.getXml(R.xml.fallhaven_clothes), "fallhaven_clothes");
+	        mapReader.read(r.getXml(R.xml.fallhaven_arcir), "fallhaven_arcir");
+	        mapReader.read(r.getXml(R.xml.fallhaven_arcir_basement), "fallhaven_arcir_basement");
+	        mapReader.read(r.getXml(R.xml.fallhaven_athamyr), "fallhaven_athamyr");
+	        mapReader.read(r.getXml(R.xml.fallhaven_rigmor), "fallhaven_rigmor");
+	        mapReader.read(r.getXml(R.xml.fallhaven_tavern), "fallhaven_tavern");
+	        mapReader.read(r.getXml(R.xml.fallhaven_prison), "fallhaven_prison");
+	        mapReader.read(r.getXml(R.xml.fallhaven_derelict), "fallhaven_derelict");
+	        mapReader.read(r.getXml(R.xml.fallhaven_nocmar), "fallhaven_nocmar");
+	        mapReader.read(r.getXml(R.xml.catacombs1), "catacombs1");
+	        mapReader.read(r.getXml(R.xml.catacombs2), "catacombs2");
+	        mapReader.read(r.getXml(R.xml.catacombs3), "catacombs3");
+	        mapReader.read(r.getXml(R.xml.catacombs4), "catacombs4");
+	        mapReader.read(r.getXml(R.xml.hauntedhouse3), "hauntedhouse3");
+	        mapReader.read(r.getXml(R.xml.hauntedhouse4), "hauntedhouse4");
         }
         
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes));
         mapReader = null;
         
         loader.flush();
+
+        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+        	world.maps.verifyData(world);
+        }
         
         
         // ========================================================================
@@ -179,6 +240,10 @@ public final class ResourceLoader {
         loader = null;
         // ========================================================================
         
+
+        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+        	world.verifyData();
+        }
     }
     
 	public static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);

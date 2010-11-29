@@ -5,7 +5,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Window;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
@@ -19,7 +18,8 @@ public class LoadingActivity extends Activity implements OnSceneLoadedListener {
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        AndorsTrailApplication.setWindowParameters(this, Preferences.shouldUseFullscreen(this));
+        
         L.log("LoadingActivity::onCreate");
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);

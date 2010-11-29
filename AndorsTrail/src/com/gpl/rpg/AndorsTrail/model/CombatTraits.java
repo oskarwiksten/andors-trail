@@ -38,7 +38,10 @@ public class CombatTraits {
 	public boolean hasAttackDamageEffect() { return damagePotential.max > 0; }
 	public boolean hasBlockEffect() { return blockChance != 0; }
 	public boolean hasCriticalEffect() { return criticalChance > 0 && criticalMultiplier > 1; }
-	
+
+	public int getAttacksPerTurn(final int maxAP) {
+		return (int) Math.floor(maxAP / attackCost);
+	}
 	
 	// ====== PARCELABLE ===================================================================
 

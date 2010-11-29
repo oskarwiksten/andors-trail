@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="10" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAwtiZGAIogDnM+HGuORheuuZcGNc8jC9jgwMDFlI2BEJg+xwZMDEyHpx4XoK9OLCxOhFl9/NwsCwhwURhvj04pLPh4aZKjN2eXtmiHwpkC5DUwMSD2QgHjui8QGUgaGmWAIAAA==
+  </data>
+ </layer>
+ <layer name="Objects" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgQAAldgayQA5QnxFULycLA0Mukjnm7BAxZShtgSQ3kQ1CO0HFJIHymqwMDFqsEH4yMwNDCjNCzgNJ70Kg3g5WBP8vkG/FCsEgUAzUVwLEySwQ/iM2hNoeJDYtgQ4rKv8u0N4LbAg3KTFDsDIzpr7vaG58i8QH+cWIGYKNoXpTkcw4DTT/DAuq/mQ0PjZAjBpiAQBdYTIIWAIAAA==
+  </data>
+ </layer>
+ <layer name="Above" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoAz8ZyZfnlS9l9hQ5ZJZaGPvewr04gPIepH9QqpeUuXx+YcYeXIAAL3It9VYAgAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="15" height="10">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHMIYBkiVxwVwyRHShw+Q4yZq+pWQf4m1n1A8IPMB6O0ElFgCAAA=
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="15" height="10">
+  <object name="down" type="mapchange" x="224" y="256" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_arcir_basement"/>
+    <property name="place" value="up"/>
+   </properties>
+  </object>
+  <object name="entrance" type="mapchange" x="352" y="288" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_nw"/>
+    <property name="place" value="arcir"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="15" height="10">
+  <object name="Arcir" type="spawn" x="64" y="96" width="384" height="128"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="15" height="10"/>
+</map>

@@ -9,7 +9,7 @@ public class ConversationController {
 	public static void applyPhraseEffect(final Player player, final Phrase phrase) {
 		if (phrase.enablesKey != null) player.addKey(phrase.enablesKey);
 		if (phrase.rewardExperience > 0) player.addExperience(phrase.rewardExperience);
-		if (phrase.rewardGold > 0) player.inventory.gold += phrase.rewardGold;
+		if (phrase.rewardGold != 0) player.inventory.gold += phrase.rewardGold;
 	}
 	
 	public static void applyReplyEffect(final Player player, final Reply reply) {
