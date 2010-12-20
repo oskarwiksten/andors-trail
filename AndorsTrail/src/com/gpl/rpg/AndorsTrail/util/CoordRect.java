@@ -56,6 +56,11 @@ public final class CoordRect {
 		else if (dy > size.height) return false;
 		return true;
 	}
+	public Coord findPositionAdjacentTo(Coord p) {
+		final int dx = Math.min(size.width-1, Math.max(0, p.x - topLeft.x));
+		final int dy = Math.min(size.height-1, Math.max(0, p.y - topLeft.y));
+		return new Coord(topLeft.x + dx, topLeft.y + dy);
+	}
 	public Coord getCenter() {
 		Coord center = new Coord(topLeft);
 		center.x += size.width / 2;

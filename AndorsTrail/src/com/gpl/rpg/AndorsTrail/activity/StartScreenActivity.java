@@ -1,11 +1,13 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.Savegames;
 import com.gpl.rpg.AndorsTrail.WorldSetup;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
-import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.Savegames.FileHeader;
+import com.gpl.rpg.AndorsTrail.controller.Constants;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -16,13 +18,15 @@ import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StartScreenActivity extends Activity {
+public final class StartScreenActivity extends Activity {
+	
+    public static final int INTENTREQUEST_LOADGAME = 9;
+    
 	private boolean hasExistingGame = false;
 	private Button startscreen_continue;
 	private Button startscreen_newgame;
@@ -33,7 +37,10 @@ public class StartScreenActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AndorsTrailApplication.setWindowParameters(this);
+        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        AndorsTrailPreferences.read(this, app.preferences);
+		AndorsTrailApplication.setWindowParameters(this, app.preferences);
+		
         setContentView(R.layout.startscreen);
 
         TextView tv = (TextView) findViewById(R.id.startscreen_version);
@@ -41,13 +48,13 @@ public class StartScreenActivity extends Activity {
         
         startscreen_currenthero = (TextView) findViewById(R.id.startscreen_currenthero);
         startscreen_enterheroname = (EditText) findViewById(R.id.startscreen_enterheroname);
-        startscreen_enterheroname.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        //startscreen_enterheroname.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         startscreen_continue = (Button) findViewById(R.id.startscreen_continue);
         startscreen_continue.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				continueGame(false, null);
+				continueGame(false, Savegames.SLOT_QUICKSAVE, null);
 			}
 		});
         
@@ -80,12 +87,19 @@ public class StartScreenActivity extends Activity {
 			}
 		});
         
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        b = (Button) findViewById(R.id.startscreen_load);
+        b.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Dialogs.showLoad(StartScreenActivity.this);
+			}
+		});
+        
         app.setup.startResourceLoader(getResources());
         
         if (AndorsTrailApplication.DEVELOPMENT_QUICKSTART) {
         	final boolean startNewGame = false;
-        	continueGame(startNewGame, "Debug player");
+        	continueGame(startNewGame, Savegames.SLOT_QUICKSAVE, "Debug player");
         }
     }
 	
@@ -94,19 +108,44 @@ public class StartScreenActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		
-		ModelContainer model = new ModelContainer();
-		hasExistingGame = model.quickload(getSharedPreferences(ModelContainer.PREFERENCE_MODEL_QUICKSAVE, MODE_PRIVATE));
-        
-		setButtonState(model.player);
+		String playerName = null;
+		String displayInfo = null;
+		
+		FileHeader header = Savegames.quickload(this, Savegames.SLOT_QUICKSAVE);
+		if (header != null && header.playerName != null) {
+			playerName = header.playerName;
+			displayInfo = header.displayInfo;
+		} else {
+			// Before fileversion 14 (v0.6.7), quicksave was stored in Shared preferences 
+			SharedPreferences p = getSharedPreferences("quicksave", MODE_PRIVATE);
+			playerName = p.getString("playername", null);
+            if (playerName != null) {
+            	displayInfo = "level " + p.getInt("level", -1);
+            }
+		}
+		hasExistingGame = (playerName != null);
+		setButtonState(playerName, displayInfo);
 		
 		if (isNewVersion()) {
 			Dialogs.showNewVersion(this);
 		}
 	}
 	
+    @Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		switch (requestCode) {
+		case INTENTREQUEST_LOADGAME:
+			if (resultCode != Activity.RESULT_OK) break;
+			final int slot = data.getIntExtra("slot", 1);
+			continueGame(false, slot, null);
+			break;
+		}
+	}
+	
 	private boolean isNewVersion() {
 		final String v = "lastversion";
-		SharedPreferences s = getSharedPreferences(ModelContainer.PREFERENCE_MODEL_LASTRUNVERSION, MODE_PRIVATE);
+		SharedPreferences s = getSharedPreferences(Constants.PREFERENCE_MODEL_LASTRUNVERSION, MODE_PRIVATE);
 		int lastversion = s.getInt(v, 0);
 		if (lastversion >= AndorsTrailApplication.CURRENT_VERSION) return false;
 		Editor e = s.edit();
@@ -116,22 +155,23 @@ public class StartScreenActivity extends Activity {
 	}
 
 
-	private void setButtonState(final Player player) {
+	private void setButtonState(final String playerName, final String displayInfo) {
 		startscreen_continue.setEnabled(hasExistingGame);
         startscreen_newgame.setEnabled(true);
         if (hasExistingGame) {
-        	startscreen_currenthero.setText(getResources().getString(R.string.startscreen_currenthero, player.traits.name, player.level));
-        	startscreen_enterheroname.setText(player.traits.name);
-        	startscreen_enterheroname.setVisibility(View.GONE);
+        	startscreen_currenthero.setText(playerName  + ", " + displayInfo);
+        	startscreen_enterheroname.setText(playerName);
+    		startscreen_enterheroname.setVisibility(View.GONE);
         } else {
         	startscreen_currenthero.setText(R.string.startscreen_enterheroname);
         	startscreen_enterheroname.setVisibility(View.VISIBLE);
         }
 	}
 
-	private void continueGame(boolean createNewCharacter, String name) {
+	private void continueGame(boolean createNewCharacter, int loadFromSlot, String name) {
 		final WorldSetup setup = AndorsTrailApplication.getApplicationFromActivity(this).setup;
 		setup.createNewCharacter = createNewCharacter;
+		setup.loadFromSlot = loadFromSlot;
 		setup.newHeroName = name;
         startActivity(new Intent(this, LoadingActivity.class));
 	}
@@ -142,7 +182,7 @@ public class StartScreenActivity extends Activity {
 			Toast.makeText(this, R.string.startscreen_enterheroname, Toast.LENGTH_SHORT).show();
 			return;
 		}
-		continueGame(true, name);
+		continueGame(true, 0, name);
 	}
 	
 	private void comfirmNewGame() {
@@ -155,7 +195,7 @@ public class StartScreenActivity extends Activity {
 			public void onClick(DialogInterface dialog, int which) {
 				//continueGame(true);
 				hasExistingGame = false;
-				setButtonState(null);
+				setButtonState(null, null);
 			}
 		})
         .setNegativeButton(android.R.string.cancel, null)

@@ -52,7 +52,9 @@ public final class DynamicTileLoader {
 	public int getTileID(int tilesetImageResourceID, int localId) {
 		TilesetBitmap b = getTilesetBitmap(tilesetImageResourceID);
 		if (b == null) {
-			L.log("WARNING: Cannot load tileset " + tilesetImageResourceID);
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				L.log("WARNING: Cannot load tileset " + tilesetImageResourceID);
+			}
 			return currentTileStoreIndex-1;
 		}
 		return getTileID(b, localId);
@@ -64,8 +66,21 @@ public final class DynamicTileLoader {
 				return getTileID(b, localId);
 			}
 		}
-		L.log("WARNING: Cannot load tileset " + tilesetName);
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			L.log("WARNING: Cannot load tileset " + tilesetName);
+		}
 		return currentTileStoreIndex-1;
+	}
+	public Size getTilesetSize(String tilesetName) {
+		for (TilesetBitmap b : preparedTilesets) {
+			if (b.tilesetName.equals(tilesetName)) {
+				return b.destinationTileSize;
+			}
+		}
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			L.log("WARNING: Cannot load tileset " + tilesetName);
+		}
+		return new Size(1, 1);
 	}
 	
 	private int getTileID(TilesetBitmap tileset, int localId) {

@@ -11,7 +11,6 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
@@ -48,7 +47,7 @@ public final class CombatView extends FrameLayout {
         attackMoveButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				c.executeMoveAttack();
+				c.executeMoveAttack(0, 0);
 			}
 		});
         
@@ -59,15 +58,11 @@ public final class CombatView extends FrameLayout {
 				c.endPlayerTurn();
 			}
 		});
-        Button endCombatButton = (Button) findViewById(R.id.combatview_endcombat);
-        endCombatButton.setOnClickListener(new OnClickListener() {
+        Button fleeButton = (Button) findViewById(R.id.combatview_flee);
+        fleeButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				if (c.canExitCombat()) {
-					c.exitCombat(true);
-				} else {
-					((MainActivity) context).message(getResources().getString(R.string.combat_cannotexitcombat));
-				}
+				c.startFlee();
 			}
 		});
         

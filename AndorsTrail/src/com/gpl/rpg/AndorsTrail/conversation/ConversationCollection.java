@@ -12,10 +12,12 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
 import com.gpl.rpg.AndorsTrail.util.L;
 
-public class ConversationCollection {
+public final class ConversationCollection {
 	public static final String PHRASE_CLOSE = "X";
 	public static final String PHRASE_SHOP = "S";
 	public static final String PHRASE_ATTACK = "F";
@@ -40,14 +42,21 @@ public class ConversationCollection {
 		return phrases.get(id);
 	}
 	
-	public void initialize(ItemTypeCollection itemTypes, String phraselist) {
+	public void initialize(ItemTypeCollection itemTypes, DropListCollection droplists, String phraselist) {
 		Matcher rowMatcher = ResourceLoader.rowPattern.matcher(phraselist);
     	while(rowMatcher.find()) {
     		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
-    		if (parts.length < 21) continue;
+    		if (parts.length < 19) {
+    			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+    				if (parts.length > 2) {
+    					L.log("WARNING: Conversation resource contains row with invalid length: " + rowMatcher.group(1));
+    				}
+    			}
+    			continue;
+    		}
     		
     		ArrayList<Reply> replies = new ArrayList<Reply>();
-    		final int startReplyOffset = 5;
+    		final int startReplyOffset = 4;
     		final int replyLength = 5;
     		for (int i = 0; i < 3; ++i) {
     			int v = startReplyOffset + i * replyLength;
@@ -69,38 +78,42 @@ public class ConversationCollection {
     		phrases.put(phraseID, new Phrase(
         			parts[1]
         			, _replies
-        			, parts[2]
-		        	, ResourceLoader.parseInt(parts[3], 0)
-		        	, ResourceLoader.parseInt(parts[4], 0)
+        			, QuestProgress.parseQuestProgress(parts[2])
+		        	, droplists.getDropList(parts[3])
     			));
     	}
 	}
 	
 	private static Reply parseReply(String[] parts, int startIndex, ItemTypeCollection itemTypes) {
 		String requiresItemTypeTag = parts[startIndex+3];
-		int requiresItemTypeID = 0;
+		int requiresItemTypeID = -1;
 		if (requiresItemTypeTag.length() > 0) {
 			ItemType type = itemTypes.getItemTypeByTag(requiresItemTypeTag);
 			if (type != null) requiresItemTypeID = type.id;
 		}
 		return new Reply(
 				parts[startIndex]
-				,parts[startIndex+1]
-				,parts[startIndex+2]
-		       	,requiresItemTypeID
-       	       	,ResourceLoader.parseInt(parts[startIndex+4], 0)
+				, parts[startIndex+1]
+				, QuestProgress.parseQuestProgress(parts[startIndex+2])
+		       	, requiresItemTypeID
+       	       	, ResourceLoader.parseInt(parts[startIndex+4], 0)
 			);
 	}
 	
 	// Selftest method. Not part of the game logic.
 	public void verifyData() {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    		HashSet<String> requiredKeys = new HashSet<String>();
-    		HashSet<String> suppliedKeys = new HashSet<String>();
+    		HashMap<String, Integer> requiredQuestStages = new HashMap<String, Integer>();
+    		HashMap<String, Integer> suppliedQuestStages = new HashMap<String, Integer>();
 			for (Entry<String, Phrase> e : phrases.entrySet()) {
 				Phrase p = e.getValue();
-				if (p.enablesKey != null && p.enablesKey.length() > 0) {
-					suppliedKeys.add(p.enablesKey);	
+				if (p.progressQuest != null) {
+					String q = p.progressQuest.questID;
+					int v = p.progressQuest.progress;
+					if (suppliedQuestStages.containsKey(q)) {
+						v = Math.max(v, suppliedQuestStages.get(q));
+					}
+					suppliedQuestStages.put(q, v);
 				}
 				if (e.getValue().replies.length <= 0) {
 					L.log("WARNING: Phrase \"" + e.getKey() + "\" has no replies.");
@@ -109,23 +122,30 @@ public class ConversationCollection {
 					if (!isValidPhraseID(r.nextPhrase)) {
 						L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply to non-existing phrase \"" + r.nextPhrase + "\".");
 					}
-					if (r.requiresKey != null && r.requiresKey.length() > 0) {
-						String s = r.requiresKey;
-						if (s.startsWith("!")) s = s.substring(1);
-						requiredKeys.add(s);
+					if (r.requiresProgress != null) {
+						String q = r.requiresProgress.questID;
+						int v = r.requiresProgress.progress;
+						if (requiredQuestStages.containsKey(q)) {
+							v = Math.max(v, requiredQuestStages.get(q));
+						}
+						requiredQuestStages.put(q, v);	
 					}
 				}
     		}
 			
-			for(String s : requiredKeys) {
-				if (!suppliedKeys.contains(s)) {
-					L.log("WARNING: Key \"" + s + "\" is required but never supplied by any phrases.");
+			for(Entry<String, Integer> e : requiredQuestStages.entrySet()) {
+				if (!suppliedQuestStages.containsKey(e.getKey())) {
+					L.log("WARNING: Quest \"" + e.getKey() + "\" is required but never supplied by any phrases.");
+				} else if (suppliedQuestStages.get(e.getKey()) < e.getValue()) {
+					L.log("WARNING: Quest \"" + e.getKey() + "\" requires stage " + e.getValue() + ", but that stage is never supplied by any phrases.");
 				}
 			}
 
-			for(String s : suppliedKeys) {
-				if (!requiredKeys.contains(s)) {
-					L.log("OPTIMIZE: Key \"" + s + "\" is supplied but never required by any phrases.");
+			for(Entry<String, Integer> e : suppliedQuestStages.entrySet()) {
+				if (!requiredQuestStages.containsKey(e.getKey())) {
+					L.log("WARNING: Quest \"" + e.getKey() + "\" is supplied but never required by any phrases.");
+				} else if (requiredQuestStages.get(e.getKey()) < e.getValue()) {
+					L.log("WARNING: Quest \"" + e.getKey() + "\" supplies stage " + e.getValue() + ", but that stage is never required by any phrases.");
 				}
 			}
     	}
@@ -165,4 +185,25 @@ public class ConversationCollection {
     		}
     	}
     }
+	
+	// Selftest method. Not part of the game logic.
+	public void verifyData(QuestCollection quests) {
+    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+    		for (Phrase p : phrases.values()) {
+				if (p.progressQuest != null) {
+					quests.getQuestLogEntry(p.progressQuest); // Will warn inside if invalid.
+    			}
+    		}
+    	}
+    }
+
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getRequiredQuestStages(HashSet<String> requiredStages) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (Phrase p : phrases.values()) {
+				if (p.progressQuest == null) continue;
+				requiredStages.add(p.progressQuest.toString());
+			}
+		}
+	}
 }

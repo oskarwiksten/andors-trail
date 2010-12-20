@@ -18,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
+import com.gpl.rpg.AndorsTrail.activity.LoadSaveActivity;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.ItemInfoActivity;
@@ -25,10 +26,11 @@ import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.Preferences;
+import com.gpl.rpg.AndorsTrail.activity.QuestLogActivity;
+import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.InterfaceData;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -67,36 +69,6 @@ public final class Dialogs {
         .create();
 		showDialogAndPause(d, context);
 	}
-
-	/*
-	public static void showConfirmExit(final Activity activity, final ViewContext context) {
-    	Dialog d = new AlertDialog.Builder(activity)
-        .setIcon(android.R.drawable.ic_dialog_alert)
-        .setTitle(R.string.dialog_confirmexit_title)
-        .setMessage(R.string.dialog_confirmexit_message)
-        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            	activity.finish();    
-            }
-        })
-        .setNegativeButton(android.R.string.no, null)
-        .create();
-
-    	showDialogAndPause(d, context);
-	}
-	*/
-
-	public static void showPaused(final Context androidContext, final ViewContext context) {
-		Dialog d = new AlertDialog.Builder(androidContext)
-        .setIcon(android.R.drawable.ic_dialog_info)
-        .setTitle(R.string.dialog_paused_title)
-        .setMessage(R.string.dialog_paused_message)
-        .setNeutralButton(R.string.dialog_paused_resume, null)
-        .create();
-
-		showDialogAndPause(d, context);
-	}
 	
 	public static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, final Monster npc) {
 		context.controller.pause();
@@ -120,31 +92,32 @@ public final class Dialogs {
 		currentActivity.startActivity(intent);
 	}
 	
-	public static void showMonsterLoot(final Context androidContext, final ViewContext context, final Loot loot) {
-		showLoot(androidContext, context, loot, R.string.dialog_monsterloot_title, R.string.dialog_monsterloot_message);
+	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot) {
+		showLoot(mainActivity, context, loot, R.string.dialog_monsterloot_title, R.string.dialog_monsterloot_message);
 	}
 
-	public static void showGroundLoot(final Context androidContext, final ViewContext context, final Loot loot) {
-		showLoot(androidContext, context, loot, R.string.dialog_groundloot_title, R.string.dialog_groundloot_message);
+	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot) {
+		showLoot(mainActivity, context, loot, R.string.dialog_groundloot_title, R.string.dialog_groundloot_message);
 	}
 	
-	private static void showLoot(final Context androidContext, final ViewContext context, final Loot loot, final int title, final int message) {
+	private static void showLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot, final int title, final int message) {
 		if (ItemController.removeEmptyLoot(context, loot)) return;
 
-		String msg = androidContext.getString(message);
+		String msg = mainActivity.getString(message);
 		if (loot.exp > 0) {
-			msg += androidContext.getString(R.string.dialog_monsterloot_gainedexp, loot.exp);
+			msg += mainActivity.getString(R.string.dialog_monsterloot_gainedexp, loot.exp);
 		}
 		if (loot.gold > 0) {
-			msg += androidContext.getString(R.string.dialog_loot_foundgold, loot.gold);
+			msg += mainActivity.getString(R.string.dialog_loot_foundgold, loot.gold);
 		}
 		
-		if (context.model.uiSelections.displayLoot != InterfaceData.DISPLAYLOOT_DIALOG) {
-			if (context.model.uiSelections.displayLoot == InterfaceData.DISPLAYLOOT_TOAST) {
-				if (!loot.items.items.isEmpty()) {
-					msg += androidContext.getString(R.string.dialog_loot_pickedupitems, loot.items.items.size());
+		if (context.preferences.displayLoot != AndorsTrailPreferences.DISPLAYLOOT_DIALOG) {
+			if (context.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_TOAST) {
+				int numitems = loot.items.countItems();
+				if (numitems > 0) {
+					msg += mainActivity.getString(R.string.dialog_loot_pickedupitems, numitems);
 				}
-				Toast.makeText(androidContext, msg, Toast.LENGTH_LONG).show();
+				mainActivity.showToast(msg, Toast.LENGTH_LONG);
 			}
 			ItemController.pickupAll(loot, context.model);
         	ItemController.removeEmptyLoot(context, loot);
@@ -152,7 +125,7 @@ public final class Dialogs {
 			return;
 		}
 
-		final ListView itemList = new ListView(androidContext);
+		final ListView itemList = new ListView(mainActivity);
 		itemList.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
 		itemList.setOnItemClickListener(new OnItemClickListener() {
@@ -165,9 +138,9 @@ public final class Dialogs {
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
-		itemList.setAdapter(new ItemContainerAdapter(androidContext, context.tileStore, loot.items));
+		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileStore, loot.items));
 		
-		AlertDialog.Builder db = new AlertDialog.Builder(androidContext)
+		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
         .setTitle(title)
         .setMessage(msg)
         .setIcon(new BitmapDrawable(context.tileStore.bitmaps[TileStore.iconID_groundbag]))
@@ -211,7 +184,7 @@ public final class Dialogs {
 	}
 
 	public static void showRest(final Activity currentActivity, final ViewContext viewContext) {
-		if (!viewContext.model.uiSelections.confirmRest) {
+		if (!viewContext.preferences.confirmRest) {
 			Controller.ui_playerRested(currentActivity, viewContext);
 			return;
 		}
@@ -250,5 +223,23 @@ public final class Dialogs {
 	public static void showPreferences(final Activity currentActivity) {
 		Intent intent = new Intent(currentActivity, Preferences.class);
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_PREFERENCES);
+	}
+	
+	public static void showSave(final Activity currentActivity, final ViewContext viewContext) {
+		viewContext.controller.pause();
+    	Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
+    	intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
+		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
+	}
+	
+	public static void showLoad(final Activity currentActivity) {
+		Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/load"));
+		currentActivity.startActivityForResult(intent, StartScreenActivity.INTENTREQUEST_LOADGAME);
+	}
+	
+	public static void showQuestLog(final Activity currentActivity) {
+		Intent intent = new Intent(currentActivity, QuestLogActivity.class);
+		currentActivity.startActivity(intent);
 	}
 }

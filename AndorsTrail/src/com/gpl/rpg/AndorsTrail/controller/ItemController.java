@@ -13,7 +13,6 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class ItemController {
-	private static final int MARKET_PRICEFACTOR_PERCENT = 15;
 	
 	private final ViewContext view;
     private final WorldContext world;
@@ -93,7 +92,7 @@ public final class ItemController {
 	
 	private void applyUseEffect(Actor actor, ItemType t) {
 		if (t.effect_ap != null) {
-			int value = ModelContainer.rollValue(t.effect_ap);
+			int value = Constants.rollValue(t.effect_ap);
 			actor.ap.add(value, false);
 			view.effectController.startEffect(
 					view.mainActivity.mainview
@@ -102,7 +101,7 @@ public final class ItemController {
 					, value);
 		}
 		if (t.effect_health != null) {
-			int value = ModelContainer.rollValue(t.effect_health);
+			int value = Constants.rollValue(t.effect_health);
 			actor.health.add(value, false);
 			view.effectController.startEffect(
 					view.mainActivity.mainview
@@ -138,10 +137,10 @@ public final class ItemController {
 	}
 	
 	public static int getBuyingPrice(Player player, ItemType itemType) {
-		return itemType.baseMarketCost * (100 + MARKET_PRICEFACTOR_PERCENT) / 100;
+		return itemType.baseMarketCost * (100 + Constants.MARKET_PRICEFACTOR_PERCENT) / 100;
 	}
 	public static int getSellingPrice(Player player, ItemType itemType) {
-		return itemType.baseMarketCost * (100 - MARKET_PRICEFACTOR_PERCENT) / 100;
+		return itemType.baseMarketCost * (100 - Constants.MARKET_PRICEFACTOR_PERCENT) / 100;
 	}
 
 	public static boolean canAfford(Player player, ItemType itemType) {

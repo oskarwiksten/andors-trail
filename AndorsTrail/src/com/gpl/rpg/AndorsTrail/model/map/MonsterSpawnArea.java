@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -43,12 +43,17 @@ public final class MonsterSpawnArea {
 		return null;
 	}
 
+	public void healAllMonsters() {
+		for (Monster m : monsters) {
+			m.setMaxHP();
+		}
+	}
 	public void spawn(Coord p, WorldContext context) {
-		final int monsterTypeID = monsterTypeIDs[ModelContainer.rnd.nextInt(monsterTypeIDs.length)];
+		final int monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
 		spawn(p, monsterTypeID, context);
 	}
 	public MonsterType getRandomMonsterType(WorldContext context) {
-		final int monsterTypeID = monsterTypeIDs[ModelContainer.rnd.nextInt(monsterTypeIDs.length)];
+		final int monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
 		return context.monsterTypes.getMonsterType(monsterTypeID);
 	}
 	public void spawn(Coord p, int monsterTypeID, WorldContext context) {
@@ -69,7 +74,7 @@ public final class MonsterSpawnArea {
 	}
 
 	public boolean rollShouldSpawn() {
-		return ModelContainer.rollResult(spawnChance);
+		return Constants.rollResult(spawnChance);
 	}
 
 	public void reset() {

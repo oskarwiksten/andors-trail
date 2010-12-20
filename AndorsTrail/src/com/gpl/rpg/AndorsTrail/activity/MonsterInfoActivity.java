@@ -22,7 +22,6 @@ public final class MonsterInfoActivity extends Activity {
 	private WorldContext world;
 	private MonsterType monsterType;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,13 +41,6 @@ public final class MonsterInfoActivity extends Activity {
         tv = (TextView) findViewById(R.id.monsterinfo_difficulty);
         tv.setText(getMonsterDifficultyResource(world, monsterType));
 
-        /*
-        tv = (TextView) findViewById(R.id.monsterinfo_apt);
-        tv.setText(Integer.toString(monsterType.getAttacksPerTurn()));
-        tv = (TextView) findViewById(R.id.monsterinfo_mpt);
-        tv.setText(Integer.toString(monsterType.getMovesPerTurn()));
-        */
-        
         Button b = (Button) findViewById(R.id.monsterinfo_close);
         b.setOnClickListener(new OnClickListener() {
 			@Override

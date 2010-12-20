@@ -1,23 +1,16 @@
 package com.gpl.rpg.AndorsTrail;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.lang.ref.WeakReference;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 
-import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
-import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class WorldSetup {
 	
@@ -28,8 +21,10 @@ public final class WorldSetup {
 	private WeakReference<OnSceneLoadedListener> listener;
 
 	public boolean createNewCharacter = false;
+	public int loadFromSlot = Savegames.SLOT_QUICKSAVE;
 	public boolean isSceneReady = false;
 	public String newHeroName;
+	private int loadResult;
 	
 	public WorldSetup(WorldContext world, Context androidContext) {
 		this.world = world;
@@ -77,13 +72,15 @@ public final class WorldSetup {
 		(new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... arg0) {
+				if (world.model != null) world.reset();
 				if (createNewCharacter) {
 					createNewWorld();
+					loadResult = Savegames.LOAD_RESULT_SUCCESS;
 				} else {
-					continueWorld();
+					loadResult = continueWorld();
 				}
-		    	Preferences.read(androidContext.get(), world.model.uiSelections);
-				return null;
+				createNewCharacter = false;
+		    	return null;
 			}
 
 			@Override
@@ -94,17 +91,20 @@ public final class WorldSetup {
 				OnSceneLoadedListener o = listener.get();
 				listener = null;
 				if (o == null) return;
-				o.onSceneLoaded();
+				if (loadResult == Savegames.LOAD_RESULT_SUCCESS) {
+					o.onSceneLoaded();
+				} else {
+					o.onSceneLoadFailed(loadResult);
+				}
 			}
         }).execute();
 	}
 	
-	private void continueWorld() {
-		loadWorld(world, androidContext.get());
+	private int continueWorld() {
+		return Savegames.loadWorld(world, androidContext.get(), loadFromSlot);
 	}
 	
 	private void createNewWorld() {
-		if (world.model != null) world.reset();
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
 		Controller.playerRested(world);
@@ -114,35 +114,6 @@ public final class WorldSetup {
 
     public interface OnSceneLoadedListener {
     	void onSceneLoaded();
-    }
-    
-    private static final String FILENAME_SAVEGAME = "savegame";
-    public static void saveWorld(WorldContext world, Context androidContext) {
-    	try {
-	    	FileOutputStream fos = androidContext.openFileOutput(FILENAME_SAVEGAME, Context.MODE_PRIVATE);
-	    	DataOutputStream dest = new DataOutputStream(fos);
-	    	final int flags = 0;
-	    	dest.writeInt(AndorsTrailApplication.CURRENT_VERSION);
-	    	world.maps.writeToParcel(dest, flags);
-	    	world.model.writeToParcel(dest, flags);
-	    	dest.close();
-	    	fos.close();
-    	} catch (IOException e) {
-    		L.log("Error saving world: " + e.toString());
-    	}
-    }
-    private static void loadWorld(WorldContext world, Context androidContext) {
-    	try {
-	    	FileInputStream fos = androidContext.openFileInput(FILENAME_SAVEGAME);
-	    	DataInputStream src = new DataInputStream(fos);
-	    	int fileversion = src.readInt();
-	    	if (fileversion == 11) fileversion = 5;
-	    	world.maps.readFromParcel(src, world, fileversion);
-	    	world.model = new ModelContainer(src, world, fileversion);
-	    	src.close();
-	    	fos.close();
-    	} catch (IOException e) {
-    		L.log("Error loading world: " + e.toString());
-    	}
+    	void onSceneLoadFailed(int loadResult);
     }
 }

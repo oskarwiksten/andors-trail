@@ -7,19 +7,44 @@
 	<string name="exit_to_menu">Exit to menu</string>
 	<string name="menu_pause">Pause</string>
 	<string name="menu_settings">Preferences</string>
+	<string name="menu_save">Save</string>
+	<string name="menu_load">Load</string>
+	<string name="menu_save_gamesaved">Game was saved to slot %1$d</string>
+	<string name="menu_save_failed">Failed to save game! Is the SD card mounted and writable?</string>
 
-	<string-array name="display_loot">
+	<string name="loadsave_title_save">Save game</string>
+	<string name="loadsave_title_load">Load saved game</string>
+	<string name="loadsave_selectslot">Select slot</string>
+	<string name="loadsave_slot_empty">(empty)</string>
+	<string name="savegame_currenthero_displayinfo">level %1$d, %2$d exp, %3$d gold</string>
+	
+	<string-array name="preferences_display_loot">
 		<item>Show loot dialog box</item>
 		<item>Show short notification</item>
 		<item>Do not display</item>
 	</string-array>
-	<string-array name="display_loot_values">
+	<string-array name="preferences_display_loot_values">
 		<item>0</item>
 		<item>1</item>
 		<item>2</item>
 	</string-array>
+	<string-array name="preferences_attackspeed">
+		<item>Instant (no animations)</item>
+		<item>Fast</item>
+		<item>Normal</item>
+		<item>Slow</item>
+	</string-array>
+	<string-array name="preferences_attackspeed_values">
+		<item>0</item>
+		<item>400</item>
+		<item>1000</item>
+		<item>1500</item>
+	</string-array>
 	
 	<string name="dialog_loading_message">Loading resources...</string>
+	<string name="dialog_loading_failed_title">Load Failed</string>
+	<string name="dialog_loading_failed_message">Andor\'s Trail was unable to load the savegame file.\n\n:(\n\nThe file may be damaged or incomplete.</string>
+	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail was unable to load the savegame file. This savegame file is created with a newer version than what is currently running.</string>
 	
 	<string name="dialog_close">Close</string>
 	
@@ -31,7 +56,7 @@
 	<string name="dialog_paused_resume">Resume</string>
 
 	<string name="dialog_monsterencounter_title">Encounter</string>
-	<string name="dialog_monsterencounter_message">Do you want to attack?\nDifficulty: %s</string>
+	<string name="dialog_monsterencounter_message">Do you want to attack?\nDifficulty: %1$s</string>
 	<string name="dialog_monsterencounter_info">Info</string>
 
 	<string name="status_hp">HP:</string>
@@ -49,46 +74,50 @@
 	<string name="heroinfo_totalexperience">Total experience</string>	
 	<string name="heroinfo_wornequipment">Worn equipment</string>
 	<string name="heroinfo_inventory">Inventory</string>
-	<string name="heroinfo_gold">Gold: %d</string>
+	<string name="heroinfo_gold">Gold: %1$d</string>
 	<string name="heroinfo_actionpoints">Action points (AP):</string>
+	<string name="heroinfo_quests">Quests</string>
 	
-	<string name="combat_attack">Attack (%d AP)</string>
-	<string name="combat_move">Move (%d AP)</string>
+	<string name="combat_attack">Attack (%1$d AP)</string>
+	<string name="combat_move">Move (%1$d AP)</string>
 	<string name="combat_use">Use item</string>
 	<string name="combat_spell">Spell</string>
 	<string name="combat_endturn">End turn</string>
-	<string name="combat_endcombat">End combat</string>
-	<string name="combat_status_ap">AP: %d</string>
+	<!-- <string name="combat_endcombat">End combat</string>-->
+	<string name="combat_flee">Flee</string>
+	<string name="combat_begin_flee">You can now flee combat by clicking in the direction you want to move.</string>
+	<string name="combat_flee_failed">You failed to flee!</string>
+	<string name="combat_status_ap">AP: %1$d</string>
 	<string name="combat_monsterhealth">HP:</string>
-	<string name="combat_monsteraction">%s is attacking.</string>
-	<string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>
-	<string name="combat_result_monstermiss">%s misses!</string>
-	<string name="combat_result_monsterhit">%s hits you for %d hp!</string>
-	<string name="combat_result_monsterhitcritical">%s gets a critical hit for %d hp!</string>
+	<string name="combat_monsteraction">%1$s is attacking.</string>
+	<!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  -->
+	<string name="combat_result_monstermiss">%1$s misses!</string>
+	<string name="combat_result_monsterhit">%1$s hits you for %2$d hp!</string>
+	<string name="combat_result_monsterhitcritical">%1$s gets a critical hit for %2$d hp!</string>
 	<string name="combat_result_heromiss">Your attack misses.</string>
-	<string name="combat_result_herohit">You hit %s for %d hp!</string>
-	<string name="combat_result_herohitcritical">You get a critical hit on %s for %d hp!</string>
-	<string name="combat_result_herokillsmonster">%s dies!</string>
+	<string name="combat_result_herohit">You hit %1$s for %2$d hp!</string>
+	<string name="combat_result_herohitcritical">You get a critical hit on %1$s for %2$d hp!</string>
+	<string name="combat_result_herokillsmonster">%1$s dies!</string>
 	<string name="combat_not_enough_ap">Not enough AP left this round.</string>
-	<string name="combat_hero_dies">You fall unconscious but fortunately wake up alive. You lost %d experience.</string>
+	<string name="combat_hero_dies">You fall unconscious but fortunately wake up alive. You lost %1$d experience.</string>
 		
 	<string name="inventory_info">Info</string>
 	<string name="inventory_equip">Equip</string>
 	<string name="inventory_unequip">Unequip</string>
 	<string name="inventory_use">Use</string>
 	<string name="inventory_drop">Drop</string>
-	<string name="inventory_item_used">You used %s.</string>
-	<string name="inventory_item_dropped">%s was dropped.</string>
-	<string name="inventory_item_equipped">You equipped %s.</string>
+	<string name="inventory_item_used">You used %1$s.</string>
+	<string name="inventory_item_dropped">%1$s was dropped.</string>
+	<string name="inventory_item_equipped">You equipped %1$s.</string>
 
 	<string name="dialog_loot_pickall">Pick up all</string>
-	<string name="dialog_loot_foundgold">You found %d gold. </string>
-	<string name="dialog_loot_pickedupitems">You picked up %d items.</string>
+	<string name="dialog_loot_foundgold">You found %1$d gold. </string>
+	<string name="dialog_loot_pickedupitems">You picked up %1$d items.</string>
 	<string name="dialog_groundloot_title">Items</string>
 	<string name="dialog_groundloot_message">You found some items. </string>
 	<string name="dialog_monsterloot_title">Victory</string>
 	<string name="dialog_monsterloot_message">You survived the encounter. </string>
-	<string name="dialog_monsterloot_gainedexp">You gained %d experience. </string>
+	<string name="dialog_monsterloot_gainedexp">You gained %1$d experience. </string>
     
     <string name="monster_difficulty_veryeasy">Very easy</string>
     <string name="monster_difficulty_easy">Easy</string>
@@ -123,10 +152,10 @@
 	<string name="iteminfo_action_use">Use</string>
 	<string name="iteminfo_action_equip">Equip</string>
 	<string name="iteminfo_action_unequip">Unequip</string>
-	<string name="iteminfo_action_use_ap">Use (%d AP)</string>
-	<string name="iteminfo_action_equip_ap">Equip (%d AP)</string>
-	<string name="iteminfo_action_unequip_ap">Unequip (%d AP)</string>
-	<string name="iteminfo_effect_heal">Restores %s HP</string>	
+	<string name="iteminfo_action_use_ap">Use (%1$d AP)</string>
+	<string name="iteminfo_action_equip_ap">Equip (%1$d AP)</string>
+	<string name="iteminfo_action_unequip_ap">Unequip (%1$d AP)</string>
+	<string name="iteminfo_effect_heal">Restores %1$s HP</string>	
 
 	<string name="itemcategory_money">Money</string>
 	<string name="itemcategory_weapon">Weapon</string>
@@ -144,34 +173,36 @@
 	<string name="startscreen_newgame">New game</string>
 	<string name="startscreen_newgame_confirm">You will lose your current game and your current character, are you sure you want to start a new game?</string>
 	<string name="startscreen_about">About/help</string>
-	<string name="startscreen_currenthero">%s, level %d</string>
 	<string name="startscreen_enterheroname">Enter hero name</string>
+	<string name="startscreen_load">Load</string>
 	
-	<string name="conversation_title">%s says</string>
-	<string name="conversation_rewardexp"> [You gained %d experience]</string>
-	<string name="conversation_rewardgold"> [You gained %d gold]</string>
-	<string name="conversation_lostgold"> [You lost %d gold]</string>
+	<string name="conversation_title">%1$s says</string>
+	<string name="conversation_rewardexp"> [You gained %1$d experience]</string>
+	<string name="conversation_rewardgold"> [You gained %1$d gold]</string>
+	<string name="conversation_lostgold"> [You lost %1$d gold]</string>
+	<string name="conversation_rewarditem"> [You gained an item]</string>
+	<string name="conversation_rewarditems"> [You gained %1$d items]</string>
 	
 	<string name="shop_buy">Buy</string>
 	<string name="shop_sell">Sell</string>
 	<string name="shop_infoitem">Info</string>
-	<string name="shop_buyitem">Buy (%d gold)</string>
-	<string name="shop_sellitem">Sell (%d gold)</string>
-	<string name="shop_yourgold">Your gold: %d</string>
-	<string name="shop_item_bought">%s bought.</string>
-	<string name="shop_item_sold">%s sold.</string>
+	<string name="shop_buyitem">Buy (%1$d gold)</string>
+	<string name="shop_sellitem">Sell (%1$d gold)</string>
+	<string name="shop_yourgold">Your gold: %1$d</string>
+	<string name="shop_item_bought">%1$s bought.</string>
+	<string name="shop_item_sold">%1$s sold.</string>
 	
 	<string name="levelup_title">Level up</string>
-	<string name="levelup_description">Welcome to level %d!</string>
+	<string name="levelup_description">Welcome to level %1$d!</string>
 	<string name="levelup_buttontext">Level up</string>
-	<string name="levelup_add_health">Increase health (+%d HP)</string>
-	<string name="levelup_add_health_description">Adds %d to your maximum health.</string>
-	<string name="levelup_add_attackchance">Increase attack chance (+%d \%)</string>
-	<string name="levelup_add_attackchance_description">Adds %d\% to your base attack chance.</string>
-	<string name="levelup_add_attackdamage">Increase attack damage (+%d)</string>
-	<string name="levelup_add_attackdamage_description">Adds %d\% to your base attack damage.</string>
-	<string name="levelup_add_blockchance">Increase block chance (+%d \%)</string>
-	<string name="levelup_add_blockchance_description">Adds %d\% to your base block chance.</string>
+	<string name="levelup_add_health">Increase health (+%1$d HP)</string>
+	<string name="levelup_add_health_description">Adds %1$d to your maximum health.</string>
+	<string name="levelup_add_attackchance">Increase attack chance (+%1$d %%)</string>
+	<string name="levelup_add_attackchance_description">Adds %1$d%% to your base attack chance.</string>
+	<string name="levelup_add_attackdamage">Increase attack damage (+%1$d)</string>
+	<string name="levelup_add_attackdamage_description">Adds %1$d to your base attack damage.</string>
+	<string name="levelup_add_blockchance">Increase block chance (+%1$d %%)</string>
+	<string name="levelup_add_blockchance_description">Adds %1$d%% to your base block chance.</string>
 	
 	<string name="dialog_rest_title">Rest</string>
 	<string name="dialog_rest_confirm_message">Do you want to rest here?</string>
@@ -219,6 +250,17 @@
 		Please visit the project page to get more info or to contribute to the project (see "about").\n
 		\n
 		Thanks for all the feedback!
-	</string>
+	</string> 
 	
+	<string name="questlog_title">Quests</string>
+	<string name="questlog_includecompleted_prompt">Select quests to show</string>
+	<string-array name="questlog_includecompleted">
+		<item>Hide completed quests</item>
+		<item>Include completed quests</item>
+		<item>Only completed quests</item>
+	</string-array>
+	<string name="questlog_queststatus">Status: %1$s</string>
+	<string name="questlog_queststatus_inprogress">In progress</string>
+	<string name="questlog_queststatus_completed">Completed</string>
+
 </resources>

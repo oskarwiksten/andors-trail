@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.EffectController.EffectAnimation;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -45,10 +46,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
 
-    private final Coord lastTouchPosition = new Coord();
-    public boolean inhibitClicks = false;
+	private final Coord lastTouchPosition_tileCoords = new Coord();
+    private int lastTouchPosition_dx = 0;
+    private int lastTouchPosition_dy = 0;
     private long lastTouchEventTime = 0;
-    private static final long MINIMUM_INPUT_INTERVAL = 200;
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -79,16 +80,18 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
+		if (!model.uiSelections.isMainActivityVisible) return true;
+
     	if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
-    		movePlayer(0, -1);
+    		keyboardAction(0, -1);
     	} else if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
-    		movePlayer(0, 1);
+    		keyboardAction(0, 1);
         } else if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-        	movePlayer(-1, 0);
+        	keyboardAction(-1, 0);
         } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
-        	movePlayer(1, 0);
+        	keyboardAction(1, 0);
         } else if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
-        	this.onClick();
+        	keyboardAction(0, 0);
         } else {
         	return super.onKeyDown(keyCode, msg);
         }
@@ -96,8 +99,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     	return true;
     }
 
-	private void movePlayer(int dx, int dy) {
-		view.movementController.movePlayer(dx, dy);
+	private void keyboardAction(int dx, int dy) {
+		if (!allowInputInterval()) return;
+		
+		lastTouchPosition_dx = dx;
+		lastTouchPosition_dy = dy;
+		onClick();
 	}
 
 	@Override
@@ -138,59 +145,60 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 
     private void onClick() {
     	if (model.uiSelections.isInCombat) {
-			view.combatController.executeMoveAttack();
+			view.combatController.executeMoveAttack(lastTouchPosition_dx, lastTouchPosition_dy);
+		} else {
+			view.movementController.movePlayer(lastTouchPosition_dx, lastTouchPosition_dy);
 		}
     }
     
     private boolean onLongClick() {
-    	final Coord tilePosition = getScreenToTilePosition(lastTouchPosition);
-		final int dx = tilePosition.x - model.player.position.x;
-		final int dy = tilePosition.y - model.player.position.y;
 		if (model.uiSelections.isInCombat) {
 			//TODO: Should be able to mark positions far away (mapwalk / ranged combat)
-			if (dx == 0 && dy == 0) return false;
-			if (Math.abs(dx) > 1) return false;
-			if (Math.abs(dy) > 1) return false;
+			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
+			if (Math.abs(lastTouchPosition_dx) > 1) return false;
+			if (Math.abs(lastTouchPosition_dy) > 1) return false;
 				
-			view.combatController.setCombatSelection(tilePosition);
+			view.combatController.setCombatSelection(lastTouchPosition_tileCoords);
 			return true;
 		}
 		return false;
     }
     
+    private boolean allowInputInterval() {
+		final long now = System.currentTimeMillis();
+		if ((now - lastTouchEventTime) < Constants.MINIMUM_INPUT_INTERVAL) return false;
+		lastTouchEventTime = now;
+		return true;
+    }
+    
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (inhibitClicks) return true;
+		if (!model.uiSelections.isMainActivityVisible) return true;
+		
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
-			final long now = System.currentTimeMillis();
-			if ((now - lastTouchEventTime) < MINIMUM_INPUT_INTERVAL) return true;
+			if (!allowInputInterval()) return true;
 			
-			lastTouchEventTime = now;
-			lastTouchPosition.set((int)event.getX(), (int)event.getY());
+			lastTouchPosition_tileCoords.set(
+					(int) Math.floor(((int)event.getX() - screenOffset.x) / displayTileSize) + mapTopLeft.x
+					,(int) Math.floor(((int)event.getY() - screenOffset.y) / displayTileSize) + mapTopLeft.y);
+			lastTouchPosition_dx = lastTouchPosition_tileCoords.x - model.player.position.x;
+			lastTouchPosition_dy = lastTouchPosition_tileCoords.y - model.player.position.y;
+			
 			if (!model.uiSelections.isInCombat) {
-				final Coord tilePosition = getScreenToTilePosition(lastTouchPosition);
-				final int dx = tilePosition.x - model.player.position.x;
-				final int dy = tilePosition.y - model.player.position.y;
-				movePlayer(dx, dy);
+				view.movementController.movePlayer(lastTouchPosition_dx, lastTouchPosition_dy);
 				return true;
 			}
 		}
 		return super.onTouchEvent(event);
 	}
     
-    private Coord getScreenToTilePosition(Coord c) {
-    	return new Coord(
-				(int) Math.floor((c.x - screenOffset.x) / displayTileSize) + mapTopLeft.x
-				,(int) Math.floor((c.y - screenOffset.y) / displayTileSize) + mapTopLeft.y
-				);
-	}
-
     public static final int REDRAW_ALL_SURFACE_CHANGED = 1;
     public static final int REDRAW_ALL_MAP_CHANGED = 2;
     public static final int REDRAW_ALL_PLAYER_MOVED = 3;
     public static final int REDRAW_ALL_MONSTER_MOVED = 4;
+    public static final int REDRAW_ALL_MONSTER_KILLED = 10;
     public static final int REDRAW_AREA_EFFECT_STARTING = 5;
     public static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
     public static final int REDRAW_TILE_SELECTION_REMOVED = 7;
@@ -245,7 +253,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        synchronized (holder) {
 	        	c.translate(screenOffset.x, screenOffset.y);
 	        	doDrawRect(c, area);
-	        	drawFromMapPosition(c, area, effect.position.x, effect.position.y, effect.currentTileID);
+	        	drawFromMapPosition(c, area, effect.position, effect.currentTileID);
     			if (effect.displayText != null) {
     				drawEffectText(c, area, effect);
     			}
@@ -260,6 +268,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	    }
 	}
 	private void clearCanvas() {
+		if (!hasSurface) return;
 		Canvas c = null;
 		try {
 			c = holder.lockCanvas(null);
@@ -396,7 +405,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		drawFromMapPosition(canvas, area, model.player.position, model.player.traits.iconID);
 		for (MonsterSpawnArea a : currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				drawFromMapPosition(canvas, area, m.position, m.traits.iconID);
+				drawFromMapPosition(canvas, area, m.rectPosition, m.traits.iconID);
 			}
 		}
 		
@@ -432,12 +441,14 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     }
 
 	private void drawFromMapPosition(Canvas canvas, final CoordRect area, final Coord p, final int tile) {
-		drawFromMapPosition(canvas, area, p.x, p.y, tile);
+		if (!area.contains(p)) return;
+		_drawFromMapPosition(canvas, area, p.x, p.y, tile);
     }
-
-	private void drawFromMapPosition(Canvas canvas, final CoordRect area, int x, int y, final int tile) {
-		if (!area.contains(x, y)) return;
-		
+	private void drawFromMapPosition(Canvas canvas, final CoordRect area, final CoordRect p, final int tile) {
+		if (!area.intersects(p)) return;
+		_drawFromMapPosition(canvas, area, p.topLeft.x, p.topLeft.y, tile);
+    }
+	private void _drawFromMapPosition(Canvas canvas, final CoordRect area, int x, int y, final int tile) {
     	x -= mapViewArea.topLeft.x;
     	y -= mapViewArea.topLeft.y;
 		if (	   (x >= 0 && x < mapViewArea.size.width)

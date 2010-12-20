@@ -12,6 +12,14 @@ public class ItemContainer {
 	
 	public ItemContainer() {}
 	
+	public int countItems() {
+		int result = 0;
+		for (ItemEntry i : items) {
+			result += i.quantity;
+		}
+		return result;
+	}
+	
 	public static final class ItemEntry {
 		public final ItemType itemType;
 		public int quantity;

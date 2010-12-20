@@ -13,14 +13,15 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 
-public class AboutActivity extends Activity {
+public final class AboutActivity extends Activity {
 	
 	/** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        AndorsTrailApplication.setWindowParameters(this);
+        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
         setContentView(R.layout.about);
     	final Resources res = getResources();

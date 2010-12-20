@@ -38,13 +38,20 @@ public final class CombatController {
     	this.model = world.model;
     }
 
-    public void enterCombat() {
+	public static final int BEGIN_TURN_PLAYER = 0;
+	public static final int BEGIN_TURN_MONSTERS = 1;
+	public static final int BEGIN_TURN_CONTINUE = 2;
+	
+	public void enterCombat(int beginTurnAs) {
     	context.mainActivity.combatview.setVisibility(View.VISIBLE);
     	context.mainActivity.combatview.bringToFront();
     	model.uiSelections.isInCombat = true;
     	killedMonsters.clear();
     	context.mainActivity.clearMessages();
-    	newPlayerTurn();
+    	if (beginTurnAs == BEGIN_TURN_PLAYER) newPlayerTurn();
+    	else if (beginTurnAs == BEGIN_TURN_MONSTERS) endPlayerTurn();
+    	else maybeAutoEndTurn();
+    	updateTurnInfo();
     }
     public void exitCombat(boolean displayLootDialog) {
     	setCombatSelection(null, null);
@@ -75,6 +82,10 @@ public final class CombatController {
 		return currentActiveMonster != null;
 	}
 
+	public void setCombatSelection(Monster selectedMonster) {
+		Coord p = selectedMonster.rectPosition.findPositionAdjacentTo(model.player.position);
+		setCombatSelection(selectedMonster, p);
+	}
 	public void setCombatSelection(Monster selectedMonster, Coord selectedPosition) {
 		if (selectedMonster != null) {
 			if (!selectedMonster.isAgressive()) return;
@@ -84,12 +95,14 @@ public final class CombatController {
 			model.uiSelections.selectedPosition = null;
 			context.mainActivity.redrawTile(previousSelection, MainView.REDRAW_TILE_SELECTION_REMOVED);
 		}
-		model.uiSelections.selectedMonster = selectedMonster;
-		model.uiSelections.selectedPosition = selectedPosition;
 		context.mainActivity.combatview.updateCombatSelection(selectedMonster, selectedPosition);
+		model.uiSelections.selectedMonster = selectedMonster;
 		if (selectedPosition != null) {
+			model.uiSelections.selectedPosition = new Coord(selectedPosition);
 			model.uiSelections.isInCombat = true;
 			context.mainActivity.redrawTile(selectedPosition, MainView.REDRAW_TILE_SELECTION_ADDED);
+		} else {
+			model.uiSelections.selectedPosition = null;
 		}
 	}
 	public void setCombatSelection(Coord p) {
@@ -128,16 +141,25 @@ public final class CombatController {
 		return null;
 	}
 
-	public void executeMoveAttack() {
+	public void executeMoveAttack(int dx, int dy) {
 		if (isMonsterTurn()) {
 			forceFinishMonsterAction();
 		} else if (world.model.uiSelections.selectedMonster != null) {
 			executeAttack();
 		} else if (world.model.uiSelections.selectedPosition != null) {
-			executeMove();
+			executeCombatMove(world.model.uiSelections.selectedPosition);
 		} else if (canExitCombat()) {
 			exitCombat(true);
+		} else if (dx != 0 || dy != 0) {
+			executeFlee(dx, dy);
 		}
+	}
+	
+	private void executeFlee(int dx, int dy) {
+		if (!context.movementController.findWalkablePosition(dx, dy)) return;
+		Monster m = model.currentMap.getMonsterAt(model.player.nextPosition);
+		if (m != null) return;
+		executeCombatMove(world.model.player.nextPosition);
 	}
 	
 	private void executeAttack() {
@@ -161,12 +183,7 @@ public final class CombatController {
 				msg += " " + r.getString(R.string.combat_result_herokillsmonster, monsterName, attack.damage);
 			}
 			message(msg);
-			context.effectController.startEffect(
-					context.mainActivity.mainview
-					, model.uiSelections.selectedPosition
-					, EffectCollection.EFFECT_BLOOD
-					, attack.damage);
-
+			startAttackEffect(attack, model.uiSelections.selectedPosition);
 			if (!attack.targetDied) {
 				context.mainActivity.combatview.updateMonsterHealth(target.health);
 			} else {
@@ -176,7 +193,7 @@ public final class CombatController {
 					exitCombat(true);
 					return;
 				} else {
-					setCombatSelection(nextMonster, nextMonster.position);
+					setCombatSelection(nextMonster);
 				}
 			}
 		} else {
@@ -194,15 +211,27 @@ public final class CombatController {
 		}
 	}
 
-	private void executeMove() {
+	private void executeCombatMove(final Coord dest) {
 		if (model.uiSelections.selectedMonster != null) return;
-		if (model.uiSelections.selectedPosition == null) return;
+		if (dest == null) return;
 		if (!useAPs(model.player.traits.moveCost)) return;
 
-		model.player.nextPosition.set(model.uiSelections.selectedPosition);
+		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT)) {
+			fleeingFailed();
+			return;
+		}
+		
+		model.player.nextPosition.set(dest);
 		context.movementController.moveToNextIfPossible(false);
 		
-		maybeAutoEndTurn();
+		if (canExitCombat()) exitCombat(true);
+		else maybeAutoEndTurn();
+	}
+
+	private void fleeingFailed() {
+		Resources r = context.mainActivity.getResources();
+		message(r.getString(R.string.combat_flee_failed));
+		endPlayerTurn();
 	}
 
 	private final Handler monsterTurnHandler = new Handler() {
@@ -213,15 +242,14 @@ public final class CombatController {
 	};
 	public void endPlayerTurn() {
 		model.player.ap.current = 0;
-		
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				m.setMaxAP();
 			}
 		}
-		
 		handleNextMonsterAction();
 	}
+
 	private void forceFinishMonsterAction() {
 		//TODO:
 		return;
@@ -248,6 +276,8 @@ public final class CombatController {
 	}
 	
 	private void handleNextMonsterAction() {
+		if (!context.model.uiSelections.isMainActivityVisible) return;
+		
 		context.effectController.waitForCurrentEffect();
 		
 		currentActiveMonster = determineNextMonster(currentActiveMonster);
@@ -260,11 +290,7 @@ public final class CombatController {
 		AttackResult attack = monsterAttacks(model, currentActiveMonster);
 		String monsterName = currentActiveMonster.traits.name;
 		if (attack.isHit) {
-			context.effectController.startEffect(
-					context.mainActivity.mainview
-					, model.player.position
-					, EffectCollection.EFFECT_BLOOD
-					, attack.damage);
+			startAttackEffect(attack, model.player.position);
 			if (attack.isCriticalHit) {
 				message(r.getString(R.string.combat_result_monsterhitcritical, monsterName, attack.damage));
 			} else {
@@ -279,17 +305,28 @@ public final class CombatController {
 			message(r.getString(R.string.combat_result_monstermiss, monsterName));
 		}
 		context.mainActivity.statusview.update();
-		monsterTurnHandler.sendEmptyMessageDelayed(0, ModelContainer.monsterAttackDelay);
+		monsterTurnHandler.sendEmptyMessageDelayed(0, context.preferences.attackspeed_milliseconds);
 	}
 
+	private void startAttackEffect(AttackResult attack, final Coord position) {
+		if (context.preferences.attackspeed_milliseconds <= 0) return;
+		context.effectController.startEffect(
+				context.mainActivity.mainview
+				, position
+				, EffectCollection.EFFECT_BLOOD
+				, attack.damage);
+	}
 	private void endMonsterTurn() {
+		currentActiveMonster = null;
 		newPlayerTurn();
 	}
 	
 	private void newPlayerTurn() {
-		currentActiveMonster = null;
-    	model.player.ap.setMax();
-    	context.mainActivity.combatview.updateTurnInfo(null);
+		model.player.setMaxAP();
+    	updateTurnInfo();
+	}
+	private void updateTurnInfo() {
+		context.mainActivity.combatview.updateTurnInfo(currentActiveMonster);
     	context.mainActivity.combatview.updatePlayerAP(model.player.ap);
 	}
 	
@@ -303,12 +340,14 @@ public final class CombatController {
 		return getAverageDamagePerHit(attacker, target) * attacker.getAttacksPerTurn();
 	}
 	private static int getTurnsToKillTarget(ActorTraits attacker, ActorTraits target) {
-		if (attacker.damagePotential.max <= target.damageResistance) return 999;
 		if (attacker.hasCriticalEffect()) {
 			if (attacker.damagePotential.max * attacker.criticalMultiplier <= target.damageResistance) return 999;
+		} else {
+			if (attacker.damagePotential.max <= target.damageResistance) return 999;
 		}
+		
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);
-		if (averageDamagePerTurn == 0) return 100;
+		if (averageDamagePerTurn <= 0) return 100;
 		return (int) Math.ceil(target.maxHP / averageDamagePerTurn);
 	}
 	public static int getMonsterDifficulty(WorldContext world, MonsterType monsterType) {
@@ -327,6 +366,7 @@ public final class CombatController {
     	
     	if (result.targetDied) {
     		model.currentMap.remove(currentMonster);
+    		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
 		}
 
 		return result;
@@ -348,12 +388,12 @@ public final class CombatController {
 	
 	private static AttackResult attack(final Actor attacker, final Actor target) {
 		int hitChance = getAttackHitChance(attacker.traits, target.traits);
-		if (!ModelContainer.roll100(hitChance)) return AttackResult.MISS;
+		if (!Constants.roll100(hitChance)) return AttackResult.MISS;
 		
-		int damage = ModelContainer.rollValue(attacker.traits.damagePotential);
+		int damage = Constants.rollValue(attacker.traits.damagePotential);
 		boolean isCriticalHit = false;
 		if (attacker.traits.hasCriticalEffect()) {
-			isCriticalHit = ModelContainer.roll100(attacker.traits.criticalChance);
+			isCriticalHit = Constants.roll100(attacker.traits.criticalChance);
 			if (isCriticalHit) {
 				damage *= attacker.traits.criticalMultiplier;
 			}
@@ -366,8 +406,13 @@ public final class CombatController {
 	}
 
 	public void monsterSteppedOnPlayer(Monster m) {
-		enterCombat();
-		endPlayerTurn();
-		setCombatSelection(m, m.position);
+		setCombatSelection(m);
+		enterCombat(BEGIN_TURN_MONSTERS);
+	}
+	
+	public void startFlee() {
+		setCombatSelection(null, null);
+		Resources r = context.mainActivity.getResources();
+		message(r.getString(R.string.combat_begin_flee));
 	}
 }

@@ -3,39 +3,60 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 
-public class ConversationController {
+public final class ConversationController {
 
-	public static void applyPhraseEffect(final Player player, final Phrase phrase) {
-		if (phrase.enablesKey != null) player.addKey(phrase.enablesKey);
-		if (phrase.rewardExperience > 0) player.addExperience(phrase.rewardExperience);
-		if (phrase.rewardGold != 0) player.inventory.gold += phrase.rewardGold;
+	public static Loot applyPhraseEffect(final Player player, final Phrase phrase, final QuestCollection questcollection) {
+		if (phrase.rewardDropList == null && phrase.progressQuest == null) return null;
+		
+		final Loot loot = new Loot();
+		if (phrase.rewardDropList != null) {
+			phrase.rewardDropList.createRandomLoot(loot);
+			player.inventory.add(loot);
+		}
+		if (phrase.progressQuest != null) {
+			player.addQuestProgress(phrase.progressQuest);
+			QuestLogEntry stage = questcollection.getQuestLogEntry(phrase.progressQuest);
+			if (stage != null) {
+				loot.exp = stage.rewardExperience;
+				player.addExperience(stage.rewardExperience);
+			}
+		}
+		return loot;
 	}
 	
 	public static void applyReplyEffect(final Player player, final Reply reply) {
-		if (reply.requiresItemTypeID > 0 && reply.requiresItemQuantity > 0) {
+		if (reply.requiresItemTypeID < 0) return;
+		if (reply.requiresItemQuantity <= 0) return;
+		
+		if (reply.requiresItemTypeID == ItemTypeCollection.ITEMTYPE_GOLD) {
+			player.inventory.gold -= reply.requiresItemQuantity;
+		} else {
 			player.inventory.removeItem(reply.requiresItemTypeID, reply.requiresItemQuantity);
 		}
 	}
     
 	public static boolean canSelectReply(final Player player, final Reply reply) {
-		if (!hasRequiredKey(player, reply.requiresKey)) return false;
+		if (!hasRequiredQuestProgress(player, reply.requiresProgress)) return false;
 		if (!hasRequiredItems(player, reply.requiresItemTypeID, reply.requiresItemQuantity)) return false;
 		return true;
     }
 	
-	private static boolean hasRequiredKey(final Player player, final String key) {
-    	if (key == null) return true;
-    	if (key.startsWith("!")) {
-    		return !player.hasKey(key.substring(1));
-    	} else {
-    		return player.hasKey(key);
-    	}
+	private static boolean hasRequiredQuestProgress(final Player player, final QuestProgress progress) {
+    	if (progress == null) return true;
+    	return player.hasExactQuestProgress(progress);
     }
 	
 	private static boolean hasRequiredItems(final Player player, int requiresItemTypeID, int requiresItemQuantity) {
-    	if (requiresItemTypeID <= 0) return true;
+    	if (requiresItemTypeID < 0) return true;
     	if (requiresItemQuantity <= 0) return true;
+    	if (requiresItemTypeID == ItemTypeCollection.ITEMTYPE_GOLD) return player.inventory.gold >= requiresItemQuantity;
+    		
     	return player.inventory.hasItem(requiresItemTypeID, requiresItemQuantity);
     }
 }

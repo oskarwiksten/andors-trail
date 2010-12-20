@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -39,7 +40,7 @@ public final class MapCollection {
 						final String desc = "Map \"" + m.name + "\", place \"" + o.title + "\"";
 						if (o.map == null || o.map.length() <= 0) {
 							L.log("OPTIMIZE: " + desc + " has no destination map.");
-						} else if (o.place_or_key == null || o.place_or_key.length() <= 0) {
+						} else if (o.place == null || o.place.length() <= 0) {
 							L.log("OPTIMIZE: " + desc + " has no destination place.");
 						} else {
 							LayeredWorldMap destination = findPredefinedMap(o.map);
@@ -47,18 +48,22 @@ public final class MapCollection {
 								L.log("WARNING: " + desc + " references non-existing destination map \"" + o.map + "\".");
 								continue;
 							}
-							MapObject place = destination.findEventObject(MapObject.MAPEVENT_NEWMAP, o.place_or_key);
+							MapObject place = destination.findEventObject(MapObject.MAPEVENT_NEWMAP, o.place);
 							if (place == null) {
-								L.log("WARNING: " + desc + " references non-existing destination place \"" + o.place_or_key + "\" on map \"" + o.map + "\".");
+								L.log("WARNING: " + desc + " references non-existing destination place \"" + o.place + "\" on map \"" + o.map + "\".");
 								continue;
 							}
 							
 							if (!m.name.equalsIgnoreCase(place.map)) {
-								L.log("WARNING: " + desc + " references destination place \"" + o.place_or_key + "\" on map \"" + o.map + "\", but that place does not reference back to this map.");
+								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this map.");
 								continue;
 							}
-							if (!o.title.equalsIgnoreCase(place.place_or_key)) {
-								L.log("WARNING: " + desc + " references destination place \"" + o.place_or_key + "\" on map \"" + o.map + "\", but that place does not reference back to this place.");
+							if (!o.title.equalsIgnoreCase(place.place)) {
+								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this place.");
+								continue;
+							}
+							if (!o.position.size.equals(place.position.size)) {
+								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", with different mapchange size.");
 								continue;
 							}
 						}
@@ -68,18 +73,32 @@ public final class MapCollection {
 		}
 	}
 
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getRequiredQuestStages(HashSet<String> requiredStages) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (LayeredWorldMap m : predefinedMaps) {
+				for (MapObject o : m.eventObjects) {
+					if (o.type == MapObject.MAPEVENT_SIGN) {
+						if (o.questProgress == null) continue;
+						requiredStages.add(o.questProgress.toString());
+					}
+				}
+			}
+		}
+	}
+
 
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		int size;
-		if (fileversion == 5) {
-			size = 11;
-		} else {
-			size = src.readInt();
-		}
+		if (fileversion == 5) size = 11;
+		else size = src.readInt();
 		for(int i = 0; i < size; ++i) {
 			predefinedMaps.get(i).readFromParcel(src, world, fileversion);
+			if (i >= 40) {
+				if (fileversion < 15) predefinedMaps.get(i).visited = false;
+			}
 		}
 	}
 	

@@ -25,7 +25,17 @@
 			android:summary="Choose how you want to show the results of a fight to be shown (gold, experience, items)."
 			android:key="display_lootdialog"
 			android:defaultValue="0"
-			android:entries="@array/display_loot"
-			android:entryValues="@array/display_loot_values" />
+			android:entries="@array/preferences_display_loot"
+			android:entryValues="@array/preferences_display_loot_values" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="Combat">
+		<ListPreference
+			android:title="Combat speed"
+			android:summary="Determines how fast monsters attack."
+			android:key="attackspeed"
+			android:defaultValue="1000"
+			android:entries="@array/preferences_attackspeed"
+			android:entryValues="@array/preferences_attackspeed_values" />
 	</PreferenceCategory>
 </PreferenceScreen>

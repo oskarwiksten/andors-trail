@@ -2,15 +2,17 @@ package com.gpl.rpg.AndorsTrail.activity;
 
 import java.lang.ref.WeakReference;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.WorldSetup;
+import com.gpl.rpg.AndorsTrail.Savegames;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
@@ -19,7 +21,6 @@ import com.gpl.rpg.AndorsTrail.view.StatusView;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,7 +32,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends Activity {
+public final class MainActivity extends Activity {
 
     public static final int INTENTREQUEST_HEROINFO = 1;
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
@@ -40,6 +41,7 @@ public class MainActivity extends Activity {
     public static final int INTENTREQUEST_SHOP = 5;
     public static final int INTENTREQUEST_LEVELUP = 6;
     public static final int INTENTREQUEST_PREFERENCES = 7;
+    public static final int INTENTREQUEST_SAVEGAME = 8;
 	
     private ViewContext view;
     private WorldContext world;
@@ -51,6 +53,7 @@ public class MainActivity extends Activity {
 	private static final int NUM_MESSAGES = 3;
 	private final String[] messages = new String[NUM_MESSAGES];
 	private TextView statusText;
+	public WeakReference<Toast> lastToast = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +65,7 @@ public class MainActivity extends Activity {
         this.world = app.world;
         this.view = new ViewContext(app, this);
     	app.currentView = new WeakReference<ViewContext>(this.view);
-    	AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
+    	AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
         setContentView(R.layout.main);
         mainview = (MainView) findViewById(R.id.main_mainview);
@@ -78,13 +81,6 @@ public class MainActivity extends Activity {
 		});
 		clearMessages();
 		
-        if (world.model.uiSelections.isInCombat) {
-        	view.combatController.enterCombat();
-        	view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
-        }
-
-        view.controller.resume();
-        
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) {
         	addDebugButtons(new DebugButton[] {
     			new DebugButton("Add monster", new OnClickListener() {
@@ -105,12 +101,14 @@ public class MainActivity extends Activity {
 		    			world.model.player.traits.damagePotential.set(99, 99);
 		    			world.model.player.traits.attackChance = 200;
 		    			world.model.player.traits.attackCost = 1;
+		    			world.model.player.health.add(100, false);
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT).show();
 					}
 				})
     			,new DebugButton("dmg=1", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
+		    			world.model.player.recalculateCombatTraits();
 		    			world.model.player.traits.damagePotential.set(1, 1);
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT).show();
 					}
@@ -142,7 +140,7 @@ public class MainActivity extends Activity {
 			break;
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
-				view.combatController.enterCombat();
+				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 			} else {
 				view.combatController.exitCombat(false);
 			}
@@ -153,20 +151,34 @@ public class MainActivity extends Activity {
 				Monster m = world.model.currentMap.getMonsterAt(p);
 				if (m != null) {
 			    	view.combatController.setCombatSelection(m, p);
-					view.combatController.enterCombat();
+					view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 				} else {
 					//Shouldn't happen.
 				}
 			}
 			break;
 		case INTENTREQUEST_PREFERENCES:
-			Preferences.read(this, world.model.uiSelections);
+			AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+	        AndorsTrailPreferences.read(this, app.preferences);
+			break;
+		case INTENTREQUEST_SAVEGAME:
+			if (resultCode != Activity.RESULT_OK) break;
+			final int slot = data.getIntExtra("slot", 1);
+			if (save(slot)) {
+				Toast.makeText(this, getResources().getString(R.string.menu_save_gamesaved, slot), Toast.LENGTH_SHORT).show();
+			} else {
+				Toast.makeText(this, R.string.menu_save_failed, Toast.LENGTH_LONG).show();
+			}
 			break;
 		}
-		mainview.inhibitClicks = false;
 	}
     
-    private class DebugButton {
+    private boolean save(int slot) {
+    	final Player player = world.model.player;
+    	return Savegames.saveWorld(world, this, slot, getString(R.string.savegame_currenthero_displayinfo, player.level, player.totalExperience, player.inventory.gold));
+	}
+
+	private class DebugButton {
     	public final String text;
     	public final OnClickListener listener;
 		public DebugButton(String text, OnClickListener listener) {
@@ -207,21 +219,7 @@ public class MainActivity extends Activity {
         L.log("onPause");
         view.controller.pause();
         
-        SharedPreferences p = getSharedPreferences(ModelContainer.PREFERENCE_MODEL_QUICKSAVE, MODE_PRIVATE);
-        SharedPreferences.Editor e = p.edit();
-        world.model.quicksave(e);
-        e.commit();
-        
-        WorldSetup.saveWorld(world, getApplicationContext());
-        /*
-        Bundle b = new Bundle();
-    	b.putParcelable(ModelContainer.PREFERENCE_MODEL_SAVE, world.model);
-    	onSaveInstanceState(b);
-    	p = getSharedPreferences(ModelContainer.PREFERENCE_MODEL_SAVE, MODE_PRIVATE);
-        e = p.edit();
-        world.model.save(e);
-        e.commit();
-        */
+        save(Savegames.SLOT_QUICKSAVE);
     	
         //Debug.stopMethodTracing();
     }
@@ -233,6 +231,11 @@ public class MainActivity extends Activity {
         if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
 
         view.controller.resume();
+
+        if (world.model.uiSelections.isInCombat) {
+        	view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
+        	view.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
+        }
     }
 
 	@Override
@@ -247,15 +250,15 @@ public class MainActivity extends Activity {
 				return true;
 			}
 		});
-		menu.add(R.string.menu_pause)
-		.setIcon(android.R.drawable.ic_media_pause)
+		menu.add(R.string.menu_save)
+		.setIcon(android.R.drawable.ic_menu_save)
 		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem arg0) {
-				Dialogs.showPaused(MainActivity.this, view);
+				Dialogs.showSave(MainActivity.this, view);
 				return true;
 			}
-		}).setEnabled(false);
+		});
 		menu.add(R.string.menu_settings)
 		.setIcon(android.R.drawable.ic_menu_preferences)
 		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
@@ -266,12 +269,6 @@ public class MainActivity extends Activity {
 			}
 		});
 		return true;
-	}
-	
-	@Override
-	public boolean onPrepareOptionsMenu(Menu menu) {
-		menu.getItem(1).setEnabled(world.model.uiSelections.isTicking);
-		return super.onPrepareOptionsMenu(menu);
 	}
 	
 	public void redrawAll(int why) {
@@ -299,6 +296,19 @@ public class MainActivity extends Activity {
 			messages[i] = "";
 		}
 		statusText.setVisibility(View.GONE);
+	}
+
+	public void showToast(String msg, int duration) {
+		Toast t = null;
+		if (lastToast != null) t = lastToast.get();
+		if (t == null) {
+			t = Toast.makeText(this, msg, duration);
+			lastToast = new WeakReference<Toast>(t);
+		} else {
+			t.setText(msg);
+			t.setDuration(duration);
+		}
+		t.show();
 	}
 
 }

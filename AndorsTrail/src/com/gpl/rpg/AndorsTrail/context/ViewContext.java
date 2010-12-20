@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.context;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
@@ -21,9 +22,12 @@ public class ViewContext extends WorldContext {
 	public final MonsterMovementController monsterMovementController;
 	public final MovementController movementController;
 	
+	public final AndorsTrailPreferences preferences;
+	
 	public ViewContext(AndorsTrailApplication application, MainActivity mainActivity) {
 		super(application.world);
 		this.mainActivity = mainActivity;
+		this.preferences = application.preferences;
 
 		this.controller = new Controller(this);
 		this.combatController = new CombatController(this);

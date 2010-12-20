@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="11" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="11" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA5WQwRGCMBREk+jFM5ThwRNnurEEGkoH2IF2YAk2YjJkJzvLh8DhjSbz+H+zwTsXTvAMbeBOoQ3ch2vDruay3Jwl/9dsljsVdysb7xrKdwOB+brv5tZgvu6zXMwfZZ/lzn75HemMO+ad7mLimnbe0/kSlnPccF+JvrhdqN9vudkDZ1zkQO4PEcXlHPkdX1/Jc6wceMfPVzDHcvmOM6K3lptn9wddJZKLXiwPHcDlXmYhiovZ3LN2zm4nPTPW27hnBvmO9KDva3UG9M2zX8/cA/vg/gGWNuiKKAUAAA==
+  </data>
+ </layer>
+ <layer name="Objects" width="11" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA7WTXw5AMAzG6288y5a4B5dxEHdwXeEdDY1aynT4vZiu/bZ93QDCsdkxLjI5x6zxnM1VbDxc1Li0CUCZ6/fno0+/1bMPz4OYPZe8MYpaiTHavlN0/vfxh69NDNCt3tbxt7pzElYn7QN9556TNvejceq4ztu7g/2ZWI9Qm9a76h3P74T1pdgdmv5o7wlpu+9f8lyL6x3FfGCN1iNiAUvXFbIoBQAA
+  </data>
+ </layer>
+ <layer name="Above" width="11" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIA38Zx76anHpf0+CuaTYhwtQwz5KwQci3QDyF7HupVVcfmEkzRxsfsPlD2xm43Mbutn41KLbN1jzBb3V4otPbIDYtEotgGwfAHUr9dsoBQAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="11" height="30">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHAQYHxBEotHZuPQTo5YYc/GZQaxafH4e6WqRASnqqa0Wl3p87mPAoQ5dPTY+MXK4+LjcRKpfKQkXaoc5LoDPbFzqaJGGAVFO29MoBQAA
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="11" height="30">
+  <object name="south" type="mapchange" x="256" y="928" width="32" height="32">
+   <properties>
+    <property name="map" value="flagstone3"/>
+    <property name="place" value="north"/>
+   </properties>
+  </object>
+  <object name="north" type="mapchange" x="32" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="flagstone1"/>
+    <property name="place" value="hole"/>
+   </properties>
+  </object>
+  <object name="Broken steps" type="sign" x="224" y="256" width="32" height="32">
+   <properties>
+    <property name="enablekey" value="flagstone:20"/>
+    <property name="text" value="You notice that this tunnel seems to be dug out from below Flagstone. Probably the work of one of the former prisoners from Flagstone."/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="11" height="30">
+  <object name="flagstone_guard1" type="spawn" x="224" y="320" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="skeleton2" type="spawn" x="224" y="384" width="32" height="64"/>
+  <object name="undead1" type="spawn" x="288" y="576" width="32" height="32"/>
+  <object name="skeletonmaster" type="spawn" x="192" y="672" width="64" height="32"/>
+  <object name="undead1" type="spawn" x="32" y="640" width="32" height="128"/>
+  <object name="undead1" type="spawn" x="64" y="576" width="96" height="64"/>
+  <object name="skeleton1" type="spawn" x="128" y="832" width="64" height="32"/>
+  <object name="prisoner2" type="spawn" x="64" y="96" width="96" height="32"/>
+  <object name="cavesnake2_boss" type="spawn" x="160" y="96" width="96" height="128"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="11" height="30">
+  <object name="flagstone:40" type="key" x="224" y="288" width="32" height="32">
+   <properties>
+    <property name="message" value="The demon radiates a force that pushes you back, making it impossible to approach the demon."/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

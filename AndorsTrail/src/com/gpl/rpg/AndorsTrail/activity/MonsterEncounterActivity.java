@@ -19,7 +19,6 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 public final class MonsterEncounterActivity extends Activity {
 	private WorldContext world;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

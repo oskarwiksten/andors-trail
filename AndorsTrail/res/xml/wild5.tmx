@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA1vCyMCwBA1vAWJNBlQczsrA4M6KKY6uBt0sEGZhwlQLMiucgHkgjM1tIljMI8Z9uMwjpGcgzcMWduSahyvsKDGPErNobR6lYYdsHjXCDt08Ss2ixDxc+Y9c83DlP0r8S033Dfb4wBU/5JiHHm4ws9zJNA9XXINoACgZ4d1ABgAA
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA5VUwQ2DMAwMVbJJpS6AVMQAPDoAiyAG4IGUQToEI7BAB8gmrdVYGOM4yUmIJDh27nzBGBlPZ0z3e4bmP0Z07vx9scdcwxzjIF8pcjl3mz4fxWr1PO3NmC3G9M1RG3N97HVNwxBjXhVcN+WMY8yH2sFc47QX9gS1Q06hkicAtIN9ULMv4OszNR5sDf2F+uyE98hi+ZzWwV54Qbc54w8pvsbHAOgX7wdoh6Da5fSXeJZiSXCValIfS/eB7kVgzCTUoT6GPobEWd6CVhAr8fasF1vCH5O9ckzduV7xSi1q/gEAri3F4HTfBUE3DWPMF4g2K9Pp7s5zHOP7C32qDoVABgAA
+  </data>
+ </layer>
+ <layer name="Above" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA7VUyQ3AIAxDqpiFTtL9N+kIVHmgotRuEg6/kAKO7QApYdSDFAbR85X8rs/83evhuh36pI+Hf6dXweX0WMg+nZ325PXZuDzZIW2oRyQ7nQPKRfhG7gTDzGz1PFh2Vv5s/hFtugfqad2Tvtbwp3v2XWjfFh/Kaae+lXzWPCLnov8A4uhrDCvyewBm+mtgQAYAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA7WUwQ0AIAgDu4L7L+vflLagkvhBPBpAFoAlDowPRQx7AxKvLOW5XAkz0ZfkTjTc6kv5ndo5n2J2rJqpCS/txTmnXb0v+lrpU3GKw5gTLUobu1cstTMmvU3++W2d3A7o2s9ZSZidHeX6z5hnzAZPyT2NQAYAAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="20" height="20">
+  <object name="north" type="mapchange" x="256" y="0" width="32" height="32">
+   <properties>
+    <property name="map" value="wild2"/>
+    <property name="place" value="south"/>
+   </properties>
+  </object>
+  <object name="south" type="mapchange" x="128" y="608" width="64" height="32">
+   <properties>
+    <property name="map" value="wild6"/>
+    <property name="place" value="north"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="20" height="20">
+  <object name="forestsnake" type="spawn" x="192" y="96" width="224" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="fox2" type="spawn" x="352" y="64" width="256" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestwasp2" type="spawn" x="128" y="192" width="160" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestboar2" type="spawn" x="288" y="320" width="320" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="20"/>
+</map>

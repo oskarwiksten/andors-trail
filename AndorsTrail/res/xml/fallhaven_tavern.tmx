@@ -50,12 +50,12 @@
  </tileset>
  <layer name="Ground" width="20" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA62SzQ2DMAyFX/mTOhCHXqgYAcbg0hEyQ0dgDroSO1RWahGZhNqBw1N+7HxS3vN4A8aL9SquEfPejZcr8kXvmTc3Xj30aktgwqY54Fk4R9Ly2A/Z29XAs/arhcd+hL1H+VJ9qYBPtfXLMzN4n8qXVos/vI9lTHWn5FGe/7yh+oC9+sjdgL1/IWv9+XuHXpo8cnmpPHJ5qTxyeak8zvh3No9wVuXcPkp/Z+GRR/SO/ZP/dUZebCalvkJVcnfwBQAA
+   H4sIAAAAAAAAA62S3Q2DMAyEr/xJDMRDX1oxAozRl46QGZiHDledoghkHEgcHk5RbOeTdZf5Acw361vdo8BbOi9X2cX3gTciX0MNfLCJtRKeplRe8EPOvlrg3frTst9+9ixf9tcG+DXbvLxLXixfnpb9tIzZd4k85nnlDfsTjhqV2qT4p/F6pCslDysvloeVF8vDyovlUeJfKW//V+W/fda+lsOjR3wX/JP7uUye9iel/lQWwuXwBQAA
   </data>
  </layer>
  <layer name="Objects" width="20" height="19">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoAwoseOX52RhYNgMVBPAimDnsCPYyGpAwIiAeZJAtS3sCHYmMwNDFjOEjawGBpzwmCcKlZsCpKuZIexKIF0FZWczo6pPhprbwYoq/o0Nv5sHAvxGc5MoO34+qUAIql8ESguD4hTJzD84wgQU95vR7AaZcRoYtmdYMPkiZLgT5BZVLPpgYmHMmHLI4ALQ7XepEKdTKAxjGNjISlgNKeAgknmguMil0J0Xqew+dEBJfLRQKQ5gADlOH7JBcDILbvXEAGz6qZV20AEAnGJDhPAFAAA=
+   H4sIAAAAAAAAA2NgoAwoseOX52RhYNgMVBPAimDnsCPYyGpAwIiAeZJAtS3sCHYmMwNDFjOEjawGBpywmLeQDYJFoXJTgHQ1M4RdCaSroOxsZlR9yVBzO1gh+mHgGxvDoAO/0dwkyo6bDwsPUoAQVL8IlBYGxSmSmX9wmAeK+81obgGZcRoYtmdYMPkiBNIDNgByiyoWfTCxMGZMOWRwAej2u1SI0ylIbnhLgXkbWSl3CzI4iGQeKC5yyQhjZHCRyu5DB5TERwsOv5EbH8hx+pANgpNZcKsnBmDTP4XCOMEFAPWS7JjwBQAA
   </data>
  </layer>
  <layer name="Above" width="20" height="19">
@@ -63,12 +63,12 @@
    H4sIAAAAAAAAA2NgoD74z4xd3IeVuuaRC2DmJbNQ1zxqAWqYh+w3UswjRu1gN+89mea1sBOvjxjzqAFA5rFRwV3I5lETDCXzLrJBMLXMo0baQU6rpKRbcgEA5Xi8NfAFAAA=
   </data>
  </layer>
- <layer name="Walkable" width="20" height="19">
+ <layer name="Walkable" width="20" height="19" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAxNkYGAQHMGYgQCbAQcbmzmUAmLNwmUvPj+Sah4pYUYKn1zzGHDIk+NnQupISTO47CUlfsi1a7iahw6o5UZqmYuul1I3YnMfNcMUGQMAKrZNJfAFAAA=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="19">
+ <objectgroup name="Mapevents" width="20" height="19" visible="0">
   <object name="entrance" type="mapchange" x="160" y="320" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_nw"/>
@@ -78,7 +78,7 @@
   <object name="rest" type="rest" x="576" y="320" width="32" height="32"/>
   <object name="rest" type="rest" x="576" y="480" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="19">
+ <objectgroup name="Spawn" width="20" height="19" visible="0">
   <object name="drunk" type="spawn" x="64" y="128" width="224" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -88,12 +88,12 @@
   <object name="Ganos" type="spawn" x="32" y="224" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="20" height="19">
-  <object name="qfallhaven_tavern_room1" type="key" x="448" y="288" width="32" height="32">
+  <object name="fallhaventavern:20" type="key" x="448" y="288" width="32" height="32">
    <properties>
     <property name="message" value="You are not allowed into the room unless you have rented it."/>
    </properties>
   </object>
-  <object name="qfallhaven_tavern_room2" type="key" x="448" y="448" width="32" height="32">
+  <object name="fallhaventavern:10" type="key" x="448" y="448" width="32" height="32">
    <properties>
     <property name="message" value="You are not allowed into the room unless you have rented it."/>
    </properties>

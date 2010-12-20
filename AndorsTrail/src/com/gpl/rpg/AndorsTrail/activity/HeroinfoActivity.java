@@ -32,7 +32,7 @@ import android.widget.TextView;
 import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
-public class HeroinfoActivity extends TabActivity {
+public final class HeroinfoActivity extends TabActivity {
 	private WorldContext world;
 	private ViewContext view;
 
@@ -41,6 +41,7 @@ public class HeroinfoActivity extends TabActivity {
 
 	private ListView inventoryList;
 	private Button levelUpButton;
+	private Button questsButton;
     private TextView heroinfo_ap;
     private TextView heroinfo_movecost;
     private TraitsInfoView heroinfo_basetraits;
@@ -64,7 +65,7 @@ public class HeroinfoActivity extends TabActivity {
         this.world = app.world;
         this.view = app.currentView.get();
         
-        AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
+        AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
         this.player = world.model.player;
         
@@ -118,6 +119,18 @@ public class HeroinfoActivity extends TabActivity {
 			@Override
 			public void onClick(View arg0) {
 				Dialogs.showLevelUp(HeroinfoActivity.this);
+				// We disable the button temporarily, so that there is no possibility 
+				//  of clicking it again before the levelup activity has started.
+				// See issue:
+				//  http://code.google.com/p/andors-trail/issues/detail?id=42
+				levelUpButton.setEnabled(false);
+			}
+		});
+        questsButton = (Button) findViewById(R.id.heroinfo_quests);
+        questsButton.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Dialogs.showQuestLog(HeroinfoActivity.this);
 			}
 		});
         
@@ -137,13 +150,14 @@ public class HeroinfoActivity extends TabActivity {
     }
 
 	private void setWearSlot(final int inventorySlot, int viewId, int resourceId) {
-    	ImageView view = (ImageView) findViewById(viewId);
+    	final ImageView view = (ImageView) findViewById(viewId);
     	wornItemImage[inventorySlot] = view;
     	defaultWornItemImageResourceIDs[inventorySlot] = resourceId;
     	view.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (player.inventory.isEmptySlot(inventorySlot)) return;
+				view.setClickable(false); // Will be enabled again on update()
 				showEquippedItemInfo(player.inventory.wear[inventorySlot], inventorySlot);
 			}
     	});
@@ -160,7 +174,7 @@ public class HeroinfoActivity extends TabActivity {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case MainActivity.INTENTREQUEST_ITEMINFO:
-			if (resultCode != RESULT_OK) return;
+			if (resultCode != RESULT_OK) break;
 			
 			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
@@ -215,6 +229,7 @@ public class HeroinfoActivity extends TabActivity {
 		} else {
 			view.setImageResource(resourceIDEmptyImage);
 		}
+		view.setClickable(true);
 	}
 
 	private void updateItemList() {

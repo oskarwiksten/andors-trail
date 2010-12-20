@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1vCyMCwBIq3ALEmA2V4CQ3NW0ID8yh1I7p5lLoRm3kgvBkJU8M8ct0MU38EinGZR2y4gtSyMDEwXGaE4MMUuhFkrwjQvMeMEMzMhOlmGAbZS4x5yHxhJoiZyG6GYREyzIOZiexmGCbWv5TmCfT4IKSGlLSILf0iY1LTDQDTsg5JsAQAAA==
+   H4sIAAAAAAAAA1vCyMCwBIq3ALEmA2V4CQ3NW0ID8yh1I7p5lLoRm3kgvBkJU8M8ct0MU38EinGZR2y4gtSyMDEwXGaE4MMUuhFkrwjQvMeMEMzMhOlmGAbZS4x5yHxhJoiZyG6GYREyzIOZiexmGCbWv5TmCfT4IKSGlLSILf0iY1LTDQDTsg5JsAQAAA==
   </data>
  </layer>
  <layer name="Objects" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgQAVujAwMYawMDOZAHA7E7lhoC6g8iG5kQajVYGXAAA5A80oYIWxcZoKAIppemPno4D8zhPYBmrmDBaHOHM192AA294HAB6iZKUAzzaDu3cKC6QZkPi73wdwIChd0ADMfH6YUINuLy7/kAHzhiguA0tFVLOHojiW9BLERNg8W9yAA8yeueE8CmidBhHvdsKiBuReWJk2YGBi8cMQNI5r+MCLDyA1qnjETQowNqFcQiEWQ7CUGnACGhRXQvFIWhJkgvaVoaRDGB/kL5E6Qn2DhBwJXofKgcF6CJf2CwGe0cPgC5KtD49INykbO1+QAWPi7MWLGLwAmAEhVsAQAAA==
+   H4sIAAAAAAAAA2NgQAVujAwMYawMDOZAHA7E7lhoC6g8iG5kQajVYGXAAA5A80oYIWxcZoKAIppemPno4D8zhPYBmrmDBaHOHM192AA294HAB6iZKUAzzaDu3cKC6QZkPi73wdwIChd0ADMfH6YUINuLy7/kAHzhiguA0tFVLOHojiW9BLERNg8W9yAA8yeueE8CmidBhHvdsKiBuReWJk2YGBi8cMQNI5r+MCLDyA1qnjETQowNqFcQiEWQ7CUGnACGhRXQvFIWhJkgvaVoaRDGB/kL5E6Qn2DhBwJXofKgcF6CJf2CwGe0cPgC5KtD49INykbO1+QAWPi7MWLGLwAmAEhVsAQAAA==
   </data>
  </layer>
  <layer name="Above" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgQAX/mRmoCogxT4OVePO+MBKvVp0VYbY6CXZQCkhxI63MJ9W/IDPdkMIKOU7IDbsPWOIel1nEpBNiwxVk1nsi0zE2N2Izj1hxYuzFZR4+vbjiBp95pABkM6mVfknJ18gAX5wAALKyCkuwBAAA
+   H4sIAAAAAAAAA2NgQAX/mRmoCogxT4OVePO+MBKvVp0VYbY6CXZQCkhxI63MJ9W/IDPdkMIKOU7IDbsPWOIel1nEpBNiwxVk1nsi0zE2N2Izj1hxYuzFZR4+vbjiBp95pABkM6mVfknJ18gAX5wAALKyCkuwBAAA
   </data>
  </layer>
  <layer name="Walkable" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC7VSQQoAMAjqC/3/szsNIlpq24QOIxNxupl5GEtvNIgfwXAQ94fmCXmvZDSFkvsrLUZT1aqyutWqPE57yWhOvXdg+8v+M/KP7rqOn+7YzBFf6c6eBSvGCp+wBAAA
+   H4sIAAAAAAAAA7VSQQoAMAjqC/3/szsNIlpq24QOIxNxupl5GEtvNIgfwXAQ94fmCXmvZDSFkvsrLUZT1aqyutWqPE57yWhOvXdg+8v+M/KP7rqOn+7YzBFf6c6eBSvGCp+wBAAA
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="15">
@@ -87,9 +87,10 @@
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="Map not complete" type="sign" x="480" y="448" width="32" height="32">
+  <object name="south" type="mapchange" x="480" y="448" width="32" height="32">
    <properties>
-    <property name="text" value="This map is not yet done. Please come back in a later version of the game."/>
+    <property name="map" value="wild5"/>
+    <property name="place" value="north"/>
    </properties>
   </object>
  </objectgroup>

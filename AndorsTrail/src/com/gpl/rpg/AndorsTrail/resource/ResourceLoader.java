@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestLoader;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
@@ -24,10 +25,10 @@ public final class ResourceLoader {
         final int mTileSize = tiles.displayTileSize;
         L.log("mTileSize=" + mTileSize);
         
-        //final Size dst_sz2x2 = new Size(mTileSize*2, mTileSize*2);
+        final Size dst_sz1x1 = new Size(mTileSize, mTileSize);
+        final Size dst_sz2x2 = new Size(mTileSize*2, mTileSize*2);
         //final Size dst_sz2x3 = new Size(mTileSize*2, mTileSize*3);
         //final Size dst_sz4x3 = new Size(mTileSize*4, mTileSize*3);
-        final Size dst_sz1x1 = new Size(mTileSize, mTileSize);
         final Size defaultTileSize = dst_sz1x1;
         final Size src_sz1x1 = new Size(1, 1);
         final Size src_sz6x1 = new Size(6, 1);
@@ -50,6 +51,7 @@ public final class ResourceLoader {
         /*tiles.iconID_mapsign = */loader.getTileID(R.drawable.map_tiles_1_6, 1+16*3);
         loader.flush();
         
+        
         // ========================================================================
         // Load item icons
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
@@ -71,33 +73,65 @@ public final class ResourceLoader {
         }
         loader.flush();
         
-        world.dropLists.initialize(world.itemTypes);
+        
+        // ========================================================================
+        // Load Droplists
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_debug));
+        } else {
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_crossglen));
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_crossglen_outside));
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_fallhaven));
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_wilderness));
+        }
+        
+        
+        // ========================================================================
+        // Load Quests
+        QuestLoader questLoader = new QuestLoader();
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_debug));
+        	world.quests.quests = questLoader.parseQuestsFromString(r.getString(R.string.questlist_debug));
+        } else {
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_crossglen));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_fallhaven));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_wilderness));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_flagstone));
+        	world.quests.quests = questLoader.parseQuestsFromString(r.getString(R.string.questlist));
+        }
+    	questLoader = null;
+        
 
         // ========================================================================
-        // Conversation
+        // Load Conversation
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
-        	world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_debug));
+        	world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_debug));
         } else {
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_mikhail));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_gruil));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_leonid));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_tharal));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_leta));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_crossglen_odair));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_jan));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_arcir));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_bucus));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_church));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_athamyr));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_drunk));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_nocmar));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_oldman));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_tavern));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_larcal));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_unnmir));
-	        world.conversations.initialize(world.itemTypes, r.getString(R.string.conversationlist_fallhaven_gaela));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_mikhail));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_crossglen));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_crossglen_gruil));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_crossglen_leonid));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_crossglen_tharal));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_crossglen_leta));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_crossglen_odair));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_jan));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_arcir));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_bucus));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_church));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_athamyr));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_drunk));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_nocmar));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_oldman));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_tavern));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_larcal));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_unnmir));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_gaela));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_vacor));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_unzel));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_wilderness));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_flagstone));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_south));	        
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();
@@ -106,8 +140,8 @@ public final class ResourceLoader {
         // ========================================================================
         // Load monster icons
         //loader.prepareTileset(R.drawable.monsters_armor1, "monsters_armor1", src_sz1x1, defaultTileSize);
-        //loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", src_sz1x1, dst_sz2x2);
-        //loader.prepareTileset(R.drawable.monsters_demon2, "monsters_demon2", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", src_sz1x1, dst_sz2x2);
+        loader.prepareTileset(R.drawable.monsters_demon2, "monsters_demon2", src_sz1x1, defaultTileSize);
 	    loader.prepareTileset(R.drawable.monsters_dogs, "monsters_dogs", src_sz7x1, defaultTileSize);
         //loader.prepareTileset(R.drawable.monsters_dragons, "monsters_dragons", src_sz7x1, defaultTileSize);
         //loader.prepareTileset(R.drawable.monsters_eye1, "monsters_eye1", src_sz1x1, defaultTileSize);
@@ -122,7 +156,7 @@ public final class ResourceLoader {
 	    loader.prepareTileset(R.drawable.monsters_mage2, "monsters_mage2", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_mage3, "monsters_mage3", src_sz1x1, defaultTileSize);
 	    //loader.prepareTileset(R.drawable.monsters_mage4, "monsters_mage4", src_sz1x1, defaultTileSize);
-	    //loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_man1, "monsters_man1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_men, "monsters_men", new Size(9, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_men2, "monsters_men2", new Size(10, 1), defaultTileSize);
@@ -135,18 +169,18 @@ public final class ResourceLoader {
         //loader.prepareTileset(R.drawable.monsters_cyclops, "monsters_cyclops", src_sz1x1, dst_sz2x3);
         loader.prepareTileset(R.drawable.monsters_warrior1, "monsters_warrior1", src_sz1x1, defaultTileSize);
         //loader.prepareTileset(R.drawable.monsters_wraiths, "monsters_wraiths", new Size(3, 1), defaultTileSize);
-        //loader.prepareTileset(R.drawable.monsters_zombie1, "monsters_zombie1", src_sz1x1, defaultTileSize);
-        //loader.prepareTileset(R.drawable.monsters_zombie2, "monsters_zombie2", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_zombie1, "monsters_zombie1", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_zombie2, "monsters_zombie2", src_sz1x1, defaultTileSize);
         //loader.prepareTileset(R.drawable.monsters_dragon1, "monsters_dragon1", src_sz1x1, dst_sz4x3);
         
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_debug));
-        	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_misc));
         } else {
 	        world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_animals));
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_npcs));
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_animals));
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_npcs));
+	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_wilderness));
         }
         loader.flush();
 
@@ -219,6 +253,31 @@ public final class ResourceLoader {
 	        mapReader.read(r.getXml(R.xml.catacombs4), "catacombs4");
 	        mapReader.read(r.getXml(R.xml.hauntedhouse3), "hauntedhouse3");
 	        mapReader.read(r.getXml(R.xml.hauntedhouse4), "hauntedhouse4");
+	        mapReader.read(r.getXml(R.xml.fallhaven_sw), "fallhaven_sw");
+	        mapReader.read(r.getXml(R.xml.wild5), "wild5");
+	        mapReader.read(r.getXml(R.xml.wild6), "wild6");
+	        mapReader.read(r.getXml(R.xml.wild6_house), "wild6_house");
+	        mapReader.read(r.getXml(R.xml.wild7), "wild7");
+	        mapReader.read(r.getXml(R.xml.wild8), "wild8");
+	        mapReader.read(r.getXml(R.xml.wild9), "wild9");
+	        mapReader.read(r.getXml(R.xml.wild10), "wild10");
+	        mapReader.read(r.getXml(R.xml.flagstone0), "flagstone0");
+	        mapReader.read(r.getXml(R.xml.flagstone_inner), "flagstone_inner");
+	        mapReader.read(r.getXml(R.xml.flagstone_upper), "flagstone_upper");
+	        mapReader.read(r.getXml(R.xml.flagstone1), "flagstone1");
+	        mapReader.read(r.getXml(R.xml.flagstone2), "flagstone2");
+	        mapReader.read(r.getXml(R.xml.flagstone3), "flagstone3");
+	        mapReader.read(r.getXml(R.xml.flagstone4), "flagstone4");
+	        mapReader.read(r.getXml(R.xml.wild11), "wild11");
+	        mapReader.read(r.getXml(R.xml.wild12), "wild12");
+	        mapReader.read(r.getXml(R.xml.wild11_clearing), "wild11_clearing");
+	        mapReader.read(r.getXml(R.xml.clearing_level1), "clearing_level1");
+	        mapReader.read(r.getXml(R.xml.clearing_level2), "clearing_level2");
+	        mapReader.read(r.getXml(R.xml.fallhaven_se), "fallhaven_se");
+	        mapReader.read(r.getXml(R.xml.fallhaven_lumberjack), "fallhaven_lumberjack");
+	        mapReader.read(r.getXml(R.xml.fallhaven_alaun), "fallhaven_alaun");
+	        mapReader.read(r.getXml(R.xml.fallhaven_storage), "fallhaven_storage");
+	        mapReader.read(r.getXml(R.xml.fallhaven_farmer), "fallhaven_farmer");
         }
         
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes));
@@ -248,14 +307,14 @@ public final class ResourceLoader {
     
 	public static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);
     public static final String columnSeparator = "\\|";
-	public static int parseImage(DynamicTileLoader tileLoader, String s) {
+	public static int parseImageID(DynamicTileLoader tileLoader, String s) {
 	   	String[] parts = s.split(":");
 	   	return tileLoader.getTileID(parts[0], Integer.parseInt(parts[1]));
 	}
 	public static ConstRange parseRange(String s) {
 		if (s == null || s.length() <= 0) return null;
 	   	String[] parts = s.split("-");
-	   	if (parts.length < 2) {
+	   	if (parts.length < 2 || s.startsWith("-")) {
 	   		int val = Integer.parseInt(s);
 	   		return new ConstRange(val, val);
 	   	} else {

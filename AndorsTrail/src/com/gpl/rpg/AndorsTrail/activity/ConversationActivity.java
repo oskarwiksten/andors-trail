@@ -21,12 +21,14 @@ import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.Loot;
 
 public final class ConversationActivity extends Activity {
 	public static final int RESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
 	
 	private WorldContext world;
 	private Player player;
+	private String phraseID;
 	
 	private TextView text;
 	private Button reply1;
@@ -45,7 +47,10 @@ public final class ConversationActivity extends Activity {
         
         Uri uri = getIntent().getData();
         final int monsterTypeID = Integer.parseInt(uri.getQueryParameter("monsterTypeID"));
-        final String phraseID = uri.getLastPathSegment().toString(); 
+        String phraseID = uri.getLastPathSegment().toString(); 
+        if (savedInstanceState != null) {
+        	phraseID = savedInstanceState.getString("phraseID");
+        }
         
         monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
         
@@ -72,6 +77,7 @@ public final class ConversationActivity extends Activity {
     }
     
 	public void setPhrase(String phraseID) {
+		this.phraseID = phraseID;
     	if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
     		ConversationActivity.this.finish();
     		return;
@@ -89,7 +95,7 @@ public final class ConversationActivity extends Activity {
     	}
     	
     	final Phrase phrase = world.conversations.getPhrase(phraseID);
-    	ConversationController.applyPhraseEffect(player, phrase);
+    	Loot loot = ConversationController.applyPhraseEffect(player, phrase, world.quests);
     	
     	if (phrase.message == null || phrase.message.length() <= 0) {
     		for (Reply r : phrase.replies) {
@@ -100,16 +106,23 @@ public final class ConversationActivity extends Activity {
     	}
     	
     	String message = phrase.message;
-    	if (phrase.rewardGold != 0 || phrase.rewardExperience > 0) {
+    	if (loot != null && !loot.isEmpty()) {
     		message += "\n";
-	    	if (phrase.rewardExperience > 0) {
-	    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, phrase.rewardExperience);
+	    	if (loot.exp > 0) {
+	    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, loot.exp);
 	    	}
-	    	if (phrase.rewardGold > 0) {
-	    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, phrase.rewardGold);
+	    	if (loot.gold > 0) {
+	    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, loot.gold);
+	    	} else if (loot.gold < 0) {
+	    		message += "\n" + getResources().getString(R.string.conversation_lostgold, -loot.gold);
 	    	}
-	    	if (phrase.rewardGold < 0) {
-	    		message += "\n" + getResources().getString(R.string.conversation_lostgold, -phrase.rewardGold);
+	    	if (!loot.items.isEmpty()) {
+	    		final int len = loot.items.countItems();
+	    		if (len == 1) {
+	    			message += "\n" + getResources().getString(R.string.conversation_rewarditem);
+	    		} else {
+	    			message += "\n" + getResources().getString(R.string.conversation_rewarditems, len);
+	    		}
 	    	}
     	}
 
@@ -123,13 +136,13 @@ public final class ConversationActivity extends Activity {
     	if (p.replies.length <= replyIndex) {
     		b.setVisibility(View.GONE);
     		return;
-    	} 
+    	}
 
     	final Reply r = p.replies[replyIndex];
 		if (!ConversationController.canSelectReply(player, r)) {
 			b.setVisibility(View.GONE);
 			return;
-    	} 
+    	}
 
 		b.setVisibility(View.VISIBLE);
 		b.setText(r.text);
@@ -151,4 +164,9 @@ public final class ConversationActivity extends Activity {
 			break;
 		}
 	}
+    
+    @Override
+	public void onSaveInstanceState(Bundle outState) {
+    	outState.putString("phraseID", phraseID);
+    }
 }

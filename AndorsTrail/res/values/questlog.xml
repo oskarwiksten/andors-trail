@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="questlog_debug">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{debugquest|10|I have talked to the NPC||0|};
+{debugquest|20|I have asked the NPC for more info.|20|0|};
+{debugquest|100|I have given the items to the NPC|40|1|};
+	</string>
+	
+	<string name="questlog_crossglen">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{andor|1|My father Mikhail says that Andor has not been home since yesterday. I should go look for him in the village.||0|};
+{mikhail_bread|100|I have brought the bread to Mikhail.||1|};
+{mikhail_bread|10|Mikhail wants me to go buy a loaf of bread from Mara at the town hall.||0|};
+{mikhail_rats|100|I have killed the two rats in our garden.|20|1|};
+{mikhail_rats|10|Mikhail wants me two go check our garden for some rats. I should kill the rats in our garden and return to Mikhail. If I get hurt, I can come back to the bed and rest to regain my health.||0|};
+{leta|10|Leta in Crossglen village wants me to look for her husband Oromir.||0|};
+{leta|20|I have found Oromir in Crossglen village, hiding from his wife Leta.||0|};
+{leta|100|I have told Leta that Oromir is hiding in Crossglen village.|30|1|};
+{odair|10|Odair wants me to clear the supply cave in Crossglen village of rats. In particular, I should kill the large rat and return to Odair.||0|};
+{odair|100|I have helped Odair clear out the rats in the supply cave in Crossglen village.|30|1|};
+{bonemeal|10|Leonid in Crossglen town hall tells me that there was a disturbance in the village some weeks ago. Apparently, Lord Geomyr has banned all use of bonemeal as healing substance.\n\nTharal, the town priest should know more.||0|};
+{bonemeal|20|Tharal does not want to talk about bonemeal. I might be able to persuade him by bringing him 5 insect wings.||0|};
+{bonemeal|30|Tharal tells me that bonemeal is very potent as healing substance, and is quite upset that it is not allowed anymore. I should go see Thoronir in Fallhaven if I want to learn more. I should tell him the password \'Glow of the shadow\'.||0|};
+{bonemeal|40|I have talked to Thoronir in Fallhaven. He might be able to mix me a bonemeal potion if I bring him 5 skeletal bones. There should be some skeletons in an abandoned house north of Fallhaven.||0|};
+{bonemeal|100|I have brought the bones to Thoronir. He is now able to supply me with bonemeal potions.\nI should be careful when using them though, since Lord Geomyr has banned their use.|90|1|};
+{andor|10|Leonid tells me that he saw Andor talking to Gruil. I should go ask Gruil if he knows more.||0|};
+{andor|20|Gruil wants me to bring him a poison gland. Then he might talk more. He tells me that some poisonous snakes have such a gland.||0|};
+{andor|30|Gruil tells me that Andor was looking for someone called Umar. I should go ask his friend Gaela in Fallhaven to the east.||0|};
+{crossglen|1|||0|};
+{jan|10|Jan tells me his story about him, Gandir and Irogotu. The three former friends went down the hole to dig for a hidden treasure, but they started fighting. Irogotu killed Gandir in his rage.\nI should bring back Gandir\'s ring from Irogotu, and see Jan when I have it.||0|};
+{jan|100|I have brought Jan the ring of Gandir, and avenged his friend. Irogotu is dead.|150|1|};
+	</string>
+	
+	<string name="questlog_fallhaven">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{bucus|10|Bucus in Fallhaven might know something about Andor. He wants me to bring him the key of Luthor from the catacombs beneath Fallhaven church.||0|};
+{bucus|20|The catacombs beneath Fallhaven church are closed off. Athamyr is the only one with both permission and the bravery to enter them. I should go see him in his house southwest of the church.||0|};
+{bucus|30|Athamyr wants me to bring him some cooked meat, then maybe he will want to talk more.||0|};
+{bucus|40|I have brought some cooked meat to Athamyr.|70|0|};
+{bucus|50|Athamyr has given me permission to enter the catacombs beneath Fallhaven church.||0|};
+{bucus|100|I have brought Bucus the key of Luthor.|215|1|};
+{andor|40|I talked to Gaela in Fallhaven. He tells me to go see Bucus and ask about the thieves guild.||0|};
+{andor|50|Bucus has allowed me to enter the hatch in the derelict house in Fallhaven. I should go talk to Umar.||0|};
+{fallhavendrunk|10|A drunk outside Fallhaven tavern began telling me his story, but wants me to bring him some mead. I don\'t know if his story will lead anywhere though.||0|};
+{fallhavendrunk|100|The drunk told me he used to travel with Unnmir. I should go talk to Unnmir.||1|};
+{nocmar|10|Unnmir told me he used to be an adventurer, and gave me a hint to go see Nocmar. His house is just southwest of the tavern in Fallhaven.||0|};
+{nocmar|20|Nocmar tells me he used to be a smith. But Lord Geomyr has banned the use of heartsteel, so he cannot forge his weapons anymore.\nIf I can find a heartstone and bring it to Nocmar, he should be able to forge the heartsteel again.||0|};
+{nocmar|200|I have brought a heartstone to Nocmar. He should have heartsteel items available now.|120|1|};
+{fallhaventavern|10|||1|};
+{arcir|10|||0|};
+{calomyran|10|An old man standing outside in Fallhaven has lost his book \'Calomyran Secrets\'. I should go look for it. Maybe in Arcir\'s house to the south?||0|};
+{calomyran|20|I found a torn page of a book called \'Calomyran Secrets\' with the name \'Larcal\' written on it.||0|};
+{calomyran|100|I gave the book back to the old man.|60|1|};
+	</string>
+
+	<string name="questlog_wilderness">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{vacor|10|A mage called Vacor in southwest Fallhaven has been trying to cast a rift spell.\nThere was something not right about him, he seemed very obsessed with his spell. Something about him gaining a power from it.||0|};
+{vacor|20|Vacor wants me to bring him four pieces of the rift spell that he claims was stolen from him. The bandits should be somewhere south of Fallhaven.||0|};
+{vacor|30|I have brought the four pieces of the rift spell to Vacor.|120|0|};
+{vacor|40|Vacor tells me about his former apprentice Unzel, that had started to question Vacor. Vacor now wants me to kill Unzel. I should be able to find him to the southwest outside of Fallhaven. I should bring his signet ring to Vacor once I have killed him.||0|};
+{vacor|50|Unzel gives me a choice to side with either him or Vacor.||0|};
+{vacor|51|I have chosen to side with Unzel. I should go to southwest Fallhaven to talk to Vacor about Unzel and the Shadow.||0|};
+{vacor|53|I started a fight with Unzel. I should bring his ring to Vacor once he is dead.||0|};
+{vacor|54|I started a fight with Vacor. I should bring his ring to Unzel once he is dead.||0|};
+{vacor|60|I have killed Unzel and told Vacor about the deed.|160|1|};
+{vacor|61|I have killed Vacor and told Unzel about the deed.|160|1|};
+	</string>
+
+	<string name="questlog_flagstone">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{flagstone|10|I met a guard on sentry outside a fortress called Flagstone. The guard told me about Flagstone that used to be a prison camp for runaway workers from Mount Galmore. Recently, there has been an increase in undead monsters pouring out from Flagstone. I should investigate the source of the undead monsters. The guard tells me to return to him if I need help.||0|};
+{flagstone|20|I found a dug out tunnel beneath Flagstone, that seems to lead to a larger cave. The cave is guarded by a demon that I am not even able to approach. Maybe the guard outside Flagstone knows more?||0|};
+{flagstone|30|The guard tells me that the former warden used to have a necklace that he always wore. The necklace probably has the words required to approach the demon. I should return to the guard to decipher any message on the necklace once I have found it.||0|};
+{flagstone|31|I found the former warden of Flagstone on the upper level.||0|};
+{flagstone|40|I have learned the words required to approach the demon beneath Flagstone. \'Daylight Shadow\'.|160|0|};
+{flagstone|50|Deep beneath Flagstone, I found the source of the undead infestation. A creature born from the grief of the former prisoners of Flagstone.||0|};
+{flagstone|60|I found one prisoner, Narael, alive deep beneath Flagstone. Narael was once a citizen of Nor City. He is too weak to walk by himself, but if I can find his wife in Nor City, I would be handsomely rewarded.|210|1|};
+	</string>
+
+</resources>

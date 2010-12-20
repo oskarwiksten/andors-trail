@@ -12,6 +12,7 @@ import org.xmlpull.v1.XmlPullParserException;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.util.Base64;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -240,7 +241,6 @@ public final class TMXMapReader {
 			
 			ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
 			ArrayList<MonsterSpawnArea> spawnAreas = new ArrayList<MonsterSpawnArea>();
-			ArrayList<KeyArea> keyAreas = new ArrayList<KeyArea>();
 			
 			for (TMXObjectGroup group : m.objectGroups) {
 				for (TMXObject object : group.objects) {
@@ -255,14 +255,14 @@ public final class TMXMapReader {
 					if (object.type.equalsIgnoreCase("sign")) {
 						String title = object.name; 
 						String text = null;
-						String enableKey = null;
+						QuestProgress enableQuestStage = null;
 						for (TMXProperty p : object.properties) {
 							if(p.name.equalsIgnoreCase("text")) text = p.value;
 							else if(p.name.equalsIgnoreCase("title")) title = p.value;
-							else if(p.name.equalsIgnoreCase("enablekey")) enableKey = p.value;
+							else if(p.name.equalsIgnoreCase("enablekey")) enableQuestStage = QuestProgress.parseQuestProgress(p.value);
 							else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "  has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapSignEvent(position, title, text, enableKey));
+						mapObjects.add(MapObject.createMapSignEvent(position, title, text, enableQuestStage));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
 						String map = null;
 						String place = null;
@@ -314,7 +314,13 @@ public final class TMXMapReader {
 							);
 						spawnAreas.add(area);
 					} else if (object.type.equalsIgnoreCase("key")) {
-						String requiredKey = object.name;
+						QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(object.name);
+						if (requireQuestStage == null) {
+							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+								L.log("OPTIMIZE: Map " + m.name + " contains key area that cannot be parsed as a quest stage.");
+							}
+							continue;
+						}
 						String message = "";
 						for (TMXProperty p : object.properties) {
 							if (p.name.equalsIgnoreCase("message")) {
@@ -324,7 +330,7 @@ public final class TMXMapReader {
 							}
 						}
 						
-						keyAreas.add(new KeyArea(position, requiredKey, message));
+						mapObjects.add(MapObject.createNewKeyArea(position, message, requireQuestStage));
 					} else if (object.type.equals("rest")) {
 						mapObjects.add(MapObject.createNewRest(position));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -336,10 +342,8 @@ public final class TMXMapReader {
 			_eventObjects = mapObjects.toArray(_eventObjects);
 			MonsterSpawnArea[] _spawnAreas = new MonsterSpawnArea[spawnAreas.size()];
 			_spawnAreas = spawnAreas.toArray(_spawnAreas);
-			KeyArea[] _keyAreas = new KeyArea[keyAreas.size()];
-			_keyAreas = keyAreas.toArray(_keyAreas);
 
-			result.add(new LayeredWorldMap(m.name, mapSize, layers, isWalkable, _eventObjects, _keyAreas, _spawnAreas, false));
+			result.add(new LayeredWorldMap(m.name, mapSize, layers, isWalkable, _eventObjects, _spawnAreas, false));
 		}
 		
 		return result;

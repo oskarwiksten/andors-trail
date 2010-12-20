@@ -29,14 +29,14 @@
 				android:id="@+id/startscreen_currenthero"
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
-				android:text="@string/startscreen_currenthero"
+				android:text="Hero name"
 				/>
 			<EditText
 				android:id="@+id/startscreen_enterheroname"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:visibility="gone"
-				android:maxLines="1"
+				android:inputType="textPersonName"
 				/>
 		</LinearLayout>
 		
@@ -70,6 +70,21 @@
 			android:layout_height="wrap_content"
 			android:text="@string/startscreen_newgame"
 			/>
+		<Button
+			android:id="@+id/startscreen_load"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/startscreen_load"
+			/>
+	</LinearLayout>
+		
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		>
 		<Button
 			android:id="@+id/startscreen_about"
 			android:layout_width="0dip"

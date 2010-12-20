@@ -13,18 +13,12 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.KeyArea;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class Controller {
-	private static final int PERCENT_EXP_LOST_WHEN_DIED = 30;
-	public static final int LEVELUP_EFFECT_HEALTH = 5;
-	public static final int LEVELUP_EFFECT_ATK_CH = 5;
-	public static final int LEVELUP_EFFECT_ATK_DMG = 1;
-	public static final int LEVELUP_EFFECT_DEF_CH = 3;
     
     private final ViewContext view;
     private final WorldContext world;
@@ -59,12 +53,12 @@ public final class Controller {
     public void queueAnotherTick() {
     	if (hasQueuedTick) return;
     	hasQueuedTick = true;
-    	mTickHandler.sleep(ModelContainer.tickDelay);
+    	mTickHandler.sleep(Constants.TICK_DELAY);
     }
     
 	private void tick() {
 		//L.log(id + " : Controller::tick()");
-    	if (!model.uiSelections.isTicking) return;
+    	if (!model.uiSelections.isMainActivityVisible) return;
     	if (model.uiSelections.isInCombat) return;
     	
     	boolean hasChanged = false;
@@ -73,35 +67,35 @@ public final class Controller {
     	
     	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
     	
+    	view.monsterMovementController.attackWithAgressiveMonsters();
+    	
     	queueAnotherTick();
     }
     
     public void resume() {
     	//L.log(id + " : Controller::resume()");
 		view.mainActivity.statusview.update();
-		model.uiSelections.isTicking = true;
-    	view.mainActivity.mainview.inhibitClicks = false;
+		model.uiSelections.isMainActivityVisible = true;
     	queueAnotherTick();
     }
     public void pause() {
     	//L.log(id + " : Controller::pause()");
     	hasQueuedTick = false;
-    	model.uiSelections.isTicking = false;
-    	view.mainActivity.mainview.inhibitClicks = true;
+    	model.uiSelections.isMainActivityVisible = false;
     }
     
-    public void handleMapEvent(MapObject o) {
+    public void handleMapEvent(MapObject o, Coord position) {
 		switch (o.type) {
 		case MapObject.MAPEVENT_SIGN:
-			if (o.place_or_key != null && o.place_or_key.length() > 0) {
-				model.player.addKey(o.place_or_key);
-			}
+			if (o.questProgress != null) model.player.addQuestProgress(o.questProgress);
 			if (o.text == null) return;
 			Dialogs.showMapSign(view.mainActivity, view, o.title, o.text);
 			break;
 		case MapObject.MAPEVENT_NEWMAP:
-			if (o.map == null || o.place_or_key == null) return;
-			view.movementController.placePlayerAt(o.map, o.place_or_key);
+			if (o.map == null || o.place == null) return;
+			int offset_x = position.x - o.position.topLeft.x;
+			int offset_y = position.y - o.position.topLeft.y;
+			view.movementController.placePlayerAt(o.map, o.place, offset_x, offset_y);
 			break;
 		case MapObject.MAPEVENT_REST:
 			Dialogs.showRest(view.mainActivity, view);
@@ -112,8 +106,8 @@ public final class Controller {
 	public void steppedOnMonster(Monster m, Coord p) {
 		if (m.isAgressive()) {
 			view.combatController.setCombatSelection(m, p);
-			if (!model.uiSelections.confirmAttack) {
-				view.combatController.enterCombat();
+			if (!view.preferences.confirmAttack) {
+				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 			} else {
 				Dialogs.showMonsterEncounter(view.mainActivity, view, m);
 			}
@@ -125,7 +119,8 @@ public final class Controller {
 	public void handlePlayerDeath() {
 		view.effectController.waitForCurrentEffect();		
 		final Player player = model.player;
-		int lostExp = player.levelExperience.current / (100 / PERCENT_EXP_LOST_WHEN_DIED);
+		int lostExp = player.levelExperience.current / (100 / Constants.PERCENT_EXP_LOST_WHEN_DIED);
+		if (lostExp < 0) lostExp = 0; // Shouldn't happen, but just to be sure.
 		player.addExperience(-lostExp);
 		model.statistics.addPlayerDeath(lostExp);
 		playerRested(world);
@@ -144,18 +139,18 @@ public final class Controller {
         	if (m.visited) m.spawnAll(world);
         }
 	}
+
 	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext) {
 		playerRested(viewContext);
 		viewContext.mainActivity.statusview.update();
     	Dialogs.showRested(currentActivity, viewContext);
 	}
-
 	
-	public boolean handleKeyArea(KeyArea area) {
-		if (view.model.player.hasKey(area.requiredKey)) return true;
+	public boolean handleKeyArea(MapObject area) {
+		if (view.model.player.hasExactQuestProgress(area.questProgress)) return true;
 		final Context androidContext = view.mainActivity;
 
-		String message = area.message;
+		String message = area.text;
 		if (message == null || message.length() == 0) {
 			message = androidContext.getResources().getString(R.string.key_required);
 		}

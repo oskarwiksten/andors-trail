@@ -41,7 +41,7 @@ public final class ItemTypeCollection {
 			
     		itemTypes.add(new ItemType(
         			nextId
-        			, ResourceLoader.parseImage(tileLoader, parts[1])
+        			, ResourceLoader.parseImageID(tileLoader, parts[1])
         			, itemTypeName
 		        	, searchTag
         			, Integer.parseInt(parts[3])

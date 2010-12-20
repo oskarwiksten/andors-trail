@@ -3,140 +3,63 @@
 <resources>
 	<string name="monsterlist_debug">
 [Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
-{monsters_man1:0|Traveller|Human|1x1|11|10|10|10|10|50|||1-2|||shop1|debug|};
-	</string>
-	
-	<string name="monsterlist_misc">
-[Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
-{monsters_armor1:0|Armoured guardian|Human|1x1|20|10|10|10|10|50|||1-2|90|1|list1||};
-{monsters_men:0|Madman|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:1|Siren|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:3|Knight|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:4|Monk|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:5|Hermit|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:6|Nun|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:7|Amazon|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_men:8|Thief|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_rogue1:0|Rogue|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_warrior1:0|Warrior|Human|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:4|Dwarf miner|Dwarf|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:5|Troll|Dwarf|1x1|11|10|10|10|2|50|||1-2|||list1||};
-{monsters_misc:6|Dwarf warrior|Dwarf|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:7|Dwarf knight|Dwarf|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dogs:0|Puppy dog|Animal|1x1|3|1|10|10|10|50|||0-1|||list1||};
-{monsters_dogs:1|Young dog|Animal|1x1|4|5|10|10|10|50|||0-1|||list1||};
-{monsters_dogs:2|Dog|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dogs:3|Fox|Animal|1x1|15|20|10|10|10|50|||1-5|||list1||};
-{monsters_dogs:4|Wolf|Animal|1x1|24|40|10|10|10|50|||1-7|||list1||};
-{monsters_dogs:5|Werewolf|Animal|1x1|32|60|10|10|10|100|10|2|3-15|||list1||};
-{monsters_dogs:6|Boar|Animal|1x1|25|30|10|10|10|60|||2-7|||list1||};
-{monsters_rats:0|Tiny rat|Animal|1x1|1|1|10|10|10|50|||1|||list1||};
-{monsters_rats:1|Rat|Animal|1x1|4|3|10|10|10|50|||0-3|||list1||};
-{monsters_rats:2|Rabid rat|Animal|1x1|10|10|10|10|10|50|||1-6|||list1||};
-{monsters_rats:3|Strong rat|Animal|1x1|15|20|10|10|5|50|||1-10|||list1||};
-{monsters_snakes:0|Young snake|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_snakes:1|Snake|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_snakes:2|Poison snake|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_snakes:3|Venomous snake|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_snakes:4|Large snake|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_snakes:5|Paralyzing snake|Animal|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_insects:0|Black ant|Insect|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_insects:1|Small wasp|Insect|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_insects:2|Yellow ant|Insect|1x1|11|10|10|10|10|100|||4|||list1||};
-{monsters_insects:3|Red ant|Insect|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_insects:4|Beetle|Insect|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_insects:5|Wasp|Insect|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragons:0|Dragon|Dragon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragons:1|Ice dragon|Dragon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragons:2|Young dragon|Dragon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragons:3|Hardened dragon|Dragon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragons:4|Hatchling dragon|Dragon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragons:5|Acid dragon|Dragon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_dragon1:0|Ancient dragon|Dragon|4x3|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_ghost1:0|Ethereal wraith|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_ghost2:0|Ghost|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_wraiths:0|Wraith|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_wraiths:1|Wraith master|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_wraiths:2|Ancient wraith|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_zombie2:0|Rotting zombie|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_zombie1:0|Zombie|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_liches:0|Lich apprentice|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_liches:1|Lich|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_liches:2|Lich master|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_liches:3|Ancient lich|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_skeleton1:0|Skeleton warrior|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_skeleton2:0|Skeleton champion|Undead|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_demon1:0|Winged demon|Demon|2x2|11|10|10|10|10|50|||10-20|||list1||};
-{monsters_demon2:0|Demon|Demon|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_eye1:0|Eye servant|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_eye2:0|Gazer|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_eye3:0|Eye master|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_eye4:0|Beholder|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_hydra1:0|Hydra|Beast|2x2|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:0|Gecko|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:1|Young gargoyle|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:2|Gargoyle|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:8|Lusca|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:9|Lusca master|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_rats:4|Basilisk|Beast|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_cyclops:0|Cyclops|Beast|2x3|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_mage:0|Mage|Magic|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_mage2:0|Mage apprentice|Magic|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_mage3:0|Mage master|Magic|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_mage4:0|Sorcerer|Magic|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:10|Abomination|Magic|1x1|11|10|10|10|10|50|||1-2|||list1||};
-{monsters_misc:11|Starved abomination|Magic|1x1|11|10|10|10|10|50|||1-2|||list1||};
+{monsters_man1:0|Traveller1|debugNPC1|||10|10|10|10|50|||1-2|||debugshop1|debugshop|};
+{monsters_man1:0|Traveller2|debugNPC2|||10|10|10|10|50|||1-2|||debugshop1|debugquest|};
+{monsters_insects:0|Black ant|Insect|||10|10|10|10|50|||1-2|||debuglist1||};
+{monsters_insects:1|Small wasp|Insect|||10|10|10|10|50|||1-2|||debuglist1||};
+{monsters_demon1:0|Winged demon|Demon|2x2||10|10|10|10|50|||10-20|||debuglist1||};
+{monsters_misc:5|Troll|Dwarf|||10|10|10|2|50|||1-2|||debuglist1||};
 	</string>
 	
 	<string name="monsterlist_crossglen_animals">
 [Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
-{monsters_rats:0|Tiny rat|trainingrat||2|2|||10|50|||1|||trainingrat||};
-{monsters_rats:1|Cave rat|crossglen_caverat||6|5|||10|90|||2|||rat||};
-{monsters_rats:1|Tough cave rat|crossglen_caverat2||11|5|||5|90|||3|||rat||};
-{monsters_rats:3|Strong cave rat|crossglen_caveboss||20|20|||5|100|||2-4|10||caveratboss||};
-{monsters_insects:0|Black ant|crossglen_ant||4|3|||10|70|||1-2|||insect||};
-{monsters_insects:1|Small wasp|crossglen_wasp||4|4|||10|70|||1-2|||wasp||};
-{monsters_insects:4|Beetle|crossglen_beetle||6|4|||10|70|||3|||insect||};
-{monsters_insects:1|Forest wasp|forestwasp||5|6|||10|70|||1-2|||wasp||};
-{monsters_insects:0|Forest ant|forestant||5|4|||10|90|||1-2|10||insect||};
-{monsters_insects:2|Yellow forest ant|forestant||6|5|||10|100|||2|15||insect||};
-{monsters_dogs:1|Small rabid dog|forestdog||6|6|||10|90|||2|||canine||};
-{monsters_snakes:1|Forest Snake|forestsnake||7|7|||10|110|||1-2|10||snake||};
-{monsters_snakes:3|Young Cave Snake|cavesnake1||13|8|||5|110|10|2|2|10||snake||};
-{monsters_snakes:3|Cave Snake|cavesnake1||17|12|||5|110|20|2|2|15||snake||};
-{monsters_snakes:3|Venomous Cave Snake|cavesnake2||21|15|||5|110|40|2|2|10||snake||};
-{monsters_snakes:3|Tough Cave Snake|cavesnake2||22|21|||5|110|20|2|2|15||snake||};
-{monsters_rats:4|Basilisk|cavesnake2_boss||43|40|||7|40|||3-9|50|2|cavecritter||};
-{monsters_liches:0|Snake servant|cavesnake3||37|35|||5|80|40|3|2-3|10|1|lich1||};
-{monsters_liches:1|Snake master|cavesnake3_boss||67|55|||5|60|100|3|1-4|10|4|snakemaster|snakemaster|};
-{monsters_dogs:6|Rabid Boar|forestboar||23|20|||5|110|||3|30||canineboss||};
-{monsters_dogs:3|Rabid Fox|fox1||28|25|||5|100|||3|50||canine||};
-{monsters_insects:2|Yellow cave ant|pitcave1||20|20|||3|30|||1|80||insect||};
-{monsters_misc:0|Young teeth critter|pitcave2||17|15|||2|50|||1|70||cavecritter||};
-{monsters_misc:0|Teeth critter|pitcave2||28|25|||2|60|10|3|1|70||cavecritter||};
-{monsters_misc:5|Young minotaur|pitcave2||46|45|||6|20|40|3|4|50|2|cavemonster||};
-{monsters_misc:5|Strong minotaur|pitcave2_boss||57|53|||6|40|50|3|5|50|2|cavemonster||};
-{monsters_liches:0|Irogotu|pitcave_boss||88|61|||3|50|40|3|2-5|70|4|irogotu|irogotu|};
+{monsters_rats:0|Tiny rat|trainingrat|||2|||10|50|||1|||trainingrat||};
+{monsters_rats:1|Cave rat|crossglen_caverat|||5|||10|90|||2|||rat||};
+{monsters_rats:1|Tough cave rat|crossglen_caverat2|||5|||5|90|||3|||rat||};
+{monsters_rats:3|Strong cave rat|crossglen_caveboss|||20|||5|100|||2-4|10||caveratboss||};
+{monsters_insects:0|Black ant|crossglen_ant|||3|||10|70|||1-2|||insect||};
+{monsters_insects:1|Small wasp|crossglen_wasp|||4|||10|70|||1-2|||wasp||};
+{monsters_insects:4|Beetle|crossglen_beetle|||4|||10|70|||3|||insect||};
+{monsters_insects:1|Forest wasp|forestwasp|||6|||10|70|||1-2|||wasp||};
+{monsters_insects:0|Forest ant|forestant|||4|||10|90|||1-2|10||insect||};
+{monsters_insects:2|Yellow forest ant|forestant|||5|||10|100|||2|15||insect||};
+{monsters_dogs:1|Small rabid dog|forestdog|||6|||10|90|||2|||canine||};
+{monsters_snakes:1|Forest Snake|forestsnake|||7|||10|110|||1-2|10||snake||};
+{monsters_snakes:3|Young Cave Snake|cavesnake1|||8|||5|110|10|2|2|10||snake||};
+{monsters_snakes:3|Cave Snake|cavesnake1|||12|||5|110|20|2|2|15||snake||};
+{monsters_snakes:3|Venomous Cave Snake|cavesnake2|||15|||5|110|40|2|2|10||snake||};
+{monsters_snakes:3|Tough Cave Snake|cavesnake2|||21|||5|110|20|2|2|15||snake||};
+{monsters_rats:4|Basilisk|cavesnake2_boss|||40|||7|40|||3-9|50|2|cavecritter||};
+{monsters_liches:0|Snake servant|cavesnake3|||35|||5|80|40|3|2-3|10|1|lich1||};
+{monsters_liches:1|Snake master|cavesnake3_boss|||55|||5|60|100|3|1-4|10|4|snakemaster|snakemaster|};
+{monsters_dogs:6|Rabid Boar|forestboar|||20|||5|110|||3|30||canineboss||};
+{monsters_dogs:3|Rabid Fox|fox1|||25|||5|100|||3|50||canine||};
+{monsters_insects:2|Yellow cave ant|pitcave1|||20|||3|30|||1|80||insect||};
+{monsters_misc:0|Young teeth critter|pitcave2|||15|||2|50|||1|70||cavecritter||};
+{monsters_misc:0|Teeth critter|pitcave2|||25|||2|60|10|3|1|70||cavecritter||};
+{monsters_misc:5|Young minotaur|pitcave2|||45|||6|20|40|3|4|50|2|cavemonster||};
+{monsters_misc:5|Strong minotaur|pitcave2_boss|||53|||6|40|50|3|5|50|2|cavemonster||};
+{monsters_liches:0|Irogotu|pitcave_boss|||61|||3|50|40|3|2-5|70|4|irogotu|irogotu|};
 	</string>
 	
 	<string name="monsterlist_fallhaven_animals">
 [Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
-{monsters_ghost2:0|Lost spirit|minorhaunt1||23|15|||10|50|||1-2|10|3|haunt|haunt|};
-{monsters_ghost2:0|Lost soul|minorhaunt2||28|15|||10|50|||1-2|10|4|haunt||};
-{monsters_ghost1:0|Haunting|haunt3|1x1|40|31|10|10|5|120|20|2|1-5|30|1|haunt||};
-{monsters_skeleton1:0|Skeletal warrior|skeleton1|1x1|45|52|10|10|5|60|||1-3|40|1|skeleton||};
-{monsters_skeleton2:0|Skeletal master|skeletonmaster|1x1|47|52|10|10|5|70|||1-3|30|2|skeleton||};
-{monsters_skeleton1:0|Skeleton|skeleton1|1x1|27|35|10|10|10|60|||1-4|40||skeleton||};
+{monsters_ghost2:0|Lost spirit|minorhaunt1|||15|||10|50|||1-2|10|3|haunt|haunt|};
+{monsters_ghost2:0|Lost soul|minorhaunt2|||15|||10|50|||1-2|10|4|haunt||};
+{monsters_ghost1:0|Haunting|haunt3|||31|10|10|5|120|20|2|1-5|30|1|haunt||};
+{monsters_skeleton1:0|Skeletal warrior|skeleton1|||52|10|10|5|60|||1-3|40|1|skeleton||};
+{monsters_skeleton2:0|Skeletal master|skeletonmaster|||52|10|10|5|70|||1-3|30|2|skeleton||};
+{monsters_skeleton1:0|Skeleton|skeleton1|||35|10|10|10|60|||1-4|40||skeleton||};
 
-{monsters_ghost2:0|Guardian of the catacombs|catacombguard1|1x1|18|6|10|10|10|10|||1-6|10|3|catacombguard|catacombguard|};
-{monsters_rats:0|Catacomb rat|catacombrat1|1x1|14|15|10|10|3|60|||1|40||catacombrat||};
-{monsters_rats:3|Large catacomb rat|catacombrat1|1x1|20|21|10|10|3|60|10|2|1-2|40||catacombrat||};
-{monsters_ghost1:0|Ghostly visage|catacombguard2|1x1|21|16|10|10|5|20|||1-4|20|2|catacombguard||};
-{monsters_ghost2:0|Spectre|catacombguard2|1x1|28|15|10|10|3|50|||1-5|60|2|catacombguard||};
-{monsters_ghost2:0|Apparition|catacombguard3|1x1|24|17|10|10|3||||1-5|70|2|catacombguard||};
-{monsters_ghost1:0|Shade|catacombguard3|1x1|25|16|10|10|5|20|||1-4|20|3|catacombguard||};
-{monsters_misc:2|Young gargoyle|catacombguard3|1x1|42|35|10|10|10|110|10|2|2-5|70|1|catacombguard||};
-{monsters_liches:2|Ghost of Luthor|luthor|1x1|95|86|10|10|5|120|15|2|2-5|50|3|luthor|luthor|};
+{monsters_ghost2:0|Guardian of the catacombs|catacombguard1|||6|10|10|10|10|||1-6|10|3|catacombguard|catacombguard|};
+{monsters_rats:0|Catacomb rat|catacombrat1|||15|10|10|3|60|||1|40||catacombrat||};
+{monsters_rats:3|Large catacomb rat|catacombrat1|||21|10|10|3|60|10|2|1-2|40||catacombrat||};
+{monsters_ghost1:0|Ghostly visage|catacombguard2|||16|10|10|5|20|||1-4|20|2|catacombguard||};
+{monsters_ghost2:0|Spectre|catacombguard2|||15|10|10|3|50|||1-5|60|2|catacombguard||};
+{monsters_ghost2:0|Apparition|catacombguard3|||17|10|10|3||||1-5|70|2|catacombguard||};
+{monsters_ghost1:0|Shade|catacombguard3|||16|10|10|5|20|||1-4|20|3|catacombguard||};
+{monsters_misc:2|Young gargoyle|catacombguard3|||35|10|10|10|110|10|2|2-5|70|1|catacombguard||};
+{monsters_liches:2|Ghost of Luthor|luthor|||86|10|10|5|120|15|2|2-5|50|3|luthor|luthor|};
 	</string>
 	
 	<string name="monsterlist_crossglen_npcs">
@@ -185,6 +108,50 @@
 {monsters_men2:9|Gaela|gaela|1x1|0|1|1|1|1|0|||0||||gaela|};
 {monsters_mage2:0|Unnmir|unnmir|1x1|0|1|1|1|1|0|||0||||unnmir|};
 {monsters_men:1|Rigmor|rigmor|1x1|0|1|1|1|1|0|||0||||rigmor|};
+
+{monsters_men2:2|Jakrar|fallhaven_lumberjack|||1|1|1|1|1|||1|1|||fallhaven_lumberjack|};
+{monsters_mage2:0|Alaun|alaun|||1|1|1|1|1|||1|1|||alaun|};
+{monsters_man1:0|Busy Farmer|fallhaven_farmer1|||1|1|1|1|1|||1|1|||fallhaven_farmer1|};
+{monsters_mage2:0|Old Farmer|fallhaven_farmer2|||1|1|1|1|1|||1|1|||fallhaven_farmer2|};
+{monsters_men:3|Khorand|khorand|||1|1|1|1|1|||1|1|||khorand|};
+
+{monsters_mage:0|Vacor|vacor|||72|||5|110|||4-8|40|2|vacor|vacor|};
+{monsters_men:8|Unzel|unzel|||59|||10|80|30|3|5-9|40|2|unzel|unzel|};
+{monsters_men2:9|Shady Bandit|fallhaven_bandit|||45|||5|70|30|3|3-9|50|2|fallhaven_bandit|fallhaven_bandit|};
 	</string>
+
+	<string name="monsterlist_wilderness">
+[Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
+{monsters_dogs:3|Wild Fox|fox2|||25|||5|100|||4-5|40||canine||};
+{monsters_insects:1|Stinging wasp|forestwasp2|||15|||10|150|||1-2|60||wasp||};
+{monsters_dogs:6|Wild Boar|forestboar2|||20|||5|110|||3|30||canineboss||};
+{monsters_insects:4|Forest Beetle|forestbeetle|||14|||10|150|||2-4|60|2|insect||};
+{monsters_dogs:4|Wolf|forestwolf1|||30|10|3|5|110|||3-6|30||canine||};
+{monsters_snakes:4|Forest serpent|forestserpent1|||20|10|5|3|150|30|2|2-3|60||snake2||};
+{monsters_snakes:4|Vicious forest serpent|forestserpent2|||27|10|5|3|150|30|2|3-4|50||snake2||};
+{monsters_dogs:6|Anklebiter|forestboar3|||31|||5|150|||3-9|60|3|canine2||};
+{monsters_men:3|Flagstone Sentry|flagstone_sentry|||1|1|1|1|1|||1|1|||flagstone_sentry|};
+{monsters_men:0|Escaped prisoner|prisoner1|||15|||10|50|||3-7|20||prisoner|prisoner1|};
+{monsters_misc:11|Starving prisoner|prisoner2|||10|||3|60|||3-5|60||prisoner|prisoner2|};
+{monsters_skeleton1:0|Bone warrior|skeleton2|||32|||5|120|||3-9|60|2|skeleton2||};
+{monsters_skeleton1:0|Bone champion|skeleton3|||49|||5|130|||4-9|60|2|skeleton3||};
+{monsters_liches:0|Undead warden|flagstone_guard0|||57|||5|120|20|2|4-8|60|1|flagstone_guard0|flagstone_guard0|};
+{monsters_demon2:0|Cave guardian|flagstone_guard1|||61|||5|150|10|3|4-10|90|2|flagstone_guard1|flagstone_guard1|};
+{monsters_demon1:0|Winged demon|flagstone_guard2|2x2||82|||5|90|10|2|4-12|70|5|flagstone_guard2|flagstone_guard2|};
+{monsters_man1:0|Narael|narael|||1|1|1|1|1|||1|1|||narael|};
+{monsters_zombie1:0|Rotting corpse|undead1|||71|||10|30|50|2|2-5|30|2|undead1|zombie1|};
+{monsters_zombie1:0|Walking corpse|undead1|||90|||10|30|40|2|2-4|30|2|undead1||};
+{monsters_misc:2|Gargoyle|undead1|||47|||10|110|10|2|3-7|70|2|undead1||};
+{monsters_misc:1|Fledgling Gargoyle|undead1|||35|||10|110|||3-6|60|2|undead1||};
+{monsters_rats:3|Large cave rat|undeadrat1|||21|10|10|3|60|10|2|3-4|40||catacombrat||};
+{monsters_dogs:5|Pack Leader|pack_boss|||65|||5|90|20|2|2-10|40|4|pack_boss||};
+{monsters_dogs:4|Pack hunter|pack3|||45|||5|90|10|2|2-7|40|3|pack3||};
+{monsters_dogs:4|Rabid Wolf|pack2|||42|||5|90|||2-6|50|3|pack2||};
+{monsters_dogs:3|Fledgling wolf|pack2|||42|||3|70|||2-5|50|3|pack2||};
+{monsters_dogs:4|Young wolf|pack1|||35|||3|60|||2-5|30|2|pack1||};
+{monsters_dogs:2|Hunting dog|pack1|||25|||5|60|||2-5|50||pack1||};
+{monsters_men:8|Highwayman|bandit1|||54|||5|90|50|2|2-4|30|2|bandit1|bandit1|};
+	</string>
+	
 	
 </resources>

@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 
 public class WorldContext {
@@ -17,6 +18,7 @@ public class WorldContext {
 	public final MonsterTypeCollection monsterTypes;
 	public final EffectCollection effectTypes;
 	public final DropListCollection dropLists;
+	public final QuestCollection quests;
 
 	//Objectcollections
 	public final TileStore tileStore;
@@ -33,6 +35,7 @@ public class WorldContext {
 		this.dropLists = new DropListCollection();
 		this.tileStore = new TileStore();
 		this.maps = new MapCollection();
+		this.quests = new QuestCollection();
 		//this.model = new ModelContainer();
 	}
 	public WorldContext(WorldContext copy) {
@@ -43,6 +46,7 @@ public class WorldContext {
 		this.dropLists = copy.dropLists;
 		this.tileStore = copy.tileStore;
 		this.maps = copy.maps;
+		this.quests = copy.quests;
 		this.model = copy.model;
 	}
 	public void reset() {
@@ -57,6 +61,12 @@ public class WorldContext {
 			
 			//Ensure that all phrases are requested at least once, either by NPCs or by other phrases.
 			conversations.verifyData(monsterTypes);
+			
+			//Ensure that all required quest stages exist
+			conversations.verifyData(quests);
+			
+			//Ensure that all quest stages are reachable by mapareas or by phrases
+			quests.verifyData(maps, conversations);
 			
 			//TODO: Ensure that all items have at least one corresponding droplist
 			//TODO: Ensure that all droplists are used by monsters

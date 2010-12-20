@@ -22,22 +22,22 @@
 				android:layout_alignParentLeft="true"
 				android:layout_centerVertical="true"
 				android:textSize="@dimen/smalltext"
-				android:text="@string/combat_move"
+				android:text="Action"
 				/>
 		 
-			<Button android:id="@+id/combatview_endcombat"
+			<Button android:id="@+id/combatview_flee"
 				android:layout_width="wrap_content"
 				android:layout_height="@dimen/smalltext_buttonheight"
 				android:layout_alignParentRight="true"
 				android:layout_centerVertical="true"
 				android:textSize="@dimen/smalltext"
-				android:text="@string/combat_endcombat"
+				android:text="@string/combat_flee"
 				/>
 		
 			<Button android:id="@+id/combatview_endturn"
 				android:layout_width="wrap_content"
 				android:layout_height="@dimen/smalltext_buttonheight"
-				android:layout_toLeftOf="@id/combatview_endcombat"
+				android:layout_toLeftOf="@id/combatview_flee"
 				android:layout_centerVertical="true"
 				android:textSize="@dimen/smalltext"
 				android:text="@string/combat_endturn"
@@ -82,35 +82,6 @@
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 	        />
-		
-		<!-- 
-		<RelativeLayout
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			>
-			<ProgressBar android:id="@+id/combatview_monsterhealth"
-				style="?android:attr/progressBarStyleHorizontal"
-	        	android:progressDrawable="@drawable/healthbar"
-				android:layout_width="fill_parent"
-				android:layout_centerVertical="true"
-				android:layout_height="@dimen/healthbar_height"
-				android:textSize="@dimen/smalltext"
-				/>
-			
-			<TextView android:id="@+id/combatview_monsterhealth_text"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:textSize="@dimen/smalltext"
-				android:layout_centerInParent="true"
-				android:text="HP"
-				android:textColor="#FFF"
-				android:shadowDx="1"
-				android:shadowDy="1"
-				android:shadowRadius="1"
-				android:shadowColor="#555"
-				/>
-		</RelativeLayout>
-		 -->
 		 
 	</LinearLayout>
 	

@@ -5,9 +5,10 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class Monster extends Actor {
 	public final MonsterType monsterType;
@@ -16,12 +17,14 @@ public final class Monster extends Actor {
 	public Coord movementDestination = null;
 	public long nextActionTime = 0;
 	public boolean forceAggressive = false;
+	public final CoordRect nextPosition;
 	
 	public Monster(MonsterType monsterType, Coord position) {
 		super(monsterType);
 		this.monsterType = monsterType;
 		this.position.set(position);
-		this.millisecondsPerMove = ModelContainer.millisecondsPerTurn / monsterType.getMovesPerTurn();
+		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
+		this.nextPosition = new CoordRect(new Coord(), traits.tileSize);
 	}
 	
 	public void createLoot(Loot container) {

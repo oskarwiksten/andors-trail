@@ -23,7 +23,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClickedListener;
 
-public class ShopActivity extends TabActivity implements OnContainerItemClickedListener {
+public final class ShopActivity extends TabActivity implements OnContainerItemClickedListener {
 
 	private WorldContext world;
 	private Player player;
@@ -34,7 +34,6 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
 	private TextView shop_buy_gc;
 	private TextView shop_sell_gc;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +42,7 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
         this.world = app.world;
         this.player = world.model.player;
         
-        AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
+        AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
         Uri uri = getIntent().getData();
         String monsterTypeID = uri.getLastPathSegment().toString();
@@ -67,31 +66,7 @@ public class ShopActivity extends TabActivity implements OnContainerItemClickedL
         shop_sell_gc = (TextView) h.findViewById(R.id.shop_sell_gc);
         
         shoplist_buy = (ListView) h.findViewById(R.id.shop_buy_list);
-        /*
-        shoplist_buy.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				int itemTypeID = (int) id;
-				ItemType itemType = world.itemTypes.getItemType(itemTypeID);
-				int price = ItemController.getBuyingPrice(player, itemType);
-				String text = res.getString(R.string.shop_buyitem, price);
-				Dialogs.showItemInfo(ShopActivity.this, itemTypeID, ItemInfoActivity.ITEMACTION_BUY, text, ItemController.canAfford(player, price), -1);
-			}
-		});
-		*/
         shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
-        /*
-        shoplist_sell.setOnItemClickListener(new OnItemClickListener() {
-			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				int itemTypeID = (int) id;
-				ItemType itemType = world.itemTypes.getItemType(itemTypeID);
-				int price = ItemController.getBuyingPrice(player, itemType);
-				String text = res.getString(R.string.shop_sellitem, price);
-				Dialogs.showItemInfo(ShopActivity.this, itemTypeID, ItemInfoActivity.ITEMACTION_SELL, text, true, -1);
-			}
-		});
-		*/
         
         Loot merchantLoot = new Loot();
         npcType.dropList.createRandomLoot(merchantLoot);

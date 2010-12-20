@@ -3,7 +3,9 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map.Entry;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -12,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Range;
@@ -24,7 +27,8 @@ public final class Player extends Actor {
 	public int totalExperience;
 	public final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
 	public final Inventory inventory;
-	private final HashSet<String> keys = new HashSet<String>();
+	//private final HashSet<String> keys = new HashSet<String>();
+	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	public int useItemCost;
 	public int reequipCost;
 	public final int[] skillLevels = new int[Skills.NUM_SKILLS];
@@ -78,8 +82,35 @@ public final class Player extends Actor {
 		recalculateCombatTraits();
 	}
 	
-	public boolean hasKey(String key) { return keys.contains(key); }
-	public void addKey(String key) { if (!keys.contains(key)) keys.add(key); }
+	//public boolean hasKey(String key) { return keys.contains(key); }
+	//public void addKey(String key) { if (!keys.contains(key)) keys.add(key); }
+	
+
+	/*public boolean hasAtLeastQuestProgress(QuestProgress progress) { 
+		return getMaxQuestProgress(progress.questID) >= progress.progress; 
+	}*/
+	
+	/*public int getMaxQuestProgress(String questID) { 
+		if (!questProgress.containsKey(questID)) return QuestCollection.QUEST_PROGRESS_NOT_STARTED;
+		int maxProgress = 0;
+		for(int progress : questProgress.get(questID)) {
+			maxProgress = Math.max(maxProgress, progress);
+		}
+		return maxProgress;
+	}*/
+	public boolean hasExactQuestProgress(QuestProgress progress) { return hasExactQuestProgress(progress.questID, progress.progress); }
+	public boolean hasExactQuestProgress(String questID, int progress) {
+		if (!questProgress.containsKey(questID)) return false;
+		return questProgress.get(questID).contains(progress); 
+	}
+	public boolean hasAnyQuestProgress(String questID) {
+		return questProgress.containsKey(questID);
+	}
+	public void addQuestProgress(QuestProgress progress) {
+		if (hasExactQuestProgress(progress.questID, progress.progress)) return;
+		if (!questProgress.containsKey(progress.questID)) questProgress.put(progress.questID, new HashSet<Integer>());
+		questProgress.get(progress.questID).add(progress.progress); 
+	}
 	
 	public void recalculateCombatTraits() {
 		traits.set(traits.baseCombatTraits);
@@ -127,10 +158,50 @@ public final class Player extends Actor {
 		this.levelExperience = new Range();
 		this.recalculateLevelExperience();
 		this.inventory = new Inventory(src, world, fileversion);
-		this.keys.clear();
-		final int size1 = src.readInt();
-		for(int i = 0; i < size1; ++i) {
-			this.keys.add(src.readUTF());
+		
+		if (fileversion <= 13) {
+			final int size1 = src.readInt();
+			for(int i = 0; i < size1; ++i) {
+				String keyName = src.readUTF();
+				if ("mikhail_visited".equals(keyName)) addQuestProgress(new QuestProgress("andor", 1));
+				else if ("qmikhail_bread_complete".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_bread", 100));
+				else if ("qmikhail_bread".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_bread", 10));
+				else if ("qmikhail_rats_complete".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_rats", 100));
+				else if ("qmikhail_rats".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_rats", 10));
+				else if ("oromir".equals(keyName)) addQuestProgress(new QuestProgress("leta", 20));
+				else if ("qleta_complete".equals(keyName)) addQuestProgress(new QuestProgress("leta", 100));
+				else if ("qodair".equals(keyName)) addQuestProgress(new QuestProgress("odair", 10));
+				else if ("qodair_complete".equals(keyName)) addQuestProgress(new QuestProgress("odair", 100));
+				else if ("qleonid_bonemeal".equals(keyName)) {
+					addQuestProgress(new QuestProgress("bonemeal", 10));
+					addQuestProgress(new QuestProgress("bonemeal", 20));
+				}
+				else if ("qtharal_complete".equals(keyName)) addQuestProgress(new QuestProgress("bonemeal", 30));
+				else if ("qthoronir_complete".equals(keyName)) addQuestProgress(new QuestProgress("bonemeal", 100));
+				else if ("qleonid_andor".equals(keyName)) addQuestProgress(new QuestProgress("andor", 10));
+				else if ("qgruil_andor".equals(keyName)) addQuestProgress(new QuestProgress("andor", 20));
+				else if ("qgruil_andor_complete".equals(keyName)) addQuestProgress(new QuestProgress("andor", 30));
+				else if ("qleonid_crossglen".equals(keyName)) addQuestProgress(new QuestProgress("crossglen", 1));
+				else if ("qjan".equals(keyName)) addQuestProgress(new QuestProgress("jan", 10));
+				else if ("qjan_complete".equals(keyName)) addQuestProgress(new QuestProgress("jan", 100));
+				else if ("qbucus_thieves".equals(keyName)) addQuestProgress(new QuestProgress("andor", 40));
+				else if ("qfallhaven_derelict".equals(keyName)) addQuestProgress(new QuestProgress("andor", 50));
+				else if ("qfallhaven_drunk".equals(keyName)) addQuestProgress(new QuestProgress("fallhavendrunk", 10));
+				else if ("qfallhaven_drunk_complete".equals(keyName)) addQuestProgress(new QuestProgress("fallhavendrunk", 100));
+				else if ("qnocmar_unnmir".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 10));
+				else if ("qnocmar".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 20));
+				else if ("qnocmar_complete".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 200));
+				else if ("qfallhaven_tavern_room2".equals(keyName)) addQuestProgress(new QuestProgress("fallhaventavern", 10));
+				else if ("qarcir".equals(keyName)) addQuestProgress(new QuestProgress("arcir", 10));
+				else if ("qfallhaven_oldman".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 10));
+				else if ("qcalomyran_tornpage".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 20));
+				else if ("qfallhaven_oldman_complete".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 100));
+				else if ("qbucus".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 10));
+				else if ("qthoronir_catacombs".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 20));
+				else if ("qathamyr_complete".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 40));
+				else if ("qfallhaven_church".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 50));
+				else if ("qbucus_complete".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 100));
+			}
 		}
 		this.useItemCost = src.readInt();
 		this.reequipCost = src.readInt();
@@ -142,10 +213,23 @@ public final class Player extends Actor {
 		this.spawnPlace = src.readUTF();
 		
 		if (fileversion <= 12) {
-			this.useItemCost = 5;
-			this.health.max += 5;
-			this.health.current += 5;
-			this.traits.maxHP += 5;
+			useItemCost = 5;
+			health.max += 5;
+			health.current += 5;
+			traits.maxHP += 5;
+		}
+
+		if (fileversion <= 13) return;
+		
+		final int numquests = src.readInt();
+		for(int i = 0; i < numquests; ++i) {
+			final String questID = src.readUTF();
+			questProgress.put(questID, new HashSet<Integer>());
+			final int numprogress = src.readInt();
+			for(int j = 0; j < numprogress; ++j) {
+				int progress = src.readInt();
+				questProgress.get(questID).add(progress);
+			}
 		}
 	}
 	
@@ -156,10 +240,6 @@ public final class Player extends Actor {
 		dest.writeInt(level);
 		dest.writeInt(totalExperience);
 		inventory.writeToParcel(dest, flags);
-		dest.writeInt(keys.size());
-		for (String k : keys) {
-			dest.writeUTF(k);
-		}
 		dest.writeInt(useItemCost);
 		dest.writeInt(reequipCost);
 		dest.writeInt(Skills.NUM_SKILLS);
@@ -168,6 +248,14 @@ public final class Player extends Actor {
 		}
 		dest.writeUTF(spawnMap);
 		dest.writeUTF(spawnPlace);
+		dest.writeInt(questProgress.size());
+		for(Entry<String, HashSet<Integer> > e : questProgress.entrySet()) {
+			dest.writeUTF(e.getKey());
+			dest.writeInt(e.getValue().size());
+			for(int progress : e.getValue()) {
+				dest.writeInt(progress);
+			}
+		}
 	}
 }
 

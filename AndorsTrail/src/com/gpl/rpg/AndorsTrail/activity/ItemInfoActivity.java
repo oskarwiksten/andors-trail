@@ -33,7 +33,7 @@ public final class ItemInfoActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
         
-        AndorsTrailApplication.setWindowParameters(this, world.model.uiSelections.fullscreen);
+        AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();

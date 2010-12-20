@@ -50,12 +50,12 @@
  </tileset>
  <layer name="Ground" width="15" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAwtiZGAIogDnM2HHhORAuJ4JFZewMTAUs0HUoMvBMEyvIwMqbgHqa2aDqMliQGBkNTC9b9kw9RPCML2TgXqnYNEPkpsIFJ+EJmfGjNC7GCi3BIfehUDxRUD8kgXofyh+xYIIR1zuQpbLA6rfDcR7gDiXBRGOIDcg61GD8uuR9P4Eqi+A4l8sELlABgh2ZECwicUAeNJCPVgCAAA=
+   H4sIAAAAAAAAAwtiZGAIogDnM2HHhORAuJ4JFZewMTAUs0HUoMvBMEyvIwMmbmaDqMliQGBkeXx6CWGY3slAO6awYZefCBSfhCZnxkzYXmS5lyxA/0PxKxZEOOLSiyyXB1S/G4j3AHEuCyIcQW5A1qMG5dcj6f0JVF8Axb9YIHKBDBDsyIBgE4sBtbBunVgCAAA=
   </data>
  </layer>
  <layer name="Objects" width="15" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgIAyU2PHLc7IwMMSyQ2h0YAQUz2VHqEMHkiyoNDJwgurTZoXIe7Ei5O6yMTBcAOJkoPhDNlR9HVB1PUDaGoitgNiSlWHQgClI4bkRzV3J0HAQIRDmIHARTS9Mzw82TP3JaOH7Gy3MQOA0UM0ZLPFADgAAe3X9BVgCAAA=
+   H4sIAAAAAAAAA2NgIAyU2PHLc7IwMMSyQ2h0YAQUz2VHqEMHkiyoNDJwgurTZoXIe7Ei5O6yMTBcAOJkoPhDIN3ChpDrgKrrAdLWQGwFxJZIet8iqaUnWAy0dwkQT0EKz41Qdy0Eii+C+gcERAiEOQhcZEXlw/T8YMPUn4wWvr+xhMFpoJozWOKBHAAAwAg+lFgCAAA=
   </data>
  </layer>
  <layer name="Above" width="15" height="10">
@@ -63,7 +63,7 @@
    H4sIAAAAAAAAA2NgoAz8ZyZPDl3+Iht+vVqsxJv9ngR7SQUwvS3s5OtNZiHdTZSEM7bwgLkBXW4ZK6ZacgAAUTneEVgCAAA=
   </data>
  </layer>
- <layer name="Walkable" width="15" height="10">
+ <layer name="Walkable" width="15" height="10" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAxNkYGAQHMKYgURxZHlSACH9uOQI2U+sufjchEuMGDcRq5fUeAEAwdhY6VgCAAA=
   </data>
@@ -76,7 +76,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="10">
+ <objectgroup name="Spawn" width="15" height="10" visible="0">
   <object name="Rigmor" type="spawn" x="64" y="96" width="384" height="160"/>
  </objectgroup>
  <objectgroup name="Keys" width="15" height="10"/>

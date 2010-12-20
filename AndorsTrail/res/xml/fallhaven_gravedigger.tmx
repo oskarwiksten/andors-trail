@@ -50,12 +50,12 @@
  </tileset>
  <layer name="Ground" width="10" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAwtiZGAIIhLnMuHHMHXFbAwMhUBcAsS1TJgYpq4ZKN8CxV4MmBimDl38JQsDQz4Qv2JBqAPZj6xmN1BuDxAXAPEvIJ7KDlFTi6buNFDuDAuCv5QdoiaQAYK9GBBsbBgAva2AkEABAAA=
+   H4sIAAAAAAAAAwtiZGAIIhLnMuHHMHXFbAwMhUBcAsS1TJgYpq4ZKO/FgBvD1KGLv2RhYMgH4lcsCHUg+5HV7AbK7QHiAiD+BcRT2SFqapnw27mUHaImkAGCvRgQbGwYAE4U9ilAAQAA
   </data>
  </layer>
  <layer name="Objects" width="10" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgIA84sqCyc9mxqwsEyomwIti4QDJQbhlQnSjQHGYgvstGnDveIqnbCLVHBKifDYi5WSFsEPBDUncRqk4WSayHlTj70AEARNZMWEABAAA=
+   H4sIAAAAAAAAA2NgIA84sqCyc9mxqwsEyomwItjooIUNgpOBcsuA6kSB5jAD8V024tzxFkndRqg9IkD9bEDMzQphg4AfkrqLUHWyQLHTQHvPAHEPK3H2oQMAK6eoikABAAA=
   </data>
  </layer>
  <layer name="Above" width="10" height="8">
@@ -63,7 +63,7 @@
    H4sIAAAAAAAAA2NgIB78Z6ZMnQgrdc0jV917ItURAwD9BtUCQAEAAA==
   </data>
  </layer>
- <layer name="Walkable" width="10" height="8">
+ <layer name="Walkable" width="10" height="8" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAxNkYGAQHAQYBvDJYQOEzMGnjlwxZAwAxlfuAUABAAA=
   </data>
@@ -76,6 +76,6 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="8"/>
+ <objectgroup name="Spawn" width="10" height="8" visible="0"/>
  <objectgroup name="Keys" width="10" height="8"/>
 </map>

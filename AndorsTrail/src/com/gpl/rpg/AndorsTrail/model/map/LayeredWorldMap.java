@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
@@ -26,7 +26,6 @@ public final class LayeredWorldMap {
 	public final Size size;
 	public final MapLayer[] layers;
 	public final MapObject[] eventObjects;
-	public final KeyArea[] keyAreas;
 	public final MonsterSpawnArea[] spawnAreas;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
 	//public final boolean hasFOW;
@@ -34,11 +33,10 @@ public final class LayeredWorldMap {
 	public final boolean[][] isWalkable;
 	public boolean visited = false;
 	
-	public LayeredWorldMap(String name, Size size, MapLayer[] layers, boolean[][] isWalkable, MapObject[] eventObjects, KeyArea[] keyAreas, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
+	public LayeredWorldMap(String name, Size size, MapLayer[] layers, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
 		this.name = name;
 		this.size = size;
 		this.eventObjects = eventObjects;
-		this.keyAreas = keyAreas;
 		this.spawnAreas = spawnAreas;
 		assert(size.width > 0);
 		assert(size.height > 0);
@@ -111,24 +109,25 @@ public final class LayeredWorldMap {
 		return null;
 	}
 	
-	private boolean spawnInArea(MonsterSpawnArea a, WorldContext context) {
-		return spawnInArea(a, a.getRandomMonsterType(context));
+	private boolean spawnInArea(MonsterSpawnArea a, WorldContext context, Coord playerPosition) {
+		return spawnInArea(a, a.getRandomMonsterType(context), playerPosition);
 	}
-	public boolean TEST_spawnInArea(MonsterSpawnArea a, MonsterType type) { return spawnInArea(a, type); }
-	private boolean spawnInArea(MonsterSpawnArea a, MonsterType type) {
-		Coord p = getRandomFreePosition(a.area, type.tileSize);
+	public boolean TEST_spawnInArea(MonsterSpawnArea a, MonsterType type) { return spawnInArea(a, type, null); }
+	private boolean spawnInArea(MonsterSpawnArea a, MonsterType type, Coord playerPosition) {
+		Coord p = getRandomFreePosition(a.area, type.tileSize, playerPosition);
 		if (p == null) return false;
 		a.spawn(p, type);
 		return true;
 	}
 	
-	private Coord getRandomFreePosition(CoordRect area, Size requiredSize) {
+	public Coord getRandomFreePosition(CoordRect area, Size requiredSize, Coord playerPosition) {
 		CoordRect p = new CoordRect(requiredSize);
 		for(int i = 0; i < 100; ++i) {
 			p.topLeft.set(
-					area.topLeft.x + ModelContainer.rnd.nextInt(area.size.width)
-					,area.topLeft.y + ModelContainer.rnd.nextInt(area.size.height));
+					area.topLeft.x + Constants.rnd.nextInt(area.size.width)
+					,area.topLeft.y + Constants.rnd.nextInt(area.size.height));
 			if (!monsterCanMoveTo(p)) continue;
+			if (playerPosition != null && p.contains(playerPosition)) continue;
 			return p.topLeft;
 		} 
 		return null; // Couldn't find a free spot.
@@ -146,8 +145,10 @@ public final class LayeredWorldMap {
 		if (!visited) respawnUniqueMonsters = true;
 		for (MonsterSpawnArea a : spawnAreas) {
 			while (a.isSpawnable(respawnUniqueMonsters)) {
-				spawnInArea(a, context);
+				final boolean wasAbleToSpawn = spawnInArea(a, context, null);
+				if (!wasAbleToSpawn) break;
 			}
+			a.healAllMonsters();
 		}
 	}
 	public boolean maybeSpawn(WorldContext context) {
@@ -155,7 +156,7 @@ public final class LayeredWorldMap {
 		for (MonsterSpawnArea a : spawnAreas) {
 			if (!a.isSpawnable(false)) continue;
 			if (!a.rollShouldSpawn()) continue;
-			if (spawnInArea(a, context)) hasSpawned = true;
+			if (spawnInArea(a, context, context.model.player.position)) hasSpawned = true;
 		}
 		return hasSpawned;
 	}

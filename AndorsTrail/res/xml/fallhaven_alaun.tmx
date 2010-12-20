@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="10" height="8" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA9NlYGDQJRLnM+HHMHX1TPgxTF0WEnbEgmHqsMmhqwPZj0v+JQsDwysWiJp6POp+AtX8YoGoCWTAjh3R+ABIKxCZQAEAAA==
+  </data>
+ </layer>
+ <layer name="Objects" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NggAAldgaigBGSOk4WVBoZOEHVTWJjYJCEykuiqZNjg9B/gfQiILZihWBLKA0D+czEua0equ4R0KyHQJwMtU8E6BZJJPPq2RBse6DcRSQ5ESLDAQYAN8s3xUABAAA=
+  </data>
+ </layer>
+ <layer name="Above" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgIB78ZyZPnRYrBHsCsRcr+eZdYmNguMhGvL0bWbGre0+kvcQAAHmSWsdAAQAA
+  </data>
+ </layer>
+ <layer name="Walkable" width="10" height="8">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHEDMQII6XACfedjUoJuHjU+sewGlzFb6QAEAAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="10" height="8">
+  <object name="entrance" type="mapchange" x="192" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="fallhaven_sw"/>
+    <property name="place" value="alaun"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="10" height="8">
+  <object name="alaun" type="spawn" x="64" y="128" width="224" height="64"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="10" height="8"/>
+</map>

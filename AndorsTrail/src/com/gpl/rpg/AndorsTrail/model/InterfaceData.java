@@ -9,21 +9,12 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class InterfaceData {
-	public boolean isTicking = false;
+	public boolean isMainActivityVisible = false;
 	public boolean isInCombat = false;
     public Monster selectedMonster;
 	public Coord selectedPosition;
 	public String selectedTabHeroInfo = "";
-	
-	//Loaded from shared preferences, should not be parceled.
-	public boolean confirmRest = true;
-	public boolean confirmAttack = true;
-	public int displayLoot = DISPLAYLOOT_DIALOG;
-	public static final int DISPLAYLOOT_DIALOG = 0;
-	public static final int DISPLAYLOOT_TOAST = 1;
-	public static final int DISPLAYLOOT_NONE = 2;
-	public boolean fullscreen = true;
-	
+	public int selectedQuestFilter = 0; // Should not be parceled
 	
 	public InterfaceData() { }
 	
@@ -31,7 +22,7 @@ public final class InterfaceData {
 	// ====== PARCELABLE ===================================================================
 
 	public InterfaceData(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		this.isTicking = src.readBoolean();
+		this.isMainActivityVisible = src.readBoolean();
 		this.isInCombat = src.readBoolean();
 		final boolean hasSelectedPosition = src.readBoolean();
 		if (hasSelectedPosition) {
@@ -43,7 +34,7 @@ public final class InterfaceData {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeBoolean(isTicking);
+		dest.writeBoolean(isMainActivityVisible);
 		dest.writeBoolean(isInCombat);
 		if (selectedPosition != null) {
 			dest.writeBoolean(true);

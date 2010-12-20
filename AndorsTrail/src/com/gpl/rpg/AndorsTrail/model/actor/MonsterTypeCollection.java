@@ -7,6 +7,7 @@ import java.util.regex.Matcher;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
@@ -56,6 +57,7 @@ public final class MonsterTypeCollection {
         		}
     		}
         	
+    		
     		final int maxHP = ResourceLoader.parseInt(parts[5], 1);
     		final int maxAP = ResourceLoader.parseInt(parts[6], 10);
     		final CombatTraits combatTraits = ResourceLoader.parseCombatTraits(parts, 8);
@@ -64,8 +66,8 @@ public final class MonsterTypeCollection {
 				nextId
 				, monsterTypeName
 				, parts[2]
-				, ResourceLoader.parseImage(tileLoader, parts[0])
-				, ResourceLoader.parseSize(parts[3], size1x1)
+				, ResourceLoader.parseImageID(tileLoader, parts[0])
+				, ResourceLoader.parseSize(parts[3], size1x1) //TODO: This could be loaded from the tileset size instead.
 				, maxHP 	// HP
 				, maxAP		// AP
 				, ResourceLoader.parseInt(parts[7], 10)	// MoveCost
@@ -79,9 +81,6 @@ public final class MonsterTypeCollection {
     	}
     }
 
-	private static final int factor_damageresistance = 9;
-	private static final float factor_expscaling = 0.7f;
-
 	private static float div100(int v) {
 		return (float) v / 100f;
 	}
@@ -90,8 +89,8 @@ public final class MonsterTypeCollection {
 	}
 	private static int getExpectedMonsterExperience(final CombatTraits t, final int maxHP, final int maxAP) {
 		final float avgAttackHP  = t.getAttacksPerTurn(maxAP) * div100(t.attackChance) * t.damagePotential.averagef() * (1 + div100(t.criticalChance) * t.criticalMultiplier);
-		final float avgDefenseHP = maxHP * (1 + div100(t.blockChance)) + factor_damageresistance * t.damageResistance;
-		return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * factor_expscaling);
+		final float avgDefenseHP = maxHP * (1 + div100(t.blockChance)) + Constants.EXP_FACTOR_DAMAGERESISTANCE * t.damageResistance;
+		return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING);
 	}
 	
 	// Selftest method. Not part of the game logic.

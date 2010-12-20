@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:padding="@dimen/dialog_margin"
+	android:orientation="vertical"
+	>
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		>
+		<ImageView 
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:src="@drawable/icon" 
+			android:paddingRight="@dimen/dialog_iconpadding_right"
+			android:paddingBottom="@dimen/dialog_iconpadding_bottom"
+			/>
+		<TextView
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/questlog_title"
+			android:textSize="@dimen/titletext"
+			/>
+	</LinearLayout>
+	
+	<Spinner 
+		android:id="@+id/questlog_includecompleted"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:prompt="@string/questlog_includecompleted_prompt"
+		/>
+	
+	<ExpandableListView
+		android:id="@+id/questlog_contents"
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+
+</LinearLayout>

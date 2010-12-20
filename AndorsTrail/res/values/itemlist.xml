@@ -27,13 +27,11 @@
 {ironsword2|items_tiles:71|Iron longsword|0|121||5|10|||1-4|||};
 {broadsword1|items_tiles:75|Iron broadsword|0|251||7|2|||1-10|||};
 {broadsword2|items_tiles:76|Steel broadsword|0|582||6|15|||3-10|||};
-{steelsword1|items_tiles:77|Steel sword|0|874||4|25|||3-8|||};
+{steelsword1|items_tiles:77|Steel sword|0|874||4|24|||3-7|||};
 {axe1|items_tiles:140|Woodcutter axe|0|24||5|5|||1-3|||};
 {axe2|items_tiles:140|Iron axe|0|312||6|5|||2-5|||};
 {quickdagger1|items_tiles:84|Quickstrike dagger|0|512||3|20|||0|-20||};
 	</string>
-	
-	
 
 	<string name="itemlist_rings">
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
@@ -46,6 +44,7 @@
 {ring_atkch1|items_tiles:266|Ring of surehit|7|215|||15||||||};
 {ring1|items_tiles:266|Mundane ring|7|13|||||||||};
 {ring2|items_tiles:266|Polished ring|7|21|||||||||};
+{ring_jinxed1|items_tiles:268|Jinxed ring of damage resistance|7|229|||||||-9|1|};
 	</string>
 
 	<string name="itemlist_necklaces">
@@ -59,7 +58,7 @@
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
 {shirt1|items_tiles:182|Cloth shirt|3|16|||||||2||};
 {shirt2|items_tiles:182|Fine shirt|3|72|||||||5||};
-{shirt_dmgresist|items_tiles:183|Hardened shirt|3|1633|||||||5|1|};
+{shirt_dmgresist|items_tiles:183|Hardened leather shirt|3|1633|||||||5|1|};
 {armor1|items_tiles:183|Leather armour|3|464|||||||8||};
 {armor2|items_tiles:183|Superior leather armour|3|624|||||||9||};
 {armor3|items_tiles:184|Hard leather armour|3|2407|||||||13||};
@@ -88,7 +87,7 @@
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
 {apple_green|items_tiles:2|Green apple|21|9|4||||||||};
 {apple_red|items_tiles:3|Red apple|21|15|6||||||||};
-{meat|items_tiles:25|Meat|21|45|12||||||||};
+{meat|items_tiles:25|Meat|21|29|12||||||||};
 {meat_cooked|items_tiles:27|Cooked meat|21|78|21||||||||};
 {|items_tiles:8|Strawberry|21|1|1||||||||};
 {|items_tiles:15|Carrot|21|9|4||||||||};
@@ -153,5 +152,13 @@
 {key_luthor|items_tiles:231|Key of Luthor|31|0|||||||||};
 {calomyran_secrets|items_tiles:406|Calomyran secrets|31|0|||||||||};
 {heartstone|items_tiles:216|Heartstone|31|40|||||||||};
+{vacor_spell|items_tiles:248|Piece of Vacor\'s spell|31|0|||||||||};
+{ring_unzel|items_tiles:266|Unzel\'s ring|31|0|||||||||};
+{ring_vacor|items_tiles:266|Vacor\'s ring|31|0|||||||||};
+{boots_unzel|items_tiles:197|Unzel\'s defensive boots|5|185|||||||8||};
+{boots_vacor|items_tiles:197|Vacor\'s boots of attack|5|185|||9||||2||};
+{necklace_flagstone|items_tiles:272|Flagstone Warden\'s necklace|31|0|||||||||};
+{packhide|items_tiles:183|Wolfpack\'s animal hide|3|121|||-15||||2|1|};
+{sword_flagstone|items_tiles:77|Flagstone\'s pride|0|169||4|21|10|2|1-6|||};
 	</string>
 </resources>
