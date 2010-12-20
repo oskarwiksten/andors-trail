@@ -36,7 +36,9 @@ function parseLine(_, line) {
 		return;
 	}
 	for (var i = 0; i < match.length; i++) {
-		fields[parse_fieldDef[i]].value = match[i].replace(/\|/, '');
+		if (parse_fieldDef[i] >= 0) {
+			fields[parse_fieldDef[i]].value = match[i].replace(/\|/, '');
+		}
 	}
 	addRow();
 }
@@ -47,6 +49,7 @@ function parseFieldDef(str) {
 	if (fielddef && fielddef.length >= 1) {
 		fielddef = fielddef[0].match(/(.*?)\|/gm);
 		for (var i = 0; i < fielddef.length; i++) {
+			parse_fieldDef[i] = -1;
 			var fieldname = fielddef[i].replace(/[\[\]\|]/g, '');
 			for (var j = 0; j < fields.length; j++) {
 				if (fields[j].name == fieldname) {
