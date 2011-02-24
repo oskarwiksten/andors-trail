@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACwtnZWDQZIDgcCDbHYmPLk4MjawPm1mkmolLP8wMYszEpZ4QJuQeQu4j5GdC/iHVTHx+INfPuOyjlp9JdR8hdxMKD1LDgJgwJjWOiE3fxLiPUrPQ3UeN8MMXlpRiapo1iinHABNYWL9ABgAA
+   H4sIAAAAAAAAAwtnZWDQZIDgcCDbHYmPLA5jg+Rh6rDRyPqwmYVuF7qduMRxmYHLTGxuQFdPCGNzF7H+I+ReQuFMipnYwh49vkjxMz4ziYkXYuKZXPcRcjeh8CA1DCiNH3xxRGr6weY+YvMKse6jRvgRE5aUupUaZo1iyjEA+c2iMkAGAAA=
   </data>
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC5VTyw2DMAwlEpmECXppI9RzD70yQtmgMABI3YkRWKADoC5SLOLy5DhpeBIKSuzn519RbLjY4ge3/r/L8D4HZO8EF2Isj3FOq31vQ17JkeJ0NnxffH6N4JR6NS7E2WxfZ/a7oQz9NH3ENUTqTHVqBa+mN4YlUWeNNwWehV7pK+bKvEtidv7VF3swe56718qz45R5iGFSelGbuI3snZYD6mCwxhx/hMzh4/1voDE315RNDTV8gcacXcT4TcRe2yPJzRy9wkE9oBqe4I3maASt2vwxuO6z3xvayavZ9zP2ydq24r2DurEmGROh+Wr2jzXm0+5nZfV7jIl3jMqGPqnziG3O+QVBqcO/QAYAAA==
+   H4sIAAAAAAAAA41UwQ2DMAwEiUzCBP20CPXdR7+MUDYoDABSJUZiBBboAKiLFIu4uR4O4iSUynHOl4vdJFlxcckPxfL7nW3jRyD5BXEh+szmlDwrPi75rdvycu6eTot79veriJP18lneP6fr16Qh1mVbDcgxZIGri/gsPtXEa+mNYY74LLB496C90Bo+4F2Vd97pHfaPgW8weZ6716q9Uxj9EMNovEWZxnP47bCeAnUoVKN1njFADt/h4/duoPHoXfdySvDwBfWPzDfWryL51hwxt3K0Boe8gXh4gj3pox60Wv2nUN8nPzcyk9c0zGfsY29r2m/AN9XENRHWWSv/sdR8urDmLsR7+V/wcaz5gJgid/9ceFbjA5znutbK9S29un4Bevbj+EAGAAA=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgYGDQYGWgOlBnxeRTwx5nNDNo4XYQQHc/qfIwgO5eYuwl10/49BFjJjY/EdJHrnvR9VESj7jiAtlMYt1JKF6JNQOXOmLTDT6zSbEfV/ojJl3SKm8NRVAIDIsiVgRNSBxZDptZ6ABmBj570dXi0kNPAADAB8nNQAYAAA==
+   H4sIAAAAAAAAA91TMRKAIAzrwlv0H75I/z8gQ89ejpIITmbhgCTNlWJmthejaJxN4DmQ2/ZKHYYDPDLPt3kRTKt69/KOtCt9GukUz14uppvNi7qV2cj6GT3VnOxdVY+M53ezs6noYn2cP0d2HvHFf/0LzrsXV3lWdh7vel4I9xjVRW6mUb0VMG0FfuaHyUAGAAA=
   </data>
  </layer>
  <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC72UMQ4AIAgD+YL//6yTi6lwRWMTFglnBXVExBCxpHJu7HJrM18uU3lxmaq2EmERXuYv27Prk+YIK+vvvub6I7OmIvfntgedPjr+qNyznvZw/HVn82q+ivlb5K87vb+K8zMmYXU5dEAGAAA=
+   H4sIAAAAAAAAA72UMQ4AIAgD+YL//6yTi6lwRWMTFglnBXVExBCxpHJu7HJrM18uU3lxmaq2EmERXuYv27Prk+YIK+vvvub6I7OmIvfntgedPjr+qNyznvZw/HVn82q+ivlb5K87vb+K8zMmYXU5dEAGAAA=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="20">
@@ -81,13 +81,15 @@
     <property name="place" value="east"/>
    </properties>
   </object>
-  <object name="Signpost" type="sign" x="384" y="448" width="32" height="32">
+  <object name="sign_wild12" type="sign" x="384" y="448" width="32" height="32"/>
+  <object name="east" type="mapchange" x="608" y="480" width="32" height="64">
    <properties>
-    <property name="text" value="North: Fallhaven\nEast: Vilegard\nEast: Nor City"/>
+    <property name="map" value="wild13"/>
+    <property name="place" value="west"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="forestwasp" type="spawn" x="96" y="128" width="288" height="192">
    <properties>
     <property name="quantity" value="2"/>

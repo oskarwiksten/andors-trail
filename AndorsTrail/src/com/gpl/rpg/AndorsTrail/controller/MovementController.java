@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -41,15 +42,28 @@ public final class MovementController {
 			return;
 		}
 		final ModelContainer model = world.model;
+		
+		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
 		model.currentMap = newMap;
 		model.player.position.set(place.position.topLeft);
 		model.player.position.x += Math.min(offset_x, place.position.size.width-1);
 		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
 		model.player.lastPosition.set(model.player.position);
-		if (!newMap.visited) newMap.spawnAll(world);
-		newMap.visited = true;
+		
+		if (!newMap.visited) playerVisitsMapFirstTime(world, newMap);
+		else playerVisitsMap(world, newMap);
 	}
     
+	private static void playerVisitsMapFirstTime(final WorldContext world, LayeredWorldMap m) {
+		m.spawnAll(world);
+		m.createAllContainerLoot();
+		m.visited = true;
+	}
+	private static void playerVisitsMap(final WorldContext world, LayeredWorldMap m) {
+		// Respawn everything if a certain time has elapsed.
+		if (!m.isRecentlyVisited()) m.spawnAll(world);
+	}
+	
 	public boolean mayMovePlayer() {
 		return !model.uiSelections.isInCombat;
 	}
@@ -57,7 +71,6 @@ public final class MovementController {
     public void movePlayer(int dx, int dy) {
     	if (dx == 0 && dy == 0) return;
     	if (!mayMovePlayer()) return;
-    	//if (isInCombat) return;
 
     	if (!findWalkablePosition(dx, dy)) return;
     	
@@ -71,11 +84,46 @@ public final class MovementController {
     }
     
     public boolean findWalkablePosition(int dx, int dy) {
+    	if (view.preferences.movementMethod == AndorsTrailPreferences.MOVEMENTMETHOD_DIRECTIONAL) {
+    		return findWalkablePosition_directional(dx, dy);
+    	} else {
+    		return findWalkablePosition_straight(dx, dy);
+    	}
+    }
+    public boolean findWalkablePosition_straight(int dx, int dy) {
     	if (tryWalkablePosition(sgn(dx), sgn(dy))) return true;
     	if (dx == 0 || dy == 0) return false;
+		if (abs(dx) == abs(dy) && tryWalkablePosition(sgn(dx), 0)) return true;
     	if (abs(dx) > abs(dy)) return tryWalkablePosition(sgn(dx), 0);
     	return tryWalkablePosition(0, sgn(dy));
     }
+    public boolean findWalkablePosition_directional(int dx, int dy) {
+        if (tryWalkablePosition(sgn(dx), sgn(dy))) return true; // try moving into the direction player is pointing at
+
+        if (dx == 0) { // player wants to move north or south but there is an obstacle
+            if (tryWalkablePosition( 1, sgn(dy))) return true; // try moving north-east (or south-east)
+            if (tryWalkablePosition(-1, sgn(dy))) return true; // try moving north-west (or south-west)
+            return false;
+        }
+
+        if (dy == 0) { // player wants to move east or west but there is an obstacle
+            if (tryWalkablePosition(sgn(dx), 1)) return true; // try moving north-east (or north-west)
+            if (tryWalkablePosition(sgn(dx),-1)) return true; // try moving south-east (or south-west)
+            return false;
+        }
+
+        if (abs(dx) >= abs(dy)) { // player wants to move more horizontally
+            if (tryWalkablePosition(sgn(dx), 0)) return true; // try moving horizontally
+            if (tryWalkablePosition(0, sgn(dy))) return true; // try moving vertically
+            return false;
+        } else { // player wants to move more vertically
+            if (tryWalkablePosition(0, sgn(dy))) return true; // try moving vertically
+            if (tryWalkablePosition(sgn(dx), 0)) return true; // try moving horizontally
+            return false;
+        }
+    }
+
+    
     private boolean tryWalkablePosition(int dx, int dy) {
     	final Player player = model.player;
     	player.nextPosition.set(

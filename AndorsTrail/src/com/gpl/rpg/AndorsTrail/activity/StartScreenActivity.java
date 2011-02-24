@@ -97,9 +97,10 @@ public final class StartScreenActivity extends Activity {
         
         app.setup.startResourceLoader(getResources());
         
-        if (AndorsTrailApplication.DEVELOPMENT_QUICKSTART) {
-        	final boolean startNewGame = false;
-        	continueGame(startNewGame, Savegames.SLOT_QUICKSAVE, "Debug player");
+        if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
+        	continueGame(true, 0, "Debug player");
+        } else if (AndorsTrailApplication.DEVELOPMENT_FORCE_CONTINUEGAME) {
+        	continueGame(false, Savegames.SLOT_QUICKSAVE, null);
         }
     }
 	

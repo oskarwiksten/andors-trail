@@ -5,22 +5,22 @@
  </tileset>
  <layer name="Ground" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC9NkYGDQHOTYg4pm6SBhWqpTI9M8AEESfViQAQAA
+   H4sIAAAAAAAAA9NkYGDQHOTYg4pm6SBhWqpTI9M8AEESfViQAQAA
   </data>
  </layer>
  <layer name="Objects" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGFwghopmJVPRLHoBAJdDj86QAQAA
+   H4sIAAAAAAAAA2NgwA44cIjTGsRQ0axkKppFLwAAgkOg4JABAAA=
   </data>
  </layer>
  <layer name="Above" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGAWDCQAADA0iRpABAAA=
+   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
   </data>
  </layer>
  <layer name="Walkable" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgGL5AcKAdQAYAAGnI7B6QAQAA
+   H4sIAAAAAAAAA2NgGL5AcKAdQAYAAGnI7B6QAQAA
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="10" height="10">
@@ -49,6 +49,7 @@
     <property name="place" value="place2"/>
    </properties>
   </object>
+  <object name="startitems" type="container" x="192" y="0" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="10" height="10">
   <object name="ant" type="spawn" x="96" y="128" width="192" height="160">

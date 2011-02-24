@@ -203,7 +203,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     public static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
     public static final int REDRAW_TILE_SELECTION_REMOVED = 7;
     public static final int REDRAW_TILE_SELECTION_ADDED = 8;
-    public static final int REDRAW_TILE_BAG_REMOVED = 9;
+    public static final int REDRAW_TILE_BAG = 9;
+    
 	public void redrawAll(int why) {
 		redrawArea_(mapViewArea);
 	}	
@@ -399,7 +400,9 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         tryDrawMapLayer(canvas, area, currentMap, LayeredWorldMap.LAYER_OBJECTS);
         
         for (Loot l : currentMap.groundBags) {
-			drawFromMapPosition(canvas, area, l.position, TileStore.iconID_groundbag);
+        	if (l.isVisible) {
+        		drawFromMapPosition(canvas, area, l.position, TileStore.iconID_groundbag);
+        	}
 		}
         
 		drawFromMapPosition(canvas, area, model.player.position, model.player.traits.iconID);

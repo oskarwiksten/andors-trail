@@ -12,20 +12,30 @@ public final class Loot {
 	public int gold = 0;
 	public final ItemContainer items;
 	public final Coord position;
+	public final boolean isVisible;
 	
 	public Loot() {
 		this.items = new ItemContainer();
 		this.position = new Coord();
+		this.isVisible = true;
+	}
+	public Loot(boolean isVisible) {
+		this.items = new ItemContainer();
+		this.position = new Coord();
+		this.isVisible = isVisible;
 	}
 	
 	public void add(Loot l) {
 		this.exp += l.exp;
 		this.gold += l.gold;
-		this.items.add(items);
+		this.items.add(l.items);
 	}
 	
-	public boolean isEmpty() {
-		return exp == 0 && gold == 0 && items.isEmpty();
+	public boolean hasItemsOrExp() {
+		return exp != 0 || hasItems();
+	}
+	public boolean hasItems() {
+		return gold != 0 || !items.isEmpty();
 	}
 
 	public void clear() {
@@ -42,6 +52,11 @@ public final class Loot {
 		this.gold = src.readInt();
 		this.items = new ItemContainer(src, world, fileversion);
 		this.position = new Coord(src, fileversion);
+		if (fileversion <= 15) {
+			this.isVisible = true;
+			return;
+		}
+		this.isVisible = src.readBoolean();
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -49,5 +64,6 @@ public final class Loot {
 		dest.writeInt(gold);
 		items.writeToParcel(dest, flags);
 		position.writeToParcel(dest, flags);
+		dest.writeBoolean(isVisible);
 	}
 }

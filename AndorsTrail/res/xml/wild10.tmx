@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACwtnZWBwB2JNBsI4HKoWnUZWQ6xZuMwmR+9A4nAquxkWrtR0HzXDdSi4b6DTBC3dhp7/qGkWpWZS0yxcZg50HI5iVAwAK9yPpEAGAAA=
+   H4sIAAAAAAAAAwtnZWBwB2JNBsI4HKoWnUZWQ6xZuMwmR+9A4nAquxkWrtR0HzXDdSi4b6DTBC3dhmwGpfGAHpeUxi228oFa6WOolg/DHQMAkOQXoEAGAAA=
   </data>
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC51UwQ3DIAykEpmECfppo6rvPvqNlAWSDdIOQF/Zp5/sk0WKBZZOjoGkJyEgmOM4OxgT0TbGXJvYOxgTHqc4z4HjOKYtxDIfx/O5kkubdzD2dsuHYO4Z4jrBvVizwdvqfF7Eans1LBm+I8BcEKR/pX2MUhzqW+FefSWPCCf0nSt7yee+oG8MHJfU7jCuNeSinFHOnzv8z91V6uL68OH7B9ZquZDA+rlV9O2tNYkefPgXNe+c+Pcl0Jc1eTcreqSfJU4EejcoHAg6F98c6rF2XomL/Nb08Df5jjDoftrdNGBOyENN+zfETGltOlBbGE+aOEcDcOV63uML63jGD198+DRABgAA
+   H4sIAAAAAAAAA5VUwQ3DIAykEpkkE/TTRlXfffQbKQukG6QdgL6yTz+ZpAtkkWKBpZNjTHMSAoI5jrODcwld49y5SX0LY8LtkOYlcBzHdEYs83E8nyu5tHkP4+C3fAjmniGuF9yLdxu8vM4XRKy2V8NS4NsDzAVB+mftY1hxqG+Few2VPCJaoe9Y2Us+D4a+R+Q45XaFca0hF+WMcn7/w//SXaUuro8Qv79hrZYLCayfS0WfrDX5z5QwgA8WvgZXzTvOe0kP+rJm72ZFj/TT4kSgd6PCgaBz8c2hHmvnmbnIb00Pf5PvCIPup91NA+aEPNS0f2LMlNemHbWF8aSJczQCV6nnPcFYxzN+9/6g5kAGAAA=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgoB1wZh1Y/diABh3MVGfFbg8ucWR5XGYSA9xo4Ddc5tMiHEGA2Dgn1a+FQPVFSHoIxQVMDaUAZg8xZhHyEzYzyI0HfO4hxkz08CQHUMMMZLNwmU+LcgSX20FipPoLl3p0PyGbja4HWRxZPS6zcAFCetDtAAAZQHJAQAYAAA==
+   H4sIAAAAAAAAA2NgoB1wZh1Y/diABh3MVGfFbg8ucWR5XGYSA9xo4Ddc5tMiHEGA2Dgn1a+FQPVFSHoIxQVMDaUAZg8xZhHyEzYzyI0H9LRGatpDD09yADXMQDYLl/m0KEdwuR0kRqq/cKlH9xOy2eh6kMWR1eMyCxcgpAfdDgD+jJPWQAYAAA==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC61UUQ5AIQjiCt7/su+rrfUU0GLro1QkGwWAIGuB5USS40D1BP4aXFR3eI3XnNUMsj5q1myurha355T/Rh/j3PduXfc888ekRwedmTlx5T9HD+NSnj61KH1KS8cPTm5Vz+q6YLyTd6k8oN7I+e/P+AehKzs7QAYAAA==
+   H4sIAAAAAAAAA61UUQ5AIQjiCt7/su+rrfUU0GLro1QkGwWAIGuB5USS40D1BP4aXFR3eI3XnNUMsj5q1myurha355T/Rh/j3PduXfc888ekRwedmTlx5T9HD+NSnj61KH1KS8cPTm5Vz+q6YLyTd6k8oN7I+e/P+AehKzs7QAYAAA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="20">
@@ -81,11 +81,7 @@
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="Signpost" type="sign" x="320" y="224" width="32" height="32">
-   <properties>
-    <property name="text" value="North: Fallhaven\nWest: Stoutford"/>
-   </properties>
-  </object>
+  <object name="sign_wild10" type="sign" x="320" y="224" width="32" height="32"/>
   <object name="east" type="mapchange" x="608" y="256" width="32" height="64">
    <properties>
     <property name="map" value="wild11"/>
@@ -93,7 +89,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="fallhaven_bandit" type="spawn" x="576" y="544" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>

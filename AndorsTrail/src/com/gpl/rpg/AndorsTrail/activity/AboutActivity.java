@@ -55,5 +55,8 @@ public final class AboutActivity extends Activity {
 		});
         
         tv.setMovementMethod(LinkMovementMethod.getInstance());
+        
+        TextView t = (TextView) findViewById(R.id.about_version);
+        t.setText("v" + AndorsTrailApplication.CURRENT_VERSION_DISPLAY);
     }
 }

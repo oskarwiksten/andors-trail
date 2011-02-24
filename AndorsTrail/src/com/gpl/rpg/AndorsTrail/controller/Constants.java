@@ -22,6 +22,7 @@ public final class Constants {
 	public static final int ATTACK_ANIMATION_FPS = 10;
 	public static final int TICK_DELAY = 500;
 	public static final ConstRange monsterWaitTurns = new ConstRange(30,4);
+	public static final long MAP_UNVISITED_RESPAWN_DURATION_MS = 3 * 60 * 1000; // 3 min in milliseconds
 	
 	public static final String PREFERENCE_MODEL_LASTRUNVERSION = "lastversion";
 	public static final String FILENAME_SAVEGAME_QUICKSAVE = "savegame";

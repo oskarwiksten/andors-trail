@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="app_name">След Эндора</string>
+    <string name="exit">Выйти</string>
+    <string name="exit_to_menu">В меню</string>
+    <string name="menu_pause">Пауза</string>
+    <string name="menu_settings">Настройки</string>
+    <string name="menu_save">Сохранить</string>
+    <string name="menu_load">Загрузить</string>
+    <string name="menu_save_gamesaved">Игра сохранена в слот №%1$d</string>
+    <string name="menu_save_failed">Ошибка сохранения! SD карта на месте?</string>
+    <string name="loadsave_title_save">Сохранить игру</string>
+    <string name="loadsave_title_load">Загрузить игру</string>
+    <string name="loadsave_selectslot">Выбери слот</string>
+    <string name="loadsave_slot_empty">(пусто)</string>
+    <string name="savegame_currenthero_displayinfo">уровень: %1$d, опыт: %2$d, золото: %3$d</string>
+    <string name="dialog_loading_message">Загрузка ресурсов...</string>
+    <string name="dialog_loading_failed_title">Ошибка загрузки</string>
+    <string name="dialog_loading_failed_message">Невозможно загрузить файл сохранения.\n\n:(\n\nВозможно файл испорчен или удален.</string>
+    <string name="dialog_loading_failed_incorrectversion">Невозможно загрузить файл сохранения. Данный файл создан более новой версией игры, чем запущеная в данный момент.</string>
+    <string name="dialog_close">Закрыть</string>
+    <string name="dialog_confirmexit_title">Выйти</string>
+    <string name="dialog_confirmexit_message">Вы точно хотите выйти?</string>
+    <string name="dialog_paused_title">Пауза</string>
+    <string name="dialog_paused_message">Игра на паузе</string>
+    <string name="dialog_paused_resume">Продолжить</string>
+    <string name="dialog_monsterencounter_title">Стычка</string>
+    <string name="dialog_monsterencounter_message">Атаковать?\nСложность: %1$s</string>
+    <string name="dialog_monsterencounter_info">Информация</string>
+    <string name="status_hp">HP:</string>
+    <string name="status_mp">MP:</string>
+    <string name="status_ap">AP:</string>
+    <string name="status_exp">Ур.:</string>
+    <string name="heroinfo_char">Обзор</string>
+    <string name="heroinfo_inv">Инвентарь</string>
+    <string name="heroinfo_wear">Одето</string>
+    <string name="heroinfo_skill">Навыки</string>
+    <string name="heroinfo_spell">Заклинания</string>
+    <string name="heroinfo_levelup">Уровень повышен</string>
+    <string name="heroinfo_level">Уровень</string>
+    <string name="heroinfo_totalexperience">Всего опыта</string>
+    <string name="heroinfo_wornequipment">Износ экипировки</string>
+    <string name="heroinfo_inventory">Инвентарь</string>
+    <string name="heroinfo_gold">Золото: %1$d</string>
+    <string name="heroinfo_actionpoints">Очки хода (AP):</string>
+    <string name="heroinfo_quests">Задания</string>
+    <string name="combat_attack">Атака (%1$d AP)</string>
+    <string name="combat_move">Движение (%1$d AP)</string>
+    <string name="combat_use">Вещь</string>
+    <string name="combat_spell">Заклинание</string>
+    <string name="combat_endturn">Конец хода</string>
+	<!-- <string name="combat_endcombat">End combat</string>-->
+    <string name="combat_flee">Побег</string>
+    <string name="combat_begin_flee">Вы можете покинуть бой, двигайтесь в нужном направлении.</string>
+    <string name="combat_flee_failed">Побег не удался!</string>
+    <string name="combat_status_ap">AP: %1$d</string>
+    <string name="combat_monsterhealth">HP:</string>
+    <string name="combat_monsteraction">%1$s атакует.</string>
+	<!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  -->
+    <string name="combat_result_monstermiss">%1$s промахивается!</string>
+    <string name="combat_result_monsterhit">%1$s атакует вас на %2$d hp!</string>
+    <string name="combat_result_monsterhitcritical">%1$s наносит критический удар, вы теряете %2$d hp!</string>
+    <string name="combat_result_heromiss">Вы промахнулись.</string>
+    <string name="combat_result_herohit">Вы атакуете, %1$s теряет %2$d hp!</string>
+    <string name="combat_result_herohitcritical">Вы нанесли критический удар! %1$s получает урон на %2$d hp!</string>
+    <string name="combat_result_herokillsmonster">%1$s убит!</string>
+    <string name="combat_not_enough_ap">Не хватает AP для этого хода.</string>
+    <string name="combat_hero_dies">Вы попадаете без сознания, но к счастью очнулись живым. Вы потеряли %1$d опыта.</string>
+    <string name="inventory_info">Инфо</string>
+    <string name="inventory_equip">Надеть</string>
+    <string name="inventory_unequip">Снять</string>
+    <string name="inventory_use">Использовать</string>
+    <string name="inventory_drop">Бросить</string>
+    <string name="inventory_item_used">Вы использовали %1$s.</string>
+    <string name="inventory_item_dropped">%1$s был выброшен.</string>
+    <string name="inventory_item_equipped">Вы надели %1$s.</string>
+    <string name="dialog_loot_pickall">Подобрать все</string>
+    <string name="dialog_loot_foundgold"> Добыто %1$d золота.</string>
+    <string name="dialog_loot_pickedupitems"> Найдено %1$d предметов.</string>
+    <string name="dialog_groundloot_title">Предметы</string>
+    <string name="dialog_groundloot_message">Вы нашли несколько предметов.</string>
+    <string name="dialog_monsterloot_title">Победа</string>
+    <string name="dialog_monsterloot_message">Вы выйграли бой.</string>
+    <string name="dialog_monsterloot_gainedexp"> Получено %1$d опыта.</string>
+    <string name="monster_difficulty_veryeasy">Очень легко</string>
+    <string name="monster_difficulty_easy">Легко</string>
+    <string name="monster_difficulty_normal">Нормально</string>
+    <string name="monster_difficulty_hard">Сложно</string>
+    <string name="monster_difficulty_veryhard">Очень сложно</string>
+    <string name="monster_difficulty_impossible">Невозможно</string>
+    <string name="actorinfo_class">Класс:</string>
+    <string name="actorinfo_difficulty">Сложность:</string>
+    <string name="actorinfo_health">Здоровье:</string>
+    <string name="actorinfo_attacksperturn">Атаки/ход:</string>
+    <string name="actorinfo_movesperturn">Движение/ход:</string>
+    <string name="actorinfo_attack">Атака:</string>
+    <string name="actorinfo_criticalhit">Критический удар:</string>
+    <string name="actorinfo_defense">Защита:</string>
+    <string name="actorinfo_movecost">Цена движения (AP):</string>
+    <string name="actorinfo_basetraits">Боевая статистика без экипировки (базовая)</string>
+    <string name="actorinfo_currenttraits">Боевая статистика в экипировке (текущая)</string>
+    <string name="traitsinfo_attack_cost">Цена атаки (AP):</string>
+    <string name="traitsinfo_attack_chance">Шанс атаки:</string>
+    <string name="traitsinfo_attack_damage">Сила атаки:</string>
+    <string name="traitsinfo_criticalhit_chance">Шанс критического удара:</string>
+    <string name="traitsinfo_criticalhit_multiplier">Критический умножитель:</string>
+    <string name="traitsinfo_defense_chance">Шанс блока:</string>
+    <string name="traitsinfo_defense_damageresist">Сопротивление урону:</string>
+    <string name="key_required">Указанный ключ необходим для передачи.</string>
+    <string name="iteminfo_category">Категория: </string>
+    <string name="iteminfo_action_use">Использовать</string>
+    <string name="iteminfo_action_equip">Одеть</string>
+    <string name="iteminfo_action_unequip">Снять</string>
+    <string name="iteminfo_action_use_ap">Использовать (%1$d AP)</string>
+    <string name="iteminfo_action_equip_ap">Одеть (%1$d AP)</string>
+    <string name="iteminfo_action_unequip_ap">Снять (%1$d AP)</string>
+    <string name="iteminfo_effect_heal">Восстанавливает %1$s HP</string>
+    <string name="itemcategory_money">Деньги</string>
+    <string name="itemcategory_weapon"> Оружие</string>
+    <string name="itemcategory_shield"> Защита</string>
+    <string name="itemcategory_wearable_head"> Одежда (голова)</string>
+    <string name="itemcategory_wearable_body"> Одежда (тело)</string>
+    <string name="itemcategory_wearable_hand"> Одежда (руки)</string>
+    <string name="itemcategory_wearable_feet"> Одежда (ноги)</string>
+    <string name="itemcategory_wearable_neck"> Одежда (шея)</string>
+    <string name="itemcategory_wearable_ring"> Одежда (кольцо)</string>
+    <string name="itemcategory_potion"> Лекарство</string>
+    <string name="itemcategory_other"> Другое</string>
+    <string name="startscreen_continue">Продолжить</string>
+    <string name="startscreen_newgame">Новая игра</string>
+    <string name="startscreen_newgame_confirm">Вы точно хотите начать новую игру? \n\nВесь не сохраненный прогресс будет потерян!</string>
+    <string name="startscreen_about">О игре/помощь</string>
+    <string name="startscreen_enterheroname">Введите имя героя</string>
+    <string name="startscreen_load">Загрузить</string>
+    <string name="conversation_title">%1$s сказал</string>
+    <string name="conversation_rewardexp">[Вы получили %1$d опыта]</string>
+    <string name="conversation_rewardgold">[Найдено %1$d золота]</string>
+    <string name="conversation_lostgold">[Вы потратили %1$d золота]</string>
+    <string name="conversation_rewarditem">[Вы подобрали вещь]</string>
+    <string name="conversation_rewarditems">[Подобрано %1$d вещей]</string>
+    <string name="shop_buy">Купить</string>
+    <string name="shop_sell">Продать</string>
+    <string name="shop_infoitem">Инфо</string>
+    <string name="shop_buyitem">Купить (%1$d gold)</string>
+    <string name="shop_sellitem">Продать (%1$d gold)</string>
+    <string name="shop_yourgold">Ваше золото: %1$d</string>
+    <string name="shop_item_bought">Вы купили %1$s.</string>
+    <string name="shop_item_sold">Вы продали %1$s.</string>
+    <string name="levelup_title">Уровень повышен</string>
+    <string name="levelup_description">Добро пожаловать на уровень %1$d!</string>
+    <string name="levelup_buttontext">Новый уровень</string>
+    <string name="levelup_add_health">Увеличивает здоровье (+%1$d HP)</string>
+    <string name="levelup_add_health_description">Добавляет %1$d к здоровью.</string>
+    <string name="levelup_add_attackchance">Увеличивает шанс атаки (+%1$d %%)</string>
+    <string name="levelup_add_attackchance_description">Добавляет %1$d%% к шансу атаки.</string>
+    <string name="levelup_add_attackdamage">Увеличивает силу атаки (+%1$d)</string>
+    <string name="levelup_add_attackdamage_description">Добавляет %1$d к силе атаки.</string>
+    <string name="levelup_add_blockchance">Увеличивает шанс блока (+%1$d %%)</string>
+    <string name="levelup_add_blockchance_description">Добавляет %1$d%% к шансу на блок.</string>
+    <string name="dialog_rest_title">Отдых</string>
+    <string name="dialog_rest_confirm_message">Хотите отдохнуть здесь?</string>
+    <string name="dialog_rest_message">Вы отдохнули и восстановили все силы.</string>
+    <string name="about_button1">Помощь</string>
+    <string name="about_button2">Авторы</string>
+    <string name="about_button3">Лицензия</string>
+    <string name="about_contents1">
+    	Добро пожаловать в игру След Эндора, рогалик РПГ на Android.&lt;br />
+		&lt;br />
+		&lt;a href="http://andors.techby2guys.com/"&gt;Game forums on andors.techby2guys.com for questions and gameplay discussions.&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Project homepage on code.google.com for developers.&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		Please visit the forums to discuss the game with other players.&lt;br /&gt;
+		&lt;br /&gt;
+		Я действительно хочу добавить некоторую информацию здесь о том, как играть в игру :)&lt;br />
+	</string>
+    <string name="about_contents2">
+    	Программирование Oskar Wiksten&lt;br />
+		&lt;a href=http://telles0808.deviantart.com/art/RPG-Maker-VX-RTP-Tileset-159218223>Тайлы карт telles0808&lt;/a>&lt;br />
+		&lt;a href=http://ails.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453>Тайлы инвентаря Ails&lt;/a>&lt;br />
+		&lt;a href=http://redknight91.deviantart.com/art/Arena-Game-Sprites-154661559>Графика Героя RedKnight91&lt;/a>&lt;br />
+		&lt;a href=http://nacred.deviantart.com/art/Sprite-Sheet-171751308>Графика монстров nacred&lt;/a>&lt;br />
+		&lt;a href="http://andors.techby2guys.com/"&gt;Game forums provided by Scott Devaney&lt;/a&gt;&lt;br /&gt;
+		&lt;a href=http://denny-ska.livejournal.com/>Руссификация Dreamer...&lt;/a>&lt;br />
+		&lt;a href=http://rltiles.sourceforge.net>Тайлы монстров rltiles.sourceforge.net&lt;/a>&lt;br />
+		Часть графических тайлов использованных в игре являются пюбличными наборами тайлов RLTiles.
+		Некоторые тайлы были изменены Oskar Wiksten.
+		Оригинальные тайлы можно найти здесь &lt;a href=http://rltiles.sf.net>http://rltiles.sf.net&lt;/a>&lt;br />
+	</string>
+    <string name="about_contents3">
+    	Copyright (C) 2010 Oskar Wiksten&lt;br />
+		&lt;br />
+		Это бесплатное приложение; вы можете изменять ее и модифицировать согласно правилам GNU General Public License изданных Free Software Foundation; либо версии 2 лицензии, либо более позней версией.&lt;br />
+		&lt;br />
+		Игра создана с надеждой что она будет интересна, но БЕЗ ВСЯКИХ ГАРАНТИЙ; даже без подразумеваемых гарантии ТОВАРНОЙ ПРИГОДНОСТИ или ПРИГОДНОСТИ ДЛЯ ОПРЕДЕЛЕННЫХ ЦЕЛЕЙ. Смотрите GNU General Public License для больших подробностей.&lt;br />
+		&lt;br />
+		Вы принимаете условия GNU General Public License вместе с установкой этой программы; если нет, смотрите &lt;a href=http://www.gnu.org/licenses>http://www.gnu.org/licenses&lt;/a>&lt;br />
+		&lt;br />
+		За исходным кодом и пожеланиями, пожалуйста, посетите страницу проекта на &lt;a href=http://code.google.com/p/andors-trail/>http://code.google.com/p/andors-trail/&lt;/a>&lt;br />
+	</string>
+    <string name="dialog_newversion_title">Приветствуем</string>
+    <string name="dialog_newversion_message">Спасибо за загрузку игры След Эндора!\n\n Запомните, игра находится  в СТАДИИ РАЗРАБОТКИ, это означает что не все карты еще закончены.\n Вы, однако, можете свободно изучать деревню Долина креста столько, сколько хотите.\n Так как игра в стадии разработки, она может содержать ошибки и не сбалансированный геймплей. Этот релиз предназначен для поиска ошибок, прежде чем мы начнем добавлять больше содержания.\n Пожалуйста, посетите страницу проекта, чтобы получить более подробную информацию или внести свой вклад в проект (см. о игре).\n \n Спасибо за отзывы!</string>
+    <string name="questlog_title">Задания</string>
+    <string name="questlog_includecompleted_prompt">Выберите задания для отображения</string>
+    <string name="questlog_queststatus">Статус: %1$s</string>
+    <string name="questlog_queststatus_inprogress">В процессе</string>
+    <string name="questlog_queststatus_completed">Выполнено</string>
+
+    <string-array name="preferences_display_loot">
+        <item>Показывать диалог</item>
+        <item>Короткое уведомление</item>
+        <item>Не показывать</item>
+    </string-array>
+    <string-array name="preferences_display_loot_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="preferences_attackspeed">
+        <item>Мгновенно (без анимации)</item>
+        <item>Быстро</item>
+        <item>Нормально</item>
+        <item>Медленно</item>
+    </string-array>
+    <string-array name="preferences_attackspeed_values">
+        <item>0</item>
+        <item>400</item>
+        <item>1000</item>
+        <item>1500</item>
+    </string-array>
+    <string-array name="questlog_includecompleted">
+        <item>Скрыть завершенные</item>
+        <item>Все задания</item>
+        <item>Только завершенные</item>
+    </string-array>
+</resources>

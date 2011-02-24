@@ -12,6 +12,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
@@ -21,6 +22,7 @@ public final class ConversationCollection {
 	public static final String PHRASE_CLOSE = "X";
 	public static final String PHRASE_SHOP = "S";
 	public static final String PHRASE_ATTACK = "F";
+	public static final String REPLY_NEXT = "N";
 	
 	private final HashMap<String, Phrase> phrases = new HashMap<String, Phrase>();
 	
@@ -60,7 +62,7 @@ public final class ConversationCollection {
     		final int replyLength = 5;
     		for (int i = 0; i < 3; ++i) {
     			int v = startReplyOffset + i * replyLength;
-    			if (parts[v + 1].length() > 0) replies.add(parseReply(parts, v, itemTypes));	
+    			if (parts[v + 1].length() > 0 || parts[v].length() > 0) replies.add(parseReply(parts, v, itemTypes));	
     		}
     		Reply[] _replies = new Reply[replies.size()];
     		_replies = replies.toArray(_replies);
@@ -72,6 +74,16 @@ public final class ConversationCollection {
     				L.log("WARNING: Adding phrase with empty id.");
     			} else if (phrases.get(phraseID) != null) {
     				L.log("WARNING: Phrase \"" + phraseID + "\" may be duplicated.");
+    			}
+    			
+    			boolean hasNextReply = false;
+    			boolean hasOtherReply = false;
+    			for (Reply r : replies) {
+    				if (r.text.equalsIgnoreCase(REPLY_NEXT)) hasNextReply = true;
+    				else hasOtherReply = true;
+    			}
+    			if (hasNextReply && hasOtherReply) {
+    				L.log("WARNING: Phrase \"" + phraseID + "\" has both a \"" + REPLY_NEXT + "\" reply and some other reply.");
     			}
     		}
     		
@@ -102,53 +114,42 @@ public final class ConversationCollection {
 	
 	// Selftest method. Not part of the game logic.
 	public void verifyData() {
-    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    		HashMap<String, Integer> requiredQuestStages = new HashMap<String, Integer>();
-    		HashMap<String, Integer> suppliedQuestStages = new HashMap<String, Integer>();
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Entry<String, Phrase> e : phrases.entrySet()) {
-				Phrase p = e.getValue();
-				if (p.progressQuest != null) {
-					String q = p.progressQuest.questID;
-					int v = p.progressQuest.progress;
-					if (suppliedQuestStages.containsKey(q)) {
-						v = Math.max(v, suppliedQuestStages.get(q));
-					}
-					suppliedQuestStages.put(q, v);
-				}
-				if (e.getValue().replies.length <= 0) {
-					L.log("WARNING: Phrase \"" + e.getKey() + "\" has no replies.");
-				}
 				for (Reply r : e.getValue().replies) {
 					if (!isValidPhraseID(r.nextPhrase)) {
 						L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply to non-existing phrase \"" + r.nextPhrase + "\".");
-					}
-					if (r.requiresProgress != null) {
-						String q = r.requiresProgress.questID;
-						int v = r.requiresProgress.progress;
-						if (requiredQuestStages.containsKey(q)) {
-							v = Math.max(v, requiredQuestStages.get(q));
-						}
-						requiredQuestStages.put(q, v);	
+					} else if (r.nextPhrase == null || r.nextPhrase.length() <= 0) {
+						L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that has no nextPhrase.");
+					} else if (r.nextPhrase.equals(e.getKey())) {
+						L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that points to itself.");
 					}
 				}
     		}
-			
-			for(Entry<String, Integer> e : requiredQuestStages.entrySet()) {
-				if (!suppliedQuestStages.containsKey(e.getKey())) {
-					L.log("WARNING: Quest \"" + e.getKey() + "\" is required but never supplied by any phrases.");
-				} else if (suppliedQuestStages.get(e.getKey()) < e.getValue()) {
-					L.log("WARNING: Quest \"" + e.getKey() + "\" requires stage " + e.getValue() + ", but that stage is never supplied by any phrases.");
+		}	
+	}
+	
+	// Selftest method. Not part of the game logic.
+	public void verifyData(MapCollection maps) {
+    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+    		HashSet<String> requiredQuestStages = new HashSet<String>();
+    		HashSet<String> suppliedQuestStages = new HashSet<String>();
+    		this.DEBUG_getSuppliedQuestStages(suppliedQuestStages);
+    		maps.DEBUG_getRequiredQuestStages(requiredQuestStages);
+    		this.DEBUG_getRequiredQuestStages(requiredQuestStages);
+    		
+			for (String s : requiredQuestStages) {
+				if (!suppliedQuestStages.contains(s)) {
+					L.log("WARNING: Queststage \"" + s + "\" is required but never supplied by any phrases.");
 				}
 			}
 
-			for(Entry<String, Integer> e : suppliedQuestStages.entrySet()) {
-				if (!requiredQuestStages.containsKey(e.getKey())) {
-					L.log("WARNING: Quest \"" + e.getKey() + "\" is supplied but never required by any phrases.");
-				} else if (requiredQuestStages.get(e.getKey()) < e.getValue()) {
-					L.log("WARNING: Quest \"" + e.getKey() + "\" supplies stage " + e.getValue() + ", but that stage is never required by any phrases.");
+			/*for (String s : suppliedQuestStages) {
+				if (!requiredQuestStages.contains(s)) {
+					L.log("OPTIMIZE: Queststage \"" + s + "\" is supplied but never required by any phrases.");
 				}
-			}
-    	}
+			}*/
+		}
     }
 	
 	// Selftest method. Not part of the game logic.
@@ -167,9 +168,10 @@ public final class ConversationCollection {
     }
 	
 	// Selftest method. Not part of the game logic.
-	public void verifyData(MonsterTypeCollection monsterTypes) {
+	public void verifyData(MonsterTypeCollection monsterTypes, MapCollection maps) {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		HashSet<String> requiredPhrases = monsterTypes.DEBUG_getRequiredPhrases();
+    		maps.DEBUG_getUsedPhrases(requiredPhrases);
     		for (Entry<String, Phrase> e : phrases.entrySet()) {
 				for (Reply r : e.getValue().replies) {
 					requiredPhrases.add(r.nextPhrase);
@@ -178,6 +180,8 @@ public final class ConversationCollection {
     		requiredPhrases.remove(PHRASE_ATTACK);
     		requiredPhrases.remove(PHRASE_CLOSE);
     		requiredPhrases.remove(PHRASE_SHOP);
+    		
+    		// Verify that all supplied phrases are required.
     		for (Entry<String, Phrase> e : phrases.entrySet()) {
     			if (!requiredPhrases.contains(e.getKey())) {
     				L.log("OPTIMIZE: Phrase \"" + e.getKey() + "\" cannot be reached by any monster or other phrase reply.");
@@ -198,12 +202,51 @@ public final class ConversationCollection {
     }
 
 	// Selftest method. Not part of the game logic.
-	public void DEBUG_getRequiredQuestStages(HashSet<String> requiredStages) {
+	public void DEBUG_getSuppliedQuestStages(HashSet<String> suppliedStages) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Phrase p : phrases.values()) {
 				if (p.progressQuest == null) continue;
-				requiredStages.add(p.progressQuest.toString());
+				suppliedStages.add(p.progressQuest.toString());
 			}
 		}
+	}
+	
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getRequiredQuestStages(HashSet<String> requiredStages) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (Phrase p : phrases.values()) {
+				for (Reply r : p.replies) {
+					if (r.requiresProgress != null) {
+						requiredStages.add(r.requiresProgress.toString());
+					}
+				}
+			}
+		}
+	}
+
+	// Selftest method. Not part of the game logic.
+	public boolean DEBUG_leadsToTradeReply(String phraseID) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			HashSet<String> visited = new HashSet<String>();
+			return DEBUG_leadsToTradeReply(phraseID, visited);
+		} else {
+			return false;
+		}
+	}
+	private boolean DEBUG_leadsToTradeReply(String phraseID, HashSet<String> visited) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (phraseID.equals(PHRASE_SHOP)) return true;
+			if (phraseID.equals(PHRASE_ATTACK)) return false;
+			if (phraseID.equals(PHRASE_CLOSE)) return false;
+			if (visited.contains(phraseID)) return false;
+			visited.add(phraseID);
+			
+			Phrase p = getPhrase(phraseID);
+			if (p == null) return false;
+			for (Reply r : p.replies) {
+				if (DEBUG_leadsToTradeReply(r.nextPhrase, visited)) return true;
+			}
+		}
+		return false;
 	}
 }

@@ -4,7 +4,6 @@ import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
-import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class QuestCollection {
@@ -37,16 +36,15 @@ public final class QuestCollection {
 	}
 
 	// Selftest method. Not part of the game logic.
-	public void verifyData(MapCollection maps, ConversationCollection conversations) {
+	public void verifyData(ConversationCollection conversations) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			HashSet<String> requiredStages = new HashSet<String>();
-			maps.DEBUG_getRequiredQuestStages(requiredStages);
-			conversations.DEBUG_getRequiredQuestStages(requiredStages);
+			final HashSet<String> suppliedStages = new HashSet<String>();
+			conversations.DEBUG_getSuppliedQuestStages(suppliedStages);
 			for (Quest q : quests) {
 				for (QuestLogEntry e : q.stages) {
 					String s = q.questID + ":" + e.progress;
-	    			if (!requiredStages.contains(s)) {
-	    				L.log("OPTIMIZE: Quest stage \"" + s + "\" cannot be reached by any maparea or conversation phrase.");
+	    			if (!suppliedStages.contains(s)) {
+	    				L.log("OPTIMIZE: Quest stage \"" + s + "\" cannot be reached by any conversation phrase.");
 	    			}
 				}
     		}	

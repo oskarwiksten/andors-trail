@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
@@ -8,35 +9,39 @@ public final class MapObject {
 	public static final int MAPEVENT_NEWMAP = 2;
 	public static final int MAPEVENT_REST = 3;
 	public static final int MAPEVENT_KEYAREA = 4;
+	public static final int MAPEVENT_CONTAINER = 5;
 	
 	public final CoordRect position;
 	public final int type;
-	public final String text;
-	public final String title;
+	public final String id; //placeName on this map or phraseID
 	public final String map;
 	public final String place;
-	public final QuestProgress questProgress;
+	public final QuestProgress requireQuestProgress;
+	public final DropList dropList;
 	
-	private MapObject(final CoordRect position, final int type, final String title, final String text, final String map, final String place, final QuestProgress questProgress) {
+	private MapObject(final CoordRect position, final int type, final String id, final String map, final String place, final QuestProgress requireQuestProgress, final DropList dropList) {
 		this.position = new CoordRect(position);
 		this.type = type;
-		this.title = title;
-		this.text = text;
+		this.id = id;
 		this.map = map;
 		this.place = place;
-		this.questProgress = questProgress;
+		this.requireQuestProgress = requireQuestProgress;
+		this.dropList = dropList;
 	}
 	
-	public static MapObject createMapSignEvent(final CoordRect position, final String title, final String text, final QuestProgress applyQuestStage) {
-		return new MapObject(position, MAPEVENT_SIGN, title, text, null, null, applyQuestStage);
+	public static MapObject createMapSignEvent(final CoordRect position, final String phraseID) {
+		return new MapObject(position, MAPEVENT_SIGN, phraseID, null, null, null, null);
 	}
 	public static MapObject createNewMapEvent(final CoordRect position, final String thisMapTitle, final String destinationMap, final String destinationPlace) {
-		return new MapObject(position, MAPEVENT_NEWMAP, thisMapTitle, null, destinationMap, destinationPlace, null);
+		return new MapObject(position, MAPEVENT_NEWMAP, thisMapTitle, destinationMap, destinationPlace, null, null);
 	}
 	public static MapObject createNewRest(final CoordRect position) {
 		return new MapObject(position, MAPEVENT_REST, null, null, null, null, null);
 	}
-	public static MapObject createNewKeyArea(final CoordRect position, final String text, final QuestProgress requireQuestStage) {
-		return new MapObject(position, MAPEVENT_KEYAREA, null, text, null, null, requireQuestStage);
+	public static MapObject createNewKeyArea(final CoordRect position, final String phraseID, final QuestProgress requireQuestStage) {
+		return new MapObject(position, MAPEVENT_KEYAREA, phraseID, null, null, requireQuestStage, null);
+	}
+	public static MapObject createNewContainerArea(final CoordRect position, final DropList dropList) {
+		return new MapObject(position, MAPEVENT_CONTAINER, null, null, null, null, dropList);
 	}
 }

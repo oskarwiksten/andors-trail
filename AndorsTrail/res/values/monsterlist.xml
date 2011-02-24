@@ -64,15 +64,15 @@
 	
 	<string name="monsterlist_crossglen_npcs">
 [Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
-{monsters_mage2:0|Mikhail|Quest|1x1|0|1|1|1|1|0|||0||||mikhail_start_select|};
-{monsters_men:2|Leta|farm|1x1|0|1|1|1|1|0|||0||||leta1|};
-{monsters_men:0|Audir|smith|1x1|0|1|1|1|1|0|||0|||shop_smith|audir1|};
-{monsters_men:3|Arambold|bard|1x1|0|1|1|1|1|0|||0|||shop_clothes|arambold1|};
-{monsters_men:4|Tharal|Priest|1x1|0|1|1|1|1|0|||0|||shop_priest|tharal1|};
-{monsters_warrior1:0|Drunk||1x1|0|1|1|1|1|0|||0||||drunk1|};
-{monsters_men:7|Mara|Tavern|1x1|0|1|1|1|1|0|||0|||shop_food|mara1|};
-{monsters_rogue1:0|Gruil||1x1|0|1|1|1|1|0|||0|||shop_thief|gruil1|};
-{monsters_men:3|Leonid||1x1|0|1|1|1|1|0|||0||||leonid1|};
+{monsters_mage2:0|Mikhail|mikhail|1x1|0|1|1|1|1|0|||0||||mikhail_start_select|};
+{monsters_men:2|Leta|leta|1x1|0|1|1|1|1|0|||0||||leta1|};
+{monsters_men:0|Audir|audir|1x1|0|1|1|1|1|0|||0|||shop_smith|audir1|};
+{monsters_men:3|Arambold|arambold|1x1|0|1|1|1|1|0|||0|||shop_clothes|arambold1|};
+{monsters_men:4|Tharal|tharal|1x1|0|1|1|1|1|0|||0|||shop_priest|tharal1|};
+{monsters_warrior1:0|Drunk|drunk|1x1|0|1|1|1|1|0|||0||||drunk1|};
+{monsters_men:7|Mara|mara|1x1|0|1|1|1|1|0|||0|||shop_food|mara1|};
+{monsters_rogue1:0|Gruil|gruil|1x1|0|1|1|1|1|0|||0|||shop_thief|gruil1|};
+{monsters_men:3|Leonid|leonid|1x1|0|1|1|1|1|0|||0||||leonid1|};
 {monsters_man1:0|Farmer|crossglen_farmer1|1x1|0|1|1|1|1|0|||0||||farm1|};
 {monsters_man1:0|Tired farmer|crossglen_farmer2|1x1|0|1|1|1|1|0|||0||||farm2|};
 {monsters_man1:0|Oromir|oromir|1x1|0|1|1|1|1|0|||0||||oromir1|};
@@ -82,7 +82,7 @@
 	
 	<string name="monsterlist_fallhaven_npcs">
 [Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
-{monsters_men:3|Warden|fallhaven_warden|1x1|0|1|1|1|1|0|||0||||fallhaven_warden|};
+{monsters_men:3|Warden|fallhaven_warden|1x1|0|1|1|1|1|0|||0||||fallhaven_warden_select_1|};
 {monsters_warrior1:0|Guard|fallhaven_guard|1x1|0|1|1|1|1|0|||0||||fallhaven_guard|};
 {monsters_men:4|Acolyte|fallhaven_priest|1x1|0|1|1|1|1|0|||0||||fallhaven_priest|};
 {monsters_man1:0|Bearded Citizen|fallhaven_citizen1|1x1|0|1|1|1|1|0|||0||||fallhaven_citizen1|};
@@ -153,5 +153,48 @@
 {monsters_men:8|Highwayman|bandit1|||54|||5|90|50|2|2-4|30|2|bandit1|bandit1|};
 	</string>
 	
+	<string name="monsterlist_v068_npcs">
+[Icon|Name|Tags|Size|Exp|HP_max|AP_max|AP_move|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|Drop|Phrase|];
+{monsters_men2:9|Smug looking thief|tg_thief|1x1|0|1|1|1|1|0|||0||||thievesguild_thief_1|};
+{monsters_men:0|Thieves guild cook|tg_cook|1x1|0|1|1|1|1|0|||0|||shop_food|thievesguild_cook_1|};
+{monsters_men:7|Pickpocket|pickpocket|1x1|0|1|1|1|1|0|||0||||thievesguild_pickpocket_1|};
+{monsters_men:8|Troublemaker|troublemaker|1x1|0|1|1|1|1|0|||0|||troublemaker|thievesguild_troublemaker_1|};
+{monsters_rogue1:0|Farrik|farrik|1x1|0|1|1|1|1|0|||0||||farrik_select_1|};
+{monsters_man1:0|Umar|umar|1x1|0|1|1|1|1|0|||0||||umar_select_1|};
+{monsters_men:7|Kaori|kaori|1x1|0|1|1|1|1|0|||0||||kaori_start|};
+{monsters_men:0|Old Vilegard villager|vilegard_villager_1|1x1|0|1|1|1|1|0|||0||||vilegard_villager_1|};
+{monsters_men:5|Grumpy Vilegard villager|vilegard_villager_2|1x1|0|1|1|1|1|0|||0||||vilegard_villager_2|};
+{monsters_men:1|Vilegard citizen|vilegard_villager_3|1x1|0|1|1|1|1|0|||0||||vilegard_villager_3|};
+{monsters_men2:0|Vilegard resident|vilegard_villager_4|1x1|0|1|1|1|1|0|||0||||vilegard_villager_4|};
+{monsters_men:6|Vilegard woman|vilegard_villager_5|1x1|0|1|1|1|1|0|||0||||vilegard_villager_5|};
+{monsters_mage2:0|Erttu|erttu|1x1|0|1|1|1|1|0|||0||||erttu_1|};
+{monsters_rogue1:0|Dunla|dunla|1x1|0|1|1|1|1|0|||0|||dunla|dunla_default|};
+{monsters_men:7|Tharwyn|tharwyn|1x1|0|1|1|1|1|0|||0|||shop_food|tharwyn_select|};
+{monsters_men:0|Tavern guest|vg_tavern_drunk|1x1|0|1|1|1|1|0|||0||||vilegard_tavern_drunk_1|};
+{monsters_men2:8|Jolnor|jolnor|1x1|0|1|1|1|1|0|||0|||jolnor|jolnor_select_1|};
+{monsters_mage2:0|Alynndir|alynndir|1x1|0|1|1|1|1|0|||0|||alynndir|alynndir_1|};
+{monsters_mage2:0|Vilegard armorer|vg_armorer|1x1|0|1|1|1|1|0|||0|||vg_armorer|vilegard_armorer_select|};
+{monsters_mage2:0|Vilegard smith|vg_smith|1x1|0|1|1|1|1|0|||0|||vg_smith|vilegard_smith_select|};
+{monsters_men:0|Ogam|ogam|1x1|0|1|1|1|1|0|||0||||ogam_1|};
+{monsters_men:0|Foaming Flask cook|ff_cook|1x1|0|1|1|1|1|0|||0||||ff_cook_1|};
+{monsters_men2:9|Torilo|torilo|1x1|0|1|1|1|1|0|||0|||shop_food|torilo_1|};
+{monsters_men:6|Ambelie|ambelie|1x1|0|1|1|1|1|0|||0||||ambelie_1|};
+{monsters_warrior1:0|Feygard patrol|ff_guard|1x1|0|1|1|1|1|0|||0||||ff_guard_1|};
+{monsters_men:3|Feygard patrol captain|ff_captain|1x1|0|1|1|1|1|0|||0||||ff_captain_1|};
+{monsters_warrior1:0|Feygard patrol watch|ff_outsideguard|1x1|0|80|||5|70|||2-7|80|3|ff_outsideguard|ff_outsideguard_select|};
+{monsters_men:6|Wrye|wrye|1x1|0|1|1|1|1|0|||0||||wrye_select_1|};
+{monsters_men:8|Oluag|oluag|1x1|0|1|1|1|1|0|||0||||oluag_1|};
+
+{monsters_dogs:6|Cave dwelling boar|caveboar1|||35|||5|70|||3-8|60|3|canine2||};
+{monsters_insects:4|Hardshell beetle|beetle2|||25|||5|50|||0-5|40|9|beetle2||};
+{monsters_misc:1|Young shadow gargoyle|shadowgarg1|||35|||5|65|8|3|3-9|75|3|shadowgarg1||};
+{monsters_misc:1|Fledgling shadow gargoyle|shadowgarg1|||36|||5|65|8|3|3-9|75|3|shadowgarg1||};
+{monsters_misc:2|Shadow gargoyle|shadowgarg2|||37|||5|70|8|3|4-10|85|3|shadowgarg1||};
+{monsters_misc:2|Tough shadow gargoyle|shadowgarg2|||37|||5|70|8|3|4-10|85|4|shadowgarg2||};
+{monsters_liches:0|Shadow gargoyle trainer|shadowgarg3|||35|||5|90|12|3|3-6|90|5|shadowgarg3||};
+{monsters_liches:1|Shadow gargoyle master|shadowgarg4|||35|||5|125|12|3|3-6|90|5|shadowgarg3||};
+{monsters_liches:2|Maelveon|maelveon|||55|||3|80|15|3|0-12|90|5|maelveon|maelveon|};
+	</string>
+
 	
 </resources>

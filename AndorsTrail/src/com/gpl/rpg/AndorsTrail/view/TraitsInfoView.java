@@ -66,13 +66,16 @@ public final class TraitsInfoView extends TableLayout {
 		} else {
 			traitsinfo_attack_row3.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasCriticalEffect()) {
+		if (traits != null && traits.hasCriticalChanceEffect()) {
 			traitsinfo_critical_row1.setVisibility(View.VISIBLE);
-			traitsinfo_critical_row2.setVisibility(View.VISIBLE);
 			traitsinfo_criticalhit_chance.setText(Integer.toString(traits.criticalChance) + "%");
-			traitsinfo_criticalhit_multiplier.setText(Integer.toString(traits.criticalMultiplier));
 		} else {
 			traitsinfo_critical_row1.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasCriticalMultiplierEffect()) {
+			traitsinfo_critical_row2.setVisibility(View.VISIBLE);
+			traitsinfo_criticalhit_multiplier.setText(Integer.toString(traits.criticalMultiplier));
+		} else {
 			traitsinfo_critical_row2.setVisibility(View.GONE);
 		}
 		if (traits != null && traits.hasBlockEffect()) {

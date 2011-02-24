@@ -8,7 +8,6 @@ public final class TileStore {
 	public static final int iconID_moveselect = 3;
 	public static final int iconID_groundbag = 4;
 	public static final int iconID_shop = iconID_groundbag;
-	public static final int iconID_mapsign = 5;
 	
 	public int displayTileSize = 32;
     

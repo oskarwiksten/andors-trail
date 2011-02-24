@@ -59,18 +59,27 @@ public class WorldContext {
 			//Ensure that all phrases that require an item have some droplist that contains them
 			conversations.verifyData(dropLists);
 			
-			//Ensure that all phrases are requested at least once, either by NPCs or by other phrases.
-			conversations.verifyData(monsterTypes);
+			//Ensure that all phrases are requested at least once, either by NPCs, mapobjects or by other phrases.
+			conversations.verifyData(monsterTypes, maps);
 			
 			//Ensure that all required quest stages exist
 			conversations.verifyData(quests);
+
+			//Ensure that all quest stages are required and supplied.
+			conversations.verifyData(maps);
+
+			//Ensure that all quest stages are reachable by phrases
+			quests.verifyData(conversations);
 			
-			//Ensure that all quest stages are reachable by mapareas or by phrases
-			quests.verifyData(maps, conversations);
+			//Ensure that all NPCs that have a trading conversation also have a droplist
+			monsterTypes.verifyData(conversations);
 			
 			//TODO: Ensure that all items have at least one corresponding droplist
 			//TODO: Ensure that all droplists are used by monsters
 			//TODO: Ensure that all monsters are used in spawnareas
+
+			
+			//TODO: check for npcs having shop phrases without droplist
 		}
 	}
 }

@@ -55,20 +55,20 @@
  </layer>
  <layer name="Objects" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA82S0Q3CMAxE3SpZADECIyAW6QiwQekAyUr8dAQm4L9lERJRK6drkgJfnGRFVe/ZF7ci/6m93fa0GQ9yx1bk8EEf5XY2cVGDSe876HNpRE5LKatM1BS4EVhv1lysa5M8D5tYFDPMReEs5J3NM11hJ0+arbnPwd/b96m6g3cgriYHvfqlWLqL6PWhZlPPjfmUYY2ZjJobGc6n8sTrnmv/15zZH/Z0hftzZtw19+Ke+Hzb+C6lXt/MmAp3/PXEveQ8L7sVK16wBAAA
+   H4sIAAAAAAAAA82SwQ3DIAxFSQQLVB2hI1RdJCOkG6QZgJyyTy8ZoRPknnSRYgmLrx+gPfZLFkH4mW8HY/5TZ/c9p83kIHdtjbn8UEe5k0ucaLTpvIM698aYWwxllRFtgVuAneyRk3g0KWd1iUUxw5wI70LeuzzTFWbyprvVdx/yhxAznL/geyRupj3Kx1pac8h40VlI7hRit3XffczzLjGsJeNJfSPjwdMKdSbidc6197XT/Hrq1xf6Z884a+w1VxP3z8p/wFztk33yXbk7tkKPpVUk76N2zr3h+gHFUq85sAQAAA==
   </data>
  </layer>
  <layer name="Above" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGBjwnxm7+Hsc4vj0YNPnzErYDfjsGghQiMPNxPgF3ZwiEvXgMwsZ4DMX3V5i3U2qW5HtwRVm1ALIbiMnXLG5D90MYs3E51eQGcjyhNxNTrjhsoOacUAoLABo2Pw3sAQAAA==
+   H4sIAAAAAAAAA2NgoAz8Z6auvvd4zMNnF7o+Z1bCbsBn10CAQhxuJsYv6OYUkagHn1kwUETAXHR7iXU3qW5FtgdXmFEKQOaj+4eccMXmPnQziDUTn19h7sVmJjZ3o6slJhxx2UFKHBCyi1BYAACJAwGOsAQAAA==
   </data>
  </layer>
  <layer name="Walkable" width="20" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAxNkYGAQHMYYHVCiDxvAp4cUQKl+Uswk1S5q+RHdLEJhjS5PTByQ405kPZSYQ8h8bP6hJC4oNZPcvITNDmrmV3zyAKtd8bGwBAAA
+   H4sIAAAAAAAAAxNkYGAQHMYYHVCiDxvAp4cUQKl+Uswk1S5S/YhPHSlhjS5PTByQExfIeigxh5D52PxDSVxQaia5eQmbHdTMr/jkAQdFzlKwBAAA
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents" width="20" height="15" visible="0">
   <object name="east" type="mapchange" x="608" y="64" width="32" height="96">
    <properties>
     <property name="map" value="wild7"/>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15">
+ <objectgroup name="Spawn" width="20" height="15" visible="0">
   <object name="forestserpent2" type="spawn" x="160" y="288" width="320" height="128"/>
   <object name="fox1" type="spawn" x="320" y="64" width="256" height="128">
    <properties>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+        <string name="questlog_crossglen">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{andor|1|Mio padre Mikhail dice che Andor è a casa da ieri. Dovrei andare a cercarlo nel villaggio.||0|};
+{mikhail_bread|100|Ho portato iul pane a Mikhail.||1|};
+{mikhail_bread|10|Mikhail vuole che vada a comprargli del pane da Mara al municipio.||0|};
+{mikhail_rats|100|Ho ucciso i due ratti nel nostro giardino.|20|1|};
+{mikhail_rats|10|Mikhail vuole che vada a controllare il nostro giardino per alcuni ratti. Devo uccidere i ratti e tornare a Mikhail. Se mi faccio male, posso tornare a letto e riposare per ripristinare la salute.||0|};
+{leta|10|Leta del villaggio di Crossglen vuole che cerchi suo marito Oromir.||0|};
+{leta|20|Ho trovato Oromir nel villaggio di Crossglen , che si nascondeva da Leta.||0|};
+{leta|100|Ho detto a Leta che Oromir si nasconde nel villaggio di Crossglen.|30|1|};
+{odair|10|Odair mi chiede di pulire la grotta dall\'invasione dei ratti. In particolare di uccidere il topo più grosso e poi tornare da Odair.||0|};
+{odair|100|Ho aiutato Odair a eliminare i ratti nella grotta al villaggio di Crossglen.|30|1|};
+{bonemeal|10|Leonid del municipio di Crossglen mi dice che c\'era un problema in paese qualche settimana fa. A quanto pare, Lord Geomyr ha vietato qualsiasi uso di farine animali come sostanza di guarigione. \n\nTharal, il sacerdote della città dovrebbe saperne di più.||0|};
+{bonemeal|20|Tharal non vuole parlare di farina d\'ossa. Potrei convincerlo portandogli 5 ali d\' insetto.||0|};
+{bonemeal|30|Tharal dice che la farina d\'ossa è molto potente come guaritore, ed è abbastanza sconvolto dal fatto che è diventato illegale. Dovrei andare a vedere Thoronir in Fallhaven se voglio saperne di più. Dovrei dirgli la password \'Bagliore dell\'Ombra\'.||0|};
+{bonemeal|40|Ho parlato con Thoronir in Fallhaven. Egli potrebbe creare una pozione di farina d\'ossa se gli porto 5 ossa. Ci dovrebbero essere alcuni scheletri in una casa abbandonata a nord di Fallhaven.||0|};
+{bonemeal|100|Ho portato le ossa a Thoronir. Ora è in grado di preparare la pozione.\n però devo fare attenzione ad usarla , Lord Geomyr ne ha vietato l\'uso.|90|1|};
+{andor|10|Leonid dice di aver visto Andor parlare con Gruil. Dovrei chiedere informazioni a Gruil.||0|};
+{andor|20|Gruil vuole una ghiandola di veleno per darmi qualche informazione. Dice che alcuni serpenti velenosi la posseggono.||0|};
+{andor|30|Gruil dice che Andor era alla ricerca di uno che si chiama Umar. Dovrei andare a chiedere ial suo amico Gaela a est di Fallhaven .||0|};
+{crossglen|1|||0|};
+{jan|10|Jan mi racconta la sua storia, di Gandir e Irogotu. I tre amici che scavarono una miniera per cercare un tesoro, ma hanno litigato. Irogotu in preda alla rabbia ha ucciso Gandir, rubandogli l\'anello . \n dovrei prendere l\' anello a Irogotu e riportarlo a Jan ..||0|};
+{jan|100|Ho portato l\'anello di Gandir a Jan, e vendicato il suo amico. Irogotu è morto.|150|1|};
+        </string>
+       
+        <string name="questlog_fallhaven">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{bucus|10|Bucus in Fallhaven potrebbe sapere qualcosa di Andor. Ma vuole la chiave di Luthor che è nelle  catacombe sotto la chiesa di Fallhaven.||0|};
+{bucus|20|Le catacombe sotto la chiesa di Fallhaven sono chiuse. Athamyr è l\'unico che ha sia il permesso che il coraggio di entrarvi. Dovrei andare a trovarlo nella sua casa a sud-ovest della chiesa.||0|};
+{bucus|30|Athamyr vuole un pò di carne cotta, e poi forse mi dirà qualcosa di più.||0|};
+{bucus|40|Ho portato la carne cotta ad Athamyr.|70|0|};
+{bucus|50|Athamyr mi ha dato il permesso di entrare nelle catacombe sotto la chiesa Fallhaven.||0|};
+{bucus|100|Ho portato a Bucus la chiave di Luthor.|215|1|};
+{andor|40|Ho parlato con Gaela in Fallhaven. Lui mi dice di andare a trovare Bucus e chiedergli informazioni circa la gilda dei ladri.||0|};
+{andor|50|Bucus mi ha permesso di entrare nella botola nella casa abbandonata in Fallhaven. Dovrei andare a parlare con Umar.||0|};
+{fallhavendrunk|10|Un ubriaco fuori dalla taverna di Fallhaven cominciò a raccontarmi la sua storia, ma vuole che io gli porti dell\'idromele. Non so se la sua storia porterà a nulla.||0|};
+{fallhavendrunk|100|L\'ubriaco mi ha detto che aveva l\'abitudine di viaggiare con Unnmir. Dovrei andare a parlare con Unnmir.||1|};
+{nocmar|10|Unnmir mi ha detto che era un avventuriero, e mi ha dato il suggerimento di andare a trovare Nocmar. La sua casa è a sud-ovest della taverna in Fallhaven.||0|};
+{nocmar|20|Nocmar mi dice che era un fabbro. Ma Lord Geomyr ha vietato l\'uso di Acciaio puro, così non può forgiare più le sue armi.\n Se riesco a trovare un Pietra pura e portarglielo, dovrebbe essere in grado di forgiare il nuovo Acciaio puro!.||0|};
+{nocmar|200|Ho trovato un Pietra pura per Nocmar. Ora avrà degli oggetti di Acciaio puro da vendere|120|1|};
+{fallhaventavern|10|||1|};
+{arcir|10|||0|};
+{calomyran|10|Un vecchio di Fallhaven ha perso il suo libro \'Calomyran Secrets\'. Dovrei andare a cercarlo. Forse in casa Arcir a sud?||0|};
+{calomyran|20|Ho trovato una pagina strappata da un libro intitolato \'Calomyran Secrets\' con il nome di \'Larcal\' scritto sopra.||0|};
+{calomyran|100|Ho dato il libro al vecchio.|60|1|};
+        </string>
+
+        <string name="questlog_vacor">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{vacor|10|Un mago chiamato Vacor nel sud-ovest di Fallhaven ha cercato di lanciare un incantesimo . \nC\' è qualcosa che non va in lui, sembrava molto ossessionato dal suo incantesimo. Sta cercando di ottenere un qualche tipo di forza da esso..||0|};
+{vacor|20|Vacor vuole che io gli porti i quattro pezzi dell\' incantesimo che gli è stato rubato . I banditi dovrebbero essere da qualche parte a sud di Fallhaven.||0|};
+{vacor|30|Ho portato i quattro pezzi dell\' incantesimo a Vacor.|120|0|};
+{vacor|40|Vacor mi racconta del suo ex apprendista Unzel, che aveva iniziato a mettere in discussione Vacor. Vacor ora vuole uccidere Unzel. Dovrei essere in grado di trovarlo a sud-ovest , fuori di Fallhaven. Dovrei portare il suo anello con sigillo a Vacor una volta che l\'ho ucciso.||0|};
+{vacor|50|Unzel mi dà la scelta di schierarsi con lui o con Vacor.||0|};
+{vacor|51|Ho scelto di schierarmi con Unzel. Dovrei andare a sud-ovest di Fallhaven a parlare con Vacor circa Unzel e l\'Ombra.||0|};
+{vacor|53|Ho iniziato a lottare con Unzel. Vorrei portare il suo anello a Vacor.||0|};
+{vacor|54|Ho iniziato a lottare con Vacor. Vorrei portare il suo anello a Unzel.||0|};
+{vacor|60|Ho ucciso Unzel e ho informato Vacor.|160|1|};
+{vacor|61|Ho ucciso Vacor e ho informato Unzel.|160|1|};
+        </string>
+
+        <string name="questlog_flagstone">
+[QuestID|Progress|LogText|RewardExp|ResolvesQuest|];
+{flagstone|10|Ho incontrato una guardia all\'esterno di una fortezza chiamata Flagstone . La guardia mi ha parlato di Flagstone , che era un campo di prigionia per i lavoratori in fuga dal Monte Galmore . Recentemente, c\'è stato un aumento di mostri non-morti che fuoriusciva da Flagstone. Dovrei studiare l\'origine dei mostri non-morti. La guardia mi dice di tornare a lui se ho bisogno di aiuto.||0|};
+{flagstone|20|Ho trovato un tunnel scavato sotto Flagstone, che sembra portare a una grotta più grande. La grotta è sorvegliata da un demone a cui non sono nemmeno in grado di avvicinarmi. Forse la guardia fuori Flagstone ne sà di più?||0|};
+{flagstone|30|La guardia mi dice che l\' ex guardiano di Flagstone portava sempre una collana con se!. La collana ha probabilmente contiene le informazioni per avvicinarsi al demone. Vorrei tornare alla guardia e decifrare qualsiasi messaggio della collana, una volta che l\'ho  trovata.||0|};
+{flagstone|31|Ho trovato l\'ex guardiano di Flagstone, era al piano superiore.||0|};
+{flagstone|40|Ho imparato la password per avvicinarmi la demone. \'Daylight Shadow\'.|160|0|};
+{flagstone|50|Nei sotterranei di Flagstone, ho trovato la fonte di creazione dei non morti. Una creatura nata dal dolore degli ex prigionieri .||0|};
+{flagstone|60|Ho trovato un prigioniero, Narael,nei sotterranei di Flagstone. Narael una volta era un cittadino di Nor City. E\' troppo debole per camminare , ma se riesco trovate la moglie, in città, verrei ricompensato.|210|1|};
+        </string>
+
+</resources>

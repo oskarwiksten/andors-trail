@@ -60,15 +60,15 @@
  </layer>
  <layer name="Above" width="30" height="30">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA8VX2w0CMQwrQrcQYoKDhcrijAA66SKiKC/3Qf2H2tqNa9pcKT98rmUJ3ot0Z8DysG6lvDZ/7SMY90AeWhyHdg//DGQ8mblewvOHtCqbQ79nnWtNrov24I3zumR9PZA+WWMtvMTHfR2dBQukIfW0epE9yVoklwbNx54cIFxZzMoB58xkOFuL5VHPXnkeIr1/ZHg1eI3a3TjqDtK4tAx6nt8vmN4NnE97kHiCPPs5X/qJ/N9bwPudyGsPaO5JF3kjNXjnq51ltkf2+rAD3vnuHbqEljtQ05C9OfoeZRDVRrzovRzV6313aFlG3nMkz6N7L9mXaHu3tL4BeNqREA4AAA==
+   H4sIAAAAAAAAA8VXWw4CIRDDmL2Q8QSrF8KLewQNyU6cNMMw5eH2bwO0TKkwpvTD55pOwfsk3RWoeZi3lF6bv/bRGPcgHtY4ivYI/wpEPFm5HuH5I1pZzZHvVeeag+tae/DGdV1Y3wjQp9pYD6/waV9nZ6EG0UA9q15mT1gLclmwfBzJAcMVxaocaM5IhqO11Dwa2avOQ0vvHxk+G7pG626cdQdZXFYGPc/vF07vRs6XPSCeJM9+zEc/md97D3S/0/LaA5t70WXeSAve+VpnGe2RvT6swDvffUBX0HMHokb5xt6cfY8iQF3UFF72Xm7V6/3vsLLMvOdMnmf3XtiXWHuvaX0BIpVUUxAOAAA=
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30">
+ <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA+1UWwrAMAjrFXb/yw72NUaMidp+TRgM2rys7bXWuv7vqd38ap3Wj9bd3jHsqVLzdjwhfJcv05o8V8WPc18yHuRp1z1imMl3AmVkHt1Mas/de4l0Ii6Gcc6m0pfIZ9Wjoqm+G52Zded7al6V9bemo83K3a/4jTAKH9vf7TW7S9EcTOtGeVFN6LIMOzWdXp/My84i85xpISzKOKGNsiB+tO70LPL3/WezXJkPxodwqqbKrWhWeuhoI+wNTLMG0xAOAAA=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents" width="30" height="30" visible="0">
   <object name="house" type="mapchange" x="768" y="768" width="32" height="32">
    <properties>
     <property name="map" value="flagstone_inner"/>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn" width="30" height="30" visible="0">
   <object name="forestboar3" type="spawn" x="832" y="160" width="32" height="32"/>
   <object name="forestboar2" type="spawn" x="480" y="160" width="352" height="128">
    <properties>

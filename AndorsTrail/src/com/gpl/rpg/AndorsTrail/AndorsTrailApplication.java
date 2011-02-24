@@ -14,12 +14,13 @@ import android.view.WindowManager;
 public final class AndorsTrailApplication extends Application {
 
 	public static final boolean DEVELOPMENT_DEBUGRESOURCES = false;
-	public static final boolean DEVELOPMENT_QUICKSTART = false;
+	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = false;
+	public static final boolean DEVELOPMENT_FORCE_CONTINUEGAME = false;
 	public static final boolean DEVELOPMENT_DEBUGBUTTONS = false;
 	public static final boolean DEVELOPMENT_VALIDATEDATA = false;
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = false;
-	public static final int CURRENT_VERSION = 15;
-	public static final String CURRENT_VERSION_DISPLAY = "0.6.7";
+	public static final int CURRENT_VERSION = 16;
+	public static final String CURRENT_VERSION_DISPLAY = "0.6.8";
 	
 	public final WorldContext world = new WorldContext();
 	public WorldSetup setup = new WorldSetup(world, this);

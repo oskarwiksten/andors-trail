@@ -87,7 +87,7 @@ public final class MainActivity extends Activity {
 		    		@Override
 					public void onClick(View arg0) {
 		    			final String name = "Winged demon";
-						MonsterType type = world.monsterTypes.getMonsterType(name);
+						MonsterType type = world.monsterTypes.getMonsterTypeFromName(name);
 						if (type == null) {
 							Toast.makeText(MainActivity.this, "Cannot find monster type \"" + name + "\", unable to spawn.", Toast.LENGTH_LONG).show();
 						} else {
@@ -146,7 +146,7 @@ public final class MainActivity extends Activity {
 			}
 			break;
 		case INTENTREQUEST_CONVERSATION:
-			if (resultCode == ConversationActivity.RESULT_ATTACK) {
+			if (resultCode == ConversationActivity.ACTIVITYRESULT_ATTACK) {
 				final Coord p = world.model.player.nextPosition;
 				Monster m = world.model.currentMap.getMonsterAt(p);
 				if (m != null) {

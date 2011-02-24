@@ -26,7 +26,6 @@ public final class MonsterType extends ActorTraits {
 	}
 	public boolean matchesAny(String[] tagsAndNames) {
 		for (String s : tagsAndNames) {
-			if (name.equalsIgnoreCase(s)) return true;
 			if (searchPattern.contains(',' + s + ',')) return true;
 		}
 		return false;

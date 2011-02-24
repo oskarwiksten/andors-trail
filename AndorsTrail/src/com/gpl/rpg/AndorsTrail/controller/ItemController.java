@@ -112,12 +112,14 @@ public final class ItemController {
 	}
 
 	public static void consumeNonItemLoot(Loot loot, ModelContainer model) {
-		model.player.addExperience(loot.exp);
-		loot.exp = 0;
+		// Experience will be given as soon as the monster is killed.
 		model.player.inventory.gold += loot.gold;
 		loot.gold = 0;
-		if (loot.isEmpty()) {
-			model.currentMap.removeGroundLoot(loot);
+		removeEmptyLoot(loot, model);
+	}
+	public static void consumeNonItemLoot(Iterable<Loot> lootBags, ModelContainer model) {
+		for(Loot l : lootBags) {
+			consumeNonItemLoot(l, model);
 		}
 	}
 
@@ -126,14 +128,32 @@ public final class ItemController {
 		consumeNonItemLoot(loot, model);
     	loot.clear();
 	}
-	
-	public static boolean removeEmptyLoot(final ViewContext context, final Loot loot) {
-		if (loot.isEmpty()) {
-			context.model.currentMap.removeGroundLoot(loot);
-			context.mainActivity.redrawTile(loot.position, MainView.REDRAW_TILE_BAG_REMOVED);
-			return true;
+	public static void pickupAll(Iterable<Loot> lootBags, ModelContainer model) {
+		for(Loot l : lootBags) {
+			pickupAll(l, model);
 		}
-		return false;
+	}
+	public static boolean removeEmptyLoot(Loot loot, ModelContainer model) {
+		if (!loot.hasItems()) {
+			model.currentMap.removeGroundLoot(loot);
+			return true; // The bag was removed.
+		} else {
+			return false;
+		}
+	}
+	
+	public static boolean updateLootVisibility(final ViewContext context, final Iterable<Loot> lootBags) {
+		boolean isEmpty = true;
+		for (Loot l : lootBags) {
+			if (!updateLootVisibility(context, l)) isEmpty = false;
+		}
+		return isEmpty;
+	}
+	
+	public static boolean updateLootVisibility(final ViewContext context, final Loot loot) {
+		final boolean isBagRemoved = removeEmptyLoot(loot, context.model);
+		context.mainActivity.redrawTile(loot.position, MainView.REDRAW_TILE_BAG);
+		return isBagRemoved;
 	}
 	
 	public static int getBuyingPrice(Player player, ItemType itemType) {

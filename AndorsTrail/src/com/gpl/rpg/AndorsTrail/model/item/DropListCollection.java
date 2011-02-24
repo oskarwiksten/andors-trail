@@ -50,6 +50,12 @@ public final class DropListCollection {
 		else if (v.equals("25")) return seldom;
 		else if (v.equals("5")) return very_seldom;
 		else if (v.equals("1")) return unique;
+		else if (v.indexOf('/') >= 0) {
+			int c = v.indexOf('/');
+			int a = ResourceLoader.parseInt(v.substring(0, c), 1);
+			int b = ResourceLoader.parseInt(v.substring(c+1), 100);
+			return new ConstRange(b, a);
+		}
 		else return new ConstRange(100, ResourceLoader.parseInt(v, 10));
 	}
 	public void initialize(ItemTypeCollection itemTypes, String droplistString) {

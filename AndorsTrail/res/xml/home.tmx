@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACwtiZGAIIhI3EsAwdRMJYJg6Rwb8mBJ1L1kYGPKh+BULbnV5QDkYyEVS10iEukaof5DV/QTKFUDxL6g6kJpABgR2ZEDlI2MAxi8HupABAAA=
+   H4sIAAAAAAAAAwtiZGAIIhI3EsAwdRMJYJg6Rwb8mBJ1L1kYGPKh+BULbnV5QDkYyEVS10iEukaof5DV/QTKFUDxL6g6kJpABgR2ZEDlI2MAxi8HupABAAA=
   </data>
  </layer>
  <layer name="Objects" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgIB7ksjMweLEg+DD2TzZMtVFAuWKgeAs7hK3FysCgCcSerAg1d4HyzED5ZiA9BUj3AOWskDAMvMViPjZwkUh1D9kgGAR0gPbsBrpvDwuEjQw2ovFxqbuIxAfJnQaqOQMNm19EugkGAGc0HW+QAQAA
+   H4sIAAAAAAAAA2NgIB7ksjMweLEg+DD2TzZMtVFAuWKgeAs7hK3FysCgCcSerAg1d4HyzED5ZiA9BUj3AOWskDAMvMViPjZwkUh1D9kgGAR0gPbsBrpvDwuEjQw2ovFxqbuIxAfJnQaqOQMNm19EugkGAGc0HW+QAQAA
   </data>
  </layer>
  <layer name="Walkable" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACxNkYGAQHOSYECBWLS5zcfHRzSNHHS7/4PIrADR3U0WQAQAA
+   H4sIAAAAAAAAAxNkYGAQHOSYECBWLS5zcfHRzaOGOkEcYjAMAKpaHhWQAQAA
   </data>
  </layer>
  <layer name="Above" width="10" height="10">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgIB58YCZO3X8kdfj0IKt7T6Q6QvZeZCNOHQgks0Boblbi7eVkJ07dMhxmEgIAugjLAZABAAA=
+   H4sIAAAAAAAAA2NgIB58YCZO3X8kdfj0IKt7T6Q6QvZeZCNOHQgks0Boblbi7eVkJ07dMhxmEgIAugjLAZABAAA=
   </data>
  </layer>
  <objectgroup name="mapevents" width="10" height="10">
@@ -77,11 +77,12 @@
   </object>
   <object name="rest" type="mapchange" x="64" y="128" width="32" height="32"/>
   <object name="bed" type="rest" x="32" y="128" width="32" height="32"/>
+  <object name="startitems2" type="container" x="256" y="256" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="keys" width="10" height="10">
   <object name="andor:1" type="key" x="0" y="288" width="320" height="32">
    <properties>
-    <property name="message" value="You should talk to Mikhail first."/>
+    <property name="phrase" value="keyarea_andor1"/>
    </properties>
   </object>
  </objectgroup>

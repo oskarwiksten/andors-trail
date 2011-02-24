@@ -69,11 +69,7 @@
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="20">
-  <object name="Signpost" type="sign" x="224" y="128" width="32" height="32">
-   <properties>
-    <property name="text" value="West: Crossglen\nEast: Fallhaven"/>
-   </properties>
-  </object>
+  <object name="sign_wild3" type="sign" x="224" y="128" width="32" height="32"/>
   <object name="north" type="mapchange" x="256" y="0" width="64" height="32">
    <properties>
     <property name="map" value="wild1"/>

@@ -21,6 +21,7 @@ public final class LayeredWorldMap {
 	public static int LAYER_GROUND = 0;
 	public static int LAYER_OBJECTS = 1;
 	public static int LAYER_ABOVE = 2;
+	private static final long VISIT_RESET = 0;
 	
 	public final String name;
 	public final Size size;
@@ -32,6 +33,7 @@ public final class LayeredWorldMap {
 	//public final boolean[][] isVisible;
 	public final boolean[][] isWalkable;
 	public boolean visited = false;
+	public long lastVisitTime = VISIT_RESET;
 	
 	public LayeredWorldMap(String name, Size size, MapLayer[] layers, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
 		this.name = name;
@@ -80,7 +82,7 @@ public final class LayeredWorldMap {
     
     public MapObject findEventObject(int objectType, String name) {
     	for (MapObject o : eventObjects) {
-    		if (o.type == objectType && o.title.equals(name)) return o;
+    		if (o.type == objectType && o.id.equals(name)) return o;
     	}
     	return null;
     }
@@ -91,6 +93,16 @@ public final class LayeredWorldMap {
     		}
     	}
 		return null;
+	}
+    public boolean hasContainerAt(final Coord p) {
+    	for (MapObject o : eventObjects) {
+    		if (o.type == MapObject.MAPEVENT_CONTAINER) {
+	    		if (o.position.contains(p)) {
+	    			return true;
+	    		}
+    		}
+    	}
+		return false;
 	}
     
     public Monster getMonsterAt(final CoordRect p) {
@@ -175,7 +187,8 @@ public final class LayeredWorldMap {
 	public Loot getBagOrCreateAt(final Coord position) {
 		Loot b = getBagAt(position);
 		if (b != null) return b;
-		b = new Loot();
+		boolean isContainer = hasContainerAt(position);
+		b = new Loot(!isContainer);
 		b.position.set(position);
 		if (isOutside(position)) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -199,8 +212,36 @@ public final class LayeredWorldMap {
 			a.reset();
 		}
 		visited = false;
+		lastVisitTime = VISIT_RESET;
 	}
-	
+
+	public boolean isRecentlyVisited() {
+		if (lastVisitTime == VISIT_RESET) return false;
+		return (System.currentTimeMillis() - lastVisitTime) < Constants.MAP_UNVISITED_RESPAWN_DURATION_MS;
+	}
+	public void updateLastVisitTime() {
+		lastVisitTime = System.currentTimeMillis();
+	}
+	public void resetIfNotRecentlyVisited() {
+		if (lastVisitTime == VISIT_RESET) return;
+		if (isRecentlyVisited()) return;
+		
+		// We reset all non-unique spawn areas. This keeps the savegame file smaller, thus reducing load and save times. Also keeps the running memory usage slightly lower.
+		for(MonsterSpawnArea a : spawnAreas) {
+			if (!a.isUnique) a.reset();
+		}
+		lastVisitTime = VISIT_RESET;
+	}
+
+	public void createAllContainerLoot() {
+		for (MapObject o : eventObjects) {
+    		if (o.type == MapObject.MAPEVENT_CONTAINER) {
+	    		Loot bag = getBagOrCreateAt(o.position.topLeft);
+	    		o.dropList.createRandomLoot(bag);
+    		}
+    	}
+	}
+
 	
 	
 	// ====== PARCELABLE ===================================================================
@@ -221,6 +262,16 @@ public final class LayeredWorldMap {
 
 		if (fileversion <= 11) return;
 		visited = src.readBoolean();
+		
+		
+		if (fileversion <= 15) {
+			if (visited) {
+				lastVisitTime = System.currentTimeMillis();
+				createAllContainerLoot();
+			}
+			return;
+		}
+		lastVisitTime = src.readLong();
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -233,5 +284,6 @@ public final class LayeredWorldMap {
 			l.writeToParcel(dest, flags);
 		}
 		dest.writeBoolean(visited);
+		dest.writeLong(lastVisitTime);
 	}
 }

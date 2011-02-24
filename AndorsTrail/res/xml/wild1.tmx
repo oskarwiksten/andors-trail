@@ -50,20 +50,20 @@
  </tileset>
  <layer name="Ground" width="21" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA9NkYGDQHMWjeBSP4lE8iochBgAk9Jxp5AYAAA==
+   H4sIAAAAAAAAA81TQQqAMAzbxcf4kj5h//+JigxKWNt0neAhDCJJu5jJ0Vq/Ieo82wuLf2DxWod8BE835mU9h292Hs6OOC8PdifkVnOMdl/NkcnT2yOaO/vu6bx+Wvfv0PfIl8kTeUuf/Z9aL8TejB/6fNGvKqr9/BsyeWf7wb4r7Gf1Tjh3R49m/dzhcwFIVpHL5AYAAA==
   </data>
  </layer>
  <layer name="Objects" width="21" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA4VUyw3CMAxtpXSW9sqlQQzQStwpCzACHYAeEPtwYREGYBNiqVbMy3N5UhQpsZ9f/MnYVNU5rdHs+7Sicz7UVdU69uhnz0NaggjnAuFEP8Ul3fV1jteZO4TEmNb7Q/JZQua1aFceFo9BbeaQ/a0fy4diCSVfhLfcQnmG+bgRHsZrY6NOFhvhxdG3M/8nyTO+e2zKOqB2du/5ef1pteL71cf6/eNlerC+EXQwf9bfcyhrpugcPsYr/h/It8zByYnvzTvTMRveGThtPnCuUQ9yKe4hz6zV+TC22ks/WoBrMTUXvpe51/nq67yudamFYdrIDcMu2R0Nt9en3pyNJI7YDqAXeb159uouQE613+oHzbPXR8pp++S98XeJbvw/8V3KOa211f+b7YznC8xy6c7kBgAA
+   H4sIAAAAAAAAA5VUwQ3CMAxMpXQW+PIpiAF48KcswAh0APpA7MOHReDPJtRSTzHXSygnIVTHPp9jOyFMsalDWNfavqtCWNTan+O8PY5277cZbcZp38c6xQGn4ayp0vdS6AIsRzueb4eYPuo6TP+SdP6C+XQxxfs4dR9AH6dc0AQNlzi18T1eBI/i9blZp8rNyOVB7Sr+Lu5Z1V2C6tO//qgz16c5Oeb4cH/XLk8unvsJndwzoDTnzGvxb7pv24OD6LsC76NH53g74lTxOT3MBVxj2lmv8+Z8MUtfWoirdz03voc7x341VfqdqzALbeFuFFaD395x5+Z0zj4D5rsjvcybmxf1HgPMCf/SPPBev4gfnH5OnoVaTTe/n3wOznbsLd5v9a/wATkLClTkBgAA
   </data>
  </layer>
  <layer name="Above" width="21" height="21">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGDjgxkp9M9WBZmpgMRebGLHmjTSAKwyJAdj0IYchSB6f+TBxdDXkuocQINY9MDeRYz4hAMoHbiTaQ6vwIAVQI29QswyAmUVJXkdOD4TyAbXLBnW0tE9JPiQEkM0lNQ6I9Tchc0kNP3LDAwCSEKc95AYAAA==
+   H4sIAAAAAAAAA2NgGDjgxkp9M9WBZmpgMRebGLHmjTSAKwyJAdj0IYchSB6f+TBxdDXkuocQINY9MDeRYz4hAMoHbjjsgbmPHHNpDaiRN6hZBsDMoiSvI6cHQvmA2mWDOlrapyQfEgLI5pIaB8SkT2LMJTX8yA0PAOtP/dPkBgAA
   </data>
  </layer>
- <layer name="Walkable" width="21" height="21">
+ <layer name="Walkable" width="21" height="21" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA6WTQQ4AIQgD+YL//+xeNwZspzThojCA4KmqA6yg/z+ui1Xn3f1LL+6Ua8tMeYTpiPaeaIpXTDpf4q9qInNymU4tdO9dZhc/9eHytv8g2VfFpFJz3fBSJn0f+tcVM8mfMu85OiI76e7wbR/AMNux5AYAAA==
   </data>
@@ -87,18 +87,10 @@
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="Signpost" type="sign" x="128" y="512" width="32" height="32">
-   <properties>
-    <property name="text" value="West: Crossglen\nSouth: Fallhaven"/>
-   </properties>
-  </object>
-  <object name="Map not complete" type="sign" x="384" y="0" width="32" height="32">
-   <properties>
-    <property name="text" value="This map is not yet done. Please come back in a later version of the game."/>
-   </properties>
-  </object>
+  <object name="sign_wild1" type="sign" x="128" y="512" width="32" height="32"/>
+  <object name="sign_notdone" type="sign" x="384" y="0" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="21" height="21">
+ <objectgroup name="Spawn" width="21" height="21" visible="0">
   <object name="forestdog" type="spawn" x="96" y="64" width="224" height="224">
    <properties>
     <property name="quantity" value="4"/>

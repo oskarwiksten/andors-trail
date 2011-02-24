@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 	<PreferenceCategory
-		android:title="Display">
+		android:title="@string/preferences_display_category">
 		<CheckBoxPreference
-			android:title="Fullscreen"
+			android:title="@string/preferences_display_fullscreen_title"
 			android:defaultValue="true"
-			android:summary="Displays the game in fullscreen mode. (Requires restart)"
+			android:summary="@string/preferences_display_fullscreen"
 			android:key="fullscreen" />
 	</PreferenceCategory>
 	<PreferenceCategory
-		android:title="Dialog confirmation">
+		android:title="@string/preferences_dialog_category">
 		<CheckBoxPreference
-			android:title="Confirm rest"
+			android:title="@string/preferences_dialog_confirmrest_title"
 			android:defaultValue="true"
-			android:summary="Gives a question about whether you want to rest when entering a bed. Otherwise, you will always automatically rest."
+			android:summary="@string/preferences_dialog_confirmrest"
 			android:key="confirm_rest" />
 		<CheckBoxPreference
-			android:title="Confirm attack"
+			android:title="@string/preferences_dialog_confirmattack_title"
 			android:defaultValue="true"
-			android:summary="Enables the 'Do you want to attack..?' dialog box when attacking a monster."
+			android:summary="@string/preferences_dialog_confirmattack"
 			android:key="confirm_attack" />
 		<ListPreference
-			android:title="Display monster loot"
-			android:summary="Choose how you want to show the results of a fight to be shown (gold, experience, items)."
+			android:title="@string/preferences_dialog_monsterloot_title"
+			android:summary="@string/preferences_dialog_monsterloot"
 			android:key="display_lootdialog"
 			android:defaultValue="0"
 			android:entries="@array/preferences_display_loot"
 			android:entryValues="@array/preferences_display_loot_values" />
 	</PreferenceCategory>
 	<PreferenceCategory
-		android:title="Combat">
+		android:title="@string/preferences_combat_category">
 		<ListPreference
-			android:title="Combat speed"
-			android:summary="Determines how fast monsters attack."
+			android:title="@string/preferences_combat_speed_title"
+			android:summary="@string/preferences_combat_speed"
 			android:key="attackspeed"
 			android:defaultValue="1000"
 			android:entries="@array/preferences_attackspeed"
 			android:entryValues="@array/preferences_attackspeed_values" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/preferences_movement_category">
+		<ListPreference
+			android:title="@string/preferences_movementmethod_title"
+			android:summary="@string/preferences_movementmethod"
+			android:key="movementmethod"
+			android:defaultValue="0"
+			android:entries="@array/preferences_movementmethods"
+			android:entryValues="@array/preferences_movementmethod_values" />
 	</PreferenceCategory>
 </PreferenceScreen>

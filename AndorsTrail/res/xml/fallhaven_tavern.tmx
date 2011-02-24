@@ -68,7 +68,7 @@
    H4sIAAAAAAAAAxNkYGAQHMGYgQCbAQcbmzmUAmLNwmUvPj+Sah4pYUYKn1zzGHDIk+NnQupISTO47CUlfsi1a7iahw6o5UZqmYuul1I3YnMfNcMUGQMAKrZNJfAFAAA=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="19" visible="0">
+ <objectgroup name="Mapevents" width="20" height="19">
   <object name="entrance" type="mapchange" x="160" y="320" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_nw"/>
@@ -90,12 +90,12 @@
  <objectgroup name="Keys" width="20" height="19">
   <object name="fallhaventavern:20" type="key" x="448" y="288" width="32" height="32">
    <properties>
-    <property name="message" value="You are not allowed into the room unless you have rented it."/>
+    <property name="phrase" value="fallhaven_tavern_room"/>
    </properties>
   </object>
   <object name="fallhaventavern:10" type="key" x="448" y="448" width="32" height="32">
    <properties>
-    <property name="message" value="You are not allowed into the room unless you have rented it."/>
+    <property name="phrase" value="fallhaven_tavern_room"/>
    </properties>
   </object>
  </objectgroup>

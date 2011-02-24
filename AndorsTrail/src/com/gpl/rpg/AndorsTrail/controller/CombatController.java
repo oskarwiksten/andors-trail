@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 
 import android.content.res.Resources;
 import android.os.Handler;
@@ -30,7 +30,8 @@ public final class CombatController {
     private final ModelContainer model;
     
 	private Monster currentActiveMonster = null;
-    private final ArrayList<Monster> killedMonsters = new ArrayList<Monster>();
+    private final HashSet<Loot> killedMonsterBags = new HashSet<Loot>();
+    private int totalExpThisFight = 0;
     
 	public CombatController(ViewContext context) {
     	this.context = context;
@@ -46,36 +47,33 @@ public final class CombatController {
     	context.mainActivity.combatview.setVisibility(View.VISIBLE);
     	context.mainActivity.combatview.bringToFront();
     	model.uiSelections.isInCombat = true;
-    	killedMonsters.clear();
+    	killedMonsterBags.clear();
     	context.mainActivity.clearMessages();
     	if (beginTurnAs == BEGIN_TURN_PLAYER) newPlayerTurn();
     	else if (beginTurnAs == BEGIN_TURN_MONSTERS) endPlayerTurn();
     	else maybeAutoEndTurn();
     	updateTurnInfo();
     }
-    public void exitCombat(boolean displayLootDialog) {
+    public void exitCombat(boolean pickupLootBags) {
+    	context.effectController.waitForCurrentEffect();
     	setCombatSelection(null, null);
 		context.mainActivity.combatview.setVisibility(View.GONE);
 		model.uiSelections.isInCombat = false;
     	context.mainActivity.clearMessages();
     	currentActiveMonster = null;
-    	if (!killedMonsters.isEmpty()) {
-    		lootMonsters(killedMonsters, displayLootDialog);
-    		killedMonsters.clear();
+    	if (!killedMonsterBags.isEmpty()) {
+    		if (pickupLootBags) {
+    			lootCurrentMonsterBags();
+    		}
+    		killedMonsterBags.clear();
     	}
+    	totalExpThisFight = 0;
     	context.controller.queueAnotherTick();
     }
     
-    private void lootMonsters(ArrayList<Monster> killedMonsters, boolean displayLootDialog) {
-    	Loot loot = model.currentMap.getBagOrCreateAt(killedMonsters.get(0).position);
-    	for(Monster m : killedMonsters) {
-    		m.createLoot(loot);
-    		model.statistics.addMonsterKill(m.monsterType);
-    	}
-    	if (loot.isEmpty()) return;
-    	if (displayLootDialog) Dialogs.showMonsterLoot(context.mainActivity, context, loot);
-    	ItemController.consumeNonItemLoot(loot, model);
-    	context.mainActivity.statusview.update();
+    private void lootCurrentMonsterBags() {
+    	Dialogs.showMonsterLoot(context.mainActivity, context, killedMonsterBags, totalExpThisFight);
+    	ItemController.consumeNonItemLoot(killedMonsterBags, model);
 	}
 
 	public boolean isMonsterTurn() { 
@@ -187,7 +185,7 @@ public final class CombatController {
 			if (!attack.targetDied) {
 				context.mainActivity.combatview.updateMonsterHealth(target.health);
 			} else {
-				killedMonsters.add(target);
+				playerKilledMonster(target);
 				Monster nextMonster = getAdjacentMonster();
 				if (nextMonster == null) {
 					exitCombat(true);
@@ -202,6 +200,24 @@ public final class CombatController {
 		
 		maybeAutoEndTurn();
 	}
+	
+    private void playerKilledMonster(Monster killedMonster) {
+    	Loot loot = model.currentMap.getBagOrCreateAt(killedMonster.position);
+		killedMonster.createLoot(loot);
+		
+		model.player.addExperience(loot.exp);
+		totalExpThisFight += loot.exp;
+		loot.exp = 0;
+		context.mainActivity.statusview.update(); // To show the new exp.
+		if (!loot.hasItems()) {
+			model.currentMap.removeGroundLoot(loot);
+		} else {
+			ItemController.updateLootVisibility(context, loot);
+			killedMonsterBags.add(loot);
+		}
+		
+		model.statistics.addMonsterKill(killedMonster.monsterType);
+    }
 
 	private void maybeAutoEndTurn() {
 		if (model.player.ap.current < model.player.useItemCost
@@ -340,7 +356,7 @@ public final class CombatController {
 		return getAverageDamagePerHit(attacker, target) * attacker.getAttacksPerTurn();
 	}
 	private static int getTurnsToKillTarget(ActorTraits attacker, ActorTraits target) {
-		if (attacker.hasCriticalEffect()) {
+		if (attacker.hasCriticalMultiplierEffect()) {
 			if (attacker.damagePotential.max * attacker.criticalMultiplier <= target.damageResistance) return 999;
 		} else {
 			if (attacker.damagePotential.max <= target.damageResistance) return 999;
@@ -392,9 +408,9 @@ public final class CombatController {
 		
 		int damage = Constants.rollValue(attacker.traits.damagePotential);
 		boolean isCriticalHit = false;
-		if (attacker.traits.hasCriticalEffect()) {
+		if (attacker.traits.hasCriticalChanceEffect()) {
 			isCriticalHit = Constants.roll100(attacker.traits.criticalChance);
-			if (isCriticalHit) {
+			if (isCriticalHit && attacker.traits.hasCriticalMultiplierEffect()) {
 				damage *= attacker.traits.criticalMultiplier;
 			}
 		}

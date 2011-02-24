@@ -43,12 +43,10 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_1_2, "map_tiles_1_2", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_2_7, "map_tiles_2_7", src_mapTileSize, defaultTileSize);
-        loader.prepareTileset(R.drawable.map_tiles_1_6, "map_tiles_1_6", src_mapTileSize, defaultTileSize);
         /*tiles.iconID_CHAR_HERO = */loader.getTileID(R.drawable.char_hero, 0);
         /*tiles.iconID_attackselect = */loader.getTileID(R.drawable.map_tiles_1_2, 6+16*5);
         /*tiles.iconID_moveselect = */loader.getTileID(R.drawable.map_tiles_1_2, 7+16*5);
         /*tiles.iconID_groundbag = */loader.getTileID(R.drawable.map_tiles_2_7, 13+16*0);
-        /*tiles.iconID_mapsign = */loader.getTileID(R.drawable.map_tiles_1_6, 1+16*3);
         loader.flush();
         
         
@@ -70,6 +68,7 @@ public final class ResourceLoader {
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_potions));
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_animal));
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_quest));
+            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_v068));
         }
         loader.flush();
         
@@ -83,6 +82,7 @@ public final class ResourceLoader {
         	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_crossglen_outside));
         	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_fallhaven));
         	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_wilderness));
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_v068));
         }
         
         
@@ -91,13 +91,19 @@ public final class ResourceLoader {
         QuestLoader questLoader = new QuestLoader();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_debug));
-        	world.quests.quests = questLoader.parseQuestsFromString(r.getString(R.string.questlist_debug));
+        	questLoader.parseQuestsFromString(r.getString(R.string.questlist_debug));
+        	world.quests.quests = questLoader.getParsedQuests();
         } else {
         	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_crossglen));
         	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_fallhaven));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_wilderness));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_vacor));
         	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_flagstone));
-        	world.quests.quests = questLoader.parseQuestsFromString(r.getString(R.string.questlist));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_farrik));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_andor_v068));
+        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_vilegard));
+        	questLoader.parseQuestsFromString(r.getString(R.string.questlist));
+        	questLoader.parseQuestsFromString(r.getString(R.string.questlist_v068));
+        	world.quests.quests = questLoader.getParsedQuests();
         }
     	questLoader = null;
         
@@ -131,7 +137,28 @@ public final class ResourceLoader {
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_unzel));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_wilderness));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_flagstone));
-	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_south));	        
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_south));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_signs_pre067));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_thievesguild_1));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_farrik));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_fallhaven_warden));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_umar));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_kaori));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_vilegard_villagers));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_vilegard_erttu));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_vilegard_tavern));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_jolnor));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_alynndir));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_shops));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_ogam));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_foamingflask));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_ambelie));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_foamingflask_guards));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_foamingflask_outsideguard));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_wrye));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_oluag));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_signs_v068));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_maelveon));
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();
@@ -181,6 +208,7 @@ public final class ResourceLoader {
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_animals));
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_npcs));
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_wilderness));
+	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_v068_npcs));
         }
         loader.flush();
 
@@ -278,9 +306,39 @@ public final class ResourceLoader {
 	        mapReader.read(r.getXml(R.xml.fallhaven_alaun), "fallhaven_alaun");
 	        mapReader.read(r.getXml(R.xml.fallhaven_storage), "fallhaven_storage");
 	        mapReader.read(r.getXml(R.xml.fallhaven_farmer), "fallhaven_farmer");
+	        mapReader.read(r.getXml(R.xml.wild13), "wild13");
+	        mapReader.read(r.getXml(R.xml.wild14), "wild14");
+	        mapReader.read(r.getXml(R.xml.wild14_cave), "wild14_cave");
+	        mapReader.read(r.getXml(R.xml.wild14_clearing), "wild14_clearing");
+	        mapReader.read(r.getXml(R.xml.wild15), "wild15");
+	        mapReader.read(r.getXml(R.xml.wild15_house), "wild15_house");
+	        mapReader.read(r.getXml(R.xml.road1), "road1");
+	        mapReader.read(r.getXml(R.xml.foaming_flask), "foaming_flask");
+	        mapReader.read(r.getXml(R.xml.fallhaven_derelict2), "fallhaven_derelict2");
+	        mapReader.read(r.getXml(R.xml.vilegard_n), "vilegard_n");
+	        mapReader.read(r.getXml(R.xml.vilegard_s), "vilegard_s");
+	        mapReader.read(r.getXml(R.xml.vilegard_sw), "vilegard_sw");
+	        mapReader.read(r.getXml(R.xml.vilegard_ogam), "vilegard_ogam");
+	        mapReader.read(r.getXml(R.xml.vilegard_chapel), "vilegard_chapel");
+	        mapReader.read(r.getXml(R.xml.vilegard_tavern), "vilegard_tavern");
+	        mapReader.read(r.getXml(R.xml.vilegard_armorer), "vilegard_armorer");
+	        mapReader.read(r.getXml(R.xml.vilegard_smith), "vilegard_smith");
+	        mapReader.read(r.getXml(R.xml.vilegard_wrye), "vilegard_wrye");
+	        mapReader.read(r.getXml(R.xml.vilegard_kaori), "vilegard_kaori");
+	        mapReader.read(r.getXml(R.xml.vilegard_erttu), "vilegard_erttu");
+	        mapReader.read(r.getXml(R.xml.road2), "road2");
+	        mapReader.read(r.getXml(R.xml.road3), "road3");
+	        mapReader.read(r.getXml(R.xml.road4), "road4");
+	        mapReader.read(r.getXml(R.xml.road4_gargoylecave), "road4_gargoylecave");
+	        mapReader.read(r.getXml(R.xml.road5), "road5");
+	        mapReader.read(r.getXml(R.xml.road5_house), "road5_house");
+	        mapReader.read(r.getXml(R.xml.gargoylecave1), "gargoylecave1");
+	        mapReader.read(r.getXml(R.xml.gargoylecave2), "gargoylecave2");
+	        mapReader.read(r.getXml(R.xml.gargoylecave3), "gargoylecave3");
+	        mapReader.read(r.getXml(R.xml.gargoylecave4), "gargoylecave4");
         }
         
-        world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes));
+        world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));
         mapReader = null;
         
         loader.flush();

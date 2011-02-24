@@ -37,9 +37,8 @@ public final class QuestLoader {
     	}
 	}
 	
-	public Quest[] parseQuestsFromString(String questlist) {
-		ArrayList<Quest> result = new ArrayList<Quest>();
-		
+	private ArrayList<Quest> parsedQuests = new ArrayList<Quest>();
+	public void parseQuestsFromString(String questlist) {
 		Matcher rowMatcher = ResourceLoader.rowPattern.matcher(questlist);
     	while(rowMatcher.find()) {
     		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
@@ -50,7 +49,7 @@ public final class QuestLoader {
     		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     			if (questID.trim().length() <= 0) {
     				L.log("WARNING: Quest phrase with empty id.");
-    			} else if (contains(result, questID)) {
+    			} else if (contains(parsedQuests, questID)) {
     				L.log("WARNING: Quest \"" + questID + "\" may be duplicated.");
     			}
     		}
@@ -76,23 +75,25 @@ public final class QuestLoader {
     		QuestLogEntry[] _stages = new QuestLogEntry[stages.size()];
     		_stages = stages.toArray(_stages);
     		
-    		result.add(new Quest(
+    		parsedQuests.add(new Quest(
     				questID
         			, parts[1]
         			, _stages
         			, ResourceLoader.parseInt(parts[3], 0)>0
     			));
     	}
-    	
+	}
+	
+	public Quest[] getParsedQuests() {
+    	Quest[] _result = new Quest[parsedQuests.size()];
+    	_result = parsedQuests.toArray(_result);
+
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		for (String s : parsedQuestLogEntries.keySet()) {
     			L.log("WARNING: Quest log entries for quest \"" + s + "\" has no corresponding quest.");
     		}
 		}
     	
-    	
-    	Quest[] _result = new Quest[result.size()];
-    	_result = result.toArray(_result);
     	return _result;
 	}
 	

@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="10" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC1NjYGCwZMSP1Rgg2JMRP4ap0yaASVEHsp8YdZ5EqCPGLG2oWaYMxGEAt0rhZEABAAA=
+   H4sIAAAAAAAAA1NjYGCwZMSP1Rgg2JMRP4ap0yaASVEHsp8YdZ5EqCPGLG2oWaYMxGEAt0rhZEABAAA=
   </data>
  </layer>
  <layer name="Objects" width="10" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgIB64M0MwCHhA6VQgzcrKwMDGilAXzgzBkUAcAcRLWBgYSoF0GRAnsyDUwcxAB0tYUPkRWPSCgD07Kr+DlYEgMGBGNb8cyK9AMhvdbkIAAG5QCwhAAQAA
+   H4sIAAAAAAAAA2NgIB64M0MwCHhA6VQgzcrKwMDGilAXzgzBkUAcAcRLWBgYSoF0GRAnsyDUwcxAB0tYUPkRWPSCgD07Kr+DlYEgMGBGNb8cyK9AMhvdbkIAAG5QCwhAAQAA
   </data>
  </layer>
  <layer name="Above" width="10" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgYGD4z8xAFEBX9wGHPpA6EVYE/z0edeTYiwsg25MOZGcQqQ8E/rARrxYZAACKLL/NQAEAAA==
+   H4sIAAAAAAAAA2NgYGD4z8xAFEBX9wGHPpA6EVYE/z0edeTYiwsg25MOZGcQqQ8E/rARrxYZAACKLL/NQAEAAA==
   </data>
  </layer>
  <layer name="Walkable" width="10" height="8" visible="0">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACxNkYGAQpDFmwMGG8XEBbOYQUkfIPGL0kuI3APcR0NJAAQAA
+   H4sIAAAAAAAAAxNkYGAQpDFmwMGG8XEBbOYQUkfIPGL0kuI3APcR0NJAAQAA
   </data>
  </layer>
  <objectgroup name="Mapevents" width="10" height="8">
@@ -75,11 +75,7 @@
     <property name="place" value="stairs_down"/>
    </properties>
   </object>
-  <object name="Note" type="sign" x="224" y="128" width="32" height="32">
-   <properties>
-    <property name="text" value="On the ground, you find a piece of paper with a lot of strange symbols. You can barely make out the words &quot;meet me at Lodars hideaway&quot;, but you are not sure what it means."/>
-   </properties>
-  </object>
+  <object name="note_lodars" type="sign" x="224" y="128" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="10" height="8" visible="0">
   <object name="crossglen_beetle" type="spawn" x="64" y="64" width="224" height="160">

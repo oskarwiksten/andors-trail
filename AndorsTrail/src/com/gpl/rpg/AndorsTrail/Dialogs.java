@@ -1,9 +1,11 @@
 package com.gpl.rpg.AndorsTrail;
 
+import java.util.Arrays;
+import java.util.HashSet;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
@@ -60,21 +62,23 @@ public final class Dialogs {
 	}
 	*/
 	
-	public static void showMapSign(final Context androidContext, final ViewContext context, String title, String text) {
-		Dialog d = new AlertDialog.Builder(androidContext)
-        .setTitle(title)
-        .setMessage(text)
-        .setIcon(new BitmapDrawable(context.tileStore.bitmaps[TileStore.iconID_mapsign]))
-        .setNeutralButton(android.R.string.ok, null)
-        .create();
-		showDialogAndPause(d, context);
+	public static void showKeyArea(final MainActivity currentActivity, final ViewContext context, String phraseID) {
+		showConversation(currentActivity, context, phraseID, -1);
+	}
+	
+	public static void showMapSign(final MainActivity currentActivity, final ViewContext context, String phraseID) {
+		showConversation(currentActivity, context, phraseID, -1);
 	}
 	
 	public static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, final Monster npc) {
+		showConversation(currentActivity, context, phraseID, npc.monsterType.id);
+	}
+	
+	private static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, int monsterTypeID) {
 		context.controller.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		Uri.Builder b = Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID).buildUpon();
-		b.appendQueryParameter("monsterTypeID", Integer.toString(npc.monsterType.id));
+		b.appendQueryParameter("monsterTypeID", Integer.toString(monsterTypeID));
 		intent.setData(b.build());
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
 	}
@@ -92,39 +96,52 @@ public final class Dialogs {
 		currentActivity.startActivity(intent);
 	}
 	
-	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot) {
-		showLoot(mainActivity, context, loot, R.string.dialog_monsterloot_title, R.string.dialog_monsterloot_message);
+	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext context, final HashSet<Loot> lootBags, int totalExpThisFight) {
+		// The real object of lootBags will get clear():ed by the caller after we have reached this function.
+		// Therefore, we make a shallow copy of it to remember the Loot objects that should be modified.
+		HashSet<Loot> copy = new HashSet<Loot>(lootBags);
+		
+		String msg = mainActivity.getString(R.string.dialog_monsterloot_message);
+		showLoot(mainActivity, context, copy, totalExpThisFight, R.string.dialog_monsterloot_title, msg, false);
 	}
 
 	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot) {
-		showLoot(mainActivity, context, loot, R.string.dialog_groundloot_title, R.string.dialog_groundloot_message);
+		String msg = "";
+		if (!loot.items.isEmpty()) msg = mainActivity.getString(R.string.dialog_groundloot_message);
+		showLoot(mainActivity, context, Arrays.asList(loot), 0, R.string.dialog_groundloot_title, msg, !loot.isVisible);
 	}
 	
-	private static void showLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot, final int title, final int message) {
-		if (ItemController.removeEmptyLoot(context, loot)) return;
-
-		String msg = mainActivity.getString(message);
-		if (loot.exp > 0) {
-			msg += mainActivity.getString(R.string.dialog_monsterloot_gainedexp, loot.exp);
-		}
-		if (loot.gold > 0) {
-			msg += mainActivity.getString(R.string.dialog_loot_foundgold, loot.gold);
+	private static void showLoot(final MainActivity mainActivity, final ViewContext context, final Iterable<Loot> lootBags, final int exp, final int title, String msg, boolean isContainer) {
+		//if (ItemController.updateLootVisibility(context, lootBags)) return;
+		
+		final Loot combinedLoot = new Loot();
+		for (Loot l : lootBags) {
+			combinedLoot.add(l);
 		}
 		
-		if (context.preferences.displayLoot != AndorsTrailPreferences.DISPLAYLOOT_DIALOG) {
-			if (context.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_TOAST) {
-				int numitems = loot.items.countItems();
-				if (numitems > 0) {
-					msg += mainActivity.getString(R.string.dialog_loot_pickedupitems, numitems);
-				}
-				mainActivity.showToast(msg, Toast.LENGTH_LONG);
-			}
-			ItemController.pickupAll(loot, context.model);
-        	ItemController.removeEmptyLoot(context, loot);
-			context.controller.resume();
-			return;
+		if (exp > 0) {
+			msg += mainActivity.getString(R.string.dialog_monsterloot_gainedexp, exp);
 		}
-
+		if (combinedLoot.gold > 0) {
+			msg += mainActivity.getString(R.string.dialog_loot_foundgold, combinedLoot.gold);
+		}
+		
+		if (!isContainer) {
+			if (context.preferences.displayLoot != AndorsTrailPreferences.DISPLAYLOOT_DIALOG) {
+				if (context.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_TOAST) {
+					int numItems = combinedLoot.items.countItems();
+					if (numItems > 0) {
+						msg += mainActivity.getString(R.string.dialog_loot_pickedupitems, numItems);
+					}
+					mainActivity.showToast(msg, Toast.LENGTH_LONG);
+				}
+				ItemController.pickupAll(lootBags, context.model);
+	        	ItemController.updateLootVisibility(context, lootBags);
+				context.controller.resume();
+				return;
+			}
+		}
+		
 		final ListView itemList = new ListView(mainActivity);
 		itemList.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
@@ -132,13 +149,16 @@ public final class Dialogs {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 				final int itemTypeID = (int) id;
-				loot.items.removeItem(itemTypeID, 1);
+				combinedLoot.items.removeItem(itemTypeID);
+				for (Loot l : lootBags) {
+					if (l.items.removeItem(itemTypeID)) break;
+				}
 				ItemType type = context.itemTypes.getItemType(itemTypeID);
 				context.model.player.inventory.addItem(type);
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
-		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileStore, loot.items));
+		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileStore, combinedLoot.items));
 		
 		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
         .setTitle(title)
@@ -147,11 +167,11 @@ public final class Dialogs {
         .setNegativeButton(R.string.dialog_close, null)
         .setView(itemList);
 		
-		if (!loot.items.isEmpty()) {
+		if (!combinedLoot.items.isEmpty()) {
 			db.setPositiveButton(R.string.dialog_loot_pickall, new DialogInterface.OnClickListener() {
 	            @Override
 	            public void onClick(DialogInterface dialog, int which) {
-	            	ItemController.pickupAll(loot, context.model);
+	            	ItemController.pickupAll(lootBags, context.model);
 	            }
 	        });
 		}
@@ -161,7 +181,7 @@ public final class Dialogs {
 		showDialogAndPause(d, context, new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
-				ItemController.removeEmptyLoot(context, loot);
+				ItemController.updateLootVisibility(context, lootBags);
 				context.controller.resume();
 			}
 		});

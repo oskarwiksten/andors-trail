@@ -13,6 +13,9 @@ public class AndorsTrailPreferences {
 	public static final int DISPLAYLOOT_NONE = 2;
 	public boolean fullscreen = true;
 	public int attackspeed_milliseconds = 1000;
+	public int movementMethod = MOVEMENTMETHOD_STRAIGHT;
+	public static final int MOVEMENTMETHOD_STRAIGHT = 0;
+	public static final int MOVEMENTMETHOD_DIRECTIONAL = 1;
 	
 	public static void read(final Context androidContext, AndorsTrailPreferences dest) {
 		try {
@@ -22,12 +25,14 @@ public class AndorsTrailPreferences {
 			dest.displayLoot = Integer.parseInt(prefs.getString("display_lootdialog", Integer.toString(DISPLAYLOOT_DIALOG)));
 			dest.fullscreen = prefs.getBoolean("fullscreen", true);
 			dest.attackspeed_milliseconds = Integer.parseInt(prefs.getString("attackspeed", "1000"));
+			dest.movementMethod = Integer.parseInt(prefs.getString("movementmethod", Integer.toString(MOVEMENTMETHOD_STRAIGHT)));
 		} catch (Exception e) {
 			dest.confirmRest = true;
 			dest.confirmAttack = true;
 			dest.displayLoot = DISPLAYLOOT_DIALOG;
 			dest.fullscreen = true;
 			dest.attackspeed_milliseconds = 1000;
+			dest.movementMethod = MOVEMENTMETHOD_STRAIGHT;
 		}
 	}
 	

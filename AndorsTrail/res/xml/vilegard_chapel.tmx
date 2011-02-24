@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="18" height="14" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png"/>
+ </tileset>
+ <layer name="Ground" width="18" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NiZGBgohI2JAFjUw8zx5EEjKzegxmCYeYYMEBwNh4MU4OsPoIZgik1B1mMHHNAfoHxKfEXTA96fKG7Ex+GxREymxxzYHGFzCbHHGyYHHNwxZchGeGDHFcgbIjkV1LCBz0dgsTCGLBjAxziuDAAlyDBq/ADAAA=
+  </data>
+ </layer>
+ <layer name="Objects" width="18" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoC5wYcFkYxODAWl27OaEQNUZsCPYINqAHVUeBCawMTBoYzFHnpWBYSMrhO0AlE8G6pEF8uVYEXyQvDxUzQI2iBg6KAaqPciK3Z0wAJIvxuEXdHWUyMPARaC6k8wMDFeB+CgSPgbEp5kh8sgAm7+QwUp2VDXofFoBd2ZU/jygveuheAHUDdjEkEEY0IxwNHOoBchxD6VAnsg0QA4AAGpiYUPwAwAA
+  </data>
+ </layer>
+ <layer name="Above" width="18" height="14">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgoB74z0wd9TDxlVCah5WBgReI+Vgh/NXM2NUTMkeGFVUeZA6yXmLNQQekmrMTSN9GU7MNyN9NojkgMJMdVQ7Gf09EXJAaX7j0kGMONveRYw42MFDm4FJPTFxQop4UAACx3XPE8AMAAA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="18" height="14" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAAxNkYGAQHOaYgQRxXGphcrgAPnXoZhMyB10PNvNx2YdLHSF3EMPHF2bEAlLDnhj7KHUPtdxILfcQSofEpldsGABWz6yy8AMAAA==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="18" height="14">
+  <object name="entrance" type="mapchange" x="192" y="416" width="32" height="32">
+   <properties>
+    <property name="map" value="vilegard_s"/>
+    <property name="place" value="chapel"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="18" height="14">
+  <object name="jolnor" type="spawn" x="192" y="128" width="32" height="32"/>
+  <object name="chapelgoer" type="spawn" x="32" y="224" width="160" height="192"/>
+  <object name="chapelgoer" type="spawn" x="224" y="224" width="160" height="192"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="18" height="14"/>
+</map>

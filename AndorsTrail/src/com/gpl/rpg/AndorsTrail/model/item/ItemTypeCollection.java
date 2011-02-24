@@ -20,7 +20,6 @@ public final class ItemTypeCollection {
 	public ItemType getItemTypeByTag(String searchTag) {
 		for(ItemType t : itemTypes) {
 			if (t.searchTag.equalsIgnoreCase(searchTag)) return t;
-			if (t.name.equalsIgnoreCase(searchTag)) return t;
 		}
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			L.log("WARNING: Cannot find ItemType for searchtag \"" + searchTag + "\".");
@@ -37,7 +36,12 @@ public final class ItemTypeCollection {
     		
     		final String itemTypeName = parts[2];
 			String searchTag = parts[0];
-			if (searchTag == null || searchTag.length() <= 0) searchTag = itemTypeName;
+			if (searchTag == null || searchTag.length() <= 0) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+					L.log("OPTIMIZE: ItemType \"" + itemTypeName + "\" has empty searchtag.");
+				}
+				searchTag = itemTypeName;
+			}
 			
     		itemTypes.add(new ItemType(
         			nextId

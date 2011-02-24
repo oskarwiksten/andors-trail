@@ -8,8 +8,8 @@
 	
 	<string name="itemlist_debug">
 [Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
-{|items_tiles:90|Black heart dagger|0|6||2|100|30|3|5-10|||};
-{|items_tiles:270|Black heart ring|7|3|||50|||10|||};
+{debug_dagger1|items_tiles:90|Black heart dagger|0|6||2|100|30|3|5-10|||};
+{debug_ring1|items_tiles:270|Black heart ring|7|3|||50|||10|||};
 	</string>
 
 	<string name="itemlist_weapons">
@@ -89,13 +89,13 @@
 {apple_red|items_tiles:3|Red apple|21|15|6||||||||};
 {meat|items_tiles:25|Meat|21|29|12||||||||};
 {meat_cooked|items_tiles:27|Cooked meat|21|78|21||||||||};
-{|items_tiles:8|Strawberry|21|1|1||||||||};
-{|items_tiles:15|Carrot|21|9|4||||||||};
-{|items_tiles:21|Bread|21|6|5||||||||};
-{|items_tiles:19|Mushroom|21|1|1||||||||};
-{|items_tiles:9|Pear|21|9|4||||||||};
-{|items_tiles:20|Eggs|21|8|3||||||||};
-{|items_tiles:14|Radish|21|5|2||||||||};
+{strawberry|items_tiles:8|Strawberry|21|1|1||||||||};
+{carrot|items_tiles:15|Carrot|21|9|4||||||||};
+{bread|items_tiles:21|Bread|21|6|5||||||||};
+{mushroom|items_tiles:19|Mushroom|21|1|1||||||||};
+{pear|items_tiles:9|Pear|21|9|4||||||||};
+{eggs|items_tiles:20|Eggs|21|8|3||||||||};
+{radish|items_tiles:14|Radish|21|5|2||||||||};
 	</string>
 
 	<string name="itemlist_potions">
@@ -117,12 +117,12 @@
 {hair|items_tiles:258|Animal hair|31|2|||||||||};
 {insectwing|items_tiles:262|Insect wing|31|3|||||||||};
 {bone|items_tiles:254|Bone|31|2|||||||||};
-{|items_tiles:255|Eye|31|6|||||||||};
-{|items_tiles:256|Bat wing|31|2|||||||||};
+{eye|items_tiles:255|Eye|31|6|||||||||};
+{bat_wing|items_tiles:256|Bat wing|31|2|||||||||};
 {claws|items_tiles:257|Claws|31|2|||||||||};
 {shell|items_tiles:264|Insect shell|31|2|||||||||};
-{|items_tiles:226|Feather|31|6|||||||||};
-{|items_tiles:225|Red feather|31|11|||||||||};
+{feather|items_tiles:226|Feather|31|6|||||||||};
+{red_feather|items_tiles:225|Red feather|31|11|||||||||};
 {gland|items_tiles:340|Poison gland|31|15|||||||||};
 {rat_tail|items_tiles:103|Rat tail|31|2|||||||||};
 	</string>
@@ -161,4 +161,24 @@
 {packhide|items_tiles:183|Wolfpack\'s animal hide|3|121|||-15||||2|1|};
 {sword_flagstone|items_tiles:77|Flagstone\'s pride|0|169||4|21|10|2|1-6|||};
 	</string>
+	
+	<string name="itemlist_v068">
+[Tag|Icon|Name|Category|Cost|HP|AtkCost|AtkPct|CritPct|CritMult|DMG|BlkPct|DMG_res|];
+{armor_chain1|items_tiles:185|Rusty chain mail|3|3629|||-10||||20||};
+{armor_chain2|items_tiles:185|Ordinary chain mail|3|4191|||-5||||22||};
+{hat_leather1|items_tiles:192|Hardened leather cap|2|261|||-2||||7||};
+{sleepingmead|items_tiles:51|Prepared sleepy mead|31|0|||||||||};
+{ffguard_qitem|items_tiles:266|Feygard patrol ring|31|0|||||||||};
+{shield6|items_tiles:171|Wooden tower shield|1|952|||-8||||12||};
+{shield7|items_tiles:171|Strong wooden tower shield|1|1538|||-8||||14||};
+{club_wood1|items_tiles:128|Heavy iron club|0|950||8|15|5|3|2-11|||};
+{club_wood2|items_tiles:128|Balanced heavy iron club|0|2194||7|10|10|3|2-11|||};
+{gloves_grip|items_tiles:203|Gloves of better grip|4|471|||9||||1||};
+{gloves_fancy|items_tiles:203|Fancy gloves|4|78|||5||||||};
+{ring_crit1|items_tiles:266|Ring of strike|7|2921||||5|||||};
+{ring_crit2|items_tiles:266|Ring of vicious strike|7|3455|||-10|7|||||};
+{armor_stone|items_tiles:185|Stone Cuirass|3|52||2|||||22|1|};
+{ring_shadow0|items_tiles:268|Ring of lesser shadows|7|612|||15|5||3|||};
+	</string>
+	
 </resources>

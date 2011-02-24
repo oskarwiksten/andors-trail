@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 
@@ -56,11 +55,21 @@ public final class Controller {
     	mTickHandler.sleep(Constants.TICK_DELAY);
     }
     
+    private int tickCount = 0;
 	private void tick() {
 		//L.log(id + " : Controller::tick()");
     	if (!model.uiSelections.isMainActivityVisible) return;
     	if (model.uiSelections.isInCombat) return;
     	
+    	++tickCount;
+    	if (tickCount >= 20) {
+    		tickCount = 0;
+    		for (LayeredWorldMap m : world.maps.predefinedMaps) {
+	    		if (m == model.currentMap) continue;
+    			m.resetIfNotRecentlyVisited();
+	    	}
+	    }
+    		
     	boolean hasChanged = false;
     	if (view.monsterMovementController.moveMonsters()) hasChanged = true;
     	if (model.currentMap.maybeSpawn(world)) hasChanged = true;
@@ -87,9 +96,8 @@ public final class Controller {
     public void handleMapEvent(MapObject o, Coord position) {
 		switch (o.type) {
 		case MapObject.MAPEVENT_SIGN:
-			if (o.questProgress != null) model.player.addQuestProgress(o.questProgress);
-			if (o.text == null) return;
-			Dialogs.showMapSign(view.mainActivity, view, o.title, o.text);
+			if (o.id == null || o.id.length() <= 0) return;
+			Dialogs.showMapSign(view.mainActivity, view, o.id);
 			break;
 		case MapObject.MAPEVENT_NEWMAP:
 			if (o.map == null || o.place == null) return;
@@ -147,14 +155,8 @@ public final class Controller {
 	}
 	
 	public boolean handleKeyArea(MapObject area) {
-		if (view.model.player.hasExactQuestProgress(area.questProgress)) return true;
-		final Context androidContext = view.mainActivity;
-
-		String message = area.text;
-		if (message == null || message.length() == 0) {
-			message = androidContext.getResources().getString(R.string.key_required);
-		}
-		view.mainActivity.message(message);
+		if (view.model.player.hasExactQuestProgress(area.requireQuestProgress)) return true;
+		Dialogs.showKeyArea(view.mainActivity, view, area.id);
 		return false;
 	}
 }

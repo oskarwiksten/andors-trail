@@ -93,7 +93,7 @@ public final class ItemType {
 			sb.append(attackEffect.damagePotential.toMinMaxString());
 			addSpace = true;
 		}
-		if (attackEffect.hasCriticalEffect()) {
+		if (attackEffect.hasCriticalChanceEffect()) {
 			sb.append(" +");
 			sb.append(attackEffect.criticalChance);
 			sb.append("%x");

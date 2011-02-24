@@ -8,6 +8,7 @@ import java.util.regex.Matcher;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
@@ -21,7 +22,7 @@ public final class MonsterTypeCollection {
 	public MonsterType getMonsterType(int id) {
 		return monsterTypes.get(id);
 	}
-	public MonsterType getMonsterType(String name) {
+	public MonsterType getMonsterTypeFromName(String name) {
 		for (MonsterType t : monsterTypes) {
 			if (t.name.equalsIgnoreCase(name)) return t;
 		}
@@ -113,7 +114,22 @@ public final class MonsterTypeCollection {
     		}
     	}
 	}
-	
+
+	// Selftest method. Not part of the game logic.
+	public void verifyData(ConversationCollection conversations) {
+    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+    		for (MonsterType t : monsterTypes) {
+    			if (t.phraseID != null && t.phraseID.length() > 0) {
+    				if (conversations.DEBUG_leadsToTradeReply(t.phraseID)) {
+    					if (t.dropList == null) {
+    						L.log("WARNING: MonsterType \"" + t.name + "\" has conversation \"" + t.phraseID + "\" that leads to a trade, but the monster type does not have a droplist.");
+    					}
+    				}
+    			}
+    		}
+    	}
+	}
+
 	// Selftest method. Not part of the game logic.
 	public HashSet<String> DEBUG_getRequiredPhrases() {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {

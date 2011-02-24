@@ -18,29 +18,6 @@
 	<string name="loadsave_slot_empty">(empty)</string>
 	<string name="savegame_currenthero_displayinfo">level %1$d, %2$d exp, %3$d gold</string>
 	
-	<string-array name="preferences_display_loot">
-		<item>Show loot dialog box</item>
-		<item>Show short notification</item>
-		<item>Do not display</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>Instant (no animations)</item>
-		<item>Fast</item>
-		<item>Normal</item>
-		<item>Slow</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
-	</string-array>
-	
 	<string name="dialog_loading_message">Loading resources...</string>
 	<string name="dialog_loading_failed_title">Load Failed</string>
 	<string name="dialog_loading_failed_message">Andor\'s Trail was unable to load the savegame file.\n\n:(\n\nThe file may be damaged or incomplete.</string>
@@ -146,7 +123,7 @@
     <string name="traitsinfo_defense_chance">Block chance:</string>
     <string name="traitsinfo_defense_damageresist">Damage resistance:</string>
     
-	<string name="key_required">A specific key is required to pass.</string>
+	<!-- <string name="key_required">A specific key is required to pass.</string>  -->
 
 	<string name="iteminfo_category">Category: </string>
 	<string name="iteminfo_action_use">Use</string>
@@ -176,12 +153,14 @@
 	<string name="startscreen_enterheroname">Enter hero name</string>
 	<string name="startscreen_load">Load</string>
 	
-	<string name="conversation_title">%1$s says</string>
+	<!-- <string name="conversation_title">%1$s says</string>  -->
 	<string name="conversation_rewardexp"> [You gained %1$d experience]</string>
 	<string name="conversation_rewardgold"> [You gained %1$d gold]</string>
 	<string name="conversation_lostgold"> [You lost %1$d gold]</string>
 	<string name="conversation_rewarditem"> [You gained an item]</string>
 	<string name="conversation_rewarditems"> [You gained %1$d items]</string>
+	<string name="conversation_next">Next</string>
+	<string name="conversation_leave">Leave</string>
 	
 	<string name="shop_buy">Buy</string>
 	<string name="shop_sell">Sell</string>
@@ -212,11 +191,15 @@
 	<string name="about_button2">Authors</string>
 	<string name="about_button3">License</string>
 	<string name="about_contents1">
-		Welcome to Andor\'s Trail, a roguelike RPG on Android.&lt;br /&gt;
+		Welcome to Andor\'s Trail, an open-source roguelike RPG on Android.&lt;br /&gt;
 		&lt;br /&gt;
-		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Project homepage on code.google.com&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://andors.techby2guys.com/"&gt;Game forums on andors.techby2guys.com for questions and gameplay discussions.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
-		I should really add some info here about how to play the game :)&lt;br /&gt;
+		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Project homepage on code.google.com for developers.&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		Please visit the forums to discuss the game with other players.&lt;br /&gt;
+		&lt;br /&gt;
+		We really should add some info here about how to play the game :)&lt;br /&gt;
 	</string>
 	<string name="about_contents2">
 		Programming by Oskar Wiksten&lt;br /&gt;
@@ -224,13 +207,17 @@
 		&lt;a href="http://ails.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453"&gt;Item tilesets graphics by Ails&lt;/a&gt;&lt;br /&gt;
 		&lt;a href="http://redknight91.deviantart.com/art/Arena-Game-Sprites-154661559"&gt;Hero graphics by RedKnight91&lt;/a&gt;&lt;br /&gt;
 		&lt;a href="http://nacred.deviantart.com/art/Sprite-Sheet-171751308"&gt;Additional monster graphics by nacred&lt;/a&gt;&lt;br /&gt;
+		&lt;a href="http://andors.techby2guys.com/"&gt;Game forums provided by Scott Devaney&lt;/a&gt;&lt;br /&gt;
+		Russian translation by Dreamer...&lt;br /&gt;
+		Italian translation by k6blue&lt;br /&gt;
+		Additional programming by Samuel Plentz&lt;br /&gt;
 		&lt;a href="http://rltiles.sourceforge.net"&gt;Monster tileset graphics by rltiles.sourceforge.net&lt;/a&gt;&lt;br /&gt;
 		Part of (or All) the graphic tiles used in this program is the public domain roguelike tileset "RLTiles".
 		Some of the tiles have been modified by Oskar Wiksten.
 		You can find the original tileset at &lt;a href="http://rltiles.sf.net"&gt;http://rltiles.sf.net&lt;/a&gt;&lt;br /&gt;
 	</string>
 	<string name="about_contents3">
-		Copyright (C) 2010 Oskar Wiksten&lt;br /&gt;
+		Copyright (C) 2011 Oskar Wiksten&lt;br /&gt;
 		&lt;br /&gt;
 		This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&lt;br /&gt;
 		&lt;br /&gt;
@@ -245,9 +232,9 @@
 	<string name="dialog_newversion_message">
 		Thank you for downloading Andor\'s Trail!\n\n
 		Please note that this version of Andor\'s Trail is a WORK IN PROGRESS, which means that all maps are not yet complete.\n
-		You are however of course free to explore Crossglen village as much as you like.\n
+		You are however of course free to explore the initial towns and dungeons as much as you like.\n
 		Since this is a work in progress, it may contain bugs and gameplay that is not balanced well. This release is intended as a bug-hunt before we start adding even more content.\n
-		Please visit the project page to get more info or to contribute to the project (see "about").\n
+		Please visit the project forums to get more info or to contribute to the project (see "about").\n
 		\n
 		Thanks for all the feedback!
 	</string> 
@@ -262,5 +249,55 @@
 	<string name="questlog_queststatus">Status: %1$s</string>
 	<string name="questlog_queststatus_inprogress">In progress</string>
 	<string name="questlog_queststatus_completed">Completed</string>
+	
+	<string name="preferences_display_category">Display</string>
+	<string name="preferences_display_fullscreen_title">Fullscreen</string>
+	<string name="preferences_display_fullscreen">Displays the game in fullscreen mode. (Requires restart)</string>
+	<string name="preferences_dialog_category">Dialog confirmation</string>
+	<string name="preferences_dialog_confirmrest_title">Confirm rest</string>
+	<string name="preferences_dialog_confirmrest">Gives a question about whether you want to rest when entering a bed. Otherwise, you will always automatically rest.</string>
+	<string name="preferences_dialog_confirmattack_title">Confirm attack</string>
+	<string name="preferences_dialog_confirmattack">Enables the \'Do you want to attack..?\' dialog box when attacking a monster.</string>
+	<string name="preferences_dialog_monsterloot_title">Display monster loot</string>
+	<string name="preferences_dialog_monsterloot">Choose how you want to show the results of a fight to be shown (gold, experience, items).</string>
+	<string name="preferences_combat_category">Combat</string>
+	<string name="preferences_combat_speed_title">Combat speed</string>
+	<string name="preferences_combat_speed">Determines how fast monsters attack.</string>
+
+	<string-array name="preferences_display_loot">
+		<item>Show loot dialog box</item>
+		<item>Show short notification</item>
+		<item>Do not display</item>
+	</string-array>
+	<string-array name="preferences_display_loot_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+	<string-array name="preferences_attackspeed">
+		<item>Instant (no animations)</item>
+		<item>Fast</item>
+		<item>Normal</item>
+		<item>Slow</item>
+	</string-array>
+	<string-array name="preferences_attackspeed_values">
+		<item>0</item>
+		<item>400</item>
+		<item>1000</item>
+		<item>1500</item>
+	</string-array>
+	
+	<string name="preferences_movement_category">Movement</string>
+	<string name="preferences_movementmethod_title">Movement method</string>
+	<string name="preferences_movementmethod">Type of movement method and handling of obstacles.</string>
+	<string-array name="preferences_movementmethods">
+		<item>Straight (original)</item>
+		<item>Directional</item>
+	</string-array>
+	<string-array name="preferences_movementmethod_values">
+		<item>0</item>
+		<item>1</item>
+	</string-array>
+	
 
 </resources>

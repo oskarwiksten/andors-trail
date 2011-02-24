@@ -37,7 +37,7 @@ public final class MapCollection {
 			for (LayeredWorldMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
 					if (o.type == MapObject.MAPEVENT_NEWMAP) {
-						final String desc = "Map \"" + m.name + "\", place \"" + o.title + "\"";
+						final String desc = "Map \"" + m.name + "\", place \"" + o.id + "\"";
 						if (o.map == null || o.map.length() <= 0) {
 							L.log("OPTIMIZE: " + desc + " has no destination map.");
 						} else if (o.place == null || o.place.length() <= 0) {
@@ -58,7 +58,7 @@ public final class MapCollection {
 								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this map.");
 								continue;
 							}
-							if (!o.title.equalsIgnoreCase(place.place)) {
+							if (!o.id.equalsIgnoreCase(place.place)) {
 								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this place.");
 								continue;
 							}
@@ -66,6 +66,31 @@ public final class MapCollection {
 								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", with different mapchange size.");
 								continue;
 							}
+						}
+					} else if (o.type == MapObject.MAPEVENT_KEYAREA) {
+						if (o.id == null || o.id.length() <= 0) {
+							L.log("WARNING: Map \"" + m.name + "\" contains keyarea without phraseid.");
+							continue;
+						} 
+						world.conversations.getPhrase(o.id); // Will warn inside if not available.
+					} else if (o.type == MapObject.MAPEVENT_SIGN) {
+						if (o.id == null || o.id.length() <= 0) {
+							L.log("WARNING: Map \"" + m.name + "\" contains sign without phraseid.");
+							continue;
+						} 
+						world.conversations.getPhrase(o.id); // Will warn inside if not available.
+					}
+				}
+				
+				for (int i = 0; i < m.spawnAreas.length; ++i) {
+					MonsterSpawnArea uniqueArea = m.spawnAreas[i];
+					if (!uniqueArea.isUnique) continue;
+					
+					for (int j = 0; j < i; ++j) {
+						MonsterSpawnArea nonUniqueArea = m.spawnAreas[j];
+						if (nonUniqueArea.isUnique) continue;
+						if (nonUniqueArea.area.intersects(uniqueArea.area)) {
+							L.log("WARNING: Map \"" + m.name + "\" contains unique spawnarea at " + uniqueArea.area.toString() + " that intersects a nonunique spawnarea. Consider placing the unique spawn first to make sure that this monster has a place to spawn.");
 						}
 					}
 				}
@@ -78,9 +103,23 @@ public final class MapCollection {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (LayeredWorldMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
-					if (o.type == MapObject.MAPEVENT_SIGN) {
-						if (o.questProgress == null) continue;
-						requiredStages.add(o.questProgress.toString());
+					if (o.type == MapObject.MAPEVENT_KEYAREA) {
+						if (o.requireQuestProgress == null) continue;
+						requiredStages.add(o.requireQuestProgress.toString());
+					}
+				}
+			}
+		}
+	}
+	
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getUsedPhrases(HashSet<String> usedPhrases) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (LayeredWorldMap m : predefinedMaps) {
+				for (MapObject o : m.eventObjects) {
+					if (o.type == MapObject.MAPEVENT_KEYAREA || o.type == MapObject.MAPEVENT_SIGN) {
+						if (o.id == null || o.id.length() <= 0) continue;
+						usedPhrases.add(o.id);
 					}
 				}
 			}

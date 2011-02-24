@@ -55,15 +55,15 @@
  </layer>
  <layer name="Objects" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA41SwQkDMQxzaTKJtyj020UywkH/7qtr3ia9QNxThN1GEBywFdmRWxXZjtMo6nEeFxFL8r/ia3A7VuttxI5VXa/veI77begavJvxUNOKTNjLWYN8ziPwPa3x/AjspVBute8MFvGoZ+4Ra5yvoON/7LNHHjqH5/X5tM7e9Hi/zprRf305MAN70II9YbwD31qgm+2bJrl/e86eYPwAF62E3oQDAAA=
+   H4sIAAAAAAAAA41Tyw3DMAh1VGcStqiUaxdhhEq926dOmHs2KakgxfTR9EkIi98DY/NcShdpIncRVk0it+nbHvUqssPbu+YiO6pn9q61EG/GY3jo+aq87YTPx7zPtQzY6ifG50e/h69HoF+fbz6Lr8H3b98ZGsoLPccefYzlk+OxO7bZs90SmNfmo3ncza6Xy8iJ7uvIcTPEHTB4nxFPsDcOvL/eDQEODnxr0kf2l14bV7jyhAMAAA==
   </data>
  </layer>
  <layer name="Above" width="15" height="15">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgwA6KWHFIkAAKqWAGMXZQw63Emocuh089Nv/D1FI7bMgNB2R3gPSjm0OK37DpQWaT40Zi1eNyD7KfkO1HFiMFkBtv+PwBAFjPAW6EAwAA
+   H4sIAAAAAAAAA62QwQ4AMARDXfbB8/+HZQeJiKrJ3rGKIpKjCxQS3wZepE9Ae67WzdqBzYu1yp/lNe/P37AcrM+wH2vQWF8E9U8ydv0oj7/J7/faC8yPZlZ3HNnLxiaEAwAA
   </data>
  </layer>
- <layer name="Walkable" width="15" height="15">
+ <layer name="Walkable" width="15" height="15" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAAxNkYGAQxIEZ8MgRwgxk6idVHy5AjD5CZmAzhxi1DAyYdmDTj89Mergbn3nUCGNsekmNc3Q5fIBY+8nxBy0xAPZH4PGEAwAA
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="15">
+ <objectgroup name="Spawn" width="15" height="15" visible="0">
   <object name="pack1" type="spawn" x="288" y="352" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>

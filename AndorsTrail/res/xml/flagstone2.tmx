@@ -81,12 +81,7 @@
     <property name="place" value="hole"/>
    </properties>
   </object>
-  <object name="Broken steps" type="sign" x="224" y="256" width="32" height="32">
-   <properties>
-    <property name="enablekey" value="flagstone:20"/>
-    <property name="text" value="You notice that this tunnel seems to be dug out from below Flagstone. Probably the work of one of the former prisoners from Flagstone."/>
-   </properties>
-  </object>
+  <object name="flagstone_brokensteps" type="sign" x="224" y="256" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="11" height="30">
   <object name="flagstone_guard1" type="spawn" x="224" y="320" width="32" height="32">
@@ -106,7 +101,7 @@
  <objectgroup name="Keys" width="11" height="30">
   <object name="flagstone:40" type="key" x="224" y="288" width="32" height="32">
    <properties>
-    <property name="message" value="The demon radiates a force that pushes you back, making it impossible to approach the demon."/>
+    <property name="phrase" value="flagstone_key_demon"/>
    </properties>
   </object>
  </objectgroup>

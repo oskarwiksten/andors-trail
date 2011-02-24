@@ -6,12 +6,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.InflaterInputStream;
 
 import org.xmlpull.v1.XmlPullParserException;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.item.DropList;
+import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.util.Base64;
@@ -71,13 +74,24 @@ public final class TMXMapReader {
 									readCurrentTagUntilEnd(xrp, new TagHandler() {
 										public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 											if (tagName.equals("data")) {
+												String compressionMethod = xrp.getAttributeValue(null, "compression");
 												xrp.next();
 												String data = xrp.getText().trim();
 												final int len = layer.width * layer.height * 4;
 												
 												//L.log("Layer " + layer.name + " with data " + data);
-												ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data)); 
-												GZIPInputStream zi = new GZIPInputStream(bi, len);
+												ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data));
+												if (compressionMethod == null) compressionMethod = "none";
+													
+												InflaterInputStream zi;
+												if (compressionMethod.equalsIgnoreCase("zlib")) {
+													zi = new InflaterInputStream(bi);
+												} else if (compressionMethod.equalsIgnoreCase("gzip")) {
+													zi = new GZIPInputStream(bi, len);
+												} else {
+													throw new IOException("Unhandled compression method \"" + compressionMethod + "\" for map layer " + layer.name);
+												}
+													
 												byte[] buffer = new byte[len];
 												zi.read(buffer, 0, len);
 												zi.close();
@@ -132,9 +146,9 @@ public final class TMXMapReader {
             }
             xrp.close();
 		} catch (XmlPullParserException e) {
-			L.log(e.toString());
+			L.log("Error reading map \"" + name + "\": XmlPullParserException : " + e.toString());
 		} catch (IOException e) {
-			L.log(e.toString());
+			L.log("Error reading map \"" + name + "\": IOException : " + e.toString());
 		}
 		maps.add(currentMap);
 		return currentMap;
@@ -177,10 +191,10 @@ public final class TMXMapReader {
 				(buffer[offset + 3] << 24) & 0xff000000;
 	}
 	
-	public ArrayList<LayeredWorldMap> transformMaps(DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes) {
-		return transformMaps(maps, tileLoader, monsterTypes);
+	public ArrayList<LayeredWorldMap> transformMaps(DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
+		return transformMaps(maps, tileLoader, monsterTypes, dropLists);
 	}
-	public ArrayList<LayeredWorldMap> transformMaps(Collection<TMXMap> maps, DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes) {
+	public ArrayList<LayeredWorldMap> transformMaps(Collection<TMXMap> maps, DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
 		ArrayList<LayeredWorldMap> result = new ArrayList<LayeredWorldMap>();
 		
 		for (TMXMap m : maps) {
@@ -251,25 +265,23 @@ public final class TMXMapReader {
 					final int width = Math.round(((float)object.width) / m.tilewidth);
 					final int height = Math.round(((float)object.height) / m.tileheight);
 					final CoordRect position = new CoordRect(topLeft, new Size(width, height));
-						
-					if (object.type.equalsIgnoreCase("sign")) {
-						String title = object.name; 
-						String text = null;
-						QuestProgress enableQuestStage = null;
+					
+					if (object.type == null) {
+						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) 
+							L.log("WARNING: Map " + m.name + ", object \"" + object.name + "\" has null type.");
+					} else if (object.type.equalsIgnoreCase("sign")) {
+						String phraseID = object.name;
 						for (TMXProperty p : object.properties) {
-							if(p.name.equalsIgnoreCase("text")) text = p.value;
-							else if(p.name.equalsIgnoreCase("title")) title = p.value;
-							else if(p.name.equalsIgnoreCase("enablekey")) enableQuestStage = QuestProgress.parseQuestProgress(p.value);
-							else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "  has unrecognized property \"" + p.name + "\".");
+							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapSignEvent(position, title, text, enableQuestStage));
+						mapObjects.add(MapObject.createMapSignEvent(position, phraseID));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
 						String map = null;
 						String place = null;
 						for (TMXProperty p : object.properties) {
 							if(p.name.equalsIgnoreCase("map")) map = p.value;
 							else if(p.name.equalsIgnoreCase("place")) place = p.value;
-							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "  has unrecognized property \"" + p.name + "\".");
+							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + " has unrecognized property \"" + p.name + "\".");
 						}
 						mapObjects.add(MapObject.createNewMapEvent(position, object.name, map, place));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
@@ -290,7 +302,7 @@ public final class TMXMapReader {
 							} else if (p.name.equalsIgnoreCase("unique")) {
 								isUnique = Boolean.parseBoolean(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + "  has unrecognized property \"" + p.name + "\".");
+								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
 						
@@ -321,18 +333,22 @@ public final class TMXMapReader {
 							}
 							continue;
 						}
-						String message = "";
+						String phraseID = "";
 						for (TMXProperty p : object.properties) {
-							if (p.name.equalsIgnoreCase("message")) {
-								message = p.value;
+							if (p.name.equalsIgnoreCase("phrase")) {
+								phraseID = p.value;
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "  has unrecognized property \"" + p.name + "\".");
+								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
 						
-						mapObjects.add(MapObject.createNewKeyArea(position, message, requireQuestStage));
+						mapObjects.add(MapObject.createNewKeyArea(position, phraseID, requireQuestStage));
 					} else if (object.type.equals("rest")) {
 						mapObjects.add(MapObject.createNewRest(position));
+					} else if (object.type.equals("container")) {
+						DropList dropList = dropLists.getDropList(object.name);
+						if (dropList == null) continue;
+						mapObjects.add(MapObject.createNewContainerArea(position, dropList));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}

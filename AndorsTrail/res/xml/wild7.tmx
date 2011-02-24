@@ -55,15 +55,15 @@
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA62UTQ6CMBCFW1Nu4EVMDAvjzsSFW46AN0Dcw4r7sOEIXMNwEdvQSR9DB2riSyb89ps30x+l0nTL5utolLprpRr7XNko2TVVhf13MPO94zlxVpnIOx+Wz//wRx7RX4z5q7faBN5k1sw91SZ4aZk/Uqo/7o3m42J5H8iT4g9ZhfDfEGGm+EI9dDxHE/F3zAKr87mpLhL2DpmVnxvk9Gws5sa5OAl1dZHxONbpacfnEFdYK058Ped6HS8d1gkX1ivtN+oD7xV9Q/bW3qh8vKE+6sHE2NQH4vWRvVH6aIX+otxa+5jtvUH+UKPQN16vVLN03uB78l9kS14XqTnW060zjdfLc++xyN/EzmZpfr95qFcwQAYAAA==
+   H4sIAAAAAAAAA61USw6CMBAtZriBFzExLow7ExduOQLeAHEPK+7DhiNwAveEi9gGJ30+2lgTX9JA+bx582Y6xqThnC/XUYy5ZMY0dl/ZVdI1FYX9dpDl3vE5MFeZyLfffO7/oU81oj7kbPNl/6u2WjzfLJ6zkzRNtXgtLelTpPrH2rQeR8s3QZwU/5CriHw3BDhTdCGuWThGE9C3zT2X+juRz+gdclbi66s8faRGXItdJK9QjfFfh5v9/wDrBL3iwP18yNbrnvk+YWC+2MdYD/WBvdJ3yM1nA7mr93rAc/VgJm71Qfl6CZ+3kvyKwfXaJPGz4fAM9Mz45RwiX2jGxOZNSbk4FPknXydrTs7/20zjfDk25x+auS7WTLM5FvsFMR+i7UAGAAA=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA7WT0QkAIQxDhcPJbiJvcUfw6EehFKvRaH6tzyTFlDC1BxwEWdXxSuZ4opdgWJb3xvJEku8j/SHe0B4ti+0N8YW8oV2h/c+YEYfZxepdnT+x/2i3ox6is4iFelzJw+Y+pVFmn6e3t51/ooyb6vVr/d/UDzPCam5ABgAA
+   H4sIAAAAAAAAA7WTXQ6AIAyDSYwn80R6cY+g2QNJQ/ZTqfSV8a3roDVOz0YWkqx74J27xjMdAgNZozeVZ7L5rsSfnVUZMN7YHJGl5sb4Ynr0rNj8K2bEqXaR6evdXq/0RJanLIfoLGKxHqN5vHeszv2X0Bf69Pbj7W3mnzD/WpWXL/pf6esFV/hG0kAGAAA=
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAA7WUQQoAIAgE/YL//2zXCLRx1YVuOYxiuZk5PHdoDeV1mRusqZ6zdNwi9pSbypromXhRJnF671ScVOdKbeTViTIrdedoPWWq2Wb93ms2543/ReVSxgEAUtf+QAYAAA==
   </data>
@@ -81,11 +81,7 @@
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="Signpost" type="sign" x="416" y="320" width="32" height="32">
-   <properties>
-    <property name="text" value="West: Stoutford\nNorth: Fallhaven"/>
-   </properties>
-  </object>
+  <object name="sign_wild7" type="sign" x="416" y="320" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="forestwolf1" type="spawn" x="224" y="64" width="352" height="224">

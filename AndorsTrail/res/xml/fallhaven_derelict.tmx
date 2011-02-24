@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="12" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACwtiZGAIIhHnMxGHYerrmYjDMPVRDAwMXkRgmHoQ24MZgpHlsKkHuQubepg4Ms6HugvEjmCGYDWonnos6kFigQy4sRcWMQBgdd8/gAEAAA==
+   H4sIAAAAAAAAAwtiZGAIIhHnMxGHYerrmYjDMPVRDAwMXkRgmHoQ24MZgpHlsKkHuQubepg4Ms6HugvEjmCGYDWonnos6kFigQy4sRcWMQBgdd8/gAEAAA==
   </data>
  </layer>
  <layer name="Objects" width="12" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgIA9EsCPY/cwMDBOAeCUbgm3Fjl2fBCsDw3yg/AJmCB/G9sKhHh0IAu3gZMWvJpIZlS+CZrYtmrwwFrs78NjxhA3Btofq7SbgJlwAAOZBWceAAQAA
+   H4sIAAAAAAAAA2NgIA9EsCPY/cwMDBOAeCUbgm3Fjl2fBCsDw3yg/AJmCB/G9sKhHh0IAu3gZMWvJpIZlS+CZrYtmrwwFrs78NjxhA3Btofq7SbgJlwAAOZBWceAAQAA
   </data>
  </layer>
  <layer name="Above" width="12" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC2NgIB38Z0awRVmJVy+CRS02MWTzSXUPqepxsZHBe2bCbHIBAGJabQyAAQAA
+   H4sIAAAAAAAAA2NgIB38Z0awRVmJVy+CRS02MWTzSXUPqepxsZHBe2bCbHIBAGJabQyAAQAA
   </data>
  </layer>
  <layer name="Walkable" width="12" height="8">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAACxNkYGAQHGSYEBBEogmx0fURq55UdxKrHl0MALHe5aOAAQAA
+   H4sIAAAAAAAAAxNkYGAQHGSYEBBEogmx0fURq55UdxKrHl0MALHe5aOAAQAA
   </data>
  </layer>
  <objectgroup name="Mapevents" width="12" height="8">
@@ -75,9 +75,10 @@
     <property name="place" value="derelict"/>
    </properties>
   </object>
-  <object name="Map not complete" type="sign" x="32" y="160" width="32" height="32">
+  <object name="down" type="mapchange" x="32" y="160" width="32" height="32">
    <properties>
-    <property name="text" value="This map is not yet done. Please come back in a later version of the game."/>
+    <property name="map" value="fallhaven_derelict2"/>
+    <property name="place" value="up"/>
    </properties>
   </object>
  </objectgroup>
@@ -87,7 +88,7 @@
  <objectgroup name="Keys" width="12" height="8">
   <object name="andor:50" type="key" x="96" y="96" width="32" height="32">
    <properties>
-    <property name="message" value="Bucus shouts: Hey you, get away from there!"/>
+    <property name="phrase" value="fallhaven_derelict1"/>
    </properties>
   </object>
  </objectgroup>
