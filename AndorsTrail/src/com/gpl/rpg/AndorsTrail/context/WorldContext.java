@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.context;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.EffectCollection;
+import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
@@ -16,7 +16,7 @@ public class WorldContext {
 	public final ConversationCollection conversations;
 	public final ItemTypeCollection itemTypes;
 	public final MonsterTypeCollection monsterTypes;
-	public final EffectCollection effectTypes;
+	public final VisualEffectCollection visualEffectTypes;
 	public final DropListCollection dropLists;
 	public final QuestCollection quests;
 
@@ -31,7 +31,7 @@ public class WorldContext {
 		this.conversations = new ConversationCollection();
 		this.itemTypes = new ItemTypeCollection();
 		this.monsterTypes = new MonsterTypeCollection();
-		this.effectTypes = new EffectCollection();
+		this.visualEffectTypes = new VisualEffectCollection();
 		this.dropLists = new DropListCollection();
 		this.tileStore = new TileStore();
 		this.maps = new MapCollection();
@@ -42,7 +42,7 @@ public class WorldContext {
 		this.conversations = copy.conversations;
 		this.itemTypes = copy.itemTypes;
 		this.monsterTypes = copy.monsterTypes;
-		this.effectTypes = copy.effectTypes;
+		this.visualEffectTypes = copy.visualEffectTypes;
 		this.dropLists = copy.dropLists;
 		this.tileStore = copy.tileStore;
 		this.maps = copy.maps;

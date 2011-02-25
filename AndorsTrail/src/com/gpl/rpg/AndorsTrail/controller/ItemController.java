@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
-import com.gpl.rpg.AndorsTrail.EffectCollection;
+import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -97,7 +97,7 @@ public final class ItemController {
 			view.effectController.startEffect(
 					view.mainActivity.mainview
 					, model.player.position
-					, EffectCollection.EFFECT_RESTORE_AP
+					, VisualEffectCollection.EFFECT_RESTORE_AP
 					, value);
 		}
 		if (t.effect_health != null) {
@@ -106,7 +106,7 @@ public final class ItemController {
 			view.effectController.startEffect(
 					view.mainActivity.mainview
 					, model.player.position
-					, EffectCollection.EFFECT_RESTORE_HP
+					, VisualEffectCollection.EFFECT_RESTORE_HP
 					, value);
 		}
 	}

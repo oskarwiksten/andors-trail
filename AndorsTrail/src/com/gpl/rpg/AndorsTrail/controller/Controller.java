@@ -1,8 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import android.app.Activity;
-import android.os.Handler;
-import android.os.Message;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
@@ -23,74 +21,10 @@ public final class Controller {
     private final WorldContext world;
     private final ModelContainer model;
 
-	private boolean hasQueuedTick = false;
-	//private final int id;
-
 	public Controller(ViewContext context) {
     	this.view = context;
     	this.world = context;
     	this.model = world.model;
-    	//this.id = ModelContainer.rnd.nextInt();
-    }
-    
-	private final RefreshHandler mTickHandler = new RefreshHandler();
-	private class RefreshHandler extends Handler {
-
-        @Override
-        public void handleMessage(Message msg) {
-        	if (!hasQueuedTick) return;
-        	hasQueuedTick = false;
-            Controller.this.tick();
-        }
-
-        public void sleep(long delayMillis) {
-        	this.removeMessages(0);
-            sendMessageDelayed(obtainMessage(0), delayMillis);
-        }
-    };
-
-    public void queueAnotherTick() {
-    	if (hasQueuedTick) return;
-    	hasQueuedTick = true;
-    	mTickHandler.sleep(Constants.TICK_DELAY);
-    }
-    
-    private int tickCount = 0;
-	private void tick() {
-		//L.log(id + " : Controller::tick()");
-    	if (!model.uiSelections.isMainActivityVisible) return;
-    	if (model.uiSelections.isInCombat) return;
-    	
-    	++tickCount;
-    	if (tickCount >= 20) {
-    		tickCount = 0;
-    		for (LayeredWorldMap m : world.maps.predefinedMaps) {
-	    		if (m == model.currentMap) continue;
-    			m.resetIfNotRecentlyVisited();
-	    	}
-	    }
-    		
-    	boolean hasChanged = false;
-    	if (view.monsterMovementController.moveMonsters()) hasChanged = true;
-    	if (model.currentMap.maybeSpawn(world)) hasChanged = true;
-    	
-    	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
-    	
-    	view.monsterMovementController.attackWithAgressiveMonsters();
-    	
-    	queueAnotherTick();
-    }
-    
-    public void resume() {
-    	//L.log(id + " : Controller::resume()");
-		view.mainActivity.statusview.update();
-		model.uiSelections.isMainActivityVisible = true;
-    	queueAnotherTick();
-    }
-    public void pause() {
-    	//L.log(id + " : Controller::pause()");
-    	hasQueuedTick = false;
-    	model.uiSelections.isMainActivityVisible = false;
     }
     
     public void handleMapEvent(MapObject o, Coord position) {
@@ -158,5 +92,20 @@ public final class Controller {
 		if (view.model.player.hasExactQuestProgress(area.requireQuestProgress)) return true;
 		Dialogs.showKeyArea(view.mainActivity, view, area.id);
 		return false;
+	}
+
+	public void resetMaps() {
+		for (LayeredWorldMap m : world.maps.predefinedMaps) {
+    		if (m == model.currentMap) continue;
+			m.resetIfNotRecentlyVisited();
+    	}
+	}
+
+	public void moveAndSpawnMonsters() {
+    	boolean hasChanged = false;
+    	if (view.monsterMovementController.moveMonsters()) hasChanged = true;
+    	if (model.currentMap.maybeSpawn(world)) hasChanged = true;
+    	
+    	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
 	}
 }

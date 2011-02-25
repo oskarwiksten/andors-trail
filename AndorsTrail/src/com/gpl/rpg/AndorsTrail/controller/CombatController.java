@@ -8,7 +8,7 @@ import android.os.Message;
 import android.view.View;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
-import com.gpl.rpg.AndorsTrail.EffectCollection;
+import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -68,7 +68,7 @@ public final class CombatController {
     		killedMonsterBags.clear();
     	}
     	totalExpThisFight = 0;
-    	context.controller.queueAnotherTick();
+    	context.gameRoundController.queueAnotherTick();
     }
     
     private void lootCurrentMonsterBags() {
@@ -329,7 +329,7 @@ public final class CombatController {
 		context.effectController.startEffect(
 				context.mainActivity.mainview
 				, position
-				, EffectCollection.EFFECT_BLOOD
+				, VisualEffectCollection.EFFECT_BLOOD
 				, attack.damage);
 	}
 	private void endMonsterTurn() {

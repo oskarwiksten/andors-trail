@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.view;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.controller.EffectController.EffectAnimation;
+import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -242,7 +242,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	
 	private final Rect redrawRect = new Rect();
-	public void redrawAreaWithEffect(final CoordRect area, final EffectAnimation effect) {
+	public void redrawAreaWithEffect(final CoordRect area, final VisualEffectAnimation effect) {
 		if (!hasSurface) return;
 		final LayeredWorldMap currentMap = model.currentMap;
         if (currentMap.isOutside(area)) return;
@@ -463,7 +463,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		}
     }
 	
-	private void drawEffectText(Canvas canvas, final CoordRect area, final EffectAnimation e) {
+	private void drawEffectText(Canvas canvas, final CoordRect area, final VisualEffectAnimation e) {
     	int x = (e.position.x - mapViewArea.topLeft.x) * displayTileSize + displayTileSize/2;
     	int y = (e.position.y - mapViewArea.topLeft.y) * displayTileSize + displayTileSize/2 + e.textYOffset;
 		canvas.drawText(e.displayText, x, y, e.textPaint);

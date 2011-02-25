@@ -217,7 +217,7 @@ public final class MainActivity extends Activity {
     protected void onPause() {
         super.onPause();
         L.log("onPause");
-        view.controller.pause();
+        view.gameRoundController.pause();
         
         save(Savegames.SLOT_QUICKSAVE);
     	
@@ -230,7 +230,7 @@ public final class MainActivity extends Activity {
         L.log("onResume");
         if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
 
-        view.controller.resume();
+        view.gameRoundController.resume();
 
         if (world.model.uiSelections.isInCombat) {
         	view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);

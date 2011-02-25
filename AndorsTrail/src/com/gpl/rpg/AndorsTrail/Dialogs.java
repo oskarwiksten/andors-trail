@@ -45,12 +45,12 @@ public final class Dialogs {
 		showDialogAndPause(d, context, new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
-				context.controller.resume();
+				context.gameRoundController.resume();
 			}
 		});
 	}
 	private static void showDialogAndPause(Dialog d, ViewContext context, OnDismissListener onDismiss) {
-		context.controller.pause();
+		context.gameRoundController.pause();
     	d.setOnDismissListener(onDismiss);
     	//setBlurrywindow(d);
 		d.show();
@@ -75,7 +75,7 @@ public final class Dialogs {
 	}
 	
 	private static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, int monsterTypeID) {
-		context.controller.pause();
+		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		Uri.Builder b = Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID).buildUpon();
 		b.appendQueryParameter("monsterTypeID", Integer.toString(monsterTypeID));
@@ -84,7 +84,7 @@ public final class Dialogs {
 	}
 	
 	public static void showMonsterEncounter(final MainActivity currentActivity, final ViewContext context, final Monster m) {
-		context.controller.pause();
+		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, MonsterEncounterActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterencounter/" + m.monsterType.id));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_MONSTERENCOUNTER);
@@ -137,7 +137,7 @@ public final class Dialogs {
 				}
 				ItemController.pickupAll(lootBags, context.model);
 	        	ItemController.updateLootVisibility(context, lootBags);
-				context.controller.resume();
+				context.gameRoundController.resume();
 				return;
 			}
 		}
@@ -182,7 +182,7 @@ public final class Dialogs {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
 				ItemController.updateLootVisibility(context, lootBags);
-				context.controller.resume();
+				context.gameRoundController.resume();
 			}
 		});
 	}
@@ -246,7 +246,7 @@ public final class Dialogs {
 	}
 	
 	public static void showSave(final Activity currentActivity, final ViewContext viewContext) {
-		viewContext.controller.pause();
+		viewContext.gameRoundController.pause();
     	Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
     	intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
