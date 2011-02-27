@@ -206,6 +206,55 @@ public final class ItemTypeCollection {
 		itemTypes.add(itemType);
 		++nextId;
 		
+		itemType = new ItemType(
+    			nextId
+    			, ring_dmg1.iconID
+    			, "DEBUG ring of hitheal"
+	        	, "debug_ring_6"
+    			, ring_dmg1.category
+    			, 1
+    			, null
+    			, null
+    			, new ItemTraits_OnUse(new ConstRange(1, 1), null, null, null)
+    			, null
+			);
+		itemTypes.add(itemType);
+		++nextId;
+		
+		effects.clear();
+		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 2, 3, new ConstRange(1,1)));
+		itemType = new ItemType(
+    			nextId
+    			, ring_dmg1.iconID
+    			, "DEBUG ring of killeffect"
+	        	, "debug_ring_7"
+    			, ring_dmg1.category
+    			, 1
+    			, null
+    			, null
+    			, null
+    			, new ItemTraits_OnUse(new ConstRange(4, 4), null, effects, null)
+			);
+		itemTypes.add(itemType);
+		++nextId;
+		
+		effects.clear();
+		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1)));
+		itemType = new ItemType(
+    			nextId
+    			, ring_dmg1.iconID
+    			, "DEBUG ring of atkpoison"
+	        	, "debug_ring_8"
+    			, ring_dmg1.category
+    			, 1
+    			, null
+    			, null
+    			, new ItemTraits_OnUse(null, null, null, effects)
+    			, null
+			);
+		itemTypes.add(itemType);
+		++nextId;
+		
 		ItemType health_minor = getItemTypeByTag("health_minor");
 		
 		effects.clear();

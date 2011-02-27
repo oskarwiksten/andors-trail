@@ -37,7 +37,7 @@ public final class Player extends Actor {
 	public String spawnPlace;
 	
 	public Player() {
-		super(new ActorTraits(TileStore.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST));
+		super(new ActorTraits(TileStore.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null));
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();

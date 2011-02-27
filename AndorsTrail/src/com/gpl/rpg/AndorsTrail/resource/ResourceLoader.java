@@ -219,6 +219,8 @@ public final class ResourceLoader {
 	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_v068_npcs));
         }
         loader.flush();
+        world.monsterTypes.DEBUG_initializeTestEffectMonsters(world);
+        
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.monsterTypes.verifyData(world);

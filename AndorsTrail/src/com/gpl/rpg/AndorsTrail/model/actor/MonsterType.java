@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType extends ActorTraits {
@@ -11,8 +12,21 @@ public final class MonsterType extends ActorTraits {
 	public final DropList dropList;
 	public final String phraseID;
 
-	public MonsterType(int id, String name, String tags, int iconID, Size tileSize, int maxHP, int maxAP, int moveCost, CombatTraits baseCombatTraits, int exp, DropList dropList, String phraseID) {
-		super(iconID, tileSize, baseCombatTraits, moveCost);
+	public MonsterType(
+			int id, 
+			String name, 
+			String tags, 
+			int iconID, 
+			Size tileSize, 
+			int maxHP, 
+			int maxAP, 
+			int moveCost, 
+			CombatTraits baseCombatTraits, 
+			ItemTraits_OnUse onHitEffects,
+			int exp, 
+			DropList dropList, 
+			String phraseID) {
+		super(iconID, tileSize, baseCombatTraits, moveCost, onHitEffects);
 		this.id = id;
 		this.searchPattern = ',' + tags.toLowerCase() + ',';
 		this.exp = exp;

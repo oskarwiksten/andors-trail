@@ -198,25 +198,32 @@ public final class CombatController {
 			message(r.getString(R.string.combat_result_heromiss));
 		}
 		
+		context.mainActivity.statusview.update();
+		
 		maybeAutoEndTurn();
 	}
 	
-    private void playerKilledMonster(Monster killedMonster) {
+    public void playerKilledMonster(Monster killedMonster) {
     	Loot loot = model.currentMap.getBagOrCreateAt(killedMonster.position);
 		killedMonster.createLoot(loot);
 		
+		model.currentMap.remove(killedMonster);
+		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
+		
+		model.statistics.addMonsterKill(killedMonster.monsterType);
 		model.player.addExperience(loot.exp);
 		totalExpThisFight += loot.exp;
 		loot.exp = 0;
-		context.mainActivity.statusview.update(); // To show the new exp.
+		context.actorStatsController.applyKillEffectsToPlayer(model.player);
+		
+		context.mainActivity.statusview.update();
+
 		if (!loot.hasItems()) {
 			model.currentMap.removeGroundLoot(loot);
 		} else {
 			ItemController.updateLootVisibility(context, loot);
-			killedMonsterBags.add(loot);
+			if (model.uiSelections.isInCombat) killedMonsterBags.add(loot);
 		}
-		
-		model.statistics.addMonsterKill(killedMonster.monsterType);
     }
 
 	private void maybeAutoEndTurn() {
@@ -313,7 +320,6 @@ public final class CombatController {
 				message(r.getString(R.string.combat_result_monsterhit, monsterName, attack.damage));
 			}
 			if (attack.targetDied) {
-				exitCombat(false);
 				context.controller.handlePlayerDeath();
 				return;
 			}
@@ -377,18 +383,11 @@ public final class CombatController {
 		return result;
 	}
 	
-	public AttackResult playerAttacks(ModelContainer model, Monster currentMonster) {
-    	AttackResult result = attack(model.player, currentMonster);
-    	
-    	if (result.targetDied) {
-    		model.currentMap.remove(currentMonster);
-    		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
-		}
-
-		return result;
+	private AttackResult playerAttacks(ModelContainer model, Monster currentMonster) {
+    	return attack(model.player, currentMonster);
 	}
 	
-	public AttackResult monsterAttacks(ModelContainer model, Monster currentMonster) {
+	private AttackResult monsterAttacks(ModelContainer model, Monster currentMonster) {
 		return attack(currentMonster, model.player);
 	}
 	
@@ -402,7 +401,7 @@ public final class CombatController {
 		return (int) (50 * (1 + two_divided_by_PI * (float)Math.atan((float)(c-n) / F)));
 	}
 	
-	private static AttackResult attack(final Actor attacker, final Actor target) {
+	private AttackResult attack(final Actor attacker, final Actor target) {
 		int hitChance = getAttackHitChance(attacker.traits, target.traits);
 		if (!Constants.roll100(hitChance)) return AttackResult.MISS;
 		
@@ -417,8 +416,10 @@ public final class CombatController {
 		damage -= target.traits.damageResistance;
 		if (damage < 0) damage = 0;
 		target.health.subtract(damage, false);
-			
-		return new AttackResult(true, isCriticalHit, damage, target.health.current <= 0);
+		
+		context.actorStatsController.applyUseEffect(attacker, target, attacker.traits.onHitEffects);
+
+		return new AttackResult(true, isCriticalHit, damage, target.isDead());
 	}
 
 	public void monsterSteppedOnPlayer(Monster m) {

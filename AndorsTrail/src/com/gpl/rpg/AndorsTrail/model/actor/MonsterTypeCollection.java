@@ -10,9 +10,12 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
@@ -73,6 +76,7 @@ public final class MonsterTypeCollection {
 				, maxAP		// AP
 				, ResourceLoader.parseInt(parts[7], 10)	// MoveCost
 				, combatTraits
+		        , null // onHitEffects
 				, exp //ResourceLoader.parseInt(parts[4], 0)	// Exp
 				, droplists.getDropList(parts[15])
 				, parts[16]
@@ -81,6 +85,13 @@ public final class MonsterTypeCollection {
         	++nextId;
     	}
     }
+	
+	public void DEBUG_initializeTestEffectMonsters(WorldContext world) {
+		ArrayList<ActorConditionEffect> effects = new ArrayList<ActorConditionEffect>();
+		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1)));
+		MonsterType t = getMonsterTypeFromName("Forest Snake");
+		t.onHitEffects = new ItemTraits_OnUse(null, null, null, effects);
+	}
 
 	private static float div100(int v) {
 		return (float) v / 100f;

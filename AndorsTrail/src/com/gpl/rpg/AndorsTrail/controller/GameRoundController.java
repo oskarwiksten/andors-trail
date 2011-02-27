@@ -86,8 +86,8 @@ public final class GameRoundController {
     }
     
     private void onNewRound() {
-    	view.actorStatsController.applyConditionsToPlayer(model.player);
     	view.actorStatsController.applyConditionsToMonsters(model.currentMap);
+    	view.actorStatsController.applyConditionsToPlayer(model.player);
     }
     
 	private void onNewTick() {

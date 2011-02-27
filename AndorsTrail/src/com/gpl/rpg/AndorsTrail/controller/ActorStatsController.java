@@ -27,9 +27,9 @@ public class ActorStatsController {
     	//this.world = context;
     }
 	
-	public static void reevaluateConditionsOnEquippedItems(Player player) {
+	public static void removeOrAddConditionsFromEquippedItems(Player player) {
 		for(int i = player.conditions.size() - 1; i >= 0; --i) {
-			if (player.conditions.get(i).duration == ActorCondition.DURATION_FOREVER) {
+			if (!player.conditions.get(i).isTemporaryEffect()) {
 				player.conditions.remove(i);
 			}
 		}
@@ -39,17 +39,17 @@ public class ActorStatsController {
 			if (type == null) continue;
 		
 			ItemTraits_OnEquip equipEffects = type.effects_equip;
-			if (equipEffects == null) continue;
-			
-			for (ActorConditionEffect e : equipEffects.addedConditions) {
-				player.conditions.add(e.createCondition(ActorCondition.DURATION_FOREVER));
+			if (equipEffects != null) {
+				for (ActorConditionEffect e : equipEffects.addedConditions) {
+					player.conditions.add(e.createCondition(ActorCondition.DURATION_FOREVER));
+				}
 			}
 		}
 	}
 
 	public static void removeAllTemporaryConditions(final Actor actor) {
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			if (actor.conditions.get(i).duration == ActorCondition.DURATION_FOREVER) continue;
+			if (!actor.conditions.get(i).isTemporaryEffect()) continue;
 			actor.conditions.remove(i);
 		}
 	}
@@ -62,17 +62,17 @@ public class ActorStatsController {
 		}
 	}
 	
-	private static void applyCondition(Actor actor, ActorConditionEffect condition) {
-		if (!Constants.rollResult(condition.chance)) return;
+	private static void applyConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
+		if (!Constants.rollResult(conditionEffect.chance)) return;
 		
-		if (condition.magnitude > 0) {
-			actor.conditions.add(condition.createCondition());
-		} else if (condition.magnitude == ActorCondition.MAGNITUDE_REMOVE_ALL) {
-			removeAllConditionsOfType(actor, condition.conditionType.conditionTypeID);
-		}
+		if (conditionEffect.isRemovalEffect()) {
+			removeAllConditionsOfType(actor, conditionEffect.conditionType.conditionTypeID);
+		} else if (conditionEffect.magnitude > 0) {
+			actor.conditions.add(conditionEffect.createCondition());
+		} 
 	}
 
-	private static void applyAbilityEffects(Player player) {
+	private static void applyEffectsFromCurrentConditions(Player player) {
 		for (ActorCondition c : player.conditions) {
 			applyAbilityEffects(player, c.conditionType.abilityEffect, false, c.magnitude);
 		}
@@ -109,14 +109,22 @@ public class ActorStatsController {
 	public static void recalculatePlayerCombatTraits(Player player) {
 		player.resetStatsToBaseTraits();
 		ItemController.applyInventoryEffects(player);
-		applyAbilityEffects(player);
+		applyEffectsFromCurrentConditions(player);
+		ItemController.recalculateHitEffectsFromWornItems(player);
 		
 		player.health.capAtMax();
 		player.ap.capAtMax();
 	}
-	
+
 	public void applyConditionsToPlayer(Player player) {
 		applyStatsEffects(player);
+		if (player.isDead()) {
+			view.controller.handlePlayerDeath();
+			return;
+		}
+		view.mainActivity.combatview.updatePlayerAP(player.ap);
+		view.mainActivity.statusview.update();
+
 		boolean removedAnyConditions = decreaseDurationAndRemoveConditions(player);
 		if (removedAnyConditions) {
 			recalculatePlayerCombatTraits(player);
@@ -134,6 +142,11 @@ public class ActorStatsController {
 	private void applyConditionsToMonster(Monster monster) {
 		if (monster.conditions.isEmpty()) return;
 		applyStatsEffects(monster);
+		if (monster.isDead()) {
+			view.combatController.playerKilledMonster(monster);
+			return;
+		}
+		
 		decreaseDurationAndRemoveConditions(monster);
 	}
 
@@ -162,11 +175,11 @@ public class ActorStatsController {
 		
 		applyStatsModifierEffect(source, effect, 1);
 		for (ActorConditionEffect e : effect.addedConditions_source) {
-			applyCondition(source, e);
+			applyConditionEffect(source, e);
 		}
 		if (target != null) {
 			for (ActorConditionEffect e : effect.addedConditions_target) {
-				applyCondition(target, e);
+				applyConditionEffect(target, e);
 			}
 		}
 	}
@@ -195,6 +208,15 @@ public class ActorStatsController {
 					, actor.position
 					, visualEffecteffectID
 					, value);
+		}
+	}
+	
+	public void applyKillEffectsToPlayer(Player player) {
+		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
+			ItemType type = player.inventory.wear[i];
+			if (type == null) continue;
+			
+			applyUseEffect(player, null, type.effects_kill);
 		}
 	}
 }

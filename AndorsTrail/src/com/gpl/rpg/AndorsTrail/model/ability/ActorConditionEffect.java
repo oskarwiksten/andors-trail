@@ -15,6 +15,10 @@ public final class ActorConditionEffect {
 		this.chance = chance;
 	}
 	
+	public boolean isRemovalEffect() {
+		return magnitude == ActorCondition.MAGNITUDE_REMOVE_ALL;
+	}
+	
 	public ActorCondition createCondition() { return createCondition(duration); }
 	public ActorCondition createCondition(final int duration) {
 		return new ActorCondition(conditionType, magnitude, duration);

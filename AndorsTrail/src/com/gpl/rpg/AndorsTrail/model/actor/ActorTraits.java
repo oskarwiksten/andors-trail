@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public class ActorTraits extends CombatTraits {
@@ -20,18 +21,21 @@ public class ActorTraits extends CombatTraits {
 	public final int baseMoveCost;
 
 	public final CombatTraits baseCombatTraits;
+	public ItemTraits_OnUse onHitEffects;
 	
 	public ActorTraits(
 			int iconID
 			, Size tileSize
 			, CombatTraits baseCombatTraits
 			, int standardMoveCost
+			, ItemTraits_OnUse onHitEffects
 			) {
 		super(baseCombatTraits);
 		this.iconID = iconID;
 		this.tileSize = tileSize;
 		this.baseCombatTraits = baseCombatTraits;
 		this.baseMoveCost = standardMoveCost;
+		this.onHitEffects = onHitEffects;
 	}
 	public int getAttacksPerTurn() { return getAttacksPerTurn(maxAP); }
 	public int getMovesPerTurn() {

@@ -29,6 +29,9 @@ public class Actor {
 		setMaxHP();
 	}
 	
+	public boolean isDead() {
+		return health.current <= 0;
+	}
 	public void setMaxAP() {
 		ap.set(traits.maxAP, traits.maxAP);
 	}

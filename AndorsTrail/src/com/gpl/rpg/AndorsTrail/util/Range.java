@@ -46,6 +46,10 @@ public final class Range {
 		if (value < 0) subtract(-value, mayUnderflow);
 		else add(value, mayOverflow);
 	}
+	public void add(ConstRange r) {
+		this.max += r.max;
+		this.current += r.current;
+	}
 	
 	public String toString() { return current + "/" + max; }
 	public String toMinMaxString() {

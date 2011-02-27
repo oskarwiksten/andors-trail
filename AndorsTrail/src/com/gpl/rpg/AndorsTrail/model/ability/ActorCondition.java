@@ -20,6 +20,10 @@ public class ActorCondition {
 		this.duration = duration;
 	}
 	
+	public boolean isTemporaryEffect() {
+		return duration != DURATION_FOREVER;
+	}
+	
 
 	// ====== PARCELABLE ===================================================================
 
