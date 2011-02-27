@@ -43,7 +43,6 @@ public final class ItemInfoActivity extends Activity {
         final String buttonText = params.getString("buttonText");
         boolean buttonEnabled = params.getBoolean("buttonEnabled");
         
-        
         setContentView(R.layout.iteminfo);
 
         ImageView img = (ImageView) findViewById(R.id.iteminfo_image);
@@ -53,14 +52,22 @@ public final class ItemInfoActivity extends Activity {
         tv = (TextView) findViewById(R.id.iteminfo_category);
         tv.setText(getCategoryNameRes(itemType.category));
         
-        ((TraitsInfoView) findViewById(R.id.iteminfo_traits)).update(itemType.effect_combat);
+        TraitsInfoView iv = ((TraitsInfoView) findViewById(R.id.iteminfo_traits));
+        if (itemType.effects_equip != null) {
+        	iv.update(itemType.effects_equip.combatProficiency);
+        } else {
+        	iv.update(null);
+        }
         
         tv = (TextView) findViewById(R.id.iteminfo_description);
-        if (itemType.effect_health != null && itemType.effect_health.max != 0) {
-        	tv.setText(getResources().getString(R.string.iteminfo_effect_heal, itemType.effect_health.toMinMaxString()));
-        	tv.setVisibility(View.VISIBLE);
-        } else {
-        	tv.setVisibility(View.GONE);
+        tv.setVisibility(View.GONE);
+        if (itemType.effects_use != null) {
+        	if (itemType.effects_use.currentHPBoost != null) {
+        		if (itemType.effects_use.currentHPBoost.max != 0) {
+        			tv.setText(getResources().getString(R.string.iteminfo_effect_heal, itemType.effects_use.currentHPBoost.toMinMaxString()));
+                	tv.setVisibility(View.VISIBLE);
+        		}
+        	}
         }
         
         Button b = (Button) findViewById(R.id.iteminfo_close);

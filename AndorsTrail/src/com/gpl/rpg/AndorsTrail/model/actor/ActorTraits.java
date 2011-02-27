@@ -17,6 +17,7 @@ public class ActorTraits extends CombatTraits {
 
 	public String name;
 	public int moveCost;
+	public final int baseMoveCost;
 
 	public final CombatTraits baseCombatTraits;
 	
@@ -24,11 +25,13 @@ public class ActorTraits extends CombatTraits {
 			int iconID
 			, Size tileSize
 			, CombatTraits baseCombatTraits
+			, int standardMoveCost
 			) {
 		super(baseCombatTraits);
 		this.iconID = iconID;
 		this.tileSize = tileSize;
 		this.baseCombatTraits = baseCombatTraits;
+		this.baseMoveCost = standardMoveCost;
 	}
 	public int getAttacksPerTurn() { return getAttacksPerTurn(maxAP); }
 	public int getMovesPerTurn() {
@@ -47,6 +50,11 @@ public class ActorTraits extends CombatTraits {
 		this.name = src.readUTF();
 		this.moveCost = src.readInt();
 		this.baseCombatTraits = new CombatTraits(src, fileversion);
+		if (fileversion <= 16) {
+			this.baseMoveCost = this.moveCost;
+		} else {
+			this.baseMoveCost = src.readInt();
+		}
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -58,5 +66,6 @@ public class ActorTraits extends CombatTraits {
 		dest.writeUTF(name);
 		dest.writeInt(moveCost);
 		baseCombatTraits.writeToParcel(dest, flags);
+		dest.writeInt(baseMoveCost);
 	}
 }

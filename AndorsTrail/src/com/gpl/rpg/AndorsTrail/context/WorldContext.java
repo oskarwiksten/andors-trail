@@ -4,6 +4,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
@@ -19,6 +20,7 @@ public class WorldContext {
 	public final VisualEffectCollection visualEffectTypes;
 	public final DropListCollection dropLists;
 	public final QuestCollection quests;
+	public final ActorConditionTypeCollection actorConditionsTypes;
 
 	//Objectcollections
 	public final TileStore tileStore;
@@ -36,7 +38,7 @@ public class WorldContext {
 		this.tileStore = new TileStore();
 		this.maps = new MapCollection();
 		this.quests = new QuestCollection();
-		//this.model = new ModelContainer();
+		this.actorConditionsTypes = new ActorConditionTypeCollection();
 	}
 	public WorldContext(WorldContext copy) {
 		this.conversations = copy.conversations;
@@ -48,6 +50,7 @@ public class WorldContext {
 		this.maps = copy.maps;
 		this.quests = copy.quests;
 		this.model = copy.model;
+		this.actorConditionsTypes = copy.actorConditionsTypes;
 	}
 	public void reset() {
 		maps.reset();

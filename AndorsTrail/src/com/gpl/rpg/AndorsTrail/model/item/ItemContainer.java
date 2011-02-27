@@ -97,7 +97,8 @@ public class ItemContainer {
 	public ItemContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
-			items.add(new ItemEntry(src, world, fileversion));
+			ItemEntry entry = new ItemEntry(src, world, fileversion);
+			if (entry.itemType != null) items.add(entry);
 		}
 	}
 	

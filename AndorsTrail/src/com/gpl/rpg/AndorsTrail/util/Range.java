@@ -30,11 +30,21 @@ public final class Range {
 	}
 	public void add(int value, boolean mayOverflow) {
 		this.current += value;
-		if (!mayOverflow && current > max) current = max;
+		if (!mayOverflow) capAtMax();
+	}
+	public void capAtMax() {
+		if (current > max) current = max;
+	}
+	public void addToMax(int value) {
+		this.max += value;
 	}
 	public void subtract(int value, boolean mayUnderflow) {
 		this.current -= value;
 		if (!mayUnderflow && current < 0) current = 0;
+	}
+	public void change(int value, boolean mayUnderflow, boolean mayOverflow) {
+		if (value < 0) subtract(-value, mayUnderflow);
+		else add(value, mayOverflow);
 	}
 	
 	public String toString() { return current + "/" + max; }

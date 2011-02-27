@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
@@ -107,6 +108,6 @@ public final class LevelUpActivity extends Activity {
     	}
     	player.level++;
     	player.recalculateLevelExperience();
-    	player.recalculateCombatTraits();
+    	ActorStatsController.recalculatePlayerCombatTraits(player);
     }
 }

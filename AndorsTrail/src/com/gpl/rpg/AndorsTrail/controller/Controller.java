@@ -75,6 +75,8 @@ public final class Controller {
 	
 	public static void playerRested(final WorldContext world) {
 		final Player player = world.model.player;
+		ActorStatsController.removeAllTemporaryConditions(player);
+		ActorStatsController.recalculatePlayerCombatTraits(player);
 		player.setMaxAP();
 		player.setMaxHP();
 		for (LayeredWorldMap m : world.maps.predefinedMaps) {

@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class ItemType {
 	public static final int CATEGORY_WEAPON = 0;
@@ -33,11 +32,12 @@ public final class ItemType {
 	public final int baseMarketCost;
 	public final String searchTag;
 	
-	public final ConstRange effect_ap;
-	public final ConstRange effect_health;
-	public final CombatTraits effect_combat;
+	public final ItemTraits_OnEquip effects_equip;
+	public final ItemTraits_OnUse effects_use;
+	public final ItemTraits_OnUse effects_hit;
+	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(int id, int iconID, String name, String searchTag, int category, int baseMarketCost, ConstRange effect_ap, ConstRange effect_health, CombatTraits effect_combat) {
+	public ItemType(int id, int iconID, String name, String searchTag, int category, int baseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
@@ -45,9 +45,10 @@ public final class ItemType {
 		this.category = category;
 		this.actionType = getActionType(category);
 		this.baseMarketCost = baseMarketCost;
-		this.effect_ap = effect_ap;
-		this.effect_health = effect_health;
-		this.effect_combat = effect_combat;
+		this.effects_equip = effects_equip;
+		this.effects_use = effects_use;
+		this.effects_hit = effects_hit;
+		this.effects_kill = effects_kill;
 	}
 	
 	private static int getActionType(int category) {
@@ -59,23 +60,25 @@ public final class ItemType {
 	public boolean isUsable() { return actionType == ACTIONTYPE_USE; }
 	public boolean isQuestItem() { return baseMarketCost == 0; }
 	
-	public String describe(int quantity) {
+	public String describeWearEffect(int quantity) {
 		StringBuilder sb = new StringBuilder(name);
 		if (quantity > 1) {
 			sb.append(" (");
 			sb.append(quantity);
 			sb.append(')'); 
 		}
-		if (effect_combat != null) {
-			if (effect_combat.hasAttackChanceEffect() || effect_combat.hasAttackDamageEffect()) {
-				sb.append(" [");
-				describeAttackEffect(effect_combat, sb);
-				sb.append(']');
-			}
-			if (effect_combat.hasBlockEffect()) {
-				sb.append(" [");
-				describeBlockEffect(effect_combat, sb);
-				sb.append(']');
+		if (effects_equip != null) {
+			if (effects_equip.combatProficiency != null) {
+				if (effects_equip.combatProficiency.hasAttackChanceEffect() || effects_equip.combatProficiency.hasAttackDamageEffect()) {
+					sb.append(" [");
+					describeAttackEffect(effects_equip.combatProficiency, sb);
+					sb.append(']');
+				}
+				if (effects_equip.combatProficiency.hasBlockEffect()) {
+					sb.append(" [");
+					describeBlockEffect(effects_equip.combatProficiency, sb);
+					sb.append(']');
+				}
 			}
 		}
 		return sb.toString();

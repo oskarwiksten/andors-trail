@@ -3,8 +3,10 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
@@ -15,6 +17,7 @@ public class Actor {
 	public final Range health;
 	public final Coord position;
 	public final CoordRect rectPosition;
+	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
 	
 	public Actor(ActorTraits traits) {
 		this.traits = traits;
@@ -39,6 +42,20 @@ public class Actor {
 		return true;
 	}
 	
+	public boolean hasCondition(final String conditionTypeID) {
+		for (ActorCondition c : conditions) {
+			if (c.conditionType.conditionTypeID.equals(conditionTypeID)) return true;
+		}
+		return false;
+	}
+	
+	public void resetStatsToBaseTraits() {
+		traits.set(traits.baseCombatTraits);
+		health.set(traits.maxHP, health.current);
+		ap.set(traits.maxAP, ap.current);
+		traits.moveCost = traits.baseMoveCost;
+	}
+
 	
 	// ====== PARCELABLE ===================================================================
 
@@ -48,6 +65,11 @@ public class Actor {
 		this.health = new Range(src, fileversion);
 		this.position = new Coord(src, fileversion);
 		this.rectPosition = new CoordRect(position, traits.tileSize);
+		if (fileversion <= 16) return;
+		final int n = src.readInt();
+		for(int i = 0; i < n ; ++i) {
+			conditions.add(new ActorCondition(src, world, fileversion));
+		}
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -55,5 +77,9 @@ public class Actor {
 		ap.writeToParcel(dest, flags);
 		health.writeToParcel(dest, flags);
 		position.writeToParcel(dest, flags);
+		dest.writeInt(conditions.size());
+		for (ActorCondition c : conditions) {
+			c.writeToParcel(dest, flags);
+		}
 	}
 }

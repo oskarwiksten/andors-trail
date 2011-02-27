@@ -12,7 +12,7 @@ public final class MonsterType extends ActorTraits {
 	public final String phraseID;
 
 	public MonsterType(int id, String name, String tags, int iconID, Size tileSize, int maxHP, int maxAP, int moveCost, CombatTraits baseCombatTraits, int exp, DropList dropList, String phraseID) {
-		super(iconID, tileSize, baseCombatTraits);
+		super(iconID, tileSize, baseCombatTraits, moveCost);
 		this.id = id;
 		this.searchPattern = ',' + tags.toLowerCase() + ',';
 		this.exp = exp;

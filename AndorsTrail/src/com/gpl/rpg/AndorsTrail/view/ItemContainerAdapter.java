@@ -31,7 +31,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		}
 		
 		((ImageView) result.findViewById(R.id.inv_image)).setImageBitmap(tileStore.bitmaps[item.itemType.iconID]);
-		((TextView) result.findViewById(R.id.inv_text)).setText(item.itemType.describe(item.quantity));
+		((TextView) result.findViewById(R.id.inv_text)).setText(item.itemType.describeWearEffect(item.quantity));
 		return result;
 	}
 	

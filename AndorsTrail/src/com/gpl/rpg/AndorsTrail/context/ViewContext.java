@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.context;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
+import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.GameRoundController;
@@ -23,6 +24,7 @@ public class ViewContext extends WorldContext {
 	public final ItemController itemController;
 	public final MonsterMovementController monsterMovementController;
 	public final MovementController movementController;
+	public final ActorStatsController actorStatsController;
 	
 	public final AndorsTrailPreferences preferences;
 	
@@ -38,5 +40,6 @@ public class ViewContext extends WorldContext {
 		this.itemController = new ItemController(this);
 		this.monsterMovementController = new MonsterMovementController(this);
 		this.movementController = new MovementController(this);
+		this.actorStatsController = new ActorStatsController(this);
 	}
 }

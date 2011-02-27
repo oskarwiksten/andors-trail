@@ -7,8 +7,6 @@ import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class QuestCollection {
-	public static final int QUEST_PROGRESS_NOT_STARTED = -1;
-	
 	public Quest[] quests;
 	public QuestLogEntry getQuestLogEntry(final QuestProgress stage) {
 		Quest q = getQuest(stage.questID);

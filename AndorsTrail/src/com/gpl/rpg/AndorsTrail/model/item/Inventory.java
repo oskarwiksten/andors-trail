@@ -5,7 +5,6 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 
 public final class Inventory extends ItemContainer {
 
@@ -22,40 +21,6 @@ public final class Inventory extends ItemContainer {
 	
 	public boolean isEmptySlot(int slot) {
 		return wear[slot] == null;
-	}
-
-	public void apply(CombatTraits traits) {
-		ItemType weapon = wear[ItemType.CATEGORY_WEAPON];
-		if (weapon != null) {
-			CombatTraits weaponTraits = weapon.effect_combat;
-			if (weaponTraits != null) {
-				traits.attackCost = weaponTraits.attackCost;
-				traits.criticalMultiplier = weaponTraits.criticalMultiplier;
-			}
-		}
-		
-		for (int i = 0; i < NUM_WORN_SLOTS; ++i) {
-			ItemType type = wear[i];
-			if (type != null) {
-				CombatTraits itemTraits = type.effect_combat;
-				if (itemTraits != null) {
-					if (i != ItemType.CATEGORY_WEAPON) {
-						// For weapons, these attributes should be SET, not added.
-						traits.attackCost += itemTraits.attackCost;
-						traits.criticalMultiplier += itemTraits.criticalMultiplier;
-					}
-					traits.attackChance += itemTraits.attackChance;
-					traits.criticalChance += itemTraits.criticalChance;
-					traits.damagePotential.add(itemTraits.damagePotential.current, true);
-					traits.damagePotential.max += itemTraits.damagePotential.max;
-					traits.blockChance += itemTraits.blockChance;
-					traits.damageResistance += itemTraits.damageResistance;
-				}
-			}
-		}
-		
-		if (traits.attackCost <= 0) traits.attackCost = 1;
-		if (traits.attackChance < 0) traits.attackChance = 0;
 	}
 	
 	

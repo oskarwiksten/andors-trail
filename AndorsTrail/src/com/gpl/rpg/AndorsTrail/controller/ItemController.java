@@ -1,12 +1,14 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
-import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -27,7 +29,6 @@ public final class ItemController {
 	public void dropItem(ItemType type) {
     	model.player.inventory.removeItem(type.id, 1);
     	model.currentMap.itemDropped(type, 1, model.player.position);
-    	//message(androidContext, androidContext.getResources().getString(R.string.inventory_item_dropped, t.name));
     }
 
 	public void equipItem(ItemType type) {
@@ -50,12 +51,16 @@ public final class ItemController {
 			player.inventory.addItem(player.inventory.wear[slot]);
 		}
 		player.inventory.wear[slot] = type;
-		player.recalculateCombatTraits();
+		
+		if (type.effects_equip != null && type.effects_equip.addedConditions.size() > 0) {
+			ActorStatsController.reevaluateConditionsOnEquippedItems(player);
+		}
+		ActorStatsController.recalculatePlayerCombatTraits(player);
 		
     	//message(androidContext, androidContext.getResources().getString(R.string.inventory_item_equipped, t.name));
     }
 
-    public void unequipSlot(ItemType type, int slot) {
+   	public void unequipSlot(ItemType type, int slot) {
 		if (!type.isEquippable()) return;
 		final Player player = model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
@@ -66,7 +71,11 @@ public final class ItemController {
     	
 		player.inventory.addItem(player.inventory.wear[slot]);
 		player.inventory.wear[slot] = null;
-		player.recalculateCombatTraits();
+		
+		if (type.effects_equip != null && type.effects_equip.addedConditions.size() > 0) {
+			ActorStatsController.reevaluateConditionsOnEquippedItems(player);
+		}
+		ActorStatsController.recalculatePlayerCombatTraits(player);
 		
     	//message(androidContext, androidContext.getResources().getString(R.string.inventory_item_unequipped, t.name));
     }
@@ -79,38 +88,41 @@ public final class ItemController {
     	}
     	
     	player.inventory.removeItem(type.id, 1);
-    	applyUseEffect(player, type);
+    	view.actorStatsController.applyUseEffect(player, null, type.effects_use);
 		
     	//TODO: provide feedback that the item has been used.
     	//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
     }
-
+    
 	public void handleLootBag(Loot loot) {
     	Dialogs.showGroundLoot(view.mainActivity, view, loot);
     	consumeNonItemLoot(loot, model);
 	}
 	
-	private void applyUseEffect(Actor actor, ItemType t) {
-		if (t.effect_ap != null) {
-			int value = Constants.rollValue(t.effect_ap);
-			actor.ap.add(value, false);
-			view.effectController.startEffect(
-					view.mainActivity.mainview
-					, model.player.position
-					, VisualEffectCollection.EFFECT_RESTORE_AP
-					, value);
+	public static void applyInventoryEffects(Player player) {
+		final Actor actor = player;
+		final Inventory inventory = player.inventory;
+		final ActorTraits traits = actor.traits;
+		ItemType weapon = inventory.wear[ItemType.CATEGORY_WEAPON];
+		if (weapon != null) {
+			if (weapon.effects_equip != null) {
+				CombatTraits weaponTraits = weapon.effects_equip.combatProficiency;
+				if (weaponTraits != null) {
+					traits.attackCost = weaponTraits.attackCost;
+					traits.criticalMultiplier = weaponTraits.criticalMultiplier;
+				}
+			}
 		}
-		if (t.effect_health != null) {
-			int value = Constants.rollValue(t.effect_health);
-			actor.health.add(value, false);
-			view.effectController.startEffect(
-					view.mainActivity.mainview
-					, model.player.position
-					, VisualEffectCollection.EFFECT_RESTORE_HP
-					, value);
+		
+		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
+			ItemType type = inventory.wear[i];
+			if (type == null) continue;
+			
+			final boolean isWeapon = (i == ItemType.CATEGORY_WEAPON);
+			ActorStatsController.applyAbilityEffects(player, type.effects_equip, isWeapon, 1);
 		}
 	}
-
+	
 	public static void consumeNonItemLoot(Loot loot, ModelContainer model) {
 		// Experience will be given as soon as the monster is killed.
 		model.player.inventory.gold += loot.gold;

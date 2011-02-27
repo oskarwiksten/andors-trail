@@ -51,6 +51,13 @@ public final class ResourceLoader {
         
         
         // ========================================================================
+        // Load condition types
+        loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
+        world.actorConditionsTypes.initialize(loader);
+        loader.flush();
+        
+        
+        // ========================================================================
         // Load item icons
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
         world.itemTypes.initialize(loader, r.getString(R.string.itemlist_money));
@@ -71,6 +78,7 @@ public final class ResourceLoader {
             world.itemTypes.initialize(loader, r.getString(R.string.itemlist_v068));
         }
         loader.flush();
+        world.itemTypes.initialize_DEBUGITEMS(world);
         
         
         // ========================================================================

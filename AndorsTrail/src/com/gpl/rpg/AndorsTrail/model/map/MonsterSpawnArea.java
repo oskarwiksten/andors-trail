@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
@@ -45,6 +46,7 @@ public final class MonsterSpawnArea {
 
 	public void healAllMonsters() {
 		for (Monster m : monsters) {
+			ActorStatsController.removeAllTemporaryConditions(m);
 			m.setMaxHP();
 		}
 	}

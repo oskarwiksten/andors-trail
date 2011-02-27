@@ -108,7 +108,6 @@ public final class MainActivity extends Activity {
     			,new DebugButton("dmg=1", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
-		    			world.model.player.recalculateCombatTraits();
 		    			world.model.player.traits.damagePotential.set(1, 1);
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT).show();
 					}

@@ -9,6 +9,7 @@ import java.util.Map.Entry;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -21,13 +22,13 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class Player extends Actor {
+	public static final int DEFAULT_PLAYER_MOVECOST = 6;
 	public final Coord lastPosition;
 	public final Coord nextPosition;
 	public int level;
 	public int totalExperience;
 	public final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
 	public final Inventory inventory;
-	//private final HashSet<String> keys = new HashSet<String>();
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	public int useItemCost;
 	public int reequipCost;
@@ -36,14 +37,14 @@ public final class Player extends Actor {
 	public String spawnPlace;
 	
 	public Player() {
-		super(new ActorTraits(TileStore.CHAR_HERO, new Size(1, 1), new CombatTraits()));
+		super(new ActorTraits(TileStore.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST));
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();
 		this.inventory = new Inventory();
 	}
 	
-	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
+	public void initializeNewPlayer_(ItemTypeCollection types, DropListCollection dropLists, String name) {
 		CombatTraits combat = new CombatTraits();
 		combat.attackCost = 3;
 		combat.attackChance = 60;
@@ -59,7 +60,7 @@ public final class Player extends Actor {
 		traits.maxHP = 25;
 		
 		traits.name = name;
-		traits.moveCost = 6;
+		traits.moveCost = DEFAULT_PLAYER_MOVECOST;
 		useItemCost = 5;
 		reequipCost = 5;
 
@@ -79,25 +80,9 @@ public final class Player extends Actor {
 			spawnPlace = "rest";
 		}
 		
-		recalculateCombatTraits();
+		ActorStatsController.recalculatePlayerCombatTraits(this);
 	}
 	
-	//public boolean hasKey(String key) { return keys.contains(key); }
-	//public void addKey(String key) { if (!keys.contains(key)) keys.add(key); }
-	
-
-	/*public boolean hasAtLeastQuestProgress(QuestProgress progress) { 
-		return getMaxQuestProgress(progress.questID) >= progress.progress; 
-	}*/
-	
-	/*public int getMaxQuestProgress(String questID) { 
-		if (!questProgress.containsKey(questID)) return QuestCollection.QUEST_PROGRESS_NOT_STARTED;
-		int maxProgress = 0;
-		for(int progress : questProgress.get(questID)) {
-			maxProgress = Math.max(maxProgress, progress);
-		}
-		return maxProgress;
-	}*/
 	public boolean hasExactQuestProgress(QuestProgress progress) { return hasExactQuestProgress(progress.questID, progress.progress); }
 	public boolean hasExactQuestProgress(String questID, int progress) {
 		if (!questProgress.containsKey(questID)) return false;
@@ -110,11 +95,6 @@ public final class Player extends Actor {
 		if (hasExactQuestProgress(progress.questID, progress.progress)) return;
 		if (!questProgress.containsKey(progress.questID)) questProgress.put(progress.questID, new HashSet<Integer>());
 		questProgress.get(progress.questID).add(progress.progress); 
-	}
-	
-	public void recalculateCombatTraits() {
-		traits.set(traits.baseCombatTraits);
-		inventory.apply(traits);
 	}
 
 	public void recalculateLevelExperience() {
