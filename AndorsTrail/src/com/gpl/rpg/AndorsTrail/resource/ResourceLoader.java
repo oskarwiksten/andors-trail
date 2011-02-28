@@ -361,6 +361,8 @@ public final class ResourceLoader {
         // ========================================================================
         // Load effects
         loader.prepareTileset(R.drawable.effect_blood3, "effect_blood3", new Size(8, 2), dst_sz1x1);
+        loader.prepareTileset(R.drawable.effect_heal2, "effect_heal2", new Size(8, 2), dst_sz1x1);
+        loader.prepareTileset(R.drawable.effect_poison1, "effect_poison1", new Size(8, 2), dst_sz1x1);
         world.visualEffectTypes.initialize(loader);
         loader.flush();
         

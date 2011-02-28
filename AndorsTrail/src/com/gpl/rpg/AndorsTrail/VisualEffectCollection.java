@@ -8,15 +8,18 @@ import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class VisualEffectCollection {
 	public static final int EFFECT_BLOOD = 0;
-	public static final int EFFECT_RESTORE_HP = 0;
-	public static final int EFFECT_RESTORE_AP = 0;
+	public static final int EFFECT_RESTORE_HP = 1;
+	public static final int EFFECT_RESTORE_AP = EFFECT_RESTORE_HP;
+	public static final int EFFECT_POISON = 2;
 	
-	public static final int NUM_EFFECTS = EFFECT_RESTORE_AP + 1;
+	public static final int NUM_EFFECTS = EFFECT_POISON + 1;
 	
 	public final VisualEffect[] effects = new VisualEffect[NUM_EFFECTS];
 	
 	public void initialize(DynamicTileLoader loader) {
 		effects[EFFECT_BLOOD] = createEffect(loader, R.drawable.effect_blood3, new ConstRange(16, 0), 400, Color.RED);
+		effects[EFFECT_RESTORE_HP] = createEffect(loader, R.drawable.effect_heal2, new ConstRange(16, 0), 400, Color.BLUE);
+		effects[EFFECT_POISON] = createEffect(loader, R.drawable.effect_poison1, new ConstRange(16, 0), 400, Color.GREEN);
 	}
 
 	private static VisualEffect createEffect(DynamicTileLoader loader, int drawableID, ConstRange frameRange, int duration, int textColor) {

@@ -187,27 +187,40 @@ public class ActorStatsController {
 	private void applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude) {
 		if (effect == null) return;
 		
+		int effectValue = 0;
+		int visualEffectID = effect.visualEffectID;
 		if (effect.currentAPBoost != null) {
-			int value = Constants.rollValue(effect.currentAPBoost);
-			value *= magnitude;
-			actor.ap.change(value, false, false);
-			view.effectController.startEffect(
-					view.mainActivity.mainview
-					, actor.position
-					, VisualEffectCollection.EFFECT_RESTORE_AP
-					, value);
+			effectValue = Constants.rollValue(effect.currentAPBoost);
+			effectValue *= magnitude;
+			boolean changed = actor.ap.change(effectValue, false, false);
+			if (!changed) effectValue = 0; // So that the visualeffect doesn't start.
+			if (effectValue != 0) {
+				if (!effect.hasVisualEffect()) {
+					visualEffectID = VisualEffectCollection.EFFECT_RESTORE_AP;
+				}
+			}
 		}
 		if (effect.currentHPBoost != null) {
-			int value = Constants.rollValue(effect.currentHPBoost);
-			value *= magnitude;
-			actor.health.change(value, false, false);
-			int visualEffecteffectID = VisualEffectCollection.EFFECT_RESTORE_HP;
-			if (value < 0) visualEffecteffectID = VisualEffectCollection.EFFECT_BLOOD;
+			effectValue = Constants.rollValue(effect.currentHPBoost);
+			effectValue *= magnitude;
+			boolean changed = actor.health.change(effectValue, false, false);
+			if (!changed) effectValue = 0; // So that the visualeffect doesn't start.
+			if (effectValue != 0) {
+				if (!effect.hasVisualEffect()) {
+					if (effectValue > 0) {
+						visualEffectID = VisualEffectCollection.EFFECT_RESTORE_HP;
+					} else {
+						visualEffectID = VisualEffectCollection.EFFECT_BLOOD;
+					}
+				}
+			}
+		}
+		if (effectValue != 0) {
 			view.effectController.startEffect(
-					view.mainActivity.mainview
-					, actor.position
-					, visualEffecteffectID
-					, value);
+				view.mainActivity.mainview
+				, actor.position
+				, visualEffectID
+				, effectValue);
 		}
 	}
 	

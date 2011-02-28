@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.model.ability;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
@@ -32,7 +33,7 @@ public class ActorConditionTypeCollection {
 		t.damagePotential.set(2, 2);
 		conditionTypes.add(new ActorConditionType("str", "Strength", tileLoader.getTileID("items_tiles", 0+26*14), null, new AbilityModifierTraits(0, 0, 0, t)));
 		
-		conditionTypes.add(new ActorConditionType("regen", "Regeneration", tileLoader.getTileID("items_tiles", 8+23*14), new StatsModifierTraits(new ConstRange(1, 1), null), null));
-		conditionTypes.add(new ActorConditionType("poison", "Poison", tileLoader.getTileID("items_tiles", 4+25*14), new StatsModifierTraits(new ConstRange(-1, -1), null), null));
+		conditionTypes.add(new ActorConditionType("regen", "Regeneration", tileLoader.getTileID("items_tiles", 8+23*14), new StatsModifierTraits(VisualEffectCollection.EFFECT_RESTORE_HP, new ConstRange(1, 1), null), null));
+		conditionTypes.add(new ActorConditionType("poison", "Poison", tileLoader.getTileID("items_tiles", 4+25*14), new StatsModifierTraits(VisualEffectCollection.EFFECT_POISON, new ConstRange(-1, -1), null), null));
 	}
 }

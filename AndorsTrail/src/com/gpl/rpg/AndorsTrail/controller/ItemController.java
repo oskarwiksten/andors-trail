@@ -160,7 +160,6 @@ public final class ItemController {
 		} else {
 			player.traits.onHitEffects = null;
 		}
-		
 	}
 	
 	public static void consumeNonItemLoot(Loot loot, ModelContainer model) {

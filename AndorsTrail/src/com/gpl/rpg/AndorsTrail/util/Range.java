@@ -42,9 +42,11 @@ public final class Range {
 		this.current -= value;
 		if (!mayUnderflow && current < 0) current = 0;
 	}
-	public void change(int value, boolean mayUnderflow, boolean mayOverflow) {
+	public boolean change(int value, boolean mayUnderflow, boolean mayOverflow) {
+		int valueBefore = current;
 		if (value < 0) subtract(-value, mayUnderflow);
 		else add(value, mayOverflow);
+		return current != valueBefore;
 	}
 	public void add(ConstRange r) {
 		this.max += r.max;
