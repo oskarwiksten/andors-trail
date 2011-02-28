@@ -172,8 +172,9 @@ public final class ItemTypeCollection {
 		itemTypes.add(itemType);
 		++nextId;
 		
-		ArrayList<ActorConditionEffect> effects = new ArrayList<ActorConditionEffect>();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("bless"), 3, ActorCondition.DURATION_FOREVER, new ConstRange(1,1)));
+		ActorConditionEffect[] effects = new ActorConditionEffect[] {
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("bless"), 3, ActorCondition.DURATION_FOREVER, new ConstRange(1,1))
+		};
 		itemType = new ItemType(
     			nextId
     			, ring_dmg1.iconID
@@ -189,8 +190,9 @@ public final class ItemTypeCollection {
 		itemTypes.add(itemType);
 		++nextId;
 		
-		effects.clear();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 1, ActorCondition.DURATION_FOREVER, new ConstRange(1,1)));
+		effects = new ActorConditionEffect[] {
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 1, ActorCondition.DURATION_FOREVER, new ConstRange(1,1))
+		};
 		itemType = new ItemType(
     			nextId
     			, ring_dmg1.iconID
@@ -221,8 +223,9 @@ public final class ItemTypeCollection {
 		itemTypes.add(itemType);
 		++nextId;
 		
-		effects.clear();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 2, 3, new ConstRange(1,1)));
+		effects = new ActorConditionEffect[] {
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 2, 3, new ConstRange(1,1))
+		};
 		itemType = new ItemType(
     			nextId
     			, ring_dmg1.iconID
@@ -238,8 +241,9 @@ public final class ItemTypeCollection {
 		itemTypes.add(itemType);
 		++nextId;
 		
-		effects.clear();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1)));
+		effects = new ActorConditionEffect[] {
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1))
+		};
 		itemType = new ItemType(
     			nextId
     			, ring_dmg1.iconID
@@ -257,8 +261,9 @@ public final class ItemTypeCollection {
 		
 		ItemType health_minor = getItemTypeByTag("health_minor");
 		
-		effects.clear();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 4, new ConstRange(1,1)));
+		effects = new ActorConditionEffect[] {
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 4, new ConstRange(1,1))
+		};
 		itemType = new ItemType(
     			nextId
     			, health_minor.iconID
@@ -274,8 +279,9 @@ public final class ItemTypeCollection {
 		itemTypes.add(itemType);
 		++nextId;
 		
-		effects.clear();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), ActorCondition.MAGNITUDE_REMOVE_ALL, 0, new ConstRange(1,1)));
+		effects = new ActorConditionEffect[] {
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), ActorCondition.MAGNITUDE_REMOVE_ALL, 0, new ConstRange(1,1))
+		};
 		itemType = new ItemType(
     			nextId
     			, health_minor.iconID

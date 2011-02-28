@@ -7,15 +7,12 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
-import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class ItemController {
@@ -56,7 +53,7 @@ public final class ItemController {
 		}
 		player.inventory.wear[slot] = type;
 		
-		if (type.effects_equip != null && type.effects_equip.addedConditions.size() > 0) {
+		if (type.effects_equip != null && type.effects_equip.addedConditions != null) {
 			ActorStatsController.removeOrAddConditionsFromEquippedItems(player);
 		}
 		ActorStatsController.recalculatePlayerCombatTraits(player);
@@ -76,7 +73,7 @@ public final class ItemController {
 		player.inventory.addItem(player.inventory.wear[slot]);
 		player.inventory.wear[slot] = null;
 		
-		if (type.effects_equip != null && type.effects_equip.addedConditions.size() > 0) {
+		if (type.effects_equip != null && type.effects_equip.addedConditions != null) {
 			ActorStatsController.removeOrAddConditionsFromEquippedItems(player);
 		}
 		ActorStatsController.recalculatePlayerCombatTraits(player);
@@ -125,38 +122,21 @@ public final class ItemController {
 	}
 	
 	public static void recalculateHitEffectsFromWornItems(Player player) {
-		boolean hasEffects = false;
-		Range currentHPBoost = null;
-		Range currentAPBoost = null;
-		ArrayList<ActorConditionEffect> addedConditions_source = null;
-		ArrayList<ActorConditionEffect> addedConditions_target = null;
+		ArrayList<ItemTraits_OnUse> effects = null;
 		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
 			ItemType type = player.inventory.wear[i];
 			if (type == null) continue;
 			ItemTraits_OnUse e = type.effects_hit;
 			if (e == null) continue;
 			
-			hasEffects = true;
-			if (e.currentAPBoost != null) {
-				if (currentAPBoost == null) currentAPBoost = new Range();
-				currentAPBoost.add(e.currentAPBoost);
-			}
-			if (e.currentHPBoost != null) {
-				if (currentHPBoost == null) currentHPBoost = new Range();
-				currentHPBoost.add(e.currentHPBoost);
-			}
-			if (addedConditions_source == null) addedConditions_source = new ArrayList<ActorConditionEffect>();
-			if (addedConditions_target == null) addedConditions_target = new ArrayList<ActorConditionEffect>();
-			addedConditions_source.addAll(e.addedConditions_source);
-			addedConditions_target.addAll(e.addedConditions_target);
+			if (effects == null) effects = new ArrayList<ItemTraits_OnUse>();
+			effects.add(e);
 		}
 		
-		if (hasEffects) {
-			player.traits.onHitEffects = new ItemTraits_OnUse(
-					currentHPBoost != null ? new ConstRange(currentHPBoost) : null, 
-					currentAPBoost != null ? new ConstRange(currentAPBoost) : null,
-					addedConditions_source,
-					addedConditions_target);
+		if (effects != null) {
+			ItemTraits_OnUse[] effects_ = new ItemTraits_OnUse[effects.size()];
+			effects_ = effects.toArray(effects_);
+			player.traits.onHitEffects = effects_;
 		} else {
 			player.traits.onHitEffects = null;
 		}

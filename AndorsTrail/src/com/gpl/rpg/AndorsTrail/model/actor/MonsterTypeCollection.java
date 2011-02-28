@@ -61,7 +61,6 @@ public final class MonsterTypeCollection {
         		}
     		}
         	
-    		
     		final int maxHP = ResourceLoader.parseInt(parts[5], 1);
     		final int maxAP = ResourceLoader.parseInt(parts[6], 10);
     		final CombatTraits combatTraits = ResourceLoader.parseCombatTraits(parts, 8);
@@ -87,10 +86,12 @@ public final class MonsterTypeCollection {
     }
 	
 	public void DEBUG_initializeTestEffectMonsters(WorldContext world) {
-		ArrayList<ActorConditionEffect> effects = new ArrayList<ActorConditionEffect>();
-		effects.add(new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1)));
 		MonsterType t = getMonsterTypeFromName("Forest Snake");
-		t.onHitEffects = new ItemTraits_OnUse(null, null, null, effects);
+		t.onHitEffects = new ItemTraits_OnUse[] {
+			new ItemTraits_OnUse(null, null, null, new ActorConditionEffect[] { 
+				new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1))
+			})
+		};
 	}
 
 	private static float div100(int v) {

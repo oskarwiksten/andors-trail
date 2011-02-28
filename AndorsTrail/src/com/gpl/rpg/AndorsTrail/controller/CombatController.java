@@ -18,6 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
@@ -417,11 +418,19 @@ public final class CombatController {
 		if (damage < 0) damage = 0;
 		target.health.subtract(damage, false);
 		
-		context.actorStatsController.applyUseEffect(attacker, target, attacker.traits.onHitEffects);
+		applyAttackHitStatusEffects(attacker, target);
 
 		return new AttackResult(true, isCriticalHit, damage, target.isDead());
 	}
 
+	private void applyAttackHitStatusEffects(Actor attacker, Actor target) {
+		if (attacker.traits.onHitEffects == null) return;
+		
+		for (ItemTraits_OnUse e : attacker.traits.onHitEffects) {
+			context.actorStatsController.applyUseEffect(attacker, target, e);
+		}
+	}
+	
 	public void monsterSteppedOnPlayer(Monster m) {
 		setCombatSelection(m);
 		enterCombat(BEGIN_TURN_MONSTERS);

@@ -21,14 +21,14 @@ public class ActorTraits extends CombatTraits {
 	public final int baseMoveCost;
 
 	public final CombatTraits baseCombatTraits;
-	public ItemTraits_OnUse onHitEffects;
+	public ItemTraits_OnUse[] onHitEffects;
 	
 	public ActorTraits(
 			int iconID
 			, Size tileSize
 			, CombatTraits baseCombatTraits
 			, int standardMoveCost
-			, ItemTraits_OnUse onHitEffects
+			, ItemTraits_OnUse[] onHitEffects
 			) {
 		super(baseCombatTraits);
 		this.iconID = iconID;

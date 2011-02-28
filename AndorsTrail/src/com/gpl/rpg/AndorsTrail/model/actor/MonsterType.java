@@ -26,7 +26,7 @@ public final class MonsterType extends ActorTraits {
 			int exp, 
 			DropList dropList, 
 			String phraseID) {
-		super(iconID, tileSize, baseCombatTraits, moveCost, onHitEffects);
+		super(iconID, tileSize, baseCombatTraits, moveCost, new ItemTraits_OnUse[] { onHitEffects });
 		this.id = id;
 		this.searchPattern = ',' + tags.toLowerCase() + ',';
 		this.exp = exp;

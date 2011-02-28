@@ -39,7 +39,7 @@ public class ActorStatsController {
 			if (type == null) continue;
 		
 			ItemTraits_OnEquip equipEffects = type.effects_equip;
-			if (equipEffects != null) {
+			if (equipEffects != null && equipEffects.addedConditions != null) {
 				for (ActorConditionEffect e : equipEffects.addedConditions) {
 					player.conditions.add(e.createCondition(ActorCondition.DURATION_FOREVER));
 				}
@@ -174,12 +174,16 @@ public class ActorStatsController {
 		if (effect == null) return;
 		
 		applyStatsModifierEffect(source, effect, 1);
-		for (ActorConditionEffect e : effect.addedConditions_source) {
-			applyConditionEffect(source, e);
+		if (effect.addedConditions_source != null) {
+			for (ActorConditionEffect e : effect.addedConditions_source) {
+				applyConditionEffect(source, e);
+			}
 		}
 		if (target != null) {
-			for (ActorConditionEffect e : effect.addedConditions_target) {
-				applyConditionEffect(target, e);
+			if (effect.addedConditions_target != null) {
+				for (ActorConditionEffect e : effect.addedConditions_target) {
+					applyConditionEffect(target, e);
+				}
 			}
 		}
 	}
