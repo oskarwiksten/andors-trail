@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+
+	<TextView 
+		android:text="When equipped" 
+		android:id="@+id/itemeffect_onequip_title" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+		<com.gpl.rpg.AndorsTrail.view.TraitsInfoView
+			android:id="@+id/itemeffect_onequip_traits"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+	
+		<TableLayout 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			>
+			<TableRow android:id="@+id/itemeffect_onequip_row_maxhp">
+				<TextView android:text="Max HP" android:layout_marginRight="10sp" />
+				<TextView android:id="@+id/itemeffect_onequip_maxhp" />
+			</TableRow>
+			<TableRow android:id="@+id/itemeffect_onequip_row_maxap" >
+				<TextView android:text="Max AP" android:layout_marginRight="10sp" />
+				<TextView android:id="@+id/itemeffect_onequip_maxap" />
+			</TableRow>
+			<TableRow android:id="@+id/itemeffect_onequip_row_movecost" >
+				<TextView android:text="Move cost" android:layout_marginRight="10sp" />
+				<TextView android:id="@+id/itemeffect_onequip_movecost" />
+			</TableRow>
+		</TableLayout>
+		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
+			android:id="@+id/itemeffect_onequip_conditions"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+	
+	<TextView 
+		android:text="When used" 
+		android:id="@+id/itemeffect_onuse_title" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+		<com.gpl.rpg.AndorsTrail.view.ItemEffectsView_OnUse
+			android:id="@+id/itemeffect_onuse"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+
+	<TextView 
+		android:text="When hitting target" 
+		android:id="@+id/itemeffect_onhit_title" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+		<com.gpl.rpg.AndorsTrail.view.ItemEffectsView_OnUse
+			android:id="@+id/itemeffect_onhit"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+
+	<TextView 
+		android:text="On kill" 
+		android:id="@+id/itemeffect_onkill_title" 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		/>
+		<com.gpl.rpg.AndorsTrail.view.ItemEffectsView_OnUse
+			android:id="@+id/itemeffect_onkill"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+	
+</merge>

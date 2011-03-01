@@ -37,5 +37,15 @@
 		android:id="@+id/statusview_statustext"
 		android:textSize="@dimen/smalltext"
 		/>
+	
+	<LinearLayout 
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/main_statusview"
+		android:layout_margin="5dp"
+		android:id="@+id/statusview_activeconditions"
+		android:orientation="horizontal"
+		android:gravity="right"
+		/>
 
 </RelativeLayout>

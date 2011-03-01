@@ -69,7 +69,7 @@ public final class Controller {
 		playerRested(world);
 		MovementController.respawnPlayer(world);
 		final MainActivity act = view.mainActivity;
-		act.statusview.update();
+		act.updateStatus();
 		act.mainview.notifyMapChanged();
 		act.message(act.getResources().getString(R.string.combat_hero_dies, lostExp));
 	}
@@ -87,7 +87,7 @@ public final class Controller {
 
 	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext) {
 		playerRested(viewContext);
-		viewContext.mainActivity.statusview.update();
+		viewContext.mainActivity.updateStatus();
     	Dialogs.showRested(currentActivity, viewContext);
 	}
 	

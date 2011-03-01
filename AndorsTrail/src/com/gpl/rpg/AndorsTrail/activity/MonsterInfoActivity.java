@@ -1,11 +1,14 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import java.util.Arrays;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.util.Range;
+import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
@@ -50,6 +53,11 @@ public final class MonsterInfoActivity extends Activity {
 		});
 
         ((TraitsInfoView) findViewById(R.id.monsterinfo_currenttraits)).update(monsterType);
+        ((ItemEffectsView) findViewById(R.id.monsterinfo_onhiteffects)).update(
+        		null, 
+        		null, 
+        		monsterType.onHitEffects == null ? null : Arrays.asList(monsterType.onHitEffects), 
+        		null);
         RangeBar hp = (RangeBar) findViewById(R.id.monsterinfo_healthbar);
         hp.init(R.drawable.ui_progress_health, R.string.status_hp);
         hp.update(new Range(monsterType.maxHP, monsterType.maxHP)); //TODO: Should show actual monster HP.

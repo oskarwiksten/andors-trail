@@ -1,15 +1,20 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import java.util.ArrayList;
+
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
+import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
@@ -26,6 +31,7 @@ import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TabHost;
 import android.widget.TextView;
@@ -44,8 +50,10 @@ public final class HeroinfoActivity extends TabActivity {
 	private Button questsButton;
     private TextView heroinfo_ap;
     private TextView heroinfo_movecost;
-    private TraitsInfoView heroinfo_basetraits;
     private TraitsInfoView heroinfo_currenttraits;
+    private ItemEffectsView heroinfo_itemeffects;
+    private TextView heroinfo_currentconditions_title;
+    private LinearLayout heroinfo_currentconditions;
     private TextView heroinfo_level;
     private TextView heroinfo_totalexperience;
     private TextView heroinfo_stats_gold;
@@ -101,8 +109,10 @@ public final class HeroinfoActivity extends TabActivity {
         ((TextView) findViewById(R.id.heroinfo_title)).setText(player.traits.name);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
         heroinfo_movecost = (TextView) findViewById(R.id.heroinfo_movecost);
-        heroinfo_basetraits = (TraitsInfoView) findViewById(R.id.heroinfo_basetraits);
         heroinfo_currenttraits = (TraitsInfoView) findViewById(R.id.heroinfo_currenttraits);
+        heroinfo_itemeffects = (ItemEffectsView) findViewById(R.id.heroinfo_itemeffects);
+        heroinfo_currentconditions_title = (TextView) findViewById(R.id.heroinfo_currentconditions_title);
+        heroinfo_currentconditions = (LinearLayout) findViewById(R.id.heroinfo_currentconditions);
         heroinfo_stats_gold = (TextView) findViewById(R.id.heroinfo_stats_gold);
         heroinfo_stats_attack = (TextView) findViewById(R.id.heroinfo_stats_attack);
         heroinfo_stats_defense = (TextView) findViewById(R.id.heroinfo_stats_defense);
@@ -197,6 +207,7 @@ public final class HeroinfoActivity extends TabActivity {
         updateTraits();
         updateWorn();
         updateLevelup();
+        updateConditions();
 	}
 
 	private void updateLevelup() {
@@ -206,8 +217,6 @@ public final class HeroinfoActivity extends TabActivity {
 	private void updateTraits() {
 		heroinfo_level.setText(Integer.toString(player.level));
 		heroinfo_totalexperience.setText(Integer.toString(player.totalExperience));
-		heroinfo_basetraits.update(player.traits.baseCombatTraits);
-		heroinfo_currenttraits.update(player.traits);
 		heroinfo_ap.setText(player.ap.toString());
         heroinfo_movecost.setText(Integer.toString(player.traits.moveCost));
         heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.inventory.gold));
@@ -215,6 +224,19 @@ public final class HeroinfoActivity extends TabActivity {
         heroinfo_stats_defense.setText(ItemType.describeBlockEffect(player.traits));
         rangebar_hp.update(player.health);
         rangebar_exp.update(player.levelExperience);
+        
+        heroinfo_currenttraits.update(player.traits);
+		ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
+		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
+		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
+			ItemType type = player.inventory.wear[i];
+			if (type == null) continue;
+			if (type.effects_hit != null) effects_hit.add(type.effects_hit);
+			if (type.effects_kill != null) effects_kill.add(type.effects_kill);
+		}
+		if (effects_hit.isEmpty()) effects_hit = null;
+		if (effects_kill.isEmpty()) effects_kill = null;
+		heroinfo_itemeffects.update(null, null, effects_hit, effects_kill);
     }
 
     private void updateWorn() {
@@ -234,8 +256,24 @@ public final class HeroinfoActivity extends TabActivity {
 
 	private void updateItemList() {
 		((ItemContainerAdapter) inventoryList.getAdapter()).notifyDataSetChanged();
-    	//inventoryList.setAdapter(new ItemContainerAdapter(this, world.tileStore, container));
     }
+
+	private void updateConditions() {
+		if (player.conditions.isEmpty()) {
+			heroinfo_currentconditions_title.setVisibility(View.GONE);
+			heroinfo_currentconditions.setVisibility(View.GONE);
+		} else {
+			heroinfo_currentconditions_title.setVisibility(View.VISIBLE);
+			heroinfo_currentconditions.setVisibility(View.VISIBLE);
+			heroinfo_currentconditions.removeAllViews();
+			for (ActorCondition c : player.conditions) {
+				View v = View.inflate(this, R.layout.inventoryitemview, null);
+				((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.bitmaps[c.conditionType.iconID]);
+				((TextView) v.findViewById(R.id.inv_text)).setText(c.describeEffect());
+				heroinfo_currentconditions.addView(v);
+			}
+		}
+	}
     
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {

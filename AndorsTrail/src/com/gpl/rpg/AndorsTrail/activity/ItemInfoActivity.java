@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import java.util.Arrays;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +15,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
+import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 
 public final class ItemInfoActivity extends Activity {
 	
@@ -26,7 +28,6 @@ public final class ItemInfoActivity extends Activity {
 	
 	private WorldContext world;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,12 +53,12 @@ public final class ItemInfoActivity extends Activity {
         tv = (TextView) findViewById(R.id.iteminfo_category);
         tv.setText(getCategoryNameRes(itemType.category));
         
-        TraitsInfoView iv = ((TraitsInfoView) findViewById(R.id.iteminfo_traits));
-        if (itemType.effects_equip != null) {
-        	iv.update(itemType.effects_equip.combatProficiency);
-        } else {
-        	iv.update(null);
-        }
+        ((ItemEffectsView) findViewById(R.id.iteminfo_effects)).update(
+        		itemType.effects_equip,
+        		itemType.effects_use == null ? null : Arrays.asList(itemType.effects_use),
+				itemType.effects_hit == null ? null : Arrays.asList(itemType.effects_hit),
+				itemType.effects_kill == null ? null : Arrays.asList(itemType.effects_kill)
+    		);
         
         tv = (TextView) findViewById(R.id.iteminfo_description);
         tv.setVisibility(View.GONE);

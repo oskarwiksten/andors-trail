@@ -28,6 +28,7 @@ import android.view.View;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,6 +50,7 @@ public final class MainActivity extends Activity {
     public MainView mainview;
     public StatusView statusview;
     public CombatView combatview;
+    public LinearLayout activeConditions;
 	
 	private static final int NUM_MESSAGES = 3;
 	private final String[] messages = new String[NUM_MESSAGES];
@@ -71,6 +73,7 @@ public final class MainActivity extends Activity {
         mainview = (MainView) findViewById(R.id.main_mainview);
         statusview = (StatusView) findViewById(R.id.main_statusview);
         combatview = (CombatView) findViewById(R.id.main_combatview);
+        activeConditions = (LinearLayout) findViewById(R.id.statusview_activeconditions);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
 		statusText.setOnClickListener(new OnClickListener() {
@@ -116,14 +119,14 @@ public final class MainActivity extends Activity {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.addExperience(100);
-		    			statusview.update();
+		    			statusview.updateStatus();
 					}
 				})
     			,new DebugButton("gc+=10", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.inventory.gold += 10;
-		    			statusview.update();
+		    			statusview.updateStatus();
 					}
 				})
         	});
@@ -268,6 +271,11 @@ public final class MainActivity extends Activity {
 			}
 		});
 		return true;
+	}
+	
+	public void updateStatus() {
+		statusview.updateStatus();
+		statusview.updateActiveConditions(this, activeConditions);
 	}
 	
 	public void redrawAll(int why) {

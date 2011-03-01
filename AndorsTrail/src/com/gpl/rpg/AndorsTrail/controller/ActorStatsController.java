@@ -5,6 +5,7 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -41,9 +42,23 @@ public class ActorStatsController {
 			ItemTraits_OnEquip equipEffects = type.effects_equip;
 			if (equipEffects != null && equipEffects.addedConditions != null) {
 				for (ActorConditionEffect e : equipEffects.addedConditions) {
-					player.conditions.add(e.createCondition(ActorCondition.DURATION_FOREVER));
+					addActorCondition(player, e, ActorCondition.DURATION_FOREVER);
 				}
 			}
+		}
+	}
+	
+	private static void addActorCondition(Actor actor, ActorConditionEffect e) { addActorCondition(actor, e, e.duration); }
+	private static void addActorCondition(Actor actor, ActorConditionEffect e, int duration) {
+		final ActorConditionType type = e.conditionType;
+		if (e.isRemovalEffect()) {
+			removeAllConditionsOfType(actor, type.conditionTypeID);
+		} else if (e.magnitude > 0) {
+			if (!e.conditionType.isStacking) {
+				if (actor.hasCondition(type.conditionTypeID)) return;
+				//TODO: Maybe only keep the one with the highest magnitude?
+			}
+			actor.conditions.add(e.createCondition(duration));
 		}
 	}
 
@@ -62,16 +77,6 @@ public class ActorStatsController {
 		}
 	}
 	
-	private static void applyConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
-		if (!Constants.rollResult(conditionEffect.chance)) return;
-		
-		if (conditionEffect.isRemovalEffect()) {
-			removeAllConditionsOfType(actor, conditionEffect.conditionType.conditionTypeID);
-		} else if (conditionEffect.magnitude > 0) {
-			actor.conditions.add(conditionEffect.createCondition());
-		} 
-	}
-
 	private static void applyEffectsFromCurrentConditions(Player player) {
 		for (ActorCondition c : player.conditions) {
 			applyAbilityEffects(player, c.conditionType.abilityEffect, false, c.magnitude);
@@ -116,14 +121,14 @@ public class ActorStatsController {
 		player.ap.capAtMax();
 	}
 
-	public void applyConditionsToPlayer(Player player) {
-		applyStatsEffects(player);
+	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
+		applyStatsEffects(player, isFullRound);
 		if (player.isDead()) {
 			view.controller.handlePlayerDeath();
 			return;
 		}
 		view.mainActivity.combatview.updatePlayerAP(player.ap);
-		view.mainActivity.statusview.update();
+		view.mainActivity.updateStatus();
 
 		boolean removedAnyConditions = decreaseDurationAndRemoveConditions(player);
 		if (removedAnyConditions) {
@@ -131,17 +136,17 @@ public class ActorStatsController {
 		}
 	}
 
-	public void applyConditionsToMonsters(LayeredWorldMap map) {
+	public void applyConditionsToMonsters(LayeredWorldMap map, boolean isFullRound) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 	    	for (Monster m : a.monsters) {
-	    		applyConditionsToMonster(m);
+	    		applyConditionsToMonster(m, isFullRound);
 	    	}
 		}
 	}
 
-	private void applyConditionsToMonster(Monster monster) {
+	private void applyConditionsToMonster(Monster monster, boolean isFullRound) {
 		if (monster.conditions.isEmpty()) return;
-		applyStatsEffects(monster);
+		applyStatsEffects(monster, isFullRound);
 		if (monster.isDead()) {
 			view.combatController.playerKilledMonster(monster);
 			return;
@@ -150,9 +155,10 @@ public class ActorStatsController {
 		decreaseDurationAndRemoveConditions(monster);
 	}
 
-	private void applyStatsEffects(Actor actor) {
+	private void applyStatsEffects(Actor actor, boolean isFullRound) {
 		for (ActorCondition c : actor.conditions) {
-			applyStatsModifierEffect(actor, c.conditionType.statsEffect, c.magnitude);
+			StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
+			applyStatsModifierEffect(actor, effect, c.magnitude);
 		}
 	}
 	
@@ -176,16 +182,21 @@ public class ActorStatsController {
 		applyStatsModifierEffect(source, effect, 1);
 		if (effect.addedConditions_source != null) {
 			for (ActorConditionEffect e : effect.addedConditions_source) {
-				applyConditionEffect(source, e);
+				rollForConditionEffect(source, e);
 			}
 		}
 		if (target != null) {
 			if (effect.addedConditions_target != null) {
 				for (ActorConditionEffect e : effect.addedConditions_target) {
-					applyConditionEffect(target, e);
+					rollForConditionEffect(target, e);
 				}
 			}
 		}
+	}
+
+	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
+		if (!Constants.rollResult(conditionEffect.chance)) return;
+		addActorCondition(actor, conditionEffect);
 	}
 
 	private void applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude) {

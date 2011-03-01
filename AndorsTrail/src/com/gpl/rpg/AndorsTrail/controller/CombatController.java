@@ -199,7 +199,7 @@ public final class CombatController {
 			message(r.getString(R.string.combat_result_heromiss));
 		}
 		
-		context.mainActivity.statusview.update();
+		context.mainActivity.updateStatus();
 		
 		maybeAutoEndTurn();
 	}
@@ -217,7 +217,7 @@ public final class CombatController {
 		loot.exp = 0;
 		context.actorStatsController.applyKillEffectsToPlayer(model.player);
 		
-		context.mainActivity.statusview.update();
+		context.mainActivity.updateStatus();
 
 		if (!loot.hasItems()) {
 			model.currentMap.removeGroundLoot(loot);
@@ -327,7 +327,7 @@ public final class CombatController {
 		} else {
 			message(r.getString(R.string.combat_result_monstermiss, monsterName));
 		}
-		context.mainActivity.statusview.update();
+		context.mainActivity.updateStatus();
 		monsterTurnHandler.sendEmptyMessageDelayed(0, context.preferences.attackspeed_milliseconds);
 	}
 

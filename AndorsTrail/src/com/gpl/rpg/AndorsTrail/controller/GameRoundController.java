@@ -71,7 +71,7 @@ public final class GameRoundController {
     
     public void resume() {
     	//L.log(id + " : Controller::resume()");
-		view.mainActivity.statusview.update();
+		view.mainActivity.updateStatus();
 		model.uiSelections.isMainActivityVisible = true;
     	queueAnotherTick();
     }
@@ -83,11 +83,13 @@ public final class GameRoundController {
 	
     private void onNewFullRound() {
     	view.controller.resetMaps();
+    	view.actorStatsController.applyConditionsToMonsters(model.currentMap, true);
+    	view.actorStatsController.applyConditionsToPlayer(model.player, true);
     }
     
     private void onNewRound() {
-    	view.actorStatsController.applyConditionsToMonsters(model.currentMap);
-    	view.actorStatsController.applyConditionsToPlayer(model.player);
+    	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);
+    	view.actorStatsController.applyConditionsToPlayer(model.player, false);
     }
     
 	private void onNewTick() {

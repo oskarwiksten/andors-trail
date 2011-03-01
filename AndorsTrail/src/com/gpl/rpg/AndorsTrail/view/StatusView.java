@@ -5,16 +5,20 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ImageButton;
 
@@ -60,11 +64,11 @@ public final class StatusView extends RelativeLayout {
 				,new BitmapDrawable(world.tileStore.bitmaps[TileStore.iconID_moveselect])
 		});
 		
-        update();
+		updateStatus();
         updateIcon(player.canLevelup());
     }
 
-	public void update() {
+	public void updateStatus() {
 		healthBar.update(player.health);
 		expBar.update(player.levelExperience);
 		boolean canLevelUp = player.canLevelup();
@@ -79,6 +83,49 @@ public final class StatusView extends RelativeLayout {
 			heroImage.setImageDrawable(levelupDrawable);
 		} else {
 			heroImage.setImageBitmap(world.tileStore.bitmaps[player.traits.iconID]);			
+		}
+	}
+
+	public void updateActiveConditions(Context androidContext, LinearLayout activeConditions) {
+		GreedyImageViewAppender t = new GreedyImageViewAppender(androidContext, activeConditions);
+		for (ActorCondition condition : player.conditions) {
+			t.setCurrentImage(world.tileStore.bitmaps[condition.conditionType.iconID]);
+		}
+		t.removeOtherImages();
+	}
+	
+	private static class GreedyImageViewAppender {
+		private final LinearLayout container;
+		private final Context context;
+		private int currentChildIndex = 0;
+		private final int previousChildCount;
+		public GreedyImageViewAppender(Context context, LinearLayout container) {
+			this.container = container;
+			this.context = context;
+			this.previousChildCount = container.getChildCount();
+		}
+		public void setCurrentImage(Bitmap b) {
+			// Since this is called a lot, we do not want to recreate the view objects every time.
+			// Therefore, we reuse existing ImageView:s if they are present, but just change the image on them.
+			if (currentChildIndex < previousChildCount) {
+				// There already is a create dimage on this position, reuse it.
+				ImageView iv = (ImageView) container.getChildAt(currentChildIndex);
+				iv.setImageBitmap(b);
+				iv.setVisibility(View.VISIBLE);
+			} else {
+				// The player has never had this many conditions, create a new ImageView to hold the condition image.
+				ImageView iv = new ImageView(context);
+				iv.setImageBitmap(b);
+				container.addView(iv);
+			}
+			++currentChildIndex;
+		}
+		public void removeOtherImages() {
+			for(int i = previousChildCount - 1; i >= currentChildIndex; --i) {
+				//container.removeViewAt(i);
+				// Don't actually remove them, just hide them (so we won't have to recreate them next time the player get a condition)
+				container.getChildAt(i).setVisibility(View.GONE);
+			}
 		}
 	}
 }

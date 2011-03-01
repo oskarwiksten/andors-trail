@@ -26,4 +26,7 @@ public final class ConstRange {
 	public int average() {
 		return current + (max - current);
 	}
+	public String toPercentString() {
+		return Integer.toString((int) Math.ceil((float)current * 100 / max)) + "%";
+	}
 }

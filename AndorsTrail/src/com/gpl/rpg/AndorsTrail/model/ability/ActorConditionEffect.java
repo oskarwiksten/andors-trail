@@ -23,4 +23,13 @@ public final class ActorConditionEffect {
 	public ActorCondition createCondition(final int duration) {
 		return new ActorCondition(conditionType, magnitude, duration);
 	}
+
+	public String describeEffect() {
+		String result = "";
+		if (!chance.isMax()) {
+			result = chance.toPercentString() + ' ';
+		}
+		result += ActorCondition.describeEffect(conditionType, magnitude, duration);
+		return result;
+	}
 }

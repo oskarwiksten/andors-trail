@@ -90,7 +90,13 @@
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				/>
-			
+			<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
+				android:id="@+id/heroinfo_itemeffects"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				/>
+				
+			<!-- 
 			<TextView
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
@@ -102,6 +108,24 @@
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				/>
+				 -->
+
+			<TextView
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/actorinfo_currentconditions"
+				android:id="@+id/heroinfo_currentconditions_title"
+				android:layout_marginTop="@dimen/section_margin"
+				/>
+			<LinearLayout
+				android:id="@+id/heroinfo_currentconditions"
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="vertical"
+				android:gravity="left"
+				/>
+			
+			
 			
 		</LinearLayout>
 	</ScrollView>
