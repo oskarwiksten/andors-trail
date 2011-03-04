@@ -24,23 +24,6 @@ public class ActorCondition {
 	public static boolean isTemporaryEffect(int duration) {
 		return duration != DURATION_FOREVER;
 	}
-
-	public String describeEffect() {
-		return describeEffect(conditionType, magnitude, duration);
-	}
-	public static String describeEffect(ActorConditionType conditionType, int magnitude, int duration) {
-		StringBuilder sb = new StringBuilder(conditionType.name);
-		if (magnitude > 1) {
-			sb.append(" x");
-			sb.append(magnitude); 
-		}
-		if (isTemporaryEffect(duration)) {
-			sb.append(" (");
-			sb.append(duration);
-			sb.append(')');
-		}
-		return sb.toString();
-	}
 	
 
 	// ====== PARCELABLE ===================================================================

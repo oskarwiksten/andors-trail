@@ -13,6 +13,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
+import com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
@@ -266,16 +267,21 @@ public final class HeroinfoActivity extends TabActivity {
 			heroinfo_currentconditions_title.setVisibility(View.VISIBLE);
 			heroinfo_currentconditions.setVisibility(View.VISIBLE);
 			heroinfo_currentconditions.removeAllViews();
+			Resources res = getResources();
 			for (ActorCondition c : player.conditions) {
 				View v = View.inflate(this, R.layout.inventoryitemview, null);
 				((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.bitmaps[c.conditionType.iconID]);
-				((TextView) v.findViewById(R.id.inv_text)).setText(c.describeEffect());
+				((TextView) v.findViewById(R.id.inv_text)).setText(describeEffect(res, c));
 				heroinfo_currentconditions.addView(v);
 			}
 		}
 	}
     
-    @Override
+    private static String describeEffect(Resources res, ActorCondition c) {
+    	return ActorConditionEffectList.describeEffect(res, c.conditionType, c.magnitude, c.duration);
+	}
+
+	@Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
     	ItemType type = getSelectedItemType((AdapterContextMenuInfo) menuInfo);

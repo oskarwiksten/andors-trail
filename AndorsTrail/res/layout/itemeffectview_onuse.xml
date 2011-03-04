@@ -5,37 +5,38 @@
 	android:layout_height="wrap_content"
 	>
 
-	<TableLayout 
+	<LinearLayout
+		android:id="@+id/itemeffect_onuse_list" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:id="@+id/itemeffect_onuse_table"
+		android:orientation="vertical"
 		>
-	</TableLayout>
+	</LinearLayout>
 	
 	<TextView 
-		android:text="On source" 
+		android:text="@string/iteminfo_effect_works_on_source" 
 		android:id="@+id/itemeffect_onuse_conditions_source_title" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		/>
-	<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
-		android:id="@+id/itemeffect_onuse_conditions_source"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginLeft="10sp"
-		/>
+		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
+			android:id="@+id/itemeffect_onuse_conditions_source"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
 		
 	<TextView 
-		android:text="On target" 
+		android:text="@string/iteminfo_effect_works_on_target" 
 		android:id="@+id/itemeffect_onuse_conditions_target_title" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		/>
-	<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
-		android:id="@+id/itemeffect_onuse_conditions_target"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:layout_marginLeft="10sp"
-		/>
+		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
+			android:id="@+id/itemeffect_onuse_conditions_target"
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
 	
 </merge>

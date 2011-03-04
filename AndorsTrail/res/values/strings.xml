@@ -132,7 +132,6 @@
 	<string name="iteminfo_action_use_ap">Use (%1$d AP)</string>
 	<string name="iteminfo_action_equip_ap">Equip (%1$d AP)</string>
 	<string name="iteminfo_action_unequip_ap">Unequip (%1$d AP)</string>
-	<string name="iteminfo_effect_heal">Restores %1$s HP</string>	
 
 	<string name="itemcategory_money">Money</string>
 	<string name="itemcategory_weapon">Weapon</string>
@@ -304,6 +303,27 @@
 	<!-- Added in v0.6.9 -->
 
 	<string name="actorinfo_currentconditions">Active conditions</string> <!-- affliction / statuseffect / temporary effect -->
-	
+	<string name="actorcondition_info_removes_all">Removes all %1$s</string>
+	<string name="iteminfo_effect_chance_of">%1$s chance of %2$s</string>
+	<string name="iteminfo_effect_duration">(%1$d rounds)</string>
 
+	<string name="iteminfo_effect_works_on_source">On source</string>
+	<string name="iteminfo_effect_works_on_target">On target</string>
+	<string name="iteminfo_effect_works_when_hitting_target">When hitting target</string>
+	<string name="iteminfo_effect_works_when_killing_target">On every kill</string>
+	<string name="iteminfo_effect_works_when_used">When used</string>
+	<string name="iteminfo_effect_works_when_equipped">When equipped</string>
+	
+	<string name="iteminfo_effect_decrease_current_hp">Drains %1$s HP</string>
+	<string name="iteminfo_effect_increase_current_hp">Restores %1$s HP</string>
+	<string name="iteminfo_effect_decrease_current_ap">Drains %1$s AP</string>
+	<string name="iteminfo_effect_increase_current_ap">Restores %1$s AP</string>
+	
+	<string name="iteminfo_effect_increase_max_hp">Raises max HP +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_hp">Lowers max HP by %1$d</string>
+	<string name="iteminfo_effect_increase_max_ap">Raises max AP +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_ap">Lowers max AP by %1$d</string>
+	<string name="iteminfo_effect_increase_movecost">Move cost penalty +%1$d AP</string>
+	<string name="iteminfo_effect_decrease_movecost">Lowers move cost %1$d AP</string>
+	
 </resources>

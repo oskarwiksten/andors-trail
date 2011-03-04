@@ -6,7 +6,7 @@
 	>
 
 	<TextView 
-		android:text="When equipped" 
+		android:text="@string/iteminfo_effect_works_when_equipped" 
 		android:id="@+id/itemeffect_onequip_title" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -18,24 +18,27 @@
 			android:layout_marginLeft="10sp"
 			/>
 	
-		<TableLayout 
+		<TextView 
+			android:text="@string/iteminfo_effect_increase_max_hp" 
+			android:id="@+id/itemeffect_onequip_change_maxhp" 
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10sp"
-			>
-			<TableRow android:id="@+id/itemeffect_onequip_row_maxhp">
-				<TextView android:text="Max HP" android:layout_marginRight="10sp" />
-				<TextView android:id="@+id/itemeffect_onequip_maxhp" />
-			</TableRow>
-			<TableRow android:id="@+id/itemeffect_onequip_row_maxap" >
-				<TextView android:text="Max AP" android:layout_marginRight="10sp" />
-				<TextView android:id="@+id/itemeffect_onequip_maxap" />
-			</TableRow>
-			<TableRow android:id="@+id/itemeffect_onequip_row_movecost" >
-				<TextView android:text="Move cost" android:layout_marginRight="10sp" />
-				<TextView android:id="@+id/itemeffect_onequip_movecost" />
-			</TableRow>
-		</TableLayout>
+			/>
+		<TextView 
+			android:text="@string/iteminfo_effect_increase_max_ap" 
+			android:id="@+id/itemeffect_onequip_change_maxap" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+		<TextView 
+			android:text="@string/iteminfo_effect_increase_movecost" 
+			android:id="@+id/itemeffect_onequip_change_movecost" 
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
 		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
 			android:id="@+id/itemeffect_onequip_conditions"
 			android:layout_width="fill_parent"
@@ -44,7 +47,7 @@
 			/>
 	
 	<TextView 
-		android:text="When used" 
+		android:text="@string/iteminfo_effect_works_when_used" 
 		android:id="@+id/itemeffect_onuse_title" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -57,7 +60,7 @@
 			/>
 
 	<TextView 
-		android:text="When hitting target" 
+		android:text="@string/iteminfo_effect_works_when_hitting_target" 
 		android:id="@+id/itemeffect_onhit_title" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
@@ -70,7 +73,7 @@
 			/>
 
 	<TextView 
-		android:text="On kill" 
+		android:text="@string/iteminfo_effect_works_when_killing_target" 
 		android:id="@+id/itemeffect_onkill_title" 
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"

@@ -242,7 +242,7 @@ public final class ItemTypeCollection {
 		++nextId;
 		
 		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1))
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(3, 2))
 		};
 		itemType = new ItemType(
     			nextId

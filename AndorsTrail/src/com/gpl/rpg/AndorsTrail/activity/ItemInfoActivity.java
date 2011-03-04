@@ -60,17 +60,6 @@ public final class ItemInfoActivity extends Activity {
 				itemType.effects_kill == null ? null : Arrays.asList(itemType.effects_kill)
     		);
         
-        tv = (TextView) findViewById(R.id.iteminfo_description);
-        tv.setVisibility(View.GONE);
-        if (itemType.effects_use != null) {
-        	if (itemType.effects_use.currentHPBoost != null) {
-        		if (itemType.effects_use.currentHPBoost.max != 0) {
-        			tv.setText(getResources().getString(R.string.iteminfo_effect_heal, itemType.effects_use.currentHPBoost.toMinMaxString()));
-                	tv.setVisibility(View.VISIBLE);
-        		}
-        	}
-        }
-        
         Button b = (Button) findViewById(R.id.iteminfo_close);
         b.setOnClickListener(new OnClickListener() {
 			@Override

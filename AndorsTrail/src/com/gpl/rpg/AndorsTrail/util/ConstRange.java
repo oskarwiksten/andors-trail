@@ -22,6 +22,10 @@ public final class ConstRange {
 		if (isMax()) return Integer.toString(max);
 		else return current + "-" + max; 
 	}
+	public String toMinMaxAbsString() {
+		if (isMax()) return Integer.toString(Math.abs(max));
+		else return Math.abs(current) + "-" + Math.abs(max); 
+	}
 	public boolean isMax() { return max == current;	}
 	public int average() {
 		return current + (max - current);
