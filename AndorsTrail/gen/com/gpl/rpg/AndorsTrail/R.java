@@ -13,6 +13,8 @@ public final class R {
         public static final int preferences_attackspeed_values=0x7f070004;
         public static final int preferences_display_loot=0x7f070001;
         public static final int preferences_display_loot_values=0x7f070002;
+        public static final int preferences_display_scaling_factor=0x7f070007;
+        public static final int preferences_display_scaling_factor_values=0x7f070008;
         public static final int preferences_movementmethod_values=0x7f070006;
         public static final int preferences_movementmethods=0x7f070005;
         public static final int questlog_includecompleted=0x7f070000;
@@ -297,7 +299,7 @@ public final class R {
         public static final int about_contents1=0x7f0500f3;
         public static final int about_contents2=0x7f0500f4;
         public static final int about_contents3=0x7f0500f5;
-        /**  affliction / statuseffect / temporary effect 
+        /**  Translated as: affliction / statuseffect / temporary effect 
          */
         public static final int actorcondition_info_removes_all=0x7f05010e;
         public static final int actorinfo_attack=0x7f0500ae;
@@ -353,7 +355,7 @@ public final class R {
         public static final int conversation_rewardgold=0x7f0500d4;
         public static final int conversation_rewarditem=0x7f0500d6;
         public static final int conversation_rewarditems=0x7f0500d7;
-        public static final int conversation_title=0x7f050122;
+        public static final int conversation_title=0x7f050124;
         public static final int conversationlist_alynndir=0x7f050024;
         public static final int conversationlist_ambelie=0x7f050028;
         public static final int conversationlist_crossglen=0x7f050003;
@@ -506,7 +508,7 @@ public final class R {
         public static final int itemlist_rings=0x7f050038;
         public static final int itemlist_v068=0x7f050040;
         public static final int itemlist_weapons=0x7f050037;
-        public static final int key_required=0x7f050121;
+        public static final int key_required=0x7f050123;
         public static final int levelup_add_attackchance=0x7f0500e7;
         public static final int levelup_add_attackchance_description=0x7f0500e8;
         public static final int levelup_add_attackdamage=0x7f0500e9;
@@ -554,6 +556,8 @@ public final class R {
         public static final int preferences_display_category=0x7f0500fd;
         public static final int preferences_display_fullscreen=0x7f0500ff;
         public static final int preferences_display_fullscreen_title=0x7f0500fe;
+        public static final int preferences_display_scaling_factor=0x7f050122;
+        public static final int preferences_display_scaling_factor_title=0x7f050121;
         public static final int preferences_movement_category=0x7f05010a;
         public static final int preferences_movementmethod=0x7f05010c;
         public static final int preferences_movementmethod_title=0x7f05010b;

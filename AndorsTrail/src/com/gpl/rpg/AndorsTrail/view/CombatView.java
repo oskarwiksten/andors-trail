@@ -107,7 +107,7 @@ public final class CombatView extends FrameLayout {
 		if (selectedMonster != null) {
 			attackMoveButton.setText(getResources().getString(R.string.combat_attack, world.model.player.traits.attackCost));
 			monsterBar.setVisibility(View.VISIBLE);
-			monsterInfo.setImageBitmap(world.tileStore.bitmaps[selectedMonster.traits.iconID]);
+			monsterInfo.setImageBitmap(world.tileStore.getBitmap(selectedMonster.traits.iconID));
 	        updateMonsterHealth(selectedMonster.health);
 			currentMonsterType = selectedMonster.monsterType;
 		} else if (selectedMovePosition != null) {

@@ -143,6 +143,7 @@ public final class DynamicTileLoader {
 	}
 	
 	private Bitmap createTilesetImage(TilesetBitmap b) {
+		//return BitmapFactory.decodeResource(r, b.resourceId);
 		Options o = new Options();
 		o.inScaled = false;
 		Bitmap sourceImage = BitmapFactory.decodeResource(r, b.resourceId, o);

@@ -60,8 +60,8 @@ public final class StatusView extends RelativeLayout {
 		expBar.init(R.drawable.ui_progress_exp, R.string.status_exp);
         
 		levelupDrawable = new LayerDrawable(new Drawable[] {
-				new BitmapDrawable(world.tileStore.bitmaps[player.traits.iconID])
-				,new BitmapDrawable(world.tileStore.bitmaps[TileStore.iconID_moveselect])
+				new BitmapDrawable(world.tileStore.getBitmap(player.traits.iconID))
+				,new BitmapDrawable(world.tileStore.getBitmap(TileStore.iconID_moveselect))
 		});
 		
 		updateStatus();
@@ -82,14 +82,14 @@ public final class StatusView extends RelativeLayout {
 		if (canLevelUp) {
 			heroImage.setImageDrawable(levelupDrawable);
 		} else {
-			heroImage.setImageBitmap(world.tileStore.bitmaps[player.traits.iconID]);			
+			heroImage.setImageBitmap(world.tileStore.getBitmap(player.traits.iconID));			
 		}
 	}
 
 	public void updateActiveConditions(Context androidContext, LinearLayout activeConditions) {
 		GreedyImageViewAppender t = new GreedyImageViewAppender(androidContext, activeConditions);
 		for (ActorCondition condition : player.conditions) {
-			t.setCurrentImage(world.tileStore.bitmaps[condition.conditionType.iconID]);
+			t.setCurrentImage(world.tileStore.getBitmap(condition.conditionType.iconID));
 		}
 		t.removeOtherImages();
 	}

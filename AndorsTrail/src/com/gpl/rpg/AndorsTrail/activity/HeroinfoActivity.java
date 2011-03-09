@@ -105,7 +105,7 @@ public final class HeroinfoActivity extends TabActivity {
         container = player.inventory;
         
         ImageView iv = (ImageView) findViewById(R.id.heroinfo_image);
-        iv.setImageBitmap(world.tileStore.bitmaps[player.traits.iconID]);
+        iv.setImageBitmap(world.tileStore.getBitmap(player.traits.iconID));
         
         ((TextView) findViewById(R.id.heroinfo_title)).setText(player.traits.name);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
@@ -248,7 +248,7 @@ public final class HeroinfoActivity extends TabActivity {
 
     private void updateWornImage(ImageView view, int resourceIDEmptyImage, ItemType type) {
 		if (type != null) {
-			view.setImageBitmap(world.tileStore.bitmaps[type.iconID]);
+			view.setImageBitmap(world.tileStore.getBitmap(type.iconID));
 		} else {
 			view.setImageResource(resourceIDEmptyImage);
 		}
@@ -270,7 +270,7 @@ public final class HeroinfoActivity extends TabActivity {
 			Resources res = getResources();
 			for (ActorCondition c : player.conditions) {
 				View v = View.inflate(this, R.layout.inventoryitemview, null);
-				((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.bitmaps[c.conditionType.iconID]);
+				((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.getBitmap(c.conditionType.iconID));
 				((TextView) v.findViewById(R.id.inv_text)).setText(describeEffect(res, c));
 				heroinfo_currentconditions.addView(v);
 			}

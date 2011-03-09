@@ -319,7 +319,7 @@ public final class ConversationActivity extends Activity {
 			final ImageView iv = (ImageView) result.findViewById(R.id.conversation_image);
 			final TextView tv = (TextView) result.findViewById(R.id.conversation_text);
 	        if (statement.hasActor()) {
-				iv.setImageBitmap(tileStore.bitmaps[statement.iconID]);
+				iv.setImageBitmap(tileStore.getBitmap(statement.iconID));
 				iv.setVisibility(View.VISIBLE);
 				
 	    		tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);

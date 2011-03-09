@@ -30,7 +30,9 @@ import android.view.View;
 
 public final class MainView extends SurfaceView implements SurfaceHolder.Callback {
 
-    private int displayTileSize = 32;
+	private final int tileSize;
+    private float scale;
+    public int scaledTileSize;
 
     private Size screenSizeTileCount = null;
     private final Coord screenOffset = new Coord(); // pixel offset where the image begins
@@ -55,11 +57,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		super(context, attr);
 		this.holder = getHolder();
 		
-    	AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.view = app.currentView.get();
         this.model = app.world.model;
     	this.tiles = app.world.tileStore;
-    	
+    	this.tileSize = tiles.tileSize;
+
     	holder.addCallback(this);
     	
         setFocusable(true);
@@ -113,16 +116,19 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 
 		L.log("surfaceChanged " + w + ", " + h);
 
-		displayTileSize = tiles.displayTileSize;
+		this.scale = tiles.scale;
+		this.scaledTileSize = tiles.viewTileSize;
+		L.log("scale=" + scale);
+		L.log("scaledTileSize=" + scaledTileSize);
 		
 		screenSizeTileCount = new Size(
-				(int) Math.floor(w / displayTileSize)
-				,(int) Math.floor(h / displayTileSize)
+				(int) Math.floor(w / scaledTileSize)
+				,(int) Math.floor(h / scaledTileSize)
 			);
 
     	screenOffset.set(
-				(w - (displayTileSize * screenSizeTileCount.width)) / 2
-				,(h - (displayTileSize * screenSizeTileCount.height)) / 2
+				(w - (scaledTileSize * screenSizeTileCount.width)) / 2
+				,(h - (scaledTileSize * screenSizeTileCount.height)) / 2
 			);
 	    	
     	if (model.currentMap != null) {
@@ -181,8 +187,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 			if (!allowInputInterval()) return true;
 			
 			lastTouchPosition_tileCoords.set(
-					(int) Math.floor(((int)event.getX() - screenOffset.x) / displayTileSize) + mapTopLeft.x
-					,(int) Math.floor(((int)event.getY() - screenOffset.y) / displayTileSize) + mapTopLeft.y);
+					(int) Math.floor(((int)event.getX() - screenOffset.x) / scaledTileSize) + mapTopLeft.x
+					,(int) Math.floor(((int)event.getY() - screenOffset.y) / scaledTileSize) + mapTopLeft.y);
 			lastTouchPosition_dx = lastTouchPosition_tileCoords.x - model.player.position.x;
 			lastTouchPosition_dy = lastTouchPosition_tileCoords.y - model.player.position.y;
 			
@@ -229,6 +235,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        c = holder.lockCanvas(redrawRect);
 	        synchronized (holder) {
 	        	c.translate(screenOffset.x, screenOffset.y);
+	        	c.scale(scale, scale);
 	        	doDrawRect(c, area);
 	        }
 	    } finally {
@@ -253,6 +260,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        c = holder.lockCanvas(redrawRect);
 	        synchronized (holder) {
 	        	c.translate(screenOffset.x, screenOffset.y);
+	        	c.scale(scale, scale);
 	        	doDrawRect(c, area);
 	        	drawFromMapPosition(c, area, effect.position, effect.currentTileID);
     			if (effect.displayText != null) {
@@ -291,10 +299,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	
 	private void worldCoordsToScreenCords(final CoordRect worldArea, Rect destScreenRect) {
-		destScreenRect.left = screenOffset.x + (worldArea.topLeft.x - mapViewArea.topLeft.x) * displayTileSize;
-		destScreenRect.top = screenOffset.y + (worldArea.topLeft.y - mapViewArea.topLeft.y) * displayTileSize;
-		destScreenRect.right = destScreenRect.left + worldArea.size.width * displayTileSize;
-		destScreenRect.bottom = destScreenRect.top + worldArea.size.height * displayTileSize;
+		destScreenRect.left = screenOffset.x + (worldArea.topLeft.x - mapViewArea.topLeft.x) * scaledTileSize;
+		destScreenRect.top = screenOffset.y + (worldArea.topLeft.y - mapViewArea.topLeft.y) * scaledTileSize;
+		destScreenRect.right = destScreenRect.left + worldArea.size.width * scaledTileSize;
+		destScreenRect.bottom = destScreenRect.top + worldArea.size.height * scaledTileSize;
 	}
 	
 	private void doDrawRect(Canvas canvas, CoordRect area) {
@@ -333,12 +341,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
     private void drawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
     	int my = area.topLeft.y;
-    	int py = (area.topLeft.y - mapViewArea.topLeft.y) * displayTileSize;
-    	int px0 = (area.topLeft.x - mapViewArea.topLeft.x) * displayTileSize;
-		for (int y = 0; y < area.size.height; ++y, ++my, py += displayTileSize) {
+    	int py = (area.topLeft.y - mapViewArea.topLeft.y) * tileSize;
+    	int px0 = (area.topLeft.x - mapViewArea.topLeft.x) * tileSize;
+		for (int y = 0; y < area.size.height; ++y, ++my, py += tileSize) {
         	int mx = area.topLeft.x;
         	int px = px0;
-        	for (int x = 0; x < area.size.width; ++x, ++mx, px += displayTileSize) {
+        	for (int x = 0; x < area.size.width; ++x, ++mx, px += tileSize) {
         		final int tile = layer.tiles[mx][my];
         		if (tile != 0) {
         			canvas.drawBitmap(tiles.bitmaps[tile], px, py, mPaint);
@@ -361,15 +369,15 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		if (	   (x >= 0 && x < mapViewArea.size.width)
 				&& (y >= 0 && y < mapViewArea.size.height)) {
 			canvas.drawBitmap(tiles.bitmaps[tile], 
-	        		x * displayTileSize,
-	        		y * displayTileSize,
+	        		x * tileSize,
+	        		y * tileSize,
 	        		mPaint);
 		}
     }
 	
 	private void drawEffectText(Canvas canvas, final CoordRect area, final VisualEffectAnimation e) {
-    	int x = (e.position.x - mapViewArea.topLeft.x) * displayTileSize + displayTileSize/2;
-    	int y = (e.position.y - mapViewArea.topLeft.y) * displayTileSize + displayTileSize/2 + e.textYOffset;
+    	int x = (e.position.x - mapViewArea.topLeft.x) * tileSize + tileSize/2;
+    	int y = (e.position.y - mapViewArea.topLeft.y) * tileSize + tileSize/2 + e.textYOffset;
 		canvas.drawText(e.displayText, x, y, e.textPaint);
     }
     

@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Paint.Align;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection.VisualEffect;
@@ -82,7 +83,10 @@ public final class VisualEffectController {
 			this.effect = effect;
 			this.displayText = (displayValue == 0) ? null : String.valueOf(displayValue);
 			this.textPaint.setColor(effect.textColor);
-			this.textPaint.setShadowLayer(1, 1, 1, Color.DKGRAY);
+			this.textPaint.setShadowLayer(2, 1, 1, Color.DKGRAY);
+			this.textPaint.setTextSize(view.scaledTileSize * 0.5f); // 32dp.
+			this.textPaint.setAlpha(255);
+			this.textPaint.setTextAlign(Align.CENTER);
 			this.isAlive = true;
 			this.startTime = System.currentTimeMillis();
 			this.view = view;
@@ -96,6 +100,11 @@ public final class VisualEffectController {
 			final boolean changed = newTileID != this.currentTileID;
 			this.currentTileID = newTileID;
 			this.textYOffset = -2 * (currentFrame);
+			final int beginFadeAtFrame = effect.lastFrame / 2;
+			if (currentFrame >= beginFadeAtFrame) {
+				this.textPaint.setAlpha(255 * (effect.lastFrame - currentFrame) / (effect.lastFrame - beginFadeAtFrame)); 
+			}
+			
 			if (changed) {
 				view.redrawAreaWithEffect(area, this);
 			}

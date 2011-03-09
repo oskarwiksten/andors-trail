@@ -14,7 +14,7 @@ import android.view.WindowManager;
 public final class AndorsTrailApplication extends Application {
 
 	public static final boolean DEVELOPMENT_DEBUGRESOURCES = false;
-	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = false;
+	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = true;
 	public static final boolean DEVELOPMENT_FORCE_CONTINUEGAME = false;
 	public static final boolean DEVELOPMENT_DEBUGBUTTONS = false;
 	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
@@ -23,7 +23,7 @@ public final class AndorsTrailApplication extends Application {
 	public static final String CURRENT_VERSION_DISPLAY = "0.6.9dev";
 	
 	public final WorldContext world = new WorldContext();
-	public WorldSetup setup = new WorldSetup(world, this);
+	public final WorldSetup setup = new WorldSetup(world, this);
 	public WeakReference<ViewContext> currentView;
 	public final AndorsTrailPreferences preferences = new AndorsTrailPreferences();
 	

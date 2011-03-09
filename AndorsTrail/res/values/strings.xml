@@ -302,7 +302,7 @@
 	<!-- =========================================== -->
 	<!-- Added in v0.6.9 -->
 
-	<string name="actorinfo_currentconditions">Active conditions</string> <!-- affliction / statuseffect / temporary effect -->
+	<string name="actorinfo_currentconditions">Active conditions</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
 	<string name="actorcondition_info_removes_all">Removes all %1$s</string>
 	<string name="iteminfo_effect_chance_of">%1$s chance of %2$s</string>
 	<string name="iteminfo_effect_duration">(%1$d rounds)</string>
@@ -325,5 +325,18 @@
 	<string name="iteminfo_effect_decrease_max_ap">Lowers max AP by %1$d</string>
 	<string name="iteminfo_effect_increase_movecost">Move cost penalty +%1$d AP</string>
 	<string name="iteminfo_effect_decrease_movecost">Lowers move cost %1$d AP</string>
+	
+	<string name="preferences_display_scaling_factor_title">Scaling factor</string>
+	<string name="preferences_display_scaling_factor">Makes the game view display everything larger.</string>
+	<string-array name="preferences_display_scaling_factor">
+		<item>Normal size</item>
+		<item>1.5x size</item>
+		<item>Double size</item>
+	</string-array>
+	<string-array name="preferences_display_scaling_factor_values">
+		<item>1.0f</item>
+		<item>1.5f</item>
+		<item>2.0f</item>
+	</string-array>
 	
 </resources>

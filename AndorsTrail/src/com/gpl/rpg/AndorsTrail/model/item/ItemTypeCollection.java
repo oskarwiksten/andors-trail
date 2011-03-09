@@ -126,7 +126,7 @@ public final class ItemTypeCollection {
 		*/
 		
 		ItemType ring_dmg1 = getItemTypeByTag("ring_dmg1");
-		
+		if (ring_dmg1 == null) return;
 		ItemType itemType = new ItemType(
     			nextId
     			, ring_dmg1.iconID

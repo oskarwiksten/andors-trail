@@ -31,7 +31,7 @@ public final class WorldSetup {
 		this.androidContext = new WeakReference<Context>(androidContext);
 	}
 	
-	public void startResourceLoader(final Resources r) {
+	public void startResourceLoader(final Resources r, final AndorsTrailPreferences preferences) {
 		if (isResourcesInitialized) return;
 		
 		synchronized (this) {
@@ -42,7 +42,7 @@ public final class WorldSetup {
 		(new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... arg0) {
-				ResourceLoader.loadResources(world, r);
+		        ResourceLoader.loadResources(world, r);
 				return null;
 			}
 
@@ -87,9 +87,12 @@ public final class WorldSetup {
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
 				isSceneReady = true;
-				assert(listener != null);
-				OnSceneLoadedListener o = listener.get();
-				listener = null;
+				OnSceneLoadedListener o;
+				synchronized (WorldSetup.this) {
+					if (listener == null) return;
+					o = listener.get();
+					listener = null;
+				}
 				if (o == null) return;
 				if (loadResult == Savegames.LOAD_RESULT_SUCCESS) {
 					o.onSceneLoaded();

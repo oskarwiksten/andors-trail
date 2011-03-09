@@ -30,7 +30,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 			result = View.inflate(getContext(), R.layout.inventoryitemview, null);
 		}
 		
-		((ImageView) result.findViewById(R.id.inv_image)).setImageBitmap(tileStore.bitmaps[item.itemType.iconID]);
+		((ImageView) result.findViewById(R.id.inv_image)).setImageBitmap(tileStore.getBitmap(item.itemType.iconID));
 		((TextView) result.findViewById(R.id.inv_text)).setText(item.itemType.describeWearEffect(item.quantity));
 		return result;
 	}

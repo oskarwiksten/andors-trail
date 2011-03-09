@@ -163,7 +163,7 @@ public final class Dialogs {
 		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
         .setTitle(title)
         .setMessage(msg)
-        .setIcon(new BitmapDrawable(context.tileStore.bitmaps[TileStore.iconID_groundbag]))
+        .setIcon(new BitmapDrawable(context.tileStore.getBitmap(TileStore.iconID_groundbag)))
         .setNegativeButton(R.string.dialog_close, null)
         .setView(itemList);
 		

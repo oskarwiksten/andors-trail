@@ -87,6 +87,7 @@ public final class MonsterTypeCollection {
 	
 	public void DEBUG_initializeTestEffectMonsters(WorldContext world) {
 		MonsterType t = getMonsterTypeFromName("Forest Snake");
+		if (t == null) return;
 		t.onHitEffects = new ItemTraits_OnUse[] {
 			new ItemTraits_OnUse(null, null, null, new ActorConditionEffect[] { 
 				new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1))

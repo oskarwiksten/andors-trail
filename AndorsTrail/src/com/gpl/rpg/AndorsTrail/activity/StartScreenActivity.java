@@ -15,6 +15,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -95,7 +96,10 @@ public final class StartScreenActivity extends Activity {
 			}
 		});
         
-        app.setup.startResourceLoader(getResources());
+        final Resources res = getResources();
+        app.world.tileStore.setDensity(res);
+        app.world.tileStore.updatePreferences(app.preferences);
+        app.setup.startResourceLoader(res, app.preferences);
         
         if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
         	continueGame(true, 0, "Debug player");

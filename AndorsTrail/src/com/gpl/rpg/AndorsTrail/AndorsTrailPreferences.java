@@ -16,6 +16,7 @@ public class AndorsTrailPreferences {
 	public int movementMethod = MOVEMENTMETHOD_STRAIGHT;
 	public static final int MOVEMENTMETHOD_STRAIGHT = 0;
 	public static final int MOVEMENTMETHOD_DIRECTIONAL = 1;
+	public float scalingFactor = 1.0f;
 	
 	public static void read(final Context androidContext, AndorsTrailPreferences dest) {
 		try {
@@ -26,6 +27,7 @@ public class AndorsTrailPreferences {
 			dest.fullscreen = prefs.getBoolean("fullscreen", true);
 			dest.attackspeed_milliseconds = Integer.parseInt(prefs.getString("attackspeed", "1000"));
 			dest.movementMethod = Integer.parseInt(prefs.getString("movementmethod", Integer.toString(MOVEMENTMETHOD_STRAIGHT)));
+			dest.scalingFactor = Float.parseFloat(prefs.getString("scaling_factor", "1.0f"));
 		} catch (Exception e) {
 			dest.confirmRest = true;
 			dest.confirmAttack = true;
@@ -33,6 +35,7 @@ public class AndorsTrailPreferences {
 			dest.fullscreen = true;
 			dest.attackspeed_milliseconds = 1000;
 			dest.movementMethod = MOVEMENTMETHOD_STRAIGHT;
+			dest.scalingFactor = 1.0f;
 		}
 	}
 	

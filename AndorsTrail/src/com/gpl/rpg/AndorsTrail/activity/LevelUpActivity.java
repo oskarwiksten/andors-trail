@@ -35,7 +35,7 @@ public final class LevelUpActivity extends Activity {
     	final Resources res = getResources();
     	
         ImageView img = (ImageView) findViewById(R.id.levelup_image);
-        img.setImageBitmap(world.tileStore.bitmaps[player.traits.iconID]);
+        img.setImageBitmap(world.tileStore.getBitmap(player.traits.iconID));
         TextView tv = (TextView) findViewById(R.id.levelup_description);
         tv.setText(res.getString(R.string.levelup_description, player.level+1));
 

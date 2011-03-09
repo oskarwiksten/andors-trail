@@ -10,7 +10,6 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLoader;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
-import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 import android.content.res.Resources;
@@ -20,10 +19,7 @@ public final class ResourceLoader {
 	public static void loadResources(WorldContext world, Resources r) {
     	
         final TileStore tiles = world.tileStore;
-        tiles.displayTileSize = DynamicTileLoader.measureBitmapWidth(r, R.drawable.equip_body); // Should be 32 on regular size.
-        L.log("displayTileSize=" + tiles.displayTileSize);
-        final int mTileSize = tiles.displayTileSize;
-        L.log("mTileSize=" + mTileSize);
+        final int mTileSize = tiles.tileSize;
         
         final Size dst_sz1x1 = new Size(mTileSize, mTileSize);
         final Size dst_sz2x2 = new Size(mTileSize*2, mTileSize*2);

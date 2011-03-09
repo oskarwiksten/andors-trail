@@ -7,6 +7,13 @@
 			android:defaultValue="true"
 			android:summary="@string/preferences_display_fullscreen"
 			android:key="fullscreen" />
+		<ListPreference
+			android:title="@string/preferences_display_scaling_factor_title"
+			android:summary="@string/preferences_display_scaling_factor"
+			android:key="scaling_factor"
+			android:defaultValue="1.0f"
+			android:entries="@array/preferences_display_scaling_factor"
+			android:entryValues="@array/preferences_display_scaling_factor_values" />
 	</PreferenceCategory>
 	<PreferenceCategory
 		android:title="@string/preferences_dialog_category">

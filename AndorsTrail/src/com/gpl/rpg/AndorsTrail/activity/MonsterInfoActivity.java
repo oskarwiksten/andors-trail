@@ -38,7 +38,7 @@ public final class MonsterInfoActivity extends Activity {
         setContentView(R.layout.monsterinfo);
 
         ImageView img = (ImageView) findViewById(R.id.monsterinfo_image);
-        img.setImageBitmap(world.tileStore.bitmaps[monsterType.iconID]);
+        img.setImageBitmap(world.tileStore.getBitmap(monsterType.iconID));
         TextView tv = (TextView) findViewById(R.id.monsterinfo_title);
         tv.setText(monsterType.name);
         tv = (TextView) findViewById(R.id.monsterinfo_difficulty);
