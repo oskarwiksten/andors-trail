@@ -79,10 +79,9 @@ public final class TMXMapReader {
 												String data = xrp.getText().trim();
 												final int len = layer.width * layer.height * 4;
 												
-												//L.log("Layer " + layer.name + " with data " + data);
 												ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data));
 												if (compressionMethod == null) compressionMethod = "none";
-													
+												
 												InflaterInputStream zi;
 												if (compressionMethod.equalsIgnoreCase("zlib")) {
 													zi = new InflaterInputStream(bi);
@@ -91,9 +90,10 @@ public final class TMXMapReader {
 												} else {
 													throw new IOException("Unhandled compression method \"" + compressionMethod + "\" for map layer " + layer.name);
 												}
-													
+												
 												byte[] buffer = new byte[len];
-												zi.read(buffer, 0, len);
+												copyStreamToBuffer(zi, buffer, len);
+												
 												zi.close();
 												bi.close();
 												int i = 0;
@@ -152,6 +152,17 @@ public final class TMXMapReader {
 		}
 		maps.add(currentMap);
 		return currentMap;
+	}
+	
+	private static void copyStreamToBuffer(InflaterInputStream zi, byte[] buffer, int len) throws IOException {
+		int offset = 0;
+		int bytesToRead = len;
+		while (bytesToRead > 0) {
+			int b = zi.read(buffer, offset, bytesToRead);
+			if (b <= 0) throw new IOException("Failed to read stream!");
+			bytesToRead -= b;
+			offset += b;
+		}
 	}
 	
 	private interface TagHandler {
