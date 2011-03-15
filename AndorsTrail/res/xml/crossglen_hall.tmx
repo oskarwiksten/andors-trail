@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="15" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_1.png"/>
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_2.png"/>
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_1.png"/>
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_2.png"/>
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_3.png"/>
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_4.png"/>
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_5.png"/>
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_3.png"/>
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_4.png"/>
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_5.png"/>
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_6.png"/>
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_7.png"/>
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_8.png"/>
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
  </tileset>
  <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_6.png"/>
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_7.png"/>
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_8.png"/>
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
  <layer name="Ground" width="20" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAwtiZGBoxIKDgJiTATsOwqMHhCdiwYTMw6UHhB0ZMHEQI36MTw82OWz+QcakmofNP8iYVPPIwcjmNUIxtcyjtvvIwRtxmIcuPhT8G0gA4zIPV9rElddgGKTmJQsDQz4Qv2KBphFG3GmTGPN+As0pAOJfUPNAZqH7AcYmZB6ucAAA3NS0n7AEAAA=
+  <data encoding="base64" compression="zlib">
+   eJwLYmRgaMSCg4CYkwE7DsKjB4QnYsGEzMOlB4QdGTBxECN+jE8PNjls/kHGpJqHzT/ImFTzyMHI5jVCMbXMo7b7yMEbcZiHLj4U/BtIAOMyD1faxJXXYBik5iULA0M+EL9igaYRRtxpkxjzfgLNKQDiX1DzQGah+wHGJmQernAAAASQWAQ=
   </data>
  </layer>
  <layer name="Objects" width="20" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NggABpdgYGThYITSzIgerJxKJHGygmyQKhSQEgPehAihVCi5Jg1l02BoYDbBD6ApQmBDZD/YPM3gy18y0bdhoEbjPjNhPZP9j8hg0kIpl3Csg+DcS/iXA/MzvEnyzsqP4tRDJvCloY6rFiZ8MANv/iAruB/tvDgjALxsdmLjL4hmT2EiT9p4HsM0hhhs6HgatAsRw8cQAD2NyBy201SG5yBprtgsX8q0TGJzoIBpoVQoR7SQHIbukhEN4g4MCOn08OkAHaKwvEckTYTy4AAAqCKQuwBAAA
+  <data encoding="base64" compression="zlib">
+   eJxjYIAAaXYGBk4WCE0syIHqycSiRxsoJskCoUkBID3oQIoVQouSYNZdNgaGA2wQ+gKUJgQ2Q/2DzN4MtfMtG3YaBG4z4zYT2T/Y/IYNJCKZdwrIPg3Ev4lwPzM7xJ8s7Kj+LUQybwpaGOqxYmfDADb/4gK7gf7bw4IwC8bHZi4y+IZk9hIk/aeB7DNIYYbOh4GrQLEcPHEAA9jcgcttNUhucgaa7YLF/KtExic6CAaaFUKEe0kByG7pIRDeIODAjp9PDpAB2isLxHJE2E8uAADffiPp
   </data>
  </layer>
  <layer name="Above" width="20" height="15">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgYGD4z8xAMsCnB11uNRHmDxfztgHZu4kw7z2R5rWwE1ZPCCCbR4k52MxDBkJAt/5gQ/AFgXxOdvLNIxcMFfOSWYjXY8COm0+u+3hYGRh4gZiPFVUcPY0IExGH9AIA9VJKh7AEAAA=
+  <data encoding="base64" compression="zlib">
+   eJxjYGBg+M/MQDLApwddbjUR5g8X87YB2buJMO89kea1sBNWTwggm0eJOdjMQwZCQLf+YEPwBYF8TnbyzSMXDBXzklmI12PAjptPrvt4WBkYeIGYjxVVHD2NCBMRh/QCAKxIG1s=
   </data>
  </layer>
  <layer name="Walkable" width="20" height="15" visible="0">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAAxNkYGAQHAKYAY2m1CxkQI4edH20Mo+QHmLtRVZDLiDkDlxuJ6SeUHgQYx4x4UsKIDbOKDGTkH2khg+xZhGynxzzsJlBSA05GAD9cUNrsAQAAA==
+  <data encoding="base64" compression="zlib">
+   eJwTZGBgEBwCmAGNptQsZECOHnR9tDKPkB5i7UVWQy4g5A5cbieknlB4EGMeMeFLCiA2zigxk5B9pIYPsWYRsp8c87CZQUgNORgAXCMLoA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="15">
@@ -75,10 +75,10 @@
     <property name="place" value="hall"/>
    </properties>
   </object>
-  <object name="rest1" type="rest" x="512" y="192" width="32" height="32"/>
-  <object name="rest1" type="rest" x="576" y="192" width="32" height="32"/>
-  <object name="rest1" type="rest" x="576" y="96" width="32" height="32"/>
-  <object name="rest1" type="rest" x="512" y="96" width="32" height="32"/>
+  <object name="rest4" type="rest" x="512" y="192" width="32" height="32"/>
+  <object name="rest5" type="rest" x="576" y="192" width="32" height="32"/>
+  <object name="rest3" type="rest" x="576" y="96" width="32" height="32"/>
+  <object name="rest2" type="rest" x="512" y="96" width="32" height="32"/>
   <object name="rest1" type="rest" x="448" y="96" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="15" visible="0">

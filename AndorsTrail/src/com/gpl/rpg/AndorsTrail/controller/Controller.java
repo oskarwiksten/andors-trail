@@ -37,10 +37,10 @@ public final class Controller {
 			if (o.map == null || o.place == null) return;
 			int offset_x = position.x - o.position.topLeft.x;
 			int offset_y = position.y - o.position.topLeft.y;
-			view.movementController.placePlayerAt(o.map, o.place, offset_x, offset_y);
+			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, o.map, o.place, offset_x, offset_y);
 			break;
 		case MapObject.MAPEVENT_REST:
-			Dialogs.showRest(view.mainActivity, view);
+			Dialogs.showRest(view.mainActivity, view, o);
 			break;
 		}
 	}
@@ -66,7 +66,7 @@ public final class Controller {
 		if (lostExp < 0) lostExp = 0; // Shouldn't happen, but just to be sure.
 		player.addExperience(-lostExp);
 		model.statistics.addPlayerDeath(lostExp);
-		playerRested(world);
+		playerRested(world, null);
 		MovementController.respawnPlayer(world);
 		final MainActivity act = view.mainActivity;
 		act.updateStatus();
@@ -74,19 +74,23 @@ public final class Controller {
 		act.message(act.getResources().getString(R.string.combat_hero_dies, lostExp));
 	}
 	
-	public static void playerRested(final WorldContext world) {
+	public static void playerRested(final WorldContext world, MapObject area) {
 		final Player player = world.model.player;
 		ActorStatsController.removeAllTemporaryConditions(player);
 		ActorStatsController.recalculatePlayerCombatTraits(player);
 		player.setMaxAP();
 		player.setMaxHP();
+		if (area != null) {
+			player.spawnPlace = area.id;
+			player.spawnMap = world.model.currentMap.name;
+		}
 		for (LayeredWorldMap m : world.maps.predefinedMaps) {
         	if (m.visited) m.spawnAll(world);
         }
 	}
 
-	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext) {
-		playerRested(viewContext);
+	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext, MapObject area) {
+		playerRested(viewContext, area);
 		viewContext.mainActivity.updateStatus();
     	Dialogs.showRested(currentActivity, viewContext);
 	}

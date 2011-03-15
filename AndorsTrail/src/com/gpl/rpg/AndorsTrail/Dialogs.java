@@ -36,6 +36,7 @@ import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
@@ -203,9 +204,9 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_LEVELUP);
 	}
 
-	public static void showRest(final Activity currentActivity, final ViewContext viewContext) {
+	public static void showRest(final Activity currentActivity, final ViewContext viewContext, final MapObject area) {
 		if (!viewContext.preferences.confirmRest) {
-			Controller.ui_playerRested(currentActivity, viewContext);
+			Controller.ui_playerRested(currentActivity, viewContext, area);
 			return;
 		}
 		Dialog d = new AlertDialog.Builder(currentActivity)
@@ -214,7 +215,7 @@ public final class Dialogs {
         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-        		Controller.ui_playerRested(currentActivity, viewContext);
+        		Controller.ui_playerRested(currentActivity, viewContext, area);
             }
         })
         .setNegativeButton(android.R.string.no, null)

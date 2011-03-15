@@ -24,21 +24,22 @@ public final class MovementController {
     	this.model = world.model;
     }
 	
-	public void placePlayerAt(String mapName, String placeName, int offset_x, int offset_y) { 
-		placePlayerAt(world, mapName, placeName, offset_x, offset_y); 
+	public void placePlayerAt(int objectType, String mapName, String placeName, int offset_x, int offset_y) { 
+		placePlayerAt(world, objectType, mapName, placeName, offset_x, offset_y); 
 		view.mainActivity.clearMessages();
 		view.mainActivity.mainview.notifyMapChanged();
     }
-	public static void placePlayerAt(final WorldContext world, String mapName, String placeName, int offset_x, int offset_y) {
+	
+	public static void placePlayerAt(final WorldContext world, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
     	if (mapName == null || placeName == null) return;
 		LayeredWorldMap newMap = world.maps.findPredefinedMap(mapName);
 		if (newMap == null) {
 			L.log("Cannot find map " + mapName);
 			return;
 		}
-		MapObject place = newMap.findEventObject(MapObject.MAPEVENT_NEWMAP, placeName);
+		MapObject place = newMap.findEventObject(objectType, placeName);
 		if (place == null) {
-			L.log("Cannot find place " + placeName + " in map " + mapName);
+			L.log("Cannot find place " + placeName + " of type " + objectType + " in map " + mapName);
 			return;
 		}
 		final ModelContainer model = world.model;
@@ -173,7 +174,7 @@ public final class MovementController {
     }
 
 	public static void respawnPlayer(final WorldContext world) {
-		placePlayerAt(world, world.model.player.spawnMap, world.model.player.spawnPlace, 0, 0);
+		placePlayerAt(world, MapObject.MAPEVENT_REST, world.model.player.spawnMap, world.model.player.spawnPlace, 0, 0);
 	}
 
 	public static void moveBlockedActors(final WorldContext world) {

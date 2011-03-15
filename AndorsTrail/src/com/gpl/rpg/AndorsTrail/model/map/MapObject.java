@@ -35,8 +35,8 @@ public final class MapObject {
 	public static MapObject createNewMapEvent(final CoordRect position, final String thisMapTitle, final String destinationMap, final String destinationPlace) {
 		return new MapObject(position, MAPEVENT_NEWMAP, thisMapTitle, destinationMap, destinationPlace, null, null);
 	}
-	public static MapObject createNewRest(final CoordRect position) {
-		return new MapObject(position, MAPEVENT_REST, null, null, null, null, null);
+	public static MapObject createNewRest(final CoordRect position, final String placeId) {
+		return new MapObject(position, MAPEVENT_REST, placeId, null, null, null, null);
 	}
 	public static MapObject createNewKeyArea(final CoordRect position, final String phraseID, final QuestProgress requireQuestStage) {
 		return new MapObject(position, MAPEVENT_KEYAREA, phraseID, null, null, requireQuestStage, null);

@@ -82,7 +82,7 @@ public final class LayeredWorldMap {
     
     public MapObject findEventObject(int objectType, String name) {
     	for (MapObject o : eventObjects) {
-    		if (o.type == objectType && o.id.equals(name)) return o;
+    		if (o.type == objectType && name.equals(o.id)) return o;
     	}
     	return null;
     }

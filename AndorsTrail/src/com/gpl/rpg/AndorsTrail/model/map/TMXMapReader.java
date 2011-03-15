@@ -355,7 +355,7 @@ public final class TMXMapReader {
 						
 						mapObjects.add(MapObject.createNewKeyArea(position, phraseID, requireQuestStage));
 					} else if (object.type.equals("rest")) {
-						mapObjects.add(MapObject.createNewRest(position));
+						mapObjects.add(MapObject.createNewRest(position, object.name));
 					} else if (object.type.equals("container")) {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;

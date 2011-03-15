@@ -79,6 +79,15 @@ public final class MapCollection {
 							continue;
 						} 
 						world.conversations.getPhrase(o.id); // Will warn inside if not available.
+					} else if (o.type == MapObject.MAPEVENT_REST) {
+						if (o.id == null || o.id.length() <= 0) {
+							L.log("WARNING: Map \"" + m.name + "\" contains rest area without id.");
+							continue;
+						}
+						if (m.findEventObject(MapObject.MAPEVENT_REST, o.id) != o) {
+							L.log("WARNING: Map \"" + m.name + "\" contains duplicate rest area with id \"" + o.id + "\".");
+							continue;
+						}
 					}
 				}
 				

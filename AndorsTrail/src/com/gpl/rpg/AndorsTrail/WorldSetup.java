@@ -110,7 +110,7 @@ public final class WorldSetup {
 	private void createNewWorld() {
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer_(world.itemTypes, world.dropLists, newHeroName);
-		Controller.playerRested(world);
+		Controller.playerRested(world, null);
 		MovementController.respawnPlayer(world);
 	}
 
