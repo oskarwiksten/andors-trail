@@ -247,7 +247,7 @@ public final class ResourceLoader {
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	mapReader.read(r.getXml(R.xml.debugmap), "debugmap");
         } else {
-	        mapReader.read(r.getXml(R.xml.home), "home");
+        	mapReader.read(r.getXml(R.xml.home), "home");
             mapReader.read(r.getXml(R.xml.crossglen), "crossglen");
 	        mapReader.read(r.getXml(R.xml.crossglen_farmhouse), "crossglen_farmhouse");
 	        mapReader.read(r.getXml(R.xml.crossglen_farmhouse_basement), "crossglen_farmhouse_basement");
@@ -342,6 +342,59 @@ public final class ResourceLoader {
 	        mapReader.read(r.getXml(R.xml.gargoylecave2), "gargoylecave2");
 	        mapReader.read(r.getXml(R.xml.gargoylecave3), "gargoylecave3");
 	        mapReader.read(r.getXml(R.xml.gargoylecave4), "gargoylecave4");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain0), "blackwater_mountain0");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain1), "blackwater_mountain1");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain2), "blackwater_mountain2");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain3), "blackwater_mountain3");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain4), "blackwater_mountain4");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain5), "blackwater_mountain5");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain6), "blackwater_mountain6");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain7), "blackwater_mountain7");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain8), "blackwater_mountain8");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain9), "blackwater_mountain9");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain10), "blackwater_mountain10");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain11), "blackwater_mountain11");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain12), "blackwater_mountain12");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain13), "blackwater_mountain13");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain14), "blackwater_mountain14");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain15), "blackwater_mountain15");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain16), "blackwater_mountain16");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain17), "blackwater_mountain17");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain18), "blackwater_mountain18");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain19), "blackwater_mountain19");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain20), "blackwater_mountain20");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain21), "blackwater_mountain21");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain22), "blackwater_mountain22");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain23), "blackwater_mountain23");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain24), "blackwater_mountain24");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain25), "blackwater_mountain25");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain26), "blackwater_mountain26");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain27), "blackwater_mountain27");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain28), "blackwater_mountain28");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain29), "blackwater_mountain29");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain30), "blackwater_mountain30");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain31), "blackwater_mountain31");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain32), "blackwater_mountain32");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain33), "blackwater_mountain33");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain34), "blackwater_mountain34");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain35), "blackwater_mountain35");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain36), "blackwater_mountain36");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain37), "blackwater_mountain37");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain38), "blackwater_mountain38");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain39), "blackwater_mountain39");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain40), "blackwater_mountain40");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain41), "blackwater_mountain41");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain42), "blackwater_mountain42");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain43), "blackwater_mountain43");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain44), "blackwater_mountain44");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain45), "blackwater_mountain45");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain46), "blackwater_mountain46");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain47), "blackwater_mountain47");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain48), "blackwater_mountain48");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain49), "blackwater_mountain49");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain50), "blackwater_mountain50");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain51), "blackwater_mountain51");
+	        mapReader.read(r.getXml(R.xml.blackwater_mountain52), "blackwater_mountain52");
         }
         
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));

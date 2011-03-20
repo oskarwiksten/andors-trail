@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="9" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="9" height="30">
+  <data encoding="base64" compression="zlib">
+   eJy9k90NgCAMhIu6gYzBJq7JCG6AGziCiwjBxtr0xwfjw4WQfqHtXcgBIBMt8LxL+ouZhs6M9dyE+loVL2au5x46y5kEt47Q2cL6UAZVSD0aDM4h1Smj1RPIs0qzWIy0s+YtMuit5m9i3nKW9kJvG0uzkGZuLM/C8ufN/jQvLwsrL6+PtRcK9/Jy/5LxPNT+BH+DSnvjBHn8a6M=
+  </data>
+ </layer>
+ <layer name="Objects" width="9" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzdUsERwjAME204BqJ/5uDNECzEEBkh+9B/ezrwnWpsUr7o1TqS7FgB/h/TADwKcB5yznUEbuX1fT/m3Prm0I8838fQhBedGy4n4HnY1qixPrV8alpQ8x5Z7VdE/SN82+1e7jJu/1vJs9C5oiw0T+VlHPPTnfm8vJ5g3yiPno7Qe9n8nMP4zd0r89G67ZDvyvyI6C305iZm0anHCnSmIuE=
+  </data>
+ </layer>
+ <layer name="Above" width="9" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYEAF/5kZCILBpAYk/x6qZjM7YTNYWSm3hxx5YuwgVw0fFn9T2y5cYYusBjls0dXD1BSzYKqFgS+MhN0DAh+onG7INQOXGvT4oGd+ITcMYfFCLAAAnV4kLw==
+  </data>
+ </layer>
+ <layer name="Walkable" width="9" height="30" visible="0">
+  <data encoding="base64" compression="zlib">
+   eJwTZGBgEETCDGh8bHg4q8GnDh0QowZdHTnyhNQMhnCjNGyJDR9iw4hcs+hlBjl24QPUdjOhuAMAM9kLfg==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="9" height="30">
+  <object name="north" type="mapchange" x="128" y="0" width="32" height="32">
+   <properties>
+    <property name="map" value="blackwater_mountain44"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
+  <object name="south" type="mapchange" x="128" y="928" width="64" height="32">
+   <properties>
+    <property name="map" value="blackwater_mountain51"/>
+    <property name="place" value="north"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="9" height="30"/>
+ <objectgroup name="Keys" width="9" height="30"/>
+</map>
