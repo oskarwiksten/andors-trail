@@ -395,6 +395,43 @@ public final class ResourceLoader {
 	        mapReader.read(r.getXml(R.xml.blackwater_mountain50), "blackwater_mountain50");
 	        mapReader.read(r.getXml(R.xml.blackwater_mountain51), "blackwater_mountain51");
 	        mapReader.read(r.getXml(R.xml.blackwater_mountain52), "blackwater_mountain52");
+	        mapReader.read(r.getXml(R.xml.wild0), "wild0");
+	        mapReader.read(r.getXml(R.xml.crossroads), "crossroads");
+	        /*mapReader.read(r.getXml(R.xml.fields0), "fields0");
+	        mapReader.read(r.getXml(R.xml.fields1), "fields1");
+	        mapReader.read(r.getXml(R.xml.fields2), "fields2");
+	        mapReader.read(r.getXml(R.xml.fields3), "fields3");
+	        mapReader.read(r.getXml(R.xml.fields4), "fields4");
+	        mapReader.read(r.getXml(R.xml.fields5), "fields5");
+	        mapReader.read(r.getXml(R.xml.fields6), "fields6");
+	        mapReader.read(r.getXml(R.xml.fields7), "fields7");
+	        mapReader.read(r.getXml(R.xml.fields8), "fields8");
+	        mapReader.read(r.getXml(R.xml.fields9), "fields9");
+	        mapReader.read(r.getXml(R.xml.fields10), "fields10");
+	        mapReader.read(r.getXml(R.xml.fields11), "fields11");
+	        mapReader.read(r.getXml(R.xml.fields12), "fields12");
+	        mapReader.read(r.getXml(R.xml.houseatcrossroads0), "houseatcrossroads0");
+	        mapReader.read(r.getXml(R.xml.houseatcrossroads1), "houseatcrossroads1");
+	        mapReader.read(r.getXml(R.xml.houseatcrossroads2), "houseatcrossroads2");
+	        mapReader.read(r.getXml(R.xml.houseatcrossroads3), "houseatcrossroads3");
+	        mapReader.read(r.getXml(R.xml.houseatcrossroads4), "houseatcrossroads4");
+	        mapReader.read(r.getXml(R.xml.houseatcrossroads5), "houseatcrossroads5");
+	        mapReader.read(r.getXml(R.xml.loneford1), "loneford1");
+	        mapReader.read(r.getXml(R.xml.loneford2), "loneford2");
+	        mapReader.read(r.getXml(R.xml.loneford3), "loneford3");
+	        mapReader.read(r.getXml(R.xml.loneford4), "loneford4");
+	        mapReader.read(r.getXml(R.xml.loneford5), "loneford5");
+	        mapReader.read(r.getXml(R.xml.loneford6), "loneford6");
+	        mapReader.read(r.getXml(R.xml.loneford7), "loneford7");
+	        mapReader.read(r.getXml(R.xml.loneford8), "loneford8");
+	        mapReader.read(r.getXml(R.xml.loneford9), "loneford9");
+	        mapReader.read(r.getXml(R.xml.loneford10), "loneford10");
+	        mapReader.read(r.getXml(R.xml.roadbeforecrossroads), "roadbeforecrossroads");
+	        mapReader.read(r.getXml(R.xml.roadtocarntower0), "roadtocarntower0");
+	        mapReader.read(r.getXml(R.xml.roadtocarntower1), "roadtocarntower1");
+	        mapReader.read(r.getXml(R.xml.roadtocarntower2), "roadtocarntower2");
+	        mapReader.read(r.getXml(R.xml.woodcave0), "woodcave0");
+	        mapReader.read(r.getXml(R.xml.woodcave1), "woodcave1");*/
         }
         
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));

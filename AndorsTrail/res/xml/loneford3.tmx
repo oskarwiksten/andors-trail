@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="30" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="21" height="11" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
@@ -48,40 +48,40 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="15" height="30">
+ <layer name="Ground" width="21" height="11">
   <data encoding="base64" compression="zlib">
-   eJztksENgCAMRSuyAY7h2GygG8AGjuBZN9BYEhsbAgWuhsNPyee/UKB2ALAZeWFPklYAG9ZRtXErakJmx2qwukLeR+wMnyQ27i/HpnK8v+CHDGfJi+8R2J2dY94MZ1OeS/RXK2IPDXDqOoayxF64vitZytL78T3pneMcaan8X57rs9Fno8/Gv2ajxcv9ecl7APDfwPY=
+   eJzTZWBg0KUBzmciH6Prh5npzMzA4ALEjkBcz0Qazkfjw8x0JBIrY8Egc5DVUMNMmNxGGphJijth9u9mYWDYw4Iqh02MVHcSg2HpAMS2Z6aOmbB0QE13gswLZEBgRwZUPrkYANM5Qq8=
   </data>
  </layer>
- <layer name="Objects" width="15" height="30">
+ <layer name="Objects" width="21" height="11">
   <data encoding="base64" compression="zlib">
-   eJzdksENwyAMRR2Cwr2rlD0yQvfqCO0xl0hlgJyzSjJAa6GqjoHggHLpvyB9G/GxH8D/yCoAZwCu6vjdQfuzb8vennS+5278SfM5sz1RVoV9j0/9Se5bUsPs1KO90oyjIP/SAKzNtp96XOhjtoXUY//FvpH17WUcBFlTd0sl2W+NzmKDeyk2UHRGdMaSv8c4yLHBd55igzMU0zdv7Z6P6mwuUMjGpStn41XBxq31b/fdz+Mz3pv5bEIOJp1nA0V3jp4zoSdhQ6I3OvhE9g==
+   eJxjYCAdKLGTpp6ThYFhMztuGgSMoPRmJLOD2XCbKcmCnwYBJySzFgLZ/5kZGJLRzAwGioUAcSAQVwJxFRCHAnEPUN0SoFnc7BDcwQrB7UD8FyjXywrR/54Z021hWMTIAfuR3KoJtE8LiLWhNAi7o9mjwwrB+MTOI5lpxYqJw0FhxILQi2wOLrH9eOIJHYD0nAaaf4YF1Ux0sfNEmLkEKa4J+R2kFps7kc0gxT4YIMad5AIAe9IghQ==
   </data>
  </layer>
- <layer name="Above" width="15" height="30">
+ <layer name="Above" width="21" height="11">
   <data encoding="base64" compression="zlib">
-   eJxjYBhc4D8zffQWshOnF5u6RiL04lI3GyrGygqh32PRCxKbxY5Qi26HKCt2t+IC9ApTYsCHAXILKXqliUwbMljUaROZNnTwpA0YQE8boDRDKG3gArjSzGjaIE0vK1o4EqsXpA49DnClDWLsILXcuMtCnDsJ2UuK3mckllMDCQA9aC/I
+   eJxjYKAN+M9Mff3IYplAdhaJdpxlR2BsZiazkGYeCNxlR2BsZlILIJsZwMrA4M9KXTPxge9sqHxOoF8F2bGrpbXfqQXe08BMagMACLQSOw==
   </data>
  </layer>
- <layer name="Walkable" width="15" height="30">
+ <layer name="Walkable" width="21" height="11" visible="0">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzFKICeegVJ1MfAgN9efGYRA2hhLyX+HQxxNFB6R9PG4I+jgdJL7bDCZRaxgNr20hsDABxWF9g=
+   eJwTZGBgEBzFWDEDkWK49FIKaGEPqWYSI0aqe2hhJin20spMUtMIIQwALIwJXg==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="30">
-  <object name="north" type="mapchange" x="256" y="128" width="32" height="32">
+ <objectgroup name="Mapevents" width="21" height="11">
+  <object name="south" type="mapchange" x="96" y="320" width="32" height="32">
    <properties>
-    <property name="map" value="blackwater_mountain33"/>
+    <property name="map" value="loneford2"/>
+    <property name="place" value="lonefordhouse1"/>
+   </properties>
+  </object>
+  <object name="north" type="mapchange" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="map" value="loneford10"/>
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="64" y="832" width="32" height="32">
-   <properties>
-    <property name="map" value="blackwater_mountain35"/>
-    <property name="place" value="east"/>
-   </properties>
-  </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="30"/>
- <objectgroup name="Keys" width="15" height="30"/>
+ <objectgroup name="Spawn" width="21" height="11"/>
+ <objectgroup name="Keys" width="21" height="11"/>
 </map>

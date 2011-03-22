@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="21" height="21" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
@@ -48,68 +48,76 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="21" height="21">
+ <layer name="Ground" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzNU0EKgDAM28XH+JI+Yf//iYoMSljbdJ3gIQwiSbuYydFavyHqPNsLi39g8VqHfARPN+ZlPYdvdh7OjjgvD3Yn5FZzjHZfzZHJ09sjmjv77um8flr379D3yJfJE3lLn/2fWi/E3owf+nzRryqq/fwbMnln+8G+K+xn9U44d0ePZv3c4XMBHYhW0g==
+   eJzTZGBg0BzFcBzARBh7MKNiatibwEQYRzAjMLXshflpOjMmhskhqwfZbQrEbhTaD/PTcmZMDJOjRfw2MzIwtDCSLkcpngw0dwoOs/HJjeJRPIpHMbE4nJWBwZ2VeupwYZDecFbcfGLVwdyBTS8usyihKTELVxjikwcA1Yx28A==
   </data>
  </layer>
- <layer name="Objects" width="21" height="21">
+ <layer name="Objects" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJyVVMENwjAMTKV0FvjyKYgBePCnLMAIdAD6QOzDh0XgzybUUk8x10soJyFUxz6fYzshTLGpQ1jX2r6rQljU2p/jvD2Odu+3GW3Gad/HOsUBp+GsqdL3UugCLEc7nm+HmD7qOkz/knT+gvl0McX7OHUfQB+nXNAEDZc4tfE9XgSP4vW5WafKzcjlQe0q/i7uWdVdgurTv/6oM9enOTnm+HB/1y5PLp77CZ3cM6A058xr8W+6b9uDg+i7Au+jR+d4O+JU8Tk9zAVcY9pZr/PmfDFLX1qIq3c9N76HO8d+NVX6naswC23hbhRWg9/ecefmdM4+A+a7I73Mm5sX9R4DzAn/0jzwXr+IH5x+Tp6FWk03v598Ds527C3eb/Wv8AHTbC5G
+   eJy9VTtOxDAQTRR7uQAlPRwggpRbASUdB4AG0dJAl88CBR30FKQGIU6wooB2uRBklIzyPJ6YbJB4kuVZx/PefGxvaiMPC+OvTVmX39hOQTMV+oVx1yrj+kqtUvBXRv8muWrBVwRyGAOOmflyyJV0mZ91y4F8QjhL3N8nv/hi/hRHPjHHy0b3qhnnAX3s2dbM72tJdWjGs3LexuBO+OXKudL23zfzQ2cfQPzfie+DeJy180sz39i+b4RaOVdca9Z9Ip/OPgatj8b+TNx5XWBtrwfqyXW+te2Q2NyIolfbzmgzKMeFGb4XHAPPsq+V8OOakcYSdJegK30k5H3W+AmF8XtEGivQXYl8+U3A2uK5ku+QdpdC8Y0F8lJvMZ6jOIp2YVzEw76EInBmTzuOw9jf/2b7fGltX+ggJG898CbI+JgT97xbt4a8p1A4tTsv85f/DciJ+LJuXTOITebHqAJnRcNc9I5HCLlZ7/9hD+LJOlu7v3jPsoH3g/cQJ+9B+6/YsW68/wWKf3uibmb7Gmixa99/AFmCUxY=
   </data>
  </layer>
- <layer name="Above" width="21" height="21">
+ <layer name="Above" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBg44MZKfTPVgWZqYDEXmxix5o00gCsMiQHY9CGHIUgen/kwcXQ15LqHECDWPTA3kWM+IQDKB2447IG5jxxzaQ2okTeoWQbAzKIkryOnB0L5gNplgzpa2qckHxICyOaSGgfEpE9izCU1/MgNDwBKCgoO
+   eJxjYBgFMGDCSJw6IyLVEQtciDTPCagui5l69tLTv82sDAwtrBA2Kf6lFEwG2jmFFVP8OjActzOj0jDwn4phjA7e4zEbnxwtACc7fe2DgR9sCPZ3NtzqRsEoGIpAHVjeaLAiaHyAWHXIanCxidVPiXth6tHdj87HJY4PoOvFZdZQAgDpARPF
   </data>
  </layer>
- <layer name="Walkable" width="21" height="21" visible="0">
+ <layer name="Walkable" width="30" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJylk0EOACEIA/mC///sXjcGbKc04aIwgOCpqgOsoP8/rotV5939Sy/ulGvLTHmE6Yj2nmiKV0w6X+KvaiJzcplOLXTvXWYXP/Xh8rb/INlXxaRSc93wUiZ9H/rXFTPJnzLvOToiO+nu8G0fcB8O0A==
+   eJzNVW0KQCEI8wre/7Lx/krzY5avgWBSumyhyjwU+F5sCkqYCOacvQtbNwuPH2sov8dPzR4mfwZIVxE3+57VXu/OIa10a1g/4sHkiThE+j9dt4NK314A889P1Z3KU9XCjX6wWnhJKx8q86G6z/N3axTvzLPOrPrLFiSPC6A=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="21" height="21">
-  <object name="west" type="mapchange" x="0" y="480" width="32" height="64">
+ <objectgroup name="Mapevents" width="30" height="20">
+  <object name="north" type="mapchange" x="928" y="32" width="32" height="96">
    <properties>
-    <property name="map" value="crossglen"/>
-    <property name="place" value="east"/>
-   </properties>
-  </object>
-  <object name="south" type="mapchange" x="160" y="640" width="64" height="32">
-   <properties>
-    <property name="map" value="wild3"/>
+    <property name="map" value="roadtocarntower0"/>
     <property name="place" value="north"/>
    </properties>
   </object>
-  <object name="east" type="mapchange" x="640" y="32" width="32" height="32">
+  <object name="east" type="mapchange" x="928" y="160" width="32" height="192">
    <properties>
-    <property name="map" value="wild4"/>
+    <property name="map" value="roadtocarntower0"/>
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="sign_wild1" type="sign" x="128" y="512" width="32" height="32"/>
-  <object name="north" type="mapchange" x="384" y="0" width="32" height="32">
+  <object name="south" type="mapchange" x="928" y="480" width="32" height="96">
    <properties>
-    <property name="map" value="wild0"/>
+    <property name="map" value="roadtocarntower0"/>
     <property name="place" value="south"/>
    </properties>
   </object>
- </objectgroup>
- <objectgroup name="Spawn" width="21" height="21">
-  <object name="forestdog" type="spawn" x="96" y="64" width="224" height="224">
+  <object name="left1" type="mapchange" x="0" y="32" width="32" height="128">
    <properties>
-    <property name="quantity" value="4"/>
+    <property name="map" value="roadtocarntower2"/>
+    <property name="place" value="north1"/>
    </properties>
   </object>
-  <object name="forestboar" type="spawn" x="64" y="32" width="128" height="160"/>
-  <object name="fox1" type="spawn" x="320" y="608" width="128" height="32"/>
-  <object name="fox1" type="spawn" x="576" y="224" width="32" height="64"/>
-  <object name="fox1" type="spawn" x="544" y="96" width="32" height="64"/>
-  <object name="forestwasp" type="spawn" x="288" y="352" width="192" height="160">
+  <object name="left4" type="mapchange" x="0" y="416" width="32" height="128">
    <properties>
-    <property name="quantity" value="2"/>
+    <property name="map" value="roadtocarntower2"/>
+    <property name="place" value="north4"/>
+   </properties>
+  </object>
+  <object name="left3" type="mapchange" x="0" y="320" width="32" height="64">
+   <properties>
+    <property name="map" value="roadtocarntower2"/>
+    <property name="place" value="north3"/>
+   </properties>
+  </object>
+  <object name="left2" type="mapchange" x="0" y="192" width="32" height="64">
+   <properties>
+    <property name="map" value="roadtocarntower2"/>
+    <property name="place" value="north2"/>
+   </properties>
+  </object>
+  <object name="up" type="mapchange" x="32" y="0" width="896" height="32">
+   <properties>
+    <property name="map" value="fields9"/>
+    <property name="place" value="down"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="21" height="21"/>
+ <objectgroup name="Spawn" width="30" height="20"/>
+ <objectgroup name="Keys" width="30" height="20"/>
 </map>

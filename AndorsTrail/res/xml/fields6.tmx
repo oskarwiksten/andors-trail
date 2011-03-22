@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="30" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="30" height="28" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
@@ -48,40 +48,46 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="15" height="30">
+ <layer name="Ground" width="30" height="28">
   <data encoding="base64" compression="zlib">
-   eJztksENgCAMRSuyAY7h2GygG8AGjuBZN9BYEhsbAgWuhsNPyee/UKB2ALAZeWFPklYAG9ZRtXErakJmx2qwukLeR+wMnyQ27i/HpnK8v+CHDGfJi+8R2J2dY94MZ1OeS/RXK2IPDXDqOoayxF64vitZytL78T3pneMcaan8X57rs9Fno8/Gv2ajxcv9ecl7APDfwPY=
+   eJzt0kEOgEAIA0Ces2b//z+vxqxkgbZE44HzlMIws0GeYzFs88lXutFOGBk9h+lnXISddat+1c3aCDfjI92IjXZ3MzBdL4fSnZdRmsodf/Mb5jT9v76pz0ovlT3vd9m9Eapbz49mYmbp+KMOt9NGuCfkVIYp
   </data>
  </layer>
- <layer name="Objects" width="15" height="30">
+ <layer name="Objects" width="30" height="28">
   <data encoding="base64" compression="zlib">
-   eJzdksENwyAMRR2Cwr2rlD0yQvfqCO0xl0hlgJyzSjJAa6GqjoHggHLpvyB9G/GxH8D/yCoAZwCu6vjdQfuzb8vennS+5278SfM5sz1RVoV9j0/9Se5bUsPs1KO90oyjIP/SAKzNtp96XOhjtoXUY//FvpH17WUcBFlTd0sl2W+NzmKDeyk2UHRGdMaSv8c4yLHBd55igzMU0zdv7Z6P6mwuUMjGpStn41XBxq31b/fdz+Mz3pv5bEIOJp1nA0V3jp4zoSdhQ6I3OvhE9g==
+   eJy1VkluwzAQMwz1QX1Ck7b3LO1TencsIHcd4u9WQj0IwXIsO3YICAEkechZlaZ5Dk5t0xzz+szrK69dXu/tk8hm8u+Ifw/7aq3Ra/y20O53Xh90fhR6t4gX85zBZgx/vyn8j9da7jN9P4xcPy/6/mlj31PQ+zfYN/+38r0Xtufo29p3QxfqWh71/RLuucSYqrjfaK+f8H2N//2En6rusEdZg9JR7GMs2abF+xL0Pp4lqj1Ph2dnWFBfrDNSvvbjTFoClefO0YRaLUfIiTPK7icnljVM1QBz8oxS8HI6OL1VdNvdEvcpzgj3auAeYn0IjzNS7Snb3qxAjQlyyO8aczJ6J27M481vr1YVZ4mN6pNi23R4NYtnXq3ye2p2MVZqjnC+sd4Nj9RqAdcpzzRvvvIcME7Uyr11XdibSkutbjB/5hvzFu02O5fCOJPgYVydfuUZPkfLIZ+/Vvre6o97vxvfITUna1rwjUe7/F9B9TtDfW/3h3B/2w2Htm4XY9+L/jUenLMdfVPwRryIOKGb8QsQF3Y9
   </data>
  </layer>
- <layer name="Above" width="15" height="30">
+ <layer name="Above" width="30" height="28">
   <data encoding="base64" compression="zlib">
-   eJxjYBhc4D8zffQWshOnF5u6RiL04lI3GyrGygqh32PRCxKbxY5Qi26HKCt2t+IC9ApTYsCHAXILKXqliUwbMljUaROZNnTwpA0YQE8boDRDKG3gArjSzGjaIE0vK1o4EqsXpA49DnClDWLsILXcuMtCnDsJ2UuK3mckllMDCQA9aC/I
+   eJxjYKAfMGdlYLBghdCjYGSDNpaBdsHwA4TCdDTMR8EooAzQMg+N5s9RQA4YTTdDG1Aaf6PxTzsAAGGvBQY=
   </data>
  </layer>
- <layer name="Walkable" width="15" height="30">
+ <layer name="Walkable" width="30" height="28">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzFKICeegVJ1MfAgN9efGYRA2hhLyX+HQxxNFB6R9PG4I+jgdJL7bDCZRaxgNr20hsDABxWF9g=
+   eJztlskJADAIBG3B/pvNP4g5PDYLGfAXnRXyUEVEf7WXR5en0m/N7HDvzK/wZ4Dy3vjnvtXcLHclKK+Xw3vDwmlWht0Qf4JxNhqG3RgyWnTkjtwS2bzmjeap7M+8iZAM0oQPAw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="30">
-  <object name="north" type="mapchange" x="256" y="128" width="32" height="32">
+ <objectgroup name="Mapevents" width="30" height="28">
+  <object name="south" type="mapchange" x="0" y="864" width="960" height="32">
    <properties>
-    <property name="map" value="blackwater_mountain33"/>
-    <property name="place" value="south"/>
+    <property name="map" value="fields1"/>
+    <property name="place" value="north"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="64" y="832" width="32" height="32">
+  <object name="west" type="mapchange" x="0" y="128" width="32" height="736">
    <properties>
-    <property name="map" value="blackwater_mountain35"/>
+    <property name="map" value="fields5"/>
     <property name="place" value="east"/>
    </properties>
   </object>
+  <object name="east" type="mapchange" x="928" y="384" width="32" height="480">
+   <properties>
+    <property name="map" value="fields7"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="30"/>
- <objectgroup name="Keys" width="15" height="30"/>
+ <objectgroup name="Spawn" width="30" height="28"/>
+ <objectgroup name="Keys" width="30" height="28"/>
 </map>
