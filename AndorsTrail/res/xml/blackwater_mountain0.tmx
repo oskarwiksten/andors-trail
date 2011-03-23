@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJx9VFsOgjAQLE3xHsqnX8bEfx9f/ineQC+gyAFWOZRH8Fjuwm4YSmWSCaHtTKfbhUfuWhA/K+aV+WLemQ94ptakIOOl6q66XvSx9pJYMwVSHUE+1Jb5eM3aj31umXMb5pNJwbkmpP0XmufD8wVkk3E/6+cE3wA5Q5dFMM87CmSfGvYzD/M2DdbVslpe80cdag2yh2STsxRwpn94h15n/vKUcctfh6GmhnOSrsPa7rn2O+XBD/cxT4I7RBTR+4rft+yxdB1PflgbZAWe6G13ZZljPwNF56R87Nn2SdQXJXuclRc/PKf5yp1/w9hTIHOp+/5M1L3SDPNE7yMavR/radyXtFdsDns5lSfG1D+BoPbHrK8t9idqU/8N/K6lRj/QYlHK
+   eJx9VEsSgjAMrZ3iPZSlK8cZ935W7hRvgBcQ5ABRD+URPJaJJMOjFN5MhqHNe31JA1Xm/iB+1hwlx5PjzlHBM5WTgqwXyis1X/gx95rImQIpj8AfcotsmLPxQ53bzLktx4ODgnPvkNZfqp8P7+fgTdb9vNsTfAP4DK0XwSJrQyDnNHCeaZi2cbCv5tX8mj7ykGuQM8Sb1JJDTWN4hY5n+vKUdfPfhD6ngTpJ87C3B+79XuPo++eYJsEdIvLofc3vO9ZYuTbOvt8bjBo0UdvuyjzHegaK6qRsqPmfk2guCta4aFx9v07U/YahpkDmIXXfn5G+S36tHhaJ2Ue89X5spvFc0lmxPZzllJ8YU/8Egt6fZl0PcD6Rm/pv4HctNf8AzgJRyg==
   </data>
  </layer>
  <layer name="Above" width="20" height="15">
@@ -63,9 +63,9 @@
    eJxjYGBgcGZlIAiIUTNUATl+g+kpokAvOihkRdDkmEuuvcQCkLto5bYiHGZTI93Rwr2kAEJ+IOQ+aoZ5IZI56GYWEukOGI3NX840TCMgAABj2w13
   </data>
  </layer>
- <layer name="Walkable" width="20" height="15" visible="0">
+ <layer name="Walkable" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzEGAaobR46wKeOEB+bWYSAIAGaWP349BDrd3IBpWYSG97kmkkNs/GlI2qaRao5yOZhM5sYd1ADUBLW5ORfAF3NCF8=
+   eJwTZGBgEBzEGAaobR46wKeOEB+bWYSAIAGaWP349BDrd3IBpWYSG97kmkkNs/GlI3LcSU7aJGQGLjFC+qkBKAlrcvIvAIBVCIE=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="15">
@@ -75,7 +75,7 @@
     <property name="place" value="east"/>
    </properties>
   </object>
-  <object name="east" type="mapchange" x="608" y="256" width="32" height="32">
+  <object name="east" type="mapchange" x="608" y="256" width="32" height="96">
    <properties>
     <property name="map" value="flagstone0"/>
     <property name="place" value="west"/>

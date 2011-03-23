@@ -25,7 +25,7 @@ public final class VisualEffectCollection {
 	private static VisualEffect createEffect(DynamicTileLoader loader, int drawableID, ConstRange frameRange, int duration, int textColor) {
 		int[] frameIconIDs = new int[frameRange.max - frameRange.current];
 		for(int i = 0; i < frameIconIDs.length; ++i) {
-			frameIconIDs[i] = loader.getTileID(drawableID, frameRange.current + i);
+			frameIconIDs[i] = loader.prepareTileID(drawableID, frameRange.current + i);
 		}
 		return new VisualEffect(frameIconIDs, duration, textColor);
 	}

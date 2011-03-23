@@ -6,14 +6,16 @@ import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 public final class ModelContainer {
 	
 	public final Player player;
 	public final InterfaceData uiSelections;
 	public final GameStatistics statistics;
-	public LayeredWorldMap currentMap;
+	public PredefinedMap currentMap;
+	public LayeredTileMap currentTileMap;
 	
 	public ModelContainer() {
 		player = new Player();
@@ -31,6 +33,7 @@ public final class ModelContainer {
 			this.uiSelections.selectedMonster = currentMap.getMonsterAt(uiSelections.selectedPosition);
 		}
 		this.statistics = new GameStatistics(src, world, fileversion);
+		this.currentTileMap = null;
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

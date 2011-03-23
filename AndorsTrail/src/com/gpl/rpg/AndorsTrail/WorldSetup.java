@@ -104,14 +104,20 @@ public final class WorldSetup {
 	}
 	
 	private int continueWorld() {
-		return Savegames.loadWorld(world, androidContext.get(), loadFromSlot);
+		Context ctx = androidContext.get();
+		int result = Savegames.loadWorld(world, ctx, loadFromSlot);
+		if (result == Savegames.LOAD_RESULT_SUCCESS) {
+			MovementController.loadCurrentTileMap(ctx.getResources(), world);
+		}
+		return result;
 	}
 	
 	private void createNewWorld() {
+		Context ctx = androidContext.get();
 		world.model = new ModelContainer();
-		world.model.player.initializeNewPlayer_(world.itemTypes, world.dropLists, newHeroName);
+		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
 		Controller.playerRested(world, null);
-		MovementController.respawnPlayer(world);
+		MovementController.respawnPlayer(ctx.getResources(), world);
 	}
 
 

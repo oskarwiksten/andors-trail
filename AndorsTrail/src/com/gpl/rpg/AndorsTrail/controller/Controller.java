@@ -10,7 +10,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.MainView;
@@ -67,8 +67,8 @@ public final class Controller {
 		player.addExperience(-lostExp);
 		model.statistics.addPlayerDeath(lostExp);
 		playerRested(world, null);
-		MovementController.respawnPlayer(world);
 		final MainActivity act = view.mainActivity;
+		MovementController.respawnPlayer(act.getResources(), world);
 		act.updateStatus();
 		act.mainview.notifyMapChanged();
 		act.message(act.getResources().getString(R.string.combat_hero_dies, lostExp));
@@ -84,7 +84,7 @@ public final class Controller {
 			player.spawnPlace = area.id;
 			player.spawnMap = world.model.currentMap.name;
 		}
-		for (LayeredWorldMap m : world.maps.predefinedMaps) {
+		for (PredefinedMap m : world.maps.predefinedMaps) {
         	if (m.visited) m.spawnAll(world);
         }
 	}
@@ -102,7 +102,7 @@ public final class Controller {
 	}
 
 	public void resetMaps() {
-		for (LayeredWorldMap m : world.maps.predefinedMaps) {
+		for (PredefinedMap m : world.maps.predefinedMaps) {
     		if (m == model.currentMap) continue;
 			m.resetIfNotRecentlyVisited();
     	}

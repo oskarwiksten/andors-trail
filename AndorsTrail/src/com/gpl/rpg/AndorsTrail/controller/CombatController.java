@@ -20,7 +20,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.MainView;
@@ -105,7 +105,7 @@ public final class CombatController {
 		}
 	}
 	public void setCombatSelection(Coord p) {
-		LayeredWorldMap map = model.currentMap;
+		PredefinedMap map = model.currentMap;
 		Monster m = map.getMonsterAt(p);
 		if (m != null) {
 			setCombatSelection(m, p);

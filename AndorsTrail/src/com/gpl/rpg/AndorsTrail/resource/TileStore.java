@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
+import java.util.HashMap;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 
 import android.content.res.Resources;
@@ -30,7 +32,8 @@ public final class TileStore {
     
 	//TODO: should be final.
 	public Bitmap[] bitmaps = new Bitmap[1];
-
+	private HashMap<String, HashMap<Integer, Integer>> tilesetLocalIDsToTileID = new HashMap<String, HashMap<Integer,Integer>>();
+	
 	public void allocateTiles(int tilecount) {
 		if (tilecount <= 0) return;
 		
@@ -41,5 +44,14 @@ public final class TileStore {
 	
 	public Bitmap getBitmap(int tileID) {
 		return bitmaps[tileID];
+	}
+	public int getTileID(String tilesetName, int localId) {
+		return tilesetLocalIDsToTileID.get(tilesetName).get(localId);
+	}
+	
+	public void setBitmap(int tileID, Bitmap bitmap, String tilesetName, int localId) {
+		bitmaps[tileID] = bitmap;
+		if (!tilesetLocalIDsToTileID.containsKey(tilesetName)) tilesetLocalIDsToTileID.put(tilesetName, new HashMap<Integer, Integer>());
+		tilesetLocalIDsToTileID.get(tilesetName).put(localId, tileID);
 	}
 }

@@ -49,7 +49,7 @@ public final class DynamicTileLoader {
 		return null;
 	}
 	
-	public int getTileID(int tilesetImageResourceID, int localId) {
+	public int prepareTileID(int tilesetImageResourceID, int localId) {
 		TilesetBitmap b = getTilesetBitmap(tilesetImageResourceID);
 		if (b == null) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -57,13 +57,13 @@ public final class DynamicTileLoader {
 			}
 			return currentTileStoreIndex-1;
 		}
-		return getTileID(b, localId);
+		return prepareTileID(b, localId);
 	}
 
-	public int getTileID(String tilesetName, int localId) {
+	public int prepareTileID(String tilesetName, int localId) {
 		for (TilesetBitmap b : preparedTilesets) {
 			if (b.tilesetName.equals(tilesetName)) {
-				return getTileID(b, localId);
+				return prepareTileID(b, localId);
 			}
 		}
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -83,7 +83,7 @@ public final class DynamicTileLoader {
 		return new Size(1, 1);
 	}
 	
-	private int getTileID(TilesetBitmap tileset, int localId) {
+	private int prepareTileID(TilesetBitmap tileset, int localId) {
 		int tileStoreIndex = 0;
 		if (tileset.tilesToLoad.containsKey(localId)) {
 			tileStoreIndex = tileset.tilesToLoad.get(localId);
@@ -120,8 +120,10 @@ public final class DynamicTileLoader {
 			Bitmap tilesetImage = createTilesetImage(b);
 			for (int localId : b.tilesToLoad.keySet()) {
 				int tileStoreIndex = b.tilesToLoad.get(localId);
-				store.bitmaps[tileStoreIndex] = createTileFromTileset(tilesetImage, b, localId);
-				if (store.bitmaps[tileStoreIndex] == tilesetImage) recycle = false;
+				Bitmap tile = createTileFromTileset(tilesetImage, b, localId);
+				if (tile == tilesetImage) recycle = false;
+				
+				store.setBitmap(tileStoreIndex, tile, b.tilesetName, localId);
 			}
 			if (recycle) tilesetImage.recycle();
 		}

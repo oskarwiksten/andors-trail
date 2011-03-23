@@ -44,7 +44,7 @@ public final class Player extends Actor {
 		this.inventory = new Inventory();
 	}
 	
-	public void initializeNewPlayer_(ItemTypeCollection types, DropListCollection dropLists, String name) {
+	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
 		CombatTraits combat = new CombatTraits();
 		combat.attackCost = 3;
 		combat.attackChance = 60;

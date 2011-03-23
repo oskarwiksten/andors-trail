@@ -68,7 +68,7 @@
    eJztVFsKwCAM8wre/7KDfQ1J06RWv1YQBppHY90cY8x/vXWaX63b+tG+mx3D3iq13x1PCL/Ll2l13qvix3kvGQ/ydOodMUznf0LRy3y5590+Vq+RTsTLMM7dVHKJfFY9KppKVrsz685317wq+19NR5uVe17xG2EUPnZ+N2v2lqI56NaN+kXVoct6OKnpZH2zX3YXmedMC2FRjx3aqBfEj/adzCJ/6zeb5cp8MD6EUzVVbkWzkqGjjbAPe5EkIQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" width="30" height="30">
   <object name="house" type="mapchange" x="768" y="768" width="32" height="32">
    <properties>
     <property name="map" value="flagstone_inner"/>
@@ -79,6 +79,12 @@
    <properties>
     <property name="map" value="wild8"/>
     <property name="place" value="west"/>
+   </properties>
+  </object>
+  <object name="west" type="mapchange" x="0" y="256" width="32" height="96">
+   <properties>
+    <property name="map" value="blackwater_mountain0"/>
+    <property name="place" value="east"/>
    </properties>
   </object>
  </objectgroup>

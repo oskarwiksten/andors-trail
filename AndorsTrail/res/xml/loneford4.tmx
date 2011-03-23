@@ -68,7 +68,14 @@
    eJwTZGBgEBzEmAGNJkaeFICuh5BbqGEPKf4m1x5izEXGAJjWBbc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="13" height="10"/>
+ <objectgroup name="Mapevents" width="13" height="10">
+  <object name="south" type="mapchange" x="224" y="288" width="32" height="32">
+   <properties>
+    <property name="map" value="loneford2"/>
+    <property name="place" value="lonefordhouse2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Spawn" width="13" height="10"/>
  <objectgroup name="Keys" width="13" height="10"/>
 </map>

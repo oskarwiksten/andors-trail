@@ -17,36 +17,31 @@ import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
-public final class LayeredWorldMap {
-	public static int LAYER_GROUND = 0;
-	public static int LAYER_OBJECTS = 1;
-	public static int LAYER_ABOVE = 2;
+public final class PredefinedMap {
 	private static final long VISIT_RESET = 0;
 	
+	public final int xmlResourceId;
 	public final String name;
 	public final Size size;
-	public final MapLayer[] layers;
 	public final MapObject[] eventObjects;
 	public final MonsterSpawnArea[] spawnAreas;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
-	//public final boolean hasFOW;
-	//public final boolean[][] isVisible;
-	public final boolean[][] isWalkable;
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
+
+	public final boolean[][] isWalkable;
 	
-	public LayeredWorldMap(String name, Size size, MapLayer[] layers, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
+	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
+		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
 		this.eventObjects = eventObjects;
 		this.spawnAreas = spawnAreas;
 		assert(size.width > 0);
 		assert(size.height > 0);
-		assert(layers.length == 3);
 		assert(isWalkable.length == size.width);
 		assert(isWalkable[0].length == size.height);
 		this.isWalkable = isWalkable;
-		this.layers = layers;
 	}
 	
 	public final boolean isWalkable(final Coord p) { 

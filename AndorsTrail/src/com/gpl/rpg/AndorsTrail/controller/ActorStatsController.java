@@ -16,7 +16,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 
 public class ActorStatsController {
@@ -136,7 +136,7 @@ public class ActorStatsController {
 		}
 	}
 
-	public void applyConditionsToMonsters(LayeredWorldMap map, boolean isFullRound) {
+	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 	    	for (Monster m : a.monsters) {
 	    		applyConditionsToMonster(m, isFullRound);

@@ -27,13 +27,13 @@ public class ActorConditionTypeCollection {
 	public void initialize(DynamicTileLoader tileLoader) {
 		CombatTraits t = new CombatTraits();
 		t.attackChance = 5;
-		conditionTypes.add(new ActorConditionType("bless", "Bless", tileLoader.getTileID("items_tiles", 13+22*14), false, null, null, new AbilityModifierTraits(0, 0, 0, t)));
+		conditionTypes.add(new ActorConditionType("bless", "Bless", tileLoader.prepareTileID("items_tiles", 13+22*14), false, null, null, new AbilityModifierTraits(0, 0, 0, t)));
 		
 		t = new CombatTraits();
 		t.damagePotential.set(2, 2);
-		conditionTypes.add(new ActorConditionType("str", "Strength", tileLoader.getTileID("items_tiles", 0+25*14), false, null, null, new AbilityModifierTraits(0, 0, 0, t)));
+		conditionTypes.add(new ActorConditionType("str", "Strength", tileLoader.prepareTileID("items_tiles", 0+25*14), false, null, null, new AbilityModifierTraits(0, 0, 0, t)));
 		
-		conditionTypes.add(new ActorConditionType("regen", "Regeneration", tileLoader.getTileID("items_tiles", 7+22*14), false, new StatsModifierTraits(VisualEffectCollection.EFFECT_RESTORE_HP, new ConstRange(1, 1), null), null, null));
-		conditionTypes.add(new ActorConditionType("poison", "Poison", tileLoader.getTileID("items_tiles", 4+24*14), true, new StatsModifierTraits(VisualEffectCollection.EFFECT_POISON, new ConstRange(-1, -1), null), null, null));
+		conditionTypes.add(new ActorConditionType("regen", "Regeneration", tileLoader.prepareTileID("items_tiles", 7+22*14), false, new StatsModifierTraits(VisualEffectCollection.EFFECT_RESTORE_HP, new ConstRange(1, 1), null), null, null));
+		conditionTypes.add(new ActorConditionType("poison", "Poison", tileLoader.prepareTileID("items_tiles", 4+24*14), true, new StatsModifierTraits(VisualEffectCollection.EFFECT_POISON, new ConstRange(-1, -1), null), null, null));
 	}
 }

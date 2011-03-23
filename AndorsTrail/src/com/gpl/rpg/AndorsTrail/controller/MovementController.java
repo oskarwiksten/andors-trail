@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.content.res.Resources;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -7,9 +9,10 @@ import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -25,14 +28,14 @@ public final class MovementController {
     }
 	
 	public void placePlayerAt(int objectType, String mapName, String placeName, int offset_x, int offset_y) { 
-		placePlayerAt(world, objectType, mapName, placeName, offset_x, offset_y); 
+		placePlayerAt(view.mainActivity.getResources(), world, objectType, mapName, placeName, offset_x, offset_y); 
 		view.mainActivity.clearMessages();
 		view.mainActivity.mainview.notifyMapChanged();
     }
 	
-	public static void placePlayerAt(final WorldContext world, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
+	public static void placePlayerAt(final Resources res, final WorldContext world, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
     	if (mapName == null || placeName == null) return;
-		LayeredWorldMap newMap = world.maps.findPredefinedMap(mapName);
+		PredefinedMap newMap = world.maps.findPredefinedMap(mapName);
 		if (newMap == null) {
 			L.log("Cannot find map " + mapName);
 			return;
@@ -46,6 +49,7 @@ public final class MovementController {
 		
 		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
 		model.currentMap = newMap;
+		loadCurrentTileMap(res, world);
 		model.player.position.set(place.position.topLeft);
 		model.player.position.x += Math.min(offset_x, place.position.size.width-1);
 		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
@@ -55,12 +59,12 @@ public final class MovementController {
 		else playerVisitsMap(world, newMap);
 	}
     
-	private static void playerVisitsMapFirstTime(final WorldContext world, LayeredWorldMap m) {
+	private static void playerVisitsMapFirstTime(final WorldContext world, PredefinedMap m) {
 		m.spawnAll(world);
 		m.createAllContainerLoot();
 		m.visited = true;
 	}
-	private static void playerVisitsMap(final WorldContext world, LayeredWorldMap m) {
+	private static void playerVisitsMap(final WorldContext world, PredefinedMap m) {
 		// Respawn everything if a certain time has elapsed.
 		if (!m.isRecentlyVisited()) m.spawnAll(world);
 	}
@@ -148,7 +152,7 @@ public final class MovementController {
     
     public void moveToNextIfPossible(boolean handleEvents) {
     	final Player player = model.player;
-    	final LayeredWorldMap currentMap = model.currentMap;
+    	final PredefinedMap currentMap = model.currentMap;
     	final Coord newPosition = player.nextPosition;
     	
     	for (MapObject o : currentMap.eventObjects) {
@@ -173,8 +177,8 @@ public final class MovementController {
 		}
     }
 
-	public static void respawnPlayer(final WorldContext world) {
-		placePlayerAt(world, MapObject.MAPEVENT_REST, world.model.player.spawnMap, world.model.player.spawnPlace, 0, 0);
+	public static void respawnPlayer(final Resources res, final WorldContext world) {
+		placePlayerAt(res, world, MapObject.MAPEVENT_REST, world.model.player.spawnMap, world.model.player.spawnPlace, 0, 0);
 	}
 
 	public static void moveBlockedActors(final WorldContext world) {
@@ -196,7 +200,7 @@ public final class MovementController {
 		
 		// If any monsters somehow spawned on an unwalkable tile, we move the monster to a new position on the spawnarea
 		// This could happen if we change some tile to non-walkable in a future version.
-		for (LayeredWorldMap map : world.maps.predefinedMaps) {
+		for (PredefinedMap map : world.maps.predefinedMaps) {
 			for (MonsterSpawnArea a : map.spawnAreas) {
 				for (Monster m : a.monsters) {
 					if (!world.model.currentMap.isWalkable(m.rectPosition)) {
@@ -207,5 +211,9 @@ public final class MovementController {
 				}
 			}
 		}
+	}
+
+	public static void loadCurrentTileMap(Resources res, WorldContext world) {
+		world.model.currentTileMap = TMXMapReader.readLayeredTileMap(res, world.tileStore, world.model.currentMap);
 	}
 }

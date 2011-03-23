@@ -11,12 +11,12 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class MapCollection {
-	public final ArrayList<LayeredWorldMap> predefinedMaps = new ArrayList<LayeredWorldMap>();
+	public final ArrayList<PredefinedMap> predefinedMaps = new ArrayList<PredefinedMap>();
 
 	public MapCollection() {}
 	
-	public LayeredWorldMap findPredefinedMap(String name) {
-    	for (LayeredWorldMap m : predefinedMaps) {
+	public PredefinedMap findPredefinedMap(String name) {
+    	for (PredefinedMap m : predefinedMaps) {
     		if (m.name.equals(name)) return m;
     	}
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -26,7 +26,7 @@ public final class MapCollection {
     }
 
 	public void reset() {
-		for (LayeredWorldMap m : predefinedMaps) {
+		for (PredefinedMap m : predefinedMaps) {
     		m.reset();
     	}
 	}
@@ -34,7 +34,7 @@ public final class MapCollection {
 	// Selftest method. Not part of the game logic.
 	public void verifyData(WorldContext world) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			for (LayeredWorldMap m : predefinedMaps) {
+			for (PredefinedMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
 					if (o.type == MapObject.MAPEVENT_NEWMAP) {
 						final String desc = "Map \"" + m.name + "\", place \"" + o.id + "\"";
@@ -43,7 +43,7 @@ public final class MapCollection {
 						} else if (o.place == null || o.place.length() <= 0) {
 							L.log("OPTIMIZE: " + desc + " has no destination place.");
 						} else {
-							LayeredWorldMap destination = findPredefinedMap(o.map);
+							PredefinedMap destination = findPredefinedMap(o.map);
 							if (destination == null) {
 								L.log("WARNING: " + desc + " references non-existing destination map \"" + o.map + "\".");
 								continue;
@@ -110,7 +110,7 @@ public final class MapCollection {
 	// Selftest method. Not part of the game logic.
 	public void DEBUG_getRequiredQuestStages(HashSet<String> requiredStages) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			for (LayeredWorldMap m : predefinedMaps) {
+			for (PredefinedMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
 					if (o.type == MapObject.MAPEVENT_KEYAREA) {
 						if (o.requireQuestProgress == null) continue;
@@ -124,7 +124,7 @@ public final class MapCollection {
 	// Selftest method. Not part of the game logic.
 	public void DEBUG_getUsedPhrases(HashSet<String> usedPhrases) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			for (LayeredWorldMap m : predefinedMaps) {
+			for (PredefinedMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
 					if (o.type == MapObject.MAPEVENT_KEYAREA || o.type == MapObject.MAPEVENT_SIGN) {
 						if (o.id == null || o.id.length() <= 0) continue;

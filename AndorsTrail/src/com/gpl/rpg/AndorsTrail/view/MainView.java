@@ -7,7 +7,8 @@ import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAni
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredWorldMap;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
@@ -225,7 +226,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	private void redrawArea_(final CoordRect area) {
 		if (!hasSurface) return;
-		final LayeredWorldMap currentMap = model.currentMap;
+		final PredefinedMap currentMap = model.currentMap;
         boolean b = currentMap.isOutside(area);
         if (b) return;
 		
@@ -251,7 +252,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private final Rect redrawRect = new Rect();
 	public void redrawAreaWithEffect(final CoordRect area, final VisualEffectAnimation effect) {
 		if (!hasSurface) return;
-		final LayeredWorldMap currentMap = model.currentMap;
+		final PredefinedMap currentMap = model.currentMap;
         if (currentMap.isOutside(area)) return;
 		
 		calculateRedrawRect(area);
@@ -306,10 +307,11 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	
 	private void doDrawRect(Canvas canvas, CoordRect area) {
-    	final LayeredWorldMap currentMap = model.currentMap;
-        
-        drawMapLayer(canvas, area, currentMap.layers[LayeredWorldMap.LAYER_GROUND]);
-        tryDrawMapLayer(canvas, area, currentMap, LayeredWorldMap.LAYER_OBJECTS);
+    	final LayeredTileMap currentTileMap = model.currentTileMap;
+    	final PredefinedMap currentMap = model.currentMap;
+    	
+        drawMapLayer(canvas, area, currentTileMap.layers[LayeredTileMap.LAYER_GROUND]);
+        tryDrawMapLayer(canvas, area, currentTileMap, LayeredTileMap.LAYER_OBJECTS);
         
         for (Loot l : currentMap.groundBags) {
         	if (l.isVisible) {
@@ -324,7 +326,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 			}
 		}
 		
-		tryDrawMapLayer(canvas, area, currentMap, LayeredWorldMap.LAYER_ABOVE);
+		tryDrawMapLayer(canvas, area, currentTileMap, LayeredTileMap.LAYER_ABOVE);
         
 		if (model.uiSelections.selectedPosition != null) {
 			if (model.uiSelections.selectedMonster != null) {
@@ -335,8 +337,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		}
     }
     
-	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final LayeredWorldMap currentMap, final int layerIndex) {
-    	if (currentMap.layers.length > layerIndex) drawMapLayer(canvas, area, currentMap.layers[layerIndex]);        
+	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final LayeredTileMap currentTileMap, final int layerIndex) {
+    	if (currentTileMap.layers.length > layerIndex) drawMapLayer(canvas, area, currentTileMap.layers[layerIndex]);        
     }
     
     private void drawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
@@ -397,7 +399,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private void recalculateMapTopLeft() {
 		mapTopLeft.set(0, 0);
 		
-		final LayeredWorldMap currentMap = model.currentMap;
+		final PredefinedMap currentMap = model.currentMap;
 		final Coord playerpos = model.player.position;
 		
     	if (currentMap.size.width > screenSizeTileCount.width) {
