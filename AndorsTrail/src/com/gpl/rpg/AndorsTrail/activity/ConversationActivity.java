@@ -33,7 +33,6 @@ import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
-import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -41,6 +40,7 @@ import com.gpl.rpg.AndorsTrail.resource.TileStore;
 
 public final class ConversationActivity extends Activity {
 	public static final int ACTIVITYRESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
+	public static final int ACTIVITYRESULT_REMOVE = Activity.RESULT_FIRST_USER + 2;
 	private static final int playerConversationColor = Color.argb(255, 0xbb, 0x22, 0x22);
 	private static final int NPCConversationColor = Color.argb(255, 0xbb, 0xbb, 0x22);
 	
@@ -125,14 +125,7 @@ public final class ConversationActivity extends Activity {
     }
     
 	
-    private void markMonsterAsAgressive() {
-    	Monster m = world.model.currentMap.getMonsterAt(world.model.player.nextPosition);
-    	assert (m != null);
-		assert (m.monsterType.id == monsterType.id);
-    	m.forceAggressive = true;
-    }
-    
-	public void setPhrase(String phraseID) {
+    public void setPhrase(String phraseID) {
 		this.phraseID = phraseID;
     	if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
     		ConversationActivity.this.finish();
@@ -145,8 +138,11 @@ public final class ConversationActivity extends Activity {
     		startActivityForResult(intent, MainActivity.INTENTREQUEST_SHOP);
     		return;
     	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
-    		markMonsterAsAgressive();
-			ConversationActivity.this.setResult(ACTIVITYRESULT_ATTACK);
+    		ConversationActivity.this.setResult(ACTIVITYRESULT_ATTACK);
+    		ConversationActivity.this.finish();
+    		return;
+    	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_REMOVE)) {
+    		ConversationActivity.this.setResult(ACTIVITYRESULT_REMOVE);
     		ConversationActivity.this.finish();
     		return;
     	}

@@ -22,6 +22,7 @@ public final class ConversationCollection {
 	public static final String PHRASE_CLOSE = "X";
 	public static final String PHRASE_SHOP = "S";
 	public static final String PHRASE_ATTACK = "F";
+	public static final String PHRASE_REMOVE = "R";
 	public static final String REPLY_NEXT = "N";
 	
 	private final HashMap<String, Phrase> phrases = new HashMap<String, Phrase>();
@@ -30,6 +31,7 @@ public final class ConversationCollection {
 		if (id.equals(PHRASE_CLOSE)) return true;
 		else if (id.equals(PHRASE_SHOP)) return true;
 		else if (id.equals(PHRASE_ATTACK)) return true;
+		else if (id.equals(PHRASE_REMOVE)) return true;
 		else if (phrases.containsKey(id)) return true;
 		else return false;
 	}
@@ -180,6 +182,7 @@ public final class ConversationCollection {
     		requiredPhrases.remove(PHRASE_ATTACK);
     		requiredPhrases.remove(PHRASE_CLOSE);
     		requiredPhrases.remove(PHRASE_SHOP);
+    		requiredPhrases.remove(PHRASE_REMOVE);
     		
     		// Verify that all supplied phrases are required.
     		for (Entry<String, Phrase> e : phrases.entrySet()) {
@@ -238,6 +241,7 @@ public final class ConversationCollection {
 			if (phraseID.equals(PHRASE_SHOP)) return true;
 			if (phraseID.equals(PHRASE_ATTACK)) return false;
 			if (phraseID.equals(PHRASE_CLOSE)) return false;
+			if (phraseID.equals(PHRASE_REMOVE)) return false;
 			if (visited.contains(phraseID)) return false;
 			visited.add(phraseID);
 			

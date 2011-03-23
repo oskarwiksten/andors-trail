@@ -151,12 +151,16 @@ public final class MainActivity extends Activity {
 			if (resultCode == ConversationActivity.ACTIVITYRESULT_ATTACK) {
 				final Coord p = world.model.player.nextPosition;
 				Monster m = world.model.currentMap.getMonsterAt(p);
-				if (m != null) {
-			    	view.combatController.setCombatSelection(m, p);
-					view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
-				} else {
-					//Shouldn't happen.
-				}
+				if (m == null) return; //Shouldn't happen.
+				m.forceAggressive = true;
+				view.combatController.setCombatSelection(m, p);
+				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+			} else if (resultCode == ConversationActivity.ACTIVITYRESULT_REMOVE) {
+				final Coord p = world.model.player.nextPosition;
+				Monster m = world.model.currentMap.getMonsterAt(p);
+				if (m == null) return;
+				world.model.currentMap.remove(m);
+				redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
 			}
 			break;
 		case INTENTREQUEST_PREFERENCES:
