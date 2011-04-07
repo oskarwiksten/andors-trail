@@ -145,7 +145,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	}
 
 	private void buy(ItemType itemType) {
-		ItemController.buy(player, itemType, container_buy);
+		ItemController.buy(world.model, player, itemType, container_buy);
 		final String msg = getResources().getString(R.string.shop_item_bought, itemType.name);
 		displayStoreAction(msg);
 	}

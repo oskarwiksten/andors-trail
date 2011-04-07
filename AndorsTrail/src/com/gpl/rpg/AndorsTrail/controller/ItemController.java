@@ -90,6 +90,7 @@ public final class ItemController {
     	
     	player.inventory.removeItem(type.id, 1);
     	view.actorStatsController.applyUseEffect(player, null, type.effects_use);
+    	model.statistics.addItemUsage(type);
 		
     	//TODO: provide feedback that the item has been used.
     	//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
@@ -210,11 +211,12 @@ public final class ItemController {
 		player.inventory.removeItem(itemType.id);
 		merchant.addItem(itemType);
 	}
-	public static void buy(Player player, ItemType itemType, ItemContainer merchant) {
+	public static void buy(ModelContainer model, Player player, ItemType itemType, ItemContainer merchant) {
 		int price = getBuyingPrice(player, itemType);
 		if (!canAfford(player, price)) return;
 		player.inventory.gold -= price;
 		player.inventory.addItem(itemType);
 		merchant.removeItem(itemType.id);
+		model.statistics.addGoldSpent(price);
 	}
 }
