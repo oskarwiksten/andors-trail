@@ -1,0 +1,35 @@
+html,body 					{ margin:0; padding:0; height: 100%; font-size: 0.9em; } 
+#screen 					{ height: 100%; background-color: #a0c0ff; color: black; position: relative; font-family: sans-serif; }
+#screen #top 				{ height: 50px; color: #eeeeee; }
+#screen #top #title 		{ font-size: 2em; float: left; text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px; }
+#screen #top #version 		{ font-size: 10pt; margin-left: 3ex; }
+.andorsTrailLogo 			{ background-image: url(logo.png); background-repeat: no-repeat; background-position: 3px 3px; padding:10px 0px 15px 50px; }
+#screen #top #buttons 		{ float: right; font-size: 1.2em; margin: 10px; }
+#screen .workarea 			{ margin: 5px; border: 1px #c0d0ff solid; background-color: #eeeeee; position: absolute; top: 50px; bottom: 0; }
+#screen #left 				{ width: 250px; padding: 0px; font-size: 1em; }
+#screen #center 			{ left: 256px; right: 0; }
+#screen #center #tabs 		{ border: 0px; padding: 0px; }
+
+.ui-icon-close 				{ float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
+.hidden 					{ display: none; }
+
+.fieldWithLabel 			{ font-size: 0.9em; }
+.fieldWithLabel .label 		{ display: block; margin-top: 1ex; }
+.fieldWithLabel .field 		{ display: block; }
+.fieldWithLabel .hint 		{ }
+.fieldWithLabel .fieldInput	{ }
+.fieldSet					{ float: left; margin: 1ex; background-color: #f7f7ff; }
+.endSets					{ clear: both; }
+
+#screen #left div			{ }
+.itemlist					{ border: 1px #bbb solid; list-style: none; padding: 0px; margin: 0px; line-height: 1.3; margin-bottom: 2ex; }
+.itemlist li				{ cursor: pointer; padding: 0.5ex 1ex 0.5ex 2ex; }
+.itemlist li:nth-child(odd)	{ background-color: #eee; border-top: 1px #ddd solid; border-bottom: 1px #ddd solid; }
+.itemlist li:hover			{ background-color: #d7d7ff; }
+.importexport-header		{ font-weight: bold; padding-top: 1ex; }
+#dialog-importexport #value	{ font-family: monospace; font-size: 7pt; }
+.fieldWithLabel table		{ border-collapse: collapse; margin-bottom: 1ex; }	
+.fieldWithLabel table th	{ border: 1px #ccc solid; padding: 0.5ex; }
+.fieldWithLabel table td	{ border: 1px #ccc solid; padding: 0.5ex; cursor: pointer; }
+.fieldWithLabel table tbody tr:nth-child(even)	{ background-color: #eee }
+.fieldWithLabel table tbody tr:hover	{ background-color: #d7d7ff; }

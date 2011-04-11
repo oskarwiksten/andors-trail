@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+                    "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Andor's Trail editor unit tests</title>
+	<link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="AndorsTrailEditor.js"></script>
+	<script type="text/javascript" src="inc/qunit.js"></script>
+	
+<script type="text/javascript">
+
+$(document).ready(function(){
+    
+	// ========================================================
+	
+	module("FieldList");
+
+		test("Deserialization of header", function() {
+			var header = "[Id|Name|Spells[SpellID|SpellName|]|Size|]";
+			var ds = new FieldList(header);
+			equals(ds._fields.length, 4);
+			equals(ds._fields[0], "Id");
+			equals(ds._fields[1], "Name");
+			equals(ds._fields[2]._name, "Spells");
+			equals(ds._fields[2]._fields.length, 2);
+			equals(ds._fields[2]._fields[0], "SpellID");
+			equals(ds._fields[2]._fields[1], "SpellName");
+			equals(ds._fields[3], "Size");
+		});
+		
+		test("Deserialization of header with multiple lists", function() {
+			var header = "[Id|Name|Spells[SpellID|SpellName|]|Size|Drops[ItemID|]|]";
+			var ds = new FieldList(header);
+			equals(ds._fields.length, 5);
+			equals(ds._fields[0], "Id");
+			equals(ds._fields[1], "Name");
+			equals(ds._fields[2]._name, "Spells");
+			equals(ds._fields[2]._fields.length, 2);
+			equals(ds._fields[2]._fields[0], "SpellID");
+			equals(ds._fields[2]._fields[1], "SpellName");
+			equals(ds._fields[3], "Size");
+			equals(ds._fields[4]._name, "Drops");
+			equals(ds._fields[4]._fields.length, 1);
+			equals(ds._fields[4]._fields[0], "ItemID");
+		});
+		
+		test("Serialization of header", function() {
+			var header = "[Id|Name|Spells[SpellID|SpellName|]|Size|]";
+			var ds = new FieldList(header);
+			equals(ds.getHeader(), header);
+			equals(ds.getHeaderLine(), header + ";");
+		});
+		
+		test("Finding header in text", function() {
+			var ds = findHeader("[Id|Name|[SpellID|SpellName|]|Size|];");
+			ok(ds);
+			equals(ds._fields.length, 4);
+			
+			ds = findHeader("[Id|Name|[SpellID|SpellName|]|Size|]");
+			ok(!ds);
+			
+			ds = findHeader("\n[Id|Name|[SpellID|SpellName|]|Size|];");
+			ok(ds);
+			equals(ds._fields.length, 4);
+			
+			ds = findHeader("\ntest\n[Id|Name|[SpellID|SpellName|]|Size|];");
+			ok(ds);
+			equals(ds._fields.length, 4);
+			
+			ds = findHeader("\ntest\n[Id|Name|[SpellID|SpellName|]|Size|];\ntest2\n");
+			ok(ds);
+			equals(ds._fields.length, 4);
+			
+			ds = findHeader("\ntest\n{Test|Foo|};\n[Id|Name|[SpellID|SpellName|]|Size|];\ntest2\n");
+			ok(ds);
+			equals(ds._fields.length, 4);
+			
+			ds = findHeader("\ntest\n[Id|Name|[SpellID|SpellName|]|Size|];\n{Test|Foo|};\n");
+			ok(ds);
+			equals(ds._fields.length, 4);
+		});
+	
+	// ========================================================
+	
+	module("deserializeObject");
+
+		test("Simple object deserialization", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = deserializeObject(ds, "{23|TestObject|50|}");
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			equals(obj.SpellID, 50);
+		});
+
+		test("Hierarcical object deserialization", function() {
+			var ds = new FieldList("[Id|Name|Spells[SpellID|SpellName|]|Size|]");
+			var obj = deserializeObject(ds, "{23|TestObject|{{50|Heal|}{51|Curse|}}|Large|}");
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			ok(obj.Spells);
+			equals(obj.Spells.length, 2);
+			equals(obj.Spells[0].SpellID, 50);
+			equals(obj.Spells[0].SpellName, "Heal");
+			equals(obj.Spells[1].SpellID, 51);
+			equals(obj.Spells[1].SpellName, "Curse");
+			equals(obj.Size, "Large");
+		});
+
+		test("Multiple hierarcical object deserialization", function() {
+			var ds = new FieldList("[Id|Name|Spells[SpellID|SpellName|]|Size|Drops[ItemID|]|Effects[EffectID|]|]");
+			var obj = deserializeObject(ds, "{23|TestObject|{{50|Heal|}{51|Curse|}}|Large|{{4|}}||}");
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			ok(obj.Spells);
+			equals(obj.Spells.length, 2);
+			equals(obj.Spells[0].SpellID, 50);
+			equals(obj.Spells[0].SpellName, "Heal");
+			equals(obj.Spells[1].SpellID, 51);
+			equals(obj.Spells[1].SpellName, "Curse");
+			equals(obj.Size, "Large");
+			ok(obj.Drops);
+			equals(obj.Drops.length, 1);
+			equals(obj.Drops[0].ItemID, 4);
+			ok(obj.Effects);
+			equals(obj.Effects.length, 0);
+		});
+	
+	// ========================================================
+	
+	module("serializeObject");
+
+		test("Simple object serialization", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = new Object();
+			obj.Id = 23;
+			obj.Name = "TestObject";
+			obj.SpellID = 50;
+			
+			equals(serializeObject(ds, obj), "{23|TestObject|50|}");
+		});
+
+		test("Hierarcical object serialization", function() {
+			var ds = new FieldList("[Id|Name|Spells[SpellID|SpellName|]|Size|]");
+			var obj = new Object();
+			obj.Id = 23;
+			obj.Name = "TestObject";
+			obj.Spells = [];
+			obj.Spells[0] = new Object();
+			obj.Spells[0].SpellID = 50;
+			obj.Spells[0].SpellName = "Heal";
+			obj.Spells[1] = new Object();
+			obj.Spells[1].SpellID = 51;
+			obj.Spells[1].SpellName = "Curse";
+			obj.Size = "Large";
+			
+			equals(serializeObject(ds, obj), "{23|TestObject|{{50|Heal|}{51|Curse|}}|Large|}");
+		});
+
+		test("Multiple hierarcical object serialization", function() {
+			var ds = new FieldList("[Id|Name|Spells[SpellID|SpellName|]|Size|Drops[ItemID|]|Effects[EffectID|]|]");
+			var obj = new Object();
+			obj.Id = 23;
+			obj.Name = "TestObject";
+			obj.Spells = [];
+			obj.Spells[0] = new Object();
+			obj.Spells[0].SpellID = 50;
+			obj.Spells[0].SpellName = "Heal";
+			obj.Spells[1] = new Object();
+			obj.Spells[1].SpellID = 51;
+			obj.Spells[1].SpellName = "Curse";
+			obj.Size = "Large";
+			obj.Drops = [];
+			obj.Drops[0] = new Object();
+			obj.Drops[0].ItemID = 4;
+			obj.Effects = [];
+			
+			equals(serializeObject(ds, obj), "{23|TestObject|{{50|Heal|}{51|Curse|}}|Large|{{4|}}||}");
+		});
+		
+		test("Object serialization with undefined fields", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = new Object();
+			obj.Name = "TestObject";
+			obj.SpellID = 50;
+			
+			equals(serializeObject(ds, obj), "{|TestObject|50|}");
+		});
+	
+	// ========================================================
+	
+	module("serializeObjectList");
+
+		test("Simple object serialization", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var list = [];
+			var obj = new Object();
+			obj.Id = 23;
+			obj.Name = "TestObject";
+			obj.SpellID = 50;
+			list[0] = obj;
+			obj = new Object();
+			obj.Id = 25;
+			obj.Name = "Foo";
+			obj.SpellID = 9;
+			list[1] = obj;
+			
+			equals(serializeObjectList(ds, list), "[Id|Name|SpellID|];\n{23|TestObject|50|};\n{25|Foo|9|};\n");
+		});
+
+		test("Serialize empty list", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var list = [];
+			equals(serializeObjectList(ds, list), "[Id|Name|SpellID|];\n");
+		});
+	
+	// ========================================================
+	
+	module("deserializeObjectList");
+
+		test("Simple object deserialization", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var list = deserializeObjectList(ds, "{23|TestObject|50|};\n{25|Foo|9|};");
+			ok(list);
+			equals(list.length, 2);
+			
+			var obj = list[0];
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			equals(obj.SpellID, 50);
+			
+			var obj = list[1];
+			ok(obj);
+			equals(obj.Id, 25);
+			equals(obj.Name, "Foo");
+			equals(obj.SpellID, 9);
+		});
+
+		test("Deserialize empty list", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var list = deserializeObjectList(ds, "");
+			ok(list);
+			equals(list.length, 0);
+			
+			list = deserializeObjectList(ds, "test value};");
+			ok(list);
+			equals(list.length, 0);
+		});
+
+		test("Deserialize garbage values", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var list = deserializeObjectList(ds, "test value};");
+			ok(list);
+			equals(list.length, 0);
+			
+			list = deserializeObjectList(ds, "{23|TestObject|50|};\nfoo\n\n{25|Foo|9|};\nbaz\n");
+			ok(list);
+			equals(list.length, 2);
+			
+			var obj = list[0];
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			equals(obj.SpellID, 50);
+			
+			var obj = list[1];
+			ok(obj);
+			equals(obj.Id, 25);
+			equals(obj.Name, "Foo");
+			equals(obj.SpellID, 9);
+		});
+		
+	// ========================================================
+	
+	module("Combined serialization");
+
+		test("Serialization -> deserialization", function() {
+			var ds = new FieldList("[Id|Name|Spells[SpellID|SpellName|]|Size|Drops[ItemID|]|Effects[EffectID|]|]");
+			var obj = new Object();
+			obj.Id = 23;
+			obj.Name = "TestObject";
+			obj.Spells = [];
+			obj.Spells[0] = new Object();
+			obj.Spells[0].SpellID = 50;
+			obj.Spells[0].SpellName = "Heal";
+			obj.Spells[1] = new Object();
+			obj.Spells[1].SpellID = 51;
+			obj.Spells[1].SpellName = "Curse";
+			obj.Size = "Large";
+			obj.Drops = [];
+			obj.Drops[0] = new Object();
+			obj.Drops[0].ItemID = 4;
+			obj.Effects = [];
+			
+			
+			var obj = deserializeObject(ds, serializeObject(ds, obj));
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			ok(obj.Spells);
+			equals(obj.Spells.length, 2);
+			equals(obj.Spells[0].SpellID, 50);
+			equals(obj.Spells[0].SpellName, "Heal");
+			equals(obj.Spells[1].SpellID, 51);
+			equals(obj.Spells[1].SpellName, "Curse");
+			equals(obj.Size, "Large");
+			ok(obj.Drops);
+			equals(obj.Drops.length, 1);
+			equals(obj.Drops[0].ItemID, 4);
+			ok(obj.Effects);
+			equals(obj.Effects.length, 0);
+			
+		});
+	
+	// ========================================================
+	
+	module("Regex test");
+
+		test("test1", function() {
+			var expression = /'/gm;
+			var str = "Test'value'";
+			
+			var str2 = str.replace(expression, '_');
+			equals(str2, "Test_value_");
+			
+			str2 = str.replace(expression, "\\'");
+			equals(str2, "Test\\'value\\'");
+			
+		});
+		
+	// ========================================================
+	
+	module("Serialization and deserialization with special characters");
+
+		test("Serialization of newline", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = new Object();
+			obj.Id = 3;
+			obj.Name = "Test\nObject\nValue";
+			obj.SpellID = 50;
+			
+			equals(serializeObject(ds, obj), "{3|Test\\nObject\\nValue|50|}");
+		});
+		
+		test("Deserialization of newline", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = deserializeObject(ds, "{3|Test\\nObject\\nValue|50|}");
+			ok(obj);
+			equals(obj.Id, 3);
+			equals(obj.Name, "Test\nObject\nValue");
+			equals(obj.SpellID, 50);
+		});
+		
+		test("Serialization of single quote", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = new Object();
+			obj.Id = 3;
+			obj.Name = "Test 'Object'";
+			obj.SpellID = 50;
+			
+			equals(serializeObject(ds, obj), "{3|Test \\'Object\\'|50|}");
+		});
+		
+		test("Deserialization of single quote", function() {
+			var ds = new FieldList("[Id|Name|SpellID|]");
+			var obj = deserializeObject(ds, "{3|Test \\'Object\\'|50|}");
+			ok(obj);
+			equals(obj.Id, 3);
+			equals(obj.Name, "Test 'Object'");
+			equals(obj.SpellID, 50);
+		});
+
+	// ========================================================
+	
+	module("DataStore");
+
+		test("Getting and putting items", function() {
+			var ds = new DataStore('item', new FieldList("[iconID|name|];"));
+			equals(ds.items.length, 0);
+			ds.add({iconID: 3, name: 'Test'});
+			equals(ds.items.length, 1);
+			equals(ds.items[0].iconID, 3);
+			equals(ds.items[0].name, 'Test');
+		});
+		
+		test("Serialization of datastore", function() {
+			var ds = new DataStore('item', new FieldList("[iconID|name|];"));
+			ds.add({iconID: 3, name: 'Test'});
+			equals(ds.serialize(), '[iconID|name|];\n{3|Test|};\n');
+		});
+
+	// ========================================================
+	
+	module("TilesetImage");
+
+		test("Image bounds", function() {
+			var img = new TilesetImage("defaultimage.png", { x:1, y:1 });
+			equals(img._tileSize.x, 32);
+			equals(img._tileSize.y, 32);
+			
+			var c = img.localIDToCoords(0);
+			equals(img.coordsToLocalID(c.x, c.y), 0);
+			equals(c.x, 0);
+			equals(c.y, 0);
+			equals(img.coordsToLocalID(0, 0), 0);
+			equals(img.coordsToLocalID(1, 1), 0);
+			equals(img.coordsToLocalID(10, 10), 0);
+			equals(img.coordsToLocalID(31, 31), 0);
+			
+			img = new TilesetImage("defaultimage.png", { x:10, y:2 });
+			c = img.localIDToCoords(0);
+			equals(img.coordsToLocalID(c.x, c.y), 0);
+			equals(c.x, 0);
+			equals(c.y, 0);
+			equals(img.coordsToLocalID(0, 0), 0);
+			equals(img.coordsToLocalID(1, 1), 0);
+			equals(img.coordsToLocalID(10, 10), 0);
+			equals(img.coordsToLocalID(31, 31), 0);
+			
+			c = img.localIDToCoords(1);
+			equals(img.coordsToLocalID(c.x, c.y), 1);
+			equals(c.x, 32);
+			equals(c.y, 0);
+			equals(img.coordsToLocalID(32, 0), 1);
+			equals(img.coordsToLocalID(33, 1), 1);
+			equals(img.coordsToLocalID(40, 10), 1);
+			equals(img.coordsToLocalID(63, 31), 1);
+			
+			c = img.localIDToCoords(10);
+			equals(img.coordsToLocalID(c.x, c.y), 10);
+			equals(c.x, 0);
+			equals(c.y, 32);
+			equals(img.coordsToLocalID(0, 32), 10);
+			equals(img.coordsToLocalID(1, 33), 10);
+			equals(img.coordsToLocalID(10, 40), 10);
+			equals(img.coordsToLocalID(31, 63), 10);
+			
+			c = img.localIDToCoords(12);
+			equals(img.coordsToLocalID(c.x, c.y), 12);
+			equals(c.x, 64);
+			equals(c.y, 32);
+			equals(img.coordsToLocalID(64, 32), 12);
+			equals(img.coordsToLocalID(65, 33), 12);
+			equals(img.coordsToLocalID(70, 40), 12);
+			equals(img.coordsToLocalID(95, 63), 12);
+		});
+});
+</script>
+  
+</head>
+<body>
+	<h1 id="qunit-header">Andor's Trail editor unit tests</h1>
+	<h2 id="qunit-banner"></h2>
+	<div id="qunit-testrunner-toolbar"></div>
+	<h2 id="qunit-userAgent"></h2>
+	<ol id="qunit-tests"></ol>
+	<div id="qunit-fixture">test markup, will be hidden</div>
+</body>
+</html>
