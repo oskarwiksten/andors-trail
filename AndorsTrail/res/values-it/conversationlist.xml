@@ -7,23 +7,23 @@
 {mikhail_start_select|||||mikhail_visited|andor:1||||mikhail_gamestart|||||||||};
 {mikhail_gamestart|Oh , bene, Siete sveglio.|||N|mikhail_visited||||||||||||||};
 {mikhail_visited|Non riesco a trovare tuo fratello da nessuna parte. Da quando ieri è uscito non è più tornato.|andor:1||N|mikhail3||||||||||||||};
-{mikhail3|Non preoccuparti, sarà sicuramente presto.|||N|mikhail_default||||||||||||||};
-{mikhail_default|Nient\'altro? come posso aiutarti con?|||Domande|mikhail_tasks||||Fratello|mikhail_andor1||||Ciao|X||||};
-{mikhail_tasks|Oh Si, ci sono alcune cose per cui ho bisogno di aiuto con.|||Pane|mikhail_bread_select||||Topo|mikhail_rats_select||||Indietro|mikhail_default||||};
-{mikhail_andor1|Come ho detto, Andor è uscito ieri e non è tornato. Sto iniziando a preoccuparmi per lui. Vorrei che tu andassi a cercare tuo fratello, disse che sarebbe stato via poco.|||N|mikhail_andor2||||||||||||||};
-{mikhail_andor2|Forse è andato in magazzino ed è di nuovo rimasto bloccato. O forse si stà allenando nel seminterrato di Leta con quella nuova spada di legno. Per favore, vai a cercarlo in città.|||Indietro|mikhail_default||||||||||||||};
+{mikhail3|Non preoccuparti, sarà sicuramente di ritorno presto.|||N|mikhail_default||||||||||||||};
+{mikhail_default|Nient\'altro? Come posso aiutarti?|||Domande|mikhail_tasks||||Fratello|mikhail_andor1||||Ciao|X||||};
+{mikhail_tasks|Oh Si, ci sono alcune cose per cui ho bisogno di aiuto:|||Pane|mikhail_bread_select||||Topo|mikhail_rats_select||||Indietro|mikhail_default||||};
+{mikhail_andor1|Come ho detto, Andor è uscito ieri e non è tornato. Sto iniziando a preoccuparmi per lui. Vorrei che tu andassi a cercare tuo fratello, mi disse che sarebbe stato via poco.|||N|mikhail_andor2||||||||||||||};
+{mikhail_andor2|Forse è andato al magazzino ed è di nuovo rimasto bloccato. O forse si stà allenando nel seminterrato di Leta con quella nuova spada di legno. Per favore, vai a cercarlo in città.|||Indietro|mikhail_default||||||||||||||};
 {mikhail_bread_select|||||mikhail_bread_complete2|mikhail_bread:100||||mikhail_bread_continue|mikhail_bread:10||||mikhail_bread_start||||};
 {mikhail_bread_start|Oh, quasi dimenticavo. Se hai tempo, fermati da Mara in municipio e comprami un pezzo di pane.|mikhail_bread:10||Ok|mikhail_default||||||||||||||};
 {mikhail_bread_continue|Hai preso il pane da Mara al municipio come ti avevo chiesto?|||Fatto|mikhail_bread_complete||Pane|1|Non ancora|mikhail_default|||||||||};
 {mikhail_bread_complete|Grazie mille, ora posso fare colazione. Tieni, prendi queste monete per il tuo aiuto.|mikhail_bread:100|gold20|indietro|mikhail_default||||||||||||||};
-{mikhail_bread_complete2|Grazie per il pane.|||tu sei il benevenuto|mikhail_default||||||||||||||};
+{mikhail_bread_complete2|Grazie per il pane.|||Prego, è stato un piacere|mikhail_default||||||||||||||};
 {mikhail_rats_select|||||mikhail_rats_complete2|mikhail_rats:100||||mikhail_rats_continue|mikhail_rats:10||||mikhail_rats_start||||};
-{mikhail_rats_start|Ho visto di nuovo dei topi fuori, nel giardino.Puoi andare in giardino a controllare? Se puoi uccidi tutti i topi che trovi.|mikhail_rats:10||Fatto|mikhail_rats_complete||tail_trainingrat|2|Certo|mikhail_rats_start2|||||||||};
+{mikhail_rats_start|Ho visto di nuovo dei topi fuori, nel giardino. Puoi andare in giardino a controllare? Se puoi uccidi tutti i topi che trovi.|mikhail_rats:10||Fatto|mikhail_rats_complete||tail_trainingrat|2|Certo|mikhail_rats_start2|||||||||};
 {mikhail_rats_start2|Se con i topi ti facessi male, puoi tornare quì nel tuo letto. Questo ti fà recuperare le forze.|||N|mikhail_rats_start3||||||||||||||};
-{mikhail_rats_start3|Non dimenticare di controllare nel tuo inventario.Sicuramente hai ancora quell\'anello che ti ho dato. assicurati di indossarlo.|||Ok|mikhail_default||||||||||||||};
-{mikhail_rats_continue|DHai ucciso quei ratti nel nostro giardino?|||Si|mikhail_rats_complete||tail_trainingrat|2|Non ancora|mikhail_default|||||||||};
-{mikhail_rats_complete|Oh , l\'hai fatto?!se ti sei ferito, usa il tuo letto per riposare . Questo è un modo per recuperare le forze.|mikhail_rats:100||Indietro|mikhail_default||||||||||||||};
-{mikhail_rats_complete2|Grazie per il tuo aiuto con i topi.Se sei ferito, usa il letto per riposare. In questo modo potrai recuperare le forze.|||Tu sei il benvenuto|mikhail_default||||||||||||||};
+{mikhail_rats_start3|Non dimenticare di controllare nel tuo inventario. Sicuramente hai ancora quell\'anello che ti ho dato. Assicurati di indossarlo.|||Ok|mikhail_default||||||||||||||};
+{mikhail_rats_continue|Hai ucciso quei ratti nel nostro giardino?|||Si|mikhail_rats_complete||tail_trainingrat|2|Non ancora|mikhail_default|||||||||};
+{mikhail_rats_complete|Oh, l\'hai fatto?! Se ti sei ferito, usa il tuo letto per riposare. Questo è un modo per recuperare le forze.|mikhail_rats:100||Indietro|mikhail_default||||||||||||||};
+{mikhail_rats_complete2|Grazie per il tuo aiuto con i topi. Se sei ferito, usa il letto per riposare. In questo modo potrai recuperare le forze.|||Prego, un po\' di movimento fa bene.|mikhail_default||||||||||||||};
         </string>
 
         <string name="conversationlist_crossglen_leta">|||||||||||||||||||
