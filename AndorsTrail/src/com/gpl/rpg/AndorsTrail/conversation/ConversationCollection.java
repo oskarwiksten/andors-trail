@@ -15,7 +15,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
-import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ConversationCollection {
@@ -47,9 +47,9 @@ public final class ConversationCollection {
 	}
 	
 	public void initialize(ItemTypeCollection itemTypes, DropListCollection droplists, String phraselist) {
-		Matcher rowMatcher = ResourceLoader.rowPattern.matcher(phraselist);
+		Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(phraselist);
     	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
+    		String[] parts = rowMatcher.group(1).split(ResourceFileParser.columnSeparator, -1);
     		if (parts.length < 19) {
     			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     				if (parts.length > 2) {
@@ -110,7 +110,7 @@ public final class ConversationCollection {
 				, parts[startIndex+1]
 				, QuestProgress.parseQuestProgress(parts[startIndex+2])
 		       	, requiresItemTypeID
-       	       	, ResourceLoader.parseInt(parts[startIndex+4], 0)
+       	       	, ResourceFileParser.parseInt(parts[startIndex+4], 0)
 			);
 	}
 	

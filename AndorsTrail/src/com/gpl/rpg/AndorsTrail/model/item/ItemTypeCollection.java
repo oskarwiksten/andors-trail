@@ -1,15 +1,16 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectTokenizer;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -32,76 +33,68 @@ public final class ItemTypeCollection {
 		return null;
 	}
 	
-	public void initialize(DynamicTileLoader tileLoader, String itemlist) {
-		int nextId = itemTypes.size();
-    	Matcher rowMatcher = ResourceLoader.rowPattern.matcher(itemlist);
-    	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
-    		if (parts.length < 13) continue;
-    		
-    		final String itemTypeName = parts[2];
-			String searchTag = parts[0];
-			if (searchTag == null || searchTag.length() <= 0) {
-				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-					L.log("OPTIMIZE: ItemType \"" + itemTypeName + "\" has empty searchtag.");
+
+	private static ResourceObjectTokenizer tokenize37Fields = new ResourceObjectTokenizer(37);
+	public void initialize(final DynamicTileLoader tileLoader, final ActorConditionTypeCollection actorConditionTypes, String itemlist) {
+		tokenize37Fields.tokenizeRows(itemlist, new ResourceObjectFieldParser() {
+			@Override
+			public void matchedRow(String[] parts) {
+				final String itemTypeName = parts[2];
+				String searchTag = parts[0];
+				if (searchTag == null || searchTag.length() <= 0) {
+					if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+						L.log("OPTIMIZE: ItemType \"" + itemTypeName + "\" has empty searchtag.");
+					}
+					searchTag = itemTypeName;
 				}
-				searchTag = itemTypeName;
+				
+				ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 5);
+				ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 18, false);
+				ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 24, true);
+				ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 31, false);
+				
+				int nextId = itemTypes.size();
+				final ItemType itemType = new ItemType(
+	        			nextId
+	        			, ResourceFileParser.parseImageID(tileLoader, parts[1])
+	        			, itemTypeName
+			        	, searchTag
+	        			, Integer.parseInt(parts[3])
+	        			, Integer.parseInt(parts[4])
+	        			, equipEffect
+	        			, useEffect
+	        			, hitEffect
+	        			, killEffect
+	    			);
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+	    			if (itemType.isEquippable()) {
+	    				if (itemType.effects_equip == null && itemType.effects_hit == null && itemType.effects_kill == null ) {
+	        				L.log("OPTIMIZE: Item " + searchTag + " is equippable, but has no equip effect.");
+	    				}
+	    			} else {
+	    				if (itemType.effects_equip != null || itemType.effects_hit != null || itemType.effects_kill != null ) {
+	        				L.log("OPTIMIZE: Item " + searchTag + " is not equippable, but has equip, hit or kill effect.");
+	    				}
+	    			}
+	    			if (itemType.isUsable()) {
+	    				if (itemType.effects_use == null) {
+	        				L.log("OPTIMIZE: Item " + searchTag + " is usable, but has no use effect.");
+	    				}
+	    			} else {
+	    				if (itemType.effects_use != null) {
+	    					L.log("OPTIMIZE: Item " + searchTag + " is not usable, but has use effect.");
+	    				}
+	    			}
+	    		}
+				itemTypes.add(itemType);
+	    		
+	    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+	    			if (getItemTypeByTag(searchTag).id != nextId) {
+	    				L.log("OPTIMIZE: Item " + searchTag + " may be duplicated.");
+	    			}
+	    		}
 			}
-			
-			final ConstRange hpEffect = ResourceLoader.parseRange(parts[5]);
-			ItemTraits_OnUse useTraits = null;
-			if (hpEffect != null) {
-				useTraits = new ItemTraits_OnUse(hpEffect, null, null, null);
-			}
-			
-			final CombatTraits combatTraits = ResourceLoader.parseCombatTraits(parts, 6);
-			ItemTraits_OnEquip equipTraits = null;
-			if (combatTraits != null) {
-				equipTraits = new ItemTraits_OnEquip(0, 0, 0, combatTraits, null);
-			}
-			
-			final ItemType itemType = new ItemType(
-        			nextId
-        			, ResourceLoader.parseImageID(tileLoader, parts[1])
-        			, itemTypeName
-		        	, searchTag
-        			, Integer.parseInt(parts[3])
-        			, Integer.parseInt(parts[4])
-        			, equipTraits
-        			, useTraits
-        			, null
-        			, null
-    			);
-			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    			if (itemType.isEquippable()) {
-    				if (itemType.effects_equip == null && itemType.effects_hit == null && itemType.effects_kill == null ) {
-        				L.log("OPTIMIZE: Item " + searchTag + " is equippable, but has no equip effect.");
-    				}
-    			} else {
-    				if (itemType.effects_equip != null || itemType.effects_hit != null || itemType.effects_kill != null ) {
-        				L.log("OPTIMIZE: Item " + searchTag + " is not equippable, but has equip, hit or kill effect.");
-    				}
-    			}
-    			if (itemType.isUsable()) {
-    				if (itemType.effects_use == null) {
-        				L.log("OPTIMIZE: Item " + searchTag + " is usable, but has no use effect.");
-    				}
-    			} else {
-    				if (itemType.effects_use != null) {
-    					L.log("OPTIMIZE: Item " + searchTag + " is not usable, but has use effect.");
-    				}
-    			}
-    		}
-			itemTypes.add(itemType);
-    		
-    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    			if (getItemTypeByTag(searchTag).id != nextId) {
-    				L.log("OPTIMIZE: Item " + searchTag + " may be duplicated.");
-    			}
-    		}
-    		
-        	++nextId;
-    	}
+		});
     }
 	
 	public void initialize_DEBUGITEMS(WorldContext world) {
@@ -242,7 +235,7 @@ public final class ItemTypeCollection {
 		++nextId;
 		
 		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(3, 2))
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), 1, 3, new ConstRange(3, 2))
 		};
 		itemType = new ItemType(
     			nextId
@@ -262,7 +255,7 @@ public final class ItemTypeCollection {
 		ItemType health_minor = getItemTypeByTag("health_minor");
 		
 		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 4, new ConstRange(1,1))
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), 1, 4, new ConstRange(1,1))
 		};
 		itemType = new ItemType(
     			nextId
@@ -280,7 +273,7 @@ public final class ItemTypeCollection {
 		++nextId;
 		
 		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), ActorCondition.MAGNITUDE_REMOVE_ALL, 0, new ConstRange(1,1))
+			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), ActorCondition.MAGNITUDE_REMOVE_ALL, 0, new ConstRange(1,1))
 		};
 		itemType = new ItemType(
     			nextId

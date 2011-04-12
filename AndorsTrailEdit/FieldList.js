@@ -54,7 +54,7 @@ function FieldList(header, name) {
 	}
 }
 
-function findHeader(str, name) {
+function findHeader(str) {
 	var match = str.match(FieldList_Header_linePattern);
 	if (!match) return;
 	return new FieldList(match[0]);

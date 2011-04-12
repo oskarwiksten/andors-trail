@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.model.ability.traits;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public class StatsModifierTraits {
-	private static final int VISUAL_EFFECT_NONE = -1;
+	public static final int VISUAL_EFFECT_NONE = -1;
 	public final int visualEffectID;
 	public final ConstRange currentHPBoost;
 	public final ConstRange currentAPBoost;

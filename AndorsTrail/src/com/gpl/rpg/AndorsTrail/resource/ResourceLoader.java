@@ -1,15 +1,11 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
-import java.util.regex.Pattern;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLoader;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 import android.content.res.Resources;
@@ -49,29 +45,29 @@ public final class ResourceLoader {
         // ========================================================================
         // Load condition types
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
-        world.actorConditionsTypes.initialize(loader);
+        world.actorConditionsTypes.initialize(loader, r.getString(R.string.actorconditions_v069));
         loader.flush();
         
         
         // ========================================================================
         // Load item icons
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
-        world.itemTypes.initialize(loader, r.getString(R.string.itemlist_money));
+        world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_money));
         assert(world.itemTypes.getItemTypeByTag("gold") != null);
         assert(world.itemTypes.getItemTypeByTag("gold").id == ItemTypeCollection.ITEMTYPE_GOLD);
-        world.itemTypes.initialize(loader, r.getString(R.string.itemlist_weapons));
-        world.itemTypes.initialize(loader, r.getString(R.string.itemlist_armour));
+        world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_weapons));
+        world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_armour));
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
-        	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_debug));
+        	world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_debug));
         } else {
-        	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_rings));
-            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_necklaces));
-        	world.itemTypes.initialize(loader, r.getString(R.string.itemlist_junk));
-            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_food));
-            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_potions));
-            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_animal));
-            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_quest));
-            world.itemTypes.initialize(loader, r.getString(R.string.itemlist_v068));
+        	world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_rings));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_necklaces));
+        	world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_junk));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_food));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_potions));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_animal));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_quest));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v068));
         }
         loader.flush();
         world.itemTypes.initialize_DEBUGITEMS(world);
@@ -460,62 +456,4 @@ public final class ResourceLoader {
         	world.verifyData();
         }
     }
-    
-	public static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);
-    public static final String columnSeparator = "\\|";
-	public static int parseImageID(DynamicTileLoader tileLoader, String s) {
-	   	String[] parts = s.split(":");
-	   	return tileLoader.prepareTileID(parts[0], Integer.parseInt(parts[1]));
-	}
-	public static ConstRange parseRange(String s) {
-		if (s == null || s.length() <= 0) return null;
-	   	String[] parts = s.split("-");
-	   	if (parts.length < 2 || s.startsWith("-")) {
-	   		int val = Integer.parseInt(s);
-	   		return new ConstRange(val, val);
-	   	} else {
-	   		return new ConstRange(Integer.parseInt(parts[1]), Integer.parseInt(parts[0]));
-	   	}
-	}
-	public static Size parseSize(String s, final Size defaultSize) {
-		if (s == null || s.length() <= 0) return defaultSize;
-	   	String[] parts = s.split("x");
-	   	if (parts.length < 2) return defaultSize;
-	   	return new Size(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
-	}
-	public static CombatTraits parseCombatTraits(String[] parts, int startIndex) {
-		String AtkCost = parts[startIndex];
-		String AtkPct = parts[startIndex + 1];
-		String CritPct = parts[startIndex + 2];
-		String CritMult = parts[startIndex + 3];
-		String DMG = parts[startIndex + 4];
-		String BlkPct = parts[startIndex + 5];
-		String DMG_res = parts[startIndex + 6];
-		if (       AtkCost.length() <= 0 
-				&& AtkPct.length() <= 0
-				&& CritPct.length() <= 0
-				&& CritMult.length() <= 0
-				&& DMG.length() <= 0
-				&& BlkPct.length() <= 0
-				&& DMG_res.length() <= 0
-			) {
-			return null;
-		} else {
-			CombatTraits result = new CombatTraits();
-			result.attackCost = parseInt(AtkCost, 0);
-			result.attackChance = parseInt(AtkPct, 0);
-			result.criticalChance = parseInt(CritPct, 0);
-			result.criticalMultiplier = parseInt(CritMult, 0);
-			ConstRange r = parseRange(DMG);
-			if (r != null) result.damagePotential.set(r);
-			result.blockChance = parseInt(BlkPct, 0);
-			result.damageResistance = parseInt(DMG_res, 0);
-			return result;
-		}
-	}
-	public static int parseInt(String s, int defaultValue) {
-		if (s == null || s.length() <= 0) return defaultValue;
-		return Integer.parseInt(s);
-	}
-
 }

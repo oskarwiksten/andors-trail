@@ -14,7 +14,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
@@ -48,9 +48,9 @@ public final class MonsterTypeCollection {
 	private static final Size size1x1 = new Size(1, 1);
 	public void initialize(DropListCollection droplists, DynamicTileLoader tileLoader, String monsterlist) {
 		int nextId = monsterTypes.size();
-    	Matcher rowMatcher = ResourceLoader.rowPattern.matcher(monsterlist);
+    	Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(monsterlist);
     	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
+    		String[] parts = rowMatcher.group(1).split(ResourceFileParser.columnSeparator, -1);
     		if (parts.length < 17) continue;
     		
     		final String monsterTypeName = parts[1];
@@ -61,19 +61,19 @@ public final class MonsterTypeCollection {
         		}
     		}
         	
-    		final int maxHP = ResourceLoader.parseInt(parts[5], 1);
-    		final int maxAP = ResourceLoader.parseInt(parts[6], 10);
-    		final CombatTraits combatTraits = ResourceLoader.parseCombatTraits(parts, 8);
+    		final int maxHP = ResourceFileParser.parseInt(parts[5], 1);
+    		final int maxAP = ResourceFileParser.parseInt(parts[6], 10);
+    		final CombatTraits combatTraits = parseCombatTraits_OLD(parts, 8);
     		final int exp = getExpectedMonsterExperience(combatTraits, maxHP, maxAP);
     		monsterTypes.add(new MonsterType(
 				nextId
 				, monsterTypeName
 				, parts[2]
-				, ResourceLoader.parseImageID(tileLoader, parts[0])
-				, ResourceLoader.parseSize(parts[3], size1x1) //TODO: This could be loaded from the tileset size instead.
+				, ResourceFileParser.parseImageID(tileLoader, parts[0])
+				, ResourceFileParser.parseSize(parts[3], size1x1) //TODO: This could be loaded from the tileset size instead.
 				, maxHP 	// HP
 				, maxAP		// AP
-				, ResourceLoader.parseInt(parts[7], 10)	// MoveCost
+				, ResourceFileParser.parseInt(parts[7], 10)	// MoveCost
 				, combatTraits
 		        , null // onHitEffects
 				, exp //ResourceLoader.parseInt(parts[4], 0)	// Exp
@@ -85,12 +85,44 @@ public final class MonsterTypeCollection {
     	}
     }
 	
+	public static CombatTraits parseCombatTraits_OLD(String[] parts, int startIndex) {
+		String AtkCost = parts[startIndex];
+		String AtkPct = parts[startIndex + 1];
+		String CritPct = parts[startIndex + 2];
+		String CritMult = parts[startIndex + 3];
+		String DMG = parts[startIndex + 4];
+		String BlkPct = parts[startIndex + 5];
+		String DMG_res = parts[startIndex + 6];
+		if (       AtkCost.length() <= 0 
+				&& AtkPct.length() <= 0
+				&& CritPct.length() <= 0
+				&& CritMult.length() <= 0
+				&& DMG.length() <= 0
+				&& BlkPct.length() <= 0
+				&& DMG_res.length() <= 0
+			) {
+			return null;
+		} else {
+			CombatTraits result = new CombatTraits();
+			result.attackCost = ResourceFileParser.parseInt(AtkCost, 0);
+			result.attackChance = ResourceFileParser.parseInt(AtkPct, 0);
+			result.criticalChance = ResourceFileParser.parseInt(CritPct, 0);
+			result.criticalMultiplier = ResourceFileParser.parseInt(CritMult, 0);
+			ConstRange r = ResourceFileParser.parseRange_OLD(DMG);
+			if (r != null) result.damagePotential.set(r);
+			result.blockChance = ResourceFileParser.parseInt(BlkPct, 0);
+			result.damageResistance = ResourceFileParser.parseInt(DMG_res, 0);
+			return result;
+		}
+	}
+	
+	
 	public void DEBUG_initializeTestEffectMonsters(WorldContext world) {
 		MonsterType t = getMonsterTypeFromName("Forest Snake");
 		if (t == null) return;
 		t.onHitEffects = new ItemTraits_OnUse[] {
 			new ItemTraits_OnUse(null, null, null, new ActorConditionEffect[] { 
-				new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison"), 1, 3, new ConstRange(1, 1))
+				new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), 1, 3, new ConstRange(1, 1))
 			})
 		};
 	}

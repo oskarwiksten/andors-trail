@@ -7,7 +7,7 @@ import java.util.regex.Matcher;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
-import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -27,42 +27,21 @@ public final class DropListCollection {
 		return droplists.get(name);
 	}
 	
-	private final ConstRange one = new ConstRange(1, 1);
-	private final ConstRange ten = new ConstRange(10, 10);
-	private final ConstRange five = new ConstRange(5, 5);
-	private ConstRange parseQuantity(String v) {
+	private static final ConstRange one = new ConstRange(1, 1);
+	private static final ConstRange ten = new ConstRange(10, 10);
+	private static final ConstRange five = new ConstRange(5, 5);
+	private static ConstRange parseQuantity_OLD(String v) {
 		if (v.equals("1")) return one;
 		else if (v.equals("5")) return five;
 		else if (v.equals("10")) return ten;
-		return ResourceLoader.parseRange(v);
+		return ResourceFileParser.parseRange_OLD(v);
 	}
 	
-	private final ConstRange always = one;
-	private final ConstRange often = new ConstRange(100, 70);
-	private final ConstRange animalpart = new ConstRange(100, 30);
-	private final ConstRange seldom = new ConstRange(100, 25);
-	private final ConstRange very_seldom = new ConstRange(100, 5);
-	private final ConstRange unique = new ConstRange(100, 1);
-	private ConstRange parseChance(String v) {
-		if (v.equals("100")) return always;
-		else if (v.equals("70")) return often;
-		else if (v.equals("30")) return animalpart;
-		else if (v.equals("25")) return seldom;
-		else if (v.equals("5")) return very_seldom;
-		else if (v.equals("1")) return unique;
-		else if (v.indexOf('/') >= 0) {
-			int c = v.indexOf('/');
-			int a = ResourceLoader.parseInt(v.substring(0, c), 1);
-			int b = ResourceLoader.parseInt(v.substring(c+1), 100);
-			return new ConstRange(b, a);
-		}
-		else return new ConstRange(100, ResourceLoader.parseInt(v, 10));
-	}
 	public void initialize(ItemTypeCollection itemTypes, String droplistString) {
 		HashMap<String, ArrayList<DropItem> > rows = new HashMap<String, ArrayList<DropItem> >();
-		Matcher rowMatcher = ResourceLoader.rowPattern.matcher(droplistString);
+		Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(droplistString);
     	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
+    		String[] parts = ResourceFileParser.splitColumns_OLD(rowMatcher.group(1), 4);//.split(ResourceFileParser.columnSeparator, -1);
     		if (parts.length < 4) continue;
     		
     		final String droplistID = parts[0];
@@ -78,8 +57,8 @@ public final class DropListCollection {
     		if (!rows.containsKey(droplistID)) rows.put(droplistID, new ArrayList<DropItem>());
     		rows.get(droplistID).add(new DropItem(
         			itemTypes.getItemTypeByTag(parts[1])
-          			, parseChance(parts[2])
-          			, parseQuantity(parts[3])
+          			, ResourceFileParser.parseChance(parts[2])
+          			, parseQuantity_OLD(parts[3])
       			));
     	}
     	

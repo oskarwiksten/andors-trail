@@ -42,7 +42,12 @@ function DataStore(objectTypename, fieldList, nameField) {
 	this.onDeserialized = function() { }
 	
 	this.deserialize = function(str) {
-		this.items = deserializeObjectList(this.fieldList, str);
+		var header = findHeader(str);
+		if (!header) {
+			alert("Could not find header row, cannot deserialize");
+			return;
+		}
+		this.items = deserializeObjectList(header, str);
 		this.onDeserialized();
 	}
 	this.serialize = function() {

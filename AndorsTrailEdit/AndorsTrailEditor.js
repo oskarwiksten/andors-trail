@@ -283,7 +283,7 @@ function startEditor() {
 				+ "hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|"
 				+ "];"))
 		,quests: new DataStore('quest', new FieldList("[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];"))
-		,items: new DataStore('item', new FieldList("[iconID|name|searchTag|category|baseMarketCost|"
+		,items: new DataStore('item', new FieldList("[searchTag|iconID|name|category|baseMarketCost|"
 				+ "hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|"
 				+ "hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|"
 				+ "hasHitEffect|hit_boostHP_Min|use_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|"

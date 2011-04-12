@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.quest;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class QuestProgress {
@@ -17,7 +17,7 @@ public final class QuestProgress {
 		String[] parts = v.split(":");
 		int requiresQuestProgress = 0;
 		if (parts.length >= 2) {
-			requiresQuestProgress = ResourceLoader.parseInt(parts[1], 0);
+			requiresQuestProgress = ResourceFileParser.parseInt(parts[1], 0);
 		} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			L.log("WARNING: Quest progress \"" + v + "\" does not specify any progress stage.");
 		}

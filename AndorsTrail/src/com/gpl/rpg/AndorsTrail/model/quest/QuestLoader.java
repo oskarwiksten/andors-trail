@@ -7,16 +7,16 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class QuestLoader {
 	
 	private HashMap<String, ArrayList<QuestLogEntry> > parsedQuestLogEntries = new HashMap<String, ArrayList<QuestLogEntry> >();
 	public void parseQuestLogsFromString(String questLogEntrylist) {
-		Matcher rowMatcher = ResourceLoader.rowPattern.matcher(questLogEntrylist);
+		Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(questLogEntrylist);
     	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
+    		String[] parts = rowMatcher.group(1).split(ResourceFileParser.columnSeparator, -1);
     		if (parts.length < 4) continue;
     		
     		final String questID = parts[0];
@@ -29,19 +29,19 @@ public final class QuestLoader {
     		
     		if (!parsedQuestLogEntries.containsKey(questID)) parsedQuestLogEntries.put(questID, new ArrayList<QuestLogEntry>());
     		parsedQuestLogEntries.get(questID).add(new QuestLogEntry(
-    				ResourceLoader.parseInt(parts[1], 0)
+    				ResourceFileParser.parseInt(parts[1], 0)
     				, parts[2]
-    				, ResourceLoader.parseInt(parts[3], 0)
-    		       	, ResourceLoader.parseInt(parts[4], 0)>0
+    				, ResourceFileParser.parseInt(parts[3], 0)
+    		       	, ResourceFileParser.parseInt(parts[4], 0)>0
     			));
     	}
 	}
 	
 	private ArrayList<Quest> parsedQuests = new ArrayList<Quest>();
 	public void parseQuestsFromString(String questlist) {
-		Matcher rowMatcher = ResourceLoader.rowPattern.matcher(questlist);
+		Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(questlist);
     	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceLoader.columnSeparator, -1);
+    		String[] parts = rowMatcher.group(1).split(ResourceFileParser.columnSeparator, -1);
     		if (parts.length < 4) continue;
     		
     		final String questID = parts[0];
@@ -79,7 +79,7 @@ public final class QuestLoader {
     				questID
         			, parts[1]
         			, _stages
-        			, ResourceLoader.parseInt(parts[3], 0)>0
+        			, ResourceFileParser.parseInt(parts[3], 0)>0
     			));
     	}
 	}
