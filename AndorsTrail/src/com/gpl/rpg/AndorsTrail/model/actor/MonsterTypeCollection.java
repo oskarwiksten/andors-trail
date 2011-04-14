@@ -3,19 +3,19 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.regex.Matcher;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectTokenizer;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
@@ -46,86 +46,46 @@ public final class MonsterTypeCollection {
 	}
 	
 	private static final Size size1x1 = new Size(1, 1);
-	public void initialize(DropListCollection droplists, DynamicTileLoader tileLoader, String monsterlist) {
-		int nextId = monsterTypes.size();
-    	Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(monsterlist);
-    	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceFileParser.columnSeparator, -1);
-    		if (parts.length < 17) continue;
-    		
-    		final String monsterTypeName = parts[1];
-        	
-    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    			if (getMonsterTypesFromTags(monsterTypeName).size() > 0) {
-    				L.log("OPTIMIZE: Monster " + monsterTypeName + " may be duplicated.");
-        		}
-    		}
-        	
-    		final int maxHP = ResourceFileParser.parseInt(parts[5], 1);
-    		final int maxAP = ResourceFileParser.parseInt(parts[6], 10);
-    		final CombatTraits combatTraits = parseCombatTraits_OLD(parts, 8);
-    		final int exp = getExpectedMonsterExperience(combatTraits, maxHP, maxAP);
-    		monsterTypes.add(new MonsterType(
-				nextId
-				, monsterTypeName
-				, parts[2]
-				, ResourceFileParser.parseImageID(tileLoader, parts[0])
-				, ResourceFileParser.parseSize(parts[3], size1x1) //TODO: This could be loaded from the tileset size instead.
-				, maxHP 	// HP
-				, maxAP		// AP
-				, ResourceFileParser.parseInt(parts[7], 10)	// MoveCost
-				, combatTraits
-		        , null // onHitEffects
-				, exp //ResourceLoader.parseInt(parts[4], 0)	// Exp
-				, droplists.getDropList(parts[15])
-				, parts[16]
-			));
-    		
-        	++nextId;
-    	}
+	private static final ResourceObjectTokenizer monsterResourceTokenizer = new ResourceObjectTokenizer(24);
+	public void initialize(final DropListCollection droplists, final ActorConditionTypeCollection actorConditionTypes, final DynamicTileLoader tileLoader, String monsterlist) {
+		//[iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|
+		// hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+		monsterResourceTokenizer.tokenizeRows(monsterlist, new ResourceObjectFieldParser() {
+			@Override
+			public void matchedRow(String[] parts) {
+				final int nextId = monsterTypes.size();
+				
+				final String monsterTypeName = parts[1];
+	        	
+	    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+	    			if (getMonsterTypesFromTags(monsterTypeName).size() > 0) {
+	    				L.log("OPTIMIZE: Monster " + monsterTypeName + " may be duplicated.");
+	        		}
+	    		}
+	        	
+	    		final int maxHP = ResourceFileParser.parseInt(parts[4], 1);
+	    		final int maxAP = ResourceFileParser.parseInt(parts[5], 10);
+	    		final CombatTraits combatTraits = ResourceFileParser.parseCombatTraits(parts, 7);
+	    		final int exp = getExpectedMonsterExperience(combatTraits, maxHP, maxAP);
+	    		final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 17, true);
+				monsterTypes.add(new MonsterType(
+					nextId
+					, monsterTypeName								// Name
+					, parts[2] 										// Tags
+					, ResourceFileParser.parseImageID(tileLoader, parts[0])
+					, ResourceFileParser.parseSize(parts[3], size1x1) //TODO: This could be loaded from the tileset size instead.
+					, maxHP 										// HP
+					, maxAP											// AP
+					, ResourceFileParser.parseInt(parts[6], 10)		// MoveCost
+					, combatTraits
+			        , hitEffect
+					, exp 											// Exp
+					, droplists.getDropList(parts[15]) 				// Droplist
+					, parts[16]										// PhraseID
+				));
+			}
+		});
     }
-	
-	public static CombatTraits parseCombatTraits_OLD(String[] parts, int startIndex) {
-		String AtkCost = parts[startIndex];
-		String AtkPct = parts[startIndex + 1];
-		String CritPct = parts[startIndex + 2];
-		String CritMult = parts[startIndex + 3];
-		String DMG = parts[startIndex + 4];
-		String BlkPct = parts[startIndex + 5];
-		String DMG_res = parts[startIndex + 6];
-		if (       AtkCost.length() <= 0 
-				&& AtkPct.length() <= 0
-				&& CritPct.length() <= 0
-				&& CritMult.length() <= 0
-				&& DMG.length() <= 0
-				&& BlkPct.length() <= 0
-				&& DMG_res.length() <= 0
-			) {
-			return null;
-		} else {
-			CombatTraits result = new CombatTraits();
-			result.attackCost = ResourceFileParser.parseInt(AtkCost, 0);
-			result.attackChance = ResourceFileParser.parseInt(AtkPct, 0);
-			result.criticalChance = ResourceFileParser.parseInt(CritPct, 0);
-			result.criticalMultiplier = ResourceFileParser.parseInt(CritMult, 0);
-			ConstRange r = ResourceFileParser.parseRange_OLD(DMG);
-			if (r != null) result.damagePotential.set(r);
-			result.blockChance = ResourceFileParser.parseInt(BlkPct, 0);
-			result.damageResistance = ResourceFileParser.parseInt(DMG_res, 0);
-			return result;
-		}
-	}
-	
-	
-	public void DEBUG_initializeTestEffectMonsters(WorldContext world) {
-		MonsterType t = getMonsterTypeFromName("Forest Snake");
-		if (t == null) return;
-		t.onHitEffects = new ItemTraits_OnUse[] {
-			new ItemTraits_OnUse(null, null, null, new ActorConditionEffect[] { 
-				new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), 1, 3, new ConstRange(1, 1))
-			})
-		};
-	}
 
 	private static float div100(int v) {
 		return (float) v / 100f;

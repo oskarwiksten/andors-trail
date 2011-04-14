@@ -144,18 +144,6 @@ public class ResourceFileParser {
 		}
 	}
 	
-
-	public static ConstRange parseRange_OLD(String s) {
-		if (s == null || s.length() <= 0) return null;
-	   	String[] parts = s.split("-");
-	   	if (parts.length < 2 || s.startsWith("-")) {
-	   		int val = Integer.parseInt(s);
-	   		return new ConstRange(val, val);
-	   	} else {
-	   		return new ConstRange(Integer.parseInt(parts[1]), Integer.parseInt(parts[0]));
-	   	}
-	}
-	
 	private static final ConstRange zero_or_one = new ConstRange(1, 0);
 	private static final ConstRange one = new ConstRange(1, 1);
 	private static final ConstRange five = new ConstRange(5, 5);
@@ -288,14 +276,9 @@ public class ResourceFileParser {
 		}
 	}
 	
-	private static ActorConditionEffect[] listToArray(ArrayList<ActorConditionEffect> list) {
+	public static ActorConditionEffect[] listToArray(ArrayList<ActorConditionEffect> list) {
 		if (list.isEmpty()) return null;
 		return list.toArray(new ActorConditionEffect[list.size()]);
-	}
-	
-	public static String[] splitColumns_OLD(String input, int numItems) {
-		String[] parts = input.split(columnSeparator, -1);
-		return parts;
 	}
 	
 	public static class ResourceObjectTokenizer {

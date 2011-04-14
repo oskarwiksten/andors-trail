@@ -31,8 +31,12 @@ function checkboxHidesElement(checkbox, element, visibleCondition) {
 	element.toggle(visible);
 }
 
-function bool(v) { 
-	return v ? true : false; 
+function bool(v) {
+	if (typeof(v) == 'undefined') return false;
+	if (v == '') return false;
+	if (v == '0') return false;
+	if (v == 'false') return false;
+	return true;
 }
 
 function setInputFieldsToObjectValues(div, obj) {
@@ -40,13 +44,12 @@ function setInputFieldsToObjectValues(div, obj) {
 		$(this).val(obj[$(this).attr("id")]);
 	});
 	div.find("input:checkbox").each(function() {
-		//$(this).unbind();
 		$(this).attr("checked", bool(obj[$(this).attr("id")]));
 	});
 }
 
 function bindInputFieldChangesToObject(div, obj) {
-	div.find("input,select,textarea").unbind().change(function() {
+	div.find("input,select,textarea").unbind("change").change(function() {
 		obj[$(this).attr("id")] = $(this).val();
 	});
 	div.find("input:checkbox").unbind("change").change(function() {
@@ -286,25 +289,25 @@ function startEditor() {
 		,items: new DataStore('item', new FieldList("[searchTag|iconID|name|category|baseMarketCost|"
 				+ "hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|"
 				+ "hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|"
-				+ "hasHitEffect|hit_boostHP_Min|use_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|"
+				+ "hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|"
 				+ "hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|"
 				+ "];"))
-		,droplists: new DataStore('droplist', new FieldList("[id|items[itemID|quantity|chance|]|];"), 'id')
+		,droplists: new DataStore('droplist', new FieldList("[id|items[itemID|quantity_Min|quantity_Max|chance|]|];"), 'id')
 		,dialogue: new DataStore('dialogue', new FieldList("[id|name|];"))
-		,monsters: new DataStore('monster', new FieldList("[iconID|name|tags|size|exp|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|"
+		,monsters: new DataStore('monster', new FieldList("[iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|"
 				+ "hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|"
 				+ "];"))
 	};
 
-	model.actorEffects.add({id: "bless", name: "Bless", iconID: "items_tiles:318", hasAbilityEffect: true, attackChance: 15, blockChance: 5});
-	model.actorEffects.add({id: "poison_weak", name: "Weak Poison", iconID: "items_tiles:340", hasRoundEffect: true, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1});
+	model.actorEffects.add({id: "bless", name: "Bless", iconID: "items_tiles:318", hasAbilityEffect: 1, attackChance: 15, blockChance: 5});
+	model.actorEffects.add({id: "poison_weak", name: "Weak Poison", iconID: "items_tiles:340", hasRoundEffect: 1, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1});
 
 	model.quests.add({id: "testQuest", name: "Test quest", stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] });
 
 	model.items.add({iconID: "items_tiles:70", name: "Test item", searchTag: "item0", category: 0, baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4});
 	model.items.add({iconID: "items_tiles:266", name: "Ring of damage +1", searchTag: "dmg_ring1", category: 7, baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
 
-	model.droplists.add({id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity: 5, chance: 100 } , { itemID: 'item0', quantity: 1, chance: 100 } ] } );
+	model.droplists.add({id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity_Min: 4, quantity_Max: 5, chance: 100 } , { itemID: 'item0', quantity_Min: 1, quantity_Max: 1, chance: 100 } ] } );
 
 	model.monsters.add({name: "Small ant", iconID: "monsters_insects:2", maxHP: 30, size: '1x1'});
 	model.monsters.add({name: "Red ant", iconID: "monsters_insects:3", maxHP: 20, size: '1x1'});
@@ -330,7 +333,7 @@ function startEditor() {
 		return {id: "new_droplist" };
 	});
 	bindEditorType(model.monsters, $( "#tools #monsterlist" ), createMonsterEditor, function() {
-		return {name: "New Monster", maxAP: 10, attackCost: 5, moveCost: 5, size: '1x1'};
+		return {name: "New Monster", maxAP: 10, attackCost: 5, moveCost: 5 };
 	});
 	
 	
@@ -414,9 +417,9 @@ function startEditor() {
 		
 	
 	imageSelector = new ImageSelector("http://andors-trail.googlecode.com/svn/trunk/AndorsTrail/res/drawable/", $( "#dialog-images" ) );
-	imageSelector.add(new TilesetImage("items_tiles", {x: 14, y:30}, {x: 34, y:34}, [ 'items', 'effects' ] ));
+	imageSelector.add(new TilesetImage("items_tiles", {x: 14, y:30}, {x:34, y:34}, [ 'items', 'effects' ] ));
 	imageSelector.add(new TilesetImage("monsters_armor1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, {x:64, y:64}, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_demon2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_dogs", {x: 7, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_dragons", {x: 7, y:1}, undefined, [ 'monsters' ] ));

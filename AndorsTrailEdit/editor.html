@@ -247,7 +247,6 @@
 				<option value="10">Seldom (10%)</option>
 				<option value="1">Very seldom (1%)</option>
 				<option value="1/1000">Unique (0.1%)</option>
-				<option value="1/10000">Legendary (0.01%)</option>
 			</select>
 		</div>
 	</div>
@@ -269,7 +268,8 @@
 				<table class="field" id="items">
 					<thead><tr>
 						<th id="itemID">Item (id)</th>
-						<th id="quantity">Quantity</th>
+						<th id="quantity_Min">Min quantity</th>
+						<th id="quantity_Max">Max quantity</th>
 						<th id="chance">Chance</th>
 					</tr></thead>
 					<tbody>
@@ -289,18 +289,21 @@
 		</div>
 		<div class="fieldWithLabel">
 			<label for="quantity" class="label">Quantity:</label>
-			<input type="text" size="7" id="quantity" class="field fieldInput integer"/>
+			<div class="field"><input type="text" size="3" id="quantity_Min" class="fieldInput integer" /> - <input type="text" size="3" id="quantity_Max" class="fieldInput integer" /></div>
 		</div>
 		<div class="fieldWithLabel">
 			<label for="chance" class="label">Chance:</label>
 			<select class="field" id="chance">
 				<option value="100">Always</option>
-				<option value="70">Frequent (70%)</option>
-				<option value="50">Sometimes (50%)</option>
+				<option value="70">Often (70%)</option>
+				<option value="30">Sometimes (30%)</option>
+				<option value="25">Sometimes (25%)</option>
 				<option value="20">Rare (20%)</option>
-				<option value="10">Seldom (10%)</option>
-				<option value="1">Very seldom (1%)</option>
-				<option value="1/1000">Unique (0.1%)</option>
+				<option value="10">Rare (10%)</option>
+				<option value="5">Seldom (5%)</option>
+				<option value="1">Unique (1%)</option>
+				<option value="1/1000">Extraordinary (0.1%)</option>
+				<option value="1/10000">Legendary (0.01%)</option>
 			</select>
 		</div>
 	</div>

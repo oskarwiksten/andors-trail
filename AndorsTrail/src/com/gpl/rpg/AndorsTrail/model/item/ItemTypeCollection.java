@@ -3,15 +3,11 @@ package com.gpl.rpg.AndorsTrail.model.item;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectTokenizer;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ItemTypeCollection {
@@ -34,9 +30,9 @@ public final class ItemTypeCollection {
 	}
 	
 
-	private static ResourceObjectTokenizer tokenize37Fields = new ResourceObjectTokenizer(37);
+	private static final ResourceObjectTokenizer itemResourceTokenizer = new ResourceObjectTokenizer(37);
 	public void initialize(final DynamicTileLoader tileLoader, final ActorConditionTypeCollection actorConditionTypes, String itemlist) {
-		tokenize37Fields.tokenizeRows(itemlist, new ResourceObjectFieldParser() {
+		itemResourceTokenizer.tokenizeRows(itemlist, new ResourceObjectFieldParser() {
 			@Override
 			public void matchedRow(String[] parts) {
 				final String itemTypeName = parts[2];
@@ -48,12 +44,12 @@ public final class ItemTypeCollection {
 					searchTag = itemTypeName;
 				}
 				
-				ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 5);
-				ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 18, false);
-				ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 24, true);
-				ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 31, false);
+				final ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 5);
+				final ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 18, false);
+				final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 24, true);
+				final ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 31, false);
 				
-				int nextId = itemTypes.size();
+				final int nextId = itemTypes.size();
 				final ItemType itemType = new ItemType(
 	        			nextId
 	        			, ResourceFileParser.parseImageID(tileLoader, parts[1])
@@ -96,199 +92,5 @@ public final class ItemTypeCollection {
 			}
 		});
     }
-	
-	public void initialize_DEBUGITEMS(WorldContext world) {
-		int nextId = itemTypes.size();
-		/*
-		ItemType club1 = getItemTypeByTag("club1");
-		
-		ItemType itemType = new ItemType(
-    			nextId
-    			, club1.iconID
-    			, "DEBUG club of lifesteal"
-	        	, "debug_club_1"
-    			, club1.category
-    			, 1
-    			, equipTraits
-    			, useTraits
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		*/
-		
-		ItemType ring_dmg1 = getItemTypeByTag("ring_dmg1");
-		if (ring_dmg1 == null) return;
-		ItemType itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of maxHP"
-	        	, "debug_ring_1"
-    			, ring_dmg1.category
-    			, 1
-    			, new ItemTraits_OnEquip(10, 0, 0, null, null)
-    			, null
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of maxAP"
-	        	, "debug_ring_2"
-    			, ring_dmg1.category
-    			, 1
-    			, new ItemTraits_OnEquip(0, 5, 0, null, null)
-    			, null
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG walkring"
-	        	, "debug_ring_3"
-    			, ring_dmg1.category
-    			, 1
-    			, new ItemTraits_OnEquip(0, 0, 2, null, null)
-    			, null
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		ActorConditionEffect[] effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("bless"), 3, ActorCondition.DURATION_FOREVER, new ConstRange(1,1))
-		};
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of bless"
-	        	, "debug_ring_4"
-    			, ring_dmg1.category
-    			, 1
-    			, new ItemTraits_OnEquip(0, 0, 0, null, effects)
-    			, null
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 1, ActorCondition.DURATION_FOREVER, new ConstRange(1,1))
-		};
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of regen"
-	        	, "debug_ring_5"
-    			, ring_dmg1.category
-    			, 1
-    			, new ItemTraits_OnEquip(0, 0, 0, null, effects)
-    			, null
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of hitheal"
-	        	, "debug_ring_6"
-    			, ring_dmg1.category
-    			, 1
-    			, null
-    			, null
-    			, new ItemTraits_OnUse(new ConstRange(1, 1), null, null, null)
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("regen"), 2, 3, new ConstRange(1,1))
-		};
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of killeffect"
-	        	, "debug_ring_7"
-    			, ring_dmg1.category
-    			, 1
-    			, null
-    			, null
-    			, null
-    			, new ItemTraits_OnUse(new ConstRange(4, 4), null, effects, null)
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), 1, 3, new ConstRange(3, 2))
-		};
-		itemType = new ItemType(
-    			nextId
-    			, ring_dmg1.iconID
-    			, "DEBUG ring of atkpoison"
-	        	, "debug_ring_8"
-    			, ring_dmg1.category
-    			, 1
-    			, null
-    			, null
-    			, new ItemTraits_OnUse(null, null, null, effects)
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		ItemType health_minor = getItemTypeByTag("health_minor");
-		
-		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), 1, 4, new ConstRange(1,1))
-		};
-		itemType = new ItemType(
-    			nextId
-    			, health_minor.iconID
-    			, "DEBUG poison"
-	        	, "debug_potion_1"
-    			, health_minor.category
-    			, 1
-    			, null
-    			, new ItemTraits_OnUse(null, null, effects, null)
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-		
-		effects = new ActorConditionEffect[] {
-			new ActorConditionEffect(world.actorConditionsTypes.getActorConditionType("poison_weak"), ActorCondition.MAGNITUDE_REMOVE_ALL, 0, new ConstRange(1,1))
-		};
-		itemType = new ItemType(
-    			nextId
-    			, health_minor.iconID
-    			, "DEBUG antidote"
-	        	, "debug_potion_2"
-    			, health_minor.category
-    			, 1
-    			, null
-    			, new ItemTraits_OnUse(null, null, effects, null)
-    			, null
-    			, null
-			);
-		itemTypes.add(itemType);
-		++nextId;
-	}
 }
   

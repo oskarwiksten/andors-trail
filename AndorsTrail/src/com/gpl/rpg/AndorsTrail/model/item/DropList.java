@@ -32,7 +32,7 @@ public final class DropList {
 		}
 	}
 	
-	// Selftest metohd. Not part of the game logic.
+	// Selftest method. Not part of the game logic.
 	public boolean contains(int itemTypeID) {
 		for (DropItem item : items) {
 			if (item.itemType.id == itemTypeID) return true;

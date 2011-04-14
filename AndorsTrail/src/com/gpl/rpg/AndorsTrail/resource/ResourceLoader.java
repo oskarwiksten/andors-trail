@@ -5,7 +5,6 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestLoader;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 import android.content.res.Resources;
@@ -70,7 +69,6 @@ public final class ResourceLoader {
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v068));
         }
         loader.flush();
-        world.itemTypes.initialize_DEBUGITEMS(world);
         
         
         // ========================================================================
@@ -88,25 +86,13 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load Quests
-        QuestLoader questLoader = new QuestLoader();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_debug));
-        	questLoader.parseQuestsFromString(r.getString(R.string.questlist_debug));
-        	world.quests.quests = questLoader.getParsedQuests();
+        	world.quests.initialize(r.getString(R.string.questlist_debug));
         } else {
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_crossglen));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_fallhaven));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_vacor));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_flagstone));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_farrik));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_andor_v068));
-        	questLoader.parseQuestLogsFromString(r.getString(R.string.questlog_vilegard));
-        	questLoader.parseQuestsFromString(r.getString(R.string.questlist));
-        	questLoader.parseQuestsFromString(r.getString(R.string.questlist_v068));
-        	world.quests.quests = questLoader.getParsedQuests();
+        	world.quests.initialize(r.getString(R.string.questlist));
+        	world.quests.initialize(r.getString(R.string.questlist_v068));
         }
-    	questLoader = null;
-        
+    	
 
         // ========================================================================
         // Load Conversation
@@ -201,17 +187,16 @@ public final class ResourceLoader {
         //loader.prepareTileset(R.drawable.monsters_dragon1, "monsters_dragon1", src_sz1x1, dst_sz4x3);
         
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
-        	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_debug));
+        	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_debug));
         } else {
-	        world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_animals));
-	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_crossglen_npcs));
-	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_animals));
-	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_fallhaven_npcs));
-	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_wilderness));
-	    	world.monsterTypes.initialize(world.dropLists, loader, r.getString(R.string.monsterlist_v068_npcs));
+	        world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_crossglen_animals));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_crossglen_npcs));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_fallhaven_animals));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_fallhaven_npcs));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_wilderness));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_v068_npcs));
         }
         loader.flush();
-        world.monsterTypes.DEBUG_initializeTestEffectMonsters(world);
         
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {

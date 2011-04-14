@@ -10,13 +10,13 @@
         <string name="menu_save">Salva</string>
         <string name="menu_load">Carica</string>
         <string name="menu_save_gamesaved">Partita salvata sullo slot %1$d</string>
-        <string name="menu_save_failed">Impossibile salvare! La sceda SD è caricata e scrivibile ?</string>
+        <string name="menu_save_failed">Impossibile salvare! La sceda SD è caricata e scrivibile?</string>
 
         <string name="loadsave_title_save">Salva gioco</string>
         <string name="loadsave_title_load">Carica salvataggio</string>
         <string name="loadsave_selectslot">Scegli Slot</string>
         <string name="loadsave_slot_empty">(Vuoto)</string>
-        <string name="savegame_currenthero_displayinfo">Livello %1$d, %2$d exp, %3$d oro</string>
+        <string name="savegame_currenthero_displayinfo">Livello %1$d, %2$d esp, %3$d oro</string>
        
         <string-array name="preferences_display_loot">
                 <item>Mostra la finestra bottino</item>
@@ -29,7 +29,7 @@
                 <item>2</item>
         </string-array>
         <string-array name="preferences_attackspeed">
-                <item>Istant (no animazione)</item>
+                <item>Istantaneo (no animazione)</item>
                 <item>Veloce</item>
                 <item>Normale</item>
                 <item>Lenta</item>
@@ -43,20 +43,20 @@
        
         <string name="dialog_loading_message">Carica risorse...</string>
         <string name="dialog_loading_failed_title">Caricamento fallito</string>
-        <string name="dialog_loading_failed_message">Andor\'s Trail non ha caricato il salvataggio.\n\n:(\n\nIl file può essere incompleto o danneggiato.</string>
+        <string name="dialog_loading_failed_message">Andor\'s Trail non ha caricato il salvataggio.\n\n:(\n\nIl file può essere incompleto o danneggiato)</string>
         <string name="dialog_loading_failed_incorrectversion">Andor\'s Trail non ha caricato il salvataggio. Il salvataggio è stato creato con una versione precedente di quella installata.</string>
        
         <string name="dialog_close">Chiudi</string>
        
         <string name="dialog_confirmexit_title">Esci</string>
-        <string name="dialog_confirmexit_message">Sei sicuro di uscire ?</string>
+        <string name="dialog_confirmexit_message">Sei sicuro di voler uscire?</string>
        
         <string name="dialog_paused_title">Pausa</string>
         <string name="dialog_paused_message">Il gioco è in pausa</string>
         <string name="dialog_paused_resume">Riprendi</string>
 
         <string name="dialog_monsterencounter_title">Combattimento</string>
-        <string name="dialog_monsterencounter_message">Vuoi attaccare? Difficoltà : %1$s</string>
+        <string name="dialog_monsterencounter_message">Vuoi attaccare? Difficoltà: %1$s</string>
         <string name="dialog_monsterencounter_info">Info</string>
 
         <string name="status_hp">HP:</string>
@@ -69,27 +69,27 @@
         <string name="heroinfo_wear">Equipaggiamento</string>
         <string name="heroinfo_skill">Abilità</string>
         <string name="heroinfo_spell">Incantesimi</string>
-        <string name="heroinfo_levelup">Level up</string>
+        <string name="heroinfo_levelup">Nuovo Livello</string>
         <string name="heroinfo_level">Livello</string>
-        <string name="heroinfo_totalexperience">Esperienza Tot</string>
+        <string name="heroinfo_totalexperience">Esperienza Totale</string>
         <string name="heroinfo_wornequipment">Equipaggiamento indossato</string>
         <string name="heroinfo_inventory">Inventario</string>
-        <string name="heroinfo_gold">GOro: %1$d</string>
-        <string name="heroinfo_actionpoints">APunti azione (AP):</string>
+        <string name="heroinfo_gold">Oro: %1$d</string>
+        <string name="heroinfo_actionpoints">Punti azione (AP):</string>
         <string name="heroinfo_quests">Missioni</string>
        
         <string name="combat_attack">Attacco (%1$d AP)</string>
-        <string name="combat_move">Move (%1$d AP)</string>
+        <string name="combat_move">Movimento (%1$d AP)</string>
         <string name="combat_use">Usare oggetti</string>
         <string name="combat_spell">Incantesimo</string>
         <string name="combat_endturn">Fine turno</string>
         <!-- <string name="combat_endcombat">End combat</string>-->
         <string name="combat_flee">Fuggi</string>
-        <string name="combat_begin_flee">Ora puoi fuggire dal combattimento cliccando nella direzione in cui si vuole fuggire.</string>
+        <string name="combat_begin_flee">Ora puoi fuggire dal combattimento cliccando nella direzione in cui vuoi fuggire.</string>
         <string name="combat_flee_failed">Hai fallito la fuga!</string>
         <string name="combat_status_ap">AP: %1$d</string>
         <string name="combat_monsterhealth">HP:</string>
-        <string name="combat_monsteraction">%1$s stà attaccando.</string>
+        <string name="combat_monsteraction">%1$s sta attaccando.</string>
         <!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  -->
         <string name="combat_result_monstermiss">%1$s mancato!</string>
         <string name="combat_result_monsterhit">%1$s colpisce per %2$d hp!</string>
@@ -116,8 +116,8 @@
         <string name="dialog_groundloot_title">Oggetti</string>
         <string name="dialog_groundloot_message">Hai trovato alcuni oggetti. </string>
         <string name="dialog_monsterloot_title">Vittoria</string>
-        <string name="dialog_monsterloot_message">Sei sopravvissuto all\'incontro. </string>
-        <string name="dialog_monsterloot_gainedexp">Hai aumentato %1$d di esperienza. </string>
+        <string name="dialog_monsterloot_message">Sei sopravvissuto all\'incontro.</string>
+        <string name="dialog_monsterloot_gainedexp">Hai aumentato %1$d di esperienza.</string>
    
     <string name="monster_difficulty_veryeasy">Facilissimo</string>
     <string name="monster_difficulty_easy">Facile</string>
@@ -143,7 +143,7 @@
     <string name="traitsinfo_attack_damage">Possibilità danni:</string>
     <string name="traitsinfo_criticalhit_chance">colpo critico:</string>
     <string name="traitsinfo_criticalhit_multiplier">moltiplicatore critico:</string>
-    <string name="traitsinfo_defense_chance">possibilità difesa:</string>
+    <string name="traitsinfo_defense_chance">Possibilità difesa:</string>
     <string name="traitsinfo_defense_damageresist">Resistenza ai danni:</string>
    
         <string name="key_required">E\' richiesta una chiave specifica per passare.</string>
@@ -191,21 +191,21 @@
         <string name="shop_item_bought">%1$s Comprato.</string>
         <string name="shop_item_sold">%1$s Venduo.</string>
        
-        <string name="levelup_title">Level up</string>
+        <string name="levelup_title">Nuovo Livello</string>
         <string name="levelup_description">Benvenuto nel livello %1$d!</string>
-        <string name="levelup_buttontext">Level up</string>
+        <string name="levelup_buttontext">Nuovo Livello</string>
         <string name="levelup_add_health">Aumenta salute (+%1$d HP)</string>
-        <string name="levelup_add_health_description">aggiungi %1$d alla salute massima.</string>
+        <string name="levelup_add_health_description">Aggiungi %1$d alla salute massima</string>
         <string name="levelup_add_attackchance">Aumenta possibilità attacco (+%1$d %%)</string>
-        <string name="levelup_add_attackchance_description">Aggiungi %1$d%% alla tua possibilità attacco.</string>
+        <string name="levelup_add_attackchance_description">Aggiungi %1$d%% alla tua possibilità attacco</string>
         <string name="levelup_add_attackdamage">Aumenta danni attacco (+%1$d)</string>
-        <string name="levelup_add_attackdamage_description">Aggiungi %1$d al tuo attacco base .</string>
+        <string name="levelup_add_attackdamage_description">Aggiungi %1$d al tuo attacco base</string>
         <string name="levelup_add_blockchance">Aumenta possibilità difesa (+%1$d %%)</string>
-        <string name="levelup_add_blockchance_description">Aggiungi %1$d%% alla tua possibilità difesa base.</string>
+        <string name="levelup_add_blockchance_description">Aggiungi %1$d%% alla tua possibilità difesa base</string>
        
         <string name="dialog_rest_title">Riposa</string>
-        <string name="dialog_rest_confirm_message">Vuoi riposare quì??</string>
-        <string name="dialog_rest_message">Hai riposate e la tua salute è tornata al massimo.</string>
+        <string name="dialog_rest_confirm_message">Vuoi riposare qui?</string>
+        <string name="dialog_rest_message">Hai riposato e la tua salute è tornata al massimo.</string>
 
         <string name="about_button1">Aiuto</string>
         <string name="about_button2">Autori</string>
@@ -219,7 +219,7 @@
                 &lt;br /&gt;
                 Please visit the forums to discuss the game with other players.&lt;br /&gt;
 				&lt;br /&gt;
-				In realtà dovrei aggiungere quì qualche info su come giocare la partita :)&lt;br /&gt;
+				In realtà dovrei aggiungere qualche info su come giocare la partita :)&lt;br /&gt;
         </string>
         <string name="about_contents3">
                 Copyright (C) 2010 Oskar Wiksten&lt;br /&gt;
@@ -238,7 +238,7 @@
                 Grazie per aver scaricato Andor\'s Trail!\n\n
                 Si prega di notare che questa versione di Andor\'s Trail è un WORK IN PROGRESS, il che significa che tutte le mappe non sono ancora complete.\n
                 Siete comunque liberi di esplorare villaggio Crossglen quanto vi pare.\n
-                Poiché questo è un work in progress, essa può contenere bug e un gameplay che non è bilanciata bene. Il presente comunicato è da intendersi come una caccia al bug prima di iniziare ad aggiungere contenuto ancora di più.\n
+                Poiché questo è un work in progress, può contenere bug e un gameplay non correttamente bilanciato. Il presente comunicato è da intendersi come una caccia al bug prima di iniziare ad aggiungere altri contenuti.\n
                 Si prega di visitare la pagina del progetto per ottenere maggiori informazioni o per contribuire al progetto (vedi "about").\n
                 \n
                 Grazie per tutti i Feedback!
