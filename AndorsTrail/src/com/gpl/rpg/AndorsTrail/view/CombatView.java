@@ -1,6 +1,8 @@
 package com.gpl.rpg.AndorsTrail.view;
 
+import android.R.color;
 import android.content.Context;
+import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
@@ -40,7 +42,7 @@ public final class CombatView extends FrameLayout {
 
         setFocusable(false);
         inflate(context, R.layout.combatview, this);
-        this.setBackgroundResource(R.drawable.ui_gradientshape);
+        this.setBackgroundResource(R.drawable.ui_gradientshape_translucent);
         
         final CombatController c = view.combatController;
         attackMoveButton = (Button) findViewById(R.id.combatview_moveattack);
@@ -81,6 +83,11 @@ public final class CombatView extends FrameLayout {
         monsterBar = findViewById(R.id.combatview_monsterbar);
         actionBar = findViewById(R.id.combatview_actionbar);
         monsterActionText = (TextView) findViewById(R.id.combatview_monsterismoving);
+        
+        Resources res = getResources();
+        
+        monsterBar.setBackgroundColor(res.getColor(color.transparent));
+        actionBar.setBackgroundColor(res.getColor(color.transparent));
     }
 	
 	public void updateTurnInfo(Monster currentActiveMonster) {

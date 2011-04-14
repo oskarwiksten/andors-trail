@@ -35,7 +35,15 @@
 		android:layout_margin="5dp"
 		android:background="@drawable/ui_statustext"
 		android:id="@+id/statusview_statustext"
-		android:textSize="@dimen/smalltext"
+		android:textSize="@dimen/statusbar_text"
+		android:paddingTop="1sp"
+		android:paddingLeft="3sp"
+		android:paddingRight="3sp"
+		android:paddingBottom="2sp"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:shadowRadius="1"
+		android:shadowColor="#000"	
 		/>
 	
 	<LinearLayout 
