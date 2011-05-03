@@ -6,7 +6,9 @@
 	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+	
 	<link rel="stylesheet" type="text/css" href="styles2.css" />
+	<link rel="stylesheet" type="text/css" href="inc/ui.dynatree.css" />
 	<script type="text/javascript" src="AndorsTrailEditor.js"></script>
 	<title>Andor's Trail Content Editor</title>
 </head>
@@ -17,7 +19,7 @@
 	<div class="andorsTrailLogo" id="title">
 		Andor's Trail Content Editor
 		<span id="version">
-			v0.6.9dev1
+			v0.6.9a0
 		</span>
 	</div>
 	<div id="buttons">
@@ -28,8 +30,8 @@
 
 <div id="left" class="workarea">
 	<div id="tools">
-		<h3><a href="#">Actor status effects</a></h3>
-		<div id="effectlist">
+		<h3><a href="#">Actor conditions</a></h3>
+		<div id="actorconditionlist">
 			<ul class="itemlist"> </ul>
 			<div id="add">Add</div>
 		</div>
@@ -54,11 +56,7 @@
 		
 		<h3><a href="#">Dialogue</a></h3>
 		<div id="conversationlist">
-			<ul class="itemlist">
-				<li>TODO: Conversation 1</li>
-				<li>TODO: Conversation 2</li>
-				<li>TODO: Conversation 3</li>
-			</ul>
+			<ul class="itemlist"> </ul>
 			<div id="add">Add</div>
 		</div>
 		
@@ -226,7 +224,7 @@
 	
 	<div id="dialog-onHitConditions">
 		<div class="fieldWithLabel">
-			<label for="condition" class="label">Actor status effect id:</label>
+			<label for="condition" class="label">Actor condition id:</label>
 			<input type="text" size="30" id="condition" class="field fieldInput"/>
 		</div>
 		<div class="fieldWithLabel">
@@ -409,7 +407,7 @@
 				<input class="field" type="text" size="5" id="equip_damageResistance" class="fieldInput integer" />
 			</div>
 			<div class="fieldWithLabel">
-				<label for="equip_conditions" class="label">Apply status effects</label>
+				<label for="equip_conditions" class="label">Apply actor condition</label>
 				<table class="field" id="equip_conditions">
 					<thead><tr>
 						<th id="condition">Condition</th>
@@ -432,7 +430,7 @@
 				<div class="field"><input type="text" size="3" id="use_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="use_boostAP_Max" class="fieldInput integer" /></div>
 			</div>
 			<div class="fieldWithLabel">
-				<label for="use_conditionsSource" class="label">Apply status effects</label>
+				<label for="use_conditionsSource" class="label">Apply actor condition</label>
 				<table class="field" id="use_conditionsSource">
 					<thead><tr>
 						<th id="condition">Condition</th>
@@ -457,7 +455,7 @@
 				<div class="field"><input type="text" size="3" id="hit_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="hit_boostAP_Max" class="fieldInput integer" /></div>
 			</div>
 			<div class="fieldWithLabel">
-				<label for="hit_conditionsSource" class="label">Apply status effects to source</label>
+				<label for="hit_conditionsSource" class="label">Apply actor condition to source</label>
 				<table class="field" id="hit_conditionsSource">
 					<thead><tr>
 						<th id="condition">Condition</th>
@@ -471,7 +469,7 @@
 				<div id="add">Add</div>
 			</div>
 			<div class="fieldWithLabel">
-				<label for="hit_conditionsTarget" class="label">Apply status effects to target</label>
+				<label for="hit_conditionsTarget" class="label">Apply actor condition to target</label>
 				<table class="field" id="hit_conditionsTarget">
 					<thead><tr>
 						<th id="condition">Condition</th>
@@ -496,7 +494,7 @@
 				<div class="field"><input type="text" size="3" id="kill_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="kill_boostAP_Max" class="fieldInput integer" /></div>
 			</div>
 			<div class="fieldWithLabel">
-				<label for="kill_conditionsSource" class="label">Apply status effects</label>
+				<label for="kill_conditionsSource" class="label">Apply actor condition</label>
 				<table class="field" id="kill_conditionsSource">
 					<thead><tr>
 						<th id="condition">Condition</th>
@@ -515,7 +513,7 @@
 	
 	<div id="dialog-equipConditions">
 		<div class="fieldWithLabel">
-			<label for="condition" class="label">Actor status effect id:</label>
+			<label for="condition" class="label">Actor condition id:</label>
 			<input type="text" size="30" id="condition" class="field fieldInput"/>
 		</div>
 		<div class="fieldWithLabel">
@@ -582,18 +580,131 @@
 			<div class="label"><input type="checkbox" id="finishesQuest" />Finishes quest</div>
 		</div>
 	</div>
+	
+	
+	
+	<!-- ========================================================= -->
+	<!--   Dialogue editor                                         -->
+	
+	<div id="editDialogue">
+		<h3>Dialogue</h3>
+		<fieldset class="fieldSet">
+			<legend>Conversation flow</legend>
+			<div id="dialogueTree"> </div>
+		</fieldset>
+		<fieldset class="fieldSet" id="dialoguePhrase">
+			<legend>NPC phrase</legend>
+			<div class="fieldWithLabel">
+				<label for="id" class="label">Phrase ID:</label>
+				<input type="text" size="30" id="id" class="field fieldInput"/>
+			</div>
+			<div class="fieldWithLabel">
+				<label for="message" class="label">NPC says:</label>
+				<textarea rows="4" cols="40" id="message"></textarea>
+			</div>
+			<div class="fieldWithLabel">
+				<div class="label"><input type="checkbox" id="hasProgressQuest" />Reaching this phrase progresses quest</div>
+			</div>
+			<div class="fieldWithLabel" id="hasProgressQuestDisplay">
+				<label for="progressQuest" class="label">Progress to quest stage: (questname:stage)</label>
+				<input type="text" size="30" id="progressQuest" class="field fieldInput" title="For example, 'mikhail:20' would advance the quest mikhail to stage 20."/>
+			</div>
+			<div class="fieldWithLabel">
+				<div class="label"><input type="checkbox" id="hasRewardDroplist" />Reaching this phrase gives items</div>
+			</div>
+			<div class="fieldWithLabel" id="hasRewardDroplistDisplay">
+				<label for="rewardDropListID" class="label">Droplist ID of items to give</label>
+				<input type="text" size="30" id="rewardDropListID" class="field fieldInput"/>
+			</div>
+		</fieldset>
+		<fieldset class="fieldSet" id="dialoguePhraseReplies">
+			<legend>Replies</legend>
+			<div class="fieldWithLabel">
+				<div class="label"><input type="checkbox" id="hasOnlyNextReply" />Phrase leads directly to another phrase without replies</div>
+			</div>
+			<div class="fieldWithLabel" id="hasOnlyNextReplyDisplay">
+				<label for="nextPhraseID" class="label">Phrase ID:</label>
+				<div class="field">
+					<input type="text" size="30" id="nextPhraseID" class="fieldInput" />
+					<img src="imgarrowright.png" alt="Follow" id="followNextReply" class="imageButton" />
+				</div>
+			</div>
+			<div class="fieldWithLabel" id="hasRepliesDisplay">
+				<label for="replies" class="label">Replies</label>
+				<table class="field" id="replies">
+					<thead><tr>
+						<th id="text">Reply</th>
+					</tr></thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				<div id="add">Add</div>
+			</div>
+		</fieldset>
+		<fieldset class="fieldSet" id="dialogueReply">
+			<legend>Player reply</legend>
+			<div class="fieldWithLabel">
+				<label for="id" class="label">Phrase ID:</label>
+				<input type="text" size="30" id="id" class="field fieldInput" readonly="readonly" />
+			</div>
+			<div class="fieldWithLabel">
+				<label for="text" class="label">Player says:</label>
+				<textarea rows="4" cols="40" id="text"></textarea>
+			</div>
+			<div class="fieldWithLabel">
+				<label for="replyLeadsTo" class="label">Reply leads to:</label>
+				<select class="field fieldInput" id="replyLeadsTo">
+					<option value="">NPC phrase</option>
+					<option value="S">Trading screen</option>
+					<option value="F">Combat</option>
+					<option value="X">Conversation ends</option>
+					<option value="R">NPC is removed from map</option>
+				</select>
+			</div>
+			<div class="fieldWithLabel" id="nextPhraseIDDisplay">
+				<label for="nextPhraseID" class="label">Next phrase ID:</label>
+				<div class="field">
+					<input type="text" size="30" id="nextPhraseID" class="fieldInput"/>
+					<img src="imgarrowright.png" alt="Follow" id="followReply" class="imageButton" />
+				</div>
+			</div>
+			<div class="fieldWithLabel">
+				<div class="label"><input type="checkbox" id="requiresItems" />Player must have item(s) to select this reply</div>
+			</div>
+			<div id="requiresItemsDisplay">
+				<div class="fieldWithLabel">
+					<label for="requires_itemID" class="label">Required item ID (will be removed from inventory)</label>
+					<input type="text" size="30" id="requires_itemID" class="field fieldInput"/>
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requires_Quantity" class="label">Required item quantity</label>
+					<input type="text" size="5" id="requires_Quantity" class="field fieldInput integer"/>
+				</div>
+			</div>
+			<div class="fieldWithLabel">
+				<div class="label"><input type="checkbox" id="requiresQuest" />Player must have progressed quest to select this reply</div>
+			</div>
+			<div class="fieldWithLabel" id="requiresQuestDisplay">
+				<label for="requires_Progress" class="label">Quest stage required: (questname:stage)</label>
+				<input type="text" size="30" id="requires_Progress" class="field fieldInput" title="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20."/>
+			</div>
+			
+		</fieldset>
+		<div class="endSets"> </div>
+	</div>
 		
 		
 	
 	<!-- ========================================================= -->
-	<!--   Actor effects editor                                    -->
+	<!--   Actor condition editor                                  -->
 	
-	<div id="editActorEffect">
-		<h3>Actor status effect</h3>
+	<div id="editActorCondition">
+		<h3>Actor condition</h3>
 		<fieldset class="fieldSet">
 			<legend>General</legend>
 			<div class="fieldWithLabel">
-				<div id="statuseffectimage" class="field"><input type="hidden" id="iconID" /></div>
+				<div id="actorconditionimage" class="field"><input type="hidden" id="iconID" /></div>
 			</div>
 			<div class="fieldWithLabel">
 				<label for="id" class="label">Internal ID:</label>
@@ -712,9 +823,9 @@
 	<!--   Import / Export dialog form                             -->
 	
 	<div id="dialog-importexport">
-		<div id="statuseffects">
-			<div class="importexport-header">Actor status effects</div>
-			<div id="description">This data corresponds to res/values/actorstatuseffects.xml in the source code.</div>
+		<div id="actorconditions">
+			<div class="importexport-header">Actor conditions</div>
+			<div id="description">This data corresponds to res/values/actorconditions.xml in the source code.</div>
 			<textarea id="value" rows="6" cols="80"></textarea>
 			<div id="import">Import</div>
 		</div>

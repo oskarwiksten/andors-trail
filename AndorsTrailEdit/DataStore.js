@@ -36,6 +36,11 @@ function DataStore(objectTypename, fieldList, nameField) {
 	}
 	this.get = function(index) { return this.items[index]; }
 	this.clear = function() { this.items = {}; }
+	this.findById = function(id) { 
+		for (var i = 0; i < this.items.length; ++i) {
+			if (this.items[i].id == id) return this.items[i];
+		}
+	}
 	
 	this.onAdded = function(obj) { }
 	this.onNameChanged = function(obj, name) { }
