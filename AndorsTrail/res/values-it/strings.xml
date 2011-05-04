@@ -150,11 +150,11 @@
 
         <string name="iteminfo_category">Categoria: </string>
         <string name="iteminfo_action_use">Usa</string>
-        <string name="iteminfo_action_equip">Monta</string>
-        <string name="iteminfo_action_unequip">Smonta</string>
+        <string name="iteminfo_action_equip">Indossa</string>
+        <string name="iteminfo_action_unequip">Togli</string>
         <string name="iteminfo_action_use_ap">Usa (%1$d AP)</string>
-        <string name="iteminfo_action_equip_ap">Monta (%1$d AP)</string>
-        <string name="iteminfo_action_unequip_ap">Smonta (%1$d AP)</string>
+        <string name="iteminfo_action_equip_ap">Indossa (%1$d AP)</string>
+        <string name="iteminfo_action_unequip_ap">Togli (%1$d AP)</string>
 
         <string name="itemcategory_money">Denaro</string>
         <string name="itemcategory_weapon">Arma</string>
@@ -213,11 +213,11 @@
         <string name="about_contents1">
                 Benvenuto in Andor\'s Trail, un gioco RPG per Android.&lt;br /&gt;
                 &lt;br /&gt;
-                &lt;a href="http://andors.techby2guys.com/"&gt;Game forums on andors.techby2guys.com for questions and gameplay discussions.&lt;/a&gt;&lt;br /&gt;
+                &lt;a href="http://andors.techby2guys.com/"&gt;Forum del gioco su andors.techby2guys.com per domande e discussioni riguardo il gameplay.&lt;/a&gt;&lt;br /&gt;
 				&lt;br /&gt;
-				&lt;a href="http://code.google.com/p/andors-trail/"&gt;Project homepage on code.google.com&lt;/a&gt;&lt;br /&gt;
+				&lt;a href="http://code.google.com/p/andors-trail/"&gt;Homepage del progetto su code.google.com&lt;/a&gt;&lt;br /&gt;
                 &lt;br /&gt;
-                Please visit the forums to discuss the game with other players.&lt;br /&gt;
+                Visita il forum per le discussioni con gli altri giocatori.&lt;br /&gt;
 				&lt;br /&gt;
 				In realtà dovrei aggiungere qualche info su come giocare la partita :)&lt;br /&gt;
         </string>
@@ -253,5 +253,96 @@
         </string-array>
         <string name="questlog_queststatus">Stato: %1$s</string>
         <string name="questlog_queststatus_inprogress">In corso</string>
-        <string name="questlog_queststatus_completed">Completato</string>
+        <string name="questlog_queststatus_completed">Completato</string>       
+        
+        <string name="preferences_display_category">Schermo</string>
+        <string name="preferences_display_fullscreen_title">Schermo intero</string>
+        <string name="preferences_display_fullscreen">Visualizza il gioco a schermo intero. (Richiede il riavvio del gioco)</string>
+        <string name="preferences_dialog_category">Conferme dialoghi</string>
+        <string name="preferences_dialog_confirmrest_title">Conferma riposo</string>
+        <string name="preferences_dialog_confirmrest">Chiedi una conferma prima di fermarsi a riposare in un letto. Altrimenti, appena vai su di un letto riposerai automaticamente.</string>
+        <string name="preferences_dialog_confirmattack_title">Conferma attacco</string>
+        <string name="preferences_dialog_confirmattack">Abilita la richiesta \'Vuoi attaccare?\' quando ti avvicini ad un nemico.</string>
+        <string name="preferences_dialog_monsterloot_title">Visualizza il bottino</string>
+        <string name="preferences_dialog_monsterloot">Scegli se mostrare il bottino conquistato dopo un combattimento (oro, esperienza, oggetti).</string>
+        <string name="preferences_combat_category">Combattimento</string>
+        <string name="preferences_combat_speed_title">Velocità di combattimento</string>
+        <string name="preferences_combat_speed">Determina quanto la velocità di combattimento dei nemici.</string>
+
+        <string-array name="preferences_display_loot">
+                <item>Mostra il resoconto del bottino</item>
+                <item>Mostra notifica corta</item>
+                <item>Non mostrare</item>
+        </string-array>
+        <string-array name="preferences_display_loot_values">
+                <item>0</item>
+                <item>1</item>
+                <item>2</item>
+        </string-array>
+        <string-array name="preferences_attackspeed">
+                <item>Istantanea (nessuna animazione)</item>
+                <item>Veloce</item>
+                <item>Normale</item>
+                <item>Lenta</item>
+        </string-array>
+        <string-array name="preferences_attackspeed_values">
+                <item>0</item>
+                <item>400</item>
+                <item>1000</item>
+                <item>1500</item>
+        </string-array>
+        
+        <string name="preferences_movement_category">Movimento</string>
+        <string name="preferences_movementmethod_title">Tipo di movimento</string>
+        <string name="preferences_movementmethod">Tipo di movimento e manovre sugli ostacoli.</string>
+        <string-array name="preferences_movementmethods">
+                <item>Diritto (originale)</item>
+                <item>Direzionale</item>
+        </string-array>
+        <string-array name="preferences_movementmethod_values">
+                <item>0</item>
+                <item>1</item>
+        </string-array>
+
+
+        <!-- =========================================== -->
+        <!-- Added in v0.6.9 -->
+
+        <string name="actorinfo_currentconditions">Condizioni attive</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
+        <string name="actorcondition_info_removes_all">Rimuovi tutte %1$s</string>
+        <string name="iteminfo_effect_chance_of">%1$s cambio di %2$s</string>
+        <string name="iteminfo_effect_duration">(%1$d turni)</string>
+
+        <string name="iteminfo_effect_works_on_source">Sulla sorgente</string>
+        <string name="iteminfo_effect_works_on_target">Sul bersaglio</string>
+        <string name="iteminfo_effect_works_when_hitting_target">Quando colpisci il bersaglio</string>
+        <string name="iteminfo_effect_works_when_killing_target">Ogni uccisione</string>
+        <string name="iteminfo_effect_works_when_used">Quando usata</string>
+        <string name="iteminfo_effect_works_when_equipped">Quando equipaggiata</string>
+        
+        <string name="iteminfo_effect_decrease_current_hp">Prosciuga %1$s HP</string>
+        <string name="iteminfo_effect_increase_current_hp">Ripristina %1$s HP</string>
+        <string name="iteminfo_effect_decrease_current_ap">Prosciuga %1$s AP</string>
+        <string name="iteminfo_effect_increase_current_ap">Ripristina %1$s AP</string>
+        
+        <string name="iteminfo_effect_increase_max_hp">Aumenta gli HP max +%1$d</string>
+        <string name="iteminfo_effect_decrease_max_hp">Diminuisce gli HP max di %1$d</string>
+        <string name="iteminfo_effect_increase_max_ap">Aumenta gli AP max +%1$d</string>
+        <string name="iteminfo_effect_decrease_max_ap">Aumenta gli AP max %1$d</string>
+        <string name="iteminfo_effect_increase_movecost">Il movimento è penalizzato di +%1$d AP</string>
+        <string name="iteminfo_effect_decrease_movecost">Il movimento è migliorato di %1$d AP</string>
+        
+        <string name="preferences_display_scaling_factor_title">Fattore di scala</string>
+        <string name="preferences_display_scaling_factor">Tutto il gioco viene visualizzato più grande.</string>
+        <string-array name="preferences_display_scaling_factor">
+                <item>Normale</item>
+                <item>1.5x normale</item>
+                <item>Raddoppia</item>
+        </string-array>
+        <string-array name="preferences_display_scaling_factor_values">
+                <item>1.0f</item>
+                <item>1.5f</item>
+                <item>2.0f</item>
+        </string-array>
+        
 </resources>

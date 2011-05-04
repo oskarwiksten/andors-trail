@@ -501,13 +501,108 @@
 
         <string name="conversationlist_fallhaven_south">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{fallhaven_lumberjack|Ciao io sono Jakrar.|||Legname|fallhaven_lumberjack_2||||Ciao|X|||||||||};
-{fallhaven_lumberjack_2|Si, sono il taglialegna de Fallhaven. Hai bisogno di fare una lavoretto di fino nei miei boschi? Forse ho capito.|||Ciao|X||||||||||||||};
-{alaun|Ciao, io sono Alaun. come posso aiutarti ?|||Fratello|alaun_2||||Ciao|X|||||||||};
-{alaun_2|Stai cercando tuo fratello? Hm.|||N|alaun_3||||||||||||||};
-{alaun_3|No,non ricordo nessuno assomigliare alla descrizione . Prova al villaggio di Crossglen a ovest di qui.|||Ciao|X||||||||||||||};
-{fallhaven_farmer1|Ciao a tutti. Per favore non disturbatemi, ho del lavoro da fare.|||Ciao|X||||||||||||||};
-{fallhaven_farmer2|Ciao, potresti lasciare la strada? stò cercando di lavorare quì.|||Ciao|X||||||||||||||};
+{fallhaven_lumberjack|Ciao io sono Jakrar.|||Sei un taglialegna?|fallhaven_lumberjack_2||||Ciao|X|||||||||};
+{fallhaven_lumberjack_2|Si, sono il taglialegna de Fallhaven. Hai bisogno di qualche lavoretto ben fatto col legno? Lo posso fare tranquillamente.|||Ciao|X||||||||||||||};
+{alaun|Ciao, io sono Alaun. Come posso aiutarti?|||Hai visto mio fratello Andor? Mi somiglia molto|alaun_2||||Ciao|X|||||||||};
+{alaun_2|Stai cercando tuo fratello hai detto? Ti somiglia, hm.|||N|alaun_3||||||||||||||};
+{alaun_3|No, non ricordo nessuno che ti somiglia. Prova al villaggio di Crossglen a ovest di qui.|||Ciao|X||||||||||||||};
+{fallhaven_farmer1|Saluti. Per favore non disturbatemi, ho del lavoro da fare.|||Ciao|X||||||||||||||};
+{fallhaven_farmer2|Ciao, potresti allontanarti dalla strada? Stò cercando di lavorare quì.|||Ciao|X||||||||||||||};
 {khorand|Ehi tu, non pensare nemmeno di toccare quelle casse. Ti sto guardando!|||Ciao|X||||||||||||||};
 	</string>
+   
+    <string name="conversationlist_signs_pre067">
+[ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
+{keyarea_andor1|Dovresti parlare con Mikhail prima.||||||||||||||||||};
+{note_lodars|Sul terreno, trovi un pezzo di carta con un mucchio di strani simboli. Riesci a malapena a distinguere queste parole \'incontriamoci al nascondiglio di Lodar\', ma non sei sicuro di aver capito bene.||||||||||||||||||};
+{keyarea_crossglen_smith|Audir grida: Hey tu, vattene! Non puoi stare qui.||||||||||||||||||};
+{sign_crossglen_cave|Il simbolo sul muro è stato scalfito in molti punti. Non riesci a cavare niente di comprensibile dalle scritte.||||||||||||||||||};
+{sign_wild1|Ovest: Crossglen\nSud: Fallhaven||||||||||||||||||};
+{sign_notdone|Questa mappa non è ancora pronta. Riprova alla prossima versione del gioco.||||||||||||||||||};
+{sign_wild3|Ovest: Crossglen\nEst: Fallhaven||||||||||||||||||};
+{sign_pitcave2|Gandir giace qui, dilaniato dalle mani del suo ex-amico Irogotu.||||||||||||||||||};
+{sign_fallhaven1|Benvenuti a Fallhaven. Attenzione ai borseggiatori!||||||||||||||||||};
+{key_fallhavenchurch|Non ti è permesso entrare in questa parte della chiesa di Church senza un\'autorizzazione.||||||||||||||||||};
+{arcir_basement_tornpage|Vedi una pagina strappata di un libro intitolato \'I segreti di Calomyran\'. Del sangue macchia i bordi, e qualcuno ha scarabocchiato la parola \'Larcal\' conl sangue.|calomyran:20|||||||||||||||||};
+{arcir_basement_statue|Elythara, signora della luce. Ci protegge dalla maledizione dell\'ombra.|arcir:10|||||||||||||||||};
+{fallhaven_tavern_room|Non hai il permesso di entrare nella stanza a meno che non l\'abbia affittata.||||||||||||||||||};
+{fallhaven_derelict1|Bucus urla: Hey tu, fuori di qui!||||||||||||||||||};
+{sign_wild6|Nord: Crossglen\nEst: Fallhaven\nSud: Stoutford||||||||||||||||||};
+{sign_wild7|Ovest: Stoutford\nNord: Fallhaven||||||||||||||||||};
+{sign_wild10|Nord: Fallhaven\nOvest: Stoutford||||||||||||||||||};
+{flagstone_key_demon|Il demone irradia una forza che ti spinge indietro, rendendo impossibile avvicinarsi al demone.||||||||||||||||||};
+{flagstone_brokensteps|Noti che questa galleria sembra sia stata scavata da sotto Flagstone. Probabilmente il lavoro di uno delgi ex-prigionieri di Flagstone.|flagstone:20|||||||||||||||||};
+{sign_wild12|Nord: Fallhaven\nEst: Vilegard\nEst: Nor City||||||||||||||||||};
+        </string>
+
+        <string name="conversationlist_thievesguild_1">
+[ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
+{thievesguild_thief_1|Ciao ragazzo.|||Ciao. Sai dove posso trovare Umar?|thievesguild_thief_4||||Che posto è questo?|thievesguild_thief_2|||||||||};
+{thievesguild_thief_2|Questa è il salone della nostra gilda. Qui siamo al sicuro dalle guardia di Fallhaven.|||N|thievesguild_thief_3||||||||||||||};
+{thievesguild_thief_3|Possiamo fare quasi quello che vogliamo qui. Tutto quello che ci permette di fare Umar.|||Ciao. Sai dove posso trovare Umar?|thievesguild_thief_4||||Chi è Umar?|thievesguild_thief_5|||||||||};
+{thievesguild_thief_4|Probabilmente è nella sua stanza laggiù. *indica*|||Grazie.|X||||||||||||||};
+{thievesguild_thief_5|Umar è il nostro capo. Lui decide le nostre regole e ci guida nelle decisioni morali.|||Dove lo posso trovare?|thievesguild_thief_4||||||||||||||};
+
+{thievesguild_cook_1|Ciao, vuoi qualcosa?|||Assomigli al cuoco|thievesguild_cook_2||||Posso vedere il cibo che avete in vendita?|S||||Farrik mi ha detto che puoi preparare un buon pasto per me|thievesguild_select_1|farrik:20|||};
+{thievesguild_cook_2|E\' vero. Qualcuno deve preparare il pasto a questi mascalzoni.|||Quello ha un ottimo profumo|thievesguild_cook_3||||Quello stufato sembra disgustoso|thievesguild_cook_4||||Non importa, ciao|X||||};
+{thievesguild_cook_3|Grazie. Questo stufato pare interessante. |||Vorrei comprare un po\' di quello|S||||||||||||||};
+{thievesguild_cook_4|Certo, lo so. Con ingredienti scadenti, cosa puoi fare? Comunque, ci sazia.|||Posso vedere il cibo che avete in vendita?|S||||||||||||||};
+{thievesguild_cook_5|Oh sicuro. Hai intenzione di prendere qualcosa di \'soporifero\'?|||N|thievesguild_cook_6||||||||||||||};
+{thievesguild_cook_6|Non ti preoccupare, non lo dirò a nessuno. Preparare cibo pesante è una delle mie specialità.|||N|thievesguild_cook_7||||||||||||||};
+{thievesguild_cook_7|Dammi un minuto per miscelare il tutto per te.|||N|thievesguild_cook_8||||||||||||||};
+{thievesguild_select_1|||||thievesguild_cook_10|farrik:25||||thievesguild_cook_5|||||||||};
+{thievesguild_cook_8|Ci sono. Questo è pronto. Vai pure.|farrik:25|sleepingmead|N|thievesguild_cook_9||||||||||||||};
+{thievesguild_cook_10|Si, ti ho dato un infuso speciale.|||N|thievesguild_cook_9||||||||||||||};
+{thievesguild_cook_9|Stai attento non far andare quella cosa sulle tue dita, è veramente forte.|||Grazie.|X||||||||||||||};
+
+{thievesguild_pickpocket_1|Come butta?.|||Chi sei?|thievesguild_pickpocket_2||||Cos\'è questo posto?|thievesguild_thief_2|||||||||};
+{thievesguild_pickpocket_2|Il mio vero nome non è importante. La gente mi chiama Ditarapide.|||Perchè questo?|thievesguild_pickpocket_3||||||||||||||};
+{thievesguild_pickpocket_3|Beh, ho una certa tendenza ... come dovrei metterla ... ad acquisire certe cose facilmente.|||N|thievesguild_pickpocket_4||||||||||||||};
+{thievesguild_pickpocket_4|Cose in precedenza in possesso di altre persone.|||Vorresti dire come rubare?|thievesguild_pickpocket_5||||||||||||||};
+{thievesguild_pickpocket_5|No no. Non lo chiamerei rubare. E\' più come un trasferimento di proprietà. Mia proprietà questo è.|||Questo mi suona proprio come rubare|thievesguild_pickpocket_6||||Questo suona come una buona giustificazione|thievesguild_pickpocket_6|||||||||};
+{thievesguild_pickpocket_6|Dopo tutto, siamo una gilda di ladri. Cosa ti aspettavi?||||||||||||||||||};
+
+{thievesguild_troublemaker_1|Ciao. Ci siamo già visti da qualche parte?|||No, sono sicuro non ci siamo mai incontrati.|thievesguild_troublemaker_3||||Cosa ci fai qua in giro?|thievesguild_troublemaker_2||||Posso dare un\'occhiata alle provviste che hai dispobibili?|S||||};
+{thievesguild_troublemaker_2|Tengo d\'occhio le provviste per la gilda.|||Posso guardare cosa hai disponibile?|S||||||||||||||};
+{thievesguild_troublemaker_3|No, proprio non ti riconosco.|||Devi avermi confuso con qualcun altro.|thievesguild_troublemaker_4||||Forse mi hai scambiato con mio fratello Andor.|thievesguild_troublemaker_5|||||||||};
+{thievesguild_troublemaker_4|Si, potrebbe.|||Hai visto mio fratello qui in giro? Mi assomiglia molto.|thievesguild_troublemaker_5||||||||||||||};
+{thievesguild_troublemaker_5|Oh si, adesso mi ricordo. C\'era un ragazzo che correva qua intorno, chiedendo un sacco si domande.|||Sai cosa stava cercando o cosa stava facendo qui?|thievesguild_troublemaker_6||||||||||||||};
+{thievesguild_troublemaker_6|No. non lo so. Mi occupo solo delle provviste.|||Ok, grazie lo stesso. Arrivederci.|X||||Ha, sei stato inutile. Addio.|X|||||||||};
+        </string>
+        
+        <string name="conversationlist_farrik">
+[ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
+{farrik_1|Ciao. Ho sentito che ci hai aiutati a trovare la chiave di Luthor. Ottimo lavoro, è stato veramente utile.|||Chi sei tu?|farrik_2||||Cosa mi puoi dire della gilda dei ladri?|farrik_4|||||||||};
+{farrik_2|Sono Farrik, il fratello Umar.|||Cosa ci fai qua attorno?|farrik_3||||Cosa mi puoi dire della gilda dei ladri?|farrik_4|||||||||};
+{farrik_3|Principalmente mi occupo degli scambi con altre gilde e tengo in ordine quello che serve ai ladri per essere cosi efficienti.|||Cosa mi puoi dire della gilda dei ladri?|farrik_4||||||||||||||};
+{farrik_4|Cerchiamo di sostenerci il più possibile tra di noi, e aiutiamo gli altri compagni ladri come possiamo.|||E\' successo qualcosa recentemente?|farrik_5||||||||||||||};
+{farrik_5|Allora, c\'è stato qualcosa poche settimane fa. Uno dei membri della gilda è stato arrestato per violazione della proprietà.|||N|farrik_6||||||||||||||};
+{farrik_6|La guardia di pattuglia di Fallhaven ha veramente cominciato ad essere arrabbiata con noi ultimamente. Probabilmente perchè siamo stati veramente efficaci nelle nostre ultime missini.|||N|farrik_7||||||||||||||};
+{farrik_7|La guardia di pattuglia quindi ha incrementato la sicurezza ultimamente, arrivando ad arrestare uno dei nostri membri.|||N|farrik_8||||||||||||||};
+{farrik_8|E\' attualmente rinchiuso nella prigione qui a Fallhaven, in attesa del trasferimento a Feygard.|||Cosa ha fatto?|farrik_9||||||||||||||};
+{farrik_9|Oh, niente di grave. Stava cercando di entrare nelle catacombe al di sotto della chiesa di Fallhaven.|||N|farrik_10||||||||||||||};
+{farrik_10|Ma ora che ci hai aiutato con questa missione, suppongo che non abbiamo più necessità di andare là sotto.|||N|farrik_11||||||||||||||};
+{farrik_11|Penso di potermi fidare di te su questo segreto. Stiamo organizzando una missione stanotte per farlo evadere dalla prigione.|farrik:10||Quelle guardio sembrano veramente arrabbiate.|farrik_13||||Dopo tutto, se lui non aveva il permesso di scendare là sotto, le guardie erano nel giusto ad arrestarlo.|farrik_12|||||||||};
+{farrik_12|Certo, lo immagino. Ma per l\'interesse della gilda, noi vorremmo avere un nostro amico libero piuttosto che imprigionato.|||Forse potrei raccontare alle guardie che state organizzando l\'evasione?|farrik_15||||Non preoccuparti, il tuo segreto per la sua liberazione è al sicuro.|farrik_14||||[Bugia] Non preoccuparti, il tuo segreto per la sua liberazione è al sicuro.|farrik_14||||};
+{farrik_13|Oh si, lo sono. Alla gente di solito non piacciono, non solo noi della gilda.|||C\'è qualcosa che posso fare per aiutarti con le guardie?|farrik_16||||||||||||||};
+{farrik_14|Grazie. Adesso per favore lascia.||||||||||||||||||};
+{farrik_15|Quello che vuoi, potrebbero non crederti in ogni caso.|farrik:30|||||||||||||||||};
+{farrik_16|Sei sicuro di voler importunare le guardie? Se gli arriva voce che sei coinvolto, potresti passare un sacco di guai.|||Nessun problema, so badare a me stesso!|farrik_18||||Potrebbe esserci una ricompensa per questo dopo. Ci sono|farrik_18||||Ma ripensandoci, forse dovresti rimanere fuori da questa faccenda.|farrik_17||||};
+{farrik_17|Sicuro, è meglio per te.|||Buona fortuna con la tua missione.|farrik_14||||Forse potrei raccontare alle guardie che state organizzando l\'evasione?|farrik_15|||||||||};
+{farrik_18|Bene.|||N|farrik_19||||||||||||||};
+{farrik_19|Ok, questo è il piano. Il capitano delle guardie ha un piccolo problema col bere.|||N|farrik_20||||||||||||||};
+{farrik_20|Se noi riuscissimo a fornirgli un po\' dell\'idromele che prepariamo, dovremo essere in grado di far uscire di nascosto il nostro amico nella notte, quando il capitano sarà collassato per l\'ubriacatura.|||N|farrik_20a||||||||||||||};
+{farrik_20a|Il nostro cuoco ci aiuterà a preparare un\'idromele speciale che lo metterà fuori uso per un po\'.|||N|farrik_21||||||||||||||};
+{farrik_21|Probabilmente avrà bisogno di un\'incoraggiamento a bere durante il servizio. Se questo dovesse fallire, potremmo provare a corromperlo.|||N|farrik_22||||||||||||||};
+{farrik_22|Come ti sembra l\'idea? Pensi di potercela fare?|||Sicuro, sembra facile!|farrik_23||||Suona un po\' pericoloso, penso di poter provare.|farrik_23||||No, mi sembra proprio una pessima idea, siete pazzi.|farrik_17||||};
+{farrik_23|Bene. Riferiscimi quando sarai riuscito a far bere al capitano l\'idromele speciale preparato dal nostro cuoco.|farrik:20||Lo farò|farrik_14||||||||||||||};
+{farrik_return_1|Ciao di nuovo mio amico. Come sta andando la missione di far ubriacare il capitano delle guardie?|||Non l\'ho ancora fatto, ma ci sto lavorando.|farrik_23||||[Bugia] E\' fatto. Non dovrebbero esserci problemi per tutta la notte.|farrik_26|farrik:50|||E\' fatto. Non dovrebbero esserci problemi per tutta la notte.|farrik_24|farrik:60|||};
+{farrik_select_1|||||farrik_return_2|farrik:70||||farrik_return_2|farrik:80||||farrik_select_2||||};
+{farrik_select_2|||||farrik_return_1|farrik:20||||farrik_1|||||||||};
+{farrik_24|Queste sono buone notizie! Ora dovremo essere in grado di far evadere il nostro amico dalla prigione stanotte. |farrik:70||N|farrik_25||||||||||||||};
+{farrik_25|Grazie molte per il tuo aiuto amico. Prendi queste monete come segno di riconoscimento.||gold200|Grazie. Arrivederci.|X||||Finalmente un po\' d\'oro.|X|||||||||};
+{farrik_return_2|Grazie per il tuo aiuto con il capitano delle guardie.||||||||||||||||||};
+{farrik_26|Come ci sei riuscito? Ben fatto. Hai i miei ringraziamenti, amico.|farrik:80|||||||||||||||||};
+        </string>
+
 </resources>
