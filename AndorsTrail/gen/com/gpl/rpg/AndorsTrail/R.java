@@ -306,6 +306,7 @@ public final class R {
         public static final int about_contents2=0x7f0500ed;
         public static final int about_contents3=0x7f0500ee;
         /**  Translated as: affliction / statuseffect / temporary effect 
+ Translated as: affliction / statuseffect / temporary effect 
          */
         public static final int actorcondition_info_removes_all=0x7f050107;
         public static final int actorconditions_v069=0x7f050000;
@@ -315,6 +316,8 @@ public final class R {
         public static final int actorinfo_class=0x7f0500a2;
         public static final int actorinfo_criticalhit=0x7f0500a8;
         /**  =========================================== 
+ Added in v0.6.9 
+ =========================================== 
  Added in v0.6.9 
          */
         public static final int actorinfo_currentconditions=0x7f050106;

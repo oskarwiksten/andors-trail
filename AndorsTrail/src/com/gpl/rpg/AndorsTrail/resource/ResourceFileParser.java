@@ -18,9 +18,9 @@ import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public class ResourceFileParser {
-	public static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);
-    public static final String columnSeparator = "\\|";
-    public static String repeat(String s, int count) {
+	private static final Pattern rowPattern = Pattern.compile("\\{(.+?)\\};", Pattern.MULTILINE | Pattern.DOTALL);
+	private static final String columnSeparator = "\\|";
+	private static String repeat(String s, int count) {
 		String result = s;
 		for(int i = 1; i < count; ++i) result += s;
 		return result;

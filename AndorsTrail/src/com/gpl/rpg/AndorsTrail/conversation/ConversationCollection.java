@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
-import java.util.regex.Matcher;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
@@ -16,6 +15,9 @@ import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectArrayTokenizer;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
+import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectTokenizer;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ConversationCollection {
@@ -46,72 +48,63 @@ public final class ConversationCollection {
 		return phrases.get(id);
 	}
 	
-	public void initialize(ItemTypeCollection itemTypes, DropListCollection droplists, String phraselist) {
-		Matcher rowMatcher = ResourceFileParser.rowPattern.matcher(phraselist);
-    	while(rowMatcher.find()) {
-    		String[] parts = rowMatcher.group(1).split(ResourceFileParser.columnSeparator, -1);
-    		if (parts.length < 19) {
-    			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    				if (parts.length > 2) {
-    					L.log("WARNING: Conversation resource contains row with invalid length: " + rowMatcher.group(1));
-    				}
-    			}
-    			continue;
-    		}
-    		
-    		ArrayList<Reply> replies = new ArrayList<Reply>();
-    		final int startReplyOffset = 4;
-    		final int replyLength = 5;
-    		for (int i = 0; i < 3; ++i) {
-    			int v = startReplyOffset + i * replyLength;
-    			if (parts[v + 1].length() > 0 || parts[v].length() > 0) replies.add(parseReply(parts, v, itemTypes));	
-    		}
-    		Reply[] _replies = new Reply[replies.size()];
-    		_replies = replies.toArray(_replies);
-    		
-    		final String phraseID = parts[0];
-    		
-    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    			if (phraseID.trim().length() <= 0) {
-    				L.log("WARNING: Adding phrase with empty id.");
-    			} else if (phrases.get(phraseID) != null) {
-    				L.log("WARNING: Phrase \"" + phraseID + "\" may be duplicated.");
-    			}
-    			
-    			boolean hasNextReply = false;
-    			boolean hasOtherReply = false;
-    			for (Reply r : replies) {
-    				if (r.text.equalsIgnoreCase(REPLY_NEXT)) hasNextReply = true;
-    				else hasOtherReply = true;
-    			}
-    			if (hasNextReply && hasOtherReply) {
-    				L.log("WARNING: Phrase \"" + phraseID + "\" has both a \"" + REPLY_NEXT + "\" reply and some other reply.");
-    			}
-    		}
-    		
-    		phrases.put(phraseID, new Phrase(
-        			parts[1]
-        			, _replies
-        			, QuestProgress.parseQuestProgress(parts[2])
-		        	, droplists.getDropList(parts[3])
-    			));
-    	}
-	}
-	
-	private static Reply parseReply(String[] parts, int startIndex, ItemTypeCollection itemTypes) {
-		String requiresItemTypeTag = parts[startIndex+3];
-		int requiresItemTypeID = -1;
-		if (requiresItemTypeTag.length() > 0) {
-			ItemType type = itemTypes.getItemTypeByTag(requiresItemTypeTag);
-			if (type != null) requiresItemTypeID = type.id;
-		}
-		return new Reply(
-				parts[startIndex]
-				, parts[startIndex+1]
-				, QuestProgress.parseQuestProgress(parts[startIndex+2])
-		       	, requiresItemTypeID
-       	       	, ResourceFileParser.parseInt(parts[startIndex+4], 0)
-			);
+	private static final ResourceObjectTokenizer conversationResourceTokenizer = new ResourceObjectTokenizer(5);
+	private static final ResourceObjectTokenizer replyResourceTokenizer = new ResourceObjectTokenizer(5);
+	public void initialize(final ItemTypeCollection itemTypes, final DropListCollection droplists, String phraselist) {
+		conversationResourceTokenizer.tokenizeRows(phraselist, new ResourceObjectFieldParser() {
+			@Override
+			public void matchedRow(String[] parts) {
+				// [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+				
+				final ArrayList<Reply> replies = new ArrayList<Reply>();
+	    		ResourceObjectArrayTokenizer.tokenize(parts[4], replyResourceTokenizer, new ResourceObjectFieldParser() {
+					@Override
+					public void matchedRow(String[] parts) {
+						String requiresItemTypeTag = parts[3];
+						int requiresItemTypeID = -1;
+						if (requiresItemTypeTag.length() > 0) {
+							ItemType type = itemTypes.getItemTypeByTag(requiresItemTypeTag);
+							if (type != null) requiresItemTypeID = type.id;
+						}
+						replies.add(new Reply(
+								parts[0]
+								, parts[1]
+								, QuestProgress.parseQuestProgress(parts[2])
+						       	, requiresItemTypeID
+				       	       	, ResourceFileParser.parseInt(parts[4], 0)
+							));
+					}
+				});
+				
+				final Reply[] _replies = replies.toArray(new Reply[replies.size()]);
+				final String phraseID = parts[0];
+	    		
+	    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+	    			if (phraseID.trim().length() <= 0) {
+	    				L.log("WARNING: Adding phrase with empty id.");
+	    			} else if (phrases.get(phraseID) != null) {
+	    				L.log("WARNING: Phrase \"" + phraseID + "\" may be duplicated.");
+	    			}
+	    			
+	    			boolean hasNextReply = false;
+	    			boolean hasOtherReply = false;
+	    			for (Reply r : replies) {
+	    				if (r.text.equalsIgnoreCase(REPLY_NEXT)) hasNextReply = true;
+	    				else hasOtherReply = true;
+	    			}
+	    			if (hasNextReply && hasOtherReply) {
+	    				L.log("WARNING: Phrase \"" + phraseID + "\" has both a \"" + REPLY_NEXT + "\" reply and some other reply.");
+	    			}
+	    		}
+	    		
+	    		phrases.put(phraseID, new Phrase(
+	        			parts[1]
+	        			, _replies
+	        			, QuestProgress.parseQuestProgress(parts[2])
+			        	, droplists.getDropList(parts[3])
+	    			));
+			}
+		});
 	}
 	
 	// Selftest method. Not part of the game logic.
