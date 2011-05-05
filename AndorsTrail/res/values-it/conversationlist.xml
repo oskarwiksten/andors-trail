@@ -8,59 +8,59 @@
 {mikhail_gamestart|Oh , bene, Siete sveglio.|||N|mikhail_visited||||||||||||||};
 {mikhail_visited|Non riesco a trovare tuo fratello da nessuna parte. Da quando ieri è uscito non è più tornato.|andor:1||N|mikhail3||||||||||||||};
 {mikhail3|Non preoccuparti, sarà sicuramente di ritorno presto.|||N|mikhail_default||||||||||||||};
-{mikhail_default|Nient\'altro? Come posso aiutarti?|||Domande|mikhail_tasks||||Fratello|mikhail_andor1||||Ciao|X||||};
+{mikhail_default|Nient\'altro? Come posso aiutarti?|||Domande|mikhail_tasks||||Fratello|mikhail_andor1|||||||||};
 {mikhail_tasks|Oh Si, ci sono alcune cose per cui ho bisogno di aiuto:|||Pane|mikhail_bread_select||||Topo|mikhail_rats_select||||Indietro|mikhail_default||||};
 {mikhail_andor1|Come ho detto, Andor è uscito ieri e non è tornato. Sto iniziando a preoccuparmi per lui. Vorrei che tu andassi a cercare tuo fratello, mi disse che sarebbe stato via poco.|||N|mikhail_andor2||||||||||||||};
-{mikhail_andor2|Forse è andato al magazzino ed è di nuovo rimasto bloccato. O forse si stà allenando nel seminterrato di Leta con quella nuova spada di legno. Per favore, vai a cercarlo in città.|||Indietro|mikhail_default||||||||||||||};
+{mikhail_andor2|Forse è andato al magazzino ed è di nuovo rimasto bloccato. O forse si stà allenando nel seminterrato di Leta con quella nuova spada di legno. Per favore, vai a cercarlo in città.|||N|mikhail_default||||||||||||||};
 {mikhail_bread_select|||||mikhail_bread_complete2|mikhail_bread:100||||mikhail_bread_continue|mikhail_bread:10||||mikhail_bread_start||||};
-{mikhail_bread_start|Oh, quasi dimenticavo. Se hai tempo, fermati da Mara in municipio e comprami un pezzo di pane.|mikhail_bread:10||Ok|mikhail_default||||||||||||||};
-{mikhail_bread_continue|Hai preso il pane da Mara al municipio come ti avevo chiesto?|||Fatto|mikhail_bread_complete||Pane|1|Non ancora|mikhail_default|||||||||};
-{mikhail_bread_complete|Grazie mille, ora posso fare colazione. Tieni, prendi queste monete per il tuo aiuto.|mikhail_bread:100|gold20|indietro|mikhail_default||||||||||||||};
+{mikhail_bread_start|Oh, quasi dimenticavo. Se hai tempo, fermati da Mara in municipio e comprami un pezzo di pane.|mikhail_bread:10||N|mikhail_default||||||||||||||};
+{mikhail_bread_continue|Hai preso il pane da Mara al municipio come ti avevo chiesto?|||Fatto|mikhail_bread_complete||bread|1|Non ancora|mikhail_default|||||||||};
+{mikhail_bread_complete|Grazie mille, ora posso fare colazione. Tieni, prendi queste monete per il tuo aiuto.|mikhail_bread:100|gold20|N|mikhail_default||||||||||||||};
 {mikhail_bread_complete2|Grazie per il pane.|||Prego, è stato un piacere|mikhail_default||||||||||||||};
 {mikhail_rats_select|||||mikhail_rats_complete2|mikhail_rats:100||||mikhail_rats_continue|mikhail_rats:10||||mikhail_rats_start||||};
 {mikhail_rats_start|Ho visto di nuovo dei topi fuori, nel giardino. Puoi andare in giardino a controllare? Se puoi uccidi tutti i topi che trovi.|mikhail_rats:10||Fatto|mikhail_rats_complete||tail_trainingrat|2|Certo|mikhail_rats_start2|||||||||};
 {mikhail_rats_start2|Se con i topi ti facessi male, puoi tornare quì nel tuo letto. Questo ti fà recuperare le forze.|||N|mikhail_rats_start3||||||||||||||};
 {mikhail_rats_start3|Non dimenticare di controllare nel tuo inventario. Sicuramente hai ancora quell\'anello che ti ho dato. Assicurati di indossarlo.|||Ok|mikhail_default||||||||||||||};
 {mikhail_rats_continue|Hai ucciso quei ratti nel nostro giardino?|||Si|mikhail_rats_complete||tail_trainingrat|2|Non ancora|mikhail_default|||||||||};
-{mikhail_rats_complete|Oh, l\'hai fatto?! Se ti sei ferito, usa il tuo letto per riposare. Questo è un modo per recuperare le forze.|mikhail_rats:100||Indietro|mikhail_default||||||||||||||};
-{mikhail_rats_complete2|Grazie per il tuo aiuto con i topi. Se sei ferito, usa il letto per riposare. In questo modo potrai recuperare le forze.|||Prego, un po\' di movimento fa bene.|mikhail_default||||||||||||||};
+{mikhail_rats_complete|Oh, l\'hai fatto?! Se ti sei ferito, usa il tuo letto per riposare. Questo è un modo per recuperare le forze.|mikhail_rats:100||N|mikhail_default||||||||||||||};
+{mikhail_rats_complete2|Grazie per il tuo aiuto con i topi. Se sei ferito, usa il letto per riposare. In questo modo potrai recuperare le forze.|||N|mikhail_default||||||||||||||};
         </string>
 
         <string name="conversationlist_crossglen_leta">|||||||||||||||||||
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{leta1|Hey, questa è casa mia, fuori di qui!|||Ma io ero solo...|leta2||||Oromir|leta_oromir_select||||ciao|X||||};
-{leta2|Vattene ragazzo, Fuori da casa mia!|||Oromir|leta_oromir_select||||Ciao|X|||||||||};
+{leta1|Hey, questa è casa mia, fuori di qui!|||Ma io ero solo...|leta2||||Oromir|leta_oromir_select|||||||||};
+{leta2|Vattene ragazzo, Fuori da casa mia!|||Oromir|leta_oromir_select||||||||||||||};
 {leta_oromir_select|||||leta_oromir_complete2|leta:100||||leta_oromir1|||||||||};
 {leta_oromir1|Sai qualcosa di mio marito? dovrebbe essere al lavoro oggi, ma manca come al solito.\nSigh.|||Non sò|leta_oromir2||||Cercalo|leta_oromir_complete|leta:20||||||||};
-{leta_oromir2|Se lo vedi, digli di venire ad aiutarmi con le faccende domestiche.Ora esci di quì!|leta:10||Ciao|X||||||||||||||};
-{leta_oromir_complete|Si nasconde quì? Questo non è la via giusta da seguire. Vado a fargli capire chi comanda quì.Grazie per avermi messo al corrente.|leta:100||Ciao|X||||||||||||||};
-{leta_oromir_complete2|Grazie per avermi informato di Oromir prima . Voglio andare a prenderlo in fretta.|||Ciao|X||||||||||||||};
+{leta_oromir2|Se lo vedi, digli di venire ad aiutarmi con le faccende domestiche.Ora esci di quì!|leta:10|||||||||||||||||};
+{leta_oromir_complete|Si nasconde quì? Questo non è la via giusta da seguire. Vado a fargli capire chi comanda quì.Grazie per avermi messo al corrente.|leta:100|||||||||||||||||};
+{leta_oromir_complete2|Grazie per avermi informato di Oromir prima . Voglio andare a prenderlo in fretta.||||||||||||||||||};
 {oromir1|Oh , mi hai spaventato.Ciao.|||Ciao|oromir2||||||||||||||};
 {oromir2|Mi nascondo qui da mia moglie Leta. è sempre arrabbiata con me perchè non vado a lavorare. Per favore non dirle che sono qui.|leta:20||Certo|X||||||||||||||};
         </string>
 
         <string name="conversationlist_crossglen">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{audir1|Benvenuto nel mio negozio!Vi prego di consultare i miei articoli di occasione.|||Negozio|S||||Ciao|X|||||||||};
-{arambold1|Oh mio Blue, Riuscirò mai a dormire con questi ubriachi che cantano ? Qualcuno dovrebbe far qualcosa per loro.|||Riposa|arambold2||||Compra|S||||Ciao|X||||};
+{audir1|Benvenuto nel mio negozio!Vi prego di consultare i miei articoli di occasione.|||Negozio|S||||||||||||||};
+{arambold1|Oh mio Blue, Riuscirò mai a dormire con questi ubriachi che cantano ? Qualcuno dovrebbe far qualcosa per loro.|||Riposa|arambold2||||Compra|S|||||||||};
 {arambold2|Certo ragazzo, puoi riposare qui .Scegli il letto che preferisci.|||Grazie , ciao|X||||||||||||||};
-{drunk1|Bevi bevi bevi,bevi ancora un po\' .Bevi bevi bevi, bevi sul pavimento .Hei ragazzo, vuoi unirti a noi nel nostro gioco|||No grazie|X||||||||||||||};
-{mara_default|Lascia perdere quei ragazzi ubriachi, Provocano sempre problemi .Vuoi qualcosa da mangiare?|||Compra|S||||Ciao|X|||||||||};
-{mara1|||||mara_Grazie|odair:100||||mara_default|||||||||};
-{mara_Grazie|Ho sentito che hai aiutato Odair a pulire il suo magazzino. Grazie mille, ora possiamo usarlo.|||il piacere è mio|mara_default||||||||||||||};
-{farm1|Per favore non disturbarmi, ho del lavoro da fare|||Fratello|farm_andor||||ciao|X|||||||||};
-{farm2|Cosa?! Non vedi che ho da fare? vai a infastidire qualcun altro.|||Fratello|farm_andor||||Ciao|X|||||||||};
-{farm_andor|Andor? No, io non l\'ho visto in giro recentemente.|||Ciao|X||||||||||||||};
-{snakemaster|Bene bene, cosa abbiamo quì?Un visitatore, che bello. Sono impressionato ,è arrivato a questo punto sconfiggendo i miei servitori. Ora preparati a morire, piccola creatura.|||||||||||||||||||||Combatti!|F||||||||||||||};|
-{haunt|Oh mortale,mi libererai da questo mondo crudele!|||Esci|F||||||||||||||};
+{drunk1|Bevi bevi bevi,bevi ancora un po\' .Bevi bevi bevi, bevi sul pavimento .Hei ragazzo, vuoi unirti a noi nel nostro gioco|||No grazie|X||||UNTRANSLATED Maybe some other time.|X|||||||||};
+{mara_default|Lascia perdere quei ragazzi ubriachi, Provocano sempre problemi .Vuoi qualcosa da mangiare?|||Compra|S||||||||||||||};
+{mara1|||||mara_thanks|odair:100||||mara_default|||||||||};
+{mara_thanks|Ho sentito che hai aiutato Odair a pulire il suo magazzino. Grazie mille, ora possiamo usarlo.|||il piacere è mio|mara_default||||||||||||||};
+{farm1|Per favore non disturbarmi, ho del lavoro da fare|||Fratello|farm_andor||||||||||||||};
+{farm2|Cosa?! Non vedi che ho da fare? vai a infastidire qualcun altro.|||Fratello|farm_andor||||||||||||||};
+{farm_andor|Andor? No, io non l\'ho visto in giro recentemente.||||||||||||||||||};
+{snakemaster|Bene bene, cosa abbiamo quì?Un visitatore, che bello. Sono impressionato ,è arrivato a questo punto sconfiggendo i miei servitori. Ora preparati a morire, piccola creatura.|||UNTRANSLATED Great, I have been waiting for a fight!|F||||UNTRANSLATED Let\'s see who dies here.|F||||UNTRANSLATED Please don\'t hurt me!|F|||||||Combatti!|F|};
+{haunt|Oh mortale,mi libererai da questo mondo crudele!|||Esci|F||||UNTRANSLATED You mean, by killing you?|F|||||||||};
         </string>
 
         <string name="conversationlist_crossglen_tharal">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{tharal1|Cammina nel bagliore dell\'ombra, figlio mio.|||Compra|S||||Farina d\'ossa|tharal_bonemeal_select|bonemeal:10|||Ciao|X||||};
+{tharal1|Cammina nel bagliore dell\'ombra, figlio mio.|||Compra|S||||Farina d\'ossa|tharal_bonemeal_select|bonemeal:10||||||||};
 {tharal_bonemeal_select|||||tharal_bonemeal4|bonemeal:30||||tharal_bonemeal1|||||||||};
-{tharal_bonemeal1|Farina d\'ossa? Non possiamo parlare di questo. È stato vietato da Lord Geomyr.|||Scusa?|tharal_bonemeal2_1||||Ciao|X|||||||||};
-{tharal_bonemeal2_1|No, effettivamente non dovremmo parlarne.|||Oh come on|tharal_bonemeal2||||Ciao|X|||||||||};
+{tharal_bonemeal1|Farina d\'ossa? Non possiamo parlare di questo. È stato vietato da Lord Geomyr.|||Scusa?|tharal_bonemeal2_1||||||||||||||};
+{tharal_bonemeal2_1|No, effettivamente non dovremmo parlarne.|||Oh come on|tharal_bonemeal2||||||||||||||};
 {tharal_bonemeal2|Se sono davvero così persistenti, dammi 5 ali di insetti che possa usare per preparare la pozione, poi possiamo parlarne.|bonemeal:20||ce l\'ho|tharal_bonemeal3||insectwing|5|Ok|X|||||||||};
 {tharal_bonemeal3|Grazie ragazzo. Sapevo di poter contare su di te.|bonemeal:30||N|tharal_bonemeal4||||||||||||||};
 {tharal_bonemeal4|Oh sì, farina d\'ossa. unita con i giusti componenti può essere uno degli agenti di guarigione migliori.|||N|tharal_bonemeal5||||||||||||||};
@@ -71,9 +71,9 @@
 
         <string name="conversationlist_crossglen_gruil">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{gruil1|Psst, hey.vuoi comprare?|||Compra|S||||Fratello|gruil_select|andor:10|||Ciao|X||||};
+{gruil1|Psst, hey.vuoi comprare?|||Compra|S||||Fratello|gruil_select|andor:10||||||||};
 {gruil_select|||||gruil_return|andor:30||||gruil2|||||||||};
-{gruil2|Tuo fratello? Oh sei AndoQuesto andrà bene. |andor:30||N|gruil_andor1||||||||||||||};
+{gruil2|Tuo fratello? Oh sei AndoQuesto andrà bene. |andor:20||UNTRANSLATED Here, I have a poison gland for you.|gruil_complete||gland|1|UNTRANSLATED Ok, I\'ll bring one.|X|||||||||};
 {gruil_complete|Grazie molte ragazzo. Questo andrà bene.|andor:30||N|gruil_andor1||||||||||||||};
 {gruil_return|Guarda ragazzo, te l\'ho già detto.|||N|gruil_andor1||||||||||||||};
 {gruil_andor1|Ho parlato con lui ieri. Mi chiese se conoscevo qualcuno di nome Umar o qualcosa di simile. Non ho idea di chi stesse parlando.|||N|gruil_andor2||||||||||||||};
@@ -83,9 +83,9 @@
 
         <string name="conversationlist_crossglen_leonid">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{leonid1|Ciao ragazzo. Tu sei figlio di Mikhail\'s non è vero? E tuo fratello?.\n\nIo sono Leonid, amministratore del villaggio Crossglen.|||Fratello|leonid_andor||||Crossglen|leonid_crossglen||||Ciao|leonid_Ciao||||};
-{leonid_andor|Tuo fratello? NO , non l\'ho visto oggi. credo che ieri stesse parlando con Gruil. Forse lui ne sà di più|andor:10||Grazie|leonid_continue||||Ciao|leonid_Ciao|||||||||};
-{leonid_continue|Posso aiutarti in qualche altro modo?|||fratello|leonid_andor||||Crossglen|leonid_crossglen||||Ciao|leonid_Ciao||||};
+{leonid1|Ciao ragazzo. Tu sei figlio di Mikhail\'s non è vero? E tuo fratello?.\n\nIo sono Leonid, amministratore del villaggio Crossglen.|||Fratello|leonid_andor||||Crossglen|leonid_crossglen||||Ciao|leonid_bye||||};
+{leonid_andor|Tuo fratello? NO , non l\'ho visto oggi. credo che ieri stesse parlando con Gruil. Forse lui ne sà di più|andor:10||Grazie|leonid_continue||||Ciao|leonid_bye|||||||||};
+{leonid_continue|Posso aiutarti in qualche altro modo?|||fratello|leonid_andor||||Crossglen|leonid_crossglen||||Ciao|leonid_bye||||};
 {leonid_crossglen|Come saie, questo è il villaggio di Crossglen. Per lo più una comunità agricola. |||N|leonid_crossglen1||||||||||||||};
 {leonid_crossglen1| Abbiamo la fucina di Audir a sud-ovest, Leta e la casa del marito a ovest, il palazzo municipale e la casa di tuo padre, a nord-ovest.|||N|leonid_crossglen2||||||||||||||};
 {leonid_crossglen2|Questo è tutto, cerchiamo di vivere una vita pacifica|||Recent activity|leonid_crossglen3||||Indietro|leonid_continue|||||||||};
@@ -96,17 +96,17 @@
 {leonid_crossglen6|Da un lato, Lord Geomyr  supporta Crossglen con molta protezione. * punti per i soldati in sala*|||N|leonid_crossglen7||||||||||||||};
 {leonid_crossglen7|Da un altra le tasse e le regole di ciò che non è permesso sono olto severe a Crossglen.|||N|leonid_crossglen8||||||||||||||};
 {leonid_crossglen8|Qualcuno dovrebbe andare nel castello di Geomyr e parlare con l\'amministratore della nostra situazione qui a Crossglen.|crossglen:1||N|leonid_crossglen9||||||||||||||};
-{leonid_crossglen9|Nel frattempo ci ha vietato l\'uso di qualsiasi farina d\'ossa come sostanza di guarigione.|||Indietro|leonid_continue||||Ciao|leonid_Ciao|||||||||};
-{leonid_Ciao|Che l\'ombra sia con voi|||Exit|X||||||||||||||};
+{leonid_crossglen9|Nel frattempo ci ha vietato l\'uso di qualsiasi farina d\'ossa come sostanza di guarigione.|||Indietro|leonid_continue||||Ciao|leonid_bye|||||||||};
+{leonid_bye|Che l\'ombra sia con voi|||Exit|X||||||||||||||};
         </string>
 
         <string name="conversationlist_crossglen_odair">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
 {odair1|Oh, sei tu.Con questa storia di tuo fratello sei sempre ad infastidire|||N|odair_select||||||||||||||};
 {odair_select|||||odair_complete2|odair:100||||odair_continue|odair:10||||odair2||||};
-{odair2|Hm, forse potresti essermi utile. Puoi aiutarmi con una piccolo compito, che ne pensi?|||compito|odair3||||Ciao|X|||||||||};
+{odair2|Hm, forse potresti essermi utile. Puoi aiutarmi con una piccolo compito, che ne pensi?|||compito|odair3||||Ciao|odair3|||||||||};
 {odair3|Di recente sono stato nella grotta * a ovest* a controllare le nostre forniture.Ma sembra che sia infestata di topi.|||N|odair4||||||||||||||};
-{odair4|In particolare ho visto un topo che era più grande degli altri.Pensi di riuscire ad aiutarmi?|||Certo|odair5||||No grazie|odair_cowards|||||||||};
+{odair4|In particolare ho visto un topo che era più grande degli altri.Pensi di riuscire ad aiutarmi?|||Certo|odair5||||No grazie|odair5||||UNTRANSLATED No thanks|odair_cowards||||};
 {odair5|Ho bisogno di entrare in quella grotta e uccidere il topo più grande, in questo modo forse, si può fermare l\' infestazione, e ricominciare ad usare la grotta come magazzino|odair:10||Ok|X||||No grazie|odair_cowards|||||||||};
 {odair_cowards|Non pensavo che fossi cos\', Tu e tuo fratello siete sempre stati dei vigliacchi|||Ciao|X||||||||||||||};
 {odair_continue|Hai ucciso il grande topo che stà nella grotta?|||Si|odair_complete||tail_caverat|1|Cosa?|odair5||||Non ancora|odair_cowards||||};
@@ -117,87 +117,87 @@
         <string name="conversationlist_jan">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
 {jan_start_select|||||jan_complete2|jan:100||||jan_return|jan:10||||jan_default||||};
-{jan_default|Ciao ragazzo, ti prego di lasciarmi al mio lutto.|||Lutto|jan_default2||||Ok, ciao|X|||||||||};
+{jan_default|Ciao ragazzo, ti prego di lasciarmi al mio lutto.|||Lutto|jan_default2||||Ok, ciao|jan_default2||||UNTRANSLATED Ok, bye|X||||};
 {jan_default2|Oh, è così triste. Io davvero non voglio parlarne.|||Per favore|jan_default3||||Ok, Ciao|X|||||||||};
 {jan_default3|Beh, forse posso parlartene.Mi sembri un bravo ragazzo.|||N|jan_default4||||||||||||||};
 {jan_default4|Io, il mio amico Gandir e il suo amico Irogotu eravamo qui a scavare un buco. Avevamo sentito che c\'era un tesoro nascosto quaggiù.|||N|jan_default5||||||||||||||};
 {jan_default5|Abbiamo iniziato a scavare, fino a quando non è crollato tutto il sistema di grotte lì sotto.E abbiamo scoperto tutte quelle creature e insetti.|||N|jan_default6||||||||||||||};
 {jan_default6|Oh, quelle creature, maledette. Mi hanno quasi ucciso.\n\n bbiamo deciso di interrompere gli scavi mentre eravamo ancora in tempo|||N|jan_default7||||||||||||||};
 {jan_default7|Ma Irogotu ha voluto continuare a scavare.Lui e Gandir dopo una discussione hanno cominciato a combattere.|||N|jan_default8||||||||||||||};
-{jan_default8|Questo è quanto è successo.\n\n*sob*\n\nOh, ma cosa abbiamo fatto???|||N|jan_default9||||||||||||||};
+{jan_default8|Questo è quanto è successo.\n\n*sob*\n\nOh, ma cosa abbiamo fatto???|||UNTRANSLATED Please go on|jan_default9||||||||||||||};
 {jan_default9|Irogotu ha ucciao Gandir a mani nude. Si poteva vedere il fuoco nei suoi occhi. Sembrava quasi godere.|||N|jan_default10||||||||||||||};
 {jan_default10|Sono fuggito e non ho più osato andare laggiù a causa di quelle creature e di Irogotu stesso.|||N|jan_default11||||||||||||||};
-{jan_default11|Oh maledetto Irogotu. Se solo potessi arrivare a lui. Mi piacerebbe fargli vedere una cosa e un altra.|||N|jan_default11_1||||||||||||||};
-{jan_default11_1|Pensi di potermi aiutare?|||Ok, posso aiutarti|jan_default12||||Ciao|X|||||||||};
+{jan_default11|Oh maledetto Irogotu. Se solo potessi arrivare a lui. Mi piacerebbe fargli vedere una cosa e un altra.|||UNTRANSLATED Do you think I could help?|jan_default11_1||||||||||||||};
+{jan_default11_1|Pensi di potermi aiutare?|||Ok, posso aiutarti|jan_default12||||Ciao|jan_default12||||UNTRANSLATED No thanks, I would rather not be involved in this. It sounds dangerous.|X||||};
 {jan_default12|Davvero? Pensi di potermi aiutare? Hm, forse si potrebbe. Guarda questi animali, però, sono veramente tenaci.|jan:10||N|jan_default13||||||||||||||};
-{jan_default13|Se mi vuoi veramente aiutare, vai a cercare Irogotu laggiù nella grotta, e fammi riavere l\'anello di Gandir.|||Scerto|jan_default14||||ripeti|jan_Indietroground||||Ciao|X||||};
+{jan_default13|Se mi vuoi veramente aiutare, vai a cercare Irogotu laggiù nella grotta, e fammi riavere l\'anello di Gandir.|||Scerto|jan_default14||||ripeti|jan_background||||Ciao|X||||};
 {jan_default14|Ritorna da me quando hai fatto. portami l\'anello di Gandir\'s .|||Ok, Ciao|X||||||||||||||};
-{jan_return|Ciao ragazzo. Hai trovato Irogotu giù nella grotta?|||Non ancora|jan_default14||||ripeti|jan_Indietroground||||Si|jan_complete||ring_gandir|1|};
-{jan_Indietroground|Non hai ascoltato la prima volta che ho detto la storia? Devo veramente ripeterla dall\'inizio?|||Si|jan_default3||||No|jan_default14|||||||||};
+{jan_return|Ciao ragazzo. Hai trovato Irogotu giù nella grotta?|||Non ancora|jan_default14||||ripeti|jan_background||||Si|jan_complete||ring_gandir|1|};
+{jan_background|Non hai ascoltato la prima volta che ho detto la storia? Devo veramente ripeterla dall\'inizio?|||Si|jan_default3||||No|jan_default4||||UNTRANSLATED No, nevermind. I remember it now.|jan_default14||||};
 {jan_complete2|Grazie per aver affrontato Irogotu ! Io sono sempre in debito con voi.|||Ciao|X||||||||||||||};
-{jan_complete|A-a-aspetta,..coosa? Tu sei andato là sotto e sei tornato vivo? Come ci sei riuscito? Wow, sono quasi morto scendendo là sotto.\n\nOh ti ringrazio tanto per avermi riportato l\'anello di Gandir\'s ! Ora ho qualcosa per ricordarmi di lui.|jan:100||Ciao|X||||||||||||||};
+{jan_complete|A-a-aspetta,..coosa? Tu sei andato là sotto e sei tornato vivo? Come ci sei riuscito? Wow, sono quasi morto scendendo là sotto.\n\nOh ti ringrazio tanto per avermi riportato l\'anello di Gandir\'s ! Ora ho qualcosa per ricordarmi di lui.|jan:100||Ciao|X||||UNTRANSLATED Shadow be with you. Goodbye.|X||||UNTRANSLATED Whatever. I only did it for the loot.|X||||};
 
-{irogotu|Ecco un altro avventuriero. Questa è la mia caverna, il tesoro sarà mio!|||Gandir|irogotu1|jan:10|||iao|X|||||||||};
+{irogotu|Ecco un altro avventuriero. Questa è la mia caverna, il tesoro sarà mio!|||Gandir|irogotu1|jan:10|||||||||||||};
 {irogotu1|Questo piccolo Gandir? Si è messo sulla mia strada.L\'ho semplicemente usato per scavare più a fondo nella grotta.|||N|irogotu2||||||||||||||};
-{irogotu2|Inoltre, non mi era mai piaciuto.|||Anello|irogotu3||||||||||||||};
-{irogotu3|No, non puoi averlo. è mio!! E chi sei , ragazzo, per scendere quaggiù a disturbarmi?!|||Anello|irogotu4||||||||||||||};
-{irogotu4|No,se lo vuoi devi prenderlo con la forza. E devo dirti che i miei poteri sono grandi. Inoltre, probabilmente non avresti osato combattere contro di me.|||Combatti!|F||||Lascia|X|||||||||};
+{irogotu2|Inoltre, non mi era mai piaciuto.|||Anello|irogotu3||||UNTRANSLATED Jan mentioned something about a ring?|irogotu3|||||||||};
+{irogotu3|No, non puoi averlo. è mio!! E chi sei , ragazzo, per scendere quaggiù a disturbarmi?!|||Anello|irogotu4||||UNTRANSLATED Give me that ring and we might both come out of here alive.|irogotu4|||||||||};
+{irogotu4|No,se lo vuoi devi prenderlo con la forza. E devo dirti che i miei poteri sono grandi. Inoltre, probabilmente non avresti osato combattere contro di me.|||Combatti!|F||||Lascia|F|||||||||};
         </string>
 
         <string name="conversationlist_fallhaven">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{fallhaven_citizen1|Ciao a tutti. E\' bello il tempo?|||Fratello|fallhaven_andor_1||||Ciao|X|||||||||};
-{fallhaven_citizen2|Ciao. Cosa posso fare per te?|||Fratello|fallhaven_andor_2||||Ciao|X|||||||||};
-{fallhaven_citizen3|Ciao, come posso aiutarti?|||Fratello|fallhaven_andor_3||||Ciao|X|||||||||};
-{fallhaven_citizen4|Tu sei quel ragazzo del villaggio di Crossglen?|||Fratello|fallhaven_andor_4||||Ciao|X|||||||||};
-{fallhaven_citizen5|Fuori dai piedi, contadino.|||Ciao|X||||||||||||||};
-{fallhaven_citizen6|Buon giorno a te.|||Fratello|fallhaven_andor_6||||Ciao|X|||||||||};
-{fallhaven_andor_1|No mi spiace.Non ho visto nessuno da tale descrizione.|||Ciao|X||||||||||||||};
+{fallhaven_citizen1|Ciao a tutti. E\' bello il tempo?|||Fratello|fallhaven_andor_1||||||||||||||};
+{fallhaven_citizen2|Ciao. Cosa posso fare per te?|||Fratello|fallhaven_andor_2||||||||||||||};
+{fallhaven_citizen3|Ciao, come posso aiutarti?|||Fratello|fallhaven_andor_3||||||||||||||};
+{fallhaven_citizen4|Tu sei quel ragazzo del villaggio di Crossglen?|||Fratello|fallhaven_andor_4||||||||||||||};
+{fallhaven_citizen5|Fuori dai piedi, contadino.||||||||||||||||||};
+{fallhaven_citizen6|Buon giorno a te.|||Fratello|fallhaven_andor_6||||||||||||||};
+{fallhaven_andor_1|No mi spiace.Non ho visto nessuno da tale descrizione.||||||||||||||||||};
 {fallhaven_andor_2|Che altro ragazzo che dici? Hm, fammi pensare.|||N|fallhaven_andor_1||||||||||||||};
-{fallhaven_andor_3|Hm, ho visto qualcuno che corrisponde alla tua descrizione. Ma non riesco a ricordare dove.|||Ciao|X||||||||||||||};
-{fallhaven_andor_4|Oh sì, c\'era un altro ragazzo del villaggio di Crossglen qui, un paio di giorni fa. Non sono sicuro ma corrisponde alla tua descrizione.|||N|fallhaven_andor_4_1||||Ciao|X|||||||||};
-{fallhaven_andor_4_1|Alcune persone lo seguivano,cercando l\'ombra Non sò dirti nulla diu più.|||Ciao|X||||||||||||||};
-{fallhaven_andor_6|Nope. Non l\'ho mai visto.|||Ciao|X||||||||||||||};
-{fallhaven_guard|Tieniti fuori dai guai.|||Ciao|X||||||||||||||};
-{fallhaven_priest|che l\'ombra sia con te.|||Ombra|priest_Ombra_1||||Ciao|X|||||||||};
+{fallhaven_andor_3|Hm, ho visto qualcuno che corrisponde alla tua descrizione. Ma non riesco a ricordare dove.||||||||||||||||||};
+{fallhaven_andor_4|Oh sì, c\'era un altro ragazzo del villaggio di Crossglen qui, un paio di giorni fa. Non sono sicuro ma corrisponde alla tua descrizione.|||N|fallhaven_andor_4_1||||||||||||||};
+{fallhaven_andor_4_1|Alcune persone lo seguivano,cercando l\'ombra Non sò dirti nulla diu più.||||||||||||||||||};
+{fallhaven_andor_6|Nope. Non l\'ho mai visto.||||||||||||||||||};
+{fallhaven_guard|Tieniti fuori dai guai.||||||||||||||||||};
+{fallhaven_priest|che l\'ombra sia con te.|||Ombra|priest_shadow_1||||||||||||||};
 
-{priest_Ombra_1|L\'Ombra ci protegge. L\'Ombra ci tiene al sicuro e ci consola quando dormiamo.|||N|priest_Ombra_2||||||||||||||};
-{priest_Ombra_2|E ci segue ovunque andiamo. Vai con l\'Ombra mio figlio.|||Ciao|X||||||||||||||};
+{priest_shadow_1|L\'Ombra ci protegge. L\'Ombra ci tiene al sicuro e ci consola quando dormiamo.|||N|priest_shadow_2||||||||||||||};
+{priest_shadow_2|E ci segue ovunque andiamo. Vai con l\'Ombra mio figlio.|||Ciao|X||||UNTRANSLATED Whatever, bye.|X|||||||||};
 
-{rigmor|Beh Ciao a tutti! Non sei un ragazzo carino.|||Fratello|rigmor_1||||Ciao|rigmor_Lascia_select|||||||||};
-{rigmor_1|Tuo fratello dici? sis chiama Andor? No. Non posso ricordarmi di tutte le persone che incontro.|||Ciao|rigmor_Lascia_select||||||||||||||};
-{rigmor_Lascia_select|||||rigmor_Grazie|calomyran:100||||X|||||||||};
-{rigmor_Grazie|Ho sentito che hai aiutato il mio vecchio a trovare il suo libro, grazie. Si era parlato di quel libro per settimane. Poverino, tende a dimenticare le cose.|||Ciao|X||||||||||||||};
+{rigmor|Beh Ciao a tutti! Non sei un ragazzo carino.|||Fratello|rigmor_1||||Ciao|rigmor_leave_select|||||||||};
+{rigmor_1|Tuo fratello dici? sis chiama Andor? No. Non posso ricordarmi di tutte le persone che incontro.|||Ciao|rigmor_leave_select||||||||||||||};
+{rigmor_leave_select|||||rigmor_thanks|calomyran:100||||X|||||||||};
+{rigmor_thanks|Ho sentito che hai aiutato il mio vecchio a trovare il suo libro, grazie. Si era parlato di quel libro per settimane. Poverino, tende a dimenticare le cose.|||Ciao|X||||UNTRANSLATED You should keep an eye on him, or bad things might happen to him.|X||||UNTRANSLATED Whatever, I just did it for the money.|X||||};
 
-{fallhaven_clothes|Benvenuti nel mio negozio. Vi prego di guardare la mia selezione di abiti e gioielli .|||Compra|S||||Ciao|X|||||||||};
-{fallhaven_potions|Benvenuti nel mio negozio. Si prega di guardare la mia selezione di pozioni per tutti i giorni.|||Compra|S||||Ciao|X|||||||||};
+{fallhaven_clothes|Benvenuti nel mio negozio. Vi prego di guardare la mia selezione di abiti e gioielli .|||Compra|S||||||||||||||};
+{fallhaven_potions|Benvenuti nel mio negozio. Si prega di guardare la mia selezione di pozioni per tutti i giorni.|||Compra|S||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_bucus">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{bucus_welcome|Ciao di nuovo, benvenuto alla .. Oh aspetta, pensavo che fosse qualcun altro.|||Fratello|bucus_andor_select||||Thieves Guild|bucus_thieves_select||||Ciao|X||||};
+{bucus_welcome|Ciao di nuovo, benvenuto alla .. Oh aspetta, pensavo che fosse qualcun altro.|||Fratello|bucus_andor_select||||Thieves Guild|bucus_thieves_select|||||||||};
 {bucus_andor_select|||||bucus_umar_1|bucus:100||||bucus_andor_no_1|||||||||};
 {bucus_andor_no_1|Ti interessa questa domanda. Che succede se l\'ho visto? Perchè dovrei dirtelo?|||N|bucus_andor_no_2||||||||||||||};
-{bucus_andor_no_2|No, non posso dirtelo.Ora sei pregato di andartene|||Ciao|X||||||||||||||};
+{bucus_andor_no_2|No, non posso dirtelo.Ora sei pregato di andartene||||||||||||||||||};
 {bucus_thieves_select|||||bucus_thieves_complete_3|bucus:100||||bucus_thieves_continue|bucus:10||||bucus_thieves_select2||||};
 {bucus_thieves_select2|||||bucus_thieves_1|andor:40||||bucus_thieves_no|||||||||};
-{bucus_thieves_no|Ch--che cosa? No io non sò niente di quello.|||Ciao|X||||||||||||||};
+{bucus_thieves_no|Ch--che cosa? No io non sò niente di quello.||||||||||||||||||};
 {bucus_umar_1|Ok ragazzo. Ti sei dimostrato degno. Si, ho visto un ragazzo che corrisponde alla descrizione girare da queste parti qualce giorno fà.|||N|bucus_umar_2||||||||||||||};
 {bucus_umar_2|Non sò cosa stesse facendo. Continuava a fare un sacco di domande!! Un pò come stai facendo adesso tu. *hihihihihi*|||N|bucus_umar_3||||||||||||||};
 {bucus_umar_3|Comunque, questo è tutto quello che so. Dovresti andare a parlare con Umar, conosce probabilmente di più.|andor:50||Ok, Ciao|X||||||||||||||};
-{bucus_thieves_1|Chi te l\'ha detto? Argh. \n\nOk in che modo ci avete trovati? e adesso?|||Entra|bucus_thieves_2||||Ciao|X|||||||||};
-{bucus_thieves_2|Hah! Vuoi unirti alla gilda dei ladri?! Tu?!\n\nTu sei un bambino divertente.|||io sono serio|bucus_thieves_3||||Ciao|X|||||||||};
-{bucus_thieves_3|Ok, cosa vuoi sapere. Svolgi un compito per me e forse posso considerare di darti qualche altra informazione.|||Dimmi|bucus_thieves_4||||Ciao|X|||||||||};
+{bucus_thieves_1|Chi te l\'ha detto? Argh. \n\nOk in che modo ci avete trovati? e adesso?|||Entra|bucus_thieves_2||||||||||||||};
+{bucus_thieves_2|Hah! Vuoi unirti alla gilda dei ladri?! Tu?!\n\nTu sei un bambino divertente.|||io sono serio|bucus_thieves_3||||Ciao|bucus_thieves_3|||||||||};
+{bucus_thieves_3|Ok, cosa vuoi sapere. Svolgi un compito per me e forse posso considerare di darti qualche altra informazione.|||Dimmi|bucus_thieves_4||||Ciao|bucus_thieves_4|||||||||};
 {bucus_thieves_4|portami la chiave di Luthor e poi potremo parlare. Io non so nulla della chiave, ma si dice che si trovi da qualche parte nelle catacombe sotto la Chiesa di Fallhaven .|bucus:10||Ok|X||||||||||||||};
 {bucus_thieves_continue|Come và la ricerca per la chiave di Luthor ?|||Ripeti|bucus_thieves_4||||ce l\'ho|bucus_thieves_complete_1||key_luthor|1|Ciao|X||||};
 {bucus_thieves_complete_1|Wow, sei riuscito a prendere la chiave di Luthor? Non pensavo che tu ci riuscissi.|bucus:100||N|bucus_thieves_complete_2||||||||||||||};
 {bucus_thieves_complete_2|Ben fatto ragazzo.|||N|bucus_thieves_complete_3||||||||||||||};
-{bucus_thieves_complete_3|Ok, ora possiamo parlare, cosa vuoi sapere?|||Fratello|bucus_umar_1||||Ciao|X|||||||||};
+{bucus_thieves_complete_3|Ok, ora possiamo parlare, cosa vuoi sapere?|||Fratello|bucus_umar_1||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_drunk">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{fallhaven_drunk|Non ci sono problemi. No sireee! Non causerai più problemi adesso. Siedito fuori di quì.|||N|fallhaven_drunk_2||||Ciao|X|||||||||};
+{fallhaven_drunk|Non ci sono problemi. No sireee! Non causerai più problemi adesso. Siedito fuori di quì.|||N|fallhaven_drunk_2||||||||||||||};
 {fallhaven_drunk_2|Aspetta, chi sei tu? Sei quella guiardia?|||Si|fallhaven_drunk_3_1||||No|fallhaven_drunk_3_2|||||||||};
 {fallhaven_drunk_3_1|Oh, Signore. Non faccio più confusione? Me ne stò fuori adesso, come avevamo detto?|||N|fallhaven_drunk_4||||||||||||||};
 {fallhaven_drunk_3_2|Oh, bene. La guardia mi ha sbattuto fuori dalla taverna. Se lo rivedo glie ne dico 3 o 4.|||N|fallhaven_drunk_4||||||||||||||};
@@ -207,152 +207,152 @@
 {fallhaven_drunk_7|No no, era fuori! Ora mi ricordo.|||N|fallhaven_drunk_7_select||||||||||||||};
 {fallhaven_drunk_7_select|||||fallhaven_drunk_11|fallhavendrunk:100||||fallhaven_drunk_8|||||||||};
 {fallhaven_drunk_8|E\' l\' che abbiamo..\n\nHey, dov\'è andato il mio idromele? L\hai preo tu? |||Si|fallhaven_drunk_9_1||||No|fallhaven_drunk_9_2|||||||||};
-{fallhaven_drunk_9_1|Beh allora ridammelo, oppure compramente un\'altro.|fallhavendrunk:10||è quì|fallhaven_drunk_10||idromele|1|Ciao|X|||||||||};
-{fallhaven_drunk_9_2|Devo aver bevuto allora. Potresti farmi un idromele nuovo? che ne pensi? |fallhavendrunk:10||Quì ce l\hanno|fallhaven_drunk_10||idromele|1|Ciao|X|||||||||};
+{fallhaven_drunk_9_1|Beh allora ridammelo, oppure compramente un\'altro.|fallhavendrunk:10||è quì|fallhaven_drunk_10||mead|1|Ciao|X||||UNTRANSLATED No. I don\'t think I should help you. Goodbye.|X||||};
+{fallhaven_drunk_9_2|Devo aver bevuto allora. Potresti farmi un idromele nuovo? che ne pensi? |fallhavendrunk:10||Quì ce l\hanno|fallhaven_drunk_10||mead|1|Ciao|X||||UNTRANSLATED No. I don\'t think I should help you. Goodbye.|X||||};
 {fallhaven_drunk_10|Oh sweet drinks of joy. May the sssOmbra be with you kid. *makes big eSi*|||N|fallhaven_drunk_11||||||||||||||};
 {fallhaven_drunk_11|*Beve un sorso di idromele......*\n\nQuesta roba è buoooonaaa!|||N|fallhaven_drunk_12||||||||||||||};
-{fallhaven_drunk_12|Yeah, io e Unnmir abbiamo passato dei momenti felici. Vai a chiedere a lui!! di solito stà nel fienile a est di quì. Mi chiedo se il tesoro è andato.|fallhavendrunk:100||Ciao|X||||||||||||||};
+{fallhaven_drunk_12|Yeah, io e Unnmir abbiamo passato dei momenti felici. Vai a chiedere a lui!! di solito stà nel fienile a est di quì. Mi chiedo se il tesoro è andato.|fallhavendrunk:100||Ciao|X||||UNTRANSLATED Thank you for the story. Goodbye.|X|||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_oldman">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
 {fallhaven_oldman|||||fallhaven_oldman_complete_2|calomyran:100||||fallhaven_oldman_continue|calomyran:10||||fallhaven_oldman_1||||};
-{fallhaven_oldman_1|Vuoi fare un favore ad un vecchio?|||Certo|fallhaven_oldman_2||||Ciao|X|||||||||};
+{fallhaven_oldman_1|Vuoi fare un favore ad un vecchio?|||Certo|fallhaven_oldman_2||||Ciao|fallhaven_oldman_2||||UNTRANSLATED No, I won\'t help an old timer like you. Bye.|X||||};
 {fallhaven_oldman_2|Di recente ho perso un libro molto prezioso in miniera.|||N|fallhaven_oldman_3||||||||||||||};
 {fallhaven_oldman_3|So che ho avuto con me Siterday. Ora io non riesco a trovarlo.|||N|fallhaven_oldman_4||||||||||||||};
 {fallhaven_oldman_4|Io non perdo nulla! La mia idea è che qualcuno lo abbia rubato.|||N|fallhaven_oldman_5||||||||||||||};
 {fallhaven_oldman_5|Andresti per favore a cercare il mio libro? Si intitola Calomyran secrets\'.|||N|fallhaven_oldman_6||||||||||||||};
 {fallhaven_oldman_6|Non ho idea di dove possa essere. Si potrebbe chiedere ad Arcir, sembra molto affezionato ai suoi libri. * vai alla casa a sud *|calomyran:10||Ciao|X||||||||||||||};
 {fallhaven_oldman_continue| Come và la ricerca del mio libro ? Si chiama  Calomyran secrets\'. L\'hai trovato?|||Si|fallhaven_oldman_complete||calomyran_secrets|1|No|fallhaven_oldman_6||||Ripeti|fallhaven_oldman_2||||};
-{fallhaven_oldman_complete|Il mio libro! Grazie, grazie! Dov\'era? No, non dirmelo. Ecco, queste monete per l\'aiuto e per il disturbo.|calomyran:100|gold51|Ciao|X||||||||||||||};
-{fallhaven_oldman_complete_2|Grazie mille per aver ritrovato il mio libro!|||Ciao|X||||||||||||||};
+{fallhaven_oldman_complete|Il mio libro! Grazie, grazie! Dov\'era? No, non dirmelo. Ecco, queste monete per l\'aiuto e per il disturbo.|calomyran:100|gold51|Ciao|X||||UNTRANSLATED At last, some gold. Bye.|X|||||||||};
+{fallhaven_oldman_complete_2|Grazie mille per aver ritrovato il mio libro!||||||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_nocmar">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{nocmar|Hello. I\'m Nocmar.|||Compra|nocmar_Compra_select||||Unnmir|nocmar_quest_select|nocmar:10|||Ciao|X||||};
+{nocmar|Hello. I\'m Nocmar.|||Compra|nocmar_trade_select||||Unnmir|nocmar_quest_select|nocmar:10|||Ciao|X||||};
 {nocmar_quest_select|||||nocmar_complete_5|nocmar:200||||nocmar_continue|nocmar:20||||nocmar_quest||||};
-{nocmar_Compra_select|||||S|nocmar:200||||nocmar_Compra_1|||||||||};
-{nocmar_Compra_1|Non ho oggetti in vendita.Ho speso tutto per avere un sacco di oggetti, ma oggi non sonbo autorizzato a vendere nulla .|||N|nocmar_Compra_2||||||||||||||};
-{nocmar_Compra_2|Una volta ero uno dei più grandi fabbri in Fallhaven. Poi quel bastardo di Lord Geomyr mi ha vietato l\'uso della mia fucina Acciao puro.|||N|nocmar_Compra_3||||||||||||||};
-{nocmar_Compra_3|Con il decreto di  Lord Geomyr, nessuno in Fallhaven è autorizzato ad utilizzare nemmeno le armi Acciao puro. Vendo molto meno ora.|||N|nocmar_Compra_4||||||||||||||};
-{nocmar_Compra_4|Così ora ho nascosto le ultime armi che mi rimanevano.Non oso venderle a nessuno|||N|nocmar_Compra_4_1||||||||||||||};
-{nocmar_Compra_4_1|Non vedo il bagliore di armi Acciao puro da quando Lord Geomyr le ha vietate.|||N|nocmar_Compra_5||||||||||||||};
-{nocmar_Compra_5|Cos\', purtroppo non posso vendere nessuna delle mie armi.|||Ciao|X||||||||||||||};
+{nocmar_trade_select|||||S|nocmar:200||||nocmar_trade_1|||||||||};
+{nocmar_trade_1|Non ho oggetti in vendita.Ho speso tutto per avere un sacco di oggetti, ma oggi non sonbo autorizzato a vendere nulla .|||N|nocmar_trade_2||||||||||||||};
+{nocmar_trade_2|Una volta ero uno dei più grandi fabbri in Fallhaven. Poi quel bastardo di Lord Geomyr mi ha vietato l\'uso della mia fucina Acciao puro.|||N|nocmar_trade_3||||||||||||||};
+{nocmar_trade_3|Con il decreto di  Lord Geomyr, nessuno in Fallhaven è autorizzato ad utilizzare nemmeno le armi Acciao puro. Vendo molto meno ora.|||N|nocmar_trade_4||||||||||||||};
+{nocmar_trade_4|Così ora ho nascosto le ultime armi che mi rimanevano.Non oso venderle a nessuno|||N|nocmar_trade_4_1||||||||||||||};
+{nocmar_trade_4_1|Non vedo il bagliore di armi Acciao puro da quando Lord Geomyr le ha vietate.|||N|nocmar_trade_5||||||||||||||};
+{nocmar_trade_5|Cos\', purtroppo non posso vendere nessuna delle mie armi.||||||||||||||||||};
 {nocmar_quest|Unnmir ti ha mandato?Immagino che debba essere importante.|nocmar:20||N|nocmar_quest_1||||||||||||||};
 {nocmar_quest_1|Ok, queste vecchie armi hanno perso la loro luce interiore, è da molto che non vengono utilizzate.|||N|nocmar_quest_2||||||||||||||};
 {nocmar_quest_2|Per ridare la luce alle armi avremo bisogno di un cuore di pietra. |||N|nocmar_quest_3||||||||||||||};
 {nocmar_quest_3|Anni fa, l\'abbiamo usato per combattere il lich di Undertell. Non ho idea se ancora infestino quel luogo.|||Undertell|nocmar_quest_4||||||||||||||};
 {nocmar_quest_4|Undertell; i pozzi delle anime perdute. Viaggia a sud ed entra nelle le caverne dei Nani. Segui l\'odore orribile .|||N|nocmar_quest_5||||||||||||||};
-{nocmar_continue|Have you found a Pietra pura yet?|||Si|nocmar_complete||cuore di pietra|1|Ripeti|nocmar_quest_1||||Non ancora|nocmar_continue_2||||};
-{nocmar_continue_2|Per favore continua a cercare. Unnmir deve avere qualcosa di importante in programma per te.|||Ciao|X||||||||||||||};
-{nocmar_quest_5|Attento ai lich di Undertell, se ancora ce ne sono ion giro. Quelle ...cose.. possono ucciderti solo con lo sguardo .|||Ciao|X||||||||||||||};
+{nocmar_continue|Have you found a Pietra pura yet?|||Si|nocmar_complete||heartstone|1|Ripeti|nocmar_quest_1||||Non ancora|nocmar_continue_2||||};
+{nocmar_continue_2|Per favore continua a cercare. Unnmir deve avere qualcosa di importante in programma per te.||||||||||||||||||};
+{nocmar_quest_5|Attento ai lich di Undertell, se ancora ce ne sono ion giro. Quelle ...cose.. possono ucciderti solo con lo sguardo .||||||||||||||||||};
 {nocmar_complete|on l\'ombra. Hai realmente trovato un cuore di pietra. Ho sempre pensato di non riuscire a vivere abbastanza per vedere questo|nocmar:200||N|nocmar_complete_2||||||||||||||};
 {nocmar_complete_2|Riesci a vedere la luce? E \'letteralmente pulsante.|||N|nocmar_complete_3||||||||||||||};
 {nocmar_complete_3|Veloce. Lascia riprendere il vecchio bagliore a queste armi.|||N|nocmar_complete_4||||||||||||||};
 {nocmar_complete_4|*Nocmar pone il cuore di pietra fra le armi Acciao puro*|||N|nocmar_complete_5||||||||||||||};
-{nocmar_complete_5|Riesci a sentirlo? Acciao puro è di nuovo incandescente.|||Compra|S||||Ciao|X|||||||||};
+{nocmar_complete_5|Riesci a sentirlo? Acciao puro è di nuovo incandescente.|||Compra|S||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_tavern">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{bela|Benvenuto nella taverna di Fallhaven. Ho un mucchio di posti liberi.|||Compra|S||||Stanza|bela_room_select||||Ciao|X||||};
+{bela|Benvenuto nella taverna di Fallhaven. Ho un mucchio di posti liberi.|||Compra|S||||Stanza|bela_room_select|||||||||};
 {bela_room_1|Una stanza per l\' notte vi costerà 10 monete.|||Compra [10 gold]|bela_room_2||||Indietro|bela|||||||||};
 {bela_room_2|Grazie. Prendete l\'ultima stanza giù in fondo al corridoio.|fallhaventavern:10|gold-10|Indietro|bela||||Ciao|X|||||||||};
 {bela_room_3|Mi auguro che la stanza sa di tuo gradimento. E\'l\'ultima sala giù in fondo al corridoio.|||Indietro|bela||||Ciao|X|||||||||};
 {bela_room_select|||||bela_room_3|fallhaventavern:10||||bela_room_1|||||||||};
-{ganos|You seem familiar somehow.|||Compra|S||||Gilda dei ladri|ganos_1|andor:30|||Ciao|X||||};
-{ganos_1|Gilda dei ladri? Come faccio a saperlo? Ti sembro un ladro?! Hrmpf.|||Lascia|X||||||||||||||};
+{ganos|You seem familiar somehow.|||Compra|S||||Gilda dei ladri|ganos_1|andor:30||||||||};
+{ganos_1|Gilda dei ladri? Come faccio a saperlo? Ti sembro un ladro?! Hrmpf.||||||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_arcir">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{arcir_start|Ciao, io sono Arcir.|||Elythara|arcir_elythara_1|arcir:10|||Libro|arcir_Libro_1||||Ciao|X||||};
-{arcir_anythingelse|Volevi chiedermi qualcosa?|||Elythara|arcir_elythara_1|arcir:10|||Libro|arcir_Libro_1||||Ciao|X||||};
+{arcir_start|Ciao, io sono Arcir.|||Elythara|arcir_elythara_1|arcir:10|||Libro|arcir_books_1|||||||||};
+{arcir_anythingelse|Volevi chiedermi qualcosa?|||Elythara|arcir_elythara_1|arcir:10|||Libro|arcir_books_1|||||||||};
 {arcir_elythara_1|Hai trovato la mia statua nel seminterrato ? \n\nSi, Elythara è il mio protettore.|||Indietro|arcir_anythingelse||||||||||||||};
-{arcir_Libro_1|Ho una grande riconoscenza verso i miei libri. Contengono le conoscenze accumulate dalle generazioni passate|||Calomyran secrets|arcir_calomyran_select|calomyran:10|||Indietro|arcir_anythingelse|||||||||};
+{arcir_books_1|Ho una grande riconoscenza verso i miei libri. Contengono le conoscenze accumulate dalle generazioni passate|||Calomyran secrets|arcir_calomyran_select|calomyran:10|||Indietro|arcir_anythingelse|||||||||};
 {arcir_calomyran_1|Segreti Calomyran? Hm, Si penso di averne una copia nella cantina.|||N|arcir_calomyran_2||||||||||||||};
 {arcir_calomyran_2|Il vecchio Benradas venne da me la setimana scorsa, per vendermi quel libro. Ma non è proprio il mio genere e quindi ho rifiutato|||N|arcir_calomyran_3||||||||||||||};
 {arcir_calomyran_3|Sembrava sconvolto dal fatto che non mi piaceva il suo libro, e lo ha lanciato verso di me mentre usciva di casa.|||N|arcir_calomyran_4||||||||||||||};
-{arcir_calomyran_4|Benradas , povero vecchio, probabilmente ha dimenticato che l\'ha lasciato qui. Si tende a dimenticare le cose.|||Indietro|arcir_anythingelse||||||||||||||};
+{arcir_calomyran_4|Benradas , povero vecchio, probabilmente ha dimenticato che l\'ha lasciato qui. Si tende a dimenticare le cose.|||N|arcir_anythingelse||||||||||||||};
 {arcir_calomyran_5|Hai guardato giù, ma non lo trovi? C\'è un biglietto? Credo che qualcuno sia venuto a visitarmi .|||N|arcir_calomyran_6||||||||||||||};
 {arcir_calomyran_select|||||arcir_calomyran_complete|calomyran:100||||arcir_calomyran_5|calomyran:20||||arcir_calomyran_1||||};
-{arcir_calomyran_complete|Ho sentito che l\' hai trovato e l\' hai ridato al vecchio Benradas . Grazie. tende a dimenticarsi le cose.|||Indietro|arcir_anythingelse||||Ciao|X|||||||||};
+{arcir_calomyran_complete|Ho sentito che l\' hai trovato e l\' hai ridato al vecchio Benradas . Grazie. tende a dimenticarsi le cose.|||N|arcir_anythingelse||||||||||||||};
 {arcir_calomyran_6|Cosa hai sentito dire?\n\nLarcal.. Lo conosco, sempre a creare problemi. Di solito stà nel fienile ad est di quì.|||Grazie, Ciao|X||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_church">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{chapelgoer|Ombra, embrace me.|||Ciao|X||||||||||||||};
-{thoronir_default|Crogiolatevi nell\'ombra, figli miei.|||Ombra|thoronir_Ombra_1||||Chiesa|thoronir_church_1||||Compra|thoronir_Compra_bonemeal|bonemeal:100|||};
-{thoronir_Ombra_1|L\' ombra ci protegge dai pericoli della notte. Ci tiene al sicuro e ci consola mentre dormiamo.|||Bagliore dell\'ombra|thoronir_tharal_select|bonemeal:30|||Indietro|thoronir_default||||Ciao|X||||};
+{chapelgoer|Ombra, embrace me.||||||||||||||||||};
+{thoronir_default|Crogiolatevi nell\'ombra, figli miei.|||Ombra|thoronir_shadow_1||||Chiesa|thoronir_church_1||||Compra|thoronir_trade_bonemeal|bonemeal:100|||};
+{thoronir_shadow_1|L\' ombra ci protegge dai pericoli della notte. Ci tiene al sicuro e ci consola mentre dormiamo.|||Bagliore dell\'ombra|thoronir_tharal_select|bonemeal:30|||Indietro|thoronir_default||||Ciao|thoronir_default||||};
 {thoronir_church_1|Questa è la nostra cappella di culto a Fallhaven. La nostra comunità si rivolge a noi per il sostegno.|||N|thoronir_church_2||||||||||||||};
 {thoronir_church_2|Questa chiesa ha resistito per centianaia di anno, ed è stata tenuta al sicuro dai tombaroli.|||N|thoronir_church_3||||||||||||||};
-{thoronir_tharal_select|||||thoronir_Compra_bonemeal|bonemeal:100||||thoronir_tharal_1|||||||||};
-{thoronir_tharal_1|Bagliore dell\' Ombra  figlio mio. Quindi il mio vecchio amico Tharal ti ha inviato dal villaggio di Crossglen?|||N|thoronir_tharal_2||||||||||||||};
-{thoronir_church_3|Le catacombe sotto la chesa ospitano i grandi leader del passato. Si dice che anche il grande Luthor sia sepolto lì .|||Entra|thoronir_church_4|bucus:10|||Indietro|thoronir_default||||Ciao|X||||};
+{thoronir_tharal_select|||||thoronir_trade_bonemeal|bonemeal:100||||thoronir_tharal_1|||||||||};
+{thoronir_tharal_1|Bagliore dell\' Ombra  figlio mio. Quindi il mio vecchio amico Tharal ti ha inviato dal villaggio di Crossglen?|||UNTRANSLATED What can you tell me about bonemeal?|thoronir_tharal_2||||||||||||||};
+{thoronir_church_3|Le catacombe sotto la chesa ospitano i grandi leader del passato. Si dice che anche il grande Luthor sia sepolto lì .|||Entra|thoronir_church_4|bucus:10|||Indietro|thoronir_default|||||||||};
 {thoronir_church_4|A nessuno è permesso scendere, fatta eccezione per Athamyr, il mio apprendista. E\' l\'unico che è sceso laggiù per anni.|bucus:20||Indietro|thoronir_default||||||||||||||};
 {thoronir_tharal_2|Shhh, non si dovrebbe parlare dell\'utilizzo di farina d\'ossa. Come sapete, Lord Geomyr ha emesso un divieto di uso di qualsiasi farina animale.|||N|thoronir_tharal_3||||||||||||||};
 {thoronir_tharal_3|Quando il divieto è arrivato, non ho osato tenerne, così ho buttato via la mia intera fornitura.Molto sciocco da parte mia.....|||N|thoronir_tharal_4||||||||||||||};
-{thoronir_tharal_4|Pensi di potermi trovare 5 ossa di scheletro che puosso utilizzare per preparare una pozione di ossa? La farina di ossa è molto potente nella guarigione delle ferite.|||Certo|thoronir_tharal_5||||Fatto|thoronir_tharal_complete||bone|5|Ciao|X||||};
-{thoronir_tharal_5|Grazie, fai in fretta. Ho sentito che ci sono stati dei morti vicino ad una vecchia casa a nord di Fallhaven. Forsepuoi provare a vedere lì ?|bonemeal:40||Indietro|thoronir_default||||Ciao|X|||||||||};
+{thoronir_tharal_4|Pensi di potermi trovare 5 ossa di scheletro che puosso utilizzare per preparare una pozione di ossa? La farina di ossa è molto potente nella guarigione delle ferite.|||Certo|thoronir_tharal_5||||Fatto|thoronir_tharal_complete||bone|5||||||};
+{thoronir_tharal_5|Grazie, fai in fretta. Ho sentito che ci sono stati dei morti vicino ad una vecchia casa a nord di Fallhaven. Forsepuoi provare a vedere lì ?|bonemeal:40||Indietro|thoronir_default||||||||||||||};
 {thoronir_tharal_complete|Grazie, queste ossa vanno bene. Ora posso iniziare a creare una pozione di guarigione per voi.|bonemeal:100||N|thoronir_complete_2||||||||||||||};
-{thoronir_complete_2|Dammi il tempo di preparare la pozione di farina d\'ossa. Si tratta di una pozione di guarigione molto potente.|||Ciao|X||||||||||||||};
-{thoronir_Compra_bonemeal|La pozione d\'ossa è pronta, utilizzala con cura e non farti vedere dalle guardie. Non siamo autorizzati ad usarla!.|||Compra|S||||Indietro|thoronir_default||||Ciao|X||||};
-{catacombguard|Torna Indietro finchè sei in tempo, mortale!. Questo posto non è per voi. Solo la morte voi aspetta qui.|||Torna Indietro|X||||Procedi|catacombguard1|||||||||};
+{thoronir_complete_2|Dammi il tempo di preparare la pozione di farina d\'ossa. Si tratta di una pozione di guarigione molto potente.||||||||||||||||||};
+{thoronir_trade_bonemeal|La pozione d\'ossa è pronta, utilizzala con cura e non farti vedere dalle guardie. Non siamo autorizzati ad usarla!.|||Compra|S||||Indietro|thoronir_default|||||||||};
+{catacombguard|Torna Indietro finchè sei in tempo, mortale!. Questo posto non è per voi. Solo la morte voi aspetta qui.|||Torna Indietro|X||||Procedi|catacombguard1||||UNTRANSLATED By the Shadow, you will not stop me.|catacombguard1||||};
 {catacombguard1|Nooo, non passerai!|||Combatti|F||||||||||||||};
-{luthor|*hissss* Un mortale osa disturbare il mio sonno?|||Combatti|F||||||||||||||};
+{luthor|*hissss* Un mortale osa disturbare il mio sonno?|||Combatti|F||||UNTRANSLATED At last, a worthy fight! I have been waiting for this.|F||||UNTRANSLATED Whatever, let\'s get this over with.|F||||};
         </string>
 
         <string name="conversationlist_fallhaven_athamyr">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{athamyr|Cammina con l\'ombra.|||Catacombe|athamyr_select|bucus:20|||Ciao|X|||||||||};
+{athamyr|Cammina con l\'ombra.|||Catacombe|athamyr_select|bucus:20|||||||||||||};
 {athamyr_1|Si, sono già stato nelle catacombe della chiesa di Fallhaven. |||N|athamyr_2||||||||||||||};
 {athamyr_2|Ma io sono l\'unico che ha il permesso e il coraggio di andare laggiù.|||Permesso|athamyr_3||||||||||||||};
 {athamyr_3|Vuoi scendere nelle catacombe? Hm, forse possiamo fare un accordo.|||N|athamyr_4||||||||||||||};
-{athamyr_4|Portami po di quella carne cotta dalla taverna e puoi avere il permesso di scendere nelle catacombe.|bucus:30||Fatto|athamyr_complete||Carne cotta|1|Ciao|X|||||||||};
-{athamyr_complete_2|Grazie per avermi aiutato. Ora hai il permesso di scendere nelle catacombe della Chiesa di Fallhaven .|bucus:50||Ciao|X||||||||||||||};
+{athamyr_4|Portami po di quella carne cotta dalla taverna e puoi avere il permesso di scendere nelle catacombe.|bucus:30||Fatto|athamyr_complete||meat_cooked|1|Ciao|X|||||||||};
+{athamyr_complete_2|Grazie per avermi aiutato. Ora hai il permesso di scendere nelle catacombe della Chiesa di Fallhaven .|bucus:50|||||||||||||||||};
 {athamyr_select|||||athamyr_complete_2|bucus:40||||athamyr_1|||||||||};
 {athamyr_complete|Grazie, Ci voleva.|bucus:40||N|athamyr_complete_2||||||||||||||};
         </string>
         
         <string name="conversationlist_fallhaven_larcal">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{larcal|Non ho tempo per te ragazzo. perdi tempo.|||Calomyran Secrets|larcal_1|calomyran:20|||Ciao|X|||||||||};
+{larcal|Non ho tempo per te ragazzo. perdi tempo.|||Calomyran Secrets|larcal_1|calomyran:20|||||||||||||};
 {larcal_1|Ora ora, cosa abbiamo quì? Voi mi accusate di essere stato nel seminterrato di Arcir\'s|||N|larcal_2||||||||||||||};
 {larcal_2|Forse è vero. Comunque il libro è mio.|||N|larcal_3||||||||||||||};
 {larcal_3|Cerchiamo di risolvere la cosa pacificamente. vai a cercare quel libro da qualche altra parte, e magari resterai vivo.|||Lascia|larcal_4||||No|larcal_5|||||||||};
-{larcal_4|Bravo ragazzo, scappa scappa.|||Ciao|X||||||||||||||};
+{larcal_4|Bravo ragazzo, scappa scappa.||||||||||||||||||};
 {larcal_5|OK, ora stai cominciando ad infastidirmi. Vattene finch\'è sei in tempo.|||Lascia|X||||No|larcal_6|||||||||};
-{larcal_6|Ancora quì? OK, se vuoi avere quel libro...vienitelo a prendere!|||Combatti|F||||Lascia|X|||||||||};
+{larcal_6|Ancora quì? OK, se vuoi avere quel libro...vienitelo a prendere!|||Combatti|F||||Lascia|F||||UNTRANSLATED Very well. I will leave.|X||||};
         </string>
 
         <string name="conversationlist_fallhaven_unnmir">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{unnmir|Ciao a tutti.|||Drunken story|unnmir_1|fallhavendrunk:100|||Ciao|X|||||||||};
+{unnmir|Ciao a tutti.|||Drunken story|unnmir_1|fallhavendrunk:100|||||||||||||};
 {unnmir_1|Quel vecchio ubriacone alla taverna ti ha raccontato la sua storia?|||N|unnmir_2||||||||||||||};
 {unnmir_2|La stessa vecchia storia. Eravamo abituati a viaggiare insieme qualche anno fa.|||N|unnmir_3||||||||||||||};
 {unnmir_3|Avventure vere...sai, spade e incantesimi.|||N|unnmir_4||||||||||||||};
 {unnmir_4|Ma poi ci siamo fermati, non sò dirti il perchè, forse eravamo stanchi di viaggiare. Ci siamo fermati quì a fallhaven.|||N|unnmir_5||||||||||||||};
 {unnmir_5|E\' una bella cittadina. Molti ladri in giro, però non mi preoccupo.|||N|unnmir_6||||||||||||||};
-{unnmir_6|Allora, qual\'è la tua storia ragazzo? Come hai fatto a finire qui a Fallhaven?|||Fratello|unnmir_7||||Ciao|X|||||||||};
+{unnmir_6|Allora, qual\'è la tua storia ragazzo? Come hai fatto a finire qui a Fallhaven?|||Fratello|unnmir_7||||||||||||||};
 {unnmir_7|Sì, sì, ho capito. Tuo Fratello è probabilmente scappato in qualche miniera pr fare l\'avventuriero. *rolls eSi*|||N|unnmir_8||||||||||||||};
 {unnmir_8|O forse si è recato in una delle città più a nord.|||N|unnmir_9||||||||||||||};
 {unnmir_9|Non posso dargli nessun torto per voler vedere il mondo.|||N|unnmir_10||||||||||||||};
 {unnmir_10|Hey , stai cercando anche tù di fare l\'avventuriero??|||Si|unnmir_11||||Non proprio|unnmir_12|||||||||};
 {unnmir_11|Bene. Ti do un piccolo suggerimento. * sghignazzando *. Vai a trovare Nocmar oltre il lato ovest della città. Digli che ti ho mandato io.|nocmar:10||N|unnmir_13||||||||||||||};
-{unnmir_12|Mossa intelligente. l\'avventura porta un sacco di cicatrici. Se sai cosa voglio dire.|||Ciao|X||||||||||||||};
+{unnmir_12|Mossa intelligente. l\'avventura porta un sacco di cicatrici. Se sai cosa voglio dire.||||||||||||||||||};
 {unnmir_13|La sua casa è a sud-ovest della taverna.|||Grazie|X||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_gaela">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{gaela|Veloce è la mia lama. velenosa la mia lingua. O era il contrario?|||Ladri|gaela_1||||Ciao|X|||||||||};
-{gaela_1|Si, noi ladri abbiamo una forte presenza a Fallhaven.|||N|gaela_2|andor:30|||Ciao|X|||||||||};
+{gaela|Veloce è la mia lama. velenosa la mia lingua. O era il contrario?|||Ladri|gaela_1||||||||||||||};
+{gaela_1|Si, noi ladri abbiamo una forte presenza a Fallhaven.|||UNTRANSLATED Anything more?|gaela_2|andor:30|||||||||||||};
 {gaela_2|Ho sentito che hai aiutato Gruil, un ladro compagn del villaggio di Crossglen.|||N|gaela_3||||||||||||||};
 {gaela_3|Voci dicono che stai cercando qualcuno. Potre essere in grado di aiutarti.|||N|gaela_4||||||||||||||};
 {gaela_4|Dovresti andare a parlare con Bucus nella casa abbandonata a sud-ovest . Digli che vuoi sapere di più sulla gilda dei ladri.|andor:40||Grazie|gaela_5||||||||||||||};
-{gaela_5|Consideralo un favore, in cambio aiuta Gruil.|||Ciao|X||||||||||||||};
+{gaela_5|Consideralo un favore, in cambio aiuta Gruil.||||||||||||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_vacor">
@@ -362,7 +362,7 @@
 {vacor_begin|Ciao.|||N|vacor_2||||||||||||||};
 {vacor_2|Cosa sei, una specie di avventuriero? Hm. Forse puoi essermi utile.|||N|vacor_3||||||||||||||};
 {vacor_3|Sei disposto ad aiutarmi?|||Certo|vacor_4||||No|vacor_bah|||||||||};
-{vacor_bah|Bah, umile creatura. Sapevo che non dovevo chiedere a te. Ora vattene.|||Vai|X||||||||||||||};
+{vacor_bah|Bah, umile creatura. Sapevo che non dovevo chiedere a te. Ora vattene.||||||||||||||||||};
 {vacor_4|Qualche tempo fa, stavo lavorando su un incantesimo di rotura che avevo letto.|||N|vacor_5||||||||||||||};
 {vacor_5|L\'incantesimo, si suppone, che... diciamo...., apre nuove possibilità.|||N|vacor_6||||||||||||||};
 {vacor_6|Ehm, Si, Quando L\'incantesimo di rottura sarà in funzione, le cose andranno meglio . Ahem.|||N|vacor_7||||||||||||||};
@@ -375,13 +375,13 @@
 {vacor_13|I banditi hanno preso i fogli con l\'incantesimo e sono scappati prima che arrivassero le guardie.|||N|vacor_14||||||||||||||};
 {vacor_14|Ora io non riesco a ricordare gli ultimi passaggi per completarlo.|||N|vacor_15||||||||||||||};
 {vacor_15|Pensi che potresti aiutarmi a ritrovarlo? Poi potrò avere il potere ...finalmente!|||N|vacor_16||||||||||||||};
-{vacor_16|Naturalmente verrai lautamente ricompensato .|||Ok, ti aiuto|vacor_17||||No grazie|vacor_bah|||||||||};
+{vacor_16|Naturalmente verrai lautamente ricompensato .|||Ok, ti aiuto|vacor_17||||No grazie|vacor_17||||UNTRANSLATED No thanks, this seems like something that I would rather not get involved with.|vacor_bah||||};
 {vacor_17|Sapevo che non potevo fidarmi ... Aspetta, cosa? In realtà hai detto di Si? Ah, beh, allora....|||N|vacor_18||||||||||||||};
 {vacor_18|Ok, trova le 4 parti del mio incantesimo che i banditi hanno rubato, e portali a me!.|vacor:20||N|vacor_19||||||||||||||};
 {vacor_19|Ci sono stati quattro banditi, e si sono diretti a sud di Fallhaven.|||N|vacor_20||||||||||||||};
 {vacor_20|Dovresti cercare nella parte meridionale di Fallhaven.|||N|vacor_21||||||||||||||};
-{vacor_21|Per favore, fai in fretta! Sono così ansioso di aprire il varco..Ehm, voglio dire... di finire l\'incantesimo|||Lascia|X||||||||||||||};
-{vacor_return1|Bentornato, Come và la ricerca dei fogli per il mio incantesimo?|||Fatto|vacor_40||vacor_spell|4|ripeti|vacor_4||||Ciao|X||||};
+{vacor_21|Per favore, fai in fretta! Sono così ansioso di aprire il varco..Ehm, voglio dire... di finire l\'incantesimo||||||||||||||||||};
+{vacor_return1|Bentornato, Come và la ricerca dei fogli per il mio incantesimo?|||Fatto|vacor_40||vacor_spell|4|ripeti|vacor_18||||Ciao|vacor_4||||};
 {vacor_40|Oh, Hai trovato i 4 pezzi?? sbrigati, dalli a me!.|vacor:30||N|vacor_41||||||||||||||};
 {vacor_41|Si, questi sono i foglri che i banditi hanno rubato.|||N|vacor_42||||||||||||||};
 {vacor_42|Ora dovrei essere in grado di aprire il varco dell\'Ombra .. ehm intendo aprire nuove possibilitá. Si, è questo che intendevo.|||N|vacor_43||||||||||||||};
@@ -393,27 +393,27 @@
 {vacor_48|Ad ogni modo, sono convinto che Unzel abbia mandato i banditi da me. E se non gli impedisco di rifarlo li rimanderà.|||N|vacor_49||||||||||||||};
 {vacor_49|Ho bisogno di trovare Unzel e ucciderlo. Egli probabilmente può essere trovato da qualche parte a sud-est di Fallhaven.|vacor:40||N|vacor_50||||||||||||||};
 {vacor_50|Portami il suo anello con sigillo, come prova della sua morte.|||N|vacor_51||||||||||||||};
-{vacor_51|Ora sbrigati! Non posso aspettare ancora a lungo....! Il potere sarà mio!|||Lascia|X||||||||||||||};
-{vacor_return2|Bentornato, Qualche progresso?|||Unzel|vacor_return2_2||||Ripeti|vacor_43||||Ciao|X||||};
-{vacor_return2_2|Hai ucciso Unzel per me? Portami il suo anello con sigillo quando lo avrai fatto.|||Fatto|vacor_60||ring_unzel|1|Ombra|vacor_70|vacor:51|||Indietro|vacor_return2||||};
+{vacor_51|Ora sbrigati! Non posso aspettare ancora a lungo....! Il potere sarà mio!||||||||||||||||||};
+{vacor_return2|Bentornato, Qualche progresso?|||Unzel|vacor_return2_2||||Ripeti|vacor_43|||||||||};
+{vacor_return2_2|Hai ucciso Unzel per me? Portami il suo anello con sigillo quando lo avrai fatto.|||Fatto|vacor_60||ring_unzel|1|Ombra|vacor_70|vacor:51||||vacor_return2||||};
 {vacor_60|Haha, Unzel è morto! Quella creatura patetica se nè andata!|vacor:60||N|vacor_61||||||||||||||};
 {vacor_61|Riesco a vedere il suo sangue sui tuoi stivali. E ho persino avuto modo di uccidere i suoi servi in anticipo.|||N|vacor_62||||||||||||||};
 {vacor_62|Questo è un giorno veramente grande. Avrò presto il potere!|||N|vacor_63||||||||||||||};
 {vacor_63|Ecco, queste monete sono per il tuo aiuto.||gold200|N|vacor_64||||||||||||||};
-{vacor_64|Ora lasciami, ho del lavoro da fare prima di poter lanciare l\'incantesimo.|||Lascia|X||||||||||||||};
-{vacor_return_complete|Bentornato, Mio amico assassino. presto avremi l\'incantesimo per il varco.|||Lascia|X||||||||||||||};
+{vacor_64|Ora lasciami, ho del lavoro da fare prima di poter lanciare l\'incantesimo.||||||||||||||||||};
+{vacor_return_complete|Bentornato, Mio amico assassino. presto avremi l\'incantesimo per il varco.||||||||||||||||||};
 {vacor_70|Cosa? Ti ha raccontato la sua storia? E tu ci hai creduto?|||N|vacor_71||||||||||||||};
 {vacor_71|Ti darò un\'altra possibilità. O uccidi Unzel per me, e io ti ricompenserò generosamente. Oppure dovrai combattere contro di me.|||Combatti|vacor_72||||Vai|X|||||||||};
-{vacor_72|Bah, piccola creatura. Sapevo che non dovevo darti fiducia. Ora tu morirai con la tua preziosa ombra.|vacor:54||Combatti|F||||||||||||||};
+{vacor_72|Bah, piccola creatura. Sapevo che non dovevo darti fiducia. Ora tu morirai con la tua preziosa ombra.|vacor:54||Combatti|F||||UNTRANSLATED You must be stopped.|F|||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_unzel">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{unzel_1|Hello. Io sono Unzel.|||Camp|unzel_2||||incantesimo|unzel_3|vacor:40|||Ciao|||||};
+{unzel_1|Hello. Io sono Unzel.|||Camp|unzel_2||||incantesimo|unzel_3|vacor:40||||||||};
 {unzel_2|Si, questo è il mio campo, ti piace?|||Ciao|X||||||||||||||};
 {unzel_3|Vacor ti ha inviato eh? Sapevo che avrebbero mandato qualcuno prima o poi.|||N|unzel_4||||||||||||||};
-{unzel_4|Benissimo, uccidetemi allora, o permettimi di raccontarti la mia versione dei fatti.|||Combatti|unzel_Combatti||||Storia|unzel_5|||||||||};
-{unzel_Combatti|Molto bene, mano alle armi.|vacor:53||Combatti|F||||||||||||||};
+{unzel_4|Benissimo, uccidetemi allora, o permettimi di raccontarti la mia versione dei fatti.|||Combatti|unzel_fight||||Storia|unzel_5|||||||||};
+{unzel_fight|Molto bene, mano alle armi.|vacor:53||Combatti|F||||||||||||||};
 {unzel_5|Grazie per aver ascoltato.|||N|unzel_10||||||||||||||};
 {unzel_10|Vacor abbiamo sempre viaggiato insieme. Ma ha cominciato a essere ossessionato dal fare incantesimi.|||N|unzel_11||||||||||||||};
 {unzel_11|Ha iniziato a interrogarsi sulla Ombra. Sapevo che dovevo fare qualcosa per fermarlo....|||N|unzel_12||||||||||||||};
@@ -426,41 +426,41 @@
 {unzel_16_2|E ora siamo Quì.|||N|unzel_19||||||||||||||};
 {unzel_17|Cosa? hai ucciso i miei 4 amici? Argh , mi sento veramente arrabbiato!.|||N|unzel_18||||||||||||||};
 {unzel_18|Ma mi rendo anche conto che tutto questo è una ideazione di Vacor. Ti darò una scelta adesso. Scegli saggiamente.|||N|unzel_19||||||||||||||};
-{unzel_19|O prendi quello che ti serve e fai concludere la magia a Vacor, oppure mi aiuti a sbarazzarmi di lui. Chi ti aiuterà?|vacor:50||You|unzel_20||||Vacor|unzel_Combatti|||||||||};
+{unzel_19|O prendi quello che ti serve e fai concludere la magia a Vacor, oppure mi aiuti a sbarazzarmi di lui. Chi ti aiuterà?|vacor:50||You|unzel_20||||Vacor|unzel_fight|||||||||};
 {unzel_20|Grazie amico mio, manterremo l\'ombra al sicuro da Vacor.|vacor:51||N|unzel_21||||||||||||||};
-{unzel_21|Dovresti andare a parlare con lui del Ombra.|||Ciao|X||||||||||||||};
-{unzel_return_1|bentornato. Hai parlato con Vacor?|||Fatto|unzel_30||ring_vacor|1|Ripeti|unzel_10||||Ciao|X||||};
-{unzel_30|L\'hai ucciso? Sei un amico Grazie. Ora siamo al sicuro dall\' incantesimo di Vacor. Ecco, prendi queste monete per il tuo aiuto.|vacor:61|gold200|Ciao|X||||||||||||||};
-{unzel_40|Grazie per il tuo aiuto, ora siamo al sicuro dall\'incantesimo di Vacor.|||Ciao|X||||||||||||||};
+{unzel_21|Dovresti andare a parlare con lui del Ombra.||||||||||||||||||};
+{unzel_return_1|bentornato. Hai parlato con Vacor?|||Fatto|unzel_30||ring_vacor|1|Ripeti|X|||||||||};
+{unzel_30|L\'hai ucciso? Sei un amico Grazie. Ora siamo al sicuro dall\' incantesimo di Vacor. Ecco, prendi queste monete per il tuo aiuto.|vacor:61|gold200|Ciao|X||||UNTRANSLATED Thank you.|X|||||||||};
+{unzel_40|Grazie per il tuo aiuto, ora siamo al sicuro dall\'incantesimo di Vacor.||||||||||||||||||};
 {unzel|||||unzel_40|vacor:61||||unzel_return_1|vacor:51||||unzel_1||||};
         </string>
 
         <string name="conversationlist_wilderness">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{fallhaven_bandit|Vattene ragazzo, non ho tempo per te.|||incantesimo|fallhaven_bandit_2|vacor:20|||Ciao|X|||||||||};
+{fallhaven_bandit|Vattene ragazzo, non ho tempo per te.|||incantesimo|fallhaven_bandit_2|vacor:20|||||||||||||};
 {fallhaven_bandit_2| No! Vacor non otterrà il potere dell\'incantesimo! |||Combatti|F||||||||||||||};
 {bandit1|Cosa abbiamo qui? Un vagabondo perduto? |||N|bandit1_2||||||||||||||};
-{bandit1_2|Quanto vale la tua vita?Ne vale la pena per te? Dammi 100 monete d\'oro e ti lascerò.|||Ora|bandit1_3||Oro|100|No|bandit1_4|||||||||};
-{bandit1_3|A propostito di tempo....! Sei libero di andartene.|||Ciao|X||||||||||||||};
+{bandit1_2|Quanto vale la tua vita?Ne vale la pena per te? Dammi 100 monete d\'oro e ti lascerò.|||Ora|bandit1_3||gold|100|No|bandit1_4||||UNTRANSLATED How much is your life worth?|bandit1_4||||};
+{bandit1_3|A propostito di tempo....! Sei libero di andartene.||||||||||||||||||};
 {bandit1_4|Ok, la vita è tua. Combattiamo. E\' tanto che aspetto un bel combattimento!|||Combatti|F||||||||||||||};
         </string>
 
         <string name="conversationlist_flagstone">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{zombie1|Cane Freeescaaa!|||Combatti|F||||||||||||||};
+{zombie1|Cane Freeescaaa!|||Combatti|F||||UNTRANSLATED Yuck, what are you? And what is that smell?|F|||||||||};
 {prisoner1|Nooo, non sarò imprigionato di nuovo!|||Combatti|F||||||||||||||};
 {prisoner2|Aaaa! Chi sei? Non voglio essere schiavo di nuovo!|||Combatti|F||||||||||||||};
-{flagstone_guard0|Ah, un altro mortale. Preparati a diventare parte del mio esercito di non morti!|flagstone:31||Combatti|F||||||||||||||};
-{flagstone_guard1|Muori mortale!|||Combatti|F||||||||||||||};
+{flagstone_guard0|Ah, un altro mortale. Preparati a diventare parte del mio esercito di non morti!|flagstone:31||Combatti|F||||UNTRANSLATED Prepare to die once more.|F|||||||||};
+{flagstone_guard1|Muori mortale!|||Combatti|F||||UNTRANSLATED Prepare to meet my blade.|F|||||||||};
 {flagstone_guard2|Cosaa! un mortale quà dentro non è sotto il mio controllo?|flagstone:50||N|flagstone_guard2_2||||||||||||||};
 {flagstone_guard2_2|Mmmmh..sembri morbido e delizioso!! Sarai sicuramente parte della festa?|||N|flagstone_guard2_3||||||||||||||};
-{flagstone_guard2_3|Penso che prenderò anche te!. una folta fatto, il mio esercito sarà prondo a uscire da Flagstone.|||Combatti|F||||||||||||||};
+{flagstone_guard2_3|Penso che prenderò anche te!. una folta fatto, il mio esercito sarà prondo a uscire da Flagstone.|||Combatti|F||||UNTRANSLATED No! This land must be protected from the undead!|F|||||||||};
 
 {flagstone_sentry|||||flagstone_sentry_return4|flagstone:60||||flagstone_sentry_return3|flagstone:40||||flagstone_sentry_select0||||};
 {flagstone_sentry_select0|||||flagstone_sentry_return2|flagstone:30||||flagstone_sentry_return1|flagstone:10||||flagstone_sentry_1||||};
 {flagstone_sentry_1|Halt! Chi è? A nessuno è permesso di avvicinarsi Flagstone.|||N|flagstone_sentry_2||||||||||||||};
-{flagstone_sentry_2|Dovresti tornare indietro finch\'e è possibile.|||N|flagstone_sentry_3||||Lascia|X|||||||||};
-{flagstone_sentry_3|Flagstone è stata invasa da non-morti, e io sono di guardia per assicurare che non fugano.|||N|flagstone_sentry_4||||||||||||||};
+{flagstone_sentry_2|Dovresti tornare indietro finch\'e è possibile.|||N|flagstone_sentry_3||||||||||||||};
+{flagstone_sentry_3|Flagstone è stata invasa da non-morti, e io sono di guardia per assicurare che non fugano.|||UNTRANSLATED Can you tell me the story about Flagstone?|flagstone_sentry_4||||||||||||||};
 {flagstone_sentry_4|Flagstone è usato come prigione per i lavoratori in fuga da quando è stato scavato il monte Galmore.|||N|flagstone_sentry_5||||||||||||||};
 {flagstone_sentry_5|Ma una volta che gli scavi sono terminati, il campo di prigionia ha perso il suo scopo.|||N|flagstone_sentry_6||||||||||||||};
 {flagstone_sentry_6|Al Lord, non importava molto per i detenuti che erano a Flagstone, così li ha lasciati lì.|||N|flagstone_sentry_7||||||||||||||};
@@ -473,18 +473,18 @@
 {flagstone_sentry_13|Non fermarti, ma non sentirò la tua mancanza se non tornerai.|||N|flagstone_sentry_14||||||||||||||};
 {flagstone_sentry_14|Vai avanti. Fammi sapere se c\'è qualcosa che posso dirti per aiutarti. |||N|flagstone_sentry_15||||||||||||||};
 {flagstone_sentry_15|Ritorna qui se hai bisogno il mio consiglio.|flagstone:10||Lascia|X||||||||||||||};
-{flagstone_sentry_return1|Bentornato! sei stato a Flagstone? sono sorpreso che tu sia riuscito ad uscirne.|||Ripeti|flagstone_sentry_3||||Demoni|flagstone_sentry_20|flagstone:20|||Ciao|X||||};
+{flagstone_sentry_return1|Bentornato! sei stato a Flagstone? sono sorpreso che tu sia riuscito ad uscirne.|||Ripeti|flagstone_sentry_4||||Demoni|flagstone_sentry_20|flagstone:20||||||||};
 {flagstone_sentry_20|Un guardiano dici? Questa è una notizia preoccupante, significa che c\'è una forza più grande dietro a tutto questo.|||N|flagstone_sentry_21||||||||||||||};
 {flagstone_sentry_21|Avete trovato l\'ex guardiano  di Flagstone? Il guardiano portava sempre una collana con sè.|||N|flagstone_sentry_22||||||||||||||};
 {flagstone_sentry_22|Era molto protettivo con essa, Forse la collana era una sorta di chiafe.|||N|flagstone_sentry_23||||||||||||||};
 {flagstone_sentry_23|Se riesci a recuperare la collana del guardiano, torna quì e ti aiuterò a decifrare i messaggi che potrebbero esserci sopra.|flagstone:30||Found it|flagstone_sentry_40||necklace_flagstone|1|Demon|flagstone_sentry_20||||Lascia|X||||};
-{flagstone_sentry_return2|Ciao di nuovo. Avete trovato l\'ex guardiano Flagstone ?|||Guardiano|flagstone_sentry_23||||Ripeti|flagstone_sentry_3||||Ciao|X||||};
+{flagstone_sentry_return2|Ciao di nuovo. Avete trovato l\'ex guardiano Flagstone ?|||Guardiano|flagstone_sentry_23||||Ripeti|flagstone_sentry_3|||||||||};
 {flagstone_sentry_40|Hai trovato la collana?? bene, portamela.|flagstone:40||N|flagstone_sentry_41||||||||||||||};
 {flagstone_sentry_41|Ora, vediamo qui. Ah Si, è come pensavo. La collana contiene una password.|||N|flagstone_sentry_42||||||||||||||};
 {flagstone_sentry_42|Daylight Ombra , è questa la parola. Dovresti avvicinarti al guardiano con questa password.|||Lascia|X||||||||||||||};
 {flagstone_sentry_return3|Bentornato. Come và la ricerca della fonte dei non morti?|||male|flagstone_sentry_43||||||||||||||};
-{flagstone_sentry_43|Beh, continuate a cercare. Ritorna da me se hai bisogno di consigli.|||Lascia|X||||||||||||||};
-{flagstone_sentry_return4|Ciao di nuovo. Sembra che qualcosa sia accaduto dentro Flagstone che ha reso i non morti più deboli. Sono sicuro che devo ringraziare te per questo.|||Lascia|X||||||||||||||};
+{flagstone_sentry_43|Beh, continuate a cercare. Ritorna da me se hai bisogno di consigli.||||||||||||||||||};
+{flagstone_sentry_return4|Ciao di nuovo. Sembra che qualcosa sia accaduto dentro Flagstone che ha reso i non morti più deboli. Sono sicuro che devo ringraziare te per questo.||||||||||||||||||};
 
 {narael|Grazie , per avermi liberato da questo mostro.|||N|narael_select||||||||||||||};
 {narael_select|||||narael_9|flagstone:60||||narael_1|||||||||};
@@ -496,19 +496,19 @@
 {narael_6|Se solo avessi potuto vedere mia moglie una volta di più. Ma non c\'è più vita dentro di me...Non ho nemmeno le forze di lasciare questo luogo.|||N|narael_7||||||||||||||};
 {narael_7|Credo che il mio destino sia di morire qui. Ma ora come un uomo libero, almeno.|||N|narael_8||||||||||||||};
 {narael_8|Ora lasciami al mio destino, non ho la forza di andarmene.|flagstone:60||N|narael_9||||||||||||||};
-{narael_9|Se cerchi mia moglie a Nor City, per favore dille che stò bene e che non l\' ho dimenticata .|||Ciao|X||||||||||||||};
+{narael_9|Se cerchi mia moglie a Nor City, per favore dille che stò bene e che non l\' ho dimenticata .|||Ciao|X||||UNTRANSLATED I will. Shadow be with you.|X|||||||||};
         </string>
 
         <string name="conversationlist_fallhaven_south">
 [ID|Text|EnblQst|DropList|Rep_text0|Rep_id0|Rep_reqQst0|Rep_itemTag0|Rep_itemQty0|Rep_text1|Rep_id1|Rep_reqQst1|Rep_itemTag1|Rep_itemQty1|Rep_text2|Rep_id2|Rep_reqQst2|Rep_itemTag2|Rep_itemQty2|];
-{fallhaven_lumberjack|Ciao io sono Jakrar.|||Sei un taglialegna?|fallhaven_lumberjack_2||||Ciao|X|||||||||};
-{fallhaven_lumberjack_2|Si, sono il taglialegna de Fallhaven. Hai bisogno di qualche lavoretto ben fatto col legno? Lo posso fare tranquillamente.|||Ciao|X||||||||||||||};
-{alaun|Ciao, io sono Alaun. Come posso aiutarti?|||Hai visto mio fratello Andor? Mi somiglia molto|alaun_2||||Ciao|X|||||||||};
+{fallhaven_lumberjack|Ciao io sono Jakrar.|||Sei un taglialegna?|fallhaven_lumberjack_2||||||||||||||};
+{fallhaven_lumberjack_2|Si, sono il taglialegna de Fallhaven. Hai bisogno di qualche lavoretto ben fatto col legno? Lo posso fare tranquillamente.||||||||||||||||||};
+{alaun|Ciao, io sono Alaun. Come posso aiutarti?|||Hai visto mio fratello Andor? Mi somiglia molto|alaun_2||||||||||||||};
 {alaun_2|Stai cercando tuo fratello hai detto? Ti somiglia, hm.|||N|alaun_3||||||||||||||};
-{alaun_3|No, non ricordo nessuno che ti somiglia. Prova al villaggio di Crossglen a ovest di qui.|||Ciao|X||||||||||||||};
-{fallhaven_farmer1|Saluti. Per favore non disturbatemi, ho del lavoro da fare.|||Ciao|X||||||||||||||};
-{fallhaven_farmer2|Ciao, potresti allontanarti dalla strada? Stò cercando di lavorare quì.|||Ciao|X||||||||||||||};
-{khorand|Ehi tu, non pensare nemmeno di toccare quelle casse. Ti sto guardando!|||Ciao|X||||||||||||||};
+{alaun_3|No, non ricordo nessuno che ti somiglia. Prova al villaggio di Crossglen a ovest di qui.||||||||||||||||||};
+{fallhaven_farmer1|Saluti. Per favore non disturbatemi, ho del lavoro da fare.||||||||||||||||||};
+{fallhaven_farmer2|Ciao, potresti allontanarti dalla strada? Stò cercando di lavorare quì.||||||||||||||||||};
+{khorand|Ehi tu, non pensare nemmeno di toccare quelle casse. Ti sto guardando!||||||||||||||||||};
 	</string>
    
     <string name="conversationlist_signs_pre067">
