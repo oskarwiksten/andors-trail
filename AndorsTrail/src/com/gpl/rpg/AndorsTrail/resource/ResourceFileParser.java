@@ -255,9 +255,9 @@ public class ResourceFileParser {
 		final ArrayList<ActorConditionEffect> addedConditions = new ArrayList<ActorConditionEffect>();
 		ResourceObjectArrayTokenizer.tokenize(parts[startIndex + 12], tokenize2Fields, new ActorConditionTypeArrayAppender(actorConditionTypes, addedConditions, false));
 		
-		if (       boostMaxHP.isEmpty() 
-				&& boostMaxAP.isEmpty()
-				&& moveCostPenalty.isEmpty()
+		if (       boostMaxHP.length() <= 0 
+				&& boostMaxAP.length() <= 0
+				&& moveCostPenalty.length() <= 0
 				&& combatTraits == null
 				&& addedConditions.isEmpty()
 			) {
