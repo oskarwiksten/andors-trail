@@ -64,8 +64,8 @@ function buildEditorForPhrase(div, phrase, tree, treeNode) {
 	
 	checkboxHidesElement( $( '#hasProgressQuest', dialoguePhrase ), $( '#hasProgressQuestDisplay', dialoguePhrase ), phrase.progressQuest);
 	checkboxHidesElement( $( '#hasRewardDroplist', dialoguePhrase ), $( '#hasRewardDroplistDisplay', dialoguePhrase ), phrase.rewardDropListID);
-	bindFieldToDataStore( $( "#progressQuest", dialoguePhrase ), model.quests , function(obj) { return obj.id; } );
-	bindFieldToDataStore( $( "#rewardDropListID", dialoguePhrase ), model.droplists , function(obj) { return obj.id; } );
+	bindFieldToDataStore( $( "#progressQuest", dialoguePhrase ), model.quests);
+	bindFieldToDataStore( $( "#rewardDropListID", dialoguePhrase ), model.droplists);
 	
 	var reloadReplyTable = function() {
 		applyTableEditor({
@@ -177,12 +177,13 @@ function buildEditorForReply(div, reply, tree, treeNode) {
 	
 	checkboxHidesElement( $( '#requiresItems', dialogueReply ), $( '#requiresItemsDisplay', dialogueReply ), reply.requires_itemID);
 	checkboxHidesElement( $( '#requiresQuest', dialogueReply ), $( '#requiresQuestDisplay', dialogueReply ), reply.requires_Progress);
-	bindFieldToDataStore( $( "#requires_itemID", dialogueReply ), model.items , function(obj) { return obj.searchTag; } );
-	bindFieldToDataStore( $( "#requires_Progress", dialogueReply ), model.quests , function(obj) { return obj.id; } );
+	bindFieldToDataStore( $( "#requires_itemID", dialogueReply ), model.items);
+	bindFieldToDataStore( $( "#requires_Progress", dialogueReply ), model.quests);
 	
 	var replyLeadsTo = $( "#replyLeadsTo", dialogueReply );
-	replyLeadsTo.change(function() { nextPhraseID.val( $(this).val() ).change(); });
 	replyLeadsTo.val(reply.nextPhraseID);
+	if (!replyLeadsTo.val()) { replyLeadsTo.val(""); }
+	replyLeadsTo.change(function() { nextPhraseID.val( $(this).val() ).change(); });
 	changeHidesElement(replyLeadsTo, $( "#nextPhraseIDDisplay", dialogueReply ) , function() { return replyLeadsTo.val() == ''; } );
 	
 	var nextPhraseID = $( "#nextPhraseID", dialogueReply );
@@ -229,11 +230,11 @@ function buildEditorForReply(div, reply, tree, treeNode) {
 //   Tree node title generators
 	
 	function getPhraseNodeText(phrase) {
-		return phrase.message ? phrase.message : "(no phrase text)";
+		return phrase.message ? shortenString(phrase.message, 30) : "(no phrase text)";
 	}
 
 	function getReplyNodeText(reply) {
-		return reply.text ? reply.text : "(no reply text)";
+		return reply.text ? shortenString(reply.text, 30) : "(no reply text)";
 	}
 
 // ========================================================

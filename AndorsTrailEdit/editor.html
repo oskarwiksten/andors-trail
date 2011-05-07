@@ -19,7 +19,7 @@
 	<div class="andorsTrailLogo" id="title">
 		Andor's Trail Content Editor
 		<span id="version">
-			v0.6.9a0
+			v0.6.9a1
 		</span>
 	</div>
 	<div id="buttons">
@@ -143,6 +143,10 @@
 		</fieldset>
 		<fieldset class="fieldSet" id="hasCombatDisplay">
 			<legend>Combat</legend>
+			<div class="fieldWithLabel">
+				<label for="experience" class="label">Experience:</label>
+				<input class="field" type="text" size="7" id="experience" class="fieldInput integer" readonly="readonly" />
+			</div>
 			<div class="fieldWithLabel">
 				<label for="attackCost" class="label">Attack cost (AP):</label>
 				<input class="field" type="text" size="5" id="attackCost" class="fieldInput integer" />
@@ -345,6 +349,13 @@
 			<div class="fieldWithLabel">
 				<label for="baseMarketCost" class="label">Base market cost (gold):</label>
 				<input class="field" type="text" size="7" id="baseMarketCost" class="fieldInput integer" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+			</div>
+			<div class="fieldWithLabel">
+				<label for="marketCost_Sell" class="label">Actual price (gold):</label>
+				<div class="field">
+					<span>Sell: <input type="text" size="7" id="marketCost_Sell" class="fieldInput integer" readonly="readonly" /></span>
+					<span>Buy: <input type="text" size="7" id="marketCost_Buy" class="fieldInput integer" readonly="readonly" /></span>
+				</div>
 			</div>
 			<div class="fieldWithLabel">
 				<div class="label"><input type="checkbox" id="hasEquipEffect" />Has equip effect</div>
@@ -626,7 +637,7 @@
 				<label for="nextPhraseID" class="label">Phrase ID:</label>
 				<div class="field">
 					<input type="text" size="30" id="nextPhraseID" class="fieldInput" />
-					<img src="imgarrowright.png" alt="Follow" id="followNextReply" class="imageButton" />
+					<img src="imgarrowright.png" alt="Follow" id="followNextReply" class="imageButton" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used." />
 				</div>
 			</div>
 			<div class="fieldWithLabel" id="hasRepliesDisplay">
@@ -666,7 +677,7 @@
 				<label for="nextPhraseID" class="label">Next phrase ID:</label>
 				<div class="field">
 					<input type="text" size="30" id="nextPhraseID" class="fieldInput"/>
-					<img src="imgarrowright.png" alt="Follow" id="followReply" class="imageButton" />
+					<img src="imgarrowright.png" alt="Follow" id="followReply" class="imageButton" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used." />
 				</div>
 			</div>
 			<div class="fieldWithLabel">
@@ -718,17 +729,17 @@
 				<div class="label"><input type="checkbox" id="isStacking" />Allow stacked effects</div>
 			</div>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasRoundEffect" />Has effect every round</div>
+				<div class="label"><input type="checkbox" id="hasRoundEffect" />Has effect every round (every 6s)</div>
 			</div>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasFullRoundEffect" />Has effect every full round</div>
+				<div class="label"><input type="checkbox" id="hasFullRoundEffect" />Has effect every full round (every 25:th s)</div>
 			</div>
 			<div class="fieldWithLabel">
 				<div class="label"><input type="checkbox" id="hasAbilityEffect" />Has constant ability effect</div>
 			</div>
 		</fieldset>
 		<fieldset class="fieldSet" id="hasRoundEffectDisplay">
-			<legend>Every round</legend>
+			<legend>Every round (6s)</legend>
 			<div class="fieldWithLabel">
 				<label for="round_visualEffectID" class="label">Visual effect:</label>
 				<select class="field fieldInput" id="round_visualEffectID">
@@ -748,7 +759,7 @@
 			</div>
 		</fieldset>
 		<fieldset class="fieldSet" id="hasFullRoundEffectDisplay">
-			<legend>Every full round</legend>
+			<legend>Every full round (25s)</legend>
 			<div class="fieldWithLabel">
 				<label for="fullround_visualEffectID" class="label">Visual effect:</label>
 				<select class="field fieldInput" id="fullround_visualEffectID">

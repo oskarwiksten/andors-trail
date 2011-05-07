@@ -10,7 +10,7 @@ function createDroplistEditor(obj) {
 		array: obj.items, 
 		templateFunction: function() { return { quantity: 1, chance: 100 } }, 
 		editorSetup: function(div) {
-			bindFieldToDataStore( $( "#itemID", div ), model.items , function(obj) { return obj.searchTag; } );
+			bindFieldToDataStore( $( "#itemID", div ), model.items);
 		}
 	});
 	

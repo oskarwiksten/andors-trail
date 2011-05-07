@@ -16,7 +16,6 @@ IncludeJavascript("Editor_Droplist.js");
 IncludeJavascript("Editor_Conversation.js");
 IncludeJavascript("Editor_Monster.js");
 
-IncludeJavascript("inc/jquery.shorten.min.js");
 IncludeJavascript("inc/jquery.dynatree.min.js");
 
 
@@ -92,23 +91,56 @@ function addExampleModelItems(model) {
 function startEditor() {
 	
 	model = {
-		actorConditions: new DataStore('actorcondition', new FieldList("[id|name|iconID|isStacking|"
+		actorConditions: new DataStore({
+			objectTypename: 'actorcondition'
+			,fieldList: new FieldList("[id|name|iconID|isStacking|"
 				+ "hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|"
 				+ "hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|"
 				+ "hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|"
-				+ "];"))
-		,quests: new DataStore('quest', new FieldList("[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];"))
-		,items: new DataStore('item', new FieldList("[searchTag|iconID|name|category|baseMarketCost|"
+				+ "];"
+			)
+			,idField: 'id'
+			,nameField: 'name'
+		})
+		,quests: new DataStore({
+			objectTypename: 'quest'
+			,fieldList: new FieldList("[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];")
+			,idField: 'id'
+			,nameField: 'name'
+		})
+		,items: new DataStore({
+			objectTypename: 'item'
+			,fieldList: new FieldList("[searchTag|iconID|name|category|baseMarketCost|"
 				+ "hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|"
 				+ "hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|"
 				+ "hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|"
 				+ "hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|"
-				+ "];"))
-		,droplists: new DataStore('droplist', new FieldList("[id|items[itemID|quantity_Min|quantity_Max|chance|]|];"), 'id')
-		,dialogue: new DataStore('dialogue', new FieldList("[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];"), 'id')
-		,monsters: new DataStore('monster', new FieldList("[iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|"
+				+ "];"
+			)
+			,idField: 'searchTag'
+			,nameField: 'name'
+		})
+		,droplists: new DataStore({
+			objectTypename: 'droplist'
+			,fieldList: new FieldList("[id|items[itemID|quantity_Min|quantity_Max|chance|]|];")
+			,idField: 'id'
+			,nameField: 'id'
+		})
+		,dialogue: new DataStore({
+			objectTypename: 'dialogue'
+			,fieldList: new FieldList("[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];")
+			,idField: 'id'
+			,nameField: 'id'
+		})
+		,monsters: new DataStore({
+			objectTypename: 'monster'
+			,fieldList: new FieldList("[iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|"
 				+ "hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|"
-				+ "];"))
+				+ "];"
+			)
+			,idField: 'name'
+			,nameField: 'name'
+		})
 	};
 	
 	addExampleModelItems(model);

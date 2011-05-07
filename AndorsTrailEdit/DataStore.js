@@ -22,10 +22,11 @@ var specialEncodings = [
 ];
 
 
-function DataStore(objectTypename, fieldList, nameField) {
-	this.objectTypename = objectTypename;
-	this.fieldList = fieldList;
-	this.nameField = nameField ? nameField : 'name';
+function DataStore(input) {
+	this.objectTypename = input.objectTypename;
+	this.fieldList = input.fieldList;
+	this.nameField = input.nameField ? input.nameField : 'name';
+	this.idField = input.idField ? input.idField : 'id';
 	this.items = [];
 	
 	this.add = function(obj) { 
@@ -38,7 +39,8 @@ function DataStore(objectTypename, fieldList, nameField) {
 	this.clear = function() { this.items = {}; }
 	this.findById = function(id) { 
 		for (var i = 0; i < this.items.length; ++i) {
-			if (this.items[i].id == id) return this.items[i];
+			var item = this.items[i];
+			if (item[this.idField] == id) return item;
 		}
 	}
 	

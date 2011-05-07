@@ -16,7 +16,7 @@ function createItemEditor(obj) {
 	if (!obj.hit_conditionsTarget) obj.hit_conditionsTarget = [];
 	if (!obj.kill_conditionsSource) obj.kill_conditionsSource = [];
 	var setupEditor = function(div) {
-		bindFieldToDataStore( $( "#condition", div ), model.actorConditions , function(obj) { return obj.id; } );
+		bindFieldToDataStore( $( "#condition", div ), model.actorConditions);
 	}
 
 	applyTableEditor({
@@ -54,6 +54,12 @@ function createItemEditor(obj) {
 		templateFunction: createNewCondition, 
 		editorSetup: setupEditor
 	});
+	
+	$( "#baseMarketCost", div ).change(function() {
+		var val = parseInt( $( this ).val() );
+		$( "#marketCost_Sell", div ).val(Math.round(val * (100 + 15) / 100));
+		$( "#marketCost_Buy", div ).val(Math.round(val * (100 - 15) / 100));
+	}).change();
 	
 	return div;
 }

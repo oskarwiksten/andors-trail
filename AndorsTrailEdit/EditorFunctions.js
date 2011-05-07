@@ -63,14 +63,16 @@ function applyCommonEditorBindings(div, obj, dataStore) {
 	}
 }
 
-function bindFieldToDataStore(field, dataStore, converter) {
+function bindFieldToDataStore(field, dataStore) {
 	var dataCallback = function(request, response) {
 		var result = [];
 		var pattern = new RegExp(request.term, "i");
 		dataStore.items.forEach(function(obj) {
-			var name = converter(obj);
-			if (name.match(pattern)) {
-				result.push(name);
+			var id = obj[dataStore.idField];
+			var name = obj[dataStore.nameField];
+			var displayName = name + " (" + id + ")";
+			if (displayName.match(pattern)) {
+				result.push({label: displayName, value: id});
 			}
 		});
 		response(result);
@@ -85,6 +87,13 @@ function bindFieldToDataStore(field, dataStore, converter) {
 	});
 }
 
+function shortenString(str, maxChars) {
+	if (!str) return str;
+	str = str.toString();
+	if (str.length <= maxChars) return str;
+	return str.substring(0, maxChars) + "..";
+}
+
 function applyTableEditor(input) {
 	
 	var updateRowText = function(row, obj) {
@@ -92,9 +101,7 @@ function applyTableEditor(input) {
 			var id = $( this ).attr("id");
 			var val = obj[id];
 			val = val ? val : "";
-			$( this ).text(val).shorten({
-				 width: '200'
-			}).css('display','');
+			$( this ).text(shortenString(val, 30));
 		});
 	};
 	
