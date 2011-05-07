@@ -192,7 +192,7 @@ function startEditor() {
 		
 		
 	
-	imageSelector = new ImageSelector("http://andors-trail.googlecode.com/svn/trunk/AndorsTrail/res/drawable/", $( "#dialog-images" ) );
+	imageSelector = new ImageSelector("../AndorsTrail/res/drawable/", $( "#dialog-images" ) );
 	imageSelector.add(new TilesetImage("items_tiles", {x: 14, y:30}, {x:34, y:34}, [ 'items', 'conditions' ] ));
 	imageSelector.add(new TilesetImage("monsters_armor1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, {x:64, y:64}, [ 'monsters' ] ));
@@ -221,12 +221,14 @@ function startEditor() {
 	imageSelector.add(new TilesetImage("monsters_skeleton1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_skeleton2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_snakes", {x: 6, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_cyclops", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_cyclops", {x: 1, y:1}, {x:64, y:96}, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_warrior1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_wraiths", {x: 3, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_zombie1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_zombie2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_dragon1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_dragon1", {x: 1, y:1}, {x:128, y:96}, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("karvis_monsters1", {x: 2, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("karvis_npc", {x: 9, y:1}, undefined, [ 'monsters' ] ));
 	
 }
 
