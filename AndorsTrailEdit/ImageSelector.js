@@ -79,6 +79,7 @@ function ImageSelector(imagePath, dialog) {
 	
 	var showImages = function(showTilesetTag) {
 		jQuery.each(_tilesets, function(idx, t) {
+			if (!idx) return;
 			var visible = t._tags.indexOf(showTilesetTag) >= 0;
 			$( "#" + idx, dialog ).toggle(visible);
 		});
