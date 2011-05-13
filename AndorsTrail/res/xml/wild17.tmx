@@ -55,37 +55,52 @@
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJyNU91NwzAQdpCdKVAllxEIfWCAPiC2aBcIoQM4Ud/YomzACN0ARmAR7qvvyOXiUD7p5Et8P9/9uA3OvZAk79yR5GSkobszybZyblVn/bbOdwB8Iv1rOc6OpCe5qd0vcH8f3ASIl9gWsZBfbJATdx0L4jbGHzj4UX+s8rmnc0PyWmUOA9n0PvPbKX6CZL5PpL+TfBixsPykD8Caa0fut5DlbOS5muZe4nfJxXXqHn6S/hXGs8SvV/we2MYXbHWOgU/M+Il7euT+lfqlMSie8NWzAGRGun8A+G0WZiK8tuy7UnslaMK8f72f7ozMRnqIeLFQU8O+wg//v/8hiHfNJql3IiegZyI7rXu1DmN/sVtiLzV3hb0Rn6j+Deq9II+10bE6xU+g3/RezbWUI5lYJZ4xTH007O5IzD5MzxLPA7/FUlzB5f350fcuLPdT1/dXPYgJHbFimPfA1ppMDP0mkp/vyhI/0VuTS99dm4n0MRX0kp1w+gFTVH7q
+   eJx9VMsNwjAMTStnJe4IxIkLAiYoC0BhgObESB2BCToPMY3Fq2vnSVE+dV6fP/EQQ0h5DHn0eXSw985lz7NA9gPNewKOD/3tznD+LueaE+djM9vc8rwp49mEKhL5uu9F8wiaXrAWbdpmistvVLi9eIjuCc5qEJ5HhVNAcXlHoO1RL8aUz9i3XRvCvl1yW/lPcW1j6dtmrlM75xi5GInCCp2Tc7nDfNeiUXQwNyn+EfJt1bDgnHkOwGnFReuz/Gdw7XJda84aVw81r/OD0Jy1+HM8vNhKbhLoPBW/5U3W/B8rNlzXW+Dz7HCNPUHX7lg0XtplbLBXPJz38IuZkSupkxf5tqhPa5JcWfH1+hHfnwx/Nby4Y8/hf3g9gGHlsI9//6x7Xp/tVQz0N/RF+iuvvzfYdNQ=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYCAeFLIyMBSxkqABC2gG6m+hwAx0N0wGsqdQ6CZy7R5pAJffKQmXQjL0jfR4oAXAFQ9DJaxxuRMmjk6TawclAGYvITeQ4j5cboL5ldYAAF/EEJw=
+   eJy1VMkNwDAIy6eTMVHYoJu3fSBFCGNIW74m5rDJGHnIkeN645Pk/BlPbW3Wt56773xdxJ29WfFqDyzHa+DzmT6mMcubQOuoP8sTMO+uZ4zjC89lHBHG9DoBtnKhe0LcnrMyd+YFxhV5tBJdPWwPFf8L8PfbG0aB/Fz9NxjudyUF3rU2uyPd3BWrH8UFPg8jag==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJy1k0sOACEIQ7kC97/sLE2I9VF0mrARKOVjRkTGQgrb+QLyqr9ix08aHJz6qu8qTtXu9tqZJ/E5/ZzqOqD9OrkqprsT4lYzVrEqn7iozjTPAd3WDSZ/2OG61fmab6KT4l5ydfX9eZ9kHz6/DgQ=
+   eJytk0ESADAEA33B/z/bqwO1gZleSiMJdTPzwxPjdxdzFE+JKWZVk70n2FTDhG/F5wJTmVOGkfGhvVT/Vawfh65nzG2xpvtI9NH/o3of/SZY3U4qvIjejeaMqxp0xhMfSI06S/rHq7oHW2kNfA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="20">
-  <object name="north" type="mapchange" x="320" y="0" width="32" height="32">
+  <object name="west" type="mapchange" x="0" y="32" width="32" height="96">
    <properties>
-    <property name="map" value="blackwater_mountain2"/>
-    <property name="place" value="south"/>
+    <property name="map" value="blackwater_mountain1"/>
+    <property name="place" value="east"/>
    </properties>
   </object>
-  <object name="east" type="mapchange" x="608" y="480" width="32" height="96">
+  <object name="east" type="mapchange" x="608" y="512" width="32" height="96">
    <properties>
-    <property name="map" value="wild17"/>
+    <property name="map" value="blackwater_mountain0"/>
     <property name="place" value="west"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="20">
-  <object name="forestboar3" type="spawn" x="128" y="352" width="448" height="160">
+  <object name="forestboar4" type="spawn" x="352" y="384" width="224" height="192">
    <properties>
-    <property name="quantity" value="4"/>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestwolf2" type="spawn" x="384" y="96" width="224" height="224">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="forestwolf1" type="spawn" x="32" y="320" width="288" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestbeetle" type="spawn" x="64" y="32" width="288" height="256">
+   <properties>
+    <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>

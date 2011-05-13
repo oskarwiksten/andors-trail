@@ -321,6 +321,8 @@ public final class R {
         public static final int about_contents3=0x7f0500ee;
         /**  Translated as: affliction / statuseffect / temporary effect 
  Translated as: affliction / statuseffect / temporary effect 
+ Translated as: affliction / statuseffect / temporary effect 
+ Translated as: affliction / statuseffect / temporary effect 
          */
         public static final int actorcondition_info_removes_all=0x7f050107;
         public static final int actorconditions_v069=0x7f050000;
@@ -330,6 +332,10 @@ public final class R {
         public static final int actorinfo_class=0x7f0500a2;
         public static final int actorinfo_criticalhit=0x7f0500a8;
         /**  =========================================== 
+ Added in v0.6.9 
+ =========================================== 
+ Added in v0.6.9 
+ =========================================== 
  Added in v0.6.9 
  =========================================== 
  Added in v0.6.9 
@@ -346,6 +352,8 @@ public final class R {
         public static final int combat_begin_flee=0x7f05007e;
         public static final int combat_endturn=0x7f05007c;
         /**  <string name="combat_endcombat">End combat</string>
+ <string name="combat_endcombat">Kampf beenden</string>
+ <string name="combat_endcombat">End combat</string>
  <string name="combat_endcombat">End combat</string>
  <string name="combat_endcombat">End combat</string>
          */
@@ -363,6 +371,8 @@ public final class R {
         public static final int combat_result_monsterhit=0x7f050084;
         public static final int combat_result_monsterhitcritical=0x7f050085;
         /**  <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  
+ <string name="combat_cannotexitcombat">Du kannst den Kampf nicht verlassen, weil noch Gegner in der Nähe sind.Du musst dich zunächst auf ein Feld bewegen, wo dich die Gegner nicht mehr erreichen können.</string>  
+ <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  
  <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  
  <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  
          */
@@ -374,6 +384,8 @@ public final class R {
         public static final int conversation_lostgold=0x7f0500ce;
         public static final int conversation_next=0x7f0500d1;
         /**  <string name="conversation_title">%1$s says</string>  
+ <string name="conversation_title">%1$s sagt</string>  
+ <string name="conversation_title">%1$s Dit</string>  
          */
         public static final int conversation_rewardexp=0x7f0500cc;
         public static final int conversation_rewardgold=0x7f0500cd;
@@ -500,6 +512,8 @@ public final class R {
         public static final int iteminfo_action_use=0x7f0500b5;
         public static final int iteminfo_action_use_ap=0x7f0500b8;
         /**  <string name="key_required">A specific key is required to pass.</string>  
+ <string name="key_required">Hier kommt man nur mit einem bestimmten Schlüssel weiter.</string>  
+ <string name="key_required">Une clé spécifique est requise pour passer.</string>  
          */
         public static final int iteminfo_category=0x7f0500b4;
         public static final int iteminfo_effect_chance_of=0x7f050108;
@@ -801,16 +815,18 @@ public final class R {
         public static final int wild14_clearing=0x7f0400ae;
         public static final int wild15=0x7f0400af;
         public static final int wild15_house=0x7f0400b0;
-        public static final int wild2=0x7f0400b1;
-        public static final int wild3=0x7f0400b2;
-        public static final int wild4=0x7f0400b3;
-        public static final int wild5=0x7f0400b4;
-        public static final int wild6=0x7f0400b5;
-        public static final int wild6_house=0x7f0400b6;
-        public static final int wild7=0x7f0400b7;
-        public static final int wild8=0x7f0400b8;
-        public static final int wild9=0x7f0400b9;
-        public static final int woodcave0=0x7f0400ba;
-        public static final int woodcave1=0x7f0400bb;
+        public static final int wild16=0x7f0400b1;
+        public static final int wild17=0x7f0400b2;
+        public static final int wild2=0x7f0400b3;
+        public static final int wild3=0x7f0400b4;
+        public static final int wild4=0x7f0400b5;
+        public static final int wild5=0x7f0400b6;
+        public static final int wild6=0x7f0400b7;
+        public static final int wild6_house=0x7f0400b8;
+        public static final int wild7=0x7f0400b9;
+        public static final int wild8=0x7f0400ba;
+        public static final int wild9=0x7f0400bb;
+        public static final int woodcave0=0x7f0400bc;
+        public static final int woodcave1=0x7f0400bd;
     }
 }
