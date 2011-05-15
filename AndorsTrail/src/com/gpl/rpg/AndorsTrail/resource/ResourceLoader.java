@@ -45,6 +45,7 @@ public final class ResourceLoader {
         // Load condition types
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
         world.actorConditionsTypes.initialize(loader, r.getString(R.string.actorconditions_v069));
+        world.actorConditionsTypes.initialize(loader, r.getString(R.string.actorconditions_v069_bwm));
         loader.flush();
         
         

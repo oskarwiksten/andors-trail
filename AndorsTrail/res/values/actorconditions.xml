@@ -7,8 +7,12 @@
 {poison_weak|Weak Poison|items_tiles:340||1|2|-1|-1|||||||||||||||||||||};
 {str|Strength|items_tiles:350||||||||||||||1||||||||2|2|||};
 {regen|Regeneration|items_tiles:315||1|1|1|1|||||||||0||||||||||||};
+	</string>
+	
+	<string name="actorconditions_v069_bwm">
+[id|name|iconID|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
 {speed_minor|Minor speed|items_tiles:367||||||||||||||1||2||||||||||};
-{fatigue_minor|Minor fatigue|items_tiles:294||0||||||0||||||1|||2|2||||||||};
+{fatigue_minor|Minor fatigue|items_tiles:294||0||||||0||||||1|||2|2||||-1|-1|||};
 {feebleness_minor|Minor weapon feebleness|items_tiles:354||||||||||||||1||||||||-9|-9|||};
 {bleeding_wound|Bleeding wound|items_tiles:104|1|1|0|-1|-1|||||||||||||||||||||};
 {rage_minor|Minor berserker rage|items_tiles:370||0|-1|||||||||||1|35||||60|||||-90|-1|};
