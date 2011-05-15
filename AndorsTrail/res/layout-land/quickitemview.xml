@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical" android:gravity="bottom|left">
+    <ImageButton
+        android:id="@+id/quickitemview_item1"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/smalltext_buttonheight"
+        android:textSize="@dimen/actionbar_text"
+        />
+    <ImageButton
+        android:id="@+id/quickitemview_item2"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/smalltext_buttonheight"
+        android:textSize="@dimen/actionbar_text"
+        />
+    <ImageButton
+        android:id="@+id/quickitemview_item3"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/smalltext_buttonheight"
+        android:textSize="@dimen/actionbar_text"
+        />
+</LinearLayout>

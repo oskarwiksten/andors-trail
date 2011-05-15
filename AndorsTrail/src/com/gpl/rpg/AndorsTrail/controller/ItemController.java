@@ -219,4 +219,16 @@ public final class ItemController {
 		merchant.removeItem(itemType.id);
 		model.statistics.addGoldSpent(price);
 	}
+
+	public void quickitemUse(int quickSlotId) {
+		useItem(model.player.inventory.quickitem[quickSlotId]);
+		view.mainActivity.statusview.updateStatus();
+		view.mainActivity.combatview.updatePlayerAP(model.player.ap);
+		view.mainActivity.refreshQuickitems();
+	}
+
+	public void setQuickItem(ItemType itemType, int quickSlotId) {
+		model.player.inventory.quickitem[quickSlotId] = itemType;
+		view.mainActivity.refreshQuickitems();
+	}
 }

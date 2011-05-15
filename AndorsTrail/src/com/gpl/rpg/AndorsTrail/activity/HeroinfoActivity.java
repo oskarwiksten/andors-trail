@@ -62,6 +62,8 @@ public final class HeroinfoActivity extends TabActivity {
     private TextView heroinfo_stats_defense;
     private RangeBar rangebar_hp;
     private RangeBar rangebar_exp;
+    
+    private ItemType last_selected_item; // Workaround android bug #7139
 	
 	private final ImageView[] wornItemImage = new ImageView[Inventory.NUM_WORN_SLOTS];
 	private final int[] defaultWornItemImageResourceIDs = new int[Inventory.NUM_WORN_SLOTS];
@@ -289,10 +291,14 @@ public final class HeroinfoActivity extends TabActivity {
 		switch (v.getId()) {
 		case R.id.inventorylist_root:
 			inflater.inflate(R.menu.inventoryitem, menu);
-			if (type.isUsable()) menu.findItem(R.id.inv_menu_use).setVisible(true);
+			if (type.isUsable()){
+				menu.findItem(R.id.inv_menu_use).setVisible(true);
+				menu.findItem(R.id.inv_menu_assign).setVisible(true);
+			}
 			if (type.isEquippable()) menu.findItem(R.id.inv_menu_equip).setVisible(true);
 			break;
 		}
+    	last_selected_item = null;
     }
 
     private int getSelectedID(AdapterContextMenuInfo info) {
@@ -320,6 +326,18 @@ public final class HeroinfoActivity extends TabActivity {
 			break;*/
 		case R.id.inv_menu_use:
 			view.itemController.useItem(getSelectedItemType(info));
+			break;
+		case R.id.inv_menu_assign:
+			last_selected_item = getSelectedItemType(info);
+			break;
+		case R.id.inv_assign_slot1:
+			view.itemController.setQuickItem(last_selected_item, 0);
+			break;
+		case R.id.inv_assign_slot2:
+			view.itemController.setQuickItem(last_selected_item, 1);
+			break;
+		case R.id.inv_assign_slot3:
+			view.itemController.setQuickItem(last_selected_item, 2);
 			break;
 		default:
 			return super.onContextItemSelected(item);

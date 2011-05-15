@@ -17,6 +17,7 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.MainView;
+import com.gpl.rpg.AndorsTrail.view.QuickitemView;
 import com.gpl.rpg.AndorsTrail.view.StatusView;
 
 import android.app.Activity;
@@ -50,6 +51,7 @@ public final class MainActivity extends Activity {
     public MainView mainview;
     public StatusView statusview;
     public CombatView combatview;
+    public QuickitemView quickitemview;
     public LinearLayout activeConditions;
 	
 	private static final int NUM_MESSAGES = 3;
@@ -73,6 +75,7 @@ public final class MainActivity extends Activity {
         mainview = (MainView) findViewById(R.id.main_mainview);
         statusview = (StatusView) findViewById(R.id.main_statusview);
         combatview = (CombatView) findViewById(R.id.main_combatview);
+        quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
         activeConditions = (LinearLayout) findViewById(R.id.statusview_activeconditions);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
@@ -131,6 +134,8 @@ public final class MainActivity extends Activity {
 				})
         	});
         }
+    	quickitemview.refreshQuickitems();
+        
     }
     	
     @Override
@@ -139,6 +144,7 @@ public final class MainActivity extends Activity {
 		switch (requestCode) {
 		case INTENTREQUEST_HEROINFO:
 			combatview.updatePlayerAP(world.model.player.ap);
+			quickitemview.refreshQuickitems();
 			break;
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
@@ -302,6 +308,9 @@ public final class MainActivity extends Activity {
 		sb.append(msg);
 		statusText.setText(sb.toString());
 		statusText.setVisibility(View.VISIBLE);
+	}
+	public void refreshQuickitems() {
+		quickitemview.refreshQuickitems();
 	}
 	public void clearMessages() {
 		for(int i = 0; i < NUM_MESSAGES; ++i) {

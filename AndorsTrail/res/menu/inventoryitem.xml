@@ -6,4 +6,11 @@
 	<item android:title="@string/inventory_unequip" android:id="@+id/inv_menu_unequip" android:visible="false" />
 	<item android:title="@string/inventory_use" android:id="@+id/inv_menu_use" android:visible="false" />
 	<item android:title="@string/inventory_drop" android:id="@+id/inv_menu_drop" />
+	<item android:id="@+id/inv_menu_assign" android:title="@string/inventory_assign" android:visible="false">
+		<menu>
+			<item android:id="@+id/inv_assign_slot1" android:title="@string/inventory_assign_slot1"></item>
+			<item android:id="@+id/inv_assign_slot2" android:title="@string/inventory_assign_slot2"></item>
+			<item android:id="@+id/inv_assign_slot3" android:title="@string/inventory_assign_slot3"></item>
+		</menu>
+	</item>
 </menu>
