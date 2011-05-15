@@ -63,9 +63,9 @@
    eJy9VkESgzAI1LH5QT9qX5cn9AH9h52pdysHZpACQoLdU6KEhSUhGQYb23RiQLDsts9bbI3EBz6ia1rttbU8BjqP8i3T79gTA35fOvSUOMDfvRz/l5LDgzqdaTTvfI9i20SQETsCYi9CbFyzTL4rMCvxRviwTlq9PHXsyc/yLeX36uw/GqemJSDKZ/ni+IzHeQ3mR7l4HemY9rdKxhl6RoD58X2X3S8Am9CLM8F7CPaodZT3gHW+WnXAur7/WEOAV1Nrf7bw9ewXvqYq7xDg8t433jpr4OeP6xUBzY/nVp3vm9b6aFoin9dvyz3E33LrKNtlwsr3SnwBLs9Tfg==
   </data>
  </layer>
- <layer name="Walkable" width="28" height="27" visible="0">
+ <layer name="Walkable" width="28" height="27">
   <data encoding="base64" compression="zlib">
-   eJztk1EOwCAIQ7mC97/sfhcjhQdsXzYhUWNoi3WZ2bp1a7jssLah3h6fhykfyl/EG+nIgPIp7V2cenX9nXrQc6Ur2pP5Kk61z86nkvkv/9je982X0U10ecjkqDLLSDdFZ8ZV0LzR3BEd1EuGK/vXCI/HSd5qQjvNBuGq+FP3FGdWC8nWRJ46Xvd1hePPegCs7iFo
+   eJztk1EKwCAMQ3sF73/Z/Q6xaZ51sA8DhTm0SWocETFu3TpcsfiOQ70zvgynfCh/FW+lwwHlU9q7WPXq+lv1oP+VrmpN5qs41dqdz07mv3xjc983n6Ob6Mrg5GhnlpVuis6Md0HzRnNHdFAvzhn3rZEemT9yV86c3LNUH/FI/Kl9itPVQrLVyVPnHuf3E8b+P9QDPiohRg==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="28" height="27">
@@ -88,6 +88,15 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="28" height="27"/>
+ <objectgroup name="Spawn" width="28" height="27">
+  <object name="restless_dead_1" type="spawn" x="352" y="704" width="128" height="96"/>
+  <object name="forestboar4" type="spawn" x="480" y="128" width="288" height="288"/>
+  <object name="forestboar4" type="spawn" x="704" y="576" width="32" height="32"/>
+  <object name="primwolf1" type="spawn" x="288" y="480" width="320" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="28" height="27"/>
 </map>

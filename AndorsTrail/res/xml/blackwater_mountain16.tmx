@@ -82,6 +82,32 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="30"/>
+ <objectgroup name="Spawn" width="15" height="30">
+  <object name="gornaud_1" type="spawn" x="32" y="832" width="416" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="gornaud_2" type="spawn" x="64" y="128" width="32" height="96"/>
+  <object name="gornaud_2" type="spawn" x="128" y="192" width="32" height="128"/>
+  <object name="gornaud_2" type="spawn" x="256" y="160" width="64" height="32"/>
+  <object name="gornaud_2" type="spawn" x="32" y="352" width="160" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="gornaud_1" type="spawn" x="224" y="256" width="96" height="192"/>
+  <object name="gornaud_2" type="spawn" x="224" y="448" width="96" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="gornaud_2" type="spawn" x="64" y="544" width="384" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="gornaud_1" type="spawn" x="320" y="160" width="128" height="352"/>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="30"/>
 </map>

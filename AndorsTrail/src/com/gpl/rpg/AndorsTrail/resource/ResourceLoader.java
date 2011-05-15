@@ -68,6 +68,7 @@ public final class ResourceLoader {
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_animal));
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_quest));
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v068));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v069));
         }
         loader.flush();
         
@@ -186,6 +187,7 @@ public final class ResourceLoader {
         //loader.prepareTileset(R.drawable.monsters_dragon1, "monsters_dragon1", src_sz1x1, dst_sz4x3);
         loader.prepareTileset(R.drawable.monsters_rltiles1, "monsters_rltiles1", new Size(20, 8), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_rltiles2, "monsters_rltiles2", new Size(20, 9), defaultTileSize);
+        loader.prepareTileset(R.drawable.karvis_npc, "karvis_npc", new Size(9, 1), defaultTileSize);
         
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
         	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_debug));
@@ -196,6 +198,8 @@ public final class ResourceLoader {
 	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_fallhaven_npcs));
 	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_wilderness));
 	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_v068_npcs));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_v069_monsters));
+	    	world.monsterTypes.initialize(world.dropLists, world.actorConditionsTypes, loader, r.getString(R.string.monsterlist_v069_npcs));
         }
         loader.flush();
         

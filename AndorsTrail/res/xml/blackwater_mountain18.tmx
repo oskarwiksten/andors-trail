@@ -53,12 +53,12 @@
    eJydk7ERwzAIRSXFG8RjZGtTuXWqtPEGGcGLxNyJMyJ8XVDxCwm9M/+DKae0D4hOPU99BvSu7DEgYR8pLo+N+hVuCfolw0b86m8vAe89dsutEDuVlr2VKw/Kv7nonOfKrvX+Xto8eqycX6p2BFnkyWPlHrHIL+ehazZXypjlPKQntHO6JrOwfr2d476mcp1nwHo7x33xezn/8x9FdzLK2Sx7u4tmjmRn5s3uC+JnrJc=
   </data>
  </layer>
- <layer name="Objects" width="15" height="22" visible="0">
+ <layer name="Objects" width="15" height="22">
   <data encoding="base64" compression="zlib">
    eJxjYKAvsGPBFGNlxa4WXdwPTa8PIwPDCRZUPgzsYEEVi8Ni72dGTDFCYAkWc4gFXxgR7oIBbH7HFR4wEAA0xwyKS6B+QPcvuj0wcTdG7P7G5jZ0YEVEeKGHzwkCZn7BYaYJEyrfmAl3uPigmdHPzsDgBRQ7xQChsbkL5jaQn5HDA+QeB2jYWkDFyUknhAAl6QgEjJkIq8EG0MMKBvDlQVBcwNIGcnzC/IAsB3IXSD0h/4HCWYcZv7t8iAz/LzjSPDUBAD7JIsk=
   </data>
  </layer>
- <layer name="Above" width="15" height="22" visible="0">
+ <layer name="Above" width="15" height="22">
   <data encoding="base64" compression="zlib">
    eJxjYKAM/GcmXm0GO/l6KbGXmnrfI+mltxs+MJOv9z+N9X7AIgdS/54Ivdjk/hMZztjkkOPoPYl6iQWDSS+h8DkCzXfYwgKfXnxhR4z8cAIA9wAh7w==
   </data>
@@ -82,6 +82,16 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="22"/>
+ <objectgroup name="Spawn" width="15" height="22">
+  <object name="gornaud_3" type="spawn" x="128" y="288" width="32" height="96"/>
+  <object name="gornaud_3" type="spawn" x="64" y="224" width="32" height="160"/>
+  <object name="gornaud_3" type="spawn" x="128" y="96" width="256" height="32"/>
+  <object name="gornaud_2" type="spawn" x="160" y="224" width="64" height="32"/>
+  <object name="gornaud_2" type="spawn" x="224" y="224" width="224" height="448">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="22"/>
 </map>

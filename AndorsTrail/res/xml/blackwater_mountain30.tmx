@@ -63,7 +63,7 @@
    eJxjYMAN/jPjkSQDgMwjxsyRaC+ldn9A0k+JvZUspNmLrP89kfYSqw4E+nC45z2afmLNw6UOJI7LLlziMH2UpC10f+Cy8wMW/xIb1pQAdDtIiTtKAMzdyOFAD3uxAVqUC4PZXkrTDK3NAwFywwZdH6nmkOsXcssrXMCEjb76hgIYjOUDAMFqN2Y=
   </data>
  </layer>
- <layer name="Walkable" width="30" height="20" visible="0">
+ <layer name="Walkable" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJztk1EKACAIQ71C979sX4EMK5NpBA2EPnSvGTURaYk1lMn43Pe4sxnth954ZnK1J/LZXGveEnvPs2wCvad5vXk8OuVGfb39Gf8ly/s2d7XLnSru8vJbRHene7xcnEFWRIycDP/q6r8RHdI=
   </data>
@@ -88,6 +88,18 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20"/>
+ <objectgroup name="Spawn" width="30" height="20">
+  <object name="bwm_agent_5" type="spawn" x="192" y="320" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="wyrm_1" type="spawn" x="480" y="160" width="224" height="192"/>
+  <object name="wyrm_2" type="spawn" x="704" y="320" width="64" height="32"/>
+  <object name="wyrm_3" type="spawn" x="768" y="96" width="64" height="192"/>
+  <object name="wyrm_2" type="spawn" x="736" y="416" width="32" height="32"/>
+  <object name="wyrm_2" type="spawn" x="704" y="544" width="32" height="32"/>
+  <object name="wyrm_2" type="spawn" x="320" y="512" width="352" height="96"/>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="20"/>
 </map>

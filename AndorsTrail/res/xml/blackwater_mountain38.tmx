@@ -81,16 +81,26 @@
     <property name="place" value="west"/>
    </properties>
   </object>
+  <object name="sign_blackwater38_1" type="sign" x="832" y="128" width="32" height="32"/>
+  <object name="sign_blackwater38_1" type="sign" x="224" y="160" width="32" height="32"/>
+  <object name="sign_blackwater38_1" type="sign" x="96" y="512" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="30" height="18">
-  <object name="pitcave2" type="spawn" x="480" y="672" width="96" height="32"/>
-  <object name="pitcave2_boss" type="spawn" x="736" y="736" width="128" height="64"/>
-  <object name="pitcave1" type="spawn" x="64" y="736" width="128" height="128"/>
-  <object name="pitcave2" type="spawn" x="672" y="672" width="128" height="224">
+  <object name="wyrm_4" type="spawn" x="576" y="128" width="32" height="32"/>
+  <object name="wyrm_4" type="spawn" x="256" y="256" width="64" height="32"/>
+  <object name="wyrm_4" type="spawn" x="32" y="256" width="64" height="160"/>
+  <object name="bwm_agent_6" type="spawn" x="768" y="448" width="32" height="32">
    <properties>
-    <property name="quantity" value="2"/>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="wyrm_4" type="spawn" x="352" y="128" width="192" height="224"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="30" height="18">
+  <object name="bwm_agent:30" type="key" x="640" y="352" width="64" height="96">
+   <properties>
+    <property name="phrase" value="keyarea_bwm_agent_30"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="18"/>
 </map>

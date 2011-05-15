@@ -48,22 +48,22 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="30" height="30" visible="0">
+ <layer name="Ground" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztlc0NgkAQhZfB2IC04MFYgBbAwQQLMNGjiUePHmnGUuyAEmhEiBCGyZvdAcGThy+Bzdv527fZMnKuVHgyYnJuQd1/aE+tf0U6TyOrKk5Cw/RFpOOryVeXRa/NpBQ1ZNSnUOa1oGF6BK/hTH3KZl4yfkLD9BmY+cZ1cN2dunUZv12/Ux9N39bE4Xm5LjfEzxvddenX8z0I3i9f57FzECN1fj3ao/XbxpsalFfO5Vd55VmF9hzJxiaQV56Vlrf9v5CNUL+h2UrNjTp8/YbySj9Lnazj0ZzL48t+v/Ez710yxs/WM6h71hjjZ6k5xNPfI+TndZVnV7GPP9+nGfPOidXPv8iL/CzrQe+GhTF+Ru8pmpGPMX72vaeoJoTFV+vGuymrR3uDUU0Iq5+tvkI1IUJ5575LIf9tGVPWZ/X+0PvyB/MGbBUiWA==
   </data>
  </layer>
- <layer name="Objects" width="30" height="30" visible="0">
+ <layer name="Objects" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJzVVr1OwzAQTnHCyzDSF6BCQmKp+JF4AE/AVJhgS8uCQIgFVcDAAAuqeARGEIWZBwhDBhiYmeCs5JTj8Dl204VPshw5zn3+7s+JIhntGfv6vLDu+ua/wWgM0eLySRO0W9Oxc6vC9i825N1NomgnsfN+K7u/jL+fYrs9X/+mwNkXeD+VbD8T1qX9S6X9HnDppJglvRKGYHsQFzPiBGxcwThN7N9sgH0dVzq1oJfazAVbFK49+A5noxXjy/Eu6Pc5Qx1SopfD6OUcWenbczjTRUBcLslejCvVi749JnzX8HzTUOOI8KYlJ8Z5UBNPl3/varSPmF5NtEr53Ekq/xp01d8z3Hvw4jeosy/wDoU67Ab2NeRFYHx7Qj5/lXszVquc1ye/kTdPqvi68pnO0wLG11a/h7PFkDCG8z8HjBdLPmuSzyHaeA/yBdfL8+poQrvSfp7Pdf1Z8oFZ31a/7whzVjNj3eE6vbts/Yrio6ZeDKd0F7rg6leoh84cm8C7NUEt8/vXxmHuy44Qrz3g3A/kddVvTs4Q2qd9kZL4jlXFF8Ljc99z8FrCfvAK44GMR0svkOLu4w/qa5rXB2BzAf4L5+B5pfw/TAnPWRzes2jfonpp3zJYA75VGOvsvxTf83uF3y+udS3oRW3LrUI75XuL7b6iNiTbdP0Hc+exmw==
   </data>
  </layer>
- <layer name="Above" width="30" height="30" visible="0">
+ <layer name="Above" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJzdVr1OAzEMvippXwXmiomxQgJ1RmLmEeAVYGhhBMQzVFUFIz9i6dQNBh4D6TrDUBzlrLNcOz93JyHxSVYuOec+23HsK4oa/X4hYmn9uIJxY+L6Ej5t2tpKWHMoK94n9n6p6LeBZFcTXSk+e73ttaGwhqDxTtHn8TmvbDgQ9ox6uj2lwKvph2zi+qin2eNwaL0cD/zcxUDSxz1zeL8GOSPx5vojNnfffoA9j6aO8Yn1gqAxoPpo09xsn4/k7z18c0Jse4c9H0aOsQTUR5sk3pi/XUDinVVzelYOF+DvJcv/Kby7ypBrE+dFYCxvgPM28d5pcGe2VuLMeScC177xMgvkLcep9Wem5RXnlTA2XpzuF8jC+HOJ+T4M8Gr3N4S36hsx30P+ts3nhdHHjYnHmeezBOlM0HdpLBN4EbQ27MDzLpk/w/NLhrxGeKcD3ce20OpVSj63RVf53AWvls+5/TSXV8vnUD/NrZU5+fxt6j7Ke3BqrUQ7c/OK9lHag3+YTQ6016f0fXcn7xrkNLXpyMo2Omj3CLnxrlNItaCJjRpvDnJrFq1bf4HUf7P/hl8KjK1Z
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30">
+ <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJztk1EOwCAMQrmC97/s/htFutJ+SdLEaN1jigvAevWqqdDc7/gOQr+6d9d32xvXgb2HLOM055byP5NcgLMr+clwT+OsB8a9qYvLfLA5JzebrS7uzUdXrmJPRlVupRRup9y5cnPVM2R39oersjvzPMl1+WBchHVFqqcTd+otqefCPDq5Ds+V+59mT3E/5pUnQA==
   </data>
@@ -129,6 +129,8 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="sign_prim_n" type="sign" x="256" y="416" width="32" height="32"/>
+  <object name="sign_prim_s" type="sign" x="256" y="736" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="30" height="30"/>
  <objectgroup name="Keys" width="30" height="30"/>

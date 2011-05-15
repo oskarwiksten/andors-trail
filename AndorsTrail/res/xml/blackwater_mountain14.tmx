@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzlldERgzAIhknaDXQJh+w23UA3SDfoCC5SuYS7mIOAik99+O/yAPnMj8AEAJODUgB4d7RWZ4z1YKIeEeATsnp8b+6wcb8hS3u7Jxe1Fj+Ju2x6MTXw5raeP2PmtjW4i0uej4Xb1uAuLnku1QA1F/XusMRYlcK+3otwryXmn7hH/ffgphM+YA72lcatew/70YM7xP0c4eLq3hsduNzclPKp96QaWLnS3D76v3pxJa81z65w5+as6YxP3F6ifG1nc99p9YnbwxzX8lYuvmZJOT9ltNei
+   eJzlldERgzAIhknaDXQJh+w23UA3SDfoCC5SuYS7mIOAik99+O/yAPnMj8AEAJODUgB4d7RWZ4z1YKIeEeATsnp8b+6wcb8hS3u7Jxe1Fj+Ju2x6MTXw5raeP2PmtjW4i0uej4Xb1uAuLnku1QA1F/XusMRYlcK+3otwryXmn7hH/ffgphM+YA72lcatew/70YM7xP0c4eLq3hsduNzclPKp96QaWLnS3D76v3pxJa81z65w5+as6YxP3F6ifG1nc99p9YnbwxxXe6sUX7M4f1A/aXTXsg==
   </data>
  </layer>
  <layer name="Objects" width="30" height="20">
@@ -88,6 +88,28 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20"/>
+ <objectgroup name="Spawn" width="30" height="20">
+  <object name="primwolf1" type="spawn" x="96" y="64" width="192" height="384">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="bwm_agent_3" type="spawn" x="768" y="192" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="primwolf1" type="spawn" x="384" y="416" width="32" height="32"/>
+  <object name="forestboar4" type="spawn" x="352" y="96" width="320" height="320">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="primwolf1" type="spawn" x="704" y="320" width="192" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="20"/>
 </map>

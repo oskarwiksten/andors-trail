@@ -63,9 +63,9 @@
    eJxjYKA++M9MXT3UNu89GeaRo4cS8IHK9pEThtQyjxi/fGEk3jxS1FIKAG4VC8E=
   </data>
  </layer>
- <layer name="Walkable" width="20" height="10" visible="0">
+ <layer name="Walkable" width="20" height="10">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBxhGBcgVg+xZpLiBmLdSCygxM/EqKW2eZSGIa3SCgBYFQjn
+   eJwTZGBgEBzGmAGHGDZAyBx86igxjxQ3Egso8TMxaqltHqVhSKv0AwAx1QjW
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="10">
@@ -75,13 +75,17 @@
     <property name="place" value="north"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="512" y="96" width="32" height="32">
+  <object name="north" type="mapchange" x="512" y="64" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain39"/>
     <property name="place" value="west"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="10"/>
+ <objectgroup name="Spawn" width="20" height="10">
+  <object name="wyrm_1" type="spawn" x="96" y="96" width="160" height="192"/>
+  <object name="wyrm_1" type="spawn" x="256" y="160" width="160" height="32"/>
+  <object name="wyrm_1" type="spawn" x="416" y="128" width="192" height="160"/>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="10"/>
 </map>

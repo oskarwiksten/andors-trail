@@ -63,7 +63,7 @@
    eJxjYMAO/jPjkCAC0FsvKyuEfo9DL0x+oMFgcccoGAXEAGqk1zgWys1ABrTIQ4PRn+QCXH75QGGZ/JmRgeELI3l6yXUDsl4Ym9i4wqYXHwAA7OAO6A==
   </data>
  </layer>
- <layer name="Walkable" width="15" height="30" visible="0">
+ <layer name="Walkable" width="15" height="30">
   <data encoding="base64" compression="zlib">
    eJzVk8ENwDAIA71C9l+2X4SwMbR9BIkP5IyDkgPgFBmj6qu8nY0anZZiJl5YxP4NbO5/zapQ76CLPJfV/pyba2/uW+1t+2emrOvZ2S1jmWfnnMsqPdeju5fKz/SvblhHC9A67k47b1t2Umf5AAK7EN8=
   </data>
@@ -82,6 +82,20 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="30"/>
+ <objectgroup name="Spawn" width="15" height="30">
+  <object name="gornaud_2" type="spawn" x="96" y="864" width="32" height="32"/>
+  <object name="gornaud_2" type="spawn" x="288" y="576" width="64" height="64"/>
+  <object name="gornaud_1" type="spawn" x="32" y="224" width="128" height="544">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="gornaud_1" type="spawn" x="160" y="128" width="288" height="384">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="gornaud_1" type="spawn" x="192" y="64" width="96" height="64"/>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="30"/>
 </map>

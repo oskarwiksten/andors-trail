@@ -65,7 +65,7 @@
  </layer>
  <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzFlFsOxCAIRd2C+99sfxvDfSGdITG1ihxAcK+19p8GErZX6e7X3NVlXOYnY6EYb7loztYqrpNXZgutde63ylHKRXYVd4Fvt4arOdP9invGqv4nuek3kUluwmf9e8NTPiR95XBVT7znnVpQDFdU/7IzU3VV2XX7LMkzYiAbE3nvchMeq3fFRTlyuMyXpD4q7tQ7mfTT6ZOrd8NlbwzKi8NlwuKo1hS3Osfy17lLZjvtJySOf+q8qhs396dNxUP7TLq16dhh9tM7V/66fqYx/Go8mdodKA==
+   eJzFlFkOwCAIRL2C979sf41hNrQtidG68BCHzjHG/KkhY2vV3rmM3b2My+JkLHTHUy4as7mK6+SV+UJznfetcpRykV/FHaDvargas71vcfe7qu+b3LRP7CY34bP6PeGpGJK6criqJtZxRwuK4ZqqX3bmlq4qv26dJXlGDFVzN/XMdFWdcXhM74qLcuRwWSyJPipup+3ctJ72mNx9J1z2j0F5cbjM2D2qOcWtzrH8dd6S+U7rCZkTnzqvdOPmfvepeGidWVebjh/mP31zFa8bZ3qHr9oDUVAdbA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="30">
@@ -94,6 +94,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="gornaud_1" type="spawn" x="32" y="32" width="192" height="192"/>
+  <object name="gornaud_1" type="spawn" x="416" y="32" width="160" height="160"/>
+  <object name="gornaud_1" type="spawn" x="480" y="352" width="160" height="160"/>
+  <object name="gornaud_1" type="spawn" x="704" y="352" width="160" height="160"/>
+  <object name="gornaud_1" type="spawn" x="160" y="512" width="160" height="128"/>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>
