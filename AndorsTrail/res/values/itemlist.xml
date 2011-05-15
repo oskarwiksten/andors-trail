@@ -178,23 +178,37 @@
 {ring_crit1|items_tiles:266|Ring of strike|7|2921|1||||||5||||||||||||||||||||||||||};
 {ring_crit2|items_tiles:266|Ring of vicious strike|7|3455|1|||||-10|7||||||||||||||||||||||||||};
 {armor_stone|items_tiles:185|Stone Cuirass|3|52|1||||2||||||22|1|||||||||||||||||||||};
-{ring_shadow0|items_tiles:268|Ring of lesser shadows|7|612|1|||||15|5||3|3|||||||||||||||||||||||};
+{ring_shadow0|items_tiles:268|Ring of lesser shadows|7|612|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
 	</string>
 
-<!-- 	
 	<string name="itemlist_v069">
 [searchTag|iconID|name|category|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{debug_ring_1|items_tiles:266|DEBUG ring of maxHP|7|1|1|10|||||||||||||||||||||||||||||||};
-{debug_ring_2|items_tiles:266|DEBUG ring of maxAP|7|1|1||5||||||||||||||||||||||||||||||};
-{debug_ring_3|items_tiles:266|DEBUG walkring|7|1|1|||2|||||||||||||||||||||||||||||};
-{debug_ring_4|items_tiles:266|DEBUG ring of bless|7|1|1||||||||||||{{bless|3|}}||||||||||||||||||||};
-{debug_ring_5|items_tiles:266|DEBUG ring of regen|7|1|1||||||||||||{{regen|1|}}||||||||||||||||||||};
-{debug_ring_6|items_tiles:266|DEBUG ring of hitheal|7|1||||||||||||||||||||1|1|1|||||||||||};
-{debug_ring_7|items_tiles:266|DEBUG ring of killeffect|7|1|||||||||||||||||||||||||||1|||||{{regen|2|3|100|}}|};
-{debug_ring_8|items_tiles:266|DEBUG ring of atkpoison|7|1||||||||||||||||||||1||||||{{poison_weak|1|3|70|}}|||||||};
-{debug_potion_1|items_tiles:64|DEBUG poison|20|1||||||||||||||1|||||{{poison_weak|1|4|100|}}||||||||||||||};
-{debug_potion_2|items_tiles:67|DEBUG antidote|20|1||||||||||||||1|||||{{poison_weak|-99||100|}}||||||||||||||};
+{rapier_lifesteal|items_tiles:393|Rapier of lifesteal|0|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{dagger_barbed|items_tiles:87|Barbed dagger|0|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
+{elytharan_redeemer|items_tiles:392|Elytharan redeemer|0|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
+{clouded_rage|items_tiles:393|Sword of Shadow\'s rage|0|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{shadow_slayer|items_tiles:144|Shadow of the slayer|0|0|1||2||7|25|10|2|5|9||||||||||1|1|1|||||||||||};
+
+{ring_shadow_embrace|items_tiles:266|Ring of Shadow embrace|7|0|1|20||||10|||2|2|||||||||||||||||||||||};
+
+{bwm_dagger|items_tiles:89|Blackwater dagger|0|539|1||||3|40|||1|1|5||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_dagger_venom|items_tiles:89|Blackwater poisoned dagger|0|1552|1||||3|45|||1|1|||{{blackwater_misery|1|}}|1|||||{{poison_weak|1|5|50|}}||||||||||||||};
+{bwm_ironsword|items_tiles:70|Blackwater iron sword|0|1224|1||||5|50|||3|7|5||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_leather_armour|items_tiles:183|Blackwater leather armour|3|2551|1||||||||||25|1|{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_leather_cap|items_tiles:192|Blackwater leather cap|2|722|1|5|||||||||45||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_combat_ring|items_tiles:268|Blackwater ring of combat|7|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_brew|items_tiles:51|Blackwater brew|20|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
+{woodcutter_hatchet|items_tiles:141|Woodcutter\'s hatchet|0|0|1||||6|9|||6|12|||||||||||||||||||||||};
+{woodcutter_boots|items_tiles:198|Woodcutter\'s boots|5|481|1|1|||||||||8||||||||||||||||||||||};
+{heavy_club|items_tiles:128|Heavy club|0|1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
+
+{pot_speed_1|items_tiles:41|Minor potion of speed|20|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
+{pot_poison_weak|items_tiles:40|Weak poison|20|125||||||||||||||1|||||{{poison_weak|1|5|100|}}||||||||||||||};
+{pot_poison_weak_antidote|items_tiles:54|Weak poison antidote|20|337||||||||||||||1|||||{{poison_weak|-99||100|}}||||||||||||||};
+{pot_bleeding_ointment|items_tiles:35|Ointment of bleeding wounds|20|310||||||||||||||1|||||{{bleeding_wound|-99||100|}}||||||||||||||};
+{pot_fatigue_restore|items_tiles:41|Restore fatigue|20|210||||||||||||||1|||||{{fatigue_minor|-99||100|}}||||||||||||||};
+
+{pot_blind_rage|items_tiles:63|Potion of blind rage|20|495|0||||||||||||{{rage_minor|1|}}|1|||||{{rage_minor|1|5|100|}}|0|||||||0||||||};
 	</string>
--->
 
 </resources>

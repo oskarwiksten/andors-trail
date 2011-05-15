@@ -22,7 +22,7 @@ public class ActorConditionTypeCollection {
 		return null;
 	}
 	
-	private static final ResourceObjectTokenizer actorConditionResourceTokenizer = new ResourceObjectTokenizer(5);
+	private static final ResourceObjectTokenizer actorConditionResourceTokenizer = new ResourceObjectTokenizer(28);
 	public void initialize(final DynamicTileLoader tileLoader, String conditionList) {
 		actorConditionResourceTokenizer.tokenizeRows(conditionList, new ResourceObjectFieldParser() {
 			@Override

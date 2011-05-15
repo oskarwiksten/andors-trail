@@ -99,7 +99,7 @@ function ImageSelector(imagePath, dialog) {
 	dialog.dialog({
 		autoOpen: false,
 		modal: true,
-		width: 600,
+		width: 700,
 		height: 800,
 		position: [50,50],
 		buttons: {

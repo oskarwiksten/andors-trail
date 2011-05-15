@@ -228,22 +228,17 @@ function startEditor() {
 	imageSelector.add(new TilesetImage("items_tiles", {x: 14, y:30}, {x:34, y:34}, [ 'items', 'conditions' ] ));
 	imageSelector.add(new TilesetImage("monsters_armor1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, {x:64, y:64}, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_demon2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_dogs", {x: 7, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_dragons", {x: 7, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_eye1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_eye2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_eye3", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_eye4", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_ghost1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_ghost2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_hydra1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_insects", {x: 6, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_liches", {x: 4, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_mage", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_mage2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_mage3", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_mage4", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_man1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_men", {x: 9, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_men2", {x: 10, y:1}, undefined, [ 'monsters' ] ));
@@ -261,6 +256,7 @@ function startEditor() {
 	imageSelector.add(new TilesetImage("monsters_dragon1", {x: 1, y:1}, {x:128, y:96}, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("karvis_monsters1", {x: 2, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("karvis_npc", {x: 9, y:1}, undefined, [ 'monsters' ] ));
-	
+	imageSelector.add(new TilesetImage("monsters_rltiles1", {x:20, y:8}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rltiles2", {x:20, y:9}, undefined, [ 'monsters' ] ));
 }
 
