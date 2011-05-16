@@ -420,6 +420,9 @@ public final class ResourceLoader {
 	        mapReader.read(r, R.xml.woodcave1, "woodcave1");
 	        mapReader.read(r, R.xml.wild16, "wild16");
 	        mapReader.read(r, R.xml.wild17, "wild17");
+	        mapReader.read(r, R.xml.gapfiller1, "gapfiller1");
+	        mapReader.read(r, R.xml.gapfiller3, "gapfiller3");
+	        mapReader.read(r, R.xml.gapfiller4, "gapfiller4");
         }
         
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));
