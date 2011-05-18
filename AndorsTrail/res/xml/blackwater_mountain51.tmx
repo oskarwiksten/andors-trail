@@ -63,7 +63,7 @@
    eJxjYEAF/5kZcAJkOVxsctWdY2dguMBOWN09dgT7PR51+AAl6j5gEcOmjlg70AEALRoTlQ==
   </data>
  </layer>
- <layer name="Walkable" width="10" height="10" visible="0">
+ <layer name="Walkable" width="10" height="10">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEETCMCBIANNTHS45dHFCgJA6QTR1gljEsZmHTRyXOkIYAH0tBB8=
   </data>
@@ -82,6 +82,9 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="10"/>
+ <objectgroup name="Spawn" width="10" height="10">
+  <object name="restless_dead_1" type="spawn" x="128" y="64" width="64" height="64"/>
+  <object name="restless_dead_1" type="spawn" x="32" y="128" width="256" height="96"/>
+ </objectgroup>
  <objectgroup name="Keys" width="10" height="10"/>
 </map>

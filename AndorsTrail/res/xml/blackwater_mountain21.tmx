@@ -48,14 +48,14 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="20" height="12" visible="0">
+ <layer name="Ground" width="20" height="12">
   <data encoding="base64" compression="zlib">
    eJwLYmRgaKQSDoLiiViwMzMDgwsQT2ZjYJgCxBOBeBIbdrUwDDOvFqjPkQGTxoZbgWaW4pCHmYdLLzH4END8w2zkm1fBhluOHPM6iDAvEU94oeNyKrsPHybWvN0sDAx7WIgzr5GK7gOZNZGK5oHMCmRAYEcGVD45GACNyk6D
   </data>
  </layer>
  <layer name="Objects" width="20" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYGBg+M/MwLCZnYGBkwVCI4McID8TKoasxhCIVwL1cbFAMDLIBYrPYmNgkGSB0CA+LgBSkwqUd4SaJ8UCwYFo7ljFhkoHA9WGAPFiIH8JEC8E4kVsCPXJQDMuAPmbgHgzECcimVcP5O9iQ6XD8LgRBlYiqUlG8jPInmS0MMBnHkztRlbs8tjM0wKq1WaF0JpQWosV1byDQL4IWrjhAlas2DGyeReRzNuPFLaFQL8dheJjQHwaiL8hyeuxQjA62IkUJufZMOWxAWRz0M08CTTvKpI7iDXvNNB/Z1iwuxEb+EbArbj8S4oZ5AIAglYu5w==
+   eJxjYGBg+M/MwLCZnYGBkwVCI4McID8TKoasxhCIVwL1cbFAMDLIBYrPYmNgkGSB0CA+LgBSkwqUd4SaJ8UCwYFo7ljFhkoHA9WGAPFiIH8JEC8E4kVsCPXJQDMuAPmbgHgzECcimVcP5O9iQ6XD8LgRBlYiqUlG8jPInmS0MMBnHkztRlbs8tjM0wKq1WaF0JpQWosV1byDQL4I1J+/2BjwAitW7BjZvItI5u1HMq8Q6LejUHwMiE8D8TckeT1WCEYHO5HC5DwB9yGbhY0NAieB5l1Fcgex5p0G+u8MC3Y3YgPfCLgVl39JMYNcAABqbi/n
   </data>
  </layer>
  <layer name="Above" width="20" height="12">
@@ -76,7 +76,31 @@
    </properties>
   </object>
   <object name="rest1" type="rest" x="512" y="96" width="64" height="32"/>
+  <object name="container_primsleep" type="container" x="576" y="160" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="12"/>
- <objectgroup name="Keys" width="20" height="12"/>
+ <objectgroup name="Spawn" width="20" height="12">
+  <object name="prim_cook" type="spawn" x="224" y="96" width="160" height="64">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_innguest" type="spawn" x="192" y="224" width="288" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="laecca" type="spawn" x="64" y="128" width="96" height="64">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="12">
+  <object name="nondisplay:15" type="key" x="512" y="256" width="96" height="32">
+   <properties>
+    <property name="phrase" value="bwm_primsleep"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

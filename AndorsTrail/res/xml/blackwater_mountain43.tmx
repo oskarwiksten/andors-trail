@@ -82,6 +82,77 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="blackwater_guest1" type="spawn" x="480" y="96" width="192" height="160">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_guest2" type="spawn" x="512" y="96" width="224" height="192">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_cook" type="spawn" x="832" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="mazeg" type="spawn" x="832" y="416" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="keneg" type="spawn" x="384" y="384" width="320" height="256">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="waeges" type="spawn" x="224" y="448" width="64" height="64">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_fighter" type="spawn" x="160" y="288" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_fighter" type="spawn" x="256" y="288" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_pupil" type="spawn" x="160" y="704" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="ungorm" type="spawn" x="128" y="640" width="320" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_pupil" type="spawn" x="384" y="704" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_pupil" type="spawn" x="320" y="704" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_fighter" type="spawn" x="64" y="320" width="96" height="192">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_entranceguard" type="spawn" x="704" y="736" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

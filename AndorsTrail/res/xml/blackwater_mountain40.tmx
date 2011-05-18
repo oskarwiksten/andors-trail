@@ -63,7 +63,7 @@
    eJzbwcKAAf4zQ+gTSHI7WDDlQeA9Ehsb+I9FvpCVgaGIFVXsAzPCrHnsDAzzgXgBO2Ez8am9wgJRC7LrNSuq2tesmOph5oLk1gHV/GOG0MhqYeGArBbE/gfFID66/9DD6wMzQjwZLfy/MGLqxxZe6P7EBUBxCAA8Lym3
   </data>
  </layer>
- <layer name="Walkable" width="11" height="11" visible="0">
+ <layer name="Walkable" width="11" height="11">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEETDDFjEcGFqqsUGSFGLSw+yOAMDpn5i3EsrtfTAALbbBi4=
   </data>
@@ -82,6 +82,9 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="11" height="11"/>
+ <objectgroup name="Spawn" width="11" height="11">
+  <object name="kazaul_1" type="spawn" x="160" y="192" width="32" height="32"/>
+  <object name="kazaul_1" type="spawn" x="224" y="128" width="96" height="128"/>
+ </objectgroup>
  <objectgroup name="Keys" width="11" height="11"/>
 </map>

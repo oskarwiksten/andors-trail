@@ -90,10 +90,8 @@ public final class MonsterTypeCollection {
 	private static float div100(int v) {
 		return (float) v / 100f;
 	}
-	private static int getExpectedMonsterExperience(final MonsterType t) {
-		return getExpectedMonsterExperience(t, t.maxHP, t.maxAP);
-	}
 	private static int getExpectedMonsterExperience(final CombatTraits t, final int maxHP, final int maxAP) {
+		if (t == null) return 0;
 		final float avgAttackHP  = t.getAttacksPerTurn(maxAP) * div100(t.attackChance) * t.damagePotential.averagef() * (1 + div100(t.criticalChance) * t.criticalMultiplier);
 		final float avgDefenseHP = maxHP * (1 + div100(t.blockChance)) + Constants.EXP_FACTOR_DAMAGERESISTANCE * t.damageResistance;
 		return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING);
@@ -107,14 +105,6 @@ public final class MonsterTypeCollection {
     				if (!world.conversations.isValidPhraseID(t.phraseID)) {
     					L.log("WARNING: Cannot find phrase \"" + t.phraseID + "\" for MonsterType \"" + t.name + "\".");
     				}
-    			}
-    			
-    			if (t.exp > 0) {
-	    			int expected_exp = getExpectedMonsterExperience(t);
-	
-	    			if (t.exp != expected_exp) {
-	    				L.log("WARNING: MonsterType \"" + t.name + "\" has exp=" + t.exp + ", which is different from the suggested exp=" + expected_exp);
-	    			}
     			}
     		}
     	}

@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="9" height="30">
   <data encoding="base64" compression="zlib">
-   eJy9k90NgCAMhIu6gYzBJq7JCG6AGziCiwjBxtr0xwfjw4WQfqHtXcgBIBMt8LxL+ouZhs6M9dyE+loVL2au5x46y5kEt47Q2cL6UAZVSD0aDM4h1Smj1RPIs0qzWIy0s+YtMuit5m9i3nKW9kJvG0uzkGZuLM/C8ufN/jQvLwsrL6+PtRcK9/Jy/5LxPNT+BH+DSnvjBHn8a6M=
+   eJy9k9ENgCAMRIu6gY7BJq7JBrgBbuAILiIEGpqmLX4YPy4k9IW2dyE4gNB0ZO0AkMgd15/MMlVmzuepvLE1Zs3n5SrLGQ9dt6tsYn0og0qkvhkMziHVKaPVi6RZpVksRto5ui7JF/RW89czbzlLe6G3haVZSDMXlmdh+fNmf5rXKAsrr1Efay8U7jXK/Utm5KH2J/gbqChwWHsAyVlsmw==
   </data>
  </layer>
  <layer name="Objects" width="9" height="30">
@@ -82,6 +82,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="9" height="30"/>
+ <objectgroup name="Spawn" width="9" height="30">
+  <object name="restless_dead_1" type="spawn" x="32" y="736" width="224" height="160"/>
+  <object name="blackwater_guard2" type="spawn" x="96" y="256" width="128" height="160">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="9" height="30"/>
 </map>

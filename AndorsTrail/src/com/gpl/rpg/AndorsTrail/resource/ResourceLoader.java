@@ -92,6 +92,7 @@ public final class ResourceLoader {
         	world.quests.initialize(r.getString(R.string.questlist_debug));
         } else {
         	world.quests.initialize(r.getString(R.string.questlist));
+        	world.quests.initialize(r.getString(R.string.questlist_nondisplayed));
         	world.quests.initialize(r.getString(R.string.questlist_v068));
         }
     	

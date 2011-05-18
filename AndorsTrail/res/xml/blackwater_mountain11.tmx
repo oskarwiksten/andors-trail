@@ -63,7 +63,7 @@
    eJzdVr1OAzEMvippXwXmiomxQgJ1RmLmEeAVYGhhBMQzVFUFIz9i6dQNBh4D6TrDUBzlrLNcOz93JyHxSVYuOec+23HsK4oa/X4hYmn9uIJxY+L6Ej5t2tpKWHMoK94n9n6p6LeBZFcTXSk+e73ttaGwhqDxTtHn8TmvbDgQ9ox6uj2lwKvph2zi+qin2eNwaL0cD/zcxUDSxz1zeL8GOSPx5vojNnfffoA9j6aO8Yn1gqAxoPpo09xsn4/k7z18c0Jse4c9H0aOsQTUR5sk3pi/XUDinVVzelYOF+DvJcv/Kby7ypBrE+dFYCxvgPM28d5pcGe2VuLMeScC177xMgvkLcep9Wem5RXnlTA2XpzuF8jC+HOJ+T4M8Gr3N4S36hsx30P+ts3nhdHHjYnHmeezBOlM0HdpLBN4EbQ27MDzLpk/w/NLhrxGeKcD3ce20OpVSj63RVf53AWvls+5/TSXV8vnUD/NrZU5+fxt6j7Ke3BqrUQ7c/OK9lHag3+YTQ6016f0fXcn7xrkNLXpyMo2Omj3CLnxrlNItaCJjRpvDnJrFq1bf4HUf7P/hl8KjK1Z
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztk1EOwCAMQrmC97/s/htFutJ+SdLEaN1jigvAevWqqdDc7/gOQr+6d9d32xvXgb2HLOM055byP5NcgLMr+clwT+OsB8a9qYvLfLA5JzebrS7uzUdXrmJPRlVupRRup9y5cnPVM2R39oersjvzPMl1+WBchHVFqqcTd+otqefCPDq5Ds+V+59mT3E/5pUnQA==
   </data>
@@ -132,6 +132,32 @@
   <object name="sign_prim_n" type="sign" x="256" y="416" width="32" height="32"/>
   <object name="sign_prim_s" type="sign" x="256" y="736" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="prim_commoner1" type="spawn" x="288" y="768" width="608" height="96">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_commoner2" type="spawn" x="288" y="576" width="352" height="96">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_commoner3" type="spawn" x="224" y="256" width="128" height="160">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_commoner4" type="spawn" x="416" y="160" width="480" height="192">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="moyra" type="spawn" x="64" y="192" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

@@ -96,7 +96,7 @@
   <object name="exit" type="mapchange" x="96" y="96" width="32" height="32"/>
   <object name="sign_blackwater10" type="sign" x="288" y="224" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20" visible="0">
+ <objectgroup name="Spawn" width="20" height="20">
   <object name="forestboar4" type="spawn" x="320" y="64" width="224" height="256">
    <properties>
     <property name="quantity" value="2"/>
@@ -105,6 +105,11 @@
   <object name="primwolf1" type="spawn" x="64" y="160" width="384" height="320">
    <properties>
     <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="tonis" type="spawn" x="160" y="64" width="96" height="64">
+   <properties>
+    <property name="respawn" value="false"/>
    </properties>
   </object>
  </objectgroup>

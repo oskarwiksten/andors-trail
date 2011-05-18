@@ -76,6 +76,37 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="11" height="24"/>
+ <objectgroup name="Spawn" width="11" height="24">
+  <object name="prim_treasury_guard" type="spawn" x="32" y="256" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_priest" type="spawn" x="224" y="96" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_acolyte" type="spawn" x="224" y="160" width="96" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_pupil1" type="spawn" x="64" y="352" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_pupil2" type="spawn" x="160" y="448" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_pupil3" type="spawn" x="32" y="608" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="11" height="24"/>
 </map>

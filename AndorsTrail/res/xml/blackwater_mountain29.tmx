@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="22" height="16">
   <data encoding="base64" compression="zlib">
-   eJxTY2BgUKMRTmeiLoaZW86EHXsw45bDh2HmBuDAEcwQ2hJKWwNpbySMSx/M3DpmVDFc6onF2NxLqrn7WRgYDrCgsqlhLi73guIPFg4gGsTHZQeI74EnXJHVlTOhipVTyVxTLDgASmMzN4JIcwXxYHLDfriZm44Wp+h8XBikDp+5+NIKPlxOwFxsaYVYDAAGU2Dz
+   eJxTY2BgUKMRTmeiLoaZW86EHXsw45bDh2HmBuDAEcwQ2hJKWwNpbySMSx/M3DpmVDFc6onF2NxLqrn7WRgYDrCgsqlhLi73guIPFg4gGsTHZQeI74EnXJHVlTOhipVTyVxTLDgASmMzN4JIcznxYHLDfriZm44Wp+h8XBikDp+5+NIKPlxOwFxsaYVYDACBtV+j
   </data>
  </layer>
  <layer name="Objects" width="22" height="16">
@@ -65,7 +65,7 @@
  </layer>
  <layer name="Walkable" width="22" height="16" visible="0">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzFcIwNEKsPG41uLi47cNlLyD0MDPjdTor+gTIXlx5keVLsI8VcdLOJiWNizSU2fRHrXnz6hoq5tAqHwWAuORgAhB8M9A==
+   eJwTZGBgEBzFcIwNEKsPG41uLi47cNlLyD0MDPjdTor+gTIXlx5keVLsI8VcdLOJiWNizaUkDRJKk8S6ebCZS6twGAzmkoMBvdwPvg==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="22" height="16">
@@ -76,6 +76,42 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="22" height="16"/>
+ <objectgroup name="Spawn" width="22" height="16">
+  <object name="guthbered" type="spawn" x="576" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="guthbered_guard" type="spawn" x="544" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="guthbered_guard" type="spawn" x="608" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_guard2" type="spawn" x="448" y="352" width="192" height="128">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_guard1" type="spawn" x="288" y="128" width="192" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_guard3" type="spawn" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="prim_guard4" type="spawn" x="192" y="96" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="22" height="16"/>
 </map>

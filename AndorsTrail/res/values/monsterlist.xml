@@ -27,7 +27,7 @@
 {monsters_snakes:1|Forest Snake|forestsnake||7|||10|110|||1|2|10||snake|||||||||};
 {monsters_snakes:3|Young Cave Snake|cavesnake1||8|||5|110|10|2|2|2|10||snake|||||||||};
 {monsters_snakes:3|Cave Snake|cavesnake1||12|||5|110|20|2|2|2|15||snake|||||||||};
-{monsters_snakes:3|Venomous Cave Snake|cavesnake2||15|||5|110|40|2|2|2|10||snake|||||||||};
+{monsters_snakes:3|Venomous Cave Snake|cavesnake2|1x1|15|10||5|110|40|2|2|2|10||snake||1||||||{{poison_weak|1|1|10|}}|};
 {monsters_snakes:3|Tough Cave Snake|cavesnake2||21|||5|110|20|2|2|2|15||snake|||||||||};
 {monsters_rats:4|Basilisk|cavesnake2_boss||40|||7|40|||3|9|50|2|cavecritter|||||||||};
 {monsters_liches:0|Snake servant|cavesnake3||35|||5|80|40|3|2|3|10|1|lich1|||||||||};
@@ -224,14 +224,13 @@
 {monsters_rltiles2:22|Carrion crawler|carrioncrawler_2|1x1|55|10|5|5|50|||3|8|40|4|carrioncrawler||1||||||{{poison_weak|1|5|20|}}|};
 {monsters_rltiles2:21|Tough carrion crawler|carrioncrawler_3|1x1|59|10|5|5|59|||4|9|40|5|carrioncrawler||1||||||{{poison_weak|1|5|20|}}|};
 {monsters_rltiles1:47|Restless dead|restless_dead_1|1x1|25|10|5|5|50|80|2|0|3|140|3|restless_dead_1|||||||||};
-{monsters_rltiles1:49|Kazaul grave spawn|restless_dead_1|1x1|45|10|5|5|110|40|2|2|5|35|3|restless_dead_1|||||||||};
+{monsters_rltiles1:49|Grave spawn|restless_dead_1|1x1|45|10|5|5|110|40|2|2|5|35|3|restless_dead_1|||||||||};
 {monsters_rltiles1:47|Restless apparition|restless_dead_2|1x1|29|10|5|3|90|60|3|2|6|10|1|restless_dead_2|||||||||};
 {monsters_rltiles1:27|Skeletal reaper|restless_dead_2|1x1|15|10|5|5|150|20|2|0|9|110||restless_dead_2|||||||||};
-{monsters_rltiles1:41|Kazaul spawn|kazaul_1|1x1|45|10|5|3|130|50|2|3|5|45|1|kazaul_1|||||||||};
-{monsters_rltiles1:45|Kazaul devourer|kazaul_2|1x1|45|10|5|3|140|40|2|3|7|30|1|kazaul_2|||||||||};
-{monsters_rltiles1:42|Kazaul guardian|kazaul_guardian|1x1|120|10|5|5|140|40|2|3|8|35|3|kazaul_guardian|kazaul_guardian||||||||};
+{monsters_rltiles1:41|Kazaul spawn|kazaul_1|1x1|45|10|5|3|70|50|2|3|5|90|1|kazaul_1|||||||||};
+{monsters_rltiles1:45|Kazaul imp|kazaul_2|1x1|45|10|5|3|70|40|2|3|7|105|1|kazaul_2|||||||||};
+{monsters_rltiles1:42|Kazaul guardian|kazaul_guardian|1x1|95|10|5|5|70|40|2|3|8|90|3|kazaul_guardian|kazaul_guardian||||||||};
 {monsters_misc:9|Keknazar|keknazar|1x1|90|10|5|5|50|20|3|3|9|70|8|keknazar|keknazar||||||||};
-
 	</string>
 
 	<string name="monsterlist_v069_npcs">
@@ -245,6 +244,62 @@
 {monsters_men:4|Agent6|bwm_agent_6|1x1||10|5|5|||||||||bwm_agent_6_start||||||||};
 {monsters_rltiles2:81|Arghest|arghest|1x1||10|5|5|||||||||arghest||||||||};
 {monsters_rltiles1:67|Tonis|tonis|1x1||10|5|5|||||||||tonis||||||||};
+
+{monsters_rltiles1:74|Moyra|moyra|1x1||10|5|5||||||||prim_commoner|moyra||||||||};
+{karvis_npc:6|Prim citizen|prim_commoner1|1x1||10|5|5||||||||prim_commoner1|prim_commoner1||||||||};
+{monsters_rltiles1:68|Prim commoner|prim_commoner2|1x1||10|5|5||||||||prim_commoner|prim_commoner2||||||||};
+{karvis_npc:2|Prim resident|prim_commoner3|1x1||10|5|5||||||||prim_commoner|prim_commoner3||||||||};
+{monsters_rltiles1:84|Prim evoker|prim_commoner4|1x1||10|5|5||||||||prim_commoner|prim_commoner4||||||||};
+{monsters_rltiles1:72|Laecca|laecca|1x1||10|5|5|||||||||laecca||||||||};
+{karvis_npc:0|Prim cook|prim_cook|1x1||10|5|5|||||||||prim_cook||||||||};
+{monsters_rltiles1:63|Prim visitor|prim_innguest|1x1||10|5|5|||||||||prim_innguest||||||||};
+{monsters_rltiles2:81|Birgil|birgil|1x1||10|5|5|||||||||birgil||||||||};
+{monsters_rltiles1:106|Prim tavern guest|prim_tavern_guest1|1x1||10|5|5|||||||||prim_tavern_guest1||||||||};
+{monsters_rltiles1:106|Prim tavern regular|prim_tavern_guest2|1x1||10|5|5|||||||||prim_tavern_guest2||||||||};
+{monsters_rltiles1:106|Prim bar guest|prim_tavern_guest3|1x1||10|5|5|||||||||prim_tavern_guest3||||||||};
+{monsters_rltiles1:106|Prim bar regular|prim_tavern_guest4|1x1||10|5|5|||||||||prim_tavern_guest4||||||||};
+{monsters_rltiles1:88|Prim armorer|prim_armorer|1x1||10|5|5||||||||prim_armorer|prim_armorer||||||||};
+{monsters_men2:0|Jueth|prim_tailor|1x1||10|5|5||||||||prim_tailor|prim_tailor||||||||};
+{karvis_npc:7|Bjorgur|bjorgur|1x1||10|5|5|||||||||bjorgur||||||||};
+{monsters_rltiles2:81|Prim prisoner|prim_prisoner|1x1||10|5|5|||||||||||||||||};
+{karvis_npc:3|Fulus|fulus|1x1||10|5|5|||||||||fulus||||||||};
+{monsters_rltiles1:92|Guthbered|guthbered|1x1||10|5|5|||||||||guthbered||||||||};
+{monsters_rltiles1:76|Guthbered\'s bodyguard|guthbered_guard|1x1||10|5|5|||||||||guthbered_guard||||||||};
+{monsters_rltiles1:65|Prim weapon guard|prim_guard1|1x1||10|5|5|||||||||prim_guard1||||||||};
+{monsters_warrior1:0|Prim sentry|prim_guard2|1x1||10|5|5|||||||||prim_guard2||||||||};
+{monsters_rltiles1:65|Prim guard|prim_guard4|1x1||10|5|5|||||||||prim_guard4||||||||};
+{monsters_rltiles1:76|Tired Prim guard|prim_guard3|1x1||10|5|5|||||||||prim_guard3||||||||};
+{monsters_rltiles1:69|Prim treasury guard|prim_treasury_guard|1x1||10|5|5|||||||||prim_treasury_guard||||||||};
+{monsters_rltiles2:93|Samar|prim_priest|1x1||10|5|5|||||||||prim_priest||||||||};
+{monsters_rltiles1:83|Prim priestly acolyte|prim_acolyte|1x1||10|5|5|||||||||prim_acolyte||||||||};
+{monsters_rltiles1:74|Studying Prim pupil|prim_pupil1|1x1||10|5|5|||||||||prim_pupil1||||||||};
+{monsters_rltiles1:74|Reading Prim pupil|prim_pupil2|1x1||10|5|5|||||||||prim_pupil2||||||||};
+{monsters_rltiles1:74|Prim pupil|prim_pupil3|1x1||10|5|5|||||||||prim_pupil1||||||||};
+
+{monsters_warrior1:0|Blackwater entrance guard|blackwater_entranceguard|1x1|30|10|||||||||||blackwater_entranceguard||||||||};
+{karvis_npc:2|Blackwater dinner guest|blackwater_guest1|1x1|20|10|||||||||||blackwater_guest||||||||};
+{monsters_man1:0|Blackwater inhabitant|blackwater_guest2|1x1|10|10|||||||||||blackwater_guest||||||||};
+{karvis_npc:0|Blackwater cook|blackwater_cook|1x1||10|5|5|||||||||blackwater_cook||||||||};
+{monsters_rltiles1:86|Keneg|keneg|1x1||10|5|5|||||||||keneg||||||||};
+{monsters_rltiles1:85|Mazeg|mazeg|1x1||10|5|5|||||||||mazeg||||||||};
+{monsters_rltiles1:88|Waeges|waeges|1x1||10|5|5||||||||waeges|waeges||||||||};
+{monsters_rltiles1:66|Blackwater fighter|blackwater_fighter|1x1||10|5|5|||||||||blackwater_fighter||||||||};
+{monsters_rltiles1:83|Ungorm|ungorm|1x1||10|5|5|||||||||ungorm||||||||};
+{monsters_rltiles1:74|Blackwater pupil|blackwater_pupil|1x1||10|5|5|||||||||blackwater_pupil||||||||};
+{monsters_rltiles1:81|Laede|blackwater_sleephall|1x1||10|5|5|||||||||laede||||||||};
+{monsters_men2:9|Herec|herec|1x1||10|5|5|||||||||herec||||||||};
+{monsters_rltiles1:87|Iducus|iducus|1x1||10|5|5||||||||iducus|iducus||||||||};
+{monsters_rltiles1:80|Blackwater priest|blackwater_priest|1x1||10|5|5|||||||||blackwater_priest||||||||};
+{monsters_rltiles1:84|Studying Blackwater priest|blackwater_pupil|1x1||10|5|5|||||||||blackwater_pupil||||||||};
+{monsters_rltiles1:76|Blackwater guard|blackwater_guard1|1x1||10|5|5|||||||||blackwater_guard1||||||||};
+{monsters_rltiles1:76|Blackwater border patrol|blackwater_guard2|1x1||10|5|5|||||||||blackwater_guard2||||||||};
+{monsters_rltiles1:76|Harlenn\'s bodyguard|blackwater_bossguard|1x1||10|5|5|||||||||blackwater_bossguard||||||||};
+{monsters_men:3|Blackwater throneroom guard|blackwater_throneguard|1x1||10|5|5|||||||||blackwater_throneguard||||||||};
+{monsters_men2:6|Harlenn|harlenn|1x1||10|5|5|||||||||Harlenn||||||||};
+{monsters_men2:4|Throdna|throdna|1x1||10|5|5|||||||||throdna||||||||};
+{monsters_rltiles1:85|Throdna\'s guard|throdna_guard|1x1||10|5|5|||||||||throdna_guard||||||||};
+{monsters_rltiles1:80|Blackwater mage|blackwater_acolyte|1x1||10|5|5|||||||||blackwater_acolyte||||||||};
+
 	</string>
 	
 </resources>

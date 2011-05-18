@@ -82,6 +82,32 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="15"/>
+ <objectgroup name="Spawn" width="15" height="15">
+  <object name="blackwater_throneguard" type="spawn" x="224" y="224" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_bossguard" type="spawn" x="96" y="256" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_bossguard" type="spawn" x="64" y="320" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="harlenn" type="spawn" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="blackwater_guard1" type="spawn" x="256" y="352" width="192" height="96">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="15"/>
 </map>

@@ -25,6 +25,7 @@ public class CombatTraits {
 		set(copy);
 	}
 	public void set(CombatTraits copy) {
+		if (copy == null) return;
 		this.attackCost = copy.attackCost;
 		this.attackChance = copy.attackChance;
 		this.criticalChance = copy.criticalChance;

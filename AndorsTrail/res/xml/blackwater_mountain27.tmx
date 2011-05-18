@@ -48,7 +48,7 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="9" height="8" visible="0">
+ <layer name="Ground" width="9" height="8">
   <data encoding="base64" compression="zlib">
    eJwLYmRgCCICN+LBMDUT8WCYGkcGBgZXJMwJxSBxbGpAfHQ1jVA1MIyNPxFNDBs/kAE7dkRiAwAAIxj1
   </data>
@@ -58,12 +58,12 @@
    eJxjYEAAJXYGnMCbhYEhHChvxI7ggzAyiIbyndgR/Gg0NffYGBh+s0HY61gZGDgYIJgXye53bKh6YGrwgXtA/feB+AGSOZJA80WA/F5WAprxAAAhxgpR
   </data>
  </layer>
- <layer name="Walkable" width="9" height="8" visible="0">
+ <layer name="Walkable" width="9" height="8">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBwAzECEPD41DESoQbeHHD0Ae9IEDg==
   </data>
  </layer>
- <layer name="Above" width="9" height="8" visible="0">
+ <layer name="Above" width="9" height="8">
   <data encoding="base64" compression="zlib">
    eJxjYCAO/GceODXn2BkYzgPxBXbcarCZ+54ZP58YAABvJgpz
   </data>
@@ -77,5 +77,7 @@
   </object>
  </objectgroup>
  <objectgroup name="keys" width="9" height="8"/>
- <objectgroup name="spawn" width="9" height="8"/>
+ <objectgroup name="spawn" width="9" height="8">
+  <object name="prim_prisoner" type="spawn" x="32" y="96" width="96" height="96"/>
+ </objectgroup>
 </map>
