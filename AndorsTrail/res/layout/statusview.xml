@@ -14,11 +14,20 @@
 		android:layout_margin="3sp"
 		/>
 		
+    <ImageButton 
+        android:id="@+id/quickitem_toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
+
 	<com.gpl.rpg.AndorsTrail.view.RangeBar
 		android:id="@+id/statusview_health"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/status_image"
+        android:layout_toLeftOf="@id/quickitem_toggle"
 		android:layout_marginTop="3sp"
 		/>
 	<com.gpl.rpg.AndorsTrail.view.RangeBar
@@ -26,6 +35,7 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/status_image"
+		android:layout_toLeftOf="@id/quickitem_toggle"
 		android:layout_below="@id/statusview_health"
 		/>
 		

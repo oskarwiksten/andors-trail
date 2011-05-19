@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_1.png"/>
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
  <layer name="Ground" width="10" height="10">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA9NkYGDQHOTYg4pm6SBhWqpTI9M8AEESfViQAQAA
+  <data encoding="base64" compression="zlib">
+   eJzTZGBg0Bzk2IOKZukgYVqqUyPTPADO2BBF
   </data>
  </layer>
  <layer name="Objects" width="10" height="10">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgwA44cIjTGsRQ0axkKppFLwAAgkOg4JABAAA=
+  <data encoding="base64" compression="zlib">
+   eJxjYMAOOHCI0xrEUNGsZCqaRS8AAK7sAMg=
   </data>
  </layer>
  <layer name="Above" width="10" height="10">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGAWDCQAADA0iRpABAAA=
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkAAAGQAAE=
   </data>
  </layer>
  <layer name="Walkable" width="10" height="10">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgGL5AcKAdQAYAAGnI7B6QAQAA
+  <data encoding="base64" compression="zlib">
+   eJxjYBi+QHCgHUAGAAANhAAS
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="10" height="10">
@@ -30,7 +30,7 @@
     <property name="Title" value="Item title"/>
    </properties>
   </object>
-  <object name="start" type="mapchange" x="96" y="64" width="32" height="32"/>
+  <object name="start" type="rest" x="96" y="64" width="32" height="32"/>
   <object name="no_quest:10" type="key" x="32" y="128" width="32" height="32"/>
   <object name="debugquest:100" type="key" x="0" y="128" width="32" height="32">
    <properties>

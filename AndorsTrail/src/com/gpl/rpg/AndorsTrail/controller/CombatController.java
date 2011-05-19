@@ -46,8 +46,6 @@ public final class CombatController {
 	
 	public void enterCombat(int beginTurnAs) {
     	context.mainActivity.combatview.setVisibility(View.VISIBLE);
-    	context.mainActivity.quickitemview.setVisibility(View.VISIBLE);
-    	context.mainActivity.quickitemview.bringToFront();
     	context.mainActivity.combatview.bringToFront();
     	model.uiSelections.isInCombat = true;
     	killedMonsterBags.clear();
@@ -60,7 +58,6 @@ public final class CombatController {
     public void exitCombat(boolean pickupLootBags) {
     	context.effectController.waitForCurrentEffect();
     	setCombatSelection(null, null);
-    	context.mainActivity.quickitemview.setVisibility(View.GONE);
 		context.mainActivity.combatview.setVisibility(View.GONE);
 		model.uiSelections.isInCombat = false;
     	context.mainActivity.clearMessages();
@@ -195,6 +192,7 @@ public final class CombatController {
 					exitCombat(true);
 					return;
 				} else {
+					context.effectController.waitForCurrentEffect();
 					setCombatSelection(nextMonster);
 				}
 			}

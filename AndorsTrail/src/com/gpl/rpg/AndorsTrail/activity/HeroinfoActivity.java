@@ -63,7 +63,7 @@ public final class HeroinfoActivity extends TabActivity {
     private RangeBar rangebar_hp;
     private RangeBar rangebar_exp;
     
-    private ItemType last_selected_item; // Workaround android bug #7139
+    private ItemType lastSelectedItem; // Workaround android bug #7139
 	
 	private final ImageView[] wornItemImage = new ImageView[Inventory.NUM_WORN_SLOTS];
 	private final int[] defaultWornItemImageResourceIDs = new int[Inventory.NUM_WORN_SLOTS];
@@ -298,7 +298,7 @@ public final class HeroinfoActivity extends TabActivity {
 			if (type.isEquippable()) menu.findItem(R.id.inv_menu_equip).setVisible(true);
 			break;
 		}
-    	last_selected_item = null;
+		lastSelectedItem = null;
     }
 
     private int getSelectedID(AdapterContextMenuInfo info) {
@@ -328,16 +328,16 @@ public final class HeroinfoActivity extends TabActivity {
 			view.itemController.useItem(getSelectedItemType(info));
 			break;
 		case R.id.inv_menu_assign:
-			last_selected_item = getSelectedItemType(info);
+			lastSelectedItem = getSelectedItemType(info);
 			break;
 		case R.id.inv_assign_slot1:
-			view.itemController.setQuickItem(last_selected_item, 0);
+			view.itemController.setQuickItem(lastSelectedItem, 0);
 			break;
 		case R.id.inv_assign_slot2:
-			view.itemController.setQuickItem(last_selected_item, 1);
+			view.itemController.setQuickItem(lastSelectedItem, 1);
 			break;
 		case R.id.inv_assign_slot3:
-			view.itemController.setQuickItem(last_selected_item, 2);
+			view.itemController.setQuickItem(lastSelectedItem, 2);
 			break;
 		default:
 			return super.onContextItemSelected(item);

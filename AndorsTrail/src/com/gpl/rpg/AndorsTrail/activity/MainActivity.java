@@ -13,19 +13,24 @@ import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.MainView;
+import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
 import com.gpl.rpg.AndorsTrail.view.QuickitemView;
 import com.gpl.rpg.AndorsTrail.view.StatusView;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -58,6 +63,7 @@ public final class MainActivity extends Activity {
 	private final String[] messages = new String[NUM_MESSAGES];
 	private TextView statusText;
 	public WeakReference<Toast> lastToast = null;
+	private ContextMenuInfo lastSelectedMenu = null;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,6 +114,7 @@ public final class MainActivity extends Activity {
 		    			world.model.player.traits.attackChance = 200;
 		    			world.model.player.traits.attackCost = 1;
 		    			world.model.player.health.add(100, false);
+		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT).show();
 					}
 				})
@@ -115,6 +122,7 @@ public final class MainActivity extends Activity {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(1, 1);
+		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT).show();
 					}
 				})
@@ -122,18 +130,20 @@ public final class MainActivity extends Activity {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.addExperience(100);
-		    			statusview.updateStatus();
+		    			updateStatus();
 					}
 				})
     			,new DebugButton("gc+=10", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.inventory.gold += 10;
-		    			statusview.updateStatus();
+		    			updateStatus();
 					}
 				})
         	});
         }
+		quickitemview.setVisibility(View.GONE);
+        quickitemview.registerForContextMenu(this);
     	quickitemview.refreshQuickitems();
         
     }
@@ -284,9 +294,52 @@ public final class MainActivity extends Activity {
 		return true;
 	}
 	
+	@Override
+	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
+		super.onCreateContextMenu(menu, v, menuInfo);
+		if(quickitemview.isQuickButtonId(v.getId())){
+			createQuickButtonMenu(menu, v, menuInfo);
+		}
+		lastSelectedMenu = null;
+	}
+
+	private void createQuickButtonMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo){
+		menu.add(Menu.NONE, R.id.quick_menu_unassign, Menu.NONE, R.string.inventory_unassign);
+		SubMenu assignMenu = menu.addSubMenu(Menu.NONE, R.id.quick_menu_assign, Menu.NONE, R.string.inventory_assign);
+		for(int i=0; i<world.model.player.inventory.items.size(); ++i){
+			ItemEntry itemEntry = world.model.player.inventory.items.get(i);
+			if(itemEntry.itemType.isUsable())
+				assignMenu.add(R.id.quick_menu_assign_group, i, Menu.NONE, itemEntry.itemType.name);
+		}
+	}
+	
+	@Override
+	public boolean onContextItemSelected(MenuItem item) {
+		QuickButtonContextMenuInfo menuInfo;
+		if(item.getGroupId() == R.id.quick_menu_assign_group){
+			menuInfo = (QuickButtonContextMenuInfo) lastSelectedMenu;
+			view.itemController.setQuickItem(world.model.player.inventory.items.get(item.getItemId()).itemType, menuInfo.index);
+			return true;
+		}
+		switch(item.getItemId()){
+		case R.id.quick_menu_unassign:
+			menuInfo = (QuickButtonContextMenuInfo) item.getMenuInfo();
+			view.itemController.setQuickItem(null, menuInfo.index);
+			break;
+		case R.id.quick_menu_assign:
+			menuInfo = (QuickButtonContextMenuInfo) item.getMenuInfo();
+			lastSelectedMenu = menuInfo;
+			break;
+		default:
+			return super.onContextItemSelected(item);
+		}
+		return true;
+	}
+	
 	public void updateStatus() {
 		statusview.updateStatus();
 		statusview.updateActiveConditions(this, activeConditions);
+		quickitemview.refreshQuickitems();
 	}
 	
 	public void redrawAll(int why) {
@@ -309,9 +362,7 @@ public final class MainActivity extends Activity {
 		statusText.setText(sb.toString());
 		statusText.setVisibility(View.VISIBLE);
 	}
-	public void refreshQuickitems() {
-		quickitemview.refreshQuickitems();
-	}
+	
 	public void clearMessages() {
 		for(int i = 0; i < NUM_MESSAGES; ++i) {
 			messages[i] = "";

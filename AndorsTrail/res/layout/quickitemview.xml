@@ -5,22 +5,22 @@
   android:orientation="horizontal"
   android:layout_height="match_parent"
   android:gravity="bottom|center_horizontal">
-    <ImageButton
+    <com.gpl.rpg.AndorsTrail.view.QuickButton
         android:id="@+id/quickitemview_item1"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/smalltext_buttonheight"
         android:textSize="@dimen/actionbar_text"
-        />
-    <ImageButton
+        android:longClickable="true"/>
+    <com.gpl.rpg.AndorsTrail.view.QuickButton
         android:id="@+id/quickitemview_item2"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/smalltext_buttonheight"
         android:textSize="@dimen/actionbar_text"
-        />
-    <ImageButton
+        android:longClickable="true"/>
+    <com.gpl.rpg.AndorsTrail.view.QuickButton
         android:id="@+id/quickitemview_item3"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/smalltext_buttonheight"
         android:textSize="@dimen/actionbar_text"
-        />
+        android:longClickable="true"/>
 </LinearLayout>

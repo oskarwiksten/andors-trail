@@ -2,6 +2,8 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import java.util.ArrayList;
 
+import android.view.View;
+
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -88,7 +90,8 @@ public final class ItemController {
     		if (!player.useAPs(player.useItemCost)) return;
     	}
     	
-    	player.inventory.removeItem(type.id, 1);
+    	if (!player.inventory.removeItem(type.id, 1)) return;
+    	
     	view.actorStatsController.applyUseEffect(player, null, type.effects_use);
     	model.statistics.addItemUsage(type);
 		
@@ -222,13 +225,23 @@ public final class ItemController {
 
 	public void quickitemUse(int quickSlotId) {
 		useItem(model.player.inventory.quickitem[quickSlotId]);
-		view.mainActivity.statusview.updateStatus();
 		view.mainActivity.combatview.updatePlayerAP(model.player.ap);
-		view.mainActivity.refreshQuickitems();
+		view.mainActivity.updateStatus();
 	}
 
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
 		model.player.inventory.quickitem[quickSlotId] = itemType;
-		view.mainActivity.refreshQuickitems();
+		view.mainActivity.updateStatus();
+	}
+	
+	public void toggleQuickItemView() {
+		if(view.mainActivity.quickitemview.getVisibility()==View.VISIBLE){
+			view.mainActivity.quickitemview.setVisibility(View.GONE);
+			view.mainActivity.statusview.updateQuickItemImage(false);
+		} else {
+	    	view.mainActivity.quickitemview.setVisibility(View.VISIBLE);
+	    	view.mainActivity.quickitemview.bringToFront();
+			view.mainActivity.statusview.updateQuickItemImage(true);
+		}
 	}
 }

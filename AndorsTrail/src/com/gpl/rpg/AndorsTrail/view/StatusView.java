@@ -4,6 +4,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -26,10 +27,12 @@ public final class StatusView extends RelativeLayout {
 	
 	private final WorldContext world;
 	private final Player player;
+	private final ViewContext view;
 	
 	private final RangeBar healthBar;
 	private final RangeBar expBar;
 	private final ImageButton heroImage;
+	private final ImageButton quickToggle;
 	private boolean showingLevelup;
 	private final Drawable levelupDrawable;
 	
@@ -38,6 +41,7 @@ public final class StatusView extends RelativeLayout {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.world;
         this.player = app.world.model.player;
+        this.view = app.currentView.get();
         
         setFocusable(false);
         inflate(context, R.layout.statusview, this);
@@ -62,6 +66,15 @@ public final class StatusView extends RelativeLayout {
 		levelupDrawable = new LayerDrawable(new Drawable[] {
 				new BitmapDrawable(world.tileStore.getBitmap(player.traits.iconID))
 				,new BitmapDrawable(world.tileStore.getBitmap(TileStore.iconID_moveselect))
+		});
+		
+		quickToggle = (ImageButton) findViewById(R.id.quickitem_toggle);
+		quickToggle.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_boxclosed));
+		quickToggle.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				view.itemController.toggleQuickItemView();
+			}
 		});
 		
 		updateStatus();
@@ -92,6 +105,14 @@ public final class StatusView extends RelativeLayout {
 			t.setCurrentImage(world.tileStore.getBitmap(condition.conditionType.iconID));
 		}
 		t.removeOtherImages();
+	}
+	
+	public void updateQuickItemImage(boolean visible){
+		if(visible){
+			quickToggle.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_boxopened));
+		} else {
+			quickToggle.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_boxclosed));
+		}
 	}
 	
 	private static class GreedyImageViewAppender {

@@ -12,7 +12,10 @@ public final class TileStore {
 	public static final int iconID_attackselect = 2;
 	public static final int iconID_moveselect = 3;
 	public static final int iconID_groundbag = 4;
+	public static final int iconID_boxopened = 5;
+	public static final int iconID_boxclosed = 6;
 	public static final int iconID_shop = iconID_groundbag;
+	
 
     private float density;
 	public int tileSize;

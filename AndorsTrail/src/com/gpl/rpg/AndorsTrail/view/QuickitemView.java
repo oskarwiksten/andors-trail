@@ -3,32 +3,26 @@ package com.gpl.rpg.AndorsTrail.view;
 import android.R.color;
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.ColorFilter;
-import android.graphics.ColorMatrixColorFilter;
+import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.FrameLayout;
-import android.widget.ImageButton;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 
-public class QuickitemView extends FrameLayout{
+public class QuickitemView extends FrameLayout implements OnClickListener{
 	public static final int NUM_QUICK_SLOTS = 3;
 
 	private final WorldContext world;
 	private final ViewContext view;
-	private final ImageButton[] items = new ImageButton[NUM_QUICK_SLOTS];
-	private final ColorFilter grayScaleFilter = new ColorMatrixColorFilter(
-			new float[] { 0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
-                          0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
-                          0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
-                          0.00f, 0.00f, 0.00f, 1.0f, 0.0f
-			});
+	private final QuickButton[] items = new QuickButton[NUM_QUICK_SLOTS];
 
 	public QuickitemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -41,55 +35,56 @@ public class QuickitemView extends FrameLayout{
 		Resources res = getResources();
 		this.setBackgroundColor(res.getColor(color.transparent));
 
-		items[0] = (ImageButton)findViewById(R.id.quickitemview_item1);
-		items[1] = (ImageButton)findViewById(R.id.quickitemview_item2);
-		items[2] = (ImageButton)findViewById(R.id.quickitemview_item3);
-
-		for(int i = 0; i < items.length; ++i) {
-			final int slotId = i;
-			ImageButton item = items[i];
+		TypedArray quickButtons = res.obtainTypedArray(R.array.quick_buttons);
+		for(int i = 0; i <items.length ; ++i) {
+			items[i] = (QuickButton)findViewById(quickButtons.getResourceId(i, -1));
+			QuickButton item = items[i];
+			item.setIndex(i);
 			item.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_shop));
-			item.setOnClickListener(new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					view.itemController.quickitemUse(slotId);
-				}
-			});
-			disableButton(item);
+			item.setOnClickListener(this);
+			item.setEmpty(true);
 		}
 	}
-
-	private void disableButton(ImageButton imageButton) {
-		imageButton.setEnabled(false);
-		imageButton.setColorFilter(grayScaleFilter);
+	
+	public boolean isQuickButtonId(int id){
+		for(QuickButton item: items){
+			if(item.getId()==id)
+				return true;
+		}
+		return false;
 	}
-
-	private void enableButton(ImageButton imageButton) {
-		imageButton.setEnabled(true);
-		imageButton.setColorFilter(null);
+	
+	@Override
+	public void onClick(View v) {
+		QuickButton button = (QuickButton)v;
+		if(button.isEmpty())
+			return;
+		view.itemController.quickitemUse(button.getIndex());
 	}
-
+	
 	@Override
 	public void setVisibility(int visibility) {
-		refreshQuickitems();
+		if(visibility==VISIBLE)
+			refreshQuickitems();
 		super.setVisibility(visibility);
 	}
 	
 	public void refreshQuickitems() {
 		for (int i = 0; i < NUM_QUICK_SLOTS; ++i){
-			ImageButton item = items[i];
+			QuickButton item = items[i];
 			ItemType type = world.model.player.inventory.quickitem[i];
 			if(type==null){
 				item.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_shop));
-				disableButton(item);
+				item.setEmpty(true);
 			} else {
 				item.setImageBitmap(world.tileStore.getBitmap(type.iconID));
-				if(world.model.player.inventory.hasItem(type.id)){
-					enableButton(item);
-				} else {
-					disableButton(item);				
-				}
+				item.setEmpty(!world.model.player.inventory.hasItem(type.id));
 			}
 		}
+	}
+	
+	public void registerForContextMenu(MainActivity mainActivity) {
+		for(QuickButton item: items)
+			mainActivity.registerForContextMenu(item);
 	}
 }
