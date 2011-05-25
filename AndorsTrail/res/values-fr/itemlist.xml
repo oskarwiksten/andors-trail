@@ -9,18 +9,18 @@
 [searchTag|iconID|name|category|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {club1|items_tiles:126|Massue en bois|0|7|1||||5|10|||0|1|||||||||||||||||||||||};
 {club3|items_tiles:128|Bâton en fer|0|253|1||||6|5|||2|7|||||||||||||||||||||||};
-{ironsword0|items_tiles:70|Epée en fer|0|12|1||||5|10|||0|1|||||||||||||||||||||||};
+{ironsword0|items_tiles:70|Épée en fer|0|12|1||||5|10|||0|1|||||||||||||||||||||||};
 {hammer0|items_tiles:129|Marteau en fer|0|12|1||||5|10|||0|1|||||||||||||||||||||||};
 {hammer1|items_tiles:129|Marteau géant|0|121|1||||10|5|||4|7|||||||||||||||||||||||};
 {dagger0|items_tiles:84|Dague en fer|0|12|1||||5|10|||0|1|||||||||||||||||||||||};
 {dagger1|items_tiles:84|Dague en fer effilé|0|53|1||||4|20|||1|2|||||||||||||||||||||||};
-{dagger2|items_tiles:84|Superior iron dagger|0|70|1||||4|25|||1|2|||||||||||||||||||||||};
-{shortsword1|items_tiles:85|Epée courte en fer|0|78|1||||4|15|||1|2|||||||||||||||||||||||};
-{ironsword1|items_tiles:70|Epée en fer|0|78|1||||5|10|||1|3|||||||||||||||||||||||};
+{dagger2|items_tiles:84|Dague en fer supérieure|0|70|1||||4|25|||1|2|||||||||||||||||||||||};
+{shortsword1|items_tiles:85|Épée courte en fer|0|78|1||||4|15|||1|2|||||||||||||||||||||||};
+{ironsword1|items_tiles:70|Épée en fer|0|78|1||||5|10|||1|3|||||||||||||||||||||||};
 {ironsword2|items_tiles:71|Longue épée en fer|0|121|1||||5|10|||1|4|||||||||||||||||||||||};
 {broadsword1|items_tiles:75|Glaive en fer|0|251|1||||7|2|||1|10|||||||||||||||||||||||};
 {broadsword2|items_tiles:76|Glaive en acier|0|582|1||||6|15|||3|10|||||||||||||||||||||||};
-{steelsword1|items_tiles:77|Epée en acier|0|874|1||||4|24|||3|7|||||||||||||||||||||||};
+{steelsword1|items_tiles:77|Épée en acier|0|874|1||||4|24|||3|7|||||||||||||||||||||||};
 {axe1|items_tiles:140|Hache de bûcheron|0|24|1||||5|5|||1|3|||||||||||||||||||||||};
 {axe2|items_tiles:140|Hache en fer|0|312|1||||6|5|||2|5|||||||||||||||||||||||};
 {quickdagger1|items_tiles:84|Poignard d\'attaque rapide|0|512|1||||3|20|||0|0|-20||||||||||||||||||||||};
@@ -87,7 +87,7 @@
 {bread|items_tiles:21|Pain|21|6||||||||||||||1|5|5|||||||||||||||||};
 {mushroom|items_tiles:19|Champignon|21|1||||||||||||||1|1|1|||||||||||||||||};
 {pear|items_tiles:9|Poire|21|9||||||||||||||1|4|4|||||||||||||||||};
-{eggs|items_tiles:20|Oeufs|21|8||||||||||||||1|3|3|||||||||||||||||};
+{eggs|items_tiles:20|Œufs|21|8||||||||||||||1|3|3|||||||||||||||||};
 {radish|items_tiles:14|Radis|21|5||||||||||||||1|2|2|||||||||||||||||};
 	</string>
 
@@ -97,9 +97,9 @@
 {vial_empty2|items_tiles:57|Flacon vide|31|4|||||||||||||||||||||||||||||||||};
 {vial_empty3|items_tiles:59|Flasque vide|31|6|||||||||||||||||||||||||||||||||};
 {vial_empty4|items_tiles:58|Potion vide|31|11|||||||||||||||||||||||||||||||||};
-{health_minor|items_tiles:35|Potion mineur de santé|20|5||||||||||||||1|5|5|||||||||||||||||};
+{health_minor|items_tiles:35|Potion mineure de santé|20|5||||||||||||||1|5|5|||||||||||||||||};
 {health|items_tiles:49|Potion normale de santé|20|40||||||||||||||1|10|10|||||||||||||||||};
-{health_major|items_tiles:28|Potion supérieur de santé|20|210||||||||||||||1|40|40|||||||||||||||||};
+{health_major|items_tiles:28|Potion supérieure de santé|20|210||||||||||||||1|40|40|||||||||||||||||};
 {mead|items_tiles:51|Hydromel|20|15||||||||||||||1|1|1|||||||||||||||||};
 {milk|items_tiles:55|Lait|20|21||||||||||||||1|2|2|||||||||||||||||};
 {bonemeal_potion|items_tiles:34|Potion d\'os|20|45||||||||||||||1|40|40|||||||||||||||||};
@@ -107,13 +107,13 @@
 	
 	<string name="itemlist_animal">
 [searchTag|iconID|name|category|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{hair|items_tiles:258|Poil d\'animaux|31|2|||||||||||||||||||||||||||||||||};
-{insectwing|items_tiles:262|Aile d\'insect|31|3|||||||||||||||||||||||||||||||||};
+{hair|items_tiles:258|Pelage d\'animal|31|2|||||||||||||||||||||||||||||||||};
+{insectwing|items_tiles:262|Aile d\'insecte|31|3|||||||||||||||||||||||||||||||||};
 {bone|items_tiles:254|Os|31|2|||||||||||||||||||||||||||||||||};
 {eye|items_tiles:255|Yeux|31|6|||||||||||||||||||||||||||||||||};
 {bat_wing|items_tiles:256|Aile de chauve-souris|31|2|||||||||||||||||||||||||||||||||};
 {claws|items_tiles:257|Griffe|31|2|||||||||||||||||||||||||||||||||};
-{shell|items_tiles:264|Coquille d\'animaux|31|2|||||||||||||||||||||||||||||||||};
+{shell|items_tiles:264|Coquille d\'animal|31|2|||||||||||||||||||||||||||||||||};
 {feather|items_tiles:226|Plume|31|6|||||||||||||||||||||||||||||||||};
 {red_feather|items_tiles:225|Plume rouge|31|11|||||||||||||||||||||||||||||||||};
 {gland|items_tiles:340|Glande à venin|31|15|||||||||||||||||||||||||||||||||};
@@ -126,7 +126,7 @@
 {rock|items_tiles:238|Petit rocher|31|1|||||||||||||||||||||||||||||||||};
 {gem1|items_tiles:210|Gemme en verre|31|2|||||||||||||||||||||||||||||||||};
 {gem2|items_tiles:211|Gemme en rubis|31|6|||||||||||||||||||||||||||||||||};
-{gem3|items_tiles:212|Gemme poli|31|8|||||||||||||||||||||||||||||||||};
+{gem3|items_tiles:212|Gemme polie|31|8|||||||||||||||||||||||||||||||||};
 {gem4|items_tiles:213|Gemme coupante|31|13|||||||||||||||||||||||||||||||||};
 {gem5|items_tiles:215|Joyau poli étincelant|31|15|||||||||||||||||||||||||||||||||};
 {gem6|items_tiles:214|Gemme chatoyante|31|26|||||||||||||||||||||||||||||||||};
@@ -144,7 +144,7 @@
 {dagger_venom|items_tiles:87|Dague vénéneuse|0|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
 {key_luthor|items_tiles:231|Clef de Luthor|31|0|||||||||||||||||||||||||||||||||};
 {calomyran_secrets|items_tiles:406|Les secrets de Calomyran|31|0|||||||||||||||||||||||||||||||||};
-{heartstone|items_tiles:216|Coeur de pierre|31|40|||||||||||||||||||||||||||||||||};
+{heartstone|items_tiles:216|Cœur de pierre|31|40|||||||||||||||||||||||||||||||||};
 {vacor_spell|items_tiles:248|Pièce du sort de Vacor|31|0|||||||||||||||||||||||||||||||||};
 {ring_unzel|items_tiles:266|Anneau d\'Unzel|31|0|||||||||||||||||||||||||||||||||};
 {ring_vacor|items_tiles:266|Anneau de Vacor|31|0|||||||||||||||||||||||||||||||||};
@@ -161,17 +161,17 @@
 {armor_chain2|items_tiles:185|Cotte de mailles ordinaire|3|4191|1|||||-5|||||22||||||||||||||||||||||};
 {hat_leather1|items_tiles:192|Casquette de cuir durci|2|261|1|||||-2|||||7||||||||||||||||||||||};
 {sleepingmead|items_tiles:51|Hydromel préparé de sommeil|31|0|||||||||||||||||||||||||||||||||};
-{ffguard_qitem|items_tiles:266|Bague de patrouille Feygard|31|0|||||||||||||||||||||||||||||||||};
+{ffguard_qitem|items_tiles:266|Bague de la patrouille de Feygard|31|0|||||||||||||||||||||||||||||||||};
 {shield6|items_tiles:171|Pavois en bois|1|952|1|||||-8|||||12||||||||||||||||||||||};
 {shield7|items_tiles:171|Pavois en bois épais|1|1538|1|||||-8|||||14||||||||||||||||||||||};
 {club_wood1|items_tiles:128|Bâton lourd en acier|0|950|1||||8|15|5|3|2|11|||||||||||||||||||||||};
 {club_wood2|items_tiles:128|Bâton en acier lourd équilibré|0|2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
-{gloves_grip|items_tiles:203|Gant avec une meilleur prise|4|471|1|||||9|||||1||||||||||||||||||||||};
+{gloves_grip|items_tiles:203|Gant de prise assurée|4|471|1|||||9|||||1||||||||||||||||||||||};
 {gloves_fancy|items_tiles:203|Gants fantaisistes|4|78|1|||||5|||||||||||||||||||||||||||};
 {ring_crit1|items_tiles:266|Anneau d\'attaque|7|2921|1||||||5||||||||||||||||||||||||||};
 {ring_crit2|items_tiles:266|Anneau d\'attaque vicieuse|7|3455|1|||||-10|7||||||||||||||||||||||||||};
 {armor_stone|items_tiles:185|Cuirrasse de pierre|3|52|1||||2||||||22|1|||||||||||||||||||||};
-{ring_shadow0|items_tiles:268|Anneau des petites ombres|7|612|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
+{ring_shadow0|items_tiles:268|Anneau de l\'Ombre Mineure|7|612|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
 	</string>
 	
 </resources>

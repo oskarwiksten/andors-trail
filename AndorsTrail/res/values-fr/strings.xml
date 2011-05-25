@@ -8,24 +8,24 @@
   <string name="menu_settings">Préférences</string>
   <string name="menu_save">Sauver</string>
   <string name="menu_load">Charger</string>
-  <string name="menu_save_gamesaved">Le jeu a été sauver dans la cartouche %1$d</string>
-  <string name="menu_save_failed">Sauvegarde du jeu échoué ! Est-ce que la carte SD est monté et écrivable ?</string>
+  <string name="menu_save_gamesaved">Le jeu a été sauvé dans l\'emplacement %1$d</string>
+  <string name="menu_save_failed">Échec de la sauvegarde du jeu ! La carte SD est-elle montée et inscriptible ?</string>
 
-  <string name="loadsave_title_save">Jeu sauvé</string>
+  <string name="loadsave_title_save">Jeu sauvegardé</string>
   <string name="loadsave_title_load">Charger un jeu sauvegardé</string>
-  <string name="loadsave_selectslot">Sélectionner une cartouche</string>
+  <string name="loadsave_selectslot">Sélectionner un emplacement</string>
   <string name="loadsave_slot_empty">(vide)</string>
   <string name="savegame_currenthero_displayinfo">niveau %1$d, %2$d exp, %3$d or</string>
   
   <string name="dialog_loading_message">Chargement des ressources...</string>
-  <string name="dialog_loading_failed_title">Echec au chargement</string>
+  <string name="dialog_loading_failed_title">Échec au chargement</string>
   <string name="dialog_loading_failed_message">La Piste d\'Andor a été incapable de charger le fichier du jeu sauvegardé.\n\n:(\n\nLe fichier est peut-être endommagé ou incomplet.</string>
-  <string name="dialog_loading_failed_incorrectversion">La Piste d\'Andor n\'a pas été capable de charger la sauvegarde. Cette sauvegarde de jeu est créé avec une version plus récente que ce qui est en cours d\'exécution.</string>
+  <string name="dialog_loading_failed_incorrectversion">La Piste d\'Andor n\'a pas été capable de charger la sauvegarde. Cette sauvegarde de jeu a été créée avec une version plus récente que celle qui est en cours d\'exécution.</string>
   
   <string name="dialog_close">Fermer</string>
   
   <string name="dialog_confirmexit_title">Quitter</string>
-  <string name="dialog_confirmexit_message">Etes-vous sûr de vouloir quitter ?</string>
+  <string name="dialog_confirmexit_message">Êtes-vous sûr de vouloir quitter ?</string>
   
   <string name="dialog_paused_title">En pause</string>
   <string name="dialog_paused_message">Jeu en pause</string>
@@ -42,13 +42,13 @@
 
   <string name="heroinfo_char">Vue d\'ensemble</string>
   <string name="heroinfo_inv">Inventaire</string>
-  <string name="heroinfo_wear">Equipée</string>
+  <string name="heroinfo_wear">Équipé</string>
   <string name="heroinfo_skill">Talents</string>
   <string name="heroinfo_spell">Sorts</string>
   <string name="heroinfo_levelup">Niveau supérieur</string>
   <string name="heroinfo_level">Niveau</string>
-  <string name="heroinfo_totalexperience">Expérience total</string>  
-  <string name="heroinfo_wornequipment">Equipement portée</string>
+  <string name="heroinfo_totalexperience">Expérience totale</string>  
+  <string name="heroinfo_wornequipment">Équipement porté</string>
   <string name="heroinfo_inventory">Inventaire</string>
   <string name="heroinfo_gold">Or: %1$d</string>
   <string name="heroinfo_actionpoints">Point d\'Action (AP):</string>
@@ -56,12 +56,12 @@
   
   <string name="combat_attack">Attaque (%1$d AP)</string>
   <string name="combat_move">Déplacement (%1$d AP)</string>
-  <string name="combat_use">Utilisé objet</string>
+  <string name="combat_use">Utiliser objet</string>
   <string name="combat_spell">Sort</string>
   <string name="combat_endturn">Fin du tour</string>
   <!-- <string name="combat_endcombat">End combat</string>-->
   <string name="combat_flee">Fuir</string>
-  <string name="combat_begin_flee">Vous pouvez maintenant fuir le combat en cliquant dans le sens que vous souhaitez déplacer.</string>
+  <string name="combat_begin_flee">Vous pouvez maintenant fuir le combat en cliquant dans le sens quedans lequel vous souhaitez vous déplacer.</string>
   <string name="combat_flee_failed">Vous n\'avez pas pu fuir !</string>
   <string name="combat_status_ap">AP: %1$d</string>
   <string name="combat_monsterhealth">HP:</string>
@@ -75,25 +75,25 @@
   <string name="combat_result_herohitcritical">Vous avez reçu un coup critique sur %1$s pour %2$d hp!</string>
   <string name="combat_result_herokillsmonster">%1$s meurt !</string>
   <string name="combat_not_enough_ap">Pas assez de AP restant pour ce tour.</string>
-  <string name="combat_hero_dies">Vous tombez inconscient mais heureusement vous vous réveillez en vie. Vous perder %1$d expérience.</string>
+  <string name="combat_hero_dies">Vous tombez inconscient mais heureusement vous vous réveillez en vie. Vous perdez %1$d points d\'expérience.</string>
     
   <string name="inventory_info">Info</string>
-  <string name="inventory_equip">Equipé</string>
-  <string name="inventory_unequip">Non-Equipé</string>
+  <string name="inventory_equip">Équipé</string>
+  <string name="inventory_unequip">Non-équipé</string>
   <string name="inventory_use">Utilisé</string>
   <string name="inventory_drop">Lâché</string>
   <string name="inventory_item_used">Vous avez utilisé %1$s.</string>
   <string name="inventory_item_dropped">%1$s a été déposé.</string>
-  <string name="inventory_item_equipped">Vous avez équipé %1$s.</string>
+  <string name="inventory_item_equipped">Vous vous êtes équipé de %1$s.</string>
 
-  <string name="dialog_loot_pickall">Ramassez tous</string>
+  <string name="dialog_loot_pickall">Ramassez tout</string>
   <string name="dialog_loot_foundgold">Vous avez trouvé %1$d or. </string>
   <string name="dialog_loot_pickedupitems">Vous avez ramassé %1$d objets.</string>
   <string name="dialog_groundloot_title">Objets</string>
   <string name="dialog_groundloot_message">Vous avez trouvé quelques objets. </string>
   <string name="dialog_monsterloot_title">Victoire</string>
   <string name="dialog_monsterloot_message">Vous avez survécu à la rencontre. </string>
-  <string name="dialog_monsterloot_gainedexp">Vous avez acquis %1$d expérience. </string>
+  <string name="dialog_monsterloot_gainedexp">Vous avez acquis %1$d points d\'expérience. </string>
     
     <string name="monster_difficulty_veryeasy">Très facile</string>
     <string name="monster_difficulty_easy">Facile</string>
@@ -111,8 +111,8 @@
     <string name="actorinfo_criticalhit">Frappe critique:</string>
     <string name="actorinfo_defense">Défense:</string>
     <string name="actorinfo_movecost">Coût de déplacement (AP):</string>
-    <string name="actorinfo_basetraits">Statistiques de combat non équipés (base)</string>
-    <string name="actorinfo_currenttraits">Statistiques de combat équipés (current)</string>
+    <string name="actorinfo_basetraits">Statistiques de combat non équipé (base)</string>
+    <string name="actorinfo_currenttraits">Statistiques de combat équipé (current)</string>
     
     <string name="traitsinfo_attack_cost">Coût d\'attaque (AP):</string>
     <string name="traitsinfo_attack_chance">Chance d\'attaque:</string>
@@ -126,17 +126,17 @@
 
   <string name="iteminfo_category">Catégorie: </string>
   <string name="iteminfo_action_use">Utilisé</string>
-  <string name="iteminfo_action_equip">Equipé</string>
+  <string name="iteminfo_action_equip">Équipé</string>
   <string name="iteminfo_action_unequip">Non-équipé</string>
   <string name="iteminfo_action_use_ap">Utilisé (%1$d AP)</string>
-  <string name="iteminfo_action_equip_ap">Equipé (%1$d AP)</string>
+  <string name="iteminfo_action_equip_ap">Équipé (%1$d AP)</string>
   <string name="iteminfo_action_unequip_ap">Non-équipé (%1$d AP)</string>
 
   <string name="itemcategory_money">Monnaie</string>
   <string name="itemcategory_weapon">Arme</string>
   <string name="itemcategory_shield">Bouclier</string>
   <string name="itemcategory_wearable_head">Portable (tête)</string>
-  <string name="itemcategory_wearable_body">Portable (coprs)</string>
+  <string name="itemcategory_wearable_body">Portable (corps)</string>
   <string name="itemcategory_wearable_hand">Portable (mains)</string>
   <string name="itemcategory_wearable_feet">Portable (pieds)</string>
   <string name="itemcategory_wearable_neck">Portable (cou)</string>
@@ -146,7 +146,7 @@
   
   <string name="startscreen_continue">Continuer le jeu en-cours</string>
   <string name="startscreen_newgame">Nouveau jeu</string>
-  <string name="startscreen_newgame_confirm">Vous perderez votre jeu en-cours et votre personnage actuel, êtes-vous sûr de vouloir démarrer un nouveau jeu ?</string>
+  <string name="startscreen_newgame_confirm">Vous perdrez votre jeu en-cours et votre personnage actuel, êtes-vous sûr de vouloir démarrer un nouveau jeu ?</string>
   <string name="startscreen_about">Au sujet de/aide</string>
   <string name="startscreen_enterheroname">Entrer le nom du héros</string>
   <string name="startscreen_load">Charger</string>
@@ -172,18 +172,18 @@
   <string name="levelup_title">Niveau supérieur</string>
   <string name="levelup_description">Bienvenue au niveau %1$d!</string>
   <string name="levelup_buttontext">Niveau supérieur</string>
-  <string name="levelup_add_health">Augmenter la santé (+%1$d HP)</string>
-  <string name="levelup_add_health_description">Ajouter %1$d à votre santé.</string>
+  <string name="levelup_add_health">Augmenter la constitution (+%1$d HP)</string>
+  <string name="levelup_add_health_description">Ajouter %1$d à votre constitution.</string>
   <string name="levelup_add_attackchance">Augmenter les chances d\'attaque (+%1$d %%)</string>
   <string name="levelup_add_attackchance_description">Ajouter %1$d%% à votre chance d\'attaque de base.</string>
   <string name="levelup_add_attackdamage">Augmenter les dommages de l\'attaque (+%1$d)</string>
-  <string name="levelup_add_attackdamage_description">Ajouter %1$d à votre dommage d\'attaque de base.</string>
+  <string name="levelup_add_attackdamage_description">Ajouter %1$d à vos dommages d\'attaque de base.</string>
   <string name="levelup_add_blockchance">Augmenter les chances de blocage (+%1$d %%)</string>
   <string name="levelup_add_blockchance_description">Ajouter %1$d%% à votre chance de blocage de base.</string>
   
   <string name="dialog_rest_title">Repos</string>
   <string name="dialog_rest_confirm_message">Voulez-vous vous reposer ici ?</string>
-  <string name="dialog_rest_message">Vous vous êtes reposé et vous regagner une pleine santé.</string>
+  <string name="dialog_rest_message">Vous vous êtes reposé et êtes de nouveau en pleine forme.</string>
 
   <string name="about_button1">Aide</string>
   <string name="about_button2">Auteurs</string>
@@ -202,34 +202,34 @@
   
   <string name="dialog_newversion_title">Bienvenue</string>
   <string name="dialog_newversion_message">
-    Merci à vous d\'avoir télécharger La Piste d\'Andor !\n\n
-    Veuillez noter que cetter version de La Piste d\'Andor est un TRAVAIL EN COURS, cela signifie que toutes les cartes ne sont pas encore complète.\n
+    Merci à vous d\'avoir téléchargé La Piste d\'Andor !\n\n
+    Veuillez noter que cetter version de La Piste d\'Andor est un TRAVAIL EN COURS, cela signifie que toutes les cartes ne sont pas encore complètes.\n
     Cependant, vous êtes bien sûr libres d\'explorer les villes et les donjons fournis autant que vous le souhaitez.\n
-    Comme il s\'agit d\'un travail en cours, il peut contenir des bugs et le gameplay n\'est peut-être pas bien équilibrée. Cette version est conçue comme une chasse au bug avant de commencer à ajouter encore plus de contenu. \n
-    Veuillez visiter les forums du projet pour obtenir plus d\'informations ou pour contribuer au projet (voir "A propos").\n
+    Comme il s\'agit d\'un travail en cours, il peut contenir des bogues et le confort de jeu n\'est peut-être pas bien équilibré. Cette version est conçue comme une chasse aux bogues avant de commencer à ajouter encore plus de contenu. \n
+    Veuillez visiter les forums du projet pour obtenir plus d\'informations ou pour contribuer au projet (voir "À propos").\n
     \n
-    Merçi à tous pour vos retours !
+    Merci à tous pour vos retours !
   </string> 
   
   <string name="questlog_title">Quêtes</string>
   <string name="questlog_includecompleted_prompt">Sélectionner les quêtes à afficher</string>
   <string-array name="questlog_includecompleted">
-    <item>Cacher les quêtes complétés</item>
-    <item>Inclure les quêtes complétés</item>
-    <item>Seulement quêtes complétés</item>
+    <item>Cacher les quêtes accomplies</item>
+    <item>Inclure les quêtes accomplies</item>
+    <item>Seulement quêtes accomplies</item>
   </string-array>
-  <string name="questlog_queststatus">Etat: %1$s</string>
+  <string name="questlog_queststatus">État: %1$s</string>
   <string name="questlog_queststatus_inprogress">En-cours</string>
-  <string name="questlog_queststatus_completed">Complété</string>
+  <string name="questlog_queststatus_completed">Accomplie</string>
   
   <string name="preferences_display_category">Affichage</string>
-  <string name="preferences_display_fullscreen_title">Pleine écran</string>
-  <string name="preferences_display_fullscreen">Afficher le jeu en mode pleine-écran (requiere un redémarrage)</string>
+  <string name="preferences_display_fullscreen_title">Plein écran</string>
+  <string name="preferences_display_fullscreen">Afficher le jeu en mode plein-écran (requiert un redémarrage)</string>
   <string name="preferences_dialog_category">Dialogue de confirmation</string>
   <string name="preferences_dialog_confirmrest_title">Confirmer le repos</string>
-  <string name="preferences_dialog_confirmrest">Poser la question si vous voulez vous reposer quand vous êtez sur un lit. Sinon, vous serez toujours automatiquement en repos.</string>
+  <string name="preferences_dialog_confirmrest">Demander si vous voulez vous reposer quand vous êtes sur un lit. Sinon, vous serez toujours automatiquement en repos.</string>
   <string name="preferences_dialog_confirmattack_title">Confirmer une attaque</string>
-  <string name="preferences_dialog_confirmattack">Activer le boîte de dialogue \'Voulez-vous attaquer ?\' quand vous attaquer un monstre.</string>
+  <string name="preferences_dialog_confirmattack">Activer le boîte de dialogue \'Voulez-vous attaquer ?\' quand vous attaquez un monstre.</string>
   <string name="preferences_dialog_monsterloot_title">Afficher le butin des monstres</string>
   <string name="preferences_dialog_monsterloot">Choisir comment vous voulez montrer les résultats d\'un combat (or, expérience, objets) ?</string>
   <string name="preferences_combat_category">Combat</string>
@@ -237,9 +237,9 @@
   <string name="preferences_combat_speed">Détermine la vitesse d\'attaque des monstres.</string>
 
   <string-array name="preferences_display_loot">
-    <item>Afficher la boîte de dialogue des butions</item>
-    <item>Affichier une notification courte</item>
-    <item>Ne pas afficher</item>
+    <item>Afficher la boîte de dialogue des butins</item>
+    <item>Afficher une notification courte</item>
+    <item>Ne rien afficher</item>
   </string-array>
   <string-array name="preferences_display_loot_values">
     <item>0</item>
@@ -276,20 +276,20 @@
   <!-- Added in v0.6.9 -->
 
   <string name="actorinfo_currentconditions">Conditions actives</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
-  <string name="actorcondition_info_removes_all">Effacer tous %1$s</string>
+  <string name="actorcondition_info_removes_all">Effacer tout %1$s</string>
   <string name="iteminfo_effect_chance_of">%1$s chance sur %2$s</string>
   <string name="iteminfo_effect_duration">(%1$d tours)</string>
 
   <string name="iteminfo_effect_works_on_source">De la source</string>
-  <string name="iteminfo_effect_works_on_target">Sur la cible target</string>
-  <string name="iteminfo_effect_works_when_hitting_target">Quand la cible est frappé</string>
+  <string name="iteminfo_effect_works_on_target">Sur la cible</string>
+  <string name="iteminfo_effect_works_when_hitting_target">Quand la cible est frappée</string>
   <string name="iteminfo_effect_works_when_killing_target">Sur chaque mort</string>
   <string name="iteminfo_effect_works_when_used">Quand utilisé</string>
   <string name="iteminfo_effect_works_when_equipped">Quand équipé</string>
   
-  <string name="iteminfo_effect_decrease_current_hp">Draines %1$s HP</string>
-  <string name="iteminfo_effect_increase_current_hp">Restaures %1$s HP</string>
-  <string name="iteminfo_effect_decrease_current_ap">Draines %1$s AP</string>
+  <string name="iteminfo_effect_decrease_current_hp">Draine %1$s HP</string>
+  <string name="iteminfo_effect_increase_current_hp">Restaure %1$s HP</string>
+  <string name="iteminfo_effect_decrease_current_ap">Draine %1$s AP</string>
   <string name="iteminfo_effect_increase_current_ap">Restaure %1$s AP</string>
   
   <string name="iteminfo_effect_increase_max_hp">Augmenter HP +%1$d</string>
@@ -299,8 +299,8 @@
   <string name="iteminfo_effect_increase_movecost">Augmenter le coût de mouvement +%1$d AP</string>
   <string name="iteminfo_effect_decrease_movecost">Diminuer le coût de mouvement %1$d AP</string>
   
-  <string name="preferences_display_scaling_factor_title">Facteur de redimensionnement</string>
-  <string name="preferences_display_scaling_factor">Faire que la vue du jeu s\'affiche sur toute la largeur.</string>
+  <string name="preferences_display_scaling_factor_title">Facteur de redimensionnementmise à l\'échelle</string>
+  <string name="preferences_display_scaling_factor">Afficher le jeu sur toute la largeur.</string>
   <string-array name="preferences_display_scaling_factor">
     <item>Taille normal</item>
     <item>Taille 1.5x</item>
