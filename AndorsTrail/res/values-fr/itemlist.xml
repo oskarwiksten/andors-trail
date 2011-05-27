@@ -17,7 +17,7 @@
 {dagger2|items_tiles:84|Dague en fer supérieure|0|70|1||||4|25|||1|2|||||||||||||||||||||||};
 {shortsword1|items_tiles:85|Épée courte en fer|0|78|1||||4|15|||1|2|||||||||||||||||||||||};
 {ironsword1|items_tiles:70|Épée en fer|0|78|1||||5|10|||1|3|||||||||||||||||||||||};
-{ironsword2|items_tiles:71|Longue épée en fer|0|121|1||||5|10|||1|4|||||||||||||||||||||||};
+{ironsword2|items_tiles:71|Épée longue en fer|0|121|1||||5|10|||1|4|||||||||||||||||||||||};
 {broadsword1|items_tiles:75|Glaive en fer|0|251|1||||7|2|||1|10|||||||||||||||||||||||};
 {broadsword2|items_tiles:76|Glaive en acier|0|582|1||||6|15|||3|10|||||||||||||||||||||||};
 {steelsword1|items_tiles:77|Épée en acier|0|874|1||||4|24|||3|7|||||||||||||||||||||||};
@@ -42,9 +42,9 @@
 
 	<string name="itemlist_necklaces">
 [searchTag|iconID|name|category|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{jewel_fallhaven|items_tiles:272|Joyaux de Fallhaven|6|3125|1||||-1||||||||||||||||||||||||||||};
-{necklace_shield1|items_tiles:273|Collier blindé|6|935|1||||||||||9||||||||||||||||||||||};
-{necklace_shield2|items_tiles:273|Collier blindé|6|1255|1||||||||||12||||||||||||||||||||||};
+{jewel_fallhaven|items_tiles:272|Joyau de Fallhaven|6|3125|1||||-1||||||||||||||||||||||||||||};
+{necklace_shield1|items_tiles:273|Collier de protection|6|935|1||||||||||9||||||||||||||||||||||};
+{necklace_shield2|items_tiles:273|Collier de protection|6|1255|1||||||||||12||||||||||||||||||||||};
 	</string>
 	
 <string name="itemlist_armour">
@@ -53,9 +53,9 @@
 {shirt2|items_tiles:182|Chemise fine|3|72|1||||||||||5||||||||||||||||||||||};
 {shirt_dmgresist|items_tiles:183|Chemise de cuir durci|3|1633|1||||||||||5|1|||||||||||||||||||||};
 {armor1|items_tiles:183|Armure en cuir|3|464|1||||||||||8||||||||||||||||||||||};
-{armor2|items_tiles:183|Armure en cuir supérieur|3|624|1||||||||||9||||||||||||||||||||||};
+{armor2|items_tiles:183|Armure en cuir supérieure|3|624|1||||||||||9||||||||||||||||||||||};
 {armor3|items_tiles:184|Armure en cuir dur|3|2407|1||||||||||13||||||||||||||||||||||};
-{armor4|items_tiles:184|Armure en cuir dur supérieur|3|3866|1||||||||||15||||||||||||||||||||||};
+{armor4|items_tiles:184|Armure en cuir dur supérieure|3|3866|1||||||||||15||||||||||||||||||||||};
 {hat1|items_tiles:189|Chapeau vert|2|13|1||||||||||1||||||||||||||||||||||};
 {hat2|items_tiles:189|Chapeau fin vert|2|25|1||||||||||2||||||||||||||||||||||};
 {hat3|items_tiles:192|Casquette en cuir|2|72|1||||||||||5||||||||||||||||||||||};
@@ -113,7 +113,7 @@
 {eye|items_tiles:255|Yeux|31|6|||||||||||||||||||||||||||||||||};
 {bat_wing|items_tiles:256|Aile de chauve-souris|31|2|||||||||||||||||||||||||||||||||};
 {claws|items_tiles:257|Griffe|31|2|||||||||||||||||||||||||||||||||};
-{shell|items_tiles:264|Coquille d\'animal|31|2|||||||||||||||||||||||||||||||||};
+{shell|items_tiles:264|Carapace d\'animal|31|2|||||||||||||||||||||||||||||||||};
 {feather|items_tiles:226|Plume|31|6|||||||||||||||||||||||||||||||||};
 {red_feather|items_tiles:225|Plume rouge|31|11|||||||||||||||||||||||||||||||||};
 {gland|items_tiles:340|Glande à venin|31|15|||||||||||||||||||||||||||||||||};
@@ -123,7 +123,7 @@
 	<string name="itemlist_junk">
 [searchTag|iconID|name|category|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {clay|items_tiles:289|Motte d\'argile|31|1|||||||||||||||||||||||||||||||||};
-{rock|items_tiles:238|Petit rocher|31|1|||||||||||||||||||||||||||||||||};
+{rock|items_tiles:238|Petit caillou|31|1|||||||||||||||||||||||||||||||||};
 {gem1|items_tiles:210|Gemme en verre|31|2|||||||||||||||||||||||||||||||||};
 {gem2|items_tiles:211|Gemme en rubis|31|6|||||||||||||||||||||||||||||||||};
 {gem3|items_tiles:212|Gemme polie|31|8|||||||||||||||||||||||||||||||||};
@@ -141,16 +141,16 @@
 {ring_mikhail|items_tiles:266|Anneau de Mikhail|7|15|1|||||10|||||||||||||||||||||||||||};
 {neck_irogotu|items_tiles:273|Collier d\'Irogotu|6|30|1||||||||||5|1|||||||||||||||||||||};
 {ring_gandir|items_tiles:266|Anneau de Gandir|31|0|||||||||||||||||||||||||||||||||};
-{dagger_venom|items_tiles:87|Dague vénéneuse|0|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
+{dagger_venom|items_tiles:87|Dague empoisonnée|0|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
 {key_luthor|items_tiles:231|Clef de Luthor|31|0|||||||||||||||||||||||||||||||||};
 {calomyran_secrets|items_tiles:406|Les secrets de Calomyran|31|0|||||||||||||||||||||||||||||||||};
 {heartstone|items_tiles:216|Cœur de pierre|31|40|||||||||||||||||||||||||||||||||};
-{vacor_spell|items_tiles:248|Pièce du sort de Vacor|31|0|||||||||||||||||||||||||||||||||};
+{vacor_spell|items_tiles:248|Article du sort de Vacor|31|0|||||||||||||||||||||||||||||||||};
 {ring_unzel|items_tiles:266|Anneau d\'Unzel|31|0|||||||||||||||||||||||||||||||||};
 {ring_vacor|items_tiles:266|Anneau de Vacor|31|0|||||||||||||||||||||||||||||||||};
 {boots_unzel|items_tiles:197|Bottes défensive d\'Unzel|5|185|1||||||||||8||||||||||||||||||||||};
 {boots_vacor|items_tiles:197|Bottes  d\'attaque de Vacor|5|185|1|||||9|||||2||||||||||||||||||||||};
-{necklace_flagstone|items_tiles:272|Collier de Flagstone Warden|31|0|||||||||||||||||||||||||||||||||};
+{necklace_flagstone|items_tiles:272|Collier du garde de Flagstone|31|0|||||||||||||||||||||||||||||||||};
 {packhide|items_tiles:183|Peau de la meute de loup|3|121|1|||||-15|||||2|1|||||||||||||||||||||};
 {sword_flagstone|items_tiles:77|Fierté de Flagstone|0|169|1||||4|21|10|2|1|6|||||||||||||||||||||||};
 	</string>
@@ -160,7 +160,7 @@
 {armor_chain1|items_tiles:185|Cotte de mailles rouillée|3|3629|1|||||-10|||||20||||||||||||||||||||||};
 {armor_chain2|items_tiles:185|Cotte de mailles ordinaire|3|4191|1|||||-5|||||22||||||||||||||||||||||};
 {hat_leather1|items_tiles:192|Casquette de cuir durci|2|261|1|||||-2|||||7||||||||||||||||||||||};
-{sleepingmead|items_tiles:51|Hydromel préparé de sommeil|31|0|||||||||||||||||||||||||||||||||};
+{sleepingmead|items_tiles:51|Hydromel somnifère|31|0|||||||||||||||||||||||||||||||||};
 {ffguard_qitem|items_tiles:266|Bague de la patrouille de Feygard|31|0|||||||||||||||||||||||||||||||||};
 {shield6|items_tiles:171|Pavois en bois|1|952|1|||||-8|||||12||||||||||||||||||||||};
 {shield7|items_tiles:171|Pavois en bois épais|1|1538|1|||||-8|||||14||||||||||||||||||||||};
@@ -173,5 +173,35 @@
 {armor_stone|items_tiles:185|Cuirrasse de pierre|3|52|1||||2||||||22|1|||||||||||||||||||||};
 {ring_shadow0|items_tiles:268|Anneau de l\'Ombre Mineure|7|612|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
 	</string>
-	
+
+	<string name="itemlist_v069">
+[searchTag|iconID|name|category|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{rapier_lifesteal|items_tiles:393|Rapière voleuse de vie|0|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{dagger_barbed|items_tiles:87|Dague barbelée|0|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
+{elytharan_redeemer|items_tiles:392|Rédempteur d\'Elytharan|0|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
+{clouded_rage|items_tiles:393|Épée de la rage de l\'Ombre|0|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{shadow_slayer|items_tiles:144|Ombre du tueur|0|0|1||2||7|25|10|2|5|9||||||||||1|1|1|||||||||||};
+
+{ring_shadow_embrace|items_tiles:266|Anneau de l\'étreinte de l\'Ombre|7|0|1|20||||10|||2|2|||||||||||||||||||||||};
+
+{bwm_dagger|items_tiles:89|Dague de Blackwater|0|539|1||||3|40|||1|1|5||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_dagger_venom|items_tiles:89|Dague empoisonnée de Blackwater|0|1552|1||||3|45|||1|1|||{{blackwater_misery|1|}}|||||||1||||||{{poison_weak|1|5|50|}}|||||||};
+{bwm_ironsword|items_tiles:70|Épée en fer de Blackwater|0|1224|1||||4|50|||3|7|5||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_leather_armour|items_tiles:183|Armure en cuir de Blackwater|3|2551|1||||||||||25|1|{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_leather_cap|items_tiles:192|Casquette en cuir de Blackwater|2|722|1|5|||||||||21||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_combat_ring|items_tiles:268|Anneau de combat de Blackwater|7|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_brew|items_tiles:51|Infusion de Blackwater|20|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
+{woodcutter_hatchet|items_tiles:141|Hachette du bucheron|0|0|1||||6|9|||6|12|||||||||||||||||||||||};
+{woodcutter_boots|items_tiles:198|Bottes du bucheron|5|481|1|1|||||||||8||||||||||||||||||||||};
+{heavy_club|items_tiles:128|Bâton lourd|0|1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
+
+{pot_speed_1|items_tiles:41|Potion mineure de rapidité|20|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
+{pot_poison_weak|items_tiles:40|Poison faible|20|125||||||||||||||1|||||{{poison_weak|1|5|100|}}||||||||||||||};
+{pot_poison_weak_antidote|items_tiles:54|Antidote de poison faible|20|337||||||||||||||1|||||{{poison_weak|-99||100|}}||||||||||||||};
+{pot_bleeding_ointment|items_tiles:35|Pommade cicatrisante|20|310||||||||||||||1|||||{{bleeding_wound|-99||100|}}||||||||||||||};
+{pot_fatigue_restore|items_tiles:41|Soulagement de fatigue|20|210||||||||||||||1|||||{{fatigue_minor|-99||100|}}||||||||||||||};
+
+{pot_blind_rage|items_tiles:63|Potion de rage aveugle|20|495|0||||||||||||{{rage_minor|1|}}|1|||||{{rage_minor|1|5|100|}}|0|||||||0||||||};
+	</string>
+
 </resources>

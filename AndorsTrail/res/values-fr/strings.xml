@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <resources>
   <string name="app_name">La Piste d\'Andor</string>
   
@@ -61,7 +62,7 @@
   <string name="combat_endturn">Fin du tour</string>
   <!-- <string name="combat_endcombat">End combat</string>-->
   <string name="combat_flee">Fuir</string>
-  <string name="combat_begin_flee">Vous pouvez maintenant fuir le combat en cliquant dans le sens quedans lequel vous souhaitez vous déplacer.</string>
+  <string name="combat_begin_flee">Vous pouvez maintenant fuir le combat en cliquant dans la direction vers laquelle vous souhaitez vous déplacer.</string>
   <string name="combat_flee_failed">Vous n\'avez pas pu fuir !</string>
   <string name="combat_status_ap">AP: %1$d</string>
   <string name="combat_monsterhealth">HP:</string>
@@ -71,7 +72,7 @@
   <string name="combat_result_monsterhit">%1$s vous frappe pour %2$d hp!</string>
   <string name="combat_result_monsterhitcritical">%1$s reçois un coup critique pour %2$d hp !</string>
   <string name="combat_result_heromiss">Votre attaque est manquée.</string>
-  <string name="combat_result_herohit">Vous frappé %1$s pour %2$d hp !</string>
+  <string name="combat_result_herohit">Vous frappez %1$s pour %2$d hp !</string>
   <string name="combat_result_herohitcritical">Vous avez reçu un coup critique sur %1$s pour %2$d hp!</string>
   <string name="combat_result_herokillsmonster">%1$s meurt !</string>
   <string name="combat_not_enough_ap">Pas assez de AP restant pour ce tour.</string>
@@ -119,7 +120,7 @@
     <string name="traitsinfo_attack_damage">Dommage d\'attaque:</string>
     <string name="traitsinfo_criticalhit_chance">Chance de coup critique:</string>
     <string name="traitsinfo_criticalhit_multiplier">Multiple critique:</string>
-    <string name="traitsinfo_defense_chance">Block chance:</string>
+    <string name="traitsinfo_defense_chance">Chance de blocage:</string>
     <string name="traitsinfo_defense_damageresist">Résistance au dommage:</string>
     
   <!-- <string name="key_required">Une clé spécifique est requise pour passer.</string>  -->
@@ -147,7 +148,7 @@
   <string name="startscreen_continue">Continuer le jeu en-cours</string>
   <string name="startscreen_newgame">Nouveau jeu</string>
   <string name="startscreen_newgame_confirm">Vous perdrez votre jeu en-cours et votre personnage actuel, êtes-vous sûr de vouloir démarrer un nouveau jeu ?</string>
-  <string name="startscreen_about">Au sujet de/aide</string>
+  <string name="startscreen_about">À propos/aide</string>
   <string name="startscreen_enterheroname">Entrer le nom du héros</string>
   <string name="startscreen_load">Charger</string>
   
@@ -195,18 +196,29 @@
     &lt;br /&gt;
     &lt;a href="http://code.google.com/p/andors-trail/"&gt;Site internet du projet sur code.google.com pour les développeurs.&lt;/a&gt;&lt;br /&gt;
     &lt;br /&gt;
-    Veuillez visitez les forums pour discuter du jeu avec d\'autres joueurs.&lt;br /&gt;
+    Veuillez visiter les forums pour discuter du jeu avec d\'autres joueurs.&lt;br /&gt;
     &lt;br /&gt;
     Nous devrions ajouter quelques infos ici sur la façon de jouer le jeu :)&lt;br /&gt;
   </string>
+	<string name="about_contents3">
+		Copyright (C) 2011 Oskar Wiksten&lt;br /&gt;
+		&lt;br /&gt;
+		Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le  modifier suivant les termes de la « GNU General Public License » telle que publiée par la Free Software Foundation : soit la version 2 de cette licence, soit (à votre gré) toute version ultérieure.&lt;br /&gt;
+		&lt;br /&gt;
+                Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.
+		&lt;br /&gt;
+		Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		Pour toute requête surconcernant le code source ou les fonctionnalités, veuillez visiter la page du projet à &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+	</string>
   
   <string name="dialog_newversion_title">Bienvenue</string>
   <string name="dialog_newversion_message">
     Merci à vous d\'avoir téléchargé La Piste d\'Andor !\n\n
-    Veuillez noter que cetter version de La Piste d\'Andor est un TRAVAIL EN COURS, cela signifie que toutes les cartes ne sont pas encore complètes.\n
+    Veuillez noter que cette version de La Piste d\'Andor est un TRAVAIL EN COURS, cela signifie que toutes les cartes ne sont pas encore complètes.\n
     Cependant, vous êtes bien sûr libres d\'explorer les villes et les donjons fournis autant que vous le souhaitez.\n
     Comme il s\'agit d\'un travail en cours, il peut contenir des bogues et le confort de jeu n\'est peut-être pas bien équilibré. Cette version est conçue comme une chasse aux bogues avant de commencer à ajouter encore plus de contenu. \n
-    Veuillez visiter les forums du projet pour obtenir plus d\'informations ou pour contribuer au projet (voir "À propos").\n
+    Veuillez visiter les forums du projet pour obtenir plus d\'informations ou pour contribuer au projet (voir « À propos »).\n
     \n
     Merci à tous pour vos retours !
   </string> 
@@ -216,7 +228,7 @@
   <string-array name="questlog_includecompleted">
     <item>Cacher les quêtes accomplies</item>
     <item>Inclure les quêtes accomplies</item>
-    <item>Seulement quêtes accomplies</item>
+    <item>N\'afficher que les quêtes accomplies</item>
   </string-array>
   <string name="questlog_queststatus">État: %1$s</string>
   <string name="questlog_queststatus_inprogress">En-cours</string>
@@ -227,9 +239,9 @@
   <string name="preferences_display_fullscreen">Afficher le jeu en mode plein-écran (requiert un redémarrage)</string>
   <string name="preferences_dialog_category">Dialogue de confirmation</string>
   <string name="preferences_dialog_confirmrest_title">Confirmer le repos</string>
-  <string name="preferences_dialog_confirmrest">Demander si vous voulez vous reposer quand vous êtes sur un lit. Sinon, vous serez toujours automatiquement en repos.</string>
+  <string name="preferences_dialog_confirmrest">Demander si vous voulez vous reposer quand vous êtes sur un lit. Sinon, vous serez toujours automatiquement mis au repos.</string>
   <string name="preferences_dialog_confirmattack_title">Confirmer une attaque</string>
-  <string name="preferences_dialog_confirmattack">Activer le boîte de dialogue \'Voulez-vous attaquer ?\' quand vous attaquez un monstre.</string>
+  <string name="preferences_dialog_confirmattack">Activer le boîte de dialogue « Voulez-vous attaquer ? » quand vous attaquez un monstre.</string>
   <string name="preferences_dialog_monsterloot_title">Afficher le butin des monstres</string>
   <string name="preferences_dialog_monsterloot">Choisir comment vous voulez montrer les résultats d\'un combat (or, expérience, objets) ?</string>
   <string name="preferences_combat_category">Combat</string>
@@ -299,11 +311,11 @@
   <string name="iteminfo_effect_increase_movecost">Augmenter le coût de mouvement +%1$d AP</string>
   <string name="iteminfo_effect_decrease_movecost">Diminuer le coût de mouvement %1$d AP</string>
   
-  <string name="preferences_display_scaling_factor_title">Facteur de redimensionnementmise à l\'échelle</string>
+  <string name="preferences_display_scaling_factor_title">Facteur de mise à l\'échelle</string>
   <string name="preferences_display_scaling_factor">Afficher le jeu sur toute la largeur.</string>
   <string-array name="preferences_display_scaling_factor">
-    <item>Taille normal</item>
-    <item>Taille 1.5x</item>
+    <item>Taille normale</item>
+    <item>Taille de moitié supérieure à la normale</item>
     <item>Taille double</item>
   </string-array>
   <string-array name="preferences_display_scaling_factor_values">
@@ -312,4 +324,10 @@
     <item>2.0f</item>
   </string-array>
   
+  <string name="inventory_assign">Affecter un emplacement rapide</string>
+  <string name="inventory_assign_slot1">Emplacement 1</string>
+  <string name="inventory_assign_slot2">Emplacement 2</string>
+  <string name="inventory_assign_slot3">Emplacement 3</string>
+  <string name="inventory_unassign">Désaffecter un emplacement rapide</string>
+	
 </resources>
