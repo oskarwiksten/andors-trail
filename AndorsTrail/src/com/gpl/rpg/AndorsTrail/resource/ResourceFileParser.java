@@ -282,7 +282,7 @@ public class ResourceFileParser {
 	}
 	
 	public static class ResourceObjectTokenizer {
-		private static final String fieldPattern = "([^\\|]*?|\\{\\{.*?\\}\\})" + columnSeparator;
+		private static final String fieldPattern = "([^\\|]*?|\\{\\s*\\{.*?\\}\\s*\\})" + columnSeparator;
 		
 		private final int columns;
 		private final Pattern pattern;

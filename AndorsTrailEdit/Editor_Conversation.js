@@ -155,7 +155,7 @@ function generatePhraseID(previousPhraseID) {
 	var suffix;
 	var n = 1;
 	
-	var match = /^(.*)(\d+)$/(previousPhraseID);
+	var match = /^(.*\D)(\d+)$/(previousPhraseID);
 	if (match) {
 		suffix = match[1];
 		n = parseInt(match[2]) + 1;

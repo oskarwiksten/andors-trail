@@ -20,11 +20,13 @@ public final class ConversationController {
 			player.inventory.add(loot);
 		}
 		if (phrase.progressQuest != null) {
-			player.addQuestProgress(phrase.progressQuest);
-			QuestLogEntry stage = questcollection.getQuestLogEntry(phrase.progressQuest);
-			if (stage != null) {
-				loot.exp = stage.rewardExperience;
-				player.addExperience(stage.rewardExperience);
+			boolean added = player.addQuestProgress(phrase.progressQuest);
+			if (added) {  // Only apply exp reward if the quest stage was reached just now (and not re-reached)
+				QuestLogEntry stage = questcollection.getQuestLogEntry(phrase.progressQuest);
+				if (stage != null) {
+					loot.exp = stage.rewardExperience;
+					player.addExperience(stage.rewardExperience);
+				}
 			}
 		}
 		return loot;

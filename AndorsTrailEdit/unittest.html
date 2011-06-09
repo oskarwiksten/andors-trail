@@ -129,6 +129,21 @@ $(document).ready(function(){
 			ok(obj.Effects);
 			equals(obj.Effects.length, 0);
 		});
+
+		test("Hierarcical object deserialization with whitespaces", function() {
+			var ds = new FieldList("[Id|Name|Spells[SpellID|SpellName|]|Size|]");
+			var obj = deserializeObject(ds, "{23|TestObject|{\n\t{50|Heal|}\n\t{51|Curse|}\n\t}|Large|}");
+			ok(obj);
+			equals(obj.Id, 23);
+			equals(obj.Name, "TestObject");
+			ok(obj.Spells);
+			equals(obj.Spells.length, 2);
+			equals(obj.Spells[0].SpellID, 50);
+			equals(obj.Spells[0].SpellName, "Heal");
+			equals(obj.Spells[1].SpellID, 51);
+			equals(obj.Spells[1].SpellName, "Curse");
+			equals(obj.Size, "Large");
+		});
 	
 	// ========================================================
 	
@@ -158,7 +173,7 @@ $(document).ready(function(){
 			obj.Spells[1].SpellName = "Curse";
 			obj.Size = "Large";
 			
-			equals(serializeObject(ds, obj), "{23|TestObject|{{50|Heal|}{51|Curse|}}|Large|}");
+			equals(serializeObject(ds, obj), "{23|TestObject|{\n\t{50|Heal|}\n\t{51|Curse|}\n\t}|Large|}");
 		});
 
 		test("Multiple hierarcical object serialization", function() {
@@ -179,7 +194,7 @@ $(document).ready(function(){
 			obj.Drops[0].ItemID = 4;
 			obj.Effects = [];
 			
-			equals(serializeObject(ds, obj), "{23|TestObject|{{50|Heal|}{51|Curse|}}|Large|{{4|}}||}");
+			equals(serializeObject(ds, obj), "{23|TestObject|{\n\t{50|Heal|}\n\t{51|Curse|}\n\t}|Large|{{4|}}||}");
 		});
 		
 		test("Object serialization with undefined fields", function() {
@@ -380,7 +395,7 @@ $(document).ready(function(){
 	module("DataStore");
 
 		test("Getting and putting items", function() {
-			var ds = new DataStore('item', new FieldList("[iconID|name|];"));
+			var ds = new DataStore({objectTypename: 'item', fieldList: new FieldList("[iconID|name|];")});
 			equals(ds.items.length, 0);
 			ds.add({iconID: 3, name: 'Test'});
 			equals(ds.items.length, 1);
@@ -389,7 +404,7 @@ $(document).ready(function(){
 		});
 		
 		test("Serialization of datastore", function() {
-			var ds = new DataStore('item', new FieldList("[iconID|name|];"));
+			var ds = new DataStore({objectTypename: 'item', fieldList: new FieldList("[iconID|name|];")});
 			ds.add({iconID: 3, name: 'Test'});
 			equals(ds.serialize(), '[iconID|name|];\n{3|Test|};\n');
 		});

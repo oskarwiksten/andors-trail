@@ -97,6 +97,7 @@ public final class ResourceLoader {
         	world.quests.initialize(r.getString(R.string.questlist));
         	world.quests.initialize(r.getString(R.string.questlist_nondisplayed));
         	world.quests.initialize(r.getString(R.string.questlist_v068));
+        	world.quests.initialize(r.getString(R.string.questlist_v069));
         }
     	
 
@@ -151,6 +152,18 @@ public final class ResourceLoader {
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_oluag));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_signs_v068));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_maelveon));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_1));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_2));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_3));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_4));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_5));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_arghest));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_outside));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_inn));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_tavern));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_houses));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_guthbered));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_signs));
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();

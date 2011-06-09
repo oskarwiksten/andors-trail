@@ -91,10 +91,11 @@ public final class Player extends Actor {
 	public boolean hasAnyQuestProgress(String questID) {
 		return questProgress.containsKey(questID);
 	}
-	public void addQuestProgress(QuestProgress progress) {
-		if (hasExactQuestProgress(progress.questID, progress.progress)) return;
+	public boolean addQuestProgress(QuestProgress progress) {
+		if (hasExactQuestProgress(progress.questID, progress.progress)) return false;
 		if (!questProgress.containsKey(progress.questID)) questProgress.put(progress.questID, new HashSet<Integer>());
 		questProgress.get(progress.questID).add(progress.progress); 
+		return true; //Progress was added.
 	}
 
 	public void recalculateLevelExperience() {

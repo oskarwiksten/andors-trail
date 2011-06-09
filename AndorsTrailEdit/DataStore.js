@@ -1,10 +1,10 @@
 
 var DataStore_Data_fieldValue = '[^\\{\\}\\|]*';
-var DataStore_Data_arrayObject = '\\{(' + DataStore_Data_fieldValue + '\\|)*\\}';
+var DataStore_Data_arrayObject = '\\{(' + DataStore_Data_fieldValue + '\\|)*\\}\\s*';
 var DataStore_Data_arrayObjectPattern = new RegExp(DataStore_Data_arrayObject, 'g');
-var DataStore_Data_arrayField = '\\{(' + DataStore_Data_arrayObject + ')*\\}';
+var DataStore_Data_arrayField = '\\{\\s*(' + DataStore_Data_arrayObject + ')*\\s*\\}';
 var DataStore_Data_field = '(' + DataStore_Data_fieldValue + '|' + DataStore_Data_arrayField + ')\\|';
-var DataStore_Data_pattern = new RegExp(DataStore_Data_field, 'g');
+var DataStore_Data_pattern = new RegExp(DataStore_Data_field, 'gm');
 var DataStore_Data_line = "^(\\{(" + DataStore_Data_field + ")*\\};)$";
 var DataStore_Data_linePattern = new RegExp(DataStore_Data_line, 'gm');
 
@@ -123,9 +123,13 @@ function serializeObject(fieldList, obj) {
 		if (f instanceof FieldList) {
 			if (v && v.length > 0) {
 				result += "{";
+				if (v.length > 1) { result += "\n"; }
 				for(var j = 0; j < v.length; ++j) {
+					if (v.length > 1) { result += "\t"; }
 					result += serializeObject(f, v[j]);
+					if (v.length > 1) { result += "\n"; }
 				}
+				if (v.length > 1) { result += "\t"; }
 				result += "}";
 			}
 		} else if (v != undefined) {

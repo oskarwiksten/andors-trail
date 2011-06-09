@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="15" height="30">
   <data encoding="base64" compression="zlib">
-   eJytVMsNwlAMa58QgwATAOLAAfEXJ8R/JkZihA7AJjAAjfoiLOMnKGCp4kAcJ07ysuxzdEKWXRo1CH+G6SOW+fe56nKv0LdzN+XvIH6r/DX+LLxyLuqPEp6y14q7philiRrIZQ+KBNc0+uEZH5rav6vgD/Mqfih0VbxjVupN4ZuHJ7fV1HW3Y8yE9mQbKi2uOcQ86JniYs3KI5+T4nYTXhmw/735G/mL8vdgfRO3TfkRxt9FnsO4roGeWQ+BPGSMaa8/ufv+j/fpc5jFXfOZp/q2mrwv69N4pxh7hJ3xvOi3zxFvGLEFTbWnuE9qdlYXesY50Bs1OwTfdOq9ULAaepCX34s6wJq9H67N96qg/9+9NWpP7/Te3fLqnu50i4WYq6p5SjPB2h/a5TpS
+   eJytVEFuwkAMTFYV/IP0BS3iwKG0SVtxQgRa3sST+oQ8gJ+UBzRW1spomBVJYaSIAx6PPbY3y4bjMWTZz8MIwp1h+ojP/P+5xnJP0Ldzt+3vIn7r/DL+KLxyLuq/JDxlrxV3QzFKEzWQyx40Ca5pzEMfHybav5PgL/Mufil0VbyjavVK+N5Dz51NdN1FjHmjPalDp8U1h5gHPVNcrJk9Wk37OSnuU8IrA/a/N38j/6P9/bK+iVtQfoTxd5HnMK5roGfWQyAPGa+010Pufn7jffocqrhrPvNU31aT92V9Gu8QY79hZzwv+u1zxBtG1KCp9hT3Sc3O6kLPOAd6o2aH4JtOvRcKVsMz5OX3YgywZu+Ha/O9auj/a2+N2tMzvXe/eXdPZ7rFRsxV1VzSTLD2P+OdOpg=
   </data>
  </layer>
  <layer name="Above" width="15" height="30">
@@ -68,7 +68,7 @@
    eJzVlEkOACEIBPmC///s3ElDF3IwY2JihILGhRMR5+GMH7NuqDxqP69zDMrmGB1baZ3kdWy237DKt6qDsMpXnZ1jt3ndvW/Y7pzJ268G/RuUVT5Tlv5DopHwE2ab2/WfSa+6ZYlGpbmyu1gd695Op9/V+gGQbg/P
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="30" visible="0">
+ <objectgroup name="Mapevents" width="15" height="30">
   <object name="south" type="mapchange" x="128" y="928" width="96" height="32">
    <properties>
     <property name="map" value="blackwater_mountain15"/>
@@ -81,8 +81,9 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="sign_blackwater16" type="sign" x="416" y="416" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="30">
+ <objectgroup name="Spawn" width="15" height="30" visible="0">
   <object name="gornaud_1" type="spawn" x="32" y="832" width="416" height="64">
    <properties>
     <property name="quantity" value="2"/>
@@ -109,5 +110,5 @@
   </object>
   <object name="gornaud_1" type="spawn" x="320" y="160" width="128" height="352"/>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="30"/>
+ <objectgroup name="Keys" width="15" height="30" visible="0"/>
 </map>

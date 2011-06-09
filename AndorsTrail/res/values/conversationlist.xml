@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+ 
 <resources>
 	<string name="conversationlist_debug">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
@@ -16,7 +16,7 @@
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {mikhail_start_select||||{{|mikhail_visited|andor:1|||}{|mikhail_gamestart||||}}|};
 {mikhail_gamestart|Oh good, you are awake.|||{{N|mikhail_visited||||}}|};
-{mikhail_visited|I can\'t seem to find your brother anywhere. He hasn\'t been back since he left yesterday.|andor:1||{{N|mikhail3||||}}|};
+{mikhail_visited|I can\'t seem to find your brother Andor anywhere. He hasn\'t been back since he left yesterday.|andor:1||{{N|mikhail3||||}}|};
 {mikhail3|Nevermind, he will probably be back soon.|||{{N|mikhail_default||||}}|};
 {mikhail_default|Anything else I can help you with?|||{{Do you have any tasks for me?|mikhail_tasks||||}{Is there anything else you can tell me about Andor?|mikhail_andor1||||}}|};
 {mikhail_tasks|Oh yes, there were some things I need help with, bread and rats. Which one would you like to talk about?|||{{What about the bread?|mikhail_bread_select||||}{What about the rats?|mikhail_rats_select||||}{Nevermind, let\'s talk about the other things.|mikhail_default||||}}|};
@@ -25,15 +25,15 @@
 {mikhail_bread_select||||{{|mikhail_bread_complete2|mikhail_bread:100|||}{|mikhail_bread_continue|mikhail_bread:10|||}{|mikhail_bread_start||||}}|};
 {mikhail_bread_start|Oh, I almost forgot. If you have time, please go see Mara at the town hall and buy me some more bread.|mikhail_bread:10||{{N|mikhail_default||||}}|};
 {mikhail_bread_continue|Did you get my bread from Mara at the town hall yet?|||{{Yes, here you go.|mikhail_bread_complete||bread|1|}{No, not yet.|mikhail_default||||}}|};
-{mikhail_bread_complete|Thanks a lot, now I can get my breakfast. Here, take these coins for your help.|mikhail_bread:100|gold20|{{N|mikhail_default||||}}|};
+{mikhail_bread_complete|Thanks a lot, now I can make my breakfast. Here, take these coins for your help.|mikhail_bread:100|gold20|{{N|mikhail_default||||}}|};
 {mikhail_bread_complete2|Thanks for the bread earlier.|||{{You\'re welcome.|mikhail_default||||}}|};
 {mikhail_rats_select||||{{|mikhail_rats_complete2|mikhail_rats:100|||}{|mikhail_rats_continue|mikhail_rats:10|||}{|mikhail_rats_start||||}}|};
 {mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go kill any rats that you see out there.|mikhail_rats:10||{{I have already dealt with the rats.|mikhail_rats_complete||tail_trainingrat|2|}{Ok, I\'ll go check out in our garden.|mikhail_rats_start2||||}}|};
 {mikhail_rats_start2|If you get hurt by the rats, come back here and rest in your bed. That way you can regain your strength.|||{{N|mikhail_rats_start3||||}}|};
 {mikhail_rats_start3|Also, don\'t forget to check your inventory. You probably still have that old ring I gave you. Make sure you wear it.|||{{Ok, I understand. I can rest here if I get hurt, and I should check my inventory for useful items.|mikhail_default||||}}|};
 {mikhail_rats_continue|Did you kill those two rats in our garden?|||{{Yes, I have dealt with the rats now.|mikhail_rats_complete||tail_trainingrat|2|}{No, not yet.|mikhail_default||||}}|};
-{mikhail_rats_complete|Oh you did? Wow, thanks a lot for your help!\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.|mikhail_rats:100||{{N|mikhail_default||||}}|};
-{mikhail_rats_complete2|Thanks for your help with the rats earlier.\n\nIf you got hurt, use your bed over there to rest. That way you can regain your strength.|||{{N|mikhail_default||||}}|};
+{mikhail_rats_complete|Oh you did? Wow, thanks a lot for your help!\n\nIf you are hurt, use your bed over there to rest and regain your strength.|mikhail_rats:100||{{N|mikhail_default||||}}|};
+{mikhail_rats_complete2|Thanks for your help with the rats earlier.\n\nIf you are hurt, use your bed over there to rest and regain your strength.|||{{N|mikhail_default||||}}|};
 	</string>
 	
 	<string name="conversationlist_crossglen_leta">
@@ -43,7 +43,7 @@
 {leta_oromir_select||||{{|leta_oromir_complete2|leta:100|||}{|leta_oromir1||||}}|};
 {leta_oromir1|Do you know anything about my husband? He should be here helping me with the farm today, but he seems to be missing as usual.\nSigh.|||{{I have no idea.|leta_oromir2||||}{Yes, I found him. He is hiding among some trees to the east.|leta_oromir_complete|leta:20|||}}|};
 {leta_oromir2|If you see him, tell him to hurry back here and help me with the housework.\nNow get out of here!|leta:10|||};
-{leta_oromir_complete|Hiding is he? That\'s not really the way forward. I\'ll go let him know who\'s the boss around here.\nThanks for letting me know though.|leta:100|||};
+{leta_oromir_complete|Hiding is he? That\'s not surprising. I\'ll go let him know who\'s the boss around here.\nThanks for letting me know though.|leta:100|||};
 {leta_oromir_complete2|Thanks for telling me about Oromir earlier. I will go get him in just a minute.||||};
 {oromir1|Oh you startled me.\nHello.|||{{Hello|oromir2||||}}|};
 {oromir2|I\'m hiding here from my wife Leta. She is always getting angry at me for not helping out on the farm. Please don\'t tell her that I\'m here.|leta:20||{{Ok.|X||||}}|};
@@ -62,14 +62,14 @@
 {farm2|What?! Can\'t you see I\'m busy? Go bother someone else.|||{{Have you seen my brother Andor?|farm_andor||||}}|};
 {farm_andor|Andor? No, I haven\'t seen him around lately.||||};
 {snakemaster|Well well, what have we here? A visitor, how nice. I\'m impressed you got this far through all my minions.\n\nNow prepare to die, puny creature.|||{{Great, I have been waiting for a fight!|F||||}{Let\'s see who dies here.|F||||}{Please don\'t hurt me!|F||||}}|};
-{haunt|Oh mortal, free me from this cursed world!|||{{Oh, I\'ll free you of it alright.|F||||}{You mean, by killing you?|F||||}}|};
+{haunt|Oh mortal, free me from this cursed world!|||{{Oh, I\'ll free you from it alright.|F||||}{You mean, by killing you?|F||||}}|};
 	</string>
 
 	<string name="conversationlist_crossglen_tharal">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {tharal1|Walk in the glow of the Shadow, my child.|||{{Do you have anything to trade?|S||||}{What can you tell me about bonemeal?|tharal_bonemeal_select|bonemeal:10|||}}|};
 {tharal_bonemeal_select||||{{|tharal_bonemeal4|bonemeal:30|||}{|tharal_bonemeal1||||}}|};
-{tharal_bonemeal1|Bonemeal? We shouldn\'t talk about that. It\'s not allowed anymore. Lord Geomyr issued that decree.|||{{Please?|tharal_bonemeal2_1||||}}|};
+{tharal_bonemeal1|Bonemeal? We shouldn\'t talk about that. Lord Geomyr issued a decree. It\'s not allowed anymore.|||{{Please?|tharal_bonemeal2_1||||}}|};
 {tharal_bonemeal2_1|No, we really shouldn\'t talk about that.|||{{Oh come on|tharal_bonemeal2||||}}|};
 {tharal_bonemeal2|Well if you really are that persistent. Bring me 5 insect wings that I can use for making potions and maybe we can talk more.|bonemeal:20||{{Here, I have the insect wings.|tharal_bonemeal3||insectwing|5|}{Ok, I\'ll bring them.|X||||}}|};
 {tharal_bonemeal3|Thanks kid. I knew I could count on you.|bonemeal:30||{{N|tharal_bonemeal4||||}}|};
@@ -100,13 +100,13 @@
 {leonid_crossglen1|We have Audir with his smithy to the southwest, Leta and her husband\'s cabin to the west, this town hall here and your father\'s cabin to the northwest.|||{{N|leonid_crossglen2||||}}|};
 {leonid_crossglen2|That\'s pretty much it. We try to live a peaceful life.|||{{Has there been any recent activity in the village?|leonid_crossglen3||||}{Let\'s go back to the other things we talked about.|leonid_continue||||}}|};
 {leonid_crossglen3|There were some recent disturbances some weeks ago that you may have noticed. Some villagers got into a fight over the new decree from Lord Geomyr.|||{{N|leonid_crossglen4||||}}|};
-{leonid_crossglen4|Lord Geomyr issued a statement regarding the unlawful use of Bonemeal as healing substance. Some villagers argued that we should oppose Lord Geomyr\'s word and still use it ourselves.|bonemeal:10||{{N|leonid_crossglen4_1||||}}|};
+{leonid_crossglen4|Lord Geomyr issued a statement regarding the unlawful use of Bonemeal as healing substance. Some villagers argued that we should oppose Lord Geomyr\'s word and still use it.|bonemeal:10||{{N|leonid_crossglen4_1||||}}|};
 {leonid_crossglen4_1|Tharal, our priest, was particularly upset and suggested we do something about Lord Geomyr.|||{{N|leonid_crossglen5||||}}|};
-{leonid_crossglen5|Other villagers argued that we should follow Lord Geomyr\'s wish.\n\nPersonally, I haven\'t decided what my thoughts are.|||{{N|leonid_crossglen6||||}}|};
+{leonid_crossglen5|Other villagers argued that we should follow Lord Geomyr\'s decree.\n\nPersonally, I haven\'t decided what my thoughts are.|||{{N|leonid_crossglen6||||}}|};
 {leonid_crossglen6|On one hand, Lord Geomyr supports Crossglen with a lot of protection. *points to the soldiers in the hall*|||{{N|leonid_crossglen7||||}}|};
 {leonid_crossglen7|But on the other hand, the tax and the recent changes of what\'s allowed are really taking a toll on Crossglen.|||{{N|leonid_crossglen8||||}}|};
-{leonid_crossglen8|Someone should go to castle Geomyr and talk to the steward about our situation here in Crossglen.|crossglen:1||{{N|leonid_crossglen9||||}}|};
-{leonid_crossglen9|In the meantime, we\'ve banned all use of Bonemeal as healing substance.|||{{Thank you for the information. There was something more I wanted to ask you.|leonid_continue||||}{Thank you for the information. Bye.|leonid_bye||||}}|};
+{leonid_crossglen8|Someone should go to Castle Geomyr and talk to the steward about our situation here in Crossglen.|crossglen:1||{{N|leonid_crossglen9||||}}|};
+{leonid_crossglen9|In the meantime, we\'ve banned all use of Bonemeal as a healing substance.|||{{Thank you for the information. There was something more I wanted to ask you.|leonid_continue||||}{Thank you for the information. Bye.|leonid_bye||||}}|};
 {leonid_bye|Shadow be with you.|||{{Shadow be with you.|X||||}}|};
 	</string>
 	
@@ -116,7 +116,7 @@
 {odair_select||||{{|odair_complete2|odair:100|||}{|odair_continue|odair:10|||}{|odair2||||}}|};
 {odair2|Hmm, maybe you could be of use to me. Do you think you could help me with a small task?|||{{Tell me more about this task.|odair3||||}{Sure, if there is anything I can gain from it.|odair3||||}}|};
 {odair3|I recently went in to that cave over there *points west*, to check on our supplies. But apparently, the cave has been infested with rats.|||{{N|odair4||||}}|};
-{odair4|In particular, I saw one rat that was larger than the other rats. Do you think you have what it takes to help me with my task?|||{{Sure, I\'ll help you so that Crossglen can use the supply cave again.|odair5||||}{Sure, I\'ll help you. But only because there might be some gain for me in this.|odair5||||}{No thanks|odair_cowards||||}}|};
+{odair4|In particular, I saw one rat that was larger than the other rats. Do you think you have what it takes to help eliminate them?|||{{Sure, I\'ll help you so that Crossglen can use the supply cave again.|odair5||||}{Sure, I\'ll help you. But only because there might be some gain for me in this.|odair5||||}{No thanks|odair_cowards||||}}|};
 {odair5|I need you to get into that cave and kill the large rat, that way maybe we can stop the rat infestation in the cave and start using it as our old supply cave again.|odair:10||{{Ok|X||||}{On second thought, I don\'t think I will help you after all.|odair_cowards||||}}|};
 {odair_cowards|I didn\'t think so either. You and that brother of yours always were cowards.|||{{Bye|X||||}}|};
 {odair_continue|Did you kill that large rat in the cave west of here?|||{{Yes, I have killed the large rat.|odair_complete||tail_caverat|1|}{What was I supposed to do again?|odair5||||}{No, not yet.|odair_cowards||||}}|};
@@ -150,7 +150,7 @@
 {irogotu|Well hello there. Another adventurer coming to steal my bounty. This is MY CAVE. The treasure will be MINE!|||{{Did you kill Gandir?|irogotu1|jan:10|||}}|};
 {irogotu1|That whelp Gandir? He was in my way. I merely used him as a tool to dig deeper into the cave.|||{{N|irogotu2||||}}|};
 {irogotu2|Besides, I never really liked him anyway.|||{{I guess he deserved to die. Did he have a ring on him?|irogotu3||||}{Jan mentioned something about a ring?|irogotu3||||}}|};
-{irogotu3|NO! You cannot have it. It\'s mine! And what are you anyway kid, coming down here to disturb me?!|||{{I\'m not a kid anymore! Now give me that ring!|irogotu4||||}{Give me that ring and we might both come out of here alive.|irogotu4||||}}|};
+{irogotu3|NO! You cannot have it. It\'s mine! And who are you anyway kid, coming down here to disturb me?!|||{{I\'m not a kid anymore! Now give me that ring!|irogotu4||||}{Give me that ring and we might both come out of here alive.|irogotu4||||}}|};
 {irogotu4|No. If you want it you will have to take it from me by force, and I should tell you that my powers are great. Besides, you probably wouldn\'t dare fight me anyway.|||{{Very well, let\'s see who dies here.|F||||}{By the Shadow, Gandir will be avenged.|F||||}}|};
 	</string>
 	
@@ -171,11 +171,11 @@
 {fallhaven_guard|Keep out of trouble.||||};
 
 {fallhaven_priest|Shadow be with you.|||{{Can you tell me more about the Shadow?|priest_shadow_1||||}}|};
-{priest_shadow_1|The Shadow protects us. Shadow keeps us safe and comforts us when we sleep.|||{{N|priest_shadow_2||||}}|};
+{priest_shadow_1|The Shadow protects us. It keeps us safe and comforts us when we sleep.|||{{N|priest_shadow_2||||}}|};
 {priest_shadow_2|It follows us wherever we go. Go with the Shadow my child.|||{{Shadow be with you.|X||||}{Whatever, bye.|X||||}}|};
 
 {rigmor|Well hello there! Aren\'t you a cute little fellow.|||{{Have you seen my brother Andor?|rigmor_1||||}{I really need to go.|rigmor_leave_select||||}}|};
-{rigmor_1|Your brother you say? His name is Andor? No. I don\'t recall meeting anyone like that.|||{{I really need to go.|rigmor_leave_select||||}}|};
+{rigmor_1|Your brother, you say? His name is Andor? No. I don\'t recall meeting anyone like that.|||{{I really need to go.|rigmor_leave_select||||}}|};
 {rigmor_leave_select||||{{|rigmor_thanks|calomyran:100|||}{|X||||}}|};
 {rigmor_thanks|I heard you helped my old man find his book, thank you. He had been talking about that book for weeks. Poor thing, he tends to forget things.|||{{It was my pleasure. Goodbye.|X||||}{You should keep an eye on him, or bad things might happen to him.|X||||}{Whatever, I just did it for the money.|X||||}}|};
 
@@ -185,7 +185,7 @@
 
 	<string name="conversationlist_fallhaven_bucus">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{bucus_welcome|Hi again, welcome to the .. Oh wait, I thought you were someone else.|||{{Have you seen my brother Andor?|bucus_andor_select||||}{What do you know about the thieves guild?|bucus_thieves_select||||}}|};
+{bucus_welcome|Hi again, welcome back to the .. Oh wait, I thought you were someone else.|||{{Have you seen my brother Andor?|bucus_andor_select||||}{What do you know about the thieves guild?|bucus_thieves_select||||}}|};
 {bucus_andor_select||||{{|bucus_umar_1|bucus:100|||}{|bucus_andor_no_1||||}}|};
 {bucus_andor_no_1|How interesting that you should ask. What if I had seen him? Why would I tell you?|||{{N|bucus_andor_no_2||||}}|};
 {bucus_andor_no_2|No, I can\'t tell you. Now please leave.||||};
@@ -193,7 +193,7 @@
 {bucus_thieves_select2||||{{|bucus_thieves_1|andor:40|||}{|bucus_thieves_no||||}}|};
 {bucus_thieves_no|Wh, what? No, I don\'t know anything about that.||||};
 {bucus_umar_1|Ok kid. You\'ve proven yourself to me. Yes, I saw some other kid by that description running around here a few days ago.|||{{N|bucus_umar_2||||}}|};
-{bucus_umar_2|I don\'t know what he was up to though. Kept asking lots of questions. Kind of like you do. *snicker*|||{{N|bucus_umar_3||||}}|};
+{bucus_umar_2|I don\'t know what he was up to though. He kept asking a lot of questions. Kind of like you do. *snicker*|||{{N|bucus_umar_3||||}}|};
 {bucus_umar_3|Anyway, that\'s all I know. You should go talk to Umar, he probably knows more. Down that hatch over there.|andor:50||{{Ok, bye|X||||}}|};
 {bucus_thieves_1|Who told you that? Argh.\n\nOk so you found us. Now what?|||{{Can I join the thieves guild?|bucus_thieves_2||||}}|};
 {bucus_thieves_2|Hah! Join the thieves guild?! You?!\n\nYou\'re one funny kid.|||{{I\'m serious.|bucus_thieves_3||||}{Yeah, pretty funny eh?|bucus_thieves_3||||}}|};
@@ -209,7 +209,7 @@
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {fallhaven_drunk|No problem. No sireee! Not causing any more trouble now. I sits here outside now.|||{{N|fallhaven_drunk_2||||}}|};
 {fallhaven_drunk_2|Wait, who are you again? Are you that guard?|||{{Yes|fallhaven_drunk_3_1||||}{No|fallhaven_drunk_3_2||||}}|};
-{fallhaven_drunk_3_1|Oh, sir. I\'m not causing any trouble anymore, see? Sits outside now as you says, ok?|||{{N|fallhaven_drunk_4||||}}|};
+{fallhaven_drunk_3_1|Oh, sir. I\'m not causing any trouble anymore, see? I sits outside now as you says, ok?|||{{N|fallhaven_drunk_4||||}}|};
 {fallhaven_drunk_3_2|Oh good. That guard threw me out of the tavern. If I see him again I\'ll show him one thing or another.|||{{N|fallhaven_drunk_4||||}}|};
 {fallhaven_drunk_4|Drink drink drink, drink some more. Drink, drink .. Uh how did it go again?|||{{N|fallhaven_drunk_5||||}}|};
 {fallhaven_drunk_5|Were you saying something? Where was I? Yes, so we were in this dungeon.|||{{N|fallhaven_drunk_6||||}}|};
@@ -221,7 +221,7 @@
 {fallhaven_drunk_9_2|I must have drunk it then. Could you get me a new mead do you think? |fallhavendrunk:10||{{Here, have some mead.|fallhaven_drunk_10||mead|1|}{Ok, I\'ll go buy some mead for you.|X||||}{No. I don\'t think I should help you. Goodbye.|X||||}}|};
 {fallhaven_drunk_10|Oh sweet drinks of joy. May the sssshadow be with you kid. *makes big eyes*|||{{N|fallhaven_drunk_11||||}}|};
 {fallhaven_drunk_11|*takes a gulp of the mead*\n\nThat\'s good stuff!|||{{N|fallhaven_drunk_12||||}}|};
-{fallhaven_drunk_12|Yeah, me and Unnmir had good times. Go ask him yourself, he is usually in the barn to the east of here. I wonder where that treasure went.|fallhavendrunk:100||{{Treasure? I\'m in! I\'ll go look for Unnmir right away.|X||||}{Thank you for the story. Goodbye.|X||||}}|};
+{fallhaven_drunk_12|Yeah, me and Unnmir had good times. Go ask him yourself, he is usually in the barn to the east of here. I wonder *burps* where that treasure went.|fallhavendrunk:100||{{Treasure? I\'m in! I\'ll go look for Unnmir right away.|X||||}{Thank you for the story. Goodbye.|X||||}}|};
 	</string>
 
 	<string name="conversationlist_fallhaven_oldman">
@@ -231,9 +231,9 @@
 {fallhaven_oldman_2|I recently lost a very valuable book of mine.|||{{N|fallhaven_oldman_3||||}}|};
 {fallhaven_oldman_3|I know I had it with me yesterday. Now I can\'t seem to find it.|||{{N|fallhaven_oldman_4||||}}|};
 {fallhaven_oldman_4|I never lose things! Someone must have stolen it, that\'s my guess.|||{{N|fallhaven_oldman_5||||}}|};
-{fallhaven_oldman_5|Would you please go look for my book? It\'s called \'Calomyran secrets\'.|||{{N|fallhaven_oldman_6||||}}|};
+{fallhaven_oldman_5|Would you please go look for my book? It\'s called \'Calomyran Secrets\'.|||{{N|fallhaven_oldman_6||||}}|};
 {fallhaven_oldman_6|I have no idea where it might be. You could go ask Arcir, he seems very fond of his books. *points at the house to the south*|calomyran:10||{{Ok, I\'ll go ask Arcir. Goodbye.|X||||}}|};
-{fallhaven_oldman_continue|How is the search for my book going? It\'s called \'Calomyran secrets\'. Have you found my book?|||{{Yes, I found it.|fallhaven_oldman_complete||calomyran_secrets|1|}{No, I have not found it yet.|fallhaven_oldman_6||||}{Could you tell me your story again please?|fallhaven_oldman_2||||}}|};
+{fallhaven_oldman_continue|How is the search for my book going? It\'s called \'Calomyran Secrets\'. Have you found my book?|||{{Yes, I found it.|fallhaven_oldman_complete||calomyran_secrets|1|}{No, I have not found it yet.|fallhaven_oldman_6||||}{Could you tell me your story again please?|fallhaven_oldman_2||||}}|};
 {fallhaven_oldman_complete|My book! Thank you, thank you! Where was it? No, don\'t tell me. Here, take these coins for your trouble.|calomyran:100|gold51|{{Thank you. Goodbye.|X||||}{At last, some gold. Bye.|X||||}}|};
 {fallhaven_oldman_complete_2|Thank you so much for finding my book!||||};
 	</string>
@@ -251,8 +251,8 @@
 {nocmar_trade_5|So, unfortunately I can\'t sell you any of my weapons.||||};
 {nocmar_quest|Unnmir sent you huh? I guess it must be important then.|nocmar:20||{{N|nocmar_quest_1||||}}|};
 {nocmar_quest_1|Ok, these old weapons have lost their inner glow now that they haven\'t been used in a while.|||{{N|nocmar_quest_2||||}}|};
-{nocmar_quest_2|To make the heartsteel glow again, we will need a heartstone. |||{{N|nocmar_quest_3||||}}|};
-{nocmar_quest_3|Years ago, we used to fight the liches of Undertell. I have no idea if they still haunt that place.|||{{Undertell? What\'s that?|nocmar_quest_4||||}}|};
+{nocmar_quest_2|To make the heartsteel glow again, we will need a heartstone.|||{{N|nocmar_quest_3||||}}|};
+{nocmar_quest_3|Years ago, we used to fight the liches of Undertell. I have no idea if they still haunt the place.|||{{Undertell? What\'s that?|nocmar_quest_4||||}}|};
 {nocmar_quest_4|Undertell; the pits of the lost souls. Travel south and enter the caverns of the Dwarves. Follow the horrid smell from there.|||{{N|nocmar_quest_5||||}}|};
 {nocmar_quest_5|Beware the liches of Undertell, if they still are around. Those things can kill you by their gaze alone.||||};
 {nocmar_continue|Have you found a heartstone yet?|||{{Yes, at last I found it.|nocmar_complete||heartstone|1|}{Could you tell me the story again?|nocmar_quest_1||||}{No, not yet|nocmar_continue_2||||}}|};
@@ -280,7 +280,7 @@
 {arcir_start|Hello. I\'m Arcir.|||{{I noticed your statue of Elythara downstairs.|arcir_elythara_1|arcir:10|||}{You really seem to like your books.|arcir_books_1||||}}|};
 {arcir_anythingelse|Anything else you wanted to ask?|||{{I noticed your statue of Elythara downstairs.|arcir_elythara_1|arcir:10|||}{You really seem to like your books.|arcir_books_1||||}}|};
 {arcir_elythara_1|Oh, you found my statue in the basement?\n\nYes, Elythara is my protector.|||{{Okay.|arcir_anythingelse||||}}|};
-{arcir_books_1|I find great pleasure in my books. They contain the accumulated knowledge of past generations.|||{{Do you have a book called \'Calomyran secrets\'?|arcir_calomyran_select|calomyran:10|||}{Okay.|arcir_anythingelse||||}}|};
+{arcir_books_1|I find great pleasure in my books. They contain the accumulated knowledge of past generations.|||{{Do you have a book called \'Calomyran Secrets\'?|arcir_calomyran_select|calomyran:10|||}{Okay.|arcir_anythingelse||||}}|};
 {arcir_calomyran_1|\'Calomyran Secrets\'? Hm, yes I think I have one of those in my basement.|||{{N|arcir_calomyran_2||||}}|};
 {arcir_calomyran_2|Old man Benradas came by last week, wanting to sell me that book. Since it\'s not really my kind of book, I declined.|||{{N|arcir_calomyran_3||||}}|};
 {arcir_calomyran_3|He seemed upset that I didn\'t like his book, and threw it at me while storming out of the house.|||{{N|arcir_calomyran_4||||}}|};
@@ -294,7 +294,7 @@
 	<string name="conversationlist_fallhaven_church">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {chapelgoer|Shadow, embrace me.||||};
-{thoronir_default|Bask in the Shadow, my child.|||{{What can you tell me about the Shadow?|thoronir_shadow_1||||}{Can you tell me more about the church?|thoronir_church_1||||}{Are the bonemeal potions ready yet?|thoronir_trade_bonemeal|bonemeal:100|||}}|};
+{thoronir_default|Bask in the Shadow, my child.|||{{What can you tell me about the Shadow?|thoronir_shadow_1||||}{Can you tell me more about the church?|thoronir_church_1||||}{Are the Bonemeal potions ready yet?|thoronir_trade_bonemeal|bonemeal:100|||}}|};
 {thoronir_shadow_1|Shadows protect us from the dangers of the night. It keeps us safe and comforts us when we sleep.|||{{Tharal sent me and told me to tell you the password \'Glow of the Shadow\'.|thoronir_tharal_select|bonemeal:30|||}{Shadow be with you.|thoronir_default||||}{Sounds like nonsense to me.|thoronir_default||||}}|};
 {thoronir_church_1|This is our chapel of worship in Fallhaven. Our community turns to us for support.|||{{N|thoronir_church_2||||}}|};
 {thoronir_church_2|This church has withstood hundreds of years, and has been kept safe from graverobbers.|||{{N|thoronir_church_3||||}}|};
@@ -303,38 +303,38 @@
 {thoronir_church_3|The catacombs beneath the church house the remains of our passed leaders. Our great King Luthor is rumored to be buried there.|||{{Has anyone entered the catacombs?|thoronir_church_4|bucus:10|||}{There was something else I wanted to talk about.|thoronir_default||||}}|};
 {thoronir_church_4|No one is allowed down in the catacombs, except for Athamyr, my apprentice. He is the only one that has been down there for years.|bucus:20||{{Ok, I might go see him.|thoronir_default||||}}|};
 {thoronir_tharal_2|Shhh, we shouldn\'t talk so loud about using Bonemeal. As you know, Lord Geomyr issued a ban on all use of Bonemeal.|||{{N|thoronir_tharal_3||||}}|};
-{thoronir_tharal_3|When the ban came, I did not dare keep any, so I threw away my whole supply. Quite foolish now that I look back on it.|||{{N|thoronir_tharal_4||||}}|};
-{thoronir_tharal_4|Do you think you could find me 5 skeletal bones that I can use for mixing a bonemeal potion? The bonemeal is very potent in healing old wounds.|||{{Sure, I might be able to do that.|thoronir_tharal_5||||}{I have those bones for you.|thoronir_tharal_complete||bone|5|}}|};
+{thoronir_tharal_3|When the ban came, I did not dare keep any, so I threw my whole supply away. It was quite foolish now that I look back on it.|||{{N|thoronir_tharal_4||||}}|};
+{thoronir_tharal_4|Do you think you could find me 5 skeletal bones that I can use for mixing a Bonemeal potion? The bonemeal is very potent in healing old wounds.|||{{Sure, I might be able to do that.|thoronir_tharal_5||||}{I have those bones for you.|thoronir_tharal_complete||bone|5|}}|};
 {thoronir_tharal_5|Thank you, please come back soon. I heard there were some undead near an old abandoned house just north of Fallhaven. Maybe you can check for bones there?|bonemeal:40||{{Ok, I\'ll go check there.|thoronir_default||||}}|};
-{thoronir_tharal_complete|Thank you, these bones will do fine. Now I can start creating a bonemeal healing potion for you.|bonemeal:100||{{N|thoronir_complete_2||||}}|};
-{thoronir_complete_2|Give me some time to mix the bonemeal potion. It is a very potent healing potion. Come back in a little while.||||};
-{thoronir_trade_bonemeal|Yes, the bonemeal potions are ready. Please use them with care, and don\'t let the guards see you. We are not actually allowed to use them anymore.|||{{Let me see what potions you have made so far.|S||||}{There was something else I wanted to talk about.|thoronir_default||||}}|};
+{thoronir_tharal_complete|Thank you, these bones will do fine. Now I can start creating some bonemeal healing potion for you.|bonemeal:100||{{N|thoronir_complete_2||||}}|};
+{thoronir_complete_2|Give me some time to mix the Bonemeal potion. It is a very potent healing potion. Come back in a little while.||||};
+{thoronir_trade_bonemeal|Yes, the Bonemeal potions are ready. Please use them with care, and don\'t let the guards see you. We are not actually allowed to use them anymore.|||{{Let me see what potions you have made so far.|S||||}{There was something else I wanted to talk about.|thoronir_default||||}}|};
 {catacombguard|Turn back while you still can, mortal. This is no place for you. Only death awaits you here.|||{{Very well. I will turn back.|X||||}{Move aside, I need to get deeper into the catacombs.|catacombguard1||||}{By the Shadow, you will not stop me.|catacombguard1||||}}|};
 {catacombguard1|Nooo, you shall not pass!|||{{Ok. Let\'s fight.|F||||}}|};
-{luthor|*hissss* What mortal distubs my sleep?|||{{By the Shadow, what are you?|F||||}{At last, a worthy fight! I have been waiting for this.|F||||}{Whatever, let\'s get this over with.|F||||}}|};
+{luthor|*hissss* What mortal disturbs my sleep?|||{{By the Shadow, what are you?|F||||}{At last, a worthy fight! I have been waiting for this.|F||||}{Whatever, let\'s get this over with.|F||||}}|};
 	</string>
 
 	<string name="conversationlist_fallhaven_athamyr">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {athamyr|Walk with the Shadow.|||{{Have you been down in the catacombs?|athamyr_select|bucus:20|||}}|};
-{athamyr_1|Yes, I have been down in the catacombs beneath Fallhaven Church. |||{{N|athamyr_2||||}}|};
-{athamyr_2|But I\'m the only one that both has the permission and the bravery to go down there.|||{{How could I get permission to go down there?|athamyr_3||||}}|};
+{athamyr_1|Yes, I have been in the catacombs beneath Fallhaven Church.|||{{N|athamyr_2||||}}|};
+{athamyr_2|But I\'m the only one that both has the permission and the bravery to go down there.|||{{How can I get permission to go down there?|athamyr_3||||}}|};
 {athamyr_3|You want to go down in the catacombs? Hm, maybe we can make a deal.|||{{N|athamyr_4||||}}|};
-{athamyr_4|Bring me some of that fine cooked meat from the tavern and you can have my permission to go down in the catacombs beneath Fallhaven Church.|bucus:30||{{Here, I have some cooked meat with me.|athamyr_complete||meat_cooked|1|}{Ok, I\'ll go get some.|X||||}}|};
-{athamyr_complete_2|You have my permission to go down in the catacombs beneath Fallhaven Church.|bucus:50|||};
+{athamyr_4|Bring me some of that delicious cooked meat from the tavern and I will give you my permission to enter the catacombs of Fallhaven Church.|bucus:30||{{Here, I have cooked meat for you.|athamyr_complete||meat_cooked|1|}{Ok, I\'ll go get some.|X||||}}|};
+{athamyr_complete_2|You have my permission enter the catacombs of Fallhaven Church.|bucus:50|||};
 {athamyr_select||||{{|athamyr_complete_2|bucus:40|||}{|athamyr_1||||}}|};
 {athamyr_complete|Thanks, this will do nicely.|bucus:40||{{N|athamyr_complete_2||||}}|};
 	</string>
 	
 	<string name="conversationlist_fallhaven_larcal">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{larcal|I don\'t have time for you kid. Get lost.|||{{I found a note with your name on it while looking for the book \'Calomyran Secrets\'.|larcal_1|calomyran:20|||}}|};
+{larcal|I don\'t have time for you, kid. Get lost.|||{{I found a note with your name on it while looking for the book \'Calomyran Secrets\'.|larcal_1|calomyran:20|||}}|};
 {larcal_1|Now now, what have we here? Are you implying that I have been down in Arcir\'s basement?|||{{N|larcal_2||||}}|};
 {larcal_2|So, maybe I was. The book is mine anyway.|||{{N|larcal_3||||}}|};
 {larcal_3|Look, let\'s solve this peacefully. You walk away and forget about that book, and you might still live.|||{{Very well. Keep your book.|larcal_4||||}{No, you will give me that book.|larcal_5||||}}|};
 {larcal_4|Good boy. Now run away.||||};
-{larcal_5|Ok, now you\'re starting to annoy me kid. Get lost while you still can.|||{{Very well. I will leave.|X||||}{No, that book is not yours!|larcal_6||||}}|};
-{larcal_6|Still here? Ok then, if you want the book that bad you will have to take it from me!|||{{At last, a fight. I have been waiting for this!|F||||}{I had hoped it wouldn\'t come to this.|F||||}{Very well. I will leave.|X||||}}|};
+{larcal_5|Ok, now you\'re starting to annoy me, kid. Get lost while you still can.|||{{Very well. I will leave.|X||||}{No, that book is not yours!|larcal_6||||}}|};
+{larcal_6|You are still here? Ok then, if you want the book that bad, you will have to take it from me!|||{{At last, a fight. I have been waiting for this!|F||||}{I had hoped it wouldn\'t come to this.|F||||}{Very well. I will leave.|X||||}}|};
 	</string>
 
 	<string name="conversationlist_fallhaven_unnmir">
@@ -343,26 +343,26 @@
 {unnmir_1|That old drunk over at the tavern told you his story did he?|||{{N|unnmir_2||||}}|};
 {unnmir_2|Same old story. We used to travel together a few years back.|||{{N|unnmir_3||||}}|};
 {unnmir_3|Real adventuring you know, swords and spells.|||{{N|unnmir_4||||}}|};
-{unnmir_4|But then we stopped. Can\'t really say why, I guess we got tired of life on the road. We settled down here in Fallhaven.|||{{N|unnmir_5||||}}|};
-{unnmir_5|Nice little town here. Many thieves around though, but they don\'t bother me.|||{{N|unnmir_6||||}}|};
-{unnmir_6|So what\'s your story kid? How did you end up here in Fallhaven?|||{{I\'m looking for my brother.|unnmir_7||||}}|};
-{unnmir_7|Yeah yeah, I get it. Your brother has probably run off to some dungeon wanting to do adventuring. *rolls eyes*|||{{N|unnmir_8||||}}|};
-{unnmir_8|Or maybe he has gone to the one of the bigger cities to the north.|||{{N|unnmir_9||||}}|};
+{unnmir_4|But then we stopped. I can\'t really say why, I guess we got tired of life on the road. We settled down here in Fallhaven.|||{{N|unnmir_5||||}}|};
+{unnmir_5|Nice little town here. A lot thieves around though, but they don\'t bother me.|||{{N|unnmir_6||||}}|};
+{unnmir_6|So what\'s your story, kid? How did you end up here in Fallhaven?|||{{I\'m looking for my brother.|unnmir_7||||}}|};
+{unnmir_7|Yeah yeah, I get it. Your brother has probably run off to some dungeon, trying to go adventuring. *rolls eyes*|||{{N|unnmir_8||||}}|};
+{unnmir_8|Or maybe he has gone to one of the bigger cities to the north.|||{{N|unnmir_9||||}}|};
 {unnmir_9|Can\'t say I blame him for wanting to see the world.|||{{N|unnmir_10||||}}|};
-{unnmir_10|Hey by the way, are you also looking to be an adventurer?|||{{Yes|unnmir_11||||}{No, not really.|unnmir_12||||}}|};
-{unnmir_11|Nice. I\'ll give you a hint kid. *snickering*. Go see Nocmar over by the west side of town. Tell him I sent you.|nocmar:10||{{N|unnmir_13||||}}|};
+{unnmir_10|Hey, by the way, are you looking to be an adventurer?|||{{Yes|unnmir_11||||}{No, not really.|unnmir_12||||}}|};
+{unnmir_11|Nice. I\'ll give you a hint, kid. *snickering*. Go see Nocmar over by the west side of town. Tell him I sent you.|nocmar:10||{{N|unnmir_13||||}}|};
 {unnmir_12|Smart move. Adventuring leads to a lot of scars. If you know what I mean.||||};
 {unnmir_13|His house is just southwest of the tavern.|||{{Thanks, I\'ll go see him.|X||||}}|};
 	</string>
 
 	<string name="conversationlist_fallhaven_gaela">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{gaela|Swift is my blade. Poisoned is my tongue. Or was it the other way around?|||{{There seems to be a lot of thieves here in Fallhaven?|gaela_1||||}}|};
-{gaela_1|Yes, we thieves have a strong presence here in Fallhaven.|||{{Anything more?|gaela_2|andor:30|||}}|};
+{gaela|Swift is my blade. Poisoned is my tongue. Or was it the other way around?|||{{There seems to be a lot of thieves here in Fallhaven.|gaela_1||||}}|};
+{gaela_1|Yes, we thieves have a strong presence here.|||{{Anything more?|gaela_2|andor:30|||}}|};
 {gaela_2|I heard that you helped Gruil, a fellow thief in Crossglen village.|||{{N|gaela_3||||}}|};
 {gaela_3|Word has also reached me that you are looking for someone. I might be able to help you.|||{{N|gaela_4||||}}|};
 {gaela_4|You should go talk to Bucus in the derelict house a bit southwest of here. Tell him you want to know more about the Thieves guild.|andor:40||{{Thanks, I\'ll go talk to him.|gaela_5||||}}|};
-{gaela_5|Consider it a favor done in return for you helping Gruil.||||};
+{gaela_5|Consider it a favor done in return for helping Gruil.||||};
 	</string>
 
 	<string name="conversationlist_fallhaven_vacor">
@@ -375,20 +375,20 @@
 {vacor_bah|Bah, lowly creature. I knew I shouldn\'t have asked you. Now leave me.||||};
 {vacor_4|A while ago, I was working on a rift spell that I had read about.|||{{N|vacor_5||||}}|};
 {vacor_5|The spell is supposed to, shall we say, open up new possibilities.|||{{N|vacor_6||||}}|};
-{vacor_6|Erm, yes, the rift spell will open things up allright. Ahem.|||{{N|vacor_7||||}}|};
+{vacor_6|Erm, yes, the rift spell will open things up alright. Ahem.|||{{N|vacor_7||||}}|};
 {vacor_7|So there I was working hard on getting the last pieces together for it.|||{{N|vacor_8||||}}|};
-{vacor_8|Then all of a sudden, a gang of thugs came around and started bullying me.|||{{N|vacor_9||||}}|};
-{vacor_9|They said they were messengers of the Shadow, and insisted that I should cease my spell making.|||{{N|vacor_10||||}}|};
+{vacor_8|Then, all of a sudden, a gang of thugs came around and started bullying me.|||{{N|vacor_9||||}}|};
+{vacor_9|They said they were Messengers of the Shadow, and insisted that I should cease my spell making.|||{{N|vacor_10||||}}|};
 {vacor_10|Preposterous, isn\'t it? I was so close to having the power!|||{{N|vacor_11||||}}|};
-{vacor_11|Oh the power I could have had. My dear rift spell.|vacor:10||{{N|vacor_12||||}}|};
+{vacor_11|Oh, the power I could have had. My dear rift spell.|vacor:10||{{N|vacor_12||||}}|};
 {vacor_12|Anyway, I was just about to finish the last piece of my rift spell when the bandits came and robbed me.|||{{N|vacor_13||||}}|};
-{vacor_13|The bandits took my recipe for the spell and took off before I could call the guards.|||{{N|vacor_14||||}}|};
-{vacor_14|Now I can\'t seem to remember the last parts of it.|||{{N|vacor_15||||}}|};
+{vacor_13|The bandits took my notes for the spell and took off before I could call the guards.|||{{N|vacor_14||||}}|};
+{vacor_14|After years of work,  I can\'t seem to remember the last parts of the spell.|||{{N|vacor_15||||}}|};
 {vacor_15|Do you think you could help me locate it? Then I could have the power at last!|||{{N|vacor_16||||}}|};
 {vacor_16|You will of course be suitably rewarded for your part in me getting this power.|||{{A reward? I\'m in!|vacor_17||||}{Very well. I will help you.|vacor_17||||}{No thanks, this seems like something that I would rather not get involved with.|vacor_bah||||}}|};
 {vacor_17|I knew I couldn\'t trust... Wait, what? You actually said yes? Hah, well then.|||{{N|vacor_18||||}}|};
-{vacor_18|Ok, find the four pieces of my rift spell that the bandits took, and bring them to me.|vacor:20||{{N|vacor_19||||}}|};
-{vacor_19|There were four bandits, and they all headed south of Fallhaven when I was attacked.|||{{N|vacor_20||||}}|};
+{vacor_18|Ok, find the four pieces of my rift spell that the bandits took, and bring the pieces to me.|vacor:20||{{N|vacor_19||||}}|};
+{vacor_19|There were four bandits, and they all headed south of Fallhaven after I was attacked.|||{{N|vacor_20||||}}|};
 {vacor_20|You should search the southern parts of Fallhaven for the four bandits.|||{{N|vacor_21||||}}|};
 {vacor_21|Please hurry! I am so eager to open up the rift.. Erm, I mean finish the spell. Nothing odd with that right?||||};
 {vacor_return1|Hello again. How is the search for my missing pieces of the rift spell going?|||{{I have found all pieces.|vacor_40||vacor_spell|4|}{What was I supposed to do again?|vacor_18||||}{Could you tell me the whole story again?|vacor_4||||}}|};
@@ -398,14 +398,14 @@
 {vacor_43|The only obstacle between me and continuing my rift spell research is that stupid Unzel fellow.|||{{N|vacor_44||||}}|};
 {vacor_44|Unzel was my apprentice a while ago. But he started to annoy me with his questions and talk about morality.|||{{N|vacor_45||||}}|};
 {vacor_45|He said that my spell making was disrupting the will of the Shadow.|||{{N|vacor_46||||}}|};
-{vacor_46|Bah, the Shadow. What has it ever done for ME?!|||{{N|vacor_47||||}}|};
+{vacor_46|Bah, The Shadow. What has it ever done for ME?!|||{{N|vacor_47||||}}|};
 {vacor_47|I shall one day cast my rift spell and we will be rid of the Shadow.|||{{N|vacor_48||||}}|};
 {vacor_48|Anyway. I have a feeling that Unzel sent those bandits after me, and if I don\'t stop him he will probably send more.|||{{N|vacor_49||||}}|};
 {vacor_49|I need you to find Unzel and kill him for me. He can probably be found somewhere southwest of Fallhaven.|vacor:40||{{N|vacor_50||||}}|};
 {vacor_50|Bring me his signet ring as proof when you have killed him.|||{{N|vacor_51||||}}|};
 {vacor_51|Now hurry, I cannot wait much longer. The power shall be MINE!||||};
 {vacor_return2|Hello again. Any progress yet?|||{{About Unzel...|vacor_return2_2||||}{Could you tell me the story again?|vacor_43||||}}|};
-{vacor_return2_2|Have you killed Unzel for me yet? Bring me his signet ring when you have killed him.|||{{I have dealt with him. Here is his ring.|vacor_60||ring_unzel|1|}{I listened to Unzel\'s story and have decided to side with him. The Shadow must be preserved.|vacor_70|vacor:51|||}{|vacor_return2||||}}|};
+{vacor_return2_2|Have you killed Unzel for me yet? Bring me his signet ring when you have killed him.|||{{I have dealt with him. Here is his ring.|vacor_60||ring_unzel|1|}{I listened to Unzel\'s story and have decided to side with him. The Shadow must be preserved.|vacor_70|vacor:51|||}}|};
 {vacor_60|Haha, Unzel is dead! That pathetic creature is gone!|vacor:60||{{N|vacor_61||||}}|};
 {vacor_61|I can see the blood on your boots. And I even got you to kill his minions beforehand.|||{{N|vacor_62||||}}|};
 {vacor_62|This is a great day indeed. I will soon have the power!|||{{N|vacor_63||||}}|};
@@ -413,7 +413,7 @@
 {vacor_64|Now leave me, I have work to do before I can cast the rift spell.||||};
 {vacor_return_complete|Hello again, my assassin friend. I will soon have my rift spell ready.||||};
 {vacor_70|What? He told you his story? And you actually believed it?|||{{N|vacor_71||||}}|};
-{vacor_71|I will give you one more chance. Either you kill Unzel for me, and I will reward you handsomely. Or you will have to fight me.|||{{No. You must be stopped.|vacor_72||||}{Ok, I\'ll think about it once more.|X||||}}|};
+{vacor_71|I will give you one more chance. Either kill Unzel for me, and I will reward you handsomely, or you will have to fight me.|||{{No. You must be stopped.|vacor_72||||}{Ok, I\'ll think about it once more.|X||||}}|};
 {vacor_72|Bah, lowly creature. I knew I shouldn\'t have trusted you. Now you will die along with your precious Shadow.|vacor:54||{{For the Shadow!|F||||}{You must be stopped.|F||||}}|};
 	</string>
 
@@ -428,15 +428,15 @@
 {unzel_10|Vacor and I used to travel together. But he started to get obsessed with his spell making.|||{{N|unzel_11||||}}|};
 {unzel_11|He even started to question the Shadow. I knew I had to do something to stop him!|||{{N|unzel_12||||}}|};
 {unzel_12|I started questioning him about what he was up to, but he just wanted to keep on going.|||{{N|unzel_13||||}}|};
-{unzel_13|After a while, he became obsessed with the thought of a rift spell that he said would grant him unlimited powers against the Shadow.|||{{N|unzel_14||||}}|};
-{unzel_14|So there was only one thing I could do. I left him and needed to put an end to him trying to create the rift spell.|||{{N|unzel_15||||}}|};
-{unzel_15|So I sent some friends over to him to take the spell from him.|||{{N|unzel_16_select||||}}|};
+{unzel_13|After a while, he became obsessed with the thought of a rift spell. He said it would grant him unlimited powers against the Shadow.|||{{N|unzel_14||||}}|};
+{unzel_14|So, there was only one thing I could do. I left him and needed to stop him from trying to create the rift spell.|||{{N|unzel_15||||}}|};
+{unzel_15|I sent some friends to take the spell from him.|||{{N|unzel_16_select||||}}|};
 {unzel_16_select||||{{|unzel_16_2|vacor:50|||}{|unzel_16_1||||}}|};
 {unzel_16_1|And here we are.|||{{I killed the four bandits you sent after Vacor.|unzel_17||||}}|};
 {unzel_16_2|And here we are.|||{{N|unzel_19||||}}|};
 {unzel_17|What? You killed my four friends? Argh, I feel the rage coming.|||{{N|unzel_18||||}}|};
 {unzel_18|But I also realize that all this is the making of Vacor. I\'ll give you a choice now. Choose wisely.|||{{N|unzel_19||||}}|};
-{unzel_19|Either you side with Vacor and his rift spell, or you help me get rid of him. Who will you help?|vacor:50||{{I will side with you. The shadow must not be disturbed.|unzel_20||||}{I will side with Vacor.|unzel_fight||||}}|};
+{unzel_19|Either you side with Vacor and his rift spell, or side with the Shadow, and help me get rid of him. Who will you help?|vacor:50||{{I will side with you. The Shadow must not be disturbed.|unzel_20||||}{I will side with Vacor.|unzel_fight||||}}|};
 {unzel_20|Thank you my friend. We will keep the Shadow safe from Vacor.|vacor:51||{{N|unzel_21||||}}|};
 {unzel_21|You should go talk to him about the Shadow.||||};
 {unzel_return_1|Welcome back. Did you talk to Vacor?|||{{Yes, I have dealt with him.|unzel_30||ring_vacor|1|}{No, not yet.|X||||}}|};
@@ -461,7 +461,7 @@
 {prisoner1|Nooo, I will not be imprisoned again!|||{{But I am not...|F||||}}|};
 {prisoner2|Aaaa! Who\'s there? I will not be enslaved again!|||{{Calm down, I was just...|F||||}}|};
 
-{flagstone_guard0|Ah, another mortal. Prepare to become one part of our undead army!|flagstone:31||{{Shadow take you.|F||||}{Prepare to die once more.|F||||}}|};
+{flagstone_guard0|Ah, another mortal. Prepare to become part of my undead army!|flagstone:31||{{Shadow take you.|F||||}{Prepare to die once more.|F||||}}|};
 {flagstone_guard1|Die mortal!|||{{Shadow take you.|F||||}{Prepare to meet my blade.|F||||}}|};
 {flagstone_guard2|What, a mortal in here that is not marked by my touch?|flagstone:50||{{N|flagstone_guard2_2||||}}|};
 {flagstone_guard2_2|You seem delicious and soft, will you be part of the feast?|||{{N|flagstone_guard2_3||||}}|};
@@ -475,13 +475,13 @@
 {flagstone_sentry_5|But once the digging in Mount Galmore stopped, the prison camp lost its purpose.|||{{N|flagstone_sentry_6||||}}|};
 {flagstone_sentry_6|The lord at the time did not care much for the prisoners that were already in Flagstone, so he left them there.|||{{N|flagstone_sentry_7||||}}|};
 {flagstone_sentry_7|The warden that ran Flagstone on the other hand took his duty very seriously, and kept on running the prison just like it was when Mount Galmore was being dug out.|||{{N|flagstone_sentry_8||||}}|};
-{flagstone_sentry_8|For years, no one took notice of Flagstone. Except for the occasional reports by travelers on this road of terrible screams coming from the camp.|||{{N|flagstone_sentry_9||||}}|};
+{flagstone_sentry_8|For years, no one took notice of Flagstone. Except for the occasional reports from travelers of terrible screams coming from the camp.|||{{N|flagstone_sentry_9||||}}|};
 {flagstone_sentry_9|There was a change recently, now the undead pour out in great numbers.|||{{N|flagstone_sentry_10||||}}|};
 {flagstone_sentry_10|And here we are. I have to guard the road from undead, so that they do not spread farther than Flagstone.|||{{N|flagstone_sentry_11||||}}|};
 {flagstone_sentry_11|So, I would advise you to leave unless you want to be overrun by undead.|||{{Can I investigate the Flagstone ruins?|flagstone_sentry_12||||}{Yes, I should leave.|X||||}}|};
 {flagstone_sentry_12|Are you really sure you want to head in there? Well, ok, fine by me.|||{{N|flagstone_sentry_13||||}}|};
-{flagstone_sentry_13|I won\'t stop you, but I won\'t mourn you if you never return either.|||{{N|flagstone_sentry_14||||}}|};
-{flagstone_sentry_14|Go ahead. Let me know if there\'s anything I can tell you that would help. |||{{N|flagstone_sentry_15||||}}|};
+{flagstone_sentry_13|I won\'t stop you, and I won\'t mourn you if you never return.|||{{N|flagstone_sentry_14||||}}|};
+{flagstone_sentry_14|Go ahead. Let me know if there\'s anything I can tell you that would help.|||{{N|flagstone_sentry_15||||}}|};
 {flagstone_sentry_15|Return here if you need my advice.|flagstone:10||{{Ok. I will return to you if there is anything I need help with.|X||||}}|};
 {flagstone_sentry_return1|Hello again. Did you enter Flagstone? I am surprised you actually returned.|||{{Can you tell me the story again?|flagstone_sentry_4||||}{There is a guardian in the lower levels of Flagstone that cannot be approached.|flagstone_sentry_20|flagstone:20|||}}|};
 {flagstone_sentry_20|A guardian you say? This is troubling news, since it means there is some larger force behind all this.|||{{N|flagstone_sentry_21||||}}|};
@@ -532,8 +532,8 @@
 {sign_wild3|West: Crossglen\nEast: Fallhaven||||};
 {sign_pitcave2|Gandir lies here, slain by the hand of his former friend Irogotu.||||};
 {sign_fallhaven1|Welcome to Fallhaven. Watch out for pickpockets!||||};
-{key_fallhavenchurch|You are not allowed to enter these parts of Fallhaven Church without permission.||||};
-{arcir_basement_tornpage|You see a torn page from a book titled \'Calomyran secrets\'. Blood stains its edges, and someone has scribbled the words \'Larcal\' with the blood.|calomyran:20|||};
+{key_fallhavenchurch|You are not allowed to enter the catacombs of Fallhaven Church without permission.||||};
+{arcir_basement_tornpage|You see a torn page from a book titled \'Calomyran Secrets\'. Blood stains its edges, and someone has scribbled the words \'Larcal\' with the blood.|calomyran:20|||};
 {arcir_basement_statue|Elythara, mother of the light. Protect us from the curse of the shadow.|arcir:10|||};
 {fallhaven_tavern_room|You are not allowed into the room unless you have rented it.||||};
 {fallhaven_derelict1|Bucus shouts: Hey you, get away from there!||||};
@@ -549,14 +549,14 @@
 	<string name="conversationlist_thievesguild_1">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {thievesguild_thief_1|Hello kid.|||{{Hello. Do you know where I can find Umar?|thievesguild_thief_4||||}{What is this place?|thievesguild_thief_2||||}}|};
-{thievesguild_thief_2|This is our guild hall. We are safe from the guards in Fallhaven in here.|||{{N|thievesguild_thief_3||||}}|};
-{thievesguild_thief_3|We can do pretty much as we like in here. As long as we are allowed for Umar that is.|||{{Hello. Do you know where I can find Umar?|thievesguild_thief_4||||}{Who is Umar?|thievesguild_thief_5||||}}|};
+{thievesguild_thief_2|This is our guild hall. We are safe from the guards of Fallhaven in here.|||{{N|thievesguild_thief_3||||}}|};
+{thievesguild_thief_3|We can do pretty much as we like here. As long as Umar allows it, that is.|||{{Hello. Do you know where I can find Umar?|thievesguild_thief_4||||}{Who is Umar?|thievesguild_thief_5||||}}|};
 {thievesguild_thief_4|He is probably in his room over there. *points*|||{{Thanks.|X||||}}|};
 {thievesguild_thief_5|Umar is our guild leader. He decides our rules and guides us in moral decisions.|||{{Where can I find him?|thievesguild_thief_4||||}}|};
 
-{thievesguild_cook_1|Hello, did you want something?|||{{You look like the cook around here|thievesguild_cook_2||||}{Can I see what food you have for sale?|S||||}{Farrik told me you can prepare a round of special mead for me|thievesguild_select_1|farrik:20|||}}|};
+{thievesguild_cook_1|Hello, did you want something?|||{{You look like the cook around here|thievesguild_cook_2||||}{Can I see what food you have for sale?|S||||}{Farrik said you can prepare me a round of special mead|thievesguild_select_1|farrik:20|||}}|};
 {thievesguild_cook_2|That\'s right. Someone has to keep these ruffians fed.|||{{That sure smells good|thievesguild_cook_3||||}{That stew looks disgusting|thievesguild_cook_4||||}{Nevermind, bye|X||||}}|};
-{thievesguild_cook_3|Thanks. This stew is coming along nicely. |||{{I\'m interested in buying some of that|S||||}}|};
+{thievesguild_cook_3|Thanks. This stew is coming along nicely.|||{{I\'m interested in buying some of that|S||||}}|};
 {thievesguild_cook_4|Yeah, I know. With ingredients this bad, what can you do? Anyway, it keeps us fed.|||{{Can I see what food you have for sale?|S||||}}|};
 {thievesguild_cook_5|Oh sure. Planning to get someone a bit sleepy eh?|||{{N|thievesguild_cook_6||||}}|};
 {thievesguild_cook_6|Don\'t worry, I won\'t tell anyone. Making sleepy food is one of my specialties.|||{{N|thievesguild_cook_7||||}}|};
@@ -570,7 +570,7 @@
 {thievesguild_pickpocket_2|My real name is unimportant. People mostly call me Quickfingers.|||{{Why is that?|thievesguild_pickpocket_3||||}}|};
 {thievesguild_pickpocket_3|Well, I have a tendency to .. how shall I put this .. acquire certain things easily.|||{{N|thievesguild_pickpocket_4||||}}|};
 {thievesguild_pickpocket_4|Things previously in the possession of other people.|||{{Do you mean like stealing?|thievesguild_pickpocket_5||||}}|};
-{thievesguild_pickpocket_5|No no. I wouldn\'t call it stealing. It\'s more of a transfer of ownership. Ownership to me that is.|||{{That sounds a lot like stealing to me|thievesguild_pickpocket_6||||}{That sounds like a good justification|thievesguild_pickpocket_6||||}}|};
+{thievesguild_pickpocket_5|No no. I wouldn\'t call it stealing. It\'s more of a transfer of ownership. To me, that is.|||{{That sounds a lot like stealing to me|thievesguild_pickpocket_6||||}{That sounds like a good justification|thievesguild_pickpocket_6||||}}|};
 {thievesguild_pickpocket_6|After all, we are the Thieves Guild. What did you expect?||||};
 
 {thievesguild_troublemaker_1|Hello. Don\'t I recognize you from somewhere?|||{{No, I\'m sure we have never met.|thievesguild_troublemaker_3||||}{What do you do around here?|thievesguild_troublemaker_2||||}{Can I take a look at what supplies you have available?|S||||}}|};
@@ -586,16 +586,16 @@
 {farrik_1|Hello. I heard that you helped us find the key of Luthor. Good work, it will really come in handy.|||{{Who are you?|farrik_2||||}{What can you tell me about the thieves guild?|farrik_4||||}}|};
 {farrik_2|I\'m Farrik, Umar\'s brother.|||{{What do you do around here?|farrik_3||||}{What can you tell me about the thieves guild?|farrik_4||||}}|};
 {farrik_3|I mostly manage our trading with other guilds and keep an eye on what the thieves need to be as effective as they can be.|||{{What can you tell me about the thieves guild?|farrik_4||||}}|};
-{farrik_4|We try to keep to ourselves as much as possible, and help other fellow thieves as much as possible.|||{{Any recent events happening?|farrik_5||||}}|};
-{farrik_5|Well, there was one thing a few weeks ago. One of our guildmembers got arrested for trespassing.|||{{N|farrik_6||||}}|};
-{farrik_6|The patrol guard in Fallhaven has really started to get annoyed at us lately. Probably because we have been very successful in our recent missions.|||{{N|farrik_7||||}}|};
-{farrik_7|The patrol guard therefore increased their security lately, leading to them arresting one of our members.|||{{N|farrik_8||||}}|};
-{farrik_8|He is currently held in the prison here in Fallhaven, pending transfer to Feygard.|||{{What did he do?|farrik_9||||}}|};
-{farrik_9|Oh, nothing serious. He was trying to get into the catacombs beneath Fallhaven church.|||{{N|farrik_10||||}}|};
+{farrik_4|We try to keep to ourselves as much as possible, and help our fellow thieves as much as possible.|||{{Any recent events happening?|farrik_5||||}}|};
+{farrik_5|Well, there was one thing a few weeks ago. One of our guild members got arrested for trespassing.|||{{N|farrik_6||||}}|};
+{farrik_6|The Fallhaven guard has really started to get annoyed at us lately. Probably because we have been very successful in our recent missions.|||{{N|farrik_7||||}}|};
+{farrik_7|The guards have increased their security lately, leading to them arresting one of our members.|||{{N|farrik_8||||}}|};
+{farrik_8|He is currently held in the jail here in Fallhaven, pending transfer to Feygard.|||{{What did he do?|farrik_9||||}}|};
+{farrik_9|Oh, nothing serious. He was trying to get into the catacombs of Fallhaven church.|||{{N|farrik_10||||}}|};
 {farrik_10|But now that you have helped us with that mission, I guess we don\'t need to go there anymore.|||{{N|farrik_11||||}}|};
 {farrik_11|I guess I can trust you with this secret. We are planning a mission tonight to help him out of the prison.|farrik:10||{{Those guards really seem annoying.|farrik_13||||}{After all, if he wasn\'t allowed down there, then the guards are right to arrest him.|farrik_12||||}}|};
-{farrik_12|Yeah, I guess so. But for the guild\'s sake, we would rather have our friend freed than imprisoned.|||{{Maybe I should tell the guards that you are planning to get him out?|farrik_15||||}{Don\'t worry, your secret plan to free him is safe wth me.|farrik_14||||}{[Lie] Don\'t worry, your secret plan to free him is safe wth me.|farrik_14||||}}|};
-{farrik_13|Oh yes, they are. People in general also dislike them, it\'s not just us in the thieves guild.|||{{Is there anything I can do to help you with those annoying guards?|farrik_16||||}}|};
+{farrik_12|Yeah, I guess so. But for the guild\'s sake, we would rather have our friend freed than imprisoned.|||{{Maybe I should tell the guards that you are planning to get him out?|farrik_15||||}{Don\'t worry, your secret plan to free him is safe with me.|farrik_14||||}{[Lie] Don\'t worry, your secret plan to free him is safe with me.|farrik_14||||}}|};
+{farrik_13|Oh yes, they are. The people also dislike them in general, it\'s not just us in the thieves guild.|||{{Is there anything I can do to help you with those annoying guards?|farrik_16||||}}|};
 {farrik_14|Thank you. Now please leave me.||||};
 {farrik_15|Whatever, they wouldn\'t believe you anyway.|farrik:30|||};
 {farrik_16|Are you sure you want to annoy the guards? If they catch word of you being involved, you could get into a lot of trouble.|||{{No problem, I can handle myself!|farrik_18||||}{There might be a reward for this later on. I\'m in.|farrik_18||||}{On second thought, maybe I should keep out of this.|farrik_17||||}}|};
@@ -603,14 +603,14 @@
 {farrik_18|Good.|||{{N|farrik_19||||}}|};
 {farrik_19|Ok, here is the plan. The guard captain has a bit of a drinking problem.|||{{N|farrik_20||||}}|};
 {farrik_20|If we were to supply him with some mead that we have prepared, we might just be able to sneak our friend out during the night, when the captain is sleeping off the drunkenness.|||{{N|farrik_20a||||}}|};
-{farrik_20a|Our cook can help you prepare a special brew of mead that will knock him out.|||{{N|farrik_21||||}}|};
+{farrik_20a|Our cook can prepare a special brew of mead for you that will knock him out.|||{{N|farrik_21||||}}|};
 {farrik_21|He would probably need to be persuaded to drink on duty too. If that should fail, he could probably be bribed instead.|||{{N|farrik_22||||}}|};
 {farrik_22|How does that sound to you? Do you think you are up to it?|||{{Sure, sounds easy!|farrik_23||||}{Sounds a bit dangerous, but I guess I\'ll try.|farrik_23||||}{No, this is really starting to sound like a bad idea.|farrik_17||||}}|};
-{farrik_23|Good. Report back to me when you have gotten the guard captain to drink that special mead from our cook.|farrik:20||{{Will do|farrik_14||||}}|};
+{farrik_23|Good. Report back to me when you have gotten the guard captain to drink that special mead.|farrik:20||{{Will do|farrik_14||||}}|};
 {farrik_return_1|Hello again my friend. How goes your mission to get the guard captain drunk?|||{{I am not done yet, but I am working on it.|farrik_23||||}{[Lie] It is done. He should be no problem during the night.|farrik_26|farrik:50|||}{It is done. He should be no problem during the night.|farrik_24|farrik:60|||}}|};
 {farrik_select_1||||{{|farrik_return_2|farrik:70|||}{|farrik_return_2|farrik:80|||}{|farrik_select_2||||}}|};
 {farrik_select_2||||{{|farrik_return_1|farrik:20|||}{|farrik_1||||}}|};
-{farrik_24|That is good news! Now we should be able to get our friend out from the prison tonight. |farrik:70||{{N|farrik_25||||}}|};
+{farrik_24|That is good news! Now we should be able to get our friend out from the prison tonight.|farrik:70||{{N|farrik_25||||}}|};
 {farrik_25|Thank you for your help my friend. Take these coins as a token of our appreciation.||gold200|{{Thank you. Goodbye.|X||||}{Finally, some gold.|X||||}}|};
 {farrik_return_2|Thank you for your help with the guard captain earlier.||||};
 {farrik_26|Oh you did? Well done. You have my thanks, friend.|farrik:80|||};
@@ -623,54 +623,54 @@
 {warden_prisoner_2|Luckily, we caught him before he could get down there. Now he\'ll serve as an example to all other thieves.|||{{N|warden_prisoner_3||||}}|};
 {warden_prisoner_3|Damn thieves. There must be a nest of them around here somewhere. If only I could find where they hide.||||};
 {fallhaven_warden_1|Mead? Oh.. no, I don\'t do that anymore. Who told you that?|||{{N|fallhaven_warden_2||||}}|};
-{fallhaven_warden_2|I\'m stopped doing that years ago.|||{{Sounds like a good approach. Good luck with keeping away from it.|X||||}{Not just even a little bit?|fallhaven_warden_3||||}}|};
-{fallhaven_warden_3|Um. *clears throat* I really shouldn\'t.|||{{I brought some with me if you would like to have a sip|fallhaven_warden_4|farrik:25|sleepingmead|1|}{Ok, goodbye|X||||}}|};
+{fallhaven_warden_2|I\'ve stopped doing that years ago.|||{{Sounds like a good approach. Good luck with keeping away from it.|X||||}{Not just even a little bit?|fallhaven_warden_3||||}}|};
+{fallhaven_warden_3|Um. *clears throat* I really shouldn\'t.|||{{I brought some with me if you would like to have a sip.|fallhaven_warden_4|farrik:25|sleepingmead|1|}{Ok, goodbye|X||||}}|};
 {fallhaven_warden_4|Oh sweet drinks of joy. But I really shouldn\'t have this while on duty.|farrik:32||{{N|fallhaven_warden_5||||}}|};
-{fallhaven_warden_5|I could get fined for not doing my duty fully. I don\'t think I would dare try it right now.|||{{N|fallhaven_warden_6||||}}|};
-{fallhaven_warden_6|Thank you for the drink though, I will enjoy it when I get home later tomorrow.|||{{You are welcome. Goodbye.|X||||}{What if someone would pay you the amount that the fine would amount to?|fallhaven_warden_7||||}}|};
+{fallhaven_warden_5|I could get fined for drinking on duty. I don\'t think I would dare try it right now.|||{{N|fallhaven_warden_6||||}}|};
+{fallhaven_warden_6|Thank you for the drink though, I will enjoy it when I get home later tomorrow.|||{{You are welcome. Goodbye.|X||||}{What if someone would pay you the amount of the fine?|fallhaven_warden_7||||}}|};
 {fallhaven_warden_7|Oh, that sounds a bit shady. And I doubt anyone could afford the 450 gold around here. Anyway, I would need a bit more than that just to risk it.|||{{I have 500 gold right here that you could have.|fallhaven_warden_9||gold|500|}{But you know you want the mead right?|fallhaven_warden_8||||}{Yes, I agree. This is starting to sound too shady. Goodbye.|X||||}}|};
 {fallhaven_warden_8|Oh sure. Now that you mention it. It sure would be good.|||{{So what if I pay you, say, 400 gold. Would that cover enough of your anxiety to enjoy the drink now?|fallhaven_warden_9||gold|400|}{This is starting to sound too shady for me. I\'ll leave you to your duty, goodbye.|X||||}{I\'ll go get that money for you. Goodbye.|X||||}}|};
 {fallhaven_warden_9|Wow, that much money? I\'m sure I could even get away with this without being fined. Then I could have the money AND a nice drink of mead at the same time.|farrik:60||{{N|fallhaven_warden_10||||}}|};
-{fallhaven_warden_10|Thank you kid, you really are a nice kid. Now leave me to enjoy my drink.||||};
+{fallhaven_warden_10|Thank you kid, you really are nice. Now leave me to enjoy my drink.||||};
 {fallhaven_warden_select_1||||{{|fallhaven_warden_11|farrik:60|||}{|fallhaven_warden_35|farrik:90|||}{|fallhaven_warden_select_2||||}}|};
 {fallhaven_warden_select_2||||{{|fallhaven_warden_30|farrik:50|||}{|fallhaven_warden_12|farrik:32|||}{|fallhaven_warden||||}}|};
-{fallhaven_warden_11|Hello again kid. Thanks for the drink earlier. I had it all in one go. It sure tasted a bit different than before, but I guess that is just because I\'m not used to it anymore.|||{{Who is that prisoner?|warden_prisoner_1||||}}|};
-{fallhaven_warden_12|Hello again kid. Thanks for the drink earlier. I still haven\'t had it.|||{{N|fallhaven_warden_5||||}}|};
+{fallhaven_warden_11|Hello again, kid. Thanks for the drink earlier. I had it all in one go. It sure tasted a bit different than before, but I guess that is just because I\'m not used to it anymore.|||{{Who is that prisoner?|warden_prisoner_1||||}}|};
+{fallhaven_warden_12|Hello again, kid. Thanks for the drink earlier. I still haven\'t had it.|||{{N|fallhaven_warden_5||||}}|};
 {fallhaven_warden_20|Really, they would dare go up against the guard in Fallhaven? Do you have any details on their plan?|||{{I heard they are planning his escape tonight|fallhaven_warden_21||||}{No, I was just kidding with you. Nevermind.|X||||}{On second thought, I better not upset the thieves guild. Nevermind I said anything.|X||||}}|};
 {fallhaven_warden_21|Tonight? Thank you for this information. We will make sure to increase the security tonight then, but in such a way that they won\'t notice.|farrik:40||{{N|fallhaven_warden_22||||}}|};
 {fallhaven_warden_22|When they do decide to break him free, we will be prepared. And maybe we can arrest more of those filthy thieves.|||{{N|fallhaven_warden_23||||}}|};
 {fallhaven_warden_23|Thank you again for the information. While I\'m not sure how you may know this, I really appreciate you telling me.|||{{N|fallhaven_warden_24||||}}|};
-{fallhaven_warden_24|I want you to go one step further and tell them that we will have less security for tonight, while we in fact increase the security. That way we can really be ready for them.|||{{Sure, I can do that.|fallhaven_warden_25||||}}|};
+{fallhaven_warden_24|I want you to go one step further and tell them that we will have less security for tonight.  But instead we will increase the security. That way we can really be ready for them.|||{{Sure, I can do that.|fallhaven_warden_25||||}}|};
 {fallhaven_warden_25|Good. Report back to me when you have told them.|farrik:50||{{Will do.|X||||}}|};
-{fallhaven_warden_30|Hello again my friend. Did you tell those thieves that we will lower our security tonight?|||{{Yes, they won\'t expect a thing.|fallhaven_warden_31||||}{No, not yet. I\'m working on it.|fallhaven_warden_25||||}}|};
-{fallhaven_warden_31|Great. Hank you for your help. Here, take these coins as a token of my and the guards appreciation.|farrik:90|gold200|{{N|fallhaven_warden_36||||}}|};
-{fallhaven_warden_35|Hello again my friend. Thank you for your help in dealing with the thieves earlier.|||{{N|fallhaven_warden_36||||}}|};
+{fallhaven_warden_30|Hello again, my friend. Did you tell those thieves that we will lower our security tonight?|||{{Yes, they won\'t expect a thing.|fallhaven_warden_31||||}{No, not yet. I\'m working on it.|fallhaven_warden_25||||}}|};
+{fallhaven_warden_31|Great. Thank you for your help. Here, take these coins as a token of our appreciation.|farrik:90|gold200|{{N|fallhaven_warden_36||||}}|};
+{fallhaven_warden_35|Hello again, my friend. Thank you for your help in dealing with the thieves earlier.|||{{N|fallhaven_warden_36||||}}|};
 {fallhaven_warden_36|I will make sure to tell other guards how you helped us here in Fallhaven.|||{{Thank you. Goodbye.|X||||}}|};
 	</string>
 
 	<string name="conversationlist_umar">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {umar_select_1||||{{|umar_return_1|andor:51|||}{|umar_novisit_1||||}}|};
-{umar_return_1|Hello again my friend.|||{{Hello.|umar_return_2||||}{Nice to meet you. Goodbye.|X||||}}|};
+{umar_return_1|Hello again, my friend.|||{{Hello.|umar_return_2||||}{Nice to meet you. Goodbye.|X||||}}|};
 {umar_return_2|Anything else I can help you with?|||{{Can you repeat what you said about Andor?|umar_5||||}{Nice to meet you. Goodbye.|X||||}}|};
 {umar_novisit_1|Hello. How did your search go?|||{{What search?|umar_2||||}}|};
 {umar_2|Last time we talked, you asked for the way to Lodar\'s Hideaway. Did you find it?|||{{We have never met.|umar_3||||}{You must have me confused with my brother Andor. We look very much alike.|umar_4||||}}|};
 {umar_3|Oh. I must have you mixed up with someone else.|||{{My brother Andor and I look very much alike.|umar_4||||}}|};
 {umar_4|Really? Never mind I said anything then.|andor:51||{{I guess that means that Andor was here. What was he doing?|umar_5||||}}|};
-{umar_5|He came here a while ago, asking a lot of questions about what relation the thieves guild have to the Shadow and to the royal guard in Feygard.|||{{N|umar_6||||}}|};
+{umar_5|He came here a while ago, asking a lot of questions about what relation the Thieves Guild has to the Shadow and to the royal guard in Feygard.|||{{N|umar_6||||}}|};
 {umar_6|We in the Thieves Guild really don\'t care much for the Shadow. Nor do we care for the royal guard.|||{{N|umar_7||||}}|};
 {umar_7|We try to be above their bickering and differences. They may fight as much as they want, but the Thieves Guild will outlive them all.|||{{What conflict?|umar_conflict_1||||}{Tell me more about what Andor asked for|umar_andor_1||||}}|};
 {umar_conflict_1|Where have you been the last couple of years? Don\'t you know of the brewing conflict?|||{{N|umar_conflict_2||||}}|};
-{umar_conflict_2|The royal guard, led by Lord Geomyr in Feygard, are trying to ward off the recent increase in illegal activities, and are therefore imposing a lot more restrictions on what is allowed and not.|||{{N|umar_conflict_3||||}}|};
+{umar_conflict_2|The royal guard, led by Lord Geomyr in Feygard, are trying to ward off the recent increase in illegal activities, and are therefore imposing more restrictions on what is allowed and not.|||{{N|umar_conflict_3||||}}|};
 {umar_conflict_3|The priests of the Shadow, mostly seated in Nor City, are opponents to the new restrictions, saying that they limit the ways that they can please the Shadow.|||{{N|umar_conflict_4||||}}|};
 {umar_conflict_4|In turn, the rumor is that the priests of the Shadow are planning to overthrow Lord Geomyr and his forces.|||{{N|umar_conflict_5||||}}|};
-{umar_conflict_5|The rumor is also that the priests of the Shadow are still doing their rituals, despite of them being disallowed.|||{{N|umar_conflict_6||||}}|};
+{umar_conflict_5|Also, the rumor is that the priests of the Shadow are still doing their rituals, despite of them being banned.|||{{N|umar_conflict_6||||}}|};
 {umar_conflict_6|Lord Geomyr and his royal guard on the other hand, are still trying their best to rule in a way that they feel is fair.|||{{N|umar_conflict_7||||}}|};
 {umar_conflict_7|We in the Thieves Guild try not to get involved in the conflict. Our business is so far unaffected by all this.|||{{Thank you for telling me.|umar_return_2||||}{Whatever, that doesn\'t concern me.|umar_return_2||||}}|};
 {umar_andor_1|He asked me for my support, and asked of how to find Lodar.|||{{Who is Lodar?|umar_andor_2||||}}|};
 {umar_andor_2|Lodar? He is one of our famous potion makers in the Thieves Guild. He can make all sorts of strong sleeping potions, healing potions and cures.|||{{N|umar_andor_3||||}}|};
-{umar_andor_3|But his specialty is of course his poisons. His poison can harm even the largest of monsters.|||{{What would Andor want with him?|umar_andor_4||||}}|};
-{umar_andor_4|I don\'t know. Maybe he was looking for some potion.|andor:55||{{So, where can I find this Lodar?|umar_lodar_1||||}}|};
+{umar_andor_3|But his specialty is, of course, his poisons. His poison can harm even the largest of monsters.|||{{What would Andor want with him?|umar_andor_4||||}}|};
+{umar_andor_4|I don\'t know. Maybe he was looking for a potion.|andor:55||{{So, where can I find this Lodar?|umar_lodar_1||||}}|};
 {umar_lodar_1|I really shouldn\'t tell you. How to get to him is one of our closely guarded secrets in the guild. His hideaway is only reachable by our members.|||{{N|umar_lodar_2||||}}|};
 {umar_lodar_2|However, I heard that you helped us find the key of Luthor. This is something we have been trying to get to for a long time.|||{{N|umar_lodar_3||||}}|};
 {umar_lodar_3|Ok, I\'ll tell you how to get to Lodar\'s Hideaway. But you have to promise to keep it a secret. Do not tell anyone. Not even those that appear to be members of the Thieves Guild.|||{{Ok, I\'ll promise to keep it a secret.|umar_lodar_4||||}{I can\'t give any guarantees, but I will try.|umar_lodar_4||||}}|};
@@ -686,15 +686,15 @@
 {kaori_1|You are not welcome here. Please leave now.|||{{Why is everyone in Vilegard so afraid of outsiders?|kaori_2||||}{Jolnor asked me to talk to you.|kaori_3|kaori:5|||}}|};
 {kaori_2|I don\'t want to talk to you. Go talk Jolnor in the chapel if you want to help us.|vilegard:10||{{Ok, bye.|X||||}{Fine. Don\'t tell me.|X||||}}|};
 {kaori_3|He did? I guess you are not all that bad as I first thought.|||{{N|kaori_4||||}}|};
-{kaori_4|I am still not convinced that you are not a spy from Feygard sent here to cause mischief.|||{{What can you tell me about Vilegard?|kaori_trust_1||||}{I can assure you that I am not a spy.|kaori_5||||}{Feygard, where or what is that?|kaori_trust_1||||}}|};
+{kaori_4|I am still not convinced that you are not a spy from Feygard sent to cause mischief.|||{{What can you tell me about Vilegard?|kaori_trust_1||||}{I can assure you that I am not a spy.|kaori_5||||}{Feygard, where or what is that?|kaori_trust_1||||}}|};
 {kaori_5|Hm. Maybe not. But then again, maybe you are. I am still not sure.|||{{Is there anything I can do to gain your trust?|kaori_10||||}{[Bribe] How would 100 gold sound? Could that help you to trust me?|kaori_bribe||||}}|};
 {kaori_trust_1|I still don\'t fully trust you enough to talk about that.|||{{Is there anything I can do to gain your trust?|kaori_10||||}{[Bribe] How would 100 gold sound? Could that help you to trust me?|kaori_bribe||||}}|};
-{kaori_bribe|Are you trying to bribe me kid? That won\'t work on me. What use would I have for money if you actually were a spy?|||{{Is there anything I can do to gain your trust?|kaori_10||||}}|};
+{kaori_bribe|Are you trying to bribe me, kid? That won\'t work on me. What use would I have for money if you actually were a spy?|||{{Is there anything I can do to gain your trust?|kaori_10||||}}|};
 {kaori_10|If you really want to prove to me that you are not a spy from Feygard, there actually is something that you can do for me.|||{{N|kaori_11||||}}|};
 {kaori_11|Up until recently, we have been using special potions made of ground bones as healing. These potions are very potent healing potions, and were used for several purposes.|||{{N|kaori_12||||}}|};
 {kaori_12|But now, they have been banned by Lord Geomyr, and most use of them has stopped.|||{{N|kaori_13||||}}|};
-{kaori_13|I would really like to have a few more of those. If you can bring me 10 bonemeal potions, I might consider trusting you a bit more.|kaori:10||{{Ok. I will get some potions for you.|kaori_14||||}{No. If they are banned, there is most likely a good reason behind it. You shouldn\'t use them.|kaori_15||||}{I already have some of those potions with me that you can have|kaori_20||bonemeal_potion|10|}}|};
-{kaori_return_1|Hello again. Have you found those 10 bonemeal potions I asked for?|||{{No, I am still looking for them.|kaori_14||||}{Yes, I brought your potions.|kaori_20||bonemeal_potion|10|}{No. If they are banned, there is most likely a good reason behind it. You shouldn\'t use them.|kaori_15||||}}|};
+{kaori_13|I would really like to have a few more of those. If you can bring me 10 Bonemeal potions, I might consider trusting you a bit more.|kaori:10||{{Ok. I will get some potions for you.|kaori_14||||}{No. If they are banned, there is most likely a good reason behind it. You shouldn\'t use them.|kaori_15||||}{I already have some of those potions with me that you can have|kaori_20||bonemeal_potion|10|}}|};
+{kaori_return_1|Hello again. Have you found those 10 Bonemeal potions I asked for?|||{{No, I am still looking for them.|kaori_14||||}{Yes, I brought your potions.|kaori_20||bonemeal_potion|10|}{No. If they are banned, there is most likely a good reason behind it. You shouldn\'t use them.|kaori_15||||}}|};
 {kaori_14|Well, hurry up. I really need them soon.||||};
 {kaori_15|Fine. Now please leave me.||||};
 {kaori_20|Good. Give them to me.|kaori:20||{{N|kaori_21||||}}|};
@@ -708,8 +708,8 @@
 	<string name="conversationlist_vilegard_villagers">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {vilegard_villager_1||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_1_0||||}}|};
-{vilegard_villager_1_0|Hello. Who are you? You are not welcome here in Vilegard.|||{{Have you seen my brother Andor around here?|vilegard_villager_1_2||||}}|};
-{vilegard_villager_1_2|No I have certainly not. And even if I had, why would I tell you?||||};
+{vilegard_villager_1_0|Hello. Who are you? You are not welcome here in Vilegard.|||{{Have you seen my brother, Andor, around here?|vilegard_villager_1_2||||}}|};
+{vilegard_villager_1_2|No, I have certainly not. Even if I had, why would I tell you?||||};
 {vilegard_villager_2||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_2_0||||}}|};
 {vilegard_villager_2_0|By the Shadow, you are an outsider. We don\'t like outsiders here.|||{{Why is everyone in Vilegard so afraid of outsiders?|vilegard_villager_5_1||||}}|};
 {vilegard_villager_3||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_3_0||||}}|};
@@ -717,7 +717,7 @@
 {vilegard_villager_4||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_4_0||||}}|};
 {vilegard_villager_4_0|You look like that other kid that ran around here. Probably causing trouble, as always with outsiders.|||{{Did you see my brother Andor?|vilegard_villager_1_2||||}{I\'m not going to cause trouble.|vilegard_villager_4_2||||}{Oh yes, I am going to cause trouble all right.|vilegard_villager_4_3||||}}|};
 {vilegard_villager_4_2|No, I am sure you are. Outsiders always do.||||};
-{vilegard_villager_4_3|Yes, I know. That\'s why we don\'t want your type around here. You should leave Vilegard while you still can.||||};
+{vilegard_villager_4_3|Yes, I know. That\'s why we don\'t want your kind around here. You should leave Vilegard while you still can.||||};
 {vilegard_villager_5||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_5_0||||}}|};
 {vilegard_villager_5_0|Hello there outsider. You look lost, that\'s good. Now leave Vilegard while you can.|||{{Why is everyone in Vilegard so afraid of outsiders?|vilegard_villager_5_1||||}}|};
 {vilegard_villager_5_1|I don\'t trust you. You should go see Jolnor in the chapel if you want some sympathy.|vilegard:10|||};
@@ -731,7 +731,7 @@
 {erttu_default|What do you want to talk about?|||{{Why is everyone in Vilegard so suspicious of outsiders?|erttu_distrust_1|vilegard:10|||}{What can you tell me about Vilegard?|erttu_vilegard_1||||}}|};
 {erttu_distrust_1|Most of us that live here in Vilegard have a history of trusting people too much. People that have hurt us in the end.|||{{N|erttu_distrust_2||||}}|};
 {erttu_distrust_2|Now we start by being suspicious, and ask that outsiders coming here gain our trust by helping us first.|||{{N|erttu_distrust_3||||}}|};
-{erttu_distrust_3|Also, other people generally look down upon us here in Vilegard for some reason. Especially those snobs from Feygard and the norhtern cities.|||{{What can else you tell me about Vilegard?|erttu_vilegard_1||||}}|};
+{erttu_distrust_3|Also, other people generally look down upon us here in Vilegard for some reason. Especially those snobs from Feygard and the northern cities.|||{{What can else you tell me about Vilegard?|erttu_vilegard_1||||}}|};
 {erttu_vilegard_1|We have almost everything we need here in Vilegard. Our center of the village is the chapel.|||{{N|erttu_vilegard_2||||}}|};
 {erttu_vilegard_2|The chapel serves as our place of worship for the Shadow, and also as our place to gather when discussing larger issues in our village.|||{{N|erttu_vilegard_3||||}}|};
 {erttu_vilegard_3|Apart from the chapel, we have a tavern, a smith and an armorer.|||{{Thanks for the information. There was something else I wanted to talk about.|erttu_default||||}{Thanks for the information. Goodbye.|X||||}{Wow, nothing more? I wonder what I am doing in a puny village such as this one.|X||||}}|};
@@ -750,15 +750,15 @@
 	<string name="conversationlist_jolnor">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {jolnor_select_1||||{{|jolnor_default_3|vilegard:30|||}{|jolnor_default_2|vilegard:20|||}{|jolnor_default||||}}|};
-{jolnor_default|Walk with the Shadow my child.|||{{What is this place?|jolnor_chapel_1||||}{I was told to talk to you about why everyone here in Vilegard is so suspicious about outsiders.|jolnor_suspicious_1|vilegard:10|||}}|};
-{jolnor_default_2|Walk with the Shadow my child.|||{{Can you tell me again what this place is?|jolnor_chapel_1||||}{Let\'s talk about those those missions for gaining trust that you talked about earlier.|jolnor_quests_1||||}{I require healing. Can I see what items you have available?|jolnor_shop_1||||}}|};
+{jolnor_default|Walk with the Shadow my child.|||{{What is this place?|jolnor_chapel_1||||}{I was told to talk to you about why everyone in Vilegard is suspicious of outsiders.|jolnor_suspicious_1|vilegard:10|||}}|};
+{jolnor_default_2|Walk with the Shadow my child.|||{{Can you tell me again what this place is?|jolnor_chapel_1||||}{Let\'s talk about those missions for gaining trust that you talked about earlier.|jolnor_quests_1||||}{I require healing. Can I see what items you have available?|jolnor_shop_1||||}}|};
 {jolnor_default_3|Walk with the Shadow my friend.|||{{Can you tell me again what this place is?|jolnor_chapel_1||||}{I require healing. Can I see what items you have available?|jolnor_shop_1||||}}|};
-{jolnor_chapel_1|This is our place of worship here in Vilegard for the Shadow. We praise the Shadow in all its might and glory.|||{{Can you tell me more about the Shadow?|jolnor_shadow_1||||}{I require healing. Can I see what items you have available?|jolnor_shop_1||||}{Whatever. Just show me your goods.|jolnor_shop_1||||}}|};
+{jolnor_chapel_1|This is Vilegard\'s place of worship for the Shadow. We praise the Shadow in all its might and glory.|||{{Can you tell me more about the Shadow?|jolnor_shadow_1||||}{I require healing. Can I see what items you have available?|jolnor_shop_1||||}{Whatever. Just show me your goods.|jolnor_shop_1||||}}|};
 {jolnor_shadow_1|The Shadow protect us from the dangers of the night. It keeps us safe and comforts us when we sleep.|||{{N|jolnor_select_1||||}}|};
 {jolnor_shop_1||||{{|S|vilegard:30|||}{|jolnor_shop_2||||}}|};
 {jolnor_shop_2|I don\'t trust you enough yet to feel comfortable trading with you.|||{{Why are you that suspicious?|jolnor_suspicious_1||||}{Very well.|jolnor_select_1||||}}|};
 {jolnor_suspicious_1|Suspicious? No, I wouldn\'t call it suspicion. I would rather call it that we are careful nowadays.|||{{N|jolnor_suspicious_2||||}}|};
-{jolnor_suspicious_2|In order to gain our trust, an outsider must prove to us that you are not here to cause trouble.|||{{Sounds like a good idea. There are a lot of selfish people out there.|jolnor_suspicious_3||||}{That sounds really unneccessary. Why not trust people in the first place?|jolnor_suspicious_4||||}}|};
+{jolnor_suspicious_2|In order to gain the trust of the village, an outsider must prove that they are not here to cause trouble.|||{{Sounds like a good idea. There are a lot of selfish people out there.|jolnor_suspicious_3||||}{That sounds really unneccessary. Why not trust people in the first place?|jolnor_suspicious_4||||}}|};
 {jolnor_suspicious_3|Yes, right. You seem to understand us well, I like that.|||{{Is there anything I can do to gain your trust?|jolnor_gaintrust_select||||}}|};
 {jolnor_suspicious_4|We have learned from history not to trust outsiders. And you are an outsider. Why should we trust you?|||{{What can I do to gain your trust?|jolnor_gaintrust_select||||}{You are right. You probably should not trust me.|X||||}}|};
 {jolnor_gaintrust_select||||{{|jolnor_gaintrust_return_2|vilegard:30|||}{|jolnor_gaintrust_return|vilegard:20|||}{|jolnor_gaintrust_1||||}}|};
@@ -766,16 +766,16 @@
 {jolnor_gaintrust_return|As I said before, you have to help some people here in Vilegard to gain our trust.|||{{N|jolnor_quests_1||||}}|};
 {jolnor_gaintrust_1|If you do us a favor, we might consider trusting you. There are three people I can think of that are influential here in Vilegard, that you should try help.|||{{N|jolnor_gaintrust_2||||}}|};
 {jolnor_gaintrust_2|First, there is Kaori. She lives up in the northern part of Vilegard. Ask her if she wants help with anything.|kaori:5||{{Ok. Talk to Kaori. Got it.|jolnor_gaintrust_3||||}}|};
-{jolnor_gaintrust_3|Then there is Wrye. Wrye also lives up in the northern part of Vilegard. Many people here in Vilegard seek her advice on various things. |||{{N|jolnor_gaintrust_4||||}}|};
-{jolnor_gaintrust_4|She recently lost her son in tragic ways. If you can gain her trust, you will have a strong ally here.|wrye:10||{{Talk to Wrye. Got it.|jolnor_gaintrust_5||||}}|};
+{jolnor_gaintrust_3|Then there is Wrye. Wrye also lives up in the northern part of Vilegard. Many people here in Vilegard seek her advice on various things.|||{{N|jolnor_gaintrust_4||||}}|};
+{jolnor_gaintrust_4|She recently lost her son in a tragic way. If you can gain her trust, you will have a strong ally here.|wrye:10||{{Talk to Wrye. Got it.|jolnor_gaintrust_5||||}}|};
 {jolnor_gaintrust_5|And last but not least, I have a favor to ask of you as well.|||{{What favor is that?|jolnor_gaintrust_6||||}}|};
-{jolnor_gaintrust_6|North of Vilegard is a tavern called the Foaming Flask. This tavern is in my opinion a guardstation for Feygard in guise.|||{{N|jolnor_gaintrust_7||||}}|};
+{jolnor_gaintrust_6|North of Vilegard is a tavern called the Foaming Flask. In my opinion, this tavern is a guard station in guise for Feygard.|||{{N|jolnor_gaintrust_7||||}}|};
 {jolnor_gaintrust_7|The tavern is almost always visited by the Feygard royal guard of Lord Geomyr.|||{{N|jolnor_gaintrust_8||||}}|};
 {jolnor_gaintrust_8|They are probably here to spy on us, since we are followers of the Shadow. Lord Geomyr\'s forces always try to make life difficult for us and the Shadow.|||{{Yes, they seem like troublemakers all around.|jolnor_gaintrust_9||||}{I am sure they have their reasons for doing what they do.|jolnor_gaintrust_10||||}}|};
 {jolnor_gaintrust_9|Right. Troublemakers indeed.|||{{What do you want me to do?|jolnor_gaintrust_11||||}}|};
 {jolnor_gaintrust_10|Yes, their reason is to make life miserable for us, I am sure.|||{{What do you want me to do?|jolnor_gaintrust_11||||}}|};
 {jolnor_gaintrust_11|My reports say that there is a guard stationed outside the tavern, to keep an eye on potential dangers.|||{{N|jolnor_gaintrust_12||||}}|};
-{jolnor_gaintrust_12|I want you to make sure the guard disappears somehow. How you do that is purely up to you.|jolnor:10||{{I am not sure I should upset the Feygard patrol guards. This could really get me into trouble.|jolnor_gaintrust_13||||}{For the Shadow, I will do as you ask.|jolnor_gaintrust_14||||}{Ok, I hope this leads to some treasue in the end.|jolnor_gaintrust_14||||}}|};
+{jolnor_gaintrust_12|I want you to make sure the guard disappears somehow. How you do that is purely up to you.|jolnor:10||{{I am not sure I should upset the Feygard patrol guards. This could really get me into trouble.|jolnor_gaintrust_13||||}{For the Shadow, I will do as you ask.|jolnor_gaintrust_14||||}{Ok, I hope this leads to some treasure in the end.|jolnor_gaintrust_14||||}}|};
 {jolnor_gaintrust_13|It\'s your choice. You can at least go check out the tavern and see if you find anything suspicious.|||{{Maybe.|jolnor_gaintrust_15||||}}|};
 {jolnor_gaintrust_14|Good. Report back to me when you are done.|||{{N|jolnor_gaintrust_15||||}}|};
 {jolnor_gaintrust_15|So, in order to gain our trust here in Vilegard, I would suggest you help Kaori, Wrye and me.|vilegard:20||{{Thank you for the information. I will be back when I have something to report.|X||||}}|};
@@ -797,9 +797,9 @@
 	<string name="conversationlist_alynndir">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {alynndir_1|Hello there. Welcome to my cabin.|||{{What do you do around here?|alynndir_2||||}{What can you tell me about the surroundings here?|alynndir_3||||}}|};
-{alynndir_2|Mostly, I trade with travellers on the main road on the way to Nor City.|||{{Do you have anything to trade?|S||||}{What can you tell me about the surroundings here?|alynndir_3||||}}|};
+{alynndir_2|Mostly, I trade with travelers on the main road on the way to Nor City.|||{{Do you have anything to trade?|S||||}{What can you tell me about the surroundings here?|alynndir_3||||}}|};
 {alynndir_3|Oh, there is not much around here. Vilegard to the west and Brightport to the east.|||{{N|alynndir_4||||}}|};
-{alynndir_4|Up north is just forest. But there are some strange things happening here.|||{{N|alynndir_5||||}}|};
+{alynndir_4|Up north is just forest. But there are some strange things happening there.|||{{N|alynndir_5||||}}|};
 {alynndir_5|I have heard terrible screams coming from the forest to the northwest.|||{{N|alynndir_6||||}}|};
 {alynndir_6|I really wonder what is up there.|||{{Goodbye.|X||||}}|};
 	</string>
@@ -810,14 +810,14 @@
 {vilegard_armorer_1|Hello there. Please browse my selection of fine armors and protection.|||{{Let me see your list of wares|S||||}}|};
 {vilegard_smith_select||||{{|vilegard_smith_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
 {vilegard_smith_1|Hello there. I heard you helped us here in Vilegard. What can I help you with?|||{{Can I see what items you have for sale?|S||||}}|};
-{vilegard_shop_notrust|You are an outsider. We don\'t like outsiders here in Vilegard. Please leave me.|||{{Why is everyone in Vilegard so suspicious of outsiders?|vilegard_shop_notrust_2||||}{Can I see what items you have for sale?|vilegard_shop_notrust_2||||}}|};
+{vilegard_shop_notrust|You are an outsider. We don\'t like outsiders here in Vilegard. Please leave.|||{{Why is everyone in Vilegard so suspicious of outsiders?|vilegard_shop_notrust_2||||}{Can I see what items you have for sale?|vilegard_shop_notrust_2||||}}|};
 {vilegard_shop_notrust_2|I don\'t trust you. You should go see Jolnor in the chapel if you want some sympathy.|vilegard:10|||};
 	</string>
 
 	<string name="conversationlist_ogam">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {ogam_1|Belief. Power. Struggle.|||{{What?|ogam_2||||}{I was told to see you.|ogam_2|lodar:15|||}}|};
-{ogam_2|Backwards is the burden high and low.|||{{What?|ogam_3||||}{Please go on|ogam_3||||}{Hello? Umar in Fallhaven thieves guild told me to see you.|ogam_3|lodar:15|||}}|};
+{ogam_2|Backwards is the burden high and low.|||{{What?|ogam_3||||}{Please go on|ogam_3||||}{Hello? Umar in the Fallhaven thieves guild sent me to see you.|ogam_3|lodar:15|||}}|};
 {ogam_3|Hiding in the Shadow.|||{{N|ogam_4||||}}|};
 {ogam_4|Two alike in body and mind.|||{{Are you going to make any sense?|ogam_5||||}{What do you mean?|ogam_5||||}}|};
 {ogam_5|The lawful and the chaotic.|||{{Hello? Do you know how I can reach Lodar\'s hideaway?|ogam_lodar_1|lodar:15|||}{I don\'t understand.|ogam_6||||}}|};
@@ -831,22 +831,22 @@
 
 	<string name="conversationlist_foamingflask">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{ff_cook_1|Hello. Do you want some help from the kitchen?|||{{Sure, let me see what food you have to sell.|ff_cook_3||||}{That smells horrible. What are you cooking?|ff_cook_2||||}{That smells wonderful. What are you cooking?|ff_cook_2||||}}|};
-{ff_cook_2|Oh this? This is supposed to be a stew of Anklebiter. Needs more seasoning I guess.|||{{Looking forward to trying it when it is done. Good luck cooking.|X||||}{Yuck, that sounds awful. Can you really eat those things? I\'m grossed, goodbye.|X||||}}|};
-{ff_cook_3|No sorry, I don\'t have any food to sell. Go talk to Torilo over there if you want some drink or ready made food.||||};
-{torilo_1|Welcome to the Foaming Flask tavern. We welcome all travellers in here.|||{{Thank you. Are you the patron around here?|torilo_2||||}{Have you seen a boy called Rincel around here recently?|torilo_rincel_1|wrye:41|||}}|};
-{torilo_2|I am Torilo, the proprietor of this establishment. Please have a seat anywhere you like.|||{{Can I see what you have available for food and drink?|torilo_shop_1||||}{Is there somewhere I can rest here?|torilo_rest_select||||}{Are those guards always shouting and yelling that much?|torilo_guards_1||||}}|};
+{ff_cook_1|Hello. Do you want something from the kitchen?|||{{Sure, let me see what food you have to sell.|ff_cook_3||||}{That smells horrible. What are you cooking?|ff_cook_2||||}{That smells wonderful. What are you cooking?|ff_cook_2||||}}|};
+{ff_cook_2|Oh this? This is supposed to be a stew of Anklebiter. Needs more seasoning I guess.|||{{I look forward to trying it when it is done. Good luck cooking.|X||||}{Yuck, that sounds awful. Can you really eat those things? I\'m grossed out, goodbye.|X||||}}|};
+{ff_cook_3|No sorry, I don\'t have any food to sell. Go talk to Torilo over there if you want some drink or ready-made food.||||};
+{torilo_1|Welcome to the Foaming Flask tavern. We welcome all travelers in here.|||{{Thank you. Are you the patron here?|torilo_2||||}{Have you seen a boy called Rincel around here recently?|torilo_rincel_1|wrye:41|||}}|};
+{torilo_2|I am Torilo, the proprietor of this establishment. Please have a seat anywhere you like.|||{{Can I see what you have available for food and drink?|torilo_shop_1||||}{Do you have somewhere I can rest?|torilo_rest_select||||}{ Are those guards always shouting and yelling that much?|torilo_guards_1||||}}|};
 {torilo_default|Was there anything else you wanted?|||{{Can I see what you have available for food and drink?|torilo_shop_1||||}{Are those guards always shouting and yelling that much?|torilo_guards_1||||}{Have you seen a boy called Rincel around here recently?|torilo_rincel_1|wrye:41|||}}|};
 {torilo_shop_1|Absolutely. We have a wide selection of food and beverage.|||{{N|S||||}}|};
 {torilo_rest_select||||{{|torilo_rest_1|nondisplay:10|||}{|torilo_rest_3||||}}|};
 {torilo_rest_1|Yes, you already rented the back room.|||{{N|torilo_rest_2||||}}|};
-{torilo_rest_2|Please feel free to use it any way you like. I hope you can get some sleep even with these guards yelling their songs.|||{{Thanks.|torilo_default||||}}|};
+{torilo_rest_2|Please feel free to use it in any way you like. I hope you can get some sleep even with these guards yelling their songs.|||{{Thanks.|torilo_default||||}}|};
 {torilo_rest_3|Oh yes. We have a very comfortable back room here in the Foaming Flask tavern.|||{{N|torilo_rest_4||||}}|};
 {torilo_rest_4|Available for only 250 gold. Then you can use it as much as you like.|||{{250 gold? Sure, that\'s nothing to me. Here you go.|torilo_rest_6||gold|250|}{250 gold is a lot, but I guess it is worth it. Here you go.|torilo_rest_6||gold|250|}{That sounds a bit too much for me.|torilo_rest_5||||}}|};
 {torilo_rest_5|Oh well, it\'s your loss.|||{{N|torilo_default||||}}|};
 {torilo_rest_6|Thank you. The room is now rented to you.|nondisplay:10||{{N|torilo_rest_2||||}}|};
 {torilo_rincel_1|Rincel? No, not that I can recall. Actually, we don\'t get many children in here. *chuckle*|||{{N|torilo_default||||}}|};
-{torilo_guards_1|Sigh, yes. Those guards have been here for quite some time now.|||{{N|torilo_guards_2||||}}|};
+{torilo_guards_1|*Sigh* Yes. Those guards have been here for quite some time now.|||{{N|torilo_guards_2||||}}|};
 {torilo_guards_2|They seem to be looking for something or someone, but I am not sure who or what.|||{{N|torilo_guards_3||||}}|};
 {torilo_guards_3|I hope the Shadow watches over us so that nothing bad happens to the Foaming Flask tavern because of them.|||{{N|torilo_default||||}}|};
 	</string>
@@ -857,12 +857,12 @@
 {ambelie_2|I am Ambelie of the house of Laumwill in Feygard. I am sure you must have heard of me and my house.|||{{Oh yes.. um.. House of Laumwill in Feygard. Of course.|ambelie_3||||}{I have never heard of you or your house.|ambelie_4||||}{Where is Feygard?|ambelie_3||||}}|};
 {ambelie_3|Feygard, the great city of peace. Surely you must know of it. Northwest in our great land.|||{{What is a noble woman such as yourself doing in a place like this?|ambelie_5||||}{No, I have never heard of it.|ambelie_4||||}}|};
 {ambelie_4|Pfft. That just proves everything I have heard of you savages here in the southern land. So uneducated.||||};
-{ambelie_5|I, Ambelie of the house of Laumwill in Feygard is on an excursion to the southern Nor City.|||{{N|ambelie_6||||}}|};
+{ambelie_5|I, Ambelie, of the house of Laumwill in Feygard, am on an excursion to the southern Nor City.|||{{N|ambelie_6||||}}|};
 {ambelie_6|An excursion to see if Nor City really is all that I have heard about it. If it really can compare itself to the glamour of the great city of Feygard.|||{{Nor City, where is that?|ambelie_7||||}{If you like it so much in Feygard, why would you even leave?|ambelie_9||||}}|};
-{ambelie_7|Don\'t you know of Nor City? I guess I will take note of that, that the savages around here haven\'t even heard of the city.|||{{N|ambelie_8||||}}|};
-{ambelie_8|I am beginning to be even more certain that Nor City will never even in my wildest dreams be comparable to the great city of Feygard.|||{{Good luck on your excursion.|ambelie_10||||}}|};
+{ambelie_7|Don\'t you know of Nor City? I will take note that the savages here haven\'t even heard of the city.|||{{N|ambelie_8||||}}|};
+{ambelie_8|I am beginning to be even more certain that Nor City will never, even in my wildest dreams, be comparable to the great city of Feygard.|||{{Good luck on your excursion.|ambelie_10||||}}|};
 {ambelie_9|All the noblewomen in Feygard keep talking about the mysterious Shadow in Nor City. I just have to see it myself.|||{{Nor City, where is that?|ambelie_7||||}{Good luck on your excursion.|ambelie_10||||}}|};
-{ambelie_10|Thank you. Now please leave before someone sees me talking to a commoner like you.|||{{Commoner? Are you trying to insult me? Goodbye.|X||||}{Whatever, you could probably not even survive a forest wasp.|X||||}}|};
+{ambelie_10|Thank you. Now please leave before someone sees me talking to a commoner like you.|||{{Commoner? Are you trying to insult me? Goodbye.|X||||}{Whatever, you probably wouldn’t even survive a forest wasp.|X||||}}|};
 	</string>
 
 	<string name="conversationlist_foamingflask_guards">
@@ -870,13 +870,13 @@
 {ff_guard_1|Ha ha, you tell him Garl!\n\n*burp*|||{{N|ff_guard_2||||}}|};
 {ff_guard_2|Sing, drink, fight! All who oppose Feygard will fall!|||{{N|ff_guard_3||||}}|};
 {ff_guard_3|We will stand tall. Feygard, city of peace!|||{{I should better leave|X||||}{Feygard, where is that?|ff_guard_4||||}{Have you seen a boy called Rincel around here recently?|ff_guard_rincel_1|wrye:41|||}}|};
-{ff_guard_4|What, you haven\'t heard of Feygard kid? Just follow the road northwest and you will see the great city of Feygard rise above the treetops.|||{{Thanks. Bye.|X||||}}|};
+{ff_guard_4|What, you haven\'t heard of Feygard, kid? Just follow the road northwest and you will see the great city of Feygard rise above the treetops.|||{{Thanks. Bye.|X||||}}|};
 {ff_guard_rincel_1|A boy?! Apart from you, there have been no children in here that I have seen.|||{{N|ff_guard_rincel_2||||}}|};
 {ff_guard_rincel_2|Check with the captain over there. He has been around here for longer than us.|||{{Thank you, Goodbye.|X||||}{Thank you. Shadow be with you.|ff_guard_shadow_1||||}}|};
 {ff_guard_shadow_1|Don\'t bring that cursed Shadow in here son. We want none of that. Now leave.||||};
 {ff_captain_1|Are you lost, son? This is no place for a kid like you.|||{{Who are you?|ff_captain_2||||}{Have you seen a boy called Rincel around here recently?|ff_captain_rincel_1|wrye:41|||}}|};
 {ff_captain_2|I am the guard captain of this patrol. We hail from the great city of Feygard.|||{{Feygard, where is that?|ff_captain_4||||}{What do you do around here?|ff_captain_3||||}}|};
-{ff_captain_3|We are travelling the main road to make sure the merchants and travellers are safe. And we keep the peace around here.|||{{You mentoined Feygard. Where is that?|ff_captain_4||||}}|};
+{ff_captain_3|We are travelling the main road to make sure the merchants and travelers are safe. And we keep the peace around here.|||{{You mentioned Feygard. Where is that?|ff_captain_4||||}}|};
 {ff_captain_4|The great city of Feygard is the greatest sight you will ever see. Follow the road northwest.|||{{Thank you. Shadow be with you.|ff_captain_shadow_1||||}{Thank you, Goodbye.|X||||}}|};
 {ff_captain_rincel_1|There was a kid running around in here a while ago.|||{{N|ff_captain_rincel_2||||}}|};
 {ff_captain_rincel_2|I never talked to him though, so I don\'t know if he is the one you are looking for.|||{{Ok, that might be something worth checking anyway.|ff_captain_rincel_3||||}}|};
@@ -888,28 +888,28 @@
 	<string name="conversationlist_foamingflask_outsideguard">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {ff_outsideguard_select||||{{|ff_outsideguard_trouble_24|jolnor:20|||}{|ff_outsideguard_1||||}}|};
-{ff_outsideguard_1|Hello there. Are you sure you really should be here? This is a tavern you know. Foaming Flask to be precise.|||{{Who are you?|ff_outsideguard_2||||}}|};
+{ff_outsideguard_1|Hello there. Should you be here? This is a tavern, you know. The Foaming Flask, to be precise.|||{{Who are you?|ff_outsideguard_2||||}}|};
 {ff_outsideguard_2|I am a member of the royal guard patrol from Feygard.|||{{Feygard, where is that?|ff_outsideguard_3||||}{What do you do around here?|ff_outsideguard_3||||}}|};
-{ff_outsideguard_3|Go talk to the captain inside if you want to talk. I must keep alert on my post here.|||{{Ok. Goodbye.|X||||}{Why must you keep alert outside a tavern?|ff_outsideguard_trouble_1|jolnor:10|||}}|};
+{ff_outsideguard_3|Go talk to the captain inside if you want to talk. I must stay alert on my post.|||{{Ok. Goodbye.|X||||}{Why must you stay alert outside a tavern?|ff_outsideguard_trouble_1|jolnor:10|||}}|};
 {ff_outsideguard_trouble_1|Really, I cannot talk to you. I could get into trouble.|||{{Ok. I won\'t bother you anymore. Shadow be with you.|ff_outsideguard_shadow_1||||}{Ok. I won\'t bother you anymore. Goodbye.|X||||}{What trouble?|ff_outsideguard_trouble_2||||}}|};
 {ff_outsideguard_trouble_2|No really, the captain might see me. I must be aware on my post at all times. *sigh*|||{{Ok. I won\'t bother you anymore. Shadow be with you.|ff_outsideguard_shadow_1||||}{Ok. I won\'t bother you anymore. Goodbye.|X||||}{Do you like your job here?|ff_outsideguard_trouble_3||||}}|};
 {ff_outsideguard_trouble_3|My job? I guess the royal guard is ok. I mean, Feygard is a really nice place to live in.|||{{N|ff_outsideguard_trouble_4||||}}|};
-{ff_outsideguard_trouble_4|But standing guard on duty out here in the middle of nowhere is not really what I signed up for.|||{{I bet. This place really is boring.|ff_outsideguard_trouble_5||||}{You must get tired of just standing here also.|ff_outsideguard_trouble_5||||}}|};
-{ff_outsideguard_trouble_5|Yeah I know. I would rather be inside in the tavern drinking like the senior officers and the captain. How come I have to stand out here?|||{{At least the Shadow watches over you.|ff_outsideguard_shadow_1||||}{Why not just leave if it\'s not what you want to do?|ff_outsideguard_trouble_7||||}{The greater cause of the royal guard is worth it in the long run, to keep the peace.|ff_outsideguard_trouble_6||||}}|};
-{ff_outsideguard_trouble_6|Yes, you are right of course. Our duty is to Feygard and to keeping the peace from all troublemakers that want to disrupt the peace.|||{{Yes. The Shadow will not look favorably upon those that disrupt the peace.|ff_outsideguard_shadow_1||||}{Yes. The troublemakers should be punished.|ff_outsideguard_trouble_8||||}}|};
+{ff_outsideguard_trouble_4|But standing guard on duty out here in the middle of nowhere is not really what I signed up for.|||{{I bet. This place is really boring.|ff_outsideguard_trouble_5||||}{You must get tired of just standing here also.|ff_outsideguard_trouble_5||||}}|};
+{ff_outsideguard_trouble_5|Yeah I know. I would rather be inside in the tavern drinking like the senior officers and the captain. How come I have to stand out here?|||{{At least the Shadow watches over you.|ff_outsideguard_shadow_1||||}{Why not just leave if it\'s not what you want to do?|ff_outsideguard_trouble_7||||}{The greater cause of the royal guard, to keep the peace, is worth it in the long run.|ff_outsideguard_trouble_6||||}}|};
+{ff_outsideguard_trouble_6|Yes, you are right of course. Our duty is to Feygard and to keep the peace from all that want to disrupt it.|||{{Yes. The Shadow will not look favorably upon those that disrupt the peace.|ff_outsideguard_shadow_1||||}{Yes. The troublemakers should be punished.|ff_outsideguard_trouble_8||||}}|};
 {ff_outsideguard_trouble_7|No, my loyalty is to Feygard. If I would leave, I would also leave my loyalty behind.|||{{What does that mean if you are not satisfied with what you do?|ff_outsideguard_trouble_9||||}{Yes, that sounds right. Feygard sounds like a nice place from what I have heard.|ff_outsideguard_trouble_6||||}}|};
-{ff_outsideguard_trouble_8|Right. I like you kid. Tell you what, I could put in a good word for you in the barracks when we get back to Feygard if you want.|||{{Sure, that sounds good to me.|ff_outsideguard_trouble_20||||}{No thanks. I have enough to do already.|ff_outsideguard_trouble_20||||}}|};
-{ff_outsideguard_trouble_9|Well, I am convinced that we must follow the laws laid down by our rulers. If we don\'t obey they laws, what are we left with?|||{{N|ff_outsideguard_trouble_10||||}}|};
-{ff_outsideguard_trouble_10|Chaos. No order.\n\nNo, I prefer the lawful way of Feygard. My loyalty is firm.|||{{Sounds good to me. Laws are made to be followed.|ff_outsideguard_trouble_8||||}{I do not agree. We should follow our heart, even if that goes against the rules.|ff_outsideguard_trouble_12||||}}|};
+{ff_outsideguard_trouble_8|Right. I like you, kid. Tell you what, I could put in a good word for you in the barracks when we get back to Feygard if you want.|||{{Sure, that sounds good to me.|ff_outsideguard_trouble_20||||}{No thanks. I have enough to do already.|ff_outsideguard_trouble_20||||}}|};
+{ff_outsideguard_trouble_9|Well, I am convinced that we must follow the laws laid down by our rulers. If we don\'t obey the law, what are we left with?|||{{N|ff_outsideguard_trouble_10||||}}|};
+{ff_outsideguard_trouble_10|Chaos. Disorder.\n\nNo, I prefer the lawful way of Feygard. My loyalty is firm.|||{{Sounds good to me. Laws are made to be followed.|ff_outsideguard_trouble_8||||}{I do not agree. We should follow our heart, even if that goes against the rules.|ff_outsideguard_trouble_12||||}}|};
 {ff_outsideguard_trouble_20|Was there anything else you wanted?|||{{I was wondering about why you stand guard here.|ff_outsideguard_trouble_21||||}}|};
 {ff_outsideguard_trouble_12|That troubles me. We might see each other again in the future. But then we might not be able to have this kind of civil discussion.||||};
-{ff_outsideguard_trouble_21|Right, we went over this before. As I said, I would rather be inside by the fire.|||{{I could spot for you if you want to go inside.|ff_outsideguard_trouble_23||||}{Tough luck. I guess you are left here, while your captain and buddies are inside.|ff_outsideguard_trouble_22||||}}|};
+{ff_outsideguard_trouble_21|Right, we went over this before. As I said, I would rather be inside by the fire.|||{{I could spot for you if you want to go inside.|ff_outsideguard_trouble_23||||}{Tough luck. I guess you are left out here, while your captain and buddies are inside.|ff_outsideguard_trouble_22||||}}|};
 {ff_outsideguard_trouble_22|Yeah, that\'s just my luck.||||};
 {ff_outsideguard_trouble_23|Really? Yes that would be great. Then I can at least get something to eat and a bit of warmth from the fire.|||{{N|ff_outsideguard_trouble_24||||}}|};
-{ff_outsideguard_trouble_24|I will go inside in a minute. You are welcome to stand watch then while I go inside.|jolnor:20||{{Sure, I will do that.|ff_outsideguard_trouble_25||||}{[Lie] Sure, I will do that.|ff_outsideguard_trouble_25||||}}|};
+{ff_outsideguard_trouble_24|I will go inside in a minute. Will you stand watch while I go inside?|jolnor:20||{{Sure, I will do that.|ff_outsideguard_trouble_25||||}{[Lie] Sure, I will do that.|ff_outsideguard_trouble_25||||}}|};
 {ff_outsideguard_trouble_25|Thanks a lot my friend.||||};
-{ff_outsideguard_shadow_1|Shadow? How curious that you would mention that. Explain yourself!|||{{I did not mean anything by it. Nevermind I said anything.|ff_outsideguard_shadow_2||||}{The Shadow watches over us when we sleep.|ff_outsideguard_shadow_3||||}}|};
-{ff_outsideguard_shadow_2|Good. Now begone before I will have to deal with you.||||};
+{ff_outsideguard_shadow_1|Shadow? How curious that you would mention that. Explain yourself!|||{{I did not mean a thing by it. Nevermind I said anything.|ff_outsideguard_shadow_2||||}{The Shadow watches over us when we sleep.|ff_outsideguard_shadow_3||||}}|};
+{ff_outsideguard_shadow_2|Good. Now be gone before I will have to deal with you.||||};
 {ff_outsideguard_shadow_3|What? Are you one of those troublemakers sent here to sabotage our mission?|||{{The Shadow protect us.|ff_outsideguard_shadow_4||||}{Fine. I better not start a fight with the royal guard.|X||||}}|};
 {ff_outsideguard_shadow_4|That does it. You better fight or flee right now kid.|||{{Good. I have been waiting for a fight!|ff_outsideguard_shadow_5||||}{For the Shadow!|ff_outsideguard_shadow_5||||}{Nevermind. I was just kidding with you.|ff_outsideguard_shadow_2||||}}|};
 {ff_outsideguard_shadow_5||jolnor:21||{{|F||||}}|};
@@ -918,14 +918,14 @@
 	<string name="conversationlist_wrye">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {wrye_select_1||||{{|wrye_return_2|wrye:90|||}{|wrye_return_1|wrye:40|||}{|wrye_mourn_1||||}}|};
-{wrye_return_1|Welcome back. Have you found out anything about my son Rincel?|||{{Can you tell me the story about what happened again?|wrye_mourn_5||||}{No, I have not found anything yet.|wrye_story_14||||}{Yes, I have found out the story about what happened to him.|wrye_resolved_1|wrye:80|||}}|};
-{wrye_return_2|Welcome back. Thank you for your help in finding out what happened to my son Rincel.|||{{Shadow be with you.|wrye_story_15||||}{You are welcome.|wrye_story_15||||}}|};
+{wrye_return_1|Welcome back. Have you found out anything about my son, Rincel?|||{{Can you tell me the story about what happened again?|wrye_mourn_5||||}{No, I have not found anything yet.|wrye_story_14||||}{Yes, I have found out the story about what happened to him.|wrye_resolved_1|wrye:80|||}}|};
+{wrye_return_2|Welcome back. Thank you for your help in finding out what happened to my son.|||{{Shadow be with you.|wrye_story_15||||}{You are welcome.|wrye_story_15||||}}|};
 {wrye_mourn_1|Shadow help me.|||{{What is the matter?|wrye_mourn_2||||}}|};
-{wrye_mourn_2|My son! My son is gone.|||{{I was told by Jolnor to come see you about your son.|wrye_mourn_5|wrye:10|||}{What about him?|wrye_mourn_3||||}}|};
-{wrye_mourn_3|I don\'t want to talk about it. Not with an outsider like you.|||{{Outsider?|wrye_mourn_4||||}{I was told by Jolnor to come see you about your son.|wrye_mourn_5|wrye:10|||}}|};
+{wrye_mourn_2|My son! My son is gone.|||{{Jolner said I should see you about your son.|wrye_mourn_5|wrye:10|||}{What about him?|wrye_mourn_3||||}}|};
+{wrye_mourn_3|I don\'t want to talk about it. Not with an outsider like you.|||{{Outsider?|wrye_mourn_4||||}{Jolner said I should see you about your son.|wrye_mourn_5|wrye:10|||}}|};
 {wrye_mourn_4|Please leave me.\n\nOh Shadow, watch over me.||||};
 {wrye_mourn_5|My son is dead, I know it! And it\'s those damn guards fault. Those guards with their snobby Feygard attitude.|||{{N|wrye_mourn_6||||}}|};
-{wrye_mourn_6|At first they come with promise of protection and power. But then you really start to see them for what they are.|||{{N|wrye_mourn_7||||}}|};
+{wrye_mourn_6|At first they come with promises of protection and power. But then you really start to see them for what they are.|||{{N|wrye_mourn_7||||}}|};
 {wrye_mourn_7|I can feel it in me. The Shadow speaks to me. He is dead.|wrye:20||{{Can you tell me what happened?|wrye_story_1||||}{What are you talking about?|wrye_story_1||||}{Shadow be with you.|wrye_mourn_8||||}}|};
 {wrye_mourn_8|Thank you. Shadow watch over me.|||{{N|wrye_story_1||||}}|};
 {wrye_story_1|It all started with those Feygard royal guards coming here.|||{{N|wrye_story_2||||}}|};
@@ -933,27 +933,27 @@
 {wrye_story_3|The guards would say they needed more support to help squelch the supposed uprising and sabotage.|||{{How did this relate to your son?|wrye_story_4||||}{Are you going to get to the point soon?|wrye_story_4||||}}|};
 {wrye_story_4|My son, Rincel, did not seem to care much for the stories they told.|||{{N|wrye_story_5||||}}|};
 {wrye_story_5|I also told Rincel of how bad idea I thought it was to recruit more people to the royal guard.|||{{N|wrye_story_6||||}}|};
-{wrye_story_6|The guards stayed a couple of days to talk to everyone here in Vilegard. Then they left. Went to the next town I guess.|||{{N|wrye_story_7||||}}|};
+{wrye_story_6|The guards stayed a couple of days to talk to everyone here in Vilegard. Then they left. They went to the next town I guess.|||{{N|wrye_story_7||||}}|};
 {wrye_story_7|A few of days passed, and then suddenly my boy Rincel was gone one day. I am sure those guards managed to somehow persuade him to join them.|||{{N|wrye_story_8||||}}|};
 {wrye_story_8|Oh how I despise those evil and snobby Feygard bastards.|||{{What now?|wrye_story_9||||}}|};
 {wrye_story_9|This was several weeks ago. Now I feel an emptiness inside. I know in me that something has happened to my son Rincel.|||{{N|wrye_story_10||||}}|};
 {wrye_story_10|I fear he has died or got hurt somehow. Those bastards probably drove him into his own death.|wrye:30||{{N|wrye_story_11||||}}|};
-{wrye_story_11|*sob* Shadow help me.|||{{What can I do to help?|wrye_story_13||||}{That sounds awful. I am sure you are just imagining things.|wrye_story_13||||}{But you have no proof that the people from Feygard are involved?|wrye_story_12||||}}|};
-{wrye_story_12|I know it in me that they are. The Shadow speaks to me.|||{{Ok. Is there anything I can do to help?|wrye_story_13||||}{You sound a bit too occupied with the Shadow. I want no part of this.|wrye_mourn_4||||}{I probably shouldn\'t get involved in this if it means that I could upset the royal guard.|wrye_mourn_4||||}}|};
-{wrye_story_13|If you want to help me, please find out what happened to my son Rincel.|wrye:40||{{Any idea where I should look?|wrye_story_16||||}{Ok. I will go look for your son. I sure hope there will be some reward for this.|wrye_story_14||||}{By the Shadow, your son will be avenged.|wrye_story_14||||}}|};
+{wrye_story_11|*sob* Shadow help me.|||{{What can I do to help?|wrye_story_13||||}{That sounds awful. I am sure you are just imagining things.|wrye_story_13||||}{Do you have proof that the people from Feygard are involved?|wrye_story_12||||}}|};
+{wrye_story_12|No, but I know it in me that they are. The Shadow speaks to me.|||{{Ok. Is there anything I can do to help?|wrye_story_13||||}{You sound a bit too occupied with the Shadow. I want no part of this.|wrye_mourn_4||||}{I probably shouldn\'t get involved in this if it means that I could upset the royal guard.|wrye_mourn_4||||}}|};
+{wrye_story_13|If you want to help me, please find out what happened to my son, Rincel.|wrye:40||{{Any idea where I should look?|wrye_story_16||||}{Ok. I will go look for your son. I sure hope there will be some reward for this.|wrye_story_14||||}{By the Shadow, your son will be avenged.|wrye_story_14||||}}|};
 {wrye_story_14|Please return here as soon as you have found out anything.|||{{N|wrye_story_15||||}}|};
 {wrye_story_15|Walk with the Shadow.||||};
 {wrye_story_16|I guess you could ask in the tavern here in Vilegard, or the Foaming Flask tavern just north of here.|wrye:41||{{By the Shadow, your son will be avenged.|wrye_story_14||||}{Ok. I will go look for your son. I sure hope there will be some reward for this.|wrye_story_14||||}{Ok. I will go look for your son so that you may know what happened to him.|wrye_story_14||||}}|};
 {wrye_resolved_1|Please tell me what happened to him!|||{{He left Vilegard by his own will because he wanted to see the great city of Feygard.|wrye_resolved_2||||}}|};
 {wrye_resolved_2|I don\'t believe it.|||{{He had secretly longed to go to Feygard, but didn\'t dare tell you.|wrye_resolved_3||||}}|};
-{wrye_resolved_3|Really?|||{{But he never got far. He got attacked while camping one night.|wrye_resolved_4||||}}|};
+{wrye_resolved_3|Really?|||{{But he never got far. He was attacked while camping one night.|wrye_resolved_4||||}}|};
 {wrye_resolved_4|Attacked?|||{{Yes, he could not stand up to the monsters, and was critically wounded.|wrye_resolved_5||||}}|};
 {wrye_resolved_5|My dear boy.|||{{I talked to a man that found him bleeding to death.|wrye_resolved_6||||}}|};
-{wrye_resolved_6|He was still alive?|||{{Yes, but not for long. He could not survive the wounds. He is now buried to the northwest of Vilegard.|wrye_resolved_7||||}}|};
+{wrye_resolved_6|He was still alive?|||{{Yes, but not for long. He did not survive the wounds. He is now buried to the northwest of Vilegard.|wrye_resolved_7||||}}|};
 {wrye_resolved_7|Oh my poor boy. What have I done?|wrye:90||{{N|wrye_resolved_8||||}}|};
-{wrye_resolved_8|I always thought he had the same view as me on those Feygard snobs.|||{{N|wrye_resolved_9||||}}|};
+{wrye_resolved_8|I always thought he shared my view of those Feygard snobs.|||{{N|wrye_resolved_9||||}}|};
 {wrye_resolved_9|And now he is not with us anymore.|||{{N|wrye_resolved_10||||}}|};
-{wrye_resolved_10|Thank you friend for finding out what happened to him and telling me the truth.|||{{N|wrye_resolved_11||||}}|};
+{wrye_resolved_10|Thank you, friend, for finding out what happened to him and telling me the truth.|||{{N|wrye_resolved_11||||}}|};
 {wrye_resolved_11|Oh my poor boy.|||{{N|wrye_mourn_4||||}}|};
 	</string>
 
@@ -1003,6 +1003,339 @@
 {maelveon_4|[the figure lift his hand and points at you]|||{{N|maelveon_5||||}}|};
 {maelveon_5|Sssshadow be with you.|||{{Shadow, what?|F||||}{Die, evil creature!|F||||}{Please don\'t hurt me!|F||||}}|};
 	</string>
+
+	<string name="conversationlist_bwm_agent_1">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_agent_1_start|Oh, someone from the outside! Please, sir! You have to help us!|||{{What is the matter?|bwm_agent_1_2||||}{\'Us\'? I only see you here.|bwm_agent_1_3||||}}|};
+{bwm_agent_1_2|We urgently need help from someone outside!|||{{N|bwm_agent_1_4||||}}|};
+{bwm_agent_1_3|Very funny. I was sent by my settlement to get help from the outside.|||{{N|bwm_agent_1_4||||}}|};
+{bwm_agent_1_4|The people of my settlement, the Blackwater mountain, are slowly being reduced in numbers by the monsters and the savage bandits.|bwm_agent:1||{{N|bwm_agent_1_5||||}}|};
+{bwm_agent_1_5|The monsters are closing in on us, and we desperately need help by some able fighter.|||{{I guess I could help, I have killed a few monsters here and there.|bwm_agent_1_7||||}{A fight, great. I\'m in!|bwm_agent_1_7||||}{Will there be a reward for this?|bwm_agent_1_6||||}{Hm, no. I had better not get involved in this.|X||||}}|};
+{bwm_agent_1_6|Reward? Hm, I was hoping you would help us for other reasons than a reward. But I guess my master will reward you sufficiently if you survive.|||{{Alright, I\'ll do it.|bwm_agent_1_7||||}}|};
+{bwm_agent_1_7|Excellent. The blackwater settlement is some distance away. Frankly, I am amazed that I made it this far alive.|bwm_agent:5||{{N|bwm_agent_1_8||||}}|};
+{bwm_agent_1_8|I must warn you though, that there are some nasty monsters on the way.|||{{N|bwm_agent_1_9||||}}|};
+{bwm_agent_1_9|But I guess you seem strong enough.|||{{Yeah, I can handle myself.|bwm_agent_1_10||||}{No problem.|bwm_agent_1_10||||}}|};
+{bwm_agent_1_10|Good. First though, we must cross this mine to the other side.|||{{N|bwm_agent_1_11||||}}|};
+{bwm_agent_1_11|The mine shaft over there *points* has collapsed, so I guess you won\'t make it through there.|||{{N|bwm_agent_1_12||||}}|};
+{bwm_agent_1_12|You will have to go through the abandoned mine below. Beware that the mine is pitch-black, so you will have to navigate in there without any light.|||{{What about you?|bwm_agent_1_13||||}{Ok, I\'ll go through the pitch-black mine.|bwm_agent_1_14||||}}|};
+{bwm_agent_1_13|I\'ll try to crawl back through the mine shaft here. That\'s how I got here in the first place.|||{{N|bwm_agent_1_14||||}}|};
+{bwm_agent_1_14|Let\'s meet at the other side of this mine shaft.|bwm_agent:10||{{Ok. You crawl through the shaft, and I\'ll go below. See you on the other side!|R||||}}|};
+	</string>
+
+	<string name="conversationlist_bwm_agent_2">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_agent_2_start||||{{|bwm_agent_2_7|bwm_agent:20|||}{|bwm_agent_2_1||||}}|};
+{bwm_agent_2_1|Hello again. You made it through alive, well done!|||{{These monsters, what are they?|bwm_agent_2_2||||}{You never told me it would be pitch-black down there. I almost got killed!|bwm_agent_2_12||||}{Yeah, piece of cake.|bwm_agent_2_5||||}}|};
+{bwm_agent_2_2|The Gornauds? I have no idea where they come from, one day they just showed up here around the mountain.|||{{N|bwm_agent_2_3||||}}|};
+{bwm_agent_2_3|Nasty beasts, they are.|||{{N|bwm_agent_2_4||||}}|};
+{bwm_agent_2_4|Anyway, let\'s get going now. We are now one step closer to the Blackwater mountain settlement.|||{{N|bwm_agent_2_5||||}}|};
+{bwm_agent_2_5|We should hurry now.|||{{N|bwm_agent_2_6||||}}|};
+{bwm_agent_2_6|Once we exit this mine, it is very important that you go directly east from there. Do not travel to other places other than going east now!|||{{Ok, I\'ll go east once I have exited the mine. Got it.|bwm_agent_2_7||||}{Why east? What else is there here?|bwm_agent_2_8||||}}|};
+{bwm_agent_2_7|I\'ll wait for you by the steps up to the mountain pass. See you there!\n\nRemember, go east once you exit the mine.|bwm_agent:20||{{Ok, see you there!|R||||}}|};
+{bwm_agent_2_8|Oh, nothing. There are dangerous places here. You should definately not head any other direction than east.|||{{Sure, I\'ll head east.|bwm_agent_2_7||||}{Dangerous? Sounds like my kind of place!|bwm_agent_2_10||||}{Is there something you are not telling me?|bwm_agent_2_11||||}}|};
+{bwm_agent_2_10|It would be your loss. Don\'t say I didn\'t warn you. Safest route would be to head east.|||{{Sure, I\'ll head east.|bwm_agent_2_7||||}{Is there something you are not telling me?|bwm_agent_2_11||||}}|};
+{bwm_agent_2_11|No no, just head east and I\'ll explain everything to you once we get to the Blackwater mountain settlement. |||{{Ok, I promise to head east once we exit the mine.|bwm_agent_2_7||||}{(Lie) Ok, I promise to head east once we exit the mine.|bwm_agent_2_7||||}}|};
+{bwm_agent_2_12|Actually, I did tell you that it would be pitch-black down there. Good work navigating through there!|||{{N|bwm_agent_2_4||||}}|};
+	</string>
+
+	<string name="conversationlist_bwm_agent_3">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_agent_3_start||||{{|bwm_agent_3_4|bwm_agent:30|||}{|bwm_agent_3_1||||}}|};
+{bwm_agent_3_1|Hello. You made it here, good.|||{{I talked to some people in the village Prim. They had some interesting things to say about Blackwater mountain.|bwm_agent_3_5|bwm_agent:25|||}{I went east, as you said.|bwm_agent_3_2||||}}|};
+{bwm_agent_3_2|Good. Now let\'s get up this mountain. I will meet you halfway up there.|||{{N|bwm_agent_3_3||||}}|};
+{bwm_agent_3_3|This path leads up to the Blackwater mountain settlement. Follow this path and we will talk later.|||{{N|bwm_agent_3_4||||}}|};
+{bwm_agent_3_4|Beware of the nasty monsters, they can really cause some harm!|bwm_agent:30||{{Ok, I will follow this path up the mountain.|R||||}{Great, more monsters. Just what I needed.|R||||}}|};
+{bwm_agent_3_5|Do not listen to their lies. They poison your thoughts and would not hesitate to stab you in the back once they get the chance.|||{{What have they done?|bwm_agent_3_6||||}{Yes, they do seem a bit shady.|bwm_agent_3_7||||}}|};
+{bwm_agent_3_6|I will not talk of them now. Follow me up to the Blackwater mountain settlement and we will talk more there.|||{{Sure.|bwm_agent_3_2||||}{I\'m keeping my eye on you. But I\'ll agree to your terms for now.|bwm_agent_3_2||||}}|};
+{bwm_agent_3_7|Indeed they do.|||{{N|bwm_agent_3_6||||}}|};
+	</string>
+
+	<string name="conversationlist_bwm_agent_4">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_agent_4_start||||{{|bwm_agent_4_5|bwm_agent:40|||}{|bwm_agent_4_1||||}}|};
+{bwm_agent_4_1|Hello again. Well done defeating the Gornaud beasts.|||{{Their attacks really hurt. What are these things?|bwm_agent_4_6||||}{How come they do not attack you?|bwm_agent_4_3||||}{Yeah, no problem. Just another trail of dead bodies behind me.|bwm_agent_4_2||||}}|};
+{bwm_agent_4_2|Careful what you wish for, for it may come true.|||{{N|bwm_agent_4_4||||}}|};
+{bwm_agent_4_3|Me? There must be something about me that scares them. I have no idea what it would be, some scent perhaps?|||{{N|bwm_agent_4_4||||}}|};
+{bwm_agent_4_4|Anyway, we should get going. I\'ll run ahead of you up the mountain.|||{{N|bwm_agent_4_5||||}}|};
+{bwm_agent_4_5|Meet me further up the mountain, and we will talk more.|bwm_agent:40||{{Ok, see you there.|R||||}}|};
+{bwm_agent_4_6|I do not know where they come from. All I know is that they started to appear one day, blocking the path up the mountain.|||{{N|bwm_agent_4_7||||}}|};
+{bwm_agent_4_7|And, their attacks are tough. Once one of them gets a hold of you, the other ones seem really eager to hit you too.|||{{Nothing I can\'t handle.|bwm_agent_4_4||||}{How come they do not attack you?|bwm_agent_4_3||||}}|};
+	</string>
+
+	<string name="conversationlist_bwm_agent_5">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_agent_5_start||||{{|bwm_agent_5_6|bwm_agent:50|||}{|bwm_agent_5_1||||}}|};
+{bwm_agent_5_1|Hello again. Well done getting through those monsters.|||{{N|bwm_agent_5_2||||}}|};
+{bwm_agent_5_2|We are almost there now. Just a little bit more.|||{{N|bwm_agent_5_3||||}}|};
+{bwm_agent_5_3|We should hurry this last bit, my settlement is close now.|||{{N|bwm_agent_5_4||||}}|};
+{bwm_agent_5_4|I hope you can manage the cold out here.|||{{N|bwm_agent_5_5||||}}|};
+{bwm_agent_5_5|Also, stay away from the wyrms. They have a really nasty bite.|||{{N|bwm_agent_5_6||||}}|};
+{bwm_agent_5_6|Now hurry. We are almost there. Follow the snowy path to the north, and you should reach the settlement in no time.|bwm_agent:50||{{Ok, I will follow the path to the north, further up the mountain.|R||||}}|};
+	</string>
+
+	<string name="conversationlist_prim_arghest">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{arghest_start||||{{|arghest_return_1|prim_innquest:40|||}{|arghest_return_2|prim_innquest:30|||}{|arghest_1||||}}|};
+{arghest_1|Hello there.|||{{What is this place?|arghest_2||||}{Who are you?|arghest_5||||}{Did you rent the back room at the inn in Prim?|arghest_8||||}}|};
+{arghest_2|This is the old Elm mine of Prim.|||{{N|arghest_3||||}}|};
+{arghest_3|We used to mine a lot here. But that was before the attacks started.|||{{N|arghest_4||||}}|};
+{arghest_4|The attacks on Prim by the beasts and the bandits really reduced our numbers. Now we cannot keep up the mining activity any longer.|||{{Who are you?|arghest_5||||}}|};
+{arghest_5|I am Arghest. I guard the entrance here to make sure no one enters the old mine.|||{{What is this place?|arghest_2||||}{Can I enter the mine?|arghest_6||||}}|};
+{arghest_6|No. The mine is closed.|||{{Ok, goodbye.|X||||}{Please?|arghest_7||||}}|};
+{arghest_7|I said no. Visitors are not allowed in there.|||{{Please?|arghest_6||||}{Just a quick peek?|arghest_6||||}}|};
+{arghest_return_1|Welcome back. Thanks for your help earlier. I hope the room at the inn can be of use to you.|||{{You are welcome. Goodbye.|X||||}{Can I enter the mine?|arghest_6||||}}|};
+{arghest_return_2|Welcome back. Did you bring me the 5 bottles of milk that I requested?|||{{No, not yet. I\'m working on it.|arghest_return_3||||}{Yes, here you go, enjoy!|arghest_return_4||milk|5|}{Yes, but this nearly cost me a fortune!|arghest_return_4||milk|5|}}|};
+{arghest_return_3|Ok then. Return to me once you have them.|||{{Will do. Goodbye.|X||||}}|};
+{arghest_return_4|Thank you my friend! Now I can restock my supply.|prim_innquest:40||{{N|arghest_return_5||||}}|};
+{arghest_return_5|These bottles look excellent. Now I can last a while longer in here.|||{{N|arghest_return_6||||}}|};
+{arghest_return_6|Oh, and about the room in the inn - you are welcome to use it in any way you see fit. Quite a cozy place to rest if you ask me.|||{{Thanks Arghest. Goodbye.|X||||}{Finally, I thought I would never be able to rest here!|X||||}}|};
+{arghest_8|\'Inn in Prim\' - you sound funny.|||{{N|arghest_9||||}}|};
+{arghest_9|Yes, I rent it. I stay there to rest when my shift ends.|||{{N|arghest_10||||}}|};
+{arghest_10|However, now that we guards aren\'t as plentiful as we used to be, it has been a while since I could rest in there.|||{{Mind if I use the room at the inn to rest in?|arghest_11||||}{Are you still going to use it?|arghest_11||||}}|};
+{arghest_11|Well, I would like to still keep the option of using it. But I guess someone else could rest there now that I\'m not actively using it.|prim_innquest:20||{{N|arghest_12||||}}|};
+{arghest_12|Tell you what, if you bring me some more supplies to keep me occupied here, I guess you could have my permission to use it even though I have rented it.|||{{N|arghest_13||||}}|};
+{arghest_13|I have plenty of meat here, but I ran out of milk some weeks ago. Do you think you could help me restock my milk supply?|||{{Sure, no problem. I\'ll get you your bottles of milk. How much do you need?|arghest_14||||}{Sure, if it leads to me being able to rest here. I\'m in.|arghest_14||||}}|};
+{arghest_14|Bring me 5 bottles of milk. That should be enough.|prim_innquest:30||{{I\'ll go buy some.|X||||}{Ok. I\'ll be right back.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_prim_outside">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{tonis_start||||{{|tonis_return_1|prim_hunt:10|||}{|tonis_1||||}}|};
+{tonis_return_1|Hello again. Have you spoken to Guthbered in the Prim main hall yet?|||{{No, not yet. Where can I find him?|tonis_return_2||||}{Yes, he told me the story about Prim.|tonis_8|prim_hunt:20|||}{No, and I do not intend to speak to him either. I am on an urgent mission to help the Blackwater mountain settlement.|tonis_return_3||||}}|};
+{tonis_1|You there! Please you have to help us!|||{{What is the matter?|tonis_6||||}{Is this the Blackwater mountain settlement?|tonis_2||||}{Sorry, I cannot be bothered right now. I was told to go east quickly.|tonis_4||||}}|};
+{tonis_2|Blackwater? No no, certainly not. Just over here is the village of Prim.|||{{N|tonis_3||||}}|};
+{tonis_3|Blackwater mountain, those vicious bastards.|||{{N|tonis_6||||}}|};
+{tonis_4|East? But that leads up to Blackwater mountain.|||{{N|tonis_5||||}}|};
+{tonis_5|You really do not want to go up there.|||{{N|tonis_3||||}}|};
+{tonis_6|We deserately need help from someone from the outside in our village of Prim.|prim_hunt:10||{{N|tonis_7||||}}|};
+{tonis_7|You should speak to Guthbered, in the Prim main hall, just north of here.|||{{Ok, I will go see him.|tonis_8||||}{I was told to go directly east.|tonis_4||||}}|};
+{tonis_8|Good, thanks. We really need your help!|prim_hunt:11|||};
+{tonis_return_2|The village of Prim is just north of here. You can probably see it through the trees over there.|||{{Ok, I will go there right away.|tonis_8||||}}|};
+{tonis_return_3|Do not listen to their lies!||||};
+
+{moyra_1|Stay away. This is my hiding spot.|||{{What are you hiding from?|moyra_2||||}{Who are you?|moyra_3||||}}|};
+{moyra_2|Claws, beats, Gornauds. They cannot reach me here.|||{{\'Gornauds\', is that what those monsters outside the village are called?|moyra_5||||}{Yeah sure. Stay here and hide you pathetic creature.|moyra_4||||}}|};
+{moyra_3|Me? I am Moyra.|||{{Why are you hiding?|moyra_2||||}}|};
+{moyra_4|You are mean! I don\'t want to talk to you any more.||||};
+{moyra_5|Please, not so loud! They could hear you.|||{{N|moyra_6||||}}|};
+{moyra_6|I have seen them on the mountain path up the mountain also. Sharpening their claws.|||{{N|moyra_7||||}}|};
+{moyra_7|I hide here now, so they cannot get to me.||||};
+
+{prim_commoner1|Hello there. Welcome to Prim. Are you here to help us?|||{{Yes, I am here to help your village.|prim_commoner1_2||||}{(Lie) Yes, I am here to help your village.|prim_commoner1_2||||}}|};
+{prim_commoner1_2|Thank you. We really need your help.|prim_hunt:11||{{N|prim_commoner1_3||||}}|};
+{prim_commoner1_3|You should speak to Guthbered if you haven\'t done so already.|||{{Will do, goodbye.|X||||}{Where can I find him?|prim_commoner1_4||||}}|};
+{prim_commoner1_4|He is in the main hall right over there. The large stone house.|prim_hunt:15|||};
+
+{prim_commoner2|Hi, you seem to be new around here. How can I help you?|||{{Is there some place I can rest around here?|prim_commoner2_rest1||||}{Where can I find a trader around here?|prim_commoner2_trade1||||}}|};
+{prim_commoner2_rest1|You should be able to find some place to rest in the inn right over there to the southeast.|||{{Thank you, goodbye.|X||||}{Where can I find a trader around here?|prim_commoner2_trade1||||}}|};
+{prim_commoner2_trade1|Our armorer is in the house in the southwest corner. I should warn you that the supply is not what it used to be though.|||{{Thank you, goodbye.|X||||}{Is there some place I can rest around here?|prim_commoner2_rest1||||}}|};
+
+{prim_commoner3|Hello. Welcome to Prim.||||};
+
+{prim_commoner4|Hello. Who are you? Are you here to help us?|||{{I am looking for my brother. Would you by any chance have happened to see him around here?|prim_commoner4_1||||}{Yes, I have come to help your village.|prim_commoner4_3||||}{(Lie) Yes, I have come to help your village.|prim_commoner4_3||||}}|};
+{prim_commoner4_1|Your brother? Son, you should know that we do not get many visitors around here.|||{{N|prim_commoner4_2||||}}|};
+{prim_commoner4_2|So, no. I cannot help you.||||};
+{prim_commoner4_3|Oh thank you. We could really use some help around here.||||};
+	</string>
+
+	<string name="conversationlist_prim_inn">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_primsleep|You are not allowed to enter here.||||};
+{laecca_1|Hello. I am Laecca, mountain guide.|||{{What do you do around here?|laecca_2||||}{\'Mountain guide\', what does that mean?|laecca_2||||}}|};
+{laecca_2|I keep an eye on the mountain pass, to make sure no more of those beasts make their way down here.|||{{Then what are you doing indoors here? Shouldn\'t you be outside guarding then?|laecca_4||||}{Sounds like a noble cause.|laecca_3||||}{What beasts are you talking about?|laecca_9||||}}|};
+{laecca_3|Yeah, sure. It may sound that way. In reality, it\'s a lot of hard work.|||{{N|laecca_5||||}}|};
+{laecca_4|Very funny. I have to rest too you know. Keeping the monsters away is hard work.|||{{N|laecca_5||||}}|};
+{laecca_5|There used to be more of us mountain guides, but not many have survived the attack of the beasts.|||{{Sounds like you aren\'t really cut out to do your job properly.|laecca_6||||}{I\'m sorry to hear that.|laecca_8||||}{What beasts are you talking about?|laecca_9||||}}|};
+{laecca_6|Perhaps.|||{{N|laecca_7||||}}|};
+{laecca_7|Anyway. I have some things to tend to. Nice talking to you.|||{{Goodbye.|X||||}}|};
+{laecca_8|Thank you for your conern.|||{{Is there anything I can do to help?|laecca_13||||}}|};
+{laecca_9|Pfft, \'What beasts?\'. The Gornaud beasts of course.|||{{N|laecca_10||||}}|};
+{laecca_10|Scratching their claws against the bare rock at night. *shrug*|||{{N|laecca_11||||}}|};
+{laecca_11|At first, I thought they were acting on pure instinct. But recently, I have started to believe they are smarter than regular beasts.|||{{N|laecca_12||||}}|};
+{laecca_12|Their attacks are getting more and more clever.|prim_hunt:11||{{Is there anything I can do to help?|laecca_13||||}}|};
+{laecca_13|You should talk to Guthbered. He is usually in the main hall. Look for a stone house in the center of the village.|prim_hunt:15|||};
+
+{prim_cook_start||||{{|prim_cook_return_1|prim_innquest:50|||}{|prim_cook_return_2|prim_innquest:10|||}{|prim_cook_1||||}}|};
+{prim_cook_1|Can I help you?|||{{What food do you have available for trade?|prim_cook_2||||}{Is the back room available for rent?|prim_cook_3||||}}|};
+{prim_cook_2|Food? No, sorry. I don\'t have anything to trade.|||{{N|prim_cook_1||||}}|};
+{prim_cook_3|Rent? Hm. No, not at the moment.|||{{N|prim_cook_41||||}}|};
+{prim_cook_5|Now that you mention it, he hasn\'t been around here for quite some time. Maybe you could go talk to him and see if he is still wants to rent it?|||{{Ok, I will go talk to him.|prim_cook_7||||}{Sure. Any idea where he might be?|prim_cook_6||||}}|};
+{prim_cook_41|It is still rented out to Arghest. He would not be very happy if I rented it out to someone else when he expects to use it.|||{{N|prim_cook_5||||}}|};
+{prim_cook_6|I don\'t know where he is now, but I do know that he used to be part of the mining effort in our mine to the southwest.|prim_innquest:10||{{Thanks. I will go look for him.|X||||}{I will go look for him right away.|X||||}}|};
+{prim_cook_7|Thanks.|||{{N|prim_cook_6||||}}|};
+{prim_cook_return_1|Thank you for your help earlier. I hope the back room is comfortable enough.|||{{N|prim_cook_return_7||||}}|};
+{prim_cook_return_2|Did you talk to Arghest?|||{{No, not yet.|prim_cook_return_3||||}{(Lie) Yes, he told me that I could rest in the back room if I want to.|prim_cook_return_4||||}{Yes, he gave me permission to use the back room whenever I wish.|prim_cook_return_6|prim_innquest:40|||}}|};
+{prim_cook_return_3|Return to me once you know if he is still interested in renting the back room or not.|||{{Any idea where he might be?|prim_cook_6||||}}|};
+{prim_cook_return_4|Did he really say that? Somehow I doubt that. It doesn\'t sound like him.|||{{N|prim_cook_return_5||||}}|};
+{prim_cook_return_5|You will have to do something more to convince me.||||};
+{prim_cook_return_6|Really, he did? Well then, go ahead. I\'m just glad the back room is being used.|prim_innquest:50||{{N|prim_cook_return_7||||}}|};
+{prim_cook_return_7|You are welcome to rest in the back room any time you want. Please let me know if there is anything I can do to help.||||};
+
+{prim_innguest|Lovely place this, isn\'t it?||||};
+	</string>
+
+	<string name="conversationlist_prim_tavern">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{birgil_1|Welcome to my tavern. Please have a seat anywhere.|||{{What can I get to drink around here?|birgil_2||||}}|};
+{birgil_2|Well, unfortunately, with the mine tunnel collapsed, we cannot trade much with the outside villages.|||{{N|birgil_3||||}}|};
+{birgil_3|However, I do have a huge suply of mead that I stocked up on before the mine shaft collapsed.|||{
+	{Mead? Yuck. Too sweet for my taste.|birgil_4||||}
+	{Alright! Just my kind of taste. Let\'s see what you have to trade.|S||||}
+	{Very well, it will have to do. I guess it has some healing potential. Let\'s trade.|S||||}
+	}|};
+{birgil_4|Suit yourself. That\'s what I\'ve got anyway.|||{
+	{Ok, let\'s trade anyway.|S||||}
+	{Nevermind, goodbye.|X||||}
+	}|};
+{prim_tavern_guest1|Oh, a new one around here.|||{{N|prim_tavern_guest1_1||||}}|};
+{prim_tavern_guest1_1|Welcome kid. Are you here to drench your sorrows like the rest of us?|||{
+	{Not really. What is there to do around here?|prim_tavern_guest1_3||||}
+	{Yeah, give me some of what you\'re having.|prim_tavern_guest1_4||||}
+	{Stop bumping into me when I\'m trying to walk.|prim_tavern_guest1_2||||}
+	}|};
+{prim_tavern_guest1_2|My my, a feisty one. Very well, I will get out of your way.||||};
+{prim_tavern_guest1_3|Drink, of course!|||{{I should have seen that one coming. Goodbye.|X||||}}|};
+{prim_tavern_guest1_4|Hey, this one is mine. Buy your own mead from Birgil over there.|||{
+	{Sure, whatever.|X||||}
+	{Ok.|X||||}
+	}|};
+{prim_tavern_guest2|*hic* Hey theeere kid. Will you buy an oldtimer like me a new round of mead?|||{
+	{Yikes, what happened to you? Get away from me.|X||||}
+	{No way. And stop blocking my way.|X||||}
+	{Sure. Here you go.|prim_tavern_guest2_1||mead|1|}
+	}|};
+{prim_tavern_guest2_1|Hey hey, thanks a lot kid! *hic*||||};
+{prim_tavern_guest3|*grumbles*||||};
+{prim_tavern_guest4|Claws. Scratching.|||{{N|prim_tavern_guest4_1||||}}|};
+{prim_tavern_guest4_1|Got a hold of poor Kirg they did.|||{{N|prim_tavern_guest4_2||||}}|};
+{prim_tavern_guest4_2|Those damn beasts.|||{{N|prim_tavern_guest4_3||||}}|};
+{prim_tavern_guest4_3|And it\'s all my fault. *sob*||||};
+	</string>
+
+	<string name="conversationlist_prim_houses">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{prim_armorer|Hello. Welcome to my shop.|||{{Do you have anything to trade?|prim_armorer_1||||}}|};
+{prim_armorer_1|Yes, but I must tell you that my supply is not what it used to be, now that the southern mine entrance has collapsed. Far fewer traders come here to Prim now.|||{{Ok, let me see your wares.|S||||}}|};
+	</string>
+
+
+	<string name="conversationlist_prim_guthbered">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{guthbered_start||||{
+	{|guthbered_return_1_1|prim_hunt:25|||}
+	{|guthbered_1||||}
+	}|};
+{guthbered_return_1_1|Welcome back, traveller. What can I do for you?|||{
+	{Can you tell me the story about the monsters again?|guthbered_13||||}
+	{What was I supposed to do again?|guthbered_29||||}
+	{Can you tell me the story about Prim again?|guthbered_2||||}
+	}|};
+{guthbered_1|Welcome to Prim, traveller.|||{
+	{What can you tell me about Prim?|guthbered_2||||}
+	{Who are you?|guthbered_who_1||||}
+	{I was told to see you about helping against the monster attacks.|guthbered_20|prim_hunt:11|||}
+	}|};
+{guthbered_2|Prim began as a simple camp for the miners that worked in the mines around here. Later it grew to a settlement, and a few years back we even got a tavern and an inn here.|||{{N|guthbered_3||||}}|};
+{guthbered_3|This place used to be full of life when the miners worked here.|||{{N|guthbered_4||||}}|};
+{guthbered_4|The miners also attracted a lot of traders that used to come through here.|||{
+	{\'used to\'?|guthbered_5||||}
+	{What happened then?|guthbered_5||||}
+	}|};
+{guthbered_5|Just until recently, we could at least get some contact with the outside villages. Nowadays, that hope is lost.|||{{N|guthbered_6||||}}|};
+{guthbered_6|You see, the mine tunnel to the south is collapsed, and no one can get in or out of Prim.|||{
+	{I know, I just came from there.|guthbered_7||||}
+	{Tough luck.|guthbered_10||||}
+	{What made it collapse?|guthbered_11||||}
+	}|};
+{guthbered_7|You did? Oh. Well, yes of course you must have since you are not from Prim. So there\'s a way through it after all huh?|||{
+	{Yes, but I had to go through the old pitch-black mine.|guthbered_8||||}
+	{Yes, the passage in the mine below is safe.|guthbered_8||||}
+	{No, just kidding. I scaled over the mountain ridge to get here.|guthbered_8||||}
+	}|};
+{guthbered_8|Ok. We will have to investigate that later.|||{{N|guthbered_9||||}}|};
+{guthbered_9|Anyway, as I was saying..|||{{N|guthbered_10||||}}|};
+{guthbered_10|The collapsed mine tunnel makes it hard for any traders to reach Prim. Our resources are really starting to dwindle.|||{{N|guthbered_12||||}}|};
+{guthbered_11|We are not sure. But we have our suspicions.|||{{N|guthbered_10||||}}|};
+{guthbered_12|On top of that, there are the attacks from the monsters that we have to deal with.|prim_hunt:11||{
+	{Yes, I noticed some monsters outside the village.|guthbered_13||||}
+	{What monsters?|guthbered_13||||}
+	}|};
+{guthbered_who_1|I am Guthbered, protector of this village.||||};
+{guthbered_13|A while ago, we started seeing the first of the monsters. At first, they were no problem for us to handle. Our guards could cut them down easily.|||{{N|guthbered_14||||}}|};
+{guthbered_14|But after a while, some of our guards got hurt, and the monsters started increasing in numbers.|||{{N|guthbered_15||||}}|};
+{guthbered_15|Also, the monsters almost seemed like they were getting smarter. Their attacks were getting more and more coordinated.|||{{N|guthbered_16||||}}|};
+{guthbered_16|Now, we can hardly hold them back. They mostly come at night.|||{{N|guthbered_17||||}}|};
+{guthbered_17|According to lore, the monsters are called the \'Gornauds\'.|||{{Any ideas where they might be coming from?|guthbered_18||||}}|};
+{guthbered_18|Oh yes, we are almost certain.|||{{N|guthbered_19||||}}|};
+{guthbered_19|Those evil bastards up in the Blackwater Mountain settlement probably summoned them to attack us. They would rather see us perish.|prim_hunt:20||{{N|guthbered_22||||}}|};
+{guthbered_20|Oh good. Did you talk to Tonis? Yes, I\'m sure you met him on your way into town.|||{{N|guthbered_21||||}}|};
+{guthbered_21|Good. Let me tell you the back-story about Prim first.|||{
+	{Sure.|guthbered_2||||}
+	{I\'d rather skip to the end directly.|guthbered_13||||}
+	}|};
+{guthbered_22|We used to trade with them up there, but that all changed once they got greedy.|bwm_agent:25||{
+	{I met a man outside the collapsed mine saying he was from the Blackwater Mountain settlement.|guthbered_26||||}
+	{Do you need any help in dealing with those monsters?|guthbered_23||||}
+	{I would be glad to help you with the monsters.|guthbered_24||||}
+	}|};
+{guthbered_23|Oh boy, do we? Yes please, you are welcome to help.|||{{I would be glad to help you with the monsters.|guthbered_24||||}}|};
+{guthbered_24|Do you really think you have what it takes to help us?|||{
+	{I have left a bloody trail of monsters behind me.|guthbered_25||||}
+	{Sure, I can handle it.|guthbered_25||||}
+	{If the monsters are anything like those around where I entered the mine, it will be a tough fight. But I can manage it.|guthbered_25||||}
+	}|};
+{guthbered_25|Great. I think we should go straight to the source with the problem.|||{{N|guthbered_29||||}}|};
+{guthbered_26|A man, from the Blackwater settlement, you say?|||{{N|guthbered_27||||}}|};
+{guthbered_27|Did he say anything about us here in Prim?|||{{No. But he insisted that I go straight east when exiting the mine, thus not reaching Prim.|guthbered_28||||}}|};
+{guthbered_28|That figures. They send out their spies even now.|||{{Do you need any help in dealing with those monsters?|guthbered_23||||}}|};
+{guthbered_29|As I said, we believe those bastards up at the Blackwater Mountain settlement are behind the monster attacks somehow.|||{{N|guthbered_30||||}}|};
+{guthbered_30|I want you to go up there to their settlement and ask their leader, Harlenn, why they are doing this to us.|prim_hunt:25||{{Ok, I will go ask Harlenn in the Blackwater Mountain settlement why they are attacking your village.|guthbered_31||||}}|};
+{guthbered_31|Thank you friend.|prim_hunt:25|||};
+	</string>
+
+	<string name="conversationlist_blackwater_signs">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{sign_blackwater10|North: Prim\nWest: Elm mine\nEast: (text is unreadable due to several scratchmarks in the wood)\nSouth: Stoutford||||};
+{keyarea_bwm_agent_1|The man shouts at you: You! Please help! You have to help us!||||};
+{sign_blackwater0|East: Fallhaven\nSouthwest: Stoutford\nNorthwest: Blackwater Mountain||||};
+{sign_prim_n|Notice to all citizens: No one is allowed to enter the mines at night! Furthermore, climbing the mountain side is strictly forbidden after the accident with Lorn.||||};
+{sign_prim_s|Missing persons:\n - Duala\n - Lorn\n - Kamelio||||};
+{sign_blackwater13|No entry allowed.\nSigned by Guthbered of Prim.||||};
+{sign_blackwater30||||{
+	{|sign_blackwater30_qstarted|kazaul:10|||}
+	{|sign_blackwater30_notstarted||||}
+	}|};
+{sign_blackwater30_qstarted|You find a piece of paper partially frozen in the snow. You can barely make out the phrase \'Kazaul, defiler of the the Elytharan Temple\' from the wet paper.\nThis must be the first half of the chant for the Kazaul ritual.|kazaul:21|||};
+{sign_blackwater30_notstarted|You find a piece of paper partially frozen in the snow. You can barely make out the phrase \'Kazaul, defiler of the the Elytharan Temple\' from the wet paper.||||};
+{sign_blackwater32|The sign is severely damaged from what looks as bite marks from something with really sharp teeth. You cannot make out any readable words.||||};
+{sign_blackwater38_1||||{
+	{|sign_blackwater38_1_qstarted|kazaul:10|||}
+	{|sign_blackwater38_notstarted||||}
+	}|};
+{sign_blackwater38_notstarted|You find a piece of paper describing some form of ritual.||||};
+{sign_blackwater38_1_qstarted|You find a piece of paper describing the beginnings of some form of ritual.\nThis must be the first part of the Kazaul ritual.|kazaul:25|||};
+{sign_blackwater38_2||||{
+	{|sign_blackwater38_2_qstarted|kazaul:10|||}
+	{|sign_blackwater38_notstarted||||}
+	}|};
+{sign_blackwater38_2_qstarted|You find a piece of paper describing the main part of the Kazaul ritual.|kazaul:26|||};
+{sign_blackwater38_3||||{
+	{|sign_blackwater38_3_qstarted|kazaul:10|||}
+	{|sign_blackwater38_notstarted||||}
+	}|};
+{sign_blackwater38_3_qstarted|You find a piece of paper describing the end of the Kazaul ritual.|kazaul:27|||};
+{sign_blackwater16||||{
+	{|sign_blackwater16_qstarted|kazaul:10|||}
+	{|sign_blackwater16_notstarted||||}
+	}|};
+{sign_blackwater16_qstarted|You find a piece of torn paper stuck in the thick bush. You can barely make out the phrase \'Kazaul, destroyer of bright dreams\' from the torn paper.\nThis must be the first half of the chant for the Kazaul ritual.|kazaul:22|||};
+{sign_blackwater16_notstarted|You find a piece of torn paper stuck in the thick bush. You can barely make out the phrase \'Kazaul, destroyer of bright dreams\' from the torn paper.||||};
+{bwm_sleephall_1|You are not allowed to rest here. Only Blackwater residents or close allies are allowed to rest here.||||};
+{keyarea_bwm_agent_60|You must talk to the man before proceeding further.||||};
+{sign_blackwater50_left|This leads out into the wilderness outside Prim.||||};
+{sign_blackwater50_right|This leads back into the Blackwater settlement.||||};
+	</string>
+
 
 
 </resources>
