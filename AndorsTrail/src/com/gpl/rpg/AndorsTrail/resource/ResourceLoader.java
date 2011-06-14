@@ -157,6 +157,7 @@ public final class ResourceLoader {
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_3));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_4));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_5));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_bwm_agent_6));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_arghest));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_outside));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_inn));
@@ -164,6 +165,10 @@ public final class ResourceLoader {
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_houses));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_guthbered));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_signs));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_harlenn));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_upper));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_lower));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_herec));
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();

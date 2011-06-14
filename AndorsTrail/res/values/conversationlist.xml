@@ -1073,6 +1073,26 @@
 {bwm_agent_5_6|Now hurry. We are almost there. Follow the snowy path to the north, and you should reach the settlement in no time.|bwm_agent:50||{{Ok, I will follow the path to the north, further up the mountain.|R||||}}|};
 	</string>
 
+	<string name="conversationlist_bwm_agent_6">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bwm_agent_6_start||||{
+	{|bwm_agent_6_3|bwm_agent:60|||}
+	{|bwm_agent_6_0||||}
+	}|};
+{bwm_agent_6_1|I am glad you followed me up the mountain to help us out.|||{
+	{How did you get up here so fast?|bwm_agent_6_6||||}
+	{Those were some tough fights, but I can manage.|bwm_agent_6_5||||}
+	{Are we there yet?|bwm_agent_6_2||||}
+	}|};
+{bwm_agent_6_2|Oh yes. In fact, our Blackwater mountain settlement is just down these stairs.|||{{N|bwm_agent_6_4||||}}|};
+{bwm_agent_6_3|Go ahead, I will meet you inside.|||{{Ok, see you inside.|R||||}}|};
+{bwm_agent_6_0|We meet again. Well done fighting your way up here.|||{{N|bwm_agent_6_1||||}}|};
+{bwm_agent_6_4|You should go down these stairs and talk to our leader, Harlenn. He can usually be found at the third level down.|bwm_agent:60||{{N|bwm_agent_6_3||||}}|};
+{bwm_agent_6_5|Yes, you seem like an able fighter.|||{{Are we there yet?|bwm_agent_6_2||||}}|};
+{bwm_agent_6_6|I learned some shortcuts up and down the mountain a while back. Nothing strange about that right?|||{{N|bwm_agent_6_7||||}}|};
+{bwm_agent_6_7|Anyway, we are right at the settlement now. In fact, our Blackwater mountain settlement is just down these stairs.|||{{N|bwm_agent_6_4||||}}|};
+	</string>
+
 	<string name="conversationlist_prim_arghest">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {arghest_start||||{{|arghest_return_1|prim_innquest:40|||}{|arghest_return_2|prim_innquest:30|||}{|arghest_1||||}}|};
@@ -1260,7 +1280,10 @@
 	{Yes, I noticed some monsters outside the village.|guthbered_13||||}
 	{What monsters?|guthbered_13||||}
 	}|};
-{guthbered_who_1|I am Guthbered, protector of this village.||||};
+{guthbered_who_1|I am Guthbered, protector of this village.|||{
+	{What can you tell me about Prim?|guthbered_2||||}
+	{I was told to see you about helping against the monster attacks.|guthbered_20|prim_hunt:11|||}
+	}|};
 {guthbered_13|A while ago, we started seeing the first of the monsters. At first, they were no problem for us to handle. Our guards could cut them down easily.|||{{N|guthbered_14||||}}|};
 {guthbered_14|But after a while, some of our guards got hurt, and the monsters started increasing in numbers.|||{{N|guthbered_15||||}}|};
 {guthbered_15|Also, the monsters almost seemed like they were getting smarter. Their attacks were getting more and more coordinated.|||{{N|guthbered_16||||}}|};
@@ -1328,14 +1351,195 @@
 	{|sign_blackwater16_qstarted|kazaul:10|||}
 	{|sign_blackwater16_notstarted||||}
 	}|};
-{sign_blackwater16_qstarted|You find a piece of torn paper stuck in the thick bush. You can barely make out the phrase \'Kazaul, destroyer of bright dreams\' from the torn paper.\nThis must be the first half of the chant for the Kazaul ritual.|kazaul:22|||};
+{sign_blackwater16_qstarted|You find a piece of torn paper stuck in the thick bush. You can barely make out the phrase \'Kazaul, destroyer of bright dreams\' from the torn paper.\nThis must be the second half of the chant for the Kazaul ritual.|kazaul:22|||};
 {sign_blackwater16_notstarted|You find a piece of torn paper stuck in the thick bush. You can barely make out the phrase \'Kazaul, destroyer of bright dreams\' from the torn paper.||||};
 {bwm_sleephall_1|You are not allowed to rest here. Only Blackwater residents or close allies are allowed to rest here.||||};
 {keyarea_bwm_agent_60|You must talk to the man before proceeding further.||||};
 {sign_blackwater50_left|This leads out into the wilderness outside Prim.||||};
-{sign_blackwater50_right|This leads back into the Blackwater settlement.||||};
+{sign_blackwater50_right|This leads back into the Blackwater Mountain settlement.||||};
 	</string>
 
+	<string name="conversationlist_blackwater_harlenn">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{harlenn_start||||{
+	{|harlenn_return_1|bwm_agent:250|||}
+	{|harlenn_return_3|bwm_agent:70|||}
+	{|harlenn_return_2|bwm_agent:65|||}
+	{|harlenn_1||||}
+	}|};
+{harlenn_1|Welcome, traveller.|||{{N|harlenn_2||||}}|};
+{harlenn_2|You must be the newcomer that traveled up the mountain side that I heard about.|||{{N|harlenn_3||||}}|};
+{harlenn_3|We need your help in dealing with some .. problems.|||{{Who are you?|harlenn_4||||}}|};
+{harlenn_4|Oh sorry, I did not introduce myself properly. I am Harlenn, leader of the people living in this mountain settlement.|||{{I was told to see you by the guide that led me up the mountain.|harlenn_5||||}}|};
+{harlenn_5|Oh yes, we are lucky he found you. You see, usually we seldom travel that far down the mountain.|||{{N|harlenn_6||||}}|};
+{harlenn_6|Most of the time, we spend in the settlement or up here on the mountain.|||{{N|harlenn_7||||}}|};
+{harlenn_7|However, recent event have forced us to send for help. We are lucky you found us.|||{
+	{What problems are you referring to?|harlenn_8||||}
+	{What is happening up here?|harlenn_8||||}
+	}|};
+{harlenn_8|I am sure you noticed just by getting here. The monsters of course!|||{{N|harlenn_9||||}}|};
+{harlenn_9|Those damn beasts outside our very settlement. The white wyrms and the Aulaeth. And their trainers are even deadlier.|||{
+	{Those? They were no match for me.|harlenn_11||||}
+	{I can see where this is going. You need me to deal with them for you I guess?|harlenn_10||||}
+	{At least they aren\'t anything like those Gornaud beasts at the bottom of the mountain.|harlenn_12||||}
+	}|};
+{harlenn_10|Well, yes. But just killing them won\'t have any effect. We have tried that, to no avail. They just keep coming back.|||{{N|harlenn_13||||}}|};
+{harlenn_11|You sound like my kind of type!|||{{N|harlenn_13||||}}|};
+{harlenn_12|Gornaud? I haven\'t heard about those. But I\'m sure they couldn\'t possibly be worse than these beasts up here.|||{{N|harlenn_13||||}}|};
+{harlenn_13|Anyway, the beasts are really starting to cut down our numbers. But they are not our only concern.|||{{N|harlenn_14||||}}|};
+{harlenn_14|On top of that, we are being attacked by raids from those bastards down in that low-life town of Prim at the base of the mountain.|bwm_agent:65||{{N|harlenn_15||||}}|};
+{harlenn_15|Oh, those treacherous, fake bastards.|||{
+	{What have they done?|harlenn_16||||}
+	{I talked to Guthbered in Prim. They say you are the ones doing the attacks, and that you are behind the Gornaud attacks on Prim.|harlenn_prim_1|prim_hunt:25|||}
+	{Is there anything I can do to help?|harlenn_18||||}
+	}|};
+{harlenn_16|They come here at night and sabotage our supplies.|||{{N|harlenn_17||||}}|};
+{harlenn_17|We are almost certain they are the ones behind these monsters also.|bwm_agent:66||{
+	{I talked to Guthbered in Prim. They say you are the ones doing the attacks, and that you are behind the Gornaud attacks on Prim.|harlenn_prim_1|prim_hunt:25|||}
+	{Is there anything I can do to help?|harlenn_18||||}
+	}|};
+{harlenn_18|Why, yes. Of course. If you are up to it.|||{{N|harlenn_19||||}}|};
+{harlenn_19|Considering you made it up here alive, I\'m pretty sure you can handle yourself.|||{{N|harlenn_20||||}}|};
+{harlenn_prim_1|We?! Hah! It figures he would say that. They are always lying and cheating to get things their way. We have certainly not attacked them!|||{{N|harlenn_prim_2||||}}|};
+{harlenn_prim_2|It is, of course, *they* who are the ones causing all the trouble.|||{{N|harlenn_prim_3||||}}|};
+{harlenn_prim_3|They even captured one of our fellow scouts. Who knows what they have done to him.|||{{N|harlenn_prim_4||||}}|};
+{harlenn_prim_4|I\'m telling you, they are treacherous and lying!|prim_hunt:30||{
+	{Sure, I believe you. What do you need from me?|harlenn_prim_6||||}
+	{What would I gain by helping you instead of them?|harlenn_prim_5||||}
+	{I\'m not buying this. I think I would rather help the people of Prim than you people.|harlenn_prim_7||||}
+	}|};
+{harlenn_prim_5|Gain? Our trust of course. You would always be welcome here in our camp. Our traders have some excellent equipment.|||{
+	{Ok, I\'ll help you deal with them.|harlenn_prim_6||||}
+	{I\'m still not convinced, but I\'ll help you for now.|harlenn_prim_6||||}
+	}|};
+{harlenn_prim_6|Good. We will need an able fighter to help us deal with the monsters and the Prim bandits.|||{{N|harlenn_19||||}}|};
+{harlenn_prim_7|Bah. Then you are useless to me. Why did you even bother to come up here and waste my time? Begone.|bwm_agent:250|||};
+{harlenn_20|Ok, this is the plan. I want you to go talk to Guthbered down in Prim, and give him our ultimatum:|||{{N|harlenn_21||||}}|};
+{harlenn_21|Either they stop their attacks, or we will have to deal with them.|||{
+	{Sure. I will go tell him your ultimatum.|harlenn_22||||}
+	{No. In fact, I think I should help the people of Prim instead.|harlenn_prim_7||||}
+	}|};
+{harlenn_22|Good. Now hurry! We don\'t know how much time we have left before they attack again.|bwm_agent:70|||};
+{harlenn_return_1|You again? I want no business with you. Leave me.||||};
+{harlenn_return_2|Welcome back, traveller. What\'s on your mind?|||{
+	{I talked to Guthbered in Prim. They say you are attacking Prim, and that you are behind the Gornaud attacks on Prim.|harlenn_prim_1|prim_hunt:25|||}
+	{What was that you said earlier about the monsters that are attacking your settlement?|harlenn_9||||}
+	}|};
+{harlenn_return_3|Welcome back, traveller. Did you talk to that deceiving Guthbered down in Prim?|||{
+	{What was I supposed to do again?|harlenn_20||||}
+	{No, not yet.|harlenn_22||||}
+	}|};
+	</string>
 
+	<string name="conversationlist_blackwater_upper">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{blackwater_entranceguard|Oh, a newcomer. Great. I hope you are here to help us with our problems.|||{{N|blackwater_guard1||||}}|};
+{blackwater_guard1|Stay out of trouble and trouble will stay away from you.||||};
+{blackwater_guest1|Great place this, isn\'t it?||||};
+{blackwater_guest2|Teehee. Mazeg\'s potions make you feel all tingly and funny.||||};
+{blackwater_cook|Get out of my kitchen! Take a seat and I will get to you in time.||||};
+{keneg|Banging. Wheezing.|||{{N|keneg_1||||}}|};
+{keneg_1|Have to get away!|||{{N|keneg_2||||}}|};
+{keneg_2|The monsters, they come at night.|||{{N|keneg_3||||}}|};
+{keneg_3|*Looks nervous*\nHave to hide.||||};
+{mazeg||||{
+	{|mazeg_1|bwm_agent:240|||}
+	{|mazeg_2||||}
+	}|};
+{mazeg_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?|||{{Sure. Show me what you have.|S||||}}|};
+{mazeg_2|Welcome traveller. Have you come to ask for help from me and my potions?|||{{N|blackwater_notrust||||}}|};
+{blackwater_notrust|Regardless, I cannot help you. My services are only for residents of Blackwater Mountain. And I don\'t trust you enough yet.||||};
+{waeges||||{
+	{|waeges_1|bwm_agent:240|||}
+	{|waeges_2||||}
+	}|};
+{waeges_1|Welcome friend. What can I do for you?|||{{What weapons do you have for sale?|S||||}}|};
+{waeges_2|Welcome traveller. I see you are looking at my fine selection of weapons.|||{{N|blackwater_notrust||||}}|};
+{blackwater_fighter|I have no time for you, kid. Have to practice my skills.||||};
+{ungorm|... but while the forces were withdrawing, the larger part of ...|||{{N|ungorm_1||||}}|};
+{ungorm_1|Oh. A young one. Hello. Please do not disturb my students while they are studying.||||};
+{blackwater_pupil|Sorry, I can\'t talk right now.||||};
+	</string>
+
+	<string name="conversationlist_blackwater_lower">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{laede||||{
+	{|laede_1|bwm_agent:240|||}
+	{|laede_3||||}
+	}|};
+{laede_1|You are welcome to rest here if you want. Pick any any bed you wish.|nondisplay:16||{{N|laede_2||||}}|};
+{laede_2|I should warn you though that the one in the corner over there has a rotten stench to it. Someone must have spilled something onto it.||||};
+{laede_3|Welcome traveller. These beds are only for residents of Blackwater Mountain.||||};
+{iducus||||{
+	{|iducus_1|bwm_agent:240|||}
+	{|iducus_2||||}
+	}|};
+{iducus_1|Welcome friend. What can I do for you?|||{{What items do you have for sale?|S||||}}|};
+{iducus_2|Welcome traveller. I see you are looking at my fine selection of wares.|||{{N|blackwater_notrust||||}}|};
+{blackwater_priest|... Kazaul, destroyer of spilled hope ..\nNo that\'s not it.|||{{N|blackwater_priest_1||||}}|};
+{blackwater_priest_1|Spilled .. torment?\nNo that\'s not it either.|||{{N|blackwater_priest_2||||}}|};
+{blackwater_priest_2|Argh, I can\'t seem to remember it.|||{{What are you doing?|blackwater_priest_3||||}}|};
+{blackwater_priest_3|Oh, hello. Nevermind. Nothing. Just trying to remember something. Don\'t concern yourself with that.||||};
+{blackwater_guard2|Halt! You should not step any further.|||{{N|blackwater_guard2_1||||}}|};
+{blackwater_guard2_1|There is something over there. Do you see it?|||{{N|blackwater_guard2_2||||}}|};
+{blackwater_guard2_2|A mist? A Shadow? I\'m sure I saw something moving.|||{{N|blackwater_guard2_3||||}}|};
+{blackwater_guard2_3|Screw this guard duty stuff. I am staying back here.|||{{N|blackwater_guard2_4||||}}|};
+{blackwater_guard2_4|Good thing we blocked that entrance from that old cabin.||||};
+{blackwater_bossguard|(The guard gives you a patronizing look, but says nothing)||||};
+{blackwater_throneguard||||{
+	{|blackwater_throneguard_5|bwm_agent:240|||}
+	{|blackwater_throneguard_5|prim_hunt:140|||}
+	{|blackwater_throneguard_1||||}
+	}|};
+{blackwater_throneguard_1|Only residents of Blackwater Mountain or faction members are allowed in here.|||{{Here, I have a written permit to enter.|blackwater_throneguard_3||bwm_permit|1|}}|};
+{blackwater_throneguard_2|I will let you through. Please go right ahead.|||{
+	{Thank you.|R||||}
+	{Yes, get out of my way.|R||||}
+	}|};
+{blackwater_throneguard_3|A permit you say? Let me see that.|prim_hunt:140||{{N|blackwater_throneguard_4||||}}|};
+{blackwater_throneguard_4|Well, it has the signature and all. I guess it checks out allright.|||{{N|blackwater_throneguard_2||||}}|};
+{blackwater_throneguard_5|Oh, It is you.|||{{N|blackwater_throneguard_2||||}}|};
+	</string>
+
+	<string name="conversationlist_blackwater_herec">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{herec_start||||{
+	{|herec_q5|bwm_wyrms:30|||}
+	{|herec_q3|bwm_wyrms:20|||}
+	{|herec_q1|bwm_wyrms:10|||}
+	{|herec_1||||}
+	}|};
+{herec_1|Welcome, traveller. You must be the one I heard about, that travelled up the mountain.|||{{N|herec_2||||}}|};
+{herec_2|Would you be willing to help me with a task?|||{
+	{Depends. What task?|herec_4||||}
+	{Why would I want to help you?|herec_3||||}
+	}|};
+{herec_3|Ah, a negotiator. I like that. If you help me, I will offer to trade the fruits of my labour with you. It should be most valuable to you.|||{
+	{Fine. What task are we talking about here?|herec_4||||}
+	{No, how can I agree to something when I don\'t know what it is? I\'m out.|herec_11||||}
+	}|};
+{herec_4|It is simple really. I am studying these wyrm creatures that lurk outside our settlement. I am trying to find what their strengths are, so that I can use it for myself.|||{{N|herec_5||||}}|};
+{herec_5|But my expertise is in examinating, and not in actually going head to head with those things.|||{{N|herec_6||||}}|};
+{herec_6|That\'s where you come in.|||{{N|herec_7||||}}|};
+{herec_7|I need you to gather some samples from them for me. I hear that some of the white wyrm beasts have sharper claws that can be extracted at the time of death.|||{{N|herec_8||||}}|};
+{herec_8|If you were to bring me some samples of those claws from the white wyrms, that would really speed up my research further.|||{{N|herec_9||||}}|};
+{herec_9|Let\'s say, five of those claws should be enough.|||{
+	{Ok, sounds easy enough. I\'ll get you your 5 white wyrm claws.|herec_10||||}
+	{Sure. Those things are no match for me.|herec_10||||}
+	{No way I am going near those beasts again.|herec_11||||}
+	}|};
+{herec_10|Good. Thank you. Please hurry back so I can continue my research on these beasts.|bwm_wyrms:10|||};
+{herec_11|I assure you that my research is important. But it\'s your decision, and your loss.||||};
+{herec_q1|Welcome back. How is the search going?|||{
+	{What was I supposed to do again?|herec_4||||}
+	{I haven\'t found everything yet. But I am working on it.|herec_10||||}
+	{I have found what you asked for.|herec_q2||bwm_claws|5|}
+	}|};
+{herec_q2|Very well done my friend! These will be very valuable in my research.|bwm_wyrms:20||{{N|herec_q2_2||||}}|};
+{herec_q2_2|Come back in just a minute and I will have something ready for you.||||};
+{herec_q3|Welcome back my friend! Good news. I have successfully distilled the fragments of the claws you brought earlier.|||{{N|herec_q4||||}}|};
+{herec_q4|Now I am able to create effective potions that contain some essence of the white wyrms. These potions will be very useful in future dealings with these monsters.|bwm_wyrms:30||{{N|herec_q5||||}}|};
+{herec_q5|Would you like to trade some potions?|||{{Sure. Let\'s see what you have.|S||||}}|};
+	</string>
 
 </resources>

@@ -27,7 +27,10 @@
 	<!--  These quests do not need translation: -->
 	<string name="questlist_nondisplayed">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{nondisplay|Placeholder for hidden quests|0|{{10|Tavern room in Foaming Flask (not displayed)||0|}}|};
+{nondisplay|Placeholder for hidden quests|0|{
+	{10|Tavern room in Foaming Flask (not displayed)||0|}
+	{16|Sleeping quarters in Blackwater mountain (not displayed)||0|}
+	}|};
 {crossglen|TODO|0|{{1|||0|}}|};
 {fallhaventavern|Room to rent|0|{{10|||1|}}|};
 {arcir|Elythara|0|{{10|||0|}}|};
@@ -54,6 +57,12 @@
 	{30|I should follow the mountain path up the mountain to the Blackwater settlement.|||}
 	{40|I met the man again on my way up to Blackwater Mountain. I should proceed further up the mountain.|||}
 	{50|I have made it up to the snow-filled parts of the Blackwater Mountain. The man told me to proceed further up the mountain. Apparently, the Blackwater Mountain settlement is close by.|||}
+	{60|I have made to the Blackwater mountain settlement. I should find and talk to their leader, Harlenn.|||}
+	{65|I have spoken to Harlenn in the Blackwater Mountain settlement. Apparently, the settlement is under attack by a number of monsters, the Aulaeth and white wyrms. On top of that, they are being attacked by the people of Prim.|||}
+	{66|Harlenn thinks the people of Prim are behind the monster attacks somehow.|||}
+	{70|Harlenn wants me to give a message to Guthbered of Prim. Either the people of Prim stop their attacks on the Blackwater Mountain settlement, or they will have to be dealt with themselves. I should go talk to Guthbered in Prim.|||}
+	{240|I am now trusted in the Blackwater Mountain settlement, and all services should be available for me to use.|||}
+	{250|I have decided to not help the people of the Blackwater Mountain settlement.||1|}
 	}|};
 {prim_innquest|Well rested|1|{
 	{10|I talked to the cook in Prim, at the base of Blackwater Mountain. There is a back room available for rent, but it is currently rented out to Arghest. I should go talk to Arghest to see whether he still wants to rent the room. The cook pointed me towards the southwest of Prim.|||}
@@ -67,7 +76,9 @@
 	{11|The village of Prim needs help from someone from the outside to deal with attacks from some monsters. I should speak to Guthbered in Prim if I want to help them.|||}
 	{15|Guthbered can be found in the main hall of Prim. I should look for a stone house in the center of town.|||}
 	{20|I talked to Guthbered about the story about Prim. Prim has recently been under constant attack from the Blackwater Mountain settlement.|||}
-	{25|Guthbered wants me to go up the the settlement atop the Blackwater Mountain and ask their leader Harlenn why they have summoned the Gornaud monsters against Prim.|||}
+	{25|Guthbered wants me to go up to the settlement atop the Blackwater Mountain and ask their leader Harlenn why (or if) they have summoned the Gornaud monsters against Prim.|||}
+	{30|I have talked to Harlenn about the attacks on Prim. He denies that the people of the Blackwater Mountain settlement have anything to do with them.|||}
+	{140|I have shown the forged permit to the guard and was let through to the inner chamber.|||}
 	}|};
 {kazaul|Lights in the dark||{
 	{10|I should go look for the parts of the Kazaul ritual on the mountain path up to Blackwater Mountain from Prim. I need to find the two parts of the chant and the three pieces describing the ritual itself.|||}
@@ -77,8 +88,12 @@
 	{26|I have found the second piece of the Kazaul ritual.|||}
 	{27|I have found the third piece of the Kazaul ritual.|||}
 	}|};
+{bwm_wyrms|No weakness||{
+	{10|Herec on the second level of the Blackwater Mountain settlement is reasearching the white wyrms outside the settlement. He wants me to bring him 5 white wyrm claws so that he can continue his research. Apparently, only some of the wyrms have these claws. I will have to kill some to find them.|||}
+	{20|I have given the 5 white wyrm claws to Herec.|||}
+	{30|Herec has finished making a potion of fatigue restoration that will be very useful when fighting against the wyrms in the future.|150|1|}
+	}|};
 </string>
-
 
 
 </resources>
