@@ -72,6 +72,7 @@ public final class ResourceLoader {
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_quest));
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v068));
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v069));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v069_questitems));
         }
         loader.flush();
         

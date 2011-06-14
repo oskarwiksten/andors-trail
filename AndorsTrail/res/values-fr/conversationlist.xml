@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<resources>
+	<string name="conversationlist_mikhail">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{mikhail_start_select||||{{|mikhail_visited|andor:1|||}{|mikhail_gamestart||||}}|};
+{mikhail_gamestart|Ah, parfait, tu es réveillé.|||{{N|mikhail_visited||||}}|};
+{mikhail_visited|Je ne trouve nulle part ton frère Andor. Il n\'est pas rentré depuis son départ d\'hier.|andor:1||{{N|mikhail3||||}}|};
+{mikhail3|Cela n\'est pas grave, il sera probablement bientôt de retour.|||{{N|mikhail_default||||}}|};
+{mikhail_default|Puis-je faire quelque chose d\'autre pour t\'aider ?|||{{As-tu d\'autres tâches à me confier ?|mikhail_tasks||||}{Pourrais-tu m\'en dire plus au sujet d\'Andor ?|mikhail_andor1||||}}|};
+{mikhail_tasks|Ah oui, tu pourrais m\'aider à faire deux-trois choses. Le pain et les rats. Par quoi veux-tu commencer ?|||{{Que veux-tu dire au sujet du pain ?|mikhail_bread_select||||}{Que veux-tu dire au sujet des rats ?|mikhail_rats_select||||}{Qu\'importe, parlons d\'autre chose.|mikhail_default||||}}|};
+{mikhail_andor1|Comme je te le disais, Andor est sorti hier et n\'est pas revenu depuis lors. Je commence à m\'inquiéter à son sujet. S\'il te plait, part à sa recherche, il a dit qu\'il n\'en aurait pas pour très longtemps.|||{{N|mikhail_andor2||||}}|};
+{mikhail_andor2|Peut-être est-il allé dans la caverne qui sert de résrve et est resté coincé. Il peut aussi être allé s\'entrainer encore avec son épée en bois dans la maison de Leta. S\'il te plait, pars à sa recherche au village.|||{{N|mikhail_default||||}}|};
+{mikhail_bread_select||||{{|mikhail_bread_complete2|mikhail_bread:100|||}{|mikhail_bread_continue|mikhail_bread:10|||}{|mikhail_bread_start||||}}|};
+{mikhail_bread_start|Ah, j\'ai failli oublier. si tu as le temps, pourrait tu aller chez Mara à la halle du village pour m\'acheter un peu de pain.|mikhail_bread:10||{{N|mikhail_default||||}}|};
+{mikhail_bread_continue|M\'as tu trouvé du pain chez Mara à la halle du village ?|||{{Oui, le voilà.|mikhail_bread_complete||bread|1|}{Non, pas encore.|mikhail_default||||}}|};
+{mikhail_bread_complete|Merci beaucoup, je vais pouvoir prendre mon petit déeuner. Voici quelques pièces pour ton aide.|mikhail_bread:100|gold20|{{N|mikhail_default||||}}|};
+{mikhail_bread_complete2|Merci de m\'avoir rapporté le pain tout à l\'heure.|||{{De rien.|mikhail_default||||}}|};
+{mikhail_rats_select||||{{|mikhail_rats_complete2|mikhail_rats:100|||}{|mikhail_rats_continue|mikhail_rats:10|||}{|mikhail_rats_start||||}}|};
+{mikhail_rats_start|J\'au vu quelques rats dans le jardin tout à l\'heure. Pourrais-tu nous débarasse de tous ceux que tu trouves ?|mikhail_rats:10||{{Je me suis déjà occupé des rats.|mikhail_rats_complete||tail_trainingrat|2|}{D\'accord, je vais aller voir au jardin.|mikhail_rats_start2||||}}|};
+{mikhail_rats_start2|Si les rats te blessent, reviens ici et repose toi dans le lit. Tu pourras ainsi recouvrer toutes tes forces.|||{{N|mikhail_rats_start3||||}}|};
+{mikhail_rats_start3|Au fait n\'oublie pas de faire l\'inventaire de ton équipement. Tu as probablement toujours le vieil anneau que je t\'avais donné. N\'oublie pas de le porter.|||{{Très bien, je comprends. Je peux me reposer ici si je suis blessé, et je dois vérifier mon inventaire pour tous les objets utiles que je peux avoir.|mikhail_default||||}}|};
+{mikhail_rats_continue|As-tu tué les deux rats du jardin ?|||{{Oui, je m\'en suis occupé.|mikhail_rats_complete||tail_trainingrat|2|}{Non, pas encore.|mikhail_default||||}}|};
+{mikhail_rats_complete|Ah tu l\'as fait ? Bravo, merci pour ton aide !\n\nSi tu es blessé, reviens à ton lit ici pour te reposer et reprendre des forces.|mikhail_rats:100||{{N|mikhail_default||||}}|};
+{mikhail_rats_complete2|Merci de m\'avoir débarassé des rats tout à l\'heure.\n\nSi tu es blessé, reviens à ton lit ici pour te reposer et reprendre des forces.|||{{N|mikhail_default||||}}|};
+	</string>
+	
+	<string name="conversationlist_crossglen_leta">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{leta1|Hé, c\'est ma maison, sors de là !|||{{Mais j\'étais juste ...|leta2||||}{Que se passe-t-il avec votre mari Oromir ?|leta_oromir_select||||}}|};
+{leta2|File, gamin, sors de ma maison !|||{{Que se passe-t-il avec votre mari Oromir ?|leta_oromir_select||||}}|};
+{leta_oromir_select||||{{|leta_oromir_complete2|leta:100|||}{|leta_oromir1||||}}|};
+{leta_oromir1|Tu as appri quelques chose au sujet de mon mari ? Il devait m\'aider à la ferme aujourd\'hui, mais comme d\'habitude il n\'est pas là.\nPffff.|||{{Je ne sais pas.|leta_oromir2||||}{Oui, je l\'ai trouvé. Il se cache dans le bosquet à l\'Est.|leta_oromir_complete|leta:20|||}}|};
+{leta_oromir2|si tu le vois, dis-lui de rappliquer vite et de m\'aider à m\'occuper de la maison.\nEt maintenant, file !|leta:10|||};
+{leta_oromir_complete|Il se cache ? Ce n\'est pas étonnant. Je vais aller le chercher et lui montrer qui est le chef ici.\nMerci du renseignement.|leta:100|||};
+{leta_oromir_complete2|Merci de m\'avoir indiqué où se cachait Oromir tout à l\'heure. Je vais aller le chercher dans une minute.||||};
+{oromir1|Oh, tu m\as fait peur.\nBonjour.|||{{Hello|oromir2||||}}|};
+{oromir2|Je me cache ici à cause de mon épouse. Elle est toujours après moi parce que je ne l\'aide pas assez à la ferme. S\'il te plait, ne lui dis pas que je suis ici.|leta:20||{{Ok.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{audir1|Bienvenue dans mon échope !\n\nVeuillez prendre la peine de regarder tous mes articles.|||{{Montrez-moi vos articles s\'il-vous-plait.|S||||}}|};
+{arambold1|Nom d\'un chien, pourrais-je jamais dormir avec des ivrognes qui chantent ainsi ?\n\nQuelqu\'un devrait s\'en occuper.|||{{Puis-je me reposer ici ?|arambold2||||}{Avez-vous quelque chose à marchander ?|S||||}}|};
+{arambold2|Bien sûr gamin,tu peux te reposer ici.\n\nPrends le lit que tu veux.|||{{Merci, au revoir|X||||}}|};
+{drunk1|Et glou, et glou, et glou, buvons encore !\nBois, bois, bois jusqu\'à ce que tu roule par terre.\n\nHé gamin, tu veux te joindre à nous ?|||{{Non, merci.|X||||}{Peut-être un autre jour.|X||||}}|};
+{mara_default|Ne t\'occupe pas de ces ivrognes, ils sont toujours là à causer du désordre.\n\ntu veux manger quelque chose ?|||{{As-tu quelque chose à marchander ?|S||||}}|};
+{mara1||||{{|mara_thanks|odair:100|||}{|mara_default||||}}|};
+{mara_thanks|J\'ai appris que tu avais aidé Odair à débarasser la vielle réserve. Merci beaucoup, nous allons pouvoir nous en servir à nouveau.|||{{C\'était avec plaisir.|mara_default||||}}|};
+{farm1|Laisse-moi tranquille, j\'ai du boulot.|||{{As-tu vu mon frère Andor ?|farm_andor||||}}|};
+{farm2|Quoi ?Tu ne vois pas que je suis occupé ? Vas embêter quelqu\'un d\'autre?|||{{As-tu vu mon frère Andor ?|farm_andor||||}}|};
+{farm_andor|Andor ? Non, je ne l\'ai pas vu récemment||||};
+{snakemaster|Bien, bien, qui voilà donc ? Un visiteur, comme c\'est gentil. Je suis impressionné que tu sois parvenu ici à travers tous mes adorateurs.\n\nPrépare-toi à mourir, pitoyable créature.|||{{Bien, j\'attendais un beau combat !|F||||}{Voyons qui de nous deux périra.|F||||}{Pitié, ne me faites pas de mal !|F||||}}|};
+{haunt|Oh mortel, délivre-moi de ce monde maudit !|||{{Oh, Je vais vous libérer de e pas.|F||||}{Vous voulez dire en vous tuant ?|F||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen_tharal">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{tharal1|Marche dans la lueur de l\'Ombre, mon enfant.|||{{Avez-vous quelque chose à marchander ?|S||||}{Qu\'en est-il de la potion d\'os ?|tharal_bonemeal_select|bonemeal:10|||}}|};
+{tharal_bonemeal_select||||{{|tharal_bonemeal4|bonemeal:30|||}{|tharal_bonemeal1||||}}|};
+{tharal_bonemeal1|La potion d\'os ? Nous ne devons pas parler de cela. Le seigneur Geomyr a publié un décret. Ce n\'est plus autorisé.|||{{S\'il vous plait ?|tharal_bonemeal2_1||||}}|};
+{tharal_bonemeal2_1|Non, nous ne devrions vraiment pas en parler.|||{{Oh, allez ...|tharal_bonemeal2||||}}|};
+{tharal_bonemeal2|Bon, puisque tu insistes. Rapporte moi cinq ailes d\'insectes que je pourrais utiliser pour concocter mes potions, et peut-être t\'en dirais-je plus.|bonemeal:20||{{Voici les ailes d\'insectes.|tharal_bonemeal3||insectwing|5|}{Très bien, je vous les rapporterais.|X||||}}|};
+{tharal_bonemeal3|Merci mon petit. Je savais que je pouvais compter sur toi|bonemeal:30||{{N|tharal_bonemeal4||||}}|};
+{tharal_bonemeal4|Alors la potion d\'os. Préparée avec les bons ingrédients, cela peut être l\'un des soins les plus efficaces à notre disposition.|||{{N|tharal_bonemeal5||||}}|};
+{tharal_bonemeal5|Nous en faisions grand usage auparavant. Mais maintenant, ce bâtard de seigneur Geomyr en a interdit toute utilisation.|||{{N|tharal_bonemeal6||||}}|};
+{tharal_bonemeal6|Comment vais-je pouvoir soigner les gens maintenant ? En utilisant les potions classiques ? Bah, elles sont tellement inefficaces.|||{{N|tharal_bonemeal7||||}}|};
+{tharal_bonemeal7|Je connais quelqu\'un qui a toujours de la potion d\'os disponible si tu cela t\'intéresse. Va parler à Thoronir, un confrère prêtre à Fallhaven. Donnes-lui le mot de passe « Lueur de l\'Ombre ».|||{{Merci, au revoir.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen_gruil">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{gruil1|Psst, hé tu veux j\'ai des trucs qui peuvent t\'intéresser ?|||{{Bien sûr, marchandons.|S||||}{J\'ai appris que tu avais parlé avec mon frère il y a quelques temps.|gruil_select|andor:10|||}}|};
+{gruil_select||||{{|gruil_return|andor:30|||}{|gruil2||||}}|};
+{gruil2|Ton frère ? Ah, tu veux parler d\'Andor ? J\'ai peut-être quelques informations, mais je ne te les donnerais pas pour rien. Rapporte-moi une glande à venin de l\'un de ces serpents venimeux et peut-être que je parlerais.|andor:20||{{Voici une glande à venin pour toi.|gruil_complete||gland|1|}{D\'accord, j\'en rapporterais une.|X||||}}|};
+{gruil_complete|Merci beaucoup gamin. C\'est parfait.|andor:30||{{N|gruil_andor1||||}}|};
+{gruil_return|Écoute gamin, je t\'ai déjà tout dit.|||{{N|gruil_andor1||||}}|};
+{gruil_andor1|Je lui ai parlé hier. Il m\'a demandé si je connaissais un certain Umar ou quelque chose de ce genre. Je n\'ai aucune idée de qui il parlait.|||{{N|gruil_andor2||||}}|};
+{gruil_andor2|Il paraissait vraiment en colère et est parti en trombes. Un truc à propos de la guilde des voleurs de Fallhaven.|||{{N|gruil_andor3||||}}|};
+{gruil_andor3|C\'est tout ce que je sais. Tu devrais aller demander du côté de Fallhaven. Demande à mon ami Gaela, il en sait certainement plus.|||{{Merci, au revoir.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen_leonid">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{leonid1|Bonjour gamin, tu es le fils de Mikhail, non ? Et tu as un frère aussi.\n\nJe suis Leonid, le régent du village de Crossglen.|||{{Avez-vous vu mon frère Andor ?|leonid_andor||||}{Que pouvez-vous me dire à propos de Crossglen ?|leonid_crossglen||||}{Cela ne fait rien, à plus tard.|leonid_bye||||}}|};
+{leonid_andor|Ton frère ? Non, je ne l\'ai pas vu de la journée. Je crois que je l\'ai vu ici hier discutant avec Gruil. Peut-être en sait-il plus ?|andor:10||{{Merci, je vais aller parler à Gruil. Je voulais vous demander autre chose.|leonid_continue||||}{Merci, je vais aller parler à Gruil.|leonid_bye||||}}|};
+{leonid_continue|Puis-je t\'aider à quelque chose ?|||{{Avez-vous vu mon frère Andor ?|leonid_andor||||}{Que pouvez-vous me dire à propos de Crossglen ?|leonid_crossglen||||}{Cela ne fait rien, à plus tard.|leonid_bye||||}}|};
+{leonid_crossglen|Comme tu le sais, nous sommes ici au village de Crossglen. C\'est avant tout une communauté agricole.|||{{N|leonid_crossglen1||||}}|};
+{leonid_crossglen1|Nous avons Audir et sa forge au Sud-Ouest, la cabane de Leta et de son mari à l\'Ouest, la halle du village ici et la cabane de ton père au Nord-Ouest.|||{{N|leonid_crossglen2||||}}|};
+{leonid_crossglen2|C\'est à peu près tout. Nous essayons de vivre en paix.|||{{Y a-t-il eu quelque évènement récent au village ?|leonid_crossglen3||||}{Revenons-en à ce dont nous parlions plus tôt.|leonid_continue||||}}|};
+{leonid_crossglen3|Tu as pu remarquer quelques troubles il y a de cela quelques semaines. Certains villageois ce sont battus à propos d\'un nouveau décret du seigneur Geomyr.|||{{N|leonid_crossglen4||||}}|};
+{leonid_crossglen4|Le seigneur Geomyr a promulgé l\'interdiction de la potion d\'os comme médicament. Certains villageois voulaient que nous nous opposions aux règles du seigneur Geomyr et que nous continuions à l\'utiliser|bonemeal:10||{{N|leonid_crossglen4_1||||}}|};
+{leonid_crossglen4_1|Tharal, notre prêtre, était particulièrement en colère et suggérait que nous fassions quelque chose au sujet du seigner Geomyr.|||{{N|leonid_crossglen5||||}}|};
+{leonid_crossglen5|D\'autre villageois pensaient que nous devions obéir au décret du seigneur Geomyr.\n\nPersonnellement, je ne me suis pas encore décidé.|||{{N|leonid_crossglen6||||}}|};
+{leonid_crossglen6|D\'un côté, le seigneru Geomyr aide le village en lui apportant sa protection. *il pointe les soldats dans la halle*|||{{N|leonid_crossglen7||||}}|};
+{leonid_crossglen7|Mais d\'un autre côté, les impôts et les nouvelles règles sur ce qui est interdit font vraiment du tort à .|||{{N|leonid_crossglen8||||}}|};
+{leonid_crossglen8|quelqu\'un devrait aller au chêteau de Geomyr et plaider la cause de Crossglen auprès du régent.|crossglen:1||{{N|leonid_crossglen9||||}}|};
+{leonid_crossglen9|Pour le moment, nous avons banni toute utilisation de la potion d\'os comme substance de soin.|||{{Merci pour ces informations. Je voulais vous demander autre chose.|leonid_continue||||}{Merci pour ces informations. Au revoir.|leonid_bye||||}}|};
+{leonid_bye|Que l\'Ombre soit avec toi.|||{{Que l\'Ombre soit avec vous.|X||||}}|};
+	</string>
+	
+	<string name="conversationlist_crossglen_odair">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{odair1|Ah, c\'est toi. Tu es bien comme ton frère. Toujours à faire des histoires.|||{{N|odair_select||||}}|};
+{odair_select||||{{|odair_complete2|odair:100|||}{|odair_continue|odair:10|||}{|odair2||||}}|};
+{odair2|Hmm, il y a peut-être quelque chose que tu pourrais faire pour moi. Penses-tu pouvoir m\'aider à accomplir une petite tâche ?|||{{Dis-m\'en plus au sujet de cette tâche.|odair3||||}{bien sûr, à condition que cela me rapporte quelque chose.|odair3||||}}|};
+{odair3|Je suis allé récemment dans cette caverne *il pointe vers l\'Ouest*, pour vérifier nos réserves. Apparemment, la caverne est infestée de rats.|||{{N|odair4||||}}|};
+{odair4|J\'ai vu en particulier un rat qui était plus gros que les autres. Penses-tu être capable de les éliminer ?|||{{Bien sûr, je t\'aiderais pour que Crossglen puisse à nouveau utiliser la caverne comme réserve.|odair5||||}{Bien sûr, je vais t\'aider. Mais c\'est uniquement parce que je peux y gagner quelque chose.|odair5||||}{Non, désolé|odair_cowards||||}}|};
+{odair5|Je voudrais que tu ailles dans cette caverne et que tu tues le gros rat, cela pourrait peut-être stopper l\'infestation de la caverne et nous pourrions l\'utiliser à nouveau comme réserve.|odair:10||{{Ok|X||||}{À bien y réfléchir, je ne pense pas pouvoir t\'aider.|odair_cowards||||}}|};
+{odair_cowards|Je ne pensais pas que tu le ferais. toi et ton frère avez toujours été des trouillards.|||{{Bye|X||||}}|};
+{odair_continue|As-tu tué le gros rat de la caverne à l\'Ouest ?|||{{Oui, j\'ai tué le gros rat.|odair_complete||tail_caverat|1|}{Qu\'est ce que j\'étais supposé faire exactement ?|odair5||||}{Non, pas encore.|odair_cowards||||}}|};
+{odair_complete|Merci beaucoup de ton aide gamin ! Peut-être que toi et ton frère n\'êtes pas si trouillards que je le pensais finalement. Tiens, prends ces pièces pour ton aide.|odair:100|gold20|{{Thanks|X||||}}|};
+{odair_complete2|Merci beaucoup pour ton aide tout à l\'heure. Nous allons désormais pouvoir utiliser à nouveau notre vieille caverne comme réserve.|||{{Bye|X||||}}|};
+	</string>
+
+	<string name="conversationlist_jan">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{jan_start_select||||{{|jan_complete2|jan:100|||}{|jan_return|jan:10|||}{|jan_default||||}}|};
+{jan_default|Bonjour petit. Laisse moi à mes lamentations.|||{{Que ce passe-t-il ?|jan_default2||||}{Désirez-vous en parler ?|jan_default2||||}{Entendu, au revoir.|X||||}}|};
+{jan_default2|Oh, c\'est tellement triste. Je ne veux vraiment pas en parler.|||{{Si, faites-le s\'il-vous-plait.|jan_default3||||}{D\'accord, au revoir.|X||||}}|};
+{jan_default3|Très bien, je pense que je peux t\'en parler. Tu me paraît être un brave petit.|||{{N|jan_default4||||}}|};
+{jan_default4|Mon ami Gandir, son ami Irogotu et moi même sommes venu ici creuser cette fosse. Nous avions entendu dire qu\'il y avait un trésor caché la dessous.|||{{N|jan_default5||||}}|};
+{jan_default5|Nous avons creusé et avons finalement débouché sur un dédale sous-terrain. C\'est à ce moment que nous les avons trouvés. Les créatures et les bestioles.|||{{N|jan_default6||||}}|};
+{jan_default6|Ah ces créatures. Satané bâtards. Ils m\'ont quasiment tué.\n\nGandir et moi avons dit à Irogotu que nous devions arrêter de creuser et partir pendant que nous le pouvions encore.|||{{N|jan_default7||||}}|};
+{jan_default7|Mais Irogotu voulait continuer plus profondément dans ces oubliettes. Lui et Gandir se sont disputés et ont commencés à se battre.|||{{N|jan_default8||||}}|};
+{jan_default8|C\'est à ce moment là que c\'est arrivé.\n\n*snif*\n\nOh qu\'avons nous fait ?|||{{Continuez s\'il-vous plait|jan_default9||||}}|};
+{jan_default9|Irogotu a tué Gandir de ses mains nues. On pouvait voir la fureur dans ses yeux. Il semblait presque y prendre plaisir.|||{{N|jan_default10||||}}|};
+{jan_default10|Je me suis enfui et n\'ai pas osé redescendre à cause des créatures et à cause d\'Irogotu lui-même.|||{{N|jan_default11||||}}|};
+{jan_default11|Ah ce satané Irogotu. Si seulement je pouvais l\'atteindre. Je lui montrerais de quel bois je me chauffe.|||{{Penses-tu que tu pourrais m\'aider ?|jan_default11_1||||}}|};
+{jan_default11_1|Penses-tu que tu pourrais m\'aider ?|||{{Bien sûr, s\'il y a un trésor sur lequel je pourrais mettre la main.|jan_default12||||}{bien sûr. Irogotu doit payer pour ce qu\'il a fait.|jan_default12||||}{Non, merci, je préfère ne pas me mêler à cela. Cela paraît dangereux.|X||||}}|};
+{jan_default12|Vraiment ? Tu penses que tu peux m\'aider ? Hmm, oui, tu pourrais peut-être y arriver. Méfies-toi de ces bestioles cependant, ce sont vraiment des bâtards coriaces.|jan:10||{{N|jan_default13||||}}|};
+{jan_default13|Si tu veux vraiment m\'aider, descend chercher Irogotu dans ce dédale et ramène-moi l\'anneau de Gandir.|||{{Entendu.|jan_default14||||}{Background|jan_background||||}{Au revoir.|X||||}}|};
+{jan_default14|Reviens me voir lorsque tu auras terminé. Ramène-moi l\'anneau de Gandir qu\'a Irogotu dans ce dédale.|||{{Ok, bye|X||||}}|};
+{jan_return|Re-bonjour petit. As-tu trouvé Irogotu dans ce dédale ?|||{{Non, pas encore.|jan_default14||||}{Pouvez-vous me raconter une nouvelle fois votre histoire ?|jan_background||||}{Oui, j\'ai tué Irogotu.|jan_complete||ring_gandir|1|}}|};
+{jan_background|N\'as tu pas écouté la première fois que je te l\'ai racontée ? Dois-je vraiment te la répéter une nouvelle fois ?|||{{Oui, s\'il-vous-plait, racontez moi à nouveau ce qui s\'est passé.|jan_default3||||}{Je n\'ai pas vraiment écouté la première fois que vous me l\'avez racontée. C\'est quoi cette histoire de trésor ?|jan_default4||||}{Non, c\'est bon, je m\'en souviens maintenant.|jan_default14||||}}|};
+{jan_complete2|Merci de t\'être occupé d\'Irogotu plus tôt ! Je suis à jamais ton débiteur.|||{{Au revoir.|X||||}}|};
+{jan_complete|Attends, quoi ? Tu es vraiment descendu et tu reviens vivant ? Comment as-tu réussi à faire cela ? Mince, je suis quasiment mort dans ces grottes.\n\nOh merci de tout cœur de m\'avoir rapporté l\'anneau de Gandir ! Maintenant, j\'ai un souvenir de lui.|jan:100||{{Je suis heureux d\'avoir pu vous aider. Au revoir.|X||||}{Que l\'Ombre soit avec vous. au revoir.|X||||}{Qu\'importe. Je ne l\'ai fait que pour le butin.|X||||}}|};
+
+{irogotu|Bien, qui voilà donc. Voici un nouvel aventurier qui vient pour me voler mon butin. C\'est MA CAVERNE. Ce trésor restera À MOI !|||{{Avez-vous tué Gandir ?|irogotu1|jan:10|||}}|};
+{irogotu1|Ce roquet de Gandir ? Il me gênait. Je me suis servi de lui pour pouvoir descendre plus profondément dans ces grottes.|||{{N|irogotu2||||}}|};
+{irogotu2|De toute façon, je ne l\'aimais pas beaucoup.|||{{Il méritait probablement de mourir. Portait-il un anneau ?|irogotu3||||}{Jan m\'a parlé d\'un anneau.|irogotu3||||}}|};
+{irogotu3|NON ! Tu ne l\'auras pas. Il est à moi ! Qui es-tu donc gamin, à venir me déranger ainsi ?|||{{Je ne suis plus un gamin ! Maintenant, donnez-moi cet anneau !|irogotu4||||}{Donnez-moi cet anneau et nous pourrions bien sortir tous les deux vivants de cet endroit.|irogotu4||||}}|};
+{irogotu4|Non. Si tu le veux, il faudra me le prendre de force, et je dois te prévenir que mes pouvoirs sont grands. De toute façon, tu n\'oseras probablement pas t\'attaquer à moi.|||{{Très bien, voyons de nous deux qui mourra.|F||||}{Par l\'Ombre, Gandir sera vengé.|F||||}}|};
+	</string>
+
+
+
+</resources>
