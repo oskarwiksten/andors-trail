@@ -1232,13 +1232,6 @@
 {prim_tavern_guest4_3|And it\'s all my fault. *sob*||||};
 	</string>
 
-	<string name="conversationlist_prim_houses">
-[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{prim_armorer|Hello. Welcome to my shop.|||{{Do you have anything to trade?|prim_armorer_1||||}}|};
-{prim_armorer_1|Yes, but I must tell you that my supply is not what it used to be, now that the southern mine entrance has collapsed. Far fewer traders come here to Prim now.|||{{Ok, let me see your wares.|S||||}}|};
-	</string>
-
-
 	<string name="conversationlist_prim_guthbered">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {guthbered_start||||{
@@ -1541,5 +1534,126 @@
 {herec_q4|Now I am able to create effective potions that contain some essence of the white wyrms. These potions will be very useful in future dealings with these monsters.|bwm_wyrms:30||{{N|herec_q5||||}}|};
 {herec_q5|Would you like to trade some potions?|||{{Sure. Let\'s see what you have.|S||||}}|};
 	</string>
+
+	<string name="conversationlist_prim_bjorgur">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bjorgur_start||||{
+	{|bjorgur_return_1|bjorgur_grave:50|||}
+	{|bjorgur_return_2|bjorgur_grave:15|||}
+	{|bjorgur_1||||}
+	}|};
+{bjorgur_return_1|Hello again, friend. Thank you for your assistance with my family grave earlier.||||};
+{bjorgur_return_2|Hello again. Have you investigated if anything has happened to my family grave?|||{
+	{No, not yet.|bjorgur_9||||}
+	{(Lie) I went to check on the grave. Everything seems to be normal. You must be imagining things.|bjorgur_return_3|bjorgur_grave:60|||}
+	{What was I supposed to do again?|bjorgur_3||||}
+	{Yes. I killed the intruder and restored the dagger to its original place.|bjorgur_complete_1|bjorgur_grave:40|||}
+	}|};
+{bjorgur_1|Hello there. You wouldn\'t happen to know anything a grave to the southwest of Prim would you?|||{
+	{I have been there. I met someone on one of the lower levels.|bjorgur_2|bjorgur_grave:30|||}
+	{What about it?|bjorgur_3||||}
+	{No, sorry.|bjorgur_3||||}
+	}|};
+{bjorgur_2|You have been there?|||{{N|bjorgur_3||||}}|};
+{bjorgur_3|My family grave is located in the tomb to the southwest of Prim right outside the Elm mine. I fear that something has disturbed the peace there.|||{{N|bjorgur_4||||}}|};
+{bjorgur_4|You see, my grandfather was very fond of a particular valuable dagger that our family used to possess. He wore it with him always.|||{{N|bjorgur_5||||}}|};
+{bjorgur_5|The dagger would of course attract treasure hunters, but up until now we seem to have been spared of this.|||{{N|bjorgur_6||||}}|};
+{bjorgur_6|Now I fear something has happened to the grave. I have not been sleeping well the last couple of nights, and I am sure this must be the cause.|bjorgur_grave:10||{{N|bjorgur_7||||}}|};
+{bjorgur_7|You wouldn\'t happen to want to go check on the grave and see what is happening over there?|||{
+	{Sure. I will go check on your parents grave.|bjorgur_8||||}
+	{A treasure you say? I\'m interested.|bjorgur_8||||}
+	{I have actually already been there and restored the dagger to its original place.|bjorgur_complete_2|bjorgur_grave:40|||}
+	}|};
+{bjorgur_8|Thank you. Please see if anything has happened to the grave, and what could be the cause of my nightly anxiety.|bjorgur_grave:15||{{N|bjorgur_9||||}}|};
+{bjorgur_return_3|Nothing you say? But I was sure something must have happened over there. Anyway. Thank you for checking it for me.||||};
+{bjorgur_9|Please hurry, and return here to tell me of your progress once you find out something.||||};
+{bjorgur_complete_1|An intruder? Oh thank you for dealing with this matter.|||{{N|bjorgur_complete_2||||}}|};
+{bjorgur_complete_2|You say you restored the dagger to it\'s original place? Thank you. Now I might be able to rest during the nights ahead.|||{{N|bjorgur_complete_3||||}}|};
+{bjorgur_complete_3|Thank you again. I\'m afraid I cant give you anything except my gratitude. You should go see my relatives in Feygard if you get the chance to travel up there.|bjorgur_grave:50|||};
+	</string>
+
+	<string name="conversationlist_prim_fulus">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bjorgur_bandit|Hey you! You shouldn\'t be here. This dagger is mine. Get out!|bjorgur_grave:30||{
+	{Fine. I will leave.|X||||}
+	{Hey, that\'s a nice looking dagger you have there.|F||||}
+	}|};
+{sign_bwm35||||{
+	{|sign_bwm35_1|bjorgur_grave:40|||}
+	{|sign_bwm35_2||||}
+	}|};
+{sign_bwm35_1|You see the remains of rusted equipment and rotten leather.||||};
+{sign_bwm35_2|You see the remains of rusted equipment and rotten leather. Something seems to have been recently removed from here since one place completely lacks dust.\n\nThe lack of dust looks distinctly dagger-shaped. There must have been a dagger here as well earlier that someone removed.|||{{Place the dagger back into its original place.|sign_bwm35_3||bjorgur_dagger|1|}}|};
+{sign_bwm35_3|You place the dagger back among the equipment, where it looks like it used to be.|bjorgur_grave:40|||};
+{fulus_start||||{
+	{|fulus_return_1|bjorgur_grave:60|||}
+	{|fulus_return_2|bjorgur_grave:20|||}
+	{|fulus_1||||}
+	}|};
+{fulus_return_1|Hello again, friend. Thank you for your assistance in obtaining that dagger earlier.||||};
+{fulus_return_2|Hello again. Have you been able to retrieve that dagger from Bjorgur\'s family grave yet?|||{
+	{No, not yet.|fulus_9||||}
+	{I decided to help Bjorgur instead.|fulus_return_3|bjorgur_grave:40|||}
+	{What was I supposed to do again?|fulus_3||||}
+	{Yes. Here it is.|fulus_complete_1||bjorgur_dagger|1|}
+	}|};
+{fulus_return_3|What?! Sigh. Stupid kid. That dagger is worth a fortune. We could have been rich! Rich I tell you!||||};
+{fulus_1|Hello there. You seem like just the type of person I am looking for.|||{{N|fulus_2||||}}|};
+{fulus_complete_1|Oh wow, you actually managed to get the dagger? Thank you kid. This is worth a lot. Here, take these coins as compensation for your efforts!|bjorgur_grave:60|fulus_reward|{{N|fulus_complete_2||||}}|};
+{fulus_complete_2|Thank you again. Now, let\'s see.. how much should we sell this dagger for..||||};
+{fulus_2|Would you be interested in hearing about a business proposal I have?|||{
+	{Sure. What is the proposal?|fulus_3||||}
+	{If it leads to something for me to gain, then sure.|fulus_3||||}
+	{I couldn\'t possibly think you would have anything worthwhile to offer me, but let\'s hear it anyways.|fulus_3||||}
+	}|};
+{fulus_3|For some time, I have known about a certain valuable dagger that a certain family used to possess here in Prim.|||{{N|fulus_4||||}}|};
+{fulus_9|Now hurry up. I really need that dagger soon.||||};
+{fulus_4|This dagger is extermely valuable to me, for personal reasons.|||{
+	{I don\'t like where this is going. I better not get involved in your shady business.|fulus_5||||}
+	{I like where this is going, please continue.|fulus_6||||}
+	{Tell me more.|fulus_6||||}
+	}|};
+{fulus_5|Fine. Suit yourself, you goody two-shoes.||||};
+{fulus_6|The family in question is Bjorgur\'s family.|||{{N|fulus_7||||}}|};
+{fulus_7|Now, I happen to know that this particular dagger can be found in their family tomb that has been opened by other .. people .. recently.|||{{N|fulus_8||||}}|};
+{fulus_8|What I want is simple. You go get that dagger and bring it to me, and I will reward you handsomely.|||{
+	{Sounds easy enough. I\'ll do it.|fulus_10||||}
+	{No, I had better not get involved in your shady business.|fulus_5||||}
+	}|};
+{fulus_10|Good. Return to me once you have it. Maybe you can talk to Bjorgur about directions to the tomb. His house is just outside here in Prim. Just don\'t mention anything about our plan to him!|bjorgur_grave:20||{{N|fulus_9||||}}|};
+	</string>
+
+	<string name="conversationlist_prim_merchants">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{prim_armorer||||{
+	{|prim_armorer_1|prim_hunt:240|||}
+	{|prim_armorer_2||||}
+	}|};
+{prim_armorer_1|Welcome friend! Would you like to see what equipment I have available?|||{{Sure. Show me what you have.|prim_armorer_3||||}}|};
+{prim_armorer_2|Welcome traveller. Have you come to ask for help from me and the equipment I sell?|||{{N|prim_notrust||||}}|};
+{prim_armorer_3|I must tell you that my supply is not what it used to be, now that the southern mine entrance has collapsed. Far fewer traders come here to Prim now.|||{{Ok, let me see your wares.|S||||}}|};
+{prim_notrust|Regardless, I cannot help you. My services are only for residents of Prim. And I don\'t trust you enough yet. You might be a spy from the Blackwater Mountain settlement.||||};
+{prim_tailor|Welcome traveller, what can I do for you?|||{{Let me see what you have available to sell.|prim_tailor_1||||}}|};
+{prim_tailor_1|Sell? I\'m sorry, my supply is all out. Now that the traders do not come here any more, I don\'t get my regular shipments. So at the moment, I have nothing to trade with you unfortunately.||||};
+
+{guthbered_guard|Talk to the boss instead.||||};
+
+{prim_guard1|What are you looking at? These weapons in the crates over here are only for us guards.||||};
+{prim_guard2|(The guard looks down on you with a condescending look)||||};
+{prim_guard3|Oh, I am so tired. When will we ever get to rest?||||};
+{prim_guard4|Can\'t talk now. I\'m on guard duty. Talk to Guthbered over there.||||};
+{prim_treasury_guard|See these bars? They will hold for almost anything.||||};
+{prim_acolyte|When my training is complete, I will be one of greatest healers around!||||};
+{prim_pupil1|Can\'t you see I\'m trying to read over here? Talk to me in a while and I might be interested.||||};
+{prim_pupil2|Can\'t talk now, I have work to do.||||};
+{prim_pupil3|Are you that one I heard about? No, you can\'t be. I imagined someone taller.||||};
+{prim_priest||||{
+	{|prim_priest_1|prim_hunt:240|||}
+	{|prim_priest_2||||}
+	}|};
+{prim_priest_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?|||{{Sure. Show me what you have.|S||||}}|};
+{prim_priest_2|Welcome traveller. Have you come to ask for help from me and my potions?|||{{N|prim_notrust||||}}|};
+{sheep|Baah!||||};
+</string>
 
 </resources>

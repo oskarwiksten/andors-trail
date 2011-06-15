@@ -163,13 +163,15 @@ public final class ResourceLoader {
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_outside));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_inn));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_tavern));
-	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_houses));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_guthbered));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_signs));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_harlenn));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_upper));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_lower));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_herec));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_bjorgur));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_fulus));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_merchants));
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();

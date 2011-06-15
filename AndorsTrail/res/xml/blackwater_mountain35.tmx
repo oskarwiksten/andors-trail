@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAN+MeMiXGpA4F+dlQ+LnW4+Mji04FmubMRbx4/O351xPiDWgAAupATqg==
+   eJxjYKAN+MeMiXGpA4F+dlS+PzN2dbj4yOLTgWa5sxFWBwP87PjVEeMPagEACgwT/A==
   </data>
  </layer>
  <layer name="Above" width="10" height="10">
@@ -75,8 +75,14 @@
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="container_blackwater35" type="container" x="96" y="160" width="32" height="32"/>
+  <object name="sign_bwm35" type="sign" x="96" y="160" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="10"/>
+ <objectgroup name="Spawn" width="10" height="10">
+  <object name="bjorgur_bandit" type="spawn" x="160" y="96" width="64" height="128">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="10" height="10"/>
 </map>
