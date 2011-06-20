@@ -50,17 +50,17 @@
  </tileset>
  <layer name="Ground" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJzFkEEKwCAMBFPb3/UxfYHkM177xxLK4lJiDF56GCRrBmXbJtIG3Mf4Dlylw7O5Xo7Z0NLh2VwvV3JPEan7e+KvX7AH2OUscnlecaN3Rz3PXO6SezZmLnfJPWvCZbDnZRnXI+NG/O2u8gCZi27J
+   eJzFkbENgDAMBE1gO4ZhApRl0lLBBmEwsMgrL2QFQ0Nxwn79CWRSJ7ITieZlsHPs28kUKpl2dTFbPc1iqGTa1cVs9TQbRWTur2cu33oHPcAuZy0X+1e39d61oD3MHpdvyXdWnly+Jd85OlwGPSvzuBYet8WfbqL/+Qb1DmuLdIU=
   </data>
  </layer>
  <layer name="Objects" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYKAMmLOj8jezE6cOBNxxqCVFHTORZmADySzEqfNnJt8OZMDCTryd6GAjK/n2XqRA7342BgZ7pDC+SkJ4n2fDFFuFRQyXvTAAs59Yvdjs3QUVu4zmfnT+QAAA9bsNBA==
+   eJxjYKAMmLOj8jezE6cOBNxxqCVFHTORZmAD9kTq9Wcm3w5kwAK0L5mFPL0bWcm39yIFevezoYbTVRLC+zwbptgqLGK47IUBmP3E6sVm7y6o2GU096PzBwIAAKIwDOM=
   </data>
  </layer>
  <layer name="Above" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYMAN/jPjkURSk8nOwGDBjuBvZkfQm9mxq4OJ5QKxB5IaEHiPZi9M3IMdU4yQW7GJg8Tq2MjXS4m9IGDPjilHjF5RqD5ltHAFARD/BzNhN0dA9c1iwwxndD4ut6xiwxTDBohJP+TovcKOn08re2kFAO3PKo0=
+   eJxjYMAN/jPjkURSk8nOwGDBjuBvZkfQm9mxq4OJ5QKxB5IaEHiPZi9M3IMdU4yQW7GJg8Tq2BgYklnI00uJvcQAXHpFof5XRgtXEADxfzATtjcCqm8WG2Y4o/NxuWUVG37349NLLMCn9wo7fj6t7KUVAABiOSqu
   </data>
  </layer>
  <layer name="Walkable" width="15" height="15" visible="0">
@@ -81,6 +81,7 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="sign_blackwater45" type="sign" x="96" y="128" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="15" height="15">
   <object name="blackwater_throneguard" type="spawn" x="224" y="224" width="32" height="32">
@@ -88,17 +89,17 @@
     <property name="respawn" value="false"/>
    </properties>
   </object>
-  <object name="blackwater_bossguard" type="spawn" x="96" y="256" width="32" height="32">
+  <object name="blackwater_bossguard" type="spawn" x="64" y="256" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>
    </properties>
   </object>
-  <object name="blackwater_bossguard" type="spawn" x="64" y="320" width="32" height="32">
+  <object name="blackwater_bossguard" type="spawn" x="64" y="384" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>
    </properties>
   </object>
-  <object name="harlenn" type="spawn" x="64" y="256" width="32" height="32">
+  <object name="harlenn" type="spawn" x="64" y="320" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>
    </properties>

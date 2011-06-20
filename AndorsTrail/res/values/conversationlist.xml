@@ -921,8 +921,8 @@
 {wrye_return_1|Welcome back. Have you found out anything about my son, Rincel?|||{{Can you tell me the story about what happened again?|wrye_mourn_5||||}{No, I have not found anything yet.|wrye_story_14||||}{Yes, I have found out the story about what happened to him.|wrye_resolved_1|wrye:80|||}}|};
 {wrye_return_2|Welcome back. Thank you for your help in finding out what happened to my son.|||{{Shadow be with you.|wrye_story_15||||}{You are welcome.|wrye_story_15||||}}|};
 {wrye_mourn_1|Shadow help me.|||{{What is the matter?|wrye_mourn_2||||}}|};
-{wrye_mourn_2|My son! My son is gone.|||{{Jolner said I should see you about your son.|wrye_mourn_5|wrye:10|||}{What about him?|wrye_mourn_3||||}}|};
-{wrye_mourn_3|I don\'t want to talk about it. Not with an outsider like you.|||{{Outsider?|wrye_mourn_4||||}{Jolner said I should see you about your son.|wrye_mourn_5|wrye:10|||}}|};
+{wrye_mourn_2|My son! My son is gone.|||{{Jolnor said I should see you about your son.|wrye_mourn_5|wrye:10|||}{What about him?|wrye_mourn_3||||}}|};
+{wrye_mourn_3|I don\'t want to talk about it. Not with an outsider like you.|||{{Outsider?|wrye_mourn_4||||}{Jolnor said I should see you about your son.|wrye_mourn_5|wrye:10|||}}|};
 {wrye_mourn_4|Please leave me.\n\nOh Shadow, watch over me.||||};
 {wrye_mourn_5|My son is dead, I know it! And it\'s those damn guards fault. Those guards with their snobby Feygard attitude.|||{{N|wrye_mourn_6||||}}|};
 {wrye_mourn_6|At first they come with promises of protection and power. But then you really start to see them for what they are.|||{{N|wrye_mourn_7||||}}|};
@@ -1087,7 +1087,7 @@
 {bwm_agent_6_2|Oh yes. In fact, our Blackwater mountain settlement is just down these stairs.|||{{N|bwm_agent_6_4||||}}|};
 {bwm_agent_6_3|Go ahead, I will meet you inside.|||{{Ok, see you inside.|R||||}}|};
 {bwm_agent_6_0|We meet again. Well done fighting your way up here.|||{{N|bwm_agent_6_1||||}}|};
-{bwm_agent_6_4|You should go down these stairs and talk to our leader, Harlenn. He can usually be found at the third level down.|bwm_agent:60||{{N|bwm_agent_6_3||||}}|};
+{bwm_agent_6_4|You should go down these stairs and talk to our battlemaster, Harlenn. He can usually be found at the third level down.|bwm_agent:60||{{N|bwm_agent_6_3||||}}|};
 {bwm_agent_6_5|Yes, you seem like an able fighter.|||{{Are we there yet?|bwm_agent_6_2||||}}|};
 {bwm_agent_6_6|I learned some shortcuts up and down the mountain a while back. Nothing strange about that right?|||{{N|bwm_agent_6_7||||}}|};
 {bwm_agent_6_7|Anyway, we are right at the settlement now. In fact, our Blackwater mountain settlement is just down these stairs.|||{{N|bwm_agent_6_4||||}}|};
@@ -1235,18 +1235,35 @@
 	<string name="conversationlist_prim_guthbered">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {guthbered_start||||{
+	{|guthbered_sentbybwm_leave|bwm_agent:131|||}
+	{|guthbered_sentbybwm_fight|bwm_agent:130|||}
+	{|guthbered_sentbybwm_1|bwm_agent:120|||}
+	{|guthbered_reject|prim_hunt:251|||}
+	{|guthbered_reject|prim_hunt:250|||}
+	{|guthbered_completed|prim_hunt:100|||}
+	{|guthbered_workingforbwm_2|bwm_agent:95|||}
+	{|guthbered_killharl_1|prim_hunt:80|||}
+	{|guthbered_lookforsigns_1|prim_hunt:50|||}
 	{|guthbered_return_1_1|prim_hunt:25|||}
 	{|guthbered_1||||}
 	}|};
-{guthbered_return_1_1|Welcome back, traveller. What can I do for you?|||{
+{guthbered_reject|You again? Leave this place and go to your friends up in the Blackwater Mountain settlement instead. We want no business with you.|||{
+	{I am here to give you a message from the Blackwater Mountain settlement.|guthbered_attacks|bwm_agent:70|||}
+	}|};
+{guthbered_attacks|What message?|||{{Harlenn in the Blackwater Mountain settlement wants you to stop your attacks on their settlement.|guthbered_attacks_1||||}}|};
+{guthbered_attacks_1|That completely insane. We!? Stop OUR attacks?! You tell him that we have nothing to do with what happens up there. They have brought their own misfortune upon themselves.|bwm_agent:80|||};
+{guthbered_return_1_1|Welcome back, traveller. Did you talk to Harlenn up in the Blackwater Mountain settlement?|||{
 	{Can you tell me the story about the monsters again?|guthbered_13||||}
 	{What was I supposed to do again?|guthbered_29||||}
 	{Can you tell me the story about Prim again?|guthbered_2||||}
+	{Yes, but Harlenn denies that they have anything to do with the attacks.|guthbered_talkedto_harl_1|prim_hunt:30|||}
+	{Actually, I am here to give you a message from the Blackwater Mountain settlement.|guthbered_attacks|bwm_agent:70|||}
 	}|};
 {guthbered_1|Welcome to Prim, traveller.|||{
 	{What can you tell me about Prim?|guthbered_2||||}
 	{Who are you?|guthbered_who_1||||}
 	{I was told to see you about helping against the monster attacks.|guthbered_20|prim_hunt:11|||}
+	{Actually, I am here to give you a message from the Blackwater Mountain settlement.|guthbered_attacks|bwm_agent:70|||}
 	}|};
 {guthbered_2|Prim began as a simple camp for the miners that worked in the mines around here. Later it grew to a settlement, and a few years back we even got a tavern and an inn here.|||{{N|guthbered_3||||}}|};
 {guthbered_3|This place used to be full of life when the miners worked here.|||{{N|guthbered_4||||}}|};
@@ -1305,8 +1322,87 @@
 {guthbered_27|Did he say anything about us here in Prim?|||{{No. But he insisted that I go straight east when exiting the mine, thus not reaching Prim.|guthbered_28||||}}|};
 {guthbered_28|That figures. They send out their spies even now.|||{{Do you need any help in dealing with those monsters?|guthbered_23||||}}|};
 {guthbered_29|As I said, we believe those bastards up at the Blackwater Mountain settlement are behind the monster attacks somehow.|||{{N|guthbered_30||||}}|};
-{guthbered_30|I want you to go up there to their settlement and ask their leader, Harlenn, why they are doing this to us.|prim_hunt:25||{{Ok, I will go ask Harlenn in the Blackwater Mountain settlement why they are attacking your village.|guthbered_31||||}}|};
+{guthbered_30|I want you to go up there to their settlement and ask their battlemaster, Harlenn, why they are doing this to us.|prim_hunt:25||{{Ok, I will go ask Harlenn in the Blackwater Mountain settlement why they are attacking your village.|guthbered_31||||}}|};
 {guthbered_31|Thank you friend.|prim_hunt:25|||};
+
+
+{guthbered_talkedto_harl_1|What did I expect? Of course he would say that. He probably even denies it to himself. Meanwhile, we here in Prim suffer from their savage raids.|||{{N|guthbered_talkedto_harl_2||||}}|};
+{guthbered_talkedto_harl_2|I am sure they are behind these attacks. However, I do not have sufficient evidence to back up my statements in order to do anything about it.|||{{N|guthbered_talkedto_harl_3||||}}|};
+{guthbered_talkedto_harl_3|But I am sure they are! As false as they are, they must be. Always lying and deceiving. Causing destruction and turmoil.|prim_hunt:40||{{N|guthbered_talkedto_harl_4||||}}|};
+{guthbered_talkedto_harl_4|Just listen to the name they have chosen for themselves: \'Blackwater\'. The tone of it sounds like trouble.|||{{N|guthbered_talkedto_harl_5||||}}|};
+{guthbered_talkedto_harl_5|Anyway. I would like to get some further evidence on what they are up to. Maybe something you can help us with.|||{{N|guthbered_talkedto_harl_6||||}}|};
+{guthbered_talkedto_harl_6|But I need to be sure that I can trust you. If you are working for them, you had better tell me now before things get .. messy.|||{
+	{Sure, you can trust me. I will help the people of Prim.|guthbered_talkedto_harl_8||||}
+	{Hm, maybe I should help the people up in Blackwater Mountain instead.|guthbered_workingforbwm_1||||}
+	{(Lie) You can trust me.|guthbered_talkedto_harl_7|bwm_agent:70|||}
+	}|};
+{guthbered_talkedto_harl_7|Yet somehow I do not trust you.|||{
+	{I was working for them, but I have decided to help you instead.|guthbered_talkedto_harl_8||||}
+	{Why would I ever want to work for your filthy village? The people in the Blackwater Mountain settlement deserve my help more than you.|guthbered_workingforbwm_1||||}
+	}|};
+{guthbered_talkedto_harl_8|Good. I\'m glad you want to help us.|||{{N|guthbered_talkedto_harl_9||||}}|};
+{guthbered_workingforbwm_1|Fine. You should leave now while you still can, traitor.|prim_hunt:250|||};
+{guthbered_talkedto_harl_9|I want you to go up there in their settlement and find any clues as to what they are planning.|||{{N|guthbered_talkedto_harl_10||||}}|};
+{guthbered_talkedto_harl_10|We believe they are training their fighters to launch a larger raid on us soon.|||{{N|guthbered_talkedto_harl_11||||}}|};
+{guthbered_talkedto_harl_11|Go look for any plans that you might find. But make sure that they do not see you while looking around.|||{{N|guthbered_talkedto_harl_12||||}}|};
+{guthbered_talkedto_harl_12|You should probably start your search around where their battlemaster, Harlenn, stays.|||{{Ok. I will look for clues in their settlement.|guthbered_talkedto_harl_13||||}}|};
+{guthbered_talkedto_harl_13|Thank you, friend. Report back to me with your findings.|prim_hunt:50|||};
+{guthbered_lookforsigns_1|Hello again. Did you find anything up in the Blackwater Mountain settlement?|||{
+	{No, I am still looking.|guthbered_talkedto_harl_13||||}
+	{What was I supposed to do again?|guthbered_talkedto_harl_9||||}
+	{Yes, I found some papers with a plan to attack Prim.|guthbered_lookforsigns_2||||}
+	}|};
+{guthbered_lookforsigns_2|Then it is as we suspected. This is terrible news indeed.|||{{N|guthbered_lookforsigns_3||||}}|};
+{guthbered_lookforsigns_3|Now you know what I was talking about. They are always looking to cause trouble.|||{{N|guthbered_lookforsigns_4||||}}|};
+{guthbered_lookforsigns_4|Thank you for finding this information for us.|prim_hunt:70||{{N|guthbered_lookforsigns_5||||}}|};
+{guthbered_lookforsigns_5|Very well. We will have to deal with this.|||{{N|guthbered_lookforsigns_6||||}}|};
+{guthbered_lookforsigns_6|I had hoped it would not come to this. But we are left with no choice. We must remove their main driving force behind the raids. We must remove their battlemaster, Harlenn.|||{{N|guthbered_lookforsigns_7||||}}|};
+{guthbered_lookforsigns_7|This would be an excellent task for you my friend. Since you have access to their facilities, you can sneak in and kill that bastard Harlenn.|||{{N|guthbered_lookforsigns_8||||}}|};
+{guthbered_lookforsigns_8|By killing him, we can be sure that their attacks will .. shall we say .. lose their teeth. He he.|||{
+	{No problem, he is as good as dead.|guthbered_lookforsigns_9||||}
+	{Are you sure more violence will really solve this conflict?|guthbered_lookforsigns_10||||}
+	}|};
+{guthbered_lookforsigns_9|Excellent. Return to me once he is dead.|prim_hunt:80|||};
+{guthbered_lookforsigns_10|No, not really. But for now, it looks like the only option we have.|||{
+	{I will remove him, but I will try to find a peaceful solution to this.|guthbered_lookforsigns_9||||}
+	{Very well. He is as good as dead.|guthbered_lookforsigns_9||||}
+	}|};
+{guthbered_workingforbwm_2|My sources from inside the Blackwater Mountain settlement tell me you are working for them.|||{{N|guthbered_workingforbwm_3||||}}|};
+{guthbered_workingforbwm_3|It is, of course, your choice. But if you are working for them, you are not welcome here in Prim. You should leave quickly, while you still can.|prim_hunt:251|||};
+{guthbered_completed|Hello again my friend. Thank you for your help in dealing with the bandits up in Blackwater Mountain.|||{{N|guthbered_completed_1||||}}|};
+{guthbered_completed_1|I am sure everyone here in Prim will want to talk to you now.|prim_hunt:240||{{N|guthbered_completed_2||||}}|};
+{guthbered_completed_2|Thank you again for your help.||||};
+{guthbered_sentbybwm_1|The glow in your eyes frightens me.|||{
+	{I am sent by the Blackwater Mountain settlement to stop you.|guthbered_sentbybwm_fight||||}
+	{I am sent by the Blackwater Mountain settlement to stop you. However, I have decided not to kill you.|guthbered_sentbybwm_3||||}
+	}|};
+{guthbered_sentbybwm_fight|I had hoped it would not come to this. You will not survive this encounter I am afraid. Yet another life on my hands.|bwm_agent:130||{
+	{For the Shadow!|F||||}
+	{Brave words, let\'s see if you can back them up with anything.|F||||}
+	{Great, I have been longing to kill you.|F||||}
+	{Let\'s fight!|F||||}
+	}|};
+{guthbered_sentbybwm_3|How interesting... Please continue.|||{{It\'s obvious that this conflict will only end in more bloodshed. And that should stop here.|guthbered_sentbybwm_4||||}}|};
+{guthbered_sentbybwm_4|What are you proposing?|||{{My proposal is that you leave this village and find a new home somewhere else.|guthbered_sentbybwm_5||||}}|};
+{guthbered_sentbybwm_5|Now why would I want to do that?|||{{These two towns will always fight each other. By you leaving, they will think they have won, and stop their attacks.|guthbered_sentbybwm_6||||}}|};
+{guthbered_sentbybwm_6|Hm, you might have a point there.|||{{N|guthbered_sentbybwm_7||||}}|};
+{guthbered_sentbybwm_7|Ok, you have convinced me. I will leave Prim for another town. The survival of my people here is more important than me.|||{{N|guthbered_sentbybwm_leave||||}}|};
+{guthbered_sentbybwm_leave|Thank you friend, for talking some sense into me.|bwm_agent:131||{{You are welcome.|R||||}}|};
+
+{guthbered_killharl_1|Hello again. Did you manage to remove that bastard battlemaster Harlenn from the Blackwater Mountain settlement?|||{
+	{Can you tell me again what I was supposed to do?|guthbered_lookforsigns_6||||}
+	{Not yet. I am still working on it.|guthbered_lookforsigns_9||||}
+	{Yes, he is dead.|guthbered_killharl_2||harlenn_id|1|}
+	{Yes, he is gone.|guthbered_killharl_3|prim_hunt:91|||}
+	}|};
+{guthbered_killharl_2|While I am grateful for this news in knowing that he is dead, I am also saddened that it had to come to this.|||{{N|guthbered_killharl_4||||}}|};
+{guthbered_killharl_3|Really? This is great news indeed.|||{{N|guthbered_killharl_4||||}}|};
+{guthbered_killharl_4|This will hopefully mean that their attacks on our village will cease.|||{{N|guthbered_killharl_5||||}}|};
+{guthbered_killharl_5|I do not know how to thank you enough my friend.|||{{N|guthbered_killharl_6||||}}|};
+{guthbered_killharl_6|Here, please accept these few items as some form of compensation for your help. Also, take this piece of paper that we have acquired.|prim_hunt:100|guthbered_reward|{{N|guthbered_killharl_7||||}}|};
+{guthbered_killharl_7|This is a permit that we have .. produced .. , that according to our sources, will allow you to enter their inner chamber in the Blackwater Mountain settlement.|||{{N|guthbered_killharl_8||||}}|};
+{guthbered_killharl_8|Now, the permit is not .. shall we say .. completely genuine. But we are certain that the guards won\'t notice any difference.|||{{N|guthbered_killharl_9||||}}|};
+{guthbered_killharl_9|Anyway, you have my greatest thanks for the assistance that you have provided for us.|||{{N|guthbered_completed_1||||}}|};
 	</string>
 
 	<string name="conversationlist_blackwater_signs">
@@ -1350,12 +1446,38 @@
 {keyarea_bwm_agent_60|You must talk to the man before proceeding further.||||};
 {sign_blackwater50_left|This leads out into the wilderness outside Prim.||||};
 {sign_blackwater50_right|This leads back into the Blackwater Mountain settlement.||||};
+
+{sign_blackwater29||||{
+	{|sign_blackwater29_qstarted|bwm_agent:95|||}
+	{|sign_blackwater29_notstarted||||}
+	}|};
+{sign_blackwater29_qstarted|You try to sneak as much as possible, to not gain any attention from the guards while searching through the stack of papers.|||{{N|sign_blackwater29_qstarted_1||||}}|};
+{sign_blackwater29_notstarted|The guard shouts at you:\n\nHey you! Get away from there!||||};
+{sign_blackwater29_qstarted_1|Among the papers, you find plans for recruiting mercenaries for Prim and training fighters for a larger attack on the Blackwater Mountain settlement.|bwm_agent:100||{{N|sign_blackwater29_qstarted_2||||}}|};
+{sign_blackwater29_qstarted_2|This must be the information that Harlenn wants.||||};
+
+{sign_blackwater45||||{
+	{|sign_blackwater45_qstarted|prim_hunt:50|||}
+	{|sign_blackwater45_notstarted||||}
+	}|};
+{sign_blackwater45_qstarted|You try to sneak as much as possible, to not gain any attention from the guard while searching through the stack of papers.|||{{N|sign_blackwater45_qstarted_1||||}}|};
+{sign_blackwater45_notstarted|As soon as you step near the table, the guard shouts at you:\n\nHey you! Get away from there!||||};
+{sign_blackwater45_qstarted_1|Among the papers, you find what seems to be plans for training fighters, and plans for an attack on what looks like Prim.|prim_hunt:60||{{N|sign_blackwater45_qstarted_2||||}}|};
+{sign_blackwater45_qstarted_2|This must be the information that Guthbered wants.||||};
 	</string>
 
 	<string name="conversationlist_blackwater_harlenn">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {harlenn_start||||{
+	{|harlenn_sentbyprim_8|prim_hunt:91|||}
+	{|harlenn_sentbyprim_2|prim_hunt:90|||}
+	{|harlenn_sentbyprim_1|prim_hunt:80|||}
+	{|harlenn_return_1|bwm_agent:251|||}
 	{|harlenn_return_1|bwm_agent:250|||}
+	{|harlenn_completed|bwm_agent:150|||}
+	{|harlenn_workingforprim_1|prim_hunt:50|||}
+	{|harlenn_killguth_1|bwm_agent:120|||}
+	{|harlenn_lookforsigns_1|bwm_agent:95|||}
 	{|harlenn_return_3|bwm_agent:70|||}
 	{|harlenn_return_2|bwm_agent:65|||}
 	{|harlenn_1||||}
@@ -1363,8 +1485,8 @@
 {harlenn_1|Welcome, traveller.|||{{N|harlenn_2||||}}|};
 {harlenn_2|You must be the newcomer that traveled up the mountain side that I heard about.|||{{N|harlenn_3||||}}|};
 {harlenn_3|We need your help in dealing with some .. problems.|||{{Who are you?|harlenn_4||||}}|};
-{harlenn_4|Oh sorry, I did not introduce myself properly. I am Harlenn, leader of the people living in this mountain settlement.|||{{I was told to see you by the guide that led me up the mountain.|harlenn_5||||}}|};
-{harlenn_5|Oh yes, we are lucky he found you. You see, usually we seldom travel that far down the mountain.|||{{N|harlenn_6||||}}|};
+{harlenn_4|Oh sorry, I did not introduce myself properly. I am Harlenn, battlemaster of the people living in this mountain settlement.|||{{I was told to see you by the guide that led me up the mountain.|harlenn_5||||}}|};
+{harlenn_5|Oh yes, we are lucky he found you. You see, we seldom travel that far down the mountain.|||{{N|harlenn_6||||}}|};
 {harlenn_6|Most of the time, we spend in the settlement or up here on the mountain.|||{{N|harlenn_7||||}}|};
 {harlenn_7|However, recent event have forced us to send for help. We are lucky you found us.|||{
 	{What problems are you referring to?|harlenn_8||||}
@@ -1394,9 +1516,13 @@
 {harlenn_18|Why, yes. Of course. If you are up to it.|||{{N|harlenn_19||||}}|};
 {harlenn_19|Considering you made it up here alive, I\'m pretty sure you can handle yourself.|||{{N|harlenn_20||||}}|};
 {harlenn_prim_1|We?! Hah! It figures he would say that. They are always lying and cheating to get things their way. We have certainly not attacked them!|||{{N|harlenn_prim_2||||}}|};
-{harlenn_prim_2|It is, of course, *they* who are the ones causing all the trouble.|||{{N|harlenn_prim_3||||}}|};
-{harlenn_prim_3|They even captured one of our fellow scouts. Who knows what they have done to him.|||{{N|harlenn_prim_4||||}}|};
-{harlenn_prim_4|I\'m telling you, they are treacherous and lying!|prim_hunt:30||{
+{harlenn_prim_2|It is, of course, *they* who are the ones causing all the trouble.|prim_hunt:30||{{N|harlenn_prim_3||||}}|};
+{harlenn_prim_3|They even captured one of our fellow scouts. Who knows what they have done to him.|||{{N|harlenn_prim_3_1||||}}|};
+{harlenn_prim_3_1||||{
+	{|X|bwm_agent:90|||}
+	{|harlenn_prim_4||||}
+	}|};
+{harlenn_prim_4|I\'m telling you, they are treacherous and lying!|||{
 	{Sure, I believe you. What do you need from me?|harlenn_prim_6||||}
 	{What would I gain by helping you instead of them?|harlenn_prim_5||||}
 	{I\'m not buying this. I think I would rather help the people of Prim than you people.|harlenn_prim_7||||}
@@ -1421,7 +1547,82 @@
 {harlenn_return_3|Welcome back, traveller. Did you talk to that deceiving Guthbered down in Prim?|||{
 	{What was I supposed to do again?|harlenn_20||||}
 	{No, not yet.|harlenn_22||||}
+	{Yes, I talked to him. He denies that they are behind any of the attacks.|harlenn_talkedto_guth_1|bwm_agent:80|||}
+	{I talked to Guthbered in Prim. They say you are the ones doing the attacks, and that you are behind the Gornaud attacks on Prim.|harlenn_prim_1|prim_hunt:25|||}
 	}|};
+{harlenn_workingforprim_1|My scouts have given me a most interesting report. They say you are working for Prim.|||{{N|harlenn_workingforprim_2||||}}|};
+{harlenn_workingforprim_2|Of course we can\'t have that here. We can\'t have a spy in our midsts. You should leave our settlement while you still can, traitor.|bwm_agent:251|||};
+
+{harlenn_completed|Thank you, friend. Your help is greatly appreciated. Everyone in the Blackwater Mountain settlement will want to talk to you now.|bwm_agent:240||{{N|harlenn_completed_1||||}}|};
+{harlenn_completed_1|I\'m sure the monster attacks will stop now when we kill the last few monsters that are outside the settlement.||||};
+{harlenn_talkedto_guth_1|He denies it?! Bah, that treacherous fool. I should have known that he wouldn\'t dare tell the truth.|||{{N|harlenn_talkedto_guth_2||||}}|};
+{harlenn_talkedto_guth_2|I am still sure that they somehow are behind all these attacks on us. Who else could there be? There are no other settlements around here for quite a walk.|||{{N|harlenn_talkedto_guth_3||||}}|};
+{harlenn_talkedto_guth_3|Besides, they have always been treacherous. No, of course they are behind the attacks.|bwm_agent:90||{{N|harlenn_talkedto_guth_4||||}}|};
+{harlenn_talkedto_guth_4|Ok, this leaves us with no choice. We will have to step this up to another level.|||{{N|harlenn_talkedto_guth_5||||}}|};
+{harlenn_talkedto_guth_5|Are you sure you are up to it? You are not one of their spies are you? If you are working for them, then you should know that they are not to be trusted!|||{
+	{I am ready for anything. I will help your settlement.|harlenn_talkedto_guth_7||||}
+	{Actually, now that you mention it...|harlenn_talkedto_guth_6|prim_hunt:25|||}
+	{Yes, I am working for Prim also. They seem like sensible people.|harlenn_prim_7|prim_hunt:25|||}
+	}|};
+{harlenn_talkedto_guth_6|What? Are you working for them or not?|||{
+	{No, nevermind. I am ready to help your settlement.|harlenn_talkedto_guth_7||||}
+	{I was. But I have decided to help you instead.|harlenn_talkedto_guth_7||||}
+	{Yes. I am helping them get rid of you people.|harlenn_prim_7||||}
+	}|};
+{harlenn_talkedto_guth_7|Good.|||{{N|harlenn_talkedto_guth_8||||}}|};
+{harlenn_talkedto_guth_8|We believe they are planning to attack us any day now. But we lack any proof that we would need to do anything about it.|||{{N|harlenn_talkedto_guth_9||||}}|};
+{harlenn_talkedto_guth_9|This is where I think an outsider like you might help.|||{{N|harlenn_talkedto_guth_10||||}}|};
+{harlenn_talkedto_guth_10|I want you to go investigate Prim for any signs that you might find of them preparing an attack on us.|||{{Sure, sounds easy.|harlenn_talkedto_guth_11||||}}|};
+{harlenn_talkedto_guth_11|Good. Try not to be seen. You should go look for any clues around where that deceiving Guthbered stays.|bwm_agent:95|||};
+
+{harlenn_lookforsigns_1|Hello again. Did you find any clues in Prim that they are planning to attack us?|||{
+	{No, not yet.|harlenn_lookforsigns_2||||}
+	{Yes. I found plans that they are recruiting mercenaries and will attack your settlement.|harlenn_lookforsigns_3|bwm_agent:100|||}
+	{What was I supposed to do again?|harlenn_talkedto_guth_8||||}
+	}|};
+{harlenn_lookforsigns_2|Keep looking. I am sure they are planning something wicked.||||};
+{harlenn_lookforsigns_3|I knew it! I knew they were up to something.|||{{N|harlenn_lookforsigns_4||||}}|};
+{harlenn_lookforsigns_4|Oh that lying pig Guthbered.|||{{N|harlenn_lookforsigns_5||||}}|};
+{harlenn_lookforsigns_5|Anyway, thank you for your help in finding this evidence.|bwm_agent:110||{{N|harlenn_lookforsigns_6||||}}|};
+{harlenn_lookforsigns_6|This calls for drastic measures. We have to act quick before they can have time to complete their plan.|||{{N|harlenn_lookforsigns_7||||}}|};
+{harlenn_lookforsigns_7|An old saying goes something like \'The only way to truly kill the Gorgon is by removing the head\'. In this case, the head of those bastards down in Prim is that fellow Guthbered.|||{{N|harlenn_lookforsigns_8||||}}|};
+{harlenn_lookforsigns_8|We should do something about him. You have proven your worth so far. This will be your final assignment.|||{{N|harlenn_lookforsigns_9||||}}|};
+{harlenn_lookforsigns_9|I want you to go .. deal .. with him. Guthbered. Preferably in the most painful and gruesome way you can think of.|||{
+	{No problem.|harlenn_lookforsigns_11||||}
+	{Are you sure more violence will really solve this conflict?|harlenn_lookforsigns_10||||}
+	{He is as good as dead.|harlenn_lookforsigns_11||||}
+	}|};
+{harlenn_lookforsigns_10|You saw the plans yourself. They are going to attack us if we don\'t do something about them. Of course we have to kill him!|||{
+	{I will remove him, but I will try to find a peaceful solution to this.|harlenn_lookforsigns_12||||}
+	{Very well. He is as good as dead.|harlenn_lookforsigns_11||||}
+	}|};
+{harlenn_lookforsigns_11|Excellent. Return to me once the deed is done.|bwm_agent:120|||};
+{harlenn_lookforsigns_12|Fine. Do whatever you need to remove him, but I don\'t want to deal with their attacks any more.|bwm_agent:120|||};
+
+{harlenn_sentbyprim_1|Your expression tells me you have blood on your mind.|||{
+	{I am sent by the people of Prim to stop you.|harlenn_sentbyprim_2||||}
+	{I am sent by the people of Prim to stop you. However, I have decided not to kill you.|harlenn_sentbyprim_3||||}
+	}|};
+{harlenn_sentbyprim_2|Stop me?! Ha ha. Very well, let\'s see who is the one being stopped here.|prim_hunt:90||{
+	{For the Shadow!|F||||}
+	{Let\'s fight!|F||||}
+	}|};
+{harlenn_sentbyprim_3|How interesting... Please continue.|||{{It\'s obvious that this conflict will only end in more bloodshed. And that should stop here.|harlenn_sentbyprim_4||||}}|};
+{harlenn_sentbyprim_4|What are you proposing?|||{{My proposal is that you leave this settlement and find a new home somewhere else.|harlenn_sentbyprim_5||||}}|};
+{harlenn_sentbyprim_5|Now why would I want to do that?|||{{These two towns will always fight each other. By you leaving, they will think they have won, and stop their attacks.|harlenn_sentbyprim_6||||}}|};
+{harlenn_sentbyprim_6|Hm, you might have a point there.|||{{N|harlenn_sentbyprim_7||||}}|};
+{harlenn_sentbyprim_7|Ok, you have convinced me. I will leave this settlement for another to find my home. The survival of my people here is more important than me.|||{{N|harlenn_sentbyprim_8||||}}|};
+{harlenn_sentbyprim_8|Thank you friend, for talking some sense into me.|prim_hunt:91||{{You are welcome.|R||||}}|};
+
+{harlenn_killguth_1|Hello again. Have you gotten rid of that lying Guthbered down in Prim?|||{
+	{Not yet, but I am working on it.|harlenn_lookforsigns_11||||}
+	{What was I supposed to do again?|harlenn_lookforsigns_7||||}
+	{Yes, he is dead.|harlenn_killguth_2||guthbered_id|1|}
+	{Yes, he is gone.|harlenn_killguth_2|bwm_agent:131|||}
+	}|};
+{harlenn_killguth_2|Ha ha! He is finally gone! Now we can rest comfortably in our settlement.|||{{N|harlenn_killguth_3||||}}|};
+{harlenn_killguth_3|They will no longer attack us now that their lying leader is gone!|||{{N|harlenn_killguth_4||||}}|};
+{harlenn_killguth_4|Thank you friend. Here, have these items as a token of our appreciation for your help.|bwm_agent:150|harlenn_reward|{{N|harlenn_completed||||}}|};
 	</string>
 
 	<string name="conversationlist_blackwater_upper">
@@ -1478,7 +1679,12 @@
 {blackwater_guard2_2|A mist? A Shadow? I\'m sure I saw something moving.|||{{N|blackwater_guard2_3||||}}|};
 {blackwater_guard2_3|Screw this guard duty stuff. I am staying back here.|||{{N|blackwater_guard2_4||||}}|};
 {blackwater_guard2_4|Good thing we blocked that entrance from that old cabin.||||};
-{blackwater_bossguard|(The guard gives you a patronizing look, but says nothing)||||};
+{blackwater_bossguard||||{
+	{|blackwater_bossguard_2|prim_hunt:90|||}
+	{|blackwater_bossguard_1||||}
+	}|};
+{blackwater_bossguard_1|(The guard gives you a patronizing look, but says nothing)||||};
+{blackwater_bossguard_2|Hey, I\'m staying out of your fight with the boss. Don\'t involve me in your schemes.||||};
 {blackwater_throneguard||||{
 	{|blackwater_throneguard_5|bwm_agent:240|||}
 	{|blackwater_throneguard_5|prim_hunt:140|||}
@@ -1636,7 +1842,12 @@
 {prim_tailor|Welcome traveller, what can I do for you?|||{{Let me see what you have available to sell.|prim_tailor_1||||}}|};
 {prim_tailor_1|Sell? I\'m sorry, my supply is all out. Now that the traders do not come here any more, I don\'t get my regular shipments. So at the moment, I have nothing to trade with you unfortunately.||||};
 
-{guthbered_guard|Talk to the boss instead.||||};
+{guthbered_guard||||{
+	{|guthbered_guard_2|bwm_agent:130|||}
+	{|guthbered_guard_1||||}
+	}|};
+{guthbered_guard_1|Talk to the boss instead.||||};
+{guthbered_guard_2|Please don\'t hurt me! I\'m only doing my job here.||||};
 
 {prim_guard1|What are you looking at? These weapons in the crates over here are only for us guards.||||};
 {prim_guard2|(The guard looks down on you with a condescending look)||||};
@@ -1646,14 +1857,13 @@
 {prim_acolyte|When my training is complete, I will be one of greatest healers around!||||};
 {prim_pupil1|Can\'t you see I\'m trying to read over here? Talk to me in a while and I might be interested.||||};
 {prim_pupil2|Can\'t talk now, I have work to do.||||};
-{prim_pupil3|Are you that one I heard about? No, you can\'t be. I imagined someone taller.||||};
+{prim_pupil3|Are you the one I heard about? No, you can\'t be. I imagined someone taller.||||};
 {prim_priest||||{
 	{|prim_priest_1|prim_hunt:240|||}
 	{|prim_priest_2||||}
 	}|};
 {prim_priest_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?|||{{Sure. Show me what you have.|S||||}}|};
 {prim_priest_2|Welcome traveller. Have you come to ask for help from me and my potions?|||{{N|prim_notrust||||}}|};
-{sheep|Baah!||||};
 </string>
 
 </resources>
