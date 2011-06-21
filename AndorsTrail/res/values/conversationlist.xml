@@ -1430,12 +1430,12 @@
 	{|sign_blackwater38_2_qstarted|kazaul:10|||}
 	{|sign_blackwater38_notstarted||||}
 	}|};
-{sign_blackwater38_2_qstarted|You find a piece of paper describing the main part of the Kazaul ritual.|kazaul:26|||};
+{sign_blackwater38_2_qstarted|You find a piece of paper describing the main part of the Kazaul ritual.\nThis must be the second part of the Kazaul ritual.|kazaul:26|||};
 {sign_blackwater38_3||||{
 	{|sign_blackwater38_3_qstarted|kazaul:10|||}
 	{|sign_blackwater38_notstarted||||}
 	}|};
-{sign_blackwater38_3_qstarted|You find a piece of paper describing the end of the Kazaul ritual.|kazaul:27|||};
+{sign_blackwater38_3_qstarted|You find a piece of paper describing the end of the Kazaul ritual.\nThis must be the third part of the Kazaul ritual.|kazaul:27|||};
 {sign_blackwater16||||{
 	{|sign_blackwater16_qstarted|kazaul:10|||}
 	{|sign_blackwater16_notstarted||||}
@@ -1864,6 +1864,143 @@
 	}|};
 {prim_priest_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?|||{{Sure. Show me what you have.|S||||}}|};
 {prim_priest_2|Welcome traveller. Have you come to ask for help from me and my potions?|||{{N|prim_notrust||||}}|};
-</string>
+	</string>
+
+	<string name="conversationlist_blackwater_throdna">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{throdna_start||||{
+	{|throdna_purify_4|kazaul:100|||}
+	{|throdna_purify_1|kazaul:41|||}
+	{|throdna_return_3|kazaul:30|||}
+	{|throdna_return_1|kazaul:10|||}
+	{|throdna_1||||}
+	}|};
+{throdna_1|Kazaul.. Shadow.. what was it again?|||{{N|throdna_2||||}}|};
+{throdna_2|Oh, a visitor. Hello there. I have not seen you around here before. Did they let you in here?|||{{N|throdna_3||||}}|};
+{throdna_3|Of course they did. What am I rambling on about. Harlenn and his gang always keep their worldly duties under control.|||{{N|throdna_4||||}}|};
+{throdna_4|So, who might you be then, eh? Probably here to bother me with some worldly complaint about the settlement needing more resources or someone complaining about the cold drag from the outside again?|||{{N|throdna_loop_1||||}}|};
+{throdna_loop_1|What do you want?|||{
+	{What is this place?|throdna_6||||}
+	{Who are you?|throdna_7||||}
+	{What was that you talked about when I arrived, Kazaul?|throdna_8||||}
+	{Are you aware that there is a bitter rivalry going on between this settlement and Prim?|throdna_5||||}
+	}|};
+{throdna_5|And there you go with your mundane problems. I tell you, your worldly troubles do not interest me the least bit.|||{{N|throdna_6||||}}|};
+{throdna_6|This is the mages\' chamber in Blackwater Mountain. We devote our time to the studies of the Shadow and its descendants.|||{
+	{Descendants?|throdna_8||||}
+	{Let\'s go back to my other questions.|throdna_loop_1||||}
+	}|};
+{throdna_7|I am Throdna. One of the most learned persons around, if you ask me.|||{{N|throdna_loop_1||||}}|};
+{throdna_8|Kazaul, the Shadow spawn of red marrow.|kazaul:8||{{N|throdna_9||||}}|};
+{throdna_9|We have been trying to read all we can on Kazaul, and the ritual. It seems we might be too late.|||{{What do you mean?|throdna_10||||}}|};
+{throdna_10|The ritual. We believe that Kazaul will manifest in our presence soon.|||{{N|throdna_11||||}}|};
+{throdna_11|We must learn more about the Kazaul ritual, to gain its power and learn to use it for our purposes.|||{
+	{Can I help in some way?|throdna_12||||}
+	{What were you planning to do?|throdna_12||||}
+	}|};
+{throdna_12|As I said, we want to learn more about the ritual itself.|kazaul:9||{{N|throdna_13||||}}|};
+{throdna_13|A while ago, we were on the verge of getting our hands on the whole ritual itself, but the messenger was killed under most interesting circumstances while traveling up here.|||{{N|throdna_14||||}}|};
+{throdna_14|We knew he had the parts of the complete ritual on him, but since he was killed and we could not get to him because of the monsters - his notes were lost to us.|||{{N|throdna_15||||}}|};
+{throdna_15|According to our sources, there should be five parts of the ritual scattered across the mountain. Three of them describing the ritual itself, and two describing the Kazaul chant used to summon the guardian.|||{{N|throdna_15_1||||}}|};
+{throdna_16|Hm, maybe you could be of use here..|||{
+	{I would be glad to help.|throdna_18||||}
+	{Sounds dangerous, but I\'ll do it.|throdna_18||||}
+	{Keep your ritual of the Shadow to yourself. I am not getting involved in this.|throdna_17||||}
+	}|};
+{throdna_17|Fine, we will just have to find someone else then.||||};
+{throdna_18|Yes, you might be able to help. Not that you really have any choice though.|||{{N|throdna_19||||}}|};
+{throdna_19|Ok. Find me the pieces of the ritual that the former messenger carried on him. They should be found somewhere on the path up to Blackwater Mountain.|kazaul:10||{{I will return with your parts of the ritual.|throdna_20||||}}|};
+{throdna_20|Yes, you will.|kazaul:11|||};
+{throdna_return_1|Hello again. I hope you come here to tell me you have the five parts of the ritual.|||{
+	{I am still looking for them.|throdna_return_2||||}
+	{How many parts was I supposed to find?|throdna_15||||}
+	{What was I supposed to do again?|throdna_12||||}
+	{Yes, I think I have found them all.|throdna_check_1|kazaul:21|||}
+	}|};
+{throdna_return_2|Then hurry and go find them! What are you standing around here for then?||||};
+{throdna_return_3|You actually found all five pieces? I suppose I should thank you. Well then. Thank you.|kazaul:30||{{N|throdna_return_4||||}}|};
+{throdna_15_1||||{
+	{|X|kazaul:10|||}
+	{|throdna_16||||}
+	}|};
+{throdna_check_1||||{
+	{|throdna_check_2|kazaul:22|||}
+	{|throdna_check_fail||||}
+	}|};
+{throdna_check_2||||{
+	{|throdna_check_3|kazaul:25|||}
+	{|throdna_check_fail||||}
+	}|};
+{throdna_check_3||||{
+	{|throdna_check_4|kazaul:26|||}
+	{|throdna_check_fail||||}
+	}|};
+{throdna_check_4||||{
+	{|throdna_return_3|kazaul:27|||}
+	{|throdna_check_fail||||}
+	}|};
+{throdna_check_fail|It seems you have not found all five pieces yet.|||{{N|throdna_15||||}}|};
+{throdna_return_4|We have more pressing matters to focus on. As I briefly mentioned before, we believe that Kazaul will manifest in our presence soon.|||{{N|throdna_return_5||||}}|};
+{throdna_return_5|If that were to happen, we could not complete our research about the ritual or Kazaul itself, all our efforts would be lost.|||{{N|throdna_return_6||||}}|};
+{throdna_return_6|Therefore, we intend to delay the process as much as we can, until we have learned of its powers.|||{{N|throdna_return_7||||}}|};
+{throdna_return_7|You might be useful to us here again.|||{
+	{I\'m ready for anything.|throdna_return_8||||}
+	{What do you need of me?|throdna_return_8||||}
+	{I sure hope it involves more killing and looting.|throdna_return_8||||}
+	}|};
+{throdna_return_8|We need you to do two things. First, you must find the shrine of Kazaul. Our scouts tell us that the shrine should be located somewhere near the base of Blackwater Mountain.|||{{N|throdna_return_9||||}}|};
+{throdna_return_9|However, all passageways to the shrine are \'clouded in Shadow\' according to our scouts. I\'m not sure what that means.|||{{N|throdna_return_10||||}}|};
+{throdna_return_10|Second, we need you to take this vial I have here and apply to the shrine.|kazaul:40||{{N|throdna_return_11||||}}|};
+{throdna_return_11|This vial is a vial of purifying spirit. It should delay the process well enough for us to be able to continue our research.|||{
+	{Sounds easy. I\'ll do it.|throdna_return_12||||}
+	{Sounds dangerous, but I will do it.|throdna_return_12||||}
+	{This sounds like a trap. I won\'t agree to do your dirty work.|throdna_17||||}
+	}|};
+{throdna_return_12|Good. Here is the vial. Return to me as soon as you have completed your task.|kazaul:41|throdna_items||};
+{throdna_purify_1|Hello again. I hope you are here to tell me you have purified the shrine of Kazaul?|||{
+	{Yes, It is done.|throdna_purify_3|kazaul:60|||}
+	{No, not yet.|throdna_purify_2||||}
+	{What was I supposed to do again?|throdna_return_8||||}
+	}|};
+{throdna_purify_2|Then hurry and go take the vial to the shrine! What are you standing around here for?||||};
+{throdna_purify_3|Good. We must hurry to continue our research on Kazaul.|kazaul:100||{{N|throdna_purify_4||||}}|};
+{throdna_purify_4|You should get out of here to allow us to concentrate on our work.|||{{N|throdna_purify_5||||}}|};
+{throdna_purify_5|.. Kazaul, destroyer of bright dreams ..|||{{N|throdna_purify_6||||}}|};
+{throdna_purify_6|.. Kazaul .. Shadow ..|||{{N|throdna_purify_7||||}}|};
+{throdna_purify_7|(Throdna continues to mumble on about Kazaul, but you cannot make out any other words)||||};
+
+{throdna_guard|Keep your voice down while in the inner chamber.||||};
+{blackwater_acolyte|Are you also looking to become one with the Shadow?||||};
+	</string>
+
+	<string name="conversationlist_blackwater_kazaul">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{kazaul_guardian|Kazaul..|||{
+	{What?|kazaul_guardian_1||||}
+	{Kazaul, destroyer of bright dreams.|kazaul_guardian_2|kazaul:40|||}
+	}|};
+{kazaul_guardian_1|(The guardian looks completely unaware of your presence)||||};
+{kazaul_guardian_2|(The guardian looks down upon you with its burning eyes)|||{{Kazaul, defiler of the the Elytharan Temple.|kazaul_guardian_3||||}}|};
+{kazaul_guardian_3|(You see the burning eyes of the guardian instantly turn into a dark red haze)|kazaul:50||{
+	{A fight, I have been waiting for this!|F||||}
+	{Please don\'t kill me!|F||||}
+	{For the Shadow!|F||||}
+	}|};
+{sign_kazaul||||{
+	{|sign_kazaul_1|kazaul:60|||}
+	{|sign_kazaul_3||||}
+	}|};
+{sign_kazaul_1|You see the shrine of Kazaul that you poured the vial of purifying spirit on.|||{{N|sign_kazaul_2||||}}|};
+{sign_kazaul_2|The previously glowing hot rock is now cold as any regular piece of rock.||||};
+{sign_kazaul_3|Before you stands a large cut out piece of rock, in what looks like a shrine.|||{{N|sign_kazaul_4||||}}|};
+{sign_kazaul_4|You can feel an intense heat coming from the rock, almost like a burning fire.|||{
+	{Leave the formation alone.|X||||}
+	{Apply the vial of purifying spirit on the formation.|sign_kazaul_5||q_kazaul_vial|1|}
+	}|};
+{sign_kazaul_5|You gently pour the contents of the vial onto the formation.|kazaul:60||{{N|sign_kazaul_6||||}}|};
+{sign_kazaul_6|You hear a loud crackling noise from deep below the shrine. At first, the formation seems unaffected, but after a while you see the glowing of the rock decrease slightly.|||{{N|sign_kazaul_7||||}}|};
+{sign_kazaul_7|The process continues more rapidly, while reducing the heat generated from the formation.|||{{N|sign_kazaul_8||||}}|};
+{sign_kazaul_8|This must be the purification process of the Kazaul shrine.||||};
+	</string>
 
 </resources>

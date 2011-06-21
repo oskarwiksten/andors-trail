@@ -172,6 +172,8 @@ public final class ResourceLoader {
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_bjorgur));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_fulus));
 	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_prim_merchants));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_throdna));
+	        world.conversations.initialize(world.itemTypes, world.dropLists, r.getString(R.string.conversationlist_blackwater_kazaul));
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();
