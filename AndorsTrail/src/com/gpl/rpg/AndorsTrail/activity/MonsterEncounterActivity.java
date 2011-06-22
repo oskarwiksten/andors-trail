@@ -29,7 +29,7 @@ public final class MonsterEncounterActivity extends Activity {
         
         Uri uri = getIntent().getData();
         String monsterTypeID = uri.getLastPathSegment().toString();
-        final MonsterType monsterType = world.monsterTypes.getMonsterType(Integer.parseInt(monsterTypeID));
+        final MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
         
         setContentView(R.layout.monsterencounter);
 

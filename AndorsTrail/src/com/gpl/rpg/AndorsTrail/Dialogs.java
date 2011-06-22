@@ -64,22 +64,22 @@ public final class Dialogs {
 	*/
 	
 	public static void showKeyArea(final MainActivity currentActivity, final ViewContext context, String phraseID) {
-		showConversation(currentActivity, context, phraseID, -1);
+		showConversation(currentActivity, context, phraseID, "");
 	}
 	
 	public static void showMapSign(final MainActivity currentActivity, final ViewContext context, String phraseID) {
-		showConversation(currentActivity, context, phraseID, -1);
+		showConversation(currentActivity, context, phraseID, "");
 	}
 	
 	public static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, final Monster npc) {
 		showConversation(currentActivity, context, phraseID, npc.monsterType.id);
 	}
 	
-	private static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, int monsterTypeID) {
+	private static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, String monsterTypeID) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		Uri.Builder b = Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID).buildUpon();
-		b.appendQueryParameter("monsterTypeID", Integer.toString(monsterTypeID));
+		b.appendQueryParameter("monsterTypeID", monsterTypeID);
 		intent.setData(b.build());
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
 	}
@@ -91,7 +91,7 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_MONSTERENCOUNTER);
 	}
 
-	public static void showMonsterInfo(final Activity currentActivity, int monsterTypeID) {
+	public static void showMonsterInfo(final Activity currentActivity, String monsterTypeID) {
 		Intent intent = new Intent(currentActivity, MonsterInfoActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterinfo/" + monsterTypeID));
 		currentActivity.startActivity(intent);

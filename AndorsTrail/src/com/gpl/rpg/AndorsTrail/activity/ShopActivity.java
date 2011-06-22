@@ -46,7 +46,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         
         Uri uri = getIntent().getData();
         String monsterTypeID = uri.getLastPathSegment().toString();
-        final MonsterType npcType = world.monsterTypes.getMonsterType(Integer.parseInt(monsterTypeID));
+        final MonsterType npcType = world.monsterTypes.getMonsterType(monsterTypeID);
         
         final Player player = world.model.player;
         

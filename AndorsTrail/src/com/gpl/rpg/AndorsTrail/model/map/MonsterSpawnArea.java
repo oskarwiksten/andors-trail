@@ -18,11 +18,11 @@ public final class MonsterSpawnArea {
 	public final CoordRect area;
 	public final Range quantity;
 	private final Range spawnChance;
-	public final int[] monsterTypeIDs;
+	public final String[] monsterTypeIDs;
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
 	
-	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, int[] monsterTypeIDs, boolean isUnique) {
+	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique) {
 		this.area = area;
 		this.quantity = quantity;
 		this.spawnChance = spawnChance;
@@ -51,14 +51,14 @@ public final class MonsterSpawnArea {
 		}
 	}
 	public void spawn(Coord p, WorldContext context) {
-		final int monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
+		final String monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
 		spawn(p, monsterTypeID, context);
 	}
 	public MonsterType getRandomMonsterType(WorldContext context) {
-		final int monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
+		final String monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
 		return context.monsterTypes.getMonsterType(monsterTypeID);
 	}
-	public void spawn(Coord p, int monsterTypeID, WorldContext context) {
+	public void spawn(Coord p, String monsterTypeID, WorldContext context) {
 		spawn(p, context.monsterTypes.getMonsterType(monsterTypeID));
 	}
 	public void spawn(Coord p, MonsterType type) {

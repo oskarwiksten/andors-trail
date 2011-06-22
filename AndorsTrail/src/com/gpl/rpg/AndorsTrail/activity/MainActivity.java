@@ -98,8 +98,8 @@ public final class MainActivity extends Activity {
     			new DebugButton("Add monster", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
-		    			final String name = "Winged demon";
-						MonsterType type = world.monsterTypes.getMonsterTypeFromName(name);
+		    			final String name = "winged_demon";
+						MonsterType type = world.monsterTypes.getMonsterType(name);
 						if (type == null) {
 							Toast.makeText(MainActivity.this, "Cannot find monster type \"" + name + "\", unable to spawn.", Toast.LENGTH_LONG).show();
 						} else {

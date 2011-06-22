@@ -68,8 +68,8 @@ public final class ConversationActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         Uri uri = getIntent().getData();
-        final int monsterTypeID = Integer.parseInt(uri.getQueryParameter("monsterTypeID"));
-        if (monsterTypeID >= 0) {
+        final String monsterTypeID = uri.getQueryParameter("monsterTypeID");
+        if (monsterTypeID != null && monsterTypeID.length() > 0) {
         	displayActors = true;
         	monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
         	assert(monsterType != null);

@@ -362,7 +362,7 @@ public final class TMXMapReader {
 							continue;
 						}
 						
-						int[] monsterTypeIDs = new int[types.size()];
+						String[] monsterTypeIDs = new String[types.size()];
 						for (int i = 0; i < monsterTypeIDs.length; ++i) {
 							monsterTypeIDs[i] = types.get(i).id;
 						}

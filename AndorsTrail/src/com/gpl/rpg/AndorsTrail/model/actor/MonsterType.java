@@ -6,14 +6,14 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType extends ActorTraits {
-	public final int id;
+	public final String id;
 	private final String searchPattern;
 	public final int exp;
 	public final DropList dropList;
 	public final String phraseID;
 
 	public MonsterType(
-			int id, 
+			String id, 
 			String name, 
 			String tags, 
 			int iconID, 

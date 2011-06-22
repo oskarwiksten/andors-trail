@@ -41,7 +41,11 @@ public final class Monster extends Actor {
 	// ====== PARCELABLE ===================================================================
 
 	public static Monster readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		MonsterType monsterType = world.monsterTypes.getMonsterTypeFromName(src.readUTF());
+		String monsterTypeId = src.readUTF();
+		if (fileversion < 20) {
+			monsterTypeId = monsterTypeId.replace(' ', '_').replace("\\'", "").toLowerCase();
+		}
+		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
 		Coord position = new Coord(src, fileversion);
 		Monster m = new Monster(monsterType, position);
 		m.ap.current = src.readInt();
@@ -53,7 +57,7 @@ public final class Monster extends Actor {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeUTF(monsterType.name);
+		dest.writeUTF(monsterType.id);
 		position.writeToParcel(dest, flags);
 		dest.writeInt(ap.current);
 		dest.writeInt(health.current);

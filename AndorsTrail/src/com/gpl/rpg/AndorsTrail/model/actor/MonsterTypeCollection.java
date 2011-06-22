@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -20,25 +21,21 @@ import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterTypeCollection {
-	private final ArrayList<MonsterType> monsterTypes = new ArrayList<MonsterType>();
+	private final HashMap<String, MonsterType> monsterTypes = new HashMap<String, MonsterType>();
 	
-	public MonsterType getMonsterType(int id) {
-		return monsterTypes.get(id);
-	}
-	public MonsterType getMonsterTypeFromName(String name) {
-		for (MonsterType t : monsterTypes) {
-			if (t.name.equalsIgnoreCase(name)) return t;
-		}
+	public MonsterType getMonsterType(String id) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Cannot find MonsterType for name \"" + name + "\".");
+			if (!monsterTypes.containsKey(id)) {
+				L.log("WARNING: Cannot find MonsterType for id \"" + id + "\".");
+			}
 		}
-		return null;
+		return monsterTypes.get(id);
 	}
 
 	public Collection<? extends MonsterType> getMonsterTypesFromTags(String tagsAndNames) {
 		String[] parts = tagsAndNames.toLowerCase().split(",");
 		ArrayList<MonsterType> result = new ArrayList<MonsterType>();
-		for (MonsterType t : monsterTypes) {
+		for (MonsterType t : monsterTypes.values()) {
 			if (t.matchesAny(parts)) result.add(t);
 		}
 		//L.log("\"" + tagsAndNames + "\" -> found " + result.size() + " monsters.");
@@ -46,42 +43,40 @@ public final class MonsterTypeCollection {
 	}
 	
 	private static final Size size1x1 = new Size(1, 1);
-	private static final ResourceObjectTokenizer monsterResourceTokenizer = new ResourceObjectTokenizer(24);
+	private static final ResourceObjectTokenizer monsterResourceTokenizer = new ResourceObjectTokenizer(25);
 	public void initialize(final DropListCollection droplists, final ActorConditionTypeCollection actorConditionTypes, final DynamicTileLoader tileLoader, String monsterlist) {
 		//[iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|
 		// hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
 		monsterResourceTokenizer.tokenizeRows(monsterlist, new ResourceObjectFieldParser() {
 			@Override
 			public void matchedRow(String[] parts) {
-				final int nextId = monsterTypes.size();
-				
-				final String monsterTypeName = parts[1];
+				final String monsterTypeId = parts[0];
 	        	
 	    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-	    			if (getMonsterTypesFromTags(monsterTypeName).size() > 0) {
-	    				L.log("OPTIMIZE: Monster " + monsterTypeName + " may be duplicated.");
+	    			if (monsterTypes.containsKey(monsterTypeId)) {
+	    				L.log("WARNING: Monster " + monsterTypeId + " is duplicated.");
 	        		}
 	    		}
 	        	
-	    		final int maxHP = ResourceFileParser.parseInt(parts[4], 1);
-	    		final int maxAP = ResourceFileParser.parseInt(parts[5], 10);
-	    		final CombatTraits combatTraits = ResourceFileParser.parseCombatTraits(parts, 7);
+	    		final int maxHP = ResourceFileParser.parseInt(parts[5], 1);
+	    		final int maxAP = ResourceFileParser.parseInt(parts[6], 10);
+	    		final CombatTraits combatTraits = ResourceFileParser.parseCombatTraits(parts, 8);
 	    		final int exp = getExpectedMonsterExperience(combatTraits, maxHP, maxAP);
-	    		final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 17, true);
-				monsterTypes.add(new MonsterType(
-					nextId
-					, monsterTypeName								// Name
-					, parts[2] 										// Tags
-					, ResourceFileParser.parseImageID(tileLoader, parts[0])
-					, ResourceFileParser.parseSize(parts[3], size1x1) //TODO: This could be loaded from the tileset size instead.
+	    		final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 18, true);
+				monsterTypes.put(monsterTypeId, new MonsterType(
+					monsterTypeId
+					, parts[2]								// Name
+					, parts[3] 										// Tags
+					, ResourceFileParser.parseImageID(tileLoader, parts[1])
+					, ResourceFileParser.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
 					, maxHP 										// HP
 					, maxAP											// AP
-					, ResourceFileParser.parseInt(parts[6], 10)		// MoveCost
+					, ResourceFileParser.parseInt(parts[7], 10)		// MoveCost
 					, combatTraits
 			        , hitEffect
 					, exp 											// Exp
-					, droplists.getDropList(parts[15]) 				// Droplist
-					, parts[16]										// PhraseID
+					, droplists.getDropList(parts[16]) 				// Droplist
+					, parts[17]										// PhraseID
 				));
 			}
 		});
@@ -100,7 +95,7 @@ public final class MonsterTypeCollection {
 	// Selftest method. Not part of the game logic.
 	public void verifyData(WorldContext world) {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    		for (MonsterType t : monsterTypes) {
+    		for (MonsterType t : monsterTypes.values()) {
     			if (t.phraseID != null && t.phraseID.length() > 0) {
     				if (!world.conversations.isValidPhraseID(t.phraseID)) {
     					L.log("WARNING: Cannot find phrase \"" + t.phraseID + "\" for MonsterType \"" + t.name + "\".");
@@ -113,7 +108,7 @@ public final class MonsterTypeCollection {
 	// Selftest method. Not part of the game logic.
 	public void verifyData(ConversationCollection conversations) {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-    		for (MonsterType t : monsterTypes) {
+    		for (MonsterType t : monsterTypes.values()) {
     			if (t.phraseID != null && t.phraseID.length() > 0) {
     				if (conversations.DEBUG_leadsToTradeReply(t.phraseID)) {
     					if (t.dropList == null) {
@@ -129,7 +124,7 @@ public final class MonsterTypeCollection {
 	public HashSet<String> DEBUG_getRequiredPhrases() {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		HashSet<String> requiredPhrases = new HashSet<String>();
-    		for (MonsterType t : monsterTypes) {
+    		for (MonsterType t : monsterTypes.values()) {
     			if (t.phraseID != null && t.phraseID.length() > 0) {
     				requiredPhrases.add(t.phraseID);
     			}

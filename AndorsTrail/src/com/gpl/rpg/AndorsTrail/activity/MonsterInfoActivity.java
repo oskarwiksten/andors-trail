@@ -33,7 +33,7 @@ public final class MonsterInfoActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         String monsterTypeID = getIntent().getData().getLastPathSegment().toString();
-        this.monsterType = world.monsterTypes.getMonsterType(Integer.parseInt(monsterTypeID));
+        this.monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
         
         setContentView(R.layout.monsterinfo);
 
