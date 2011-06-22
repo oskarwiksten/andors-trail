@@ -32,7 +32,8 @@
 {caveratboss|{{gold|10|10|100|}{tail_caverat|1|1|100|}{gem1|1|1|5|}}|};
 	</string>
 
-<string name="droplists_crossglen_outside">
+	<string name="droplists_crossglen_outside">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {cavemonster|{{gold|4|12|70|}{gem2|1|1|25|}{hammer0|1|1|5|}{health_minor|1|1|25|}}|};
 {snake|{{gold|3|6|70|}{meat|1|1|30|}{gland|1|1|5|}}|};
 {haunt|{{vial_empty1|1|1|25|}{gem1|1|1|25|}}|};
@@ -41,9 +42,10 @@
 {irogotu|{{neck_irogotu|1|1|100|}{ring_gandir|1|1|100|}{health|1|1|100|}}|};
 {canineboss|{{gold|7|10|70|}{hair|1|1|30|}{gem1|1|1|25|}{meat|1|1|30|}{boots1|1|1|25|}}|};
 {snakemaster|{{gold|9|9|70|}{dagger_venom|1|1|100|}{gem3|1|1|100|}{health|1|1|100|}}|};
-</string>
+	</string>
 
-<string name="droplists_fallhaven">
+	<string name="droplists_fallhaven">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {catacombrat|{{gold|1|5|70|}{gem1|1|1|25|}{vial_empty1|1|1|25|}}|};
 {skeleton|{{gold|16|23|70|}{gem2|1|1|25|}{health|1|1|25|}{bone|1|1|30|}}|};
 {ganos|{{ring1|1|1|100|}{ring2|1|1|100|}{shirt1|1|1|100|}{shirt2|1|1|100|}{gem1|5|5|100|}{gem2|5|5|100|}{gem3|5|5|100|}{quickdagger1|1|1|100|}}|};
@@ -55,9 +57,9 @@
 {fallhaven_clothes|{{shirt1|1|1|100|}{shirt2|1|1|100|}{shirt_dmgresist|1|1|100|}{ring1|1|1|100|}{ring2|1|1|100|}{boots3|1|1|100|}{gloves_attack1|1|1|100|}{gloves_attack2|1|1|100|}{jewel_fallhaven|1|1|100|}{ring_dmg1|1|1|100|}{ring_dmg2|1|1|100|}{ring_block1|1|1|100|}{ring_atkch1|1|1|100|}{necklace_shield1|1|1|100|}{necklace_shield2|1|1|100|}}|};
 {fallhaven_potions|{{vial_empty1|10|10|100|}{vial_empty2|10|10|100|}{vial_empty3|10|10|100|}{vial_empty4|10|10|100|}{health_minor|10|10|100|}{health|10|10|100|}{health_major|10|10|100|}{milk|10|10|100|}{rat_tail|5|5|100|}{Radish|5|5|100|}{Strawberry|5|5|100|}}|};
 {nocmar|{{gem1|1|1|25|}}|};
-</string>
+	</string>
 
-<string name="droplists_wilderness">
+	<string name="droplists_wilderness">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {prisoner|{{rock|1|1|100|}}|};
 {skeleton2|{{gold|16|23|70|}{gem2|1|1|25|}{health|1|1|25|}{bone|1|1|30|}{ring_dmg1|1|1|1|}}|};
@@ -77,35 +79,188 @@
 {flagstone_guard2|{{gold|62|62|100|}{gem4|1|1|100|}{health|3|3|100|}{sword_flagstone|1|1|100|}{ring_jinxed1|1|1|100|}}|};
 {flagstone_guard1|{{gold|20|52|100|}{gem4|1|1|100|}{health|2|2|100|}{ring_block1|1|1|100|}{ironsword1|1|1|100|}}|};
 {flagstone_guard0|{{gold|20|29|100|}{gem4|1|1|100|}{health|1|1|100|}{necklace_flagstone|1|1|100|}}|};
-</string>
+	</string>
 
-<string name="droplists_v068">
+	<string name="droplists_v068">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {vg_armorer|{{boots1|1|1|100|}{boots2|1|1|100|}{boots3|1|1|100|}{boots5|1|1|100|}{armor1|1|1|100|}{armor2|1|1|100|}{armor3|1|1|100|}{armor_chain1|1|1|100|}{armor_chain2|1|1|100|}{hat3|1|1|100|}{hat4|1|1|100|}{hat_leather1|1|1|100|}{gloves1|1|1|100|}{gloves2|1|1|100|}{gloves3|1|1|100|}{gloves4|1|1|100|}{gloves_attack1|1|1|100|}{gloves_attack2|1|1|100|}}|};
-
 {jolnor|{{health_minor|10|10|100|}{health|10|10|100|}{health_major|10|10|100|}{ring_dmg1|1|1|100|}{ring_dmg2|1|1|100|}{ring_block1|1|1|100|}{ring_atkch1|1|1|100|}}|};
-
 {sleepingmead|{{sleepingmead|1|1|100|}}|};
-
 {ff_outsideguard|{{ffguard_qitem|1|1|100|}{vial_empty1|1|1|100|}{shield1|1|1|100|}{ironsword1|1|1|100|}}|};
-
 {vg_smith|{{hammer0|1|1|100|}{hammer1|1|1|100|}{club_wood1|1|1|100|}{club_wood2|1|1|100|}{club1|1|1|100|}{club3|1|1|100|}{ironsword1|1|1|100|}{ironsword2|1|1|100|}{broadsword1|1|1|100|}{broadsword2|1|1|100|}{shield4|1|1|100|}{shield5|1|1|100|}{shield6|1|1|100|}{shield7|1|1|100|}}|};
-
 {troublemaker|{{dagger1|1|1|100|}{dagger2|1|1|100|}{shirt1|1|1|100|}{shirt2|1|1|100|}{ring1|1|1|100|}{ring2|1|1|100|}{ring_crit1|1|1|100|}{ring_crit2|1|1|100|}{gem1|5|5|100|}{gem2|5|5|100|}{gem3|5|5|100|}}|};
-
 {dunla|{{gem1|5|5|100|}{gem2|5|5|100|}{gem3|5|5|100|}{ring1|1|1|100|}{ring2|1|1|100|}{gloves1|1|1|100|}{gloves2|1|1|100|}{gloves_grip|1|1|100|}{gloves_fancy|1|1|100|}{dagger1|1|1|100|}{dagger2|1|1|100|}}|};
-
 {alynndir|{{vial_empty1|10|10|100|}{vial_empty2|10|10|100|}{health|10|10|100|}{milk|10|10|100|}{rat_tail|5|5|100|}{gem2|3|3|5|}{meat|20|20|30|}{hair|5|5|30|}}|};
-
 {beetle2|{{gold|0|12|70|}{shell|1|1|30|}}|};
-
 {shadowgarg1|{{gold|5|12|70|}{gem2|1|1|25|}}|};
-
 {shadowgarg2|{{gold|3|19|70|}{gem2|1|1|25|}{health|1|1|25|}{rock|1|1|25|}}|};
-
 {shadowgarg3|{{gold|16|23|70|}{gem2|1|1|25|}{gem3|1|1|10|}{health|1|1|25|}{rock|1|1|25|}{ring_shadow0|1|1|1/10000|}}|};
-
 {maelveon|{{gold|52|52|100|}{gem3|1|1|100|}{health|2|2|100|}{armor_stone|1|1|100|}}|};
-
 </string>
+
+
+	<string name="droplists_v069_npcs">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
+{harlenn|{
+	{harlenn_id|1|1|100|}
+	{ring_shadow_embrace|1|1|100|}
+	{gold|20|50|100|}
+	}|};
+{guthbered|{
+	{guthbered_id|1|1|100|}
+	{dagger_barbed|1|1|100|}
+	{gold|20|50|100|}
+	}|};
+{harlenn_reward|{
+	{clouded_rage|1|1|100|}
+	{gold|50|50|100|}
+	{health|2|2|100|}
+	}|};
+{guthbered_reward|{
+	{bwm_dagger|1|1|100|}
+	{gold|50|50|100|}
+	{health|2|2|100|}
+	{bwm_permit|1|1|100|}
+	}|};
+{throdna_items|{{q_kazaul_vial|1|1|100|}}|};
+{fulus_reward|{{gold|450|450|100|}}|};
+{container_primsleep|{{gold|1|5|100|}}|};
+{herec|{{pot_fatigue_restore|10|10|100|}}|};
+{kazaul_guardian|{
+	{gold|52|52|100|}
+	{gem3|1|1|100|}
+	{health|2|2|100|}
+	{shadow_slayer|1|1|100|}
+	}|};
+{bjorgur_bandit|{
+	{gold|10|50|100|}
+	{gem2|1|1|100|}
+	{ring2|1|1|100|}
+	{gloves1|1|1|100|}
+	{bjorgur_dagger|1|1|100|}
+	}|};
+{birgil|{
+	{mead|10|10|100|}
+	{health_minor|10|10|100|}
+	{health|10|10|100|}
+	{radish|5|5|100|}
+	}|};
+{prim_priest|{
+	{health|10|10|100|}
+	{health_major|10|10|100|}
+	{pot_poison_weak_antidote|10|10|100|}
+	{pot_bleeding_ointment|10|10|100|}
+	{pot_speed_1|10|10|100|}
+	}|};
+{prim_armorer|{
+	{rusted_iron_sword|1|1|100|}
+	{ironsword1|1|1|100|}
+	{broken_buckler|1|1|100|}
+	{used_gloves|1|2|100|}
+	}|};
+{waeges|{
+	{bwm_dagger|2|2|100|}
+	{bwm_dagger_venom|2|2|100|}
+	{bwm_ironsword|2|2|100|}
+	}|};
+{iducus|{
+	{bwm_leather_armour|2|2|100|}
+	{bwm_leather_cap|2|2|100|}
+	{bwm_combat_ring|2|2|100|}
+	}|};
+{mazeg|{
+	{health|10|10|100|}
+	{health_major|10|10|100|}
+	{bwm_brew|10|10|100|}
+	{pot_poison_weak|10|10|100|}
+	{pot_blind_rage|10|10|100|}
+	}|};
+	</string>
+
+	<string name="droplists_v069_monsters">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
+{kazaul_1|{
+	{gold|3|19|70|}
+	{gem4|1|1|10|}
+	{health_minor|1|1|10|}
+	{rock|1|1|5|}
+	}|};
+{kazaul_2|{
+	{gold|6|25|70|}
+	{gem5|1|1|10|}
+	{health|1|1|10|}
+	{rock|1|1|5|}
+	{rapier_lifesteal|1|1|1/10000|}
+	}|};
+{restless_dead_1|{
+	{gold|20|29|70|}
+	{gem3|1|1|10|}
+	{health_minor|1|1|10|}
+	{bone|1|1|10|}
+}|};
+{restless_dead_2|{
+	{gold|20|29|70|}
+	{gem4|1|1|10|}
+	{health|1|1|10|}
+	{bone|1|1|10|}
+}|};
+{cave_serpent|{
+	{gold|3|10|70|}
+	{meat|1|1|5|}
+	{gland|1|1|5|}
+}|};
+{gornaud_1|{
+	{gold|1|30|70|}
+	{meat|1|1|5|}
+	{hair|1|1|10|}
+}|};
+{gornaud_2|{
+	{gold|1|40|70|}
+	{meat|1|2|5|}
+	{hair|1|1|10|}
+}|};
+{gornaud_3|{
+	{gold|1|45|70|}
+	{meat|1|3|5|}
+	{hair|1|1|10|}
+	{bwm_brew|10|10|5|}
+}|};
+{wyrm_1|{
+	{gold|1|30|70|}
+	{bone|1|1|10|}
+	{vial_empty1|1|1|25|}
+	{health_minor|1|1|10|}
+}|};
+{wyrm_2|{
+	{gold|1|40|70|}
+	{bone|1|1|10|}
+	{vial_empty1|1|1|25|}
+	{health_minor|1|2|10|}
+}|};
+{wyrm_3|{
+	{gold|1|60|70|}
+	{bone|1|2|10|}
+	{vial_empty1|1|1|25|}
+	{health|1|2|10|}
+	{bwm_claws|1|1|10|}
+}|};
+{wyrm_4|{
+	{gold|1|60|70|}
+	{bone|1|2|10|}
+	{vial_empty1|1|1|25|}
+	{pot_poison_weak|1|3|5|}
+	{health_minor|1|2|10|}
+	{elytharan_redeemer|1|1|1/10000|}
+}|};
+{aulaeth|{
+	{gold|1|5|70|}
+	{bone|1|3|10|}
+	{vial_empty1|1|1|25|}
+	{health|1|2|10|}
+	{bwm_dagger|1|1|1|}
+	{bwm_ironsword|1|1|1|}
+	{pot_speed_1|1|1|5|}
+}|};
+	</string>
 
 </resources>

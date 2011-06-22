@@ -73,6 +73,7 @@ public final class ResourceLoader {
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v068));
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v069));
             world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v069_questitems));
+            world.itemTypes.initialize(loader, world.actorConditionsTypes, r.getString(R.string.itemlist_v069_2));
         }
         loader.flush();
         
@@ -87,6 +88,8 @@ public final class ResourceLoader {
         	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_fallhaven));
         	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_wilderness));
         	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_v068));
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_v069_npcs));
+        	world.dropLists.initialize(world.itemTypes, r.getString(R.string.droplists_v069_monsters));
         }
         
         

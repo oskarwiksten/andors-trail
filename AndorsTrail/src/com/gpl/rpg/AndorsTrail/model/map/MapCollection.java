@@ -37,6 +37,8 @@ public final class MapCollection {
 			for (PredefinedMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
 					if (o.type == MapObject.MAPEVENT_NEWMAP) {
+						if (!o.shouldHaveDestinationMap()) continue;
+						
 						final String desc = "Map \"" + m.name + "\", place \"" + o.id + "\"";
 						if (o.map == null || o.map.length() <= 0) {
 							L.log("OPTIMIZE: " + desc + " has no destination map.");
@@ -54,17 +56,19 @@ public final class MapCollection {
 								continue;
 							}
 							
-							if (!m.name.equalsIgnoreCase(place.map)) {
-								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this map.");
-								continue;
-							}
-							if (!o.id.equalsIgnoreCase(place.place)) {
-								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this place.");
-								continue;
-							}
 							if (!o.position.size.equals(place.position.size)) {
 								L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", with different mapchange size.");
 								continue;
+							}
+							if (place.shouldHaveDestinationMap()) {
+								if (!m.name.equalsIgnoreCase(place.map)) {
+									L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this map.");
+									continue;
+								}
+								if (!o.id.equalsIgnoreCase(place.place)) {
+									L.log("WARNING: " + desc + " references destination place \"" + o.place + "\" on map \"" + o.map + "\", but that place does not reference back to this place.");
+									continue;
+								}
 							}
 						}
 					} else if (o.type == MapObject.MAPEVENT_KEYAREA) {
