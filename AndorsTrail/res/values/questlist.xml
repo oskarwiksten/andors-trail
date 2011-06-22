@@ -7,23 +7,6 @@
 {debugquest|Debug Quest|1|{{10|I have talked to the NPC||0|}{20|I have asked the NPC for more info.|20|0|}{100|I have given the items to the NPC|40|1|}}|};
 	</string>
 	
-	<string name="questlist">
-[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{andor|Search for Andor|1|{{1|My father Mikhail says that Andor has not been home since yesterday. I should go look for him in the village.||0|}{10|Leonid tells me that he saw Andor talking to Gruil. I should go ask Gruil if he knows more.||0|}{20|Gruil wants me to bring him a poison gland. Then he might talk more. He tells me that some poisonous snakes have such a gland.||0|}{30|Gruil tells me that Andor was looking for someone called Umar. I should go ask his friend Gaela in Fallhaven to the east.||0|}{40|I talked to Gaela in Fallhaven. He tells me to go see Bucus and ask about the thieves guild.||0|}{50|Bucus has allowed me to enter the hatch in the derelict house in Fallhaven. I should go talk to Umar.||0|}{51|Umar in the Fallhaven thieves guild recognized me, but must have me mixed up with Andor. Apparently, Andor has been to see him.||0|}{55|Umar told me that Andor went to see a potioner called Lodar. I should search for his hideaway.||0|}}|};
-{mikhail_bread|Breakfast bread|1|{{100|I have brought the bread to Mikhail.||1|}{10|Mikhail wants me to go buy a loaf of bread from Mara at the town hall.||0|}}|};
-{mikhail_rats|Rats!|1|{{100|I have killed the two rats in our garden.|20|1|}{10|Mikhail wants me to go check our garden for some rats. I should kill the rats in our garden and return to Mikhail. If I get hurt, I can come back to the bed and rest to regain my health.||0|}}|};
-{leta|Missing husband|1|{{10|Leta in Crossglen village wants me to look for her husband Oromir.||0|}{20|I have found Oromir in Crossglen village, hiding from his wife Leta.||0|}{100|I have told Leta that Oromir is hiding in Crossglen village.|30|1|}}|};
-{odair|Rat infestation|1|{{10|Odair wants me to clear the supply cave in Crossglen village of rats. In particular, I should kill the large rat and return to Odair.||0|}{100|I have helped Odair clear out the rats in the supply cave in Crossglen village.|30|1|}}|};
-{bonemeal|Disallowed substance|1|{{10|Leonid in Crossglen town hall tells me that there was a disturbance in the village some weeks ago. Apparently, Lord Geomyr has banned all use of bonemeal as a healing substance.\n\nTharal, the town priest should know more.||0|}{20|Tharal does not want to talk about bonemeal. I might be able to persuade him by bringing him 5 insect wings.||0|}{30|Tharal tells me that bonemeal is a very potent healing substance, and is quite upset that it is not allowed anymore. I should go see Thoronir in Fallhaven if I want to learn more. I should tell him the password \'Glow of the Shadow\'.||0|}{40|I have talked to Thoronir in Fallhaven. He might be able to mix me a bonemeal potion if I bring him 5 skeletal bones. There should be some skeletons in an abandoned house north of Fallhaven.||0|}{100|I have brought the bones to Thoronir. He is now able to supply me with bonemeal potions.\nI should be careful when using them though, since Lord Geomyr has banned their use.|90|1|}}|};
-{jan|Fallen friends|1|{{10|Jan tells me his story where, he and his two friends Gandir and Irogotu, went down the hole to dig for a hidden treasure, but they started fighting and Irogotu killed Gandir in his rage.\nI should bring back Gandir\'s ring from Irogotu, and see Jan when I have it.||0|}{100|Irogotu is dead. I have brought Jan the ring of Gandir, and avenged his friend.|150|1|}}|};
-{bucus|Key of Luthor|1|{{10|Bucus in Fallhaven might know something about Andor. He wants me to bring him the key of Luthor from the catacombs beneath Fallhaven church.||0|}{20|The catacombs beneath Fallhaven church are closed off. Athamyr is the only one with both permission and the bravery to enter them. I should go see him in his house southwest of the church.||0|}{30|Athamyr wants me to bring him some cooked meat, then maybe he will want to talk more.||0|}{40|I brought some cooked meat to Athamyr.|70|0|}{50|Athamyr has given me permission to enter the catacombs beneath Fallhaven church.||0|}{100|I brought Bucus the key of Luthor.|215|1|}}|};
-{fallhavendrunk|Drunken tale|1|{{10|A drunk outside Fallhaven tavern began telling me his story, but wants me to bring him some mead. I don\'t know if his story will lead anywhere though.||0|}{100|The drunk told me he used to travel with Unnmir. I should go talk to Unnmir.||1|}}|};
-{calomyran|Calomyran secrets|1|{{10|An old man standing outside in Fallhaven has lost his book \'Calomyran Secrets\'. I should go look for it. Maybe in Arcir\'s house to the south?||0|}{20|I found a torn page of a book called \'Calomyran Secrets\' with the name \'Larcal\' written on it.||0|}{100|I gave the book back to the old man.|60|1|}}|};
-{nocmar|Lost treasures|1|{{10|Unnmir told me he used to be an adventurer, and gave me a hint to go see Nocmar. His house is just southwest of the tavern in Fallhaven.||0|}{20|Nocmar tells me he used to be a smith. But Lord Geomyr has banned the use of heartsteel, so he cannot forge his weapons anymore.\nIf I can find a heartstone and bring it to Nocmar, he should be able to forge the heartsteel again.||0|}{200|I have brought a heartstone to Nocmar. He should have heartsteel items available now.|120|1|}}|};
-{flagstone|Ancient secrets|1|{{10|I met a guard on sentry outside a fortress called Flagstone. The guard told me that Flagstone used to be a prison camp for runaway workers from Mount Galmore. Recently, there has been an increase in undead monsters pouring out from Flagstone. I should investigate the source of the undead monsters. The guard tells me to return to him if I need help.||0|}{20|I found a dug out tunnel beneath Flagstone, that seems to lead to a larger cave. The cave is guarded by a demon that I am not even able to approach. Maybe the guard outside Flagstone knows more?||0|}{30|The guard tells me that the former warden used to have a necklace that he always wore. The necklace probably has the words required to approach the demon. I should return to the guard to decipher any message on the necklace once I have found it.||0|}{31|I found the former warden of Flagstone on the upper level. I should return to the guard now.||0|}{40|I have learned the words required to approach the demon beneath Flagstone. \'Daylight Shadow\'.|160|0|}{50|Deep beneath Flagstone, I found the source of the undead infestation. A creature born from the grief of the former prisoners of Flagstone.||0|}{60|I found one prisoner, Narael, alive deep beneath Flagstone. Narael was once a citizen of Nor City. He is too weak to walk by himself, but if I can find his wife in Nor City, I would be handsomely rewarded.|210|1|}}|};
-{vacor|Missing pieces|1|{{10|A mage called Vacor in southwest Fallhaven has been trying to cast a rift spell.\nThere was something not right about him, he seemed very obsessed with his spell. Something about him gaining a power from it.||0|}{20|Vacor wants me to bring him the four pieces of the rift spell that he claims was stolen from him. The four bandits should be somewhere south of Fallhaven.||0|}{30|I have brought the four pieces of the rift spell to Vacor.|120|0|}{40|Vacor tells me about his former apprentice Unzel, who had started to question Vacor. Vacor now wants me to kill Unzel. I should be able to find him to the southwest outside of Fallhaven. I should bring his signet ring to Vacor once I have killed him.||0|}{50|Unzel gives me a choice to side with either Vacor or him.||0|}{51|I have chosen to side with Unzel. I should go to southwest Fallhaven to talk to Vacor about Unzel and the Shadow.||0|}{53|I started a fight with Unzel. I should bring his ring to Vacor once he is dead.||0|}{54|I started a fight with Vacor. I should bring his ring to Unzel once he is dead.||0|}{60|I have killed Unzel and told Vacor about the deed.|160|1|}{61|I have killed Vacor and told Unzel about the deed.|160|1|}}|};
-	</string>
-
 	<!--  These quests do not need translation: -->
 	<string name="questlist_nondisplayed">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
@@ -36,14 +19,137 @@
 {arcir|Elythara|0|{{10|||0|}}|};
 	</string>
 
+	<string name="questlist">
+[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
+{andor|Search for Andor|1|{
+	{1|My father Mikhail says that Andor has not been home since yesterday. I should go look for him in the village.||0|}
+	{10|Leonid tells me that he saw Andor talking to Gruil. I should go ask Gruil if he knows more.||0|}
+	{20|Gruil wants me to bring him a poison gland. Then he might talk more. He tells me that some poisonous snakes have such a gland.||0|}
+	{30|Gruil tells me that Andor was looking for someone called Umar. I should go ask his friend Gaela in Fallhaven to the east.||0|}
+	{40|I talked to Gaela in Fallhaven. He tells me to go see Bucus and ask about the thieves guild.||0|}
+	{50|Bucus has allowed me to enter the hatch in the derelict house in Fallhaven. I should go talk to Umar.||0|}
+	{51|Umar in the Fallhaven thieves guild recognized me, but must have me mixed up with Andor. Apparently, Andor has been to see him.||0|}
+	{55|Umar told me that Andor went to see a potioner called Lodar. I should search for his hideaway.||0|}
+	}|};
+{mikhail_bread|Breakfast bread|1|{
+	{100|I have brought the bread to Mikhail.||1|}
+	{10|Mikhail wants me to go buy a loaf of bread from Mara at the town hall.||0|}
+	}|};
+{mikhail_rats|Rats!|1|{
+	{100|I have killed the two rats in our garden.|20|1|}
+	{10|Mikhail wants me to go check our garden for some rats. I should kill the rats in our garden and return to Mikhail. If I get hurt, I can come back to the bed and rest to regain my health.||0|}
+	}|};
+{leta|Missing husband|1|{
+	{10|Leta in Crossglen village wants me to look for her husband Oromir.||0|}
+	{20|I have found Oromir in Crossglen village, hiding from his wife Leta.||0|}
+	{100|I have told Leta that Oromir is hiding in Crossglen village.|30|1|}
+	}|};
+{odair|Rat infestation|1|{
+	{10|Odair wants me to clear the supply cave in Crossglen village of rats. In particular, I should kill the large rat and return to Odair.||0|}
+	{100|I have helped Odair clear out the rats in the supply cave in Crossglen village.|30|1|}
+	}|};
+{bonemeal|Disallowed substance|1|{
+	{10|Leonid in Crossglen town hall tells me that there was a disturbance in the village some weeks ago. Apparently, Lord Geomyr has banned all use of bonemeal as a healing substance.\n\nTharal, the town priest should know more.||0|}
+	{20|Tharal does not want to talk about bonemeal. I might be able to persuade him by bringing him 5 insect wings.||0|}
+	{30|Tharal tells me that bonemeal is a very potent healing substance, and is quite upset that it is not allowed anymore. I should go see Thoronir in Fallhaven if I want to learn more. I should tell him the password \'Glow of the Shadow\'.||0|}
+	{40|I have talked to Thoronir in Fallhaven. He might be able to mix me a bonemeal potion if I bring him 5 skeletal bones. There should be some skeletons in an abandoned house north of Fallhaven.||0|}
+	{100|I have brought the bones to Thoronir. He is now able to supply me with bonemeal potions.\nI should be careful when using them though, since Lord Geomyr has banned their use.|90|1|}
+	}|};
+{jan|Fallen friends|1|{
+	{10|Jan tells me his story where, he and his two friends Gandir and Irogotu, went down the hole to dig for a hidden treasure, but they started fighting and Irogotu killed Gandir in his rage.\nI should bring back Gandir\'s ring from Irogotu, and see Jan when I have it.||0|}
+	{100|Irogotu is dead. I have brought Jan the ring of Gandir, and avenged his friend.|150|1|}
+	}|};
+{bucus|Key of Luthor|1|{
+	{10|Bucus in Fallhaven might know something about Andor. He wants me to bring him the key of Luthor from the catacombs beneath Fallhaven church.||0|}
+	{20|The catacombs beneath Fallhaven church are closed off. Athamyr is the only one with both permission and the bravery to enter them. I should go see him in his house southwest of the church.||0|}
+	{30|Athamyr wants me to bring him some cooked meat, then maybe he will want to talk more.||0|}
+	{40|I brought some cooked meat to Athamyr.|70|0|}
+	{50|Athamyr has given me permission to enter the catacombs beneath Fallhaven church.||0|}
+	{100|I brought Bucus the key of Luthor.|215|1|}
+	}|};
+{fallhavendrunk|Drunken tale|1|{
+	{10|A drunk outside Fallhaven tavern began telling me his story, but wants me to bring him some mead. I don\'t know if his story will lead anywhere though.||0|}
+	{100|The drunk told me he used to travel with Unnmir. I should go talk to Unnmir.||1|}
+	}|};
+{calomyran|Calomyran secrets|1|{
+	{10|An old man standing outside in Fallhaven has lost his book \'Calomyran Secrets\'. I should go look for it. Maybe in Arcir\'s house to the south?||0|}
+	{20|I found a torn page of a book called \'Calomyran Secrets\' with the name \'Larcal\' written on it.||0|}
+	{100|I gave the book back to the old man.|60|1|}
+	}|};
+{nocmar|Lost treasures|1|{
+	{10|Unnmir told me he used to be an adventurer, and gave me a hint to go see Nocmar. His house is just southwest of the tavern in Fallhaven.||0|}
+	{20|Nocmar tells me he used to be a smith. But Lord Geomyr has banned the use of heartsteel, so he cannot forge his weapons anymore.\nIf I can find a heartstone and bring it to Nocmar, he should be able to forge the heartsteel again.||0|}
+	{200|I have brought a heartstone to Nocmar. He should have heartsteel items available now.|120|1|}
+	}|};
+{flagstone|Ancient secrets|1|{
+	{10|I met a guard on sentry outside a fortress called Flagstone. The guard told me that Flagstone used to be a prison camp for runaway workers from Mount Galmore. Recently, there has been an increase in undead monsters pouring out from Flagstone. I should investigate the source of the undead monsters. The guard tells me to return to him if I need help.||0|}
+	{20|I found a dug out tunnel beneath Flagstone, that seems to lead to a larger cave. The cave is guarded by a demon that I am not even able to approach. Maybe the guard outside Flagstone knows more?||0|}
+	{30|The guard tells me that the former warden used to have a necklace that he always wore. The necklace probably has the words required to approach the demon. I should return to the guard to decipher any message on the necklace once I have found it.||0|}
+	{31|I found the former warden of Flagstone on the upper level. I should return to the guard now.||0|}
+	{40|I have learned the words required to approach the demon beneath Flagstone. \'Daylight Shadow\'.|160|0|}
+	{50|Deep beneath Flagstone, I found the source of the undead infestation. A creature born from the grief of the former prisoners of Flagstone.||0|}
+	{60|I found one prisoner, Narael, alive deep beneath Flagstone. Narael was once a citizen of Nor City. He is too weak to walk by himself, but if I can find his wife in Nor City, I would be handsomely rewarded.|210|1|}
+	}|};
+{vacor|Missing pieces|1|{
+	{10|A mage called Vacor in southwest Fallhaven has been trying to cast a rift spell.\nThere was something not right about him, he seemed very obsessed with his spell. Something about him gaining a power from it.||0|}
+	{20|Vacor wants me to bring him the four pieces of the rift spell that he claims was stolen from him. The four bandits should be somewhere south of Fallhaven.||0|}
+	{30|I have brought the four pieces of the rift spell to Vacor.|120|0|}
+	{40|Vacor tells me about his former apprentice Unzel, who had started to question Vacor. Vacor now wants me to kill Unzel. I should be able to find him to the southwest outside of Fallhaven. I should bring his signet ring to Vacor once I have killed him.||0|}
+	{50|Unzel gives me a choice to side with either Vacor or him.||0|}
+	{51|I have chosen to side with Unzel. I should go to southwest Fallhaven to talk to Vacor about Unzel and the Shadow.||0|}
+	{53|I started a fight with Unzel. I should bring his ring to Vacor once he is dead.||0|}
+	{54|I started a fight with Vacor. I should bring his ring to Unzel once he is dead.||0|}
+	{60|I have killed Unzel and told Vacor about the deed.|160|1|}
+	{61|I have killed Vacor and told Unzel about the deed.|160|1|}
+	}|};
+</string>
+
 	<string name="questlist_v068">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{farrik|Night visit|1|{{10|Farrik in the Fallhaven thieves guild told me of a plan to help a fellow thief escape from Fallhaven prison.||0|}{20|Farrik in the Fallhaven thieves guild told me the details of the plan, and I accepted to help him. The guard captain apparently has a drinking problem. The plan is that I get a prepared mead from the cook in the thieves guild that will knock out the guard captain in the prison. I might be required to bribe the guard captain.||0|}{25|I got the prepared mead from the cook in the thieves guild.||0|}{30|I told Farrik that I don\'t fully agree with their plan. I might tell the guard captain about their shady plan.||0|}{32|I have given the prepared mead to the guard captain.||0|}{40|I have told the guard captain of the plan that the thieves have to release their friend.||0|}{50|The guard captain wants me to tell the thieves that the security will be lowered for tonight. We might be able to catch some of the thieves.||0|}{60|I managed to bribe the guard captain into drinking the prepared mead. He should be out during the night allowing the thieves to break their friend free.||0|}{70|Farrik rewarded me for helping the thieves guild.|150|1|}{80|I have told Farrik that the security will be lowered tonight.||0|}{90|The guard captain thanked me for helping him plan to catch the thieves. He said he will also tell other guards that I helped him.|170|1|}}|};
-{lodar|A lost potion|1|{{10|I should find a potioner called Lodar. Umar in Fallhaven thieves guild told me I that I will need to know the right words to pass a guardian in order to reach Lodar\'s hideaway.||0|}{15|Umar told me I should go see someone galled Ogam in Vilegard. Ogam can supply me with the right words to reach Lodar\'s hideaway.||0|}{20|I have visited Ogam in southwest Vilegard. He was talking in what seemed like riddles. I could barely make out some details when I asked about Lodar\'s hideaway. \'Halfway between the Shadow and the light. Rocky formations.\' and the words \'Glow of the Shadow.\' were among the things he said. I am not sure what they mean.||0|}}|};
-{vilegard|Trusting an outsider|1|{{10|The people of Vilegard are very suspicious of outsiders. I was told to go see Jolnor in the Vilegard chapel if I want to gain their trust.||0|}{20|I have talked to Jolnor in the Vilegard chapel. He suggests I help three infuential people in order to gain the trust of the people in Vilegard. I should help Kaori, Wrye and Jolnor in Vilegard.||0|}{30|I have helped all three people in Vilegard that Jolnor suggested. Now the people of Vilegard should trust me more.|210|1|}}|};
-{kaori|Kaori\'s errands|1|{{5|Jolnor in Vilegard chapel wants me to talk to Kaori in northern Vilegard, to see if she wants any help.||0|}{10|Kaori in northern Vilegard wants me to bring her 10 bonemeal potions.||0|}{20|I have brought 10 bonemeal potions to Kaori.|52|1|}}|};
-{wrye|Uncertain cause|1|{{10|Jolnor in Vilegard chapel wants me to talk to Wrye in northern Vilegard. She has apprently lost her son recently.||0|}{20|Wrye in northern Vilegard tells me that her son Rincel has gone missing. She thinks that he has died or gotten critically hurt.||0|}{30|Wrye tells me that she thinks the royal guard from Feygard are involved in his disappearance, and that they have recruited him.||0|}{40|Wrye wants me to go search for clues as to what has happened to her son.||0|}{41|I should go look in the Vilegard tavern and the Foaming Flask tavern north of Vilegard.|20|0|}{42|I heard of a boy being in the Foaming Flask tavern a while ago. Apparently he left to the west of the tavern somewhere.||0|}{80|To the northwest of Vilegard I found a man that had found Rincel fighting some monsters. Rincel had apprently left Vilegard by his own will to go see the city of Feygard. I should go tell Wrye in northern Vilegard what happened to her son.||0|}{90|I have told Wrye the truth about her son\'s disappearance.|52|1|}}|};
-{jolnor|Spies in the foam|1|{{10|Jolnor in Vilegard chapel tells me of a guard outside of the Foaming Flask tavern, that he thinks is a spy for the Feygard royal guard. He wants me to make the guard disappear, in any way that I see fit. The tavern should be just north of Vilegard.||0|}{20|I have convinced the guard outside the Foaming Flask tavern to leave after his shift ends.||0|}{21|I have started a fight with the guard outside the Foaming Flask tavern. I should bring his Feygard royal guard ring to Jolnor once he is dead to show Jolnor that he has disappeared.||0|}{30|I have told Jolnor that the guard is now gone.|63|1|}}|};
+{farrik|Night visit|1|{
+	{10|Farrik in the Fallhaven thieves guild told me of a plan to help a fellow thief escape from Fallhaven prison.||0|}
+	{20|Farrik in the Fallhaven thieves guild told me the details of the plan, and I accepted to help him. The guard captain apparently has a drinking problem. The plan is that I get a prepared mead from the cook in the thieves guild that will knock out the guard captain in the prison. I might be required to bribe the guard captain.||0|}
+	{25|I got the prepared mead from the cook in the thieves guild.||0|}
+	{30|I told Farrik that I don\'t fully agree with their plan. I might tell the guard captain about their shady plan.||0|}
+	{32|I have given the prepared mead to the guard captain.||0|}
+	{40|I have told the guard captain of the plan that the thieves have to release their friend.||0|}
+	{50|The guard captain wants me to tell the thieves that the security will be lowered for tonight. We might be able to catch some of the thieves.||0|}
+	{60|I managed to bribe the guard captain into drinking the prepared mead. He should be out during the night allowing the thieves to break their friend free.||0|}
+	{70|Farrik rewarded me for helping the thieves guild.|150|1|}
+	{80|I have told Farrik that the security will be lowered tonight.||0|}
+	{90|The guard captain thanked me for helping him plan to catch the thieves. He said he will also tell other guards that I helped him.|170|1|}
+	}|};
+{lodar|A lost potion|1|{
+	{10|I should find a potioner called Lodar. Umar in Fallhaven thieves guild told me I that I will need to know the right words to pass a guardian in order to reach Lodar\'s hideaway.||0|}
+	{15|Umar told me I should go see someone galled Ogam in Vilegard. Ogam can supply me with the right words to reach Lodar\'s hideaway.||0|}
+	{20|I have visited Ogam in southwest Vilegard. He was talking in what seemed like riddles. I could barely make out some details when I asked about Lodar\'s hideaway. \'Halfway between the Shadow and the light. Rocky formations.\' and the words \'Glow of the Shadow.\' were among the things he said. I am not sure what they mean.||0|}
+	}|};
+{vilegard|Trusting an outsider|1|{
+	{10|The people of Vilegard are very suspicious of outsiders. I was told to go see Jolnor in the Vilegard chapel if I want to gain their trust.||0|}
+	{20|I have talked to Jolnor in the Vilegard chapel. He suggests I help three infuential people in order to gain the trust of the people in Vilegard. I should help Kaori, Wrye and Jolnor in Vilegard.||0|}
+	{30|I have helped all three people in Vilegard that Jolnor suggested. Now the people of Vilegard should trust me more.|210|1|}
+	}|};
+{kaori|Kaori\'s errands|1|{
+	{5|Jolnor in Vilegard chapel wants me to talk to Kaori in northern Vilegard, to see if she wants any help.||0|}
+	{10|Kaori in northern Vilegard wants me to bring her 10 bonemeal potions.||0|}
+	{20|I have brought 10 bonemeal potions to Kaori.|52|1|}
+	}|};
+{wrye|Uncertain cause|1|{
+	{10|Jolnor in Vilegard chapel wants me to talk to Wrye in northern Vilegard. She has apprently lost her son recently.||0|}
+	{20|Wrye in northern Vilegard tells me that her son Rincel has gone missing. She thinks that he has died or gotten critically hurt.||0|}
+	{30|Wrye tells me that she thinks the royal guard from Feygard are involved in his disappearance, and that they have recruited him.||0|}
+	{40|Wrye wants me to go search for clues as to what has happened to her son.||0|}
+	{41|I should go look in the Vilegard tavern and the Foaming Flask tavern north of Vilegard.|20|0|}
+	{42|I heard of a boy being in the Foaming Flask tavern a while ago. Apparently he left to the west of the tavern somewhere.||0|}
+	{80|To the northwest of Vilegard I found a man that had found Rincel fighting some monsters. Rincel had apprently left Vilegard by his own will to go see the city of Feygard. I should go tell Wrye in northern Vilegard what happened to her son.||0|}
+	{90|I have told Wrye the truth about her son\'s disappearance.|52|1|}
+	}|};
+{jolnor|Spies in the foam|1|{
+	{10|Jolnor in Vilegard chapel tells me of a guard outside of the Foaming Flask tavern, that he thinks is a spy for the Feygard royal guard. He wants me to make the guard disappear, in any way that I see fit. The tavern should be just north of Vilegard.||0|}
+	{20|I have convinced the guard outside the Foaming Flask tavern to leave after his shift ends.||0|}
+	{21|I have started a fight with the guard outside the Foaming Flask tavern. I should bring his Feygard royal guard ring to Jolnor once he is dead to show Jolnor that he has disappeared.||0|}
+	{30|I have told Jolnor that the guard is now gone.|63|1|}
+	}|};
 	</string>
 
 	<string name="questlist_v069">

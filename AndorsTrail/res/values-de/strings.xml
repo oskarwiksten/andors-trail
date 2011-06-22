@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
+
 <resources>
-	<string name="app_name">Andor\'s Spur</string>
+	<string name="app_name">Andor\'s Trail</string>
 	
 	<string name="exit">Beenden</string>
 	<string name="exit_to_menu">Zum Menü</string>
@@ -15,14 +16,14 @@
 	<string name="loadsave_title_load">Spielstand laden</string>
 	<string name="loadsave_selectslot">Speicherplatz wählen</string>
 	<string name="loadsave_slot_empty">(leer)</string>
-	<string name="savegame_currenthero_displayinfo">Stufe %1$d, %2$d Erfahrung, %3$d Gold</string>
+	<string name="savegame_currenthero_displayinfo">Level %1$d, %2$d Erfahrung, %3$d Gold</string>
 	
 	<string name="dialog_loading_message">Lade Ressourcen...</string>
 	<string name="dialog_loading_failed_title">Laden fehlgeschlagen</string>
-	<string name="dialog_loading_failed_message">Der Spielstand konnte nicht geladen werden.\n\n:(\n\nDie Speicherdatei könnte beschädigt oder unvollständig sein.</string>
-	<string name="dialog_loading_failed_incorrectversion">Der Spielstand konnte nicht geladen werden. Die Speicherdatei wurde mit einer neueren Programmversion erstellt.</string>
+	<string name="dialog_loading_failed_message">Der Spielstand konnte nicht geladen werden.\n\n:(\n\nDie Datei könnte beschädigt oder unvollständig sein.</string>
+	<string name="dialog_loading_failed_incorrectversion">Der Spielstand konnte nicht geladen werden. Die Datei wurde mit einer neueren Programmversion erstellt.</string>
 	
-	<string name="dialog_close">Schliessen</string>
+	<string name="dialog_close">Schließen</string>
 	
 	<string name="dialog_confirmexit_title">Beenden</string>
 	<string name="dialog_confirmexit_message">Sind sie sicher, dass sie das Programm beenden möchten?</string>
@@ -35,44 +36,44 @@
 	<string name="dialog_monsterencounter_message">Angreifen?\nSchwierigkeit: %1$s</string>
 	<string name="dialog_monsterencounter_info">Info</string>
 
-	<string name="status_hp">GP:</string>
+	<string name="status_hp">LP:</string>
 	<string name="status_mp">MP:</string>
 	<string name="status_ap">AP:</string>
 	<string name="status_exp">Erf.:</string>
 
-	<string name="heroinfo_char">Statistiken</string>
+	<string name="heroinfo_char">Übersicht</string>
 	<string name="heroinfo_inv">Inventar</string>
 	<string name="heroinfo_wear">Angelegt</string>
 	<string name="heroinfo_skill">Fähigkeiten</string>
 	<string name="heroinfo_spell">Zauber</string>
 	<string name="heroinfo_levelup">Aufstieg</string>
-	<string name="heroinfo_level">Stufe</string>
+	<string name="heroinfo_level">Level</string>
 	<string name="heroinfo_totalexperience">Erfahrung</string>
 	<string name="heroinfo_wornequipment">Ausrüstung</string>
 	<string name="heroinfo_inventory">Inventar</string>
 	<string name="heroinfo_gold">Gold: %1$d</string>
 	<string name="heroinfo_actionpoints">Aktionspunkte (AP):</string>
-	<string name="heroinfo_quests">Aufträge</string>
+	<string name="heroinfo_quests">Quests</string>
 	
 	<string name="combat_attack">Angriff (%1$d AP)</string>
 	<string name="combat_move">Bewegung (%1$d AP)</string>
 	<string name="combat_use">Benutzen</string>
 	<string name="combat_spell">Zauber</string>
-	<string name="combat_endturn">Fertig</string>
+	<string name="combat_endturn">Runde beenden</string>
 	<!-- <string name="combat_endcombat">Kampf beenden</string>-->
 	<string name="combat_flee">Fliehen</string>
 	<string name="combat_begin_flee">Du kannst nun aus dem Kampf flüchten indem du in die gewünschten Fluchtrichtung klickst.</string>
 	<string name="combat_flee_failed">Die Flucht ist misslungen!</string>
 	<string name="combat_status_ap">AP: %1$d</string>
-	<string name="combat_monsterhealth">GP:</string>
+	<string name="combat_monsterhealth">LP:</string>
 	<string name="combat_monsteraction">%1$s greift an.</string>
 	<!-- <string name="combat_cannotexitcombat">Du kannst den Kampf nicht verlassen, weil noch Gegner in der Nähe sind.Du musst dich zunächst auf ein Feld bewegen, wo dich die Gegner nicht mehr erreichen können.</string>  -->
 	<string name="combat_result_monstermiss">%1$s verfehlt!</string>
-	<string name="combat_result_monsterhit">%1$s trifft dich und nimmt dir %2$d GP!</string>
-	<string name="combat_result_monsterhitcritical">%1$s muss einen kritischen Treffer einstecken (%2$d GP)!</string>
+	<string name="combat_result_monsterhit">%1$s trifft dich und nimmt dir %2$d LP!</string>
+	<string name="combat_result_monsterhitcritical">%1$s muss einen kritischen Treffer einstecken (%2$d LP)!</string>
 	<string name="combat_result_heromiss">Dein Angriff schlug fehl.</string>
-	<string name="combat_result_herohit">Du triffst %1$s (%2$d GP)!</string>
-	<string name="combat_result_herohitcritical">Dein kritischer Treffer kostet %1$s %2$d GP!</string>
+	<string name="combat_result_herohit">Du triffst %1$s (%2$d LP)!</string>
+	<string name="combat_result_herohitcritical">Dein kritischer Treffer kostet %1$s %2$d LP!</string>
 	<string name="combat_result_herokillsmonster">%1$s ist besiegt!</string>
 	<string name="combat_not_enough_ap">Es sind nicht mehr genug AP in dieser Runde übrig.</string>
 	<string name="combat_hero_dies">Du wirst bewusstlos, wachst aber glücklicherweise lebendig wieder auf. Du verlierst %1$d Erfahrungspunkte.</string>
@@ -81,12 +82,12 @@
 	<string name="inventory_equip">Anlegen</string>
 	<string name="inventory_unequip">Ablegen</string>
 	<string name="inventory_use">Benutzen</string>
-	<string name="inventory_drop">Wegwerfen</string>
+	<string name="inventory_drop">Fallen lassen</string>
 	<string name="inventory_item_used">%1$s benutzt.</string>
 	<string name="inventory_item_dropped">%1$s weggeworfen.</string>
 	<string name="inventory_item_equipped">%1$s angelegt.</string>
 
-	<string name="dialog_loot_pickall">Alles nehmen</string>
+	<string name="dialog_loot_pickall">Alles einsammeln</string>
 	<string name="dialog_loot_foundgold">Du findest %1$d Gold. </string>
 	<string name="dialog_loot_pickedupitems">Du hebst %1$d Gegenstände auf.</string>
 	<string name="dialog_groundloot_title">Gegenstände</string>
@@ -104,15 +105,15 @@
 
     <string name="actorinfo_class">Klasse:</string>
     <string name="actorinfo_difficulty">Schwierigkeit:</string>
-    <string name="actorinfo_health">Gesundheit:</string>
+    <string name="actorinfo_health">Lebenspunkte:</string>
     <string name="actorinfo_attacksperturn">Angriffe/Runde:</string>
-    <string name="actorinfo_movesperturn">Bewegung/Runde:</string>
+    <string name="actorinfo_movesperturn">Bewegungen/Runde:</string>
     <string name="actorinfo_attack">Angriff:</string>
     <string name="actorinfo_criticalhit">Krit. Treffer:</string>
     <string name="actorinfo_defense">Abwehr:</string>
     <string name="actorinfo_movecost">Bewegungskosten (AP):</string>
-    <string name="actorinfo_basetraits">Kampfstatistiken (ohne Ausrüstung)</string>
-    <string name="actorinfo_currenttraits">Kampfstatistiken (aktuell)</string>
+    <string name="actorinfo_basetraits">Kampfeigenschaften (ohne Ausrüstung)</string>
+    <string name="actorinfo_currenttraits">Kampfeigenschaften (aktuell)</string>
     
     <string name="traitsinfo_attack_cost">Angriffskosten (AP):</string>
     <string name="traitsinfo_attack_chance">Angriffschance:</string>
@@ -142,7 +143,7 @@
 	<string name="itemcategory_wearable_neck">Halsketten</string>
 	<string name="itemcategory_wearable_ring">Ringe</string>
 	<string name="itemcategory_potion">Tränke</string>
-	<string name="itemcategory_other">Andere</string>
+	<string name="itemcategory_other">Sonstiges</string>
 	
 	<string name="startscreen_continue">Aktuelles Spiel fortsetzen</string>
 	<string name="startscreen_newgame">Neues Spiel</string>
@@ -170,10 +171,10 @@
 	<string name="shop_item_sold">%1$s verkauft.</string>
 	
 	<string name="levelup_title">Aufsteigen</string>
-	<string name="levelup_description">Du hast Stufe %1$d erreicht!</string>
+	<string name="levelup_description">Du hast Level %1$d erreicht!</string>
 	<string name="levelup_buttontext">Aufsteigen</string>
-	<string name="levelup_add_health">Gesundheit erhöhen (+%1$d GP)</string>
-	<string name="levelup_add_health_description">Fügt %1$d Punkte zur maximalen Gesundheit hinzu.</string>
+	<string name="levelup_add_health">Lebenspunkte erhöhen (+%1$d LP)</string>
+	<string name="levelup_add_health_description">Fügt den maximalen Lebenspunkten %1$d Punkte hinzu.</string>
 	<string name="levelup_add_attackchance">Angriffschance erhöhen (+%1$d %%)</string>
 	<string name="levelup_add_attackchance_description">Fügt %1$d%% zur Basis-Angriffschance hinzu.</string>
 	<string name="levelup_add_attackdamage">Angriffsschaden erhöhen (+%1$d)</string>
@@ -189,7 +190,7 @@
 	<string name="about_button2">Autoren</string>
 	<string name="about_button3">Lizenz</string>
 	<string name="about_contents1">
-		Willkommen bei Andor\'s Spur, einem schurkischen Open-Source Rollenspiel für Android&lt;br /&gt;
+		Willkommen bei Andor\'s Trail, einem schurkischen Open-Source Rollenspiel für Android&lt;br /&gt;
 		&lt;br /&gt;
 		&lt;a href="http://andors.techby2guys.com/"&gt;Forum auf andors.techby2guys.com für Fragen und Diskussionen.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
@@ -199,11 +200,22 @@
 		&lt;br /&gt;
 		Wir sollten hier wirklich einmal ein paar Informationen anzeigen, wie man das Spiel spielt :)&lt;br /&gt;
 	</string>
+	<string name="about_contents3">
+		Copyright (C) 2011 Oskar Wiksten&lt;br /&gt;
+		&lt;br /&gt;
+		This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&lt;br /&gt;
+		&lt;br /&gt;
+		This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.&lt;br /&gt;
+		&lt;br /&gt;
+		You should have received a copy of the GNU General Public License along with this program; if not, see &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		For source code and feature requests, please visit the project page at &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+	</string>
 	
 	<string name="dialog_newversion_title">Willkommen</string>
 	<string name="dialog_newversion_message">
-        Viele Dank, dass Du Andor\'s Spur heruntergeladen hast!\n\n
-        Bedenke bitte, dass diese Version von Andor\s Spur noch IN DER ENTWICKLUNG ist und somit noch nicht alle Karten komplett fertig sind.\n
+        Viele Dank, dass Du Andor\'s Trail heruntergeladen hast!\n\n
+        Bedenke bitte, dass diese Version von Andor\'s Trail noch IN DER ENTWICKLUNG ist und somit noch nicht alle Karten komplett fertig sind.\n
         Es steht dir frei, alle bestehenden Städte und Dungeons ausgiebig zu erforschen.\n
         Diese Entwicklungsversion kann Fehler enthalten und das Spiel ist noch nicht gut ausbalanciert. Mit dieser Programmversion sollen Fehler aufgespürt werden, bevor weitere Inhalte hinzugefügt werden.\n
         Bitte besuche das Projekt-Forum für weitere Informationen oder wenn du mithelfen willst (siehe "Über").\n
@@ -211,20 +223,20 @@
         Danke für alle bisherigen Rückmeldungen!
 	</string>
 	
-	<string name="questlog_title">Aufträge</string>
-	<string name="questlog_includecompleted_prompt">Welche Aufträge anzeigen?</string>
+	<string name="questlog_title">Quests</string>
+	<string name="questlog_includecompleted_prompt">Welche Quests anzeigen?</string>
 	<string-array name="questlog_includecompleted">
-		<item>Verstecke abgeschlossene Aufgaben</item>
-		<item>Zeige auch abgeschlossene Aufgaben</item>
-		<item>Zeige nur abgeschlossene Aufgaben</item>
+		<item>Verstecke abgeschlossene Quests</item>
+		<item>Zeige auch abgeschlossene Quests</item>
+		<item>Zeige nur abgeschlossene Quests</item>
 	</string-array>
 	<string name="questlog_queststatus">Status: %1$s</string>
 	<string name="questlog_queststatus_inprogress">Offen</string>
 	<string name="questlog_queststatus_completed">Abgeschlossen</string>
 	
 	<string name="preferences_display_category">Anzeige</string>
-	<string name="preferences_display_fullscreen_title">Fullscreen</string>
-	<string name="preferences_display_fullscreen">Zeigt das Spiel im Fullscreen-Modus an. (erfordert Neustart)</string>
+	<string name="preferences_display_fullscreen_title">Vollbild</string>
+	<string name="preferences_display_fullscreen">Zeigt das Spiel im Vollbildmodus an. (erfordert Neustart)</string>
 	<string name="preferences_dialog_category">Dialogbestätigungen</string>
 	<string name="preferences_dialog_confirmrest_title">Bestätige Ausruhen</string>
 	<string name="preferences_dialog_confirmrest">Fragt nach, ob man ausruhen will, wenn ein Bett berührt wird. Ansonsten ruht man automatisch aus.</string>
@@ -237,7 +249,7 @@
 	<string name="preferences_combat_speed">Bestimmt, wie schnell Monster angreifen.</string>
 
 	<string-array name="preferences_display_loot">
-		<item>Beute-Dialog</item>
+		<item>Beute-Dialog anzeigen</item>
 		<item>Kurze Nachricht</item>
 		<item>Nicht anzeigen</item>
 	</string-array>
@@ -260,7 +272,7 @@
 	</string-array>
 	
 	<string name="preferences_movement_category">Bewegung</string>
-	<string name="preferences_movementmethod_title">Methode</string>
+	<string name="preferences_movementmethod_title">Bewegungsmethode</string>
 	<string name="preferences_movementmethod">Methode für die Fortbewegung und Behandlung von Hindernissen.</string>
 	<string-array name="preferences_movementmethods">
 		<item>Direkt (original)</item>
@@ -282,18 +294,18 @@
 
 	<string name="iteminfo_effect_works_on_source">auf Quelle</string>
 	<string name="iteminfo_effect_works_on_target">auf Ziel</string>
-	<string name="iteminfo_effect_works_when_hitting_target">wenn Ziel getroffen wird</string>
-	<string name="iteminfo_effect_works_when_killing_target">bei jedem besiegten Ziel</string>
+	<string name="iteminfo_effect_works_when_hitting_target">wenn Gegner getroffen wird</string>
+	<string name="iteminfo_effect_works_when_killing_target">bei jedem besiegten Gegner</string>
 	<string name="iteminfo_effect_works_when_used">bei Anwendung</string>
 	<string name="iteminfo_effect_works_when_equipped">solange angelegt</string>
 	
-	<string name="iteminfo_effect_decrease_current_hp">entzieht %1$s GP</string>
-	<string name="iteminfo_effect_increase_current_hp">gibt %1$s GP zurück</string>
+	<string name="iteminfo_effect_decrease_current_hp">entzieht %1$s LP</string>
+	<string name="iteminfo_effect_increase_current_hp">gibt %1$s LP zurück</string>
 	<string name="iteminfo_effect_decrease_current_ap">entzieht %1$s AP</string>
 	<string name="iteminfo_effect_increase_current_ap">gibt %1$s AP zurück</string>
 	
-	<string name="iteminfo_effect_increase_max_hp">erhöht max. GP +%1$d</string>
-	<string name="iteminfo_effect_decrease_max_hp">verringert max. GP um %1$d</string>
+	<string name="iteminfo_effect_increase_max_hp">erhöht max. LP +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_hp">verringert max. LP um %1$d</string>
 	<string name="iteminfo_effect_increase_max_ap">erhöht max. AP +%1$d</string>
 	<string name="iteminfo_effect_decrease_max_ap">verringert max. AP um %1$d</string>
 	<string name="iteminfo_effect_increase_movecost">Bewegungsstrafe +%1$d AP</string>
@@ -311,5 +323,11 @@
 		<item>1.5f</item>
 		<item>2.0f</item>
 	</string-array>
+	
+	<string name="inventory_assign">Quickslot zuweisen</string>
+	<string name="inventory_assign_slot1">Quickslot 1</string>
+	<string name="inventory_assign_slot2">Quickslot 2</string>
+	<string name="inventory_assign_slot3">Quickslot 3</string>
+	<string name="inventory_unassign">Quickslot aufheben</string>
 	
 </resources>

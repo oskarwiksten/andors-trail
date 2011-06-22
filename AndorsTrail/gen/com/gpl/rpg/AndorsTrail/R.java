@@ -328,7 +328,16 @@ public final class R {
         public static final int about_button2=0x7f05010a;
         public static final int about_button3=0x7f05010b;
         public static final int about_contents1=0x7f05010c;
+        /**  Do not translate this. 
+         */
         public static final int about_contents2=0x7f05010d;
+        /**  
+		This is the GNU GPL v2 text, originally from 
+			http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+		For translation of this text, you might be able to find a version in your language here: 
+			http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
+	
+         */
         public static final int about_contents3=0x7f05010e;
         /**  Translated as: affliction / statuseffect / temporary effect 
  Translated as: affliction / statuseffect / temporary effect 
@@ -645,13 +654,13 @@ public final class R {
         public static final int preferences_movement_category=0x7f050123;
         public static final int preferences_movementmethod=0x7f050125;
         public static final int preferences_movementmethod_title=0x7f050124;
-        public static final int questlist=0x7f050068;
+        public static final int questlist=0x7f050069;
         /**   These quests do not need translation: 
          */
         public static final int questlist_debug=0x7f050067;
         /**   These quests do not need translation: 
          */
-        public static final int questlist_nondisplayed=0x7f050069;
+        public static final int questlist_nondisplayed=0x7f050068;
         public static final int questlist_v068=0x7f05006a;
         public static final int questlist_v069=0x7f05006b;
         public static final int questlog_includecompleted_prompt=0x7f050112;
