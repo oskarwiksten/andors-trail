@@ -20,7 +20,7 @@ public final class Monster extends Actor {
 	public final CoordRect nextPosition;
 	
 	public Monster(MonsterType monsterType, Coord position) {
-		super(monsterType);
+		super(monsterType, false);
 		this.monsterType = monsterType;
 		this.position.set(position);
 		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();

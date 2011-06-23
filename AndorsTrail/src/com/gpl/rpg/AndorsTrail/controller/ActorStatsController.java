@@ -77,10 +77,12 @@ public class ActorStatsController {
 		}
 	}
 	
-	private static void applyEffectsFromCurrentConditions(Player player) {
-		for (ActorCondition c : player.conditions) {
-			applyAbilityEffects(player, c.conditionType.abilityEffect, false, c.magnitude);
+	private static void applyEffectsFromCurrentConditions(Actor actor) {
+		for (ActorCondition c : actor.conditions) {
+			applyAbilityEffects(actor, c.conditionType.abilityEffect, false, c.magnitude);
 		}
+		actor.health.capAtMax();
+		actor.ap.capAtMax();
 	}
 	
 	public static void applyAbilityEffects(Actor actor, AbilityModifierTraits effects, boolean isWeapon, int magnitude) {
@@ -111,14 +113,13 @@ public class ActorStatsController {
 		if (traits.moveCost <= 0) traits.moveCost = 1;
 	}
 	
-	public static void recalculatePlayerCombatTraits(Player player) {
-		player.resetStatsToBaseTraits();
-		ItemController.applyInventoryEffects(player);
-		applyEffectsFromCurrentConditions(player);
-		ItemController.recalculateHitEffectsFromWornItems(player);
-		
-		player.health.capAtMax();
-		player.ap.capAtMax();
+	public static void recalculatePlayerCombatTraits(Player player) { recalculateActorCombatTraits(player); }
+	public static void recalculateMonsterCombatTraits(Monster monster) { recalculateActorCombatTraits(monster); }
+	private static void recalculateActorCombatTraits(Actor actor) {
+		actor.resetStatsToBaseTraits();
+		if (actor.isPlayer) ItemController.applyInventoryEffects((Player) actor);
+		applyEffectsFromCurrentConditions(actor);
+		if (actor.isPlayer) ItemController.recalculateHitEffectsFromWornItems((Player) actor);
 	}
 
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
@@ -197,6 +198,7 @@ public class ActorStatsController {
 	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
 		if (!Constants.rollResult(conditionEffect.chance)) return;
 		addActorCondition(actor, conditionEffect);
+		recalculateActorCombatTraits(actor);
 	}
 
 	private void applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude) {

@@ -18,13 +18,15 @@ public class Actor {
 	public final Coord position;
 	public final CoordRect rectPosition;
 	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
+	public final boolean isPlayer;
 	
-	public Actor(ActorTraits traits) {
+	public Actor(ActorTraits traits, boolean isPlayer) {
 		this.traits = traits;
 		this.ap = new Range();
 		this.health = new Range();
 		this.position = new Coord();
 		this.rectPosition = new CoordRect(position, traits.tileSize);
+		this.isPlayer = isPlayer;
 		setMaxAP();
 		setMaxHP();
 	}
@@ -62,7 +64,8 @@ public class Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Actor(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer) throws IOException {
+		this.isPlayer = isPlayer;
 		this.traits = new ActorTraits(src, world, fileversion);
 		this.ap = new Range(src, fileversion);
 		this.health = new Range(src, fileversion);

@@ -37,7 +37,7 @@ public final class Player extends Actor {
 	public String spawnPlace;
 	
 	public Player() {
-		super(new ActorTraits(TileStore.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null));
+		super(new ActorTraits(TileStore.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null), true);
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();
@@ -131,7 +131,7 @@ public final class Player extends Actor {
 	// ====== PARCELABLE ===================================================================
 
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion);
+		super(src, world, fileversion, true);
 		this.lastPosition = new Coord(src, fileversion);
 		this.nextPosition = new Coord(src, fileversion);
 		this.level = src.readInt();

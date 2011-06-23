@@ -91,6 +91,13 @@ public class ResourceFileParser {
 	}
 	public static boolean parseBoolean(String s, boolean defaultValue) {
 		if (s == null || s.length() <= 0) return defaultValue;
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (Character.isDigit(s.charAt(0))) {
+				if (Integer.parseInt(s) > 1) {
+					L.log("WARNING: Tried to parseBoolean on \"" + s + "\".");
+				}
+			}
+		}
 		return !s.equals("0") && !s.equals("false");
 	}
 	public static StatsModifierTraits parseStatsModifierTraits(String[] parts, int startIndex) {

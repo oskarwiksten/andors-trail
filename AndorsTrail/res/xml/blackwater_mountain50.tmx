@@ -55,20 +55,20 @@
  </layer>
  <layer name="Objects" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYKA9iGRnYIhip66ZKkwMDKLsCLySGSLeCmQnszAwrGZGlVdmQugVQXMLTC8MrEbjI6unpt6dQLW7oOq3AendJOg9CVR7FYiPAvExID5NhF57NlQ1oHBCpmHy+OwlBAaTXnT/ogNs/t3FjImRAT75U8yoGBY/R5HiCV0NPgCLF1x8ZKBOwK8woEGkOmLAfxzu38OO3a2fGSm3EwA1Gyd9
+   eJxjYKA9iGRnYIhip66ZKkwMDKLsCAwDrUB2MguEjSyvzIRQI0KiW5DVDxa9J5kZGK4C8VEgPgbEp5kJ67VnQ1UDCycYDZMfjP4lRy+6f9EBNv/uYsaulhhwihkVw+LnKFI8oavBB2DxgouPDNQJ+BUGNIhURwz4j8P9e9ixu/UzI+V2AgAEXhna
   </data>
  </layer>
  <layer name="Above" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYKAc/GdmYIhkZ2CIAuKVzBCxTHYIvZoZIh/Fjl3ff2YEH6a3FE0vLjuJcddg1KvHhl8vNnmYXjskuVnQcJoNpd8zo8rjc88qWBhjiRdCeokFxPgXlzw2/2IDxPqXWEBNvbPQwnY2nrBG17sKTS2+eBoo/35hJF8vuQAAY8gmBg==
+   eJxjYKAc/GdmYIhkZ2CIAuKVzBCxTHYIvZoZIh/Fjl3ff2YEH6a3FE0vLjuRwUo0/mDWq8cGoXcC+bugYtuA9G6oXpg8Nr12SHKzoOE0G0q/Z0aVx+VmEFgFC2Ms8UJIL7EA3b+4ALH+xQaI9S+x4D80TpAxMkCXQ5ZHt3cWWtjOxhPW6HpXoanFF0/UiCNywBdG8vWSCwCUhTOp
   </data>
  </layer>
- <layer name="Walkable" width="15" height="20" visible="0">
+ <layer name="Walkable" width="15" height="20">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEByiGBkI4qCR5bHpw6UWm5rBoFcQizg6m5BedHNwyWNzDzGAmnoJmUOsf0nVSwogJY0Sow7dbdj41HIzJXpJ1U+NPA8AtbkItA==
+   eJwTZGBgEByiGBkI4qCR5bHpw6UWm5rBoFcQizg6m5BedHNwyWNzDzGAmnoJmUOsf4nVS467SUmjxKhDdxs2PrJ55ABq6CVVPzXyPADRWQjF
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="20">
+ <objectgroup name="Mapevents" width="15" height="20" visible="0">
   <object name="exit" type="mapchange" x="224" y="576" width="32" height="32"/>
   <object name="entry1" type="mapchange" x="64" y="512" width="32" height="32">
    <properties>
@@ -85,7 +85,7 @@
   <object name="sign_blackwater50_right" type="sign" x="352" y="512" width="32" height="32"/>
   <object name="sign_blackwater50_left" type="sign" x="96" y="512" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="20">
+ <objectgroup name="Spawn" width="15" height="20" visible="0">
   <object name="throdna" type="spawn" x="224" y="128" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>
@@ -112,5 +112,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="20"/>
+ <objectgroup name="Keys" width="15" height="20" visible="0"/>
 </map>

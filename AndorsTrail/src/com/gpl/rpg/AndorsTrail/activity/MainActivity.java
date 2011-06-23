@@ -11,7 +11,6 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -95,7 +94,7 @@ public final class MainActivity extends Activity {
 		
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) {
         	addDebugButtons(new DebugButton[] {
-    			new DebugButton("Add monster", new OnClickListener() {
+    			/*new DebugButton("Add monster", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			final String name = "winged_demon";
@@ -107,17 +106,16 @@ public final class MainActivity extends Activity {
 						}
 					}
 				})
-    			,new DebugButton("dmg=99", new OnClickListener() {
+    			,*/new DebugButton("dmg=99", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(99, 99);
 		    			world.model.player.traits.attackChance = 200;
 		    			world.model.player.traits.attackCost = 1;
-		    			world.model.player.health.add(100, false);
 		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT).show();
 					}
-				})
+				})/*
     			,new DebugButton("dmg=1", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
@@ -125,19 +123,24 @@ public final class MainActivity extends Activity {
 		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT).show();
 					}
-				})
-    			,new DebugButton("exp+=100", new OnClickListener() {
+				})*/
+    			/*,new DebugButton("items", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
-		    			world.model.player.addExperience(100);
+		    			ItemType itemType = world.itemTypes.getItemTypeByTag("elytharan_redeemer");
+		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("ring_shadow0");
+		    			world.model.player.inventory.addItem(itemType);
 		    			updateStatus();
+		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();
 					}
-				})
-    			,new DebugButton("gc+=10", new OnClickListener() {
+				})*/
+    			,new DebugButton("hp=max", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
-		    			world.model.player.inventory.gold += 10;
+		    			world.model.player.health.setMax();
 		    			updateStatus();
+		    			Toast.makeText(MainActivity.this, "DEBUG: hp set to max", Toast.LENGTH_SHORT).show();
 					}
 				})
         	});

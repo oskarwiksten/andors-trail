@@ -84,13 +84,24 @@ public final class QuestCollection {
 	    						break;
 	    					}
 	    				}
-	    				
 	    			}
 	    			if (quest.name.trim().length() <= 0) {
 	    				L.log("WARNING: Quest \"" + quest.questID + "\" has empty name.");
 	    			}
 	    			if (stages.size() <= 0) {
 	    				L.log("WARNING: Quest \"" + quest.questID + "\" has no log entries.");
+	    			}
+	    			boolean hasFinishingEntry = false;
+    				for (QuestLogEntry entry : quest.stages) {
+    					if (entry.finishesQuest) hasFinishingEntry = true;
+    					if (entry.rewardExperience == 1) {
+    						L.log("WARNING: Quest \"" + quest.questID + "\" has stage " + entry.progress + " that rewards just 1 exp. Might be malformed resourcefile?");
+    					}
+    				}
+	    			if (quest.showInLog) {
+	    				if (!hasFinishingEntry) {
+	    					L.log("WARNING: Quest \"" + quest.questID + "\" is shown in log, but has no progress stage that finished the quest.");
+	    				}
 	    			}
 	    		}
 				quests.add(quest);
