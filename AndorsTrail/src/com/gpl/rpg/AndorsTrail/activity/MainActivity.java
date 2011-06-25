@@ -131,8 +131,33 @@ public final class MainActivity extends Activity {
 		    			world.model.player.inventory.addItem(itemType);
 		    			itemType = world.itemTypes.getItemTypeByTag("ring_shadow0");
 		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("shadow_slayer");
+		    			world.model.player.inventory.addItem(itemType);
 		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();
+					}
+				})
+    			,new DebugButton("bwm", new OnClickListener() {
+		    		@Override
+					public void onClick(View arg0) {
+		    			Player player = world.model.player;
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 1));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 5));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 10));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 20));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 25));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 30));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 40));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 50));
+		    			player.addQuestProgress(new QuestProgress("bwm_agent", 60));
+		    			
+	    				view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain45", "south", 0, 0);
+					}
+				})
+    			,new DebugButton("prim", new OnClickListener() {
+		    		@Override
+					public void onClick(View arg0) {
+		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 					}
 				})*/
     			,new DebugButton("hp=max", new OnClickListener() {

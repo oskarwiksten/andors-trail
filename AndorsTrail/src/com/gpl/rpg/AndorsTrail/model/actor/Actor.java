@@ -22,23 +22,21 @@ public class Actor {
 	
 	public Actor(ActorTraits traits, boolean isPlayer) {
 		this.traits = traits;
-		this.ap = new Range();
-		this.health = new Range();
+		this.ap = new Range(traits.maxAP, traits.maxAP);
+		this.health = new Range(traits.maxHP, traits.maxHP);
 		this.position = new Coord();
 		this.rectPosition = new CoordRect(position, traits.tileSize);
 		this.isPlayer = isPlayer;
-		setMaxAP();
-		setMaxHP();
 	}
 	
 	public boolean isDead() {
 		return health.current <= 0;
 	}
 	public void setMaxAP() {
-		ap.set(traits.maxAP, traits.maxAP);
+		ap.setMax();
 	}
 	public void setMaxHP() {
-		health.set(traits.maxHP, traits.maxHP);
+		health.setMax();
 	}
 	
 	public boolean useAPs(int cost) {

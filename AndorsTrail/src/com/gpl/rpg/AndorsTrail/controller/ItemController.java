@@ -55,9 +55,7 @@ public final class ItemController {
 		}
 		player.inventory.wear[slot] = type;
 		
-		if (type.effects_equip != null && type.effects_equip.addedConditions != null) {
-			ActorStatsController.removeOrAddConditionsFromEquippedItems(player);
-		}
+		ActorStatsController.removeOrAddConditionsFromEquippedItems(player);
 		ActorStatsController.recalculatePlayerCombatTraits(player);
 		
     	//message(androidContext, androidContext.getResources().getString(R.string.inventory_item_equipped, t.name));

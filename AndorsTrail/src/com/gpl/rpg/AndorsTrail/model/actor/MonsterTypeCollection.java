@@ -61,9 +61,9 @@ public final class MonsterTypeCollection {
 	    		final int maxHP = ResourceFileParser.parseInt(parts[5], 1);
 	    		final int maxAP = ResourceFileParser.parseInt(parts[6], 10);
 	    		final CombatTraits combatTraits = ResourceFileParser.parseCombatTraits(parts, 8);
-	    		final int exp = getExpectedMonsterExperience(combatTraits, maxHP, maxAP);
 	    		final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 18, true);
-				monsterTypes.put(monsterTypeId, new MonsterType(
+				final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, maxHP, maxAP);
+	    		monsterTypes.put(monsterTypeId, new MonsterType(
 					monsterTypeId
 					, parts[2]								// Name
 					, parts[3] 										// Tags
@@ -85,11 +85,15 @@ public final class MonsterTypeCollection {
 	private static float div100(int v) {
 		return (float) v / 100f;
 	}
-	private static int getExpectedMonsterExperience(final CombatTraits t, final int maxHP, final int maxAP) {
+	private static int getExpectedMonsterExperience(final CombatTraits t, ItemTraits_OnUse hitEffect, final int maxHP, final int maxAP) {
 		if (t == null) return 0;
 		final float avgAttackHP  = t.getAttacksPerTurn(maxAP) * div100(t.attackChance) * t.damagePotential.averagef() * (1 + div100(t.criticalChance) * t.criticalMultiplier);
 		final float avgDefenseHP = maxHP * (1 + div100(t.blockChance)) + Constants.EXP_FACTOR_DAMAGERESISTANCE * t.damageResistance;
-		return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING);
+		int attackConditionBonus = 0;
+		if (hitEffect != null && hitEffect.addedConditions_target != null && hitEffect.addedConditions_target.length > 0) {
+			attackConditionBonus += 50;
+		}
+		return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING) + attackConditionBonus;
 	}
 	
 	// Selftest method. Not part of the game logic.
