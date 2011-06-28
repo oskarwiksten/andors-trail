@@ -33,6 +33,8 @@ public final class RangeBar extends RelativeLayout {
 	}
 	
 	public void update(final Range range) {
+		progressBar.setProgress(0); // http://stackoverflow.com/questions/4348032/android-progressbar-does-not-update-progress-view-drawable
+		
 		progressBar.setMax(range.max);
 		progressBar.setProgress(Math.min(range.current, range.max));
 		progressBarText.setText(range.toString());

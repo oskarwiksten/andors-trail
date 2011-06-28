@@ -63,12 +63,12 @@
    eJxjYEAF/5kZCILBpAYk/x6qZjM7YTNYWSm3hxx5YuwgVw0fFn9T2y5cYYusBjls0dXD1BSzYKqFgS+MhN0DAh+onG7INQOXGvT4oGd+ITcMYfFCLAAAnV4kLw==
   </data>
  </layer>
- <layer name="Walkable" width="9" height="30" visible="0">
+ <layer name="Walkable" width="9" height="30">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEETCDGh8bHg4q8GnDh0QowZdHTnyhNQMhnCjNGyJDR9iw4hcs+hlBjl24QPUdjOhuAMAM9kLfg==
+   eJwTZGBgEETCDGh8bHg4q8GnDh0QowZdHTnyhNQMhnCjNGypGcakqCNVnlpmkGMXPkBtNxOKOwBnYQug
   </data>
  </layer>
- <objectgroup name="Mapevents" width="9" height="30">
+ <objectgroup name="Mapevents" width="9" height="30" visible="0">
   <object name="north" type="mapchange" x="128" y="0" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain44"/>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="9" height="30">
+ <objectgroup name="Spawn" width="9" height="30" visible="0">
   <object name="restless_dead_1" type="spawn" x="32" y="736" width="224" height="160"/>
   <object name="blackwater_guard2" type="spawn" x="96" y="256" width="128" height="160">
    <properties>

@@ -133,11 +133,16 @@ public final class MainActivity extends Activity {
 		    			world.model.player.inventory.addItem(itemType);
 		    			itemType = world.itemTypes.getItemTypeByTag("shadow_slayer");
 		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("pot_blind_rage");
+		    			world.model.player.inventory.addItem(itemType, 10);
+		    			itemType = world.itemTypes.getItemTypeByTag("clouded_rage");
+		    			world.model.player.inventory.addItem(itemType);
+		    			
 		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();
 					}
-				})
-    			,new DebugButton("bwm", new OnClickListener() {
+				})*/
+    			/*,new DebugButton("bwm", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			Player player = world.model.player;
