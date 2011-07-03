@@ -36,7 +36,7 @@
  <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
  </tileset>
  <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJxbwsjAsAQL3gLEmgzk4XBWBgZ3VgSNTQ02Oym1F91uatiLy/2kYlz2sjBRx3xS7AX5VYREe3GFJ6n20tKvQ9VeUsOWWvZSkrZplZY3E3A7NdIyPjNx2U9KGBMTrodxlAeE7KU0jJmZiIs7aoexMBPE7iOMCAyyE91cdDeZMFFeBoPsvsyIwNj8gmwnpX5Fxo8ZERhXuiIlfKlZH9GjXMRmL7XqPG8mTIxLLXIYU1LegnA0EybGZy+1wq6RERPTw96JjAicwgah6WEvKXig7MVWZtPL3oHKv6P2Dl97AYzi2LQ=
+   eJxbwsjAsAQL3gLEmgzk4XBWBgZ3VgSNTQ02Oym1F91uatiLy/2kYlz2sjBRx3xS7AX5VYREe3GFJ6n20tKvQ9VeUsOWWvZSkrZplZY3E3A7NdIyPjNx2U9KGBMTrodxlAeE7KU0jJmZiIs7aoexMBPE7iOMCAyyE91cdDepMFFeBoPsvsyIwNj8gmwnpX5Fxo8ZERhXuiIlfKlZH9GjXMRmL7XqPG8mTIxLLXIYU1LegnA0EybGZy+1wq6RERPTw96JjAicwgah6WEvKXig7MVWZtPL3oHKv6P2Dl97ARXi2KQ=
   </data>
  </layer>
  <layer name="Objects" width="30" height="30">
@@ -63,7 +63,7 @@
    eJy9VdsNwjAMbITYgB3gGzEBIPYpczAKI7ATfPBfqMCScf2MU+4HpWl9l/PFdJ2MYaFsJrBe6vsc7/jNxviOIvo+5bV0toLXZ+rBydCn6R8578H+Rv2UeLPgsmDlg+PF/tXkywPveVtzY17JL4r+/ezs0GHl6t+Qstyip9odk+aUBK+/Fmo9trgfSl3weI6cQu847+bKkzb7uDzR3uFsaX09OP3yzOPM/5GkMesv1L0E6wxClrT7hvd25fN7Jbzb8rvGfcIe1+b4+K1/I7z7MtUIsDzOzAWt9rjXYt4AVqiWNG8tTXNC4/Xew5rvnsX3bqv5j8HNbOChfNY6Auo1d3bQYK0jmrge9wlPNU34OeXVztUS2bsU1fYC9JVLRw==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30">
+ <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJy9lEEOwCAIBP2C//9sT02aRncH3JbEQ6syCwhzjDHFuu35TfZWfhRnx62Y89FhrmKl7Ercitm1VI5pDgizGldXa+I9ES3dN6V8VjSc5DnZa25mkH+0F0n/JONQ55TPnRbyZtTscMwqrxOvy7HS3+H+8U6TzJ1fp2+3v/p2NXcaaU0T+VfcE7+0XiTP6q5jEx6Nu9rHSqPjdM7RWZMwmq8Ur2quh05nCOGm6kyM1p7M2/ddx1T3HLurqdLjX60/mReB/RoJ
   </data>

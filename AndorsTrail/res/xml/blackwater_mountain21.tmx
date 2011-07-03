@@ -36,7 +36,7 @@
  <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
  </tileset>
  <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
@@ -50,12 +50,12 @@
  </tileset>
  <layer name="Ground" width="20" height="12">
   <data encoding="base64" compression="zlib">
-   eJwLYmRgaKQSDoLiiViwMzMDgwsQT2ZjYJgCxBOBeBIbdrUwDDOvFqjPkQGTxoZbgWaW4pCHmYdLLzH4END8w2zkm1fBhluOHPM6iDAvEU94oeNyKrsPHybWvN0sDAx7WIgzr5GK7gOZNZGK5oHMCmRAYEcGVD45GACNyk6D
+   eJwLYmRgaKQSDoLiiViwMzMDgwsQT2ZjYJgCxBOBeBIbdrUwDDOvFqjPkQGTxoZbgWaW4pCHmYdLL6l4MJjXwUbYvEQ84YWOy4kwj97+3c3CwLCHhTjzGqnoPpBZE6loHsisQAYEdmRA5ZODAUxPTTc=
   </data>
  </layer>
  <layer name="Objects" width="20" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYGBg+M/MwLCZnYGBkwVCI4McID8TKoasxhCIVwL1cbFAMDLIBYrPYmNgkGSB0CA+LgBSkwqUd4SaJ8UCwYFo7ljFhkoHA9WGAPFiIH8JEC8E4kVsCPXJQDMuAPmbgHgzECcimVcP5O9iQ6XD8LgRBlYiqUlG8jPInmS0MMBnHkztRlbs8tjM0wKq1WaF0JpQWosV1byDQL4I1J+/2BjwAitW7BjZvItI5u1HMq8Q6LejUHwMiE8D8TckeT1WCEYHO5HC5DwB9yGbhY0NAieB5l1Fcgex5p0G+u8MC3Y3YgPfCLgVl39JMYNcAABqbi/n
+   eJydULsOQUEUPIndFWoNf4BEotX5BCF6EYWEQqfzHzqPhg4VjSAkQoLCryg0zGZXHDd7vSaZnDu7s5M5l4joFiCaBIlCwkyOGnTVnnFPGhzgXVgYctRx3lZEUWGm1n7QngruszYvJgxznh5D9Trz8BbAHnQf7IBd9fSXkXGEHoMTsMTyWtAz9TqLbzo+oPst4V0pk//A0aM1/PKazDuSbo8rLwFvUpoZtzMhn7tqLKAjds+rorfISDd53onlzVleA7utLTfgDryw+5Q09GLK/snhQz+e5frW2CLvzHp8m7fDfnvh7ujC5UNXv31/yfgXd45zMfY=
   </data>
  </layer>
  <layer name="Above" width="20" height="12">
@@ -68,7 +68,7 @@
    eJwTZGBgEByGmIFMPfgAuhp8enGZJ4hHDSHzCLmbWPOIDQd0Ni415IQfqfrwhQktzCPVTGLtpDSNomMAXUwJbw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="12">
+ <objectgroup name="Mapevents" width="20" height="12" visible="0">
   <object name="south" type="mapchange" x="96" y="352" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain11"/>
