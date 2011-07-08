@@ -200,37 +200,6 @@
 		&lt;br /&gt;
 		We really should add some info here about how to play the game :)&lt;br /&gt;
 	</string>
-	
-	<!-- Do not translate this. -->
-	<string name="about_contents2">
-		Programming by Oskar Wiksten&lt;br /&gt;
-		&lt;a href="http://telles0808.deviantart.com/art/RPG-Maker-VX-RTP-Tileset-159218223"&gt;Map tilesets graphics by telles0808&lt;/a&gt;&lt;br /&gt;
-		&lt;a href="http://ails.deviantart.com/art/420-Pixel-Art-Icons-for-RPG-129892453"&gt;Item tilesets graphics by Ails&lt;/a&gt;&lt;br /&gt;
-		&lt;a href="http://redknight91.deviantart.com/art/Arena-Game-Sprites-154661559"&gt;Hero graphics by RedKnight91&lt;/a&gt;&lt;br /&gt;
-		&lt;a href="http://nacred.deviantart.com/art/Sprite-Sheet-171751308"&gt;Additional monster graphics by nacred&lt;/a&gt;&lt;br /&gt;
-		&lt;a href="http://andors.techby2guys.com/"&gt;Game forums provided by Scott Devaney&lt;/a&gt;&lt;br /&gt;
-		Additional maps done by Michael Schmid&lt;br /&gt;
-		Additional programming by Samuel Plentz&lt;br /&gt;
-		Additional programming by Uwe Jugel&lt;br /&gt;
-		Additional programming by Olivier Samyn&lt;br /&gt;
-		Additional graphics by Karvis&lt;br /&gt;
-		Russian translation by Dreamer...&lt;br /&gt;
-		Italian translation by k6blue and liogiu&lt;br /&gt;
-		French translation by LeSanglier and Misty Soul&lt;br /&gt;
-		German translation by Bomber and Samuel Plentz&lt;br /&gt;
-		English proofreading by taws34&lt;br /&gt;
-		Forum moderated by Tim Davis&lt;br /&gt;
-		Forum moderated by Josh Kloos&lt;br /&gt;
-		Forum moderated by Travis Miller&lt;br /&gt;
-		&lt;br /&gt;
-		&lt;a href="http://rltiles.sourceforge.net"&gt;Monster tileset graphics by rltiles.sourceforge.net&lt;/a&gt;&lt;br /&gt;
-		Part of (or All) the graphic tiles used in this program is the public domain roguelike tileset "RLTiles".
-		Some of the tiles have been modified by Oskar Wiksten.
-		You can find the original tileset at &lt;a href="http://rltiles.sf.net"&gt;http://rltiles.sf.net&lt;/a&gt;&lt;br /&gt;
-		&lt;br /&gt;
-		Some of the graphic data in this software are free game resources distributed by REFMAP (&lt;a href="http://www.tekepon.net/fsm"&gt;http://www.tekepon.net/fsm&lt;/a&gt;).
-		You must not use the graphic data which is in this software, for the purpose except playing this game. When you want to get these resources, go to the website above.&lt;br /&gt;
-	</string>
 
 	<!-- 
 		This is the GNU GPL v2 text, originally from 
@@ -314,7 +283,7 @@
 	<string name="preferences_movementmethod">Type of movement method and handling of obstacles.</string>
 	<string-array name="preferences_movementmethods">
 		<item>Straight (original)</item>
-		<item>Directional</item>
+		<item>Avoiding obstacles</item>
 	</string-array>
 	<string-array name="preferences_movementmethod_values">
 		<item>0</item>
@@ -368,4 +337,33 @@
 	<string name="inventory_assign_slot3">Slot 3</string>
 	<string name="inventory_unassign">Un-assign quick slot</string>
 	
+	<!-- =========================================== -->
+	<!-- Added in v0.6.10 -->
+	
+	<string name="preferences_movement_dpad_position_title">Virtual d-pad</string>
+	<string name="preferences_movement_dpad_position">Enables a virtual on-screen directional pad to guide movement</string>
+	
+	<string-array name="preferences_movement_dpad_positions">
+		<item>Disabled</item>
+		<item>Lower right corner</item>
+		<item>Lower left corner</item>
+		<item>Center bottom</item>
+		<item>Center left</item>
+		<item>Center right</item>
+		<item>Upper left corner</item>
+		<item>Upper right corner</item>
+		<item>Center top</item>
+	</string-array>
+	<string-array name="preferences_movement_dpad_positions_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+	</string-array>
+
 </resources>

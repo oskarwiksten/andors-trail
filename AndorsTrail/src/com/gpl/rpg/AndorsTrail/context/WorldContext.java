@@ -59,7 +59,10 @@ public class WorldContext {
 	// Selftest method. Not part of the game logic.
 	public void verifyData() {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			//Ensure that all phrases that require an item have some droplist that contains them
+			assert(itemTypes.getItemTypeByTag("gold") != null);
+	        assert(itemTypes.getItemTypeByTag("gold").id == ItemTypeCollection.ITEMTYPE_GOLD);
+
+	        //Ensure that all phrases that require an item have some droplist that contains them
 			conversations.verifyData(dropLists);
 			
 			//Ensure that all phrases are requested at least once, either by NPCs, mapobjects or by other phrases.

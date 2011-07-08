@@ -17,6 +17,7 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.MainView;
+import com.gpl.rpg.AndorsTrail.view.VirtualDpadView;
 import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
 import com.gpl.rpg.AndorsTrail.view.QuickitemView;
 import com.gpl.rpg.AndorsTrail.view.StatusView;
@@ -57,6 +58,7 @@ public final class MainActivity extends Activity {
     public CombatView combatview;
     public QuickitemView quickitemview;
     public LinearLayout activeConditions;
+    public VirtualDpadView dpad;
 	
 	private static final int NUM_MESSAGES = 3;
 	private final String[] messages = new String[NUM_MESSAGES];
@@ -82,6 +84,7 @@ public final class MainActivity extends Activity {
         combatview = (CombatView) findViewById(R.id.main_combatview);
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
         activeConditions = (LinearLayout) findViewById(R.id.statusview_activeconditions);
+        dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
 		statusText.setOnClickListener(new OnClickListener() {
@@ -175,10 +178,12 @@ public final class MainActivity extends Activity {
 				})
         	});
         }
+        
 		quickitemview.setVisibility(View.GONE);
         quickitemview.registerForContextMenu(this);
     	quickitemview.refreshQuickitems();
-        
+    	
+    	dpad.updateVisibility(app.preferences);
     }
     	
     @Override
@@ -216,6 +221,7 @@ public final class MainActivity extends Activity {
 			AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
 	        AndorsTrailPreferences.read(this, app.preferences);
 	        world.tileStore.updatePreferences(app.preferences);
+	        dpad.updateVisibility(app.preferences);
 			break;
 		case INTENTREQUEST_SAVEGAME:
 			if (resultCode != Activity.RESULT_OK) break;
@@ -229,7 +235,7 @@ public final class MainActivity extends Activity {
 		}
 	}
     
-    private boolean save(int slot) {
+	private boolean save(int slot) {
     	final Player player = world.model.player;
     	return Savegames.saveWorld(world, this, slot, getString(R.string.savegame_currenthero_displayinfo, player.level, player.totalExperience, player.inventory.gold));
 	}
@@ -274,6 +280,7 @@ public final class MainActivity extends Activity {
         super.onPause();
         L.log("onPause");
         view.gameRoundController.pause();
+        view.movementController.stopMovement();
         
         save(Savegames.SLOT_QUICKSAVE);
     	

@@ -15,16 +15,19 @@ import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
-public final class MovementController {
+public final class MovementController implements TimedMessageTask.Callback {
 	private final ViewContext view;
     private final WorldContext world;
     private final ModelContainer model;
+    private final TimedMessageTask movementHandler;
 
 	public MovementController(ViewContext context) {
     	this.view = context;
     	this.world = context;
     	this.model = world.model;
+    	this.movementHandler = new TimedMessageTask(this, Constants.MINIMUM_INPUT_INTERVAL, false);
     }
 	
 	public void placePlayerAt(int objectType, String mapName, String placeName, int offset_x, int offset_y) { 
@@ -73,7 +76,7 @@ public final class MovementController {
 		return !model.uiSelections.isInCombat;
 	}
 
-    public void movePlayer(int dx, int dy) {
+    private void movePlayer(int dx, int dy) {
     	if (dx == 0 && dy == 0) return;
     	if (!mayMovePlayer()) return;
 
@@ -89,54 +92,75 @@ public final class MovementController {
     }
     
     public boolean findWalkablePosition(int dx, int dy) {
-    	if (view.preferences.movementMethod == AndorsTrailPreferences.MOVEMENTMETHOD_DIRECTIONAL) {
-    		return findWalkablePosition_directional(dx, dy);
-    	} else {
-    		return findWalkablePosition_straight(dx, dy);
+    	// try to move with movementAggresiveness, if that fails fall back to MOVEMENTAGGRESSIVENESS_NORMAL
+    	if (findWalkablePosition(dx, dy, view.preferences.movementAggressiveness)) return true;
+    	
+    	if (view.preferences.movementAggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return false;
+    	
+    	return findWalkablePosition(dx, dy, AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL);
+    }
+
+    public boolean findWalkablePosition(int dx, int dy, int aggressiveness) {
+    	if (view.preferences.movementMethod == AndorsTrailPreferences.MOVEMENTMETHOD_STRAIGHT) {
+    		return findWalkablePosition_straight(dx, dy, aggressiveness);
+    	} else  {
+    		return findWalkablePosition_directional(dx, dy, aggressiveness);
     	}
     }
-    public boolean findWalkablePosition_straight(int dx, int dy) {
-    	if (tryWalkablePosition(sgn(dx), sgn(dy))) return true;
-    	if (dx == 0 || dy == 0) return false;
-		if (abs(dx) == abs(dy) && tryWalkablePosition(sgn(dx), 0)) return true;
-    	if (abs(dx) > abs(dy)) return tryWalkablePosition(sgn(dx), 0);
-    	return tryWalkablePosition(0, sgn(dy));
+    public boolean findWalkablePosition_straight(int dx, int dy, int aggressiveness) {
+    	if (tryWalkablePosition(sgn(dx), sgn(dy), aggressiveness)) return true;                 // try moving into the direction player is pointing at
+    	if (dx == 0 || dy == 0) return false;                                                   // if moving purely east, west, north or south failed - do nothing  
+		if (abs(dx) == abs(dy) && tryWalkablePosition(sgn(dx), 0, aggressiveness)) return true; // try moving horizontally or vertically otherwise (prefer the direction where he is pointing more) 
+    	if (abs(dx) > abs(dy)) return tryWalkablePosition(sgn(dx), 0, aggressiveness);
+    	return tryWalkablePosition(0, sgn(dy), aggressiveness);
     }
-    public boolean findWalkablePosition_directional(int dx, int dy) {
-        if (tryWalkablePosition(sgn(dx), sgn(dy))) return true; // try moving into the direction player is pointing at
+    public boolean findWalkablePosition_directional(int dx, int dy, int aggressiveness) {
+        if (tryWalkablePosition(sgn(dx), sgn(dy), aggressiveness)) return true; // try moving into the direction player is pointing at
 
         if (dx == 0) { // player wants to move north or south but there is an obstacle
-            if (tryWalkablePosition( 1, sgn(dy))) return true; // try moving north-east (or south-east)
-            if (tryWalkablePosition(-1, sgn(dy))) return true; // try moving north-west (or south-west)
+            if (tryWalkablePosition( 1, sgn(dy), aggressiveness)) return true; // try moving north-east (or south-east)
+            if (tryWalkablePosition(-1, sgn(dy), aggressiveness)) return true; // try moving north-west (or south-west)
             return false;
         }
 
         if (dy == 0) { // player wants to move east or west but there is an obstacle
-            if (tryWalkablePosition(sgn(dx), 1)) return true; // try moving north-east (or north-west)
-            if (tryWalkablePosition(sgn(dx),-1)) return true; // try moving south-east (or south-west)
+            if (tryWalkablePosition(sgn(dx), 1, aggressiveness)) return true; // try moving north-east (or north-west)
+            if (tryWalkablePosition(sgn(dx),-1, aggressiveness)) return true; // try moving south-east (or south-west)
             return false;
         }
 
         if (abs(dx) >= abs(dy)) { // player wants to move more horizontally
-            if (tryWalkablePosition(sgn(dx), 0)) return true; // try moving horizontally
-            if (tryWalkablePosition(0, sgn(dy))) return true; // try moving vertically
+            if (tryWalkablePosition(sgn(dx), 0, aggressiveness)) return true; // try moving horizontally
+            if (tryWalkablePosition(0, sgn(dy), aggressiveness)) return true; // try moving vertically
             return false;
         } else { // player wants to move more vertically
-            if (tryWalkablePosition(0, sgn(dy))) return true; // try moving vertically
-            if (tryWalkablePosition(sgn(dx), 0)) return true; // try moving horizontally
+            if (tryWalkablePosition(0, sgn(dy), aggressiveness)) return true; // try moving vertically
+            if (tryWalkablePosition(sgn(dx), 0, aggressiveness)) return true; // try moving horizontally
             return false;
         }
     }
-
     
-    private boolean tryWalkablePosition(int dx, int dy) {
+    private boolean tryWalkablePosition(int dx, int dy, int aggressiveness) {
     	final Player player = model.player;
     	player.nextPosition.set(
 				player.position.x + dx
     			,player.position.y + dy
 			);
-    	if (model.currentMap.isWalkable(player.nextPosition)) return true;
-    	return false;
+
+    	if (!model.currentMap.isWalkable(player.nextPosition)) return false;
+    	
+		// allow player to enter every field when he is NORMAL
+		// prevent player from entering "non-monster-fields" when he is AGGRESSIVE
+		// prevent player from entering "monster-fields" when he is DEFENSIVE
+		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return true;
+		
+		Monster m = model.currentMap.getMonsterAt(player.nextPosition);
+		if (m != null && !m.isAgressive()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
+		
+		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_AGGRESSIVE && m == null) return false;
+		else if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE && m != null) return false;
+		
+		return true;
     }
 	
 	private static int sgn(final int v) { 
@@ -215,5 +239,28 @@ public final class MovementController {
 
 	public static void loadCurrentTileMap(Resources res, WorldContext world) {
 		world.model.currentTileMap = TMXMapReader.readLayeredTileMap(res, world.tileStore, world.model.currentMap);
+	}
+	
+	private int movementDx;
+	private int movementDy;
+	public void startMovement(int dx, int dy) {
+		if (model.uiSelections.isInCombat) return;
+		
+		movementDx = dx;
+		movementDy = dy;
+		movementHandler.start();
+	}
+	
+	public void stopMovement() {
+		movementHandler.stop();
+	}
+	
+	public void onTick(TimedMessageTask task) {
+		if (!model.uiSelections.isMainActivityVisible) return;
+    	if (model.uiSelections.isInCombat) return;
+    	
+		movePlayer(movementDx, movementDy);
+		
+    	movementHandler.queueAnotherTick();
 	}
 }

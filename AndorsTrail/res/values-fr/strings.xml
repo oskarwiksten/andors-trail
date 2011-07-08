@@ -20,7 +20,7 @@
   
   <string name="dialog_loading_message">Chargement des ressources...</string>
   <string name="dialog_loading_failed_title">Échec au chargement</string>
-  <string name="dialog_loading_failed_message">La Piste d\'Andor a été incapable de charger le fichier du jeu sauvegardé.\n\n:(\n\nLe fichier est peut-être endommagé ou incomplet.</string>
+  <string name="dialog_loading_failed_message">La Piste d\'Andor a été incapable de charger le fichier du jeu sauvegardé.\n\n :(\n\nLe fichier est peut-être endommagé ou incomplet.</string>
   <string name="dialog_loading_failed_incorrectversion">La Piste d\'Andor n\'a pas été capable de charger la sauvegarde. Cette sauvegarde de jeu a été créée avec une version plus récente que celle qui est en cours d\'exécution.</string>
   
   <string name="dialog_close">Fermer</string>
@@ -33,13 +33,13 @@
   <string name="dialog_paused_resume">Reprendre</string>
 
   <string name="dialog_monsterencounter_title">Rencontre</string>
-  <string name="dialog_monsterencounter_message">Voulez-vous attaquer ?\nDifficulté: %1$s</string>
+  <string name="dialog_monsterencounter_message">Voulez-vous attaquer ?\nDifficulté : %1$s</string>
   <string name="dialog_monsterencounter_info">Info</string>
 
-  <string name="status_hp">HP:</string>
-  <string name="status_mp">MP:</string>
-  <string name="status_ap">AP:</string>
-  <string name="status_exp">Niv.:</string>
+  <string name="status_hp">HP :</string>
+  <string name="status_mp">MP :</string>
+  <string name="status_ap">AP :</string>
+  <string name="status_exp">Niv. :</string>
 
   <string name="heroinfo_char">Vue d\'ensemble</string>
   <string name="heroinfo_inv">Inventaire</string>
@@ -51,8 +51,8 @@
   <string name="heroinfo_totalexperience">Expérience totale</string>  
   <string name="heroinfo_wornequipment">Équipement porté</string>
   <string name="heroinfo_inventory">Inventaire</string>
-  <string name="heroinfo_gold">Or: %1$d</string>
-  <string name="heroinfo_actionpoints">Point d\'Action (AP):</string>
+  <string name="heroinfo_gold">Or : %1$d</string>
+  <string name="heroinfo_actionpoints">Point d\'Action (AP) :</string>
   <string name="heroinfo_quests">Quêtes</string>
   
   <string name="combat_attack">Attaque (%1$d AP)</string>
@@ -64,8 +64,8 @@
   <string name="combat_flee">Fuir</string>
   <string name="combat_begin_flee">Vous pouvez maintenant fuir le combat en cliquant dans la direction vers laquelle vous souhaitez vous déplacer.</string>
   <string name="combat_flee_failed">Vous n\'avez pas pu fuir !</string>
-  <string name="combat_status_ap">AP: %1$d</string>
-  <string name="combat_monsterhealth">HP:</string>
+  <string name="combat_status_ap">AP : %1$d</string>
+  <string name="combat_monsterhealth">HP :</string>
   <string name="combat_monsteraction">%1$s est attaqué.</string>
   <!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  -->
   <string name="combat_result_monstermiss">%1$s manqué !</string>
@@ -103,45 +103,45 @@
     <string name="monster_difficulty_veryhard">Très difficile</string>
     <string name="monster_difficulty_impossible">Impossible</string>
 
-    <string name="actorinfo_class">Classe:</string>
-    <string name="actorinfo_difficulty">Difficulté:</string>
-    <string name="actorinfo_health">Santé:</string>
-    <string name="actorinfo_attacksperturn">Attaques/tour:</string>
-    <string name="actorinfo_movesperturn">Mouvement/tour:</string>
-    <string name="actorinfo_attack">Attaque:</string>
-    <string name="actorinfo_criticalhit">Frappe critique:</string>
-    <string name="actorinfo_defense">Défense:</string>
-    <string name="actorinfo_movecost">Coût de déplacement (AP):</string>
+    <string name="actorinfo_class">Classe :</string>
+    <string name="actorinfo_difficulty">Difficulté :</string>
+    <string name="actorinfo_health">Santé :</string>
+    <string name="actorinfo_attacksperturn">Attaques/tour :</string>
+    <string name="actorinfo_movesperturn">Mouvement/tour :</string>
+    <string name="actorinfo_attack">Attaque :</string>
+    <string name="actorinfo_criticalhit">Frappe critique :</string>
+    <string name="actorinfo_defense">Défense :</string>
+    <string name="actorinfo_movecost">Coût de déplacement (AP) :</string>
     <string name="actorinfo_basetraits">Statistiques de combat non équipé (base)</string>
     <string name="actorinfo_currenttraits">Statistiques de combat équipé (current)</string>
     
-    <string name="traitsinfo_attack_cost">Coût d\'attaque (AP):</string>
-    <string name="traitsinfo_attack_chance">Chance d\'attaque:</string>
-    <string name="traitsinfo_attack_damage">Dommage d\'attaque:</string>
-    <string name="traitsinfo_criticalhit_chance">Chance de coup critique:</string>
-    <string name="traitsinfo_criticalhit_multiplier">Multiple critique:</string>
-    <string name="traitsinfo_defense_chance">Chance de blocage:</string>
-    <string name="traitsinfo_defense_damageresist">Résistance au dommage:</string>
+    <string name="traitsinfo_attack_cost">Coût d\'attaque (AP) :</string>
+    <string name="traitsinfo_attack_chance">Chance d\'attaque :</string>
+    <string name="traitsinfo_attack_damage">Dommage d\'attaque :</string>
+    <string name="traitsinfo_criticalhit_chance">Chance de coup critique :</string>
+    <string name="traitsinfo_criticalhit_multiplier">Multiple critique :</string>
+    <string name="traitsinfo_defense_chance">Chance de blocage :</string>
+    <string name="traitsinfo_defense_damageresist">Résistance au dommage :</string>
     
   <!-- <string name="key_required">Une clé spécifique est requise pour passer.</string>  -->
 
-  <string name="iteminfo_category">Catégorie: </string>
-  <string name="iteminfo_action_use">Utilisé</string>
-  <string name="iteminfo_action_equip">Équipé</string>
-  <string name="iteminfo_action_unequip">Non-équipé</string>
-  <string name="iteminfo_action_use_ap">Utilisé (%1$d AP)</string>
-  <string name="iteminfo_action_equip_ap">Équipé (%1$d AP)</string>
-  <string name="iteminfo_action_unequip_ap">Non-équipé (%1$d AP)</string>
+  <string name="iteminfo_category">Catégorie : </string>
+  <string name="iteminfo_action_use">Utiliser</string>
+  <string name="iteminfo_action_equip">Équiper</string>
+  <string name="iteminfo_action_unequip">Déséquiper</string>
+  <string name="iteminfo_action_use_ap">Utiliser (%1$d AP)</string>
+  <string name="iteminfo_action_equip_ap">Équiper (%1$d AP)</string>
+  <string name="iteminfo_action_unequip_ap">Déséquiper (%1$d AP)</string>
 
   <string name="itemcategory_money">Monnaie</string>
   <string name="itemcategory_weapon">Arme</string>
   <string name="itemcategory_shield">Bouclier</string>
-  <string name="itemcategory_wearable_head">Portable (tête)</string>
-  <string name="itemcategory_wearable_body">Portable (corps)</string>
-  <string name="itemcategory_wearable_hand">Portable (mains)</string>
-  <string name="itemcategory_wearable_feet">Portable (pieds)</string>
-  <string name="itemcategory_wearable_neck">Portable (cou)</string>
-  <string name="itemcategory_wearable_ring">Portable (anneau)</string>
+  <string name="itemcategory_wearable_head">Vêtement (tête)</string>
+  <string name="itemcategory_wearable_body">Vêtement (corps)</string>
+  <string name="itemcategory_wearable_hand">Vêtement (mains)</string>
+  <string name="itemcategory_wearable_feet">Chaussure (pieds)</string>
+  <string name="itemcategory_wearable_neck">Bijou (cou)</string>
+  <string name="itemcategory_wearable_ring">Bijou (anneau)</string>
   <string name="itemcategory_potion">Potion</string>
   <string name="itemcategory_other">Autre</string>
   
@@ -166,7 +166,7 @@
   <string name="shop_infoitem">Info</string>
   <string name="shop_buyitem">Acheter (%1$d or)</string>
   <string name="shop_sellitem">Vendre (%1$d or)</string>
-  <string name="shop_yourgold">Votre or: %1$d</string>
+  <string name="shop_yourgold">Votre or : %1$d</string>
   <string name="shop_item_bought">%1$s bought.</string>
   <string name="shop_item_sold">%1$s vendu.</string>
   
@@ -230,7 +230,7 @@
     <item>Inclure les quêtes accomplies</item>
     <item>N\'afficher que les quêtes accomplies</item>
   </string-array>
-  <string name="questlog_queststatus">État: %1$s</string>
+  <string name="questlog_queststatus">État : %1$s</string>
   <string name="questlog_queststatus_inprogress">En-cours</string>
   <string name="questlog_queststatus_completed">Accomplie</string>
   

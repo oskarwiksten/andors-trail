@@ -53,7 +53,7 @@ public final class DynamicTileLoader {
 		TilesetBitmap b = getTilesetBitmap(tilesetImageResourceID);
 		if (b == null) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				L.log("WARNING: Cannot load tileset " + tilesetImageResourceID);
+				L.log("WARNING: Cannot load tileset " + tilesetImageResourceID + " for localId " + localId);
 			}
 			return currentTileStoreIndex-1;
 		}

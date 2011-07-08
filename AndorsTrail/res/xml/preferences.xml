@@ -54,5 +54,12 @@
 			android:defaultValue="0"
 			android:entries="@array/preferences_movementmethods"
 			android:entryValues="@array/preferences_movementmethod_values" />
+		<ListPreference
+			android:title="@string/preferences_movement_dpad_position_title"
+			android:summary="@string/preferences_movement_dpad_position"
+			android:key="dpadposition"
+			android:defaultValue="0"
+			android:entries="@array/preferences_movement_dpad_positions"
+			android:entryValues="@array/preferences_movement_dpad_positions_values" />
 	</PreferenceCategory>
 </PreferenceScreen>

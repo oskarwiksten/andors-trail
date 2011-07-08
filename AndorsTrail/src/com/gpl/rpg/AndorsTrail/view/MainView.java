@@ -99,13 +99,17 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         } else {
         	return super.onKeyDown(keyCode, msg);
         }
-    	//TODO: add more keys
+    	return true;
+    }
+    
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent msg) {
+		if (!model.uiSelections.isMainActivityVisible) return true;
+		view.movementController.stopMovement();
     	return true;
     }
 
 	private void keyboardAction(int dx, int dy) {
-		if (!allowInputInterval()) return;
-		
 		lastTouchPosition_dx = dx;
 		lastTouchPosition_dy = dy;
 		onClick();
@@ -151,10 +155,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 
     private void onClick() {
+    	if (!allowInputInterval()) return;
     	if (model.uiSelections.isInCombat) {
 			view.combatController.executeMoveAttack(lastTouchPosition_dx, lastTouchPosition_dy);
 		} else {
-			view.movementController.movePlayer(lastTouchPosition_dx, lastTouchPosition_dy);
+			view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy);
+			view.movementController.stopMovement();
 		}
     }
     
@@ -185,18 +191,21 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
-			if (!allowInputInterval()) return true;
-			
 			lastTouchPosition_tileCoords.set(
 					(int) Math.floor(((int)event.getX() - screenOffset.x) / scaledTileSize) + mapTopLeft.x
 					,(int) Math.floor(((int)event.getY() - screenOffset.y) / scaledTileSize) + mapTopLeft.y);
 			lastTouchPosition_dx = lastTouchPosition_tileCoords.x - model.player.position.x;
 			lastTouchPosition_dy = lastTouchPosition_tileCoords.y - model.player.position.y;
 			
-			if (!model.uiSelections.isInCombat) {
-				view.movementController.movePlayer(lastTouchPosition_dx, lastTouchPosition_dy);
-				return true;
-			}
+ 			if (model.uiSelections.isInCombat) break;
+ 			
+			view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy);
+			return true;
+		case MotionEvent.ACTION_UP:
+		case MotionEvent.ACTION_CANCEL:
+		case MotionEvent.ACTION_OUTSIDE:
+			view.movementController.stopMovement();
+			break;
 		}
 		return super.onTouchEvent(event);
 	}

@@ -42,7 +42,7 @@ public final class AboutActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				tv.setText(Html.fromHtml(res.getString(R.string.about_contents2)));
+				tv.setText(Html.fromHtml(res.getString(R.string.about_authors)));
 			}
 		});
         

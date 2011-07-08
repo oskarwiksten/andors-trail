@@ -7,6 +7,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.R;
@@ -69,7 +70,7 @@ public final class CombatController {
     		killedMonsterBags.clear();
     	}
     	totalExpThisFight = 0;
-    	context.gameRoundController.queueAnotherTick();
+    	context.gameRoundController.resume();
     }
     
     private void lootCurrentMonsterBags() {
@@ -155,7 +156,8 @@ public final class CombatController {
 	}
 	
 	private void executeFlee(int dx, int dy) {
-		if (!context.movementController.findWalkablePosition(dx, dy)) return;
+		// avoid monster fields when fleeing
+		if (!context.movementController.findWalkablePosition(dx, dy, AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE)) return;
 		Monster m = model.currentMap.getMonsterAt(model.player.nextPosition);
 		if (m != null) return;
 		executeCombatMove(world.model.player.nextPosition);
