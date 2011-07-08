@@ -120,7 +120,6 @@ public final class CombatController {
 	}
 	private boolean useAPs(int cost) {
 		if (model.player.useAPs(cost)) {
-			context.mainActivity.combatview.updatePlayerAP(model.player.ap);
 			return true;
 		} else {
 			message(context.mainActivity.getResources().getString(R.string.combat_not_enough_ap));
@@ -185,9 +184,7 @@ public final class CombatController {
 			}
 			message(msg);
 			startAttackEffect(attack, model.uiSelections.selectedPosition);
-			if (!attack.targetDied) {
-				context.mainActivity.combatview.updateMonsterHealth(target.health);
-			} else {
+			if (attack.targetDied) {
 				playerKilledMonster(target);
 				Monster nextMonster = getAdjacentMonster();
 				if (nextMonster == null) {
@@ -353,7 +350,7 @@ public final class CombatController {
 	}
 	private void updateTurnInfo() {
 		context.mainActivity.combatview.updateTurnInfo(currentActiveMonster);
-    	context.mainActivity.combatview.updatePlayerAP(model.player.ap);
+    	context.mainActivity.updateStatus();
 	}
 	
 	private static float getAverageDamagePerHit(ActorTraits attacker, ActorTraits target) {

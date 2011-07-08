@@ -223,7 +223,6 @@ public final class ItemController {
 
 	public void quickitemUse(int quickSlotId) {
 		useItem(model.player.inventory.quickitem[quickSlotId]);
-		view.mainActivity.combatview.updatePlayerAP(model.player.ap);
 		view.mainActivity.updateStatus();
 	}
 
@@ -233,7 +232,7 @@ public final class ItemController {
 	}
 	
 	public void toggleQuickItemView() {
-		if(view.mainActivity.quickitemview.getVisibility()==View.VISIBLE){
+		if (view.mainActivity.quickitemview.getVisibility()==View.VISIBLE){
 			view.mainActivity.quickitemview.setVisibility(View.GONE);
 			view.mainActivity.statusview.updateQuickItemImage(false);
 		} else {

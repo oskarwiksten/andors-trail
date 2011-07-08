@@ -4,6 +4,7 @@
 	android:layout_width="fill_parent"
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
+	android:background="@android:color/transparent"
 	>
 	
 	<ListView
@@ -15,6 +16,7 @@
 		android:id="@+id/conversation_statements"
 		android:transcriptMode="alwaysScroll"
 		android:padding="@dimen/dialog_margin"
+		style="@style/Style.BlackListView"
 		/>
 
 	<LinearLayout

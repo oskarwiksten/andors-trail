@@ -128,7 +128,6 @@ public class ActorStatsController {
 			view.controller.handlePlayerDeath();
 			return;
 		}
-		view.mainActivity.combatview.updatePlayerAP(player.ap);
 		view.mainActivity.updateStatus();
 
 		boolean removedAnyConditions = decreaseDurationAndRemoveConditions(player);

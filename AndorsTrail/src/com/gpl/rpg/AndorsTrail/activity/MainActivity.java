@@ -57,13 +57,13 @@ public final class MainActivity extends Activity {
     public StatusView statusview;
     public CombatView combatview;
     public QuickitemView quickitemview;
-    public LinearLayout activeConditions;
-    public VirtualDpadView dpad;
+    private LinearLayout activeConditions;
+    private VirtualDpadView dpad;
 	
 	private static final int NUM_MESSAGES = 3;
 	private final String[] messages = new String[NUM_MESSAGES];
 	private TextView statusText;
-	public WeakReference<Toast> lastToast = null;
+	private WeakReference<Toast> lastToast = null;
 	private ContextMenuInfo lastSelectedMenu = null;
 
     @Override
@@ -140,6 +140,8 @@ public final class MainActivity extends Activity {
 		    			world.model.player.inventory.addItem(itemType, 10);
 		    			itemType = world.itemTypes.getItemTypeByTag("clouded_rage");
 		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("pot_fatigue_restore");
+		    			world.model.player.inventory.addItem(itemType, 20);
 		    			
 		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();
@@ -168,6 +170,13 @@ public final class MainActivity extends Activity {
 		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 					}
 				})*/
+    			/*,new DebugButton("wyrms", new OnClickListener() {
+		    		@Override
+					public void onClick(View arg0) {
+		    			world.model.player.traits.maxHP = 200;
+		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain32", "north", 0, 0);
+					}
+				})*/
     			,new DebugButton("hp=max", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
@@ -191,8 +200,7 @@ public final class MainActivity extends Activity {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
 		case INTENTREQUEST_HEROINFO:
-			combatview.updatePlayerAP(world.model.player.ap);
-			quickitemview.refreshQuickitems();
+			updateStatus();
 			break;
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
@@ -380,6 +388,7 @@ public final class MainActivity extends Activity {
 		statusview.updateStatus();
 		statusview.updateActiveConditions(this, activeConditions);
 		quickitemview.refreshQuickitems();
+		combatview.updateStatus();
 	}
 	
 	public void redrawAll(int why) {

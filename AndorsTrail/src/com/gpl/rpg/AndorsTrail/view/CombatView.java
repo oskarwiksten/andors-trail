@@ -101,10 +101,10 @@ public final class CombatView extends FrameLayout {
 		}
 	}
 
-	public void updateMonsterHealth(Range range) {
+	private void updateMonsterHealth(Range range) {
 	    monsterHealth.update(range);
 	}
-	public void updatePlayerAP(Range range) {
+	private void updatePlayerAP(Range range) {
 		statusTextView.setText(getResources().getString(R.string.combat_status_ap, range.current));
 	}
 	public void updateCombatSelection(Monster selectedMonster, Coord selectedMovePosition) {
@@ -122,5 +122,13 @@ public final class CombatView extends FrameLayout {
 		} else {
 			attackMoveButton.setEnabled(false);
 		}
+	}
+
+	public void updateStatus() {
+		updatePlayerAP(world.model.player.ap);
+		if (world.model.uiSelections.selectedMonster != null) {
+			updateMonsterHealth(world.model.uiSelections.selectedMonster.health);
+		}
+		updateCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
 	}
 }
