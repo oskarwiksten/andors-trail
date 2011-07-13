@@ -14,10 +14,12 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.InputController;
 
 public final class VirtualDpadView extends ImageView implements OnClickListener {
 	private final WorldContext world;
 	private final ViewContext view;
+	private final InputController inputController;
 	
 	private int one_third_width;
 	private int two_thirds_width;
@@ -34,6 +36,7 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.world;
         this.view = app.currentView.get();
+        this.inputController = this.view.inputController;
 
         setImageResource(R.drawable.ui_dpad);
         setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -66,7 +69,6 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
-			if (world.model.uiSelections.isInCombat) break;
 			
 			final int x = (int)event.getX();
 			lastTouchPosition_dx = 0;
@@ -80,12 +82,12 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 			
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) break;
 			
-			this.view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy);
+			this.inputController.onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
 			return true;
 		case MotionEvent.ACTION_UP:
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_OUTSIDE:
-			this.view.movementController.stopMovement();
+			this.inputController.onKeyboardCancel();
 			break;
 		}
 		return super.onTouchEvent(event);

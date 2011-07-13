@@ -2,12 +2,6 @@
 
 <resources>
 	<!--  These quests do not need translation: -->
-	<string name="questlist_debug">
-[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{debugquest|Debug Quest|1|{{10|I have talked to the NPC||0|}{20|I have asked the NPC for more info.|20|0|}{100|I have given the items to the NPC|40|1|}}|};
-	</string>
-	
-	<!--  These quests do not need translation: -->
 	<string name="questlist_nondisplayed">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
 {nondisplay|Placeholder for hidden quests|0|{
@@ -236,6 +230,7 @@
 	{30|I met a man that wielded a strange looking dagger in the lower parts of a tomb to the southwest of Prim. He must have robbed this dagger from the grave.|||}
 	{40|I placed the dagger back into its place in the tomb. The restless undead seem much less restless now, strangely enough.|20||}
 	{50|Bjorgur thanked me for my assistance. He told me I should also seek his relatives in Feygard.|110|1|}
+	{51|I have told Fulus that I helped Bjorgur return his family dagger to its original place.|||}
 	{60|I have given Bjorgur\'s family dagger to Fulus. He thanked me for bringing it to him, and rewarded me handsomely.|170|1|}
 	}|};
 </string>

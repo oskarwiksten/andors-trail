@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.controller.VisualEffectController;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.controller.MonsterMovementController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
+import com.gpl.rpg.AndorsTrail.controller.InputController;
 
 public class ViewContext extends WorldContext {
 	//Views
@@ -25,8 +26,10 @@ public class ViewContext extends WorldContext {
 	public final MonsterMovementController monsterMovementController;
 	public final MovementController movementController;
 	public final ActorStatsController actorStatsController;
+	public final InputController inputController;
 	
 	public final AndorsTrailPreferences preferences;
+
 	
 	public ViewContext(AndorsTrailApplication application, MainActivity mainActivity) {
 		super(application.world);
@@ -41,5 +44,6 @@ public class ViewContext extends WorldContext {
 		this.monsterMovementController = new MonsterMovementController(this);
 		this.movementController = new MovementController(this);
 		this.actorStatsController = new ActorStatsController(this);
+		this.inputController = new InputController(this);
 	}
 }

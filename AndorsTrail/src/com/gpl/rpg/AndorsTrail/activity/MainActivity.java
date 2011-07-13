@@ -13,6 +13,8 @@ import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
@@ -170,7 +172,24 @@ public final class MainActivity extends Activity {
 		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 					}
 				})*/
-    			/*,new DebugButton("wyrms", new OnClickListener() {
+    			,new DebugButton("kazaul", new OnClickListener() {
+		    		@Override
+					public void onClick(View arg0) {
+		    			Player player = world.model.player;
+		    			player.addQuestProgress(new QuestProgress("kazaul", 8));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 9));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 10));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 11));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 21));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 22));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 25));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 26));
+		    			player.addQuestProgress(new QuestProgress("kazaul", 27));
+		    			
+	    				view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain50", "exit", 0, 0);
+					}
+				})
+				/*,new DebugButton("wyrms", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.maxHP = 200;
@@ -258,7 +277,7 @@ public final class MainActivity extends Activity {
     }
     
     private void addDebugButton(DebugButton button, int id, RelativeLayout layout) {
-    	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, 30);
+    	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
     	if (id == 1) 
     		lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
     	else
@@ -266,7 +285,7 @@ public final class MainActivity extends Activity {
     	lp.addRule(RelativeLayout.ABOVE, R.id.main_statusview);
     	Button b = new Button(this);
     	b.setText(button.text);
-    	b.setTextSize(getResources().getDimension(R.dimen.smalltext));
+    	b.setTextSize(getResources().getDimension(R.dimen.actionbar_text));
     	b.setId(id);
     	b.setOnClickListener(button.listener);
         layout.addView(b, lp);

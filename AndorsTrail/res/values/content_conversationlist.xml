@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
  
 <resources>
-	<string name="conversationlist_debug">
-[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{debugshop|Welcome adventurer!|||{{Trade items very very long text|S||||}{Bye|X||||}{Fight|F||||}}|};
-{debugquest|Debug quest start\nTest.|debugquest:10||{{Iron sword*2|debugquest2||dagger0|1|}{Progress+=10|debugquest4||||}{Progress=100|debugquest1|debugquest:100|||}}|};
-{debugquest1|Yes, you have already completed this quest.||debuglist1|{{Next|debugquest3||||}}|};
-{debugquest2|Thank you for the items.|debugquest:100||{{Next|debugquest3||||}}|};
-{debugquest3|Quest is now completed.|||{{Bye|X||||}}|};
-{debugquest4|More info. Quest progress should now be updated to 20.|debugquest:20||{{Back|debugquest||||}}|};
-	</string>
-	
-	
 	<string name="conversationlist_mikhail">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {mikhail_start_select||||{{|mikhail_visited|andor:1|||}{|mikhail_gamestart||||}}|};
@@ -1797,6 +1786,7 @@
 {sign_bwm35_3|You place the dagger back among the equipment, where it looks like it used to be.|bjorgur_grave:40|||};
 {fulus_start||||{
 	{|fulus_return_1|bjorgur_grave:60|||}
+	{|fulus_return_3|bjorgur_grave:51|||}
 	{|fulus_return_2|bjorgur_grave:20|||}
 	{|fulus_1||||}
 	}|};
@@ -1807,7 +1797,7 @@
 	{What was I supposed to do again?|fulus_3||||}
 	{Yes. Here it is.|fulus_complete_1||bjorgur_dagger|1|}
 	}|};
-{fulus_return_3|What?! Sigh. Stupid kid. That dagger is worth a fortune. We could have been rich! Rich I tell you!||||};
+{fulus_return_3|What?! Sigh. Stupid kid. That dagger is worth a fortune. We could have been rich! Rich I tell you!|bjorgur_grave:51|||};
 {fulus_1|Hello there. You seem like just the type of person I am looking for.|||{{N|fulus_2||||}}|};
 {fulus_complete_1|Oh wow, you actually managed to get the dagger? Thank you kid. This is worth a lot. Here, take these coins as compensation for your efforts!|bjorgur_grave:60|fulus_reward|{{N|fulus_complete_2||||}}|};
 {fulus_complete_2|Thank you again. Now, let\'s see.. how much should we sell this dagger for..||||};
@@ -1822,6 +1812,7 @@
 	{I don\'t like where this is going. I better not get involved in your shady business.|fulus_5||||}
 	{I like where this is going, please continue.|fulus_6||||}
 	{Tell me more.|fulus_6||||}
+	{I have already helped Bjorgur return the dagger to its original place.|fulus_return_3|bjorgur_grave:40|||}
 	}|};
 {fulus_5|Fine. Suit yourself, you goody two-shoes.||||};
 {fulus_6|The family in question is Bjorgur\'s family.|||{{N|fulus_7||||}}|};
@@ -1829,6 +1820,7 @@
 {fulus_8|What I want is simple. You go get that dagger and bring it to me, and I will reward you handsomely.|||{
 	{Sounds easy enough. I\'ll do it.|fulus_10||||}
 	{No, I had better not get involved in your shady business.|fulus_5||||}
+	{I have already helped Bjorgur return the dagger to its original place.|fulus_return_3|bjorgur_grave:40|||}
 	}|};
 {fulus_10|Good. Return to me once you have it. Maybe you can talk to Bjorgur about directions to the tomb. His house is just outside here in Prim. Just don\'t mention anything about our plan to him!|bjorgur_grave:20||{{N|fulus_9||||}}|};
 	</string>
@@ -1954,13 +1946,18 @@
 	}|};
 {throdna_return_8|We need you to do two things. First, you must find the shrine of Kazaul. Our scouts tell us that the shrine should be located somewhere near the base of Blackwater Mountain.|||{{N|throdna_return_9||||}}|};
 {throdna_return_9|However, all passageways to the shrine are \'clouded in Shadow\' according to our scouts. I\'m not sure what that means.|||{{N|throdna_return_10||||}}|};
-{throdna_return_10|Second, we need you to take this vial I have here and apply to the shrine.|kazaul:40||{{N|throdna_return_11||||}}|};
+{throdna_return_10|Second, we need you to take a vial of purifying spirit and apply to the shrine.|kazaul:40||{{N|throdna_return_11_select||||}}|};
+{throdna_return_11_select||||{
+	{|throdna_return_13|kazaul:41|||}
+	{|throdna_return_11||||}
+	}|};
 {throdna_return_11|This vial is a vial of purifying spirit. It should delay the process well enough for us to be able to continue our research.|||{
 	{Sounds easy. I\'ll do it.|throdna_return_12||||}
 	{Sounds dangerous, but I will do it.|throdna_return_12||||}
 	{This sounds like a trap. I won\'t agree to do your dirty work.|throdna_17||||}
 	}|};
-{throdna_return_12|Good. Here is the vial. Return to me as soon as you have completed your task.|kazaul:41|throdna_items||};
+{throdna_return_12|Good, here is the vial. Now hurry.|kazaul:41|throdna_items|{{N|throdna_return_13||||}}|};
+{throdna_return_13|Return to me as soon as you have completed your task.||||};
 {throdna_purify_1|Hello again. I hope you are here to tell me you have purified the shrine of Kazaul?|||{
 	{Yes, It is done.|throdna_purify_3|kazaul:60|||}
 	{No, not yet.|throdna_purify_2||||}

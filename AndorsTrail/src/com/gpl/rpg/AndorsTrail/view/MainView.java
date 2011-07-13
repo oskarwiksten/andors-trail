@@ -2,7 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
-import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -27,7 +27,6 @@ import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
-import android.view.View;
 
 public final class MainView extends SurfaceView implements SurfaceHolder.Callback {
 
@@ -43,16 +42,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     private final ModelContainer model;
     private final TileStore tiles;
 	private final ViewContext view;
+	private final InputController inputController;
 	
     private final SurfaceHolder holder;
     private final Paint mPaint = new Paint();
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
-
-	private final Coord lastTouchPosition_tileCoords = new Coord();
-    private int lastTouchPosition_dx = 0;
-    private int lastTouchPosition_dy = 0;
-    private long lastTouchEventTime = 0;
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -63,57 +58,31 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         this.model = app.world.model;
     	this.tiles = app.world.tileStore;
     	this.tileSize = tiles.tileSize;
+    	this.inputController = view.inputController;
 
     	holder.addCallback(this);
     	
         setFocusable(true);
         requestFocus();
-        setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				MainView.this.onClick();
-			}
-		});
-        setOnLongClickListener(new OnLongClickListener() {
-			@Override
-			public boolean onLongClick(View v) {
-				return MainView.this.onLongClick();
-			}
-		});
+        setOnClickListener(this.inputController);
+        setOnLongClickListener(this.inputController);
     }
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
 		if (!model.uiSelections.isMainActivityVisible) return true;
 
-    	if (keyCode == KeyEvent.KEYCODE_DPAD_UP) {
-    		keyboardAction(0, -1);
-    	} else if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
-    		keyboardAction(0, 1);
-        } else if (keyCode == KeyEvent.KEYCODE_DPAD_LEFT) {
-        	keyboardAction(-1, 0);
-        } else if (keyCode == KeyEvent.KEYCODE_DPAD_RIGHT) {
-        	keyboardAction(1, 0);
-        } else if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER) {
-        	keyboardAction(0, 0);
-        } else {
-        	return super.onKeyDown(keyCode, msg);
-        }
-    	return true;
+		if (inputController.onKeyboardAction(keyCode)) return true;
+		else return super.onKeyDown(keyCode, msg);
     }
     
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent msg) {
 		if (!model.uiSelections.isMainActivityVisible) return true;
-		view.movementController.stopMovement();
+		
+		inputController.onKeyboardCancel();
     	return true;
     }
-
-	private void keyboardAction(int dx, int dy) {
-		lastTouchPosition_dx = dx;
-		lastTouchPosition_dy = dy;
-		onClick();
-	}
 
 	@Override
 	public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
@@ -154,36 +123,6 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		L.log("surfaceDestroyed");
 	}
 
-    private void onClick() {
-    	if (!allowInputInterval()) return;
-    	if (model.uiSelections.isInCombat) {
-			view.combatController.executeMoveAttack(lastTouchPosition_dx, lastTouchPosition_dy);
-		} else {
-			view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy);
-			view.movementController.stopMovement();
-		}
-    }
-    
-    private boolean onLongClick() {
-		if (model.uiSelections.isInCombat) {
-			//TODO: Should be able to mark positions far away (mapwalk / ranged combat)
-			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
-			if (Math.abs(lastTouchPosition_dx) > 1) return false;
-			if (Math.abs(lastTouchPosition_dy) > 1) return false;
-				
-			view.combatController.setCombatSelection(lastTouchPosition_tileCoords);
-			return true;
-		}
-		return false;
-    }
-    
-    private boolean allowInputInterval() {
-		final long now = System.currentTimeMillis();
-		if ((now - lastTouchEventTime) < Constants.MINIMUM_INPUT_INTERVAL) return false;
-		lastTouchEventTime = now;
-		return true;
-    }
-    
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if (!model.uiSelections.isMainActivityVisible) return true;
@@ -191,20 +130,14 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
-			lastTouchPosition_tileCoords.set(
-					(int) Math.floor(((int)event.getX() - screenOffset.x) / scaledTileSize) + mapTopLeft.x
-					,(int) Math.floor(((int)event.getY() - screenOffset.y) / scaledTileSize) + mapTopLeft.y);
-			lastTouchPosition_dx = lastTouchPosition_tileCoords.x - model.player.position.x;
-			lastTouchPosition_dy = lastTouchPosition_tileCoords.y - model.player.position.y;
-			
- 			if (model.uiSelections.isInCombat) break;
- 			
-			view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy);
-			return true;
+			final int tile_x = (int) Math.floor(((int)event.getX() - screenOffset.x) / scaledTileSize) + mapTopLeft.x;
+			final int tile_y = (int) Math.floor(((int)event.getY() - screenOffset.y) / scaledTileSize) + mapTopLeft.y;
+			if (inputController.onTouchedTile(tile_x, tile_y)) return true;
+			break;
 		case MotionEvent.ACTION_UP:
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_OUTSIDE:
-			view.movementController.stopMovement();
+			inputController.onTouchCancell();
 			break;
 		}
 		return super.onTouchEvent(event);

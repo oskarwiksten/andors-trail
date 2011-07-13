@@ -20,8 +20,8 @@
 	
 	<string name="dialog_loading_message">Lade Ressourcen...</string>
 	<string name="dialog_loading_failed_title">Laden fehlgeschlagen</string>
-	<string name="dialog_loading_failed_message">Der Spielstand konnte nicht aus der Datei geladen werden.\n\n:(\n\nDie Datei könnte beschädigt oder unvollständig sein.</string>
-	<string name="dialog_loading_failed_incorrectversion">Der Spielstand konnte nicht aus der Datei geladen werden. Die Datei wurde mit einer neueren Programmversion erstellt.</string>
+	<string name="dialog_loading_failed_message">Der Spielstand konnte nicht geladen werden.\n\n:(\n\nDie Datei könnte beschädigt oder unvollständig sein.</string>
+	<string name="dialog_loading_failed_incorrectversion">Der Spielstand konnte nicht geladen werden. Die Datei wurde mit einer neueren Programmversion erstellt.</string>
 	
 	<string name="dialog_close">Schließen</string>
 	
@@ -36,7 +36,7 @@
 	<string name="dialog_monsterencounter_message">Angreifen?\nSchwierigkeit: %1$s</string>
 	<string name="dialog_monsterencounter_info">Info</string>
 
-	<string name="status_hp">HP:</string>
+	<string name="status_hp">LP:</string>
 	<string name="status_mp">MP:</string>
 	<string name="status_ap">AP:</string>
 	<string name="status_exp">Erf.:</string>
@@ -65,15 +65,15 @@
 	<string name="combat_begin_flee">Du kannst nun aus dem Kampf flüchten indem du in die gewünschten Fluchtrichtung klickst.</string>
 	<string name="combat_flee_failed">Die Flucht ist misslungen!</string>
 	<string name="combat_status_ap">AP: %1$d</string>
-	<string name="combat_monsterhealth">HP:</string>
+	<string name="combat_monsterhealth">LP:</string>
 	<string name="combat_monsteraction">%1$s greift an.</string>
-	<!-- <string name="combat_cannotexitcombat">Du kannst den Kampf nicht verlassen, weil noch Gegner in der Nähe sind. Du musst dich zunächst auf ein Feld bewegen, wo dich die Gegner nicht mehr erreichen können.</string>  -->
+	<!-- <string name="combat_cannotexitcombat">Du kannst den Kampf nicht verlassen, weil noch Gegner in der Nähe sind.Du musst dich zunächst auf ein Feld bewegen, wo dich die Gegner nicht mehr erreichen können.</string>  -->
 	<string name="combat_result_monstermiss">%1$s verfehlt!</string>
-	<string name="combat_result_monsterhit">%1$s trifft dich und nimmt dir %2$d HP!</string>
-	<string name="combat_result_monsterhitcritical">%1$s muss einen kritischen Treffer einstecken (%2$d HP)!</string>
+	<string name="combat_result_monsterhit">%1$s trifft dich und nimmt dir %2$d LP!</string>
+	<string name="combat_result_monsterhitcritical">%1$s muss einen kritischen Treffer einstecken (%2$d LP)!</string>
 	<string name="combat_result_heromiss">Dein Angriff schlug fehl.</string>
-	<string name="combat_result_herohit">Du triffst %1$s (%2$d HP)!</string>
-	<string name="combat_result_herohitcritical">Dein kritischer Treffer kostet %1$s %2$d HP!</string>
+	<string name="combat_result_herohit">Du triffst %1$s (%2$d LP)!</string>
+	<string name="combat_result_herohitcritical">Dein kritischer Treffer kostet %1$s %2$d LP!</string>
 	<string name="combat_result_herokillsmonster">%1$s ist besiegt!</string>
 	<string name="combat_not_enough_ap">Es sind nicht mehr genug AP in dieser Runde übrig.</string>
 	<string name="combat_hero_dies">Du wirst bewusstlos, wachst aber glücklicherweise lebendig wieder auf. Du verlierst %1$d Erfahrungspunkte.</string>
@@ -83,9 +83,9 @@
 	<string name="inventory_unequip">Ablegen</string>
 	<string name="inventory_use">Benutzen</string>
 	<string name="inventory_drop">Fallen lassen</string>
-	<string name="inventory_item_used">Du hast %1$s benutzt.</string>
-	<string name="inventory_item_dropped">Du hast %1$s fallen gelassen.</string>
-	<string name="inventory_item_equipped">Du hast %1$s angelegt.</string>
+	<string name="inventory_item_used">%1$s benutzt.</string>
+	<string name="inventory_item_dropped">%1$s weggeworfen.</string>
+	<string name="inventory_item_equipped">%1$s angelegt.</string>
 
 	<string name="dialog_loot_pickall">Alles einsammeln</string>
 	<string name="dialog_loot_foundgold">Du findest %1$d Gold. </string>
@@ -173,7 +173,7 @@
 	<string name="levelup_title">Aufsteigen</string>
 	<string name="levelup_description">Du hast Level %1$d erreicht!</string>
 	<string name="levelup_buttontext">Aufsteigen</string>
-	<string name="levelup_add_health">Lebenspunkte erhöhen (+%1$d HP)</string>
+	<string name="levelup_add_health">Lebenspunkte erhöhen (+%1$d LP)</string>
 	<string name="levelup_add_health_description">Fügt den maximalen Lebenspunkten %1$d Punkte hinzu.</string>
 	<string name="levelup_add_attackchance">Angriffschance erhöhen (+%1$d %%)</string>
 	<string name="levelup_add_attackchance_description">Fügt %1$d%% zur Basis-Angriffschance hinzu.</string>
@@ -299,13 +299,13 @@
 	<string name="iteminfo_effect_works_when_used">bei Anwendung</string>
 	<string name="iteminfo_effect_works_when_equipped">solange angelegt</string>
 	
-	<string name="iteminfo_effect_decrease_current_hp">entzieht %1$s HP</string>
-	<string name="iteminfo_effect_increase_current_hp">gibt %1$s HP zurück</string>
+	<string name="iteminfo_effect_decrease_current_hp">entzieht %1$s LP</string>
+	<string name="iteminfo_effect_increase_current_hp">gibt %1$s LP zurück</string>
 	<string name="iteminfo_effect_decrease_current_ap">entzieht %1$s AP</string>
 	<string name="iteminfo_effect_increase_current_ap">gibt %1$s AP zurück</string>
 	
-	<string name="iteminfo_effect_increase_max_hp">erhöht max. HP +%1$d</string>
-	<string name="iteminfo_effect_decrease_max_hp">verringert max. HP um %1$d</string>
+	<string name="iteminfo_effect_increase_max_hp">erhöht max. LP +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_hp">verringert max. LP um %1$d</string>
 	<string name="iteminfo_effect_increase_max_ap">erhöht max. AP +%1$d</string>
 	<string name="iteminfo_effect_decrease_max_ap">verringert max. AP um %1$d</string>
 	<string name="iteminfo_effect_increase_movecost">Bewegungsstrafe +%1$d AP</string>

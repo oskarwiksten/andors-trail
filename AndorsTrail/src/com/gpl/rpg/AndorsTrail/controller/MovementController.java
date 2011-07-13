@@ -243,8 +243,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 	
 	private int movementDx;
 	private int movementDy;
-	public void startMovement(int dx, int dy) {
+	public void startMovement(int dx, int dy, Coord destination) {
 		if (model.uiSelections.isInCombat) return;
+		if (dx == 0 && dy == 0) return;
 		
 		movementDx = dx;
 		movementDy = dy;
@@ -259,7 +260,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!model.uiSelections.isMainActivityVisible) return;
     	if (model.uiSelections.isInCombat) return;
     	
-		movePlayer(movementDx, movementDy);
+    	movePlayer(movementDx, movementDy);
 		
     	movementHandler.queueAnotherTick();
 	}

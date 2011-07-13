@@ -212,6 +212,8 @@ public final class Player extends Actor {
 				questProgress.get(questID).add(progress);
 			}
 		}
+		
+		ActorStatsController.recalculatePlayerCombatTraits(this);
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

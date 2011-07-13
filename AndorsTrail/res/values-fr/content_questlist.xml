@@ -3,29 +3,206 @@
 <resources>
 	<string name="questlist">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{andor|À la recherche d\'Andor|1|{{1|Mon père Mikhail m\'a dit qu\'Andor n\'était pas revenu à la maison depuis hier. Je dois aller le recherche dans le village.||0|}{10|Leonid dit qu\'il a vu Andor parler avec Gruil. Je dois aller demander ce qu\'il sait à Gruil.||0|}{20|Gruil veut que je lui rapporte une glande à venin. Après, il pourrait m\'en dire un peu plus. Il m\'a dit que certains serpents venimeux avaient de telles glandes.||0|}{30|Gruil dit qu\'Andor recherchait quelqu\'un du nom de Umar. Je dois interroger son ami Gaela à Fallhaven à l\'Est.||0|}{40|J\'ai discuté avec Gaela à Fallhaven. Il me conseille d\'aller voir Bucus et de lui demander des informations à propos de la guilde des voleurs.||0|}{50|Bucus m\'a autorisé à passer par la trappe dans la maison en ruines de Fallhaven. Il faut que je parle à Umar.||0|}{51|Umar de la guilde des voleurs de Fallhaven a cru me reconnaître, mais il a dû me confondre avec Andor. Apparamment, Andor l\'a déjà rencontré.||0|}{55|Umar dit qu\'Andor est allé voir un concocteur de potions dénommé Lodar. Je dois rechercher sa retraite.||0|}}|};
-{mikhail_bread|Pain du petit déjeuner|1|{{100|J\'ai rapporté du pain à Mikhail.||1|}{10|Mikhail veut que j\'aille lui acheter du pain chez Mara à la halle du village.||0|}}|};
-{mikhail_rats|Les rats !|1|{{100|J\'ai tué les deux rats de notre jardin.|20|1|}{10|Mikhail me demande de voir s\'il n\'y avait pas des rats dans le jardin. Je dois tuer les rats de notre jardin et revenir voir Mikhail. Si je suis blessé, je peux revenir et me reposer dans le lit pour reprendre mes forces.||0|}}|};
-{leta|Époux manquant|1|{{10|Leta du village de Crossglen veut que je recherche son époux Oromir.||0|}{20|J\'ai retrouvé Oromir dans le village de Crossglen village, se cachant de son épouse Leta.||0|}{100|J\'ai dit à Leta qu\'Oromir se cachait dans le village de Crossglen.|30|1|}}|};
-{odair|Invasion de rats|1|{{10|Odair veut que je purge la réserve du village de Crossglen des rats qui l\'ont envahie. Je dois en particulier tuer le gros rat et revenir voir Odair.||0|}{100|J\'ai aidé Odair à se débarasser des rats qui avaient envahi la réserve du village de Crossglen.|30|1|}}|};
-{bonemeal|Produit interdit|1|{{10|Leonid dans la halle de Crossglen m\' dit qu\'il y avait eu des désordres dans le village il y a quelques semaines. Apparemment, le seigneur Geomyr a banni toute utilisation des potions d\'os comme soin.@n@nTharal, le prêtre du village devrait en savoir plus.||0|}{20|Tharal ne veut pas parler des potions d\'os. Je pourrais peut-être le persuader si je lui ramène 5 ailes d\'insectes.||0|}{30|Tharal m\'a dit que la potion d\'os était un médicament très efficace, et il est embêté qu\'elle soit désormais interdite. Je devrais aller voir Thoronir à Fallhaven si je désire en apprendre davantage. Je dois lui dire le mot de passe « lueur de l\'Ombre ».||0|}{40|J\'ai parlé à Thoronir à Fallhaven. Il pourrait être capable de me concocter une potiond\'os si je lui ramenai 5 os de squelettes. Il doit y avoir quelques squelettes dans une maison abandonnée au nord de Fallhaven.||0|}{100|J\'ai ramené les os à Thoronir. Désormais, il peut me fournir en potions d\'os.@nJe dois cependant être prudent en les utilisant, car le seigneur Geomyr a interdit leur consommation.|90|1|}}|};
-{jan|Ami tombé|1|{{10|Jan m\'a raconté son histoire, au cours de laquelle lui et ses deux amis Gandir et Irogotu sont descendus dans ce gouffre pour creuser à la recherche d\'un trésor caché, puis se sont battus, Irogotu tuant Gandir dans sa fureur.@nJe dois récupérer l\'anneau de Gandir\'s auprès d\'Irogotu, et revenir voir Jan lorsque je l\'aurais.||0|}{100|Irogotu est mort. J\'ai ramené l\'anneau de Gandir à Jan, et vengé son ami.|150|1|}}|};
-{bucus|La clef de Luthor|1|{{10|Bucus à Fallhaven sait peut-être quelque chose à propos d\'Andor. Il veut que je lui ramène la clef de Luthor des catacombes sous l\'église de Fallhaven.||0|}{20|Les catacombes sous l\'église sont fermées. Athamyr est la seule personne ayant le droit et le courage d\'y entrer. Je dois aller le trouver dans sa maison au Sud-Ouest de l\'église.||0|}{30|Athamyr veut que e lui ramène de la viande préparée, il pourra alors m\'en dire plus.||0|}{40|J\'ai ramené de la viande préparée à Athamyr.|70|0|}{50|Athamyr m\'a donné la permission d\'entrer dans les catacombes sous l\'église de Fallhaven.||0|}{100|J\'ai apporté la clef de Luthor à Bucus.|215|1|}}|};
-{fallhavendrunk|Histoire d\'ivrogne|1|{{10|Un ivrogne à l\'extérieur de la taverne de Fallhaven à commencé à me raconter son histoire, mais il voudrait que je lui ramène de l\'hydromel. Je ne sais cependant pas si cette histoire va me conduire quelque part.||0|}{100|L\'ivrogne m\'a dit qu\'il avait l\'habiture de voyager avec Unnmir. Je dois parler à Unnmir.||1|}}|};
-{calomyran|Les secrets de Calomyran|1|{{10|Un vieil homme dans les rues de Fallhaven a perdu son livre « les secrets de Calomyran ». Je devrais partir à sa recherche. Peut-être dans la maison d\'Arcir vers le Sud ?||0|}{20|J\'ai trouvé une page déchirée d\'un libre intitulé « les secrets de Calomyran » sur laquelle était inscrit le nom « Larcal ».||0|}{100|J\'ai rendu son livre au vieil homme.|60|1|}}|};
-{nocmar|Trésors perdus|1|{{10|Unnmir m\'a dit qu\'il était un ancien aventurier, et m\'a laissé sous-entendre que je devrais voir Nocmar. Sa maison est juste au Sud-Ouest de la taverne de Fallhaven.||0|}{20|Nocmar m\'a dit qu\'il était un ancien forgeron. Mais le seigneur Geomyr a interdit l\'utilisation de l\'acier de cœur, et il ne peut plus forger ses armes.@nSi je pouvais trouver une pierre de cœur et la ramener à Nocmar, il pourrait à nouveau forger de l\'acier de cœur.||0|}{200|J\'ai ramené une pierre de cœur à Nocmar. Il devrait disposer d\'articles en acier de cœur désormais.|120|1|}}|};
-{flagstone|Ancients secrets|1|{{10|J\'ai rencontré un garde en faction à l\'extérieur d@une forteresse appelée Flagstone. Le garde m\'a dit que Flagstone était un acien camp de prisonnier pour les travailleurs fugitifs du Mont Galmore. Il y a eu récemment une augmentation du nombre de monstres morts-vivants déferlant de Flagstone. Je devrais aller rechercher l\'origine des ces monstres mort-vivants. Le garde m\'a dit de revenir le voir si j\'avais besoin d\'aide.||0|}{20|J\'ai trouvé un tunnel creusé sous Flagstone, qui a l\'air de mener à une caverne plus importante. La caverne est gardée par un démon dont je ne suis même pas capable de m\'approcher. Peut-être le garde en faction devant Flagstone en sait-il plus ?||0|}{30|Le garde m@a dit que l\'ancier gardien portait toujours un collier. Le collier avait probablement l\'incantation nécessaire pour approcher le démon. Je devrais revenir demander au garde de m\'aider à déchiffrer tout message que je pourrais trouver sur le collier une fois que je l\'aurais récupéré.||0|}{31|J\'ai trouvé l\'ancien gardien de Flagstone à l\'étage supérieur. Je dois retourner voir le garde désormais.||0|}{40|J\'ai appris l\'incantation requise pour pouvoir approcher le démon dans les souterrains de Flagstone. « Ombre du jour ».|160|0|}{50|Dans les profondeurs sous Flagstone, j\'ai trouvé l\'origine de l\'invasion des morts-vivants. Une créature née des griefs des anciens prisonniers de Flagstone.||0|}{60|J\'ai trouvé un prisonnier, Narael, encore en vie sous Flagstone. Narael est un ancien citoyen de la ville de Nor. Il est trop faible our marcher seul, mais si je peux trouver son épouse à la ville de Nor, je recevrais une généreuse récompense.|210|1|}}|};
-{vacor|Articles manquants|1|{{10|Un mage dénommé Vacor, au Sud-Ouest de Fallhaven a essayé de lancer un sort de scission.@nIl semblait troublé et était particulièrement obsédé par son sort. Quelque chose concernant un grand pouvoir qu\'il pourrait en tirer.||0|}{20|Vacor veut que je lui ramène les quatre articles de son sort de scission dont il affirme qu\'ils lui ont été dérobés. Les quatre bandits doivent être quelque part au Sud de Fallhaven.||0|}{30|J\'ai ramené les quatre articles du sort de scission à Vacor.|120|0|}{40|Vacor m\'a parlé de son ancien apprenti Unzel, qui commençait à douter de lui. Vacor veut désormais que je tue Unzel. Je devrais être capable de le trouver au Su-Ouest de Fallhaven. Je doit ramener sa chevalière à Vacor une fois que je l\'aurais tué.||0|}{50|Unzel me donne le choix de m\'allier à Vacor ou à lui-même.||0|}{51|J\'ai choisi de m\'allier avec Unzel. Je dois aller au Sud-Ouest de Fallhaven pour parler à Vacor d\'Unzel et de l\'Ombre.||0|}{53|J\'ai commencé à combattre Unzel. Je dois ramener sa chevalière à Vacor une fois qu\'il sera mort.||0|}{54|J\'ai commencé à combattre Vacor. Je dois ramener son anneau à Unzel une fois qu\'il sera mort.||0|}{60|J\'ai tué Unzel et ai rapporté mon acte à Vacor.|160|1|}{61|J\'ai tué Vacor et rapporté mon acte à Unzel.|160|1|}}|};
+{andor|À la recherche d\'Andor|1|{
+	{1|Mon père Mikhail m\'a dit qu\'Andor n\'était pas revenu à la maison depuis hier. Je dois aller le rechercher dans le village.||0|}
+	{10|Leonid dit qu\'il a vu Andor parler avec Gruil. Je dois aller demander ce qu\'il sait à Gruil.||0|}
+	{20|Gruil veut que je lui rapporte une glande à venin. Après, il pourrait m\'en dire un peu plus. Il m\'a dit que certains serpents venimeux avaient de telles glandes.||0|}
+	{30|Gruil dit qu\'Andor recherchait quelqu\'un du nom de Umar. Je dois interroger son ami Gaela à Fallhaven à l\'Est.||0|}
+	{40|J\'ai discuté avec Gaela à Fallhaven. Il me conseille d\'aller voir Bucus et de lui demander des informations à propos de la guilde des voleurs.||0|}
+	{50|Bucus m\'a autorisé à passer par la trappe dans la maison en ruines de Fallhaven. Il faut que je parle à Umar.||0|}
+	{51|Umar de la guilde des voleurs de Fallhaven a cru me reconnaître, mais il a dû me confondre avec Andor. Apparemment, Andor l\'a déjà rencontré.||0|}
+	{55|Umar dit qu\'Andor est allé voir un concocteur de potions dénommé Lodar. Je dois rechercher sa retraite.||0|}}|};
+{mikhail_bread|Pain du petit déjeuner|1|{
+	{100|J\'ai rapporté du pain à Mikhail.||1|}
+	{10|Mikhail veut que j\'aille lui acheter du pain chez Mara à la halle du village.||0|}}|};
+{mikhail_rats|Les rats !|1|{
+	{100|J\'ai tué les deux rats de notre jardin.|20|1|}
+	{10|Mikhail me demande de voir s\'il n\'y aurait pas des rats dans le jardin. Je dois tuer les rats de notre jardin et revenir voir Mikhail. Si je suis blessé, je peux revenir et me reposer dans le lit pour reprendre mes forces.||0|}}|};
+{leta|Époux manquant|1|{
+	{10|Leta du village de Crossglen veut que je recherche son époux Oromir.||0|}
+	{20|J\'ai retrouvé Oromir dans le village de Crossglen, se cachant de son épouse Leta.||0|}
+	{100|J\'ai dit à Leta qu\'Oromir se cachait dans le village de Crossglen.|30|1|}}|};
+{odair|Invasion de rats|1|{
+	{10|Odair veut que je purge la réserve du village de Crossglen des rats qui l\'ont envahie. Je dois en particulier tuer le gros rat et revenir voir Odair.||0|}
+	{100|J\'ai aidé Odair à se débarasser des rats qui avaient envahi la réserve du village de Crossglen.|30|1|}}|};
+{bonemeal|Produit interdit|1|{
+	{10|Leonid dans la halle de Crossglen m\' dit qu\'il y avait eu des désordres dans le village il y a quelques semaines. Apparemment, le seigneur Geomyr a banni toute utilisation des potions d\'os comme soin.\n\nTharal, le prêtre du village devrait en savoir plus.||0|}
+	{20|Tharal ne veut pas parler des potions d\'os. Je pourrais peut-être le persuader si je lui ramène 5 ailes d\'insectes.||0|}
+	{30|Tharal m\'a dit que la potion d\'os était un médicament très efficace, et il est embêté qu\'elle soit désormais interdite. Je devrais aller voir Thoronir à Fallhaven si je désire en apprendre davantage. Je dois lui dire le mot de passe « lueur de l\'Ombre ».||0|}
+	{40|J\'ai parlé à Thoronir à Fallhaven. Il pourrait être capable de me concocter une potion d\'os si je lui ramenais 5 os de squelettes. Il doit y avoir quelques squelettes dans une maison abandonnée au nord de Fallhaven.||0|}
+	{100|J\'ai ramené les os à Thoronir. Désormais, il peut me fournir en potions d\'os.\nJe dois cependant être prudent en les utilisant, car le seigneur Geomyr a interdit leur consommation.|90|1|}}|};
+{jan|Ami tombé|1|{
+	{10|Jan m\'a raconté son histoire, au cours de laquelle lui et ses deux amis Gandir et Irogotu sont descendus dans ce gouffre pour creuser à la recherche d\'un trésor caché, puis se sont battus, Irogotu tuant Gandir dans sa fureur.\nJe dois récupérer l\'anneau de Gandir\'s auprès d\'Irogotu, et revenir voir Jan lorsque je l\'aurais.||0|}
+	{100|Irogotu est mort. J\'ai ramené l\'anneau de Gandir à Jan, et vengé son ami.|150|1|}}|};
+{bucus|La clef de Luthor|1|{
+	{10|Bucus à Fallhaven sait peut-être quelque chose à propos d\'Andor. Il veut que je lui ramène la clef de Luthor des catacombes sous l\'église de Fallhaven.||0|}
+	{20|Les catacombes sous l\'église sont fermées. Athamyr est la seule personne ayant le droit et le courage d\'y entrer. Je dois aller le trouver dans sa maison au Sud-Ouest de l\'église.||0|}
+	{30|Athamyr veut que je lui ramène de la viande préparée, il pourra alors m\'en dire plus.||0|}
+	{40|J\'ai ramené de la viande préparée à Athamyr.|70|0|}
+	{50|Athamyr m\'a donné la permission d\'entrer dans les catacombes sous l\'église de Fallhaven.||0|}
+	{100|J\'ai apporté la clef de Luthor à Bucus.|215|1|}}|};
+{fallhavendrunk|Histoire d\'ivrogne|1|{
+	{10|Un ivrogne à l\'extérieur de la taverne de Fallhaven à commencé à me raconter son histoire, mais il voudrait que je lui ramène de l\'hydromel. Je ne sais cependant pas si cette histoire va me conduire quelque part.||0|}
+	{100|L\'ivrogne m\'a dit qu\'il avait l\'habiture de voyager avec Unnmir. Je dois parler à Unnmir.||1|}}|};
+{calomyran|Les secrets de Calomyran|1|{
+	{10|Un vieil homme dans les rues de Fallhaven a perdu son livre « les secrets de Calomyran ». Je devrais partir à sa recherche. Peut-être dans la maison d\'Arcir vers le Sud ?||0|}
+	{20|J\'ai trouvé une page déchirée d\'un livre intitulé « les secrets de Calomyran » sur laquelle était inscrit le nom « Larcal ».||0|}
+	{100|J\'ai rendu son livre au vieil homme.|60|1|}}|};
+{nocmar|Trésors perdus|1|{
+	{10|Unnmir m\'a dit qu\'il était un ancien aventurier, et m\'a laissé sous-entendre que je devrais voir Nocmar. Sa maison est juste au Sud-Ouest de la taverne de Fallhaven.||0|}
+	{20|Nocmar m\'a dit qu\'il était un ancien forgeron. Mais le seigneur Geomyr a interdit l\'utilisation de l\'acier de cœur, et il ne peut plus forger ses armes.\nSi je pouvais trouver une pierre de cœur et la ramener à Nocmar, il pourrait à nouveau forger de l\'acier de cœur.||0|}
+	{200|J\'ai ramené une pierre de cœur à Nocmar. Il devrait disposer d\'articles en acier de cœur désormais.|120|1|}}|};
+{flagstone|Ancients secrets|1|{
+	{10|J\'ai rencontré un garde en faction à l\'extérieur d\'une forteresse appelée Flagstone. Le garde m\'a dit que Flagstone était un acien camp de prisonniers pour les travailleurs fugitifs du Mont Galmore. Il y a eu récemment une augmentation du nombre de monstres morts-vivants déferlant de Flagstone. Je devrais aller rechercher l\'origine des ces monstres mort-vivants. Le garde m\'a dit de revenir le voir si j\'avais besoin d\'aide.||0|}
+	{20|J\'ai trouvé un tunnel creusé sous Flagstone, qui a l\'air de mener à une caverne plus importante. La caverne est gardée par un démon dont je ne suis même pas capable de m\'approcher. Peut-être le garde en faction devant Flagstone en sait-il plus ?||0|}
+	{30|Le garde m\'a dit que l\'ancien gardien portait toujours un collier. Le collier avait probablement l\'incantation nécessaire pour approcher le démon. Je devrais revenir demander au garde de m\'aider à déchiffrer tout message que je pourrais trouver sur le collier une fois que je l\'aurais récupéré.||0|}
+	{31|J\'ai trouvé l\'ancien gardien de Flagstone à l\'étage supérieur. Je dois retourner voir le garde désormais.||0|}
+	{40|J\'ai appris l\'incantation requise pour pouvoir approcher le démon dans les souterrains de Flagstone. « Ombre du jour ».|160|0|}
+	{50|Dans les profondeurs sous Flagstone, j\'ai trouvé l\'origine de l\'invasion des morts-vivants. Une créature née des griefs des anciens prisonniers de Flagstone.||0|}
+	{60|J\'ai trouvé un prisonnier, Narael, encore en vie sous Flagstone. Narael est un ancien citoyen de la ville de Nor. Il est trop faible pour marcher seul, mais si je peux trouver son épouse à la ville de Nor, je recevrais une généreuse récompense.|210|1|}}|};
+{vacor|Articles manquants|1|{
+	{10|Un mage dénommé Vacor, au Sud-Ouest de Fallhaven a essayé de lancer un sort de scission.\nIl semblait troublé et était particulièrement obsédé par son sort. Quelque chose concernant un grand pouvoir qu\'il pourrait en tirer.||0|}
+	{20|Vacor veut que je lui ramène les quatre articles de son sort de scission dont il affirme qu\'ils lui ont été dérobés. Les quatre bandits doivent être quelque part au Sud de Fallhaven.||0|}
+	{30|J\'ai ramené les quatre articles du sort de scission à Vacor.|120|0|}
+	{40|Vacor m\'a parlé de son ancien apprenti Unzel, qui commençait à douter de lui. Vacor veut désormais que je tue Unzel. Je devrais être capable de le trouver au Sud-Ouest de Fallhaven. Je doit ramener sa chevalière à Vacor une fois que je l\'aurais tué.||0|}
+	{50|Unzel me donne le choix de m\'allier à Vacor ou à lui-même.||0|}
+	{51|J\'ai choisi de m\'allier avec Unzel. Je dois aller au Sud-Ouest de Fallhaven pour parler à Vacor d\'Unzel et de l\'Ombre.||0|}
+	{53|J\'ai commencé à combattre Unzel. Je dois ramener sa chevalière à Vacor une fois qu\'il sera mort.||0|}
+	{54|J\'ai commencé à combattre Vacor. Je dois ramener son anneau à Unzel une fois qu\'il sera mort.||0|}
+	{60|J\'ai tué Unzel et rapporté mon acte à Vacor.|160|1|}
+	{61|J\'ai tué Vacor et rapporté mon acte à Unzel.|160|1|}}|};
 	</string>
 
 	<string name="questlist_v068">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{farrik|Visite nocturne|1|{{10|Farrik de la guilde des voleurs de Fallhaven m\'a parlé d\'un plan pour aider un confrère voleur à s\'évader de la prison de Fallhaven.||0|}{20|Farrik de la guilde des voleurs de Fallhaven m\'a donné les détails du plan, et j\'ai accepté de l\'aider. Le capitaine des gardes a apparemment tendance à boire. Le plan consiste à lui fournir de l\'hydromel somnifère préparée par le cuistot de la guilde des voleurs, de façon à l\'endormir. Je serais peut-être amené à corrompre le capitaine des gardes.||0|}{25|J\'ai obtenu l\'hydromel somnifère du cuistot de la guilde des voleurs.||0|}{30|J\'ai dit à Farrik que je n\'adhérais pas à leur plan. Je devrais peut-être prévenir le capitaine des gardes de leur plan louche.||0|}{32|J\'ai donné l\'hydromel somnifère au capitaine des gardes.||0|}{40|J\'ai prévenu le capitaine des gardes du plan des voleurs pour faire évader leur ami.||0|}{50|Le capitaine des gardes m\'a dit de dire aux voleurs que la garde serait réduite cette nuit. Nous pourrions peut-être attraper quelques voleurs.||0|}{60|J\'ai réussi à convaincre le capitaine des gardes de de boire l\'hydromel somnifère ce soir. Il devrait être dans l\'incapacité d\'agir cette nuit, permettant aux voleurs de faire évader leur ami.||0|}{70|Farrik m\'a remercié d\'avoir aidé la guilde des voleurs.|150|1|}{80|J\'ai dit à Farrik que la garde serait réduite cette nuit.||0|}{90|Le capitaine des gardes m\'a remercié de l\'avor aidé à mettre au point un plan pour attraper les voleurs. Il m\'a dit qu\'il préviendrait d\'autres gardes que je l\'avais aidé.|170|1|}}|};
-{lodar|La potion perdue|1|{{10|Je dois trouver un concocteur de potions dénommé Lodar. Umar de la guilde des voleurs de Fallhaven m\'a dit que je devais connaître les mots qui me permettraient de passer le gardien et rejoindre la retraite de Lodar.||0|}{15|Umar m\'a dit que je devais voir quelqu@un du nom de Ogam à Vilegard. Ogam peut me donner les bons mots pour atteindre la retraite de Lodar.||0|}{20|J\'ai rendu visite à Ogame au Sud-Ouest de Vilegard. Il semblait parler par enigmes. J\'ai à peine pu comprendre les détails lorsque je lui ai parlé de la retraite de Lodar. Parmi les phrases qu\'il a prononcé, j@ai retenu « À mi-chemin de l\'Ombre et de la Lumière. Des Formations rocheuses », ainsi que les mots « Lueur de l\'Ombre ». Je ne suis pas sûr de ce que cela signifie.||0|}}|};
-{vilegard|Faire confiance à un étranger|1|{{10|Les gens de Vilegard sont très suspicieux vis à vis des étrangers. On m\'a dit d\'aller voir Jolnor à la chapelle de Vilegard si je voulais gagner leur confiance.||0|}{20|J\'ai parlé à Jolnor de la chapelle de Vilegard. Il m\'a suggéré d\'aider trois personnes ayant une certaine influence dans le village pour gagner la confiance des gens de Vilegard. Je dois aider Kaori, Wrye et Jolnor de Vilegard.||0|}{30|J\'ai aidé les trois personnes de Vilegard ainsi que Jolnor me le suggérait. Maintenant, j\'ai gagné la confiance des gens de Vilegard.|210|1|}}|};
-{kaori|Coursier de Kaori|1|{{5|Jolnor de la chapelle de Vilegard veut que je parle à Kaori, au Nord du village de Vilegard, afin de voir s\'il a besoin d\'aide.||0|}{10|Kaori au Nord du village de vilegard veut que je lui ramène 10 potions d\'os.||0|}{20|J\'ai ramené 10 potions d\'os à Kaori.|52|1|}}|};
-{wrye|Cause d\'inquiétude|1|{{10|Jolnor de la chapelle de Vilegard veut que je parle à Wrye, au Nord du village de Vilegard. Elle a apparemment perdu son fils récemment.||0|}{20|Wrye au Nord du village de Vilegard m\'a dit que son fils Rincel était porté disparu. Elle pense qu@il est mort ou qu@il a été mortellement blessé.||0|}{30|Wrye m\'a dit qu\'elle pensait que la garde royale de Feygard était impliquée dans sa disparition, et qu\'ils l\'avaient recruté.||0|}{40|Wrye veut que je recherche ce qui est arrivé à son fils.||0|}{41|Je devrais aller voir dans la taverne de Vilegard et dans la taverne du Cruchon Fumant au nord de Vilegard.|20|0|}{42|J\'ai entendu parler d@un garçon qui serait passé par la taverne du Cruchon Fumant il y a quelques temps. Apparemment, il serait parti vers l\'Ouest de la taverne quelque part.||0|}{80|Au Nord-Ouest de Vilegard j\'ai rencontré un homme qui a trouvé Rincel combattant quelques monstres. Rincel aurait apparemment quitté Vilegard de son propre chef pour voir la ville de Feygard. Je dois revenir raconter à Wrye au Nordu du village de Vilegard ce qui est arrivé à son fils.||0|}{90|J\'ai raconté à Wrye la vérité sur la disparition de son fils.|52|1|}}|};
-{jolnor|Espions dans l\'écume|1|{{10|Jolnor de la chapelle de Vilegard m\'a parlé d\'un garde à l\'extérieur de la taverne du Cruchon Écumeux, dont il pensait qu\'il était un espion à la solde de la garde royale de Feygard. Il me demande de faire disparaître le garde, de n\'importe quelle manière. La taverne devrait être juste au Nord de Vilegard.||0|}{20|J\'ai convaincu le garde à l\'extérieur de la taverne du Cruchon Écumeux de partir après son tour de garde.||0|}{21|Je me suis battu avec le garde à l\'extérieur de la taverne du Cruchon Écumeux. Je dois ramener son anneau de la garde royale à Jolnor une fois qu\'il sera mort pour prouver sa disparition.||0|}{30|J\'ai dit à Jolnor que le garde était maintenant parti.|63|1|}}|};
+{farrik|Visite nocturne|1|{
+	{10|Farrik de la guilde des voleurs de Fallhaven m\'a parlé d\'un plan pour aider un confrère voleur à s\'évader de la prison de Fallhaven.||0|}
+	{20|Farrik de la guilde des voleurs de Fallhaven m\'a donné les détails du plan, et j\'ai accepté de l\'aider. Le capitaine des gardes a apparemment tendance à boire. Le plan consiste à lui fournir de l\'hydromel somnifère préparé par le cuistot de la guilde des voleurs, de façon à l\'endormir. Je serais peut-être amené à corrompre le capitaine des gardes.||0|}
+	{25|J\'ai obtenu l\'hydromel somnifère du cuistot de la guilde des voleurs.||0|}
+	{30|J\'ai dit à Farrik que je n\'adhérais pas totalement à leur plan. Je devrais peut-être prévenir le capitaine des gardes de leur plan louche.||0|}
+	{32|J\'ai donné l\'hydromel somnifère au capitaine des gardes.||0|}
+	{40|J\'ai prévenu le capitaine des gardes du plan des voleurs pour faire évader leur ami.||0|}
+	{50|Le capitaine des gardes m\'a dit de dire aux voleurs que la garde serait réduite cette nuit. Nous pourrions peut-être attraper quelques voleurs.||0|}
+	{60|J\'ai réussi à convaincre le capitaine des gardes de boire l\'hydromel somnifère ce soir. Il devrait être dans l\'incapacité d\'agir cette nuit, permettant aux voleurs de faire évader leur ami.||0|}
+	{70|Farrik m\'a remercié d\'avoir aidé la guilde des voleurs.|150|1|}
+	{80|J\'ai dit à Farrik que la garde serait réduite cette nuit.||0|}
+	{90|Le capitaine des gardes m\'a remercié de l\'avor aidé à mettre au point un plan pour attraper les voleurs. Il m\'a dit qu\'il préviendrait d\'autres gardes que je l\'avais aidé.|170|1|}}|};
+{lodar|La potion perdue|1|{
+	{10|Je dois trouver un concocteur de potions dénommé Lodar. Umar de la guilde des voleurs de Fallhaven m\'a dit que je devais connaître les mots qui me permettraient de passer le gardien et rejoindre la retraite de Lodar.||0|}
+	{15|Umar m\'a dit que je devais voir quelqu\'un du nom de Ogam à Vilegard. Ogam peut me donner les bons mots pour atteindre la retraite de Lodar.||0|}
+	{20|J\'ai rendu visite à Ogam au Sud-Ouest de Vilegard. Il semblait parler par énigmes. J\'ai à peine pu comprendre les détails lorsque je lui ai parlé de la retraite de Lodar. Parmi les phrases qu\'il a prononcées, j\'ai retenu « À mi-chemin de l\'Ombre et de la Lumière. Des Formations rocheuses », ainsi que les mots « Lueur de l\'Ombre ». Je ne suis pas sûr de ce que cela signifie.||0|}}|};
+{vilegard|Faire confiance à un étranger|1|{
+	{10|Les gens de Vilegard sont très suspicieux vis à vis des étrangers. On m\'a dit d\'aller voir Jolnor à la chapelle de Vilegard si je voulais gagner leur confiance.||0|}
+	{20|J\'ai parlé à Jolnor de la chapelle de Vilegard. Il m\'a suggéré d\'aider trois personnes ayant une certaine influence dans le village pour gagner la confiance des gens de Vilegard. Je dois aider Kaori, Wrye et Jolnor de Vilegard.||0|}
+	{30|J\'ai aidé les trois personnes de Vilegard ainsi que Jolnor me le suggérait. Maintenant, j\'ai gagné la confiance des gens de Vilegard.|210|1|}}|};
+{kaori|Coursier de Kaori|1|{
+	{5|Jolnor de la chapelle de Vilegard veut que je parle à Kaori, au Nord du village de Vilegard, afin de voir s\'il a besoin d\'aide.||0|}
+	{10|Kaori au Nord du village de vilegard veut que je lui ramène 10 potions d\'os.||0|}
+	{20|J\'ai ramené 10 potions d\'os à Kaori.|52|1|}}|};
+{wrye|Cause d\'inquiétude|1|{
+	{10|Jolnor de la chapelle de Vilegard veut que je parle à Wrye, au Nord du village de Vilegard. Elle a apparemment perdu son fils récemment.||0|}
+	{20|Wrye au Nord du village de Vilegard m\'a dit que son fils Rincel était porté disparu. Elle pense qu\'il est mort ou qu\'il a été mortellement blessé.||0|}
+	{30|Wrye m\'a dit qu\'elle pensait que la garde royale de Feygard était impliquée dans sa disparition, et qu\'ils l\'avaient recruté.||0|}
+	{40|Wrye veut que je recherche ce qui est arrivé à son fils.||0|}
+	{41|Je devrais aller voir dans la taverne de Vilegard et dans la taverne du Cruchon Écumeux au nord de Vilegard.|20|0|}
+	{42|J\'ai entendu parler d\'un garçon qui serait passé par la taverne du Cruchon Écumeux il y a quelques temps. Apparemment, il serait parti vers l\'Ouest de la taverne quelque part.||0|}
+	{80|Au Nord-Ouest de Vilegard j\'ai rencontré un homme qui a trouvé Rincel combattant quelques monstres. Rincel aurait apparemment quitté Vilegard de son propre chef pour voir la ville de Feygard. Je dois revenir raconter à Wrye au Nord du village de Vilegard ce qui est arrivé à son fils.||0|}
+	{90|J\'ai raconté à Wrye la vérité sur la disparition de son fils.|52|1|}}|};
+{jolnor|Espions dans l\'écume|1|{
+	{10|Jolnor de la chapelle de Vilegard m\'a parlé d\'un garde à l\'extérieur de la taverne du Cruchon Écumeux, dont il pensait qu\'il était un espion à la solde de la garde royale de Feygard. Il me demande de faire disparaître le garde, de n\'importe quelle manière. La taverne devrait être juste au Nord de Vilegard.||0|}
+	{20|J\'ai convaincu le garde à l\'extérieur de la taverne du Cruchon Écumeux de partir après son tour de garde.||0|}
+	{21|Je me suis battu avec le garde à l\'extérieur de la taverne du Cruchon Écumeux. Je dois ramener son anneau de la garde royale à Jolnor une fois qu\'il sera mort pour prouver sa disparition.||0|}
+	{30|J\'ai dit à Jolnor que le garde était maintenant parti.|63|1|}}|};
 	</string>
+
+	<string name="questlist_v069">
+[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
+{bwm_agent|L\'agent et la bête|1|{
+	{1|J\'ai rencontré un homme recherchant de l\'aide pour sa colonie, le « Mont Blackwater ». Il semblerait que la colonie soit attaquée par des monstres et des bandits, et ils ont besoin d\'une aide exérieure.|||}
+	{5|J\'ai accepté d\'aider l\'homme et la coloine du Mont Blackwater à résoudre son problème.|||}
+	{10|L\'homme m\'a demandé de le retrouver de l\'autre côté de la mine effondrée. Il va passer en rampant à travers les éboulis pendant que je descendrai dans la nuit noire du puits de mine abandonnée.|||}
+	{20|J\'ai parcouru l\'obscurité de la mine abandonnée et retrouvé l\'homme de l\'autre côté. Il était anxieux de me dire de me diriger plein Est une fois que je serais sorti de la mine. Je dois retrouver cet homme au pied de la montagne à l\'Est.|||}
+	{25|J\'ai entendu une histoire au sujet de Prim et de la colonie du Mont Blackwater se combattant les uns les autres.|||}
+	{30|Je dois suivre le chemin qui monte dans la montange vers la colonie de Blackwater.|||}
+	{40|J\'ai retrouvé l\'homme en gravissant le Mont Blackwater. Je dois continuer mon ascension.|||}
+	{50|Je suis arrivé aux pentes enneigées du Mont Blackwater. L\'homme m\'a dit de continuer à grimper dans la montagne. Apparemment, la colonie du Mont Blackwater est proche.|||}
+	{60|Je suis arrivé à la colonie du Mont Blackwater. Je dois trouver le chef de guerre Harlenn.|||}
+	{65|J\'ai discuté avec Harlenn dans la colonie du Mont Blackwater. Apparemment, la colonie est soumise à des attaques par de nombreux monstres, les Aulaeth et des wyrms blanches. Pour couronner le tout, ils sont aussi attaqués par les gens de Prim.|||}
+	{66|Harlenn pense que les gens de Prim sont d\'une manière ou d\'une autre derrière les attaques de monstres.|||}
+	{70|Harlenn veut que je transmette un message à Guthbered de Prim. Les gens de Prim cessent leurs attaques contre la colonie du Mont Blackwater, ou alors ils en supporteront les conséquences. Je dois aller parler à Guthbered à Prim.|||}
+	{80|Guthbered dément le fait que les gens de Prim aient la moindre responsabilité dans les attaques de monstres contre la colonie du Mont Blackwater. Je dois aller parler à Harlenn|||}
+	{90|Harlenn est certain que les gens de Prim sont mêlés à ces attaques.|||}
+	{95|Harlenn veut que j\'aille à Prim et que je recherche des preuves qu\'ils se préparent à attaquer la colonie. Je dois rechercher des indices à proximité de l\'endroit où Guthbered se tient.|||}
+	{100|J\'ai trouvé des plans à Prim pour recruter des mercenaires et attaquer la colonie du Mont Blackwater. Je dois aller en parler à Harlenn immédiatement.|||}
+	{110|Harlenn m\'a remercié d\'avoir enquêté sur ces plans d\'attaque.|115||}
+	{120|Afin de faire cesser les attaques contre la colonie du Mont Blackwater, Harlenn veut que j\'assassine Guthbered à Prim.|||}
+	{130|J\'ai commencé à me battre avec Guthbered.|||}
+	{131|J\'ai dit à Guthbered que j\'avais été envoyé pour le tuer, mais l\'ai laissé vivre. Il m\'a remercié avec profusion et a quitté Prim.|210||}
+	{150|Harlenn m\'a remercié pour l\'aide que je lui ai fournie. Désormais, les attaques contre la colonie du Mont Blackwater devraient cesser.|500||}
+	{240|J\'ai maintenant gagné la confiance de la colonie du Mont Blackwater, et devrais avoir accès à tous les services.||1|}
+	{250|J\'ai décidé de ne pas aider les gens de la colonie du Mont Blackwater.||1|}
+	{251|Comme j\'aide Prim, Harlenn ne veut plus me parler.||1|}
+	}|};
+{prim_innquest|Bien reposé|1|{
+	{10|J\'ai discuté avec le cuisinier de Prim, au pied du Mont Blackwater. Il y a une chambre à louer, mais elle est déjà louée par Arghest. Je dois aller parler à Arghest pour voir s\'il a toujours besoin de louer cette chambre. Le cuisinier m\'a indiqué une direction au Sud-Ouest de Prim.|||}
+	{20|J\'ai parlé avec Arghest au sujet de la chambre dans l\'auberge. Il souhaite toujours pouvoir en disposer pour s\'y reposer. Il m\'a cependant déclaré qu\'il se laisserait persuader de me laisser l\'utiliser si je lui offrais une compensation suffisante.|||}
+	{30|Arghest veut que je lui rapporte 5 bouteilles de lait. Je devrais pouvoir trouver un peu de lait dans un des plus gros villages.|||}
+	{40|J\'ai rapporté du lait à Arghest. Il est d\'accord pour me laisser utiliser la chambre de l\'auberge de Prim. Je devrais pouvoir m\'y reposer désormais. Je dois aller le dire au cuisinier de l\'auberge.|50||}
+	{50|J\'ai expliqué au cuisinier que j\'avais la permission d\'Arghest d\'utiliser la chambre.||1|}
+	}|};
+{prim_hunt|Intentions brumeuses|1|{
+	{10|Juste à l\'extérieur de la mine effondrée sur le chemin du Mont blackwater, j\'ai rencontré un homme du village de Prim. Il m\'a supplié de les aider.|||}
+	{11|Le village de Prim a besoin d\'une aide extérieure pour s\'occuper d\'attaques de monstres. Je devrais aller parler avec Guthbered à Prim si je désire les aider.|||}
+	{15|On peut trouver Guthbered dans la grande halle de Prim. Je dois rechercher une maison en pierre au centre du village.|||}
+	{20|J\'ai parlé avec Guthbered au sujet de l\'histoire de Prim. Prim est depuis quelques temps soumis à des attaques permanentes de la colonie du Mont Blackwater.|||}
+	{25|Guthbered veut que je monte jusqu\'à la colonie et que je demande à leur chef de guerre Harlenn pourquoi (ou si) ils ont invoqué les monstres de Gornaud contre Prim.|||}
+	{30|J\'ai parlé avec Harlenn des attaques contre Prim. Il dément le fait que les gens de la colonie du Mont Blackwater aient quoi que ce soit à voir avec ces attaques. Je dois retourner parler avec Guthbered à Prim.|||}
+	{40|Guthbered continue de croire que les gens de la colonie de Blackwater sont mêlés à ces attaques.|||}
+	{50|Guthbered veut que je recherche des preuves que les gens de la colonie du Mont Blackwater se préparent à lancer une attaque d\'envergure contre Prim. Je dois aller rechercher des indices près des quartiers privés d\'Harlenn, mais doit prendre garde ne me pas me faire voir.|||}
+	{60|J\'ai trouvé des papiers du côté des quartiers privés d\'Harlenn brossant un plan d\'attaque contre Prim. Je dois aller en parler à Guthbered immédiatement.|||}
+	{70|Guthbered m\'a remercié de l\'avoir aidé à trouver des preuves du plan d\'attaque.|115||}
+	{80|Afin de faire cesser les attaques contre Prim, Guthbered veut que j\'aille tuer Harlenn en haut dans la colonie du Mont Blackwater.|||}
+	{90|J\'ai commencé à me battre avec Harlenn.|||}
+	{91|J\'ai dit à Harlenn que j\'avais été envoyé pour le tuer, mais l\'ai laissé vivre. Il m\'a remercié avec profusion et a quitté la colonie.|210||}
+	{100|Guthbered m\'a remercié pour l\'aide que je lui ai fournie. Désormais, les attaques contre Prim devraient cesser. En remerciement, Guthbered m\'a donné quelques objets et un laisser-passer falsifié afin que je puisse entrer dans la chambre centrale de la colonie du Mont Blackwater.|500||}
+	{140|J\'ai montré le laisser-passer flasifié au garde et ai pu entrer dans la chambre centrale.|||}
+	{240|J\'ai maintenant gagné la confiance de Prim, et devrais avoir accès à tous les services.||1|}
+	{250|J\'ai décidé de ne pas aider les gens de Prim.||1|}
+	{251|Comme j\'aide la colonie du Mont Blackwater, Guthbered ne veut plus me parler.||1|}
+	}|};
+{kazaul|Lumières dans le noir|1|{
+	{8|J\'ai trouvé mon chemin dans la chambre centrale de la colonie du Mont Blackwater et découvert un groupe de mages dirigés par un homme dénommé Throdna.|||}
+	{9|Throdna semblait très intéressé par quelqu\'un (ou quelque chose) appela Kazaul, et en particulier par un rituel célébré en son nom.|||}
+	{10|J\'ai accepté d\'aider Throdna à en savoir plus au sujet du rituel proprement dit, en recherchant les pièces qui semblent avoir été dispersées à travers la montagne. Je dois recherche les éléments du rituel de Kazaul sur le chemin en descendant du Mont Blackwater vers Prim.|||}
+	{11|Je dois trouver les deux parties du chant et les trois articles décrivant le rituel proprement dit, et revenir voir Throdna lorsque j\'aurais tout trouvé.|||}
+	{21|J\'ai trouvé la première moitié du chant du rituel de Kazaul.|||}
+	{22|J\'ai trouvé la seconde moitié du chant du rituel de Kazaul.|||}
+	{25|J\'ai trouvé le premier article du rituel de Kazaul.|||}
+	{26|J\'ai trouvé le second article du rituel de Kazaul.|||}
+	{27|J\'ai trouvé le troisième article du rituel de Kazaul.|||}
+	{30|Throdna m\'a remercié d\'avoir trouvé tous les éléments du rituel.|360||}
+	{40|Throdna veut que je mette un terme aux réapparitions de l\'engeance de Kazaul qui se produisent près du Mont Blackwater. Il y a un mausolée au pied de la montagne que je devrais inspecter.|||}
+	{41|On m\'a donné une fiole d\'elixir purificateur que Throdna me demande de verser sur le mausolée de Kazaul. Je dois revenir voir Throdna lorsque j\'aurais trouvé et purifié le mausolée.|||}
+	{50|Au mausolée du pied du Mont Blackwater, j\'ai rencontré le gardien de Kazaul. En récitant les vers du chant du rituel, j\'ai réussi à déclencher son attaque.|||}
+	{60|J\'ai purifié le mausolée de Kazaul.|320||}
+	{100|J\'espérais quelque signe d\'appréciation de Throdna pour l\'avoir aider à en apprendre plus sur le rituel et pour avoir purifié le mausolée. Mais il semblait plus occupé par ses divagations concernant Kazaul. Je n\'ai rien compris à ses élucubrations.||1|}
+	}|};
+{bwm_wyrms|Sans faiblesse|1|{
+	{10|Herec au second niveau de la colonie du Mont Blackwater fait des recherches au sujet des wyrms blanches à l\'extérieur de la colonie. Il veur que je lui rapporte 5 griffes de wyrms blanches afin qu\'il puisse continuer ses recherches. Apparemment, seules certaines des wyrms blanches ont ces griffes. Il va falloir que j\'en tue un certain nombre pour m\'en procurer.|||}
+	{20|J\'ai donné les 5 griffes de wyrms blanches à Herec.|||}
+	{30|Herec a achevé la création d\'une potion soulageant la fatigue que sera très utile pour combattre les wyrms dans le futur.|150|1|}
+	}|};
+{bjorgur_grave|Éveillés du repos|1|{
+	{10|Bjorgur à Prim à la base du Mont Blackwater pense que quelque chose a dérangé la tombe de ses parents, au sud-Ouest de Prim, juste à l\'stérieur de la mine de Elm.|||}
+	{15|Bjorgur veut que j\'aille vérifier la tombe et que je m\'assure que la dague de sa famille est toujours en sécurité dans la tombe.|||}
+	{20|Fulus à Prim aimerait obtenir la dague de famille de Bjorgur\'s family que possédait le grand-père de Bjorgur.|||}
+	{30|J\'ai rencontré un homme qui portait une dague étrange au fond d\'un caveau au Sud-Ouest de Prim. Il a du piller la tombe pour voler la dague.|||}
+	{40|J\'ai remis la dague à sa place dans la tombe. Étonnement, les morts sans repos semblent plus apaisés désormais.|20||}
+	{50|Bjorgur m\'a remercié pour mon aide. Il m\'a dit que je devrais aussi aller trouver ses parents à Feygard.|110|1|}
+	{51|I have told Fulus that I helped Bjorgur return his family dagger to its original place.|||}
+	{60|J\'ai donné la dague de famille de Bjorgur à Fulus. Il m\'a remercié de la lui avoir apportée, et m\' remercié avec largesse.|170|1|}
+	}|};
+</string>
+
 
 </resources>
