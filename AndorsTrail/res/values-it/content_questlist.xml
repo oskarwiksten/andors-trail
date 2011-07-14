@@ -3,7 +3,16 @@
 <resources>
         <string name="questlist">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{andor|Cerca Andor|1|{{1|Mio padre Mikhail dice che Andor non è a casa da ieri. Dovrei andare a cercarlo nel villaggio.||0|}{10|Leonid dice di aver visto Andor parlare con Gruil. Dovrei chiedere informazioni a Gruil.||0|}{20|Gruil vuole una ghiandola di veleno per darmi qualche informazione. Dice che alcuni serpenti velenosi la posseggono.||0|}{30|Gruil dice che Andor era alla ricerca di uno che si chiama Umar. Dovrei andare a chiedere al suo amico Gaela a est di Fallhaven .||0|}{40|Ho parlato con Gaela in Fallhaven. Lui mi dice di andare a trovare Bucus e chiedergli informazioni circa la gilda dei ladri.||0|}{50|Bucus mi ha permesso di entrare nella botola nella casa abbandonata in Fallhaven. Dovrei andare a parlare con Umar.||0|}}|};
+{andor|Cerca Andor|1|{
+	{1|Mio padre Mikhail dice che Andor non è a casa da ieri. Dovrei andare a cercarlo nel villaggio.||0|}
+	{10|Leonid dice di aver visto Andor parlare con Gruil. Dovrei chiedere informazioni a Gruil.||0|}
+	{20|Gruil vuole una ghiandola di veleno per darmi qualche informazione. Dice che alcuni serpenti velenosi la posseggono.||0|}
+	{30|Gruil dice che Andor era alla ricerca di uno che si chiama Umar. Dovrei andare a chiedere al suo amico Gaela a est di Fallhaven .||0|}
+	{40|Ho parlato con Gaela in Fallhaven. Lui mi dice di andare a trovare Bucus e chiedergli informazioni circa la gilda dei ladri.||0|}
+	{50|Bucus mi ha permesso di entrare nella botola nella casa abbandonata in Fallhaven. Dovrei andare a parlare con Umar.||0|}
+	{51|Umar in the Fallhaven thieves guild recognized me, but must have me mixed up with Andor. Apparently, Andor has been to see him.||0|}
+	{55|Umar told me that Andor went to see a potioner called Lodar. I should search for his hideaway.||0|}
+	}|};
 {mikhail_bread|Pane per la colazione|1|{{100|Ho portato il pane a Mikhail.||1|}{10|Mikhail vuole che vada a comprargli del pane da Mara al municipio.||0|}}|};
 {mikhail_rats|Topi!|1|{{100|Ho ucciso i due ratti nel nostro giardino.|20|1|}{10|Mikhail vuole che vada a controllare il nostro giardino per alcuni ratti. Devo uccidere i ratti e tornare a Mikhail. Se mi faccio male, posso tornare a letto e riposare per ripristinare la salute.||0|}}|};
 {leta|Marito scomparso|1|{{10|Leta del villaggio di Crossglen vuole che cerchi suo marito Oromir.||0|}{20|Ho trovato Oromir nel villaggio di Crossglen, che si nascondeva da Leta.||0|}{100|Ho detto a Leta che Oromir si nasconde nel villaggio di Crossglen.|30|1|}}|};

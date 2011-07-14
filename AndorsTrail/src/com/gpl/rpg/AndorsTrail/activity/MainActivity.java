@@ -277,7 +277,7 @@ public final class MainActivity extends Activity {
     }
     
     private void addDebugButton(DebugButton button, int id, RelativeLayout layout) {
-    	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+    	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, getResources().getDimensionPixelSize(R.dimen.smalltext_buttonheight));
     	if (id == 1) 
     		lp.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
     	else
@@ -287,8 +287,9 @@ public final class MainActivity extends Activity {
     	b.setText(button.text);
     	b.setTextSize(getResources().getDimension(R.dimen.actionbar_text));
     	b.setId(id);
+    	b.setLayoutParams(lp);
     	b.setOnClickListener(button.listener);
-        layout.addView(b, lp);
+        layout.addView(b);
     }
     
     private void addDebugButtons(DebugButton[] buttons) {

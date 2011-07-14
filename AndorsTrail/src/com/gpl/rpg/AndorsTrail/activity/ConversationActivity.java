@@ -292,6 +292,21 @@ public final class ConversationActivity extends Activity {
 			dest.writeInt(iconID);
 			dest.writeInt(color);
 		}
+		
+		public static final Parcelable.Creator<ConversationStatement> CREATOR = new Parcelable.Creator<ConversationStatement>() {
+		    public ConversationStatement createFromParcel(Parcel in) {
+		    	ConversationStatement result = new ConversationStatement();
+		    	result.actorName = in.readString();
+		    	result.text = in.readString();
+		    	result.iconID = in.readInt();
+		    	result.color = in.readInt();
+		        return result;
+		    }
+		
+		    public ConversationStatement[] newArray(int size) {
+		        return new ConversationStatement[size];
+		    }
+		};
 	}
 
     private static final class StatementContainerAdapter extends ArrayAdapter<ConversationStatement> {
