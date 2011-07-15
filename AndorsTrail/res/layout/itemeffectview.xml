@@ -11,34 +11,14 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 		/>
-		<com.gpl.rpg.AndorsTrail.view.TraitsInfoView
-			android:id="@+id/itemeffect_onequip_traits"
+		
+		<com.gpl.rpg.AndorsTrail.view.AbilityModifierInfoView
+			android:id="@+id/itemeffect_onequip_abilitymodifierinfo"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10sp"
 			/>
-	
-		<TextView 
-			android:text="@string/iteminfo_effect_increase_max_hp" 
-			android:id="@+id/itemeffect_onequip_change_maxhp" 
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10sp"
-			/>
-		<TextView 
-			android:text="@string/iteminfo_effect_increase_max_ap" 
-			android:id="@+id/itemeffect_onequip_change_maxap" 
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10sp"
-			/>
-		<TextView 
-			android:text="@string/iteminfo_effect_increase_movecost" 
-			android:id="@+id/itemeffect_onequip_change_movecost" 
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:layout_marginLeft="10sp"
-			/>
+			
 		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
 			android:id="@+id/itemeffect_onequip_conditions"
 			android:layout_width="fill_parent"

@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import java.util.Collection;
 
+import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
@@ -10,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -25,17 +27,24 @@ public final class ActorConditionEffectList extends LinearLayout {
 		removeAllViews();
 		if (effects == null) return;
 		
-		final Resources res = getResources();
 		final Context context = getContext();
+		final Resources res = getResources();
 		for (ActorConditionEffect e : effects) {
 			String msg;
+			final ActorConditionType conditionType = e.conditionType;
 			if (e.isRemovalEffect()) {
-				msg = res.getString(R.string.actorcondition_info_removes_all, e.conditionType.name);
+				msg = res.getString(R.string.actorcondition_info_removes_all, conditionType.name);
 			} else {
 				msg = describeEffect(res, e); 
 			}
 			TextView tv = new TextView(context);
 			tv.setText(msg);
+			tv.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View arg0) {
+					Dialogs.showActorConditionInfo(context, conditionType);
+				}
+			});
 			this.addView(tv);
 		}
 	}

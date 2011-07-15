@@ -6,6 +6,7 @@ import java.util.HashSet;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
 import com.gpl.rpg.AndorsTrail.activity.LoadSaveActivity;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
@@ -33,6 +35,7 @@ import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -262,5 +265,11 @@ public final class Dialogs {
 	public static void showQuestLog(final Activity currentActivity) {
 		Intent intent = new Intent(currentActivity, QuestLogActivity.class);
 		currentActivity.startActivity(intent);
+	}
+	
+	public static void showActorConditionInfo(final Context context, ActorConditionType conditionType) {
+		Intent intent = new Intent(context, ActorConditionInfoActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/actorconditioninfo/" + conditionType.conditionTypeID));
+		context.startActivity(intent);
 	}
 }

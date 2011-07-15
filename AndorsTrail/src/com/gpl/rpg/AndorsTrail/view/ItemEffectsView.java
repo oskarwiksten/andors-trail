@@ -8,18 +8,14 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public final class ItemEffectsView extends LinearLayout {
-	private final TraitsInfoView itemeffect_onequip_traits;
 	private final TextView itemeffect_onequip_title;
-	private final TextView itemeffect_onequip_change_maxap;
-	private final TextView itemeffect_onequip_change_maxhp;
-	private final TextView itemeffect_onequip_change_movecost;
+	private final AbilityModifierInfoView itemeffect_onequip_abilitymodifierinfo;
 	private final ActorConditionEffectList itemeffect_onequip_conditions;
 	private final ItemEffectsView_OnUse itemeffect_onuse;
 	private final ItemEffectsView_OnUse itemeffect_onhit;
@@ -35,11 +31,7 @@ public final class ItemEffectsView extends LinearLayout {
         inflate(context, R.layout.itemeffectview, this);
         
         itemeffect_onequip_title = (TextView) findViewById(R.id.itemeffect_onequip_title);
-        itemeffect_onequip_traits = (TraitsInfoView) findViewById(R.id.itemeffect_onequip_traits);
-        
-        itemeffect_onequip_change_maxap = (TextView) findViewById(R.id.itemeffect_onequip_change_maxap);
-        itemeffect_onequip_change_maxhp = (TextView) findViewById(R.id.itemeffect_onequip_change_maxhp);
-        itemeffect_onequip_change_movecost = (TextView) findViewById(R.id.itemeffect_onequip_change_movecost);
+        itemeffect_onequip_abilitymodifierinfo = (AbilityModifierInfoView) findViewById(R.id.itemeffect_onequip_abilitymodifierinfo);
         itemeffect_onequip_conditions = (ActorConditionEffectList) findViewById(R.id.itemeffect_onequip_conditions);
         
         itemeffect_onuse = (ItemEffectsView_OnUse) findViewById(R.id.itemeffect_onuse);
@@ -57,44 +49,13 @@ public final class ItemEffectsView extends LinearLayout {
 			Collection<ItemTraits_OnUse> effects_kill
 			) {
 		
-		final Resources res = getResources();
-		
 		if (effects_equip != null) {
 			itemeffect_onequip_title.setVisibility(View.VISIBLE);
 		} else {
 			itemeffect_onequip_title.setVisibility(View.GONE);
 		}
-		
-		if (effects_equip != null && effects_equip.combatProficiency != null) {
-			itemeffect_onequip_traits.update(effects_equip.combatProficiency);
-			itemeffect_onequip_traits.setVisibility(View.VISIBLE);
-		} else {
-			itemeffect_onequip_traits.setVisibility(View.GONE);
-		}
-		
-		if (effects_equip != null && effects_equip.maxAPBoost != 0) {
-			final int label = effects_equip.maxAPBoost > 0 ? R.string.iteminfo_effect_increase_max_ap : R.string.iteminfo_effect_decrease_max_ap;
-			itemeffect_onequip_change_maxap.setText(res.getString(label, Math.abs(effects_equip.maxAPBoost)));
-			itemeffect_onequip_change_maxap.setVisibility(View.VISIBLE);
-		} else {
-			itemeffect_onequip_change_maxap.setVisibility(View.GONE);
-		}
-		
-		if (effects_equip != null && effects_equip.maxHPBoost != 0) {
-			final int label = effects_equip.maxHPBoost > 0 ? R.string.iteminfo_effect_increase_max_hp : R.string.iteminfo_effect_decrease_max_hp;
-			itemeffect_onequip_change_maxhp.setText(res.getString(label, Math.abs(effects_equip.maxHPBoost)));
-			itemeffect_onequip_change_maxhp.setVisibility(View.VISIBLE);
-		} else {
-			itemeffect_onequip_change_maxhp.setVisibility(View.GONE);
-		}
-		
-		if (effects_equip != null && effects_equip.moveCostPenalty != 0) {
-			final int label = effects_equip.moveCostPenalty > 0 ? R.string.iteminfo_effect_increase_movecost : R.string.iteminfo_effect_decrease_movecost;
-			itemeffect_onequip_change_movecost.setText(res.getString(label, Math.abs(effects_equip.moveCostPenalty)));
-			itemeffect_onequip_change_movecost.setVisibility(View.VISIBLE);
-		} else {
-			itemeffect_onequip_change_movecost.setVisibility(View.GONE);
-		}
+
+		itemeffect_onequip_abilitymodifierinfo.update(effects_equip);
 
 		if (effects_equip != null && effects_equip.addedConditions != null) {
 			itemeffect_onequip_conditions.update(Arrays.asList(effects_equip.addedConditions));

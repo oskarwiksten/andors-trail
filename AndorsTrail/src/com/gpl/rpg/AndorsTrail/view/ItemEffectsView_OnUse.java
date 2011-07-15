@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 
 import android.content.Context;
@@ -47,18 +48,7 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 				if (t.addedConditions_source != null) sourceEffects.addAll(Arrays.asList(t.addedConditions_source));
 				if (t.addedConditions_target != null) targetEffects.addAll(Arrays.asList(t.addedConditions_target));
 				
-				if (t.currentAPBoost != null) {
-					final int label = t.currentAPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_ap : R.string.iteminfo_effect_decrease_current_ap;
-					final TextView tv = new TextView(context);
-					tv.setText(res.getString(label, t.currentAPBoost.toMinMaxAbsString()));
-					itemeffect_onuse_list.addView(tv);
-				}
-				if (t.currentHPBoost != null) {
-					final int label = t.currentHPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_hp : R.string.iteminfo_effect_decrease_current_hp;
-					final TextView tv = new TextView(context);
-					tv.setText(res.getString(label, t.currentHPBoost.toMinMaxAbsString()));
-					itemeffect_onuse_list.addView(tv);
-				}
+				describeStatsModifierTraits(t, context, res, itemeffect_onuse_list);
 			}
 		}
 		itemeffect_onuse_conditions_source.update(sourceEffects);
@@ -72,6 +62,21 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 			itemeffect_onuse_conditions_target_title.setVisibility(View.GONE);
 		} else {
 			itemeffect_onuse_conditions_target_title.setVisibility(View.VISIBLE);
+		}
+	}
+	
+	public static void describeStatsModifierTraits(StatsModifierTraits traits, Context context, Resources res, LinearLayout listView) {
+		if (traits.currentAPBoost != null) {
+			final int label = traits.currentAPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_ap : R.string.iteminfo_effect_decrease_current_ap;
+			final TextView tv = new TextView(context);
+			tv.setText(res.getString(label, traits.currentAPBoost.toMinMaxAbsString()));
+			listView.addView(tv);
+		}
+		if (traits.currentHPBoost != null) {
+			final int label = traits.currentHPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_hp : R.string.iteminfo_effect_decrease_current_hp;
+			final TextView tv = new TextView(context);
+			tv.setText(res.getString(label, traits.currentHPBoost.toMinMaxAbsString()));
+			listView.addView(tv);
 		}
 	}
 }

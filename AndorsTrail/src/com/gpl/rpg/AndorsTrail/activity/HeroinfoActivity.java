@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
@@ -20,6 +21,7 @@ import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
 import android.app.TabActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -269,11 +271,19 @@ public final class HeroinfoActivity extends TabActivity {
 			heroinfo_currentconditions_title.setVisibility(View.VISIBLE);
 			heroinfo_currentconditions.setVisibility(View.VISIBLE);
 			heroinfo_currentconditions.removeAllViews();
-			Resources res = getResources();
+			final Resources res = getResources();
+			final Context context = this;
 			for (ActorCondition c : player.conditions) {
 				View v = View.inflate(this, R.layout.inventoryitemview, null);
 				((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.getBitmap(c.conditionType.iconID));
 				((TextView) v.findViewById(R.id.inv_text)).setText(describeEffect(res, c));
+				final ActorConditionType conditionType = c.conditionType;
+				v.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View arg0) {
+						Dialogs.showActorConditionInfo(context, conditionType);
+					}
+				});
 				heroinfo_currentconditions.addView(v);
 			}
 		}
