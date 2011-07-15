@@ -86,9 +86,13 @@ public class ItemContainer {
 	}
 	public boolean hasItem(int itemTypeID) { return findItem(itemTypeID) != null; }
 	public boolean hasItem(int itemTypeID, int minimumQuantity) { 
+		return getItemQuantity(itemTypeID) >= minimumQuantity;
+	}
+	
+	public int getItemQuantity(int itemTypeID) { 
 		ItemEntry e = findItem(itemTypeID);
-		if (e == null) return false;
-		return e.quantity >= minimumQuantity;
+		if (e == null) return 0;
+		return e.quantity;
 	}
 	
 	

@@ -11,6 +11,7 @@ public final class MonsterType extends ActorTraits {
 	public final int exp;
 	public final DropList dropList;
 	public final String phraseID;
+	public boolean isNPC;
 
 	public MonsterType(
 			String id, 

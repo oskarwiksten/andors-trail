@@ -29,9 +29,10 @@ public final class ItemController {
     	this.model = world.model;
     }
 	
-	public void dropItem(ItemType type) {
-    	model.player.inventory.removeItem(type.id, 1);
-    	model.currentMap.itemDropped(type, 1, model.player.position);
+	public void dropItem(ItemType type, int quantity) {
+		if (model.player.inventory.getItemQuantity(type.id) < quantity) return;
+    	model.player.inventory.removeItem(type.id, quantity);
+    	model.currentMap.itemDropped(type, quantity, model.player.position);
     }
 
 	public void equipItem(ItemType type) {
@@ -206,18 +207,18 @@ public final class ItemController {
 		if (itemType.isQuestItem()) return false;
 		return true;
 	}
-	public static void sell(Player player, ItemType itemType, ItemContainer merchant) {
-		int price = getSellingPrice(player, itemType);
+	public static void sell(Player player, ItemType itemType, ItemContainer merchant, int quantity) {
+		int price = getSellingPrice(player, itemType) * quantity;
 		player.inventory.gold += price;
-		player.inventory.removeItem(itemType.id);
-		merchant.addItem(itemType);
+		player.inventory.removeItem(itemType.id, quantity);
+		merchant.addItem(itemType, quantity);
 	}
-	public static void buy(ModelContainer model, Player player, ItemType itemType, ItemContainer merchant) {
-		int price = getBuyingPrice(player, itemType);
+	public static void buy(ModelContainer model, Player player, ItemType itemType, ItemContainer merchant, int quantity) {
+		int price = getBuyingPrice(player, itemType) * quantity;
 		if (!canAfford(player, price)) return;
 		player.inventory.gold -= price;
-		player.inventory.addItem(itemType);
-		merchant.removeItem(itemType.id);
+		player.inventory.addItem(itemType, quantity);
+		merchant.removeItem(itemType.id, quantity);
 		model.statistics.addGoldSpent(price);
 	}
 

@@ -20,6 +20,7 @@ import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
+import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -42,6 +43,8 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
 public final class HeroinfoActivity extends TabActivity {
+	public static final int INTENTREQUEST_BULKSELECT_DROP = BulkSelectionInterface.BULK_INTERFACE_DROP;
+	
 	private WorldContext world;
 	private ViewContext view;
 
@@ -187,11 +190,12 @@ public final class HeroinfoActivity extends TabActivity {
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
+		ItemType itemType;
 		switch (requestCode) {
 		case MainActivity.INTENTREQUEST_ITEMINFO:
 			if (resultCode != RESULT_OK) break;
 			
-			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
+			itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
 			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
 	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
@@ -202,6 +206,14 @@ public final class HeroinfoActivity extends TabActivity {
 			}
 			break;
 		case MainActivity.INTENTREQUEST_LEVELUP:
+			break;
+		case INTENTREQUEST_BULKSELECT_DROP:
+			if (resultCode == Activity.RESULT_OK) {
+				int quantity = data.getExtras().getInt("selectedAmount");
+				int itemTypeID = data.getExtras().getInt("itemTypeID");
+				itemType = world.itemTypes.getItemType(itemTypeID);
+				view.itemController.dropItem(itemType, quantity);
+			}
 			break;
 		}
 		update();
@@ -252,7 +264,7 @@ public final class HeroinfoActivity extends TabActivity {
 
     private void updateWornImage(ImageView view, int resourceIDEmptyImage, ItemType type) {
 		if (type != null) {
-			view.setImageBitmap(world.tileStore.getBitmap(type.iconID));
+			world.tileStore.setImageViewTile(view, type);
 		} else {
 			view.setImageResource(resourceIDEmptyImage);
 		}
@@ -326,7 +338,8 @@ public final class HeroinfoActivity extends TabActivity {
 			//context.controller.itemInfo(this, getSelectedItemType(info));
 			break;
 		case R.id.inv_menu_drop:
-			view.itemController.dropItem(getSelectedItemType(info));
+			int itemTypeID = getSelectedItemType(info).id;
+			Dialogs.showBulkDroppingInterface(this, itemTypeID, player.inventory.getItemQuantity(itemTypeID));
 			break;
 		case R.id.inv_menu_equip:
 			view.itemController.equipItem(getSelectedItemType(info));

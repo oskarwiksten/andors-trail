@@ -77,7 +77,7 @@ public class QuickitemView extends FrameLayout implements OnClickListener{
 				item.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_shop));
 				item.setEmpty(true);
 			} else {
-				item.setImageBitmap(world.tileStore.getBitmap(type.iconID));
+				world.tileStore.setImageViewTile(item, type);
 				item.setEmpty(!world.model.player.inventory.hasItem(type.id));
 			}
 		}

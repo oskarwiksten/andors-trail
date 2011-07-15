@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -25,6 +26,9 @@ import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClic
 
 public final class ShopActivity extends TabActivity implements OnContainerItemClickedListener {
 
+	public static final int INTENTREQUEST_BULKSELECT_BUY = BulkSelectionInterface.BULK_INTERFACE_BUY;
+	public static final int INTENTREQUEST_BULKSELECT_SELL = BulkSelectionInterface.BULK_INTERFACE_SELL;
+	
 	private WorldContext world;
 	private Player player;
 
@@ -93,9 +97,9 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	@Override
 	public void onItemActionClicked(int position, ItemType itemType, boolean isSelling) {
 		if (isSelling) {
-			sell(itemType);
+			showSellingInterface(itemType);
 		} else {
-			buy(itemType);
+			showBuyingInterface(itemType);
 		}
 	}
 
@@ -130,23 +134,47 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
 			if (actionType == ItemInfoActivity.ITEMACTION_BUY) {
-	        	buy(itemType);
+				showBuyingInterface(itemType);
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_SELL) {
-	        	sell(itemType);
+	        	showSellingInterface(itemType);
+			}
+			break;
+		case INTENTREQUEST_BULKSELECT_BUY:
+			if (resultCode == Activity.RESULT_OK) {
+				int quantity = data.getExtras().getInt("selectedAmount");
+				int itemTypeID = data.getExtras().getInt("itemTypeID");
+				buy(itemTypeID, quantity);
+			}
+			break;
+		case INTENTREQUEST_BULKSELECT_SELL:
+			if (resultCode == Activity.RESULT_OK) {
+				int quantity = data.getExtras().getInt("selectedAmount");
+				int itemTypeID = data.getExtras().getInt("itemTypeID");
+				sell(itemTypeID, quantity);
 			}
 			break;
 		}
 	}
 
-    private void sell(ItemType itemType) {
-		ItemController.sell(player, itemType, container_buy);
-		final String msg = getResources().getString(R.string.shop_item_sold, itemType.name);
+    private void showSellingInterface(ItemType itemType) {
+    	Dialogs.showBulkSellingInterface(this, itemType.id, player.inventory.getItemQuantity(itemType.id));
+	}
+
+	private void showBuyingInterface(ItemType itemType) {
+		Dialogs.showBulkBuyingInterface(this, itemType.id, container_buy.getItemQuantity(itemType.id));
+	}
+	
+	private void buy(int itemTypeID, int quantity) {
+		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
+		ItemController.buy(world.model, player, itemType, container_buy, quantity);
+		final String msg = getResources().getString(R.string.shop_item_bought, itemType.name);
 		displayStoreAction(msg);
 	}
 
-	private void buy(ItemType itemType) {
-		ItemController.buy(world.model, player, itemType, container_buy);
-		final String msg = getResources().getString(R.string.shop_item_bought, itemType.name);
+	private void sell(int itemTypeID, int quantity) {
+		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
+		ItemController.sell(player, itemType, container_buy, quantity);
+		final String msg = getResources().getString(R.string.shop_item_sold, itemType.name);
 		displayStoreAction(msg);
 	}
 	
@@ -160,6 +188,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 		lastToast.show();
 		update();
 	}
+	
 	@Override
     protected void onPause() {
 		super.onPause();

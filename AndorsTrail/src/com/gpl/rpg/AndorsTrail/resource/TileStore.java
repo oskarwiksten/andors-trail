@@ -3,9 +3,14 @@ package com.gpl.rpg.AndorsTrail.resource;
 import java.util.HashMap;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
+import android.widget.ImageView;
 
 public final class TileStore {
 	public static final int CHAR_HERO = 1;
@@ -56,5 +61,20 @@ public final class TileStore {
 		bitmaps[tileID] = bitmap;
 		if (!tilesetLocalIDsToTileID.containsKey(tilesetName)) tilesetLocalIDsToTileID.put(tilesetName, new HashMap<Integer, Integer>());
 		tilesetLocalIDsToTileID.get(tilesetName).put(localId, tileID);
+	}
+	
+	public void setImageViewTile(ImageView imageView, ItemType itemType) {
+		final Bitmap icon = getBitmap(itemType.iconID);
+		final int overlayIconID = itemType.getOverlayTileID();
+		if (overlayIconID != -1) {
+			imageView.setImageDrawable(
+				new LayerDrawable(new Drawable[] {
+					new BitmapDrawable(icon)
+					,new BitmapDrawable(getBitmap(overlayIconID))
+				})
+			);
+		} else {
+			imageView.setImageBitmap(icon);
+		}
 	}
 }

@@ -22,7 +22,6 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		//return new InventoryItemView(getContext(), getItem(position));
 		final ItemEntry item = getItem(position);
 		
 		View result = convertView;
@@ -30,7 +29,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 			result = View.inflate(getContext(), R.layout.inventoryitemview, null);
 		}
 		
-		((ImageView) result.findViewById(R.id.inv_image)).setImageBitmap(tileStore.getBitmap(item.itemType.iconID));
+		tileStore.setImageViewTile((ImageView) result.findViewById(R.id.inv_image), item.itemType);
 		((TextView) result.findViewById(R.id.inv_text)).setText(item.itemType.describeWearEffect(item.quantity));
 		return result;
 	}

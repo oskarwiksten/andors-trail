@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center_horizontal"
+	>
+	
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="wrap_content"
+		android:orientation="horizontal"
+		>
+
+        <TextView 
+        	android:text="Drop"
+        	android:id="@+id/bulkselection_action_type"
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	/>
+        	
+        <EditText 
+        	android:text="1" 
+        	android:inputType="number"
+        	android:singleLine="true"
+        	android:id="@+id/bulkselection_amount_taken"
+        	android:layout_height="wrap_content"
+        	android:layout_width="wrap_content"
+        	/>
+          	
+         <TextView 
+        	android:text="  /  "
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	/>
+        	
+         <TextView 
+        	android:text="250"
+        	android:id="@+id/bulkselection_amount_available"
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	/>
+        	
+    </LinearLayout>
+
+	<LinearLayout 
+		android:layout_height="wrap_content" 
+		android:layout_width="fill_parent"
+		android:orientation="horizontal"
+		>
+
+        <Button 
+        	android:text="   -1   " 
+        	android:id="@+id/bulkselection_decrement_button" 
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="left"
+        	/>
+
+ 		<SeekBar 
+			android:layout_height="wrap_content" 
+			android:id="@+id/bulkselection_slider" 
+			android:layout_width="match_parent"
+			android:layout_gravity="center_vertical"
+			android:layout_weight="1"
+			/>
+
+        <Button 
+        	android:text="   +1   " 
+        	android:id="@+id/bulkselection_increment_button" 
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="right"
+        	/>
+        	
+    </LinearLayout>
+
+	<TextView 
+       	android:text="gold amount"
+       	android:id="@+id/bulkselection_summary_totalgold"
+       	android:layout_width="wrap_content" 
+       	android:layout_height="wrap_content"
+       	android:paddingBottom="10dp"
+       	/>
+
+	<LinearLayout
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		style="@android:style/ButtonBar"
+		>
+		
+        <Button 
+	        android:id="@+id/bulkselection_finalize_button" 
+	        android:layout_width="0dip"
+            android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="Sell" 
+	        />
+	        
+        <Button 
+	        android:id="@+id/bulkselection_cancel_button" 
+	        android:layout_width="0dip"
+            android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="Cancel" 
+	        />
+	     
+	</LinearLayout>
+
+</LinearLayout>

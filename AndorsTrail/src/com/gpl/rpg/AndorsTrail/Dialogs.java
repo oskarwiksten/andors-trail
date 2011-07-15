@@ -21,6 +21,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
+import com.gpl.rpg.AndorsTrail.activity.BulkSelectionInterface;
 import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
 import com.gpl.rpg.AndorsTrail.activity.LoadSaveActivity;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
@@ -31,6 +32,7 @@ import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.activity.QuestLogActivity;
+import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
@@ -271,5 +273,26 @@ public final class Dialogs {
 		Intent intent = new Intent(context, ActorConditionInfoActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/actorconditioninfo/" + conditionType.conditionTypeID));
 		context.startActivity(intent);
+	}
+	
+	public static void showBulkBuyingInterface(ShopActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
+		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY, ShopActivity.INTENTREQUEST_BULKSELECT_BUY);
+	}
+	
+	public static void showBulkSellingInterface(ShopActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
+		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL, ShopActivity.INTENTREQUEST_BULKSELECT_SELL);
+	}
+	
+	public static void showBulkDroppingInterface(HeroinfoActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
+		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, HeroinfoActivity.INTENTREQUEST_BULKSELECT_DROP);
+	}
+	
+	public static void showBulkSelectionInterface(Activity currentActivity, int itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
+		Intent intent = new Intent(currentActivity, BulkSelectionInterface.class);
+		intent.putExtra("itemTypeID", itemTypeID);
+		intent.putExtra("totalAvailableAmount", totalAvailableAmount);
+		intent.putExtra("interfaceType", interfaceType);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/bulkselection/" + itemTypeID));
+		currentActivity.startActivityForResult(intent, requestCode);
 	}
 }

@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
+import com.gpl.rpg.AndorsTrail.resource.TileStore;
 
 public final class ItemType {
 	public static final int CATEGORY_WEAPON = 0;
@@ -24,6 +25,11 @@ public final class ItemType {
 	public static final int ACTIONTYPE_USE = 1;
 	public static final int ACTIONTYPE_EQUIP = 2;
 	
+	public static final int DISPLAYTYPE_ORDINARY = 0;
+	public static final int DISPLAYTYPE_LEGENDARY = 1;
+	public static final int DISPLAYTYPE_EXTRAORDINARY = 2;
+	public static final int DISPLAYTYPE_QUEST = 3;
+	
 	public final int id;
 	public final int iconID;
 	public final String name;
@@ -31,6 +37,7 @@ public final class ItemType {
 	public final int actionType;
 	public final int baseMarketCost;
 	public final String searchTag;
+	public int displayType = DISPLAYTYPE_ORDINARY;
 	
 	public final ItemTraits_OnEquip effects_equip;
 	public final ItemTraits_OnUse effects_use;
@@ -121,5 +128,17 @@ public final class ItemType {
 		StringBuilder sb = new StringBuilder();
 		describeBlockEffect(defenseEffect, sb);
 		return sb.toString();
+	}
+	
+	public int getOverlayTileID() {
+		switch (displayType) {
+		case ItemType.DISPLAYTYPE_LEGENDARY:
+			return TileStore.iconID_attackselect;
+		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
+			return TileStore.iconID_moveselect;
+		case ItemType.DISPLAYTYPE_QUEST:
+			return TileStore.iconID_moveselect;
+		}
+		return -1;
 	}
 }
