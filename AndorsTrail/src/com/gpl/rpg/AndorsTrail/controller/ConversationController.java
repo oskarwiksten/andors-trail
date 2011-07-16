@@ -16,7 +16,7 @@ public final class ConversationController {
 		
 		final Loot loot = new Loot();
 		if (phrase.rewardDropList != null) {
-			phrase.rewardDropList.createRandomLoot(loot);
+			phrase.rewardDropList.createRandomLoot(loot, player);
 			player.inventory.add(loot);
 		}
 		if (phrase.progressQuest != null) {

@@ -13,8 +13,6 @@ import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
-import com.gpl.rpg.AndorsTrail.model.map.MapObject;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
@@ -149,6 +147,20 @@ public final class MainActivity extends Activity {
 		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();
 					}
 				})*/
+				/*,new DebugButton("skills+=20", new OnClickListener() {
+		    		@Override
+					public void onClick(View arg0) {
+		    			int N = 1;
+		    			for(int j = 0; j < N; ++j) {
+			    			for(int i = 0; i < Skills.NUM_SKILLS; ++i) {
+			    				world.model.player.addSkillLevel(i);
+			    			}
+		    			}
+		    			ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
+		    			updateStatus();
+		    			Toast.makeText(MainActivity.this, "DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT).show();
+					}
+				})*/
     			/*,new DebugButton("bwm", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
@@ -172,7 +184,7 @@ public final class MainActivity extends Activity {
 		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 					}
 				})*/
-    			,new DebugButton("kazaul", new OnClickListener() {
+    			/*,new DebugButton("kazaul", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			Player player = world.model.player;
@@ -188,7 +200,7 @@ public final class MainActivity extends Activity {
 		    			
 	    				view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain50", "exit", 0, 0);
 					}
-				})
+				})*/
 				/*,new DebugButton("wyrms", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {

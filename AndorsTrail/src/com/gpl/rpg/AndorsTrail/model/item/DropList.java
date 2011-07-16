@@ -3,6 +3,8 @@ package com.gpl.rpg.AndorsTrail.model.item;
 import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.controller.SkillController;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class DropList {
@@ -17,10 +19,15 @@ public final class DropList {
 		this.items = items.toArray(new DropItem[items.size()]);
 		this.DEBUG_items = this.items;
 	}
-	public void createRandomLoot(Loot loot) {
+	public void createRandomLoot(Loot loot, Player player) {
 		for (DropItem item : items) {
-			if (Constants.rollResult(item.chance)) {
-				int quantity = Constants.rollValue(item.quantity);
+			
+			final int chanceRollBias = SkillController.getChanceRollBias(item, player);
+			if (Constants.rollResult(item.chance, chanceRollBias)) {
+				
+				final int quantityRollBias = SkillController.getQuantityRollBias(item, player);
+				int quantity = Constants.rollValue(item.quantity, quantityRollBias);
+				
 				if (quantity != 0) {
 					if (item.itemType.id == ItemTypeCollection.ITEMTYPE_GOLD) {
 						loot.gold += quantity;

@@ -232,7 +232,7 @@ public final class PredefinedMap {
 		for (MapObject o : eventObjects) {
     		if (o.type == MapObject.MAPEVENT_CONTAINER) {
 	    		Loot bag = getBagOrCreateAt(o.position.topLeft);
-	    		o.dropList.createRandomLoot(bag);
+	    		o.dropList.createRandomLoot(bag, null);
     		}
     	}
 	}

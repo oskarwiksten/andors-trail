@@ -11,7 +11,7 @@ public class CombatTraits {
 
 	public int attackChance;
 	public int criticalChance;
-	public int criticalMultiplier;
+	public float criticalMultiplier;
 	public final Range damagePotential;
 
 	public int blockChance;
@@ -51,7 +51,11 @@ public class CombatTraits {
 		this.attackCost = src.readInt();
 		this.attackChance = src.readInt();
 		this.criticalChance = src.readInt();
-		this.criticalMultiplier = src.readInt();
+		if (fileversion <= 20) {
+			this.criticalMultiplier = src.readInt();
+		} else {
+			this.criticalMultiplier = src.readFloat();
+		}
 		this.damagePotential = new Range(src, fileversion);
 		this.blockChance = src.readInt();
 		this.damageResistance = src.readInt();
@@ -61,7 +65,7 @@ public class CombatTraits {
 		dest.writeInt(attackCost);
 		dest.writeInt(attackChance);
 		dest.writeInt(criticalChance);
-		dest.writeInt(criticalMultiplier);
+		dest.writeFloat(criticalMultiplier);
 		damagePotential.writeToParcel(dest, flags);
 		dest.writeInt(blockChance);
 		dest.writeInt(damageResistance);

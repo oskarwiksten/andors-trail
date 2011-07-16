@@ -68,6 +68,7 @@ public final class ItemType {
 	public boolean isEquippable() { return actionType == ACTIONTYPE_EQUIP; }
 	public boolean isUsable() { return actionType == ACTIONTYPE_USE; }
 	public boolean isQuestItem() { return baseMarketCost == 0; }
+	public boolean isOrdinaryItem() { return displayType == DISPLAYTYPE_ORDINARY; }
 	
 	public String describeWearEffect(int quantity) {
 		StringBuilder sb = new StringBuilder(name);

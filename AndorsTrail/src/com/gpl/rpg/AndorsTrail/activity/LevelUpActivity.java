@@ -16,6 +16,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 
 public final class LevelUpActivity extends Activity {
 	private WorldContext world;
@@ -89,11 +90,10 @@ public final class LevelUpActivity extends Activity {
     }
     
     private static void addLevelupEffect(Player player, int selectionID) {
+    	int hpIncrease = 0;
     	switch (selectionID) {
     	case SELECT_HEALTH:
-    		player.health.max += Constants.LEVELUP_EFFECT_HEALTH;
-    		player.traits.maxHP += Constants.LEVELUP_EFFECT_HEALTH;
-    		player.health.current += Constants.LEVELUP_EFFECT_HEALTH;
+    		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
     		break;
     	case SELECT_ATK_CH:
     		player.traits.baseCombatTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
@@ -107,6 +107,12 @@ public final class LevelUpActivity extends Activity {
     		break;
     	}
     	player.level++;
+    	
+    	hpIncrease += player.getSkillLevel(Skills.SKILL_FORTITUDE) * Skills.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
+		player.health.max += hpIncrease;
+		player.traits.maxHP += hpIncrease;
+		player.health.current += hpIncrease;
+    	
     	player.recalculateLevelExperience();
     	ActorStatsController.recalculatePlayerCombatTraits(player);
     }

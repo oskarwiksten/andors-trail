@@ -19,6 +19,8 @@ import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
@@ -205,17 +207,22 @@ public final class CombatController {
 	}
 	
     public void playerKilledMonster(Monster killedMonster) {
+    	final Player player = model.player;
+    	
     	Loot loot = model.currentMap.getBagOrCreateAt(killedMonster.position);
-		killedMonster.createLoot(loot);
+		killedMonster.createLoot(loot, player);
 		
 		model.currentMap.remove(killedMonster);
 		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
+		
+		if (player.getSkillLevel(Skills.SKILL_CLEAVE) > 0) player.ap.setMax();
+		player.health.add(player.getSkillLevel(Skills.SKILL_EATER) * Skills.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);
 		
 		model.statistics.addMonsterKill(killedMonster.monsterType);
 		model.player.addExperience(loot.exp);
 		totalExpThisFight += loot.exp;
 		loot.exp = 0;
-		context.actorStatsController.applyKillEffectsToPlayer(model.player);
+		context.actorStatsController.applyKillEffectsToPlayer(player);
 		
 		context.mainActivity.updateStatus();
 
@@ -240,7 +247,8 @@ public final class CombatController {
 		if (dest == null) return;
 		if (!useAPs(model.player.traits.moveCost)) return;
 
-		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT)) {
+		int fleeChanceBias = model.player.getSkillLevel(Skills.SKILL_EVASION) * Skills.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
+		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
 			fleeingFailed();
 			return;
 		}
@@ -249,7 +257,9 @@ public final class CombatController {
 		context.movementController.moveToNextIfPossible(false);
 		
 		if (canExitCombat()) exitCombat(true);
-		else maybeAutoEndTurn();
+		
+		context.mainActivity.updateStatus();
+		maybeAutoEndTurn();
 	}
 
 	private void fleeingFailed() {

@@ -78,7 +78,7 @@ public class ResourceFileParser {
 			result.attackCost = parseInt(attackCost, 0);
 			result.attackChance = parseInt(attackChance, 0);
 			result.criticalChance = parseInt(criticalChance, 0);
-			result.criticalMultiplier = parseInt(criticalMultiplier, 0);
+			result.criticalMultiplier = parseFloat(criticalMultiplier, 0);
 			if (attackDamage != null) result.damagePotential.set(attackDamage);
 			result.blockChance = parseInt(blockChance, 0);
 			result.damageResistance = parseInt(damageResistance, 0);
@@ -88,6 +88,10 @@ public class ResourceFileParser {
 	public static int parseInt(String s, int defaultValue) {
 		if (s == null || s.length() <= 0) return defaultValue;
 		return Integer.parseInt(s);
+	}
+	public static float parseFloat(String s, int defaultValue) {
+		if (s == null || s.length() <= 0) return defaultValue;
+		return Float.parseFloat(s);
 	}
 	public static boolean parseBoolean(String s, boolean defaultValue) {
 		if (s == null || s.length() <= 0) return defaultValue;

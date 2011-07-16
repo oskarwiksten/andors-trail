@@ -74,7 +74,7 @@ public final class TraitsInfoView extends TableLayout {
 		}
 		if (traits != null && traits.hasCriticalMultiplierEffect()) {
 			traitsinfo_critical_row2.setVisibility(View.VISIBLE);
-			traitsinfo_criticalhit_multiplier.setText(Integer.toString(traits.criticalMultiplier));
+			traitsinfo_criticalhit_multiplier.setText(Float.toString(traits.criticalMultiplier));
 		} else {
 			traitsinfo_critical_row2.setVisibility(View.GONE);
 		}

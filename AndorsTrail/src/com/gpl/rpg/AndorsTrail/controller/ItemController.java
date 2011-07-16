@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
@@ -190,11 +191,15 @@ public final class ItemController {
 		return isBagRemoved;
 	}
 	
+	private static int getMarketPriceFactor(Player player) {
+		return Constants.MARKET_PRICEFACTOR_PERCENT 
+			- player.getSkillLevel(Skills.SKILL_BARTER) * Skills.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE;
+	}
 	public static int getBuyingPrice(Player player, ItemType itemType) {
-		return itemType.baseMarketCost * (100 + Constants.MARKET_PRICEFACTOR_PERCENT) / 100;
+		return itemType.baseMarketCost + itemType.baseMarketCost * getMarketPriceFactor(player) / 100;
 	}
 	public static int getSellingPrice(Player player, ItemType itemType) {
-		return itemType.baseMarketCost * (100 - Constants.MARKET_PRICEFACTOR_PERCENT) / 100;
+		return itemType.baseMarketCost - itemType.baseMarketCost * getMarketPriceFactor(player) / 100;
 	}
 
 	public static boolean canAfford(Player player, ItemType itemType) {

@@ -170,13 +170,13 @@ public final class R {
         public static final int bulkselection_summary_totalgold=0x7f09001b;
         public static final int combatview_actionbar=0x7f09001e;
         public static final int combatview_endturn=0x7f090021;
-        public static final int combatview_flee=0x7f090020;
+        public static final int combatview_flee=0x7f090022;
         public static final int combatview_monsterbar=0x7f090024;
         public static final int combatview_monsterhealth=0x7f090026;
         public static final int combatview_monsterinfo=0x7f090025;
         public static final int combatview_monsterismoving=0x7f090023;
         public static final int combatview_moveattack=0x7f09001f;
-        public static final int combatview_status=0x7f090022;
+        public static final int combatview_status=0x7f090020;
         public static final int conversation_image=0x7f09002a;
         public static final int conversation_leave=0x7f090029;
         public static final int conversation_next=0x7f090028;

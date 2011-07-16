@@ -32,7 +32,7 @@ public final class Player extends Actor {
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	public int useItemCost;
 	public int reequipCost;
-	public final int[] skillLevels = new int[Skills.NUM_SKILLS];
+	private final int[] skillLevels = new int[Skills.NUM_SKILLS];
 	public String spawnMap;
 	public String spawnPlace;
 	
@@ -69,7 +69,7 @@ public final class Player extends Actor {
 		recalculateLevelExperience();
 		
 		Loot startItems = new Loot();
-		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems);
+		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
 		inventory.add(startItems);
 		
 		if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
@@ -126,6 +126,17 @@ public final class Player extends Actor {
 	public boolean canLevelup() {
 		return levelExperience.isMax();
 	}
+	
+	public int getSkillLevel(int skill) {
+		return skillLevels[skill];
+	}
+	public boolean hasSkill(int skill) {
+		return skillLevels[skill] > 0;
+	}
+	public void addSkillLevel(int skill) {
+		skillLevels[skill] += 1;
+	}
+
 	
 	
 	// ====== PARCELABLE ===================================================================

@@ -118,6 +118,7 @@ public class ActorStatsController {
 	private static void recalculateActorCombatTraits(Actor actor) {
 		actor.resetStatsToBaseTraits();
 		if (actor.isPlayer) ItemController.applyInventoryEffects((Player) actor);
+		if (actor.isPlayer) SkillController.applySkillEffects((Player) actor);
 		applyEffectsFromCurrentConditions(actor);
 		if (actor.isPlayer) ItemController.recalculateHitEffectsFromWornItems((Player) actor);
 	}

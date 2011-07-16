@@ -73,7 +73,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
         
         Loot merchantLoot = new Loot();
-        npcType.dropList.createRandomLoot(merchantLoot);
+        npcType.dropList.createRandomLoot(merchantLoot, player);
         container_buy = merchantLoot.items;
         
 		shoplist_buy.setAdapter(new ShopItemContainerAdapter(

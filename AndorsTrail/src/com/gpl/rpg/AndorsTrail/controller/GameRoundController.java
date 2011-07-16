@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
 public final class GameRoundController implements TimedMessageTask.Callback {
@@ -65,6 +66,8 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     private void onNewRound() {
     	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);
     	view.actorStatsController.applyConditionsToPlayer(model.player, false);
+    	
+    	model.player.health.add(model.player.getSkillLevel(Skills.SKILL_REGENERATION) * Skills.PER_SKILLPOINT_INCREASE_REGENERATION, false);
     }
     
 	private void onNewTick() {

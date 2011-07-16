@@ -27,10 +27,12 @@ public final class Monster extends Actor {
 		this.nextPosition = new CoordRect(new Coord(), traits.tileSize);
 	}
 	
-	public void createLoot(Loot container) {
-		container.exp += monsterType.exp;
+	public void createLoot(Loot container, Player player) {
+		int exp = monsterType.exp;
+		exp += exp * player.getSkillLevel(Skills.SKILL_MORE_EXP) * Skills.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
+		container.exp += exp;
 		if (monsterType.dropList == null) return;
-		monsterType.dropList.createRandomLoot(container);
+		monsterType.dropList.createRandomLoot(container, player);
 	}
 	
 	public boolean isAgressive() {
