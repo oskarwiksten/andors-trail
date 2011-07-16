@@ -6,8 +6,8 @@ import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -21,7 +21,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
-public final class CombatView extends FrameLayout {
+public final class CombatView extends RelativeLayout {
 	private final TextView statusTextView;
 	private final Button attackMoveButton;
 	private final ImageButton monsterInfo;

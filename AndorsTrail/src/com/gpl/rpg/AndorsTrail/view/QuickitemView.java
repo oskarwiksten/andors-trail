@@ -7,7 +7,7 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
@@ -17,7 +17,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
 
-public class QuickitemView extends FrameLayout implements OnClickListener{
+public class QuickitemView extends LinearLayout implements OnClickListener{
 	public static final int NUM_QUICK_SLOTS = 3;
 
 	private final WorldContext world;
@@ -30,6 +30,7 @@ public class QuickitemView extends FrameLayout implements OnClickListener{
 	    this.world = app.world;
         this.view = app.currentView.get();
         setFocusable(false);
+        setOrientation(LinearLayout.HORIZONTAL);
 
         inflate(context, R.layout.quickitemview, this);
 		Resources res = getResources();

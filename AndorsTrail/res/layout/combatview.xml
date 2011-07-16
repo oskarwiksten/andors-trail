@@ -1,77 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center_horizontal"
+	>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:id="@+id/combatview_actionbar"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-		android:orientation="vertical"
-		android:gravity="center_horizontal"
+		android:gravity="center_vertical"
+		android:orientation="horizontal"
 		>
-	<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		>
-		
-		<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			android:id="@+id/combatview_actionbar"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			>
-	               
-			<Button android:id="@+id/combatview_moveattack"
-				android:layout_width="wrap_content"
-				android:layout_height="@dimen/smalltext_buttonheight"
-				android:layout_alignParentLeft="true"
-				android:layout_centerVertical="true"
-				android:textSize="@dimen/actionbar_text"
-				android:text="Action"
-				/>
-		 
-			<Button android:id="@+id/combatview_flee"
-				android:layout_width="wrap_content"
-				android:layout_height="@dimen/smalltext_buttonheight"
-				android:layout_alignParentRight="true"
-				android:layout_centerVertical="true"
-				android:textSize="@dimen/actionbar_text"
-				android:text="@string/combat_flee"
-				/>
-		
-			<Button android:id="@+id/combatview_endturn"
-				android:layout_width="wrap_content"
-				android:layout_height="@dimen/smalltext_buttonheight"
-				android:layout_toLeftOf="@id/combatview_flee"
-				android:layout_centerVertical="true"
-				android:textSize="@dimen/actionbar_text"
-				android:text="@string/combat_endturn"
-				/>
-		
-			<TextView android:id="@+id/combatview_status"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:layout_toRightOf="@id/combatview_moveattack"
-				android:layout_toLeftOf="@id/combatview_endturn"
-				android:textSize="@dimen/actionbar_text"
-				android:layout_centerVertical="true"
-				android:shadowDx="1"
-				android:shadowDy="1"
-				android:shadowRadius="1"
-				android:shadowColor="#000"
-				android:paddingBottom="4sp"
-				android:text="AP"
-				/>
-		</RelativeLayout>
-		
-		<TextView android:id="@+id/combatview_monsterismoving"
+               
+		<Button android:id="@+id/combatview_moveattack"
 			android:layout_width="wrap_content"
+			android:layout_height="@dimen/smalltext_buttonheight"
+			android:textSize="@dimen/actionbar_text"
+			android:text="Action"
+			/>
+	 
+		<TextView android:id="@+id/combatview_status"
+			android:layout_width="1dp"
 			android:layout_height="wrap_content"
 			android:textSize="@dimen/actionbar_text"
-			android:layout_centerInParent="true"
+			android:layout_weight="1"
 			android:shadowDx="1"
 			android:shadowDy="1"
 			android:shadowRadius="1"
 			android:shadowColor="#000"
-			android:paddingBottom="4sp"			
-			android:text="Monsteraction"
+			android:paddingBottom="4sp"
+			android:text="AP"
 			/>
-	</RelativeLayout>
+
+		<Button android:id="@+id/combatview_endturn"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/smalltext_buttonheight"
+			android:textSize="@dimen/actionbar_text"
+			android:text="@string/combat_endturn"
+			/>
+	
+		<Button android:id="@+id/combatview_flee"
+			android:layout_width="wrap_content"
+			android:layout_height="@dimen/smalltext_buttonheight"
+			android:textSize="@dimen/actionbar_text"
+			android:text="@string/combat_flee"
+			/>
+
+	</LinearLayout>
+	
+	<TextView android:id="@+id/combatview_monsterismoving"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:textSize="@dimen/actionbar_text"
+		android:layout_alignBottom="@id/combatview_actionbar"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:shadowRadius="1"
+		android:shadowColor="#000"
+		android:paddingBottom="4sp"
+		android:text="Monsteraction"
+		android:gravity="center"
+		/>
 	
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/combatview_monsterbar"
@@ -79,6 +68,7 @@
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:gravity="center_vertical"
+		android:layout_below="@id/combatview_actionbar"
 		>
 
 		<ImageButton android:id="@+id/combatview_monsterinfo"
@@ -95,4 +85,4 @@
 		 
 	</LinearLayout>
 	
-</LinearLayout>
+</merge>
