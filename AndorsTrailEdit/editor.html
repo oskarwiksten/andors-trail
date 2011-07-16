@@ -351,6 +351,16 @@
 				</select>
 			</div>
 			<div class="fieldWithLabel">
+				<label for="displaytype" class="label">Display as:</label>
+				<select class="field" id="displaytype">
+					<option value="0">Ordinary item</option>
+					<option value="1">Quest item (yellow)</option>
+					<option value="2">Legendary (green)</option>
+					<option value="3">Extraordinary (blue)</option>
+					<option value="4">Unique (purple)</option>
+				</select>
+			</div>
+			<div class="fieldWithLabel">
 				<label for="baseMarketCost" class="label">Base market cost (gold):</label>
 				<input class="field" type="text" size="7" id="baseMarketCost" class="fieldInput integer" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
 			</div>

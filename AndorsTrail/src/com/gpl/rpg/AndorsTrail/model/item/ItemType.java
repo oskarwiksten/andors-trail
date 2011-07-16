@@ -26,9 +26,10 @@ public final class ItemType {
 	public static final int ACTIONTYPE_EQUIP = 2;
 	
 	public static final int DISPLAYTYPE_ORDINARY = 0;
-	public static final int DISPLAYTYPE_LEGENDARY = 1;
-	public static final int DISPLAYTYPE_EXTRAORDINARY = 2;
-	public static final int DISPLAYTYPE_QUEST = 3;
+	public static final int DISPLAYTYPE_QUEST = 1;
+	public static final int DISPLAYTYPE_LEGENDARY = 2;
+	public static final int DISPLAYTYPE_EXTRAORDINARY = 3;
+	public static final int DISPLAYTYPE_UNIQUE = 4;
 	
 	public final int id;
 	public final int iconID;
@@ -37,20 +38,21 @@ public final class ItemType {
 	public final int actionType;
 	public final int baseMarketCost;
 	public final String searchTag;
-	public int displayType = DISPLAYTYPE_ORDINARY;
+	public final int displayType;
 	
 	public final ItemTraits_OnEquip effects_equip;
 	public final ItemTraits_OnUse effects_use;
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(int id, int iconID, String name, String searchTag, int category, int baseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	public ItemType(int id, int iconID, String name, String searchTag, int category, int displayType, int baseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
 		this.searchTag = searchTag;
 		this.category = category;
 		this.actionType = getActionType(category);
+		this.displayType = displayType;
 		this.baseMarketCost = baseMarketCost;
 		this.effects_equip = effects_equip;
 		this.effects_use = effects_use;
@@ -132,12 +134,14 @@ public final class ItemType {
 	
 	public int getOverlayTileID() {
 		switch (displayType) {
-		case ItemType.DISPLAYTYPE_LEGENDARY:
-			return TileStore.iconID_attackselect;
-		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
-			return TileStore.iconID_moveselect;
 		case ItemType.DISPLAYTYPE_QUEST:
-			return TileStore.iconID_moveselect;
+			return TileStore.iconID_selection_yellow;
+		case ItemType.DISPLAYTYPE_LEGENDARY:
+			return TileStore.iconID_selection_green;
+		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
+			return TileStore.iconID_selection_blue;
+		case ItemType.DISPLAYTYPE_UNIQUE:
+			return TileStore.iconID_selection_purple;
 		}
 		return -1;
 	}

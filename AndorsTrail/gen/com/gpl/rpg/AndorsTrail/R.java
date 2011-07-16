@@ -135,9 +135,10 @@ public final class R {
         public static final int ui_progress_health=0x7f02004b;
         public static final int ui_purple_foreground=0x7f02004c;
         public static final int ui_red_foreground=0x7f02004d;
-        public static final int ui_startbackground=0x7f02004e;
-        public static final int ui_statustext=0x7f02004f;
-        public static final int ui_yellow_foreground=0x7f020050;
+        public static final int ui_selections=0x7f02004e;
+        public static final int ui_startbackground=0x7f02004f;
+        public static final int ui_statustext=0x7f020050;
+        public static final int ui_yellow_foreground=0x7f020051;
     }
     public static final class id {
         public static final int abilitymodifierinfo_change_maxap=0x7f090005;

@@ -31,11 +31,14 @@ public final class ResourceLoader {
         // ========================================================================
         // Load various ui icons
         /*tiles.iconID_CHAR_HERO = */loader.prepareTileID(R.drawable.char_hero, 0);
-        /*tiles.iconID_attackselect = */loader.prepareTileID(R.drawable.map_tiles_1_2, 6+16*5);
-        /*tiles.iconID_moveselect = */loader.prepareTileID(R.drawable.map_tiles_1_2, 7+16*5);
+        /*tiles.iconID_selection_red = */loader.prepareTileID(R.drawable.ui_selections, 0);
+        /*tiles.iconID_selection_yellow = */loader.prepareTileID(R.drawable.ui_selections, 1);
         /*tiles.iconID_groundbag = */loader.prepareTileID(R.drawable.map_tiles_2_7, 13+16*0);
     	/*tiles.iconID_boxopened = */loader.prepareTileID(R.drawable.items_tiles, 8+14*29);
         /*tiles.iconID_boxclosed = */loader.prepareTileID(R.drawable.items_tiles, 7+14*29);
+        /*tiles.iconID_selection_blue = */loader.prepareTileID(R.drawable.ui_selections, 2);
+        /*tiles.iconID_selection_purple = */loader.prepareTileID(R.drawable.ui_selections, 3);
+        /*tiles.iconID_selection_green = */loader.prepareTileID(R.drawable.ui_selections, 4);
         
         
         // ========================================================================
@@ -141,6 +144,8 @@ public final class ResourceLoader {
         final Size src_mapTileSize7 = new Size(16, 7);
         
         loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
+        
+        loader.prepareTileset(R.drawable.ui_selections, "ui_selections", new Size(5, 1), defaultTileSize);
         
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
         

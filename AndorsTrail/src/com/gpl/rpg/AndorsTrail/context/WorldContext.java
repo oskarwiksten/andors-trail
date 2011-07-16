@@ -73,6 +73,9 @@ public class WorldContext {
 
 			//Ensure that all quest stages are required and supplied.
 			conversations.verifyData(maps);
+			
+			//Ensure that all conversations that require quest items have quest progress updates
+			conversations.verifyData(itemTypes);
 
 			//Ensure that all quest stages are reachable by phrases
 			quests.verifyData(conversations);

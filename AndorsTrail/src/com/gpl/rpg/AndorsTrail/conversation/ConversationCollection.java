@@ -121,7 +121,7 @@ public final class ConversationCollection {
 					}
 				}
     		}
-		}	
+		}
 	}
 	
 	// Selftest method. Not part of the game logic.
@@ -195,6 +195,24 @@ public final class ConversationCollection {
     			}
     		}
     	}
+    }
+	
+	// Selftest method. Not part of the game logic.
+	public void verifyData(ItemTypeCollection itemTypes) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (Entry<String, Phrase> e : phrases.entrySet()) {
+				for (Reply r : e.getValue().replies) {
+					if (r.requiresItemTypeID < 0) continue;
+					ItemType itemType = itemTypes.getItemType(r.requiresItemTypeID);
+					if (!itemType.isQuestItem()) continue;
+					
+					Phrase nextPhrase = getPhrase(r.nextPhrase);
+					if (nextPhrase.progressQuest == null) {
+						L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that requires a questitem, but the next phrase does not add quest progress.");
+					}
+				}
+    		}
+		}	
     }
 
 	// Selftest method. Not part of the game logic.

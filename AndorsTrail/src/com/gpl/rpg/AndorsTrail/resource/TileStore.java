@@ -14,12 +14,17 @@ import android.widget.ImageView;
 
 public final class TileStore {
 	public static final int CHAR_HERO = 1;
-	public static final int iconID_attackselect = 2;
-	public static final int iconID_moveselect = 3;
+	public static final int iconID_selection_red = 2;
+	public static final int iconID_selection_yellow = 3;
+	public static final int iconID_attackselect = iconID_selection_red;
+	public static final int iconID_moveselect = iconID_selection_yellow;
 	public static final int iconID_groundbag = 4;
 	public static final int iconID_boxopened = 5;
 	public static final int iconID_boxclosed = 6;
 	public static final int iconID_shop = iconID_groundbag;
+	public static final int iconID_selection_blue = 7;
+	public static final int iconID_selection_purple = 8;
+	public static final int iconID_selection_green = 9;
 	
 
     private float density;
@@ -69,8 +74,8 @@ public final class TileStore {
 		if (overlayIconID != -1) {
 			imageView.setImageDrawable(
 				new LayerDrawable(new Drawable[] {
-					new BitmapDrawable(icon)
-					,new BitmapDrawable(getBitmap(overlayIconID))
+					new BitmapDrawable(getBitmap(overlayIconID))
+					,new BitmapDrawable(icon)
 				})
 			);
 		} else {

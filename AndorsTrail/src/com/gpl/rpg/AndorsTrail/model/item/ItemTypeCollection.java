@@ -30,7 +30,7 @@ public final class ItemTypeCollection {
 	}
 	
 
-	private static final ResourceObjectTokenizer itemResourceTokenizer = new ResourceObjectTokenizer(37);
+	private static final ResourceObjectTokenizer itemResourceTokenizer = new ResourceObjectTokenizer(38);
 	public void initialize(final DynamicTileLoader tileLoader, final ActorConditionTypeCollection actorConditionTypes, String itemlist) {
 		itemResourceTokenizer.tokenizeRows(itemlist, new ResourceObjectFieldParser() {
 			@Override
@@ -44,10 +44,10 @@ public final class ItemTypeCollection {
 					searchTag = itemTypeName;
 				}
 				
-				final ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 5);
-				final ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 18, false);
-				final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 24, true);
-				final ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 31, false);
+				final ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 6);
+				final ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 19, false);
+				final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 25, true);
+				final ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 32, false);
 				
 				final int nextId = itemTypes.size();
 				final ItemType itemType = new ItemType(
@@ -55,8 +55,9 @@ public final class ItemTypeCollection {
 	        			, ResourceFileParser.parseImageID(tileLoader, parts[1])
 	        			, itemTypeName
 			        	, searchTag
-	        			, Integer.parseInt(parts[3])
-	        			, Integer.parseInt(parts[4])
+	        			, Integer.parseInt(parts[3]) 												// category
+	        			, ResourceFileParser.parseInt(parts[4], ItemType.DISPLAYTYPE_ORDINARY) 		// Displaytype
+	        			, Integer.parseInt(parts[5]) 												// Base market cost
 	        			, equipEffect
 	        			, useEffect
 	        			, hitEffect
@@ -81,6 +82,13 @@ public final class ItemTypeCollection {
 	    					L.log("OPTIMIZE: Item " + searchTag + " is not usable, but has use effect.");
 	    				}
 	    			}
+	    			
+					if (itemType.isQuestItem() && itemType.displayType == ItemType.DISPLAYTYPE_ORDINARY) {
+    					L.log("OPTIMIZE: Item " + searchTag + " is quest item, but is displayed as an ordinary item.");
+    				} else if (!itemType.isQuestItem() && itemType.displayType == ItemType.DISPLAYTYPE_QUEST) {
+    					L.log("OPTIMIZE: Item " + searchTag + " is not a quest item, but is displayed as one.");
+    				}
+    			
 	    		}
 				itemTypes.add(itemType);
 	    		
