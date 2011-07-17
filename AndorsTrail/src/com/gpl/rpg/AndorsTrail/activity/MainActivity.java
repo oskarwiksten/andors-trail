@@ -49,6 +49,10 @@ public final class MainActivity extends Activity {
     public static final int INTENTREQUEST_LEVELUP = 6;
     public static final int INTENTREQUEST_PREFERENCES = 7;
     public static final int INTENTREQUEST_SAVEGAME = 8;
+    public static final int INTENTREQUEST_BULKSELECT_BUY = 9;
+	public static final int INTENTREQUEST_BULKSELECT_SELL = 10;
+	public static final int INTENTREQUEST_BULKSELECT_DROP = 11;
+    public static final int INTENTREQUEST_SKILLINFO = 12;
 	
     private ViewContext view;
     private WorldContext world;
@@ -208,6 +212,14 @@ public final class MainActivity extends Activity {
 		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain32", "north", 0, 0);
 					}
 				})*/
+    			,new DebugButton("exp+=10000", new OnClickListener() {
+		    		@Override
+					public void onClick(View arg0) {
+		    			world.model.player.addExperience(10000);
+		    			updateStatus();
+		    			Toast.makeText(MainActivity.this, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT).show();
+					}
+				})
     			,new DebugButton("hp=max", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {

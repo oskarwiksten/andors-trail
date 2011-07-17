@@ -33,7 +33,7 @@ public final class ResourceLoader {
         /*tiles.iconID_CHAR_HERO = */loader.prepareTileID(R.drawable.char_hero, 0);
         /*tiles.iconID_selection_red = */loader.prepareTileID(R.drawable.ui_selections, 0);
         /*tiles.iconID_selection_yellow = */loader.prepareTileID(R.drawable.ui_selections, 1);
-        /*tiles.iconID_groundbag = */loader.prepareTileID(R.drawable.map_tiles_2_7, 13+16*0);
+        /*tiles.iconID_groundbag = */loader.prepareTileID(R.drawable.ui_icon_equipment, 0);
     	/*tiles.iconID_boxopened = */loader.prepareTileID(R.drawable.items_tiles, 8+14*29);
         /*tiles.iconID_boxclosed = */loader.prepareTileID(R.drawable.items_tiles, 7+14*29);
         /*tiles.iconID_selection_blue = */loader.prepareTileID(R.drawable.ui_selections, 2);
@@ -42,6 +42,11 @@ public final class ResourceLoader {
         
         
         // ========================================================================
+        // Load skills
+        world.skills.initialize();
+        
+        
+    	// ========================================================================
         // Load condition types
         final TypedArray conditionsToLoad = r.obtainTypedArray(actorConditionsResourceId);
         for (int i = 0; i < conditionsToLoad.length(); ++i) {
@@ -146,6 +151,7 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
         
         loader.prepareTileset(R.drawable.ui_selections, "ui_selections", new Size(5, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.ui_icon_equipment, "ui_icon_equipment", src_sz1x1, defaultTileSize);
         
         loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
         

@@ -15,12 +15,12 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
@@ -215,8 +215,8 @@ public final class CombatController {
 		model.currentMap.remove(killedMonster);
 		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
 		
-		if (player.getSkillLevel(Skills.SKILL_CLEAVE) > 0) player.ap.setMax();
-		player.health.add(player.getSkillLevel(Skills.SKILL_EATER) * Skills.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);
+		player.ap.add(player.getSkillLevel(SkillCollection.SKILL_CLEAVE) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP, false);
+		player.health.add(player.getSkillLevel(SkillCollection.SKILL_EATER) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);
 		
 		model.statistics.addMonsterKill(killedMonster.monsterType);
 		model.player.addExperience(loot.exp);
@@ -247,7 +247,7 @@ public final class CombatController {
 		if (dest == null) return;
 		if (!useAPs(model.player.traits.moveCost)) return;
 
-		int fleeChanceBias = model.player.getSkillLevel(Skills.SKILL_EVASION) * Skills.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
+		int fleeChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
 		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
 			fleeingFailed();
 			return;

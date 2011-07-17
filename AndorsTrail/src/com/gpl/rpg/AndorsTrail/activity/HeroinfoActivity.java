@@ -18,9 +18,9 @@ import com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
+import com.gpl.rpg.AndorsTrail.view.SkillListAdapater;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
-import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -43,8 +43,6 @@ import android.widget.AdapterView.AdapterContextMenuInfo;
 import android.widget.AdapterView.OnItemClickListener;
 
 public final class HeroinfoActivity extends TabActivity {
-	public static final int INTENTREQUEST_BULKSELECT_DROP = BulkSelectionInterface.BULK_INTERFACE_DROP;
-	
 	private WorldContext world;
 	private ViewContext view;
 
@@ -72,6 +70,8 @@ public final class HeroinfoActivity extends TabActivity {
 	
 	private final ImageView[] wornItemImage = new ImageView[Inventory.NUM_WORN_SLOTS];
 	private final int[] defaultWornItemImageResourceIDs = new int[Inventory.NUM_WORN_SLOTS];
+
+	private SkillListAdapater skillListAdapter;
 	
     /** Called when the activity is first created. */
     @Override
@@ -90,11 +90,14 @@ public final class HeroinfoActivity extends TabActivity {
         Resources res = getResources();
         TabHost h = getTabHost();
         h.addTab(h.newTabSpec("char")
-        		.setIndicator(res.getString(R.string.heroinfo_char), res.getDrawable(R.drawable.char_hero)) //TODO: Should change icon
+        		.setIndicator(res.getString(R.string.heroinfo_char), res.getDrawable(R.drawable.char_hero))
         		.setContent(R.id.heroinfo_tab1));
-        h.addTab(h.newTabSpec("inv")
-        		.setIndicator(res.getString(R.string.heroinfo_inv), res.getDrawable(R.drawable.char_hero)) //TODO: Should change icon
+        h.addTab(h.newTabSpec("skills")
+        		.setIndicator(res.getString(R.string.heroinfo_skill), res.getDrawable(R.drawable.ui_icon_skill))
         		.setContent(R.id.heroinfo_tab2));
+        h.addTab(h.newTabSpec("inv")
+        		.setIndicator(res.getString(R.string.heroinfo_inv), res.getDrawable(R.drawable.ui_icon_equipment))
+        		.setContent(R.id.heroinfo_tab3));
         String t = world.model.uiSelections.selectedTabHeroInfo;
         if (t != null && t.length() > 0) {
         	h.setCurrentTabByTag(t);
@@ -164,6 +167,16 @@ public final class HeroinfoActivity extends TabActivity {
         
         inventoryList.setAdapter(new ItemContainerAdapter(this, world.tileStore, container));
         
+        skillListAdapter = new SkillListAdapater(this, world.skills.getAllSkills(), player);
+        ListView skillList = (ListView) findViewById(R.id.heroinfo_listskills_list);
+        skillList.setAdapter(skillListAdapter);
+        skillList.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				Dialogs.showSkillInfo(HeroinfoActivity.this, (int) id);
+			}
+		});
+        
         update();
     }
 
@@ -207,13 +220,19 @@ public final class HeroinfoActivity extends TabActivity {
 			break;
 		case MainActivity.INTENTREQUEST_LEVELUP:
 			break;
-		case INTENTREQUEST_BULKSELECT_DROP:
-			if (resultCode == Activity.RESULT_OK) {
-				int quantity = data.getExtras().getInt("selectedAmount");
-				int itemTypeID = data.getExtras().getInt("itemTypeID");
-				itemType = world.itemTypes.getItemType(itemTypeID);
-				view.itemController.dropItem(itemType, quantity);
-			}
+		case MainActivity.INTENTREQUEST_BULKSELECT_DROP:
+			if (resultCode != RESULT_OK) break;
+			
+			int quantity = data.getExtras().getInt("selectedAmount");
+			int itemTypeID = data.getExtras().getInt("itemTypeID");
+			itemType = world.itemTypes.getItemType(itemTypeID);
+			view.itemController.dropItem(itemType, quantity);
+			break;
+		case MainActivity.INTENTREQUEST_SKILLINFO:
+			if (resultCode != RESULT_OK) break;
+			
+			int skillID = data.getExtras().getInt("skillID");
+			player.addSkillLevel(skillID);
 			break;
 		}
 		update();
@@ -225,6 +244,24 @@ public final class HeroinfoActivity extends TabActivity {
         updateWorn();
         updateLevelup();
         updateConditions();
+        updateSkillList();
+	}
+
+	private void updateSkillList() {
+		TextView listskills_number_of_increases = (TextView) findViewById(R.id.heroinfo_listskills_number_of_increases);
+        
+        int numberOfSkillIncreases = player.availableSkillIncreases;
+		if (numberOfSkillIncreases > 0) {
+			if (numberOfSkillIncreases == 1) {
+				listskills_number_of_increases.setText(R.string.skill_number_of_increases_one);
+			} else {
+				listskills_number_of_increases.setText(getResources().getString(R.string.skill_number_of_increases_several, numberOfSkillIncreases));
+			}
+			listskills_number_of_increases.setVisibility(View.VISIBLE);
+		} else {
+			listskills_number_of_increases.setVisibility(View.GONE);
+		}
+		skillListAdapter.notifyDataSetInvalidated();
 	}
 
 	private void updateLevelup() {

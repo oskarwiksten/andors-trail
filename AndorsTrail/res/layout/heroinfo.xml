@@ -29,8 +29,15 @@
 <!-- TAB 2 -->
 		
 			<include 
-				layout="@layout/heroinfo_inventory"
+				layout="@layout/heroinfo_skill_list"
 				android:id="@+id/heroinfo_tab2"
+				/>
+
+<!-- TAB 3 -->
+		
+			<include 
+				layout="@layout/heroinfo_inventory"
+				android:id="@+id/heroinfo_tab3"
 				/>
   
 		</FrameLayout>

@@ -14,6 +14,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -99,7 +100,8 @@ public final class Savegames {
     	world.model = new ModelContainer(src, world, header.fileversion);
     	src.close();
     	
-    	MovementController.moveBlockedActors(world);
+    	ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
+		MovementController.moveBlockedActors(world);
     	
     	return LOAD_RESULT_SUCCESS;
     }

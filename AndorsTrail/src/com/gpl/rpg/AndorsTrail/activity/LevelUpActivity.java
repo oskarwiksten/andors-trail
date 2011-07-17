@@ -15,8 +15,8 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 
 public final class LevelUpActivity extends Activity {
 	private WorldContext world;
@@ -77,6 +77,13 @@ public final class LevelUpActivity extends Activity {
 			}
 		});
         b.setText(getString(R.string.levelup_add_blockchance, Constants.LEVELUP_EFFECT_DEF_CH));
+        
+        View v = findViewById(R.id.levelup_adds_new_skillpoint);
+        if (player.nextLevelAddsNewSkillpoint()) {
+        	v.setVisibility(View.VISIBLE);
+        } else {
+        	v.setVisibility(View.GONE);
+        }
     }
 
     private static final int SELECT_HEALTH = 0;
@@ -85,6 +92,8 @@ public final class LevelUpActivity extends Activity {
     private static final int SELECT_DEF_CH = 3;
     
     public void levelup(int selectionID) {
+    	if (LevelUpActivity.this.isFinishing()) return;
+    	
     	addLevelupEffect(player, selectionID);
     	LevelUpActivity.this.finish();
     }
@@ -106,9 +115,12 @@ public final class LevelUpActivity extends Activity {
     		player.traits.baseCombatTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
     		break;
     	}
+    	if (player.nextLevelAddsNewSkillpoint()) {
+    		player.availableSkillIncreases++;
+    	}
     	player.level++;
     	
-    	hpIncrease += player.getSkillLevel(Skills.SKILL_FORTITUDE) * Skills.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
+    	hpIncrease += player.getSkillLevel(SkillCollection.SKILL_FORTITUDE) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
 		player.health.max += hpIncrease;
 		player.traits.maxHP += hpIncrease;
 		player.health.current += hpIncrease;

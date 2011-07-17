@@ -372,4 +372,67 @@
 	<string name="bulkselection_totalcost_buy">Total cost: %1$d gold</string>
 	<string name="bulkselection_totalcost_sell">Total cost: %1$d gold</string>
 	
+    <string name="skill_title_weapon_chance">Weapon Accuracy</string>
+    <string name="skill_title_weapon_dmg">Hard Hit</string>
+    <string name="skill_title_barter">Merchant</string>
+    <string name="skill_title_dodge">Dodge</string>
+    <string name="skill_title_barkskin">Bark Skin</string>
+    <string name="skill_title_more_criticals">More Criticals</string>
+    <string name="skill_title_better_criticals">Better Criticals</string>
+    <string name="skill_title_speed">Combat Speed</string>
+    <string name="skill_title_coinfinder">Gold Digger</string>
+    <string name="skill_title_more_exp">Quick Learner</string>
+    <string name="skill_title_cleave">Cleave</string>
+    <string name="skill_title_eater">Corpse Eater</string>
+    <string name="skill_title_fortitude">Increased Fortitude</string>
+    <string name="skill_title_evasion">Evasion</string>
+    <string name="skill_title_regeneration">Regeneration</string>
+    <string name="skill_title_lower_exploss">Failure Mastery</string>
+    <string name="skill_title_magicfinder">Magic Finder</string>
+    
+    <string name="skill_shortdescription_weapon_chance">Increased attack chance</string>
+    <string name="skill_shortdescription_weapon_dmg">Increased attack damage</string>
+    <string name="skill_shortdescription_barter">Better shop prices</string>
+    <string name="skill_shortdescription_dodge">Increased block chance</string>
+    <string name="skill_shortdescription_barkskin">Damage resistance</string>
+    <string name="skill_shortdescription_more_criticals">Increased critical chance</string>
+    <string name="skill_shortdescription_better_criticals">Increased critical damage</string>
+    <string name="skill_shortdescription_speed">Increased maximum action points</string>
+    <string name="skill_shortdescription_coinfinder">Higher chance of finding gold</string>
+    <string name="skill_shortdescription_more_exp">More experience from monster kills</string>
+    <string name="skill_shortdescription_cleave">Recover action points on every kill</string>
+    <string name="skill_shortdescription_eater">Recover health points on every kill</string>
+    <string name="skill_shortdescription_fortitude">Gain health on each level up</string>
+    <string name="skill_shortdescription_evasion">Increased chance of fleeing</string>
+    <string name="skill_shortdescription_regeneration">Gain health every round</string>
+    <string name="skill_shortdescription_lower_exploss">Decrease amount of lost experience when dying</string>
+    <string name="skill_shortdescription_magicfinder">Increased chance of finding magic items</string>
+    
+    <string name="skill_longdescription_weapon_chance">Increases attack chance by %1$d for each skill level.</string>
+    <string name="skill_longdescription_weapon_dmg">Increases min and max damage by %1$d for each skill level.</string>
+    <string name="skill_longdescription_barter">For every skill level, decreases the buying and selling gold penalty by %1$d percentage points.</string>
+    <string name="skill_longdescription_dodge">Increases block chance by %1$d for each skill level.</string>
+    <string name="skill_longdescription_barkskin">Increases damage resistance by %1$d for each skill level.</string>
+    <string name="skill_longdescription_more_criticals">Increases any existing critical chance given by equipment by %1$d %% for each skill level (percentage of existing critical chance value, not percentage points).</string>
+    <string name="skill_longdescription_better_criticals">Increases any existing critical multiplier given by equipment by %1$d %% for each skill level.</string>
+    <string name="skill_longdescription_speed">Increases maximum action points (AP) by %1$d for each skill level.</string>
+    <string name="skill_longdescription_coinfinder">Increases chance of finding gold in monster drops by %1$d %%, and increases amount of gold in drops by %2$d %% for each skill level (up to the maximum amount that the monster drops).</string>
+    <string name="skill_longdescription_more_exp">Increases amount of exp given by defeating monsters by %1$d %% for each skill level</string>
+    <string name="skill_longdescription_cleave">Gives +%1$d action points (AP) on every kill per skill level.</string>
+    <string name="skill_longdescription_eater">Gives +%1$d health points (HP) on every kill per skill level.</string>
+    <string name="skill_longdescription_fortitude">On every subsequent level-up, maximum health points (HP) will be raised by %1$d per skill level. This is not applied retroactively, only subsequent level-ups will be affected.</string>
+    <string name="skill_longdescription_evasion">For every skill level, reduces both the chance of failed flee attempts by %1$d %% and the chance that a adjacent monster will attack by %2$d %%.</string>
+    <string name="skill_longdescription_regeneration">Gain +%1$d health points (HP) on every round per skill level.</string>
+    <string name="skill_longdescription_lower_exploss">For every skill level, reduces the amount of lost experience caused by death by %1$d %% (percentage of existing exp loss value, not percentage points). %2$d levels will remove all experience loss caused by death.</string>
+    <string name="skill_longdescription_magicfinder">Increases the chance of finding non-ordinary items by %1$d %% for every skill level.</string>
+    
+    <string name="skillinfo_action_levelup">Level up</string>
+    <string name="skill_current_level">Current level: %1$d</string>
+    <string name="skill_current_level_with_maximum">Current level: %1$d / %2$d</string>
+    <string name="skill_prerequisite_other_skill">Requires at least level %1$d of the %1$s skill to select.</string>
+    <string name="skill_prerequisite_stat">Requires at least %1$d %1$s to select</string>
+    <string name="skill_number_of_increases_one">You may select one skill to increase</string>
+    <string name="skill_number_of_increases_several">You may select %1$d skills to increase</string>
+    <string name="levelup_adds_new_skillpoint">This level also gives you a new skill point to spend!</string>
+
 </resources>

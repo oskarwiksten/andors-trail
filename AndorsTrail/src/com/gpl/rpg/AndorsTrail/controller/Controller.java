@@ -8,9 +8,9 @@ import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -64,7 +64,7 @@ public final class Controller {
 		view.effectController.waitForCurrentEffect();		
 		final Player player = model.player;
 		int lostExp = player.levelExperience.current * Constants.PERCENT_EXP_LOST_WHEN_DIED / 100;
-		lostExp -= lostExp * player.getSkillLevel(Skills.SKILL_LOWER_EXPLOSS) * Skills.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT / 100;
+		lostExp -= lostExp * player.getSkillLevel(SkillCollection.SKILL_LOWER_EXPLOSS) * SkillCollection.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT / 100;
 		
 		if (lostExp < 0) lostExp = 0;
 		player.addExperience(-lostExp);

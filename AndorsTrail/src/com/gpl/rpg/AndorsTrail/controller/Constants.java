@@ -11,6 +11,8 @@ public final class Constants {
 	public static final int LEVELUP_EFFECT_ATK_CH = 5;
 	public static final int LEVELUP_EFFECT_ATK_DMG = 1;
 	public static final int LEVELUP_EFFECT_DEF_CH = 3;
+	public static final int FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL = 3;
+	public static final int NEW_SKILL_POINT_EVERY_N_LEVELS = 4;
 	public static final int MARKET_PRICEFACTOR_PERCENT = 15;
 	public static final int MONSTER_AGGRESSION_CHANCE_PERCENT = 15;
 	public static final int EXP_FACTOR_DAMAGERESISTANCE = 9;

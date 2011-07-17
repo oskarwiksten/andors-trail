@@ -9,8 +9,8 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
@@ -193,7 +193,7 @@ public final class ItemController {
 	
 	private static int getMarketPriceFactor(Player player) {
 		return Constants.MARKET_PRICEFACTOR_PERCENT 
-			- player.getSkillLevel(Skills.SKILL_BARTER) * Skills.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE;
+			- player.getSkillLevel(SkillCollection.SKILL_BARTER) * SkillCollection.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE;
 	}
 	public static int getBuyingPrice(Player player, ItemType itemType) {
 		return itemType.baseMarketCost + itemType.baseMarketCost * getMarketPriceFactor(player) / 100;

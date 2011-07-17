@@ -22,10 +22,10 @@ public final class DropList {
 	public void createRandomLoot(Loot loot, Player player) {
 		for (DropItem item : items) {
 			
-			final int chanceRollBias = SkillController.getChanceRollBias(item, player);
+			final int chanceRollBias = SkillController.getDropChanceRollBias(item, player);
 			if (Constants.rollResult(item.chance, chanceRollBias)) {
 				
-				final int quantityRollBias = SkillController.getQuantityRollBias(item, player);
+				final int quantityRollBias = SkillController.getDropQuantityRollBias(item, player);
 				int quantity = Constants.rollValue(item.quantity, quantityRollBias);
 				
 				if (quantity != 0) {

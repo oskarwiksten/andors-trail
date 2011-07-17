@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
@@ -29,7 +30,7 @@ public final class Monster extends Actor {
 	
 	public void createLoot(Loot container, Player player) {
 		int exp = monsterType.exp;
-		exp += exp * player.getSkillLevel(Skills.SKILL_MORE_EXP) * Skills.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
+		exp += exp * player.getSkillLevel(SkillCollection.SKILL_MORE_EXP) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
 		container.exp += exp;
 		if (monsterType.dropList == null) return;
 		monsterType.dropList.createRandomLoot(container, player);

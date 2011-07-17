@@ -19,7 +19,7 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_DEBUGBUTTONS = true;
 	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = true;
-	public static final int CURRENT_VERSION = 21;
+	public static final int CURRENT_VERSION = 22;
 	public static final String CURRENT_VERSION_DISPLAY = "0.6.10dev";
 	
 	public final WorldContext world = new WorldContext();

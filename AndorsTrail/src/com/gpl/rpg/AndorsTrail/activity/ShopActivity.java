@@ -25,10 +25,6 @@ import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClickedListener;
 
 public final class ShopActivity extends TabActivity implements OnContainerItemClickedListener {
-
-	public static final int INTENTREQUEST_BULKSELECT_BUY = BulkSelectionInterface.BULK_INTERFACE_BUY;
-	public static final int INTENTREQUEST_BULKSELECT_SELL = BulkSelectionInterface.BULK_INTERFACE_SELL;
-	
 	private WorldContext world;
 	private Player player;
 
@@ -139,14 +135,14 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	        	showSellingInterface(itemType);
 			}
 			break;
-		case INTENTREQUEST_BULKSELECT_BUY:
+		case MainActivity.INTENTREQUEST_BULKSELECT_BUY:
 			if (resultCode == Activity.RESULT_OK) {
 				int quantity = data.getExtras().getInt("selectedAmount");
 				int itemTypeID = data.getExtras().getInt("itemTypeID");
 				buy(itemTypeID, quantity);
 			}
 			break;
-		case INTENTREQUEST_BULKSELECT_SELL:
+		case MainActivity.INTENTREQUEST_BULKSELECT_SELL:
 			if (resultCode == Activity.RESULT_OK) {
 				int quantity = data.getExtras().getInt("selectedAmount");
 				int itemTypeID = data.getExtras().getInt("itemTypeID");

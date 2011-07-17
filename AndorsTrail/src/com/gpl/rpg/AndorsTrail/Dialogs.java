@@ -33,6 +33,7 @@ import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.activity.QuestLogActivity;
 import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
+import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
@@ -276,15 +277,15 @@ public final class Dialogs {
 	}
 	
 	public static void showBulkBuyingInterface(ShopActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
-		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY, ShopActivity.INTENTREQUEST_BULKSELECT_BUY);
+		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY, MainActivity.INTENTREQUEST_BULKSELECT_BUY);
 	}
 	
 	public static void showBulkSellingInterface(ShopActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
-		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL, ShopActivity.INTENTREQUEST_BULKSELECT_SELL);
+		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL, MainActivity.INTENTREQUEST_BULKSELECT_SELL);
 	}
 	
 	public static void showBulkDroppingInterface(HeroinfoActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
-		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, HeroinfoActivity.INTENTREQUEST_BULKSELECT_DROP);
+		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, MainActivity.INTENTREQUEST_BULKSELECT_DROP);
 	}
 	
 	public static void showBulkSelectionInterface(Activity currentActivity, int itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
@@ -294,5 +295,11 @@ public final class Dialogs {
 		intent.putExtra("interfaceType", interfaceType);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/bulkselection/" + itemTypeID));
 		currentActivity.startActivityForResult(intent, requestCode);
+	}
+	public static void showSkillInfo(HeroinfoActivity currentActivity, int skillID) {
+		Intent intent = new Intent(currentActivity, SkillInfoActivity.class);
+		intent.putExtra("skillID", skillID);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/showskillinfo/" + skillID));
+		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SKILLINFO);
 	}
 }

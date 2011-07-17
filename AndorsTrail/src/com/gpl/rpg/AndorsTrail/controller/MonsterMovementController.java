@@ -3,8 +3,8 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.model.actor.Skills;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
@@ -40,7 +40,7 @@ public final class MonsterMovementController {
 	    		if (!m.isAgressive()) continue;
 	    		if (!m.rectPosition.isAdjacentTo(model.player.position)) continue;
 	    		
-	    		int aggressionChanceBias = model.player.getSkillLevel(Skills.SKILL_EVASION) * Skills.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
+	    		int aggressionChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
 	    		if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
 	    			view.combatController.monsterSteppedOnPlayer(m);
 	    			return;

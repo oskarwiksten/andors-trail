@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	>
+	
+	<ScrollView
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		>
+		<LinearLayout
+			android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/dialog_margin"
+			>
+			<LinearLayout
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:gravity="center_vertical"
+				>
+				<ImageView 
+					android:id="@+id/skillinfo_image"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:src="@drawable/icon" 
+					android:paddingRight="@dimen/dialog_iconpadding_right"
+					android:paddingBottom="@dimen/dialog_iconpadding_bottom"
+					/>
+				<TextView
+					android:id="@+id/skillinfo_title"
+					android:layout_width="fill_parent"
+					android:layout_height="wrap_content"
+					android:text="Skill" 
+					android:textSize="@dimen/titletext"
+					/>
+			</LinearLayout>
+		
+			<TextView 
+				android:text="Current level" 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="right"
+				android:id="@+id/skillinfo_currentlevel"
+				android:layout_marginBottom="@dimen/section_margin"
+				/>
+			
+			<TextView 
+				android:text="Long description" 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/skillinfo_longdescription"
+				android:layout_marginBottom="@dimen/section_margin"
+				/>
+			
+			<TextView 
+				android:text="Prerequisite" 
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:id="@+id/skillinfo_prerequisites"
+				/>
+			
+		</LinearLayout>
+		
+	</ScrollView>
+
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		style="@android:style/ButtonBar"
+		>
+		<Button 
+			android:id="@+id/skillinfoinfo_action"
+			android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+			android:text="@string/skillinfo_action_levelup"
+			/>
+			
+		<Button 
+			android:id="@+id/skillinfoinfo_close"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/dialog_close"
+			/>
+	</LinearLayout>
+</LinearLayout>
