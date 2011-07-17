@@ -18,11 +18,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public final class SkillListAdapater extends ArrayAdapter<SkillInfo> {
+public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 	private final Resources r;
 	private final Player player;
 	
-	public SkillListAdapater(Context context, Collection<SkillInfo> skills, Player player) {
+	public SkillListAdapter(Context context, Collection<SkillInfo> skills, Player player) {
 		super(context, 0, filterNondisplayedSkills(skills, player));
 		this.r = context.getResources();
 		this.player = player;
@@ -57,13 +57,13 @@ public final class SkillListAdapater extends ArrayAdapter<SkillInfo> {
 		final TextView description = (TextView) result.findViewById(R.id.skillentry_description);
 		
 		SkillController.setSkillIcon(icon, skillID, r);
-		String skillTitle = SkillCollection.getSkillTitle(skillID, r);
+		String skillTitle = r.getString(SkillCollection.getSkillTitleResourceID(skillID));
 		final int skillLevel = player.getSkillLevel(skillID);
 		if (skillLevel > 0) {
 			skillTitle += " (" + skillLevel + ")"; 
 		}
 		title.setText(skillTitle);
-		description.setText(SkillCollection.getSkillShortDescription(skillID, r));
+		description.setText(SkillCollection.getSkillShortDescriptionResourceID(skillID));
 		
 		boolean enabled = true;
 		if (player.hasAvailableSkillpoints()) {

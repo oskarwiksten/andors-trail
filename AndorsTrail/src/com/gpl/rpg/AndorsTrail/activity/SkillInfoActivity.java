@@ -43,7 +43,7 @@ public final class SkillInfoActivity extends Activity {
         SkillController.setSkillIcon(skillinfo_image, skillID, res);
         
         TextView skillinfo_title = (TextView) findViewById(R.id.skillinfo_title);
-        skillinfo_title.setText(SkillCollection.getSkillTitle(skillID, res));
+        skillinfo_title.setText(SkillCollection.getSkillTitleResourceID(skillID));
         
         TextView skillinfo_longdescription = (TextView) findViewById(R.id.skillinfo_longdescription);
         skillinfo_longdescription.setText(SkillCollection.getSkillLongDescription(skillID, res));

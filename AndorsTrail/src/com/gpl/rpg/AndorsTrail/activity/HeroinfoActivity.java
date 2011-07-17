@@ -18,7 +18,7 @@ import com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
-import com.gpl.rpg.AndorsTrail.view.SkillListAdapater;
+import com.gpl.rpg.AndorsTrail.view.SkillListAdapter;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
 import android.app.TabActivity;
@@ -71,7 +71,7 @@ public final class HeroinfoActivity extends TabActivity {
 	private final ImageView[] wornItemImage = new ImageView[Inventory.NUM_WORN_SLOTS];
 	private final int[] defaultWornItemImageResourceIDs = new int[Inventory.NUM_WORN_SLOTS];
 
-	private SkillListAdapater skillListAdapter;
+	private SkillListAdapter skillListAdapter;
 	
     /** Called when the activity is first created. */
     @Override
@@ -167,7 +167,7 @@ public final class HeroinfoActivity extends TabActivity {
         
         inventoryList.setAdapter(new ItemContainerAdapter(this, world.tileStore, container));
         
-        skillListAdapter = new SkillListAdapater(this, world.skills.getAllSkills(), player);
+        skillListAdapter = new SkillListAdapter(this, world.skills.getAllSkills(), player);
         ListView skillList = (ListView) findViewById(R.id.heroinfo_listskills_list);
         skillList.setAdapter(skillListAdapter);
         skillList.setOnItemClickListener(new OnItemClickListener() {

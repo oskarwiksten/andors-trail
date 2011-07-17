@@ -251,7 +251,9 @@ public final class Player extends Actor {
 		}
 		
 		if (fileversion <= 21) {
-			this.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(this.level);
+			int assignedSkillpoints = 0;
+			for (int v : skillLevels.values()) assignedSkillpoints += v;
+			this.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(this.level) - assignedSkillpoints;
 		} else {
 			this.availableSkillIncreases = src.readInt();
 		}

@@ -40,12 +40,12 @@ public final class SkillCollection {
 	public static final int PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT = 20;
 	public static final int PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT = 50;
 	public static final int PER_SKILLPOINT_INCREASE_SPEED = 1;
-	public static final int PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE = 5;
+	public static final int PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE = 4;
 	public static final int PER_SKILLPOINT_INCREASE_COINFINDER_CHANCE_PERCENT = 30;
-	public static final int PER_SKILLPOINT_INCREASE_MAGICFINDER_CHANCE_PERCENT = 100;
+	public static final int PER_SKILLPOINT_INCREASE_MAGICFINDER_CHANCE_PERCENT = 50;
 	public static final int PER_SKILLPOINT_INCREASE_COINFINDER_QUANTITY_PERCENT = 50;
-	public static final int PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT = 10;
-	public static final int PER_SKILLPOINT_INCREASE_CLEAVE_AP = 10;
+	public static final int PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT = 5;
+	public static final int PER_SKILLPOINT_INCREASE_CLEAVE_AP = 3;
 	public static final int PER_SKILLPOINT_INCREASE_EATER_HEALTH = 1;
 	public static final int PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH = 2;
 	public static final int PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE = 5;
@@ -67,10 +67,10 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SKILL_WEAPON_DMG, SkillInfo.MAXLEVEL_NONE, false));
 		initializeSkill(new SkillInfo(SKILL_BARTER, Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE, false));
 		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_BARKSKIN, SkillInfo.MAXLEVEL_NONE, false));
+		initializeSkill(new SkillInfo(SKILL_BARKSKIN, 5, false));
 		initializeSkill(new SkillInfo(SKILL_MORE_CRITICALS, SkillInfo.MAXLEVEL_NONE, false));
 		initializeSkill(new SkillInfo(SKILL_BETTER_CRITICALS, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_SPEED, SkillInfo.MAXLEVEL_NONE, false));
+		initializeSkill(new SkillInfo(SKILL_SPEED, 2, false));
 		initializeSkill(new SkillInfo(SKILL_COINFINDER, SkillInfo.MAXLEVEL_NONE, false));
 		initializeSkill(new SkillInfo(SKILL_MORE_EXP, SkillInfo.MAXLEVEL_NONE, false));
 		initializeSkill(new SkillInfo(SKILL_CLEAVE, SkillInfo.MAXLEVEL_NONE, false));
@@ -90,11 +90,7 @@ public final class SkillCollection {
 		return skills.values();
 	}
 	
-	public static String getSkillTitle(final int skill, final Resources res) {
-		return res.getString(getSkillTitleResourceID(skill));
-	}
-	
-	private static int getSkillTitleResourceID(int skill) {
+	public static int getSkillTitleResourceID(int skill) {
 		switch (skill) {
 		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_title_weapon_chance;
 		case SkillCollection.SKILL_WEAPON_DMG: return R.string.skill_title_weapon_dmg;
@@ -118,11 +114,7 @@ public final class SkillCollection {
 		}
 	}
 	
-	public static String getSkillShortDescription(final int skill, final Resources res) {
-		return res.getString(getSkillShortDescriptionResourceID(skill));
-	}
-	
-	private static int getSkillShortDescriptionResourceID(int skill) {
+	public static int getSkillShortDescriptionResourceID(int skill) {
 		switch (skill) {
 		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_shortdescription_weapon_chance;
 		case SkillCollection.SKILL_WEAPON_DMG: return R.string.skill_shortdescription_weapon_dmg;
