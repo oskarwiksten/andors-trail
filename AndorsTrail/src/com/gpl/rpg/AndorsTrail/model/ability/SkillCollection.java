@@ -93,6 +93,7 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SKILL_EVASION, Constants.FLEE_FAIL_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE, false, null));
 		initializeSkill(new SkillInfo(SKILL_REGENERATION, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
 			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 30, 0)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_FORTITUDE, 1)
 		}));
 		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT, false, null));
 		initializeSkill(new SkillInfo(SKILL_MAGICFINDER, SkillInfo.MAXLEVEL_NONE, false, null));
