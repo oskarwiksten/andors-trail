@@ -3,10 +3,10 @@ package com.gpl.rpg.AndorsTrail.model.ability;
 import java.util.Collection;
 import java.util.HashMap;
 
-import android.content.res.Resources;
-
-import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.model.CombatTraits;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo.SkillLevelRequirement;
+import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 
 public final class SkillCollection {
 	public static final int SKILL_WEAPON_CHANCE = 0;
@@ -38,7 +38,7 @@ public final class SkillCollection {
 	public static final int PER_SKILLPOINT_INCREASE_DODGE = 9;
 	public static final int PER_SKILLPOINT_INCREASE_BARKSKIN = 1;
 	public static final int PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT = 20;
-	public static final int PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT = 50;
+	public static final int PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT = 25;
 	public static final int PER_SKILLPOINT_INCREASE_SPEED = 1;
 	public static final int PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE = 4;
 	public static final int PER_SKILLPOINT_INCREASE_COINFINDER_CHANCE_PERCENT = 30;
@@ -63,102 +63,47 @@ public final class SkillCollection {
 		skills.put(skill.id, skill);
 	}
 	public void initialize() {
-		initializeSkill(new SkillInfo(SKILL_WEAPON_CHANCE, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_DMG, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_BARTER, Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE, false));
-		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_BARKSKIN, 5, false));
-		initializeSkill(new SkillInfo(SKILL_MORE_CRITICALS, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_BETTER_CRITICALS, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_SPEED, 2, false));
-		initializeSkill(new SkillInfo(SKILL_COINFINDER, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_MORE_EXP, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_CLEAVE, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_EATER, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_FORTITUDE, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_EVASION, Constants.FLEE_FAIL_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE, false));
-		initializeSkill(new SkillInfo(SKILL_REGENERATION, SkillInfo.MAXLEVEL_NONE, false));
-		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT, false));
-		initializeSkill(new SkillInfo(SKILL_MAGICFINDER, SkillInfo.MAXLEVEL_NONE, false));
-		//initializeSkill(new SkillInfo(SKILL_BERSERKER, SkillInfo.MAXLEVEL_NONE);
+		initializeSkill(new SkillInfo(SKILL_WEAPON_CHANCE, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_DMG, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_BARTER, Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE, false, null));
+		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_BARKSKIN, 5, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireExperienceLevels(10) 
+			,SkillLevelRequirement.requireCombatStats(CombatTraits.STAT_COMBAT_BLOCK_CHANCE, 15, 0) 
+		}));
+		initializeSkill(new SkillInfo(SKILL_MORE_CRITICALS, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_BETTER_CRITICALS, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 1)
+		}));
+		initializeSkill(new SkillInfo(SKILL_SPEED, 2, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireExperienceLevels(15) 
+		}));
+		initializeSkill(new SkillInfo(SKILL_COINFINDER, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_MORE_EXP, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_CLEAVE, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_CHANCE, 1) 
+			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 1)
+		}));
+		initializeSkill(new SkillInfo(SKILL_EATER, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 20, 20)
+		}));
+		initializeSkill(new SkillInfo(SKILL_FORTITUDE, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireExperienceLevels(5)
+		}));
+		initializeSkill(new SkillInfo(SKILL_EVASION, Constants.FLEE_FAIL_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE, false, null));
+		initializeSkill(new SkillInfo(SKILL_REGENERATION, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 30, 0)
+		}));
+		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT, false, null));
+		initializeSkill(new SkillInfo(SKILL_MAGICFINDER, SkillInfo.MAXLEVEL_NONE, false, null));
+		//initializeSkill(new SkillInfo(SKILL_BERSERKER, SkillInfo.MAXLEVEL_NONE, false, null));
 	}
+
 	public SkillInfo getSkill(int skillID) {
 		return skills.get(skillID);
 	}
 	
 	public Collection<SkillInfo> getAllSkills() {
 		return skills.values();
-	}
-	
-	public static int getSkillTitleResourceID(int skill) {
-		switch (skill) {
-		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_title_weapon_chance;
-		case SkillCollection.SKILL_WEAPON_DMG: return R.string.skill_title_weapon_dmg;
-		case SkillCollection.SKILL_BARTER: return R.string.skill_title_barter;
-		case SkillCollection.SKILL_DODGE: return R.string.skill_title_dodge;
-		case SkillCollection.SKILL_BARKSKIN: return R.string.skill_title_barkskin;
-		case SkillCollection.SKILL_MORE_CRITICALS: return R.string.skill_title_more_criticals;
-		case SkillCollection.SKILL_BETTER_CRITICALS: return R.string.skill_title_better_criticals;
-		case SkillCollection.SKILL_SPEED: return R.string.skill_title_speed;
-		case SkillCollection.SKILL_COINFINDER: return R.string.skill_title_coinfinder;
-		case SkillCollection.SKILL_MORE_EXP: return R.string.skill_title_more_exp;
-		case SkillCollection.SKILL_CLEAVE: return R.string.skill_title_cleave;
-		case SkillCollection.SKILL_EATER: return R.string.skill_title_eater;
-		case SkillCollection.SKILL_FORTITUDE: return R.string.skill_title_fortitude;
-		case SkillCollection.SKILL_EVASION: return R.string.skill_title_evasion;
-		case SkillCollection.SKILL_REGENERATION: return R.string.skill_title_regeneration;
-		case SkillCollection.SKILL_LOWER_EXPLOSS: return R.string.skill_title_lower_exploss;
-		case SkillCollection.SKILL_MAGICFINDER: return R.string.skill_title_magicfinder;
-		default:
-			return -1;
-		}
-	}
-	
-	public static int getSkillShortDescriptionResourceID(int skill) {
-		switch (skill) {
-		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_shortdescription_weapon_chance;
-		case SkillCollection.SKILL_WEAPON_DMG: return R.string.skill_shortdescription_weapon_dmg;
-		case SkillCollection.SKILL_BARTER: return R.string.skill_shortdescription_barter;
-		case SkillCollection.SKILL_DODGE: return R.string.skill_shortdescription_dodge;
-		case SkillCollection.SKILL_BARKSKIN: return R.string.skill_shortdescription_barkskin;
-		case SkillCollection.SKILL_MORE_CRITICALS: return R.string.skill_shortdescription_more_criticals;
-		case SkillCollection.SKILL_BETTER_CRITICALS: return R.string.skill_shortdescription_better_criticals;
-		case SkillCollection.SKILL_SPEED: return R.string.skill_shortdescription_speed;
-		case SkillCollection.SKILL_COINFINDER: return R.string.skill_shortdescription_coinfinder;
-		case SkillCollection.SKILL_MORE_EXP: return R.string.skill_shortdescription_more_exp;
-		case SkillCollection.SKILL_CLEAVE: return R.string.skill_shortdescription_cleave;
-		case SkillCollection.SKILL_EATER: return R.string.skill_shortdescription_eater;
-		case SkillCollection.SKILL_FORTITUDE: return R.string.skill_shortdescription_fortitude;
-		case SkillCollection.SKILL_EVASION: return R.string.skill_shortdescription_evasion;
-		case SkillCollection.SKILL_REGENERATION: return R.string.skill_shortdescription_regeneration;
-		case SkillCollection.SKILL_LOWER_EXPLOSS: return R.string.skill_shortdescription_lower_exploss;
-		case SkillCollection.SKILL_MAGICFINDER: return R.string.skill_shortdescription_magicfinder;
-		default:
-			return -1;
-		}
-	}
-	
-	public static String getSkillLongDescription(final int skill, final Resources res) {
-		switch (skill) {
-		case SkillCollection.SKILL_WEAPON_CHANCE: return res.getString(R.string.skill_longdescription_weapon_chance, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE);
-		case SkillCollection.SKILL_WEAPON_DMG: return res.getString(R.string.skill_longdescription_weapon_dmg, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN);
-		case SkillCollection.SKILL_BARTER: return res.getString(R.string.skill_longdescription_barter, SkillCollection.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
-		case SkillCollection.SKILL_DODGE: return res.getString(R.string.skill_longdescription_dodge, SkillCollection.PER_SKILLPOINT_INCREASE_DODGE);
-		case SkillCollection.SKILL_BARKSKIN: return res.getString(R.string.skill_longdescription_barkskin, SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN);
-		case SkillCollection.SKILL_MORE_CRITICALS: return res.getString(R.string.skill_longdescription_more_criticals, SkillCollection.PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT);
-		case SkillCollection.SKILL_BETTER_CRITICALS: return res.getString(R.string.skill_longdescription_better_criticals, SkillCollection.PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT);
-		case SkillCollection.SKILL_SPEED: return res.getString(R.string.skill_longdescription_speed, SkillCollection.PER_SKILLPOINT_INCREASE_SPEED);
-		case SkillCollection.SKILL_COINFINDER: return res.getString(R.string.skill_longdescription_coinfinder, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_CHANCE_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_QUANTITY_PERCENT);
-		case SkillCollection.SKILL_MORE_EXP: return res.getString(R.string.skill_longdescription_more_exp, SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT);
-		case SkillCollection.SKILL_CLEAVE: return res.getString(R.string.skill_longdescription_cleave, SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP);
-		case SkillCollection.SKILL_EATER: return res.getString(R.string.skill_longdescription_eater, SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH);
-		case SkillCollection.SKILL_FORTITUDE: return res.getString(R.string.skill_longdescription_fortitude, SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH);
-		case SkillCollection.SKILL_EVASION: return res.getString(R.string.skill_longdescription_evasion, SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE, SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE);
-		case SkillCollection.SKILL_REGENERATION: return res.getString(R.string.skill_longdescription_regeneration, SkillCollection.PER_SKILLPOINT_INCREASE_REGENERATION);
-		case SkillCollection.SKILL_LOWER_EXPLOSS: return res.getString(R.string.skill_longdescription_lower_exploss, SkillCollection.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT);
-		case SkillCollection.SKILL_MAGICFINDER: return res.getString(R.string.skill_longdescription_magicfinder, SkillCollection.PER_SKILLPOINT_INCREASE_MAGICFINDER_CHANCE_PERCENT);
-		default:
-			return "";
-		}
 	}
 }

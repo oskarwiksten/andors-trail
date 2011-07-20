@@ -1,11 +1,16 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import java.util.Collections;
+import java.util.Set;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,10 +19,11 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.Savegames;
 import com.gpl.rpg.AndorsTrail.Savegames.FileHeader;
 
-public final class LoadSaveActivity extends Activity {
+public final class LoadSaveActivity extends Activity implements OnClickListener {
 	private boolean isLoading = true;
+	private static final int SLOT_NUMBER_CREATE_NEW_SLOT = -1;
+	private static final int SLOT_NUMBER_FIRST_SLOT = 1;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,40 +45,55 @@ public final class LoadSaveActivity extends Activity {
         	tv.setText(R.string.loadsave_title_save);
         }
         
-        handleSlotButton(R.id.loadsave_slot_1, 1);
-        handleSlotButton(R.id.loadsave_slot_2, 2);
-        handleSlotButton(R.id.loadsave_slot_3, 3);
-        handleSlotButton(R.id.loadsave_slot_4, 4);
+        ViewGroup slotList = (ViewGroup) findViewById(R.id.loadsave_slot_list);
+        Button slotTemplateButton = (Button) findViewById(R.id.loadsave_slot_n);
+        Button createNewSlot = (Button) findViewById(R.id.loadsave_save_to_new_slot);
+        LayoutParams params = slotTemplateButton.getLayoutParams();
+        slotList.removeView(slotTemplateButton);
+        slotList.removeView(createNewSlot);
+        
+        addSavegameSlotButtons(slotList, params, Savegames.getUsedSavegameSlots(this));
+        
+        if (!isLoading) {
+        	Button b = new Button(this);
+			b.setLayoutParams(params);
+			b.setTag(SLOT_NUMBER_CREATE_NEW_SLOT);
+	    	b.setOnClickListener(this);
+	        b.setText(R.string.loadsave_save_to_new_slot);
+	        slotList.addView(b, params);
+        }
     }
     
-    private void handleSlotButton(int resId, final int slot) {
-    	final Button b = (Button) findViewById(resId);
-        b.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				loadsave(slot);
-			}
-		});
-        final FileHeader header = Savegames.quickload(this, slot);
-        final boolean exists = (header != null);
-        if (isLoading) {
-        	b.setEnabled(exists);
-        } else {
-        	b.setEnabled(true);
-        }
-        String s = slot + ". ";
-        if (header != null) {
-        	s += header.describe();
-        } else {
-        	s += getString(R.string.loadsave_slot_empty);
-        }
-        b.setText(s);
+	private void addSavegameSlotButtons(ViewGroup parent, LayoutParams params, Set<Integer> usedSavegameSlots) {
+		for (int slot : usedSavegameSlots) {
+			final FileHeader header = Savegames.quickload(this, slot);
+	        if (header == null) continue;
+			
+	        Button b = new Button(this);
+			b.setLayoutParams(params);
+			b.setTag(slot);
+	    	b.setOnClickListener(this);
+	        b.setText(slot + ". " + header.describe());
+			parent.addView(b, params);
+		}
 	}
     
 	public void loadsave(int slot) {
-    	Intent i = new Intent();
+		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) {
+			Set<Integer> usedSlots = Savegames.getUsedSavegameSlots(this);
+			if (usedSlots.isEmpty()) slot = SLOT_NUMBER_FIRST_SLOT;
+			else slot = Collections.max(usedSlots) + 1;
+		}
+		if (slot < SLOT_NUMBER_FIRST_SLOT) slot = SLOT_NUMBER_FIRST_SLOT;
+
+		Intent i = new Intent();
     	i.putExtra("slot", slot);
     	setResult(Activity.RESULT_OK, i);
     	LoadSaveActivity.this.finish();
     }
+
+	@Override
+	public void onClick(View view) {
+		loadsave((Integer) view.getTag());
+	}
 }

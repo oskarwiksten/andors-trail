@@ -7,6 +7,15 @@ import java.io.IOException;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class CombatTraits {
+	public static final int STAT_COMBAT_ATTACK_COST = 0;
+	public static final int STAT_COMBAT_ATTACK_CHANCE = 1;
+	public static final int STAT_COMBAT_CRITICAL_CHANCE = 2;
+	public static final int STAT_COMBAT_CRITICAL_MULTIPLIER = 3;
+	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MIN = 4;
+	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MAX = 5;
+	public static final int STAT_COMBAT_BLOCK_CHANCE = 6;
+	public static final int STAT_COMBAT_DAMAGE_RESISTANCE = 7;
+
 	public int attackCost;
 
 	public int attackChance;
@@ -44,6 +53,21 @@ public class CombatTraits {
 	public int getAttacksPerTurn(final int maxAP) {
 		return (int) Math.floor(maxAP / attackCost);
 	}
+	
+	public int getCombatStats(int statID) {
+		switch (statID) {
+		case STAT_COMBAT_ATTACK_COST: return attackCost;
+		case STAT_COMBAT_ATTACK_CHANCE: return attackChance;
+		case STAT_COMBAT_CRITICAL_CHANCE: return criticalChance;
+		case STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) Math.floor(criticalMultiplier);
+		case STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return damagePotential.current;
+		case STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return damagePotential.max;
+		case STAT_COMBAT_BLOCK_CHANCE: return blockChance;
+		case STAT_COMBAT_DAMAGE_RESISTANCE: return damageResistance;
+		}
+		return 0;
+	}
+
 	
 	// ====== PARCELABLE ===================================================================
 

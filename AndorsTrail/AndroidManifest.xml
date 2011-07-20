@@ -44,10 +44,13 @@
 		<activity android:name=".activity.LoadingActivity" />
 		<activity android:name=".activity.Preferences" />
 		<activity android:name=".activity.LoadSaveActivity" android:theme="@android:style/Theme.Dialog" />
-		<activity android:name=".activity.QuestLogActivity" />
 		<activity android:name=".activity.ActorConditionInfoActivity" android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".activity.BulkSelectionInterface" android:theme="@android:style/Theme.Dialog" />
 		<activity android:name=".activity.SkillInfoActivity" android:theme="@android:style/Theme.Dialog" />
+		<activity android:name=".activity.HeroinfoActivity_Quests" />
+		<activity android:name=".activity.HeroinfoActivity_Stats" />
+		<activity android:name=".activity.HeroinfoActivity_Skills" />
+		<activity android:name=".activity.HeroinfoActivity_Inventory" />
 	</application>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	

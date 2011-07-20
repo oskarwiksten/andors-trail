@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TabHost xmlns:android="http://schemas.android.com/apk/res/android"
+<TabHost 
+	xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    >
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:padding="5dp">
+        android:padding="5dp"
+        >
+
         <TabWidget
             android:id="@android:id/tabs"
             android:layout_width="fill_parent"
@@ -17,29 +21,7 @@
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            >
-            
-<!-- TAB 1 -->
+            />
 
-			<include 
-				layout="@layout/heroinfo_stats"
-				android:id="@+id/heroinfo_tab1"
-				/>
-
-<!-- TAB 2 -->
-		
-			<include 
-				layout="@layout/heroinfo_skill_list"
-				android:id="@+id/heroinfo_tab2"
-				/>
-
-<!-- TAB 3 -->
-		
-			<include 
-				layout="@layout/heroinfo_inventory"
-				android:id="@+id/heroinfo_tab3"
-				/>
-  
-		</FrameLayout>
 	</LinearLayout>
 </TabHost>

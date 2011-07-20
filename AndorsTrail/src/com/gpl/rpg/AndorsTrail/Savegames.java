@@ -6,9 +6,14 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import android.content.Context;
 import android.os.Environment;
@@ -79,8 +84,13 @@ public final class Savegames {
     	}
     }
     private static File getSlotFile(int slot) {
+    	File root = getSavegameDirectory();
+		return new File(root, Constants.FILENAME_SAVEGAME_FILENAME_PREFIX + slot);
+    }
+    
+    private static File getSavegameDirectory() {
     	File root = Environment.getExternalStorageDirectory();
-		return new File(root, Constants.FILENAME_SAVEGAME_SLOT + slot);
+		return new File(root, Constants.FILENAME_SAVEGAME_DIRECTORY);
     }
 	
 	private static void saveWorld(WorldContext world, OutputStream outStream, String displayInfo) throws IOException {
@@ -118,6 +128,27 @@ public final class Savegames {
 	    	src.close();
 	    	fos.close();
 	    	return header;
+		} catch (Exception e) {
+			return null;
+		}
+	}
+	
+	private static final Pattern savegameFilenamePattern = Pattern.compile(Constants.FILENAME_SAVEGAME_FILENAME_PREFIX + "(\\d+)");
+	public static Set<Integer> getUsedSavegameSlots(Context androidContext) {
+		try {
+			final HashSet<Integer> result = new HashSet<Integer>();
+			getSavegameDirectory().listFiles(new FilenameFilter() {
+				@Override
+				public boolean accept(File f, String filename) {
+					Matcher m = savegameFilenamePattern.matcher(filename);
+					if (m != null && m.matches()) {
+						result.add(Integer.parseInt(m.group(1)));
+						return true;
+					}
+					return false;
+				}
+			});
+			return result;
 		} catch (Exception e) {
 			return null;
 		}

@@ -10,6 +10,8 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 
 import android.content.Context;
 import android.content.res.Resources;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -38,7 +40,10 @@ public final class ActorConditionEffectList extends LinearLayout {
 				msg = describeEffect(res, e); 
 			}
 			TextView tv = new TextView(context);
-			tv.setText(msg);
+			
+			SpannableString content = new SpannableString(msg);
+			content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
+			tv.setText(content);
 			tv.setOnClickListener(new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {

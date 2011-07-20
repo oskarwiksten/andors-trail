@@ -22,7 +22,7 @@ import com.gpl.rpg.AndorsTrail.model.quest.Quest;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 
-public final class QuestLogActivity extends Activity {
+public final class HeroinfoActivity_Quests extends Activity {
 	
 	private Spinner questlog_includecompleted;
 	private SimpleExpandableListAdapter questlog_contents_adapter;
@@ -73,12 +73,17 @@ public final class QuestLogActivity extends Activity {
                 , new int[] { R.id.questlog_entrytext }
     		);
     	questlog_contents.setAdapter(questlog_contents_adapter);
-    	reloadQuests();
     }
 
 	private static final String mn_questName = "questName";
 	private static final String mn_questStatus = "questStatus";
 	private static final String mn_logText = "logText";
+	
+	@Override
+	public void onResume() {
+		super.onResume();
+		reloadQuests();
+	}
 	
 	private void reloadQuests() {
 		groupList.clear();

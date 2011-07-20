@@ -87,8 +87,30 @@ public final class ItemInfoActivity extends Activity {
 				ItemInfoActivity.this.finish();
 			}
 		});
+        
+        tv = (TextView) findViewById(R.id.iteminfo_displaytype);
+        if (itemType.isOrdinaryItem()) {
+        	tv.setVisibility(View.GONE);
+        } else {
+        	tv.setVisibility(View.VISIBLE);
+        	tv.setText(getDisplayTypeRes(itemType.displayType));
+        }
     }
 
+    private static int getDisplayTypeRes(int itemDisplayType) {
+    	switch (itemDisplayType) {
+		case ItemType.DISPLAYTYPE_QUEST:
+			return R.string.iteminfo_displaytype_quest;
+		case ItemType.DISPLAYTYPE_LEGENDARY:
+			return R.string.iteminfo_displaytype_legendary;
+		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
+			return R.string.iteminfo_displaytype_extraordinary;
+		case ItemType.DISPLAYTYPE_RARE:
+			return R.string.iteminfo_displaytype_rare;
+		default:
+			return R.string.iteminfo_displaytype_rare;
+    	}
+    }
 	private static int getCategoryNameRes(int itemCategory) {
 		switch (itemCategory) {
 		case ItemType.CATEGORY_MONEY:

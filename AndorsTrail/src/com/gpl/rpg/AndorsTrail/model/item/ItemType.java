@@ -29,7 +29,7 @@ public final class ItemType {
 	public static final int DISPLAYTYPE_QUEST = 1;
 	public static final int DISPLAYTYPE_LEGENDARY = 2;
 	public static final int DISPLAYTYPE_EXTRAORDINARY = 3;
-	public static final int DISPLAYTYPE_UNIQUE = 4;
+	public static final int DISPLAYTYPE_RARE = 4;
 	
 	public final int id;
 	public final int iconID;
@@ -141,7 +141,7 @@ public final class ItemType {
 			return TileStore.iconID_selection_green;
 		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
 			return TileStore.iconID_selection_blue;
-		case ItemType.DISPLAYTYPE_UNIQUE:
+		case ItemType.DISPLAYTYPE_RARE:
 			return TileStore.iconID_selection_purple;
 		}
 		return -1;

@@ -31,6 +31,7 @@ public final class StartScreenActivity extends Activity {
 	private boolean hasExistingGame = false;
 	private Button startscreen_continue;
 	private Button startscreen_newgame;
+	private Button startscreen_load;
 	private TextView startscreen_currenthero;
 	private EditText startscreen_enterheroname;
 	
@@ -88,13 +89,15 @@ public final class StartScreenActivity extends Activity {
 			}
 		});
         
-        b = (Button) findViewById(R.id.startscreen_load);
-        b.setOnClickListener(new OnClickListener() {
+        startscreen_load = (Button) findViewById(R.id.startscreen_load);
+        startscreen_load.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				Dialogs.showLoad(StartScreenActivity.this);
 			}
 		});
+        boolean hasSavegames = !Savegames.getUsedSavegameSlots(this).isEmpty();
+    	b.setEnabled(hasSavegames);
         
         final Resources res = getResources();
         app.world.tileStore.setDensity(res);
@@ -134,6 +137,9 @@ public final class StartScreenActivity extends Activity {
 		if (isNewVersion()) {
 			Dialogs.showNewVersion(this);
 		}
+		
+		boolean hasSavegames = !Savegames.getUsedSavegameSlots(this).isEmpty();
+		startscreen_load.setEnabled(hasSavegames);
 	}
 	
     @Override

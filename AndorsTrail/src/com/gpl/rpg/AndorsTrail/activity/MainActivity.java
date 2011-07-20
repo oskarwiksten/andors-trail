@@ -146,6 +146,14 @@ public final class MainActivity extends Activity {
 		    			world.model.player.inventory.addItem(itemType);
 		    			itemType = world.itemTypes.getItemTypeByTag("pot_fatigue_restore");
 		    			world.model.player.inventory.addItem(itemType, 20);
+		    			itemType = world.itemTypes.getItemTypeByTag("quickdagger1");
+		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("bonemeal_potion");
+		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("calomyran_secrets");
+		    			world.model.player.inventory.addItem(itemType);
+		    			itemType = world.itemTypes.getItemTypeByTag("tail_caverat");
+		    			world.model.player.inventory.addItem(itemType);
 		    			
 		    			updateStatus();
 		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();

@@ -65,12 +65,11 @@ public final class SkillController {
 	public static boolean canLevelupSkill(Player player, SkillInfo skill) {
 		if (player.availableSkillIncreases <= 0) return false;
 		if (skill.isQuestSkill) return false;
+		final int playerSkillLevel = player.getSkillLevel(skill.id);
 		if (skill.hasMaxLevel()) {
-			int playerSkillLevel = player.getSkillLevel(skill.id);
 			if (playerSkillLevel >= skill.maxLevel) return false;
 		}
-		//if (skill.id == SkillCollection.SKILL_COINFINDER) return false;
-		//if (skill.id == SkillCollection.SKILL_DODGE) return false;
+		if (!skill.canLevelUpSkillTo(player, playerSkillLevel + 1)) return false;
 		return true;
 	}
 	

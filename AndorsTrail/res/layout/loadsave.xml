@@ -46,33 +46,22 @@
 		android:layout_below="@id/loadsave_description"
 		>
 		<LinearLayout
+			android:id="@+id/loadsave_slot_list"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
 			>
 			<Button
-				android:id="@+id/loadsave_slot_1"
+				android:id="@+id/loadsave_slot_n"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
 				android:text="1."
 				/>
 			<Button
-				android:id="@+id/loadsave_slot_2"
+				android:id="@+id/loadsave_save_to_new_slot"
 				android:layout_width="fill_parent"
 				android:layout_height="wrap_content"
-				android:text="2."
-				/>
-			<Button
-				android:id="@+id/loadsave_slot_3"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:text="3."
-				/>
-			<Button
-				android:id="@+id/loadsave_slot_4"
-				android:layout_width="fill_parent"
-				android:layout_height="wrap_content"
-				android:text="4."
+				android:text="@string/loadsave_save_to_new_slot"
 				/>
 		</LinearLayout>
 		

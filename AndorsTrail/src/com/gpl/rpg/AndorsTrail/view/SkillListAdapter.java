@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.controller.SkillController;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
@@ -57,13 +58,13 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		final TextView description = (TextView) result.findViewById(R.id.skillentry_description);
 		
 		SkillController.setSkillIcon(icon, skillID, r);
-		String skillTitle = r.getString(SkillCollection.getSkillTitleResourceID(skillID));
+		String skillTitle = r.getString(SkillInfoActivity.getSkillTitleResourceID(skillID));
 		final int skillLevel = player.getSkillLevel(skillID);
 		if (skillLevel > 0) {
 			skillTitle += " (" + skillLevel + ")"; 
 		}
 		title.setText(skillTitle);
-		description.setText(SkillCollection.getSkillShortDescriptionResourceID(skillID));
+		description.setText(getSkillShortDescriptionResourceID(skillID));
 		
 		boolean enabled = true;
 		if (player.hasAvailableSkillpoints()) {
@@ -76,5 +77,29 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		description.setEnabled(enabled);
 		
 		return result;
+	}
+	
+	private static int getSkillShortDescriptionResourceID(int skill) {
+		switch (skill) {
+		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_shortdescription_weapon_chance;
+		case SkillCollection.SKILL_WEAPON_DMG: return R.string.skill_shortdescription_weapon_dmg;
+		case SkillCollection.SKILL_BARTER: return R.string.skill_shortdescription_barter;
+		case SkillCollection.SKILL_DODGE: return R.string.skill_shortdescription_dodge;
+		case SkillCollection.SKILL_BARKSKIN: return R.string.skill_shortdescription_barkskin;
+		case SkillCollection.SKILL_MORE_CRITICALS: return R.string.skill_shortdescription_more_criticals;
+		case SkillCollection.SKILL_BETTER_CRITICALS: return R.string.skill_shortdescription_better_criticals;
+		case SkillCollection.SKILL_SPEED: return R.string.skill_shortdescription_speed;
+		case SkillCollection.SKILL_COINFINDER: return R.string.skill_shortdescription_coinfinder;
+		case SkillCollection.SKILL_MORE_EXP: return R.string.skill_shortdescription_more_exp;
+		case SkillCollection.SKILL_CLEAVE: return R.string.skill_shortdescription_cleave;
+		case SkillCollection.SKILL_EATER: return R.string.skill_shortdescription_eater;
+		case SkillCollection.SKILL_FORTITUDE: return R.string.skill_shortdescription_fortitude;
+		case SkillCollection.SKILL_EVASION: return R.string.skill_shortdescription_evasion;
+		case SkillCollection.SKILL_REGENERATION: return R.string.skill_shortdescription_regeneration;
+		case SkillCollection.SKILL_LOWER_EXPLOSS: return R.string.skill_shortdescription_lower_exploss;
+		case SkillCollection.SKILL_MAGICFINDER: return R.string.skill_shortdescription_magicfinder;
+		default:
+			return -1;
+		}
 	}
 }

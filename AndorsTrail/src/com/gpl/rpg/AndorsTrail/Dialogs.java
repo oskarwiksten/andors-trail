@@ -23,15 +23,17 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.BulkSelectionInterface;
 import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
+import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Inventory;
+import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Skills;
+import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Stats;
 import com.gpl.rpg.AndorsTrail.activity.LoadSaveActivity;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.ItemInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.Preferences;
-import com.gpl.rpg.AndorsTrail.activity.QuestLogActivity;
+import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Quests;
 import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
@@ -204,7 +206,7 @@ public final class Dialogs {
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/iteminfo/" + itemTypeID));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_ITEMINFO);
 	}
-	public static void showLevelUp(final HeroinfoActivity currentActivity) {
+	public static void showLevelUp(final HeroinfoActivity_Stats currentActivity) {
 		Intent intent = new Intent(currentActivity, LevelUpActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/levelup"));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_LEVELUP);
@@ -266,7 +268,7 @@ public final class Dialogs {
 	}
 	
 	public static void showQuestLog(final Activity currentActivity) {
-		Intent intent = new Intent(currentActivity, QuestLogActivity.class);
+		Intent intent = new Intent(currentActivity, HeroinfoActivity_Quests.class);
 		currentActivity.startActivity(intent);
 	}
 	
@@ -284,7 +286,7 @@ public final class Dialogs {
 		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL, MainActivity.INTENTREQUEST_BULKSELECT_SELL);
 	}
 	
-	public static void showBulkDroppingInterface(HeroinfoActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
+	public static void showBulkDroppingInterface(HeroinfoActivity_Inventory currentActivity, int itemTypeID, int totalAvailableAmount) {
 		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, MainActivity.INTENTREQUEST_BULKSELECT_DROP);
 	}
 	
@@ -296,7 +298,7 @@ public final class Dialogs {
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/bulkselection/" + itemTypeID));
 		currentActivity.startActivityForResult(intent, requestCode);
 	}
-	public static void showSkillInfo(HeroinfoActivity currentActivity, int skillID) {
+	public static void showSkillInfo(HeroinfoActivity_Skills currentActivity, int skillID) {
 		Intent intent = new Intent(currentActivity, SkillInfoActivity.class);
 		intent.putExtra("skillID", skillID);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/showskillinfo/" + skillID));

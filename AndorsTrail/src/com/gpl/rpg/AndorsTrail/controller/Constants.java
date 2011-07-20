@@ -35,7 +35,7 @@ public final class Constants {
 	public static final String PREFERENCE_MODEL_LASTRUNVERSION = "lastversion";
 	public static final String FILENAME_SAVEGAME_QUICKSAVE = "savegame";
 	public static final String FILENAME_SAVEGAME_DIRECTORY = "andors-trail";
-	public static final String FILENAME_SAVEGAME_SLOT = FILENAME_SAVEGAME_DIRECTORY + "/savegame";
+	public static final String FILENAME_SAVEGAME_FILENAME_PREFIX = "savegame";
 	
 	
 	public static final Random rnd = new Random();

@@ -6,26 +6,6 @@
 	android:padding="@dimen/dialog_margin"
 	android:orientation="vertical"
 	>
-	<LinearLayout
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		>
-		<ImageView 
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/icon" 
-			android:paddingRight="@dimen/dialog_iconpadding_right"
-			android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-			/>
-		<TextView
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/questlog_title"
-			android:textSize="@dimen/titletext"
-			/>
-	</LinearLayout>
 	
 	<Spinner 
 		android:id="@+id/questlog_includecompleted"
@@ -38,6 +18,7 @@
 		android:id="@+id/questlog_contents"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical"
 		/>
 
 </LinearLayout>
