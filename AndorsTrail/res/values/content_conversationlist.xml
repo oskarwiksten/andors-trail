@@ -6,9 +6,9 @@
 {mikhail_start_select||||{{|mikhail_visited|andor:1|||}{|mikhail_gamestart||||}}|};
 {mikhail_gamestart|Oh good, you are awake.|||{{N|mikhail_visited||||}}|};
 {mikhail_visited|I can\'t seem to find your brother Andor anywhere. He hasn\'t been back since he left yesterday.|andor:1||{{N|mikhail3||||}}|};
-{mikhail3|Nevermind, he will probably be back soon.|||{{N|mikhail_default||||}}|};
+{mikhail3|Never mind, he will probably be back soon.|||{{N|mikhail_default||||}}|};
 {mikhail_default|Anything else I can help you with?|||{{Do you have any tasks for me?|mikhail_tasks||||}{Is there anything else you can tell me about Andor?|mikhail_andor1||||}}|};
-{mikhail_tasks|Oh yes, there were some things I need help with, bread and rats. Which one would you like to talk about?|||{{What about the bread?|mikhail_bread_select||||}{What about the rats?|mikhail_rats_select||||}{Nevermind, let\'s talk about the other things.|mikhail_default||||}}|};
+{mikhail_tasks|Oh yes, there were some things I need help with, bread and rats. Which one would you like to talk about?|||{{What about the bread?|mikhail_bread_select||||}{What about the rats?|mikhail_rats_select||||}{Never mind, let\'s talk about the other things.|mikhail_default||||}}|};
 {mikhail_andor1|As I said, Andor went out yesterday and hasn\'t been back since. I\'m starting to worry about him. Please go look for your brother, he said he would only be out a short while.|||{{N|mikhail_andor2||||}}|};
 {mikhail_andor2|Maybe he went into that supply cave again and got stuck. Or maybe he\'s in Leta\'s basement training with that wooden sword again. Please go look for him in town.|||{{N|mikhail_default||||}}|};
 {mikhail_bread_select||||{{|mikhail_bread_complete2|mikhail_bread:100|||}{|mikhail_bread_continue|mikhail_bread:10|||}{|mikhail_bread_start||||}}|};
@@ -82,9 +82,9 @@
 
 	<string name="conversationlist_crossglen_leonid">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{leonid1|Hello kid. You\'re Mikhail\'s son aren\'t you? With that brother of yours.\n\nI\'m Leonid, steward of Crossglen village.|||{{Have you seen my brother Andor?|leonid_andor||||}{What can you tell me about Crossglen?|leonid_crossglen||||}{Nevermind, see you later.|leonid_bye||||}}|};
+{leonid1|Hello kid. You\'re Mikhail\'s son aren\'t you? With that brother of yours.\n\nI\'m Leonid, steward of Crossglen village.|||{{Have you seen my brother Andor?|leonid_andor||||}{What can you tell me about Crossglen?|leonid_crossglen||||}{Never mind, see you later.|leonid_bye||||}}|};
 {leonid_andor|Your brother? No, I haven\'t seen him here today. I think I saw him in here yesterday talking to Gruil. Maybe he knows more?|andor:10||{{Thanks, I\'ll go talk to Gruil. There was something more I wanted to talk about.|leonid_continue||||}{Thanks, I\'ll go talk to Gruil.|leonid_bye||||}}|};
-{leonid_continue|Anything else I can help you with?|||{{Have you seen my brother Andor?|leonid_andor||||}{What can you tell me about Crossglen?|leonid_crossglen||||}{Nevermind, see you later.|leonid_bye||||}}|};
+{leonid_continue|Anything else I can help you with?|||{{Have you seen my brother Andor?|leonid_andor||||}{What can you tell me about Crossglen?|leonid_crossglen||||}{Never mind, see you later.|leonid_bye||||}}|};
 {leonid_crossglen|As you know, this is Crossglen village. Mostly a farming community.|||{{N|leonid_crossglen1||||}}|};
 {leonid_crossglen1|We have Audir with his smithy to the southwest, Leta and her husband\'s cabin to the west, this town hall here and your father\'s cabin to the northwest.|||{{N|leonid_crossglen2||||}}|};
 {leonid_crossglen2|That\'s pretty much it. We try to live a peaceful life.|||{{Has there been any recent activity in the village?|leonid_crossglen3||||}{Let\'s go back to the other things we talked about.|leonid_continue||||}}|};
@@ -132,7 +132,7 @@
 {jan_default13|If you really want to help, go find Irogotu down in the cave, and get me back Gandir\'s ring.|||{{Sure|jan_default14||||}{Background|jan_background||||}{Bye|X||||}}|};
 {jan_default14|Return to me when you are done. Bring me Gandir\'s ring from Irogotu down in the cave.|||{{Ok, bye|X||||}}|};
 {jan_return|Hello again kid. Did you find Irogotu down in the cave?|||{{No, not yet.|jan_default14||||}{Can you tell me your story again?|jan_background||||}{Yes, I have killed Irogotu.|jan_complete||ring_gandir|1|}}|};
-{jan_background|Didn\'t you listen the first time I told you the story? Do I really have to tell you the story one more time?|||{{Yes, please tell me the story again.|jan_default3||||}{I wasn\'t listening that much the first time you told it. What was that about a treasure?|jan_default4||||}{No, nevermind. I remember it now.|jan_default14||||}}|};
+{jan_background|Didn\'t you listen the first time I told you the story? Do I really have to tell you the story one more time?|||{{Yes, please tell me the story again.|jan_default3||||}{I wasn\'t listening that much the first time you told it. What was that about a treasure?|jan_default4||||}{No, never mind. I remember it now.|jan_default14||||}}|};
 {jan_complete2|Thanks for dealing with Irogotu earlier! I am forever in debt to you.|||{{Bye|X||||}}|};
 {jan_complete|Wait, what? You actually went down there and returned alive? How did you manage that? Wow, I almost died going into that cave.\n\nOh thank you so much for bringing me back Gandir\'s ring! Now I can have something to remember him by.|jan:100||{{Glad that I could help. Goodbye.|X||||}{Shadow be with you. Goodbye.|X||||}{Whatever. I only did it for the loot.|X||||}}|};
 
@@ -544,7 +544,7 @@
 {thievesguild_thief_5|Umar is our guild leader. He decides our rules and guides us in moral decisions.|||{{Where can I find him?|thievesguild_thief_4||||}}|};
 
 {thievesguild_cook_1|Hello, did you want something?|||{{You look like the cook around here|thievesguild_cook_2||||}{Can I see what food you have for sale?|S||||}{Farrik said you can prepare me a round of special mead|thievesguild_select_1|farrik:20|||}}|};
-{thievesguild_cook_2|That\'s right. Someone has to keep these ruffians fed.|||{{That sure smells good|thievesguild_cook_3||||}{That stew looks disgusting|thievesguild_cook_4||||}{Nevermind, bye|X||||}}|};
+{thievesguild_cook_2|That\'s right. Someone has to keep these ruffians fed.|||{{That sure smells good|thievesguild_cook_3||||}{That stew looks disgusting|thievesguild_cook_4||||}{Never mind, bye|X||||}}|};
 {thievesguild_cook_3|Thanks. This stew is coming along nicely.|||{{I\'m interested in buying some of that|S||||}}|};
 {thievesguild_cook_4|Yeah, I know. With ingredients this bad, what can you do? Anyway, it keeps us fed.|||{{Can I see what food you have for sale?|S||||}}|};
 {thievesguild_cook_5|Oh sure. Planning to get someone a bit sleepy eh?|||{{N|thievesguild_cook_6||||}}|};
@@ -625,7 +625,7 @@
 {fallhaven_warden_select_2||||{{|fallhaven_warden_30|farrik:50|||}{|fallhaven_warden_12|farrik:32|||}{|fallhaven_warden||||}}|};
 {fallhaven_warden_11|Hello again, kid. Thanks for the drink earlier. I had it all in one go. It sure tasted a bit different than before, but I guess that is just because I\'m not used to it anymore.|||{{Who is that prisoner?|warden_prisoner_1||||}}|};
 {fallhaven_warden_12|Hello again, kid. Thanks for the drink earlier. I still haven\'t had it.|||{{N|fallhaven_warden_5||||}}|};
-{fallhaven_warden_20|Really, they would dare go up against the guard in Fallhaven? Do you have any details on their plan?|||{{I heard they are planning his escape tonight|fallhaven_warden_21||||}{No, I was just kidding with you. Nevermind.|X||||}{On second thought, I better not upset the thieves guild. Nevermind I said anything.|X||||}}|};
+{fallhaven_warden_20|Really, they would dare go up against the guard in Fallhaven? Do you have any details on their plan?|||{{I heard they are planning his escape tonight|fallhaven_warden_21||||}{No, I was just kidding with you. Never mind.|X||||}{On second thought, I better not upset the thieves guild. Never mind I said anything.|X||||}}|};
 {fallhaven_warden_21|Tonight? Thank you for this information. We will make sure to increase the security tonight then, but in such a way that they won\'t notice.|farrik:40||{{N|fallhaven_warden_22||||}}|};
 {fallhaven_warden_22|When they do decide to break him free, we will be prepared. And maybe we can arrest more of those filthy thieves.|||{{N|fallhaven_warden_23||||}}|};
 {fallhaven_warden_23|Thank you again for the information. While I\'m not sure how you may know this, I really appreciate you telling me.|||{{N|fallhaven_warden_24||||}}|};
@@ -747,7 +747,7 @@
 {jolnor_shop_1||||{{|S|vilegard:30|||}{|jolnor_shop_2||||}}|};
 {jolnor_shop_2|I don\'t trust you enough yet to feel comfortable trading with you.|||{{Why are you that suspicious?|jolnor_suspicious_1||||}{Very well.|jolnor_select_1||||}}|};
 {jolnor_suspicious_1|Suspicious? No, I wouldn\'t call it suspicion. I would rather call it that we are careful nowadays.|||{{N|jolnor_suspicious_2||||}}|};
-{jolnor_suspicious_2|In order to gain the trust of the village, an outsider must prove that they are not here to cause trouble.|||{{Sounds like a good idea. There are a lot of selfish people out there.|jolnor_suspicious_3||||}{That sounds really unneccessary. Why not trust people in the first place?|jolnor_suspicious_4||||}}|};
+{jolnor_suspicious_2|In order to gain the trust of the village, an outsider must prove that they are not here to cause trouble.|||{{Sounds like a good idea. There are a lot of selfish people out there.|jolnor_suspicious_3||||}{That sounds really unnecessary. Why not trust people in the first place?|jolnor_suspicious_4||||}}|};
 {jolnor_suspicious_3|Yes, right. You seem to understand us well, I like that.|||{{Is there anything I can do to gain your trust?|jolnor_gaintrust_select||||}}|};
 {jolnor_suspicious_4|We have learned from history not to trust outsiders. And you are an outsider. Why should we trust you?|||{{What can I do to gain your trust?|jolnor_gaintrust_select||||}{You are right. You probably should not trust me.|X||||}}|};
 {jolnor_gaintrust_select||||{{|jolnor_gaintrust_return_2|vilegard:30|||}{|jolnor_gaintrust_return|vilegard:20|||}{|jolnor_gaintrust_1||||}}|};
@@ -768,8 +768,8 @@
 {jolnor_gaintrust_13|It\'s your choice. You can at least go check out the tavern and see if you find anything suspicious.|||{{Maybe.|jolnor_gaintrust_15||||}}|};
 {jolnor_gaintrust_14|Good. Report back to me when you are done.|||{{N|jolnor_gaintrust_15||||}}|};
 {jolnor_gaintrust_15|So, in order to gain our trust here in Vilegard, I would suggest you help Kaori, Wrye and me.|vilegard:20||{{Thank you for the information. I will be back when I have something to report.|X||||}}|};
-{jolnor_quests_1|I would suggest you help Kaori, Wrye and me to gain our trust.|||{{About that guard outside the Foaming Flask tavern...|jolnor_guard_select||||}{About those tasks...|jolnor_quests_2||||}{Nevermind, let\'s get back to those other topics.|jolnor_select_1||||}}|};
-{jolnor_quests_2|Yes, what about them?|||{{What was I supposed to do again?|jolnor_suspicious_2||||}{I have done all the tasks you asked me to do.|jolnor_quests_select_1|jolnor:30|||}{Nevermind, let\'s get back to those other topics.|jolnor_select_1||||}}|};
+{jolnor_quests_1|I would suggest you help Kaori, Wrye and me to gain our trust.|||{{About that guard outside the Foaming Flask tavern...|jolnor_guard_select||||}{About those tasks...|jolnor_quests_2||||}{Never mind, let\'s get back to those other topics.|jolnor_select_1||||}}|};
+{jolnor_quests_2|Yes, what about them?|||{{What was I supposed to do again?|jolnor_suspicious_2||||}{I have done all the tasks you asked me to do.|jolnor_quests_select_1|jolnor:30|||}{Never mind, let\'s get back to those other topics.|jolnor_select_1||||}}|};
 {jolnor_guard_select||||{{|jolnor_guard_completed|jolnor:30|||}{|jolnor_guard_1||||}}|};
 {jolnor_guard_1|Yes, what about him. Have you removed him yet?|||{{Yes, he will leave his post as soon as this shift is over.|jolnor_guard_2|jolnor:20|||}{Yes, he is removed.|jolnor_guard_2||ffguard_qitem|1|}{No, but I am working on it.|jolnor_gaintrust_14||||}}|};
 {jolnor_guard_completed|Yes, you dealt with him earlier. Thank you for your help.|||{{N|jolnor_quests_1||||}}|};
@@ -897,10 +897,10 @@
 {ff_outsideguard_trouble_23|Really? Yes that would be great. Then I can at least get something to eat and a bit of warmth from the fire.|||{{N|ff_outsideguard_trouble_24||||}}|};
 {ff_outsideguard_trouble_24|I will go inside in a minute. Will you stand watch while I go inside?|jolnor:20||{{Sure, I will do that.|ff_outsideguard_trouble_25||||}{[Lie] Sure, I will do that.|ff_outsideguard_trouble_25||||}}|};
 {ff_outsideguard_trouble_25|Thanks a lot my friend.||||};
-{ff_outsideguard_shadow_1|Shadow? How curious that you would mention that. Explain yourself!|||{{I did not mean a thing by it. Nevermind I said anything.|ff_outsideguard_shadow_2||||}{The Shadow watches over us when we sleep.|ff_outsideguard_shadow_3||||}}|};
+{ff_outsideguard_shadow_1|Shadow? How curious that you would mention that. Explain yourself!|||{{I did not mean a thing by it. Never mind I said anything.|ff_outsideguard_shadow_2||||}{The Shadow watches over us when we sleep.|ff_outsideguard_shadow_3||||}}|};
 {ff_outsideguard_shadow_2|Good. Now be gone before I will have to deal with you.||||};
 {ff_outsideguard_shadow_3|What? Are you one of those troublemakers sent here to sabotage our mission?|||{{The Shadow protect us.|ff_outsideguard_shadow_4||||}{Fine. I better not start a fight with the royal guard.|X||||}}|};
-{ff_outsideguard_shadow_4|That does it. You better fight or flee right now kid.|||{{Good. I have been waiting for a fight!|ff_outsideguard_shadow_5||||}{For the Shadow!|ff_outsideguard_shadow_5||||}{Nevermind. I was just kidding with you.|ff_outsideguard_shadow_2||||}}|};
+{ff_outsideguard_shadow_4|That does it. You better fight or flee right now kid.|||{{Good. I have been waiting for a fight!|ff_outsideguard_shadow_5||||}{For the Shadow!|ff_outsideguard_shadow_5||||}{Never mind. I was just kidding with you.|ff_outsideguard_shadow_2||||}}|};
 {ff_outsideguard_shadow_5||jolnor:21||{{|F||||}}|};
 	</string>
 
@@ -949,7 +949,7 @@
 	<string name="conversationlist_oluag">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {oluag_1|Hello. I am Oluag.|||{{What are you doing here around these crates?|oluag_2||||}}|};
-{oluag_2|Oh these. They are nothing. Nevermind them. And that grave over there is nothing to worry about either.|||{{What grave?|oluag_grave_select||||}{Nothing, really? This sounds suspicious.|oluag_boxes_1||||}}|};
+{oluag_2|Oh these. They are nothing. Never mind them. And that grave over there is nothing to worry about either.|||{{What grave?|oluag_grave_select||||}{Nothing, really? This sounds suspicious.|oluag_boxes_1||||}}|};
 {oluag_boxes_1|No no, nothing suspicious at all. It\'s not like they contain any contraband or anything like that, hah!|||{{What was that about a grave?|oluag_grave_select||||}{Ok then. I guess I didn\'t see anything.|oluag_goodbye||||}}|};
 {oluag_goodbye|Right. Goodbye.||||};
 {oluag_grave_select||||{{|oluag_grave_return|wrye:80|||}{|oluag_grave_1||||}}|};
@@ -1001,7 +1001,7 @@
 {bwm_agent_1_4|The people of my settlement, the Blackwater mountain, are slowly being reduced in numbers by the monsters and the savage bandits.|bwm_agent:1||{{N|bwm_agent_1_5||||}}|};
 {bwm_agent_1_5|The monsters are closing in on us, and we desperately need help by some able fighter.|||{{I guess I could help, I have killed a few monsters here and there.|bwm_agent_1_7||||}{A fight, great. I\'m in!|bwm_agent_1_7||||}{Will there be a reward for this?|bwm_agent_1_6||||}{Hm, no. I had better not get involved in this.|X||||}}|};
 {bwm_agent_1_6|Reward? Hm, I was hoping you would help us for other reasons than a reward. But I guess my master will reward you sufficiently if you survive.|||{{Alright, I\'ll do it.|bwm_agent_1_7||||}}|};
-{bwm_agent_1_7|Excellent. The blackwater settlement is some distance away. Frankly, I am amazed that I made it this far alive.|bwm_agent:5||{{N|bwm_agent_1_8||||}}|};
+{bwm_agent_1_7|Excellent. The Blackwater settlement is some distance away. Frankly, I am amazed that I made it this far alive.|bwm_agent:5||{{N|bwm_agent_1_8||||}}|};
 {bwm_agent_1_8|I must warn you though, that there are some nasty monsters on the way.|||{{N|bwm_agent_1_9||||}}|};
 {bwm_agent_1_9|But I guess you seem strong enough.|||{{Yeah, I can handle myself.|bwm_agent_1_10||||}{No problem.|bwm_agent_1_10||||}}|};
 {bwm_agent_1_10|Good. First though, we must cross this mine to the other side.|||{{N|bwm_agent_1_11||||}}|};
@@ -1021,7 +1021,7 @@
 {bwm_agent_2_5|We should hurry now.|||{{N|bwm_agent_2_6||||}}|};
 {bwm_agent_2_6|Once we exit this mine, it is very important that you go directly east from there. Do not travel to other places other than going east now!|||{{Ok, I\'ll go east once I have exited the mine. Got it.|bwm_agent_2_7||||}{Why east? What else is there here?|bwm_agent_2_8||||}}|};
 {bwm_agent_2_7|I\'ll wait for you by the steps up to the mountain pass. See you there!\n\nRemember, go east once you exit the mine.|bwm_agent:20||{{Ok, see you there!|R||||}}|};
-{bwm_agent_2_8|Oh, nothing. There are dangerous places here. You should definately not head any other direction than east.|||{{Sure, I\'ll head east.|bwm_agent_2_7||||}{Dangerous? Sounds like my kind of place!|bwm_agent_2_10||||}{Is there something you are not telling me?|bwm_agent_2_11||||}}|};
+{bwm_agent_2_8|Oh, nothing. There are dangerous places here. You should definitely not head any other direction than east.|||{{Sure, I\'ll head east.|bwm_agent_2_7||||}{Dangerous? Sounds like my kind of place!|bwm_agent_2_10||||}{Is there something you are not telling me?|bwm_agent_2_11||||}}|};
 {bwm_agent_2_10|It would be your loss. Don\'t say I didn\'t warn you. Safest route would be to head east.|||{{Sure, I\'ll head east.|bwm_agent_2_7||||}{Is there something you are not telling me?|bwm_agent_2_11||||}}|};
 {bwm_agent_2_11|No no, just head east and I\'ll explain everything to you once we get to the Blackwater mountain settlement. |||{{Ok, I promise to head east once we exit the mine.|bwm_agent_2_7||||}{(Lie) Ok, I promise to head east once we exit the mine.|bwm_agent_2_7||||}}|};
 {bwm_agent_2_12|Actually, I did tell you that it would be pitch-black down there. Good work navigating through there!|||{{N|bwm_agent_2_4||||}}|};
@@ -1116,7 +1116,7 @@
 {tonis_3|Blackwater mountain, those vicious bastards.|||{{N|tonis_6||||}}|};
 {tonis_4|East? But that leads up to Blackwater mountain.|||{{N|tonis_5||||}}|};
 {tonis_5|You really do not want to go up there.|||{{N|tonis_3||||}}|};
-{tonis_6|We deserately need help from someone from the outside in our village of Prim.|prim_hunt:10||{{N|tonis_7||||}}|};
+{tonis_6|We desperately need help from someone from the outside in our village of Prim.|prim_hunt:10||{{N|tonis_7||||}}|};
 {tonis_7|You should speak to Guthbered, in the Prim main hall, just north of here.|||{{Ok, I will go see him.|tonis_8||||}{I was told to go directly east.|tonis_4||||}}|};
 {tonis_8|Good, thanks. We really need your help!|prim_hunt:11|||};
 {tonis_return_2|The village of Prim is just north of here. You can probably see it through the trees over there.|||{{Ok, I will go there right away.|tonis_8||||}}|};
@@ -1157,7 +1157,7 @@
 {laecca_5|There used to be more of us mountain guides, but not many have survived the attack of the beasts.|||{{Sounds like you aren\'t really cut out to do your job properly.|laecca_6||||}{I\'m sorry to hear that.|laecca_8||||}{What beasts are you talking about?|laecca_9||||}}|};
 {laecca_6|Perhaps.|||{{N|laecca_7||||}}|};
 {laecca_7|Anyway. I have some things to tend to. Nice talking to you.|||{{Goodbye.|X||||}}|};
-{laecca_8|Thank you for your conern.|||{{Is there anything I can do to help?|laecca_13||||}}|};
+{laecca_8|Thank you for your concern.|||{{Is there anything I can do to help?|laecca_13||||}}|};
 {laecca_9|Pfft, \'What beasts?\'. The Gornaud beasts of course.|||{{N|laecca_10||||}}|};
 {laecca_10|Scratching their claws against the bare rock at night. *shrug*|||{{N|laecca_11||||}}|};
 {laecca_11|At first, I thought they were acting on pure instinct. But recently, I have started to believe they are smarter than regular beasts.|||{{N|laecca_12||||}}|};
@@ -1187,14 +1187,14 @@
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {birgil_1|Welcome to my tavern. Please have a seat anywhere.|||{{What can I get to drink around here?|birgil_2||||}}|};
 {birgil_2|Well, unfortunately, with the mine tunnel collapsed, we cannot trade much with the outside villages.|||{{N|birgil_3||||}}|};
-{birgil_3|However, I do have a huge suply of mead that I stocked up on before the mine shaft collapsed.|||{
+{birgil_3|However, I do have a huge supply of mead that I stocked up on before the mine shaft collapsed.|||{
 	{Mead? Yuck. Too sweet for my taste.|birgil_4||||}
 	{Alright! Just my kind of taste. Let\'s see what you have to trade.|S||||}
 	{Very well, it will have to do. I guess it has some healing potential. Let\'s trade.|S||||}
 	}|};
 {birgil_4|Suit yourself. That\'s what I\'ve got anyway.|||{
 	{Ok, let\'s trade anyway.|S||||}
-	{Nevermind, goodbye.|X||||}
+	{Never mind, goodbye.|X||||}
 	}|};
 {prim_tavern_guest1|Oh, a new one around here.|||{{N|prim_tavern_guest1_1||||}}|};
 {prim_tavern_guest1_1|Welcome kid. Are you here to drench your sorrows like the rest of us?|||{
@@ -1558,7 +1558,7 @@
 	{Yes, I am working for Prim also. They seem like sensible people.|harlenn_prim_7|prim_hunt:25|||}
 	}|};
 {harlenn_talkedto_guth_6|What? Are you working for them or not?|||{
-	{No, nevermind. I am ready to help your settlement.|harlenn_talkedto_guth_7||||}
+	{No, never mind. I am ready to help your settlement.|harlenn_talkedto_guth_7||||}
 	{I was. But I have decided to help you instead.|harlenn_talkedto_guth_7||||}
 	{Yes. I am helping them get rid of you people.|harlenn_prim_7||||}
 	}|};
@@ -1666,7 +1666,7 @@
 {blackwater_priest|... Kazaul, destroyer of spilled hope ..\nNo that\'s not it.|||{{N|blackwater_priest_1||||}}|};
 {blackwater_priest_1|Spilled .. torment?\nNo that\'s not it either.|||{{N|blackwater_priest_2||||}}|};
 {blackwater_priest_2|Argh, I can\'t seem to remember it.|||{{What are you doing?|blackwater_priest_3||||}}|};
-{blackwater_priest_3|Oh, hello. Nevermind. Nothing. Just trying to remember something. Don\'t concern yourself with that.||||};
+{blackwater_priest_3|Oh, hello. Never mind. Nothing. Just trying to remember something. Don\'t concern yourself with that.||||};
 {blackwater_guard2|Halt! You should not step any further.|||{{N|blackwater_guard2_1||||}}|};
 {blackwater_guard2_1|There is something over there. Do you see it?|||{{N|blackwater_guard2_2||||}}|};
 {blackwater_guard2_2|A mist? A Shadow? I\'m sure I saw something moving.|||{{N|blackwater_guard2_3||||}}|};
@@ -1711,7 +1711,7 @@
 	{No, how can I agree to something when I don\'t know what it is? I\'m out.|herec_11||||}
 	}|};
 {herec_4|It is simple really. I am studying these wyrm creatures that lurk outside our settlement. I am trying to find what their strengths are, so that I can use it for myself.|||{{N|herec_5||||}}|};
-{herec_5|But my expertise is in examinating, and not in actually going head to head with those things.|||{{N|herec_6||||}}|};
+{herec_5|But my expertise is in the studies of them, and not in actually going head to head with those things.|||{{N|herec_6||||}}|};
 {herec_6|That\'s where you come in.|||{{N|herec_7||||}}|};
 {herec_7|I need you to gather some samples from them for me. I hear that some of the white wyrm beasts have sharper claws that can be extracted at the time of death.|||{{N|herec_8||||}}|};
 {herec_8|If you were to bring me some samples of those claws from the white wyrms, that would really speed up my research further.|||{{N|herec_9||||}}|};
@@ -1808,7 +1808,7 @@
 	}|};
 {fulus_3|For some time, I have known about a certain valuable dagger that a certain family used to possess here in Prim.|||{{N|fulus_4||||}}|};
 {fulus_9|Now hurry up. I really need that dagger soon.||||};
-{fulus_4|This dagger is extermely valuable to me, for personal reasons.|||{
+{fulus_4|This dagger is extremely valuable to me, for personal reasons.|||{
 	{I don\'t like where this is going. I better not get involved in your shady business.|fulus_5||||}
 	{I like where this is going, please continue.|fulus_6||||}
 	{Tell me more.|fulus_6||||}
