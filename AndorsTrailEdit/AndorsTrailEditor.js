@@ -69,8 +69,8 @@ function bindEditorType(dataStore, div, createObjectEditor, newObjectCreator) {
 }
 
 function addExampleModelItems(model) {
-	model.actorConditions.add({id: "bless", name: "Bless", iconID: "items_tiles:318", hasAbilityEffect: 1, attackChance: 15, blockChance: 5});
-	model.actorConditions.add({id: "poison_weak", name: "Weak Poison", iconID: "items_tiles:340", hasRoundEffect: 1, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1});
+	model.actorConditions.add({id: "bless", name: "Bless", iconID: "items_tiles:318", category: 0, hasAbilityEffect: 1, attackChance: 15, blockChance: 5});
+	model.actorConditions.add({id: "poison_weak", name: "Weak Poison", iconID: "items_tiles:340", category: 3, hasRoundEffect: 1, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1});
 
 	model.quests.add({id: "testQuest", name: "Test quest", stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] });
 
@@ -93,7 +93,7 @@ function startEditor() {
 	model = {
 		actorConditions: new DataStore({
 			objectTypename: 'actorcondition'
-			,fieldList: new FieldList("[id|name|iconID|isStacking|"
+			,fieldList: new FieldList("[id|name|iconID|category|isStacking|"
 				+ "hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|"
 				+ "hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|"
 				+ "hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|"
