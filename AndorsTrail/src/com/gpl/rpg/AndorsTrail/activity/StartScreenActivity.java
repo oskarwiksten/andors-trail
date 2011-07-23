@@ -98,6 +98,11 @@ public final class StartScreenActivity extends Activity {
 		});
         boolean hasSavegames = !Savegames.getUsedSavegameSlots(this).isEmpty();
     	b.setEnabled(hasSavegames);
+    	
+        TextView development_version = (TextView) findViewById(R.id.startscreen_dev_version);
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
+        	development_version.setVisibility(View.VISIBLE);
+        }
         
         final Resources res = getResources();
         app.world.tileStore.setDensity(res);
@@ -105,7 +110,11 @@ public final class StartScreenActivity extends Activity {
         app.setup.startResourceLoader(res, app.preferences);
         
         if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
-        	continueGame(true, 0, "Debug player");
+        	if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
+        		continueGame(true, 0, "Debug player");
+        	} else {
+        		continueGame(true, 0, "Player");
+        	}
         } else if (AndorsTrailApplication.DEVELOPMENT_FORCE_CONTINUEGAME) {
         	continueGame(false, Savegames.SLOT_QUICKSAVE, null);
         }

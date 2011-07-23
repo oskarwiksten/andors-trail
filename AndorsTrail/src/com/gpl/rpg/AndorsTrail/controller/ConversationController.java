@@ -33,8 +33,7 @@ public final class ConversationController {
 	}
 	
 	public static void applyReplyEffect(final Player player, final Reply reply) {
-		if (reply.requiresItemTypeID < 0) return;
-		if (reply.requiresItemQuantity <= 0) return;
+		if (!reply.requiresItem()) return;
 		
 		if (reply.requiresItemTypeID == ItemTypeCollection.ITEMTYPE_GOLD) {
 			player.inventory.gold -= reply.requiresItemQuantity;
@@ -45,7 +44,9 @@ public final class ConversationController {
     
 	public static boolean canSelectReply(final Player player, final Reply reply) {
 		if (!hasRequiredQuestProgress(player, reply.requiresProgress)) return false;
-		if (!hasRequiredItems(player, reply.requiresItemTypeID, reply.requiresItemQuantity)) return false;
+		if (reply.requiresItem()) {
+			if (!hasRequiredItems(player, reply.requiresItemTypeID, reply.requiresItemQuantity)) return false;
+		}
 		return true;
     }
 	
@@ -55,8 +56,6 @@ public final class ConversationController {
     }
 	
 	private static boolean hasRequiredItems(final Player player, int requiresItemTypeID, int requiresItemQuantity) {
-    	if (requiresItemTypeID < 0) return true;
-    	if (requiresItemQuantity <= 0) return true;
     	if (requiresItemTypeID == ItemTypeCollection.ITEMTYPE_GOLD) return player.inventory.gold >= requiresItemQuantity;
     		
     	return player.inventory.hasItem(requiresItemTypeID, requiresItemQuantity);

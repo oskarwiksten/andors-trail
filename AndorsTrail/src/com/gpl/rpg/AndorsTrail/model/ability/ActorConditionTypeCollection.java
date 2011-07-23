@@ -22,7 +22,7 @@ public class ActorConditionTypeCollection {
 		return null;
 	}
 	
-	private static final ResourceObjectTokenizer actorConditionResourceTokenizer = new ResourceObjectTokenizer(28);
+	private static final ResourceObjectTokenizer actorConditionResourceTokenizer = new ResourceObjectTokenizer(29);
 	public void initialize(final DynamicTileLoader tileLoader, String conditionList) {
 		actorConditionResourceTokenizer.tokenizeRows(conditionList, new ResourceObjectFieldParser() {
 			@Override
@@ -45,10 +45,11 @@ public class ActorConditionTypeCollection {
 						conditionTypeID
 						, parts[1]
 						, ResourceFileParser.parseImageID(tileLoader, parts[2])
-						, ResourceFileParser.parseBoolean(parts[3], false)
-						, ResourceFileParser.parseStatsModifierTraits(parts, 4)
-	        			, ResourceFileParser.parseStatsModifierTraits(parts, 10)
-	        			, ResourceFileParser.parseAbilityModifierTraits(parts, 16)
+						, Integer.parseInt(parts[3])
+						, ResourceFileParser.parseBoolean(parts[4], false)
+						, ResourceFileParser.parseStatsModifierTraits(parts, 5)
+	        			, ResourceFileParser.parseStatsModifierTraits(parts, 11)
+	        			, ResourceFileParser.parseAbilityModifierTraits(parts, 17)
 	    			);
 				conditionTypes.add(actorConditionType);
 	    	}

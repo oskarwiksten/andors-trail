@@ -152,7 +152,7 @@ public final class ConversationCollection {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		for (Entry<String, Phrase> e : phrases.entrySet()) {
 				for (Reply r : e.getValue().replies) {
-					if (r.requiresItemTypeID > 0) {
+					if (r.requiresItem()) {
 						if (!droplists.verifyExistsDroplist(r.requiresItemTypeID)) {
 							L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply that requires an item that is not dropped by any droplist.");
 						}
@@ -202,7 +202,7 @@ public final class ConversationCollection {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Entry<String, Phrase> e : phrases.entrySet()) {
 				for (Reply r : e.getValue().replies) {
-					if (r.requiresItemTypeID < 0) continue;
+					if (!r.requiresItem()) continue;
 					ItemType itemType = itemTypes.getItemType(r.requiresItemTypeID);
 					if (!itemType.isQuestItem()) continue;
 					

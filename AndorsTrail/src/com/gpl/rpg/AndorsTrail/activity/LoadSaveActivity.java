@@ -1,34 +1,41 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
 import java.util.Collections;
-import java.util.Set;
+import java.util.List;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.Savegames;
 import com.gpl.rpg.AndorsTrail.Savegames.FileHeader;
+import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 
 public final class LoadSaveActivity extends Activity implements OnClickListener {
 	private boolean isLoading = true;
 	private static final int SLOT_NUMBER_CREATE_NEW_SLOT = -1;
 	private static final int SLOT_NUMBER_FIRST_SLOT = 1;
+	private ModelContainer model;
+	
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        this.model = app.world.model;
         
         String loadsave = getIntent().getData().getLastPathSegment().toString();
         isLoading = (loadsave.equalsIgnoreCase("load"));
@@ -64,7 +71,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
         }
     }
     
-	private void addSavegameSlotButtons(ViewGroup parent, LayoutParams params, Set<Integer> usedSavegameSlots) {
+	private void addSavegameSlotButtons(ViewGroup parent, LayoutParams params, List<Integer> usedSavegameSlots) {
 		for (int slot : usedSavegameSlots) {
 			final FileHeader header = Savegames.quickload(this, slot);
 	        if (header == null) continue;
@@ -80,7 +87,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
     
 	public void loadsave(int slot) {
 		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) {
-			Set<Integer> usedSlots = Savegames.getUsedSavegameSlots(this);
+			List<Integer> usedSlots = Savegames.getUsedSavegameSlots(this);
 			if (usedSlots.isEmpty()) slot = SLOT_NUMBER_FIRST_SLOT;
 			else slot = Collections.max(usedSlots) + 1;
 		}
@@ -92,8 +99,36 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
     	LoadSaveActivity.this.finish();
     }
 
+	private boolean requiresConfirmation(int slot) {
+		if (isLoading) return false;
+		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) return false;					// if we're creating a new slot
+		
+		final String currentPlayerName = model.player.traits.name;
+		final String savedPlayerName = Savegames.quickload(this, slot).playerName;
+		if (!currentPlayerName.equals(savedPlayerName)) return true;			// if the names do not match
+		
+		return false;
+	}
+	
 	@Override
 	public void onClick(View view) {
-		loadsave((Integer) view.getTag());
+		final int slot = (Integer) view.getTag();
+		if (requiresConfirmation(slot)) {
+			final String playerName = model.player.traits.name;
+			
+			new AlertDialog.Builder(this)
+		        .setIcon(android.R.drawable.ic_dialog_alert)
+		        .setMessage("Overwrite " + Savegames.quickload(this, slot).playerName + " with " + playerName + "?")
+		        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		            @Override
+		            public void onClick(DialogInterface dialog, int which) {
+		            	loadsave(slot);
+		            }
+		        })
+		        .setNegativeButton("Cancel", null)
+		        .show();
+		} else {
+			loadsave(slot);
+		}
 	}
 }

@@ -421,7 +421,7 @@
     <string name="skill_longdescription_cleave">Gives +%1$d action points (AP) on every kill per skill level.</string>
     <string name="skill_longdescription_eater">Gives +%1$d health points (HP) on every kill per skill level.</string>
     <string name="skill_longdescription_fortitude">On every subsequent level-up, maximum health points (HP) will be raised by %1$d per skill level. This is not applied retroactively, only subsequent level-ups will be affected.</string>
-    <string name="skill_longdescription_evasion">For every skill level, reduces both the chance of failed flee attempts by %1$d %% and the chance that a adjacent monster will attack by %2$d %%.</string>
+    <string name="skill_longdescription_evasion">For every skill level, reduces both the chance of failed flee attempts by %1$d %% and the chance that an adjacent monster will attack by %2$d %%.</string>
     <string name="skill_longdescription_regeneration">Gain +%1$d health points (HP) on every round per skill level.</string>
     <string name="skill_longdescription_lower_exploss">For every skill level, reduces the amount of lost experience caused by death by %1$d %% (percentage of existing exp loss value, not percentage points). %2$d levels will remove all experience loss caused by death.</string>
     <string name="skill_longdescription_magicfinder">Increases the chance of finding non-ordinary items by %1$d %% for every skill level.</string>
@@ -438,9 +438,20 @@
 
 	<string name="loadsave_save_to_new_slot">Create new savegame slot</string>
 	
-	<string name="iteminfo_displaytype_quest">Quest item</string>
-	<string name="iteminfo_displaytype_extraordinary">Extraordinary</string>
-	<string name="iteminfo_displaytype_legendary">Legendary</string>
-	<string name="iteminfo_displaytype_rare">Rare</string>
+	<string-array name="iteminfo_displaytypes">
+		<item>Ordinary</item>
+		<item>Quest item</item>
+		<item>Extraordinary</item>
+		<item>Legendary</item>
+		<item>Rare</item>
+	</string-array>
 	
+	<string name="actorconditioninfo_category">Condition category: %1$s</string>
+	<string-array name="actorcondition_categories">
+		<item>Spiritual</item>
+		<item>Mental</item>
+		<item>Physical Capacity</item>
+		<item>Blood Disorder</item>
+	</string-array> 
+
 </resources>

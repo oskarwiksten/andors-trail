@@ -32,6 +32,7 @@ public final class CombatView extends RelativeLayout {
 	
 	private final WorldContext world;
 	private final ViewContext view;
+	private final Resources res;
 
 	private MonsterType currentMonsterType;
 	public CombatView(final Context context, AttributeSet attr) {
@@ -39,6 +40,7 @@ public final class CombatView extends RelativeLayout {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.world;
         this.view = app.currentView.get();
+        this.res = getResources();
 
         setFocusable(false);
         inflate(context, R.layout.combatview, this);
@@ -84,8 +86,6 @@ public final class CombatView extends RelativeLayout {
         actionBar = findViewById(R.id.combatview_actionbar);
         monsterActionText = (TextView) findViewById(R.id.combatview_monsterismoving);
         
-        Resources res = getResources();
-        
         monsterBar.setBackgroundColor(res.getColor(color.transparent));
         actionBar.setBackgroundColor(res.getColor(color.transparent));
     }
@@ -94,7 +94,7 @@ public final class CombatView extends RelativeLayout {
 		if (currentActiveMonster != null) {
 			actionBar.setVisibility(View.INVISIBLE);
 			monsterActionText.setVisibility(View.VISIBLE);
-			monsterActionText.setText(getResources().getString(R.string.combat_monsteraction, currentActiveMonster.traits.name));
+			monsterActionText.setText(res.getString(R.string.combat_monsteraction, currentActiveMonster.traits.name));
 		} else {
 			actionBar.setVisibility(View.VISIBLE);
 			monsterActionText.setVisibility(View.GONE);
@@ -105,22 +105,22 @@ public final class CombatView extends RelativeLayout {
 	    monsterHealth.update(range);
 	}
 	private void updatePlayerAP(Range range) {
-		statusTextView.setText(getResources().getString(R.string.combat_status_ap, range.current));
+		statusTextView.setText(res.getString(R.string.combat_status_ap, range.current));
 	}
 	public void updateCombatSelection(Monster selectedMonster, Coord selectedMovePosition) {
 		attackMoveButton.setEnabled(true);
 		monsterBar.setVisibility(View.INVISIBLE);
 		currentMonsterType = null;
 		if (selectedMonster != null) {
-			attackMoveButton.setText(getResources().getString(R.string.combat_attack, world.model.player.traits.attackCost));
+			attackMoveButton.setText(res.getString(R.string.combat_attack, world.model.player.traits.attackCost));
 			monsterBar.setVisibility(View.VISIBLE);
 			monsterInfo.setImageBitmap(world.tileStore.getBitmap(selectedMonster.traits.iconID));
 	        updateMonsterHealth(selectedMonster.health);
 			currentMonsterType = selectedMonster.monsterType;
 		} else if (selectedMovePosition != null) {
-			attackMoveButton.setText(getResources().getString(R.string.combat_move, world.model.player.traits.moveCost));
+			attackMoveButton.setText(res.getString(R.string.combat_move, world.model.player.traits.moveCost));
 		} else {
-			attackMoveButton.setEnabled(false);
+			attackMoveButton.setText(res.getString(R.string.combat_attack, world.model.player.traits.attackCost));
 		}
 	}
 

@@ -153,6 +153,11 @@ public final class CombatController {
 			exitCombat(true);
 		} else if (dx != 0 || dy != 0) {
 			executeFlee(dx, dy);
+		} else {
+			Monster m = getAdjacentMonster();
+			if (m == null) return;
+			setCombatSelection(m);
+			executeAttack();
 		}
 	}
 	

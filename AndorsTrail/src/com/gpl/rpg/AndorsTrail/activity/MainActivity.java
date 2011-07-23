@@ -107,7 +107,7 @@ public final class MainActivity extends Activity {
 		    			final String name = "winged_demon";
 						MonsterType type = world.monsterTypes.getMonsterType(name);
 						if (type == null) {
-							Toast.makeText(MainActivity.this, "Cannot find monster type \"" + name + "\", unable to spawn.", Toast.LENGTH_LONG).show();
+							showToast("Cannot find monster type \"" + name + "\", unable to spawn.", Toast.LENGTH_LONG);
 						} else {
 							world.model.currentMap.TEST_spawnInArea(world.model.currentMap.spawnAreas[0], type);
 						}
@@ -120,7 +120,7 @@ public final class MainActivity extends Activity {
 		    			world.model.player.traits.attackChance = 200;
 		    			world.model.player.traits.attackCost = 1;
 		    			updateStatus();
-		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT).show();
+		    			showToast("DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT);
 					}
 				})/*
     			,new DebugButton("dmg=1", new OnClickListener() {
@@ -128,35 +128,26 @@ public final class MainActivity extends Activity {
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(1, 1);
 		    			updateStatus();
-		    			Toast.makeText(MainActivity.this, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT).show();
+		    			showToast("DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
 					}
 				})*/
     			/*,new DebugButton("items", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
-		    			ItemType itemType = world.itemTypes.getItemTypeByTag("elytharan_redeemer");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("ring_shadow0");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("shadow_slayer");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("pot_blind_rage");
-		    			world.model.player.inventory.addItem(itemType, 10);
-		    			itemType = world.itemTypes.getItemTypeByTag("clouded_rage");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("pot_fatigue_restore");
-		    			world.model.player.inventory.addItem(itemType, 20);
-		    			itemType = world.itemTypes.getItemTypeByTag("quickdagger1");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("bonemeal_potion");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("calomyran_secrets");
-		    			world.model.player.inventory.addItem(itemType);
-		    			itemType = world.itemTypes.getItemTypeByTag("tail_caverat");
-		    			world.model.player.inventory.addItem(itemType);
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("elytharan_redeemer"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("ring_shadow0"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("shadow_slayer"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("pot_blind_rage"), 10);
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("clouded_rage"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("pot_fatigue_restore"), 20);
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("quickdagger1"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("bonemeal_potion"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("calomyran_secrets"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("tail_caverat"));
+		    			world.model.player.inventory.addItem(world.itemTypes.getItemTypeByTag("bwm_leather_cap"));
 		    			
 		    			updateStatus();
-		    			Toast.makeText(MainActivity.this, "DEBUG: added items", Toast.LENGTH_SHORT).show();
+		    			showToast("DEBUG: added items", Toast.LENGTH_SHORT);
 					}
 				})*/
 				/*,new DebugButton("skills+=20", new OnClickListener() {
@@ -170,7 +161,7 @@ public final class MainActivity extends Activity {
 		    			}
 		    			ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
 		    			updateStatus();
-		    			Toast.makeText(MainActivity.this, "DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT).show();
+		    			showToast("DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT);
 					}
 				})*/
     			/*,new DebugButton("bwm", new OnClickListener() {
@@ -225,7 +216,7 @@ public final class MainActivity extends Activity {
 					public void onClick(View arg0) {
 		    			world.model.player.addExperience(10000);
 		    			updateStatus();
-		    			Toast.makeText(MainActivity.this, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT).show();
+		    			showToast("DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 					}
 				})
     			,new DebugButton("hp=max", new OnClickListener() {
@@ -233,7 +224,7 @@ public final class MainActivity extends Activity {
 					public void onClick(View arg0) {
 		    			world.model.player.health.setMax();
 		    			updateStatus();
-		    			Toast.makeText(MainActivity.this, "DEBUG: hp set to max", Toast.LENGTH_SHORT).show();
+		    			showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
 					}
 				})
         	});

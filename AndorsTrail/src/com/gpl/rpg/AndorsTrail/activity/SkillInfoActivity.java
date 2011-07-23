@@ -55,12 +55,10 @@ public final class SkillInfoActivity extends Activity {
         TextView skillinfo_currentlevel = (TextView) findViewById(R.id.skillinfo_currentlevel);
         final int playerSkillLevel = player.getSkillLevel(skillID);
         final int nextSkillLevel = playerSkillLevel + 1;
-        if (player.hasSkill(skillID)) {
-        	if (skill.hasMaxLevel()) {
-	            skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level_with_maximum, playerSkillLevel, skill.maxLevel));
-	        } else {
-	            skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level, playerSkillLevel));
-	        }
+        if (skill.hasMaxLevel()) {
+        	skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level_with_maximum, playerSkillLevel, skill.maxLevel));
+        } else if (player.hasSkill(skillID)) {
+            skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level, playerSkillLevel));
         } else {
             skillinfo_currentlevel.setVisibility(View.GONE);
         }
@@ -70,7 +68,7 @@ public final class SkillInfoActivity extends Activity {
         LayoutParams requirementParams = skillinfo_requirement.getLayoutParams();
         ViewGroup requirementList = (ViewGroup) skillinfo_requirement.getParent();
         requirementList.removeView(skillinfo_requirement);
-        if (skill.hasLevelupRequirements()) {
+        if (shouldShowSkillRequirements(skill, playerSkillLevel)) {
         	for (SkillLevelRequirement requirement : skill.levelupRequirements) {
         		TextView tv = new TextView(this);
         		tv.setLayoutParams(requirementParams);
@@ -106,6 +104,13 @@ public final class SkillInfoActivity extends Activity {
 		});
         b.setEnabled(SkillController.canLevelupSkill(player, skill));
     }
+	
+	private static boolean shouldShowSkillRequirements(SkillInfo skill, int playerSkillLevel) {
+		if (!skill.hasLevelupRequirements()) return false;
+		if (!skill.hasMaxLevel()) return true;
+		if (playerSkillLevel >= skill.maxLevel) return false;
+		return true;
+	}
 	
 	public static int getSkillTitleResourceID(int skill) {
 		switch (skill) {

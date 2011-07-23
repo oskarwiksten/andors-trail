@@ -19,8 +19,8 @@ import com.gpl.rpg.AndorsTrail.view.AbilityModifierInfoView;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView_OnUse;
 
 public class ActorConditionInfoActivity extends Activity {
-	
-    @Override
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
@@ -36,8 +36,6 @@ public class ActorConditionInfoActivity extends Activity {
         img.setImageBitmap(world.tileStore.getBitmap(conditionType.iconID));
         TextView tv = (TextView) findViewById(R.id.actorconditioninfo_title);
         tv.setText(conditionType.name);
-        //tv = (TextView) findViewById(R.id.monsterinfo_difficulty);
-        //tv.setText(getMonsterDifficultyResource(world, monsterType));
 
         Button b = (Button) findViewById(R.id.actorconditioninfo_close);
         b.setOnClickListener(new OnClickListener() {
@@ -55,6 +53,9 @@ public class ActorConditionInfoActivity extends Activity {
         LinearLayout lv;
         TextView tv;
         
+        tv = (TextView) findViewById(R.id.actorconditioninfo_category);
+        final String categoryName = res.getStringArray(R.array.actorcondition_categories)[conditionType.conditionCategory];
+        tv.setText(res.getString(R.string.actorconditioninfo_category, categoryName));
         
         ((AbilityModifierInfoView) findViewById(R.id.actorconditioninfo_constant_effect_abilitymodifierinfo)).update(conditionType.abilityEffect);
         tv = (TextView) findViewById(R.id.actorconditioninfo_constant_effect_title);

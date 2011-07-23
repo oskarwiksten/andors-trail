@@ -10,8 +10,9 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -134,9 +135,9 @@ public final class Savegames {
 	}
 	
 	private static final Pattern savegameFilenamePattern = Pattern.compile(Constants.FILENAME_SAVEGAME_FILENAME_PREFIX + "(\\d+)");
-	public static Set<Integer> getUsedSavegameSlots(Context androidContext) {
+	public static List<Integer> getUsedSavegameSlots(Context androidContext) {
 		try {
-			final HashSet<Integer> result = new HashSet<Integer>();
+			final List<Integer> result = new ArrayList<Integer>();
 			getSavegameDirectory().listFiles(new FilenameFilter() {
 				@Override
 				public boolean accept(File f, String filename) {
@@ -148,6 +149,7 @@ public final class Savegames {
 					return false;
 				}
 			});
+			Collections.sort(result);
 			return result;
 		} catch (Exception e) {
 			return null;

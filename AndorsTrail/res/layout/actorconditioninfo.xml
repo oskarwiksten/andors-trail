@@ -40,7 +40,15 @@
 					android:textSize="@dimen/titletext"
 					/>
 			</LinearLayout>
-		
+			
+			<TextView 
+				android:text="@string/actorconditioninfo_category" 
+				android:id="@+id/actorconditioninfo_category" 
+				android:layout_width="fill_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/section_margin"
+				/>
+			
 			<TextView 
 				android:text="@string/actorconditioninfo_constant_effect" 
 				android:id="@+id/actorconditioninfo_constant_effect_title" 

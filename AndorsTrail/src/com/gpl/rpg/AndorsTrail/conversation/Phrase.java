@@ -26,6 +26,12 @@ public final class Phrase {
 		public final int requiresItemTypeID;
 		public final int requiresItemQuantity;
 		
+		public boolean requiresItem() {
+			if (requiresItemTypeID == -1) return false;
+			if (requiresItemQuantity <= 0) return false;
+	    	return true;
+		}
+		
 		public Reply(String text, String nextPhrase, QuestProgress requiresProgress, int requiresItemTypeID, int requiresItemQuantity) {
 			this.text = text;
 			this.nextPhrase = nextPhrase;
