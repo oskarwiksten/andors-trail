@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	>
+
+	<TableRow>
+		<TextView android:text="@string/traitsinfo_base_max_hp" android:layout_marginRight="10sp" />
+		<TextView android:id="@+id/basetraitsinfo_max_hp" />
+	</TableRow>
+	<TableRow>
+		<TextView android:text="@string/traitsinfo_base_max_ap" android:layout_marginRight="10sp" />
+		<TextView android:id="@+id/basetraitsinfo_max_ap" />
+	</TableRow>
+	
+	<include layout="@layout/traitsinfoview" />
+	
+</merge>

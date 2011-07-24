@@ -194,7 +194,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 		
 		if (handleEvents) {
 			MapObject o = currentMap.getEventObjectAt(newPosition);
-			if (o != null) view.controller.handleMapEvent(o, newPosition);
+			if (o != null) {
+				if (!o.position.contains(player.lastPosition)) { // Do not trigger event if the player already was on the same MapObject before.
+					view.controller.handleMapEvent(o, newPosition);
+				}
+			}
 	    	
 	    	Loot loot = currentMap.getBagAt(newPosition);
 	    	if (loot != null) view.itemController.handleLootBag(loot);

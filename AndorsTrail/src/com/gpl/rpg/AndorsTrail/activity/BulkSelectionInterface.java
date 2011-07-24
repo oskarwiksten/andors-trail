@@ -45,11 +45,11 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 	
 	private TextView bulkselection_amount_available;
 	private TextView bulkselection_summary_totalgold;
-	private EditText bulkselection_amount_taken;									// the amount we're going to take from the totalAmount
+	private EditText bulkselection_amount_taken;					// the amount we're going to take from the totalAmount
 	private SeekBar bulkselection_slider;
 	private Button okButton;
 	
-	private final Handler timedEventHandler = new Handler();				// variables to count up or down on long presses on the buttons
+	private final Handler timedEventHandler = new Handler();		// variables to count up or down on long presses on the buttons
 	private int countValue, countTime;
 	private final Runnable countEvent = new Runnable() {
 		public void run() {
@@ -95,6 +95,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		Button cancelButton = (Button)findViewById(R.id.bulkselection_cancel_button);
 		final Button decrementButton = (Button)findViewById(R.id.bulkselection_decrement_button);
 		final Button incrementButton = (Button)findViewById(R.id.bulkselection_increment_button);
+		final Button selectAllButton = (Button)findViewById(R.id.bulkselection_select_all_button);
 		
         int actionTextResourceID = 0;
 		if (interfaceType == BULK_INTERFACE_BUY) {
@@ -183,6 +184,13 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 			public void onClick(View v) {
 				setResult(RESULT_CANCELED);
 				finish();
+			}
+		});
+		
+		selectAllButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				updateControls(totalAvailableAmount);
 			}
 		});
 	}

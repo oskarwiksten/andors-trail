@@ -14,7 +14,7 @@
 		>
 
         <TextView 
-        	android:text="Drop"
+        	android:text="@string/inventory_drop"
         	android:id="@+id/bulkselection_action_type"
         	android:layout_width="wrap_content" 
         	android:layout_height="wrap_content"
@@ -30,9 +30,11 @@
         	/>
           	
          <TextView 
-        	android:text="  /  "
+        	android:text="/"
         	android:layout_width="wrap_content" 
         	android:layout_height="wrap_content"
+        	android:paddingLeft="10dp"
+        	android:paddingRight="10dp"
         	/>
         	
          <TextView 
@@ -51,11 +53,12 @@
 		>
 
         <Button 
-        	android:text="   -1   " 
+        	android:text="-1" 
         	android:id="@+id/bulkselection_decrement_button" 
         	android:layout_width="wrap_content" 
         	android:layout_height="wrap_content"
-        	android:layout_gravity="left"
+        	android:paddingLeft="20dp"
+        	android:paddingRight="20dp"
         	/>
 
  		<SeekBar 
@@ -67,17 +70,27 @@
 			/>
 
         <Button 
-        	android:text="   +1   " 
+        	android:text="+1" 
         	android:id="@+id/bulkselection_increment_button" 
         	android:layout_width="wrap_content" 
         	android:layout_height="wrap_content"
-        	android:layout_gravity="right"
+        	android:paddingLeft="20dp"
+        	android:paddingRight="20dp"
+        	/>
+        	
+       	<Button 
+        	android:text="@string/bulkselection_select_all" 
+        	android:id="@+id/bulkselection_select_all_button" 
+        	android:layout_width="wrap_content" 
+        	android:layout_height="wrap_content"
+        	android:paddingLeft="20dp"
+        	android:paddingRight="20dp"
         	/>
         	
     </LinearLayout>
 
 	<TextView 
-       	android:text="gold amount"
+       	android:text="@string/bulkselection_totalcost_buy"
        	android:id="@+id/bulkselection_summary_totalgold"
        	android:layout_width="wrap_content" 
        	android:layout_height="wrap_content"
@@ -96,7 +109,7 @@
 	        android:layout_width="1dp"
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
-	        android:text="Sell" 
+	        android:text="@string/inventory_drop" 
 	        />
 	        
         <Button 
@@ -104,7 +117,7 @@
 	        android:layout_width="1dp"
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
-	        android:text="Cancel" 
+	        android:text="@android:string/cancel" 
 	        />
 	     
 	</LinearLayout>

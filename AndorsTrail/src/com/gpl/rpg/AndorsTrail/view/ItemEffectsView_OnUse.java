@@ -66,17 +66,19 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 	}
 	
 	public static void describeStatsModifierTraits(StatsModifierTraits traits, Context context, Resources res, LinearLayout listView) {
+		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		
 		if (traits.currentAPBoost != null) {
 			final int label = traits.currentAPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_ap : R.string.iteminfo_effect_decrease_current_ap;
 			final TextView tv = new TextView(context);
 			tv.setText(res.getString(label, traits.currentAPBoost.toMinMaxAbsString()));
-			listView.addView(tv);
+			listView.addView(tv, layoutParams);
 		}
 		if (traits.currentHPBoost != null) {
 			final int label = traits.currentHPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_hp : R.string.iteminfo_effect_decrease_current_hp;
 			final TextView tv = new TextView(context);
 			tv.setText(res.getString(label, traits.currentHPBoost.toMinMaxAbsString()));
-			listView.addView(tv);
+			listView.addView(tv, layoutParams);
 		}
 	}
 }

@@ -120,6 +120,8 @@ public final class StatusView extends RelativeLayout {
 		private final Context context;
 		private int currentChildIndex = 0;
 		private final int previousChildCount;
+		private final LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		
 		public GreedyImageViewAppender(Context context, LinearLayout container) {
 			this.container = container;
 			this.context = context;
@@ -137,7 +139,7 @@ public final class StatusView extends RelativeLayout {
 				// The player has never had this many conditions, create a new ImageView to hold the condition image.
 				ImageView iv = new ImageView(context);
 				iv.setImageBitmap(b);
-				container.addView(iv);
+				container.addView(iv, layoutParams);
 			}
 			++currentChildIndex;
 		}

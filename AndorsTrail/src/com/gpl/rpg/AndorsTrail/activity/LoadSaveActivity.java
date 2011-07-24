@@ -104,10 +104,13 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) return false;					// if we're creating a new slot
 		
 		final String currentPlayerName = model.player.traits.name;
-		final String savedPlayerName = Savegames.quickload(this, slot).playerName;
-		if (!currentPlayerName.equals(savedPlayerName)) return true;			// if the names do not match
+		final FileHeader header = Savegames.quickload(this, slot);
+		if (header == null) return false;
 		
-		return false;
+		final String savedPlayerName = header.playerName;
+		if (currentPlayerName.equals(savedPlayerName)) return false;			// if the names match
+		
+		return true;
 	}
 	
 	@Override
@@ -118,14 +121,15 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 			
 			new AlertDialog.Builder(this)
 		        .setIcon(android.R.drawable.ic_dialog_alert)
-		        .setMessage("Overwrite " + Savegames.quickload(this, slot).playerName + " with " + playerName + "?")
-		        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+		        .setTitle(R.string.loadsave_save_overwrite_confirmation_title)
+		        .setMessage(getString(R.string.loadsave_save_overwrite_confirmation, Savegames.quickload(this, slot).playerName, playerName))
+		        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 		            @Override
 		            public void onClick(DialogInterface dialog, int which) {
 		            	loadsave(slot);
 		            }
 		        })
-		        .setNegativeButton("Cancel", null)
+		        .setNegativeButton(android.R.string.no, null)
 		        .show();
 		} else {
 			loadsave(slot);

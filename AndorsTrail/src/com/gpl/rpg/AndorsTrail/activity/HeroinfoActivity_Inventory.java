@@ -104,12 +104,11 @@ public final class HeroinfoActivity_Inventory extends Activity {
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		ItemType itemType;
 		switch (requestCode) {
 		case MainActivity.INTENTREQUEST_ITEMINFO:
 			if (resultCode != RESULT_OK) break;
 			
-			itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
+			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
 			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
 	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
@@ -124,10 +123,14 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			
 			int quantity = data.getExtras().getInt("selectedAmount");
 			int itemTypeID = data.getExtras().getInt("itemTypeID");
-			itemType = world.itemTypes.getItemType(itemTypeID);
-			view.itemController.dropItem(itemType, quantity);
+			dropItem(itemTypeID, quantity);
 			break;
 		}
+	}
+
+	private void dropItem(int itemTypeID, int quantity) {
+		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
+		view.itemController.dropItem(itemType, quantity);
 	}
 
 	private void update() {
@@ -195,7 +198,12 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			break;
 		case R.id.inv_menu_drop:
 			int itemTypeID = getSelectedItemType(info).id;
-			Dialogs.showBulkDroppingInterface(this, itemTypeID, player.inventory.getItemQuantity(itemTypeID));
+			int quantity = player.inventory.getItemQuantity(itemTypeID);
+			if (quantity > 1) {
+				Dialogs.showBulkDroppingInterface(this, itemTypeID, quantity);
+			} else {
+				dropItem(itemTypeID, quantity);
+			}
 			break;
 		case R.id.inv_menu_equip:
 			view.itemController.equipItem(getSelectedItemType(info));
@@ -224,8 +232,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		update();
 		return true;
     }
-    
-    private void showEquippedItemInfo(ItemType itemType, int inventorySlot) {
+
+	private void showEquippedItemInfo(ItemType itemType, int inventorySlot) {
     	String text;
     	boolean enabled = true;
     	

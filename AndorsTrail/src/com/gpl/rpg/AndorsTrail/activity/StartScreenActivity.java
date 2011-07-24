@@ -96,8 +96,6 @@ public final class StartScreenActivity extends Activity {
 				Dialogs.showLoad(StartScreenActivity.this);
 			}
 		});
-        boolean hasSavegames = !Savegames.getUsedSavegameSlots(this).isEmpty();
-    	b.setEnabled(hasSavegames);
     	
         TextView development_version = (TextView) findViewById(R.id.startscreen_dev_version);
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {

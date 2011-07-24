@@ -31,6 +31,8 @@ public final class ActorConditionEffectList extends LinearLayout {
 		
 		final Context context = getContext();
 		final Resources res = getResources();
+		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		
 		for (ActorConditionEffect e : effects) {
 			String msg;
 			final ActorConditionType conditionType = e.conditionType;
@@ -40,6 +42,7 @@ public final class ActorConditionEffectList extends LinearLayout {
 				msg = describeEffect(res, e); 
 			}
 			TextView tv = new TextView(context);
+			tv.setLayoutParams(layoutParams);
 			
 			SpannableString content = new SpannableString(msg);
 			content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
@@ -50,7 +53,7 @@ public final class ActorConditionEffectList extends LinearLayout {
 					Dialogs.showActorConditionInfo(context, conditionType);
 				}
 			});
-			this.addView(tv);
+			this.addView(tv, layoutParams);
 		}
 	}
 	

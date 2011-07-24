@@ -10,7 +10,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public final class TraitsInfoView extends TableLayout {
+public class TraitsInfoView extends TableLayout {
 	private final TableRow traitsinfo_attack_row1;
 	private final TableRow traitsinfo_attack_row2;
 	private final TableRow traitsinfo_attack_row3;
@@ -27,9 +27,13 @@ public final class TraitsInfoView extends TableLayout {
 	private final TextView traitsinfo_defense_damageresist;
 	
 	public TraitsInfoView(Context context, AttributeSet attr) {
+		this(context, attr, R.layout.traitsinfoview);
+	}
+	
+	public TraitsInfoView(Context context, AttributeSet attr, int layoutResourceID) {
 		super(context, attr);
         setFocusable(false);
-        inflate(context, R.layout.traitsinfoview, this);
+        inflate(context, layoutResourceID, this);
         
         traitsinfo_attack_row1 = (TableRow) findViewById(R.id.traitsinfo_attack_row1);
         traitsinfo_attack_row2 = (TableRow) findViewById(R.id.traitsinfo_attack_row2);

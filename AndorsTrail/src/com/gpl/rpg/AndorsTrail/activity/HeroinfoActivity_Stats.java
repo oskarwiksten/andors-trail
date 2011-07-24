@@ -14,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList;
+import com.gpl.rpg.AndorsTrail.view.BaseTraitsInfoView;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
@@ -49,6 +50,7 @@ public final class HeroinfoActivity_Stats extends Activity {
     private TextView heroinfo_totalexperience;
     private RangeBar rangebar_hp;
     private RangeBar rangebar_exp;
+    private BaseTraitsInfoView heroinfo_basetraits;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -90,6 +92,8 @@ public final class HeroinfoActivity_Stats extends Activity {
 				levelUpButton.setEnabled(false);
 			}
 		});
+        
+        heroinfo_basetraits = (BaseTraitsInfoView) findViewById(R.id.heroinfo_basetraits);
     }
 
     @Override
@@ -147,6 +151,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 		if (effects_hit.isEmpty()) effects_hit = null;
 		if (effects_kill.isEmpty()) effects_kill = null;
 		heroinfo_itemeffects.update(null, null, effects_hit, effects_kill);
+		heroinfo_basetraits.update(player.traits);
     }
 
 	private void updateConditions() {
@@ -172,7 +177,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 						Dialogs.showActorConditionInfo(context, conditionType);
 					}
 				});
-				heroinfo_currentconditions.addView(v);
+				heroinfo_currentconditions.addView(v, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 			}
 		}
 	}

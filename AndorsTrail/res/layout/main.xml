@@ -14,11 +14,10 @@
 
     <com.gpl.rpg.AndorsTrail.view.QuickitemView
         android:id="@+id/main_quickitemview"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/main_statusview"
-        android:layout_centerHorizontal="true"
-		android:visibility="gone"
+        android:visibility="gone"
         />
 
 	<com.gpl.rpg.AndorsTrail.view.CombatView

@@ -93,6 +93,7 @@ public final class ConversationActivity extends Activity {
         setContentView(R.layout.conversation);
 
         replyGroup = new RadioGroup(this);
+        replyGroup.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.WRAP_CONTENT, ListView.LayoutParams.WRAP_CONTENT));
         
         statementList = (ListView) findViewById(R.id.conversation_statements);
         statementList.addFooterView(replyGroup);
@@ -188,19 +189,20 @@ public final class ConversationActivity extends Activity {
     		for (Reply r : phrase.replies) {
 	    		addReply(phrase, r);
 	    	}
-	    	replyGroup.setVisibility(View.VISIBLE);
-    		nextButton.setEnabled(false);
+	    	nextButton.setEnabled(false);
     	}
     }
     
 	private void addReply(final Phrase p, final Reply r) {
 		if (!ConversationController.canSelectReply(player, r)) return;
 
+		RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
 		RadioButton rb = new RadioButton(this);
+		rb.setLayoutParams(layoutParams);
 		rb.setText(r.text);
 		rb.setOnClickListener(radioButtonListener);
 		rb.setTag(r);
-		replyGroup.addView(rb);
+		replyGroup.addView(rb, layoutParams);
     }
 	
 	private static boolean isPhraseOnlyNextReply(Phrase p) {
@@ -222,8 +224,6 @@ public final class ConversationActivity extends Activity {
 	}
 	
 	private void nextButtonClicked() {
-		replyGroup.setVisibility(View.GONE);
-		
 		Reply r;
 		if (isPhraseOnlyNextReply(phrase)) {
 			// If there is only a "Next" as reply, we don't need to add it to the conversation history.
@@ -252,6 +252,7 @@ public final class ConversationActivity extends Activity {
     	s.color = color;
     	conversationHistory.add(s);
 		listAdapter.notifyDataSetChanged();
+		statementList.requestLayout();
 	}
 	
 	@Override

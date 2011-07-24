@@ -371,6 +371,7 @@
 	<string name="actorconditioninfo_effect_every_full_round">Every full round</string>
 	<string name="bulkselection_totalcost_buy">Total cost: %1$d gold</string>
 	<string name="bulkselection_totalcost_sell">Total cost: %1$d gold</string>
+	<string name="bulkselection_select_all">All</string>
 	
     <string name="skill_title_weapon_chance">Weapon Accuracy</string>
     <string name="skill_title_weapon_dmg">Hard Hit</string>
@@ -380,7 +381,7 @@
     <string name="skill_title_more_criticals">More Criticals</string>
     <string name="skill_title_better_criticals">Better Criticals</string>
     <string name="skill_title_speed">Combat Speed</string>
-    <string name="skill_title_coinfinder">Gold Digger</string>
+    <string name="skill_title_coinfinder">Treasure Hunter</string>
     <string name="skill_title_more_exp">Quick Learner</string>
     <string name="skill_title_cleave">Cleave</string>
     <string name="skill_title_eater">Corpse Eater</string>
@@ -431,12 +432,14 @@
     <string name="skill_current_level_with_maximum">Current level: %1$d / %2$d</string>
     <string name="skill_prerequisite_other_skill">To level up this skill, you need at least level %1$d of the %2$s skill.</string>
     <string name="skill_prerequisite_level">To level up this skill, you need at least experience level %1$d.</string>
-    <string name="skill_prerequisite_stat">To level up this skill, you need at least %1$d %2$s.</string>
+    <string name="skill_prerequisite_stat">To level up this skill, you need at least %1$d %2$s (unequipped stats).</string>
     <string name="skill_number_of_increases_one">You may select one skill to increase.</string>
     <string name="skill_number_of_increases_several">You may select %1$d skills to increase.</string>
     <string name="levelup_adds_new_skillpoint">This level also gives you a new skill point to spend!</string>
 
 	<string name="loadsave_save_to_new_slot">Create new savegame slot</string>
+	<string name="loadsave_save_overwrite_confirmation_title">Overwrite savegame?</string>
+	<string name="loadsave_save_overwrite_confirmation">This savegame contains a different player name (%1$s) than your current player name (%2$s). Are you sure you want to overwrite this savegame?</string> 
 	
 	<string-array name="iteminfo_displaytypes">
 		<item>Ordinary</item>
@@ -452,6 +455,9 @@
 		<item>Mental</item>
 		<item>Physical Capacity</item>
 		<item>Blood Disorder</item>
-	</string-array> 
+	</string-array>
+	
+	<string name="traitsinfo_base_max_hp">Max HP:</string>
+	<string name="traitsinfo_base_max_ap">Max AP:</string>
 
 </resources>

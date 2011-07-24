@@ -13,7 +13,6 @@ import android.content.DialogInterface.OnDismissListener;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.view.View;
-import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -152,7 +151,7 @@ public final class Dialogs {
 		}
 		
 		final ListView itemList = new ListView(mainActivity);
-		itemList.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT));
+		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.FILL_PARENT, ListView.LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
 		itemList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
