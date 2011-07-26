@@ -605,6 +605,138 @@
 {farrik_26|Come ci sei riuscito? Ben fatto. Hai i miei ringraziamenti, amico.|farrik:80|||};
         </string>
 
+
+	<string name="conversationlist_fallhaven_warden">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{fallhaven_warden|Come vanno le tue imprese?.|||{{Chi è quel prigioniero ?|warden_prisoner_1||||}{Ho sentito che sei un appassionato di idromele!|fallhaven_warden_1|farrik:20|||}{I ladri sanno progettando di far evadere il loro amico.|fallhaven_warden_20|farrik:30|||}}|};
+{warden_prisoner_1|Quel ladro? E \'stato colto sul fatto. Fuori zona. Cercava di scendere nelle catacombe della chiesa di Fallhaven.|||{{N|warden_prisoner_2||||}}|};
+{warden_prisoner_2|Per fortuna, lo abbiamo colto prima che potesse arrivare laggiù. Ora sarà  da esempio a tutti gli altri ladri.|||{{N|warden_prisoner_3||||}}|};
+{warden_prisoner_3|Damn ladri. Ci deve essere un loro covo qui da qualche parte. Se solo potessi scoprire dove si nascondono.||||};
+{fallhaven_warden_1|Idromele? Oh .. no, non lo faccio più. Chi te l\'ha detto?|||{{N|fallhaven_warden_2||||}}|};
+{fallhaven_warden_2|Ho smesso di bere anni fà !|||{{Sembri sincero, Buona fortuna nello stare lontano dall\'alcol.|X||||}{Niente niente ? nemmeno un pò ?|fallhaven_warden_3||||}}|};
+{fallhaven_warden_3|Um. *schiairsi la gola* Non dovrei.|||{{Ne ho un pò con me, se ne volete un sorso, non fate complimenti.|fallhaven_warden_4|farrik:25|sleepingmead|1|}{OK, Ciao|X||||}}|};
+{fallhaven_warden_4|Oh, dolce e fantastica bevanda. Però in realtà non dovrei bere in servizio.|farrik:32||{{N|fallhaven_warden_5||||}}|};
+{fallhaven_warden_5|Potrei prendere una multa per non aver fatto al meglio il mio dovere. Non credo di volerlo fare...|||{{N|fallhaven_warden_6||||}}|};
+{fallhaven_warden_6|Grazie per l\'idromele, però, me lo godrò quando torno a casa più tardi.|||{{Tu sei il benevenuto, Ciao.|X||||}{Cosa succederebbe se qualcuno pagasse per far uscire il prigioniero? a quanto ammonta l\'ammenda?|fallhaven_warden_7||||}}|};
+{fallhaven_warden_7|Oh, suona un pò....strano. E dubito che qualcuno possa permettersi 450 d\'oro qui intorno. In ogni caso, avrei bisogno di un po \'di più solo per rischiare.|||{{Io ho 500 monete proprio quì.|fallhaven_warden_9||gold|500|}{Sai che abbiamo il diritto di bere idromele? |fallhaven_warden_8||||}{Si, sono d\'accordo, questa cosa stà cominciando a sembrare troppo sporca. Ciao|X||||}}|};
+{fallhaven_warden_8|Oh, certo. Ora che me lo dici. Di certo sarebbe buono.|||{{Che importa se ti pago, diciamo, 400 d\'oro, Non bastano a far passare le tue ansie sul bere ?|fallhaven_warden_9||gold|400|}{Questo stà cominciando a diventare troppo rischioso per me, Vi lascio al vostro dovere.|X||||}{Vado a prendere quei soldi per voi. Arrivederci.|X||||}}|};
+{fallhaven_warden_9|Wow, tutti questi soldi? Sono sicuro che potrei anche andare via con questo senza essere multato. Poi ho potuto avere i soldi e una bella bevuta di idromele, allo stesso tempo.|farrik:60||{{N|fallhaven_warden_10||||}}|};
+{fallhaven_warden_10|Grazie ragazzo, sei davvero simpatico. Ora lasciami godere il mio drink.||||};
+{fallhaven_warden_select_1||||{{|fallhaven_warden_11|farrik:60|||}{|fallhaven_warden_35|farrik:90|||}{|fallhaven_warden_select_2||||}}|};
+{fallhaven_warden_select_2||||{{|fallhaven_warden_30|farrik:50|||}{|fallhaven_warden_12|farrik:32|||}{|fallhaven_warden||||}}|};
+{fallhaven_warden_11|Ciao ragazzo. Grazie per la bevuta ! . L\'ho bevuto tutto in una volta ,MI ero dimenticato il suo dolce sapore...... .|||{{Chi è quel prigioniero ?|warden_prisoner_1||||}}|};
+{fallhaven_warden_12|Ciao ragazzo, grazzie per l\'idromele, non ho ancora avuto il piacere di berlo .|||{{N|fallhaven_warden_5||||}}|};
+{fallhaven_warden_20|Veramente, avrebbero il coraggio di andare contro la guardia di Fallhaven? Avete qualche dettaglio sul loro piano?|||{{Ho sentito che stanno progettando la sua fuga stasera|fallhaven_warden_21||||}{No, stavo solamente schrzando con voi...Non importa.|X||||}{A pensarci bene , meglio non turbare i ladri della Gilda, Non importa, fai finta che non abbia detto nulla.|X||||}}|};
+{fallhaven_warden_21|Stasera? Grazie per l\'informazione. Faremo in modo di aumentare la sicurezza , ma in modo tale che non se ne accorgano .|farrik:40||{{N|fallhaven_warden_22||||}}|};
+{fallhaven_warden_22|Quando decideranno di farlo evadere, saremo preparati. E forse riusciremo ad  arrestare molti di quegli sporchi ladri .|||{{N|fallhaven_warden_23||||}}|};
+{fallhaven_warden_23|Grazie ancora per le informazioni. Anche se non sono sicuro di come tu ne sia venuto a conoscienza, apprezzo molto quello che mi stai dicendo.|||{{N|fallhaven_warden_24||||}}|};
+{fallhaven_warden_24|Voglio fare un \' ulteriore mossa e dire loro che avremo meno sicurezza per stasera, mentre di fatto l\'aumenteremo . In questo modo possiamo veramente essere pronti .|||{{Certo, posso farlo.|fallhaven_warden_25||||}}|};
+{fallhaven_warden_25|Bene, torna da me quando gli hai riferito il messaggio !|farrik:50||{{OK.|X||||}}|};
+{fallhaven_warden_30|Ciao amico mio. Hai detto a quei ladri che stasera abbasseremo il livello di sicurezza ?|||{{Si l\'ho detto, non si aspetteranno una cosa del genere.|fallhaven_warden_31||||}{No, non ancora, ci stò lavorando.|fallhaven_warden_25||||}}|};
+{fallhaven_warden_31|Grande. Grazie per l\'aiuto. Queste monete sono un segno del mio apprezzamento e delle altre guardie.|farrik:90|gold200|{{N|fallhaven_warden_36||||}}|};
+{fallhaven_warden_35|Ciao di nuovo amico mio. Grazie per il tuo aiuto per aver trattato con i ladri .|||{{N|fallhaven_warden_36||||}}|};
+{fallhaven_warden_36|Farò in modo di dire alle altre guardie come ci hai aiutato quì a Fallhaven|||{{Thank you. Goodbye.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_umar">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{umar_select_1||||{{|umar_return_1|andor:51|||}{|umar_novisit_1||||}}|};
+{umar_return_1|Ben tornato amico mio.|||{{Ciao.|umar_return_2||||}{Buona giornata, Ciao..|X||||}}|};
+{umar_return_2|Posso aiutarti in qualcosa ?|||{{Poui ripetere quello che mi hai detto su Andor ? |umar_5||||}{Buona giornata, Ciao.|X||||}}|};
+{umar_novisit_1|Ciao, come và la tua ricerca ?|||{{Che ricerca ?|umar_2||||}}|};
+{umar_2|L\'ultima volta che abbiamo parlato mi hai chiesto del Nascondiglio di Lodar . L\'hai trovato?|||{{Non ci siamo mai incontrati.|umar_3||||}{Devi avermi confuso con mio fratello Andor, ci assomigliamo molto.|umar_4||||}}|};
+{umar_3|Oh, devo averti confuso con qualcun altro .|||{{Mio fratello Andor, ci assomigliamo molto .|umar_4||||}}|};
+{umar_4|Davvero ? Non importa, come se non avessi parlato.|andor:51||{{Temo che questo significhi che Andor era qui. Che cosa stava facendo?|umar_5||||}}|};
+{umar_5|È venuto qui qualche tempo fa, facendo un sacco di domande su ciò che riguarda la gilda dei ladri , l\'ombra e la guardia reale di Feygard.|||{{N|umar_6||||}}|};
+{umar_6|Noi della Gilda dei ladri, non ci interessiamo per nulla all\'ombra, e tantomeno ci preoccupiamo della guardia reale|||{{N|umar_7||||}}|};
+{umar_7|Cerchiamo di essere al di sopra delle loro guerre e ricerche. possono combattere quanto vogliono, ma la gilda dei Ladri sopravviverà .|||{{Che battaglia?|umar_conflict_1||||}{Dimmi di più su ciò che ti ha chiesto Andor .|umar_andor_1||||}}|};
+{umar_conflict_1|Dove sei stato nell\'ultimo paio d\'anni? Non sai del fatto sulla produzione della birra?|||{{N|umar_conflict_2||||}}|};
+{umar_conflict_2|La guardia reale, guidata da Lord Geomyr di Feygard, stà cercando di combattere il recente aumento di attività illegali, e quindi impone delle restrizioni maggiori su ciò che è permesso e ciò che non lo è .|||{{N|umar_conflict_3||||}}|};
+{umar_conflict_3|I sacerdoti dell\'Ombra, per lo più situati a Nor City, si oppongono alle nuove restrizioni, dicendo che limitano le strade che portano all\'Ombra.|||{{N|umar_conflict_4||||}}|};
+{umar_conflict_4|Gira voce è che i sacerdoti dell\'Ombra stanno progettando di rovesciare Lord Geomyr e le sue forze.|||{{N|umar_conflict_5||||}}|};
+{umar_conflict_5|Si dice anche che i sacerdoti dell\'Ombra stiano ancora facendo i loro rituali, nonostante il divieto imposto.|||{{N|umar_conflict_6||||}}|};
+{umar_conflict_6|Lord Geomyr e la sua guardia reale, dall\'altro, stanno ancora facendo del loro meglio per governare nel modo che ritengono più giusto.|||{{N|umar_conflict_7||||}}|};
+{umar_conflict_7|Noi della Gilda dei Ladri cerchiamo di non farci coinvolgere da tutto questo . Il nostro  business finora non ne ha risentito.|||{{Grazie per avermi ascoltato.|umar_return_2||||}{Qualunque cosa sia, non mi riguarda.|umar_return_2||||}}|};
+{umar_andor_1|Mi chiesto aiuto, e ha chiesto come trovare Lodar.|||{{Chi è Lodar?|umar_andor_2||||}}|};
+{umar_andor_2|Lodar? E uno dei nostri preparatori di pozioni. Lui può fare ogni sorta di pozioni dai sonniferi a pozioni di guarigione e cure.|||{{N|umar_andor_3||||}}|};
+{umar_andor_3|Ma la sua specialità sono i veleni. Il suo veleno può uccidere anche il più grande dei mostri.|||{{E cosa voleva Andor da lui ?|umar_andor_4||||}}|};
+{umar_andor_4|Io non lo so. Forse era in cerca di qualche pozione.|andor:55||{{Quindi, dove posso trovare questo Lodar?|umar_lodar_1||||}}|};
+{umar_lodar_1|Non dovrei dirtelo. Come arrivare a lui è uno dei segreti della gilda. Il suo rifugio è raggiungibile solo dai nostri soci.|||{{N|umar_lodar_2||||}}|};
+{umar_lodar_2|Tuttavia, ho sentito che ci hai aiutati a trovare la chiave di Luthor. L\'abbiamo cercata per molto tempo.|||{{N|umar_lodar_3||||}}|};
+{umar_lodar_3|Ok, ti dirò come arrivare al Nascondiglio di Lodar. Ma devi promettere di mantenere il segreto. Non dirlo a nessuno. Neppure a quelli che sembrano essere membri della Gilda Ladri.|||{{Ok, prometto di mantenere il segreto.|umar_lodar_4||||}{Non posso darti alcuna garanzia, ma ci proverò.|umar_lodar_4||||}}|};
+{umar_lodar_4|Bene . Non hai solo bisogno di trovare il luogo in sé, ma devi anche pronunciare le parole giuste per essere ammesso dal guardiano.|||{{N|umar_lodar_5||||}}|};
+{umar_lodar_5|L\'unico che capisce la lingua del custode è il vecchio Ogam in Vilegard.|lodar:10||{{N|umar_lodar_6||||}}|};
+{umar_lodar_6|Dovresti andare alla città di Vilegard per trovare Ogam. Lui può aiutari ad ottenere la password per entrare nel Nascondiglio di Lodar .|lodar:15||{{Come arrivo a Vilegard?|umar_vilegard_1||||}{Grazie, volevo chiederti un\'altra cosa .|umar_return_2||||}{Grazie mille, Ciao|X||||}}|};
+{umar_vilegard_1|Vai a  sud-est di Fallhaven. Quando raggiungi la strada principale e la taverna palla di schiuma , vai a sud . Non è molto lontano è verso sud-est da qui.|||{{N|umar_return_2||||}}|};
+	</string>
+
+	<string name="conversationlist_kaori">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{kaori_start||||{{|kaori_default_1|kaori:20|||}{|kaori_return_1|kaori:10|||}{|kaori_1||||}}|};
+{kaori_1|Non sei benvenuto quì, sei pregato di andartene|||{{Perchè qui a  Vilegard siete così diffidenti verso i forestieri ?|kaori_2||||}{Jolnor mi ha chiesto di parlare con te.|kaori_3|kaori:5|||}}|};
+{kaori_2|Non voglio parlare con te. Vai a parlare con Jolnor nella cappella se vuoi aiutarci.|vilegard:10||{{Ok, ciao.|X||||}{Ok, Non dirlo a me.|X||||}}|};
+{kaori_3|hai fatto? Credo che non sei poi così male come pensavo.|||{{N|kaori_4||||}}|};
+{kaori_4|Non sono ancora convinta che non sei una spia mandato da Feygard per provocare guai.|||{{Cosa mi puoi raccontare su Vilegard?|kaori_trust_1||||}{Vi posso assicurare che non sono una spia|kaori_5||||}{Feygard?, dove o che cosa è ?|kaori_trust_1||||}}|};
+{kaori_5|Hm. Forse no. Però potresi esserlo .No, Non sono ancora sicura.|||{{C\'è qualcosa che posso fare per guadagnare la vostra fiducia?|kaori_10||||}{[Corrompi] Come suonerebbero 100 monete d\'oro? Potrebbero aiutare a fidarti di me?|kaori_bribe||||}}|};
+{kaori_trust_1|Non sono sicura di voler parlare di questo.|||{{C\'è qualcosa che posso fare per guadagnare la vostra fiducia?|kaori_10||||}{[Corrompi] Come suonerebbero 100 monete d\'oro? Potrebbero aiutare a fidarti di me?|kaori_bribe||||}}|};
+{kaori_bribe|Stai cercando di corrompermi ragazzo? non funziona con me. A che servirebbe avere il denaro se in realtà tu fossi una spia?|||{{C\'è qualcosa che posso fare per guadagnare la vostra fiducia?|kaori_10||||}}|};
+{kaori_10|Se davvero vuoi dimostrarmi di non essere una spia di Feygard, c\'è qualcosa che potresti fare per me.|||{{N|kaori_11||||}}|};
+{kaori_11|Fino a poco tempo fa, usavamo una speciale pozioni di ossa per la guarigione. Questa, è una pozioni di guarigione molto potente, e si può utilizzare per molti scopi.|||{{N|kaori_12||||}}|};
+{kaori_12|Ma adesso,la pozione è stata bandita da Lord Geomyr, e non se ne trova quasi più.|||{{N|kaori_13||||}}|};
+{kaori_13|Mi piacerebbe averne un pò di scorta. Se riesci a portarmi 10 pozioni di ossa, potrei prendere in considerazione di cominciare a fidarmi di te.|kaori:10||{{Ok, troverò la pozione per te.|kaori_14||||}{No. Se è vietata, molto probabilmente c\'e \'una buona ragione. forse è meglio non usarla.|kaori_15||||}{Ho già alcune pozioni d\'ossa con me.|kaori_20||bonemeal_potion|10|}}|};
+{kaori_return_1|Bentornato, Hai trovato le 10 pozioni d\'ossa che ho chiesto ?|||{{No, le stò ancora cercando !|kaori_14||||}{Si, ti ho portato le pozioni !|kaori_20||bonemeal_potion|10|}{No. Se è vietata, molto probabilmente c\'e \'una buona ragione. forse è meglio non usarla.|kaori_15||||}}|};
+{kaori_14|Beh, sbrigati, Mi servono veramente e al più presto !||||};
+{kaori_15|Bene, orà però vattene !||||};
+{kaori_20|Bene, dammele !|kaori:20||{{N|kaori_21||||}}|};
+{kaori_21|Sì, sembra la pozione giusta. Grazie molte ragazzo. Mmmh, forse, sì, forse sei un bravo ragazzo, che l\'obra vegli su di te.|||{{N|kaori_default_1||||}}|};
+{kaori_default_1|C\'e qualcosa di cui vuoi parlarmi ?|||{{Cosa sai dirmi su Vilegard?|kaori_vilegard_1||||}{Perchè a Vilegard tutti diffidano dei forestieri ?|kaori_vilegard_2||||}}|};
+{kaori_vilegard_1|Dovresti parlare con Erttu se vuoi sapere la storia du Vilegard. E\' da questa parti più a lungo di me .|||{{Ok, lo farò.|kaori_default_1||||}}|};
+{kaori_vilegard_2|In tuttl la nostra storia ci sono persone arrivate quà a causare guai. Nel corso del tempo, abbiamo imparato che tenere a noi stessi è la cosa migliore.|||{{Mmm, sembra una buona idea.|kaori_vilegard_3||||}{Non mi convince molto.|kaori_vilegard_3||||}}|};
+{kaori_vilegard_3|In ogni caso, è per questo che siamo così sospettosi verso i forestieri.|||{{me ne sono accorto !|kaori_default_1||||}}|};
+	</string>
+   
+	<string name="conversationlist_vilegard_villagers">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{vilegard_villager_1||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_1_0||||}}|};
+{vilegard_villager_1_0|Ciao. Chi sei tu? Non sei il benvenuto qui a Vilegard.|||{{Hai visto mio fratello ,Andor, da queste parti ?|vilegard_villager_1_2||||}}|};
+{vilegard_villager_1_2|No non l\'ho visto. E se anche fosse , perché dovrei dirlo a te ?||||};
+{vilegard_villager_2||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_2_0||||}}|};
+{vilegard_villager_2_0|Per l\'Ombra, sei un forestiero. Non vogliamo forestieri qui.|||{{Perchè avete tutti paura dei forestieri a Vilegard ?|vilegard_villager_5_1||||}}|};
+{vilegard_villager_3||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_3_0||||}}|};
+{vilegard_villager_3_0|Questa è  Vilegard. Non troverai nessun conforto quì , forestiero!||||};
+{vilegard_villager_4||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_4_0||||}}|};
+{vilegard_villager_4_0|Assomigli ad un ragazzo che girava da queste parti , probabilmente ha causato dei guai, come tutti i forestieri.|||{{Hai visto mio fratello Andor?|vilegard_villager_1_2||||}{Non ho intenzione di causare guai.|vilegard_villager_4_2||||}{Oh, certo, ho intenzione di causare un sacco di guai .|vilegard_villager_4_3||||}}|};
+{vilegard_villager_4_2|NO? io sono sicuro che lo farai. Tutti i forestieri causano guai||||};
+{vilegard_villager_4_3|Si, lo sò. Ecco perchè non ti vogliamo quà in torno. Dovresti lasciare Vilegard ,ORA, che sei ancora in tempo.||||};
+{vilegard_villager_5||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_5_0||||}}|};
+{vilegard_villager_5_0|Ciao straniero. Sembri perso, heheheh, bene. Ora lascia Vilegard finchè ti è possibile.|||{{Perchè a Vilegard tutti diffidano dei forestieri ?|vilegard_villager_5_1||||}}|};
+{vilegard_villager_5_1|Non mi fido di te. Dovresti prima parlare con Jolnor, nella cappella, se vuoi una possibilità di fiducia!|vilegard:10|||};
+{vilegard_villager_friend|Ciao . Ho sentito che ci hai aiutato . Puoi restare tutto il tempo che desideri.|||{{Grazie. Hai visto il mio fratello Andor qui intorno?|vilegard_villager_friend_1||||}{Grazie, arrivederci.|X||||}}|};
+{vilegard_villager_friend_1|Tuo fratello? No, non ho visto nessuno che ti somiglia. Ma comunque non faccio molto caso agli stranieri .|||{{Grazie, ciao.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_vilegard_erttu">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{erttu_1|Ciao straniero. Non vogliamo forestieri qui a Vilegard, ma c\'è qualcosa di familiare in te .|||{{N|erttu_default||||}}|};
+{erttu_default|Che cosa vuoi sapere ?|||{{Perchè siete tutti diffidenti verso i forestieri ?|erttu_distrust_1|vilegard:10|||}{Puoi dirmi quelcosa su Vilegard?|erttu_vilegard_1||||}}|};
+{erttu_distrust_1|La maggior parte di noi ha avuto grane fidandosi dei forestieri. Alla fine si sono sempre approfittati di noi !|||{{N|erttu_distrust_2||||}}|};
+{erttu_distrust_2|Ora siamo sospettosi, e diciamo agli stranieri che se vogliono la nostra fiducia devono prima guadagnarsela.|||{{N|erttu_distrust_3||||}}|};
+{erttu_distrust_3|Inoltre, molte persone non ci vedono di buon occhio, soprattutto gli abitanti snob di Feygard e Norhtern.|||{{What can else you tell me about Vilegard?|erttu_vilegard_1||||}}|};
+{erttu_vilegard_1|Abbiamo quasi tutto quello che serve qui a Vilegard. Il centro del paese c\'è la cappella.|||{{N|erttu_vilegard_2||||}}|};
+{erttu_vilegard_2|La cappella è il nostro luogo di culto per l\'ombra, e anche il posto per raccoglierci e parlare di grandi questioni riguardanti il villaggio.|||{{N|erttu_vilegard_3||||}}|};
+{erttu_vilegard_3|Oltre alla cappella, abbiamo una taverna, un fabbro e un armaiolo.|||{{Grazie per le informazioni. C\'era qualcos\'altro che volevo chiederti.|erttu_default||||}{Grazie per l\'informazione, ciao.|X||||}{Wow, niente di più? Mi chiedo che cosa sto facendo in un villaggio insignificante come questo.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_vilegard_tavern">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{dunla_default|Sembri intelligente,hai bisogno di qualche rifornimento ?|||{{Certo, fammi vedere quello che hai a disposizione.|S||||}{Cosa puoi dirmi su di te ?|dunla_1||||}}|};
+{dunla_1|Me ? Io non sono nessuno, sicuramente non mi hai visto, ne tanto meno mi hai parlato..........||||};
+{tharwyn_select||||{{|tharwyn_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
+{tharwyn_1|Ciao a tutti. Ho sentito che hai aiutato Jolnor nella cappella. hai il mio rispetto, amico.|||{{N|tharwyn_2||||}}|};
+{tharwyn_2|Io ho un posto ovunque. Cosa posso fare per te ?|||{{Fammi vedere gli alimentei che hai a disposizione .|S||||}}|};
+{vilegard_tavern_drunk_1|Ohh, guarda, un ragazzo sperdudo! Vieni quì a prendere un pò di idromele!|||{{No Grazie.|X||||}{Controlla la tua lingua, ubriacone.|X||||}}|};
+	</string>
+
         <string name="conversationlist_oluag">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {oluag_1|Ciao. Sono Oluag.|||{{Cosa stai facendo qui attorno a queste cassette?|oluag_2||||}}|};

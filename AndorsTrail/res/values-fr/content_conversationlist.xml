@@ -142,7 +142,56 @@
 {irogotu3|NON ! Tu ne l\'auras pas. Il est à moi ! Qui es-tu donc gamin, à venir me déranger ainsi ?|||{{Je ne suis plus un gamin ! Maintenant, donnez-moi cet anneau !|irogotu4||||}{Donnez-moi cet anneau et nous pourrions bien sortir tous les deux vivants de cet endroit.|irogotu4||||}}|};
 {irogotu4|Non. Si tu le veux, il faudra me le prendre de force, et je dois te prévenir que mes pouvoirs sont grands. De toute façon, tu n\'oseras probablement pas t\'attaquer à moi.|||{{Très bien, voyons de nous deux qui mourra.|F||||}{Par l\'Ombre, Gandir sera vengé.|F||||}}|};
 	</string>
+	
+	<string name="conversationlist_fallhaven">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{fallhaven_citizen1|Bonjour vous. Beau temps, n\'est-ce pas ?|||{{Avez-vous vu mon frère Andor ?|fallhaven_andor_1||||}}|};
+{fallhaven_citizen2|Bonjour. Vous désirez quelque chose ?|||{{Avez-vous vu mon frère Andor ?|fallhaven_andor_2||||}}|};
+{fallhaven_citizen3|Salut. Puis-je vous aider ?|||{{Avez-vous vu mon frère Andor ?|fallhaven_andor_3||||}}|};
+{fallhaven_citizen4|Vous êtes le gamin du village de Crossglen, non ?|||{{Avez-vous vu mon frère Andor ?|fallhaven_andor_4||||}}|};
+{fallhaven_citizen5|Hors de mon chemin paysan.||||};
+{fallhaven_citizen6|Bonjour à vous.|||{{Avez-vous vu mon frère Andor ?|fallhaven_andor_6||||}}|};
+{fallhaven_andor_1|Non, désolé. Je n\'ai vu personne qui corresponde à cette description.||||};
+{fallhaven_andor_2|Un autre gamin dans votre genre vous dites ? Hmm, laissez-moi réfléchir.|||{{N|fallhaven_andor_1||||}}|};
+{fallhaven_andor_3|Hmm, J\'ai peut-être vu quelqu\'un ressemblant à cette description il y a quelques jours. Je ne me souviens pas où cependant.||||};
+{fallhaven_andor_4|Ah oui, il y avait un autre jeune du village de Crossglen ici il y a quelques jours. Je ne suis pas sûr qu\'il corresponde à votre description cependant.|||{{N|fallhaven_andor_4_1||||}}|};
+{fallhaven_andor_4_1|Il y avait des gens louches qui lui tournaient autour. Je n\'ai rien vu de plus que cela.||||};
+{fallhaven_andor_6|Non, je ne l\'ai pas vu.||||};
+{fallhaven_guard|Circulez.||||};
 
+{fallhaven_priest|Que l\'Ombre soit avec toi.|||{{Pouvez-vous m\'en dire plus au sujet de l\'Ombre ?|priest_shadow_1||||}}|};
+{priest_shadow_1|L\'Ombre nous protège. Elle nous garde à l\'abri du péril et nous réconforte lorsque nous dormons.|||{{N|priest_shadow_2||||}}|};
+{priest_shadow_2|Elle nous suit parout où nous allons. Va avec l\'Ombre mon enfant.|||{{Que l\'Ombre soit avec vous.|X||||}{Qu\'importe, au revoir.|X||||}}|};
 
+{rigmor|Tiens, bonjour toi ! N\'es-tu pas un adorable petit bonhomme.|||{{Avez-vous vu mon frère Andor ?|rigmor_1||||}{Je dois vraiment m\'en aller.|rigmor_leave_select||||}}|};
+{rigmor_1|Ton frère, dis-tu ? Son nom serait Andor ? Non, je ne me souviens pas avoir rencontré quelqu\'un comme cela.|||{{Je dois vraiment m\'en aller.|rigmor_leave_select||||}}|};
+{rigmor_leave_select||||{{|rigmor_thanks|calomyran:100|||}{|X||||}}|};
+{rigmor_thanks|J\'ai entendu dire que tu avais aidé mon vieux monsieur à retrouver son livre, merci. Il parle de ce livre depuis des semaines. C\'est bien triste, il a tendance à tout oublier.|||{{C\'était avec plaisir. Au revoir.|X||||}{Vous devriez garder un œil sur lui, ou des choses graves pourraient lui arriver.|X||||}{Qu\'importe, je ne l\'ai fait que pour l\'argent.|X||||}}|};
+
+{fallhaven_clothes|Bienvenue dans mon échoppe. Laissez-vous tenter par mon grand choix de vêtements fins et de bijoux.|||{{Montrez-moi vos articles.|S||||}}|};
+{fallhaven_potions|Bienvenue dans ma boutique. Voyez donc mes potions pour toutes les occasions.|||{{Montrez-moi de quelles potions vous disposez.|S||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_bucus">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{bucus_welcome|Re-bonjour, bon retour à la ... Oh, excusez-moi, je vous ai pris pour quelqu\'un d\'autre.|||{{Avez-vous vu mon frère Andor ?|bucus_andor_select||||}{Que savez-vous de la guilde des voleurs ?|bucus_thieves_select||||}}|};
+{bucus_andor_select||||{{|bucus_umar_1|bucus:100|||}{|bucus_andor_no_1||||}}|};
+{bucus_andor_no_1|Comme c\'est intéressant que tu me poses cette question. Et si je l\'avais vu ? Pourquoi devrais-je te le dire ?|||{{N|bucus_andor_no_2||||}}|};
+{bucus_andor_no_2|Non, je n\'ai rien à dire. Maintenant, vas t\'en.||||};
+{bucus_thieves_select||||{{|bucus_thieves_complete_3|bucus:100|||}{|bucus_thieves_continue|bucus:10|||}{|bucus_thieves_select2||||}}|};
+{bucus_thieves_select2||||{{|bucus_thieves_1|andor:40|||}{|bucus_thieves_no||||}}|};
+{bucus_thieves_no|Qu, quoi ? Non, je ne sais rien de tout cela.||||};
+{bucus_umar_1|C\'est bon gamin. Tu as fait tes preuves. Oui, j\'ai vu un autre gamin ressemblant à cela se baladant dans les environs il y a quelques jours.|||{{N|bucus_umar_2||||}}|};
+{bucus_umar_2|Je ne sais pas ce qu\'il cherchait cependant. Il n\'arrêtait pas de poser des questions à tout bout de champ. Un peu comme toi. *rire sarcastique*|||{{N|bucus_umar_3||||}}|};
+{bucus_umar_3|De toute façon, c\'est tout ce que je sais. Tu devrais aller en parler avec Umar, il en sait sûrement plus. En bas de cette trappe par là.|andor:50||{{Ok, bye|X||||}}|};
+{bucus_thieves_1|Qui t\'as dit ça ? Argh\n\nD\'accord, tu nous as trouvés. Et maintenant ?|||{{Puis-je rejoindre la guilde des voleurs ?|bucus_thieves_2||||}}|};
+{bucus_thieves_2|Ha ! Rejoindre la guilde des voleurs ?! Toi ?!\n\nTu es un gamin marrant.|||{{Je suis sérieux.|bucus_thieves_3||||}{Oui, un vrai boute-en-train, pas vrai ?|bucus_thieves_3||||}}|};
+{bucus_thieves_3|D\'accord, je vais te dire gamin. Rends-moi un service et je pourrais peut-être envisager te donner quelques renseignements supplémentaires.|||{{De quel genre de service parlons-nous ?|bucus_thieves_4||||}{Tant qu\'il y a quelque butin à la clef, ça me va !|bucus_thieves_4||||}}|};
+{bucus_thieves_4|Ramène-moi la clef de Luthor et nous pourrons parler un peu plus. Je ne sais rien sur la clef elle-même, mais la rumeur dit qu\'elle est quelque part dans les catacombes sous l\'église de Fallhaven.|bucus:10||{{Ok, cela semble assez facile.|X||||}}|};
+{bucus_thieves_continue|Alors, où en es-tu de ta quête de la clef de Luthor ?|||{{Qu\'est-ce que j\'étais supposé faire, déjà ?|bucus_thieves_4||||}{La voici, la clef de Luthor.|bucus_thieves_complete_1||key_luthor|1|}{Je suis toujours à sa recherche. Au revoir.|X||||}}|};
+{bucus_thieves_complete_1|Mince, tu as réellement récupéré la clef de Luthor ? Je ne pensais pas que tu y arriverais.|bucus:100||{{N|bucus_thieves_complete_2||||}}|};
+{bucus_thieves_complete_2|Bravo gamin.|||{{N|bucus_thieves_complete_3||||}}|};
+{bucus_thieves_complete_3|Bon, causons. Que veux-tu savoir ?|||{{Que savez-vous de mon frère Andor ?|bucus_umar_1||||}}|};
+	</string>
 
 </resources>

@@ -63,13 +63,13 @@
 {gloves1|items_tiles:203|Gants de cuir|4||23|1||||||||||3||||||||||||||||||||||};
 {gloves2|items_tiles:203|Gants de cuir fin|4||38|1||||||||||4||||||||||||||||||||||};
 {gloves3|items_tiles:204|Gants de peau de serpent|4||72|1||||||||||5||||||||||||||||||||||};
-{gloves4|items_tiles:204|Gants fin de peau de serpent|4||146|1||||||||||6||||||||||||||||||||||};
+{gloves4|items_tiles:204|Gants fins de peau de serpent|4||146|1||||||||||6||||||||||||||||||||||};
 {shield1|items_tiles:168|Petit bouclier en bois|1||72|1|||||-5|||||5||||||||||||||||||||||};
 {shield3|items_tiles:169|Petit bouclier en bois renforcé|1||226|1|||||-5|||||7||||||||||||||||||||||};
 {shield4|items_tiles:170|Bouclier en bois|1||464|1|||||-5|||||8||||||||||||||||||||||};
 {shield5|items_tiles:170|Bouclier en bois supérieur|1||624|1|||||-4|||||9||||||||||||||||||||||};
 {boots1|items_tiles:196|Bottes en cuir|5||23|1||||||||||3||||||||||||||||||||||};
-{boots2|items_tiles:196|Bottes en cuir supérieure|5||38|1||||||||||4||||||||||||||||||||||};
+{boots2|items_tiles:196|Bottes en cuir supérieures|5||38|1||||||||||4||||||||||||||||||||||};
 {boots3|items_tiles:197|Bottes de peau de serpent|5||146|1||||||||||6||||||||||||||||||||||};
 {boots5|items_tiles:198|Bottes renforcées|5||226|1||||||||||7||||||||||||||||||||||};
 {gloves_attack1|items_tiles:203|Gants d\'attaque rapide|4||150|1|||||15|||||-9||||||||||||||||||||||};
@@ -127,7 +127,7 @@
 {gem1|items_tiles:210|Gemme en verre|31||2|||||||||||||||||||||||||||||||||};
 {gem2|items_tiles:211|Gemme en rubis|31||6|||||||||||||||||||||||||||||||||};
 {gem3|items_tiles:212|Gemme polie|31||8|||||||||||||||||||||||||||||||||};
-{gem4|items_tiles:213|Gemme coupante|31||13|||||||||||||||||||||||||||||||||};
+{gem4|items_tiles:213|Gemme taillée|31||13|||||||||||||||||||||||||||||||||};
 {gem5|items_tiles:215|Joyau poli étincelant|31||15|||||||||||||||||||||||||||||||||};
 {gem6|items_tiles:214|Gemme chatoyante|31||26|||||||||||||||||||||||||||||||||};
 {gem8|items_tiles:330|Gemme brillante|31||68|||||||||||||||||||||||||||||||||};
@@ -151,7 +151,7 @@
 {boots_unzel|items_tiles:197|Bottes défensive d\'Unzel|5|4|185|1||||||||||8||||||||||||||||||||||};
 {boots_vacor|items_tiles:197|Bottes  d\'attaque de Vacor|5|4|185|1|||||9|||||2||||||||||||||||||||||};
 {necklace_flagstone|items_tiles:272|Collier du garde de Flagstone|31|1|0|||||||||||||||||||||||||||||||||};
-{packhide|items_tiles:183|Peau de la meute de loup|3|3|121|1|||||-15|||||2|1|||||||||||||||||||||};
+{packhide|items_tiles:183|Peau de la meute de loups|3|3|121|1|||||-15|||||2|1|||||||||||||||||||||};
 {sword_flagstone|items_tiles:77|Fierté de Flagstone|0|3|169|1||||4|21|10|2|1|6|||||||||||||||||||||||};
 	</string>
 	
@@ -170,14 +170,14 @@
 {gloves_fancy|items_tiles:203|Gants fantaisistes|4||78|1|||||5|||||||||||||||||||||||||||};
 {ring_crit1|items_tiles:266|Anneau d\'attaque|7|4|2921|1||||||5||||||||||||||||||||||||||};
 {ring_crit2|items_tiles:266|Anneau d\'attaque vicieuse|7|4|3455|1|||||-10|7||||||||||||||||||||||||||};
-{armor_stone|items_tiles:185|Cuirrasse de pierre|3|3|52|1||||2||||||22|1|||||||||||||||||||||};
+{armor_stone|items_tiles:185|Cuirasse de pierre|3|3|52|1||||2||||||22|1|||||||||||||||||||||};
 {ring_shadow0|items_tiles:268|Anneau de l\'Ombre Mineure|7|2|612|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v069">
 [searchTag|iconID|name|category|displaytype|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {rapier_lifesteal|items_tiles:393|Rapière voleuse de vie|0|2|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
-{dagger_barbed|items_tiles:87|Dague barbelée|0|3|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
+{dagger_barbed|items_tiles:87|Dague dentelée|0|3|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
 {elytharan_redeemer|items_tiles:392|Rédempteur d\'Elytharan|0|2|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
 {clouded_rage|items_tiles:393|Épée de la rage de l\'Ombre|0|3|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
 {shadow_slayer|items_tiles:144|Ombre du tueur|0|3|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
@@ -191,8 +191,8 @@
 {bwm_leather_cap|items_tiles:192|Casquette en cuir de Blackwater|2|4|722|1|5|||||||||21||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_combat_ring|items_tiles:268|Anneau de combat de Blackwater|7|4|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_brew|items_tiles:51|Infusion de Blackwater|20||57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
-{woodcutter_hatchet|items_tiles:141|Hachette du bucheron|0||0|1||||6|9|||6|12|||||||||||||||||||||||};
-{woodcutter_boots|items_tiles:198|Bottes du bucheron|5||481|1|1|||||||||8||||||||||||||||||||||};
+{woodcutter_hatchet|items_tiles:141|Hachette du bûcheron|0||0|1||||6|9|||6|12|||||||||||||||||||||||};
+{woodcutter_boots|items_tiles:198|Bottes du bûcheron|5||481|1|1|||||||||8||||||||||||||||||||||};
 {heavy_club|items_tiles:128|Bâton lourd|0||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
 
 {pot_speed_1|items_tiles:41|Potion mineure de rapidité|20||261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
@@ -202,6 +202,23 @@
 {pot_fatigue_restore|items_tiles:41|Soulagement de fatigue|20||210||||||||||||||1|||||{{fatigue_minor|-99||100|}}||||||||||||||};
 
 {pot_blind_rage|items_tiles:63|Potion de rage aveugle|20||495||||||||||||||1|||||{{rage_minor|1|5|100|}}|0|||||||0||||||};
+	</string>
+
+	<string name="itemlist_v069_2">
+[searchTag|iconID|name|category|displaytype|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{rusted_iron_sword|items_tiles:70|Épée en fer rouillée|0||52|1||||5|10|||1|2|||||||||||||||||||||||};
+{broken_buckler|items_tiles:168|Bouclier de bois brisé|1||120|1|||||-5|||||1||||||||||||||||||||||};
+{used_gloves|items_tiles:203|Gants tâchés de sang|4||56|1||||||||||1||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v069_questitems">
+[searchTag|iconID|name|category|displaytype|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{bwm_claws|items_tiles:257|Griffe de wyrm blanche|31||35|||||||||||||||||||||||||||||||||};
+{bwm_permit|items_tiles:249|Laisser-passer falsifié de Blackwater|31|1|0|||||||||||||||||||||||||||||||||};
+{bjorgur_dagger|items_tiles:84|Dague de famille de Bjorgur|0|1|0|1||||5||||||||||||||||||||||||||||};
+{q_kazaul_vial|items_tiles:57|Fiole d\'élixir purificateur|31|1|0|||||||||||||||||||||||||||||||||};
+{guthbered_id|items_tiles:266|Anneau de Guthbered|31|1|0|||||||||||||||||||||||||||||||||};
+{harlenn_id|items_tiles:266|Anneau de Harlenn|31|1|0|||||||||||||||||||||||||||||||||};
 	</string>
 
 </resources>
