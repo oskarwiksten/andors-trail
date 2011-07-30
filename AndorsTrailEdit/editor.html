@@ -362,7 +362,10 @@
 			</div>
 			<div class="fieldWithLabel">
 				<label for="baseMarketCost" class="label">Base market cost (gold):</label>
-				<input class="field" type="text" size="7" id="baseMarketCost" class="fieldInput integer" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+				<input class="field" type="text" size="7" id="baseMarketCost" readonly="readonly" class="fieldInput integer" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+			</div>
+			<div class="fieldWithLabel">
+				<div class="label"><input type="checkbox" id="hasManualPrice" />Item has manually specified store price</div>
 			</div>
 			<div class="fieldWithLabel">
 				<label for="marketCost_Sell" class="label">Actual price (gold):</label>
