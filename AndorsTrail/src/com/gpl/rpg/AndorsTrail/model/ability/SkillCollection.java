@@ -26,11 +26,11 @@ public final class SkillCollection {
 	public static final int SKILL_REGENERATION = 14; 	// +N hp per round
 	public static final int SKILL_LOWER_EXPLOSS = 15;
 	public static final int SKILL_MAGICFINDER = 16;
-	//public static final int SKILL_BERSERKER = 17; 		// <=20%hp increases AC and DMG
+	public static final int SKILL_RESISTANCE_MENTAL = 17;            // lowers chance to get negative active conditions by monsters (Mental like Dazed)
+	public static final int SKILL_RESISTANCE_PHYSICAL_CAPACITY = 18; // lowers chance to get negative active conditions by monsters (Physical Capacity like Minor fatigue)
+	public static final int SKILL_RESISTANCE_BLOOD_DISORDER = 19;    // lowers chance to get negative active conditions by monsters (Blood Disorder like Weak Poison)
 	
-	public static final int NUM_SKILLS = SKILL_MAGICFINDER+1;
-	
-	//public static final int BERSERKER_STARTS_AT_HEALTH_PERCENT = 20;
+	public static final int NUM_SKILLS = SKILL_RESISTANCE_BLOOD_DISORDER + 1;
 	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 1;
@@ -47,16 +47,22 @@ public final class SkillCollection {
 	public static final int PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT = 5;
 	public static final int PER_SKILLPOINT_INCREASE_CLEAVE_AP = 3;
 	public static final int PER_SKILLPOINT_INCREASE_EATER_HEALTH = 1;
-	public static final int PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH = 2;
+	public static final int PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH = 1;
 	public static final int PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE = 5;
 	public static final int PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE = 5;
 	public static final int PER_SKILLPOINT_INCREASE_REGENERATION = 1;
 	public static final int PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT = 20;
-	/*public static final int PER_SKILLPOINT_INCREASE_BERSERKER_WEAPON_CHANCE = 15;
-	public static final int PER_SKILLPOINT_INCREASE_BERSERKER_WEAPON_DAMAGE_MAX = 1;
-	public static final int PER_SKILLPOINT_INCREASE_BERSERKER_WEAPON_DAMAGE_MIN = 1;
-	public static final int PER_SKILLPOINT_INCREASE_BERSERKER_DODGE = 9;*/
-	
+	public static final int PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT = 10;
+
+	public static final int MAX_LEVEL_BARTER = (int) Math.floor((float) Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
+	public static final int MAX_LEVEL_BARKSKIN = 5;
+	public static final int MAX_LEVEL_SPEED = 2;
+	public static final int MAX_LEVEL_EVASION = Math.max(
+			Constants.FLEE_FAIL_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE
+			,Constants.MONSTER_AGGRESSION_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE
+			);
+	public static final int MAX_LEVEL_LOWER_EXPLOSS = 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT;
+	public static final int MAX_LEVEL_RESISTANCE = 70 / PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT;
 	
 	private final HashMap<Integer, SkillInfo> skills = new HashMap<Integer, SkillInfo>();
 	private void initializeSkill(SkillInfo skill) {
@@ -65,18 +71,18 @@ public final class SkillCollection {
 	public void initialize() {
 		initializeSkill(new SkillInfo(SKILL_WEAPON_CHANCE, SkillInfo.MAXLEVEL_NONE, false, null));
 		initializeSkill(new SkillInfo(SKILL_WEAPON_DMG, SkillInfo.MAXLEVEL_NONE, false, null));
-		initializeSkill(new SkillInfo(SKILL_BARTER, (int) Math.floor((float)Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE), false, null));
+		initializeSkill(new SkillInfo(SKILL_BARTER, MAX_LEVEL_BARTER, false, null));
 		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, false, null));
-		initializeSkill(new SkillInfo(SKILL_BARKSKIN, 5, false, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireExperienceLevels(10) 
+		initializeSkill(new SkillInfo(SKILL_BARKSKIN, MAX_LEVEL_BARKSKIN, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireExperienceLevels(10, 0) 
 			,SkillLevelRequirement.requireCombatStats(CombatTraits.STAT_COMBAT_BLOCK_CHANCE, 15, 0) 
 		}));
 		initializeSkill(new SkillInfo(SKILL_MORE_CRITICALS, SkillInfo.MAXLEVEL_NONE, false, null));
 		initializeSkill(new SkillInfo(SKILL_BETTER_CRITICALS, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
 			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 1)
 		}));
-		initializeSkill(new SkillInfo(SKILL_SPEED, 2, false, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireExperienceLevels(15) 
+		initializeSkill(new SkillInfo(SKILL_SPEED, MAX_LEVEL_SPEED, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireExperienceLevels(15, 0) 
 		}));
 		initializeSkill(new SkillInfo(SKILL_COINFINDER, SkillInfo.MAXLEVEL_NONE, false, null));
 		initializeSkill(new SkillInfo(SKILL_MORE_EXP, SkillInfo.MAXLEVEL_NONE, false, null));
@@ -88,16 +94,18 @@ public final class SkillCollection {
 			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 20, 20)
 		}));
 		initializeSkill(new SkillInfo(SKILL_FORTITUDE, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireExperienceLevels(5)
+			SkillLevelRequirement.requireExperienceLevels(15, -10)
 		}));
-		initializeSkill(new SkillInfo(SKILL_EVASION, Constants.FLEE_FAIL_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE, false, null));
+		initializeSkill(new SkillInfo(SKILL_EVASION, MAX_LEVEL_EVASION, false, null));
 		initializeSkill(new SkillInfo(SKILL_REGENERATION, SkillInfo.MAXLEVEL_NONE, false, new SkillLevelRequirement[] { 
 			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 30, 0)
 			,SkillLevelRequirement.requireOtherSkill(SKILL_FORTITUDE, 1)
 		}));
-		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT, false, null));
+		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, MAX_LEVEL_LOWER_EXPLOSS, false, null));
 		initializeSkill(new SkillInfo(SKILL_MAGICFINDER, SkillInfo.MAXLEVEL_NONE, false, null));
-		//initializeSkill(new SkillInfo(SKILL_BERSERKER, SkillInfo.MAXLEVEL_NONE, false, null));
+		initializeSkill(new SkillInfo(SKILL_RESISTANCE_MENTAL, MAX_LEVEL_RESISTANCE, false, null));
+		initializeSkill(new SkillInfo(SKILL_RESISTANCE_PHYSICAL_CAPACITY, MAX_LEVEL_RESISTANCE, false, null));
+		initializeSkill(new SkillInfo(SKILL_RESISTANCE_BLOOD_DISORDER, MAX_LEVEL_RESISTANCE, false, null));
 	}
 
 	public SkillInfo getSkill(int skillID) {

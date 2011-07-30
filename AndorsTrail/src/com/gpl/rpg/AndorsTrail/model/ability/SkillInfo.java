@@ -53,8 +53,8 @@ public class SkillInfo {
 		public static SkillLevelRequirement requireOtherSkill(int skillID, int everySkillLevelRequiresThisAmount) {
 			return new SkillLevelRequirement(REQUIREMENT_TYPE_SKILL_LEVEL, everySkillLevelRequiresThisAmount, 0, skillID);
 		}
-		public static SkillLevelRequirement requireExperienceLevels(int everySkillLevelRequiresThisAmount) {
-			return new SkillLevelRequirement(REQUIREMENT_TYPE_EXPERIENCE_LEVEL, everySkillLevelRequiresThisAmount, 0, 0);
+		public static SkillLevelRequirement requireExperienceLevels(int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
+			return new SkillLevelRequirement(REQUIREMENT_TYPE_EXPERIENCE_LEVEL, everySkillLevelRequiresThisAmount, initialRequiredAmount, 0);
 		}
 		public static SkillLevelRequirement requireCombatStats(int statID, int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
 			return new SkillLevelRequirement(REQUIREMENT_TYPE_COMBAT_STAT, everySkillLevelRequiresThisAmount, initialRequiredAmount, statID);

@@ -35,7 +35,6 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 	final public static int BULK_INTERFACE_SELL = 1;  
 	final public static int BULK_INTERFACE_DROP = 2;
 
-	// TODO: determine good values for the BUTTON_REPEAT constants / I currently cannot test them on the phone
 	final private static int BUTTON_REPEAT_FIRST_TIME = 300;		// Delay after the touch before the counting starts
 	final private static int BUTTON_REPEAT_FURTHER_TIMES = 50;		// Delay between two count events
 	final private static int BUTTON_REPEAT_DOUBLE_AFTER = 10;       // after how many count events the countValue doubles?

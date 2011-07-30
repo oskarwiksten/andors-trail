@@ -342,6 +342,8 @@
 	
 	<string name="preferences_movement_dpad_position_title">Virtual d-pad</string>
 	<string name="preferences_movement_dpad_position">Enables a virtual on-screen directional pad to guide movement</string>
+	<string name="preferences_movement_dpad_minimizeable_title">Minimizable d-pad</string>
+	<string name="preferences_movement_dpad_minimizeable">If the virtual d-pad is enabled, this setting allows the d-pad to be minimized by pressing its center.</string>
 	
 	<string-array name="preferences_movement_dpad_positions">
 		<item>Disabled</item>
@@ -392,6 +394,9 @@
     <string name="skill_title_regeneration">Regeneration</string>
     <string name="skill_title_lower_exploss">Failure Mastery</string>
     <string name="skill_title_magicfinder">Magic Finder</string>
+    <string name="skill_title_resistance_mental">Strong Mind</string>
+    <string name="skill_title_resistance_physical_capacity">Enduring Body</string>
+    <string name="skill_title_resistance_blood_disorder">Pure Blood</string>
     
     <string name="skill_shortdescription_weapon_chance">Increased attack chance</string>
     <string name="skill_shortdescription_weapon_dmg">Increased attack damage</string>
@@ -410,6 +415,9 @@
     <string name="skill_shortdescription_regeneration">Gain health every round</string>
     <string name="skill_shortdescription_lower_exploss">Decrease amount of lost experience when dying</string>
     <string name="skill_shortdescription_magicfinder">Increased chance of finding magic items</string>
+    <string name="skill_shortdescription_resistance_mental">Resistance against mental conditions</string>
+    <string name="skill_shortdescription_resistance_physical_capacity">Resistance against physical capacity conditions</string>
+    <string name="skill_shortdescription_resistance_blood_disorder">Resistance against blood disorders</string>
     
     <string name="skill_longdescription_weapon_chance">Increases attack chance by %1$d for each skill level.</string>
     <string name="skill_longdescription_weapon_dmg">Increases min and max damage by %1$d for each skill level.</string>
@@ -428,6 +436,9 @@
     <string name="skill_longdescription_regeneration">Gain +%1$d health points (HP) on every round per skill level.</string>
     <string name="skill_longdescription_lower_exploss">For every skill level, reduces the amount of lost experience caused by death by %1$d %% (percentage of existing exp loss value, not percentage points). %2$d levels will remove all experience loss caused by death.</string>
     <string name="skill_longdescription_magicfinder">Increases the chance of finding non-ordinary items by %1$d %% for every skill level.</string>
+    <string name="skill_longdescription_resistance_mental">Lowers the chance of being afflicted with mental conditions by %1$d %% for every skill level, up to a maximum of %2$d %%. This includes conditions caused by monster attacks such as Dazed or Weapon Feebleness.</string>
+    <string name="skill_longdescription_resistance_physical_capacity">Lowers the chance of being afflicted with conditions affecting your physical capacity by %1$d %% for every skill level, up to a maximum of %2$d %%. This includes conditions caused by monster attacks such as Fatigue.</string>
+    <string name="skill_longdescription_resistance_blood_disorder">Lowers the chance of being afflicted with disorders of the blood by %1$d %% for every skill level, up to a maximum of %2$d %%. This includes conditions caused by monster attacks such as Poison or bleeding wounds.</string>
     
     <string name="skillinfo_action_levelup">Level up</string>
     <string name="skill_current_level">Current level: %1$d</string>

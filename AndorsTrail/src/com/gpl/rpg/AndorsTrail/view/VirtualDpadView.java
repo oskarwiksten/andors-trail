@@ -30,6 +30,7 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 	private boolean isMinimized = false;
 	private int lastTouchPosition_dx;
 	private int lastTouchPosition_dy;
+	private boolean isMinimizeable = true;
 	
 	public VirtualDpadView(final Context context, AttributeSet attr) {
 		super(context, attr);
@@ -101,6 +102,7 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 		}
 		
 		setVisibility(View.VISIBLE);
+		isMinimizeable = preferences.dpadMinimizeable;
 		
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_LOWER_RIGHT) {
@@ -140,6 +142,7 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 			setMaxHeight(full_height);
 		} else {
 			if (lastTouchPosition_dx != 0 || lastTouchPosition_dy != 0) return;
+			if (!isMinimizeable) return;
 			isMinimized = true;
 			setMaxWidth(one_third_width);
 			setMaxHeight(one_third_height);

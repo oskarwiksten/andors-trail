@@ -196,7 +196,10 @@ public class ActorStatsController {
 	}
 
 	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
-		if (!Constants.rollResult(conditionEffect.chance)) return;
+		int chanceRollBias = 0;
+		if (actor.isPlayer) chanceRollBias = SkillController.getActorConditionEffectChanceRollBias(conditionEffect, (Player) actor);
+		
+		if (!Constants.rollResult(conditionEffect.chance, chanceRollBias)) return;
 		addActorCondition(actor, conditionEffect);
 		recalculateActorCombatTraits(actor);
 	}

@@ -79,6 +79,11 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		return result;
 	}
 	
+	@Override
+	public long getItemId(int position) {
+		return getItem(position).id;
+	}
+	
 	private static int getSkillShortDescriptionResourceID(int skill) {
 		switch (skill) {
 		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_shortdescription_weapon_chance;
@@ -98,6 +103,9 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		case SkillCollection.SKILL_REGENERATION: return R.string.skill_shortdescription_regeneration;
 		case SkillCollection.SKILL_LOWER_EXPLOSS: return R.string.skill_shortdescription_lower_exploss;
 		case SkillCollection.SKILL_MAGICFINDER: return R.string.skill_shortdescription_magicfinder;
+		case SkillCollection.SKILL_RESISTANCE_MENTAL: return R.string.skill_shortdescription_resistance_mental;
+		case SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY: return R.string.skill_shortdescription_resistance_physical_capacity;
+		case SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER: return R.string.skill_shortdescription_resistance_blood_disorder;
 		default:
 			return -1;
 		}

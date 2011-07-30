@@ -31,6 +31,9 @@ public final class Inventory extends ItemContainer {
 	public Inventory(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		super(src, world, fileversion);
 		gold = src.readInt();
+		
+		if (fileversion < 23) this.gold += ItemContainer.SavegameUpdate.refundUpgradedItems(this);
+		
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
 			if (src.readBoolean()) {

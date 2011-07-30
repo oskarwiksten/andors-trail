@@ -32,6 +32,7 @@ public class AndorsTrailPreferences {
 	public int movementAggressiveness = MOVEMENTAGGRESSIVENESS_NORMAL;
 	public float scalingFactor = 1.0f;
 	public int dpadPosition;
+	public boolean dpadMinimizeable = true;
 	
 	public static void read(final Context androidContext, AndorsTrailPreferences dest) {
 		try {
@@ -44,6 +45,7 @@ public class AndorsTrailPreferences {
 			dest.movementMethod = Integer.parseInt(prefs.getString("movementmethod", Integer.toString(MOVEMENTMETHOD_STRAIGHT)));
 			dest.scalingFactor = Float.parseFloat(prefs.getString("scaling_factor", "1.0f"));
 			dest.dpadPosition = Integer.parseInt(prefs.getString("dpadposition", Integer.toString(DPAD_POSITION_DISABLED)));
+			dest.dpadMinimizeable = prefs.getBoolean("dpadMinimizeable", true);
 			
 			// This might be implemented as a skill in the future.
 			//dest.movementAggressiveness = Integer.parseInt(prefs.getString("movementaggressiveness", Integer.toString(MOVEMENTAGGRESSIVENESS_NORMAL)));
@@ -57,6 +59,7 @@ public class AndorsTrailPreferences {
 			dest.movementAggressiveness = MOVEMENTAGGRESSIVENESS_NORMAL;
 			dest.scalingFactor = 1.0f;
 			dest.dpadPosition = DPAD_POSITION_DISABLED;
+			dest.dpadMinimizeable = true;
 		}
 	}
 	

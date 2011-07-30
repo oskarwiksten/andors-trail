@@ -112,8 +112,8 @@ public final class MainActivity extends Activity {
 							world.model.currentMap.TEST_spawnInArea(world.model.currentMap.spawnAreas[0], type);
 						}
 					}
-				})
-    			,*/new DebugButton("dmg=99", new OnClickListener() {
+				})*/
+    			new DebugButton("dmg=99", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(99, 99);
@@ -122,8 +122,8 @@ public final class MainActivity extends Activity {
 		    			updateStatus();
 		    			showToast("DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT);
 					}
-				})/*
-    			,new DebugButton("dmg=1", new OnClickListener() {
+				})
+    			/*,new DebugButton("dmg=1", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			world.model.player.traits.damagePotential.set(1, 1);
@@ -150,12 +150,13 @@ public final class MainActivity extends Activity {
 		    			showToast("DEBUG: added items", Toast.LENGTH_SHORT);
 					}
 				})*/
-				/*,new DebugButton("skills+=20", new OnClickListener() {
+				/*new DebugButton("skills++", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			int N = 1;
+		    			world.model.player.availableSkillIncreases += N * SkillCollection.NUM_SKILLS;
 		    			for(int j = 0; j < N; ++j) {
-			    			for(int i = 0; i < Skills.NUM_SKILLS; ++i) {
+			    			for(int i = 0; i < SkillCollection.NUM_SKILLS; ++i) {
 			    				world.model.player.addSkillLevel(i);
 			    			}
 		    			}
@@ -180,8 +181,8 @@ public final class MainActivity extends Activity {
 		    			
 	    				view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain45", "south", 0, 0);
 					}
-				})
-    			,new DebugButton("prim", new OnClickListener() {
+				})*/
+    			/*,new DebugButton("prim", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
 		    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
@@ -222,7 +223,10 @@ public final class MainActivity extends Activity {
     			,new DebugButton("hp=max", new OnClickListener() {
 		    		@Override
 					public void onClick(View arg0) {
+		    			world.model.player.traits.maxHP = 200;
+		    			world.model.player.health.max = world.model.player.traits.maxHP;
 		    			world.model.player.health.setMax();
+		    			world.model.player.conditions.clear();
 		    			updateStatus();
 		    			showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
 					}

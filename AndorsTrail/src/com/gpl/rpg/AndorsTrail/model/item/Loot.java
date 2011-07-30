@@ -51,6 +51,8 @@ public final class Loot {
 		this.exp = src.readInt();
 		this.gold = src.readInt();
 		this.items = new ItemContainer(src, world, fileversion);
+		if (fileversion < 23) this.gold += ItemContainer.SavegameUpdate.refundUpgradedItems(this.items);
+		
 		this.position = new Coord(src, fileversion);
 		if (fileversion <= 15) {
 			this.isVisible = true;

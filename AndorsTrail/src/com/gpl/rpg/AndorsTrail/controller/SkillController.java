@@ -4,6 +4,8 @@ import android.content.res.Resources;
 import android.widget.ImageView;
 
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -75,5 +77,27 @@ public final class SkillController {
 	
 	public static void setSkillIcon(ImageView iconImageView, int skillID, Resources res) {
 		iconImageView.setImageResource(R.drawable.ui_icon_skill);
+	}
+
+	public static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player) {
+		if (effect.chance.isMax()) return 0;
+		
+		int skill;
+		switch (effect.conditionType.conditionCategory) {
+		case ActorConditionType.ACTORCONDITIONTYPE_MENTAL:
+			skill = SkillCollection.SKILL_RESISTANCE_MENTAL; break;
+		case ActorConditionType.ACTORCONDITIONTYPE_PHYSICAL_CAPACITY:
+			skill = SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY; break;
+		case ActorConditionType.ACTORCONDITIONTYPE_BLOOD_DISORDER:
+			skill = SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER; break;
+		default:
+			return 0;
+		}
+		
+		int skillLevel = player.getSkillLevel(skill);
+		if (skillLevel <= 0) return 0;
+
+		// Note that the bias should be negative, making it less likely that the chance roll will succeed
+		return effect.chance.current * skillLevel * -SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT / 100;
 	}
 }

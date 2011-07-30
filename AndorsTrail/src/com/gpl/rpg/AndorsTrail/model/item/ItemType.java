@@ -38,6 +38,7 @@ public final class ItemType {
 	public final int actionType;
 	public final boolean hasManualPrice;
 	public final int baseMarketCost;
+	public final int fixedBaseMarketCost;
 	public final String searchTag;
 	public final int displayType;
 	
@@ -46,7 +47,7 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(int id, int iconID, String name, String searchTag, int category, int displayType, boolean hasManualPrice, int baseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	public ItemType(int id, int iconID, String name, String searchTag, int category, int displayType, boolean hasManualPrice, int fixedBaseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
@@ -55,7 +56,8 @@ public final class ItemType {
 		this.actionType = getActionType(category);
 		this.displayType = displayType;
 		this.hasManualPrice = hasManualPrice;
-		this.baseMarketCost = hasManualPrice ? baseMarketCost : calculateCost(category, effects_equip, effects_hit);
+		this.baseMarketCost = hasManualPrice ? fixedBaseMarketCost : calculateCost(category, effects_equip, effects_hit);
+		this.fixedBaseMarketCost = fixedBaseMarketCost;
 		this.effects_equip = effects_equip;
 		this.effects_use = effects_use;
 		this.effects_hit = effects_hit;

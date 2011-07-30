@@ -61,5 +61,10 @@
 			android:defaultValue="0"
 			android:entries="@array/preferences_movement_dpad_positions"
 			android:entryValues="@array/preferences_movement_dpad_positions_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_movement_dpad_minimizeable_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_movement_dpad_minimizeable"
+			android:key="dpadMinimizeable" />
 	</PreferenceCategory>
 </PreferenceScreen>
