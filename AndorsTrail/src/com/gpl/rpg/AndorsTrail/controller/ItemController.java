@@ -209,7 +209,7 @@ public final class ItemController {
 		return player.inventory.gold >= price;
 	}
 	public static boolean maySellItem(Player player, ItemType itemType) {
-		if (itemType.isQuestItem()) return false;
+		if (!itemType.isSellable()) return false;
 		return true;
 	}
 	public static void sell(Player player, ItemType itemType, ItemContainer merchant, int quantity) {

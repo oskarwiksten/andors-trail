@@ -36,6 +36,7 @@ public final class ItemType {
 	public final String name;
 	public final int category;
 	public final int actionType;
+	public final boolean hasManualPrice;
 	public final int baseMarketCost;
 	public final String searchTag;
 	public final int displayType;
@@ -45,7 +46,7 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(int id, int iconID, String name, String searchTag, int category, int displayType, int baseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	public ItemType(int id, int iconID, String name, String searchTag, int category, int displayType, boolean hasManualPrice, int baseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
@@ -53,7 +54,8 @@ public final class ItemType {
 		this.category = category;
 		this.actionType = getActionType(category);
 		this.displayType = displayType;
-		this.baseMarketCost = baseMarketCost;
+		this.hasManualPrice = hasManualPrice;
+		this.baseMarketCost = hasManualPrice ? baseMarketCost : calculateCost(category, effects_equip, effects_hit);
 		this.effects_equip = effects_equip;
 		this.effects_use = effects_use;
 		this.effects_hit = effects_hit;
@@ -67,8 +69,16 @@ public final class ItemType {
 	}
 	public boolean isEquippable() { return actionType == ACTIONTYPE_EQUIP; }
 	public boolean isUsable() { return actionType == ACTIONTYPE_USE; }
-	public boolean isQuestItem() { return baseMarketCost == 0; }
+	public boolean isQuestItem() { return displayType == DISPLAYTYPE_QUEST; }
 	public boolean isOrdinaryItem() { return displayType == DISPLAYTYPE_ORDINARY; }
+	public boolean isWeapon() { return isWeaponCategory(category); }
+	public static boolean isWeaponCategory(int category) { return category == CATEGORY_WEAPON; }
+	public boolean isSellable() {
+		if (isQuestItem()) return false;
+		if (baseMarketCost == 0) return false;
+		return true;
+	}
+	
 	
 	public String describeWearEffect(int quantity) {
 		StringBuilder sb = new StringBuilder(name);
@@ -145,5 +155,14 @@ public final class ItemType {
 			return TileStore.iconID_selection_purple;
 		}
 		return -1;
+	}
+	
+	public int calculateCost() { return calculateCost(category, effects_equip, effects_use); }
+	public static int calculateCost(int category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use) {
+		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateCost(isWeaponCategory(category));
+		final int costUse = effects_use == null ? 0 : effects_use.calculateCost();
+		//final int costHit = effects_hit == null ? 0 : effects_hit.calculateCost();
+		//final int costKill = effects_kill == null ? 0 : effects_kill.calculateCost();
+		return Math.max(1, costEquipStats + costUse);
 	}
 }

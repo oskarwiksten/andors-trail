@@ -1,13 +1,10 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -20,6 +17,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 
 /**
  * @author ejwessel
@@ -73,6 +76,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
         this.world = app.world;
         AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
+        final Resources res = getResources();
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();
@@ -109,7 +113,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
         	actionTextResourceID = R.string.inventory_drop;
         	bulkselection_summary_totalgold.setVisibility(View.GONE);
         }
-		String actionText = getResources().getString(actionTextResourceID);
+		String actionText = res.getString(actionTextResourceID);
 		
 		// initialize the visual components visuals
 		okButton.setText(actionText);
@@ -170,12 +174,32 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		okButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 	 		public void onClick(View v) {
-				Intent result = new Intent();
-				result.putExtras(intent);
-				result.putExtra("selectedAmount", getTextboxAmount());
-				setResult(RESULT_OK, result);
-				BulkSelectionInterface.this.finish();
+				if (requiresConfirmation(itemType)) {
+					final String displayType = ItemInfoActivity.getDisplayTypeString(res, itemType).toLowerCase();
+					final String message = res.getString(R.string.bulkselection_sell_confirmation, itemType.name, displayType);
+					
+					new AlertDialog.Builder(v.getContext())
+				        .setIcon(android.R.drawable.ic_dialog_info)
+				        .setTitle(R.string.bulkselection_sell_confirmation_title)
+				        .setMessage(message)
+				        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+				            @Override
+				            public void onClick(DialogInterface dialog, int which) {
+				            	itemsResult(intent);
+							}
+				        })
+				        .setNegativeButton(android.R.string.no, null)
+				        .show();
+				} else {
+					itemsResult(intent);
+				}
 	 		}
+
+			private boolean requiresConfirmation(ItemType itemType) {
+				if (interfaceType != BULK_INTERFACE_SELL) return false;
+				if (itemType.isOrdinaryItem()) return false;
+				return true;
+			}
 	 	});
 		
 		// setup cancel button
@@ -193,6 +217,14 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 				updateControls(totalAvailableAmount);
 			}
 		});
+	}
+	
+	private void itemsResult(Intent intent){
+		Intent result = new Intent();
+		result.putExtras(intent);
+		result.putExtra("selectedAmount", getTextboxAmount());
+		setResult(RESULT_OK, result);
+		BulkSelectionInterface.this.finish();
 	}
 	
 	private void incrementValueAndRepeat(int repeatAfterInterval) {

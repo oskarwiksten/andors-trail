@@ -736,6 +736,216 @@
 {tharwyn_2|Io ho un posto ovunque. Cosa posso fare per te ?|||{{Fammi vedere gli alimentei che hai a disposizione .|S||||}}|};
 {vilegard_tavern_drunk_1|Ohh, guarda, un ragazzo sperdudo! Vieni quì a prendere un pò di idromele!|||{{No Grazie.|X||||}{Controlla la tua lingua, ubriacone.|X||||}}|};
 	</string>
+   
+	<string name="conversationlist_jolnor">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{jolnor_select_1||||{{|jolnor_default_3|vilegard:30|||}{|jolnor_default_2|vilegard:20|||}{|jolnor_default||||}}|};
+{jolnor_default|Cammina con l\'ombra figlio mio.|||{{Cos\'è questo posto ?|jolnor_chapel_1||||}{Mi è stato detto di parlare con te e chiederti perchè tutti a Vilegard sono così sospettosi verso i forestieri .|jolnor_suspicious_1|vilegard:10|||}}|};
+{jolnor_default_2|Cammina con l\'ombra figlio mio.|||{{Puoi spiegarmi di nuovo cosa è questo luogo ?|jolnor_chapel_1||||}{Parliamo delle missioni da compiere per guadagnarmi la vostra fiducia .|jolnor_quests_1||||}{Ho bisogno di pozioni di guarigione, Posso vedere cosa hai a disposizione ?|jolnor_shop_1||||}}|};
+{jolnor_default_3|Cammina con l\'ombra amico mio.|||{{Puoi spiegarmi di nuovo cosa è questo luogo ?|jolnor_chapel_1||||}{Ho bisogno di pozioni di guarigione, Posso vedere cosa hai a disposizione ?|jolnor_shop_1||||}}|};
+{jolnor_chapel_1|Questo è il nostro luogo di culto per l\'ombra. Lodiamo l\'ombra in tutta la sua potenza e gloria.|||{{Cosa puoi dirmi riguardo l\'ombra?|jolnor_shadow_1||||}{Ho bisogno di pozioni di guarigione, Posso vedere cosa hai a disposizione ?|jolnor_shop_1||||}{O, quello che vuoi....basta che mi mostri la tua merce|jolnor_shop_1||||}}|};
+{jolnor_shadow_1|L\'ombra ci protegge dai pericoli della notte. Ci mantiene al sicuro e ci protegge quando dormiamo.|||{{N|jolnor_select_1||||}}|};
+{jolnor_shop_1||||{{|S|vilegard:30|||}{|jolnor_shop_2||||}}|};
+{jolnor_shop_2|Non mi fido ancora abbastanza per parlare di commercio con te .|||{{Perchè sei ancora sospettoso ?|jolnor_suspicious_1||||}{Very well.|jolnor_select_1||||}}|};
+{jolnor_suspicious_1|Sospetto? No, non lo definirei sospetto. Preferisco chiamarlo " Cautela ", facciamo molta attenzione al giorno d\'oggi.|||{{N|jolnor_suspicious_2||||}}|};
+{jolnor_suspicious_2|Per ottenere la nostra fiducia, un forestiero deve dimostrarci di non essere quì per creare problemi.|||{{Sembra una buona idea. Ci sono un sacco di persone egoiste là fuori.|jolnor_suspicious_3||||}{Sembra una cosa inutile. Perchè non fidarsi delle persone a prescindere?|jolnor_suspicious_4||||}}|};
+{jolnor_suspicious_3|Si, giusto, mi sembra che riesci a capirci bene|||{{C\'è qualcosa che posso fare per guadagnare la vostra fiducia?|jolnor_gaintrust_select||||}}|};
+{jolnor_suspicious_4|La storia ci insegna a diffidare dei forestieri. Perchè dovremmo fidarci di te?|||{{Cosa posso fare per guadagnare la vostra fiducia?|jolnor_gaintrust_select||||}{Forse hai ragione, probabilmente fai bene a non fidarti di me.|X||||}}|};
+{jolnor_gaintrust_select||||{{|jolnor_gaintrust_return_2|vilegard:30|||}{|jolnor_gaintrust_return|vilegard:20|||}{|jolnor_gaintrust_1||||}}|};
+{jolnor_gaintrust_return_2|Con il tuo aiuto , ti sei già guadagnato la nostra fiducia.|||{{N|jolnor_default_3||||}}|};
+{jolnor_gaintrust_return|Come ho detto prima, bisogna guadagnarsi la nostra fiducia.|||{{N|jolnor_quests_1||||}}|};
+{jolnor_gaintrust_1|in cambio di un piccolo favore potremmo considerare di darti un pò di fiducia. Ci sono tre persone importanti a Vilegard , da loro dovresti cercare aiuto.|||{{N|jolnor_gaintrust_2||||}}|};
+{jolnor_gaintrust_2|In primo luogo, vi è Kaori. Vive nella parte settentrionale di Vilegard. Chiedi a lei se ha bisogno di aiuto.|kaori:5||{{Ok, parlerò con Kaori, ci vado subito.|jolnor_gaintrust_3||||}}|};
+{jolnor_gaintrust_3|Poi c\'è Wrye. Anche lei vive nella parte settentrionale di Vilegard. Molte persone chiedono la sua consulenza .|||{{N|jolnor_gaintrust_4||||}}|};
+{jolnor_gaintrust_4|Recentemente ha perso suo figlio in modo tragico. Se riesci a guadagnare la sua fiducia, avrai un forte alleato.|wrye:10||{{Parlerò con Wrye.|jolnor_gaintrust_5||||}}|};
+{jolnor_gaintrust_5|E ultimo ma non meno importante, anch\'io ho un favore da chiederti|||{{che genere di favore ?|jolnor_gaintrust_6||||}}|};
+{jolnor_gaintrust_6|A nord di Vilegard c\'è una taverna chiamata palla di schiuma. Questa taverna è a mio parere una stazione di guardia di Feygard .|||{{N|jolnor_gaintrust_7||||}}|};
+{jolnor_gaintrust_7|La taverna è quasi sempre visitata dalla guardia reale di lord Geomyr di Feygard .|||{{N|jolnor_gaintrust_8||||}}|};
+{jolnor_gaintrust_8|Probabilmente stanno lì per spiarci, dato che siamo seguaci dell\'ombra. Lord Geomyr cerca sempre di renderci la vita difficile .|||{{Si sembrano dei fomentatori di disordini.|jolnor_gaintrust_9||||}{Sono sicuro che hanno i loro motivi per fare quello che fanno .|jolnor_gaintrust_10||||}}|};
+{jolnor_gaintrust_9|Bene, sono veramente i responsabili dei disordini.|||{{Cosa vuoi che faccia|jolnor_gaintrust_11||||}}|};
+{jolnor_gaintrust_10|Si, le loro ragioni sono quelle di renderci la vita difficile .|||{{Cosa vuoi che faccia ?|jolnor_gaintrust_11||||}}|};
+{jolnor_gaintrust_11|I miei informatori dicono che c\'è una guardia di stanza fuori della taverna, per controllare eventuali pericoli.|||{{N|jolnor_gaintrust_12||||}}|};
+{jolnor_gaintrust_12|Voglio che la guardia scompaia. Fai come meglio credi.|jolnor:10||{{Non sono sicuro che dare fastidio alle guardie di pattuglia sia una buona idea. Questo potrebbe davvero mettermi nei guai.|jolnor_gaintrust_13||||}{Per l\'ombra, farò ciò che mi hai chiesto|jolnor_gaintrust_14||||}{Ok, spero che questo sia vantaggioso per me.|jolnor_gaintrust_14||||}}|};
+{jolnor_gaintrust_13|A te la scelta. Puoi almeno andare a vedere alla taverna se trovi nulla di sospetto ?|||{{Forse....|jolnor_gaintrust_15||||}}|};
+{jolnor_gaintrust_14|Bene. Torna da me quando hai finito.|||{{N|jolnor_gaintrust_15||||}}|};
+{jolnor_gaintrust_15|Quindi, per acquistare la nostra fiducia , ti suggerisco di aiutare Kaori, Wrye e me.|vilegard:20||{{Grazie per le informazioni. Tornerò quando avrò qualcosa da riferire.|X||||}}|};
+{jolnor_quests_1|Vorrei suggerire di aiutare Kaori, Wrye e me per guadagnarti la nostra fiducia.|||{{riguardo la guardia appostata fuori dalla taverna......|jolnor_guard_select||||}{A proposito di questi compiti........|jolnor_quests_2||||}{Non importa, torniamo agli altri argomenti !|jolnor_select_1||||}}|};
+{jolnor_quests_2|Si, qualcosa su di loro ?|||{{Cosa dovrei fare di nuovo ?|jolnor_suspicious_2||||}{Ho svolto tutti i compiti che mi hai chiesto di fare.|jolnor_quests_select_1|jolnor:30|||}{Non importa, torniamo agli altri argomenti !|jolnor_select_1||||}}|};
+{jolnor_guard_select||||{{|jolnor_guard_completed|jolnor:30|||}{|jolnor_guard_1||||}}|};
+{jolnor_guard_1|Si, riguardo a lui, hai trovato il modo di farlo sparire?|||{{Si, lui lascerà il suo posto alla fine del turno di lavoro.|jolnor_guard_2|jolnor:20|||}{Si, se nè andato.|jolnor_guard_2||ffguard_qitem|1|}{NO, ci stò ancora lavorando.|jolnor_gaintrust_14||||}}|};
+{jolnor_guard_completed|Si, l\'hai fatto sparire prima, grazie per l\'aiuto|||{{N|jolnor_quests_1||||}}|};
+{jolnor_guard_2|Molto bene. Grazie per il vostro aiuto.|jolnor:30||{{Nessun problema. Torniamo alle altre attività di cui abbiamo parlato.|jolnor_quests_2||||}}|};
+{jolnor_quests_select_1||||{{|jolnor_quests_select_2|kaori:20|||}{|jolnor_quests_kaori_1||||}}|};
+{jolnor_quests_kaori_1|Hai bisogno di aiuto per completare la missione di Kaori ?|||{{N|jolnor_select_1||||}}|};
+{jolnor_quests_select_2||||{{|jolnor_quests_completed|wrye:90|||}{|jolnor_quests_wrye_1||||}}|};
+{jolnor_quests_wrye_1|Hai bisogno di aiuto per completare la missione di Wrye ?|||{{N|jolnor_select_1||||}}|};
+{jolnor_quests_completed|Bene, Hai aiutato tutti  noi tre.|vilegard:30||{{N|jolnor_quests_completed_2||||}}|};
+{jolnor_quests_completed_2|Ho capito la tua lealtà, e ora siamo pronti a fidarci di te .|||{{N|jolnor_quests_completed_3||||}}|};
+{jolnor_quests_completed_3|Hai il nostro ringraziamento, amico. Troverai sempre rifugio qui a Vilegard. Ti diamo il benvenuto nel nostro paese.|||{{N|jolnor_select_1||||}}|};
+	</string>
+
+	<string name="conversationlist_alynndir">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{alynndir_1|Ciao a tutti, Benvenuti nella mia baracca.|||{{Cosa fai qui?|alynndir_2||||}{Puoi darmi qualche informazione sui dintorni ?|alynndir_3||||}}|};
+{alynndir_2|Principalmente io commercio con i viaggiatori sulla strada principale per Nor City.|||{{hai qualcosa da vendere ?|S||||}{puoi darmi informazioni sulle zone qui intorno ?|alynndir_3||||}}|};
+{alynndir_3|Oh, non c\'è molto da dire. A OVEST c\'è Vilegard e ad EST Brightport.|||{{N|alynndir_4||||}}|};
+{alynndir_4|A nord c\'è solo foresta, però qui accadono cose strane ultimamente|||{{N|alynndir_5||||}}|};
+{alynndir_5|Ho sentito urla terribili provenire dalla foresta a nord-ovest.|||{{N|alynndir_6||||}}|};
+{alynndir_6|Mi chiedo cosa ci sia lassu.|||{{Ciao.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_shops">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{vilegard_armorer_select||||{{|vilegard_armorer_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
+{vilegard_armorer_1|Buongiorno, vuoi dare un\' occhiata alle mie armature?.|||{{OK, fammi veder i tuoi articoli .|S||||}}|};
+{vilegard_smith_select||||{{|vilegard_smith_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
+{vilegard_smith_1|Ciao ragazzo, ho sentito dire che ci hai dato una bella mano qui a Vilegard. Come posso aiutarti ?|||{{Posso vedere che oggetti hai in vendia ?|S||||}}|};
+{vilegard_shop_notrust|Mmmm, sei un forestiero.... Non ci piacciono i forestier, Sei pregato di andartene.|||{{Perchè tutti a Vilegard siete così sopsettosi verso i forestieri ?|vilegard_shop_notrust_2||||}{Posso vedere gli oggetti che hai in vendita ?|vilegard_shop_notrust_2||||}}|};
+{vilegard_shop_notrust_2|Non mi fido di te, dovresti andare prima a parlare con Jolnor , nella cappella, se vuoi ottenere un pò di fiducia da noi!|vilegard:10|||};
+	</string>
+
+	<string name="conversationlist_ogam">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{ogam_1|Convinzione. Potere. Lottare.|||{{Cosa ?|ogam_2||||}{Mi hanno detto di parlare con te .|ogam_2|lodar:15|||}}|};
+{ogam_2|Indietro è il fardello alto e basso|||{{Cosa?|ogam_3||||}{Continua .|ogam_3||||}{Ciao? Umar della Gilda dei ladri di Fallhaven mi ha consigliato di incontrarti .|ogam_3|lodar:15|||}}|};
+{ogam_3|Nascondersi nell\' Ombra.|||{{N|ogam_4||||}}|};
+{ogam_4|Due uguali, nel corpo e nella mente.|||{{Stai cer4cando di dirmi qualcosa ?|ogam_5||||}{Cosa vuoi dire ?|ogam_5||||}}|};
+{ogam_5|il lecito e il caotico|||{{Ciao? Sai come posso raggiungere il rifugio di Lodar?|ogam_lodar_1|lodar:15|||}{Non capisco.|ogam_6||||}}|};
+{ogam_lodar_1|Lodar? Chiaro, prurito, ferita.|||{{N|ogam_6||||}}|};
+{ogam_6|Si, la vera forma , ecco.|||{{N|ogam_7||||}}|};
+{ogam_7|Nascondersi nell\' Ombra.|||{{Nell\'ombra ?|ogam_4||||}{Stai ascoltando quello che dici ?|ogam_4||||}{Ciao? Sai come posso raggiungere il rifugio di Lodar?|ogam_lodar_2|lodar:15|||}}|};
+{ogam_lodar_2|Lodar, a metà strada fra l\'ombra e la luce , Formazioni rocciose.|||{{OK, a metà strada fra due luoghi , parli di alcune rocce ?|ogam_lodar_3||||}{Uh. Potresti ripetere ?|ogam_lodar_3||||}}|};
+{ogam_lodar_3|Guardiano. Bagliore dell\'ombra.|lodar:20||{{Bagliore dell\'ombra? Sono queste le parole da dire al guardiano ?|ogam_lodar_4||||}{Bagliore dell\'ombra\'? Ho già sentito queste parole da qualche parte..|ogam_lodar_4|bonemeal:30|||}}|};
+{ogam_lodar_4|Girare , torcersi , cancellare la forma.|||{{Cosa vuoi dire ?|ogam_1||||}}|};
+	</string>
+
+	<string name="conversationlist_foamingflask">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{ff_cook_1|HCiao, Hai bisogno di aiuto dalla cucina?|||{{Certo, fammi vedere le cibarie che hai in vendita.|ff_cook_3||||}{Che odore Orribile, ma cosa stai cucinando?|ff_cook_2||||}{Questo odore è sublime, cosa stai cucinando?|ff_cook_2||||}}|};
+{ff_cook_2|Oh, questo? dovrebbe essere uno stufato di Cane rabbioso. Credo abbia bisogno di cuocere ancora un pò.|||{{Sono curioso di assaggiarlo quando è pronto, per ora buon lavoro .|X||||}{Che schifo, sembra terribile. Si può veramente mangiare una cosa del genere? Ciao.|X||||}}|};
+{ff_cook_3|No, purtroppo non ho alcun cibo da vendere. Vai a parlare con Torilo di là se vuoi qualche bevanda o cibo già pronto.||||};
+{torilo_1|Benvenuto nella taverna Palla di schiuma, diamo il benvenuto a tutti i viaggiatori.|||{{Grazie, sei il capo di questo posto ?|torilo_2||||}{Hai visto un ragazzo chiamato Rincel qui intorno ultimamente?|torilo_rincel_1|wrye:41|||}}|};
+{torilo_2|Io sono Torilo, il titolare di questa struttura. Puoi sederti nel posto che preferisci.|||{{Posso vedere che cibi e bevandi hai a disposizione ?|torilo_shop_1||||}{Posso riposare da qualche parte?|torilo_rest_select||||}{ Sono sempre le stesse guardie che urlano e gridano così tanto ?|torilo_guards_1||||}}|};
+{torilo_default|desideri qualcos\'altro?|||{{Posso vedere che cibi e bevande hai a disposizione ?|torilo_shop_1||||}{Sono sempre le stesse guardie che urlano e gridano così tanto ?|torilo_guards_1||||}{Hai visto un ragazzo chiamato Rincel qui intorno ultimamente?|torilo_rincel_1|wrye:41|||}}|};
+{torilo_shop_1|Assolutamente, abbiamo una vasta scelta fra cibi e bevande!|||{{N|S||||}}|};
+{torilo_rest_select||||{{|torilo_rest_1|nondisplay:10|||}{|torilo_rest_3||||}}|};
+{torilo_rest_1|erto, puoi andare nelle stanze là dietro.|||{{N|torilo_rest_2||||}}|};
+{torilo_rest_2|Prego, vai e scegli la stanza che più ti aggrada, spero solo che le grida di tutte queste guardie non ti infastidiscano troppo.|||{{Grazie.|torilo_default||||}}|};
+{torilo_rest_3|Oh, certo, abbiamo delle stanze molto confortevoli quì alla taverna palla di schiuma.|||{{N|torilo_rest_4||||}}|};
+{torilo_rest_4|Disponibile per 250 monete d\'oro, poi puoi restare quanto vuoi!|||{{250 monete d\'oro? certo, non sono niente per me, ecco, tieni.|torilo_rest_6||gold|250|}{250 monete d\'oro è molto, ma credo che ne valga la pena. Ecco, tieni.|torilo_rest_6||gold|250|}{Acc, è un pò troppo per me.|torilo_rest_5||||}}|};
+{torilo_rest_5|Acc, è un pò troppo per me.|||{{N|torilo_default||||}}|};
+{torilo_rest_6|Grazie, la stanza ora è tua.|nondisplay:10||{{N|torilo_rest_2||||}}|};
+{torilo_rincel_1|Rincel? No, non che io ricordi. In realtà, non vengono molti bambini qui. * risatina *.|||{{N|torilo_default||||}}|};
+{torilo_guards_1|Sigh, si. Quelle guardie sono quà da parecchio tempo.|||{{N|torilo_guards_2||||}}|};
+{torilo_guards_2|Sembrano essere alla ricerca di qualcosa o qualcuno, ma non so chi o cosa.|||{{N|torilo_guards_3||||}}|};
+{torilo_guards_3|Spero che l\'ombra vegli su di noi ,in modo che non succeda nulla di male alla taverna palla di schiuma a causa loro.|||{{N|torilo_default||||}}|};
+	</string>
+
+	<string name="conversationlist_ambelie">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{ambelie_1|Oh mamma, un plebeo. Stai lontano da me. Potresti attaccarmi qualcosa.|||{{Chi sei tu ?|ambelie_2||||}{Cosa fà una nobildonna come te in un posto come questo ?|ambelie_5||||}{Sarei ben felice di allontanarmi da una snob come te .|X||||}}|};
+{ambelie_2|Sono Ambelie della casata di Laumwill di Feygard. Sono sicura che avrai sentito parlare di me e della mia casata.|||{{Oh, sì .. um .. Casata di Laumwill di Feygard. Naturalmente.|ambelie_3||||}{Non ho mai sentito parlare di te ne della tua casata.|ambelie_4||||}{Where is Feygard?|ambelie_3||||}}|};
+{ambelie_3|Feygard, la grande città della pace. Per forza bisogna conoscerla. a Nord-Ovest del nostro grande paese.|||{{Cosa fà una nobildonna come te in un posto come questo ?|ambelie_5||||}{No, non ne ho mai sentito parlare.|ambelie_4||||}}|};
+{ambelie_4|Pfft. Questo dimostra che tutto ciò che ho sentito su di voi selvaggi del sud è vero, così ignoranti.....||||};
+{ambelie_5|I, Ambelie della casata di Laumwill di Feygard sono in gita verso il sud di Nor City.|||{{N|ambelie_6||||}}|};
+{ambelie_6|Sono in  gita per constatare se è vero tutto quello di cui ho sentito parlare.. Se veramente Nor city si può paragonare al fascino della grande città di Feygard.|||{{Nor City, e dov\'è ?|ambelie_7||||}{Se vi piace così tanto Feygard, perchè ve ne siete andata ?|ambelie_9||||}}|};
+{ambelie_7|Non sai nemmeno di Nor City? sò che siete selvaggi, ma non ci credo che non abbiate mai nemmeno sentito parlare della città.|||{{N|ambelie_8||||}}|};
+{ambelie_8|Stò cominciando a essere sempre più convinta che Nor City non sarà mai nemmeno nei miei sogni più selvaggi paragonabile a Feygard.|||{{Buona fortuna nella vostra escursione.|ambelie_10||||}}|};
+{ambelie_9|Tutte le nobildonne di Feygard continuano a parlare del mistero dell\' Ombra di Nor City. Voglio vedere di persona.|||{{Nor City, e dov\'è?|ambelie_7||||}{Buona fortuna nella vostra escursione.|ambelie_10||||}}|};
+{ambelie_10|Grazie, ora però lasciami sola, prima che qualcuno mi veda a parlare con un plebeo.|||{{Plebeo ? Stai cercando di insultarmi? Ciao.|X||||}{Probabilmente non riusciresti nemmeno a sopravvivere a una vespa della foresta.|X||||}}|};
+	</string>
+
+	<string name="conversationlist_foamingflask_guards">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{ff_guard_1|Ha ha, diglelo tu Garl!\n\n*burp*|||{{N|ff_guard_2||||}}|};
+{ff_guard_2|Cantare, bere, combattere ! tutti coloro che si opporranno a Feygard cadranno !|||{{N|ff_guard_3||||}}|};
+{ff_guard_3|Noi puntiamo in alto ,Feygard, città della pace!|||{{devo lasciarvi !|X||||}{Feygard, dove si trova ?|ff_guard_4||||}{Hai visto un ragazzo di nome Rincel qui intorno di recente?|ff_guard_rincel_1|wrye:41|||}}|};
+{ff_guard_4|Cosa, non hai mai sentito parlare di Feygard  ragazzo ? Basta seguire la strada verso nord-ovest e vedrai la grande città di Feygard innalzarsi sopra le cime degli alberi.|||{{grazie, ciao.|X||||}}|};
+{ff_guard_rincel_1|Un ragazzo? A parte te non ho visto altri ragazzi quà in giro !|||{{N|ff_guard_rincel_2||||}}|};
+{ff_guard_rincel_2|Prova a chiedere al capitano, laggiù! E\' quà da più tempo di noi!|||{{Grazie, ciao.|X||||}{Grazie, che l\'ombra sia con te.|ff_guard_shadow_1||||}}|};
+{ff_guard_shadow_1|Non nominare quella maledetta ombra quà dentro , ragazzo. Non vogliamo nulla di tutto questo. Ora vattene.||||};
+{ff_captain_1|Ti sei perso, figliolo? Questo non è posto per un ragazzo come te.|||{{Chi sei tu ??|ff_captain_2||||}{Hai visto un ragazzo di nome Rincel qui intorno di recente?|ff_captain_rincel_1|wrye:41|||}}|};
+{ff_captain_2|Io sono il capitano di questa pattuglia di guardia. Veniamo dalla grande città di Feygard.|||{{Feygard?, e dov\'è?|ff_captain_4||||}{Cosa ci fai qua in giro ?|ff_captain_3||||}}|};
+{ff_captain_3|Stiamo percorrendo la strada principale per assicurarsi che i mercanti e i viaggiatori siano al sicuro. E manteniamo la pace qui intorno.|||{{Hai menzionato Feygard. dov\'è?|ff_captain_4||||}}|};
+{ff_captain_4|La grande città di Feygard è il più grande spettacolo che si potrà mai vedere. Segui la strada a nord-ovest.|||{{Grazie, che l\'ombra sia con te.|ff_captain_shadow_1||||}{Grazie, ciao.|X||||}}|};
+{ff_captain_rincel_1|C\'era un ragazzo in giro qualche tempo fa.|||{{N|ff_captain_rincel_2||||}}|};
+{ff_captain_rincel_2|Non ho mai parlato con lui, non so se è quello che stai cercando.|||{{Ok, potrebbe essere u8na traccia che vale la pena verificare.|ff_captain_rincel_3||||}}|};
+{ff_captain_rincel_3|Ho notato che andava verso Ovest, era appena uscito dalla taverna palla di schiuma.|wrye:42||{{Ovest. Capito. Grazie per le informazioni.|ff_captain_rincel_4||||}}|};
+{ff_captain_rincel_4|Sempre felice di aiutare. Qualsiasi cosa per la gloria di Feygard.|||{{Che l\'ombra sia con te.|ff_captain_shadow_1||||}{Ciao.|X||||}}|};
+{ff_captain_shadow_1|L\'ombra? Non dirmi che credi in quella roba. Per la mia esperienza, solo i sobillatori parlano dell\'Ombra.||||};
+	</string>
+
+	<string name="conversationlist_foamingflask_outsideguard">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{ff_outsideguard_select||||{{|ff_outsideguard_trouble_24|jolnor:20|||}{|ff_outsideguard_1||||}}|};
+{ff_outsideguard_1|Ciao a tutti. Sei sicuro che dovrebbe essere qui? Si tratta di una taverna che conosci. Palla di schiuma per essere precisi.|||{{Chi sei tu ?|ff_outsideguard_2||||}}|};
+{ff_outsideguard_2|Sono un membro della pattuglia di guardie di Feygard.|||{{Feygard, dov\'è ?|ff_outsideguard_3||||}{Cosa ci fai da queste parti ?|ff_outsideguard_3||||}}|};
+{ff_outsideguard_3|Vai a parlare con il capitano , io devo stare di guardia qui!|||{{Ok. Ciao.|X||||}{Perchè devi stare di guardia fuori di una taverna ?|ff_outsideguard_trouble_1|jolnor:10|||}}|};
+{ff_outsideguard_trouble_1|Davvero, non posso parlare con te, potrei finire nei guai .|||{{Ok. Non ti disturberò più, che l\'ombra sia con te!.|ff_outsideguard_shadow_1||||}{Ok. non ti disturberò più, ciao.|X||||}{Che difficoltà ?|ff_outsideguard_trouble_2||||}}|};
+{ff_outsideguard_trouble_2|No davvero, il capitano potrebbe vedermi. Devo essere Attento sul mio posto in ogni momento * sigh *|||{{Ok. Non ti disturberò più, che l\'ombra sia con te.|ff_outsideguard_shadow_1||||}{Ok. Non ti disturberò ulteriormente, Ciao.|X||||}{Ti piace il tuo lavoro qui ?|ff_outsideguard_trouble_3||||}}|};
+{ff_outsideguard_trouble_3|il mio lavoro ? Credo che la guardia reale sia Ok, voglio dire...Feygard è un posto molto bello in cui vivere|||{{N|ff_outsideguard_trouble_4||||}}|};
+{ff_outsideguard_trouble_4|diciamo che fare la guardia quà in mezzo al nulla non è proprio quello che intendevo fare....|||{{Ci credo. Questo posto è davvero noioso.|ff_outsideguard_trouble_5||||}{Ti stancherai molto a stare quì sempre in piedi.|ff_outsideguard_trouble_5||||}}|};
+{ff_outsideguard_trouble_5|Si, molto. Preferirei essere dentro alla taverna a bere con gli altri e il capitano. Ma perchè devo stare qui?|||{{Che l\'ombra vegli su di te.|ff_outsideguard_shadow_1||||}{Perchè non te ne vai se non è quello che vuoi fare?|ff_outsideguard_trouble_7||||}{La grande causa della guardia reale è servita molto per mantenere la pace.|ff_outsideguard_trouble_6||||}}|};
+{ff_outsideguard_trouble_6|Sì, hai ragione, naturalmente. Il nostro dovere è quello di mantenere la pace .|||{{YSi, L\'ombra non guarda con favore a chi disturba la pace.|ff_outsideguard_shadow_1||||}{Sì. I sobillatori dovrebbero essere puniti.|ff_outsideguard_trouble_8||||}}|};
+{ff_outsideguard_trouble_7|No, io sono fedele alla causa di Feygard. Se dovessi lasciare, dovrei anche tradire la mia fedeltà.|||{{Cosa significa questo se non sei soddisfatto di ciò che fai ?|ff_outsideguard_trouble_9||||}{Sì, sembra vero. Feygard sembra un bel posto da quello che ho sentito.|ff_outsideguard_trouble_6||||}}|};
+{ff_outsideguard_trouble_8|Bene. Mi piaci ragazzo. Potrei mettere una buona parola per te in caserma quando torneremo a Feygard ,se vuoi.|||{{Certo, sarebbe bello per me.|ff_outsideguard_trouble_20||||}{No grazie, ho già tanto da fare.....|ff_outsideguard_trouble_20||||}}|};
+{ff_outsideguard_trouble_9|Beh, io sono convinto che si debbano seguire le leggi stabilite dai nostri governanti. Se non Obbediamo alle leggi, che cosa ci rimane?|||{{N|ff_outsideguard_trouble_10||||}}|};
+{ff_outsideguard_trouble_10|Caos. Nessun ordine. \n \n No, io preferisco il modo lecito di Feygard. La mia fedeltà è assoluta.|||{{Si, ha senso quello che dici, Le leggi sono fatte per essere rispettate..|ff_outsideguard_trouble_8||||}{Non sono d\'accordo. Dobbiamo seguire il nostro cuore, anche se questo va contro le regole.|ff_outsideguard_trouble_12||||}}|};
+{ff_outsideguard_trouble_20|C\'era qualcos\'altro che volevi?|||{{Mi stavo chiedendo il motivo per cui la guardia è qui.|ff_outsideguard_trouble_21||||}}|};
+{ff_outsideguard_trouble_12|Questo mi disturba. Forseci vedremo di nuovo in futuro. Ma la nostra prossima discussione potrebbe non essere piacevole.......||||};
+{ff_outsideguard_trouble_21|Giusto, stavamo divagando. Come ho detto, avrei preferito essere dentro al fuoco.|||{{Potrei tenere il posto per te se vuoi entrare.|ff_outsideguard_trouble_23||||}{Che sfortuna, pensare che tu sia qui mentre i tuoi compagni e il capitano sono dentro|ff_outsideguard_trouble_22||||}}|};
+{ff_outsideguard_trouble_22|Si, è la mia solita fortuna||||};
+{ff_outsideguard_trouble_23|Davvero? Sarebbe fantastico, ameno potrei prendere qualcosa da bere e stare un pò al fuoco.|||{{N|ff_outsideguard_trouble_24||||}}|};
+{ff_outsideguard_trouble_24|OK, allora entro un attimo, mi raccomando, stai quì a fare la guardia al posto mio finche non torno?|jolnor:20||{{Certo, lo farò.|ff_outsideguard_trouble_25||||}{[Bugia] Certo, lo farò.|ff_outsideguard_trouble_25||||}}|};
+{ff_outsideguard_trouble_25|Grazie mille, sei un amico.||||};
+{ff_outsideguard_shadow_1|L\'Ombra? Curioso che tu l\'abbia menzionata.Spiegami tu!|||{{Non volevo dire niente. Anzi, non ho detto niente.|ff_outsideguard_shadow_2||||}{L\'Ombra veglia su di noi quando dormiamo.|ff_outsideguard_shadow_3||||}}|};
+{ff_outsideguard_shadow_2|BBene, Ora vattene prima di costringermi  a fare i conti con te.||||};
+{ff_outsideguard_shadow_3|Cosa? Sei uno di quei sobillatori mandati qui per sabotare la nostra missione?|||{{Che l\'ombra ti protegga.|ff_outsideguard_shadow_4||||}{Bene. Meglio non iniziare una lotta con la guardia reale.|X||||}}|};
+{ff_outsideguard_shadow_4|Che lo faccia, è meglio che scappi ora oppure dovrai combattere|||{{Bene, ero in attesa di un combattimento.|ff_outsideguard_shadow_5||||}{Per l\'Ombra!|ff_outsideguard_shadow_5||||}{Non importa, stavo solo scherzando.|ff_outsideguard_shadow_2||||}}|};
+{ff_outsideguard_shadow_5||jolnor:21||{{|F||||}}|};
+	</string>
+
+	<string name="conversationlist_wrye">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{wrye_select_1||||{{|wrye_return_2|wrye:90|||}{|wrye_return_1|wrye:40|||}{|wrye_mourn_1||||}}|};
+{wrye_return_1|Bentornato. Hai avuto notizie di mio figlio Rincel?|||{{Mi puoi ripetere quello che è successo?|wrye_mourn_5||||}{No, non ho ancora saputo nulla.|wrye_story_14||||}{Si, ho scoperto cosa gli è successo|wrye_resolved_1|wrye:80|||}}|};
+{wrye_return_2|Bentornato, Grazie per il tuo aiuto nel cercare notizie di mio figlio Rincel|||{{Che l\'Ombra sia con te.|wrye_story_15||||}{Sei il benvenuto.|wrye_story_15||||}}|};
+{wrye_mourn_1|Che l\'Ombra mi aiuti.|||{{Qual\'è il problema ?|wrye_mourn_2||||}}|};
+{wrye_mourn_2|Mio figlio ! mio figlio è sparito!|||{{Jolnor mi ha consigliato di venire a sentire la storia di tuo figlio.|wrye_mourn_5|wrye:10|||}{Cosa puoi dirmi di lui?|wrye_mourn_3||||}}|};
+{wrye_mourn_3|Non voglio parlarne, non con un forestiero.|||{{Forestiero ?|wrye_mourn_4||||}{Jolnor mi ha consigliato di venire a sentire la storia di tuo figlio.|wrye_mourn_5|wrye:10|||}}|};
+{wrye_mourn_4|Ti prego di andartene.\n\n Oh, che l\'Ombra vegli su di me!||||};
+{wrye_mourn_5|Mio figlio è morto, lo so! Ed è colpa di quelle maledette guardie, con il loro atteggiamento snob.|||{{N|wrye_mourn_6||||}}|};
+{wrye_mourn_6|In un primo momento arrivano con promesse di protezione e potere. Ma poi si inizia a vederli per quello che sono.|||{{N|wrye_mourn_7||||}}|};
+{wrye_mourn_7|Me lo sento , L\'Ombra mi hs parlato , lui è morto.|wrye:20||{{Mi puoi dire cosa è successo?|wrye_story_1||||}{Di cosa stai parlando?|wrye_story_1||||}{Che l\'Ombra sia con te.|wrye_mourn_8||||}}|};
+{wrye_mourn_8|Grazie, L\'ombra veglia su di me.|||{{N|wrye_story_1||||}}|};
+{wrye_story_1|Tutto è partito con l\'arrivo della guardia reale di Fyegard|||{{N|wrye_story_2||||}}|};
+{wrye_story_2|Hanno provato a fare pressione su tutti a Vilegard per reclutare nuovi soldati.|||{{N|wrye_story_3||||}}|};
+{wrye_story_3|La guardia dice di aver bisogno di più supporto per la rivolta e il sabotaggio che suppongono sia in atto.|||{{Che relazione c\'è fra questo e tuo figlio?|wrye_story_4||||}{Hai intenzione di arrivare al punto in fretta?|wrye_story_4||||}}|};
+{wrye_story_4|Mio figlio, Rincel, non si è mai curato troppo delle storie che raccontavano.|||{{N|wrye_story_5||||}}|};
+{wrye_story_5|Ho anche detto a Rincel di quanto sbagliata fosse secondo me l\'idea di reclutare il popolo nella guardia reale.|||{{N|wrye_story_6||||}}|};
+{wrye_story_6|Le guardie sono rimaste qui a Vilegrad un paio di giorni per parlare a tutti, poi cred siano andate in un altro paese.|||{{N|wrye_story_7||||}}|};
+{wrye_story_7|dopo alcuni giorni ,Rincel, improvvisamente è partito. Sono sicura che quelle guardie siano riuscite a convincerlo ad unirsi a loro.|||{{N|wrye_story_8||||}}|};
+{wrye_story_8|Oh , come disprezzo quei bastardi di Feygard.|||{{E ora?|wrye_story_9||||}}|};
+{wrye_story_9|Questo è successo qualche settimana fà. Ora mi manca qualcosa, Me lo sento che a Rincel è successo Qualcosa.|||{{N|wrye_story_10||||}}|};
+{wrye_story_10|Ho paura che sia morto o ferito gravemente.|wrye:30||{{N|wrye_story_11||||}}|};
+{wrye_story_11|*sob* Che l\'Ombra mi aiuti.|||{{Ok, cosa posso fare per aiutarti?|wrye_story_13||||}{mmmmh, sono sicuro che è solamente una tua impressione.|wrye_story_13||||}{Ci sono prove che la gente di Feygrad è coinvolta?|wrye_story_12||||}}|};
+{wrye_story_12|Me lo sento che loro c\'entrano, L\'Ombra mi ha parlato .|||{{Ok, cosa posso fare per aiutarti?|wrye_story_13||||}{Sembri un pò troppo *occupata* con l\'Ombra. Non voglio partecipare a questo.|wrye_mourn_4||||}{Non voglio essere coinvolto in questo caso ,non vorrei sconvolgere la guardia reale.|wrye_mourn_4||||}}|};
+{wrye_story_13|Se vuoi aiutarmi, scopri cosa è successo amio figlio Rincel.|wrye:40||{{Hai qualche idea da dove potrei cominciare?|wrye_story_16||||}{Ok. Voglio andare a cercare tuo figlio, spero ci sia una ricompensa per questo.|wrye_story_14||||}{Per l\'Ombra, tuo figlio sarà vendicato|wrye_story_14||||}}|};
+{wrye_story_14|Torna qua appena hai scoperto qualcosa.|||{{N|wrye_story_15||||}}|};
+{wrye_story_15|Cammina con l\'Ombra.||||};
+{wrye_story_16|Penso potresti chiedere in taverna qui a Vilegard, o alla taverna Palla di Schiuma a nord di qui.|wrye:41||{{Per l\'Ombra, tuo figlio sarà vendicato.|wrye_story_14||||}{Ok. Voglio andare a cercare tuo figlio, spero ci sia una ricompensa per questo.|wrye_story_14||||}{OK,andrò a cercare tuo figlio e scoprirò cosa gli è successo.|wrye_story_14||||}}|};
+{wrye_resolved_1|Ti prego di dirmi cosa gli è successo!|||{{Ha lasciato Vilegard per sua volontà, voleva vedere la grande città di Feygard.|wrye_resolved_2||||}}|};
+{wrye_resolved_2|Non ci credo.....|||{{Desiderava segretamente andare a Feygard, ma non osava dirtelo.|wrye_resolved_3||||}}|};
+{wrye_resolved_3|Davvero?|||{{Ma non ha ottenuto molto, è stato attaccato una notte mentre dormiva.|wrye_resolved_4||||}}|};
+{wrye_resolved_4|Attaccato?|||{{Si, non poteva resistere ai mostri ed è stato ferito gravemente.|wrye_resolved_5||||}}|};
+{wrye_resolved_5|Il mio caro ragazzo.|||{{Ho parlato con un uomo che lo ha trovato ferito a morte.|wrye_resolved_6||||}}|};
+{wrye_resolved_6|Era ancora vivo?|||{{Sì, ma non per molto. Non è sopravvissuto alle ferite. Ora è sepolto a nord ovest di Vilegard.|wrye_resolved_7||||}}|};
+{wrye_resolved_7|Oh mio povero ragazzo. Che cosa ho fatto?|wrye:90||{{N|wrye_resolved_8||||}}|};
+{wrye_resolved_8|Ho sempre creduto che la pensasse come me su quegli snob di Feygard .|||{{N|wrye_resolved_9||||}}|};
+{wrye_resolved_9|E adesso non è più con me.|||{{N|wrye_resolved_10||||}}|};
+{wrye_resolved_10|Grazie ancora per aver scoperto cosa gli è successo!|||{{N|wrye_resolved_11||||}}|};
+{wrye_resolved_11|Oh mio povero ragazzo.|||{{N|wrye_mourn_4||||}}|};
+	</string>   
 
         <string name="conversationlist_oluag">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];

@@ -30,7 +30,7 @@ public final class ItemTypeCollection {
 	}
 	
 
-	private static final ResourceObjectTokenizer itemResourceTokenizer = new ResourceObjectTokenizer(38);
+	private static final ResourceObjectTokenizer itemResourceTokenizer = new ResourceObjectTokenizer(39);
 	public void initialize(final DynamicTileLoader tileLoader, final ActorConditionTypeCollection actorConditionTypes, String itemlist) {
 		itemResourceTokenizer.tokenizeRows(itemlist, new ResourceObjectFieldParser() {
 			@Override
@@ -44,12 +44,14 @@ public final class ItemTypeCollection {
 					searchTag = itemTypeName;
 				}
 				
-				final ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 6);
-				final ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 19, false);
-				final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 25, true);
-				final ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 32, false);
+				final ItemTraits_OnEquip equipEffect = ResourceFileParser.parseItemTraits_OnEquip(actorConditionTypes, parts, 7);
+				final ItemTraits_OnUse useEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 20, false);
+				final ItemTraits_OnUse hitEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 26, true);
+				final ItemTraits_OnUse killEffect = ResourceFileParser.parseItemTraits_OnUse(actorConditionTypes, parts, 33, false);
 				
 				final int nextId = itemTypes.size();
+				final int baseMarketCost = Integer.parseInt(parts[6]);
+				final boolean hasManualPrice = ResourceFileParser.parseBoolean(parts[5], false);
 				final ItemType itemType = new ItemType(
 	        			nextId
 	        			, ResourceFileParser.parseImageID(tileLoader, parts[1])
@@ -57,13 +59,31 @@ public final class ItemTypeCollection {
 			        	, searchTag
 	        			, Integer.parseInt(parts[3]) 												// category
 	        			, ResourceFileParser.parseInt(parts[4], ItemType.DISPLAYTYPE_ORDINARY) 		// Displaytype
-	        			, Integer.parseInt(parts[5]) 												// Base market cost
+	        			, hasManualPrice								 							// hasManualPrice
+	        			, baseMarketCost 															// Base market cost
 	        			, equipEffect
 	        			, useEffect
 	        			, hitEffect
 	        			, killEffect
 	    			);
 				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+					if (!hasManualPrice) {
+						if (itemType.effects_hit != null || itemType.effects_kill != null) {
+							L.log("OPTIMIZE: Item " + searchTag + " uses automatic pricing, but has kill- or hit effects. Should probably use manual pricing?");
+						}
+						if (itemType.effects_equip == null && itemType.effects_use == null) {
+							L.log("OPTIMIZE: Item " + searchTag + " uses automatic pricing, but has no equip- or use effects. Should probably use manual pricing?");
+						} else if (!itemType.isUsable() && !itemType.isEquippable()) {
+							L.log("OPTIMIZE: Item " + searchTag + " uses automatic pricing, but is neither usable nor equippable. Should probably use manual pricing?");
+						}
+					} else {
+						if (baseMarketCost != 0 && itemType.isQuestItem()) {
+							L.log("OPTIMIZE: Item " + searchTag + " is a quest item, but has a base market price specified.");
+						} else if (baseMarketCost == 0 && itemType.isOrdinaryItem()) {
+							L.log("OPTIMIZE: Item " + searchTag + " does not have a base market price specified (and is an ordinary item).");
+						}
+					}
+					
 	    			if (itemType.isEquippable()) {
 	    				if (itemType.effects_equip == null && itemType.effects_hit == null && itemType.effects_kill == null ) {
 	        				L.log("OPTIMIZE: Item " + searchTag + " is equippable, but has no equip effect.");
@@ -82,13 +102,6 @@ public final class ItemTypeCollection {
 	    					L.log("OPTIMIZE: Item " + searchTag + " is not usable, but has use effect.");
 	    				}
 	    			}
-	    			
-					if (itemType.isQuestItem() && itemType.displayType == ItemType.DISPLAYTYPE_ORDINARY) {
-    					L.log("OPTIMIZE: Item " + searchTag + " is quest item, but is displayed as an ordinary item.");
-    				} else if (!itemType.isQuestItem() && itemType.displayType == ItemType.DISPLAYTYPE_QUEST) {
-    					L.log("OPTIMIZE: Item " + searchTag + " is not a quest item, but is displayed as one.");
-    				}
-    			
 	    		}
 				itemTypes.add(itemType);
 	    		

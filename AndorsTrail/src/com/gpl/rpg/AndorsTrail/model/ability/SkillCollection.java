@@ -65,7 +65,7 @@ public final class SkillCollection {
 	public void initialize() {
 		initializeSkill(new SkillInfo(SKILL_WEAPON_CHANCE, SkillInfo.MAXLEVEL_NONE, false, null));
 		initializeSkill(new SkillInfo(SKILL_WEAPON_DMG, SkillInfo.MAXLEVEL_NONE, false, null));
-		initializeSkill(new SkillInfo(SKILL_BARTER, Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE, false, null));
+		initializeSkill(new SkillInfo(SKILL_BARTER, (int) Math.floor((float)Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE), false, null));
 		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, false, null));
 		initializeSkill(new SkillInfo(SKILL_BARKSKIN, 5, false, new SkillLevelRequirement[] { 
 			SkillLevelRequirement.requireExperienceLevels(10) 

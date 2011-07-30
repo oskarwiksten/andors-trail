@@ -14,4 +14,12 @@ public class AbilityModifierTraits {
 		this.moveCostPenalty = moveCostPenalty;
 		this.combatProficiency = combatProficiency;
 	}
+	
+	public int calculateCost(boolean isWeapon) {
+		final int costCombat = combatProficiency == null ? 0 : combatProficiency.calculateCost(isWeapon);
+		final int costMaxHP = (int) (30*Math.pow(Math.max(0,maxHPBoost), 1.2) + 70*maxHPBoost);
+		final int costMaxAP = (int) (50*Math.pow(Math.max(0,maxAPBoost), 3) + 750*maxAPBoost);
+		final int costMovement = (int) (10*Math.pow(Math.max(0,moveCostPenalty), 2) + 350*moveCostPenalty);
+		return costCombat + costMaxHP + costMaxAP + costMovement;
+	}
 }

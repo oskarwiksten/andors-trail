@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -93,9 +94,13 @@ public final class ItemInfoActivity extends Activity {
         	tv.setVisibility(View.GONE);
         } else {
         	tv.setVisibility(View.VISIBLE);
-        	final String diplayType = getResources().getStringArray(R.array.iteminfo_displaytypes)[itemType.displayType];
+        	final String diplayType = getDisplayTypeString(getResources(), itemType);
         	tv.setText(diplayType);
         }
+    }
+    
+    public static String getDisplayTypeString(Resources res, ItemType itemType) {
+    	return res.getStringArray(R.array.iteminfo_displaytypes)[itemType.displayType];
     }
 
     private static int getCategoryNameRes(int itemCategory) {

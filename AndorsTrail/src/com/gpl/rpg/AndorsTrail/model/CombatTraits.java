@@ -67,6 +67,25 @@ public class CombatTraits {
 		}
 		return 0;
 	}
+	
+	public int calculateCost(boolean isWeapon) {
+		final int costBC = (int) (3*Math.pow(Math.max(0, blockChance), 2.5) + 28*blockChance);
+		final int costAC = (int) (0.4*Math.pow(Math.max(0,attackChance), 2.5) - 7*Math.pow(Math.abs(Math.min(0,attackChance)),2.7));
+		final int costAP = isWeapon ?
+				(int) (0.2*Math.pow(10.0f/attackCost, 8) - 25*attackCost)
+				: -3125 * attackCost;
+		final int costDR = 1325*damageResistance;
+		final int costDMG_Min = isWeapon ?
+				(int) (10*Math.pow(Math.max(0, damagePotential.current), 2.5))
+				:(int) (10*Math.pow(Math.max(0, damagePotential.current), 3) + damagePotential.current*80);
+		final int costDMG_Max = isWeapon ?
+				(int) (2*Math.pow(Math.max(0, damagePotential.max), 2.1))
+				:(int) (2*Math.pow(Math.max(0, damagePotential.max), 3) + damagePotential.max*20);
+		final int costCC = (int) (2.2*Math.pow(criticalChance, 3));
+		final int costCM = (int) (50*Math.pow(Math.max(0, criticalMultiplier), 2));
+		
+		return costBC + costAC + costAP + costDR + costDMG_Min + costDMG_Max + costCC + costCM;
+	}
 
 	
 	// ====== PARCELABLE ===================================================================

@@ -22,4 +22,12 @@ public class StatsModifierTraits {
 	public boolean hasVisualEffect() {
 		return visualEffectID != VISUAL_EFFECT_NONE;
 	}
+	
+	public int calculateCost() {
+		final float averageHPBoost = currentHPBoost == null ? 0 : currentHPBoost.averagef();
+		if (averageHPBoost == 0) return 0;
+		
+		final int costBoostHP = (int) (0.1*Math.signum(averageHPBoost)*Math.pow(Math.abs(averageHPBoost), 2) + 3*averageHPBoost);
+		return costBoostHP;
+	}
 }
