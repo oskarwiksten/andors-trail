@@ -49,6 +49,7 @@ public class CombatTraits {
 	public boolean hasBlockEffect() { return blockChance != 0; }
 	public boolean hasCriticalChanceEffect() { return criticalChance != 0; }
 	public boolean hasCriticalMultiplierEffect() { return criticalMultiplier != 0 && criticalMultiplier != 1; }
+	public boolean hasCriticalAttacks() { return hasCriticalChanceEffect() && hasCriticalMultiplierEffect(); }
 
 	public int getAttacksPerTurn(final int maxAP) {
 		return (int) Math.floor(maxAP / attackCost);

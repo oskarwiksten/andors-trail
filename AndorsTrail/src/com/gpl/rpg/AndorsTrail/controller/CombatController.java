@@ -378,7 +378,7 @@ public final class CombatController {
 		return getAverageDamagePerHit(attacker, target) * attacker.getAttacksPerTurn();
 	}
 	private static int getTurnsToKillTarget(ActorTraits attacker, ActorTraits target) {
-		if (attacker.hasCriticalMultiplierEffect()) {
+		if (attacker.hasCriticalAttacks()) {
 			if (attacker.damagePotential.max * attacker.criticalMultiplier <= target.damageResistance) return 999;
 		} else {
 			if (attacker.damagePotential.max <= target.damageResistance) return 999;
@@ -423,9 +423,9 @@ public final class CombatController {
 		
 		int damage = Constants.rollValue(attacker.traits.damagePotential);
 		boolean isCriticalHit = false;
-		if (attacker.traits.hasCriticalChanceEffect()) {
+		if (attacker.traits.hasCriticalAttacks()) {
 			isCriticalHit = Constants.roll100(attacker.traits.criticalChance);
-			if (isCriticalHit && attacker.traits.hasCriticalMultiplierEffect()) {
+			if (isCriticalHit) {
 				damage *= attacker.traits.criticalMultiplier;
 			}
 		}
