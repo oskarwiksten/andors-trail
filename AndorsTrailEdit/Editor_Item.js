@@ -92,7 +92,7 @@ function createItemEditor(obj) {
 		var equip_criticalChance = v("#equip_criticalChance");
 		var equip_criticalMultiplier = v("#equip_criticalMultiplier");
 		var costBC = Math.round(3*Math.pow(Math.max(0,equip_blockChance), 2.5) + 28*equip_blockChance);
-		var costAC = Math.round(0.4*Math.pow(Math.max(0,equip_attackChance), 2.5) - 7*Math.pow(Math.abs(Math.min(0,equip_attackChance)),2.7));
+		var costAC = Math.round(0.4*Math.pow(Math.max(0,equip_attackChance), 2.5) - 6*Math.pow(Math.abs(Math.min(0,equip_attackChance)),2.7));
 		var costAP = isWeapon ?
 				Math.round(0.2*Math.pow(10/equip_attackCost, 8) - 25*equip_attackCost)
 				: -3125 * equip_attackCost;
@@ -116,7 +116,7 @@ function createItemEditor(obj) {
 		var equip_moveCostPenalty = v("#equip_moveCostPenalty");
 		var costMaxHP = Math.round(30*Math.pow(Math.max(0,equip_boostMaxHP), 1.2) + 70*equip_boostMaxHP);
 		var costMaxAP = Math.round(50*Math.pow(Math.max(0,equip_boostMaxAP), 3) + 750*equip_boostMaxAP);
-		var costMovement = Math.round(10*Math.pow(Math.max(0,equip_moveCostPenalty), 2) + 350*equip_moveCostPenalty);
+		var costMovement = Math.round(510*Math.pow(Math.max(0,-equip_moveCostPenalty), 2.5) - 350*equip_moveCostPenalty);
 		var itemEquipCost = costCombat + costMaxHP + costMaxAP + costMovement;
 		
 		if (!cb("#hasEquipEffect")) { itemEquipCost = 0; }

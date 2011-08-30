@@ -10,7 +10,7 @@
 [searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {club1|items_tiles:126|Wooden club|0|||7|1||||5|10|||0|1|||||||||||||||||||||||};
 {club3|items_tiles:128|Iron club|0|||253|1||||6|5|||2|7|||||||||||||||||||||||};
-{ironsword0|items_tiles:70|Iron sword|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
+{ironsword0|items_tiles:70|Crude iron sword|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
 {hammer0|items_tiles:129|Iron hammer|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
 {hammer1|items_tiles:129|Giant hammer|0|||121|1||||10|5|||4|7|||||||||||||||||||||||};
 {dagger0|items_tiles:84|Iron dagger|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
@@ -33,18 +33,18 @@
 {ring_dmg2|items_tiles:267|Ring of damage +2|7|||398|1||||||||2|2|||||||||||||||||||||||};
 {ring_dmg5|items_tiles:268|Ring of damage +5|7|4||2014|1||||||||5|5|||||||||||||||||||||||};
 {ring_dmg6|items_tiles:269|Ring of damage +6|7|4||3186|1||||||||6|6|||||||||||||||||||||||};
-{ring_block1|items_tiles:266|Ring of block|7|4||1239|1||||||||||10||||||||||||||||||||||};
-{ring_block2|items_tiles:266|Ring of block|7|4||3866|1||||||||||15||||||||||||||||||||||};
+{ring_block1|items_tiles:266|Lesser ring of block|7|4||1239|1||||||||||10||||||||||||||||||||||};
+{ring_block2|items_tiles:266|Polished ring of block|7|4||3866|1||||||||||15||||||||||||||||||||||};
 {ring_atkch1|items_tiles:266|Ring of surehit|7|||215|1|||||15|||||||||||||||||||||||||||};
-{ring1|items_tiles:266|Mundane ring|7||1|13|||||||||||||||||||||||||||||||||};
-{ring2|items_tiles:266|Polished ring|7||1|21|||||||||||||||||||||||||||||||||};
+{ring1|items_tiles:266|Mundane ring|7||1|13|1||||||||0|1|||||||||||||||||||||||};
+{ring2|items_tiles:266|Polished ring|7||1|21|1||||||||||1||||||||||||||||||||||};
 {ring_jinxed1|items_tiles:268|Jinxed ring of damage resistance|7|||229|1||||||||||-9|1|||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_necklaces">
 [searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {jewel_fallhaven|items_tiles:272|Jewel of Fallhaven|6|4||3125|1||||-1||||||||||||||||||||||||||||};
-{necklace_shield1|items_tiles:273|Shielding necklace|6|4||935|1||||||||||9||||||||||||||||||||||};
+{necklace_shield1|items_tiles:273|Necklace of the guardian|6|4||935|1||||||||||9||||||||||||||||||||||};
 {necklace_shield2|items_tiles:273|Shielding necklace|6|4||1255|1||||||||||12||||||||||||||||||||||};
 	</string>
 	
@@ -59,15 +59,15 @@
 {armor4|items_tiles:184|Superior hard leather armour|3|||3866|1||||||||||15||||||||||||||||||||||};
 {hat1|items_tiles:189|Green hat|2|||13|1||||||||||1||||||||||||||||||||||};
 {hat2|items_tiles:189|Fine green hat|2|||25|1||||||||||2||||||||||||||||||||||};
-{hat3|items_tiles:192|Leather cap|2|||72|1||||||||||5||||||||||||||||||||||};
-{hat4|items_tiles:192|Fine leather cap|2|||146|1||||||||||6||||||||||||||||||||||};
+{hat3|items_tiles:192|Crude leather cap|2|||72|1||||||||||5||||||||||||||||||||||};
+{hat4|items_tiles:192|Leather cap|2|||146|1||||||||||6||||||||||||||||||||||};
 {gloves1|items_tiles:203|Leather gloves|4|||23|1||||||||||3||||||||||||||||||||||};
 {gloves2|items_tiles:203|Fine leather gloves|4|||38|1||||||||||4||||||||||||||||||||||};
 {gloves3|items_tiles:204|Snakeskin gloves|4|||72|1||||||||||5||||||||||||||||||||||};
 {gloves4|items_tiles:204|Fine snakeskin gloves|4|||146|1||||||||||6||||||||||||||||||||||};
 {shield1|items_tiles:168|Wooden buckler|1|||72|1|||||-2|||||5||||||||||||||||||||||};
 {shield3|items_tiles:169|Reinforced wooden buckler|1|||226|1|||||-5|||||7||||||||||||||||||||||};
-{shield4|items_tiles:170|Wooden shield|1|||464|1|||||-5|||||8||||||||||||||||||||||};
+{shield4|items_tiles:170|Crude wooden shield|1|||464|1|||||-5|||||8||||||||||||||||||||||};
 {shield5|items_tiles:170|Superior wooden shield|1|||624|1|||||-4|||||9||||||||||||||||||||||};
 {boots1|items_tiles:196|Leather boots|5|||23|1||||||||||3||||||||||||||||||||||};
 {boots2|items_tiles:196|Superior leather boots|5|||38|1||||||||||4||||||||||||||||||||||};
@@ -144,8 +144,7 @@
 {ring_mikhail|items_tiles:266|Mikhail\'s ring|7|||15|1|||||10|||||||||||||||||||||||||||};
 {neck_irogotu|items_tiles:273|Irogotu\'s necklace|6|3|1|30|1||||||||||5|1|||||||||||||||||||||};
 {ring_gandir|items_tiles:266|Gandir\'s ring|31|1|1|0|||||||||||||||||||||||||||||||||};
-{dagger_venom|items_tiles:87|Venomous Dagger|0|3||15|1||||4|16|5|2|1|2|||||||||||||||||||||||};
-{dagger_venom_old|items_tiles:87|Venomous Dagger|0|3|1|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
+{dagger_venom|items_tiles:87|Venomous Dagger|0|3||15|1||||4|10|5|2|1|2|||||||||||||||||||||||};
 {key_luthor|items_tiles:231|Key of Luthor|31|1|1|0|||||||||||||||||||||||||||||||||};
 {calomyran_secrets|items_tiles:406|Calomyran secrets|31|1|1|0|||||||||||||||||||||||||||||||||};
 {heartstone|items_tiles:216|Heartstone|31|1|1|0|||||||||||||||||||||||||||||||||};
@@ -163,7 +162,7 @@
 [searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {armor_chain1|items_tiles:185|Rusty chain mail|3|||3629|1|||||-9|||||20||||||||||||||||||||||};
 {armor_chain2|items_tiles:185|Ordinary chain mail|3|||4191|1|||||-10|||||22||||||||||||||||||||||};
-{hat_leather1|items_tiles:192|Hardened leather cap|2|||261|1|||||-2|||||7||||||||||||||||||||||};
+{hat_leather1|items_tiles:192|Ordinary leather cap|2|||261|1|||||-2|||||7||||||||||||||||||||||};
 {sleepingmead|items_tiles:51|Prepared sleepy mead|31|1|1|0|||||||||||||||||||||||||||||||||};
 {ffguard_qitem|items_tiles:266|Feygard patrol ring|31|1|1|0|||||||||||||||||||||||||||||||||};
 {shield6|items_tiles:171|Wooden tower shield|1|||952|1|||||-6|||||12||||||||||||||||||||||};
@@ -175,7 +174,7 @@
 {ring_crit1|items_tiles:266|Ring of strike|7|4||2921|1||||||5||||||||||||||||||||||||||};
 {ring_crit2|items_tiles:266|Ring of vicious strike|7|4||3455|1|||||-3|7||||||||||||||||||||||||||};
 {armor_stone|items_tiles:185|Stone Cuirass|3|3||52|1||||2||||||22|1|||||||||||||||||||||};
-{ring_shadow0|items_tiles:268|Ring of lesser Shadow|7|2|1|0|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
+{ring_shadow0|items_tiles:268|Ring of lesser Shadow|7|2|1|0|1|||||25|6||4|7|5||{{regen|1|}}||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v069">
@@ -196,7 +195,7 @@
 {bwm_combat_ring|items_tiles:268|Blackwater ring of combat|7|4|1|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_brew|items_tiles:51|Blackwater brew|20||1|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
 {woodcutter_hatchet|items_tiles:141|Woodcutter\'s hatchet|0|||0|1||||6|9|||6|12|||||||||||||||||||||||};
-{woodcutter_boots|items_tiles:198|Woodcutter\'s boots|5|||481|1|1|||||||||8||||||||||||||||||||||};
+{woodcutter_boots|items_tiles:198|Woodcutter\'s boots|5|||873|1|1||||3|||||8||||||||||||||||||||||};
 {heavy_club|items_tiles:128|Heavy club|0|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
 
 {pot_speed_1|items_tiles:41|Minor potion of speed|20||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
@@ -223,6 +222,83 @@
 {q_kazaul_vial|items_tiles:57|Vial of purifying spirit|31|1|1|0|||||||||||||||||||||||||||||||||};
 {guthbered_id|items_tiles:266|Guthbered\'s ring|31|1|1|0|||||||||||||||||||||||||||||||||};
 {harlenn_id|items_tiles:266|Harlenn\'s ring|31|1|1|0|||||||||||||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0610_1">
+[searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{dagger_shadow_priests|items_tiles:87|Dagger of the Shadow priests|0|3|1|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
+{sword_hard_iron|items_tiles:70|Hardened iron sword|0||0|369|1||||5|15|||2|4|||||||||||||||||||||||};
+{club_fine_wooden|items_tiles:126|Fine wooden club|0||0|245|1||||5|12|||0|7|||||||||||||||||||||||};
+{axe_fine_iron|items_tiles:140|Fine iron axe|0||0|365|1||||6|9|||4|6|||||||||||||||||||||||};
+{longsword_hard_iron|items_tiles:71|Hardened iron longsword|0||0|362|1||||5|14|||2|6|||||||||||||||||||||||};
+{broadsword_fine_iron|items_tiles:75|Fine iron broadsword|0||0|422|1||||7|5|||4|10|||||||||||||||||||||||};
+{dagger_sharp_steel|items_tiles:84|Sharp steel dagger|0||0|1428|1||||4|24|||2|4|||||||||||||||||||||||};
+{sword_balanced_steel|items_tiles:77|Balanced steel sword|0||0|2797|1||||4|32|||3|7|||||||||||||||||||||||};
+{broadsword_fine_steel|items_tiles:76|Fine steel broadsword|0||0|1206|1||||6|20|||4|11|||||||||||||||||||||||};
+{sword_defenders|items_tiles:72|Defender\'s blade|0||0|1711|1||||5|26|||3|7|3||||||||||||||||||||||};
+{sword_villains|items_tiles:86|Villain\'s blade|0||0|1665|1||||4|20|5|3|1|2|||||||||||||||||||||||};
+{sword_challengers|items_tiles:71|Challenger\'s iron sword|0||0|785|1||||5|20|||2|6|||||||||||||||||||||||};
+{sword_fencing|items_tiles:83|Fencing blade|0||0|922|1||||4|14|||2|5|5||||||||||||||||||||||};
+{club_brutal|items_tiles:128|Brutal club|0||0|2522|1||||7|20|5|3|2|21|||||||||||||||||||||||};
+{axe_gutsplitter|items_tiles:142|Gutsplitter|0||0|2733|1||||6|21|||7|17|||||||||||||||||||||||};
+{hammer_skullcrusher|items_tiles:129|Skullcrusher|0||0|3142|1||||7|20|5|3|0|26|||||||||||||||||||||||};
+{shield_crude_wooden|items_tiles:168|Crude wooden buckler|1||0|31|1||||||||||1||||||||||||||||||||||};
+{shield_cracked_wooden|items_tiles:168|Cracked wooden buckler|1||0|34|1|||||-2|||||2||||||||||||||||||||||};
+{shield_wooden_buckler|items_tiles:168|Second-hand wooden buckler|1||0|92|1|||||-2|||||3||||||||||||||||||||||};
+{shield_wooden|items_tiles:170|Wooden shield|1||0|514|1|||||-4|||||8||||||||||||||||||||||};
+{shield_wooden_defender|items_tiles:170|Wooden defender|1||0|1996|1|||||-8|-5||||14|1|||||||||||||||||||||};
+{hat_hard_leather|items_tiles:192|Hardened leather cap|2||0|648|1|||||-3|-1||||8||||||||||||||||||||||};
+{hat_fine_leather|items_tiles:192|Fine leather cap|2||0|846|1|||||-3|-2||||9||||||||||||||||||||||};
+{hat_leather_vision|items_tiles:192|Leather cap of reduced vision|2||0|971|1|||||-3|-4||||10||||||||||||||||||||||};
+{helm_crude_iron|items_tiles:193|Crude iron helmet|2||0|1120|1|||||-3|-5||||11||||||||||||||||||||||};
+{shirt_torn|items_tiles:182|Torn shirt|3||0|92|1|||||-2|||||3||||||||||||||||||||||};
+{shirt_weathered|items_tiles:182|Weathered shirt|3||0|125|1|||||-1|||||3||||||||||||||||||||||};
+{shirt_patched_cloth|items_tiles:182|Patched cloth shirt|3||0|208|1||||||||||4||||||||||||||||||||||};
+{armour_crude_leather|items_tiles:184|Crude leather armour|3||0|514|1|||||-4|||||8||||||||||||||||||||||};
+{armour_firm_leather|items_tiles:184|Firm leather armour|3||0|417|1|||1|||||||8||||||||||||||||||||||};
+{armour_rigid_leather|items_tiles:184|Rigid leather armour|3||0|625|1|||1||-1|||||9||||||||||||||||||||||};
+{armour_rigid_chain|items_tiles:185|Rigid chain mail|3||0|4667|1||||1|-5|||||23||||||||||||||||||||||};
+{armour_superior_chain|items_tiles:185|Superior chain mail|3||0|5992|1|||||-9|||||23||||||||||||||||||||||};
+{armour_chain_champ|items_tiles:185|Champion\'s chain mail|3||0|6808|1|2||||-9|-5||||24||||||||||||||||||||||};
+{armour_leather_villain|items_tiles:184|Villain\'s leather armour|3||0|3700|1|||-1||-4|3||||15||||||||||||||||||||||};
+{armour_misfortune|items_tiles:183|Leather shirt of misfortune|3||0|2459|1|||||-5|||-1|-1|15||||||||||||||||||||||};
+{gloves_barbrawler|items_tiles:203|Bar brawler\'s gloves|4||0|95|1|||||5|||||2||||||||||||||||||||||};
+{gloves_fumbling|items_tiles:203|Gloves of fumbling|4||0|-432|1|||||-5|||||1||||||||||||||||||||||};
+{gloves_crude_cloth|items_tiles:203|Crude cloth gloves|4||0|31|1||||||||||1||||||||||||||||||||||};
+{gloves_crude_leather|items_tiles:203|Crude leather gloves|4||0|180|1|||||-4|||||6||||||||||||||||||||||};
+{gloves_troublemaker|items_tiles:204|Troublemaker\'s gloves|4||0|501|1|1||||7|4||||4||||||||||||||||||||||};
+{gloves_guards|items_tiles:205|Guard\'s gloves|4||0|636|1|3||||3|||||5||||||||||||||||||||||};
+{gloves_leather_attack|items_tiles:203|Leather gloves of attack|4||0|510|1|3||||13|||||-2||||||||||||||||||||||};
+{boots_crude_leather|items_tiles:196|Crude leather boots|5||0|31|1||||||||||1||||||||||||||||||||||};
+{boots_sewn|items_tiles:196|Sewn footwear|5||0|73|1||||||||||2||||||||||||||||||||||};
+{boots_coward|items_tiles:196|Coward\'s boots|5||0|933|1|||-1|||||||2||||||||||||||||||||||};
+{boots_hard_leather|items_tiles:198|Hardened leather boots|5||0|626|1|||1||-4|||||10||||||||||||||||||||||};
+{boots_defender|items_tiles:198|Defender\'s boots|5||0|1190|1|2|||||||||9||||||||||||||||||||||};
+{necklace_shield_0|items_tiles:273|Lesser shielding necklace|6||0|131|1||||||||||3||||||||||||||||||||||};
+{necklace_strike|items_tiles:272|Necklace of strike|6||0|832|1|5|||||5||||||||||||||||||||||||||};
+{necklace_defender_stone|items_tiles:273|Defender\'s stone|6|4|0|1325|1|||||||||||1|||||||||||||||||||||};
+{necklace_protector|items_tiles:273|Necklace of the protector|6|4|0|3207|1|5||||||||||2|||||||||||||||||||||};
+{ring_crude_combat|items_tiles:266|Crude combat ring|7||0|44|1|||||5|||0|1|||||||||||||||||||||||};
+{ring_crude_surehit|items_tiles:266|Crude ring of surehit|7||0|52|1|||||7|||||||||||||||||||||||||||};
+{ring_crude_block|items_tiles:266|Crude ring of block|7||0|73|1||||||||||2||||||||||||||||||||||};
+{ring_rough_life|items_tiles:266|Rough ring of life force|7||0|100|1|1|||||||||||||||||||||||||||||||};
+{ring_fumbling|items_tiles:266|Ring of fumbling|7||0|-463|1|||||-5|||||||||||||||||||||||||||};
+{ring_rough_damage|items_tiles:266|Rough ring of damage|7||0|56|1||||||||0|2|||||||||||||||||||||||};
+{ring_barbrawler|items_tiles:266|Bar brawler\'s ring|7||0|222|1|||||12|||0|1|||||||||||||||||||||||};
+{ring_dmg_3|items_tiles:266|Ring of damage +3|7||0|624|1||||||||3|3|||||||||||||||||||||||};
+{ring_life|items_tiles:266|Ring of life force|7||0|557|1|5|||||||||||||||||||||||||||||||};
+{ring_taverbrawler|items_tiles:266|Tavern brawler\'s ring|7||0|314|1|||||12|||0|3|||||||||||||||||||||||};
+{ring_defender|items_tiles:266|Defender\'s ring|7||0|755|1|||||-6|||||11||||||||||||||||||||||};
+{ring_challenger|items_tiles:266|Challenger\'s ring|7||0|408|1|||||12|||||4||||||||||||||||||||||};
+{ring_dmg_4|items_tiles:268|Ring of damage +4|7||0|1168|1||||||||4|4|||||||||||||||||||||||};
+{ring_troublemaker|items_tiles:268|Troublemaker\'s ring|7||0|797|1|||||15|||2|4|||||||||||||||||||||||};
+{ring_guardian|items_tiles:268|Ring of the guardian|7|4|0|1489|1|||||19|||3|5|||||||||||||||||||||||};
+{ring_block|items_tiles:268|Ring of block|7|4|0|2192|1||||||||||13||||||||||||||||||||||};
+{ring_backstab|items_tiles:268|Ring of backstabbing|7||0|1363|1|||||17|7||||3||||||||||||||||||||||};
+{ring_polished_combat|items_tiles:268|Polished combat ring|7|4|0|1346|1|5||||15|||1|5|||||||||||||||||||||||};
+{ring_villain|items_tiles:268|Villain\'s ring|7|4|0|2750|1|4||||25|||3|6|||||||||||||||||||||||};
+{ring_polished_backstab|items_tiles:268|Polished ring of backstabbing|7|4|0|2731|1|||||21|7||4|4|||||||||||||||||||||||};
+{ring_protector|items_tiles:270|Ring of the protector|7|4|0|3744|1|3||||20|||0|3|14||||||||||||||||||||||};
 	</string>
 
 </resources>

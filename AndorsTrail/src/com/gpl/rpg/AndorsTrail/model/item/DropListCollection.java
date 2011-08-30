@@ -2,9 +2,14 @@ package com.gpl.rpg.AndorsTrail.model.item;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map.Entry;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
+import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectArrayTokenizer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
@@ -76,5 +81,22 @@ public final class DropListCollection {
 			}
 		}
 		return false;
+	}
+
+	// Selftest method. Not part of the game logic.
+	public void verifyData(MonsterTypeCollection monsterTypes, ConversationCollection conversations, MapCollection maps) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			HashSet<DropList> usedDroplists = new HashSet<DropList>();
+			monsterTypes.DEBUG_getUsedDroplists(usedDroplists);
+			conversations.DEBUG_getUsedDroplists(usedDroplists);
+			maps.DEBUG_getUsedDroplists(usedDroplists);
+			usedDroplists.add(getDropList(DropListCollection.DROPLIST_STARTITEMS));
+			
+			for (Entry<String, DropList> e : droplists.entrySet()) {
+				if (!usedDroplists.contains(e.getValue())) {
+					L.log("OPTIMIZE: Droplist " + e.getKey() + " is not used by any monster or conversation phrase.");
+				}
+			}
+		}	
 	}
 }

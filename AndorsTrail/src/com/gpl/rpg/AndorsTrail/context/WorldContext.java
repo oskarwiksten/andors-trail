@@ -87,12 +87,14 @@ public class WorldContext {
 			//Ensure that all NPCs that have a trading conversation also have a droplist
 			monsterTypes.verifyData(conversations);
 			
-			//TODO: Ensure that all items have at least one corresponding droplist
-			//TODO: Ensure that all droplists are used by monsters
+			//Ensure that all items have at least one corresponding droplist
+			itemTypes.verifyData(dropLists);
+			
+			//Ensure that all droplists are used by monsters
+			dropLists.verifyData(monsterTypes, conversations, maps);
+			
 			//TODO: Ensure that all monsters are used in spawnareas
 
-			
-			//TODO: check for npcs having shop phrases without droplist
 		}
 	}
 }

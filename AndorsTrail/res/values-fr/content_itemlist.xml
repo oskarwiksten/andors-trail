@@ -35,8 +35,8 @@
 {ring_block1|items_tiles:266|Anneau de blocage|7|4||1239|1||||||||||10||||||||||||||||||||||};
 {ring_block2|items_tiles:266|Anneau de blocage|7|4||3866|1||||||||||15||||||||||||||||||||||};
 {ring_atkch1|items_tiles:266|Anneau du coup sûr|7|||215|1|||||15|||||||||||||||||||||||||||};
-{ring1|items_tiles:266|Anneau ordinaire|7||1|13|||||||||||||||||||||||||||||||||};
-{ring2|items_tiles:266|Anneau poli|7||1|21|||||||||||||||||||||||||||||||||};
+{ring1|items_tiles:266|Anneau ordinaire|7||1|13|1||||||||0|1|||||||||||||||||||||||};
+{ring2|items_tiles:266|Anneau poli|7||1|21|1||||||||||1||||||||||||||||||||||};
 {ring_jinxed1|items_tiles:268|Anneau ensorcelé de résistance aux dégâts|7|||229|1||||||||||-9|1|||||||||||||||||||||};
 	</string>
 
@@ -143,8 +143,7 @@
 {ring_mikhail|items_tiles:266|Anneau de Mikhail|7|||15|1|||||10|||||||||||||||||||||||||||};
 {neck_irogotu|items_tiles:273|Collier d\'Irogotu|6|3|1|30|1||||||||||5|1|||||||||||||||||||||};
 {ring_gandir|items_tiles:266|Anneau de Gandir|31|1|1|0|||||||||||||||||||||||||||||||||};
-{dagger_venom|items_tiles:87|Dague empoisonnée|0|3||15|1||||4|16|5|2|1|2|||||||||||||||||||||||};
-{dagger_venom_old|items_tiles:87|Dague empoisonnée|0|3|1|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
+{dagger_venom|items_tiles:87|Dague empoisonnée|0|3||15|1||||4|10|5|2|1|2|||||||||||||||||||||||};
 {key_luthor|items_tiles:231|Clef de Luthor|31|1|1|0|||||||||||||||||||||||||||||||||};
 {calomyran_secrets|items_tiles:406|Les secrets de Calomyran|31|1|1|0|||||||||||||||||||||||||||||||||};
 {heartstone|items_tiles:216|Cœur de pierre|31|1|1|0|||||||||||||||||||||||||||||||||};
@@ -174,7 +173,7 @@
 {ring_crit1|items_tiles:266|Anneau d\'attaque|7|4||2921|1||||||5||||||||||||||||||||||||||};
 {ring_crit2|items_tiles:266|Anneau d\'attaque vicieuse|7|4||3455|1|||||-3|7||||||||||||||||||||||||||};
 {armor_stone|items_tiles:185|Cuirasse de pierre|3|3||52|1||||2||||||22|1|||||||||||||||||||||};
-{ring_shadow0|items_tiles:268|Anneau de l\'Ombre Mineure|7|2|1|0|1|||||15|5||3|3|||{{regen|1|}}||||||||||||||||||||};
+{ring_shadow0|items_tiles:268|Anneau de l\'Ombre Mineure|7|2|1|0|1|||||25|6||4|7|5||{{regen|1|}}||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v069">
@@ -195,7 +194,7 @@
 {bwm_combat_ring|items_tiles:268|Anneau de combat de Blackwater|7|4|1|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_brew|items_tiles:51|Infusion de Blackwater|20||1|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
 {woodcutter_hatchet|items_tiles:141|Hachette du bûcheron|0|||0|1||||6|9|||6|12|||||||||||||||||||||||};
-{woodcutter_boots|items_tiles:198|Bottes du bûcheron|5|||481|1|1|||||||||8||||||||||||||||||||||};
+{woodcutter_boots|items_tiles:198|Bottes du bûcheron|5|||873|1|1||||3|||||8||||||||||||||||||||||};
 {heavy_club|items_tiles:128|Bâton lourd|0|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
 
 {pot_speed_1|items_tiles:41|Potion mineure de rapidité|20||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};

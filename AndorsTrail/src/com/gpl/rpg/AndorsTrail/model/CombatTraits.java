@@ -70,7 +70,7 @@ public class CombatTraits {
 	
 	public int calculateCost(boolean isWeapon) {
 		final int costBC = (int) (3*Math.pow(Math.max(0, blockChance), 2.5) + 28*blockChance);
-		final int costAC = (int) (0.4*Math.pow(Math.max(0,attackChance), 2.5) - 7*Math.pow(Math.abs(Math.min(0,attackChance)),2.7));
+		final int costAC = (int) (0.4*Math.pow(Math.max(0,attackChance), 2.5) - 6*Math.pow(Math.abs(Math.min(0,attackChance)),2.7));
 		final int costAP = isWeapon ?
 				(int) (0.2*Math.pow(10.0f/attackCost, 8) - 25*attackCost)
 				: -3125 * attackCost;

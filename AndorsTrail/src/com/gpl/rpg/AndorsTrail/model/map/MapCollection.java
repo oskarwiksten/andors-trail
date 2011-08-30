@@ -8,6 +8,7 @@ import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class MapCollection {
@@ -134,6 +135,17 @@ public final class MapCollection {
 						if (o.id == null || o.id.length() <= 0) continue;
 						usedPhrases.add(o.id);
 					}
+				}
+			}
+		}
+	}
+
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getUsedDroplists(HashSet<DropList> usedDropLists) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (PredefinedMap m : predefinedMaps) {
+				for (MapObject o : m.eventObjects) {
+					if (o.dropList != null) usedDropLists.add(o.dropList);
 				}
 			}
 		}

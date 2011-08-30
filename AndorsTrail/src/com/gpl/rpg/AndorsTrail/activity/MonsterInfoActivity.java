@@ -60,7 +60,11 @@ public final class MonsterInfoActivity extends Activity {
         		null);
         RangeBar hp = (RangeBar) findViewById(R.id.monsterinfo_healthbar);
         hp.init(R.drawable.ui_progress_health, R.string.status_hp);
-        hp.update(new Range(monsterType.maxHP, monsterType.maxHP)); //TODO: Should show actual monster HP.
+        int currentHP = 
+        	world.model.uiSelections.selectedMonster == null ?
+        			monsterType.maxHP :
+        			world.model.uiSelections.selectedMonster.health.current;
+        hp.update(new Range(monsterType.maxHP, currentHP));
     }
 
 	public static int getMonsterDifficultyResource(WorldContext world, MonsterType monsterType) {

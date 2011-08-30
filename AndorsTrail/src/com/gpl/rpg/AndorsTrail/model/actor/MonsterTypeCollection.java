@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
@@ -136,6 +137,15 @@ public final class MonsterTypeCollection {
     		return requiredPhrases;
     	} else {
     		return null;
+    	}
+	}
+	
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getUsedDroplists(HashSet<DropList> usedDroplists) {
+    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+    		for (MonsterType t : monsterTypes.values()) {
+    			if (t.dropList != null) usedDroplists.add(t.dropList);
+    		}
     	}
 	}
 }

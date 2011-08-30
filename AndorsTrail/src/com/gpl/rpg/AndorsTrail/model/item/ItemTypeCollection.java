@@ -113,5 +113,16 @@ public final class ItemTypeCollection {
 			}
 		});
     }
+	
+	// Selftest method. Not part of the game logic.
+	public void verifyData(DropListCollection dropLists) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (ItemType t : itemTypes) {
+				if (dropLists.verifyExistsDroplist(t.id)) continue;
+				//if (conversations.verifyExistsReplyThatRequiresItem(t.id)) continue;
+				L.log("OPTIMIZE: Item " + t.searchTag + " is not dropped by any droplist.");
+			}	
+		}
+	}
 }
   

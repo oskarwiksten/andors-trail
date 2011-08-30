@@ -8,6 +8,7 @@ import java.util.Map.Entry;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
@@ -263,5 +264,13 @@ public final class ConversationCollection {
 			}
 		}
 		return false;
+	}
+
+	public void DEBUG_getUsedDroplists(HashSet<DropList> usedDropLists) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (Phrase p : phrases.values()) {
+				if (p.rewardDropList != null) usedDropLists.add(p.rewardDropList);
+			}
+		}
 	}
 }
