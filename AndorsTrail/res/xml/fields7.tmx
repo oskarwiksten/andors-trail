@@ -81,13 +81,19 @@
     <property name="place" value="north"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="832" y="96" width="32" height="64">
+  <object name="east" type="mapchange" x="832" y="96" width="32" height="64">
    <properties>
     <property name="map" value="fields11"/>
-    <property name="place" value="south"/>
+    <property name="place" value="west"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="27" height="24"/>
+ <objectgroup name="Spawn" width="27" height="24">
+  <object name="fieldcritter_1" type="spawn" x="64" y="320" width="576" height="384">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="27" height="24"/>
 </map>

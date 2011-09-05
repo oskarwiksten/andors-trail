@@ -63,19 +63,35 @@
    eJxjYCAP/GcmTv49keoIqSFkDrFm0ULdJ0bi1BEDALGACeY=
   </data>
  </layer>
- <layer name="Walkable" width="10" height="10" visible="0">
+ <layer name="Walkable" width="10" height="10">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEKQDZiBCHhkQkidVHQOJakixU5CAHCkYAMRdBHQ=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="10" height="10">
-  <object name="north" type="mapchange" x="192" y="64" width="32" height="32">
+  <object name="up" type="mapchange" x="192" y="64" width="32" height="32">
    <properties>
     <property name="map" value="wild0"/>
-    <property name="place" value="west"/>
+    <property name="place" value="down"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="10"/>
+ <objectgroup name="Spawn" width="10" height="10">
+  <object name="larva_2" type="spawn" x="64" y="128" width="224" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="larva_2" type="spawn" x="64" y="128" width="160" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="larva_boss" type="spawn" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="10" height="10"/>
 </map>

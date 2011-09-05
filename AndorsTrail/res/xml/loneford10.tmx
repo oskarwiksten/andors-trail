@@ -60,22 +60,45 @@
  </layer>
  <layer name="Above" width="11" height="11">
   <data encoding="base64" compression="zlib">
-   eJxjYCAN/GcmXm6kqCVkDj617/Hw0eXIBQCHlhP5
+   eJxjYCAN/GcmXm4oqBVip9xcbHKcOMxFV/seyLdnR+VjY1MCAMDFFGg=
   </data>
  </layer>
- <layer name="Walkable" width="11" height="11" visible="0">
+ <layer name="Walkable" width="11" height="11">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzkmIECtbgAPrXY+AOtFt3tpGAAU6IF+w==
+   eJwTZGBgEBzkmIFEtQxY+OgAm7m49A4GtehuJwUDAEGSBeo=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="11" height="11">
-  <object name="south" type="mapchange" x="64" y="256" width="32" height="32">
+  <object name="up" type="mapchange" x="64" y="256" width="32" height="32">
    <properties>
     <property name="map" value="loneford3"/>
-    <property name="place" value="north"/>
+    <property name="place" value="down"/>
+   </properties>
+  </object>
+  <object name="rest1" type="rest" x="288" y="128" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Spawn" width="11" height="11">
+  <object name="arngyr" type="spawn" x="160" y="288" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="loneford_guard0" type="spawn" x="32" y="160" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="loneford_guard0" type="spawn" x="192" y="160" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="11" height="11"/>
- <objectgroup name="Keys" width="11" height="11"/>
+ <objectgroup name="Keys" width="11" height="11">
+  <object name="lonefordsleep:100" type="key" x="224" y="288" width="32" height="32">
+   <properties>
+    <property name="phrase" value="loneford_tavern_room"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

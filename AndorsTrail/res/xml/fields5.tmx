@@ -60,12 +60,12 @@
  </layer>
  <layer name="Above" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJxjYKAMaLAi2OZAtgUrbrWU2KGOZi417UE3m1ZAg072EAIg/9LDLch2IIcxLD5p6QZsaWY4Alx5w3wA/E6PeMUHqFkmtLFQzyxqA1qUsYMN0KouGQxgMKctWgPk8mETMwODOAsESwCxGB4apm4j88C6f6gASstgctPocM2zo4A6YCSXfUMBAAByFAsK
+   eJxjYKAMaLAi2OZAtgUrbrWU2KGOZi417UE3m1ZAg072EAIg/9LDLch2IIcxLD5p6QZsaWY4Alx5w3wA/E6PeMUHqFkmtLFQzyxqA1qUsYMN0KouIRZEAO1OIBJ7kOjOwZi2aOlfZIBcPmxiZmAQZ4FgCSAWw0PD1G1kpo5/hzugtAwmN42OhLJpFJAPBmPZNwoQAACZARRC
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzlk0EOACEIA/mC//+sJy9G1lqKmGwTLwaZAtLMrP34DKFxSCySwxb3uzhFnTsPKh5SbwYTnauSi+ZRM5FcKuasbK4n1SxQHsJla/U4CFfJ9KRgslIzGS+Zva1QlcevmWTs6orL/qeoKpgvcFlm1EfFrr7MZPflJhf1FmGyfk64kZrnt7f7O9QBQuYgAw==
+   eJzl00sOwCAIBFCu4P0v25UbI3EYBjHpJN006gM/w8zGj78ZdBwyFlnDNv9P4xR9nmpQeUi/FSZ6rkoXXUdtImupzDXVrhfVWaAe4rK9eg7iKk0vCpON2mRqqdzbjmTeVfYeKcyovbs/UTubDvMFlzWzdXS81ZdN9r3cdNHaMiZbT8TN9LzOvb2/Mx8ACSDP
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="30">
@@ -82,6 +82,16 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="fieldcritter_1" type="spawn" x="256" y="704" width="352" height="192"/>
+  <object name="fieldcritter_0" type="spawn" x="512" y="800" width="352" height="96"/>
+  <object name="fieldcritter_1" type="spawn" x="640" y="224" width="256" height="192"/>
+  <object name="fieldcritter_0" type="spawn" x="704" y="288" width="192" height="288"/>
+  <object name="feygard_bridgeguard" type="spawn" x="416" y="512" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

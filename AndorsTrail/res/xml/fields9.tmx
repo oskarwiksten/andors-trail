@@ -75,10 +75,10 @@
     <property name="place" value="west1"/>
    </properties>
   </object>
-  <object name="down" type="mapchange" x="32" y="448" width="896" height="32">
+  <object name="south" type="mapchange" x="32" y="448" width="896" height="32">
    <properties>
     <property name="map" value="roadtocarntower1"/>
-    <property name="place" value="up"/>
+    <property name="place" value="north"/>
    </properties>
   </object>
   <object name="north" type="mapchange" x="416" y="0" width="544" height="32">
@@ -100,6 +100,20 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15"/>
+ <objectgroup name="Spawn uniques" width="30" height="15">
+  <object name="fieldwasp_unique" type="spawn" x="64" y="128" width="832" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn monsters" width="30" height="15" visible="0">
+  <object name="fieldwasp_2" type="spawn" x="64" y="128" width="832" height="288">
+   <properties>
+    <property name="quantity" value="6"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="15"/>
 </map>

@@ -112,6 +112,19 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15"/>
+ <objectgroup name="Spawn uniques" width="30" height="15">
+  <object name="fieldwasp_unique" type="spawn" x="64" y="128" width="832" height="288">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn monsters" width="30" height="15" visible="0">
+  <object name="fieldwasp_1" type="spawn" x="64" y="128" width="832" height="288">
+   <properties>
+    <property name="quantity" value="6"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="15"/>
 </map>

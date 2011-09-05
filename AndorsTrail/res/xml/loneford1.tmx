@@ -106,6 +106,20 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn uniques" width="30" height="30">
+  <object name="tinlyn_lostsheep" type="spawn" x="32" y="32" width="800" height="128">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="loneford_farmer0" type="spawn" x="32" y="192" width="768" height="608">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn monsters" width="30" height="30">
+  <object name="fieldcritter_2" type="spawn" x="64" y="64" width="768" height="96"/>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

@@ -112,6 +112,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15"/>
+ <objectgroup name="Spawn" width="30" height="15">
+  <object name="fieldwasp_0" type="spawn" x="64" y="160" width="64" height="256"/>
+  <object name="rolwynn" type="spawn" x="416" y="32" width="512" height="416">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="15"/>
 </map>

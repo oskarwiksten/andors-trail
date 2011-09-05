@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJy9VTtOxDAQTRR7uQAlPRwggpRbASUdB4AG0dJAl88CBR30FKQGIU6wooB2uRBklIzyPJ6YbJB4kuVZx/PefGxvaiMPC+OvTVmX39hOQTMV+oVx1yrj+kqtUvBXRv8muWrBVwRyGAOOmflyyJV0mZ91y4F8QjhL3N8nv/hi/hRHPjHHy0b3qhnnAX3s2dbM72tJdWjGs3LexuBO+OXKudL23zfzQ2cfQPzfie+DeJy180sz39i+b4RaOVdca9Z9Ip/OPgatj8b+TNx5XWBtrwfqyXW+te2Q2NyIolfbzmgzKMeFGb4XHAPPsq+V8OOakcYSdJegK30k5H3W+AmF8XtEGivQXYl8+U3A2uK5ku+QdpdC8Y0F8lJvMZ6jOIp2YVzEw76EInBmTzuOw9jf/2b7fGltX+ggJG898CbI+JgT97xbt4a8p1A4tTsv85f/DciJ+LJuXTOITebHqAJnRcNc9I5HCLlZ7/9hD+LJOlu7v3jPsoH3g/cQJ+9B+6/YsW68/wWKf3uibmb7Gmixa99/AFmCUxY=
+   eJy9VTtOxTAQTBT7cQFKejhABCmpgJKOA0CDaGmgS14eUNBBT0FqEOIETxTQPi4EWSWrTMaOIUFiJMsb27uzO/4ktZGDhXHHpozznNopcKbEX1Cs0vR9mWtO8Uvjn+NYFcUTXs5lDNRX4+VQq/BqXco7H6gnhNOk/338gy/WL3nkI7gQFzXvZd3OAvyo3cbM1XIuOtTtaaLGt+SXe86Vb/1d3d+39j7k/5W4PoiHWdM/1/217fZNUHnOlWqtvI/i09pHwPVe2x9Jvx8L1PZqQE/V+cY2jbG+FkUvtunRVkiNC+PeR85Be97XkvxUM+FYAu8SeNmHwffZF19QGHePhGMFvCuqV98E1BbPFb9DvrsUyu+3wLiyt5jPYRxF29DO42FfQRE4sydtjIPYXf9qu3plbI94EBy3GngTOD+NiWvebF9DXVN4YvruPNfP/waMifi0fV0zyI3rU5SBs+LDLu2dthByM+7/sAP5ZK3tu794z7KB90PXSExdg/ZfsWX7+f4XJP/NibyZ7TTw5e6b/wY+ylMW
   </data>
  </layer>
  <layer name="Above" width="30" height="20">
@@ -63,28 +63,28 @@
    eJxjYBgFMGDCSJw6IyLVEQtciDTPCagui5l69tLTv82sDAwtrBA2Kf6lFEwG2jmFFVP8OjActzOj0jDwn4phjA7e4zEbnxwtACc7fe2DgR9sCPZ3NtzqRsEoGIpAHVjeaLAiaHyAWHXIanCxidVPiXth6tHdj87HJY4PoOvFZdZQAgDpARPF
   </data>
  </layer>
- <layer name="Walkable" width="30" height="20" visible="0">
+ <layer name="Walkable" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJzNVW0KQCEI8wre/7Lx/krzY5avgWBSumyhyjwU+F5sCkqYCOacvQtbNwuPH2sov8dPzR4mfwZIVxE3+57VXu/OIa10a1g/4sHkiThE+j9dt4NK314A889P1Z3KU9XCjX6wWnhJKx8q86G6z/N3axTvzLPOrPrLFiSPC6A=
+   eJzNVVsKACAI8wre/7LRb/jceg0CC3NqC1XuQx37NRRcIn4d1fpQ3iqi/Ji6rfhRfrr4IPErsPyz3lnv2e21dc/TCsux2lkeSJwsh0z/u3kZdPr2A5B/vov3VpyuFk70A9XCT1qZ6MyHrl9kW3vvnJlnzKx6tQYclwug
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="20">
-  <object name="north" type="mapchange" x="928" y="32" width="32" height="96">
+  <object name="east1" type="mapchange" x="928" y="32" width="32" height="96">
    <properties>
     <property name="map" value="roadtocarntower0"/>
-    <property name="place" value="north"/>
+    <property name="place" value="west1"/>
    </properties>
   </object>
-  <object name="east" type="mapchange" x="928" y="160" width="32" height="192">
+  <object name="east2" type="mapchange" x="928" y="160" width="32" height="192">
    <properties>
     <property name="map" value="roadtocarntower0"/>
-    <property name="place" value="west"/>
+    <property name="place" value="west2"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="928" y="480" width="32" height="96">
+  <object name="east3" type="mapchange" x="928" y="480" width="32" height="96">
    <properties>
     <property name="map" value="roadtocarntower0"/>
-    <property name="place" value="south"/>
+    <property name="place" value="west3"/>
    </properties>
   </object>
   <object name="left1" type="mapchange" x="0" y="32" width="32" height="128">
@@ -111,13 +111,46 @@
     <property name="place" value="north2"/>
    </properties>
   </object>
-  <object name="up" type="mapchange" x="32" y="0" width="896" height="32">
+  <object name="north" type="mapchange" x="32" y="0" width="896" height="32">
    <properties>
     <property name="map" value="fields9"/>
-    <property name="place" value="down"/>
+    <property name="place" value="south"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20"/>
+ <objectgroup name="Spawn" width="30" height="20">
+  <object name="hadracor" type="spawn" x="384" y="224" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="woodcutter_0" type="spawn" x="576" y="160" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="woodcutter_2" type="spawn" x="704" y="192" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="woodcutter_3" type="spawn" x="608" y="288" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="woodcutter_4" type="spawn" x="192" y="224" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="woodcutter_5" type="spawn" x="256" y="288" width="288" height="96">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="fox1" type="spawn" x="192" y="480" width="480" height="128"/>
+  <object name="fieldwasp_0" type="spawn" x="832" y="32" width="96" height="320"/>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="20"/>
 </map>

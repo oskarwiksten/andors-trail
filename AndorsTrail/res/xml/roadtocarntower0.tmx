@@ -63,7 +63,7 @@
    eJxjYBgFo2AUjIJRMApGAT6gzsrAoMFKmE9IHTFmI4sT0ocOCNkFU4OsF9nd+MTR5XGZS6o+UgA1zaIUEHILAHyoBsg=
   </data>
  </layer>
- <layer name="Walkable" width="30" height="20" visible="0">
+ <layer name="Walkable" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJzdVUEOwCAI8wv8/7O7LoyWAnIZiZEIbQ0YtLNjRs5ZbHJu58tvLpbhkUUxz41yGJbpKTkZXuGpaN7kiPrEfKbTrXPFfD3Ze9u8x1t7omNun+h29Cv47ttU+5PhOzWq1EmZZSg300d+xOfnhtKPbn06/oZtct+wbNahfql/SOXfQppqjxDur+sBFtEMSg==
   </data>
@@ -75,22 +75,22 @@
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="0" y="32" width="32" height="96">
+  <object name="west1" type="mapchange" x="0" y="32" width="32" height="96">
    <properties>
     <property name="map" value="roadtocarntower1"/>
-    <property name="place" value="north"/>
+    <property name="place" value="east1"/>
    </properties>
   </object>
-  <object name="west" type="mapchange" x="0" y="160" width="32" height="192">
+  <object name="west2" type="mapchange" x="0" y="160" width="32" height="192">
    <properties>
     <property name="map" value="roadtocarntower1"/>
-    <property name="place" value="east"/>
+    <property name="place" value="east2"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="0" y="480" width="32" height="96">
+  <object name="west3" type="mapchange" x="0" y="480" width="32" height="96">
    <properties>
     <property name="map" value="roadtocarntower1"/>
-    <property name="place" value="south"/>
+    <property name="place" value="east3"/>
    </properties>
   </object>
   <object name="north1" type="mapchange" x="32" y="0" width="672" height="32">
@@ -106,6 +106,24 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20"/>
+ <objectgroup name="Spawn uniques" width="30" height="20">
+  <object name="fieldwasp_unique" type="spawn" x="64" y="64" width="832" height="352">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn monsters" width="30" height="20" visible="0">
+  <object name="fox1" type="spawn" x="128" y="448" width="768" height="128">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="fieldwasp_1" type="spawn" x="64" y="64" width="832" height="352">
+   <properties>
+    <property name="quantity" value="5"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="20"/>
 </map>

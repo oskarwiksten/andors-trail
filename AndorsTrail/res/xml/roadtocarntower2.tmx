@@ -60,7 +60,7 @@
    eJxjYMAEO1iwCNIBrKCjvch20du/xwYofJez0C+Mlw+QH2EA2Z/09DeynSBAr7SFnqbo6V+Y3dtZBq7soAcYaWlqMIAvQL8+IdG/5OgZLADmdidmCH8ykJ4CxFOZsbMdmRF6YGkSnUYHy7HI0SI9o5uPS47U9IzsP0rdRYqdtFSPC2zHEm7IZhPrF1qVV8TEBbnxi08eH8CX9okxE1eeIRaQ4l/0+AUBctqH5IQxLoAv3ADUPDw3
   </data>
  </layer>
- <layer name="Walkable" width="30" height="26" visible="0">
+ <layer name="Walkable" width="30" height="26">
   <data encoding="base64" compression="zlib">
    eJzNk1EOwCAIQ70C97/sfhcDtAJ1IyGLifa1Dm2tZUPN1hRv5zIevDMTWSO2vb7e2Q4XrT39Kvu00H9ScJn7UmTdtU95zBxn89WdZ7YY3xN5UVZz9k3dc1SMJ+VcVXjRG7jBzO7L00VelHP9p/oyb4fN+IneoKIzfVXmLK8qt4rJ7EfsSk5GE+lW8mYeunod/i0m2w+MviBH
   </data>
@@ -90,13 +90,46 @@
     <property name="place" value="left3"/>
    </properties>
   </object>
-  <object name="up" type="mapchange" x="608" y="0" width="320" height="32">
+  <object name="north" type="mapchange" x="608" y="0" width="320" height="32">
    <properties>
     <property name="map" value="fields10"/>
-    <property name="place" value="down"/>
+    <property name="place" value="south"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="26"/>
+ <objectgroup name="Spawn uniques" width="30" height="26" visible="0">
+  <object name="fieldwasp_unique" type="spawn" x="544" y="64" width="352" height="384">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="rogorn" type="spawn" x="160" y="608" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="rogorn_henchman" type="spawn" x="160" y="640" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="rogorn_henchman" type="spawn" x="128" y="640" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="rivertroll" type="spawn" x="384" y="480" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn monsters" width="30" height="26">
+  <object name="fieldwasp_2" type="spawn" x="544" y="64" width="352" height="384">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="26"/>
 </map>

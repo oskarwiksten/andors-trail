@@ -63,7 +63,7 @@
    eJztlF8KwjAMxitlZ1mfxRMMHzyCb/MG7tWneWBBT6C2bIMsNl0SuynoD8poxtcvSf8Y80pbGNMU8fjcUN5L8Pfu2KzG/9donpMa+G6RT+XnNxvXnd7sVZ3QP2w3cnP0nmehL+x90O8UdadqpXwr4Iv1JTMHje8FzKGe6xmYuksx3yvhKyWmLf3azo+7HfuktJJ6KV+pVuoZaJVnctBqPH+Zve/XoR/UGee8E67vPfwO4Dj1xWjPoBOeA+g99aZ+A7g+ql68B1ScsxcaPnEXOX2g+iepO3evcH6xuHY9Cm3dEjh3UbIm5y3h5ITzk7xLSyKpa060OTwBXEEw8Q==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJzFlNkNwDAIQ7MC+y/b3xYFbHOoSKhSDh4OFDtfs5d7M7CvWHQfxd7iIrbXfvMK117fijbEZ2Le7k/pqpxjuVkdEL/KzfJhzmRc1FPsGpObyo2YUextbsS8nUN9knGj/Cr9rM42pSen7qr/QfefYeoS1bNjyuyetg6Xybu6p+SgrHs2qnl3Jqpsxb3WjmZUS2YmTnCz90fxOtzoDoqZ6VXXVb1RH2Q5dfUqfc+8FZOr0qfb7HN29Uz5H+xp5gNZ3hpe
   </data>
@@ -123,7 +123,50 @@
     <property name="place" value="southwest"/>
    </properties>
   </object>
+  <object name="sign_crossroadshouse" type="sign" x="672" y="352" width="32" height="32"/>
+  <object name="sign_crossroads_s" type="sign" x="608" y="480" width="32" height="32"/>
+  <object name="sign_crossroads_n" type="sign" x="640" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn uniques" width="30" height="30">
+  <object name="fieldwasp_unique" type="spawn" x="32" y="64" width="256" height="352">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="fanamor" type="spawn" x="64" y="736" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="benbyr" type="spawn" x="416" y="352" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_guard" type="spawn" x="544" y="384" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_guard" type="spawn" x="704" y="320" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn monsters" width="30" height="30">
+  <object name="forestboar3" type="spawn" x="64" y="800" width="160" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestboar3" type="spawn" x="288" y="864" width="32" height="32"/>
+  <object name="forestboar3" type="spawn" x="160" y="544" width="96" height="64"/>
+  <object name="fieldwasp_0" type="spawn" x="32" y="64" width="256" height="352">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

@@ -87,7 +87,23 @@
     <property name="place" value="west"/>
    </properties>
   </object>
+  <object name="sign_fields6" type="sign" x="480" y="768" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="28"/>
+ <objectgroup name="Spawn" width="30" height="28">
+  <object name="tinlyn" type="spawn" x="384" y="640" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="tinlyn_sheep" type="spawn" x="192" y="416" width="256" height="224">
+   <properties>
+    <property name="quantity" value="4"/>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="fieldcritter_0" type="spawn" x="64" y="96" width="416" height="192"/>
+  <object name="fieldcritter_0" type="spawn" x="608" y="704" width="288" height="128"/>
+  <object name="fieldcritter_0" type="spawn" x="512" y="256" width="160" height="192"/>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="28"/>
 </map>

@@ -55,17 +55,17 @@
  </layer>
  <layer name="Objects" width="20" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYKA9mMkGoX1YUMVh/JVsmPx5bNjNcmdGsGOA6q2YETgGzXxk/joc5oUD9SUD1eUwQ7AXEgaJVwHpSmbsNC6zQKCGGYL3A+3tYEXFyGAJUP0coNhcVkzzeNkR7Bo2CD7PhtAHAwFsqGasAdJr0cxLRlK/BC2csAFkM9Dd14MjLIkBvazY3UcsIOR2ALMfH9Q=
+   eJxjYKA9mMkGoX1YUMVh/JVsmPx5bNjNcmdGsGOA6q2YETgGzXxk/joc5oUD9SUD1eUwQ7AXEgaJVwHpSmbsNC6zQKCGGYL3A+3tYEXFyGAJUP0coNhcVkzzeNkR7Bo2CD7PhtAHAwFoflsDNGstmnnJSOqXoIUTNoBsBrr7enCEJSHQDTSjlxW7+4gFhNwOAKDFHyE=
   </data>
  </layer>
  <layer name="Above" width="20" height="9">
   <data encoding="base64" compression="zlib">
-   eJxjYKA++M88MOZlAtVlMeOm0c1zh9I9bNjNqyTSXlr4N4yKZoLM42WnnnnvqexfagIAaRkMKA==
+   eJxjYKA++M88MOZlAtVlMeOm0c1zh9I9bNjNqyTSXlr4N4xEM+ewMjDMZcVtHi875e6CgfdU9i81AQCzrg1r
   </data>
  </layer>
- <layer name="Walkable" width="20" height="9" visible="0">
+ <layer name="Walkable" width="20" height="9">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzFVMMwQIwaUtTi08+AJkesvfgAIfPIBbQOXwCrlgkr
+   eJwTZGBgEBzFVMMwQIwaUtTi00+seaQAZD2UmkXIXdQMXwCPbgka
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="9">
@@ -76,6 +76,23 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="9"/>
+ <objectgroup name="Spawn" width="20" height="9">
+  <object name="Siola" type="spawn" x="128" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="sienn_pet" type="spawn" x="512" y="160" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="sienn" type="spawn" x="480" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="puny_warehouserat" type="spawn" x="64" y="192" width="320" height="64"/>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="9"/>
 </map>

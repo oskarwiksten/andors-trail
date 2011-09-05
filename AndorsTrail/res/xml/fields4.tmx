@@ -94,6 +94,17 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="27" height="24"/>
+ <objectgroup name="Spawn" width="27" height="24">
+  <object name="fieldcritter_2" type="spawn" x="64" y="480" width="768" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="fieldcritter_1" type="spawn" x="64" y="64" width="576" height="320">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="27" height="24"/>
 </map>
