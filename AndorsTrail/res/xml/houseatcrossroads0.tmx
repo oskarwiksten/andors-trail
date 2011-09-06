@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="16" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYCAdKLGj8iOB/Cio2GZ2VAwCniwILA0UM2KH0MSCSBYE1gbqc2KH0DCwBChuzwxhBwLpICAOBuIQqBgvUG0lkF0F5SezYLdnMwlu6mFF5d/Fo3cJ1D53oP2aQH2eQOzNil2NCNCcjayoNAyEA/VbsSIwNreA1B9kRaXRgSg7BMPAOhL1o4P9bKj6L7Ki0uh+PA2kzyDFwXkk/ehqsQFVdgimBgAAyHoeLA==
+   eJxjYCAdKLGj8iOB/Cio2GZ2VAwCniwILA0UM2KH0MSCSBYE1gbqc2KH0DCwBChuzwxhBwLpICAOBuIQqBgvUG0lkF0F5SezYLdnMwlu6mFF5d/Fo3cJ1D53oP2aQH2eQOzNil2NCNCcjawIGhmEA/VbsSIwLrcchOqH0ehAFE1sHZJ+ZH249KOD/Wyo+i9CzbuIph/mx9NA+gxSHJxH0o+uFhtQZYdgagAAVM4dvw==
   </data>
  </layer>
  <layer name="Above" width="16" height="12">
@@ -72,7 +72,7 @@
   <object name="south" type="mapchange" x="96" y="352" width="32" height="32">
    <properties>
     <property name="map" value="houseatcrossroads2"/>
-    <property name="place" value="south"/>
+    <property name="place" value="north"/>
    </properties>
   </object>
   <object name="middle" type="mapchange" x="288" y="352" width="32" height="32">
@@ -81,13 +81,40 @@
     <property name="place" value="middle"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="64" y="96" width="32" height="32">
+  <object name="down" type="mapchange" x="64" y="96" width="32" height="32">
    <properties>
     <property name="map" value="houseatcrossroads1"/>
     <property name="place" value="south"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="12"/>
+ <objectgroup name="Spawn" width="16" height="12">
+  <object name="gallain" type="spawn" x="288" y="96" width="160" height="96">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="ailshara" type="spawn" x="128" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="Gandoren" type="spawn" x="384" y="288" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_guest" type="spawn" x="96" y="192" width="288" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="celdar" type="spawn" x="64" y="256" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="16" height="12"/>
 </map>

@@ -69,19 +69,25 @@
   </data>
  </layer>
  <objectgroup name="Mapevents" width="6" height="6">
-  <object name="north" type="mapchange" x="64" y="64" width="32" height="32">
+  <object name="up" type="mapchange" x="64" y="64" width="32" height="32">
    <properties>
     <property name="map" value="houseatcrossroads4"/>
-    <property name="place" value="north"/>
+    <property name="place" value="down"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="96" y="96" width="32" height="32">
+  <object name="down" type="mapchange" x="96" y="96" width="32" height="32">
    <properties>
     <property name="map" value="houseatcrossroads2"/>
-    <property name="place" value="north"/>
+    <property name="place" value="up"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="6" height="6"/>
+ <objectgroup name="Spawn" width="6" height="6">
+  <object name="crossroads_guard" type="spawn" x="32" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="6" height="6"/>
 </map>

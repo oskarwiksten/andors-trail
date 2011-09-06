@@ -63,16 +63,16 @@
    eJxjYKAc/GdGZW9mh7AJ0bj04wOpWORx6U9mQVWHzifHfnz6Qf6iRD8IvKdQPzmAnvqxxcF7EuIMVxySCwCfiRcv
   </data>
  </layer>
- <layer name="Walkable" width="16" height="12" visible="0">
+ <layer name="Walkable" width="16" height="12">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBximAELn4GAPLn6scnhEsMmj66WkB249OPzA7kAl5+IdQMlcUKMfnx8amEAz8cItA==
+   eJwTZGBgEBximAELn4GAPLn6scnhEsMmj66WkB249OPzA7kAl5+IdQMlcUKMfnqkJQDVnwjF
   </data>
  </layer>
  <objectgroup name="Mapevents" width="16" height="12">
-  <object name="south" type="mapchange" x="64" y="96" width="32" height="32">
+  <object name="up" type="mapchange" x="64" y="96" width="32" height="32">
    <properties>
     <property name="map" value="houseatcrossroads0"/>
-    <property name="place" value="north"/>
+    <property name="place" value="down"/>
    </properties>
   </object>
   <object name="rest" type="rest" x="256" y="128" width="32" height="32"/>
@@ -83,6 +83,34 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="12"/>
- <objectgroup name="Keys" width="16" height="12"/>
+ <objectgroup name="Spawn" width="16" height="12">
+  <object name="crossroads_guest" type="spawn" x="160" y="96" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_guard" type="spawn" x="32" y="192" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_backguard" type="spawn" x="448" y="192" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_guest" type="spawn" x="320" y="288" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="crossroads_rat" type="spawn" x="384" y="96" width="96" height="64"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="16" height="12">
+  <object name="crossroadssleep:100" type="key" x="224" y="96" width="64" height="64">
+   <properties>
+    <property name="phrase" value="crossroads_sleep"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>
