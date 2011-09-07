@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:gravity="center_horizontal"
 	android:background="@drawable/ui_startbackground"
 	>
 
 	<RelativeLayout
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
 		>
@@ -33,7 +33,7 @@
 				/>
 			<EditText
 				android:id="@+id/startscreen_enterheroname"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:visibility="gone"
 				android:inputType="textPersonName"
@@ -64,13 +64,13 @@
 
 	<Button
 		android:id="@+id/startscreen_continue"
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/startscreen_continue"
 		/>
 		
 	<LinearLayout
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:gravity="center_vertical"
@@ -92,7 +92,7 @@
 	</LinearLayout>
 		
 	<LinearLayout
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:gravity="center_vertical"

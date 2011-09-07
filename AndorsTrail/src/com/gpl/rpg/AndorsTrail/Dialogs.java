@@ -151,7 +151,7 @@ public final class Dialogs {
 		}
 		
 		final ListView itemList = new ListView(mainActivity);
-		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.FILL_PARENT, ListView.LayoutParams.WRAP_CONTENT));
+		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
 		itemList.setOnItemClickListener(new OnItemClickListener() {
 			@Override

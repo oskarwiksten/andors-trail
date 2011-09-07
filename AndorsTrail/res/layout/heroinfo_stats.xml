@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="fill_parent"
-	android:layout_height="fill_parent"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:layout_gravity="center_horizontal"
 	android:padding="@dimen/dialog_margin"
 	>
 
 	<ScrollView
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_weight="1"
 		>
 	 
 		<LinearLayout
 			xmlns:android="http://schemas.android.com/apk/res/android"
-			android:layout_width="fill_parent"
+			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
 			>
 
 		  	<LinearLayout 
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="horizontal"
 				android:gravity="center_vertical">
@@ -37,7 +37,7 @@
 					/>
 				<TextView
 					android:id="@+id/heroinfo_title"
-					android:layout_width="fill_parent"
+					android:layout_width="match_parent"
 					android:layout_height="wrap_content"
 					android:text="Name"
 					android:textSize="@dimen/titletext"
@@ -45,7 +45,7 @@
 			</LinearLayout>
 			
 			<TableLayout
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/section_margin"
 				>
@@ -69,35 +69,35 @@
 				
 			<com.gpl.rpg.AndorsTrail.view.RangeBar
 				android:id="@+id/heroinfo_healthbar"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
 			<com.gpl.rpg.AndorsTrail.view.RangeBar
 				android:id="@+id/heroinfo_expbar"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:layout_marginTop="5sp"
 				/>
 
 			<TextView
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="@string/actorinfo_currenttraits"
 				android:layout_marginTop="@dimen/section_margin"
 				/>
 			<com.gpl.rpg.AndorsTrail.view.TraitsInfoView
 				android:id="@+id/heroinfo_currenttraits"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
 			<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
 				android:id="@+id/heroinfo_itemeffects"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
 				
 			<TextView
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="@string/actorinfo_currentconditions"
 				android:id="@+id/heroinfo_currentconditions_title"
@@ -105,21 +105,21 @@
 				/>
 			<LinearLayout
 				android:id="@+id/heroinfo_currentconditions"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="vertical"
 				android:gravity="left"
 				/>
 			
 			<TextView
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="@string/actorinfo_basetraits"
 				android:layout_marginTop="@dimen/section_margin"
 				/>
 			<com.gpl.rpg.AndorsTrail.view.BaseTraitsInfoView
 				android:id="@+id/heroinfo_basetraits"
-				android:layout_width="fill_parent"
+				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
 			
@@ -127,16 +127,16 @@
 	</ScrollView>
 
 	<LinearLayout 
-		android:layout_width="fill_parent"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		android:gravity="center_vertical">
 		<Button
 			android:id="@+id/heroinfo_levelup"
-			android:layout_width="0dip"
-			android:layout_weight="1"
-			android:layout_height="wrap_content"
-			android:text="@string/heroinfo_levelup"
+			android:layout_width="1dp"
+            android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:text="@string/heroinfo_levelup"
 			/>
 	</LinearLayout>
 
