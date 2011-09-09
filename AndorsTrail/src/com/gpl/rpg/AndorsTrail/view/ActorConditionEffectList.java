@@ -31,7 +31,7 @@ public final class ActorConditionEffectList extends LinearLayout {
 		
 		final Context context = getContext();
 		final Resources res = getResources();
-		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		
 		for (ActorConditionEffect e : effects) {
 			String msg;

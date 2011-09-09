@@ -16,7 +16,7 @@
 
 	<TextView
 		android:id="@+id/skillentry_title"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/skillentry_icon"
         android:layout_alignParentTop="true"
@@ -26,7 +26,7 @@
 
 	<TextView
 		android:id="@+id/skillentry_description"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/skillentry_icon"
         android:layout_below="@id/skillentry_title"

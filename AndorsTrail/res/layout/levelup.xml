@@ -88,7 +88,10 @@
 				android:text="@string/levelup_adds_new_skillpoint"
 				/>
 		</LinearLayout>
-			
+
+		<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+		<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />  
+	
 	</LinearLayout>
 
 </ScrollView>

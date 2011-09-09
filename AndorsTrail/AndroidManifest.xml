@@ -20,7 +20,11 @@
 		android:anyDensity="true"
 		/>
 		
-	<application android:label="@string/app_name" android:name=".AndorsTrailApplication" android:icon="@drawable/icon">
+	<application 
+		android:name=".AndorsTrailApplication" 
+		android:label="@string/app_name" 
+		android:icon="@drawable/icon"
+		>
 		<activity 
 			android:name=".activity.MainActivity" 
 			android:label="@string/app_name" 

@@ -93,7 +93,7 @@ public final class ConversationActivity extends Activity {
         setContentView(R.layout.conversation);
 
         replyGroup = new RadioGroup(this);
-        replyGroup.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.WRAP_CONTENT, ListView.LayoutParams.WRAP_CONTENT));
+        replyGroup.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
         
         statementList = (ListView) findViewById(R.id.conversation_statements);
         statementList.addFooterView(replyGroup);
@@ -196,7 +196,7 @@ public final class ConversationActivity extends Activity {
 	private void addReply(final Phrase p, final Reply r) {
 		if (!ConversationController.canSelectReply(player, r)) return;
 
-		RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.WRAP_CONTENT, RadioGroup.LayoutParams.WRAP_CONTENT);
+		RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, RadioGroup.LayoutParams.WRAP_CONTENT);
 		RadioButton rb = new RadioButton(this);
 		rb.setLayoutParams(layoutParams);
 		rb.setText(r.text);

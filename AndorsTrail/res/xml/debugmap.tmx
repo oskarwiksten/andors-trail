@@ -24,17 +24,16 @@
   </data>
  </layer>
  <objectgroup name="Object Layer 1" width="10" height="10">
-  <object name="Sign 1" type="sign" x="192" y="96" width="32" height="32">
+  <object name="debugsign" type="sign" x="192" y="96" width="32" height="32"/>
+  <object name="start" type="rest" x="96" y="64" width="32" height="32"/>
+  <object name="no_quest:10" type="key" x="32" y="128" width="32" height="32">
    <properties>
-    <property name="Text" value="Item text"/>
-    <property name="Title" value="Item title"/>
+    <property name="phrase" value="debugrequireskey"/>
    </properties>
   </object>
-  <object name="start" type="rest" x="96" y="64" width="32" height="32"/>
-  <object name="no_quest:10" type="key" x="32" y="128" width="32" height="32"/>
   <object name="debugquest:100" type="key" x="0" y="128" width="32" height="32">
    <properties>
-    <property name="message" value="A strange force prevents you from entering."/>
+    <property name="phrase" value="debugrequireskey"/>
    </properties>
   </object>
   <object name="place2" type="mapchange" x="192" y="256" width="32" height="32">

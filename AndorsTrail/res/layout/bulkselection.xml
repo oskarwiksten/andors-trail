@@ -9,8 +9,9 @@
 	
 	<LinearLayout 
 		android:layout_height="wrap_content" 
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:orientation="horizontal"
+		android:gravity="center_horizontal"
 		>
 
         <TextView 
@@ -29,20 +30,20 @@
         	android:layout_width="wrap_content"
         	/>
           	
-         <TextView 
-        	android:text="/"
-        	android:layout_width="wrap_content" 
-        	android:layout_height="wrap_content"
-        	android:paddingLeft="10dp"
-        	android:paddingRight="10dp"
-        	/>
-        	
-         <TextView 
-        	android:text="250"
-        	android:id="@+id/bulkselection_amount_available"
-        	android:layout_width="wrap_content" 
-        	android:layout_height="wrap_content"
-        	/>
+		<TextView 
+			android:text="/"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			android:paddingLeft="10dp"
+			android:paddingRight="10dp"
+			/>
+		
+		<TextView 
+			android:text="250"
+			android:id="@+id/bulkselection_amount_available"
+			android:layout_width="wrap_content" 
+			android:layout_height="wrap_content"
+			/>
         	
     </LinearLayout>
 
@@ -62,9 +63,9 @@
         	/>
 
  		<SeekBar 
-			android:layout_height="wrap_content" 
 			android:id="@+id/bulkselection_slider" 
 			android:layout_width="match_parent"
+			android:layout_height="wrap_content" 
 			android:layout_gravity="center_vertical"
 			android:layout_weight="1"
 			/>
@@ -92,13 +93,16 @@
 	<TextView 
        	android:text="@string/bulkselection_totalcost_buy"
        	android:id="@+id/bulkselection_summary_totalgold"
-       	android:layout_width="wrap_content" 
+       	android:layout_width="match_parent" 
        	android:layout_height="wrap_content"
        	android:paddingBottom="10dp"
        	/>
 
+	<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />  
+
 	<LinearLayout
-		android:layout_width="wrap_content"
+		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		style="@android:style/ButtonBar"
@@ -106,7 +110,7 @@
 		
         <Button 
 	        android:id="@+id/bulkselection_finalize_button" 
-	        android:layout_width="1dp"
+	        android:layout_width="match_parent"
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="@string/inventory_drop" 
@@ -114,7 +118,7 @@
 	        
         <Button 
 	        android:id="@+id/bulkselection_cancel_button" 
-	        android:layout_width="1dp"
+	        android:layout_width="match_parent"
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="@android:string/cancel" 

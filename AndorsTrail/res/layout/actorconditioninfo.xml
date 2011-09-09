@@ -98,6 +98,9 @@
 		</LinearLayout>
 	</ScrollView>
 
+	<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />  
+	
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -107,7 +110,7 @@
 			
 		<Button 
 			android:id="@+id/actorconditioninfo_close"
-			android:layout_width="1dp"
+			android:layout_width="match_parent"
             android:layout_weight="1"
 			android:layout_height="wrap_content"
 			android:text="@string/dialog_close"

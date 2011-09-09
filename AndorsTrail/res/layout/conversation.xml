@@ -27,7 +27,7 @@
 			
 		<Button 
 			android:id="@+id/conversation_next"
-			android:layout_width="1dp"
+			android:layout_width="match_parent"
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="@string/conversation_next"
@@ -35,7 +35,7 @@
 			
 		<Button 
 			android:id="@+id/conversation_leave"
-			android:layout_width="1dp"
+			android:layout_width="match_parent"
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="@string/conversation_leave"

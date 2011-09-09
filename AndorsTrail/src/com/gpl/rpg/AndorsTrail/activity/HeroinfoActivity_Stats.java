@@ -177,7 +177,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 						Dialogs.showActorConditionInfo(context, conditionType);
 					}
 				});
-				heroinfo_currentconditions.addView(v, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+				heroinfo_currentconditions.addView(v, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
 			}
 		}
 	}
