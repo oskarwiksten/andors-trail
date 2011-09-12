@@ -127,7 +127,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 		case MainActivity.INTENTREQUEST_ITEMINFO:
 			if (resultCode != RESULT_OK) return;
 			
-			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
+			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getString("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
 			if (actionType == ItemInfoActivity.ITEMACTION_BUY) {
 				showBuyingInterface(itemType);
@@ -138,14 +138,14 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 		case MainActivity.INTENTREQUEST_BULKSELECT_BUY:
 			if (resultCode == Activity.RESULT_OK) {
 				int quantity = data.getExtras().getInt("selectedAmount");
-				int itemTypeID = data.getExtras().getInt("itemTypeID");
+				String itemTypeID = data.getExtras().getString("itemTypeID");
 				buy(itemTypeID, quantity);
 			}
 			break;
 		case MainActivity.INTENTREQUEST_BULKSELECT_SELL:
 			if (resultCode == Activity.RESULT_OK) {
 				int quantity = data.getExtras().getInt("selectedAmount");
-				int itemTypeID = data.getExtras().getInt("itemTypeID");
+				String itemTypeID = data.getExtras().getString("itemTypeID");
 				sell(itemTypeID, quantity);
 			}
 			break;
@@ -160,14 +160,14 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 		Dialogs.showBulkBuyingInterface(this, itemType.id, container_buy.getItemQuantity(itemType.id));
 	}
 	
-	private void buy(int itemTypeID, int quantity) {
+	private void buy(String itemTypeID, int quantity) {
 		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
 		ItemController.buy(world.model, player, itemType, container_buy, quantity);
 		final String msg = getResources().getString(R.string.shop_item_bought, itemType.name);
 		displayStoreAction(msg);
 	}
 
-	private void sell(int itemTypeID, int quantity) {
+	private void sell(String itemTypeID, int quantity) {
 		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
 		ItemController.sell(player, itemType, container_buy, quantity);
 		final String msg = getResources().getString(R.string.shop_item_sold, itemType.name);

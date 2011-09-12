@@ -158,7 +158,7 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.actorconditions_2, "actorconditions_2", new Size(3, 1), defaultTileSize);
         
         loader.prepareTileset(R.drawable.items_armours, "items_armours", new Size(14, 3), defaultTileSize);
-        loader.prepareTileset(R.drawable.items_weapons, "items_weapons", new Size(14, 8), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_weapons, "items_weapons", new Size(14, 6), defaultTileSize);
         loader.prepareTileset(R.drawable.items_jewelry, "items_jewelry", new Size(14, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.items_consumables, "items_consumables", new Size(14, 5), defaultTileSize);
         loader.prepareTileset(R.drawable.items_books, "items_books", new Size(11, 1), defaultTileSize);

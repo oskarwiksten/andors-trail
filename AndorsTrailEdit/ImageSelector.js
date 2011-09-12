@@ -97,11 +97,12 @@ function ImageSelector(imagePath, dialog) {
 	
 	
 	dialog.dialog({
+		title: "Select icon",
 		autoOpen: false,
 		modal: true,
-		width: 700,
+		width: 730,
 		height: 800,
-		position: [50,50],
+		position: [30,30],
 		buttons: {
 			Cancel: function() {
 				$( this ).dialog( "close" );

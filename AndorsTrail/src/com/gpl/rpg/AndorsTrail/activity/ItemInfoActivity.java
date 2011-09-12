@@ -39,7 +39,7 @@ public final class ItemInfoActivity extends Activity {
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();
-        int itemTypeID = params.getInt("itemTypeID");
+        String itemTypeID = params.getString("itemTypeID");
         final ItemType itemType = world.itemTypes.getItemType(itemTypeID);
         
         final String buttonText = params.getString("buttonText");

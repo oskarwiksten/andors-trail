@@ -34,12 +34,12 @@ public class ItemContainer {
 		// ====== PARCELABLE ===================================================================
 
 		public ItemEntry(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-			this.itemType = world.itemTypes.getItemTypeByTag(src.readUTF()); 
+			this.itemType = world.itemTypes.getItemType(src.readUTF()); 
 			this.quantity = src.readInt();
 		}
 		
 		public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-			dest.writeUTF(itemType.searchTag);
+			dest.writeUTF(itemType.id);
 			dest.writeInt(quantity);
 		}
 	}
@@ -60,13 +60,13 @@ public class ItemContainer {
 	}
 	public boolean isEmpty() { return items.isEmpty(); }
 	
-	public boolean removeItem(int itemTypeID) { return removeItem(itemTypeID, 1); }
-	public boolean removeItem(int itemTypeID, int quantity) {
+	public boolean removeItem(String itemTypeID) { return removeItem(itemTypeID, 1); }
+	public boolean removeItem(String itemTypeID, int quantity) {
 		int index = -1;
 		ItemEntry e = null;
 		for (int i = 0; i < items.size(); ++i) {
 			e = items.get(i);
-			if (e.itemType.id == itemTypeID) {
+			if (e.itemType.id.equals(itemTypeID)) {
 				index = i;
 				break;
 			}
@@ -80,18 +80,18 @@ public class ItemContainer {
 		return true;
 	}
 	
-	public ItemEntry findItem(int itemTypeID) {
+	public ItemEntry findItem(String itemTypeID) {
 		for (ItemEntry e : items) {
-			if (e.itemType.id == itemTypeID) return e;
+			if (e.itemType.id.equals(itemTypeID)) return e;
 		}
 		return null;
 	}
-	public boolean hasItem(int itemTypeID) { return findItem(itemTypeID) != null; }
-	public boolean hasItem(int itemTypeID, int minimumQuantity) { 
+	public boolean hasItem(String itemTypeID) { return findItem(itemTypeID) != null; }
+	public boolean hasItem(String itemTypeID, int minimumQuantity) { 
 		return getItemQuantity(itemTypeID) >= minimumQuantity;
 	}
 	
-	public int getItemQuantity(int itemTypeID) { 
+	public int getItemQuantity(String itemTypeID) { 
 		ItemEntry e = findItem(itemTypeID);
 		if (e == null) return 0;
 		return e.quantity;
@@ -121,7 +121,7 @@ public class ItemContainer {
 			for (ItemEntry e : container.items) {
 				if (e.quantity >= 2 && isRefundableItem(e.itemType)) {
 					if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-						L.log("INFO: Refunding " + (e.quantity-1) + " items of type \"" + e.itemType.searchTag + "\" for a total of " + ((e.quantity-1) * e.itemType.fixedBaseMarketCost) + "gc.");
+						L.log("INFO: Refunding " + (e.quantity-1) + " items of type \"" + e.itemType.id + "\" for a total of " + ((e.quantity-1) * e.itemType.fixedBaseMarketCost) + "gc.");
 					}
 					removedCost += (e.quantity-1) * e.itemType.fixedBaseMarketCost;
 					e.quantity = 1;

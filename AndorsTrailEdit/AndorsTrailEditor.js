@@ -229,10 +229,14 @@ function startEditor() {
 	imageSelector.add(new TilesetImage("actorconditions_1", {x:14, y:8}, undefined, [ 'conditions' ] ));
 	imageSelector.add(new TilesetImage("actorconditions_2", {x:3, y:1}, undefined, [ 'conditions' ] ));
 	imageSelector.add(new TilesetImage("items_armours", {x:14, y:3}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_armours_3", {x:10, y:4}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("items_armours_2", {x:7, y:1}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_weapons", {x:14, y:8}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons", {x:14, y:6}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons_3", {x:13, y:5}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("items_weapons_2", {x:7, y:1}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("items_jewelry", {x:14, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_rings_1", {x:10, y:3}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_necklaces_1", {x:10, y:3}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("items_consumables", {x:14, y:5}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("items_books", {x:11, y:1}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("items_misc", {x:14, y:4}, undefined, [ 'items' ] ));

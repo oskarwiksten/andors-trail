@@ -294,6 +294,7 @@ public final class ConversationActivity extends Activity {
 			dest.writeInt(color);
 		}
 		
+		@SuppressWarnings("unused")
 		public static final Parcelable.Creator<ConversationStatement> CREATOR = new Parcelable.Creator<ConversationStatement>() {
 		    public ConversationStatement createFromParcel(Parcel in) {
 		    	ConversationStatement result = new ConversationStatement();

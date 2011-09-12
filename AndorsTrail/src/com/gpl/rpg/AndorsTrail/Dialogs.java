@@ -156,7 +156,8 @@ public final class Dialogs {
 		itemList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				final int itemTypeID = (int) id;
+				
+				final String itemTypeID = ((ItemContainerAdapter) parent.getAdapter()).getItem(position).itemType.id;
 				combinedLoot.items.removeItem(itemTypeID);
 				for (Loot l : lootBags) {
 					if (l.items.removeItem(itemTypeID)) break;
@@ -195,7 +196,7 @@ public final class Dialogs {
 		});
 	}
 
-	public static void showItemInfo(final Activity currentActivity, int itemTypeID, int actionType, String buttonText, boolean buttonEnabled, int inventorySlot) {
+	public static void showItemInfo(final Activity currentActivity, String itemTypeID, int actionType, String buttonText, boolean buttonEnabled, int inventorySlot) {
 		Intent intent = new Intent(currentActivity, ItemInfoActivity.class);
 		intent.putExtra("buttonText", buttonText);
 		intent.putExtra("buttonEnabled", buttonEnabled);
@@ -277,19 +278,19 @@ public final class Dialogs {
 		context.startActivity(intent);
 	}
 	
-	public static void showBulkBuyingInterface(ShopActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
+	public static void showBulkBuyingInterface(ShopActivity currentActivity, String itemTypeID, int totalAvailableAmount) {
 		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY, MainActivity.INTENTREQUEST_BULKSELECT_BUY);
 	}
 	
-	public static void showBulkSellingInterface(ShopActivity currentActivity, int itemTypeID, int totalAvailableAmount) {
+	public static void showBulkSellingInterface(ShopActivity currentActivity, String itemTypeID, int totalAvailableAmount) {
 		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL, MainActivity.INTENTREQUEST_BULKSELECT_SELL);
 	}
 	
-	public static void showBulkDroppingInterface(HeroinfoActivity_Inventory currentActivity, int itemTypeID, int totalAvailableAmount) {
+	public static void showBulkDroppingInterface(HeroinfoActivity_Inventory currentActivity, String itemTypeID, int totalAvailableAmount) {
 		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, MainActivity.INTENTREQUEST_BULKSELECT_DROP);
 	}
 	
-	public static void showBulkSelectionInterface(Activity currentActivity, int itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
+	public static void showBulkSelectionInterface(Activity currentActivity, String itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
 		Intent intent = new Intent(currentActivity, BulkSelectionInterface.class);
 		intent.putExtra("itemTypeID", itemTypeID);
 		intent.putExtra("totalAvailableAmount", totalAvailableAmount);

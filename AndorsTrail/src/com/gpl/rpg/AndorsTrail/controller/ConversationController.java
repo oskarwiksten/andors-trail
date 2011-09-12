@@ -35,7 +35,7 @@ public final class ConversationController {
 	public static void applyReplyEffect(final Player player, final Reply reply) {
 		if (!reply.requiresItem()) return;
 		
-		if (reply.requiresItemTypeID == ItemTypeCollection.ITEMTYPE_GOLD) {
+		if (ItemTypeCollection.isGoldItemType(reply.requiresItemTypeID)) {
 			player.inventory.gold -= reply.requiresItemQuantity;
 		} else {
 			player.inventory.removeItem(reply.requiresItemTypeID, reply.requiresItemQuantity);
@@ -55,8 +55,8 @@ public final class ConversationController {
     	return player.hasExactQuestProgress(progress);
     }
 	
-	private static boolean hasRequiredItems(final Player player, int requiresItemTypeID, int requiresItemQuantity) {
-    	if (requiresItemTypeID == ItemTypeCollection.ITEMTYPE_GOLD) return player.inventory.gold >= requiresItemQuantity;
+	private static boolean hasRequiredItems(final Player player, String requiresItemTypeID, int requiresItemQuantity) {
+    	if (ItemTypeCollection.isGoldItemType(requiresItemTypeID)) return player.inventory.gold >= requiresItemQuantity;
     		
     	return player.inventory.hasItem(requiresItemTypeID, requiresItemQuantity);
     }

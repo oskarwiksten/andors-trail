@@ -33,6 +33,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
 	private Player player;
 	private ItemContainer container;
+	private ItemContainerAdapter inventoryListAdapter;
 
 	private ListView inventoryList;
     private TextView heroinfo_stats_gold;
@@ -59,10 +60,13 @@ public final class HeroinfoActivity_Inventory extends Activity {
         inventoryList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-				showInventoryItemInfo((int) id);
+				ItemType itemType = inventoryListAdapter.getItem(position).itemType;
+				showInventoryItemInfo(itemType.id);
 			}
 		});
         container = player.inventory;
+        inventoryListAdapter = new ItemContainerAdapter(this, world.tileStore, container);
+        inventoryList.setAdapter(inventoryListAdapter);
         
         heroinfo_stats_gold = (TextView) findViewById(R.id.heroinfo_stats_gold);
         heroinfo_stats_attack = (TextView) findViewById(R.id.heroinfo_stats_attack);
@@ -77,8 +81,6 @@ public final class HeroinfoActivity_Inventory extends Activity {
         setWearSlot(ItemType.CATEGORY_WEARABLE_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
         setWearSlot(ItemType.CATEGORY_WEARABLE_RING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
         setWearSlot(ItemType.CATEGORY_WEARABLE_RING+1, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
-        
-        inventoryList.setAdapter(new ItemContainerAdapter(this, world.tileStore, container));
     }
 
     @Override
@@ -108,7 +110,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		case MainActivity.INTENTREQUEST_ITEMINFO:
 			if (resultCode != RESULT_OK) break;
 			
-			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
+			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getString("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
 			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
 	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
@@ -122,13 +124,13 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			if (resultCode != RESULT_OK) break;
 			
 			int quantity = data.getExtras().getInt("selectedAmount");
-			int itemTypeID = data.getExtras().getInt("itemTypeID");
+			String itemTypeID = data.getExtras().getString("itemTypeID");
 			dropItem(itemTypeID, quantity);
 			break;
 		}
 	}
 
-	private void dropItem(int itemTypeID, int quantity) {
+	private void dropItem(String itemTypeID, int quantity) {
 		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
 		view.itemController.dropItem(itemType, quantity);
 	}
@@ -161,7 +163,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 	}
 
 	private void updateItemList() {
-		((ItemContainerAdapter) inventoryList.getAdapter()).notifyDataSetChanged();
+		inventoryListAdapter.notifyDataSetChanged();
     }
 
 	@Override
@@ -182,11 +184,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		lastSelectedItem = null;
     }
 
-    private int getSelectedID(AdapterContextMenuInfo info) {
-    	return (int) info.id;
-    }
     private ItemType getSelectedItemType(AdapterContextMenuInfo info) {
-    	return world.itemTypes.getItemType(getSelectedID(info));
+    	return inventoryListAdapter.getItem(info.position).itemType;
     }
     @Override
     public boolean onContextItemSelected(MenuItem item) {
@@ -197,7 +196,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			//context.controller.itemInfo(this, getSelectedItemType(info));
 			break;
 		case R.id.inv_menu_drop:
-			int itemTypeID = getSelectedItemType(info).id;
+			String itemTypeID = getSelectedItemType(info).id;
 			int quantity = player.inventory.getItemQuantity(itemTypeID);
 			if (quantity > 1) {
 				Dialogs.showBulkDroppingInterface(this, itemTypeID, quantity);
@@ -250,7 +249,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
     	}
     	Dialogs.showItemInfo(HeroinfoActivity_Inventory.this, itemType.id, ItemInfoActivity.ITEMACTION_UNEQUIP, text, enabled, inventorySlot);
     }
-    private void showInventoryItemInfo(int itemTypeID) { 
+    private void showInventoryItemInfo(String itemTypeID) { 
     	showInventoryItemInfo(world.itemTypes.getItemType(itemTypeID)); 
     }
     private void showInventoryItemInfo(ItemType itemType) {

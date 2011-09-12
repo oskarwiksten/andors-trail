@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -17,8 +16,8 @@ public final class DynamicTileLoader {
 	private final TileStore store;
 	private final Resources r;
 	
-	private final ArrayList<TilesetBitmap> preparedTilesets = new ArrayList<TilesetBitmap>();
-	//private final HashMap<String, Integer> DEBUG_tilefrequency = new HashMap<String, Integer>();
+	private final HashMap<Integer, TilesetBitmap> preparedTilesetsByResourceId = new HashMap<Integer, TilesetBitmap>();
+	private final HashMap<String, TilesetBitmap> preparedTilesetsByResourceName = new HashMap<String, TilesetBitmap>();
 	private int allocatedTiles = 0;
 	private int currentTileStoreIndex;
 	
@@ -30,57 +29,47 @@ public final class DynamicTileLoader {
 	
 	private void initialize() {
 		allocatedTiles = 0;
-		preparedTilesets.clear();
+		preparedTilesetsByResourceId.clear();
+		preparedTilesetsByResourceName.clear();
 		currentTileStoreIndex = store.bitmaps.length;
-		/*if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			DEBUG_tilefrequency.clear();
-		}*/
 	}
 	
 	public void prepareTileset(int resourceId, String tilesetName, Size numTiles, Size destinationTileSize) {
-		preparedTilesets.add(new TilesetBitmap(resourceId, tilesetName, numTiles, destinationTileSize));
+		TilesetBitmap b = new TilesetBitmap(resourceId, tilesetName, numTiles, destinationTileSize);
+		preparedTilesetsByResourceId.put(resourceId, b);
+		preparedTilesetsByResourceName.put(tilesetName, b);
 	}
 	private TilesetBitmap getTilesetBitmap(int tilesetImageResourceID) {
-		for (TilesetBitmap b : preparedTilesets) {
-			if (b.resourceId == tilesetImageResourceID) {
-				return b;
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (!preparedTilesetsByResourceId.containsKey(tilesetImageResourceID)) {
+				L.log("WARNING: Cannot load tileset " + tilesetImageResourceID);
+				return null;
 			}
 		}
-		return null;
+		return preparedTilesetsByResourceId.get(tilesetImageResourceID);
+	}
+	private TilesetBitmap getTilesetBitmap(String tilesetName) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (!preparedTilesetsByResourceName.containsKey(tilesetName)) {
+				L.log("WARNING: Cannot load tileset " + tilesetName);
+				return null;
+			}
+		}
+		return preparedTilesetsByResourceName.get(tilesetName);
 	}
 	
 	public int prepareTileID(int tilesetImageResourceID, int localId) {
 		TilesetBitmap b = getTilesetBitmap(tilesetImageResourceID);
-		if (b == null) {
-			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				L.log("WARNING: Cannot load tileset " + tilesetImageResourceID + " for localId " + localId);
-			}
-			return currentTileStoreIndex-1;
-		}
 		return prepareTileID(b, localId);
 	}
 
 	public int prepareTileID(String tilesetName, int localId) {
-		for (TilesetBitmap b : preparedTilesets) {
-			if (b.tilesetName.equals(tilesetName)) {
-				return prepareTileID(b, localId);
-			}
-		}
-		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Cannot load tileset " + tilesetName);
-		}
-		return currentTileStoreIndex-1;
+		TilesetBitmap b = getTilesetBitmap(tilesetName);
+		return prepareTileID(b, localId);
 	}
 	public Size getTilesetSize(String tilesetName) {
-		for (TilesetBitmap b : preparedTilesets) {
-			if (b.tilesetName.equals(tilesetName)) {
-				return b.destinationTileSize;
-			}
-		}
-		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Cannot load tileset " + tilesetName);
-		}
-		return new Size(1, 1);
+		TilesetBitmap b = getTilesetBitmap(tilesetName);
+		return b.destinationTileSize;
 	}
 	
 	private int prepareTileID(TilesetBitmap tileset, int localId) {
@@ -93,22 +82,13 @@ public final class DynamicTileLoader {
 			++allocatedTiles;
 			tileset.tilesToLoad.put(localId, tileStoreIndex);
 		}
-		/*if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			final int x = localId % tileset.numTiles.width;
-			final int y = (localId - x) / tileset.numTiles.width;
-			final String s = tileset.tilesetName + "(" + x + "," + y + ")";
-			int n = 0;
-			if (DEBUG_tilefrequency.containsKey(s)) n = DEBUG_tilefrequency.get(s);
-			++n;
-			DEBUG_tilefrequency.put(s, n);
-		}*/
 		return tileStoreIndex;
 	}
 	
 	public void flush() {
 		store.allocateTiles(allocatedTiles);
 		
-		for (TilesetBitmap b : preparedTilesets) {
+		for (TilesetBitmap b : preparedTilesetsByResourceId.values()) {
 			if (b.tilesToLoad.isEmpty()) {
 				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 					L.log("OPTIMIZE: Tileset " + b.tilesetName + " does not contain any loaded tiles. The file could be removed from the project.");
@@ -127,19 +107,6 @@ public final class DynamicTileLoader {
 			}
 			if (recycle) tilesetImage.recycle();
 		}
-		
-		/*if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			ArrayList<Entry<String, Integer>> l = new ArrayList<Entry<String,Integer>>(DEBUG_tilefrequency.entrySet());
-			Collections.sort(l, new Comparator<Entry<String, Integer>>() {
-				@Override
-				public int compare(Entry<String, Integer> a, Entry<String, Integer> b) {
-					return b.getValue() - a.getValue();
-				}
-			});
-			for (Entry<String, Integer> e : l) {
-				L.log("INFO: " + e.getValue() + " times requested " + e.getKey());
-			}
-		}*/
 		
 		initialize();
 	}

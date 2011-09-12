@@ -74,7 +74,7 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	
 	@Override
 	public long getItemId(int position) {
-		return getItem(position).itemType.id;
+		return getItem(position).itemType.id.hashCode();
 	}
 	
 	public static interface OnContainerItemClickedListener {

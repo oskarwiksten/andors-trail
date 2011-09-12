@@ -47,7 +47,7 @@ public final class DropListCollection {
 					@Override
 					public void matchedRow(String[] parts) {
 						items.add(new DropItem(
-								itemTypes.getItemTypeByTag(parts[0]) 					// Itemtype
+								itemTypes.getItemType(parts[0]) 						// Itemtype
 								, ResourceFileParser.parseChance(parts[3]) 				// Chance
 								, ResourceFileParser.parseQuantity(parts[1], parts[2]) 	// Quantity
 							));
@@ -74,7 +74,7 @@ public final class DropListCollection {
 	}
 	
 	// Selftest method. Not part of the game logic.
-	public boolean verifyExistsDroplist(int itemTypeID) {
+	public boolean verifyExistsDroplist(String itemTypeID) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (DropList d : droplists.values()) {
 				if (d.contains(itemTypeID)) return true;

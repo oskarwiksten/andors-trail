@@ -62,10 +62,9 @@ public final class ConversationCollection {
 					@Override
 					public void matchedRow(String[] parts) {
 						String requiresItemTypeTag = parts[3];
-						int requiresItemTypeID = -1;
+						String requiresItemTypeID = null;
 						if (requiresItemTypeTag.length() > 0) {
-							ItemType type = itemTypes.getItemTypeByTag(requiresItemTypeTag);
-							if (type != null) requiresItemTypeID = type.id;
+							requiresItemTypeID = requiresItemTypeTag;
 						}
 						replies.add(new Reply(
 								parts[0]

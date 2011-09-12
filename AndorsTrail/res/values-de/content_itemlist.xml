@@ -8,11 +8,11 @@
 	
 	<string name="itemlist_weapons">
 [searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{club1|items_weapons:56|Holzknüppel|0|||7|1||||5|10|||0|1|||||||||||||||||||||||};
-{club3|items_weapons:58|Eisenknüppel|0|||253|1||||6|5|||2|7|||||||||||||||||||||||};
+{club1|items_weapons:42|Holzknüppel|0|||7|1||||5|10|||0|1|||||||||||||||||||||||};
+{club3|items_weapons:44|Eisenknüppel|0|||253|1||||6|5|||2|7|||||||||||||||||||||||};
 {ironsword0|items_weapons:0|Eisenschwert|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
-{hammer0|items_weapons:59|Eisenhammer|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
-{hammer1|items_weapons:59|Riesenhammer|0|||121|1||||10|5|||4|7|||||||||||||||||||||||};
+{hammer0|items_weapons:45|Eisenhammer|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
+{hammer1|items_weapons:45|Riesenhammer|0|||121|1||||10|5|||4|7|||||||||||||||||||||||};
 {dagger0|items_weapons:14|Eisendolch|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
 {dagger1|items_weapons:14|Scharfer Eisendolch|0|||53|1||||4|20|||1|2|||||||||||||||||||||||};
 {dagger2|items_weapons:14|Edler Eisendolch|0|||70|1||||4|25|||1|2|||||||||||||||||||||||};
@@ -22,8 +22,8 @@
 {broadsword1|items_weapons:5|Eisenbreitschwert|0|||251|1||||7|2|||1|10|||||||||||||||||||||||};
 {broadsword2|items_weapons:6|Stahlbreitschwert|0|||582|1||||6|15|||3|10|||||||||||||||||||||||};
 {steelsword1|items_weapons:7|Stahlschwert|0|||874|1||||4|24|||3|7|||||||||||||||||||||||};
-{axe1|items_weapons:70|Holzfälleraxt|0|||24|1||||5|5|||1|3|||||||||||||||||||||||};
-{axe2|items_weapons:70|Eisenaxt|0|||312|1||||6|5|||2|5|||||||||||||||||||||||};
+{axe1|items_weapons:56|Holzfälleraxt|0|||24|1||||5|5|||1|3|||||||||||||||||||||||};
+{axe2|items_weapons:56|Eisenaxt|0|||312|1||||6|5|||2|5|||||||||||||||||||||||};
 {quickdagger1|items_weapons:14|Schnellstoßdolch|0|4||512|1||||3|20|||0|0|-20||||||||||||||||||||||};
 	</string>
 
@@ -163,12 +163,12 @@
 {armor_chain1|items_armours:17|Rostige Kettenrüstung|3|||3629|1|||||-9|||||20||||||||||||||||||||||};
 {armor_chain2|items_armours:17|Einfache Kettenrüstung|3|||4191|1|||||-10|||||22||||||||||||||||||||||};
 {hat_leather1|items_armours:24|Gehärtete Lederkappe|2|||261|1|||||-2|||||7||||||||||||||||||||||};
-{sleepingmead|items_consumables:51|Fleisch mit Schlafmittel|31|1|1|0|||||||||||||||||||||||||||||||||};
+{sleepingmead|items_consumables:51|Schlafmet|31|1|1|0|||||||||||||||||||||||||||||||||};
 {ffguard_qitem|items_jewelry:0|Ring der Feygard Patrouille|31|1|1|0|||||||||||||||||||||||||||||||||};
 {shield6|items_armours:3|Turmschild aus Holz|1|||952|1|||||-6|||||12||||||||||||||||||||||};
 {shield7|items_armours:3|Turmschild aus Hartholz|1|||1538|1|||||-6|||||14||||||||||||||||||||||};
-{club_wood1|items_weapons:58|Schwerer Eisenknüppel|0|||950|1||||8|15|5|3|2|11|||||||||||||||||||||||};
-{club_wood2|items_weapons:58|Kriegseisenknüppel|0|||2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
+{club_wood1|items_weapons:44|Schwerer Eisenknüppel|0|||950|1||||8|15|5|3|2|11|||||||||||||||||||||||};
+{club_wood2|items_weapons:44|Kriegseisenknüppel|0|||2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
 {gloves_grip|items_armours:35|Handschuhe der besseren Haftung|4|||471|1|||||9|||||1||||||||||||||||||||||};
 {gloves_fancy|items_armours:35|Modische Handschuhe|4|||78|1|||||5|||||||||||||||||||||||||||};
 {ring_crit1|items_jewelry:0|Schlagring|7|4||2921|1||||||5||||||||||||||||||||||||||};
@@ -179,11 +179,11 @@
 
 	<string name="itemlist_v069">
 [searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rapier_lifesteal|items_weapons:99|Vampirdegen|0|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{rapier_lifesteal|items_weapons:71|Vampirdegen|0|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
 {dagger_barbed|items_weapons:17|Spitzdolch|0|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
-{elytharan_redeemer|items_weapons:98|Elytharanischer Erlöser|0|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
-{clouded_rage|items_weapons:99|Raserei der Schatten|0|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
-{shadow_slayer|items_weapons:74|Schatten des Mörders|0|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
+{elytharan_redeemer|items_weapons:70|Elytharanischer Erlöser|0|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
+{clouded_rage|items_weapons:71|Raserei der Schatten|0|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{shadow_slayer|items_weapons:60|Schatten des Mörders|0|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
 
 {ring_shadow_embrace|items_jewelry:0|Umarmung der Schatten|7|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
 
@@ -194,9 +194,9 @@
 {bwm_leather_cap|items_armours:24|Blackwater Lederkappe|2|4|1|722|1|5|||||||||21||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_combat_ring|items_jewelry:2|Blackwater Kampfring|7|4|1|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_brew|items_consumables:51|Blackwater Bräu|20||1|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
-{woodcutter_hatchet|items_weapons:71|Holzfällerbeil|0|||0|1||||6|9|||6|12|||||||||||||||||||||||};
+{woodcutter_hatchet|items_weapons:57|Holzfällerbeil|0|||0|1||||6|9|||6|12|||||||||||||||||||||||};
 {woodcutter_boots|items_armours:30|Holzfällerstiefel|5|||873|1|1||||3|||||8||||||||||||||||||||||};
-{heavy_club|items_weapons:58|Schwerer Knüppel|0|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
+{heavy_club|items_weapons:44|Schwerer Knüppel|0|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
 
 {pot_speed_1|items_consumables:41|Kleiner Trank der Geschwindigkeit|20||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
 {pot_poison_weak|items_consumables:40|Schwaches Gift|20||1|125||||||||||||||1|||||{{poison_weak|1|5|100|}}||||||||||||||};

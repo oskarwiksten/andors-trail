@@ -30,7 +30,7 @@ public final class GameStatistics {
 		spentGold += amount;
 	}
 	public void addItemUsage(ItemType type) {
-		final String n = type.searchTag;
+		final String n = type.id;
 		if (!usedItems.containsKey(n)) usedItems.put(n, 1);
 		else usedItems.put(n, usedItems.get(n) + 1);
 	}

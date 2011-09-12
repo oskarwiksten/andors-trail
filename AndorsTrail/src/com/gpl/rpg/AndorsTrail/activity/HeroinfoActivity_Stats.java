@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -35,8 +34,7 @@ import android.widget.TextView;
 
 public final class HeroinfoActivity_Stats extends Activity {
 	private WorldContext world;
-	private ViewContext view;
-
+	
 	private Player player;
 	
 	private Button levelUpButton;
@@ -57,7 +55,6 @@ public final class HeroinfoActivity_Stats extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
-        this.view = app.currentView.get();
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_stats);
@@ -107,21 +104,7 @@ public final class HeroinfoActivity_Stats extends Activity {
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		ItemType itemType;
 		switch (requestCode) {
-		case MainActivity.INTENTREQUEST_ITEMINFO:
-			if (resultCode != RESULT_OK) break;
-			
-			itemType = world.itemTypes.getItemType(data.getExtras().getInt("itemTypeID"));
-			int actionType = data.getExtras().getInt("actionType");
-			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
-	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
-	        } else  if (actionType == ItemInfoActivity.ITEMACTION_EQUIP) {
-	        	view.itemController.equipItem(itemType);
-	        } else  if (actionType == ItemInfoActivity.ITEMACTION_USE) {
-				view.itemController.useItem(itemType);	
-			}
-			break;
 		case MainActivity.INTENTREQUEST_LEVELUP:
 			break;
 		}

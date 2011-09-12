@@ -31,7 +31,7 @@ public final class ItemType {
 	public static final int DISPLAYTYPE_EXTRAORDINARY = 3;
 	public static final int DISPLAYTYPE_RARE = 4;
 	
-	public final int id;
+	public final String id;
 	public final int iconID;
 	public final String name;
 	public final int category;
@@ -39,7 +39,6 @@ public final class ItemType {
 	public final boolean hasManualPrice;
 	public final int baseMarketCost;
 	public final int fixedBaseMarketCost;
-	public final String searchTag;
 	public final int displayType;
 	
 	public final ItemTraits_OnEquip effects_equip;
@@ -47,11 +46,10 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(int id, int iconID, String name, String searchTag, int category, int displayType, boolean hasManualPrice, int fixedBaseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	public ItemType(String id, int iconID, String name, int category, int displayType, boolean hasManualPrice, int fixedBaseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
-		this.searchTag = searchTag;
 		this.category = category;
 		this.actionType = getActionType(category);
 		this.displayType = displayType;

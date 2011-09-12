@@ -41,7 +41,7 @@ public final class SkillController {
 	public static int getDropChanceRollBias(DropItem item, Player player) {
 		if (player == null) return 0;
 		
-		if (item.itemType.id == ItemTypeCollection.ITEMTYPE_GOLD) {
+		if (ItemTypeCollection.isGoldItemType(item.itemType.id)) {
 			return getRollBias(item, player, SkillCollection.SKILL_COINFINDER, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_CHANCE_PERCENT);
 		} else if (!item.itemType.isOrdinaryItem()) {
 			return getRollBias(item, player, SkillCollection.SKILL_MAGICFINDER, SkillCollection.PER_SKILLPOINT_INCREASE_MAGICFINDER_CHANCE_PERCENT);
@@ -52,7 +52,7 @@ public final class SkillController {
 	
 	public static int getDropQuantityRollBias(DropItem item, Player player) {
 		if (player == null) return 0;
-		if (item.itemType.id != ItemTypeCollection.ITEMTYPE_GOLD) return 0;
+		if (!ItemTypeCollection.isGoldItemType(item.itemType.id)) return 0;
 		
 		return getRollBias(item, player, SkillCollection.SKILL_COINFINDER, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_QUANTITY_PERCENT);
 	}

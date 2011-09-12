@@ -36,6 +36,6 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	
 	@Override
 	public long getItemId(int position) {
-		return getItem(position).itemType.id;
+		return getItem(position).itemType.id.hashCode();
 	}
 }

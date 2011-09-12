@@ -37,7 +37,7 @@ public final class Inventory extends ItemContainer {
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
 			if (src.readBoolean()) {
-				wear[i] = world.itemTypes.getItemTypeByTag(src.readUTF());
+				wear[i] = world.itemTypes.getItemType(src.readUTF());
 			} else {
 				wear[i] = null;
 			}
@@ -46,7 +46,7 @@ public final class Inventory extends ItemContainer {
 		final int quickSlots = src.readInt();
 		for(int i = 0; i < quickSlots; ++i) {
 			if (src.readBoolean()) {
-				quickitem[i] = world.itemTypes.getItemTypeByTag(src.readUTF());
+				quickitem[i] = world.itemTypes.getItemType(src.readUTF());
 			} else {
 				quickitem[i] = null;
 			}
@@ -60,7 +60,7 @@ public final class Inventory extends ItemContainer {
 		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
 			if (wear[i] != null) {
 				dest.writeBoolean(true);
-				dest.writeUTF(wear[i].searchTag);
+				dest.writeUTF(wear[i].id);
 			} else {
 				dest.writeBoolean(false);
 			}
@@ -69,7 +69,7 @@ public final class Inventory extends ItemContainer {
 		for(int i = 0; i < QuickitemView.NUM_QUICK_SLOTS; ++i) {
 			if (quickitem[i] != null) {
 				dest.writeBoolean(true);
-				dest.writeUTF(quickitem[i].searchTag);
+				dest.writeUTF(quickitem[i].id);
 			} else {
 				dest.writeBoolean(false);
 			}

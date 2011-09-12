@@ -29,7 +29,7 @@ public final class DropList {
 				int quantity = Constants.rollValue(item.quantity, quantityRollBias);
 				
 				if (quantity != 0) {
-					if (item.itemType.id == ItemTypeCollection.ITEMTYPE_GOLD) {
+					if (ItemTypeCollection.isGoldItemType(item.itemType.id)) {
 						loot.gold += quantity;
 					} else {
 						loot.items.addItem(item.itemType, quantity);
@@ -40,9 +40,9 @@ public final class DropList {
 	}
 	
 	// Selftest method. Not part of the game logic.
-	public boolean contains(int itemTypeID) {
+	public boolean contains(String itemTypeID) {
 		for (DropItem item : items) {
-			if (item.itemType.id == itemTypeID) return true;
+			if (item.itemType.id.equals(itemTypeID)) return true;
 		}
 		return false;
 	}

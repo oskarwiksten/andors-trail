@@ -23,16 +23,16 @@ public final class Phrase {
 		public final String text;
 		public final String nextPhrase;
 		public final QuestProgress requiresProgress;
-		public final int requiresItemTypeID;
+		public final String requiresItemTypeID;
 		public final int requiresItemQuantity;
 		
 		public boolean requiresItem() {
-			if (requiresItemTypeID == -1) return false;
+			if (requiresItemTypeID == null) return false;
 			if (requiresItemQuantity <= 0) return false;
 	    	return true;
 		}
 		
-		public Reply(String text, String nextPhrase, QuestProgress requiresProgress, int requiresItemTypeID, int requiresItemQuantity) {
+		public Reply(String text, String nextPhrase, QuestProgress requiresProgress, String requiresItemTypeID, int requiresItemQuantity) {
 			this.text = text;
 			this.nextPhrase = nextPhrase;
 			this.requiresProgress = requiresProgress;

@@ -79,7 +79,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();
-        int itemTypeID = params.getInt("itemTypeID");
+        String itemTypeID = params.getString("itemTypeID");
         itemType = world.itemTypes.getItemType(itemTypeID);
         totalAvailableAmount = params.getInt("totalAvailableAmount");
         interfaceType = params.getInt("interfaceType");
