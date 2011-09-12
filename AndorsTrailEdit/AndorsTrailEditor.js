@@ -66,16 +66,24 @@ function bindEditorType(dataStore, div, createObjectEditor, newObjectCreator) {
 			dataStore.add(obj);
 			openTabForObject( obj, dataStore );
 		});
+	
+	$( "#clear", div )
+		.button()
+		.click(function() {
+			if (confirm("Are you sure?")) {
+				dataStore.clear();
+			}
+		});
 }
 
 function addExampleModelItems(model) {
-	model.actorConditions.add({id: "bless", name: "Bless", iconID: "items_tiles:318", category: 0, hasAbilityEffect: 1, attackChance: 15, blockChance: 5});
-	model.actorConditions.add({id: "poison_weak", name: "Weak Poison", iconID: "items_tiles:340", category: 3, hasRoundEffect: 1, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1});
+	model.actorConditions.add({id: "bless", name: "Bless", iconID: "actorconditions_1:38", category: 0, hasAbilityEffect: 1, attackChance: 15, blockChance: 5});
+	model.actorConditions.add({id: "poison_weak", name: "Weak Poison", iconID: "actorconditions_1:60", category: 3, hasRoundEffect: 1, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1});
 
 	model.quests.add({id: "testQuest", name: "Test quest", stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] });
 
-	model.items.add({iconID: "items_tiles:70", name: "Test item", searchTag: "item0", category: 0, baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4});
-	model.items.add({iconID: "items_tiles:266", name: "Ring of damage +1", searchTag: "dmg_ring1", category: 7, baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
+	model.items.add({iconID: "items_weapons:0", name: "Test item", searchTag: "item0", category: 0, baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4});
+	model.items.add({iconID: "items_jewelry:0", name: "Ring of damage +1", searchTag: "dmg_ring1", category: 7, baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
 
 	model.droplists.add({id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity_Min: 4, quantity_Max: 5, chance: 100 } , { itemID: 'item0', quantity_Min: 1, quantity_Max: 1, chance: 100 } ] } );
 
@@ -83,9 +91,9 @@ function addExampleModelItems(model) {
 	model.dialogue.add({id: 'mikhail_andor1', message: 'As I said, Andor went out yesterday and hasn\'t been back since. I\'m starting to worry about him. Please go look for your brother, he said he would only be out a short while.'});
 	model.dialogue.add({id: 'mikhail_tasks', message: 'Oh yes, there were some things I need help with, bread and rats. Which one would you like to talk about?'});
 
-	model.monsters.add({name: "Small ant", iconID: "monsters_insects:2", maxHP: 30, size: '1x1'});
-	model.monsters.add({name: "Red ant", iconID: "monsters_insects:3", maxHP: 20, size: '1x1'});
-	model.monsters.add({name: "Wasp", iconID: "monsters_insects:1", maxHP: 10, size: '1x1'});
+	model.monsters.add({id: "small_ant", name: "Small ant", iconID: "monsters_insects:2", maxHP: 30, size: '1x1'});
+	model.monsters.add({id: "red_ant", name: "Red ant", iconID: "monsters_insects:3", maxHP: 20, size: '1x1'});
+	model.monsters.add({id: "wasp", name: "Wasp", iconID: "monsters_insects:1", maxHP: 10, size: '1x1'});
 }
 
 function startEditor() {
@@ -174,17 +182,12 @@ function startEditor() {
 	$( "#buttons #import" ).button().click( showImportDialog );
 	$( "#buttons #export" ).button().click( showExportDialog );
 	
+	
 	var defaultButtons = { 
 		Close: function() { $( this ).dialog( "close" ); }
 	};
-	importExportDialog = $( "#templates #dialog-importexport" )
-		.dialog({
-			modal: true,
-			autoOpen: false,
-			width: 800,
-			height: 500,
-			buttons: defaultButtons
-		});
+	
+	prepareImportExportDialogs(defaultButtons);
 	
 	questlogDialog = $( "#templates #dialog-questlog" )
 		.dialog({
@@ -221,11 +224,18 @@ function startEditor() {
 			width: 350,
 			buttons: defaultButtons
 		});
-		
-		
 	
 	imageSelector = new ImageSelector("../AndorsTrail/res/drawable/", $( "#dialog-images" ) );
-	imageSelector.add(new TilesetImage("items_tiles", {x: 14, y:30}, {x:34, y:34}, [ 'items', 'conditions' ] ));
+	imageSelector.add(new TilesetImage("actorconditions_1", {x:14, y:8}, undefined, [ 'conditions' ] ));
+	imageSelector.add(new TilesetImage("actorconditions_2", {x:3, y:1}, undefined, [ 'conditions' ] ));
+	imageSelector.add(new TilesetImage("items_armours", {x:14, y:3}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_armours_2", {x:7, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons", {x:14, y:8}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons_2", {x:7, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_jewelry", {x:14, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_consumables", {x:14, y:5}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_books", {x:11, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_misc", {x:14, y:4}, undefined, [ 'items' ] ));
 	imageSelector.add(new TilesetImage("monsters_armor1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, {x:64, y:64}, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_dogs", {x: 7, y:1}, undefined, [ 'monsters' ] ));
@@ -258,5 +268,7 @@ function startEditor() {
 	imageSelector.add(new TilesetImage("karvis_npc", {x: 9, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_rltiles1", {x:20, y:8}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_rltiles2", {x:20, y:9}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_redshrike1", {x:6, y:1}, undefined, [ 'monsters' ] ));
+	
 }
 

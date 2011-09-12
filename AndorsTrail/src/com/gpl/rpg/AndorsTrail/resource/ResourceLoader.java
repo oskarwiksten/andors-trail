@@ -34,8 +34,8 @@ public final class ResourceLoader {
         /*tiles.iconID_selection_red = */loader.prepareTileID(R.drawable.ui_selections, 0);
         /*tiles.iconID_selection_yellow = */loader.prepareTileID(R.drawable.ui_selections, 1);
         /*tiles.iconID_groundbag = */loader.prepareTileID(R.drawable.ui_icon_equipment, 0);
-    	/*tiles.iconID_boxopened = */loader.prepareTileID(R.drawable.items_tiles, 8+14*29);
-        /*tiles.iconID_boxclosed = */loader.prepareTileID(R.drawable.items_tiles, 7+14*29);
+    	/*tiles.iconID_boxopened = */loader.prepareTileID(R.drawable.ui_quickslots, 1);
+        /*tiles.iconID_boxclosed = */loader.prepareTileID(R.drawable.ui_quickslots, 0);
         /*tiles.iconID_selection_blue = */loader.prepareTileID(R.drawable.ui_selections, 2);
         /*tiles.iconID_selection_purple = */loader.prepareTileID(R.drawable.ui_selections, 3);
         /*tiles.iconID_selection_green = */loader.prepareTileID(R.drawable.ui_selections, 4);
@@ -151,9 +151,18 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
         
         loader.prepareTileset(R.drawable.ui_selections, "ui_selections", new Size(5, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.ui_quickslots, "ui_quickslots", new Size(2, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.ui_icon_equipment, "ui_icon_equipment", src_sz1x1, defaultTileSize);
         
-        loader.prepareTileset(R.drawable.items_tiles, "items_tiles", new Size(14, 30), defaultTileSize);
+        loader.prepareTileset(R.drawable.actorconditions_1, "actorconditions_1", new Size(14, 8), defaultTileSize);
+        loader.prepareTileset(R.drawable.actorconditions_2, "actorconditions_2", new Size(3, 1), defaultTileSize);
+        
+        loader.prepareTileset(R.drawable.items_armours, "items_armours", new Size(14, 3), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_weapons, "items_weapons", new Size(14, 8), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_jewelry, "items_jewelry", new Size(14, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_consumables, "items_consumables", new Size(14, 5), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_books, "items_books", new Size(11, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc, "items_misc", new Size(14, 4), defaultTileSize);
         
         //loader.prepareTileset(R.drawable.monsters_armor1, "monsters_armor1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", src_sz1x1, dst_sz2x2);

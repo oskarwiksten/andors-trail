@@ -19,7 +19,7 @@
 	<div class="andorsTrailLogo" id="title">
 		Andor's Trail Content Editor
 		<span id="version">
-			v0.6.9a1
+			v0.6.10dev1
 		</span>
 	</div>
 	<div id="buttons">
@@ -32,41 +32,57 @@
 	<div id="tools">
 		<h3><a href="#">Actor conditions</a></h3>
 		<div id="actorconditionlist">
+			<div class="tools-buttons">
+				<div id="add">Add</div>
+				<div id="clear">Clear</div>
+			</div>
 			<ul class="itemlist"> </ul>
-			<div id="add">Add</div>
 		</div>
 		
 		<h3><a href="#">Quests</a></h3>
 		<div id="questlist">
+			<div class="tools-buttons">
+				<div id="add">Add</div>
+				<div id="clear">Clear</div>
+			</div>
 			<ul class="itemlist"> </ul>
-			<div id="add">Add</div>
 		</div>
 		
 		<h3><a href="#">Items</a></h3>
 		<div id="itemlist">
+			<div class="tools-buttons">
+				<div id="add">Add</div>
+				<div id="clear">Clear</div>
+			</div>
 			<ul class="itemlist"> </ul>
-			<div id="add">Add</div>
 		</div>
 		
 		<h3><a href="#">Droplists</a></h3>
 		<div id="droplist">
+			<div class="tools-buttons">
+				<div id="add">Add</div>
+				<div id="clear">Clear</div>
+			</div>
 			<ul class="itemlist"> </ul>
-			<div id="add">Add</div>
 		</div>
 		
 		<h3><a href="#">Dialogue</a></h3>
 		<div id="conversationlist">
+			<div class="tools-buttons">
+				<div id="add">Add</div>
+				<div id="clear">Clear</div>
+			</div>
 			<ul class="itemlist"> </ul>
-			<div id="add">Add</div>
 		</div>
 		
 		<h3><a href="#">Monsters &amp; NPCs</a></h3>
 		<div id="monsterlist">
+			<div class="tools-buttons">
+				<div id="add">Add</div>
+				<div id="clear">Clear</div>
+			</div>
 			<ul class="itemlist"> </ul>
-			<div id="add">Add</div>
 		</div>
-		
-
 	</div>
 </div>
 
@@ -859,47 +875,79 @@
 	<!-- ========================================================= -->
 	<!--   Import / Export dialog form                             -->
 	
-	<div id="dialog-importexport">
-		<div id="actorconditions">
-			<div class="importexport-header">Actor conditions</div>
-			<div id="description">This data corresponds to res/values/actorconditions.xml in the source code.</div>
-			<textarea id="value" rows="6" cols="80"></textarea>
-			<div id="import">Import</div>
+	<div id="dialog-import">
+		<div id="description" class="importexport-description">This data corresponds to the files named res/values/content_*.xml in the source code.</div>
+		<div id="importsections">
+			<h3 class="import-actorconditions"><a href="#">Actor conditions</a></h3>
+			<div class="import-actorconditions">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+				<div id="import">Import</div>
+			</div>
+			
+			<h3 class="import-quests"><a href="#">Quests</a></h3>
+			<div class="import-quests">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+				<div id="import">Import</div>
+			</div>
+			
+			<h3 class="import-items"><a href="#">Items</a></h3>
+			<div class="import-items">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+				<div id="import">Import</div>
+			</div>
+			
+			<h3 class="import-droplists"><a href="#">Droplists</a></h3>
+			<div class="import-droplists">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+				<div id="import">Import</div>
+			</div>
+			
+			<h3 class="import-dialogue"><a href="#">Dialogue</a></h3>
+			<div class="import-dialogue">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+				<div id="import">Import</div>
+			</div>
+			
+			<h3 class="import-monsters"><a href="#">Monsters</a></h3>
+			<div class="import-monsters">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+				<div id="import">Import</div>
+			</div>
 		</div>
-		
-		<div id="quests">
-			<div class="importexport-header">Quests</div>
-			<div id="description">This data corresponds to res/values/questlist.xml in the source code.</div>
-			<textarea id="value" rows="6" cols="80"></textarea>
-			<div id="import">Import</div>
-		</div>
-		
-		<div id="items">
-			<div class="importexport-header">Items</div>
-			<div id="description">This data corresponds to res/values/itemlist.xml in the source code.</div>
-			<textarea id="value" rows="6" cols="80"></textarea>
-			<div id="import">Import</div>
-		</div>
-		
-		<div id="droplists">
-			<div class="importexport-header">Droplists</div>
-			<div id="description">This data corresponds to res/values/droplist.xml in the source code.</div>
-			<textarea id="value" rows="6" cols="80"></textarea>
-			<div id="import">Import</div>
-		</div>
-		
-		<div id="dialogue">
-			<div class="importexport-header">Dialogue</div>
-			<div id="description">This data corresponds to res/values/conversationlist.xml in the source code.</div>
-			<textarea id="value" rows="6" cols="80"></textarea>
-			<div id="import">Import</div>
-		</div>
-		
-		<div id="monsters">
-			<div class="importexport-header">Monsters</div>
-			<div id="description">This data corresponds to res/values/monsters.xml in the source code.</div>
-			<textarea id="value" rows="6" cols="80"></textarea>
-			<div id="import">Import</div>
+	</div>
+	
+	<div id="dialog-export">
+		<div id="description" class="importexport-description">This data corresponds to the files named res/values/content_*.xml in the source code.</div>
+		<div id="exportsections">
+			<h3 class="export-actorconditions"><a href="#">Actor conditions</a></h3>
+			<div class="export-actorconditions">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+			</div>
+			
+			<h3 class="export-quests"><a href="#">Quests</a></h3>
+			<div class="export-quests">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+			</div>
+			
+			<h3 class="export-items"><a href="#">Items</a></h3>
+			<div class="export-items">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+			</div>
+			
+			<h3 class="export-droplists"><a href="#">Droplists</a></h3>
+			<div class="export-droplists">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+			</div>
+			
+			<h3 class="export-dialogue"><a href="#">Dialogue</a></h3>
+			<div class="export-dialogue">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+			</div>
+			
+			<h3 class="export-monsters"><a href="#">Monsters</a></h3>
+			<div class="export-monsters">
+				<div><textarea id="value" rows="9" cols="80"></textarea></div>
+			</div>
 		</div>
 	</div>
 	

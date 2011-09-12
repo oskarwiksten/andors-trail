@@ -36,7 +36,10 @@ function DataStore(input) {
 		}
 	}
 	this.get = function(index) { return this.items[index]; }
-	this.clear = function() { this.items = {}; }
+	this.clear = function() { 
+		this.items = [];
+		if (this.onDeserialized) { this.onDeserialized(); }
+	}
 	this.findById = function(id) { 
 		for (var i = 0; i < this.items.length; ++i) {
 			var item = this.items[i];

@@ -67,6 +67,9 @@ function buildEditorForPhrase(div, phrase, tree, treeNode) {
 	bindFieldToDataStore( $( "#progressQuest", dialoguePhrase ), model.quests);
 	bindFieldToDataStore( $( "#rewardDropListID", dialoguePhrase ), model.droplists);
 	
+	var rebuildChildNodes = function() {
+		updatePhraseReplyTreeNodesBelow(tree, treeNode, phrase);
+	}
 	var reloadReplyTable = function() {
 		applyTableEditor({
 			table: $( "#replies", dialoguePhraseReplies ),
@@ -76,7 +79,7 @@ function buildEditorForPhrase(div, phrase, tree, treeNode) {
 				onConversationPhraseSelected(div, obj, tree);
 			},
 			onItemAdded: function(addedObject) {
-				updatePhraseReplyTreeNodesBelow(tree, treeNode, phrase);
+				rebuildChildNodes();
 			}
 		});
 	}
@@ -95,17 +98,23 @@ function buildEditorForPhrase(div, phrase, tree, treeNode) {
 			phrase.replies = [ ];
 			reloadReplyTable();
 		}
-		updatePhraseReplyTreeNodesBelow(tree, treeNode, phrase);
+		rebuildChildNodes();
 	});
-	var nextPhraseID = $( "#nextPhraseID", dialoguePhraseReplies );
 	
+	var nextPhraseID = $( "#nextPhraseID", dialoguePhraseReplies );
 	nextPhraseID.unbind("change").change(function() {
 		phrase.replies[0].nextPhraseID = $( this ).val();
-		updatePhraseReplyTreeNodesBelow(tree, treeNode, phrase);
+		rebuildChildNodes();
 	});
 	if (phrase.hasOnlyNextReply) {
 		nextPhraseID.val(phrase.replies[0].nextPhraseID);
 	}
+	
+	var phraseID = $( "#id", dialoguePhrase );
+	phraseID.change(function() {
+		treeNode.data.key = phrase.id;
+		rebuildChildNodes();
+	});
 	
 	$( "#followNextReply", dialoguePhraseReplies ).button().unbind('click').click(function() {
 		openNextPhrase(nextPhraseID.val(), div, phrase.replies[0], tree);
@@ -150,12 +159,12 @@ function openNextPhrase(nextPhraseID, div, reply, tree) {
 	onConversationPhraseSelected(div, phrase, tree);
 }
 
-var phraseIDPattern = new RegExp("^(.*)(\d+)$", 'g');
+var phraseIDPattern = /^(.*\D)(\d+)$/g;
 function generatePhraseID(previousPhraseID) {
 	var suffix;
 	var n = 1;
 	
-	var match = /^(.*\D)(\d+)$/(previousPhraseID);
+	var match = phraseIDPattern.exec(previousPhraseID);
 	if (match) {
 		suffix = match[1];
 		n = parseInt(match[2]) + 1;

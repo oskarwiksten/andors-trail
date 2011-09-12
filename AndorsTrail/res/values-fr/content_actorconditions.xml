@@ -3,21 +3,21 @@
 <resources>
 	<string name="actorconditions_v069">
 [id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{bless|Bénédiction|items_tiles:321|0||||||||||||||1|||||5|||||||};
-{poison_weak|Poison d\'affaiblissement|items_tiles:340|3||1|2|-1|-1|||||||||||||||||||||};
-{str|Force|items_tiles:350|2||||||||||||||1||||||||2|2|||};
-{regen|Régénération|items_tiles:315|0||1|1|1|1|||||||||0||||||||||||};
+{bless|Bénédiction|actorconditions_1:41|0||||||||||||||1|||||5|||||||};
+{poison_weak|Poison d\'affaiblissement|actorconditions_1:60|3||1|2|-1|-1|||||||||||||||||||||};
+{str|Force|actorconditions_1:70|2||||||||||||||1||||||||2|2|||};
+{regen|Régénération|actorconditions_1:35|0||1|1|1|1|||||||||0||||||||||||};
 	</string>
 	
 	<string name="actorconditions_v069_bwm">
 [id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{speed_minor|Rapidité mineure|items_tiles:367|2||||||||||||||1||2||||||||||};
-{fatigue_minor|Fatigue mineure|items_tiles:294|2||0||||||0||||||1|||2|2||||-1|-1|||};
-{feebleness_minor|Maladresse mineure au combat|items_tiles:354|1||||||||||||||1||||||||-9|-9|||};
-{bleeding_wound|Blessure saignante|items_tiles:104|3|1|1|0|-1|-1|||||||||||||||||||||};
-{rage_minor|Rage de folie furieuse mineure|items_tiles:370|1||0|-1|||||||||||1|35||||60|||||-90|-1|};
-{blackwater_misery|Abattement de Blackwater|items_tiles:338|3||||||||||||||1||||1|-50|-50||||||};
-{intoxicated|Intoxication|items_tiles:105|1||||||||||||||1|15|||1|-30|||4|4|||};
-{dazed|Hébétude|items_tiles:345|1||||||||||||||1||||||||||-40||};
+{speed_minor|Rapidité mineure|actorconditions_1:87|2||||||||||||||1||2||||||||||};
+{fatigue_minor|Fatigue mineure|actorconditions_1:14|2||0||||||0||||||1|||2|2||||-1|-1|||};
+{feebleness_minor|Maladresse mineure au combat|actorconditions_1:74|1||||||||||||||1||||||||-9|-9|||};
+{bleeding_wound|Blessure saignante|actorconditions_2:0|3|1|1|0|-1|-1|||||||||||||||||||||};
+{rage_minor|Rage de folie furieuse mineure|actorconditions_1:90|1||0|-1|||||||||||1|35||||60|||||-90|-1|};
+{blackwater_misery|Abattement de Blackwater|actorconditions_1:58|3||||||||||||||1||||1|-50|-50||||||};
+{intoxicated|Intoxication|actorconditions_2:1|1||||||||||||||1|15|||1|-30|||4|4|||};
+{dazed|Hébétude|actorconditions_1:65|1||||||||||||||1||||||||||-40||};
 	</string>
 </resources>
