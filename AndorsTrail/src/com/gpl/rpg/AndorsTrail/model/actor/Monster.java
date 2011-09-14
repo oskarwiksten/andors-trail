@@ -7,12 +7,13 @@ import java.io.IOException;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
+import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class Monster extends Actor {
-	public final MonsterType monsterType;
+	public final String monsterTypeID;
 	
 	public final int millisecondsPerMove;
 	public Coord movementDestination = null;
@@ -20,24 +21,31 @@ public final class Monster extends Actor {
 	public boolean forceAggressive = false;
 	public final CoordRect nextPosition;
 	
+	public final String phraseID;
+	public final int exp;
+	public final DropList dropList;
+	
 	public Monster(MonsterType monsterType, Coord position) {
 		super(monsterType, false);
-		this.monsterType = monsterType;
+		this.monsterTypeID = monsterType.id;
 		this.position.set(position);
 		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
 		this.nextPosition = new CoordRect(new Coord(), traits.tileSize);
+		this.phraseID = monsterType.phraseID;
+		this.exp = monsterType.exp;
+		this.dropList = monsterType.dropList;
 	}
 	
 	public void createLoot(Loot container, Player player) {
-		int exp = monsterType.exp;
+		int exp = this.exp;
 		exp += exp * player.getSkillLevel(SkillCollection.SKILL_MORE_EXP) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
 		container.exp += exp;
-		if (monsterType.dropList == null) return;
-		monsterType.dropList.createRandomLoot(container, player);
+		if (this.dropList == null) return;
+		this.dropList.createRandomLoot(container, player);
 	}
 	
 	public boolean isAgressive() {
-		return monsterType.phraseID == null || forceAggressive;
+		return phraseID == null || forceAggressive;
 	}
 	
 	
@@ -60,7 +68,7 @@ public final class Monster extends Actor {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeUTF(monsterType.id);
+		dest.writeUTF(monsterTypeID);
 		position.writeToParcel(dest, flags);
 		dest.writeInt(ap.current);
 		dest.writeInt(health.current);

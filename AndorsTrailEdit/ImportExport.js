@@ -15,7 +15,6 @@ function prepareImport(dataStore, div) {
 	var importButton = $( "#import", div );
 	var textarea = $( "#value", div );
 	importButton.button().click(function() {
-		alert("Running import for " + dataStore.objectTypename);
 		if (!textarea.val()) return;
 		importDatastore(dataStore, textarea.val());
 	});

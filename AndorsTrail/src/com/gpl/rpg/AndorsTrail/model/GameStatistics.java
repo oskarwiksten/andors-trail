@@ -18,10 +18,9 @@ public final class GameStatistics {
 	public int spentGold = 0;
 	
 	public GameStatistics() { }
-	public void addMonsterKill(MonsterType type) {
-		final String n = type.id;
-		if (!killedMonsters.containsKey(n)) killedMonsters.put(n, 1);
-		else killedMonsters.put(n, killedMonsters.get(n) + 1);
+	public void addMonsterKill(String monsterTypeID) {
+		if (!killedMonsters.containsKey(monsterTypeID)) killedMonsters.put(monsterTypeID, 1);
+		else killedMonsters.put(monsterTypeID, killedMonsters.get(monsterTypeID) + 1);
 	}
 	public void addPlayerDeath(int lostExp) {
 		++deaths;

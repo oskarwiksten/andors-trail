@@ -159,12 +159,11 @@ function openNextPhrase(nextPhraseID, div, reply, tree) {
 	onConversationPhraseSelected(div, phrase, tree);
 }
 
-var phraseIDPattern = /^(.*\D)(\d+)$/g;
 function generatePhraseID(previousPhraseID) {
 	var suffix;
 	var n = 1;
 	
-	var match = phraseIDPattern.exec(previousPhraseID);
+	var match = (/^(.*\D)(\d+)$/g).exec(previousPhraseID);
 	if (match) {
 		suffix = match[1];
 		n = parseInt(match[2]) + 1;

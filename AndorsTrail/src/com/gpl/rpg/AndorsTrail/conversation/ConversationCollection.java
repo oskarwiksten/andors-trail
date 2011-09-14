@@ -93,7 +93,7 @@ public final class ConversationCollection {
 	    		}
 	    		
 	    		phrases.put(phraseID, new Phrase(
-	    				ResourceFileParser.parseNullableString(parts[0])	// message
+	    				ResourceFileParser.parseNullableString(parts[1])	// message
 	        			, _replies											// replies
 	        			, QuestProgress.parseQuestProgress(parts[2])		// questProgress
 			        	, ResourceFileParser.parseNullableString(parts[3])	// rewardDroplist

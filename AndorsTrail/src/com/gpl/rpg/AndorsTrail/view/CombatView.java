@@ -17,7 +17,6 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
@@ -34,7 +33,7 @@ public final class CombatView extends RelativeLayout {
 	private final ViewContext view;
 	private final Resources res;
 
-	private MonsterType currentMonsterType;
+	private Monster currentMonster;
 	public CombatView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
@@ -76,7 +75,7 @@ public final class CombatView extends RelativeLayout {
         monsterInfo.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Dialogs.showMonsterInfo(view.mainActivity, currentMonsterType.id);
+				Dialogs.showMonsterInfo(view.mainActivity, currentMonster);
 			}
 		});
         
@@ -110,13 +109,13 @@ public final class CombatView extends RelativeLayout {
 	public void updateCombatSelection(Monster selectedMonster, Coord selectedMovePosition) {
 		attackMoveButton.setEnabled(true);
 		monsterBar.setVisibility(View.INVISIBLE);
-		currentMonsterType = null;
+		currentMonster = null;
 		if (selectedMonster != null) {
 			attackMoveButton.setText(res.getString(R.string.combat_attack, world.model.player.traits.attackCost));
 			monsterBar.setVisibility(View.VISIBLE);
 			monsterInfo.setImageBitmap(world.tileStore.getBitmap(selectedMonster.traits.iconID));
 	        updateMonsterHealth(selectedMonster.health);
-			currentMonsterType = selectedMonster.monsterType;
+	        currentMonster = selectedMonster;
 		} else if (selectedMovePosition != null) {
 			attackMoveButton.setText(res.getString(R.string.combat_move, world.model.player.traits.moveCost));
 		} else {

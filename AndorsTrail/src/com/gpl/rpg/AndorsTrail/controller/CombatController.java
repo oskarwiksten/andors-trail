@@ -19,7 +19,6 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -223,7 +222,7 @@ public final class CombatController {
 		player.ap.add(player.getSkillLevel(SkillCollection.SKILL_CLEAVE) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP, false);
 		player.health.add(player.getSkillLevel(SkillCollection.SKILL_EATER) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);
 		
-		model.statistics.addMonsterKill(killedMonster.monsterType);
+		model.statistics.addMonsterKill(killedMonster.monsterTypeID);
 		model.player.addExperience(loot.exp);
 		totalExpThisFight += loot.exp;
 		loot.exp = 0;
@@ -388,11 +387,11 @@ public final class CombatController {
 		if (averageDamagePerTurn <= 0) return 100;
 		return (int) Math.ceil(target.maxHP / averageDamagePerTurn);
 	}
-	public static int getMonsterDifficulty(WorldContext world, MonsterType monsterType) {
+	public static int getMonsterDifficulty(WorldContext world, Monster monster) {
 		// returns [0..100) . 100 == easy.
-		int turnsToKillMonster = getTurnsToKillTarget(world.model.player.traits, monsterType);
+		int turnsToKillMonster = getTurnsToKillTarget(world.model.player.traits, monster.traits);
 		if (turnsToKillMonster >= 999) return 0;
-		int turnsToKillPlayer = getTurnsToKillTarget(monsterType, world.model.player.traits);
+		int turnsToKillPlayer = getTurnsToKillTarget(monster.traits, world.model.player.traits);
 		int result = 50 + (turnsToKillPlayer - turnsToKillMonster) * 2;
 		if (result <= 1) return 1;
 		else if (result > 100) return 100;

@@ -55,7 +55,7 @@ public final class Controller {
 				Dialogs.showMonsterEncounter(view.mainActivity, view, m);
 			}
 		} else {
-			Dialogs.showConversation(view.mainActivity, view, m.monsterType.phraseID, m);
+			Dialogs.showConversation(view.mainActivity, view, m.phraseID, m);
 		}
 	}
 

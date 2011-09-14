@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
 import android.app.Activity;
-import android.net.Uri;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -14,7 +14,7 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 
 public final class MonsterEncounterActivity extends Activity {
 	private WorldContext world;
@@ -27,22 +27,28 @@ public final class MonsterEncounterActivity extends Activity {
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
-        Uri uri = getIntent().getData();
-        String monsterTypeID = uri.getLastPathSegment().toString();
-        final MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
+        final Intent intent = getIntent();
+        final Bundle params = intent.getExtras();
+        int x = params.getInt("x");
+        int y = params.getInt("y");
+        final Monster monster = world.model.currentMap.getMonsterAt(x, y);
+        if (monster == null) {
+        	finish();
+        	return;
+        }
         
         setContentView(R.layout.monsterencounter);
 
-        CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(world, monsterType));
+        CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(world, monster));
 
         TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
-        tv.setText(monsterType.name);
+        tv.setText(monster.traits.name);
         
         tv = (TextView) findViewById(R.id.monsterencounter_description);
         tv.setText(getString(R.string.dialog_monsterencounter_message, difficulty));
 
         ImageView iw = (ImageView) findViewById(R.id.monsterencounter_image);
-        iw.setImageBitmap(world.tileStore.getBitmap(monsterType.iconID));
+        iw.setImageBitmap(world.tileStore.getBitmap(monster.traits.iconID));
         
         Button b = (Button) findViewById(R.id.monsterencounter_attack);
         b.setOnClickListener(new OnClickListener() {
@@ -64,7 +70,7 @@ public final class MonsterEncounterActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Dialogs.showMonsterInfo(MonsterEncounterActivity.this, monsterType.id);
+				Dialogs.showMonsterInfo(MonsterEncounterActivity.this, monster);
 			}
         });
     }

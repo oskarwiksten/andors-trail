@@ -6,13 +6,13 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
-import com.gpl.rpg.AndorsTrail.util.Range;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -23,7 +23,7 @@ import android.widget.TextView;
 
 public final class MonsterInfoActivity extends Activity {
 	private WorldContext world;
-	private MonsterType monsterType;
+	private Monster monster;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -32,17 +32,24 @@ public final class MonsterInfoActivity extends Activity {
         this.world = app.world;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
-        String monsterTypeID = getIntent().getData().getLastPathSegment().toString();
-        this.monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
+        final Intent intent = getIntent();
+        final Bundle params = intent.getExtras();
+        int x = params.getInt("x");
+        int y = params.getInt("y");
+        this.monster = world.model.currentMap.getMonsterAt(x, y);
+        if (this.monster == null) {
+        	finish();
+        	return;
+        }                          
         
         setContentView(R.layout.monsterinfo);
 
         ImageView img = (ImageView) findViewById(R.id.monsterinfo_image);
-        img.setImageBitmap(world.tileStore.getBitmap(monsterType.iconID));
+        img.setImageBitmap(world.tileStore.getBitmap(monster.traits.iconID));
         TextView tv = (TextView) findViewById(R.id.monsterinfo_title);
-        tv.setText(monsterType.name);
+        tv.setText(monster.traits.name);
         tv = (TextView) findViewById(R.id.monsterinfo_difficulty);
-        tv.setText(getMonsterDifficultyResource(world, monsterType));
+        tv.setText(getMonsterDifficultyResource(world, monster));
 
         Button b = (Button) findViewById(R.id.monsterinfo_close);
         b.setOnClickListener(new OnClickListener() {
@@ -52,23 +59,19 @@ public final class MonsterInfoActivity extends Activity {
 			}
 		});
 
-        ((TraitsInfoView) findViewById(R.id.monsterinfo_currenttraits)).update(monsterType);
+        ((TraitsInfoView) findViewById(R.id.monsterinfo_currenttraits)).update(monster.traits);
         ((ItemEffectsView) findViewById(R.id.monsterinfo_onhiteffects)).update(
         		null, 
         		null, 
-        		monsterType.onHitEffects == null ? null : Arrays.asList(monsterType.onHitEffects), 
+        		monster.traits.onHitEffects == null ? null : Arrays.asList(monster.traits.onHitEffects), 
         		null);
         RangeBar hp = (RangeBar) findViewById(R.id.monsterinfo_healthbar);
         hp.init(R.drawable.ui_progress_health, R.string.status_hp);
-        int currentHP = 
-        	world.model.uiSelections.selectedMonster == null ?
-        			monsterType.maxHP :
-        			world.model.uiSelections.selectedMonster.health.current;
-        hp.update(new Range(monsterType.maxHP, currentHP));
+        hp.update(monster.health);
     }
 
-	public static int getMonsterDifficultyResource(WorldContext world, MonsterType monsterType) {
-		final int difficulty = CombatController.getMonsterDifficulty(world, monsterType);
+	public static int getMonsterDifficultyResource(WorldContext world, Monster monster) {
+		final int difficulty = CombatController.getMonsterDifficulty(world, monster);
 		if (difficulty >= 80) return R.string.monster_difficulty_veryeasy;
 		else if (difficulty >= 60) return R.string.monster_difficulty_easy;
 		else if (difficulty >= 40) return R.string.monster_difficulty_normal;
