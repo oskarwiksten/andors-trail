@@ -82,7 +82,7 @@ public final class ResourceLoader {
         // Load conversations
         final TypedArray conversationsListsToLoad = r.obtainTypedArray(conversationsListsResourceId);
         for (int i = 0; i < conversationsListsToLoad.length(); ++i) {
-        	world.conversations.initialize(world.itemTypes, world.dropLists, conversationsListsToLoad.getString(i));
+        	world.conversations.initialize(conversationsListsToLoad.getString(i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();
@@ -194,7 +194,7 @@ public final class ResourceLoader {
         //loader.prepareTileset(R.drawable.monsters_dragon1, "monsters_dragon1", src_sz1x1, dst_sz4x3);
         loader.prepareTileset(R.drawable.monsters_rltiles1, "monsters_rltiles1", new Size(20, 8), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_rltiles2, "monsters_rltiles2", new Size(20, 9), defaultTileSize);
-        loader.prepareTileset(R.drawable.karvis_npc, "karvis_npc", new Size(9, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_karvis2, "monsters_karvis2", new Size(9, 1), defaultTileSize);
 
         loader.prepareTileset(R.drawable.map_tiles_1_1, "map_tiles_1_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_1_2, "map_tiles_1_2.png", src_mapTileSize, defaultTileSize);

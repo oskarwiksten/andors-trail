@@ -39,8 +39,14 @@ public final class MonsterTypeCollection {
 		for (MonsterType t : monsterTypes.values()) {
 			if (t.matchesAny(parts)) result.add(t);
 		}
-		//L.log("\"" + tagsAndNames + "\" -> found " + result.size() + " monsters.");
 		return result;
+	}
+	
+	public MonsterType guessMonsterTypeFromName(String name) {
+		for (MonsterType t : monsterTypes.values()) {
+			if (t.name.equalsIgnoreCase(name)) return t;
+		}
+		return null;
 	}
 	
 	private static final Size size1x1 = new Size(1, 1);
@@ -66,7 +72,7 @@ public final class MonsterTypeCollection {
 				final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, maxHP, maxAP);
 	    		monsterTypes.put(monsterTypeId, new MonsterType(
 					monsterTypeId
-					, parts[2]								// Name
+					, parts[2]										// Name
 					, parts[3] 										// Tags
 					, ResourceFileParser.parseImageID(tileLoader, parts[1])
 					, ResourceFileParser.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
@@ -77,7 +83,7 @@ public final class MonsterTypeCollection {
 			        , hitEffect
 					, exp 											// Exp
 					, droplists.getDropList(parts[16]) 				// Droplist
-					, parts[17]										// PhraseID
+					, ResourceFileParser.parseNullableString(parts[17]) // PhraseID
 				));
 			}
 		});
@@ -103,7 +109,7 @@ public final class MonsterTypeCollection {
     		for (MonsterType t : monsterTypes.values()) {
     			if (t.phraseID != null && t.phraseID.length() > 0) {
     				if (!world.conversations.isValidPhraseID(t.phraseID)) {
-    					L.log("WARNING: Cannot find phrase \"" + t.phraseID + "\" for MonsterType \"" + t.name + "\".");
+    					L.log("WARNING: Cannot find phrase \"" + t.phraseID + "\" for MonsterType \"" + t.id + "\".");
     				}
     			}
     		}
@@ -117,7 +123,7 @@ public final class MonsterTypeCollection {
     			if (t.phraseID != null && t.phraseID.length() > 0) {
     				if (conversations.DEBUG_leadsToTradeReply(t.phraseID)) {
     					if (t.dropList == null) {
-    						L.log("WARNING: MonsterType \"" + t.name + "\" has conversation \"" + t.phraseID + "\" that leads to a trade, but the monster type does not have a droplist.");
+    						L.log("WARNING: MonsterType \"" + t.id + "\" has conversation \"" + t.phraseID + "\" that leads to a trade, but the monster type does not have a droplist.");
     					}
     				}
     			}

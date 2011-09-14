@@ -25,9 +25,9 @@ public final class ItemTypeCollection {
 		return itemTypes.get(id);
 	}
 
-	public static boolean isGoldItemType(String requiresItemTypeID) {
-		if (requiresItemTypeID == null) return false;
-		return requiresItemTypeID.equals(ITEMTYPE_GOLD);
+	public static boolean isGoldItemType(String itemTypeID) {
+		if (itemTypeID == null) return false;
+		return itemTypeID.equals(ITEMTYPE_GOLD);
 	}
 	
 	private static final ResourceObjectTokenizer itemResourceTokenizer = new ResourceObjectTokenizer(39);

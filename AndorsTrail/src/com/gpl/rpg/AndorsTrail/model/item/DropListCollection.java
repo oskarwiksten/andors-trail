@@ -21,15 +21,15 @@ public final class DropListCollection {
 	
 	private final HashMap<String, DropList> droplists = new HashMap<String, DropList>();
 	
-	public DropList getDropList(String name) {
-		if (name == null || name.length() <= 0) return null;
+	public DropList getDropList(String droplistID) {
+		if (droplistID == null || droplistID.length() <= 0) return null;
 		
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			if (!droplists.containsKey(name)) {
-				L.log("WARNING: Cannot find droplist \"" + name + "\".");
+			if (!droplists.containsKey(droplistID)) {
+				L.log("WARNING: Cannot find droplist \"" + droplistID + "\".");
 			}
 		}
-		return droplists.get(name);
+		return droplists.get(droplistID);
 	}
 	
 	private static final ResourceObjectTokenizer droplistResourceTokenizer = new ResourceObjectTokenizer(2);
@@ -88,7 +88,7 @@ public final class DropListCollection {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			HashSet<DropList> usedDroplists = new HashSet<DropList>();
 			monsterTypes.DEBUG_getUsedDroplists(usedDroplists);
-			conversations.DEBUG_getUsedDroplists(usedDroplists);
+			conversations.DEBUG_getUsedDroplists(usedDroplists, this);
 			maps.DEBUG_getUsedDroplists(usedDroplists);
 			usedDroplists.add(getDropList(DropListCollection.DROPLIST_STARTITEMS));
 			

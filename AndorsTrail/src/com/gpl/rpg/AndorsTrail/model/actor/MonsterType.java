@@ -11,7 +11,6 @@ public final class MonsterType extends ActorTraits {
 	public final int exp;
 	public final DropList dropList;
 	public final String phraseID;
-	public boolean isNPC;
 
 	public MonsterType(
 			String id, 
@@ -36,7 +35,6 @@ public final class MonsterType extends ActorTraits {
 		this.maxAP = maxAP;
 		this.moveCost = moveCost;
 		this.dropList = dropList;
-		if (phraseID != null && phraseID.length() == 0) phraseID = null;
 		this.phraseID = phraseID;
 	}
 	public boolean matchesAny(String[] tagsAndNames) {

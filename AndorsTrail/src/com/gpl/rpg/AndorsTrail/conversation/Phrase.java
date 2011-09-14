@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.conversation;
 
-import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 
 public final class Phrase {
@@ -9,14 +8,14 @@ public final class Phrase {
 	public final String message;
 	public final Reply[] replies;
 	public final QuestProgress progressQuest; 	// If this phrase is reached, this quest will be updated.
-	public final DropList rewardDropList; 	// If this phrase is reached, player will be awarded all these items
+	public final String rewardDropListID; 		// If this phrase is reached, player will be awarded all these items
 	
-	public Phrase(String message, Reply[] replies, QuestProgress progressQuest, DropList rewardDropList) {
+	public Phrase(String message, Reply[] replies, QuestProgress progressQuest, String rewardDropListID) {
 		this.message = message;
 		if (replies == null) replies = NO_REPLIES;
 		this.replies = replies;
 		this.progressQuest = progressQuest;
-		this.rewardDropList = rewardDropList;
+		this.rewardDropListID = rewardDropListID;
 	}
 
 	public static final class Reply {

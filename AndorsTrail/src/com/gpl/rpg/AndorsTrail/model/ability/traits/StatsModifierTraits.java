@@ -8,11 +8,6 @@ public class StatsModifierTraits {
 	public final ConstRange currentHPBoost;
 	public final ConstRange currentAPBoost;
 	
-	public StatsModifierTraits(ConstRange currentHPBoost, ConstRange currentAPBoost) {
-		this.visualEffectID = VISUAL_EFFECT_NONE;
-		this.currentHPBoost = currentHPBoost;
-		this.currentAPBoost = currentAPBoost;
-	}
 	public StatsModifierTraits(int visualEffectID, ConstRange currentHPBoost, ConstRange currentAPBoost) {
 		this.visualEffectID = visualEffectID;
 		this.currentHPBoost = currentHPBoost;

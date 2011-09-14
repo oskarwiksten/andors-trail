@@ -8,8 +8,8 @@ public final class ItemTraits_OnUse extends StatsModifierTraits {
 	public final ActorConditionEffect[] addedConditions_source;
 	public final ActorConditionEffect[] addedConditions_target;
 	
-	public ItemTraits_OnUse(ConstRange currentHPBoost, ConstRange currentAPBoost, ActorConditionEffect[] addedConditions_source, ActorConditionEffect[] addedConditions_target) {
-		super(currentHPBoost, currentAPBoost);
+	public ItemTraits_OnUse(int visualEffectID, ConstRange currentHPBoost, ConstRange currentAPBoost, ActorConditionEffect[] addedConditions_source, ActorConditionEffect[] addedConditions_target) {
+		super(visualEffectID, currentHPBoost, currentAPBoost);
 		this.addedConditions_source = addedConditions_source;
 		this.addedConditions_target = addedConditions_target;
 	}

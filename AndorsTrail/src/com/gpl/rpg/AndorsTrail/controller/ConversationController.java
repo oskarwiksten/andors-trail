@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
@@ -11,12 +12,12 @@ import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 
 public final class ConversationController {
 
-	public static Loot applyPhraseEffect(final Player player, final Phrase phrase, final QuestCollection questcollection) {
-		if (phrase.rewardDropList == null && phrase.progressQuest == null) return null;
+	public static Loot applyPhraseEffect(final Player player, final Phrase phrase, final QuestCollection questcollection, final DropListCollection dropListCollection) {
+		if (phrase.rewardDropListID == null && phrase.progressQuest == null) return null;
 		
 		final Loot loot = new Loot();
-		if (phrase.rewardDropList != null) {
-			phrase.rewardDropList.createRandomLoot(loot, player);
+		if (phrase.rewardDropListID != null) {
+			dropListCollection.getDropList(phrase.rewardDropListID).createRandomLoot(loot, player);
 			player.inventory.add(loot);
 		}
 		if (phrase.progressQuest != null) {

@@ -51,7 +51,7 @@ public final class ConversationCollection {
 	
 	private static final ResourceObjectTokenizer conversationResourceTokenizer = new ResourceObjectTokenizer(5);
 	private static final ResourceObjectTokenizer replyResourceTokenizer = new ResourceObjectTokenizer(5);
-	public void initialize(final ItemTypeCollection itemTypes, final DropListCollection droplists, String phraselist) {
+	public void initialize(String phraselist) {
 		conversationResourceTokenizer.tokenizeRows(phraselist, new ResourceObjectFieldParser() {
 			@Override
 			public void matchedRow(String[] parts) {
@@ -61,17 +61,12 @@ public final class ConversationCollection {
 	    		ResourceObjectArrayTokenizer.tokenize(parts[4], replyResourceTokenizer, new ResourceObjectFieldParser() {
 					@Override
 					public void matchedRow(String[] parts) {
-						String requiresItemTypeTag = parts[3];
-						String requiresItemTypeID = null;
-						if (requiresItemTypeTag.length() > 0) {
-							requiresItemTypeID = requiresItemTypeTag;
-						}
 						replies.add(new Reply(
-								parts[0]
-								, parts[1]
-								, QuestProgress.parseQuestProgress(parts[2])
-						       	, requiresItemTypeID
-				       	       	, ResourceFileParser.parseInt(parts[4], 0)
+								parts[0]											// text
+								, parts[1]											// nextPhrase
+								, QuestProgress.parseQuestProgress(parts[2])		// requiresProgress
+						       	, ResourceFileParser.parseNullableString(parts[3])	// requiresItemType
+						       	, ResourceFileParser.parseInt(parts[4], 0)			// requiresItemQuantity
 							));
 					}
 				});
@@ -98,10 +93,10 @@ public final class ConversationCollection {
 	    		}
 	    		
 	    		phrases.put(phraseID, new Phrase(
-	        			parts[1]
-	        			, _replies
-	        			, QuestProgress.parseQuestProgress(parts[2])
-			        	, droplists.getDropList(parts[3])
+	    				ResourceFileParser.parseNullableString(parts[0])	// message
+	        			, _replies											// replies
+	        			, QuestProgress.parseQuestProgress(parts[2])		// questProgress
+			        	, ResourceFileParser.parseNullableString(parts[3])	// rewardDroplist
 	    			));
 			}
 		});
@@ -265,10 +260,13 @@ public final class ConversationCollection {
 		return false;
 	}
 
-	public void DEBUG_getUsedDroplists(HashSet<DropList> usedDropLists) {
+	public void DEBUG_getUsedDroplists(HashSet<DropList> usedDropLists, final DropListCollection dropListCollection) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Phrase p : phrases.values()) {
-				if (p.rewardDropList != null) usedDropLists.add(p.rewardDropList);
+				if (p.rewardDropListID != null) {
+					DropList d = dropListCollection.getDropList(p.rewardDropListID);
+					if (d != null) usedDropLists.add(d);
+				}
 			}
 		}
 	}

@@ -19,7 +19,7 @@ public final class GameStatistics {
 	
 	public GameStatistics() { }
 	public void addMonsterKill(MonsterType type) {
-		final String n = type.name;
+		final String n = type.id;
 		if (!killedMonsters.containsKey(n)) killedMonsters.put(n, 1);
 		else killedMonsters.put(n, killedMonsters.get(n) + 1);
 	}
@@ -42,9 +42,14 @@ public final class GameStatistics {
 		this.deaths = src.readInt();
 		final int numMonsters = src.readInt();
 		for(int i = 0; i < numMonsters; ++i) {
-			final String name = src.readUTF();
+			String id = src.readUTF();
 			final int value = src.readInt();
-			this.killedMonsters.put(name, value);
+			if(fileversion <= 23) {
+				MonsterType type = world.monsterTypes.guessMonsterTypeFromName(id);
+				if (type == null) continue;
+				id = type.id;
+			}
+			this.killedMonsters.put(id, value);
 		}
 		if (fileversion <= 17) return;
 		

@@ -149,9 +149,12 @@ public final class ConversationActivity extends Activity {
     	}
     	
     	phrase = world.conversations.getPhrase(phraseID);
-    	Loot loot = ConversationController.applyPhraseEffect(player, phrase, world.quests);
+    	if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+    		if (phrase == null) phrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null, null);
+    	}
+    	Loot loot = ConversationController.applyPhraseEffect(player, phrase, world.quests, world.dropLists);
     	
-    	if (phrase.message == null || phrase.message.length() <= 0) {
+    	if (phrase.message == null) {
     		for (Reply r : phrase.replies) {
     			if (!ConversationController.canSelectReply(player, r)) continue;
     			setPhrase(r.nextPhrase);

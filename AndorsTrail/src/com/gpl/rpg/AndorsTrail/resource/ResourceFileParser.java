@@ -50,12 +50,16 @@ public class ResourceFileParser {
 		
 		return new ConstRange(Integer.parseInt(max), Integer.parseInt(min));
 	}
+	
+	private static final Size size1x1 = new Size(1, 1);
 	public static Size parseSize(String s, final Size defaultSize) {
 		if (s == null || s.length() <= 0) return defaultSize;
+		if (s.equals("1x1")) return size1x1;
 	   	String[] parts = s.split("x");
 	   	if (parts.length < 2) return defaultSize;
 	   	return new Size(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 	}
+	
 	public static CombatTraits parseCombatTraits(String[] parts, int startIndex) {
 		String attackCost = parts[startIndex];
 		String attackChance = parts[startIndex + 1];
@@ -84,6 +88,10 @@ public class ResourceFileParser {
 			result.damageResistance = parseInt(damageResistance, 0);
 			return result;
 		}
+	}
+	public static String parseNullableString(String s) {
+		if (s == null || s.length() <= 0) return null;
+		return s;
 	}
 	public static int parseInt(String s, int defaultValue) {
 		if (s == null || s.length() <= 0) return defaultValue;
@@ -254,7 +262,8 @@ public class ResourceFileParser {
 			return null;
 		} else {
 			return new ItemTraits_OnUse(
-					boostCurrentHP
+					ItemTraits_OnUse.VISUAL_EFFECT_NONE
+					,boostCurrentHP
 					,boostCurrentAP
 					,listToArray(addedConditions_source)
 					,listToArray(addedConditions_target)
