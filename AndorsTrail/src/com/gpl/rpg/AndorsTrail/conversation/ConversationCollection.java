@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.conversation;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
@@ -14,11 +13,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectArrayTokenizer;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectTokenizer;
+import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ConversationCollection {
@@ -49,72 +44,34 @@ public final class ConversationCollection {
 		return phrases.get(id);
 	}
 	
-	private static final ResourceObjectTokenizer conversationResourceTokenizer = new ResourceObjectTokenizer(5);
-	private static final ResourceObjectTokenizer replyResourceTokenizer = new ResourceObjectTokenizer(5);
-	public void initialize(String phraselist) {
-		conversationResourceTokenizer.tokenizeRows(phraselist, new ResourceObjectFieldParser() {
-			@Override
-			public void matchedRow(String[] parts) {
-				// [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-				
-				final ArrayList<Reply> replies = new ArrayList<Reply>();
-	    		ResourceObjectArrayTokenizer.tokenize(parts[4], replyResourceTokenizer, new ResourceObjectFieldParser() {
-					@Override
-					public void matchedRow(String[] parts) {
-						replies.add(new Reply(
-								parts[0]											// text
-								, parts[1]											// nextPhrase
-								, QuestProgress.parseQuestProgress(parts[2])		// requiresProgress
-						       	, ResourceFileParser.parseNullableString(parts[3])	// requiresItemType
-						       	, ResourceFileParser.parseInt(parts[4], 0)			// requiresItemQuantity
-							));
-					}
-				});
-				
-				final Reply[] _replies = replies.toArray(new Reply[replies.size()]);
-				final String phraseID = parts[0];
-	    		
-	    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-	    			if (phraseID.trim().length() <= 0) {
-	    				L.log("WARNING: Adding phrase with empty id.");
-	    			} else if (phrases.get(phraseID) != null) {
-	    				L.log("WARNING: Phrase \"" + phraseID + "\" may be duplicated.");
-	    			}
-	    			
-	    			boolean hasNextReply = false;
-	    			boolean hasOtherReply = false;
-	    			for (Reply r : replies) {
-	    				if (r.text.equalsIgnoreCase(REPLY_NEXT)) hasNextReply = true;
-	    				else hasOtherReply = true;
-	    			}
-	    			if (hasNextReply && hasOtherReply) {
-	    				L.log("WARNING: Phrase \"" + phraseID + "\" has both a \"" + REPLY_NEXT + "\" reply and some other reply.");
-	    			}
-	    		}
-	    		
-	    		phrases.put(phraseID, new Phrase(
-	    				ResourceFileParser.parseNullableString(parts[1])	// message
-	        			, _replies											// replies
-	        			, QuestProgress.parseQuestProgress(parts[2])		// questProgress
-			        	, ResourceFileParser.parseNullableString(parts[3])	// rewardDroplist
-	    			));
-			}
-		});
+	public void initialize(ConversationListParser parser, String input) {
+		parser.parseRows(input, phrases);
 	}
 	
 	// Selftest method. Not part of the game logic.
 	public void verifyData() {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Entry<String, Phrase> e : phrases.entrySet()) {
+				final String phraseID = e.getKey();
 				for (Reply r : e.getValue().replies) {
 					if (!isValidPhraseID(r.nextPhrase)) {
-						L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply to non-existing phrase \"" + r.nextPhrase + "\".");
+						L.log("WARNING: Phrase \"" + phraseID + "\" has reply to non-existing phrase \"" + r.nextPhrase + "\".");
 					} else if (r.nextPhrase == null || r.nextPhrase.length() <= 0) {
-						L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that has no nextPhrase.");
+						L.log("WARNING: Phrase \"" + phraseID + "\" has a reply that has no nextPhrase.");
 					} else if (r.nextPhrase.equals(e.getKey())) {
-						L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that points to itself.");
+						L.log("WARNING: Phrase \"" + phraseID + "\" has a reply that points to itself.");
 					}
 				}
+				
+				boolean hasNextReply = false;
+    			boolean hasOtherReply = false;
+    			for (Reply r : e.getValue().replies) {
+    				if (r.text.equalsIgnoreCase(REPLY_NEXT)) hasNextReply = true;
+    				else hasOtherReply = true;
+    			}
+    			if (hasNextReply && hasOtherReply) {
+    				L.log("WARNING: Phrase \"" + phraseID + "\" has both a \"" + REPLY_NEXT + "\" reply and some other reply.");
+    			}
     		}
 		}
 	}
@@ -148,7 +105,7 @@ public final class ConversationCollection {
     		for (Entry<String, Phrase> e : phrases.entrySet()) {
 				for (Reply r : e.getValue().replies) {
 					if (r.requiresItem()) {
-						if (!droplists.verifyExistsDroplist(r.requiresItemTypeID)) {
+						if (!droplists.verifyExistsDroplistForItem(r.requiresItemTypeID)) {
 							L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply that requires an item that is not dropped by any droplist.");
 						}
 					}

@@ -82,8 +82,8 @@ function addExampleModelItems(model) {
 
 	model.quests.add({id: "testQuest", name: "Test quest", stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] });
 
-	model.items.add({iconID: "items_weapons:0", name: "Test item", searchTag: "item0", category: 0, baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4});
-	model.items.add({iconID: "items_jewelry:0", name: "Ring of damage +1", searchTag: "dmg_ring1", category: 7, baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
+	model.items.add({id: "item0", iconID: "items_weapons:0", name: "Test item", category: 0, baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4});
+	model.items.add({id: "dmg_ring1", iconID: "items_jewelry:0", name: "Ring of damage +1", category: 7, baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
 
 	model.droplists.add({id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity_Min: 4, quantity_Max: 5, chance: 100 } , { itemID: 'item0', quantity_Min: 1, quantity_Max: 1, chance: 100 } ] } );
 
@@ -118,14 +118,14 @@ function startEditor() {
 		})
 		,items: new DataStore({
 			objectTypename: 'item'
-			,fieldList: new FieldList("[searchTag|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|"
+			,fieldList: new FieldList("[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|"
 				+ "hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|"
 				+ "hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|"
 				+ "hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|"
 				+ "hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|"
 				+ "];"
 			)
-			,idField: 'searchTag'
+			,idField: 'id'
 			,nameField: 'name'
 		})
 		,droplists: new DataStore({
@@ -165,7 +165,7 @@ function startEditor() {
 		return {name: "New Quest", id: 'new_quest' };
 	});
 	bindEditorType(model.items, $( "#tools #itemlist" ), createItemEditor, function() {
-		return {name: "New Item", searchTag: "new_item", category: 31 };
+		return {name: "New Item", id: "new_item", category: 31 };
 	});
 	bindEditorType(model.droplists, $( "#tools #droplist" ), createDroplistEditor, function() {
 		return {id: "new_droplist" };

@@ -89,7 +89,7 @@ public final class HeroinfoActivity_Quests extends Activity {
 		groupList.clear();
 		childList.clear();
 		
-		for (Quest q : questCollection.quests) {
+		for (Quest q : questCollection.getAllQuests()) {
 			if (!q.showInLog) continue; // Do not show
 			if (player.hasAnyQuestProgress(q.questID)) {
 				boolean isCompleted = q.isCompleted(player);

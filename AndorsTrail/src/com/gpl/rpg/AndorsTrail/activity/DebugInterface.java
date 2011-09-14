@@ -11,18 +11,15 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.MapObject;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 
 public final class DebugInterface {
-	private final ViewContext viewContext;
+	//private final ViewContext viewContext;
 	private final MainActivity mainActivity;
 	private final Resources res;
 	private final WorldContext world;
 	
 	public DebugInterface(ViewContext viewContext) {
-		this.viewContext = viewContext;
+		//this.viewContext = viewContext;
 		this.mainActivity = viewContext.mainActivity;
 		this.world = viewContext;
 		this.res = mainActivity.getResources();
@@ -62,7 +59,7 @@ public final class DebugInterface {
 	    			mainActivity.showToast("DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("items", new OnClickListener() {
+			/*,new DebugButton("items", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
 	    			world.model.player.inventory.addItem(world.itemTypes.getItemType("elytharan_redeemer"));
@@ -80,7 +77,7 @@ public final class DebugInterface {
 	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: added items", Toast.LENGTH_SHORT);
 				}
-			})
+			})*/
 			/*new DebugButton("skills++", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
@@ -96,7 +93,7 @@ public final class DebugInterface {
 	    			showToast("DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("bwm", new OnClickListener() {
+			/*,new DebugButton("bwm", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
 	    			Player player = world.model.player;
@@ -112,13 +109,13 @@ public final class DebugInterface {
 	    			
 	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain45", "south", 0, 0);
 				}
-			})
-			,new DebugButton("prim", new OnClickListener() {
+			})*/
+			/*,new DebugButton("prim", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
 	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 				}
-			})
+			})*/
 			/*,new DebugButton("kazaul", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {

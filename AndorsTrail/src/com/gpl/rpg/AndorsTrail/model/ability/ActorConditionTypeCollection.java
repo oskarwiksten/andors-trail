@@ -1,58 +1,24 @@
 package com.gpl.rpg.AndorsTrail.model.ability;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectFieldParser;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileParser.ResourceObjectTokenizer;
+import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 public class ActorConditionTypeCollection {
-	private final ArrayList<ActorConditionType> conditionTypes = new ArrayList<ActorConditionType>();
+	private final HashMap<String, ActorConditionType> conditionTypes = new HashMap<String, ActorConditionType>();
 	
 	public ActorConditionType getActorConditionType(String conditionTypeID) {
-		for (ActorConditionType t : conditionTypes) {
-			if (t.conditionTypeID.equals(conditionTypeID)) return t;
-		}
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Cannot find ActorConditionType \"" + conditionTypeID + "\".");
+			if (!conditionTypes.containsKey(conditionTypeID)) {
+				L.log("WARNING: Cannot find ActorConditionType \"" + conditionTypeID + "\".");
+			}
 		}
-		return null;
+		return conditionTypes.get(conditionTypeID);
 	}
 	
-	private static final ResourceObjectTokenizer actorConditionResourceTokenizer = new ResourceObjectTokenizer(29);
-	public void initialize(final DynamicTileLoader tileLoader, String conditionList) {
-		actorConditionResourceTokenizer.tokenizeRows(conditionList, new ResourceObjectFieldParser() {
-			@Override
-			public void matchedRow(String[] parts) {
-    		
-	    		final String conditionTypeID = parts[0];
-	    		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-					if (conditionTypeID == null || conditionTypeID.length() <= 0) {
-						L.log("OPTIMIZE: ActorConditionType \"" + parts[1] + "\" has empty searchtag.");
-					}
-					for (ActorConditionType t : conditionTypes) {
-						if (t.conditionTypeID.equals(conditionTypeID)) {
-							L.log("OPTIMIZE: ActorConditionType " + conditionTypeID + " is duplicated.");
-							break;
-						}
-					}
-				}
-				
-				final ActorConditionType actorConditionType = new ActorConditionType(
-						conditionTypeID
-						, parts[1]
-						, ResourceFileParser.parseImageID(tileLoader, parts[2])
-						, Integer.parseInt(parts[3])
-						, ResourceFileParser.parseBoolean(parts[4], false)
-						, ResourceFileParser.parseStatsModifierTraits(parts, 5)
-	        			, ResourceFileParser.parseStatsModifierTraits(parts, 11)
-	        			, ResourceFileParser.parseAbilityModifierTraits(parts, 17)
-	    			);
-				conditionTypes.add(actorConditionType);
-	    	}
-		});
+	public void initialize(final ActorConditionsTypeParser parser, String input) {
+		parser.parseRows(input, conditionTypes);
 	}
 }
