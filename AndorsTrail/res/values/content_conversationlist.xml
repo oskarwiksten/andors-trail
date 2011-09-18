@@ -2004,4 +2004,296 @@
 {sign_kazaul_8|This must be the purification process of the Kazaul shrine.||||};
 	</string>
 
+	<string name="conversationlist_erinith">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{erinith||||{
+	{|erinith_complete_1|erinith:50|||}
+	{|erinith_givenpotion_1|erinith:40|||}
+	{|erinith_givenpotion_1|erinith:41|||}
+	{|erinith_givenpotion_1|erinith:42|||}
+	{|erinith_needspotions_1|erinith:30|||}
+	{|erinith_needsbook_1|erinith:20|||}
+	{|erinith_needsbook_1|erinith:21|||}
+	{|erinith_1||||}
+	}|};
+{erinith_complete_1|Thank you for all your help earlier.||||};
+{erinith_1|Please, you have to help me!|||{{What\'s wrong?|erinith_story_1||||}}|};
+{erinith_story_1|I was setting up camp here during the night, and was attacked by some bandits while asleep.|erinith:10||{{N|erinith_story_2||||}}|};
+{erinith_story_2|Ack, this wound doesn\'t seem to be healing itself.|||{{N|erinith_story_3||||}}|};
+{erinith_story_3|At least I managed to keep them from getting my book. I\'m sure they were after the book.|||{
+	{Seems like a valuable book then. This sounds interesting, please go on.|erinith_story_4||||}
+	{What happened?|erinith_story_4||||}
+	}|};
+{erinith_story_4|I managed to throw the book in among the trees over there during the attack. *points to the trees directly to the north*|||{{N|erinith_story_5||||}}|};
+{erinith_story_5|I don\'t think they managed to get the book. It\'s probably still somewhere among those trees.|||{{What is in the book?|erinith_story_6||||}}|};
+{erinith_story_6|Oh, I can\'t say really.|||{
+	{I could help you find that book if you want.|erinith_story_7||||}
+	{What would it be worth for you to get that book back?|erinith_story_gold_1||||}
+	}|};
+{erinith_story_7|You would? Oh thank you.|erinith:20||{{N|erinith_story_8||||}}|};
+{erinith_story_8|Please go look for it among those trees to the northeast.||||};
+{erinith_story_gold_1|Worth? Well, I was hoping you would help me anyway, but I guess 200 gold could do.|||{
+	{200 gold it is then. I\'ll go look for you book.|erinith_story_gold_2||||}
+	{A lousy 200 gold, is that all you can do? Fine, I\'ll go look for you stupid book.|erinith_story_gold_2||||}
+	{Keep your money, I\'ll return your book for you anyway.|erinith_story_7||||}
+	{No, I am not getting involved in this. Goodbye.|X||||}
+	}|};
+{erinith_story_gold_2|Make it quick.|erinith:21||{{N|erinith_story_8||||}}|};
+{erinith_needsbook_1|Have you found that book yet?|||{
+	{Not yet, I am still looking.|erinith_story_8||||}
+	{Yes, here is your book.|erinith_needsbook_2||erinith_book|1|}
+	}|};
+{erinith_needsbook_2||||{
+	{|erinith_needsbook_3_2|erinith:21|||}
+	{|erinith_needsbook_3_1||||}
+	}|};
+{erinith_needsbook_3_1|You found it! Oh thank you so much. I was so worried that I had lost it.|erinith:30||{{N|erinith_needspotions_2||||}}|};
+{erinith_needsbook_3_2|You found it! Oh thank you so much. In return, here is the gold I promised you.|erinith:30|gold200|{{N|erinith_needspotions_2||||}}|};
+
+{erinith_needspotions_1|Thank you for helping me find my book earlier.|||{{N|erinith_needspotions_2||||}}|};
+{erinith_needspotions_2|I am still hurt by this wound that I got from the attack during the night.|||{{N|erinith_needspotions_3||||}}|};
+{erinith_needspotions_3|Ack, it hurts so bad and it doesn\'t seem to be healing itself.|||{{N|erinith_needspotions_4||||}}|};
+{erinith_needspotions_4|I am really in need of some stronger healing here. Maybe some potions would do.|||{{N|erinith_needspotions_5||||}}|};
+{erinith_needspotions_5|I have heard that the potionmakers these days have potions of major health, and not just the regular potions of health.|||{{N|erinith_needspotions_6||||}}|};
+{erinith_needspotions_6|One of those would surely do. Otherwise, I think four regular potions of health would be enough.|erinith:31||{
+	{I\'ll go get those potions for you.|erinith_needspotions_7||||}
+	{Here, take this bonemeal potion instead. It\'s very potent in healing deep wounds.|erinith_gavepotion_bm_1||bonemeal_potion|1|}
+	{Here, take this potion of major health.|erinith_gavepotion_major_1||health_major2|1|}
+	{Here, take this potion of major health.|erinith_gavepotion_major_1||health_major|1|}
+	{Here, take these four regular potions of health.|erinith_gavepotion_reg_1||health|4|}
+	}|};
+{erinith_needspotions_7|Thank you my friend. Please hurry back.||||};
+{erinith_gavepotion_bm_1|Bonemeal potion? But.. but.. We are not allowed to use them since they are prohibited by Lord Geomyr. |erinith:40||{
+	{Who will find out?|erinith_gavepotion_bm_2||||}
+	{I have tried them myself, it\'s perfectly safe to use them.|erinith_gavepotion_bm_2||||}
+	}|};
+{erinith_gavepotion_bm_2|Hm, yes. I guess you have a point. Oh well, here goes. *drinks potion*|||{{N|erinith_gavepotion_1||||}}|};
+{erinith_gavepotion_major_1|Thank you for bringing me one. *drinks potion*|erinith:41||{{N|erinith_gavepotion_1||||}}|};
+{erinith_gavepotion_reg_1|Thank you for bringing them to me. *drinks all four potions*|erinith:42||{{N|erinith_gavepotion_1||||}}|};
+{erinith_gavepotion_1|Wow, I feel slightly better already. I guess this healing really works.|||{{N|erinith_givenpotion_1||||}}|};
+{erinith_givenpotion_1|Thank you my friend for your help. My book is safe and my wound is healing. I hope our paths will cross again.|erinith:50|||};
+	</string>
+
+	<string name="conversationlist_hadracor">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{woodcutter_0|Stupid wasps..||||};
+{woodcutter_1|When travelling, keep to the roads. Veer off course and you might find yourself in danger.||||};
+{woodcutter_2|Stay away from the road to the west, for it leads to Carn Tower. And you most certainly do not want to go there.||||};
+{woodcutter_3|Maybe we shouldn\'t have cut down all the trees over there. Those wasps really seemed upset.||||};
+{woodcutter_4|I can still feel the sting from those wasps in my legs. Good thing we are done with all the trees now.||||};
+{woodcutter_5|Hello there, welcome to our encampment. You should talk to Hadracor over there.||||};
+
+{hadracor||||{
+	{|hadracor_complete_1|hadracor:30|||}
+	{|hadracor_gaveitems_1|hadracor:21|||}
+	{|hadracor_gaveitems_1|hadracor:20|||}
+	{|hadracor_wantsitems_1|hadracor:10|||}
+	{|hadracor_1|hadracor:10|||}
+	}|};
+{hadracor_1|Hello there, I am Hadracor.|||{
+	{What is this place?|hadracor_story_1||||}
+	{Have you seen my brother Andor around here? Looks somewhat like me.|hadracor_andor_1||||}
+	}|};
+{hadracor_andor_1|Looks like you eh? No, I would have remembered.|||{
+	{Ok, goodbye.|X||||}
+	{What is this place?|hadracor_story_1||||}
+	}|};
+{hadracor_story_1|This is the encampment that we woodcutters set up while working on the trees here for the past few days.|||{
+	{What have you been working on?|hadracor_story_2||||}
+	{I noticed a lot of treestumps around here|hadracor_story_2||||}
+	}|};
+{hadracor_story_2|Our orders were to cut down all trees south of the Feygard bridge and north of this here road to Carn tower.|||{{N|hadracor_story_3||||}}|};
+{hadracor_story_3|I guess the nobles of Feygard have some plans for these lands.|||{{N|hadracor_story_4||||}}|};
+{hadracor_story_4|We, we just cut down them trees. No questions asked.|||{{N|hadracor_story_5||||}}|};
+{hadracor_story_5|However, this time we encountered some trouble.|||{{N|hadracor_story_6||||}}|};
+{hadracor_story_6|You see, there were these really nasty wasps in that forest we cut down.|||{{N|hadracor_story_7||||}}|};
+{hadracor_story_7|Nothing like we\'ve seen before. And I\'ll tell you, we have seen a lot of wildlife in our days.|||{{N|hadracor_story_8||||}}|};
+{hadracor_story_8|They almost got the best of us, and we were almost ready to quit it. But a job is a job and we need to get paid by Feygard for this job.|||{{N|hadracor_story_9||||}}|};
+{hadracor_story_9|So we went ahead and finished all of them trees, trying to evade the wasps as much as we could.|||{{N|hadracor_story_10||||}}|};
+{hadracor_story_10|Hovere, I bet that whatever plans the nobles of Feygard have for these lands, they surely don\'t include these nasty wasps still being around.|||{{N|hadracor_story_11||||}}|};
+{hadracor_story_11|See this scratch here? And this abscess? Yep, those wasps.|||{{N|hadracor_story_11_1||||}}|};
+{hadracor_story_11_1||||{
+	{|hadracor_accept_1_1|hadracor:10|||}
+	{|hadracor_story_12||||}
+	}|};
+{hadracor_story_12|I would love to get revenge on those wasps. We, we aren\'t good enough fighters to take on those wasps, they are really too quick for us.|||{
+	{Tough luck, you seem like a bunch of weaklings anyway.|hadracor_decline_1||||}
+	{I could try to take on those wasps for you if you want.|hadracor_accept_1||||}
+	{Just a couple of wasps? That\'s no problem for me. I\'ll kill them for you.|hadracor_accept_1||||}
+	}|};
+{hadracor_decline_1|I will pretend I didn\'t hear that.||||};
+{hadracor_accept_1|You would? Sure, you have a try.|||{{N|hadracor_accept_1_1||||}}|};
+{hadracor_accept_1_1|I noticed that some of the wasps are larger than the other ones, and the other wasps tend to follow the larger ones around.|||{{N|hadracor_accept_2||||}}|};
+{hadracor_accept_2|If you could kill at least five of those giant ones and bring me back their wings as proof, I would be very grateful.|||{
+	{Sure, I will be back with those giant wasp wings for you.|hadracor_accept_3||||}
+	{No problem.|hadracor_accept_3||||}
+	{On second thought, I better stay out of this.|hadracor_decline_2||||}
+	}|};
+{hadracor_decline_2|Fine, I guess we can find someone elese to get revenge on them.||||};
+{hadracor_accept_3|Good, hurry back once you are done.|hadracor:10|||};
+{hadracor_wantsitems_1|Hello again. Did you kill those wasps for us?|||{
+	{Could you tell me your story again?|hadracor_story_2||||}
+	{What was I supposed to do again?|hadracor_story_6||||}
+	{Not yet, But I am working on it.|hadracor_accept_3||||}
+	{Yes, I killed six of them.|hadracor_wantsitems_3||hadracor_waspwing|6|}
+	{Yes, I killed five of them.|hadracor_wantsitems_2||hadracor_waspwing|5|}
+	}|};
+{hadracor_wantsitems_2|Wow, you actually killed those things?|hadracor:20||{{N|hadracor_gaveitems_1||||}}|};
+{hadracor_wantsitems_3|Wow, you actually killed six of those things? I thought there only were five, so I guess I should be even more grateful. Here, take these gloves as thanks.|hadracor:21|hadracor_reward|{{N|hadracor_gaveitems_1||||}}|};
+{hadracor_gaveitems_1|Well done my friend. Thank you for getting revenge on those things.|||{{N|hadracor_complete_2||||}}|};
+{hadracor_complete_1|Hello again. Thank you for your help with those wasps earlier.|||{{N|hadracor_complete_2||||}}|};
+{hadracor_complete_2|As a token of our appreciation, we are willing to trade some of our equipment with you if you want.|hadracor:30||{{N|hadracor_complete_3||||}}|};
+{hadracor_complete_3|It\'s not much, but we do have some really sharp axes that you might be interested in.|||{
+	{No thanks. Goodbye.|X||||}
+	{Ok, let me see what you have.|S||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_tinlyn">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{tinlyn||||{
+	{|tinlyn_complete_1|tinlyn:31|||}
+	{|tinlyn_complete_1|tinlyn:30|||}
+	{|tinlyn_look_1|tinlyn:15|||}
+	{|tinlyn_story_1||||}
+	}|};
+{tinlyn_complete_1|Hello again. Thank you for helping me find my lost sheep.|||{
+	{I talked to Benbyr and heard the story about you two.|tinlyn_benbyr_1|benbyr:10|||}
+	}|};
+{tinlyn_story_1|Hello there. You wounldn\'t happen to want to help an old shepherd do you?|||{{What\'s the problem?|tinlyn_story_2||||}}|};
+{tinlyn_story_2|You see, I tend my flock of sheep here. These fields are excellent pastures for them.|||{{N|tinlyn_story_3||||}}|};
+{tinlyn_story_3|But the thing is, I have lost four of them. Now I won\'t dare leave the ones I still have in my sight to go look for the lost ones.|||{{N|tinlyn_story_3_1||||}}|};
+{tinlyn_story_3_1||||{
+	{|tinlyn_story_6|tinlyn:15|||}
+	{|tinlyn_story_4||||}
+	}|};
+{tinlyn_story_4|Would you be willing to help me find them?|||{
+	{This doesn\'t sound like there will be any fighting involved. I only do things where there\'s fighting involved.|tinlyn_decline_1||||}
+	{Absolutely, I would love to help an old man.|tinlyn_story_5||||}
+	{What would I gain from this?|tinlyn_story_4_1||||}
+	}|};
+{tinlyn_decline_1|Oh well, it didn\'t hurt to ask.||||};
+{tinlyn_story_4_1|Gain? Why, my thanks of course.|||{
+	{This doesn\'t sound like there will be any fighting involved. I only do things where there\'s fighting involved.|tinlyn_decline_1||||}
+	{Sure, I will help you find your sheep.|tinlyn_story_5||||}
+	{No thanks, I better not get involved in this.|tinlyn_decline_1||||}
+	}|};
+{tinlyn_story_5|Good, thank you. Please put these bells around their necks so I can hear them. Return to me once you have placed bells around the neck of each of the four missing sheep.|tinlyn:15|tinlyn_bells|{{N|tinlyn_story_6||||}}|};
+{tinlyn_story_6|Return to me once you have placed bells around the neck of each of the four missing sheep.||||};
+{tinlyn_look_1|Hello again. Did you find all four of my missing sheep?|||{
+	{Yes, I found all of them.|tinlyn_found_1|tinlyn:25|||}
+	{Not yet. I am still looking.|tinlyn_story_6||||}
+	{What was I supposed to do?|tinlyn_story_2||||}
+	{I talked to Benbyr and heard the story about you two.|tinlyn_benbyr_1|benbyr:10|||}
+	}|};
+{tinlyn_found_1|Yes, I can hear distant sounds of bells from the fields to the south. I am sure they will come back here now that they have the bells on them.|||{
+	{I am happy to help.|tinlyn_found_3||||}
+	{That was some hard work. What about a reward?|tinlyn_found_2||||}
+	}|};
+{tinlyn_found_2|I am sorry, but I am a simple shepherd. I have no wealth or magical trinkets to give you.|tinlyn:31|||};
+{tinlyn_found_3|Thank you for helping me|tinlyn:30|||};
+{tinlyn_benbyr_1|Is he still around? I thought the guards got the best of him.|||{{N|tinlyn_benbyr_2||||}}|};
+{tinlyn_benbyr_2|Anyway, I do not want to talk about that. I have left that kind of life behind me. Herding sheep is what I do now.||||};
+	</string>
+
+	<string name="conversationlist_tinlyn_sheep">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{tinlyn_lostsheep1||||{{|tinlyn_lostsheep_y|tinlyn:20|||}{|tinlyn_lostsheep1_n||||}}|};
+{tinlyn_lostsheep2||||{{|tinlyn_lostsheep_y|tinlyn:21|||}{|tinlyn_lostsheep2_n||||}}|};
+{tinlyn_lostsheep3||||{{|tinlyn_lostsheep_y|tinlyn:22|||}{|tinlyn_lostsheep3_n||||}}|};
+{tinlyn_lostsheep4||||{{|tinlyn_lostsheep_y|tinlyn:23|||}{|tinlyn_lostsheep4_n||||}}|};
+{tinlyn_lostsheep1_n|Baah!|||{
+	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep1_place||tinlyn_bells|1|}
+	{Attack|tinlyn_lostsheep_atk|benbyr:20|||}
+	}|};
+{tinlyn_lostsheep2_n|Baah!|||{
+	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep2_place||tinlyn_bells|1|}
+	{Attack|tinlyn_lostsheep_atk|benbyr:20|||}
+	}|};
+{tinlyn_lostsheep3_n|Baah!|||{
+	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep3_place||tinlyn_bells|1|}
+	{Attack|tinlyn_lostsheep_atk|benbyr:20|||}
+	}|};
+{tinlyn_lostsheep4_n|Baah!|||{
+	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep4_place||tinlyn_bells|1|}
+	{Attack|tinlyn_lostsheep_atk|benbyr:20|||}
+	}|};
+{tinlyn_lostsheep_y|Baah!|||{{Attack|tinlyn_lostsheep_atk|benbyr:20|||}}|};
+{tinlyn_lostsheep1_place||tinlyn:20||{{|tinlyn_lostsheep_check_1||||}}|};
+{tinlyn_lostsheep2_place||tinlyn:21||{{|tinlyn_lostsheep_check_1||||}}|};
+{tinlyn_lostsheep3_place||tinlyn:22||{{|tinlyn_lostsheep_check_1||||}}|};
+{tinlyn_lostsheep4_place||tinlyn:23||{{|tinlyn_lostsheep_check_1||||}}|};
+{tinlyn_lostsheep_check_1||||{{|tinlyn_lostsheep_check_2|tinlyn:20|||}{|tinlyn_lostsheep_placed_2||||}}|};
+{tinlyn_lostsheep_check_2||||{{|tinlyn_lostsheep_check_3|tinlyn:21|||}{|tinlyn_lostsheep_placed_2||||}}|};
+{tinlyn_lostsheep_check_3||||{{|tinlyn_lostsheep_check_4|tinlyn:22|||}{|tinlyn_lostsheep_placed_2||||}}|};
+{tinlyn_lostsheep_check_4||||{{|tinlyn_lostsheep_placed_1|tinlyn:23|||}{|tinlyn_lostsheep_placed_2||||}}|};
+{tinlyn_lostsheep_placed_1||tinlyn:25||{{|tinlyn_lostsheep_placed_2||||}}|};
+{tinlyn_lostsheep_placed_2|(You place the bells around the neck of the sheep.)||||};
+{tinlyn_lostsheep_atk||||{{|tinlyn_lostsheep_atk1|tinlyn:15|||}{|F||||}}|};
+{tinlyn_lostsheep_atk1|tinlyn:60|||{{|tinlyn_sheep_atk||||}}|};
+{tinlyn_sheep|Baah!|||{{Attack|tinlyn_lostsheep_atk|benbyr:20|||}}|};
+{tinlyn_sheep_atk|benbyr:21|||{{|F||||}}|};
+	</string>
+
+	<string name="conversationlist_benbyr">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{benbyr||||{
+	{|benbyr_declined|benbyr:60|||}
+	{|benbyr_complete_1|benbyr:30|||}
+	{|benbyr_mission_1|benbyr:20|||}
+	{|benbyr_story_1||||}
+	}|};
+{benbyr_complete_1|Hello again. We sure showed that bastard Tinlyn. That should teach him not to mess with me again.||||};
+{benbyr_declined|I have nothing more to say to you. Leave me.||||};
+{benbyr_story_1|Psst, hey. Over here.|||{{N|benbyr_story_2||||}}|};
+{benbyr_story_2|You look like an aspiring adventurer. Are you willing to do some .. (Benbyr pauses) .. adventuring? He he.|||{
+	{What are we talking about here?|benbyr_story_3_1||||}
+	{Depends on what I get in return.|benbyr_story_3_2||||}
+	{I try to help people where ever they might need help.|benbyr_story_3_3||||}
+	}|};
+{benbyr_story_3_1|Straight to the point eh? I like that.|||{{N|benbyr_story_4||||}}|};
+{benbyr_story_3_2|Ah, the adventurer seeks compensation. Tell me, is the thrill of an adventure not reward enough?|||{
+	{Yes, you are right.|benbyr_story_4||||}
+	{No.|benbyr_story_3_4||||}
+	}|};
+{benbyr_story_3_4|Then I will surely disappoint you. Return to me once you are ready for my task.||||};
+{benbyr_story_3_3|The noble adventurer. He he, I like that. Yes, you will do fine.|||{{N|benbyr_story_4||||}}|};
+{benbyr_story_4|A while ago, I did some business with a certain man called Tinlyn, over here at this Crossroads guardhouse.|||{{N|benbyr_story_5||||}}|};
+{benbyr_story_5|As to the nature of our business, I can\'t really tell you. But let\'s just say that our business was of the kind that it was be benficial for us both that the guards did not know about it.|||{{N|benbyr_story_6||||}}|};
+{benbyr_story_6|We were ready to finish the big deal, me and Tinlyn. That\'s when he decided to turn on me.|||{{N|benbyr_story_7||||}}|};
+{benbyr_story_7|He reported me to the guards, and made me take the whole blame for our business.|||{{N|benbyr_story_8||||}}|};
+{benbyr_story_8|I was sent to Feygard prison, while he himself was set free for reporting me.|||{{N|benbyr_story_8_1||||}}|};
+{benbyr_story_8_1||||{
+	{|benbyr_story_10|benbyr:20|||}
+	{|benbyr_story_9||||}
+	}|};
+{benbyr_story_9|Argh, that fool Tinlyn. I hope the Shadow never shows him any mercy.|||{
+	{Get to the point already.|benbyr_story_10||||}
+	{What do you need me to do?|benbyr_story_10||||}
+	}|};
+{benbyr_story_10|I want to get revenge on that fool Tinlyn of course. Now, my plan is the following:|||{{N|benbyr_story_11||||}}|};
+{benbyr_story_11|I have heard that he is herding sheep these days. This is an excellent opportunity for .. shall we say .. an accident to happen to his sheep. He he.|||{{N|benbyr_story_12||||}}|};
+{benbyr_story_12|You, my friend, would be the perfect walking accident. I want you to find all of Tinlyn\'s sheep and make sure they are forever united with the Shadow.|||{{N|benbyr_story_12_1||||}}|};
+{benbyr_story_12_1||||{
+	{|benbyr_accept_2|benbyr:20|||}
+	{|benbyr_story_13||||}
+	}|};
+{benbyr_story_13|Do this, and I will have avenged that fool Tinlyn.|benbyr:10||{
+	{Sounds like just my type of thing. I\'ll do it!|benbyr_accept_1||||}
+	{This sounds a bit shady, but I\'ll do it anyway.|benbyr_accept_1||||}
+	{No way, killing innocent sheep is beneath me. I will never do your task.|benbyr_decline_1||||}
+	}|};
+{benbyr_decline_1|Very well, but remember that I have my eyes on you.. adventurer.|benbyr:60||{{N|benbyr_declined||||}}|};
+{benbyr_accept_1|Splendid!|benbyr:20||{{N|benbyr_accept_2||||}}|};
+{benbyr_accept_2|I happen to know that there are eight of his sheep in total, and they should all be to the northwest of here.|||{{N|benbyr_accept_3||||}}|};
+{benbyr_accept_3|Return to me with proof that you have slain all eight of them.||||};
+{benbyr_mission_1|Ah, my walking accident returns. He he.|||{
+	{Can you tell me your story again?|benbyr_story_4||||}
+	{I am still looking for those sheep.|benbyr_accept_3||||}
+	{I have slain all eight of Tinlyn\'s sheep for you.|benbyr_mission_2||tinlyn_sheep_meat|8|}
+	}|};
+{benbyr_mission_2|Ha ha! That fool Tinlyn must be in tears. The Shadow surely walks with you my friend.|benbyr:30||{{N|benbyr_complete_2||||}}|};
+{benbyr_complete_2|This is a glorious day indeed! Tinlyn should have known not to mess with me!|||{{N|benbyr_complete_3||||}}|};
+{benbyr_complete_3|As for you my friend, seek out my friends in Brightport. I am sure they would extend their hospitaly to you.||||};
+	</string>
 </resources>

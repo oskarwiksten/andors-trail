@@ -50,16 +50,17 @@ import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 public final class Dialogs {
 	
 	private static void showDialogAndPause(Dialog d, final ViewContext context) { 
-		showDialogAndPause(d, context, new OnDismissListener() {
+		showDialogAndPause(d, context, null);
+	}
+	private static void showDialogAndPause(Dialog d, final ViewContext context, final OnDismissListener onDismiss) {
+		context.gameRoundController.pause();
+    	d.setOnDismissListener(new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
+				if (onDismiss != null) onDismiss.onDismiss(arg0);
 				context.gameRoundController.resume();
 			}
 		});
-	}
-	private static void showDialogAndPause(Dialog d, ViewContext context, OnDismissListener onDismiss) {
-		context.gameRoundController.pause();
-    	d.setOnDismissListener(onDismiss);
     	//setBlurrywindow(d);
 		d.show();
 	}
@@ -149,7 +150,6 @@ public final class Dialogs {
 				}
 				ItemController.pickupAll(lootBags, context.model);
 	        	ItemController.updateLootVisibility(context, lootBags);
-				context.gameRoundController.resume();
 				return;
 			}
 		}
@@ -195,7 +195,6 @@ public final class Dialogs {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
 				ItemController.updateLootVisibility(context, lootBags);
-				context.gameRoundController.resume();
 			}
 		});
 	}

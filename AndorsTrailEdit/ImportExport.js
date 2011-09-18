@@ -46,7 +46,7 @@ function prepareImportExportDialogs(buttons) {
 			title: "Import data",
 			modal: true,
 			autoOpen: false,
-			width: 800,
+			width: 840,
 			buttons: buttons
 		});
 	prepareImport(model.actorConditions, $( ".import-actorconditions", importDialog ));
@@ -62,7 +62,7 @@ function prepareImportExportDialogs(buttons) {
 			title: "Export data",
 			modal: true,
 			autoOpen: false,
-			width: 800,
+			width: 840,
 			buttons: buttons
 		});
 		

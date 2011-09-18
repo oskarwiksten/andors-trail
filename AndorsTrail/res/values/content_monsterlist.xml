@@ -290,7 +290,10 @@
 {young_larval_burrower|monsters_rltiles2:164|Young larval burrower|larva_1|1x1|30|10|5|5|120|35|3|1|6|25||larva_1|||||||||};
 {larval_burrower|monsters_rltiles2:164|Larval burrower|larva_2|1x1|35|10|5|5|120|35|3|1|6|25||larva_1|||||||||};
 {larval_boss|monsters_rltiles2:164|Strong larval burrower|larva_boss|1x1|35|10|5|5|120|35|3|1|6|25||larva_boss|||||||||};
-{sheep0|monsters_karvis2:8|Sheep|tinlyn_lostsheep|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep||||||||};
+{lostsheep1|monsters_karvis2:8|Sheep|tinlyn_lostsheep1|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep1||||||||};
+{lostsheep2|monsters_karvis2:8|Sheep|tinlyn_lostsheep2|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep2||||||||};
+{lostsheep3|monsters_karvis2:8|Sheep|tinlyn_lostsheep3|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep3||||||||};
+{lostsheep4|monsters_karvis2:8|Sheep|tinlyn_lostsheep4|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep4||||||||};
 {sheep1|monsters_karvis2:8|Sheep|tinlyn_sheep|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_sheep||||||||};
 {grass_ant|monsters_insects:0|Grasslands ant|fieldcritter_0|1x1||10|5|5||||||||fieldcritter_0|||||||||};
 {grass_ant2|monsters_insects:0|Tough grasslands ant|fieldcritter_0|1x1||10|5|5||||||||fieldcritter_0|||||||||};
@@ -299,6 +302,60 @@
 {carrion_crawler|monsters_rltiles2:22|Carrion crawler|carrioncrawler_2|1x1|55|10|5|5|50|||3|8|40|4|carrioncrawler||1||||||{{poison_weak|1|5|20|}}|};
 {tough_carrion_crawler|monsters_rltiles2:21|Tough carrion crawler|carrioncrawler_3|1x1|59|10|5|5|59|||4|9|40|5|carrioncrawler||1||||||{{poison_weak|1|5|20|}}|};
 {keknazar|monsters_misc:9|Keknazar|keknazar|1x1|90|10|5|5|50|20|3|3|9|70|8|keknazar|keknazar||||||||};
+	</string>
+
+	<string name="monsterlist_v0610_npcs1">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{ailshara|monsters_men:8|Ailshara|ailshara|1x1||10|5|5|||||||||ailshara||||||||};
+{arngyr|monsters_rltiles1:65|Arngyr|arngyr|1x1||10|5|5|||||||||arngyr||||||||};
+{benbyr|monsters_rltiles1:74|Benbyr|benbyr|1x1||10|5|5|||||||||benbyr||||||||};
+{celdar|monsters_rltiles1:94|Celdar|celdar|1x1||10|5|5|||||||||celdar||||||||};
+{conren|monsters_karvis2:5|Conren|conren|1x1||10|5|5|||||||||conren||||||||};
+{crossroads_backguard|monsters_rltiles1:76|Guard|crossroads_backguard|1x1||10|5|5|||||||||crossroads_backguard||||||||};
+{crossroads_guard|monsters_rltiles1:76|Guard|crossroads_guard|1x1||10|5|5|||||||||crossroads_guard||||||||};
+{crossroads_guest|monsters_karvis2:2|Visitor|crossroads_guest|1x1||10|5|5|||||||||crossroads_guest||||||||};
+{crossroads_rat|monsters_rats:0|Rat|crossroads_rat|1x1|5|10|5|5|50|||1|1|30||rat|||||||||};
+{erinith|monsters_rltiles1:82|Erinith|erinith|1x1||10|5|5|||||||||erinith||||||||};
+{fanamor|monsters_men:7|Fanamor|fanamor|1x1||10|5|5|||||||||fanamor||||||||};
+{feygard_bridgeguard|monsters_men2:4|Feygard bridge guard|feygard_bridgeguard|1x1||10|5|5|||||||||feygard_bridgeguard||||||||};
+{fieldwasp_0|monsters_insects:1|Frantic forest wasp|fieldwasp_0|1x1|29|10|5|3|70|60|3|2|6|95|||||||||||};
+{fieldwasp_1|monsters_insects:1|Frantic forest wasp|fieldwasp_1|1x1|32|10|5|3|70|70|3|2|6|125|||||||||||};
+{fieldwasp_2|monsters_insects:1|Frantic forest wasp|fieldwasp_2|1x1|35|10|5|3|70|75|3|2|6|130|||||||||||};
+{fieldwasp_unique|monsters_insects:1|Frantic forest wasp|fieldwasp_unique|1x1|70|10|5|3|70|100|3|2|6|150|||||||||||};
+{gallain|monsters_rltiles1:69|Gallain|gallain|1x1||10|5|5|||||||||gallain||||||||};
+{gandoren|monsters_men2:6|Gandoren|gandoren|1x1||10|5|5|||||||||gandoren||||||||};
+{grimion|monsters_men2:2|Grimion|grimion|1x1||10|5|5|||||||||grimion||||||||};
+{hadracor|monsters_men2:2|Hadracor|hadracor|1x1||10|5|5|||||||||hadracor||||||||};
+{kuldan|monsters_rltiles1:85|Kuldan|kuldan|1x1||10|5|5|||||||||kuldan||||||||};
+{kuldan_guard|monsters_warrior1:0|Kuldan\'s Guard|kuldan_guard|1x1||10|5|5|||||||||kuldan_guard||||||||};
+{landa|monsters_men:0|Landa|landa|1x1||10|5|5|||||||||landa||||||||};
+{loneford_chapelguard|monsters_rltiles1:78|Chapel guard|loneford_chapelguard|1x1||10|5|5|||||||||loneford_chapelguard||||||||};
+{loneford_farmer0|monsters_karvis2:1|Farmer|loneford_farmer0|1x1||10|5|5|||||||||loneford_farmer0||||||||};
+{loneford_guard0|monsters_warrior1:0|Guard|loneford_guard0|1x1||10|5|5|||||||||loneford_guard0||||||||};
+{loneford_tavern_patron|monsters_karvis2:2|Tavern patron|loneford_tavern_patron|1x1||10|5|5|||||||||loneford_tavern_patron||||||||};
+{loneford_villager0|monsters_karvis2:0|Villager|loneford_villager0|1x1||10|5|5|||||||||loneford_villager0||||||||};
+{loneford_villager1|monsters_karvis2:1|Villager|loneford_villager1|1x1||10|5|5|||||||||loneford_villager1||||||||};
+{loneford_villager2|monsters_karvis2:6|Villager|loneford_villager2|1x1||10|5|5|||||||||loneford_villager2||||||||};
+{loneford_villager3|monsters_karvis2:5|Villager|loneford_villager3|1x1||10|5|5|||||||||loneford_villager3||||||||};
+{loneford_villager4|monsters_men:2|Villager|loneford_villager4|1x1||10|5|5|||||||||loneford_villager4||||||||};
+{loneford_wellguard|monsters_rltiles1:72|Guard|loneford_wellguard|1x1||10|5|5|||||||||loneford_wellguard||||||||};
+{mienn|monsters_rltiles1:87|Mienn|mienn|1x1||10|5|5|||||||||mienn||||||||};
+{minarra|monsters_rltiles1:86|Minarra|minarra|1x1||10|5|5|||||||||minarra||||||||};
+{puny_warehouserat|monsters_rats:1|Warehouse rat|puny_warehouserat|1x1|5|10|5|5|50|||1|1|30||rat|||||||||};
+{rolwynn|monsters_rltiles1:77|Rolwynn|rolwynn|1x1||10|5|5|||||||||rolwynn||||||||};
+{sienn|monsters_rltiles1:66|Sienn|sienn|1x1||10|5|5|||||||||sienn||||||||};
+{sienn_pet|monsters_misc:0|Sienn\'s pet|sienn_pet|1x1||10|5|5|||||||||sienn_pet||||||||};
+{siola|monsters_rltiles1:90|Siola|siola|1x1||10|5|5|||||||||siola||||||||};
+{taevinn|monsters_karvis2:5|Taevinn|taevinn|1x1||10|5|5|||||||||taevinn||||||||};
+{talion|monsters_men2:8|Talion|talion|1x1||10|5|5|||||||||talion||||||||};
+{telund|monsters_rltiles1:74|Telund|telund|1x1||10|5|5|||||||||telund||||||||};
+{tinlyn|monsters_karvis2:7|Tinlyn|tinlyn|1x1||10|5|5|||||||||tinlyn||||||||};
+{wallach|monsters_rltiles1:75|Wallach|wallach|1x1||10|5|5|||||||||wallach||||||||};
+{woodcutter_0|monsters_men:0|Woodcutter|woodcutter_0|1x1||10|5|5|||||||||woodcutter_0||||||||};
+{woodcutter_2|monsters_men:0|Woodcutter|woodcutter_2|1x1||10|5|5|||||||||woodcutter_2||||||||};
+{woodcutter_3|monsters_men2:2|Woodcutter|woodcutter_3|1x1||10|5|5|||||||||woodcutter_3||||||||};
+{woodcutter_4|monsters_rltiles1:93|Woodcutter|woodcutter_4|1x1||10|5|5|||||||||woodcutter_4||||||||};
+{woodcutter_5|monsters_men2:2|Woodcutter|woodcutter_5|1x1||10|5|5|||||||||woodcutter_5||||||||};
 	</string>
 
 </resources>
