@@ -2232,7 +2232,7 @@
 {tinlyn_lostsheep_check_4||||{{|tinlyn_lostsheep_placed_1|tinlyn:23|||}{|tinlyn_lostsheep_placed_2||||}}|};
 {tinlyn_lostsheep_placed_1||tinlyn:25||{{|tinlyn_lostsheep_placed_2||||}}|};
 {tinlyn_lostsheep_placed_2|(You place the bells around the neck of the sheep.)||||};
-{tinlyn_lostsheep_atk||||{{|tinlyn_lostsheep_atk1|tinlyn:15|||}{|F||||}}|};
+{tinlyn_lostsheep_atk||||{{|tinlyn_lostsheep_atk1|tinlyn:15|||}{|tinlyn_sheep_atk||||}}|};
 {tinlyn_lostsheep_atk1||tinlyn:60||{{|tinlyn_sheep_atk||||}}|};
 {tinlyn_sheep|Baah!|||{{Attack|tinlyn_lostsheep_atk|benbyr:20|||}}|};
 {tinlyn_sheep_atk||benbyr:21||{{|F||||}}|};
@@ -2297,6 +2297,30 @@
 	}|};
 {benbyr_mission_2|Ha ha! That fool Tinlyn must be in tears. The Shadow surely walks with you my friend.|benbyr:30||{{N|benbyr_complete_2||||}}|};
 {benbyr_complete_2|This is a glorious day indeed! Tinlyn should have known not to mess with me!|||{{N|benbyr_complete_3||||}}|};
-{benbyr_complete_3|As for you my friend, seek out my friends in Brightport. I am sure they would extend their hospitaly to you.||||};
+{benbyr_complete_3|As for you my friend, seek out my friends in Brightport. I am sure they would extend their hospitality to you.||||};
+	</string>
+
+	<string name="conversationlist_crossroads_1">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{fanamor|Yikes! You scared me there.|||{{N|fanamor_1||||}}|};
+{fanamor_1|I was just strolling through these woods .. eh .. killing Anklebiters.|||{{N|fanamor_2||||}}|};
+{fanamor_2|Yes. Killing them was what I was doing. Not running away from them. No, killing them.|||{{N|fanamor_3||||}}|};
+{fanamor_3|.. sigh ..|||{{N|fanamor_4||||}}|};
+{fanamor_4|Oh, who am I kidding. Ok, I was trying to get through the forest here and got ambushed by these anklebiters.|||{{N|fanamor_5||||}}|};
+{fanamor_5|I won\'t leave until nightfall, when they can\'t see me anymore and I might be able to sneak back.|||{{N|fanamor_6||||}}|};
+{fanamor_6|This is my hiding spot! Now leave me.||||};
+
+{crossroads_guard||||{
+	{|crossroads_guard_r_1|farrik:90|||}
+	{|crossroads_guard_1||||}
+	}|};
+{crossroads_guard_r_1|Did you hear? Some thieves down in Fallhaven were planning an escape for one of the imprisoned thieves in the prison there.|||{{N|crossroads_guard_r_2||||}}|};
+{crossroads_guard_r_2|Luckily, someone got wind of it and told the guard captain.|||{{N|crossroads_guard_r_3||||}}|};
+{crossroads_guard_r_3|It\'s good to know that there are at least a few decent people still around.||||};
+{crossroads_guard_1|Aren\'t you a bit young to be travelling around here all by yourself?|||{{N|crossroads_guard_2||||}}|};
+{crossroads_guard_2|I sure hope you are not another one of those types trying to sell me your cheap junk.|||{{N|crossroads_guard_3||||}}|};
+{crossroads_guard_3|Go away, kid.||||};
+
+{crossroads_guard_3|Go away, kid.||||};
 	</string>
 </resources>

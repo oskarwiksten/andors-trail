@@ -160,6 +160,7 @@ public final class Dialogs {
 				}
 				ItemController.pickupAll(lootBags, context.model);
 	        	ItemController.updateLootVisibility(context, lootBags);
+	        	context.gameRoundController.resume();
 				return;
 			}
 		}

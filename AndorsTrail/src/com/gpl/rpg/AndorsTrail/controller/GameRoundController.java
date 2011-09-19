@@ -46,13 +46,13 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     }
     
     public void resume() {
-    	//L.log(id + " : Controller::resume()");
-		view.mainActivity.updateStatus();
+    	//L.log("GameRoundController::resume() from " + from);
+    	view.mainActivity.updateStatus();
 		model.uiSelections.isMainActivityVisible = true;
 		roundTimer.start();
     }
     public void pause() {
-    	//L.log(id + " : Controller::pause()");
+    	//L.log("GameRoundController::pause() from " + from);
     	roundTimer.stop();
     	model.uiSelections.isMainActivityVisible = false;
     }
