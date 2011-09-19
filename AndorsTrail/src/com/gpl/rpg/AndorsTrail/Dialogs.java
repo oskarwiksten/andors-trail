@@ -12,6 +12,7 @@ import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -37,6 +38,7 @@ import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -72,40 +74,48 @@ public final class Dialogs {
 	*/
 	
 	public static void showKeyArea(final MainActivity currentActivity, final ViewContext context, String phraseID) {
-		showConversation(currentActivity, context, phraseID, "");
+		showConversation(currentActivity, context, phraseID, null);
 	}
 	
 	public static void showMapSign(final MainActivity currentActivity, final ViewContext context, String phraseID) {
-		showConversation(currentActivity, context, phraseID, "");
+		showConversation(currentActivity, context, phraseID, null);
 	}
 	
 	public static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, final Monster npc) {
-		showConversation(currentActivity, context, phraseID, npc.monsterTypeID);
-	}
-	
-	private static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, String monsterTypeID) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
-		Uri.Builder b = Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID).buildUpon();
-		b.appendQueryParameter("monsterTypeID", monsterTypeID);
-		intent.setData(b.build());
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID));
+		addMonsterIdentifiers(intent, npc);
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
+	}
+	
+	public static void addMonsterIdentifiers(Intent intent, Monster monster) {
+		if (monster == null) return;
+		intent.putExtra("x", monster.position.x);
+		intent.putExtra("y", monster.position.y);
+	}
+	
+	public static Monster getMonsterFromIntent(Intent intent, final WorldContext world) {
+		Bundle params = intent.getExtras();
+		if (params == null) return null;
+		if (!params.containsKey("x")) return null;
+		int x = params.getInt("x");
+        int y = params.getInt("y");
+        return world.model.currentMap.getMonsterAt(x, y);
 	}
 	
 	public static void showMonsterEncounter(final MainActivity currentActivity, final ViewContext context, final Monster monster) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, MonsterEncounterActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterencounter"));
-		intent.putExtra("x", monster.position.x);
-		intent.putExtra("y", monster.position.y);
+		addMonsterIdentifiers(intent, monster);
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_MONSTERENCOUNTER);
 	}
 
 	public static void showMonsterInfo(final Activity currentActivity, final Monster monster) {
 		Intent intent = new Intent(currentActivity, MonsterInfoActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterinfo"));
-		intent.putExtra("x", monster.position.x);
-		intent.putExtra("y", monster.position.y);
+		addMonsterIdentifiers(intent, monster);
 		currentActivity.startActivity(intent);
 	}
 	

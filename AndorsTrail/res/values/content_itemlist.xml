@@ -98,11 +98,11 @@
 {vial_empty2|items_consumables:57|Empty vial|31||1|4|||||||||||||||||||||||||||||||||};
 {vial_empty3|items_consumables:59|Empty flask|31||1|6|||||||||||||||||||||||||||||||||};
 {vial_empty4|items_consumables:58|Empty potion|31||1|11|||||||||||||||||||||||||||||||||};
-{health_minor|items_consumables:35|Potion of minor health|20||1|5||||||||||||||1|5|5|||||||||||||||||};
-{health_minor2|items_consumables:35|Potion of minor health|20|||18||||||||||||||1|5|5|||||||||||||||||};
-{health|items_consumables:49|Potion of health|20|||40||||||||||||||1|10|10|||||||||||||||||};
-{health_major|items_consumables:28|Potion of major health|20||1|210||||||||||||||1|40|40|||||||||||||||||};
-{health_major2|items_consumables:28|Potion of major health|20|||280||||||||||||||1|40|40|||||||||||||||||};
+{health_minor|items_consumables:35|Minor potion of health|20||1|5||||||||||||||1|5|5|||||||||||||||||};
+{health_minor2|items_consumables:35|Minor potion of health|20|||18||||||||||||||1|5|5|||||||||||||||||};
+{health|items_consumables:49|Regular potion of health|20|||40||||||||||||||1|10|10|||||||||||||||||};
+{health_major|items_consumables:28|Major potion of health|20||1|210||||||||||||||1|40|40|||||||||||||||||};
+{health_major2|items_consumables:28|Major potion of health|20|||280||||||||||||||1|40|40|||||||||||||||||};
 {mead|items_consumables:51|Mead|20|||15||||||||||||||1|1|1|||||||||||||||||};
 {milk|items_consumables:55|Milk|20|||21||||||||||||||1|2|2|||||||||||||||||};
 {bonemeal_potion|items_consumables:34|Bonemeal potion|20||1|45||||||||||||||1|40|40|||||||||||||||||};
@@ -299,6 +299,14 @@
 {ring_villain|items_jewelry:2|Villain\'s ring|7|4|0|2750|1|4||||25|||3|6|||||||||||||||||||||||};
 {ring_polished_backstab|items_jewelry:2|Polished ring of backstabbing|7|4|0|2731|1|||||21|7||4|4|||||||||||||||||||||||};
 {ring_protector|items_jewelry:4|Ring of the protector|7|4|0|3744|1|3||||20|||0|3|14||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0610_2">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{erinith_book|items_books:0|Erinith\'s book|31|1|1|0|||||||||||||||||||||||||||||||||};
+{hadracor_waspwing|items_misc:52|Giant wasp wing|31|1|1|0|||||||||||||||||||||||||||||||||};
+{tinlyn_bells|items_necklaces_1:10|Tinlyn\'s sheep bell|31|1|1|0|||||||||||||||||||||||||||||||||};
+{tinlyn_sheep_meat|items_consumables:25|Meat from Tinlyn\'s sheep|31|1|1|0|||||||||||||||||||||||||||||||||};
 	</string>
 
 </resources>

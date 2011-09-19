@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -27,11 +26,7 @@ public final class MonsterEncounterActivity extends Activity {
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
-        final Intent intent = getIntent();
-        final Bundle params = intent.getExtras();
-        int x = params.getInt("x");
-        int y = params.getInt("y");
-        final Monster monster = world.model.currentMap.getMonsterAt(x, y);
+        final Monster monster = Dialogs.getMonsterFromIntent(getIntent(), world);
         if (monster == null) {
         	finish();
         	return;

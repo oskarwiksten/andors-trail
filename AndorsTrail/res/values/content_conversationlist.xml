@@ -2152,17 +2152,20 @@
 	<string name="conversationlist_tinlyn">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {tinlyn||||{
+	{|tinlyn_killedsheep_1|benbyr:21|||}
+	{|tinlyn_killedsheep_1|tinlyn:60|||}
 	{|tinlyn_complete_1|tinlyn:31|||}
 	{|tinlyn_complete_1|tinlyn:30|||}
 	{|tinlyn_look_1|tinlyn:15|||}
 	{|tinlyn_story_1||||}
 	}|};
+{tinlyn_killedsheep_1|You attacked my sheep! Get away from me you filthy murderer!||||};
 {tinlyn_complete_1|Hello again. Thank you for helping me find my lost sheep.|||{
 	{I talked to Benbyr and heard the story about you two.|tinlyn_benbyr_1|benbyr:10|||}
 	}|};
 {tinlyn_story_1|Hello there. You wounldn\'t happen to want to help an old shepherd do you?|||{{What\'s the problem?|tinlyn_story_2||||}}|};
 {tinlyn_story_2|You see, I tend my flock of sheep here. These fields are excellent pastures for them.|||{{N|tinlyn_story_3||||}}|};
-{tinlyn_story_3|But the thing is, I have lost four of them. Now I won\'t dare leave the ones I still have in my sight to go look for the lost ones.|||{{N|tinlyn_story_3_1||||}}|};
+{tinlyn_story_3|But the thing is, I have lost four of them. Now I won\'t dare leave the ones I still have in my sight to go look for the lost ones.|tinlyn:10||{{N|tinlyn_story_3_1||||}}|};
 {tinlyn_story_3_1||||{
 	{|tinlyn_story_6|tinlyn:15|||}
 	{|tinlyn_story_4||||}
@@ -2230,9 +2233,9 @@
 {tinlyn_lostsheep_placed_1||tinlyn:25||{{|tinlyn_lostsheep_placed_2||||}}|};
 {tinlyn_lostsheep_placed_2|(You place the bells around the neck of the sheep.)||||};
 {tinlyn_lostsheep_atk||||{{|tinlyn_lostsheep_atk1|tinlyn:15|||}{|F||||}}|};
-{tinlyn_lostsheep_atk1|tinlyn:60|||{{|tinlyn_sheep_atk||||}}|};
+{tinlyn_lostsheep_atk1||tinlyn:60||{{|tinlyn_sheep_atk||||}}|};
 {tinlyn_sheep|Baah!|||{{Attack|tinlyn_lostsheep_atk|benbyr:20|||}}|};
-{tinlyn_sheep_atk|benbyr:21|||{{|F||||}}|};
+{tinlyn_sheep_atk||benbyr:21||{{|F||||}}|};
 	</string>
 
 	<string name="conversationlist_benbyr">

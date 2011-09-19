@@ -26,14 +26,15 @@ import android.widget.TextView;
 import android.widget.TextView.BufferType;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ConversationController;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
-import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.resource.TileStore;
@@ -53,7 +54,7 @@ public final class ConversationActivity extends Activity {
 	private Button nextButton;
 	private Button leaveButton;
 	private ListView statementList;
-	private MonsterType monsterType;
+	private Monster npc;
 	private RadioGroup replyGroup;
 	private OnClickListener radioButtonListener;
 	private boolean displayActors = true;
@@ -68,15 +69,9 @@ public final class ConversationActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         Uri uri = getIntent().getData();
-        final String monsterTypeID = uri.getQueryParameter("monsterTypeID");
-        if (monsterTypeID != null && monsterTypeID.length() > 0) {
-        	displayActors = true;
-        	monsterType = world.monsterTypes.getMonsterType(monsterTypeID);
-        	assert(monsterType != null);
-        } else {
-        	displayActors = false;
-        	monsterType = null;
-        }
+        this.npc = Dialogs.getMonsterFromIntent(getIntent(), world);
+        displayActors = (npc != null);
+
         String phraseID = uri.getLastPathSegment().toString(); 
         if (savedInstanceState != null) {
         	phraseID = savedInstanceState.getString("phraseID");
@@ -132,10 +127,11 @@ public final class ConversationActivity extends Activity {
     		ConversationActivity.this.finish();
     		return;
     	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_SHOP)) {
-    		assert(monsterType != null);
-    		assert(monsterType.dropList != null);
+    		assert(npc != null);
+    		assert(npc.dropList != null);
     		Intent intent = new Intent(this, ShopActivity.class);
-    		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/shop/" + monsterType.id));
+    		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/shop"));
+    		Dialogs.addMonsterIdentifiers(intent, npc);
     		startActivityForResult(intent, MainActivity.INTENTREQUEST_SHOP);
     		return;
     	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
@@ -183,7 +179,7 @@ public final class ConversationActivity extends Activity {
 	    	}
     	}
 
-    	addConversationStatement(monsterType, message, NPCConversationColor);
+    	addConversationStatement(npc, message, NPCConversationColor);
     	
     	if (isPhraseOnlyNextReply(phrase)) {
     		nextButton.setEnabled(true);
@@ -234,7 +230,7 @@ public final class ConversationActivity extends Activity {
 		} else {
 			r = getSelectedReply();
 			if (r == null) return;
-			addConversationStatement(player.traits, r.text, playerConversationColor);
+			addConversationStatement(player, r.text, playerConversationColor);
 		}
 		replyGroup.removeAllViews();
 		
@@ -242,12 +238,12 @@ public final class ConversationActivity extends Activity {
 		setPhrase(r.nextPhrase);
 	}
 
-	private void addConversationStatement(ActorTraits traits, String text, int color) {
+	private void addConversationStatement(Actor actor, String text, int color) {
     	ConversationStatement s = new ConversationStatement();
     	if (displayActors) {
-    		assert(traits != null);
-	    	s.iconID = traits.iconID;
-	    	s.actorName = traits.name;
+    		assert(actor != null);
+	    	s.iconID = actor.traits.iconID;
+	    	s.actorName = actor.traits.name;
     	} else {
     		s.iconID = ConversationStatement.NO_ICON;
     	}

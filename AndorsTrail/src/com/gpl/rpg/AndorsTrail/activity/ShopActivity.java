@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -16,7 +15,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
@@ -33,6 +32,8 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	private ItemContainer container_buy;
 	private TextView shop_buy_gc;
 	private TextView shop_sell_gc;
+	private ShopItemContainerAdapter buyListAdapter;
+	private ShopItemContainerAdapter sellListAdapter;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -44,10 +45,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         
         AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
-        Uri uri = getIntent().getData();
-        String monsterTypeID = uri.getLastPathSegment().toString();
-        final MonsterType npcType = world.monsterTypes.getMonsterType(monsterTypeID);
-        
+        final Monster npc = Dialogs.getMonsterFromIntent(getIntent(), world);
         final Player player = world.model.player;
         
         setContentView(R.layout.shop);
@@ -69,23 +67,13 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
         
         Loot merchantLoot = new Loot();
-        npcType.dropList.createRandomLoot(merchantLoot, player);
+        npc.dropList.createRandomLoot(merchantLoot, player);
         container_buy = merchantLoot.items;
         
-		shoplist_buy.setAdapter(new ShopItemContainerAdapter(
-				this
-				, world.tileStore
-				, player
-				, container_buy
-				, this
-				, false));
-        shoplist_sell.setAdapter(new ShopItemContainerAdapter(
-        		this
-        		, world.tileStore
-        		, player
-				, player.inventory
-        		, this
-        		, true));
+        buyListAdapter = new ShopItemContainerAdapter(this, world.tileStore, player, container_buy, this, false);
+        sellListAdapter = new ShopItemContainerAdapter(this, world.tileStore, player, player.inventory, this, true);
+		shoplist_buy.setAdapter(buyListAdapter);
+        shoplist_sell.setAdapter(sellListAdapter);
         
         update();
     }
@@ -204,9 +192,9 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	}
 
 	private void updateBuyItemList() {
-		((ShopItemContainerAdapter) shoplist_buy.getAdapter()).notifyDataSetChanged();
+		buyListAdapter.notifyDataSetChanged();
     }
 	private void updateSellItemList() {
-		((ShopItemContainerAdapter) shoplist_sell.getAdapter()).notifyDataSetChanged();
+		sellListAdapter.notifyDataSetChanged();
     }
 }
