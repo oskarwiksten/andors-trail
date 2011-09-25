@@ -72,6 +72,11 @@ public final class MapCollection {
 								}
 							}
 						}
+						
+						if (m.findEventObject(MapObject.MAPEVENT_NEWMAP, o.id) != o) {
+							L.log("WARNING: Map \"" + m.name + "\" contains duplicate maparea with id \"" + o.id + "\".");
+							continue;
+						}
 					} else if (o.type == MapObject.MAPEVENT_KEYAREA) {
 						if (o.id == null || o.id.length() <= 0) {
 							L.log("WARNING: Map \"" + m.name + "\" contains keyarea without phraseid.");

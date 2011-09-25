@@ -89,7 +89,7 @@
     <property name="respawn" value="false"/>
    </properties>
   </object>
-  <object name="crossroads_guard" type="spawn" x="32" y="192" width="32" height="32">
+  <object name="crossroads_sleepguard" type="spawn" x="32" y="192" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>
    </properties>
@@ -107,7 +107,7 @@
   <object name="crossroads_rat" type="spawn" x="384" y="96" width="96" height="64"/>
  </objectgroup>
  <objectgroup name="Keys" width="16" height="12">
-  <object name="crossroadssleep:100" type="key" x="224" y="96" width="64" height="64">
+  <object name="nondisplay:17" type="key" x="224" y="96" width="64" height="64">
    <properties>
     <property name="phrase" value="crossroads_sleep"/>
    </properties>

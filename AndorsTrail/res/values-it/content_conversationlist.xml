@@ -794,12 +794,15 @@
 {alynndir_6|Mi chiedo cosa ci sia lassu.|||{{Ciao.|X||||}}|};
 	</string>
 
-	<string name="conversationlist_shops">
+	<string name="conversationlist_vilegard_shops">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {vilegard_armorer_select||||{{|vilegard_armorer_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
 {vilegard_armorer_1|Buongiorno, vuoi dare un\' occhiata alle mie armature?.|||{{OK, fammi veder i tuoi articoli .|S||||}}|};
-{vilegard_smith_select||||{{|vilegard_smith_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
-{vilegard_smith_1|Ciao ragazzo, ho sentito dire che ci hai dato una bella mano qui a Vilegard. Come posso aiutarti ?|||{{Posso vedere che oggetti hai in vendia ?|S||||}}|};
+{vilegard_smith_select||||{{|vilegard_smith_1|feygard_shipment:56|||}{|vilegard_smith_fg_2|feygard_shipment:55|||}{|vilegard_smith_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
+{vilegard_smith_1|Ciao ragazzo, ho sentito dire che ci hai dato una bella mano qui a Vilegard. Come posso aiutarti ?|||{
+	{Posso vedere che oggetti hai in vendia ?|S||||}
+	{I have a shipment of Feygard items for you.|vilegard_smith_fg_1|feygard_shipment:35|fg_ironsword|10|}
+	}|};
 {vilegard_shop_notrust|Mmmm, sei un forestiero.... Non ci piacciono i forestier, Sei pregato di andartene.|||{{Perchè tutti a Vilegard siete così sopsettosi verso i forestieri ?|vilegard_shop_notrust_2||||}{Posso vedere gli oggetti che hai in vendita ?|vilegard_shop_notrust_2||||}}|};
 {vilegard_shop_notrust_2|Non mi fido di te, dovresti andare prima a parlare con Jolnor , nella cappella, se vuoi ottenere un pò di fiducia da noi!|vilegard:10|||};
 	</string>
@@ -864,7 +867,12 @@
 {ff_guard_rincel_1|Un ragazzo? A parte te non ho visto altri ragazzi quà in giro !|||{{N|ff_guard_rincel_2||||}}|};
 {ff_guard_rincel_2|Prova a chiedere al capitano, laggiù! E\' quà da più tempo di noi!|||{{Grazie, ciao.|X||||}{Grazie, che l\'ombra sia con te.|ff_guard_shadow_1||||}}|};
 {ff_guard_shadow_1|Non nominare quella maledetta ombra quà dentro , ragazzo. Non vogliamo nulla di tutto questo. Ora vattene.||||};
-{ff_captain_1|Ti sei perso, figliolo? Questo non è posto per un ragazzo come te.|||{{Chi sei tu ??|ff_captain_2||||}{Hai visto un ragazzo di nome Rincel qui intorno di recente?|ff_captain_rincel_1|wrye:41|||}}|};
+{ff_captain_1|Ti sei perso, figliolo? Questo non è posto per un ragazzo come te.|||{
+	{I have a shipment of iron swords from Gandoren for you.|ff_captain_vg_items_1|feygard_shipment:56|fg_ironsword_d|10|}
+	{I have a shipment of iron swords from Gandoren for you.|ff_captain_fg_items_1|feygard_shipment:25|fg_ironsword|10|}
+	{Chi sei tu ??|ff_captain_2||||}
+	{Hai visto un ragazzo di nome Rincel qui intorno di recente?|ff_captain_rincel_1|wrye:41|||}
+	}|};
 {ff_captain_2|Io sono il capitano di questa pattuglia di guardia. Veniamo dalla grande città di Feygard.|||{{Feygard?, e dov\'è?|ff_captain_4||||}{Cosa ci fai qua in giro ?|ff_captain_3||||}}|};
 {ff_captain_3|Stiamo percorrendo la strada principale per assicurarsi che i mercanti e i viaggiatori siano al sicuro. E manteniamo la pace qui intorno.|||{{Hai menzionato Feygard. dov\'è?|ff_captain_4||||}}|};
 {ff_captain_4|La grande città di Feygard è il più grande spettacolo che si potrà mai vedere. Segui la strada a nord-ovest.|||{{Grazie, che l\'ombra sia con te.|ff_captain_shadow_1||||}{Grazie, ciao.|X||||}}|};

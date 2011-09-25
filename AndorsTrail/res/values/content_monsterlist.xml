@@ -295,8 +295,16 @@
 {lostsheep3|monsters_karvis2:8|Sheep|tinlyn_lostsheep3|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep3||||||||};
 {lostsheep4|monsters_karvis2:8|Sheep|tinlyn_lostsheep4|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep4||||||||};
 {sheep1|monsters_karvis2:8|Sheep|tinlyn_sheep|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_sheep||||||||};
-{grass_ant|monsters_insects:0|Grasslands ant|fieldcritter_0|1x1||10|5|5||||||||fieldcritter_0|||||||||};
-{grass_ant2|monsters_insects:0|Tough grasslands ant|fieldcritter_0|1x1||10|5|5||||||||fieldcritter_0|||||||||};
+
+{rivertroll|monsters_rltiles1:104|River troll|rivertroll|1x1|210|10|5|5|120|30|4|2|9|65|7|rivertroll|||||||||};
+{grass_ant|monsters_insects:0|Grasslands ant|fieldcritter_0|1x1|29|10|5|3|120|||0|4|80||fieldcritter_0|||||||||};
+{grass_ant2|monsters_insects:2|Tough grasslands ant|fieldcritter_0|1x1|29|10|5|3|125|||1|5|80||fieldcritter_0|||||||||};
+{grass_beetle|monsters_insects:4|Grasslands beetle|fieldcritter_1|1x1|34|10|5|5|120|||0|5|80|3|fieldcritter_1|||||||||};
+{grass_beetle2|monsters_insects:4|Tough grasslands beetle|fieldcritter_1|1x1|35|10|5|5|125|||1|6|80|4|fieldcritter_1|||||||||};
+{grass_snake|monsters_rltiles2:25|Grasslands snake|fieldcritter_2|1x1|36|10|5|3|120|||0|6|80||fieldcritter_2|||||||||};
+{grass_snake2|monsters_rltiles2:25|Tough grasslands snake|fieldcritter_2|1x1|38|10|5|3|125|||1|7|80||fieldcritter_2|||||||||};
+{grass_lizard|monsters_rltiles2:114|Grasslands lizard|fieldcritter_3|1x1|45|10|5|3|120|||0|8|80|3|fieldcritter_3|||||||||};
+{grass_lizard2|monsters_rltiles2:117|Black grasslands lizard|fieldcritter_3|1x1|45|10|5|3|125|||2|9|80|4|fieldcritter_3|||||||||};
 
 {young_carrion_crawler|monsters_rltiles2:22|Young carrion crawler|carrioncrawler_1|1x1|51|10|5|5|50|||3|8|40|3|carrioncrawler||1||||||{{poison_weak|1|5|20|}}|};
 {carrion_crawler|monsters_rltiles2:22|Carrion crawler|carrioncrawler_2|1x1|55|10|5|5|50|||3|8|40|4|carrioncrawler||1||||||{{poison_weak|1|5|20|}}|};
@@ -313,7 +321,8 @@
 {conren|monsters_karvis2:5|Conren|conren|1x1||10|5|5|||||||||conren||||||||};
 {crossroads_backguard|monsters_rltiles1:76|Guard|crossroads_backguard|1x1||10|5|5|||||||||crossroads_backguard||||||||};
 {crossroads_guard|monsters_rltiles1:76|Guard|crossroads_guard|1x1||10|5|5|||||||||crossroads_guard||||||||};
-{crossroads_guest|monsters_karvis2:2|Visitor|crossroads_guest|1x1||10|5|5|||||||||crossroads_guest||||||||};
+{crossroads_sleepguard|monsters_rltiles1:76|Guard|crossroads_sleepguard|1x1||10|5|5|||||||||crossroads_sleepguard||||||||};
+{crossroads_guest|monsters_rltiles1:83|Visitor|crossroads_guest|1x1||10|5|5|||||||||crossroads_guest||||||||};
 {crossroads_rat|monsters_rats:0|Rat|crossroads_rat|1x1|5|10|5|5|50|||1|1|30||rat|||||||||};
 {erinith|monsters_rltiles1:82|Erinith|erinith|1x1||10|5|5|||||||||erinith||||||||};
 {fanamor|monsters_men:7|Fanamor|fanamor|1x1||10|5|5|||||||||fanamor||||||||};
@@ -322,9 +331,9 @@
 {fieldwasp_1|monsters_insects:1|Frantic forest wasp|fieldwasp_1|1x1|32|10|5|3|70|70|3|2|6|125||fieldwasp|||||||||};
 {fieldwasp_2|monsters_insects:1|Frantic forest wasp|fieldwasp_2|1x1|35|10|5|3|70|75|3|2|6|130||fieldwasp|||||||||};
 {fieldwasp_unique|monsters_insects:1|Frantic forest wasp|fieldwasp_unique|1x1|70|10|5|3|70|100|3|2|6|150||fieldwasp_unique|||||||||};
-{gallain|monsters_rltiles1:69|Gallain|gallain|1x1||10|5|5|||||||||gallain||||||||};
-{gandoren|monsters_men2:6|Gandoren|gandoren|1x1||10|5|5|||||||||gandoren||||||||};
-{grimion|monsters_men2:2|Grimion|grimion|1x1||10|5|5|||||||||grimion||||||||};
+{gallain|monsters_man1:0|Gallain|gallain|1x1||10|5|5||||||||shop_gallain|gallain||||||||};
+{gandoren|monsters_rltiles1:69|Gandoren|gandoren|1x1||10|5|5|||||||||gandoren||||||||};
+{grimion|monsters_men2:2|Grimion|grimion|1x1||10|5|5||||||||shop_grimion|grimion||||||||};
 {hadracor|monsters_men2:2|Hadracor|hadracor|1x1||10|5|5||||||||shop_hadracor|hadracor||||||||};
 {kuldan|monsters_rltiles1:85|Kuldan|kuldan|1x1||10|5|5|||||||||kuldan||||||||};
 {kuldan_guard|monsters_warrior1:0|Kuldan\'s Guard|kuldan_guard|1x1||10|5|5|||||||||kuldan_guard||||||||};
@@ -335,7 +344,7 @@
 {loneford_tavern_patron|monsters_karvis2:2|Tavern patron|loneford_tavern_patron|1x1||10|5|5|||||||||loneford_tavern_patron||||||||};
 {loneford_villager0|monsters_karvis2:0|Villager|loneford_villager0|1x1||10|5|5|||||||||loneford_villager0||||||||};
 {loneford_villager1|monsters_karvis2:1|Villager|loneford_villager1|1x1||10|5|5|||||||||loneford_villager1||||||||};
-{loneford_villager2|monsters_karvis2:6|Villager|loneford_villager2|1x1||10|5|5|||||||||loneford_villager2||||||||};
+{loneford_villager2|monsters_karvis2:3|Villager|loneford_villager2|1x1||10|5|5|||||||||loneford_villager2||||||||};
 {loneford_villager3|monsters_karvis2:5|Villager|loneford_villager3|1x1||10|5|5|||||||||loneford_villager3||||||||};
 {loneford_villager4|monsters_men:2|Villager|loneford_villager4|1x1||10|5|5|||||||||loneford_villager4||||||||};
 {loneford_wellguard|monsters_rltiles1:72|Guard|loneford_wellguard|1x1||10|5|5|||||||||loneford_wellguard||||||||};
@@ -347,7 +356,7 @@
 {sienn_pet|monsters_misc:0|Sienn\'s pet|sienn_pet|1x1||10|5|5|||||||||sienn_pet||||||||};
 {siola|monsters_rltiles1:90|Siola|siola|1x1||10|5|5||||||||shop_siola|siola||||||||};
 {taevinn|monsters_karvis2:5|Taevinn|taevinn|1x1||10|5|5|||||||||taevinn||||||||};
-{talion|monsters_men2:8|Talion|talion|1x1||10|5|5|||||||||talion||||||||};
+{talion|monsters_men2:8|Talion|talion|1x1||10|5|5||||||||shop_talion|talion||||||||};
 {telund|monsters_rltiles1:74|Telund|telund|1x1||10|5|5|||||||||telund||||||||};
 {tinlyn|monsters_karvis2:7|Tinlyn|tinlyn|1x1||10|5|5|||||||||tinlyn||||||||};
 {wallach|monsters_rltiles1:75|Wallach|wallach|1x1||10|5|5|||||||||wallach||||||||};
@@ -356,6 +365,8 @@
 {woodcutter_3|monsters_men2:2|Woodcutter|woodcutter_3|1x1||10|5|5|||||||||woodcutter_3||||||||};
 {woodcutter_4|monsters_rltiles1:93|Woodcutter|woodcutter_4|1x1||10|5|5|||||||||woodcutter_4||||||||};
 {woodcutter_5|monsters_men2:2|Woodcutter|woodcutter_5|1x1||10|5|5|||||||||woodcutter_5||||||||};
+{rogorn|monsters_rltiles1:63|Rogorn|rogorn|1x1|145|10|5|3|90|||5|9|120|5|rogorn|rogorn||||||||};
+{rogorn_henchman|monsters_rogue1:0|Rogorn\'s henchman|rogorn_henchman|1x1|130|10|5|3|80|||5|8|120|4|rogorn_henchman|rogorn_henchman||||||||};
 	</string>
 
 </resources>

@@ -26,15 +26,24 @@ public final class ResourceLoader {
 	private static final int monstersResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_monsters_debug : R.array.loadresource_monsters;
 	private static final int mapsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_maps_debug : R.array.loadresource_maps;
     
+	private static long taskStart;
+	private static void timingCheckpoint(String loaderName) {
+		long now = System.currentTimeMillis();
+		long duration = now - taskStart;
+    	L.log(loaderName + " ran for " + duration + " ms.");
+    	taskStart = now;
+    }
     
 	public static void loadResources(WorldContext world, Resources r) {
     	long start = System.currentTimeMillis();
+    	taskStart = start;
     	
         final TileStore tiles = world.tileStore;
         final int mTileSize = tiles.tileSize;
         
         DynamicTileLoader loader = new DynamicTileLoader(tiles, r);
         prepareTilesets(loader, mTileSize);
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("prepareTilesets");
         
         // ========================================================================
         // Load various ui icons
@@ -52,7 +61,7 @@ public final class ResourceLoader {
         // ========================================================================
         // Load skills
         world.skills.initialize();
-        
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("SkillLoader");
         
     	// ========================================================================
         // Load condition types
@@ -61,6 +70,7 @@ public final class ResourceLoader {
         for (int i = 0; i < conditionsToLoad.length(); ++i) {
         	world.actorConditionsTypes.initialize(actorConditionsTypeParser, conditionsToLoad.getString(i));	
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ActorConditionsTypeParser");
         
         
         // ========================================================================
@@ -70,6 +80,7 @@ public final class ResourceLoader {
         for (int i = 0; i < itemsToLoad.length(); ++i) {
         	world.itemTypes.initialize(itemTypeParser, itemsToLoad.getString(i));	
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ItemTypeParser");
         
         
         // ========================================================================
@@ -79,6 +90,7 @@ public final class ResourceLoader {
         for (int i = 0; i < droplistsToLoad.length(); ++i) {
         	world.dropLists.initialize(dropListParser, droplistsToLoad.getString(i));
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("DropListParser");
         
         
         // ========================================================================
@@ -91,6 +103,7 @@ public final class ResourceLoader {
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.quests.verifyData();
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("QuestParser");
     	
 
         // ========================================================================
@@ -103,6 +116,7 @@ public final class ResourceLoader {
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.conversations.verifyData();
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ConversationListParser");
         
         
         // ========================================================================
@@ -116,6 +130,7 @@ public final class ResourceLoader {
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.monsterTypes.verifyData(world);
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("MonsterTypeParser");
         
         
         // ========================================================================
@@ -126,9 +141,11 @@ public final class ResourceLoader {
         	final int mapResourceId = mapsToLoad.getResourceId(i, -1);
         	final String mapName = r.getResourceEntryName(mapResourceId);
         	mapReader.read(r, mapResourceId, mapName);
-        }        
+        }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("TMXMapReader");
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));
         mapReader = null;
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("mapReader.transformMaps");
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.maps.verifyData(world);
@@ -138,18 +155,20 @@ public final class ResourceLoader {
         // ========================================================================
         // Load effects
         world.visualEffectTypes.initialize(loader);
-        
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("VisualEffectLoader");
         
         // ========================================================================
         // Load graphics resources (icons and tiles)
         loader.flush();
         loader = null;
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("DynamicTileLoader");
         // ========================================================================
         
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
         	world.verifyData();
         }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("world.verifyData()");
         
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
         	long duration = System.currentTimeMillis() - start;

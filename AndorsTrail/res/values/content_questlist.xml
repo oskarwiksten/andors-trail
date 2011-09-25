@@ -4,9 +4,12 @@
 	<!--  These quests do not need translation: -->
 	<string name="questlist_nondisplayed">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{nondisplay|Placeholder for hidden quests|0|{
-	{10|Tavern room in Foaming Flask (not displayed)||0|}
-	{16|Sleeping quarters in Blackwater mountain (not displayed)||0|}
+{nondisplay|Placeholder for hidden quest stages (not displayed)|0|{
+	{10|Tavern room in Foaming Flask|||}
+	{16|Sleeping quarters in Blackwater mountain|||}
+	{17|Sleeping quarters in Crossroads1|||}
+	{18|Shopping from Minarra in Crossroads tower|||}
+	{19|Sleeping quarters in Loneford10|||}
 	}|};
 {crossglen|TODO|0|{{1|||0|}}|};
 {fallhaventavern|Room to rent|0|{{10|||1|}}|};
@@ -23,7 +26,7 @@
 	{40|I talked to Gaela in Fallhaven. He tells me to go see Bucus and ask about the thieves guild.||0|}
 	{50|Bucus has allowed me to enter the hatch in the derelict house in Fallhaven. I should go talk to Umar.||0|}
 	{51|Umar in the Fallhaven thieves guild recognized me, but must have me mixed up with Andor. Apparently, Andor has been to see him.||0|}
-	{55|Umar told me that Andor went to see a potioner called Lodar. I should search for his hideaway.||0|}
+	{55|Umar told me that Andor went to see a potion maker called Lodar. I should search for his hideaway.||0|}
 	}|};
 {mikhail_bread|Breakfast bread|1|{
 	{100|I have brought the bread to Mikhail.||1|}
@@ -273,24 +276,44 @@
 	{30|Benbyr was thrilled to hear that all of Tinlyn\'s sheep are dead.|520|1|}
 	{60|I declined to help Benbyr kill the sheep.||1|}
 	}|};
-{rogorn|Troll under the bridge|1|{
-	{10|Minarra up in the tower at the Crossroads guardhouse has seen a band of rogues heading west from the guardhouse, towards Carn tower. Minarra was sure they matched the decription of some men that the Feygard patrol are searching for.|||}
-	{20|I am helping Minarra find the band of rogues. I should travel the road west from the Crossroads guardhouse towards Carn tower and look for them.|||}
+{rogorn|The path is clear to me|1|{
+	{10|Minarra up in the tower at the Crossroads guardhouse has seen a band of rogues heading west from the guardhouse, towards Carn Tower. Minarra was sure they matched the description of some men whose heads have a bounty on them from the Feygard patrol. If these are the men that Minarra thinks, they are supposedly led by particularly ruthless savage named Rogor.|||}
+	{20|I am helping Minarra find the band of rogues. I should travel the road west from the Crossroads guardhouse towards Carn Tower and look for them. They have supposedly stolen three pieces of a valuable painting and are wanted dead for their crimes.|||}
+	{21|Minarra also tells me that I should not trust anything I hear from them. In particular, anything from Rogorn should be viewed with great suspicion.|||}
+	{30|I have found the band of rogues on the road west towards Carn Tower, led by Rogorn.|||}
+	{35|Rogorn tells me that they are wrongly accused of murder and theft in Feygard, while they themselves have never even been to Feygard.|||}
+	{40|I have decided to attack Rogorn and his band of rogues. I should return to Minarra with the three pieces of the painting once they are dead.|||}
+	{45|I have decided not to attack Rogorn and his band of rogues, but instead report back to Minarra that she must have mistaken the men she saw for someone else.|||}
+	{50|Minarra thanked me for dealing with the thieves, and told me that my services to Feygard will be appreciated.|||}
+	{55|After telling Minarra that she must have mistaken the men for someone else, she seemed a bit suspicious, but thanked me for helping her look into the matter.|||}
+	{60|I have helped Minarra with her task.||1|}
 	}|};
-{gandoren|Feygard errands|1|{
+{feygard_shipment|Feygard errands|1|{
 	{10|I met Gandoren, the guard captain at the Crossroads guardhouse. He told me about some trouble up in Loneford, that have forced the guards to be even more alert than usual. Because of this, they can\'t do their regular errands themselves but need help with some basic things.|||}
-	{20|Gandoren wants me to help him transport a shipment of 10 iron swords and 10 wooden bucklers to another guard post to the south.|||}
+	{20|Gandoren wants me to help him transport a shipment of 10 iron swords to another guard post to the south.|||}
 	{21|I have agreed to help Gandoren transport the shipment, as a service for Feygard.|||}
-	{22|I have agreed to help Gandoren transport the shipment, in return for 300 gold as compensation.|||}
-	{23|With some grudge, I have agreed to help Gandoren transport the shipment.|||}
+	{22|With some grudge, I have agreed to help Gandoren transport the shipment.|||}
+	{25|I should deliver the shipment to the Feygard patrol captain stationed in the Foaming Flask tavern.|||}
+	{26|Gandoren tells me that Ailshara has expressed some interest in the Feygard shipments, and urges me to stay away from her.|||}
+	{30|Ailshara is indeed interested in the shipment, and wants me to help Nor City with the supplies instead.|||}
+	{35|If I want to help Ailshara on behalf Nor City instead, I should deliver the shipment to the smith in Vilegard.|||}
+	{50|I have delivered the shipment to the Feygard patrol captain in the Foaming Flask tavern. I should go tell Gandoren in the Crossroads guardhouse that the shipment is delivered.|||}
+	{55|I have delivered the shipment to the smith in Vilegard.|||}
+	{56|The Vilegard smith gave me a shipment of degraded items that I should deliver to the Feygard patrol captain in the Foaming Flask tavern instead of the normal ones.|||}
+	{60|I have delivered the shipment of degraded items to the Feygard patrol captain in the Foaming Flask tavern. I should go tell Gandoren in the Crossroads guardhouse that the shipment is delivered.|||}
+	{80|Gandoren thanked me for helping him deliver the shipment.|400|1|}
+	{81|Gandoren thanked me for helping him deliver the shipment. He never suspected anything. I should also report back to Ailshara.|||}
+	{82|I have reported back to Ailshara.|400|1|}
 	}|};
 {loneford|Flows through the veins|1|{
 	{10|I heard a story about Loneford. Apparently, a lot of people have become ill there recently, and some have even died. The cause is still unknown.|||}
 	{11|I should investigate what could have caused the people of Loneford to become ill. I should ask around people in Loneford and outside the village about clues and what people believe is the cause.|||}
-	{15|The guards in the Crossroads guardhouse are certain that the illness in Loneford is caused by some sabotage done by the priests or people from Nor City.|||}
-	{16|Some villagers in Loneford believe that the illness is caused by the guards from Feygard, in some scheme to make the people suffer even more than they already have.|||}
-	{17|Talion, the chapel priest in Loneford, thinks that the illness is the work of the Shadow, as punishment for Loneford\'s lack of devotion to the Shadow.|||}
-	{18|I should go see Landa in the Loneford tavern. Rumor has it that he saw something that he doesn\'t dare tell anyone.|||}
+	{21|The guards in the Crossroads guardhouse are certain that the illness in Loneford is caused by some sabotage done by the priests or people from Nor City.|||}
+	{22|Some villagers in Loneford believe that the illness is caused by the guards from Feygard, in some scheme to make the people suffer even more than they already have.|||}
+	{23|Talion, the chapel priest in Loneford, thinks that the illness is the work of the Shadow, as punishment for Loneford\'s lack of devotion to the Shadow.|||}
+	{24|Taevinn in Loneford is certain that Sienn in the southeast barn has something to do with the illness. Apparently, Sienn keeps a pet around that has approached Taevinn in a threatening manner several times.|||}
+	{25|I should go see Landa in the Loneford tavern. Rumor has it that he saw something that he doesn\'t dare tell anyone.|||}
+	{30|I should go see Landa in the Loneford tavern. Rumor has it that he saw something that he doesn\'t dare tell anyone.|||}
 	}|};
 </string>
 

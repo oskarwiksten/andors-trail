@@ -793,12 +793,15 @@
 {alynndir_6|I really wonder what is up there.|||{{Goodbye.|X||||}}|};
 	</string>
 
-	<string name="conversationlist_shops">
+	<string name="conversationlist_vilegard_shops">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {vilegard_armorer_select||||{{|vilegard_armorer_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
 {vilegard_armorer_1|Hello there. Please browse my selection of fine armors and protection.|||{{Let me see your list of wares|S||||}}|};
-{vilegard_smith_select||||{{|vilegard_smith_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
-{vilegard_smith_1|Hello there. I heard you helped us here in Vilegard. What can I help you with?|||{{Can I see what items you have for sale?|S||||}}|};
+{vilegard_smith_select||||{{|vilegard_smith_1|feygard_shipment:56|||}{|vilegard_smith_fg_2|feygard_shipment:55|||}{|vilegard_smith_1|vilegard:30|||}{|vilegard_shop_notrust||||}}|};
+{vilegard_smith_1|Hello there. I heard you helped us here in Vilegard. What can I help you with?|||{
+	{Can I see what items you have for sale?|S||||}
+	{I have a shipment of Feygard items for you.|vilegard_smith_fg_1|feygard_shipment:35|fg_ironsword|10|}
+	}|};
 {vilegard_shop_notrust|You are an outsider. We don\'t like outsiders here in Vilegard. Please leave.|||{{Why is everyone in Vilegard so suspicious of outsiders?|vilegard_shop_notrust_2||||}{Can I see what items you have for sale?|vilegard_shop_notrust_2||||}}|};
 {vilegard_shop_notrust_2|I don\'t trust you. You should go see Jolnor in the chapel if you want some sympathy.|vilegard:10|||};
 	</string>
@@ -863,7 +866,12 @@
 {ff_guard_rincel_1|A boy?! Apart from you, there have been no children in here that I have seen.|||{{N|ff_guard_rincel_2||||}}|};
 {ff_guard_rincel_2|Check with the captain over there. He has been around here for longer than us.|||{{Thank you, Goodbye.|X||||}{Thank you. Shadow be with you.|ff_guard_shadow_1||||}}|};
 {ff_guard_shadow_1|Don\'t bring that cursed Shadow in here son. We want none of that. Now leave.||||};
-{ff_captain_1|Are you lost, son? This is no place for a kid like you.|||{{Who are you?|ff_captain_2||||}{Have you seen a boy called Rincel around here recently?|ff_captain_rincel_1|wrye:41|||}}|};
+{ff_captain_1|Are you lost, son? This is no place for a kid like you.|||{
+	{I have a shipment of iron swords from Gandoren for you.|ff_captain_vg_items_1|feygard_shipment:56|fg_ironsword_d|10|}
+	{I have a shipment of iron swords from Gandoren for you.|ff_captain_fg_items_1|feygard_shipment:25|fg_ironsword|10|}
+	{Who are you?|ff_captain_2||||}
+	{Have you seen a boy called Rincel around here recently?|ff_captain_rincel_1|wrye:41|||}
+	}|};
 {ff_captain_2|I am the guard captain of this patrol. We hail from the great city of Feygard.|||{{Feygard, where is that?|ff_captain_4||||}{What do you do around here?|ff_captain_3||||}}|};
 {ff_captain_3|We are travelling the main road to make sure the merchants and travelers are safe. And we keep the peace around here.|||{{You mentioned Feygard. Where is that?|ff_captain_4||||}}|};
 {ff_captain_4|The great city of Feygard is the greatest sight you will ever see. Follow the road northwest.|||{{Thank you. Shadow be with you.|ff_captain_shadow_1||||}{Thank you, Goodbye.|X||||}}|};
@@ -2043,12 +2051,12 @@
 	{Not yet, I am still looking.|erinith_story_8||||}
 	{Yes, here is your book.|erinith_needsbook_2||erinith_book|1|}
 	}|};
-{erinith_needsbook_2||||{
+{erinith_needsbook_2||erinith:30||{
 	{|erinith_needsbook_3_2|erinith:21|||}
 	{|erinith_needsbook_3_1||||}
 	}|};
-{erinith_needsbook_3_1|You found it! Oh thank you so much. I was so worried that I had lost it.|erinith:30||{{N|erinith_needspotions_2||||}}|};
-{erinith_needsbook_3_2|You found it! Oh thank you so much. In return, here is the gold I promised you.|erinith:30|gold200|{{N|erinith_needspotions_2||||}}|};
+{erinith_needsbook_3_1|You found it! Oh thank you so much. I was so worried that I had lost it.|||{{N|erinith_needspotions_2||||}}|};
+{erinith_needsbook_3_2|You found it! Oh thank you so much. In return, here is the gold I promised you.||gold200|{{N|erinith_needspotions_2||||}}|};
 
 {erinith_needspotions_1|Thank you for helping me find my book earlier.|||{{N|erinith_needspotions_2||||}}|};
 {erinith_needspotions_2|I am still hurt by this wound that I got from the attack during the night.|||{{N|erinith_needspotions_3||||}}|};
@@ -2077,8 +2085,8 @@
 	<string name="conversationlist_hadracor">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {woodcutter_0|Stupid wasps..||||};
+{woodcutter_2|Stay away from the road to the west, for it leads to Carn Tower. And you most certainly do not want to go there.|||{{N|woodcutter_1||||}}|};
 {woodcutter_1|When travelling, keep to the roads. Veer off course and you might find yourself in danger.||||};
-{woodcutter_2|Stay away from the road to the west, for it leads to Carn Tower. And you most certainly do not want to go there.||||};
 {woodcutter_3|Maybe we shouldn\'t have cut down all the trees over there. Those wasps really seemed upset.||||};
 {woodcutter_4|I can still feel the sting from those wasps in my legs. Good thing we are done with all the trees now.||||};
 {woodcutter_5|Hello there, welcome to our encampment. You should talk to Hadracor over there.||||};
@@ -2088,7 +2096,7 @@
 	{|hadracor_gaveitems_1|hadracor:21|||}
 	{|hadracor_gaveitems_1|hadracor:20|||}
 	{|hadracor_wantsitems_1|hadracor:10|||}
-	{|hadracor_1|hadracor:10|||}
+	{|hadracor_1||||}
 	}|};
 {hadracor_1|Hello there, I am Hadracor.|||{
 	{What is this place?|hadracor_story_1||||}
@@ -2102,7 +2110,7 @@
 	{What have you been working on?|hadracor_story_2||||}
 	{I noticed a lot of treestumps around here|hadracor_story_2||||}
 	}|};
-{hadracor_story_2|Our orders were to cut down all trees south of the Feygard bridge and north of this here road to Carn tower.|||{{N|hadracor_story_3||||}}|};
+{hadracor_story_2|Our orders were to cut down all trees south of the Feygard bridge and north of this here road to Carn Tower.|||{{N|hadracor_story_3||||}}|};
 {hadracor_story_3|I guess the nobles of Feygard have some plans for these lands.|||{{N|hadracor_story_4||||}}|};
 {hadracor_story_4|We, we just cut down them trees. No questions asked.|||{{N|hadracor_story_5||||}}|};
 {hadracor_story_5|However, this time we encountered some trouble.|||{{N|hadracor_story_6||||}}|};
@@ -2321,6 +2329,492 @@
 {crossroads_guard_2|I sure hope you are not another one of those types trying to sell me your cheap junk.|||{{N|crossroads_guard_3||||}}|};
 {crossroads_guard_3|Go away, kid.||||};
 
-{crossroads_guard_3|Go away, kid.||||};
+{cr_loneford_st_1|Didn\'t you hear? They have all gotten ill.|||{{N|cr_loneford_st_2||||}}|};
+{cr_loneford_st_2|It all started a few days ago. As the story goes, someone found one of the farmers passed out on one of the fields, completely white face and shivering.|||{{N|cr_loneford_st_3||||}}|};
+{cr_loneford_st_3|A few days later, the same symptoms started to show on a lot more people.|||{{N|cr_loneford_st_4||||}}|};
+{cr_loneford_st_4|Then, all people showed the symptoms in one way or another.|||{{N|cr_loneford_st_5||||}}|};
+{cr_loneford_st_5|Some old people even died.|||{{N|cr_loneford_st_6||||}}|};
+{cr_loneford_st_6|Everyone started investigating what could be the cause. But to date, the cause is still unknown.|loneford:10||{{N|cr_loneford_st_7||||}}|};
+{cr_loneford_st_7|Luckily, now Feygard has sent patrols up there to help guard the village at least. The people are still suffering though.|loneford:11||{{N|cr_loneford_st_8||||}}|};
+{cr_loneford_st_8|Me, I am certain that this is the work of those savages from Nor City somehow. They probably sabotaged something up there.|||{{N|cr_loneford_st_9||||}}|};
+{cr_loneford_st_9|What do they call it, the \'Shadow\'? They are willing to do almost anything to upset the law and order around here.|||{{N|cr_loneford_st_10||||}}|};
+{cr_loneford_st_10|I tell you. Savages - that\'s what they are. No respect for the laws or authority.|loneford:21|||};
+
 	</string>
+
+	<string name="conversationlist_minarra">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{minarra||||{
+	{|minarra_completed_1|rogorn:60|||}
+	{|minarra_completing_1|rogorn:55|||}
+	{|minarra_completing_1|rogorn:50|||}
+	{|minarra_look_1|rogorn:20|||}
+	{|minarra_return_1|rogorn:10|||}
+	{|minarra_first_1||||}
+	}|};
+{minarra_first_1|Hello there. Can I help you?|||{
+	{You seem to have a lot of equipment around here. Do you have anything to trade?|minarra_trade_rej||||}
+	{What do you do up here?|minarra_first_5||||}
+	{You must have a good view of the surroundings up here. Have you seen anything interesting lately?|minarra_first_2||||}
+	}|};
+{minarra_trade_rej|I might. But you would have to clear it with Gandoren downstairs. We don\'t trade with just anyone.||||};
+{minarra_return_1|You return. Was there something else you wanted?|||{
+	{Can you tell me again about those men you saw?|minarra_story_1||||}
+	{Do you have anything to trade?|minarra_trade_rej||||}
+	{What do you do up here?|minarra_first_5||||}
+	}|};
+{minarra_first_2|Mostly, I see the travellers on the Duleian road from and to Feygard here.|||{{N|minarra_first_3||||}}|};
+{minarra_first_3|Recently however, there have been a lot of movements to and from Loneford. I guess it is because of the problems they have been having up there.|||{{N|minarra_first_4_s||||}}|};
+{minarra_first_4_s||||{
+	{|minarra_first_4_1|rogorn:60|||}
+	{|minarra_first_4||||}
+	}|};
+{minarra_first_4|I did see something very interesting yesterday though.|||{
+	{What was that?|minarra_story_1||||}
+	{You mentioned the Duleian road, what\'s that?|minarra_first_6||||}
+	{You mentioned some problems in Loneford, what problems were you referring to?|cr_loneford_st_1||||}
+	{Nevermind that, I wanted to ask you what your duty is up here?|minarra_first_5||||}
+	}|};
+{minarra_first_4_1|Some farm animals today as well.|||{
+	{You mentioned the Duleian road, what\'s that?|minarra_first_6_1||||}
+	{You mentioned some problems in Loneford, what problems were you referring to?|cr_loneford_st_1||||}
+	}|};
+{minarra_first_5|I handle the equipment storage for us guards here in the Crossroads guardhose, and I keep a lookout of the surrounding areas.|||{
+	{Do you have anything to trade?|minarra_trade_rej||||}
+	{Have you seen anything interesting lately?|minarra_first_2||||}
+	}|};
+{minarra_first_6|See this wide road that goes outside this guardhouse? That\'s the Duleian road. It goes all the way from the glorious city of Feygard up in the northwest down to the wretched Nor City in the southeast.|||{
+	{You mentioned some problems in Loneford, what problems are that?|cr_loneford_st_1||||}
+	{I wanted to ask you what your duty is up here?|minarra_first_5||||}
+	}|};
+{minarra_first_6_1|See this wide road that goes outside this guardhouse? That\'s the Duleian road. It goes all the way from the glorious city of Feygard up in the northwest down to the wretched Nor City in the southeast.|||{
+	{You mentioned some problems in Loneford, what problems are that?|cr_loneford_st_1||||}
+	}|};
+{minarra_story_1|I saw a band of rough looking men on travelling up the Duleian road. Usually, a band of rough looking men is not something that\'s worth getting all excited about.|||{{N|minarra_story_2||||}}|};
+{minarra_story_2|But these men matched the description of some people that are wanted by the Feygard patrol.|||{{N|minarra_story_3||||}}|};
+{minarra_story_3|If I saw correctly, these men were the band of rogues led by a man called Rogorn, that we are looking to apprehend for several ruthless cases of murder and theft.|||{{N|minarra_story_4||||}}|};
+{minarra_story_4|Their leader, Rogorn, is a particularly savage man according to the reports from Feygard that I have read.|||{{N|minarra_story_5||||}}|};
+{minarra_story_5|Now, usually, we would go out searching for them, to verify that the men I saw were indeed these men. But now with the trouble up in Loneford, we cannot afford to spare any guards other than to guarding Loneford.|||{{N|minarra_story_6||||}}|};
+{minarra_story_6|But I am sure that those are the men. If we were to catch and kill them, the people of Feygard would be much safer.|rogorn:10||{
+	{I could go look for them if you want.|minarra_story_8||||}
+	{Well, good luck with that.|minarra_story_7||||}
+	}|};
+{minarra_story_7|Thank you. Good luck yourself. Now, if you will excuse me, I need to keep my eyes on the road.||||};
+{minarra_story_8|Hey, that\'s a great idea. Are you sure you are up to it though? The people of Feygard would indeed be grateful if you were to find them.|||{{N|minarra_story_9||||}}|};
+{minarra_story_9|Anyway, I saw them travelling the road west of here. You know that road that leads to Carn Tower? That\'s the last I saw of them. You might want to follow that road and see if you can spot them.|||{{N|minarra_story_10||||}}|};
+{minarra_story_10|They have stolen three pieces of a very valuable painting from Feygard, from the report that I have read. For their crimes and the savageness of their way, they are wanted dead by the Feygard patrol.|rogorn:20||{{I will be back once they are dead. Anything else?|minarra_story_11||||}}|};
+{minarra_story_11|Yes, I should also tell you that they most likely will try to persuade you into believing their story.|||{{N|minarra_story_12||||}}|};
+{minarra_story_12|In particular, their leader, Rogorn, is a well known villain by Feygard. Nothing he says should be trusted.|||{{N|minarra_story_13||||}}|};
+{minarra_story_13|I urge you not to listen to their lies. Their crimes must be punished in order to uphold the law.|rogorn:21||{{I will return once the task is done.|X||||}}|};
+{minarra_look_1|You return. Did you find those men that we talked about?|||{
+	{I am still looking for them|minarra_look_2||||}
+	{Yes, I killed them and recovered the three pieces of the painting.|minarra_look_3|rogorn:40|rogorn_qitem|3|}
+	{I travelled west and found a travelling group of men, but they did not match the men you described.|minarra_look_5|rogorn:45|||}
+	}|};
+{minarra_look_2|Good. Return to me as soon as you have anything to report. We would really like to recover those three pieces of the painting they stole.||||};
+{minarra_look_3|That is excellent news indeed! I knew that we could trust you.|rogorn:50||{{N|minarra_look_4||||}}|};
+{minarra_look_4|Your services to Feygard will be greatly appreciated.|||{{N|minarra_completing_1||||}}|};
+{minarra_look_5|Are you sure that they were not the ones? I have a keen eyesight, that\'s why I am up here. I was sure that they matched the description of the men.|||{{N|minarra_look_6||||}}|};
+{minarra_look_6|I guess I will have to take your word for it.|rogorn:55||{{N|minarra_completing_1||||}}|};
+{minarra_completing_1|Thank you for helping me investigate this matter.|rogorn:60||{
+	{Do you have anything to trade?|minarra_trade_1||||}
+	{You must have a good view of the surroundings up here. Have you seen anything interesting lately?|minarra_first_2||||}
+	}|};
+{minarra_completed_1|Thank you for helping me investigate the men earlier.|||{
+	{Do you have anything to trade?|minarra_trade_1||||}
+	{You must have a good view of the surroundings up here. Have you seen anything interesting lately?|minarra_first_2||||}
+	}|};
+{minarra_trade_1||||{
+	{|minarra_trade_2|nondisplay:18|||}
+	{|minarra_trade_rej||||}
+	}|};
+{minarra_trade_2|Sure, take a look.|||{{N|S||||}}|};
+	</string>
+	
+	<string name="conversationlist_rogorn">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{rogorn_henchman||||{
+	{|rogorn_henchman_atk|rogorn:40|||}
+	{|rogorn_henchman_noatk|rogorn:45|||}
+	{|rogorn_henchman_1||||}
+	}|};
+{rogorn_henchman_atk|For the Shadow!|||{{Fight|F||||}}|};
+{rogorn_henchman_noatk|Good to hear that there are at least a few people left out there willing to take a stand against Feygard.||||};
+{rogorn_henchman_1|Should you really be out here all by yourself?||||};
+
+{rogorn||||{
+	{|rogorn_completed_1|rogorn:60|||}
+	{|rogorn_attack_1|rogorn:40|||}
+	{|rogorn_story_r_9|rogorn:45|||}
+	{|rogorn_toldstory_1|rogorn:35|||}
+	{|rogorn_first_1||||}
+	}|};
+{rogorn_first_1|Look fellas, a kid! Out strolling here in the wilderness!|||{{N|rogorn_first_2||||}}|};
+{rogorn_first_2|Should you really be out here kid? These areas are dangerous.|||{
+	{I can handle myself|rogorn_first_3||||}
+	{Why? What is out here?|rogorn_first_4||||}
+	{You are right, I better leave|X||||}
+	}|};
+{rogorn_first_3|I bet you do.|||{{N|rogorn_first_6||||}}|};
+{rogorn_first_4|Well, west of here is not much. No towns for quite a while, only the harsh and dangerous wilderness.|||{{N|rogorn_first_5||||}}|};
+{rogorn_first_5|Of course, there is Carn Tower if you travel really far west, but you really do not want to head there.|||{{N|rogorn_first_6||||}}|};
+{rogorn_first_6|So, what brings you to these parts of the land?|||{
+	{I am looking for a group of men led by someone by the name of Rogorn. Are you him?|rogorn_story_1|rogorn:20|||}
+	{Just looking for any treasure that might reveal itself here.|rogorn_first_7||||}
+	{I am just exploring.|rogorn_first_7||||}
+	}|};
+{rogorn_first_7|Well, keep on looking then.||||};
+
+{rogorn_story_1|That depends, why do you want to know?|rogorn:30||{
+	{You are wanted by the Feygard patrol for the crimes you have committed.|rogorn_story_2||||}
+	{I am seeking to deal justice wherever I can, and I heard that you are in need of being shown some justice.|rogorn_story_3||||}
+	{I am sent by some guards over at the crossroads guardhouse to look for you.|rogorn_story_6||||}
+	{The guards from Feygard are looking for you, and I came to warn you.|rogorn_story_12||||}
+	}|};
+{rogorn_story_2|Hah! We? Crimes?|||{{N|rogorn_story_4||||}}|};
+{rogorn_story_3|Justice? What would you know of justice, kid?|||{{N|rogorn_story_4||||}}|};
+{rogorn_story_4|If there is someone that deserves punishment, it surely isn\'t us. By the Shadow, it\'s those snobs from Feygard that should be taught a lesson.|||{
+	{I will not listen to your lies! For Feygard!|rogorn_attack_1||||}
+	{Talk all you want, I happen to know that you have stolen from Feygard, which is not acceptable.|rogorn_story_5||||}
+	{What\'s your side of the story then?|rogorn_story_r_1||||}
+	}|};
+{rogorn_story_5|I tell you, we did not steal anything from those snobs.|||{
+	{You are still wanted dead by the Feyard patrol. For Feygard!|rogorn_attack_1||||}
+	{Why are they looking for you then?|rogorn_story_r_1||||}
+	}|};
+{rogorn_attack_1|I had hoped it would not come to this. For the Shadow!|rogorn:40||{{Let\'s fight!|F||||}}|};
+{rogorn_story_6|Talked to those guards from Feygard eh? Tell me, what is your opinion of Feygard?|||{
+	{They seem to have honorable ideals of law and order, and I respect that.|rogorn_story_10||||}
+	{Their ideals seem to be a bit oppressive of the people, which I do not like.|rogorn_story_9||||}
+	{I have no opinion, I try not to get involved in their business.|rogorn_story_7||||}
+	{I have no idea.|rogorn_story_8||||}
+	}|};
+{rogorn_story_7|Interesting. But now that you are part of their business by coming here to look for me on their behalf, how does that fit into your unwillingness to take sides?|||{
+	{I will not listen to your lies! For Feygard!|rogorn_attack_1||||}
+	{I was told that you have stolen from Feygard, which is not acceptable.|rogorn_story_5||||}
+	{I want to hear your side of the story.|rogorn_story_r_1||||}
+	{I am just looking to see if there is some treasure to be gained from this.|rogorn_story_8||||}
+	{I have no idea.|rogorn_story_8||||}
+	}|};
+{rogorn_story_8|You should make up your mind about what your priorities are. Tell your Feygard friends that we will not be oppressed by them. Shadow be with you, child.||||};
+{rogorn_story_9|You have got that right. They are always trying to make life hard for us little people. Let me tell you my side of the story.|||{{N|rogorn_story_r_1||||}}|};
+{rogorn_story_10|Law and order? What use do we have of that if we are always persecuted by them and do not even have the freedom to live our lives the way we want?|||{{N|rogorn_story_11||||}}|};
+{rogorn_story_11|They are always looking for us, trying to oppress us in some way. Always trying to make our lives a little bit harder.|||{{N|rogorn_story_4||||}}|};
+{rogorn_story_12|Good to hear that there still are some people willing to make a stand against Feygard. Let me tell you my side of the story.|||{{N|rogorn_story_r_1||||}}|};
+{rogorn_story_r_1|Me and my boys here travelled from our home in Nor City to these northern lands a few days ago.|||{{N|rogorn_story_r_2||||}}|};
+{rogorn_story_r_2|We had never been here ourselves. We had only heard stories about how tough the guards from Feygard were, and how they held their precious law above all.|||{{N|rogorn_story_r_3||||}}|};
+{rogorn_story_r_3|Anyway, we got wind of a certain business opportunity here up north. One where we would be on the receiving end of a very profitable deal.|||{{N|rogorn_story_r_4||||}}|};
+{rogorn_story_r_4|So we went here to conduct our business. But I guess the guards from Feygard must have been tipped off about us, since we noticed that we were being followed by the guards after a while.|||{{N|rogorn_story_r_5||||}}|};
+{rogorn_story_r_5|Not willing to risk anything, considering the rumors we had heard about the guards from there, we did the only reasonable thing we could do - we abondoned the plan right away and left, before we could conduct the business we had planned.|||{{N|rogorn_story_r_6||||}}|};
+{rogorn_story_r_6|But something must have upset the guards there anyway. Now we hear that we are accused of murder and theft in Feygard, without even being there ourselves.|rogorn:35||{
+	{What was your business there?|rogorn_story_r_7||||}
+	{I will not listen to your lies! For Feygard!|rogorn_attack_1||||}
+	{Your story does not add up.|rogorn_story_r_8||||}
+	{I believe your story. How can I help you?|rogorn_story_r_9||||}
+	}|};
+{rogorn_story_r_7|I can\'t really say. We do our business on behalf of Nor City, and our business is our own.|||{
+	{I will not listen to your lies! For Feygard!|rogorn_attack_1||||}
+	{Your story does not add up.|rogorn_story_r_8||||}
+	{I believe your story. How can I help you?|rogorn_story_r_9||||}
+	}|};
+{rogorn_story_r_8|What are you, a spy for Feygard? I told you, the accusations against us are false.|||{{N|rogorn_attack_1||||}}|};
+{rogorn_story_r_9|Thank you for listening to our side of the story.|||{{What now? I was sent here to find you by some guards in the Crossroads guardhouse.|rogorn_story_r_10||||}}|};
+{rogorn_story_r_10|You tell those guards that you searched for us, but did not find anyone.|rogorn:45||{{Will do. Goodbye.|X||||}}|};
+
+{rogorn_toldstory_1|You are back.|||{
+	{Can you tell me your side of the story again?|rogorn_story_r_1||||}
+	{I will not listen to your lies! You must be held accountable for your crimes against Feygard!|rogorn_story_r_8||||}
+	{I believe your story. How can I help you?|rogorn_story_r_9||||}
+	}|};
+{rogorn_completed_1|Thank you for listening to our side of the story.||||};
+	</string>
+	
+	<string name="conversationlist_gandoren">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{gandoren||||{
+	{|gandoren_completed_1|feygard_shipment:81|||}
+	{|gandoren_completed_1|feygard_shipment:80|||}
+	{|gandoren_deliver_1|feygard_shipment:25|||}
+	{|gandoren_20|feygard_shipment:22|||}
+	{|gandoren_20|feygard_shipment:21|||}
+	{|gandoren_wantshelp_1|feygard_shipment:20|||}
+	{|gandoren_noguards_1|feygard_shipment:10|||}
+	{|gandoren_1||||}
+	}|};
+{gandoren_1|Hello there. Welcome to the Crossroads guardhouse. How may I help you?|||{
+	{You guards seem to have a lot of equipment here, anything to trade?|gandoren_tr_1||||}
+	{What do you do here?|gandoren_2||||}
+	}|};
+{gandoren_tr_1|I\'m sorry, we only trade with allies of Feygard.||||};
+{gandoren_2|This guardhouse is a safe haven for merchants travelling the Duleian road. We keep law and order around here, for Feygard.|||{
+	{Any recent events happening?|gandoren_3||||}
+	{The Duleian road?|gandoren_dr_1||||}
+	}|};
+{gandoren_dr_1|Noticed the large road outside? That\'s the Duleian road. It goes all the way from the glorious city of Feygard up in the northwest down to the wretched Nor City in the southeast.|||{{Any recent events happening?|gandoren_3||||}}|};
+{gandoren_3|Oh sure. Recently, we have had to focus our attention to the troubles up in Loneford.|||{{N|gandoren_4||||}}|};
+{gandoren_4|That situation has forced us to be more alert than usual, and we have had to send some guards up there to help them.|||{{N|gandoren_5||||}}|};
+{gandoren_5|This also means that we cannot focus as much on our usual tasks as we normally do, but instead need help with doing basic tasks just to hold our grounds.|feygard_shipment:10||{
+	{What troubles in Loneford are you referring to?|cr_loneford_st_1||||}
+	{Anything I can do to help?|gandoren_6||||}
+	}|};
+{gandoren_noguards_1|Hello again. Welcome to the Crossroads guardhouse. How may I help you?|||{{Can you tell me again what you told me before about recent events?|gandoren_3||||}}|};
+{gandoren_6|Well, we usually do not employ just any civilian. Our tasks are important for Feygard - and by extension, important for the people. Our tasks are usually not suited for commoners like you.|||{{N|gandoren_7||||}}|};
+{gandoren_7|But I guess the recent situation really leaves us no choice. We need to keep the guards in Loneford, and we also need to deliver this shipment. At the moment, we cannot do both.|||{{N|gandoren_8||||}}|};
+{gandoren_8|Tell you what, you might be able to help us after all if you are willing to work.|||{
+	{What is the task?|gandoren_11||||}
+	{Anything for the glory of Feygard.|gandoren_9||||}
+	{If the pay is sufficient, I guess I can help.|gandoren_10||||}
+	{I had better not get involved in your Feygard business.|gandoren_rej_1||||}
+	}|};
+{gandoren_9|I\'m glad to hear that.|||{{N|gandoren_11||||}}|};
+{gandoren_10|Pay? Oh, I guess we could pay you.|||{{N|gandoren_11||||}}|};
+{gandoren_11|I need you to take a shipment of equipment to another one of our outposts further south on the Duleian road.|||{{N|gandoren_12||||}}|};
+{gandoren_12|Those outposts further down south are in greater need of equipment than us, them being closer to that wretched Nor City and all.|||{{N|gandoren_13||||}}|};
+{gandoren_13|Take this shipment of 10 iron swords to the guard captain stationed in a tavern called \'The Foaming Flask\', near a village called Vilegard.|feygard_shipment:20||{
+	{No problem. Anything for the glory of Feygard.|gandoren_17||||}
+	{You did not mention any amount that I would be paid.|gandoren_18||||}
+	{Why should I help you people? I have only heard bad things about Feygard.|gandoren_14||||}
+	{I had better not get involved in your Feygard business.|gandoren_rej_1||||}
+	}|};
+{gandoren_wantshelp_1|Hello again. Welcome to the Crossroads guardhouse. How may I help you?|||{{What was that you told me before about a shipment?|gandoren_6||||}}|};
+{gandoren_rej_1|I\'m sorry to hear that. Goo day to you.||||};
+{gandoren_14|Bad things? Who have you been talking to then? I would urge you to make up your own opinion of Feygard by travelling there yourself.|||{{N|gandoren_15||||}}|};
+{gandoren_15|Personally, I cannot think of a greater place to be than in Feygard. Order is kept and people are friendly.|||{{N|gandoren_16||||}}|};
+{gandoren_16|As to why you would help us, I can only say that Feygard would be grateful for your services if you help us.|||{
+	{Fine, whatever. I will carry your stupid swords and bucklers. I still hope there will be some reward for this.|gandoren_19||||}
+	{Sounds good to me. Anything for the glory of Feygard.|gandoren_17||||}
+	{I had better not get involved in your Feygard business.|gandoren_rej_1||||}
+	}|};
+{gandoren_17|Excellent.|feygard_shipment:21||{{N|gandoren_20||||}}|};
+{gandoren_18|I cannot promise you any amount on a reward.|||{{N|gandoren_16||||}}|};
+{gandoren_19|Ok then.|feygard_shipment:22||{{N|gandoren_20||||}}|};
+{gandoren_20|Here is the shipment that I want you to transport.|feygard_shipment:25|feygard_shipment|{{N|gandoren_21||||}}|};
+{gandoren_21|As I said, you should deliver those 10 iron swords to the guard captain stationed in a tavern called \'The Foaming Flask\', near a village called Vilegard.|||{{N|gandoren_22||||}}|};
+{gandoren_22|Return to me once you are done.|||{{N|gandoren_23||||}}|};
+{gandoren_23|I feel that I should warn you about something also. See that fellow over there in the corner? Ailshara. She seems very interested in our dealings for some reason.|||{{N|gandoren_24||||}}|};
+{gandoren_24|I would urge you to stay away from her at all costs. And whatever you do, do not speak to her about your mission with the shipment.|feygard_shipment:26|||};
+
+{gandoren_deliver_1|You return. Good news about the shipment I hope?|||{
+	{You guards seem to have a lot of equipment here, anything to trade?|gandoren_tr_2||||}
+	{I am still working on transporting that shipment.|gandoren_22||||}
+	{What was I supposed to do again?|gandoren_21||||}
+	{Yes. I have delivered them as you ordered.|gandoren_deliver_y_1|feygard_shipment:50|||}
+	{Yes. I have delivered them.|gandoren_deliver_n_1|feygard_shipment:60|||}
+	}|};
+{gandoren_tr_2|I\'m sorry, we only trade with allies of Feygard. Help me with the task I gave you and we might be able to work something out.||||};
+{gandoren_deliver_y_1|Splendid! Feygard is in debt to you.|feygard_shipment:80||{{N|gandoren_delivered_1||||}}|};
+{gandoren_deliver_n_1|Splendid! Feygard is in debt to you.|feygard_shipment:81||{{N|gandoren_delivered_1||||}}|};
+{gandoren_delivered_1|I hope you managed to stay away from the savages of Nor City as much as possible while being over there.|||{{N|gandoren_delivered_2||||}}|};
+{gandoren_delivered_2|From what I hear, things are rough down south.|||{{N|gandoren_delivered_3||||}}|};
+{gandoren_delivered_3|As for you, you have both my and the rest of the Feygard patrol\'s gratitude for helping us with this.|||{{N|gandoren_completed_2||||}}|};
+{gandoren_completed_1|You return. Thank you for helping with the shipment earlier.|||{{N|gandoren_completed_2||||}}|};
+{gandoren_completed_2|Is there anything I can do for you?|||{
+	{Do you have anything to trade?|gandoren_tr_3||||}
+	{No thanks. Goodbye.|X||||}
+	}|};
+{gandoren_tr_3||||{
+	{|gandoren_tr_4|rogorn:60|||}
+	{|gandoren_tr_6||||}
+	}|};
+{gandoren_tr_4|Absolutely, as thanks for the help you provided earlier for both me and Minarra, we could accept to trade with you.|||{{N|gandoren_tr_5||||}}|};
+{gandoren_tr_5|Go up in the lookout tower over there and talk to Minarra about equipment. She has our supply.|nondisplay:18|||};
+{gandoren_tr_6|I hear that Minarra up in the lookout tower over there wants help with something. Why don\'t you go up to her and ask her about it, and we might be able to work something out after that.||||};
+	</string>
+
+	<string name="conversationlist_ailshara">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{ailshara||||{
+	{|ailshara_completed_y_1|feygard_shipment:82|||}
+	{|ailshara_completed_n_1|feygard_shipment:80|||}
+	{|ailshara_deliver_1|feygard_shipment:35|||}
+	{|ailshara_interested_1|feygard_shipment:25|||}
+	{|ailshara_1||||}
+	}|};
+{ailshara_completed_y_1|Hello again my Shadow friend. How may I help you?|||{{Let me see what you have to trade.|S||||}}|};
+{ailshara_completed_n_1|Sigh, it\'s you. What do you want?|||{{Let me see what you have to trade.|S||||}}|};
+{ailshara_1|Psst, hey. Interested in doing some trading? I am always looking for aquiring.. well, items of others..|||{
+	{Sure, let me see what you have.|S||||}
+	{Items of others?|ailshara_2||||}
+	}|};
+{ailshara_2|Oh yes. You see, these Feygard patrol guards carry some really interesting things. They don\'t seem to care much if some of their shipments.. well, dissappear.|||{
+	{Ok, let me see what you have.|S||||}
+	{I should really not get involved in this. Goodbye.|X||||}
+	}|};
+{ailshara_interested_1|Psst, hey you! I saw you talking to Gandoren over there, and I happened to notice that you exchanged some items. Anything interesting?|||{
+	{Nevermind that, let me see what you have to trade.|S||||}
+	{I better not talk about it.|ailshara_interested_2||||}
+	{Gandoren specifically asked me not to talk to you about it.|ailshara_interested_2||||}
+	{Yes, Gandoren wants me to deliver some equipment for Feygard. Do you want a part of the deal?|ailshara_interested_4||||}
+	}|};
+{ailshara_interested_2|Hah, of course. Gandoren would not like it if I were to get a glimpse into his business. I assume you are helping him deliver those items somewhere. Tell me this, what did he promise you in return? Gold? Honor? No?|||{
+	{Now that you mention it, he didn\'t actually say there would be a reward.|ailshara_interested_3||||}
+	{I am doing this for the glory of Feygard.|ailshara_fg_1||||}
+	{Helping Feygard seems like the right thing to do.|ailshara_fg_1||||}
+	{What would you propose instead?|ailshara_interested_4||||}
+	}|};
+{ailshara_interested_3|As usual, Feygard keeps all its riches to itself. What if I were to tell you there was a way for you to gain from all this as well?|||{
+	{Sounds interesting, please go on.|ailshara_interested_4||||}
+	{I have no problem helping Feygard without any personal gain.|ailshara_fg_1||||}
+	{I better not get involved in this, goodbye.|X||||}
+	}|};
+{ailshara_fg_1|By the Shadow, you sound like one of those deceptive snobs from Feygard.|||{{N|ailshara_fg_2||||}}|};
+{ailshara_fg_2|Shadow help you, child. You should question yourself whether you really are making the right choice here.||||};
+{ailshara_interested_4|Let me tell you my plan. As you might know, everyone believes there will be some coming conflict between the deceptive snobs of Feygard and the glorious people of Nor City.|||{{N|ailshara_interested_5||||}}|};
+{ailshara_interested_5|Any help we can bring to Nor City in this matter is welcome. These items that Gandoren gave you would be useful to our people in the southern lands.|feygard_shipment:30||{{N|ailshara_interested_6||||}}|};
+{ailshara_interested_6|These items, if you were to deliver them to our allies down in Vilegard, then the Shadow would look favorably upon you.|||{{N|ailshara_interested_7||||}}|};
+{ailshara_interested_7|This way, the people could get some of piece back of the riches that Feygard has stolen from all of us.|||{{N|ailshara_interested_8||||}}|};
+{ailshara_interested_8|If you indeed are walking in the Shadow, then deliver these items to the smith in Vilegard. He will be able to make good use of them. He might also have some other task for you.|feygard_shipment:35||{
+	{I will see what I can do.|ailshara_interested_9||||}
+	{No. I will help Feygard instead.|ailshara_fg_1||||}
+	{Whatever, I choose my own path.|ailshara_interested_9||||}
+	}|};
+{ailshara_interested_9|Shadow be with you. May the Shadow guide you on the clouded paths that you walk.||||};
+{ailshara_deliver_1|Hello again. Did you deliver those items to the smith in Vilegard?|||{
+	{Yes, it is done.|ailshara_deliver_2_s|feygard_shipment:55|||}
+	{Nevermind that, let me see what you have to trade.|S||||}
+	{No. I will help Feygard instead.|ailshara_fg_1||||}
+	{Can you tell me again what I was supposed to do?|ailshara_interested_4||||}
+	{Not yet.|ailshara_interested_9||||}
+	}|};
+{ailshara_deliver_2_s||||{
+	{|ailshara_deliver_3|feygard_shipment:81|||}
+	{|ailshara_deliver_2||||}
+	}|};
+{ailshara_deliver_2|Good. You should also try to convince Gandoren into thinking that you helped him.||||};
+{ailshara_deliver_3|Excellent! You do indeed walk with the Shadow my friend. I am glad to hear that there are at least a few decent folk still around.|feygard_shipment:82||{{N|ailshara_delivered_1||||}}|};
+{ailshara_delivered_1|Your help will be most appreciated by the people of Nor City, and you will be welcome among us.||||};
+	</string>
+
+	<string name="conversationlist_vilegard_v0610">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{vilegard_smith_fg_1|Oh, this is most unexpected but very welcome. I will not question how you aquired these items, but instead express my gratitude for bringing them to me.|feygard_shipment:55||{{N|vilegard_smith_fg_2||||}}|};
+{vilegard_smith_fg_2|Thank you for bringing me these items, they will be most useful to us here in the southern lands, and Vilegard in particular. We rarely get our hands on Feygard items, so these are really welcome.|||{
+	{I was sent to deliver these items to a Feygard patrol stationed in the Foaming Flask tavern.|vilegard_smith_fg_3||||}
+	}|};
+{vilegard_smith_fg_3|Instead, you brought them to me. You have my thanks.|||{{N|vilegard_smith_fg_4||||}}|};
+{vilegard_smith_fg_4|Hah, this means that we have another opportunity here. What if you were to deliver some other items to the Feygard patrol instead? Hah, this will really make my day.|||{{N|vilegard_smith_fg_5||||}}|};
+{vilegard_smith_fg_5|I might have something that will do just fine..  Let me just find them.|||{{N|vilegard_smith_fg_6||||}}|};
+{vilegard_smith_fg_6|Here they are. Haha, these will do just fine for those deceiving Feygard snobs.|||{{N|vilegard_smith_fg_7||||}}|};
+{vilegard_smith_fg_7|Take these items and deliver them to wherever you were supposed to deliver the items you gave me.|feygard_shipment:56|vg_smith_fg_items||};
+
+{ff_captain_vg_items_1||feygard_shipment:60||{{|ff_captain_items_1||||}}|};
+{ff_captain_fg_items_1||feygard_shipment:50||{{|ff_captain_items_1||||}}|};
+{ff_captain_items_1|Excellent, I have been waiting for these. Thank you for bringing them to me.||||};
+	</string>
+
+	<string name="conversationlist_crossroads_2">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{gallain|Welcome to the Crossroads guardhouse. I am Gallain, the proprietor of this place.|||{{N|gallain_1||||}}|};
+{gallain_1|How may I help you?|||{
+	{Do you have anything to eat around here?|gallain_trade_1||||}
+	{Is there any place I can rest here?|gallain_rest_1||||}
+	{What is this place?|gallain_cr_1||||}
+	}|};
+{gallain_cr_1|As I said, this is the Crossroads guardhouse. The guards from Geygard are using this place as a place to rest and gear up.|||{{N|gallain_cr_2||||}}|};
+{gallain_cr_2|Because of this, it is also a safe haven for merchants travelling through here. And we get at lot of those.|||{{N|gallain_1||||}}|};
+{gallain_trade_1|Here, have a look.|||{{Trade|S||||}}|};
+{gallain_rest_1|The guards have set up some beds downstairs. Go check with them.|||{{N|gallain_1||||}}|};
+
+{celdar|And who might you be? Come to sell me one of those trinkets that you people sell, eh?|||{{N|celdar_1||||}}|};
+{celdar_1|No, let me guess - you want to know if I have any items to trade?|||{{N|celdar_2||||}}|};
+{celdar_2|Let me tell you something son. I do not want to buy anything from you, nor do I want to sell you anything. I just want to be left alone here, now that I have made it all the way to this safe haven.|||{{N|celdar_3||||}}|};
+{celdar_3|I have travelled all the way from my home town of Sullengard, and on my way to Brimhaven, I have stopped at this place to get a break from all the commoners that always bother me with their trinkets and whatnots.|||{{N|celdar_4||||}}|};
+{celdar_4|So, if you will excuse me, I really need my well deserved rest here. Without you bothering me.|||{
+	{Ok, I will leave.|X||||}
+	{Wow, you\'re the friendly type aren\'t you?|celdar_5||||}
+	{I should put my sword through you for talking like that.|celdar_5||||}
+	}|};
+{celdar_5|Are you still around? Did you not listen to what I said?||||};
+
+{crossroads_guest|Did you hear about what happened up in Loneford? The guards seem like a bunch of angry bees about it.||||};
+
+	</string>
+
+	<string name="conversationlist_crossroads_3">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{crossroads_sleepguard||||{
+	{|crossroads_sleepguard_2|nondisplay:17|||}
+	{|crossroads_sleepguard_1||||}
+	}|};
+{crossroads_sleepguard_1|Hello there. Can I help you?|||{
+	{No. Goodbye.|X||||}
+	{Mind if I use one of the beds over there?|crossroads_sleepguard_3||||}
+	}|};
+{crossroads_sleepguard_2|Hello again. I hope the bed is comfortable enough. Use it as much as you like.||||};
+{crossroads_sleepguard_3||||{
+	{|crossroads_sleepguard_5|farrik:90|||}
+	{|crossroads_sleepguard_4||||}
+	}|};
+{crossroads_sleepguard_4|No, sorry. These beds are for guards and allies of Feygard only.||||};
+{crossroads_sleepguard_5|Say, aren\'t you that kid that helped the guards down in Fallhaven? With the thieves that were plannig an escape?|||{{Yes, I helped the guards in the prison find out about some plans that the thieves had.|crossroads_sleepguard_6||||}}|};
+{crossroads_sleepguard_6|I knew I had heard about you somewhere. You are always welcome by us guards. You can use that second bed over there to the left if you need to rest.|nondisplay:17|||};
+
+{crossroads_backguard|Uh, hello.|||{{Hello. What\'s back there?|crossroads_backguard_1||||}}|};
+{crossroads_backguard_1|Back there? Oh, nothing.|||{{Ok, nevermind then.|X||||}{But there\'s a hole in the wall there. Where does it lead?|crossroads_backguard_2||||}}|};
+{crossroads_backguard_2|Lead? Oh nowhere. Nothing back there at all.|||{{Ok, nevermind then.|X||||}{There\'s something you are not telling me.|crossroads_backguard_3||||}}|};
+{crossroads_backguard_3|Oh no, no. Nothing interesting here. Move along now.|||{{Ok, nevermind then.|X||||}{How about I pay you 100 gold to move out of the way?|crossroads_backguard_4||||}}|};
+{crossroads_backguard_4|You would do that? Hm, let me think.|||{{N|crossroads_backguard_5||||}}|};
+{crossroads_backguard_5|No.|||{{Ok, nevermind then.|X||||}{200 gold then?|crossroads_backguard_6||||}}|};
+{crossroads_backguard_6|No.|||{{Ok, nevermind then.|X||||}{400 gold then?|crossroads_backguard_7||||}}|};
+{crossroads_backguard_7|Look, you are not getting back there. And there is nothing to see back there.|||{{Ok, nevermind then.|X||||}{Ok, final offer, 800 gold? That\'s a fortune.|crossroads_backguard_8||||}}|};
+{crossroads_backguard_8|Hm, 800 gold you say? Well, why didn\'t you say so from the start? Sure, that could work.|||{{Nevermind, I was just kidding.|X||||}{Here is the gold, now get out of the way.|R||gold|800|}}|};
+	</string>
+
+	<string name="conversationlist_fields_1">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{feygard_bridgeguard|Sorry, the road to Feygard is closed until further notice.||||};
+{sign_crossroadshouse|Crossroads guardhouse, housing for allies of Feygard.||||};
+{sign_crossroads_s|Southeast: To Nor City\nNorthwest: To Feygard\nEast: Loneford||||};
+{sign_crossroads_n|Northwest: To Feygard\nEast: Loneford.||||};
+{sign_fields1|Northwest: To Feygard\nEast: Loneford.||||};
+{sign_fields6|Northwest: To Feygard\nSouth: To Nor City.||||};
+{crossroads_sleep|The guard shouts at you: Hey! You cannot sleep here!||||};
+{sign_loneford2|Welcome to quiet Loneford.\n(The sign also contains a drawing of bale of hay with what looks like a farmer sitting on top.)||||};
+	</string>
+
+	<string name="conversationlist_loneford_1">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{loneford_farmer0|What have we done to deserve this?|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
+{loneford_farmer0_1|Didn\'t you hear about the illness?|||{{What illness?|loneford_farmer_il_1||||}}|};
+
+{loneford_farmer_il_1|It all started a few days ago. Selgan found Hesor passed out on his old cropfield, completely white face and shivering.|||{{N|loneford_farmer_il_2||||}}|};
+{loneford_farmer_il_2|A few days later, Selgan started showing the same symptoms as Hesor, with stomach aches. I also started feeling the pains and got the shivers.|||{{N|loneford_farmer_il_3||||}}|};
+{loneford_farmer_il_3|Then, all people showed the symptoms in one way or another.|||{{N|loneford_farmer_il_4||||}}|};
+{loneford_farmer_il_4|Poor old Selgan and Hesor apparently got the worst of it, and died the day before yesterday.|||{{N|loneford_farmer_il_5||||}}|};
+{loneford_farmer_il_5|Cursed illness, why did it have to be Selgan and Hesor? I wonder who is next.|||{{N|loneford_farmer_il_6||||}}|};
+{loneford_farmer_il_6|We all started to investigate what could be the cause. We still aren\'t certain what the cause is, but we have our suspicions.|loneford:10||{{N|loneford_farmer_il_7||||}}|};
+{loneford_farmer_il_7|Luckily, now Feygard has sent patrols up here to help guard the village at least. We are still suffering though, and we fear who will be taken by the illness next.|loneford:11|||};
+
+{rolwynn|What have we done to deserve this? Please, will you help us?|||{
+	{What do you think is the cause of the illness?|rolwynn_1|loneford:11|||}
+	{What\'s wrong?|loneford_farmer0_1||||}
+	}|};
+{rolwynn_1|My guess is that this must be something done by those arrogant people from Feygard.|||{{N|rolwynn_2||||}}|};
+{rolwynn_2|They are always looking for ways to make our lives a little bit harder.|||{{N|rolwynn_3||||}}|};
+{rolwynn_3|We try to farm our lands to feed ourselves, but they demand that they get a share of whatever we bring in.|||{{N|rolwynn_4||||}}|};
+{rolwynn_4|Lately, the crops haven\'t been as good as they used to be, and the guards apparently think we are withholding some part of their share.|||{{N|rolwynn_5||||}}|};
+{rolwynn_5|I am sure that they did something to us as punishment for not following their *rules*. They are always talking about how the laws and rules are so precious to them.|loneford:22||{{N|loneford_ill_c_1||||}}|};
+
+{loneford_ill_c_1||||{{|loneford_ill_c_2|loneford:21|||}{|loneford_ill_c_n||||}}|};
+{loneford_ill_c_2||||{{|loneford_ill_c_3|loneford:22|||}{|loneford_ill_c_n||||}}|};
+{loneford_ill_c_3||||{{|loneford_ill_c_4|loneford:23|||}{|loneford_ill_c_n||||}}|};
+{loneford_ill_c_4||||{{|loneford_ill_c_5|loneford:24|||}{|loneford_ill_c_n||||}}|};
+{loneford_ill_c_n|That\'s what I think anyway.||||};
+{loneford_ill_c_5|There\'s something else also. I talked to that drunk, Landa, in the tavern earlier today. He said he saw something but didn\'t dare tell me what it was.|loneford:25||{
+	{Thank you, I will go talk to him.|X||||}
+	{Great, another drunk that I have to talk to.|X||||}
+	}|};
+	</string>
+	
+	<string name="conversationlist_loneford_2">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{loneford_guard0|We keep the order around here. I wonder what the people of Loneford would do without us guards from Feygard. Poor things.||||};
+{loneford_wellguard|Please report any suspicious behaviour you might see.||||};
+{loneford_villager0|*cough* Please help us, soon there won\'t be many left of us!|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
+{loneford_villager1|I can\'t feel my face anymore, please help us!|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
+{loneford_villager2|Don\'t disturb me, I need to finish chopping this wood. Go bother someone else.||||};
+{loneford_villager3|I fear for our survival. It seems we are getting worse every day that passes.|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
+{loneford_villager4|Don\'t I know you from somewhere? You look familiar somehow.||||};
+	</string>
+
 </resources>

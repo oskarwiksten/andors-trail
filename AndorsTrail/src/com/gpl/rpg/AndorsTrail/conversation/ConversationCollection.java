@@ -90,12 +90,6 @@ public final class ConversationCollection {
 					L.log("WARNING: Queststage \"" + s + "\" is required but never supplied by any phrases.");
 				}
 			}
-
-			/*for (String s : suppliedQuestStages) {
-				if (!requiredQuestStages.contains(s)) {
-					L.log("OPTIMIZE: Queststage \"" + s + "\" is supplied but never required by any phrases.");
-				}
-			}*/
 		}
     }
 	
@@ -106,7 +100,7 @@ public final class ConversationCollection {
 				for (Reply r : e.getValue().replies) {
 					if (r.requiresItem()) {
 						if (!droplists.verifyExistsDroplistForItem(r.requiresItemTypeID)) {
-							L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply that requires an item that is not dropped by any droplist.");
+							L.log("WARNING: Phrase \"" + e.getKey() + "\" has reply that requires \"" + r.requiresItemTypeID + "\", which is not dropped by any droplist.");
 						}
 					}
 				}
