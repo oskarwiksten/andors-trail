@@ -257,6 +257,11 @@ public final class Player extends Actor {
 		} else {
 			this.availableSkillIncreases = src.readInt();
 		}
+		
+		if (fileversion <= 21) {
+			if (hasExactQuestProgress("prim_hunt", 240)) addQuestProgress(new QuestProgress("bwm_agent", 250));
+			if (hasExactQuestProgress("bwm_agent", 240)) addQuestProgress(new QuestProgress("prim_hunt", 250));
+		}
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

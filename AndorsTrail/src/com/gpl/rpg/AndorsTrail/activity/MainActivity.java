@@ -72,8 +72,7 @@ public final class MainActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         L.log("onCreate");
-    	//Debug.startMethodTracing(ICICLE_KEY);
-        
+    	
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         this.world = app.world;
         this.view = new ViewContext(app, this);
@@ -167,8 +166,6 @@ public final class MainActivity extends Activity {
         view.movementController.stopMovement();
         
         save(Savegames.SLOT_QUICKSAVE);
-    	
-        //Debug.stopMethodTracing();
     }
     
     @Override
@@ -192,7 +189,6 @@ public final class MainActivity extends Activity {
 		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem arg0) {
-				//Dialogs.showConfirmExit(MainActivity.this, view);
 				MainActivity.this.finish();
 				return true;
 			}

@@ -12,7 +12,8 @@ import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
 
 public final class QuestParser extends ResourceParserFor<Quest> {
-
+	private int sortOrder = 0;
+	
 	private final ResourceFileTokenizer questStageResourceTokenizer = new ResourceFileTokenizer(4);
 	private final ResourceObjectParser<QuestLogEntry> questLogEntryParser = new ResourceObjectParser<QuestLogEntry>() {
 		@Override
@@ -45,12 +46,15 @@ public final class QuestParser extends ResourceParserFor<Quest> {
 		Collections.sort(stages, sortByQuestProgress);				
 		final QuestLogEntry[] stages_ = stages.toArray(new QuestLogEntry[stages.size()]);
 		
+		++sortOrder;
+		
 		final String questID = parts[0];
 		return new Pair<String, Quest>(questID, new Quest(
 				questID 	// questID
 				, parts[1] 	// name
 				, stages_
 				, ResourceParserUtils.parseBoolean(parts[2], false) // showInLog
+				, sortOrder
 			));
 	}
 }

@@ -1,6 +1,8 @@
 package com.gpl.rpg.AndorsTrail.model.quest;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -13,7 +15,9 @@ public final class QuestCollection  {
 	private final HashMap<String, Quest> quests = new HashMap<String, Quest>();
 	
 	public Collection<Quest> getAllQuests() {
-		return quests.values();
+		ArrayList<Quest> quests = new ArrayList<Quest>(this.quests.values());
+		Collections.sort(quests);
+		return quests;
 	}
 
 	public QuestLogEntry getQuestLogEntry(final QuestProgress stage) {

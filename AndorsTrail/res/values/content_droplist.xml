@@ -365,12 +365,60 @@
 <string name="droplists_v0610_npcs">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {tinlyn_bells|{{tinlyn_bells|4|4|100|}}|};
-{fieldwasp_unique|{{gold|0|10|70|}{hadracor_waspwing|1|1|100|}}|};
-{tinlyn_sheep|{{meat|0|3|70|}{tinlyn_sheep_meat|1|1|100|}}|};
+{fieldwasp_unique|{
+	{gold|0|10|70|}
+	{hadracor_waspwing|1|1|100|}
+	}|};
+{tinlyn_sheep|{
+	{meat|0|3|70|}
+	{tinlyn_sheep_meat|1|1|100|}
+	}|};
+{feygard_shipment|{{fg_ironsword|10|10|100|}}|};
+{vg_smith_fg_items|{{fg_ironsword_d|10|10|100|}}|};
+{hadracor_reward|{{gloves_woodcutter|1|1|100|}}|};
+{larva_boss|{
+	{gold|0|9|100|}
+	{gem2|1|1|100|}
+	{health_minor|1|1|100|}
+	{erinith_book|1|1|100|}
+	}|};
+{keknazar|{
+	{gold|0|45|70|}
+	{bone|1|3|100|}
+	{health_minor|1|2|100|}
+	{necklace_shield_0|1|1|100|}
+	}|};
+{rogorn|{
+	{gold|0|50|70|}
+	{rogorn_qitem|1|1|100|}
+	{longsword_hard_iron|1|1|100|}
+	{health_minor|1|2|100|}
+	}|};
+{rogorn_henchman|{
+	{gold|0|20|70|}
+	{rogorn_qitem|1|1|100|}
+	{health_minor|1|2|100|}
+	}|};
+{buceth|{
+	{gold|0|20|70|}
+	{buceth_vial|1|1|100|}
+	{health_minor|1|4|100|}
+	{vial_empty2|1|3|100|}
+	{ring_life|1|1|100|}
+	}|};
 </string>
 
 <string name="droplists_v0610_monsters">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
+{fieldwasp|{{gold|0|10|70|}{insectwing|1|1|30|}}|};
+{larva_1|{{gold|0|5|70|}{gem1|1|1|30|}}|};
+{larva_2|{{gold|0|9|70|}{gem1|1|1|30|}}|};
+{fieldcritter_0|{{gold|0|4|70|}{shell|1|1|30|}}|};
+{fieldcritter_1|{{gold|0|9|70|}{shell|1|1|30|}}|};
+{fieldcritter_2|{{gold|3|15|70|}{gland|1|1|30|}{ring1|1|1|5|}}|};
+{fieldcritter_3|{{gold|3|17|70|}{gland|1|1|30|}{ring1|1|1|5|}{ring2|1|1|5|}}|};
+{carrioncrawler|{{gold|0|4|70|}{bone|1|3|20|}{boots_sewn|1|1|5|}}|};
+{rivertroll|{{gold|0|70|70|}{bone|3|5|50|}{meat|3|5|30|}{club_fine_wooden|1|1|100|}}|};
 </string>
 
 </resources>

@@ -516,9 +516,9 @@
 {note_lodars|On the ground, you find a piece of paper with a lot of strange symbols. You can barely make out the words \'meet me at Lodars hideaway\', but you are not sure what it means.||||};
 {keyarea_crossglen_smith|Audir shouts: Hey you, get away! You are not allowed back there.||||};
 {sign_crossglen_cave|The sign on the wall is cracked in several places. You cannot make out anything comprehensible from the writing.||||};
-{sign_wild1|West: Crossglen\nSouth: Fallhaven||||};
+{sign_wild1|West: Crossglen\nSouth: Fallhaven\nNorth:Feygard||||};
 {sign_notdone|This map is not yet done. Please come back in a later version of the game.||||};
-{sign_wild3|West: Crossglen\nEast: Fallhaven||||};
+{sign_wild3|West: Crossglen\nEast: Fallhaven\nNorth:Feygard||||};
 {sign_pitcave2|Gandir lies here, slain by the hand of his former friend Irogotu.||||};
 {sign_fallhaven1|Welcome to Fallhaven. Watch out for pickpockets!||||};
 {key_fallhavenchurch|You are not allowed to enter the catacombs of Fallhaven Church without permission.||||};
@@ -1238,6 +1238,7 @@
 	{|guthbered_reject|prim_hunt:251|||}
 	{|guthbered_reject|prim_hunt:250|||}
 	{|guthbered_completed|prim_hunt:100|||}
+	{|guthbered_killharl_2|prim_hunt:99|||}
 	{|guthbered_workingforbwm_2|bwm_agent:95|||}
 	{|guthbered_killharl_1|prim_hunt:80|||}
 	{|guthbered_lookforsigns_1|prim_hunt:50|||}
@@ -1368,7 +1369,7 @@
 {guthbered_workingforbwm_3|It is, of course, your choice. But if you are working for them, you are not welcome here in Prim. You should leave quickly, while you still can.|prim_hunt:251|||};
 {guthbered_completed|Hello again my friend. Thank you for your help in dealing with the bandits up in Blackwater Mountain.|||{{N|guthbered_completed_1||||}}|};
 {guthbered_completed_1|I am sure everyone here in Prim will want to talk to you now.|prim_hunt:240||{{N|guthbered_completed_2||||}}|};
-{guthbered_completed_2|Thank you again for your help.||||};
+{guthbered_completed_2|Thank you again for your help.|bwm_agent:250|||};
 {guthbered_sentbybwm_1|The glow in your eyes frightens me.|||{
 	{I am sent by the Blackwater Mountain settlement to stop you.|guthbered_sentbybwm_fight||||}
 	{I am sent by the Blackwater Mountain settlement to stop you. However, I have decided not to kill you.|guthbered_sentbybwm_3||||}
@@ -1392,7 +1393,7 @@
 	{Yes, he is dead.|guthbered_killharl_2||harlenn_id|1|}
 	{Yes, he is gone.|guthbered_killharl_3|prim_hunt:91|||}
 	}|};
-{guthbered_killharl_2|While I am grateful for this news in knowing that he is dead, I am also saddened that it had to come to this.|||{{N|guthbered_killharl_4||||}}|};
+{guthbered_killharl_2|While I am grateful for this news in knowing that he is dead, I am also saddened that it had to come to this.|prim_hunt:99||{{N|guthbered_killharl_4||||}}|};
 {guthbered_killharl_3|Really? This is great news indeed.|||{{N|guthbered_killharl_4||||}}|};
 {guthbered_killharl_4|This will hopefully mean that their attacks on our village will cease.|||{{N|guthbered_killharl_5||||}}|};
 {guthbered_killharl_5|I do not know how to thank you enough my friend.|||{{N|guthbered_killharl_6||||}}|};
@@ -1472,6 +1473,7 @@
 	{|harlenn_return_1|bwm_agent:251|||}
 	{|harlenn_return_1|bwm_agent:250|||}
 	{|harlenn_completed|bwm_agent:150|||}
+	{|harlenn_killguth_3|bwm_agent:149|||}
 	{|harlenn_workingforprim_1|prim_hunt:50|||}
 	{|harlenn_killguth_1|bwm_agent:120|||}
 	{|harlenn_lookforsigns_1|bwm_agent:95|||}
@@ -1555,7 +1557,7 @@
 {harlenn_workingforprim_2|Of course we can\'t have that here. We can\'t have a spy in our midsts. You should leave our settlement while you still can, traitor.|bwm_agent:251|||};
 
 {harlenn_completed|Thank you, friend. Your help is greatly appreciated. Everyone in the Blackwater Mountain settlement will want to talk to you now.|bwm_agent:240||{{N|harlenn_completed_1||||}}|};
-{harlenn_completed_1|I\'m sure the monster attacks will stop now when we kill the last few monsters that are outside the settlement.||||};
+{harlenn_completed_1|I\'m sure the monster attacks will stop now when we kill the last few monsters that are outside the settlement.|prim_hunt:250|||};
 {harlenn_talkedto_guth_1|He denies it?! Bah, that treacherous fool. I should have known that he wouldn\'t dare tell the truth.|||{{N|harlenn_talkedto_guth_2||||}}|};
 {harlenn_talkedto_guth_2|I am still sure that they somehow are behind all these attacks on us. Who else could there be? There are no other settlements around here for quite a walk.|||{{N|harlenn_talkedto_guth_3||||}}|};
 {harlenn_talkedto_guth_3|Besides, they have always been treacherous. No, of course they are behind the attacks.|bwm_agent:90||{{N|harlenn_talkedto_guth_4||||}}|};
@@ -1621,7 +1623,7 @@
 	{Yes, he is dead.|harlenn_killguth_2||guthbered_id|1|}
 	{Yes, he is gone.|harlenn_killguth_2|bwm_agent:131|||}
 	}|};
-{harlenn_killguth_2|Ha ha! He is finally gone! Now we can rest comfortably in our settlement.|||{{N|harlenn_killguth_3||||}}|};
+{harlenn_killguth_2|Ha ha! He is finally gone! Now we can rest comfortably in our settlement.|bwm_agent:149||{{N|harlenn_killguth_3||||}}|};
 {harlenn_killguth_3|They will no longer attack us now that their lying leader is gone!|||{{N|harlenn_killguth_4||||}}|};
 {harlenn_killguth_4|Thank you friend. Here, have these items as a token of our appreciation for your help.|bwm_agent:150|harlenn_reward|{{N|harlenn_completed||||}}|};
 	</string>
@@ -2757,19 +2759,23 @@
 {crossroads_backguard_5|No.|||{{Ok, nevermind then.|X||||}{200 gold then?|crossroads_backguard_6||||}}|};
 {crossroads_backguard_6|No.|||{{Ok, nevermind then.|X||||}{400 gold then?|crossroads_backguard_7||||}}|};
 {crossroads_backguard_7|Look, you are not getting back there. And there is nothing to see back there.|||{{Ok, nevermind then.|X||||}{Ok, final offer, 800 gold? That\'s a fortune.|crossroads_backguard_8||||}}|};
-{crossroads_backguard_8|Hm, 800 gold you say? Well, why didn\'t you say so from the start? Sure, that could work.|||{{Nevermind, I was just kidding.|X||||}{Here is the gold, now get out of the way.|R||gold|800|}}|};
+{crossroads_backguard_8|Hm, 800 gold you say? Well, why didn\'t you say so from the start? Sure, that could work.|||{{N|crossroads_backguard_9||||}}|};
+{crossroads_backguard_9|I should tell you however, that there is something in there that we won\'t dare go near. I just guard here to make sure it doesn\'t get out, and that no one goes in.|||{{N|crossroads_backguard_10||||}}|};
+{crossroads_backguard_10|Some other guards went in there earlier, and came back screaming. Enter at your own risk, but don\'t say I didn\'t warn you.|||{{Nevermind, I was just kidding.|X||||}{Here is the gold, now get out of the way.|R||gold|800|}}|};
+
+{keknazar|*hssss*\n(You hear squishing sounds as the creature starts moving towards you)|||{{For the Shadow!|F||||}{You will not survive this, you pathetic creature.|F||||}{A fight! I have been looking forward to this!|F||||}}|};
 	</string>
 
 	<string name="conversationlist_fields_1">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {feygard_bridgeguard|Sorry, the road to Feygard is closed until further notice.||||};
 {sign_crossroadshouse|Crossroads guardhouse, housing for allies of Feygard.||||};
-{sign_crossroads_s|Southeast: To Nor City\nNorthwest: To Feygard\nEast: Loneford||||};
-{sign_crossroads_n|Northwest: To Feygard\nEast: Loneford.||||};
-{sign_fields1|Northwest: To Feygard\nEast: Loneford.||||};
-{sign_fields6|Northwest: To Feygard\nSouth: To Nor City.||||};
+{sign_crossroads_s|Southeast: Nor City\nNorthwest: Feygard\nEast: Loneford\nSouth: Fallhaven||||};
+{sign_crossroads_n|Northwest: Feygard\nEast: Loneford.||||};
+{sign_fields1|Northwest: Feygard\nEast: Loneford.||||};
+{sign_fields6|Northwest: Feygard\nSouth: Nor City.||||};
 {crossroads_sleep|The guard shouts at you: Hey! You cannot sleep here!||||};
-{sign_loneford2|Welcome to quiet Loneford.\n(The sign also contains a drawing of bale of hay with what looks like a farmer sitting on top.)||||};
+{sign_loneford2|Welcome to peaceful Loneford.\n(The sign also contains a drawing of bale of hay with what looks like a farmer sitting on top.)||||};
 	</string>
 
 	<string name="conversationlist_loneford_1">
@@ -2780,10 +2786,12 @@
 {loneford_farmer_il_1|It all started a few days ago. Selgan found Hesor passed out on his old cropfield, completely white face and shivering.|||{{N|loneford_farmer_il_2||||}}|};
 {loneford_farmer_il_2|A few days later, Selgan started showing the same symptoms as Hesor, with stomach aches. I also started feeling the pains and got the shivers.|||{{N|loneford_farmer_il_3||||}}|};
 {loneford_farmer_il_3|Then, all people showed the symptoms in one way or another.|||{{N|loneford_farmer_il_4||||}}|};
-{loneford_farmer_il_4|Poor old Selgan and Hesor apparently got the worst of it, and died the day before yesterday.|||{{N|loneford_farmer_il_5||||}}|};
+{loneford_farmer_il_4|Poor old Selgan and Hesor apparently got the worst of it, and both died the day before yesterday.|||{{N|loneford_farmer_il_5||||}}|};
 {loneford_farmer_il_5|Cursed illness, why did it have to be Selgan and Hesor? I wonder who is next.|||{{N|loneford_farmer_il_6||||}}|};
 {loneford_farmer_il_6|We all started to investigate what could be the cause. We still aren\'t certain what the cause is, but we have our suspicions.|loneford:10||{{N|loneford_farmer_il_7||||}}|};
 {loneford_farmer_il_7|Luckily, now Feygard has sent patrols up here to help guard the village at least. We are still suffering though, and we fear who will be taken by the illness next.|loneford:11|||};
+
+{loneford_wellguard|Please report any suspicious behaviour you might see.||||};
 
 {rolwynn|What have we done to deserve this? Please, will you help us?|||{
 	{What do you think is the cause of the illness?|rolwynn_1|loneford:11|||}
@@ -2809,12 +2817,278 @@
 	<string name="conversationlist_loneford_2">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {loneford_guard0|We keep the order around here. I wonder what the people of Loneford would do without us guards from Feygard. Poor things.||||};
-{loneford_wellguard|Please report any suspicious behaviour you might see.||||};
 {loneford_villager0|*cough* Please help us, soon there won\'t be many left of us!|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_villager1|I can\'t feel my face anymore, please help us!|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_villager2|Don\'t disturb me, I need to finish chopping this wood. Go bother someone else.||||};
-{loneford_villager3|I fear for our survival. It seems we are getting worse every day that passes.|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
+{loneford_villager3|I fear for our survival. It seems we are getting worse every day that passes. It\'s a good thing Feyard helps us at least.|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_villager4|Don\'t I know you from somewhere? You look familiar somehow.||||};
+
+{landa||||{
+	{|landa_already_1|loneford:35|||}
+	{|landa_1||||}
+	}|};
+{landa_1|Wha? You!? No, get away from me!|||{{I heard that you saw something that you won\'t talk about.|landa_2|loneford:25|||}}|};
+{landa_2|(Landa gives you a terrified look)|||{{N|landa_3||||}}|};
+{landa_3|You were there! I ssssaw you!|||{{N|landa_4||||}}|};
+{landa_4|Or was it you? No, it looked like you, and I have a good memory! *bites lip*|||{{Calm down.|landa_5||||}}|};
+{landa_5|Get away from me, whatever you did over there, it\'s your business and I don\'t want any trouble!|||{{You must have me confused with someone else.|landa_6||||}}|};
+{landa_6|Please don\'t hurt me!|||{{Landa, you must have me confused with someone else! What was it you saw?|landa_7||||}}|};
+{landa_7|No, you are smaller than him.|||{{Are you going to tell me what it was you saw?|landa_8||||}}|};
+{landa_8|The boy. He was doing something. I tried to sneak close by to see what it was he was doing, I did. But he ran away before I could see.|||{{N|landa_9||||}}|};
+{landa_9|He did something by the well here in Loneford.|||{{When was this?|landa_10||||}}|};
+{landa_10|It was in the middle of the night, on the day before everything started. The day after, I was sleeping it off during the day, so I didn\'t notice all the turmoil about when they brought Hesor back.|||{{N|landa_11||||}}|};
+{landa_11|Almost the whole village wanted to see what had happened to Hesor. I kept to myself and didn\'t dare talk to anyone.|loneford:30||{{N|landa_12||||}}|};
+{landa_12|The same day, others started to get pale as well. I could see it in their faces.|||{{N|landa_13||||}}|};
+{landa_13|The following night, I was getting ready to go to the well myself to look for any traces of what the boy had did.|||{{N|landa_14||||}}|};
+{landa_14|I peeked out the window to see if there were anyone that might see me. Instead, I saw someone skulking around the well, filling up several vials with both dirt around the well, and water from the well itself.|||{{N|landa_15||||}}|};
+{landa_15|I am sure it was Buceth, from the chapel. I have a good eye for people, and a good memory. Yes, I am sure it was Buceth.|||{{N|landa_16||||}}|};
+{landa_16|Also, isn\'t it strange how Buceth has not gotten ill, while all others in the village has not gotten ill?|loneford:31||{{N|landa_17||||}}|};
+{landa_17|He must be up to something. He and that boy that looked like you. Are you sure it wasn\'t you?|loneford:35||{{N|landa_18||||}}|};
+{landa_18|Never mind. Please don\'t tell anyone that I told you all this.|||{{N|landa_19||||}}|};
+{landa_19|Now, get out of here kid, before anyone sees you talking to me. *Looks around anxiously*|||{
+	{Thank you Landa. You secret is safe with me.|X||||}
+	{Thank you Landa. I\'ll consider it.|X||||}
+	{Are you done? Phew, I though you were never going to stop takling.|X||||}
+	}|};
+{landa_already_1|You again? I already told you. Get out of here before anyone sees you talking to me.||||};
+	</string>
+
+	<string name="conversationlist_buceth">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{buceth||||{
+	{|buceth_complete_1|loneford:60|||}
+	{|buceth_fight_1|loneford:50|||}
+	{|buceth_story_3|loneford:45|||}
+	{|buceth_follow_1|loneford:42|||}
+	{|buceth_bribed_1|loneford:41|||}
+	{|buceth_1||||}
+	}|};
+{buceth_bribed_1|You again. Thank you for the gold earlier.|||{{N|buceth_story_1||||}}|};
+{buceth_follow_1|Welcome back my friend. Walk with the Shadow.|||{{N|buceth_story_1||||}}|};
+{buceth_1|Shadow be with you.|||{
+	{I know of your business at the well the night after the illness broke out.|buceth_2|loneford:35|||}
+	{Can you tell me more about the Shadow?|priest_shadow_1||||}
+	}|};
+{buceth_2|Oh, I am sure you do. But what proof do you have, eh? Anything the guards would believe?|||{{N|buceth_3||||}}|};
+{buceth_3|Let me ask you something first, and we might talk after that.|||{
+	{Ok, what?|buceth_4||||}
+	{How about some gold, would that make you talk?|buceth_gold_1||||}
+	}|};
+{buceth_4|Let me start by telling you a story.|||{
+	{Go ahead|buceth_5||||}
+	{Let me guess, this story is going to take forever to listen to. How about I give you some gold, and instead we can discuss what you were doing at the well.|buceth_gold_1||||}
+	}|};
+{buceth_gold_1|Hm, that might be an interesting proposal. How much gold are you suggesting?|||{
+	{Here\'s 10 gold, take it.|buceth_gold_no||gold|10|}
+	{Here\'s 100 gold, take it.|buceth_gold_no||gold|100|}
+	{Here\'s 250 gold, take it.|buceth_gold_no||gold|250|}
+	{Here\'s 500 gold, take it.|buceth_gold_no||gold|500|}
+	{Here\'s 1000 gold, take it.|buceth_gold_yes||gold|1000|}
+	{Here\'s 2000 gold, take it.|buceth_gold_yes||gold|2000|}
+	}|};
+{buceth_gold_no|Hrmpf. Thanks for the gold, but I am not interested in talking to you. Now, please leave.||||};
+{buceth_gold_yes|You seem to realize the true value of the Shadow. Yes, this will do fine, thank you.|loneford:41||{{N|buceth_bribed_1||||}}|};
+{buceth_5|Let\'s assume you live in a village that, for the most part, keeps to itself. Your village is self-sustainable and the crops have been good for some years.|||{{N|buceth_6||||}}|};
+{buceth_6|With the few exceptions of a some fights here and there between villagers because of misunderstandings, on the whole, your village is a friendly peaceful village.|||{{N|buceth_7||||}}|};
+{buceth_7|You work in the same profession as your parents, which in turn worked in the same professions as their parents.|||{{N|buceth_8||||}}|};
+{buceth_8|Let\'s also assume that the way you conduct your business is the same way that the people in the village have been conducting their business for generations past.|||{{N|buceth_9||||}}|};
+{buceth_9|Everyone respects one another in the village, and your appointed leader does a good job at keeping everyone\'s interests satisfied, while at the same time being reasonably fair.|||{{N|buceth_10||||}}|};
+{buceth_10|Then, one day, a group of men come walking into the village. Shining armours, white teeth, combed hair, trimmed beards.|||{{N|buceth_11||||}}|};
+{buceth_11|The men claim that their lord owns this land, including your village.|||{{N|buceth_12||||}}|};
+{buceth_12|They claim that they keep the land safe of wrongdoers and evil creatures.|||{{N|buceth_13||||}}|};
+{buceth_13|For their help in protecting your village, they ask that the village compensate them with a share of the harvest.|||{{N|buceth_14||||}}|};
+{buceth_14|Now, tell me. Would you support those men by agreeing to their terms?|||{
+	{Yes|buceth_15||||}
+	{No|buceth_15||||}
+	{I don\'t know|buceth_dontknow||||}
+	}|};
+{buceth_dontknow|I am sorry to hear that. You should make up your mind and return to me once you have done so. Then we might be able to talk more.|||{
+	{Ok, goodbye.|X||||}
+	{How about I give you some gold instead?|buceth_gold_1||||}
+	}|};
+{buceth_15|How interesting.|||{{N|buceth_16||||}}|};
+{buceth_16|Let me continue the story of our hypothetical case.|||{{N|buceth_17||||}}|};
+{buceth_17|A while later, the men return. They explain that some of the methods that are used in the village have now been prohibited across the whole land.|||{{N|buceth_18||||}}|};
+{buceth_18|Without going into specifics, let\'s say that these are methods that have been used for past generations in your village.|||{{N|buceth_19||||}}|};
+{buceth_19|Changing the way things are done without these methods will require quite an effort. A lot of people in the village are upset because of these news from the men.|||{{N|buceth_20||||}}|};
+{buceth_20|Now, tell me. Would you in secret continue using the old methods your past generations have used, or would you instead convert to the way that the men are advocating?|||{
+	{I would continue using the old ways in secret|buceth_21_1||||}
+	{I would continue using the old ways, and fight the ruling that prohibited them in the first place|buceth_21_2||||}
+	{I would only use the methods that are allowed|buceth_22||||}
+	{I would follow the law|buceth_22||||}
+	{I can\'t decide without knowing the specifics|buceth_dontknow||||}
+	}|};
+{buceth_21_1|How interesting.|||{{N|buceth_25||||}}|};
+{buceth_21_2|I am glad to hear that there are people still around that are willing to stand up for what is right.|||{{N|buceth_25||||}}|};
+{buceth_22|How interesting. You have a different view of the world than what I and the priests of Nor City have.|||{{N|buceth_23||||}}|};
+{buceth_23|You are of course entitled to your opinion, but you should know that your opinion might conflict with the Shadow.|||{{N|buceth_24||||}}|};
+{buceth_24|You wanted to know about some business that you accuse me of. Since you have no proof, I will claim innocence. I know that my conscience is clean.|||{
+	{Ok, goodbye.|X||||}
+	{Fine. How about I give you some gold instead, would that make you talk?|buceth_gold_1||||}
+	}|};
+{buceth_25|Your views match those that I and the other priests from Nor City believe in. Tell me, would you be interested in following the glow of the Shadow?|||{
+	{I am ready to follow the Shadow.|buceth_27||||}
+	{How can I agree to something without knowing what it entails?|buceth_26||||}
+	{No, I will go my own way.|buceth_decline||||}
+	{No, I will go my own way. Your stupid Shadow is nothing but talk and fancy words.|buceth_decline||||}
+	}|};
+{buceth_26|If the answers you gave previously were indeed your views, then I can assure you that the path that is guided by the Shadow is the right one.|||{
+	{I am ready to follow the Shadow.|buceth_27||||}
+	{No, I will go my own way.|buceth_decline||||}
+	{No, I will go my own way. Your stupid Shadow is nothing but talk and fancy words.|buceth_decline||||}
+	}|};
+{buceth_decline|I am sorry to hear that. I guess we do not share views after all.|||{{N|buceth_24||||}}|};
+{buceth_27|I am glad to hear that. But then, I had a feeling all along that you would say that.|loneford:42||{{N|buceth_story_1||||}}|};
+
+{buceth_story_1|You wanted to ask me something?|||{{What were you doing at the well during the night?|buceth_story_2||||}}|};
+{buceth_story_2|Let me first tell you my background.|||{
+	{Great. Another endless story.|buceth_story_3||||}
+	{Please go ahead.|buceth_story_3||||}
+	}|};
+{buceth_story_3|I am appointed by the priests of Nor City to help guide the people of Loneford towards the Shadow. Our mission is to see that the Shadow casts its glow over Loneford as well as other settlements around here.|||{{N|buceth_story_4||||}}|};
+{buceth_story_4|Most folk in these northern parts seem too occupied with obeying the will of Feygard and Lord Geomyr. We want to help people see the light of the wrongdoings that Feygard advocates, and to point out the errors in their ways.|||{{N|buceth_story_5||||}}|};
+{buceth_story_5|That\'s my mission here. To see that the Shadow casts its glow over Loneford.|||{{How does this relate to what you were doing at the well?|buceth_story_6||||}}|};
+{buceth_story_6|Nor City sent word to me that something was about to happen here in Loneford. Something that would help our cause.|||{{N|buceth_story_7||||}}|};
+{buceth_story_7|They were sending a boy to do some business here, and I was assigned to make sure that the mission was successful.|andor:61||{{N|buceth_story_8||||}}|};
+{buceth_story_8|I was tasked with gathering samples from the water in the well and from the ground around the well. Also, I was given some vials whose contents should be poured into the well.|||{{N|buceth_story_9||||}}|};
+{buceth_story_9|Apparently, the boy they sent was successful in his mission. The task that I did was also successful, if I may say so myself.|loneford:45||{{N|buceth_story_10||||}}|};
+{buceth_story_10|And that\'s where we stand now. The deed is done, and the Shadow will look favourably upon us.|||{
+	{So the well was poisoned, that\'s horrible. How could you?|buceth_story_11||||}
+	{Thank you for telling me.|buceth_story_12||||}
+	}|};
+{buceth_story_11|Horrible!? What is horrible? What those people from Feygard are doing - that\'s what\'s horrible!|||{{N|buceth_story_12||||}}|};
+{buceth_story_12|Now, I ask you to keep this story just between us two. You understand that, right?|||{
+	{Absolutely. Walk with the Shadow.|buceth_story_14||||}
+	{I promise not to tell anyone.|buceth_story_14||||}
+	{No, I will report you to the guard.|buceth_story_13||||}
+	}|};
+{buceth_story_13|I urge you to rethink your reasoning. The way of the Shadow is the righteous way.|||{
+	{Very well. I promise not to tell anyone.|buceth_story_14||||}
+	{No. Your crimes will be punished!|buceth_fight_1||||}
+	}|};
+{buceth_fight_1|Infidel, you will not defeat me! For the Shadow!|loneford:50||{{Fight!|F||||}}|};
+{buceth_story_14|Thank you, my friend.|loneford:60||{{N|buceth_story_15||||}}|};
+{buceth_story_15|If you want to learn more about the Shadow, please visit the chapel custodian in Nor City. Tell them I sent you, and they will surely extend their gratitude towards you.|loneford:60|||};
+{buceth_complete_1|Welcome back my friend. May you bask in the glow of the Shadow.|||{{N|buceth_story_15||||}}|};
+
+	</string>
+
+	<string name="conversationlist_talion">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{talion|Shadow be with you.|||{
+	{Do you know anything about the illness?|talion_1|loneford:11|||}
+	{Do you have anything to trade?|S||||}
+	}|};
+{talion_1|The people of Loneford are very keen on following the will of Feygard, whatever it may be.|||{{N|talion_2||||}}|};
+{talion_2|Normally, this would not be a problem. But Lord Geomyr seems to have something against the Shadow. He will do almost anything to oppose all actions that in some way are extend the reach of the Shadow.|||{{N|talion_3||||}}|};
+{talion_3|Because of this, the people of Loneford are now actively abolising the thought of the Shadow guiding them through their lives.|||{{N|talion_4||||}}|};
+{talion_4|People around here would rather follow the law of Feygard than follow the old ways.|||{{N|talion_5||||}}|};
+{talion_5|My feeling is that this illness is caused by the Shadow, as punishment to all of us here in Loneford.|loneford:23||{{N|loneford_ill_c_1||||}}|};
+
+	</string>
+
+	<string name="conversationlist_taevinn">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{taevinn|Please, you must help us!|||{
+	{Do you know anything about the illness?|taevinn_1|loneford:11|||}
+	{What\'s wrong?|loneford_farmer0_1||||}
+	}|};
+{taevinn_1|I\'ll tell you what I know. We try to follow the law around here. Without rules and laws, how would we be any different from the savages that roam the southern lands?|||{{N|taevinn_2||||}}|};
+{taevinn_2|But even if we here in Loneford keep as peaceful as possible, there\'s always someone that has a desire to cause mischief.|||{{N|taevinn_3||||}}|};
+{taevinn_3|Have you seen him? That fool Sienn. Him and his \'pet\' are always trying to cause some trouble. We can\'t have that around here in our friendly village. Especially not in times like these when we are trying to show our good side to those magnificent guards from Feygard that are here.|||{{N|taevinn_4||||}}|};
+{taevinn_4|Did you know I tried to talk to him on several occasions about his so called \'pet\'? I couldn\'t really make out what he was trying to tell me, but that thing of his nearly tried to kill me, it did!|||{{N|taevinn_5||||}}|};
+{taevinn_5|I tell you, there\'s mischief all around him and that thing ke keeps around. I am sure they are up to something. They probably caused this illness somehow. Maybe we caught something contagious from that thing of his that he keeps around?|loneford:24||{{N|loneford_ill_c_1||||}}|};
+	</string>
+
+	<string name="conversationlist_loneford_kuldan">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{kuldan||||{
+	{|kuldan_c_1|loneford:55|||}
+	{|kuldan_bc_1|loneford:54|||}
+	{|kuldan_1||||}
+	}|};
+{kuldan_1|Please report any suspicious behaviour you might see.|||{
+	{I know what the cause of the illness is. Have a look at this vial that Buceth had on him.|kuldan_bc_1|loneford:50|buceth_vial|1|}
+	{Who are you?|kuldan_2||||}
+	}|};
+{kuldan_2|I am Kuldan, captain of this here detachment of guards in Loneford. Now, if you will excuse me, I have work to do.||||};
+{kuldan_c_1|Feygard is grateful for your assistance in solving the mystery of the illness here in Loneford.|||{{N|kuldan_c_2||||}}|};
+{kuldan_c_2|We are trying to help the last few people that are still ill here now. Loneford might require our assistance from Feygard for quite some time.||||};
+{kuldan_bc_1|What is this? This smells like Narwood poison. You say you retrieved this from Buceth?|loneford:54||{{Buceth was part of a mission by the Nor City priests to poison the water well here in Loneford.|kuldan_bc_2||||}}|};
+{kuldan_bc_2|But this means.. It is the water that the people are getting ill from? This explains a lot of things.|||{{N|kuldan_bc_3||||}}|};
+{kuldan_bc_3|You my friend have done Loneford a great service by finding this, and by extension, Feygard as well. We should go catch Buceth for what he has done.|||{{He is already dead|kuldan_bc_4||||}}|};
+{kuldan_bc_4|Dead you say? Hm, not quite the way we do things in Feygard, but I guess this is an exceptional case.|||{{He is already dead|kuldan_bc_5||||}}|};
+{kuldan_bc_5|I always suspected that those savages from Nor City were behind this all along.|||{{N|kuldan_bc_6||||}}|};
+{kuldan_bc_6|It\'s good to know that we now at least have some evidence to back up our claims.|||{{N|kuldan_bc_7||||}}|};
+{kuldan_bc_7|As for Loneford, I guess we will have to start bringing in water from Feygard to help the people here. Good thing they have us around, what would they do otherwise?|||{{N|kuldan_bc_8||||}}|};
+{kuldan_bc_8|And you, my friend - you should of course be sufficiently rewarded for your assistance in this matter. You should travel to the glorious city of Feygard to the northwest and report to the castle steward there for further instructions.|||{{N|kuldan_bc_9||||}}|};
+{kuldan_bc_9|I happen to know the castle steward personally, and I will send word to him about your help here.|||{{N|kuldan_bc_10||||}}|};
+{kuldan_bc_10|For the glory of Feygard, the people of Loneford may live on thanks to your help.|loneford:55|||};
+
+{kuldan_guard|What? Talk to the boss.||||};
+	</string>
+
+	<string name="conversationlist_loneford_3">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{sienn|Ha! You look funny. You small.|||{
+	{Who are you?|sienn_who_1||||}
+	{What is that thing you are keeping around?|sienn_pet_1||||}
+	}|};
+{sienn_who_1|Me, Sienn. I strong!|||{
+	{What is that thing you are keeping around?|sienn_pet_1||||}
+	}|};
+{sienn_pet_1|Pet, cute!\n(Sienn makes cuddly sounds while scratching the pet under its chin.)|||{
+	{Who are you?|sienn_who_1||||}
+	{Did you know that Taevinn thinks you caused the illness here in Loneford?|sienn_pet_2|loneford:24|||}
+	}|};
+{sienn_pet_2|Sienn not ill! Sienn stong!||||};
+{sienn_pet|*Shriek!*\n(The creature looks up at you, showing all its teeth, while making a high-pitched piercing sound.)|||{
+	{There, there. Easy now.|X||||}
+	{*slowly back away*|X||||}
+	}|};
+
+{siola|Hello there. Have you come to browse my selection of items?|||{
+	{Yes, let\'s trade.|S||||}
+	{What\'s the deal with Sienn over there with his pet?|siola_sienn_1||||}
+	}|};
+{siola_sienn_1|I don\'t know where he got it from. Anyway, they don\'t harm anyone, so I\'m fine with them being in here. I figured someone should help them have some place to stay, and no one else wanted to help them, so I let them stay here.|||{{N|siola_sienn_2||||}}|};
+{siola_sienn_2|Sienn may be a bit thick, but he sure can be funny when you get to know him and he trusts you. He can do a lot of those hilarious facial expressions.||||};
+	</string>
+
+	<string name="conversationlist_loneford_4">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{grimion|Hello and welcome to Loneford. Please have a seat, I\'ll be right there.|||{
+	{Do you have anything to eat around here?|grimion_trade_1||||}
+	{Is there a place where I can get some rest around here?|grimion_rest_1||||}
+	}|};
+{grimion_trade_1|Sure, have a look.|||{{N|S||||}}|};
+{grimion_rest_1|Sure, the guards have set up some beds downstairs. Go talk to Arngyr down there, he might be able to help you.||||};
+
+{loneford_tavern_room|Arngyr grabs you by the shoulder and pulls you back.\nIf you want to rest over there, you need to check with me first.||||};
+{arngyr||||{
+	{|arngyr_back_1|nondisplay:19|||}
+	{|arngyr_1||||}
+	}|};
+{arngyr_1|Yes, can I help you?|||{{Mind if I use one of the beds back there?|arngyr_2||||}}|};
+{arngyr_2||||{
+	{|arngyr_3|loneford:55|||}
+	{|arngyr_4||||}
+	}|};
+{arngyr_3|Oh no, not at all. Go ahead. After all you have done for us here in Loneford, it would be a privilege to be able to give something back to you.|nondisplay:19||{{N|arngyr_6||||}}|};
+{arngyr_4|These beds are mostly used by us guards. But I guess I could make an exception since you\'re just a kid. Shall we say, 600 gold and you may use it?|||{{Sure, here is the gold.|arngyr_5||gold|600|}{What?! That\'s a bit much, don\'t you think?|arngyr_7||||}}|};
+{arngyr_5|Thank you.|nondisplay:19||{{N|arngyr_6||||}}|};
+{arngyr_6|Use the bed in the back over there as much as you like.|||{{Thanks|X||||}}|};
+{arngyr_7|Look, kid. I make the rules around here. If that\'s my price then that\'s my price. Take it or leave it.|||{{Fine, here is the gold|arngyr_5||gold|600|}{Nevermind then|X||||}}|};
+{arngyr_back_1|Hello again. I hope the bed is comfortable enough.||||};
+
+{loneford_chapelguard|Walk with the Shadow, child.||||};
+
+{wallach|Oh, poor old Selgan. Why did it have to be him? I wonder who is next, and I fear for the worst.||||};
+{mienn|I can\'t see how we could make it without the help of those nice guards from Feygard around here. We are truly lucky to have their assistance.||||};
+{conren|We are lucky to have Feygard here helping us.||||};
+{telund|Who are you? Have you seen my father Selgan? They all tell me he will be back shortly, but they are all lying! I know it, I know it! He wasn\'t home yesterday, and he isn\'t home today.||||};
+
+{loneford_tavern_patron|This is no place for a kid like you. I think you better leave now.||||};
 	</string>
 
 </resources>

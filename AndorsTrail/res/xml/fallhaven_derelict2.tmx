@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="19" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_1.png"/>
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_2.png"/>
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_1.png"/>
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_2.png"/>
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_3.png"/>
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_4.png"/>
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_5.png"/>
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_3.png"/>
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_4.png"/>
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_5.png"/>
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_6.png"/>
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_7.png"/>
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_1_8.png"/>
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
  </tileset>
  <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_6.png"/>
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_7.png"/>
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
  </tileset>
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
-  <image source="../drawable/map_tiles_2_8.png"/>
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
  <layer name="Ground" width="25" height="19">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA71UORLCMAwUsYd/UJCegg9QAR2paDl6nkDHp+BDHB+ACmuCB0VItghHsUXWklbSOq46ANUfsCnawZIbNbZFE2NXg/McmKvFRT5qTKGJuavBeQ7M1eIir2lYYcm1ePUtjZSXZZi5r+xD60fqlXtM74FWH8F7k3iqQb2zesTvksRHDaw/eWig3if3ILVPztG4vQc4+Pfn5J7zXY4SPuTuoHQm7TLXm/RupDxvs+NVmHMdsHT1zNjXMezz5J999pysMTR4rp1fQ/0b8W1ANEqXriF5vjC8Z3SvlNt1Xznp36Pf56B/8Xqs5G/O89w5j53B73EHAgUlRGwHAAA=
+  <data encoding="base64" compression="zlib">
+   eJy9VDkSwjAMFLGHf1CQnoIPUAEdqWg5ep5Ax6fgQxwfgAprggdFSLYIR7FF1pJW0jquOgDVH7Ap2sGSGzW2RRNjV4PzHJirxUU+akyhibmrwXkOzNXiIq9pWGHJtXj1LY2Ul2WYua/sQ+tH6pV7TO+BVh/Be5N4qkG9s3rE75LERw2sP3looN4n9yC1T87RuL0HOPj35+Se812OEj7k7qB0Ju0y15v0bqQ8b7PjVZhzHbB09czY1zHs8+SfffacrDE0eK6dX0P9G/FtQDRKl64heb4wvGd0r5TbdV856d+j3+egf/F6rORvzvPcOY+dwe9xB3Vdo3c=
   </data>
  </layer>
  <layer name="Objects" width="25" height="19">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoB/wZYbQm9lRxXHxrdDEQWAlGwNDOBZxGIiF2sHKihDLBIplQcVLkfSC2F44zELWjw58GDHFKoHmV0HtaAWamczCwCDJCmH/ZkOoEwSy/wJxL1QMnSYXuEPtDmNGiM1lw06TC8KZCasRJNKO/1CzQOGEDMKIsAMXmIBm93ugWabMmHbAAHq6IwQigWYtgNqRDWRXA/FJID4FxFeB+CgUH4OKwUAqDj9hE0d260Y8aRAZlALdVIrmzzIou5RAeF5EsuMH1G96RNqLC2Qj2YkcxiBzTwPddQZHfBALkONZAurWIDT/w/xAbBiilymgeMaVbtDBQSLtuERG/oP5AxZPxUB/lgBxETOmn0HgERY7cPkDZjYnifkAHWixQrAnUjjAwh09zmFlYSHU7WpAu+2x2H8BqO4ukl+sWBG4BylMBLGk2Wwsaf430K4/UDdYI4XbWwrLRFIAAL4S2axsBwAA
+  <data encoding="base64" compression="zlib">
+   eJxjYKAf8GWG0JvZUcVx8a3QxEFgJRsDQzgWcRiIhdrByooQywSKZUHFS5H0gtheOMxC1o8OfBgxxSqB5ldB7WgFmpnMwsAgyQph/2ZDqBMEsv8CcS9UDJ0mF7hD7Q5jhtgNAnPZsNPkgnBmwmoEibTjP9QsmFthIIwIO3CBCWh2vweaZcqMaQcMoKc7QiASaNYCqB3ZQHY1EJ8E4lNAfBWIj0LxMagYDKTi8BM2cWS3bsSTBpFBKdBNpWj+LIOySwmE50UkO35A/aZHpL24QDaSnchhDDL3NNBdZ3DEB7EAOZ4loG4NQvM/zA/EhiF6mQKKZ1zpBh0cJNKOS2TkP5g/YPFUDPRnCRAXMWP6GQQeYbEDlz9gZnOSmA/QgRYrBHsihQMs3NHjHFYWFkLdrga02x6L/ReA6u4i+cWKFYF7kMJEEEuazcaS5n8D7foDdYM1Uri9pbBMJAUAAA/8Pak=
   </data>
  </layer>
  <layer name="Above" width="25" height="19">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA2NgoA/4z0x7vQNpRzILbj0wOZBeXOqQxSn1Bz63UANQElYwsakU+JFYO3YC6V1AfBtJzTaoGDHmoMtRGkfvCdiBHm+UpANiAbXtAJmHbiYt7EAPS3xhi8sNxMQ5qe5CB4TinBp2kKqekBmD0Q7kcITlE0JxTkie3gAAFM19FmwHAAA=
+  <data encoding="base64" compression="zlib">
+   eJxjYKAP+M9Me70DaUcyC249MDmQXlzqkMXp4Q9KACVhBRObSiV34rNjJ5DeBcS3kdRsg4oRYw66HKVx9J6AHehpYzDFJSnmoZtJCzvQwxJf2OJyAzFxTqq70AGhOKeGHaSqJ2TGYLQDORxh+YRQnBOSpzcAALqSMRs=
   </data>
  </layer>
  <layer name="Walkable" width="25" height="19">
-  <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAA91TSQ4AIQjjC/z/s3M1hNbSIXMYEg4KdlHMiMgfZXyAfwbiRzrOeoB+J5hGplfxWM9OtLy9z7zUXD/bHAqGwlHrSnS9aAY7DQhnMouqj627Yj6YLofjFi5HhzHlUPpqnfE6c6d6r2e6tYqtvDnaU//idj5kd/4TbAcAAA==
+  <data encoding="base64" compression="zlib">
+   eJzdU0kOACEI4wv8/7NzNYTW0iFzGBIOCnZRzIjIH2V8gH8G4kc6znqAfieYRqZX8VjPTrS8vc+81Fw/2xwKhsJR60p0vWgGOw0IZzKLqo+tu2I+mC6H4xYuR4cx5VD6ap3xOnOneq9nurWKrbw52lP/4nY+cjUUUw==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="25" height="19">

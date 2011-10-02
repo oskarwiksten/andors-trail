@@ -69,6 +69,8 @@ public final class CombatController {
     			lootCurrentMonsterBags();
     		}
     		killedMonsterBags.clear();
+    	} else {
+    		context.gameRoundController.resume();
     	}
     	totalExpThisFight = 0;
     }
