@@ -48,7 +48,7 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="30" height="30" visible="0">
+ <layer name="Ground" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJytVstuwzAMc4z8QPYb++vec8juHdDdN2D9olbAhCos9XC6AxEkMk0rlmifptZOBF8JGIfN0Xtr722PSzD2d4qRrVHneEt0cWxV11ujzoGaAuV+FMZ6XG+NGc/qVvQsn+1dhqXvdW1snR+w76ire3e+xz7n/ZN9Z/8ZdSv/WN+/7+N/5vyJNfWqLuYTAXvI02VxrX/9bvPBcdXetbqRJ2xkf1nNovbU9zHbS6KLcesPUscS13q2+TKe1ZZ6xj3WXhLd5W9u9B9dm8RZvshjXunV1mrmQP9hfY77u/Rn7xrRFWT+49Wz513RHmR9lOVb7SHM2frVOnM/GnlGuTL/YH6EsSM+5aHyb6v56vjqXSHSr/gxcpaea2vPsbvCK0DPsIjuJ/8Bpqs5jt4BPFTOhei/VmsNOaxO0KuY5pE6Zzw7d3TuW6719sqes/MkypdxhXN1vD3THj0TLDc6gzJ4vIo/jtZqBtZDFZ7cbTbgbQZHdHEORNVbq3PcAEW9fOM=
   </data>
@@ -63,9 +63,9 @@
    eJzdVm0KwjAM7ZCZPyL4W2+gN/HrTt7CI+llpl5AO6SjlCRt0g/QB2OwJu8t6esWY+rjPdPFHsGY67yurosZemMW9tpbzQt8nx3sfdmn805c3vqzw2OmO8K/Qmoe4yndQVKnYC9cnjQH05XmSPOoPkt1U2q9WV/cgeaQ4tXFY1pwtMQjw1MOrtcSrhwvh7oUF+aB1Hfk4jDeNfDrsXo3QOdyvFtPV9PTHcRzS3uaO7chSvhTA833458g2aNSGHvecr/9GaDE9yhVUzsDxHAmZjSn2arG2pqcT1I0tT7juGOzKJafesak/4TwudM8CWd4ro85M3AOfm2+0uIDg25auA==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJy9k8ENwDAIA1mh+y/bb1U5YByDpXxK8AElT0Q8C+erDd6fu8nc5iJld7M8lN8RU5ubibgdDydXze3cR1zkkf37iqvuobKzjv1X38qN5xT3FFdm5uYyHicpM5zUFre7UxNS96XydDDd/StcF/+G3X0b0z1W9bA9nzwDxDueDFOdgcJlar/hojjDzGac5Vd1dWoO8L3yZvqo+mPmzvTKeDDH4TF5Xv6qI4g=
+   eJy9k0sOACEIQ7mC97/sbM0EaSmfJm5U+gDxmNlZWLc2eH/uJnOb6ym6G8V58RkxuXUzPW7Go5Orxmbue1zPI3p7xFXnUJ3Z6vx3cxnPKe7rXOlXN5fxeEnp4aS2uNmZmpA6LxvMbr7C7eJX2Nm/MV0j+vtszVF8lE/UA8RFuSEpb4Jiq1zvnGG+uCge5ZXJ2Zx95M3Ugepj+s7UynhU/x7rMbk+u8AjEQ==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="30">
@@ -76,6 +76,69 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn boss" width="30" height="30" visible="0">
+  <object name="iqhan_boss" type="spawn" x="64" y="128" width="384" height="160">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="iqhan_chb_1" type="spawn" x="96" y="384" width="800" height="256">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="iqhan_chb_1" type="spawn" x="64" y="128" width="384" height="160">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_3" type="spawn" x="160" y="288" width="32" height="96">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_3" type="spawn" x="256" y="672" width="96" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_3" type="spawn" x="768" y="672" width="128" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_3" type="spawn" x="352" y="672" width="416" height="256">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_2" type="spawn" x="64" y="704" width="288" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_3" type="spawn" x="128" y="416" width="704" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_1" type="spawn" x="512" y="64" width="416" height="352">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="iqhan_4" type="spawn" x="448" y="192" width="448" height="352">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="iqhan_1" type="spawn" x="416" y="576" width="160" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

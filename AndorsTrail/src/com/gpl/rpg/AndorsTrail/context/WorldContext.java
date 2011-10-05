@@ -92,7 +92,8 @@ public class WorldContext {
 			//Ensure that all droplists are used by monsters
 			dropLists.verifyData(monsterTypes, conversations, maps);
 			
-			//TODO: Ensure that all monsters are used in spawnareas
+			//Ensure that all monsters are used in spawnareas
+			monsterTypes.verifyData(maps);
 
 		}
 	}

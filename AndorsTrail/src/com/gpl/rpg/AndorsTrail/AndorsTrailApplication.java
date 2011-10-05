@@ -14,7 +14,7 @@ import android.view.WindowManager;
 public final class AndorsTrailApplication extends Application {
 
 	public static final boolean DEVELOPMENT_DEBUGRESOURCES = false;
-	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = false;
+	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = true;
 	public static final boolean DEVELOPMENT_FORCE_CONTINUEGAME = false;
 	public static final boolean DEVELOPMENT_DEBUGBUTTONS = true;
 	public static final boolean DEVELOPMENT_VALIDATEDATA = true;

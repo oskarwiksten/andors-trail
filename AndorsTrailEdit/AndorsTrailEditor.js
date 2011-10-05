@@ -267,11 +267,11 @@ function startEditor() {
 	imageSelector.add(new TilesetImage("monsters_wraiths", {x: 3, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_zombie1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_zombie2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_dragon1", {x: 1, y:1}, {x:128, y:96}, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_karvis1", {x: 2, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_karvis2", {x: 9, y:1}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_rltiles1", {x:20, y:8}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_rltiles2", {x:20, y:9}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rltiles3", {x:10, y:3}, undefined, [ 'monsters' ] ));
 	imageSelector.add(new TilesetImage("monsters_redshrike1", {x:6, y:1}, undefined, [ 'monsters' ] ));
 	
 }

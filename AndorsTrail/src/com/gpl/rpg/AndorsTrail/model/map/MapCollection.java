@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -155,6 +156,18 @@ public final class MapCollection {
 			}
 		}
 	}
+	
+	// Selftest method. Not part of the game logic.
+	public void DEBUG_getSpawnedMonsterIDs(HashSet<String> usedMonsterTypeIDs) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (PredefinedMap m : predefinedMaps) {
+				for (MonsterSpawnArea a : m.spawnAreas) {
+					usedMonsterTypeIDs.addAll(Arrays.asList(a.monsterTypeIDs));
+				}
+			}
+		}
+	}
+
 
 
 	// ====== PARCELABLE ===================================================================

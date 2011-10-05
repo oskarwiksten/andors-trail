@@ -3091,4 +3091,40 @@
 {loneford_tavern_patron|This is no place for a kid like you. I think you better leave now.||||};
 	</string>
 
+	<string name="conversationlist_pwcave">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{iqhan_greeter|Get away! No! Turn back while you still can!|||{{N|iqhan_greeter_1||||}}|};
+{iqhan_greeter_1|You don\'t know what they\'ll do to you!|||{{What is this place?|iqhan_greeter_2||||}}|};
+{iqhan_greeter_2|What!? No, no, no. Must get out of here!|||{{N|R||||}}|};
+{iqhan_boss|*wheeze*|||{{N|iqhan_boss_1||||}}|};
+{iqhan_boss_1|(The figure points its finger towards you, in what looks to be an order for the nearby thralls to attack you.)|||{{Fight!|F||||}}|};
+{sign_waterway1|South: Loneford\nEast: Brimhaven.\n(You also see something written on an arrow pointing to the west, but you cannot understand the words)||||};
+{sign_waterway3|(The sign contains writing in a language you cannot understand)||||};
+
+{gauward|What.. Oh, a visitor!|||{
+	{What is this place?|gauward_1||||}
+	{I have some Izthiel claws to sell you.|gauward_sell_1|nondisplay:20|||}
+	}|};
+{gauward_1|This place used to be a safe house for travellers between Loneford and Brimhaven, before they had finished the road between the villages.|||{{N|gauward_2||||}}|};
+{gauward_2|But nowadays, noone rarely comes here - because of those cursed creatures from the river.|||{{N|gauward_3||||}}|};
+{gauward_3|Izthiel, they call them.|||{{N|gauward_4||||}}|};
+{gauward_4|Ack, if it wasn\'t for those things out there, I am sure a lof of people would come by here more often.|||{
+	{Would you like me to kill the creatures for you?|gauward_5||||}
+	}|};
+{gauward_5|Oh sure. I have tried that. But they just keep coming back.|||{{N|gauward_6||||}}|};
+{gauward_6|Tell you what though. Bring me those claws of theirs, and I\'ll buy them from you for a good price.|||{{Ok, I will return with some of their claws.|gauward_7||||}}|};
+{gauward_7|Good. Please do. I like knowing that their numbers are reduced at least.|nondisplay:20|||};
+{gauward_sell_1|Great. How many would you like to sell?|||{
+	{Here\'s one.|gauward_sold_1||izthiel_claw|1|}
+	{Here\'s five.|gauward_sold_5||izthiel_claw|5|}
+	{Here\'s ten.|gauward_sold_10||izthiel_claw|10|}
+	{Here\'s twenty.|gauward_sold_20||izthiel_claw|20|}
+	{Nevermind. I will be back with more Izthiel claws to sell you.|gauward_7||||}
+	}|};
+{gauward_sold_1|Good, thank you. Here\'s some gold for your troubles.||gold5||};
+{gauward_sold_5|Excellent, thank you! Here\'s some gold for your troubles.||gold25||};
+{gauward_sold_10|Excellent, thank you! Here\'s some gold for your troubles.||gold50||};
+{gauward_sold_20|Oh wow, you managed to get twenty of those claws? That\'s excellent, thank you! Here\'s some gold and something extra for your troubles.||gauward_sold_20||};
+	</string>
+
 </resources>

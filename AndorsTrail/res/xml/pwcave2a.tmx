@@ -63,7 +63,7 @@
    eJxjYKA9+M9MXXOoYR7IDJg570kw7xkrbvNIMYcQwOfHD2TYg888csITlx7kcMUlj839+MxDD9cPSOmA1HDHphY5XeEzi9hwJydd4QOkmENO2sAHYH7BZ+5HRuLNwhc2pLqdUHyRmq4t2RkYrNkhbC92THlPoJgPFnFc4BMwXLyh6rHpo1a5SKl5rDjKNGqWZ6OAMkBs3gAAiZAyKg==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="25" visible="0">
+ <layer name="Walkable" width="20" height="25">
   <data encoding="base64" compression="zlib">
    eJztkzsOwDAIQ32F3P+ynYNiPo4rdWgklggeBpkFYP1xfLeMjF31APbaSmvFjHo6PJYfdTFe1q+7O5UXmdUf66XsHahZLLerWeFNOBMfTm+k4ynl5hy8zE9qvMFzzsv2eMPLPOiY3cVzzPklDz0nyxik
   </data>
@@ -76,6 +76,32 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25"/>
+ <objectgroup name="Spawn" width="20" height="25">
+  <object name="iqhan_4" type="spawn" x="160" y="544" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_1" type="spawn" x="160" y="576" width="256" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_1" type="spawn" x="64" y="96" width="512" height="416">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="iqhan_chb_1" type="spawn" x="128" y="64" width="416" height="448">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="iqhan_ch_3" type="spawn" x="160" y="32" width="320" height="480">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="25"/>
 </map>

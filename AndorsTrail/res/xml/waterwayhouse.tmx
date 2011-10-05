@@ -76,6 +76,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="15"/>
+ <objectgroup name="Spawn" width="19" height="15">
+  <object name="gauward" type="spawn" x="192" y="256" width="384" height="160">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="19" height="15"/>
 </map>

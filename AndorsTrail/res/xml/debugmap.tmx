@@ -51,27 +51,17 @@
   <object name="startitems" type="container" x="192" y="0" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="10" height="10">
-  <object name="ant" type="spawn" x="96" y="128" width="192" height="160">
+  <object name="insect" type="spawn" x="96" y="128" width="192" height="160">
    <properties>
     <property name="quantity" value="2"/>
-    <property name="type" value="insect"/>
    </properties>
   </object>
-  <object name="ogre" type="spawn" x="256" y="256" width="64" height="64">
+  <object name="troll" type="spawn" x="256" y="256" width="64" height="64">
    <properties>
     <property name="quantity" value="3"/>
-    <property name="type" value="troll"/>
    </properties>
   </object>
-  <object name="shop" type="spawn" x="288" y="0" width="32" height="32">
-   <properties>
-    <property name="type" value="debugNPC1"/>
-   </properties>
-  </object>
-  <object name="shop" type="spawn" x="256" y="0" width="32" height="32">
-   <properties>
-    <property name="type" value="debugNPC2"/>
-   </properties>
-  </object>
+  <object name="debugNPC1" type="spawn" x="288" y="0" width="32" height="32"/>
+  <object name="debugNPC2" type="spawn" x="256" y="0" width="32" height="32"/>
  </objectgroup>
 </map>

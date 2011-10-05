@@ -82,6 +82,17 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20"/>
+ <objectgroup name="Spawn" width="20" height="20">
+  <object name="frog_1" type="spawn" x="64" y="320" width="256" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="frog_2" type="spawn" x="224" y="192" width="352" height="288">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="20"/>
 </map>

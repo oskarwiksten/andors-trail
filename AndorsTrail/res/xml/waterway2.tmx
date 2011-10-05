@@ -65,7 +65,7 @@
  </layer>
  <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJztlF0KwDAIg71C73/ZvY7iT6K23aABYYPUT6t0iMi48ZmQ6VsAXwfTkuXx8lR4kVZzPS8zgy55eVlW1q/d8wlV+9fyIed391vZ2+w+oudWvDNd71iGv4vdfZd/Ze/kvvknuDe4Gc2q5sp4s3z2jOZl+8/Uavk1IXOKevJqtf6RGr1+rDxofREbEcNkdyjyeH1EdTwNgigM
+   eJztVFsKwDAI8wq9/2X3W4paE+1j0ICwQTRGpU1E2otrQoZvCfAqNC1YHK9ORm+G1boeF9lBFby6qBbL1+Z8Aln/Wr1I/m6/mbtl7zGat+KdqXrHGP1d2tWz/Kv2Tt1e/4TuC2xHI7K1GC6rj+ZoXNQ/06vF1xDZ08yT16v1H+nR8xPxgc4eReb2mNvJRK/7ATe+KGE=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="30">
@@ -94,6 +94,27 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="iqhan_1" type="spawn" x="256" y="96" width="256" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="frog_3" type="spawn" x="64" y="160" width="864" height="320">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="256" y="192" width="640" height="320">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="frog_2" type="spawn" x="544" y="96" width="384" height="288">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

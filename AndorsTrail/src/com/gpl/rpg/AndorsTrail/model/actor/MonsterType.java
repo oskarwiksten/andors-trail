@@ -7,7 +7,7 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType extends ActorTraits {
 	public final String id;
-	private final String searchPattern;
+	public final String spawnGroup;
 	public final int exp;
 	public final DropList dropList;
 	public final String phraseID;
@@ -15,7 +15,7 @@ public final class MonsterType extends ActorTraits {
 	public MonsterType(
 			String id, 
 			String name, 
-			String tags, 
+			String spawnGroup, 
 			int iconID, 
 			Size tileSize, 
 			int maxHP, 
@@ -28,7 +28,7 @@ public final class MonsterType extends ActorTraits {
 			String phraseID) {
 		super(iconID, tileSize, baseCombatTraits, moveCost, onHitEffects == null ? null : new ItemTraits_OnUse[] { onHitEffects });
 		this.id = id;
-		this.searchPattern = ',' + tags.toLowerCase() + ',';
+		this.spawnGroup = spawnGroup;
 		this.exp = exp;
 		this.name = name;
 		this.maxHP = maxHP;
@@ -36,11 +36,5 @@ public final class MonsterType extends ActorTraits {
 		this.moveCost = moveCost;
 		this.dropList = dropList;
 		this.phraseID = phraseID;
-	}
-	public boolean matchesAny(String[] tagsAndNames) {
-		for (String s : tagsAndNames) {
-			if (searchPattern.contains(',' + s + ',')) return true;
-		}
-		return false;
 	}
 }

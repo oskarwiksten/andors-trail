@@ -334,15 +334,12 @@ public final class TMXMapReader {
 						}
 						mapObjects.add(MapObject.createNewMapEvent(position, object.name, map, place));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
-						ArrayList<MonsterType> types = new ArrayList<MonsterType>();
-						types.addAll(monsterTypes.getMonsterTypesFromTags(object.name));
+						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
 						int maxQuantity = 1;
 						int spawnChance = 10;
 						boolean isUnique = false;
 						for (TMXProperty p : object.properties) {
-							if (p.name.equalsIgnoreCase("type")) {
-								types.addAll(monsterTypes.getMonsterTypesFromTags(p.value));
-							} else if (p.name.equalsIgnoreCase("quantity")) {
+							if (p.name.equalsIgnoreCase("quantity")) {
 								maxQuantity = Integer.parseInt(p.value);
 							} else if (p.name.equalsIgnoreCase("spawnchance")) {
 								spawnChance = Integer.parseInt(p.value);

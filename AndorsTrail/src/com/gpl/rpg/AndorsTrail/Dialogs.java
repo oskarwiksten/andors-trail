@@ -268,11 +268,15 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_PREFERENCES);
 	}
 	
-	public static void showSave(final Activity currentActivity, final ViewContext viewContext) {
+	public static void showSave(final MainActivity mainActivity, final ViewContext viewContext) {
+		if (viewContext.model.uiSelections.isInCombat) {
+			mainActivity.showToast(mainActivity.getResources().getString(R.string.menu_save_saving_not_allowed_in_combat), Toast.LENGTH_SHORT);
+			return;
+		}
 		viewContext.gameRoundController.pause();
-    	Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
+    	Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
     	intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
-		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
+    	mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
 	}
 	
 	public static void showLoad(final Activity currentActivity) {

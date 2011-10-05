@@ -63,7 +63,7 @@
    eJy9UwEKgDAIXMTeUj+oH/SE/v+Cog9UQgORdFq6g5GTuFN3puSPrffj2h25NLwl79kD5uZ4v+pp5nMG9KKpV6M75JTG/L8ejKPz5aPgaq55Kgr0LWoejpg5IMJnEiJ3VUIrvah3ooA5ttQqoHO01KDZKUkLYzL0fSpmZdkDbb8az1l82eq9reDqwvkS028Nb/9yd5xfnxh8AvFynxndJe0Ld2QnjQ==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="20" visible="0">
+ <layer name="Walkable" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJztkksOACEIQ7kC97+s28lEbQsdVtOExAT1lU9GRP4xFtHMd7i7v29yMVU5+oNq7Xic6sMUV31b5aJdrLLRHdY3413hOual5F3cr3nP/9/nk9zcqXpvUuplvCCp+8b6U5is164qs0C7gWrZ5RZqYBkK
   </data>
@@ -87,7 +87,41 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="sign_waterway3" type="sign" x="256" y="256" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20"/>
+ <objectgroup name="Spawn" width="30" height="20">
+  <object name="izthiel_3" type="spawn" x="32" y="416" width="160" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="256" y="576" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="544" y="576" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="iqhan_1" type="spawn" x="128" y="160" width="96" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="672" y="448" width="256" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn2" width="30" height="20">
+  <object name="frog_3" type="spawn" x="256" y="96" width="640" height="544">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="20"/>
 </map>
