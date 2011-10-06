@@ -105,42 +105,47 @@
 {health_major2|items_consumables:28|Pozione curativa grande|20|||280||||||||||||||1|40|40|||||||||||||||||};
 {mead|items_consumables:51|Idromele|20|||15||||||||||||||1|1|1|||||||||||||||||};
 {milk|items_consumables:55|Latte|20|||21||||||||||||||1|2|2|||||||||||||||||};
-{bonemeal_potion|items_consumables:34|Pozione farina d\’ossa|20||1|45||||||||||||||1|40|40|||||||||||||||||};
+{bonemeal_potion|items_consumables:34|Pozione farina d\'ossa|20||1|45||||||||||||||1|40|40|||||||||||||||||};
         </string>
        
-        <string name="itemlist_animal">
+	<string name="itemlist_animal">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {hair|items_misc:48|Pelliccia|31||1|2|||||||||||||||||||||||||||||||||};
-{insectwing|items_misc:52|Ala d\’insetto|31||1|3|||||||||||||||||||||||||||||||||};
+{insectwing|items_misc:52|Ala d\'insetto|31||1|3|||||||||||||||||||||||||||||||||};
 {bone|items_misc:44|Osso|31||1|2|||||||||||||||||||||||||||||||||};
-{eye|items_misc:45|Occhio|31||1|6|||||||||||||||||||||||||||||||||};
-{bat_wing|items_misc:46|Ala di pipistrello|31||1|2|||||||||||||||||||||||||||||||||};
 {claws|items_misc:47|Artigli|31||1|2|||||||||||||||||||||||||||||||||};
 {shell|items_misc:54|Guscio d\'insetto|31||1|2|||||||||||||||||||||||||||||||||};
-{feather|items_misc:16|Piuma|31||1|6|||||||||||||||||||||||||||||||||};
-{red_feather|items_misc:15|Piuma rossa|31||1|11|||||||||||||||||||||||||||||||||};
 {gland|actorconditions_1:60|Ghiandola del veleno|31||1|15|||||||||||||||||||||||||||||||||};
 {rat_tail|items_misc:38|Coda di ratto|31||1|2|||||||||||||||||||||||||||||||||};
-        </string>
+	</string>
        
-        <string name="itemlist_junk">
+<!--
+	<string name="itemlist_pre0610_unused">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{eye|items_misc:45|Occhio|31||1|6|||||||||||||||||||||||||||||||||};
+{bat_wing|items_misc:46|Ala di pipistrello|31||1|2|||||||||||||||||||||||||||||||||};
+{feather|items_misc:16|Piuma|31||1|6|||||||||||||||||||||||||||||||||};
+{red_feather|items_misc:15|Piuma rossa|31||1|11|||||||||||||||||||||||||||||||||};
 {clay|actorconditions_1:9|Blocco di argilla|31||1|1|||||||||||||||||||||||||||||||||};
+{gem6|items_misc:4|Gemma luccicante|31||1|26|||||||||||||||||||||||||||||||||};
+{gem8|actorconditions_1:50|Gemma splendente|31||1|68|||||||||||||||||||||||||||||||||};
+	</string>
+-->
+
+	<string name="itemlist_junk">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {rock|items_misc:28|Piccola pietra|31||1|1|||||||||||||||||||||||||||||||||};
 {gem1|items_misc:0|Gemma di vetro|31||1|2|||||||||||||||||||||||||||||||||};
 {gem2|items_misc:1|Gemma di rubino|31||1|6|||||||||||||||||||||||||||||||||};
 {gem3|items_misc:2|Gemma raffinata|31||1|8|||||||||||||||||||||||||||||||||};
 {gem4|items_misc:3|Gemma lavorata|31||1|13|||||||||||||||||||||||||||||||||};
 {gem5|items_misc:5|Gemma raffinata scintillante|31||1|15|||||||||||||||||||||||||||||||||};
-{gem6|items_misc:4|Gemma luccicante|31||1|26|||||||||||||||||||||||||||||||||};
-{gem8|actorconditions_1:50|Gemma splendente|31||1|68|||||||||||||||||||||||||||||||||};
         </string>
        
         <string name="itemlist_quest">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {tail_caverat|items_misc:38|Coda di ratto delle caverne|31|1|1|0|||||||||||||||||||||||||||||||||};
 {tail_trainingrat|items_misc:38|Coda di ratto piccolo|31|1|1|0|||||||||||||||||||||||||||||||||};
-{rest|items_consumables:33|Pozione di ripristino|20|1|1|0||||||||||||||1|99|99|||||||||||||||||};
 {ring_mikhail|items_jewelry:0|Anello di Mikhail|7|||15|1|||||10|||||||||||||||||||||||||||};
 {neck_irogotu|items_jewelry:7|Collana di Irogotu|6|3|1|30|1||||||||||5|1|||||||||||||||||||||};
 {ring_gandir|items_jewelry:0|Anello di Gandir|31|1|1|0|||||||||||||||||||||||||||||||||};
@@ -152,7 +157,7 @@
 {ring_unzel|items_jewelry:0|Anello di Unzel|31|1|1|0|||||||||||||||||||||||||||||||||};
 {ring_vacor|items_jewelry:0|Anello di Vacor|31|1|1|0|||||||||||||||||||||||||||||||||};
 {boots_unzel|items_armours:29|Stivali difensivi di Unzel|5|3||185|1||||||||||8||||||||||||||||||||||};
-{boots_vacor|items_armours:29|Stivali dell\’attacco di Vacor|5|3||185|1|||||9|||||2||||||||||||||||||||||};
+{boots_vacor|items_armours:29|Stivali dell\'attacco di Vacor|5|3||185|1|||||9|||||2||||||||||||||||||||||};
 {necklace_flagstone|items_jewelry:6|Collana del Guardiano di Flagstone|31|1|1|0|||||||||||||||||||||||||||||||||};
 {packhide|items_armours:15|Wolfpack\'s animal hide|3|3|1|121|1|||||-15|||||2|1|||||||||||||||||||||};
 {sword_flagstone|items_weapons:7|Flagstone\'s pride|0|3||169|1||||4|21|10|2|1|6|||||||||||||||||||||||};

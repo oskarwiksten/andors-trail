@@ -11,15 +11,16 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 
 public final class DebugInterface {
-	//private final ViewContext viewContext;
+	private final ViewContext viewContext;
 	private final MainActivity mainActivity;
 	private final Resources res;
 	private final WorldContext world;
 	
 	public DebugInterface(ViewContext viewContext) {
-		//this.viewContext = viewContext;
+		this.viewContext = viewContext;
 		this.mainActivity = viewContext.mainActivity;
 		this.world = viewContext;
 		this.res = mainActivity.getResources();
@@ -29,19 +30,7 @@ public final class DebugInterface {
 		if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
     	
 		addDebugButtons(new DebugButton[] {
-			/*new DebugButton("Add monster", new OnClickListener() {
-	    		@Override
-				public void onClick(View arg0) {
-	    			final String name = "winged_demon";
-					MonsterType type = world.monsterTypes.getMonsterType(name);
-					if (type == null) {
-						showToast("Cannot find monster type \"" + name + "\", unable to spawn.", Toast.LENGTH_LONG);
-					} else {
-						world.model.currentMap.TEST_spawnInArea(world.model.currentMap.spawnAreas[0], type);
-					}
-				}
-			})*/
-			new DebugButton("dmg=99", new OnClickListener() {
+			new DebugButton("dmg", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
 	    			world.model.player.traits.damagePotential.set(99, 99);
@@ -116,30 +105,6 @@ public final class DebugInterface {
 	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 				}
 			})*/
-			/*,new DebugButton("kazaul", new OnClickListener() {
-	    		@Override
-				public void onClick(View arg0) {
-	    			Player player = world.model.player;
-	    			player.addQuestProgress(new QuestProgress("kazaul", 8));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 9));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 10));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 11));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 21));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 22));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 25));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 26));
-	    			player.addQuestProgress(new QuestProgress("kazaul", 27));
-	    			
-    				view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain50", "exit", 0, 0);
-				}
-			})*/
-			/*,new DebugButton("wyrms", new OnClickListener() {
-	    		@Override
-				public void onClick(View arg0) {
-	    			world.model.player.traits.maxHP = 200;
-	    			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain32", "north", 0, 0);
-				}
-			})*/
 			/*,new DebugButton("exp+=10000", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
@@ -148,7 +113,7 @@ public final class DebugInterface {
 	    			mainActivity.showToast("DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("hp=max", new OnClickListener() {
+			,new DebugButton("hp", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
 	    			world.model.player.traits.maxHP = 200;
@@ -157,6 +122,30 @@ public final class DebugInterface {
 	    			world.model.player.conditions.clear();
 	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
+				}
+			})
+			,new DebugButton("cg", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "crossglen", "hall", 0, 0);
+				}
+			})
+			,new DebugButton("vg", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "vilegard_s", "tavern", 0, 0);
+				}
+			})
+			,new DebugButton("cr", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "houseatcrossroads4", "down", 0, 0);
+				}
+			})
+			,new DebugButton("lf", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "loneford9", "south", 0, 0);
 				}
 			})
     	});

@@ -35,7 +35,6 @@
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {catacombrat|{{gold|1|5|70|}{gem1|1|1|25|}{vial_empty1|1|1|25|}}|};
 {skeleton|{{gold|16|23|70|}{gem2|1|1|25|}{health|1|1|25|}{bone|1|1|30|}}|};
-{skeletonmaster|{{gold|16|30|70|}{gem3|1|1|25|}{health|1|1|25|}{bone|1|1|100|}{shield1|1|1|25|}}|};
 {luthor|{{gold|1|5|70|}{gem1|1|1|100|}{key_luthor|1|1|100|}{health_major2|1|1|100|}}|};
 {shop_thoronir|{{bonemeal_potion|10|10|100|}}|};
 {larcal|{{gold|4|12|70|}{club1|1|1|100|}{calomyran_secrets|1|1|100|}{milk|1|1|100|}}|};
@@ -227,68 +226,235 @@
 
 	<string name="droplists_v0610_shops">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
-{shop_ganos|{
+{shop_audir|{
+	{axe2|1|1|100|}
+	{club1|1|1|100|}
+	{ironsword0|1|1|100|}
+	{hammer0|1|1|100|}
+	{club3|1|1|100|}
+	{rusted_iron_sword|1|1|100|}
+	{ironsword1|1|1|100|}
+	{broadsword1|1|1|100|}
+	{ironsword2|1|1|100|}
+	{shortsword1|1|1|100|}
+	{longsword_hard_iron|1|1|100|}
+	{broken_buckler|1|1|100|}
+	{shield_crude_wooden|1|1|100|}
+	{shield_cracked_wooden|1|1|100|}
+	{shield_wooden_buckler|1|1|100|}
+	{shield3|1|1|100|}
+	{boots_crude_leather|1|1|100|}
+	}|};
+{shop_vg_armorer|{
+	{shield1|1|1|100|}
+	{shield4|1|1|100|}
+	{shield_wooden|1|1|100|}
+	{hat3|1|1|100|}
+	{hat4|1|1|100|}
+	{hat_leather1|1|1|100|}
+	{hat_hard_leather|1|1|100|}
+	{armor_chain1|1|1|100|}
+	{armor_chain2|1|1|100|}
+	{armour_rigid_chain|1|1|100|}
+	}|};
+{shop_vg_smith|{
+	{hammer1|1|1|100|}
+	{club_fine_wooden|1|1|100|}
+	{longsword_hard_iron|1|1|100|}
+	{axe_fine_iron|1|1|100|}
+	{sword_hard_iron|1|1|100|}
+	{broadsword_fine_iron|1|1|100|}
+	{broadsword2|1|1|100|}
+	{sword_fencing|1|1|100|}
+	{boots5|1|1|100|}
+	}|};
+{shop_hadracor|{
+	{axe1|1|1|100|}
+	{woodcutter_hatchet|1|1|100|}
+	{axe_gutsplitter|1|1|100|}
+	{hammer_skullcrusher|1|1|100|}
+	{armour_crude_leather|1|1|100|}
+	{armour_rigid_leather|1|1|100|}
+	{gloves1|1|1|100|}
+	{gloves_woodcutter|1|1|100|}
+	{woodcutter_boots|1|1|100|}
+	}|};
+{shop_siola|{
+	{broadsword_fine_iron|1|1|100|}
+	{broadsword2|1|1|100|}
+	{broadsword_fine_steel|1|1|100|}
+	{club_wood1|1|1|100|}
+	{heavy_club|1|1|100|}
+	{club_brutal|1|1|100|}
+	{club_wood2|1|1|100|}
+	{shield6|1|1|100|}
+	{shield7|1|1|100|}
+	{helm_crude_iron|1|1|100|}
+	}|};
+{shop_minarra|{
+	{sword_challengers|1|1|100|}
+	{steelsword1|1|1|100|}
+	{sword_defenders|1|1|100|}
+	{sword_balanced_steel|1|1|100|}
+	{shield5|1|1|100|}
+	{shield_wooden_defender|1|1|100|}
+	{armour_superior_chain|1|1|100|}
+	{armour_chain_champ|1|1|100|}
+	{gloves_guards|1|1|100|}
+	{boots_defender|1|1|100|}
+	{ring_challenger|1|1|100|}
+	{ring_block|1|1|100|}
+	{ring_block2|1|1|100|}
+	}|};
+{shop_arambold|{
+	{hat1|1|1|100|}
+	{hat2|1|1|100|}
+	{shirt1|1|1|100|}
+	{shirt_torn|1|1|100|}
+	{gloves_fumbling|1|1|100|}
+	{gloves_fancy|1|1|100|}
+	{gloves_crude_cloth|1|1|100|}
+	{ring_dmg1|1|1|100|}
+	{ring_dmg2|1|1|100|}
+	{ring_challenger|1|1|100|}
+	}|};
+{shop_fallhaven_clothes|{
+	{hat1|1|1|100|}
+	{hat2|1|1|100|}
+	{shirt1|1|1|100|}
+	{shirt_torn|1|1|100|}
+	{shirt_weathered|1|1|100|}
+	{shirt_patched_cloth|1|1|100|}
+	{shirt2|1|1|100|}
+	{shirt_dmgresist|1|1|100|}
+	{gloves_fumbling|1|1|100|}
+	{gloves_fancy|1|1|100|}
+	{gloves_crude_cloth|1|1|100|}
+	{used_gloves|1|1|100|}
+	{gloves_barbrawler|1|1|100|}
+	{gloves_attack1|1|1|100|}
+	{boots_crude_leather|1|1|100|}
+	{boots_sewn|1|1|100|}
+	{boots1|1|1|100|}
+	{boots3|1|1|100|}
+	{jewel_fallhaven|1|1|100|}
+	{ring_fumbling|1|1|100|}
 	{ring1|1|1|100|}
 	{ring2|1|1|100|}
-	{shirt1|1|1|100|}
-	{shirt2|1|1|100|}
+	}|};
+{shop_alynndir|{
+	{vial_empty1|10|10|100|}
+	{health|10|10|100|}
+	{rat_tail|5|5|100|}
+	{gem2|3|3|5|}
+	{meat|20|20|30|}
+	{hair|5|5|30|}
+	{hat_fine_leather|1|1|100|}
+	{hat_leather_vision|1|1|100|}
+	{armour_crude_leather|1|1|100|}
+	{armour_rigid_leather|1|1|100|}
+	{gloves_crude_leather|1|1|100|}
+	{boots_hard_leather|1|1|100|}
+	{ring_jinxed1|1|1|100|}
+	}|};
+{shop_gruil|{
+	{dagger0|1|1|100|}
+	{shirt_weathered|1|1|100|}
+	{ring_crude_combat|1|1|100|}
+	{ring_barbrawler|1|1|100|}
 	{gem1|5|5|100|}
 	{gem2|5|5|100|}
 	{gem3|5|5|100|}
-	{quickdagger1|1|1|100|}
 	}|};
-{shop_fallhaven_clothes|{
-	{shirt1|1|1|100|}
-	{shirt2|1|1|100|}
-	{shirt_dmgresist|1|1|100|}
-	{ring1|1|1|100|}
-	{ring2|1|1|100|}
-	{boots3|1|1|100|}
+{shop_ganos|{
+	{dagger0|1|1|100|}
+	{dagger1|1|1|100|}
+	{dagger_sharp_steel|1|1|100|}
+	{shirt_weathered|1|1|100|}
+	{shirt_patched_cloth|1|1|100|}
 	{gloves_attack1|1|1|100|}
-	{gloves_attack2|1|1|100|}
-	{jewel_fallhaven|1|1|100|}
-	{ring_dmg1|1|1|100|}
+	{gloves_grip|1|1|100|}
+	{boots2|1|1|100|}
+	{necklace_strike|1|1|100|}
+	{ring_crit1|1|1|100|}
 	{ring_dmg2|1|1|100|}
-	{ring_block1|1|1|100|}
-	{ring_atkch1|1|1|100|}
-	{necklace_shield1|1|1|100|}
-	{necklace_shield2|1|1|100|}
+	{ring_taverbrawler|1|1|100|}
+	{ring_dmg_4|1|1|100|}
+	{gem3|5|5|100|}
+	}|};
+{shop_troublemaker|{
+	{armour_firm_leather|1|1|100|}
+	{armor1|1|1|100|}
+	{armor4|1|1|100|}
+	{used_gloves|1|1|100|}
+	{gloves_barbrawler|1|1|100|}
+	{gloves_attack2|1|1|100|}
+	{gloves_troublemaker|1|1|100|}
+	{boots_coward|1|1|100|}
+	{ring_crit2|1|1|100|}
+	{ring_troublemaker|1|1|100|}
+	{gem3|5|5|100|}
+	}|};
+{shop_dunla|{
+	{dagger1|1|1|100|}
+	{sword_villains|1|1|100|}
+	{shirt2|1|1|100|}
+	{armour_firm_leather|1|1|100|}
+	{armor2|1|1|100|}
+	{shirt_dmgresist|1|1|100|}
+	{gloves3|1|1|100|}
+	{gloves4|1|1|100|}
+	{ring_polished_combat|1|1|100|}
+	{ring_backstab|1|1|100|}
+	{gem3|5|5|100|}
+	}|};
+{shop_ailshara|{
+	{dagger_sharp_steel|1|1|100|}
+	{dagger2|1|1|100|}
+	{quickdagger1|1|1|100|}
+	{armor3|1|1|100|}
+	{armour_misfortune|1|1|100|}
+	{armour_leather_villain|1|1|100|}
+	{gloves2|1|1|100|}
+	{gloves_troublemaker|1|1|100|}
+	{gloves_leather_attack|1|1|100|}
+	{ring_polished_backstab|1|1|100|}
+	{ring_villain|1|1|100|}
 	}|};
 {shop_tharal|{
 	{health_minor|10|10|100|}
 	{health|10|10|100|}
 	{health_major2|10|10|100|}
+	{necklace_shield_0|1|1|100|}
+	{ring_crude_surehit|1|1|100|}
+	{ring_rough_damage|1|1|100|}
+	{ring_crude_block|1|1|100|}
+	{ring_rough_life|1|1|100|}
 	{ring_dmg1|1|1|100|}
-	{ring_dmg2|1|1|100|}
-	{ring_block1|1|1|100|}
 	{ring_atkch1|1|1|100|}
+	{ring_life|1|1|100|}
 	}|};
 {shop_jolnor|{
 	{health_minor2|10|10|100|}
 	{health|10|10|100|}
 	{health_major2|10|10|100|}
-	{ring_dmg1|1|1|100|}
-	{ring_dmg2|1|1|100|}
-	{ring_block1|1|1|100|}
-	{ring_atkch1|1|1|100|}
-	}|};
-{shop_gruil|{
-	{shirt1|1|1|100|}
-	{shirt2|1|1|100|}
-	{gem1|5|5|100|}
-	{gem2|5|5|100|}
-	{gem3|5|5|100|}
-	{ring_dmg5|1|1|100|}
+	{necklace_defender_stone|1|1|100|}
+	{necklace_shield2|1|1|100|}
+	{ring_dmg_3|1|1|100|}
+	{ring_defender|1|1|100|}
 	{ring_dmg6|1|1|100|}
+	{ring_protector|1|1|100|}
 	}|};
-{shop_audir|{{club1|1|1|100|}{club3|1|1|100|}{ironsword0|1|1|100|}{hammer0|1|1|100|}{hammer1|1|1|100|}{dagger0|1|1|100|}{dagger1|1|1|100|}{dagger2|1|1|100|}{shortsword1|1|1|100|}{ironsword1|1|1|100|}{ironsword2|1|1|100|}{broadsword1|1|1|100|}{broadsword2|1|1|100|}{steelsword1|1|1|100|}{axe1|1|1|100|}{axe2|1|1|100|}{armor1|1|1|100|}{armor2|1|1|100|}{armor3|1|1|100|}{shield1|1|1|100|}{shield3|1|1|100|}{shield4|1|1|100|}{shield5|1|1|100|}{boots1|1|1|100|}{boots5|1|1|100|}{hat3|1|1|100|}{hat4|1|1|100|}}|};
-{shop_arambold|{{shirt1|1|1|100|}{shirt2|1|1|100|}{hat1|1|1|100|}{hat2|1|1|100|}{gloves1|1|1|100|}{gloves2|1|1|100|}{gloves3|1|1|100|}{gloves4|1|1|100|}{boots1|1|1|100|}{boots2|1|1|100|}{boots3|1|1|100|}}|};
-{shop_troublemaker|{{dagger1|1|1|100|}{dagger2|1|1|100|}{shirt1|1|1|100|}{shirt2|1|1|100|}{ring1|1|1|100|}{ring2|1|1|100|}{ring_crit1|1|1|100|}{ring_crit2|1|1|100|}{gem1|5|5|100|}{gem2|5|5|100|}{gem3|5|5|100|}}|};
-{shop_dunla|{{gem1|5|5|100|}{gem2|5|5|100|}{gem3|5|5|100|}{ring1|1|1|100|}{ring2|1|1|100|}{gloves1|1|1|100|}{gloves2|1|1|100|}{gloves_grip|1|1|100|}{gloves_fancy|1|1|100|}{dagger1|1|1|100|}{dagger2|1|1|100|}}|};
-{shop_vg_armorer|{{boots1|1|1|100|}{boots2|1|1|100|}{boots3|1|1|100|}{boots5|1|1|100|}{armor1|1|1|100|}{armor2|1|1|100|}{armor3|1|1|100|}{armor_chain1|1|1|100|}{armor_chain2|1|1|100|}{hat3|1|1|100|}{hat4|1|1|100|}{hat_leather1|1|1|100|}{gloves1|1|1|100|}{gloves2|1|1|100|}{gloves3|1|1|100|}{gloves4|1|1|100|}{gloves_attack1|1|1|100|}{gloves_attack2|1|1|100|}}|};
-{shop_vg_smith|{{hammer0|1|1|100|}{hammer1|1|1|100|}{club_wood1|1|1|100|}{club_wood2|1|1|100|}{club1|1|1|100|}{club3|1|1|100|}{ironsword1|1|1|100|}{ironsword2|1|1|100|}{broadsword1|1|1|100|}{broadsword2|1|1|100|}{shield4|1|1|100|}{shield5|1|1|100|}{shield6|1|1|100|}{shield7|1|1|100|}}|};
-{shop_alynndir|{{vial_empty1|10|10|100|}{vial_empty2|10|10|100|}{health|10|10|100|}{milk|10|10|100|}{rat_tail|5|5|100|}{gem2|3|3|5|}{meat|20|20|30|}{hair|5|5|30|}}|};
-
+{shop_talion|{
+	{health_minor2|10|10|100|}
+	{health|10|10|100|}
+	{health_major2|10|10|100|}
+	{necklace_shield1|1|1|100|}
+	{necklace_protector|1|1|100|}
+	{ring_block1|1|1|100|}
+	{ring_guardian|1|1|100|}
+	{ring_dmg5|1|1|100|}
+	}|};
 {shop_fallhaven_potions|{
 	{vial_empty1|10|10|100|}
 	{vial_empty2|10|10|100|}
@@ -302,7 +468,6 @@
 	{radish|5|5|100|}
 	{strawberry|5|5|100|}
 	}|};
-
 {shop_prim_armorer|{
 	{rusted_iron_sword|1|1|100|}
 	{ironsword1|1|1|100|}
@@ -360,6 +525,23 @@
 	{mushroom|5|5|100|}
 	{mead|5|5|100|}
 	}|};
+{shop_gallain|{
+	{meat_cooked|5|5|100|}
+	{bread|5|5|100|}
+	{mead|5|5|100|}
+	}|};
+{shop_grimion|{
+	{meat_cooked|5|5|100|}
+	{carrot|5|5|100|}
+	{mushroom|5|5|100|}
+	{mead|5|5|100|}
+	}|};
+
+{undropped_items|{
+	{health_major|0|0|0|}
+	{heartstone|0|0|0|}
+	}|};
+
 </string>
 
 <string name="droplists_v0610_npcs">
@@ -417,7 +599,6 @@
 {fieldcritter_1|{{gold|0|9|70|}{shell|1|1|30|}}|};
 {fieldcritter_2|{{gold|3|15|70|}{gland|1|1|30|}{ring1|1|1|5|}}|};
 {fieldcritter_3|{{gold|3|17|70|}{gland|1|1|30|}{ring1|1|1|5|}{ring2|1|1|5|}}|};
-{carrioncrawler|{{gold|0|4|70|}{bone|1|3|20|}{boots_sewn|1|1|5|}}|};
 {rivertroll|{{gold|0|70|70|}{bone|3|5|50|}{meat|3|5|30|}{club_fine_wooden|1|1|100|}}|};
 
 {izthiel|{{gold|3|15|70|}{izthiel_claw|1|1|30|}{ring_jinxed1|1|1|5|}{ring2|1|1|5|}}|};
@@ -428,7 +609,7 @@
 {iqhan|{{gold|1|9|70|}{iqhan_pendant|1|1|5|}{shield1|1|1|5|}{dagger0|1|1|5|}}|};
 {iqhan_master|{{gold|1|9|70|}{iqhan_pendant|1|1|5|}{gloves_crude_cloth|1|1|5|}{dagger0|1|1|5|}{health|1|3|5|}}|};
 {iqhan_beast|{{gold|0|1|70|}{chaosreaper|1|1|1/1000|}{health|1|1|5|}}|};
-{iqhan_boss|{{gold|50|100|100|}{iqhan_pendant|1|1|100|}{health|5|7|100|}{ring_polished_combat|1|1|100|}}|};
+{iqhan_boss|{{gold|50|100|100|}{iqhan_pendant|1|1|100|}{dagger_shadow_priests|1|1|100|}{health|5|7|100|}}|};
 
 {gold5|{{gold|5|5|100|}}|};
 {gold25|{{gold|25|25|100|}}|};

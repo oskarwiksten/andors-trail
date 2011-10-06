@@ -113,34 +113,39 @@
 {hair|items_misc:48|Tierhaar|31||1|2|||||||||||||||||||||||||||||||||};
 {insectwing|items_misc:52|Insektenflügel|31||1|3|||||||||||||||||||||||||||||||||};
 {bone|items_misc:44|Knochen|31||1|2|||||||||||||||||||||||||||||||||};
-{eye|items_misc:45|Auge|31||1|6|||||||||||||||||||||||||||||||||};
-{bat_wing|items_misc:46|Fledermausflügel|31||1|2|||||||||||||||||||||||||||||||||};
 {claws|items_misc:47|Klauen|31||1|2|||||||||||||||||||||||||||||||||};
 {shell|items_misc:54|Insektenpanzer|31||1|2|||||||||||||||||||||||||||||||||};
-{feather|items_misc:16|Feder|31||1|6|||||||||||||||||||||||||||||||||};
-{red_feather|items_misc:15|Rote Feder|31||1|11|||||||||||||||||||||||||||||||||};
 {gland|actorconditions_1:60|Giftdrüse|31||1|15|||||||||||||||||||||||||||||||||};
 {rat_tail|items_misc:38|Rattenschwanz|31||1|2|||||||||||||||||||||||||||||||||};
 	</string>
+
+<!--
+	<string name="itemlist_pre0610_unused">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{eye|items_misc:45|Auge|31||1|6|||||||||||||||||||||||||||||||||};
+{bat_wing|items_misc:46|Fledermausflügel|31||1|2|||||||||||||||||||||||||||||||||};
+{feather|items_misc:16|Feder|31||1|6|||||||||||||||||||||||||||||||||};
+{red_feather|items_misc:15|Rote Feder|31||1|11|||||||||||||||||||||||||||||||||};
+{clay|actorconditions_1:9|Lehmklumpen|31||1|1|||||||||||||||||||||||||||||||||};
+{gem6|items_misc:4|Schimmernder Edelstein|31||1|26|||||||||||||||||||||||||||||||||};
+{gem8|actorconditions_1:50|Brilliant|31||1|68|||||||||||||||||||||||||||||||||};
+	</string>
+-->
 	
 	<string name="itemlist_junk">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{clay|actorconditions_1:9|Lehmklumpen|31||1|1|||||||||||||||||||||||||||||||||};
 {rock|items_misc:28|Kleiner Stein|31||1|1|||||||||||||||||||||||||||||||||};
 {gem1|items_misc:0|Glaskristall|31||1|2|||||||||||||||||||||||||||||||||};
 {gem2|items_misc:1|Rubin|31||1|6|||||||||||||||||||||||||||||||||};
 {gem3|items_misc:2|Polierter Edelstein|31||1|8|||||||||||||||||||||||||||||||||};
 {gem4|items_misc:3|Geschnittener Edelstein|31||1|13|||||||||||||||||||||||||||||||||};
 {gem5|items_misc:5|Funkelnder Edelstein|31||1|15|||||||||||||||||||||||||||||||||};
-{gem6|items_misc:4|Schimmernder Edelstein|31||1|26|||||||||||||||||||||||||||||||||};
-{gem8|actorconditions_1:50|Brilliant|31||1|68|||||||||||||||||||||||||||||||||};
 	</string>
 	
 	<string name="itemlist_quest">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {tail_caverat|items_misc:38|Schwanz einer Höhlenratte|31|1|1|0|||||||||||||||||||||||||||||||||};
 {tail_trainingrat|items_misc:38|Kleiner Rattenschwanz|31|1|1|0|||||||||||||||||||||||||||||||||};
-{rest|items_consumables:33|Trank der Wiederherstellung|20|1|1|0||||||||||||||1|99|99|||||||||||||||||};
 {ring_mikhail|items_jewelry:0|Mikhail\'s Ring|7|||15|1|||||10|||||||||||||||||||||||||||};
 {neck_irogotu|items_jewelry:7|Irogotu\'s Halskette|6|3|1|30|1||||||||||5|1|||||||||||||||||||||};
 {ring_gandir|items_jewelry:0|Gandir\'s Ring|31|1|1|0|||||||||||||||||||||||||||||||||};
