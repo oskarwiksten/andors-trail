@@ -81,7 +81,8 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 			if (y < one_third_height) lastTouchPosition_dy = -1;
 			else if (y >= two_thirds_height) lastTouchPosition_dy = 1;
 			
-			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) break;
+			// Minimize the dpad if enabled in options - otherwise attack or move(0, 0)
+			if (isMinimizeable && lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) break;
 			
 			this.inputController.onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
 			return true;

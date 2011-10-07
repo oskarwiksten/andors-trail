@@ -148,6 +148,18 @@ public final class DebugInterface {
 	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "loneford9", "south", 0, 0);
 				}
 			})
+			,new DebugButton("fh", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "fallhaven_ne", "clothes", 0, 0);
+				}
+			})
+			,new DebugButton("rc", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "roadtocarntower1", "left3", 0, 0);
+				}
+			})
     	});
 	}
 
