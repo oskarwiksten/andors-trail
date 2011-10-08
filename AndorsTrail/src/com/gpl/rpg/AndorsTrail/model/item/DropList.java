@@ -40,7 +40,7 @@ public final class DropList {
 	}
 	
 	// Selftest method. Not part of the game logic.
-	public boolean contains(String itemTypeID) {
+	public boolean DEBUG_contains(String itemTypeID) {
 		for (DropItem item : items) {
 			if (item.itemType.id.equals(itemTypeID)) return true;
 		}

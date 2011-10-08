@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
+import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.resource.parsers.MonsterTypeParser;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -48,10 +49,24 @@ public final class MonsterTypeCollection {
 	public void verifyData(WorldContext world) {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		for (MonsterType t : monsterTypesById.values()) {
-    			if (t.phraseID != null && t.phraseID.length() > 0) {
+    			if (t.phraseID != null) {
     				if (!world.conversations.isValidPhraseID(t.phraseID)) {
     					L.log("WARNING: Cannot find phrase \"" + t.phraseID + "\" for MonsterType \"" + t.id + "\".");
     				}
+    			}
+    			
+    			if (t.dropList != null && t.isRespawnable && t.phraseID == null) {
+    				int averageItemDropGold = 0;
+    				for (DropItem item : t.dropList.DEBUG_items) {
+    					averageItemDropGold += item.itemType.baseMarketCost * item.quantity.averagef() * item.chance.current / item.chance.max;
+    				}
+    				
+    				float goldPerExpReward = (float) averageItemDropGold / t.exp;
+    				boolean warn = false;
+    				if (goldPerExpReward > 0.5) warn = true;
+    				else if (averageItemDropGold > 30 && goldPerExpReward > 0.3) warn = true;
+    				
+    				if (warn) L.log("Monster type " + t.id + " rewards " + averageItemDropGold + " gold drop on average, which is a bit high for the exp: " + t.exp + "  (average " + goldPerExpReward + " gold per exp)");
     			}
     		}
     	}

@@ -66,7 +66,7 @@ public final class QuestCollection  {
 				}
     			if (q.showInLog) {
     				if (!hasFinishingEntry) {
-    					L.log("WARNING: Quest \"" + q.questID + "\" is shown in log, but has no progress stage that finished the quest.");
+    					L.log("WARNING: Quest \"" + q.questID + "\" is shown in log, but has no progress stage that finishes the quest.");
     				}
     			}
     		}	

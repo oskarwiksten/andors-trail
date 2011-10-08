@@ -35,7 +35,7 @@ public final class DropListCollection {
 	public boolean verifyExistsDroplistForItem(String itemTypeID) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (DropList d : droplists.values()) {
-				if (d.contains(itemTypeID)) return true;
+				if (d.DEBUG_contains(itemTypeID)) return true;
 			}
 		}
 		return false;
