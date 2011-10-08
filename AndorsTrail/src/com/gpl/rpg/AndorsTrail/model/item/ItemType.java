@@ -54,7 +54,7 @@ public final class ItemType {
 		this.actionType = getActionType(category);
 		this.displayType = displayType;
 		this.hasManualPrice = hasManualPrice;
-		this.baseMarketCost = hasManualPrice ? fixedBaseMarketCost : calculateCost(category, effects_equip, effects_hit);
+		this.baseMarketCost = hasManualPrice ? fixedBaseMarketCost : calculateCost(category, effects_equip, effects_use);
 		this.fixedBaseMarketCost = fixedBaseMarketCost;
 		this.effects_equip = effects_equip;
 		this.effects_use = effects_use;
