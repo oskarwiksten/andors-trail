@@ -2,6 +2,8 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.gpl.rpg.AndorsTrail.R;
@@ -34,6 +36,12 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		for (SkillInfo skill : skills) {
 			if (shouldDisplaySkill(skill, player)) result.add(skill);
 		}
+		Collections.sort(result, new Comparator<SkillInfo>() {
+    		@Override
+			public int compare(SkillInfo a, SkillInfo b) {
+				return a.id - b.id;
+			}
+        });
 		return result;
 	}
 

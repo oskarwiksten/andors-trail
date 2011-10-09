@@ -328,7 +328,12 @@
 
 	<string name="conversationlist_fallhaven_unnmir">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{unnmir|Bonjour.|||{{J\'ai croisé un ivrogne devant la taverne qui m\'a raconté une histoire à propos de vous deux.|unnmir_1|fallhavendrunk:100|||}}|};
+{unnmir||||{
+	{|unnmir_r|nocmar:10|||}
+	{|unnmir_0||||}
+	}|};
+{unnmir_r|Hello again. You should go talk to Nocmar.|||{{N|unnmir_13||||}}|};
+{unnmir_0|Bonjour.|||{{J\'ai croisé un ivrogne devant la taverne qui m\'a raconté une histoire à propos de vous deux.|unnmir_1|fallhavendrunk:100|||}}|};
 {unnmir_1|Ce vieux radoteur de la taverne t\'a raconté notre histoire ?|||{{N|unnmir_2||||}}|};
 {unnmir_2|C\'est toujours la même vieille histoire. Nous voyagions ensemble il y a de cela quelques années.|||{{N|unnmir_3||||}}|};
 {unnmir_3|La grande aventure, tu vois, avec les épées et les sorts.|||{{N|unnmir_4||||}}|};
@@ -346,7 +351,12 @@
 
 	<string name="conversationlist_fallhaven_gaela">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{gaela|Prompte est ma lame. Empoisonnée est ma langue. À moins que ce ne soit le contraire ?|||{{On dirait qu\'il y a beaucoup de voleurs à Fallhaven.|gaela_1||||}}|};
+{gaela||||{
+	{|gaela_r|andor:40|||}
+	{|gaela_0||||}
+	}|};
+{gaela_r|Hello again. I hope you will find what you are looking for.||||};
+{gaela_0|Prompte est ma lame. Empoisonnée est ma langue. À moins que ce ne soit le contraire ?|||{{On dirait qu\'il y a beaucoup de voleurs à Fallhaven.|gaela_1||||}}|};
 {gaela_1|Oui, ils sont très présents ici.|||{{Qu\'y a-t-il d\'autre ?|gaela_2|andor:30|||}}|};
 {gaela_2|J\'ai entendu dire que tu avais aidé Gruil, un compagnon voleur du village de Crossglen.|||{{N|gaela_3||||}}|};
 {gaela_3|J\'ai aussi eu vent que tu recherchais quelqu\'un. Peut-être pourrais-je t\'aider.|||{{N|gaela_4||||}}|};

@@ -329,7 +329,12 @@
 
         <string name="conversationlist_fallhaven_unnmir">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{unnmir|Ciao a tutti.|||{{Drunken story|unnmir_1|fallhavendrunk:100|||}}|};
+{unnmir||||{
+	{|unnmir_r|nocmar:10|||}
+	{|unnmir_0||||}
+	}|};
+{unnmir_r|Hello again. You should go talk to Nocmar.|||{{N|unnmir_13||||}}|};
+{unnmir_0|Ciao a tutti.|||{{Drunken story|unnmir_1|fallhavendrunk:100|||}}|};
 {unnmir_1|Quel vecchio ubriacone alla taverna ti ha raccontato la sua storia?|||{{N|unnmir_2||||}}|};
 {unnmir_2|La stessa vecchia storia. Eravamo abituati a viaggiare insieme qualche anno fa.|||{{N|unnmir_3||||}}|};
 {unnmir_3|Avventure vere...sai, spade e incantesimi.|||{{N|unnmir_4||||}}|};
@@ -347,7 +352,12 @@
 
         <string name="conversationlist_fallhaven_gaela">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{gaela|Veloce è la mia lama. velenosa la mia lingua. O era il contrario?|||{{Ladri|gaela_1||||}}|};
+{gaela||||{
+	{|gaela_r|andor:40|||}
+	{|gaela_0||||}
+	}|};
+{gaela_r|Hello again. I hope you will find what you are looking for.||||};
+{gaela_0|Veloce è la mia lama. velenosa la mia lingua. O era il contrario?|||{{Ladri|gaela_1||||}}|};
 {gaela_1|Si, noi ladri abbiamo una forte presenza a Fallhaven.|||{{Qualcos\'altro?|gaela_2|andor:30|||}}|};
 {gaela_2|Ho sentito che hai aiutato Gruil, un ladro compagn del villaggio di Crossglen.|||{{N|gaela_3||||}}|};
 {gaela_3|Voci dicono che stai cercando qualcuno. Potre essere in grado di aiutarti.|||{{N|gaela_4||||}}|};
@@ -957,7 +967,11 @@
 
         <string name="conversationlist_oluag">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{oluag_1|Ciao. Sono Oluag.|||{{Cosa stai facendo qui attorno a queste cassette?|oluag_2||||}}|};
+{oluag_1||||{
+	{|oluag_grave_16|wrye:80|||}
+	{|oluag_1_1||||}
+	}|};
+{oluag_1_1|Ciao. Sono Oluag.|||{{Cosa stai facendo qui attorno a queste cassette?|oluag_2||||}}|};
 {oluag_2|Oh queste. Non sono nulla. Dimenticale. E la tomba lassù e un\'altra cosa di cui non ti devi preoccupare.|||{{Quale tomba?|oluag_grave_select||||}{Niente, veramente? Suona alquanto sospetto.|oluag_boxes_1||||}}|};
 {oluag_boxes_1|No no, niente di sospetto sicuro. Non sono tipo casse che contenevano robe di contrabbando o cose simili, hah!|||{{E allora riguardo a quella tomba?|oluag_grave_select||||}{Ok allora. Suppongo di non aver visto nulla.|oluag_goodbye||||}}|};
 {oluag_goodbye|Giusto. Arrivederci.||||};

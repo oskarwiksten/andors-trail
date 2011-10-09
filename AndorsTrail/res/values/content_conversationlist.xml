@@ -328,7 +328,12 @@
 
 	<string name="conversationlist_fallhaven_unnmir">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{unnmir|Hi there.|||{{There was a drunk outside the tavern that told me a story about you two.|unnmir_1|fallhavendrunk:100|||}}|};
+{unnmir||||{
+	{|unnmir_r|nocmar:10|||}
+	{|unnmir_0||||}
+	}|};
+{unnmir_r|Hello again. You should go talk to Nocmar.|||{{N|unnmir_13||||}}|};
+{unnmir_0|Hi there.|||{{There was a drunk outside the tavern that told me a story about you two.|unnmir_1|fallhavendrunk:100|||}}|};
 {unnmir_1|That old drunk over at the tavern told you his story did he?|||{{N|unnmir_2||||}}|};
 {unnmir_2|Same old story. We used to travel together a few years back.|||{{N|unnmir_3||||}}|};
 {unnmir_3|Real adventuring you know, swords and spells.|||{{N|unnmir_4||||}}|};
@@ -346,7 +351,12 @@
 
 	<string name="conversationlist_fallhaven_gaela">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{gaela|Swift is my blade. Poisoned is my tongue. Or was it the other way around?|||{{There seems to be a lot of thieves here in Fallhaven.|gaela_1||||}}|};
+{gaela||||{
+	{|gaela_r|andor:40|||}
+	{|gaela_0||||}
+	}|};
+{gaela_r|Hello again. I hope you will find what you are looking for.||||};
+{gaela_0|Swift is my blade. Poisoned is my tongue. Or was it the other way around?|||{{There seems to be a lot of thieves here in Fallhaven.|gaela_1||||}}|};
 {gaela_1|Yes, we thieves have a strong presence here.|||{{Anything more?|gaela_2|andor:30|||}}|};
 {gaela_2|I heard that you helped Gruil, a fellow thief in Crossglen village.|||{{N|gaela_3||||}}|};
 {gaela_3|Word has also reached me that you are looking for someone. I might be able to help you.|||{{N|gaela_4||||}}|};
@@ -956,7 +966,11 @@
 
 	<string name="conversationlist_oluag">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{oluag_1|Hello. I am Oluag.|||{{What are you doing here around these crates?|oluag_2||||}}|};
+{oluag_1||||{
+	{|oluag_grave_16|wrye:80|||}
+	{|oluag_1_1||||}
+	}|};
+{oluag_1_1|Hello. I am Oluag.|||{{What are you doing here around these crates?|oluag_2||||}}|};
 {oluag_2|Oh these. They are nothing. Never mind them. And that grave over there is nothing to worry about either.|||{{What grave?|oluag_grave_select||||}{Nothing, really? This sounds suspicious.|oluag_boxes_1||||}}|};
 {oluag_boxes_1|No no, nothing suspicious at all. It\'s not like they contain any contraband or anything like that, hah!|||{{What was that about a grave?|oluag_grave_select||||}{Ok then. I guess I didn\'t see anything.|oluag_goodbye||||}}|};
 {oluag_goodbye|Right. Goodbye.||||};
@@ -1858,7 +1872,7 @@
 {prim_guard1|What are you looking at? These weapons in the crates over here are only for us guards.||||};
 {prim_guard2|(The guard looks down on you with a condescending look)||||};
 {prim_guard3|Oh, I am so tired. When will we ever get to rest?||||};
-{prim_guard4|Can\'t talk now. I\'m on guard duty. Talk to Guthbered over there.||||};
+{prim_guard4|Can\'t talk now. I\'m on guard duty. If you need help, talk to someone else over there instead.||||};
 {prim_treasury_guard|See these bars? They will hold for almost anything.||||};
 {prim_acolyte|When my training is complete, I will be one of greatest healers around!||||};
 {prim_pupil1|Can\'t you see I\'m trying to read over here? Talk to me in a while and I might be interested.||||};
@@ -2381,7 +2395,7 @@
 	{You mentioned the Duleian road, what\'s that?|minarra_first_6_1||||}
 	{You mentioned some problems in Loneford, what problems were you referring to?|cr_loneford_st_1||||}
 	}|};
-{minarra_first_5|I handle the equipment storage for us guards here in the Crossroads guardhose, and I keep a lookout of the surrounding areas.|||{
+{minarra_first_5|I handle the equipment storage for us guards here in the Crossroads guardhouse, and I keep a lookout of the surrounding areas.|||{
 	{Do you have anything to trade?|minarra_trade_rej||||}
 	{Have you seen anything interesting lately?|minarra_first_2||||}
 	}|};
@@ -2712,7 +2726,7 @@
 	{Is there any place I can rest here?|gallain_rest_1||||}
 	{What is this place?|gallain_cr_1||||}
 	}|};
-{gallain_cr_1|As I said, this is the Crossroads guardhouse. The guards from Geygard are using this place as a place to rest and gear up.|||{{N|gallain_cr_2||||}}|};
+{gallain_cr_1|As I said, this is the Crossroads guardhouse. The guards from Feygard are using this place as a place to rest and gear up.|||{{N|gallain_cr_2||||}}|};
 {gallain_cr_2|Because of this, it is also a safe haven for merchants travelling through here. And we get at lot of those.|||{{N|gallain_1||||}}|};
 {gallain_trade_1|Here, have a look.|||{{Trade|S||||}}|};
 {gallain_rest_1|The guards have set up some beds downstairs. Go check with them.|||{{N|gallain_1||||}}|};
@@ -2848,7 +2862,7 @@
 {landa_19|Now, get out of here kid, before anyone sees you talking to me. *Looks around anxiously*|||{
 	{Thank you Landa. You secret is safe with me.|X||||}
 	{Thank you Landa. I\'ll consider it.|X||||}
-	{Are you done? Phew, I though you were never going to stop takling.|X||||}
+	{Are you done? Phew, I thought you were never going to stop takling.|X||||}
 	}|};
 {landa_already_1|You again? I already told you. Get out of here before anyone sees you talking to me.||||};
 	</string>
@@ -3106,7 +3120,7 @@
 	{I have some Izthiel claws to sell you.|gauward_sell_1|nondisplay:20|||}
 	}|};
 {gauward_1|This place used to be a safe house for travellers between Loneford and Brimhaven, before they had finished the road between the villages.|||{{N|gauward_2||||}}|};
-{gauward_2|But nowadays, noone rarely comes here - because of those cursed creatures from the river.|||{{N|gauward_3||||}}|};
+{gauward_2|But nowadays, no one rarely comes here - because of those cursed creatures from the river.|||{{N|gauward_3||||}}|};
 {gauward_3|Izthiel, they call them.|||{{N|gauward_4||||}}|};
 {gauward_4|Ack, if it wasn\'t for those things out there, I am sure a lof of people would come by here more often.|||{
 	{Would you like me to kill the creatures for you?|gauward_5||||}
