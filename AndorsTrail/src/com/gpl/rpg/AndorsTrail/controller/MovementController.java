@@ -12,7 +12,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
@@ -242,7 +242,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
 
 	public static void loadCurrentTileMap(Resources res, WorldContext world) {
-		world.model.currentTileMap = TMXMapReader.readLayeredTileMap(res, world.tileStore, world.model.currentMap);
+		world.model.currentTileMap = TMXMapTranslator.readLayeredTileMap(res, world.tileStore, world.model.currentMap);
 	}
 	
 	private int movementDx;

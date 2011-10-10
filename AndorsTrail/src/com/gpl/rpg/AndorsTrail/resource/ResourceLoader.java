@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.resource;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapReader;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.DropListParser;
@@ -135,7 +135,7 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load maps
-        TMXMapReader mapReader = new TMXMapReader();
+        TMXMapTranslator mapReader = new TMXMapTranslator();
         final TypedArray mapsToLoad = r.obtainTypedArray(mapsResourceId);
         for (int i = 0; i < mapsToLoad.length(); ++i) {
         	final int mapResourceId = mapsToLoad.getResourceId(i, -1);

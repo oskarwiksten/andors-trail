@@ -21,11 +21,11 @@
 
 	<string name="droplists_crossglen_outside">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
-{cavemonster|{{gold|4|12|70|}{gem2|1|1|25|}{hammer0|1|1|5|}{health_minor2|1|1|25|}}|};
+{cavemonster|{{gold|4|12|70|}{gem2|1|1|25|}{hammer0|1|1|5|}{health_minor|1|1|25|}}|};
 {snake|{{gold|3|6|70|}{meat|1|1|30|}{gland|1|1|5|}}|};
 {haunt|{{vial_empty1|1|1|25|}{gem1|1|1|25|}}|};
 {cavecritter|{{gold|4|8|70|}{gem1|1|1|25|}{claws|1|1|30|}}|};
-{lich1|{{gold|5|15|70|}{gem2|1|1|25|}{health_minor2|1|1|25|}}|};
+{lich1|{{gold|5|15|70|}{gem2|1|1|25|}{health_minor|1|1|25|}}|};
 {irogotu|{{neck_irogotu|1|1|100|}{ring_gandir|1|1|100|}{health|1|1|100|}}|};
 {canineboss|{{gold|7|10|70|}{hair|1|1|30|}{gem1|1|1|25|}{meat|1|1|30|}{boots1|1|1|25|}}|};
 {snakemaster|{{gold|9|9|70|}{dagger_venom|1|1|100|}{gem3|1|1|100|}{health|1|1|100|}}|};
@@ -35,7 +35,7 @@
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {catacombrat|{{gold|1|5|70|}{gem1|1|1|25|}{vial_empty1|1|1|25|}}|};
 {skeleton|{{gold|16|23|70|}{gem2|1|1|25|}{health|1|1|25|}{bone|1|1|30|}}|};
-{luthor|{{gold|1|5|70|}{gem1|1|1|100|}{key_luthor|1|1|100|}{health_major2|1|1|100|}}|};
+{luthor|{{gold|1|5|70|}{gem1|1|1|100|}{key_luthor|1|1|100|}{health_major|1|1|100|}}|};
 {shop_thoronir|{{bonemeal_potion|10|10|100|}}|};
 {larcal|{{gold|4|12|70|}{club1|1|1|100|}{calomyran_secrets|1|1|100|}{milk|1|1|100|}}|};
 {catacombguard|{{gold|4|12|70|}{gem2|1|1|25|}{health|1|1|25|}{vial_empty2|1|1|25|}{gloves1|1|1|5|}}|};
@@ -143,7 +143,7 @@
 {kazaul_1|{
 	{gold|3|19|70|}
 	{gem4|1|1|10|}
-	{health_minor2|1|1|10|}
+	{health_minor|1|1|10|}
 	{rock|1|1|5|}
 	}|};
 {kazaul_2|{
@@ -156,7 +156,7 @@
 {restless_dead_1|{
 	{gold|20|29|70|}
 	{gem3|1|1|10|}
-	{health_minor2|1|1|10|}
+	{health_minor|1|1|10|}
 	{bone|1|1|10|}
 }|};
 {restless_dead_2|{
@@ -191,13 +191,13 @@
 	{gold|1|30|70|}
 	{bone|1|1|10|}
 	{vial_empty1|1|1|25|}
-	{health_minor2|1|1|10|}
+	{health_minor|1|1|10|}
 }|};
 {wyrm_2|{
 	{gold|1|40|70|}
 	{bone|1|1|10|}
 	{vial_empty1|1|1|25|}
-	{health_minor2|1|2|10|}
+	{health_minor|1|2|10|}
 }|};
 {wyrm_3|{
 	{gold|1|60|70|}
@@ -211,7 +211,7 @@
 	{bone|1|2|10|}
 	{vial_empty1|1|1|25|}
 	{pot_poison_weak|1|3|5|}
-	{health_minor2|1|2|10|}
+	{health_minor|1|2|10|}
 	{elytharan_redeemer|1|1|1/10000|}
 }|};
 {aulaeth|{
@@ -423,7 +423,7 @@
 	{ring_villain|1|1|100|}
 	}|};
 {shop_tharal|{
-	{health_minor|10|10|100|}
+	{health_minor2|10|10|100|}
 	{health|10|10|100|}
 	{health_major2|10|10|100|}
 	{necklace_shield_0|1|1|100|}
