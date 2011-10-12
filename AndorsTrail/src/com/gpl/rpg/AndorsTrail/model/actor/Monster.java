@@ -30,12 +30,12 @@ public final class Monster extends Actor {
 		this.monsterTypeID = monsterType.id;
 		this.position.set(position);
 		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
-		this.nextPosition = new CoordRect(new Coord(), traits.tileSize);
+		this.nextPosition = new CoordRect(new Coord(), actorTraits.tileSize);
 		this.phraseID = monsterType.phraseID;
 		this.exp = monsterType.exp;
 		this.dropList = monsterType.dropList;
 	}
-	
+
 	public void createLoot(Loot container, Player player) {
 		int exp = this.exp;
 		exp += exp * player.getSkillLevel(SkillCollection.SKILL_MORE_EXP) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
@@ -57,6 +57,24 @@ public final class Monster extends Actor {
 			monsterTypeId = monsterTypeId.replace(' ', '_').replace("\\'", "").toLowerCase();
 		}
 		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
+		
+		if (fileversion < 25) return readFromParcel_pre_v0610(src, fileversion, monsterType);
+		
+		return new Monster(src, world, fileversion, monsterType);
+	}
+
+	public Monster(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
+		super(src, world, fileversion, false, monsterType);
+		this.monsterTypeID = monsterType.id;
+		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
+		this.nextPosition = new CoordRect(new Coord(), actorTraits.tileSize);
+		this.phraseID = monsterType.phraseID;
+		this.exp = monsterType.exp;
+		this.dropList = monsterType.dropList;
+		this.forceAggressive = src.readBoolean();
+	}
+
+	private static Monster readFromParcel_pre_v0610(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
 		Coord position = new Coord(src, fileversion);
 		Monster m = new Monster(monsterType, position);
 		m.ap.current = src.readInt();
@@ -66,12 +84,10 @@ public final class Monster extends Actor {
 		}
 		return m;
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeUTF(monsterTypeID);
-		position.writeToParcel(dest, flags);
-		dest.writeInt(ap.current);
-		dest.writeInt(health.current);
+		super.writeToParcel(dest, flags);
 		dest.writeBoolean(forceAggressive);
 	}
 }

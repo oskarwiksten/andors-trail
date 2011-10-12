@@ -14,10 +14,10 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.AttackResult;
+import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
-import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
@@ -172,7 +172,7 @@ public final class CombatController {
 	private void executeAttack() {
 		context.effectController.waitForCurrentEffect();
 		
-		if (!useAPs(model.player.traits.attackCost)) return;
+		if (!useAPs(model.player.combatTraits.attackCost)) return;
 		Monster target = model.uiSelections.selectedMonster;
 			
 		AttackResult attack = playerAttacks(model, target);
@@ -180,7 +180,7 @@ public final class CombatController {
 		if (attack.isHit) {
 			String msg;
 			
-			final String monsterName = target.traits.name;
+			final String monsterName = target.actorTraits.name;
 			if (attack.isCriticalHit) {
 				msg = r.getString(R.string.combat_result_herohitcritical, monsterName, attack.damage);
 			} else {
@@ -241,8 +241,8 @@ public final class CombatController {
 
 	private void maybeAutoEndTurn() {
 		if (model.player.ap.current < model.player.useItemCost
-			&& model.player.ap.current < model.player.traits.attackCost
-			&& model.player.ap.current < model.player.traits.moveCost) {
+			&& model.player.ap.current < model.player.combatTraits.attackCost
+			&& model.player.ap.current < model.player.actorTraits.moveCost) {
 			endPlayerTurn();
 		}
 	}
@@ -250,7 +250,7 @@ public final class CombatController {
 	private void executeCombatMove(final Coord dest) {
 		if (model.uiSelections.selectedMonster != null) return;
 		if (dest == null) return;
-		if (!useAPs(model.player.traits.moveCost)) return;
+		if (!useAPs(model.player.actorTraits.moveCost)) return;
 
 		int fleeChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
 		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
@@ -299,7 +299,7 @@ public final class CombatController {
 
 	private Monster determineNextMonster(Monster previousMonster) {
 		if (previousMonster != null) {
-			if (previousMonster.useAPs(previousMonster.traits.attackCost)) return previousMonster;
+			if (previousMonster.useAPs(previousMonster.combatTraits.attackCost)) return previousMonster;
 		}
 		
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
@@ -307,7 +307,7 @@ public final class CombatController {
 				if (!m.isAgressive()) continue;
 				
 				if (m.rectPosition.isAdjacentTo(model.player.position)) {
-					if (m.useAPs(m.traits.attackCost)) return m;
+					if (m.useAPs(m.combatTraits.attackCost)) return m;
 				}
 			}
 		}
@@ -327,7 +327,7 @@ public final class CombatController {
 		context.mainActivity.combatview.updateTurnInfo(currentActiveMonster);
 		Resources r = context.mainActivity.getResources();
 		AttackResult attack = monsterAttacks(model, currentActiveMonster);
-		String monsterName = currentActiveMonster.traits.name;
+		String monsterName = currentActiveMonster.actorTraits.name;
 		if (attack.isHit) {
 			startAttackEffect(attack, model.player.position);
 			if (attack.isCriticalHit) {
@@ -368,31 +368,31 @@ public final class CombatController {
     	context.mainActivity.updateStatus();
 	}
 	
-	private static float getAverageDamagePerHit(ActorTraits attacker, ActorTraits target) {
-		float result = (float) (getAttackHitChance(attacker, target)) * attacker.damagePotential.average() / 100;
-		result += (float) attacker.criticalChance * result * attacker.criticalMultiplier / 100;
-		result -= target.damageResistance;
+	private static float getAverageDamagePerHit(Actor attacker, Actor target) {
+		float result = (float) (getAttackHitChance(attacker.combatTraits, target.combatTraits)) * attacker.combatTraits.damagePotential.average() / 100;
+		result += (float) attacker.combatTraits.criticalChance * result * attacker.combatTraits.criticalMultiplier / 100;
+		result -= target.combatTraits.damageResistance;
 		return result;
 	}
-	private static float getAverageDamagePerTurn(ActorTraits attacker, ActorTraits target) {
+	private static float getAverageDamagePerTurn(Actor attacker, Actor target) {
 		return getAverageDamagePerHit(attacker, target) * attacker.getAttacksPerTurn();
 	}
-	private static int getTurnsToKillTarget(ActorTraits attacker, ActorTraits target) {
-		if (attacker.hasCriticalAttacks()) {
-			if (attacker.damagePotential.max * attacker.criticalMultiplier <= target.damageResistance) return 999;
+	private static int getTurnsToKillTarget(Actor attacker, Actor target) {
+		if (attacker.combatTraits.hasCriticalAttacks()) {
+			if (attacker.combatTraits.damagePotential.max * attacker.combatTraits.criticalMultiplier <= target.combatTraits.damageResistance) return 999;
 		} else {
-			if (attacker.damagePotential.max <= target.damageResistance) return 999;
+			if (attacker.combatTraits.damagePotential.max <= target.combatTraits.damageResistance) return 999;
 		}
 		
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);
 		if (averageDamagePerTurn <= 0) return 100;
-		return (int) Math.ceil(target.maxHP / averageDamagePerTurn);
+		return (int) Math.ceil(target.actorTraits.maxHP / averageDamagePerTurn);
 	}
 	public static int getMonsterDifficulty(WorldContext world, Monster monster) {
 		// returns [0..100) . 100 == easy.
-		int turnsToKillMonster = getTurnsToKillTarget(world.model.player.traits, monster.traits);
+		int turnsToKillMonster = getTurnsToKillTarget(world.model.player, monster);
 		if (turnsToKillMonster >= 999) return 0;
-		int turnsToKillPlayer = getTurnsToKillTarget(monster.traits, world.model.player.traits);
+		int turnsToKillPlayer = getTurnsToKillTarget(monster, world.model.player);
 		int result = 50 + (turnsToKillPlayer - turnsToKillMonster) * 2;
 		if (result <= 1) return 1;
 		else if (result > 100) return 100;
@@ -411,25 +411,25 @@ public final class CombatController {
 	private static final int n = 50;
 	private static final int F = 40;
 	private static final float two_divided_by_PI = (float) (2f / Math.PI);
-	private static int getAttackHitChance(final ActorTraits attacker, final ActorTraits target) {
+	private static int getAttackHitChance(final CombatTraits attacker, final CombatTraits target) {
 		final int c = attacker.attackChance - target.blockChance;
 		// (2/pi)*atan(..) will vary from -1 to +1 .
 		return (int) (50 * (1 + two_divided_by_PI * (float)Math.atan((float)(c-n) / F)));
 	}
 	
 	private AttackResult attack(final Actor attacker, final Actor target) {
-		int hitChance = getAttackHitChance(attacker.traits, target.traits);
+		int hitChance = getAttackHitChance(attacker.combatTraits, target.combatTraits);
 		if (!Constants.roll100(hitChance)) return AttackResult.MISS;
 		
-		int damage = Constants.rollValue(attacker.traits.damagePotential);
+		int damage = Constants.rollValue(attacker.combatTraits.damagePotential);
 		boolean isCriticalHit = false;
-		if (attacker.traits.hasCriticalAttacks()) {
-			isCriticalHit = Constants.roll100(attacker.traits.criticalChance);
+		if (attacker.combatTraits.hasCriticalAttacks()) {
+			isCriticalHit = Constants.roll100(attacker.combatTraits.criticalChance);
 			if (isCriticalHit) {
-				damage *= attacker.traits.criticalMultiplier;
+				damage *= attacker.combatTraits.criticalMultiplier;
 			}
 		}
-		damage -= target.traits.damageResistance;
+		damage -= target.combatTraits.damageResistance;
 		if (damage < 0) damage = 0;
 		target.health.subtract(damage, false);
 		
@@ -439,9 +439,9 @@ public final class CombatController {
 	}
 
 	private void applyAttackHitStatusEffects(Actor attacker, Actor target) {
-		if (attacker.traits.onHitEffects == null) return;
+		if (attacker.actorTraits.onHitEffects == null) return;
 		
-		for (ItemTraits_OnUse e : attacker.traits.onHitEffects) {
+		for (ItemTraits_OnUse e : attacker.actorTraits.onHitEffects) {
 			context.actorStatsController.applyUseEffect(attacker, target, e);
 		}
 	}

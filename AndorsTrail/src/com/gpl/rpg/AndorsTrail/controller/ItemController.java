@@ -110,8 +110,8 @@ public final class ItemController {
 			if (weapon.effects_equip != null) {
 				CombatTraits weaponTraits = weapon.effects_equip.combatProficiency;
 				if (weaponTraits != null) {
-					player.traits.attackCost = weaponTraits.attackCost;
-					player.traits.criticalMultiplier = weaponTraits.criticalMultiplier;
+					player.combatTraits.attackCost = weaponTraits.attackCost;
+					player.combatTraits.criticalMultiplier = weaponTraits.criticalMultiplier;
 				}
 			}
 		}
@@ -140,9 +140,9 @@ public final class ItemController {
 		if (effects != null) {
 			ItemTraits_OnUse[] effects_ = new ItemTraits_OnUse[effects.size()];
 			effects_ = effects.toArray(effects_);
-			player.traits.onHitEffects = effects_;
+			player.actorTraits.onHitEffects = effects_;
 		} else {
-			player.traits.onHitEffects = null;
+			player.actorTraits.onHitEffects = null;
 		}
 	}
 	

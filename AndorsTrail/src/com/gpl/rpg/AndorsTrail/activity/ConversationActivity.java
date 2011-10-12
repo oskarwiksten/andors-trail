@@ -242,8 +242,8 @@ public final class ConversationActivity extends Activity {
     	ConversationStatement s = new ConversationStatement();
     	if (displayActors) {
     		assert(actor != null);
-	    	s.iconID = actor.traits.iconID;
-	    	s.actorName = actor.traits.name;
+	    	s.iconID = actor.actorTraits.iconID;
+	    	s.actorName = actor.actorTraits.name;
     	} else {
     		s.iconID = ConversationStatement.NO_ICON;
     	}

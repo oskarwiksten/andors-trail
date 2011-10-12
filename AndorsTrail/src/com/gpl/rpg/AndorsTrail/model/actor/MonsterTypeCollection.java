@@ -15,6 +15,7 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class MonsterTypeCollection {
 	private final HashMap<String, MonsterType> monsterTypesById = new HashMap<String, MonsterType>();
+	public final HashMap<String, MonsterType> DEBUG_monsterTypesById = monsterTypesById;
 	
 	public MonsterType getMonsterType(String id) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {

@@ -143,8 +143,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
 	private void updateTraits() {
         heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.inventory.gold));
-        heroinfo_stats_attack.setText(ItemType.describeAttackEffect(player.traits));
-        heroinfo_stats_defense.setText(ItemType.describeBlockEffect(player.traits));
+        heroinfo_stats_attack.setText(ItemType.describeAttackEffect(player.combatTraits));
+        heroinfo_stats_defense.setText(ItemType.describeBlockEffect(player.combatTraits));
     }
 
     private void updateWorn() {

@@ -9,7 +9,7 @@ import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
-public class ActorTraits extends CombatTraits {
+public class ActorTraits {
 	public static final int STAT_ACTOR_MAX_HP = 0;
 	public static final int STAT_ACTOR_MAX_AP = 1;
 	public static final int STAT_ACTOR_MOVECOST = 2;
@@ -34,14 +34,12 @@ public class ActorTraits extends CombatTraits {
 			, int standardMoveCost
 			, ItemTraits_OnUse[] onHitEffects
 			) {
-		super(baseCombatTraits);
 		this.iconID = iconID;
 		this.tileSize = tileSize;
 		this.baseCombatTraits = baseCombatTraits;
 		this.baseMoveCost = standardMoveCost;
 		this.onHitEffects = onHitEffects;
 	}
-	public int getAttacksPerTurn() { return getAttacksPerTurn(maxAP); }
 	public int getMovesPerTurn() {
 		return (int) Math.floor(maxAP / moveCost);
 	}
@@ -59,7 +57,6 @@ public class ActorTraits extends CombatTraits {
 	// ====== PARCELABLE ===================================================================
 
 	public ActorTraits(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, fileversion);
 		this.iconID = src.readInt();
 		this.tileSize = new Size(src, fileversion);
 		this.maxAP = src.readInt();
@@ -75,7 +72,6 @@ public class ActorTraits extends CombatTraits {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		super.writeToParcel(dest, flags);
 		dest.writeInt(iconID);
 		tileSize.writeToParcel(dest, flags);
 		dest.writeInt(maxAP);

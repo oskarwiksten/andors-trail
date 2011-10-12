@@ -56,13 +56,13 @@ public final class Player extends Actor {
 		combat.blockChance = 0;
 		combat.damageResistance = 0;
 
-		traits.baseCombatTraits.set(combat);
+		actorTraits.baseCombatTraits.set(combat);
 		
-		traits.maxAP = 10;
-		traits.maxHP = 25;
+		actorTraits.maxAP = 10;
+		actorTraits.maxHP = 25;
 		
-		traits.name = name;
-		traits.moveCost = DEFAULT_PLAYER_MOVECOST;
+		actorTraits.name = name;
+		actorTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
 		useItemCost = 5;
 		reequipCost = 5;
 
@@ -163,7 +163,7 @@ public final class Player extends Actor {
 	// ====== PARCELABLE ===================================================================
 
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion, true);
+		super(src, world, fileversion, true, null);
 		this.lastPosition = new Coord(src, fileversion);
 		this.nextPosition = new Coord(src, fileversion);
 		this.level = src.readInt();
@@ -234,7 +234,7 @@ public final class Player extends Actor {
 			useItemCost = 5;
 			health.max += 5;
 			health.current += 5;
-			traits.maxHP += 5;
+			actorTraits.maxHP += 5;
 		}
 
 		if (fileversion <= 13) return;

@@ -94,15 +94,15 @@ public final class Savegames {
 		return new File(root, Constants.FILENAME_SAVEGAME_DIRECTORY);
     }
 	
-	private static void saveWorld(WorldContext world, OutputStream outStream, String displayInfo) throws IOException {
+	public static void saveWorld(WorldContext world, OutputStream outStream, String displayInfo) throws IOException {
     	DataOutputStream dest = new DataOutputStream(outStream);
     	final int flags = 0;
-    	FileHeader.writeToParcel(dest, world.model.player.traits.name, displayInfo);
+    	FileHeader.writeToParcel(dest, world.model.player.actorTraits.name, displayInfo);
     	world.maps.writeToParcel(dest, flags);
     	world.model.writeToParcel(dest, flags);
     	dest.close();
     }
-    private static int loadWorld(WorldContext world, InputStream inState) throws IOException {
+    public static int loadWorld(WorldContext world, InputStream inState) throws IOException {
     	DataInputStream src = new DataInputStream(inState);
     	final FileHeader header = new FileHeader(src);
     	if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
@@ -176,7 +176,7 @@ public final class Savegames {
 
 		public FileHeader(DataInputStream src) throws IOException {
 			int fileversion = src.readInt();
-	    	if (fileversion == 11) fileversion = 5; // Fileversion 5 had no version identifier, but the first byte was 11.
+			if (fileversion == 11) fileversion = 5; // Fileversion 5 had no version identifier, but the first byte was 11.
 	    	this.fileversion = fileversion;
 	    	if (fileversion >= 14) { // Before fileversion 14 (0.6.7), we had no file header.
 	    		this.playerName = src.readUTF();

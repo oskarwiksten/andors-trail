@@ -6,13 +6,15 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class Actor {
-	public final ActorTraits traits;
+	public final ActorTraits actorTraits;
+	public final CombatTraits combatTraits;
 	public final Range ap;
 	public final Range health;
 	public final Coord position;
@@ -20,14 +22,17 @@ public class Actor {
 	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
 	public final boolean isPlayer;
 	
-	public Actor(ActorTraits traits, boolean isPlayer) {
-		this.traits = traits;
-		this.ap = new Range(traits.maxAP, traits.maxAP);
-		this.health = new Range(traits.maxHP, traits.maxHP);
+	public Actor(ActorTraits actorTraits, boolean isPlayer) {
+		this.combatTraits = new CombatTraits(actorTraits.baseCombatTraits);
+		this.actorTraits = actorTraits;
+		this.ap = new Range(actorTraits.maxAP, actorTraits.maxAP);
+		this.health = new Range(actorTraits.maxHP, actorTraits.maxHP);
 		this.position = new Coord();
-		this.rectPosition = new CoordRect(position, traits.tileSize);
+		this.rectPosition = new CoordRect(position, actorTraits.tileSize);
 		this.isPlayer = isPlayer;
 	}
+	
+	public int getAttacksPerTurn() { return combatTraits.getAttacksPerTurn(actorTraits.maxAP); }
 	
 	public boolean isDead() {
 		return health.current <= 0;
@@ -53,22 +58,31 @@ public class Actor {
 	}
 	
 	public void resetStatsToBaseTraits() {
-		traits.set(traits.baseCombatTraits);
-		health.set(traits.maxHP, health.current);
-		ap.set(traits.maxAP, ap.current);
-		traits.moveCost = traits.baseMoveCost;
+		combatTraits.set(actorTraits.baseCombatTraits);
+		health.set(actorTraits.maxHP, health.current);
+		ap.set(actorTraits.maxAP, ap.current);
+		actorTraits.moveCost = actorTraits.baseMoveCost;
 	}
 
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer) throws IOException {
+	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, ActorTraits actorTraits) throws IOException {
 		this.isPlayer = isPlayer;
-		this.traits = new ActorTraits(src, world, fileversion);
+		
+		CombatTraits combatTraits = null;
+		boolean readCombatTraits = true;
+		if (fileversion >= 25) readCombatTraits = src.readBoolean();
+		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
+		
+		this.actorTraits = isPlayer ? new ActorTraits(src, world, fileversion) : actorTraits;
+		if (!readCombatTraits) combatTraits = new CombatTraits(this.actorTraits.baseCombatTraits);
+		this.combatTraits = combatTraits;
+		
 		this.ap = new Range(src, fileversion);
 		this.health = new Range(src, fileversion);
 		this.position = new Coord(src, fileversion);
-		this.rectPosition = new CoordRect(position, traits.tileSize);
+		this.rectPosition = new CoordRect(position, this.actorTraits.tileSize);
 		if (fileversion <= 16) return;
 		final int n = src.readInt();
 		for(int i = 0; i < n ; ++i) {
@@ -77,7 +91,13 @@ public class Actor {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		traits.writeToParcel(dest, flags);
+		if (this.combatTraits.equals(actorTraits.baseCombatTraits)) {
+			dest.writeBoolean(false);
+		} else {
+			dest.writeBoolean(true);
+			combatTraits.writeToParcel(dest, flags);
+		}
+		if (isPlayer) actorTraits.writeToParcel(dest, flags);
 		ap.writeToParcel(dest, flags);
 		health.writeToParcel(dest, flags);
 		position.writeToParcel(dest, flags);

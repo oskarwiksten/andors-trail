@@ -44,6 +44,17 @@ public class CombatTraits {
 		this.damageResistance = copy.damageResistance;
 	}
 	
+	public boolean equals(CombatTraits other) {
+		return 
+			this.attackCost == other.attackCost
+			&& this.attackChance == other.attackChance
+			&& this.criticalChance == other.criticalChance
+			&& this.criticalMultiplier == other.criticalMultiplier
+			&& this.damagePotential.equals(other.damagePotential)
+			&& this.blockChance == other.blockChance
+			&& this.damageResistance == other.damageResistance;
+	}
+	
 	public boolean hasAttackChanceEffect() { return attackChance != 0; }
 	public boolean hasAttackDamageEffect() { return damagePotential.max != 0; }
 	public boolean hasBlockEffect() { return blockChance != 0; }

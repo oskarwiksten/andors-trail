@@ -9,7 +9,6 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
-import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -88,29 +87,30 @@ public class ActorStatsController {
 	public static void applyAbilityEffects(Actor actor, AbilityModifierTraits effects, boolean isWeapon, int magnitude) {
 		if (effects == null) return;
 		
-		ActorTraits traits = actor.traits;
+		CombatTraits actorCombatTraits = actor.combatTraits;
 		
 		actor.health.addToMax(effects.maxHPBoost * magnitude);
 		actor.ap.addToMax(effects.maxAPBoost * magnitude);
-		traits.moveCost += (effects.moveCostPenalty * magnitude);
+		actor.actorTraits.moveCost += (effects.moveCostPenalty * magnitude);
 		
 		CombatTraits combatTraits = effects.combatProficiency;
 		if (combatTraits != null) {
 			if (!isWeapon) { // For weapons, these stats are modified elsewhere (since they are not cumulative)
-				traits.attackCost += (combatTraits.attackCost * magnitude);
-				traits.criticalMultiplier += (combatTraits.criticalMultiplier * magnitude);
+				actorCombatTraits.attackCost += (combatTraits.attackCost * magnitude);
+				actorCombatTraits.criticalMultiplier += (combatTraits.criticalMultiplier * magnitude);
 			}
-			traits.attackChance += (combatTraits.attackChance * magnitude);
-			traits.criticalChance += (combatTraits.criticalChance * magnitude);
-			traits.damagePotential.add(combatTraits.damagePotential.current * magnitude, true);
-			traits.damagePotential.max += (combatTraits.damagePotential.max * magnitude);
-			traits.blockChance += (combatTraits.blockChance * magnitude);
-			traits.damageResistance += (combatTraits.damageResistance * magnitude);
+			actorCombatTraits.attackChance += (combatTraits.attackChance * magnitude);
+			actorCombatTraits.criticalChance += (combatTraits.criticalChance * magnitude);
+			actorCombatTraits.damagePotential.add(combatTraits.damagePotential.current * magnitude, true);
+			actorCombatTraits.damagePotential.max += (combatTraits.damagePotential.max * magnitude);
+			actorCombatTraits.blockChance += (combatTraits.blockChance * magnitude);
+			actorCombatTraits.damageResistance += (combatTraits.damageResistance * magnitude);
 		}
 		
-		if (traits.attackCost <= 0) traits.attackCost = 1;
-		if (traits.attackChance < 0) traits.attackChance = 0;
-		if (traits.moveCost <= 0) traits.moveCost = 1;
+		if (actorCombatTraits.attackCost <= 0) actorCombatTraits.attackCost = 1;
+		if (actorCombatTraits.attackChance < 0) actorCombatTraits.attackChance = 0;
+		if (actor.actorTraits.moveCost <= 0) actor.actorTraits.moveCost = 1;
+		if (actorCombatTraits.damagePotential.max < 0) actorCombatTraits.damagePotential.set(0, 0);
 	}
 	
 	public static void recalculatePlayerCombatTraits(Player player) { recalculateActorCombatTraits(player); }

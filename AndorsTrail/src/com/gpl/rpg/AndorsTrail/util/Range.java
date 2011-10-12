@@ -16,6 +16,10 @@ public final class Range {
 		this.current = current;
 	}
 	
+	public boolean equals(Range r) {
+		return max == r.max && current == r.current;
+	}
+	
 	public void set(Range r) {
 		this.max = r.max;
 		this.current = r.current;

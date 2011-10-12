@@ -103,12 +103,10 @@
 				android:id="@+id/heroinfo_currentconditions_title"
 				android:layout_marginTop="@dimen/section_margin"
 				/>
-			<LinearLayout
+			<com.gpl.rpg.AndorsTrail.view.ActorConditionList
 				android:id="@+id/heroinfo_currentconditions"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:orientation="vertical"
-				android:gravity="left"
 				/>
 			
 			<TextView

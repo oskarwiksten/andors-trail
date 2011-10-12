@@ -64,7 +64,7 @@ public final class StatusView extends RelativeLayout {
 		expBar.init(R.drawable.ui_progress_exp, R.string.status_exp);
         
 		levelupDrawable = new LayerDrawable(new Drawable[] {
-				new BitmapDrawable(world.tileStore.getBitmap(player.traits.iconID))
+				new BitmapDrawable(world.tileStore.getBitmap(player.actorTraits.iconID))
 				,new BitmapDrawable(world.tileStore.getBitmap(TileStore.iconID_moveselect))
 		});
 		
@@ -95,7 +95,7 @@ public final class StatusView extends RelativeLayout {
 		if (canLevelUp) {
 			heroImage.setImageDrawable(levelupDrawable);
 		} else {
-			heroImage.setImageBitmap(world.tileStore.getBitmap(player.traits.iconID));			
+			heroImage.setImageBitmap(world.tileStore.getBitmap(player.actorTraits.iconID));			
 		}
 	}
 

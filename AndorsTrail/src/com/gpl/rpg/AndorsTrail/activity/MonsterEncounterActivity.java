@@ -37,13 +37,13 @@ public final class MonsterEncounterActivity extends Activity {
         CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(world, monster));
 
         TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
-        tv.setText(monster.traits.name);
+        tv.setText(monster.actorTraits.name);
         
         tv = (TextView) findViewById(R.id.monsterencounter_description);
         tv.setText(getString(R.string.dialog_monsterencounter_message, difficulty));
 
         ImageView iw = (ImageView) findViewById(R.id.monsterencounter_image);
-        iw.setImageBitmap(world.tileStore.getBitmap(monster.traits.iconID));
+        iw.setImageBitmap(world.tileStore.getBitmap(monster.actorTraits.iconID));
         
         Button b = (Button) findViewById(R.id.monsterencounter_attack);
         b.setOnClickListener(new OnClickListener() {

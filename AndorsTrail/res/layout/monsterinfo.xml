@@ -68,6 +68,20 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
+			
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/actorinfo_currentconditions"
+				android:id="@+id/monsterinfo_currentconditions_title"
+				android:layout_marginTop="@dimen/section_margin"
+				/>
+			<com.gpl.rpg.AndorsTrail.view.ActorConditionList
+				android:id="@+id/monsterinfo_currentconditions"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				/>
+			
 		</LinearLayout>
 	</ScrollView>
 	

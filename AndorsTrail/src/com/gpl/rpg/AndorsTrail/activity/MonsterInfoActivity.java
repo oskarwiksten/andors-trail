@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.view.ActorConditionList;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
@@ -23,28 +24,29 @@ import android.widget.TextView;
 
 public final class MonsterInfoActivity extends Activity {
 	
+	private ImageView monsterinfo_image;
+	private TextView monsterinfo_title;
+	private TextView monsterinfo_difficulty;
+	private TraitsInfoView monsterinfo_currenttraits;
+	private ItemEffectsView monsterinfo_onhiteffects;
+    private TextView monsterinfo_currentconditions_title;
+    private ActorConditionList monsterinfo_currentconditions;
+	private RangeBar hp;
+	private WorldContext world;
+	
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        final WorldContext world = app.world;
+        this.world = app.world;
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        
-        final Monster monster = Dialogs.getMonsterFromIntent(getIntent(), world);
-        if (monster == null) {
-        	finish();
-        	return;
-        }                          
         
         setContentView(R.layout.monsterinfo);
 
-        ImageView img = (ImageView) findViewById(R.id.monsterinfo_image);
-        img.setImageBitmap(world.tileStore.getBitmap(monster.traits.iconID));
-        TextView tv = (TextView) findViewById(R.id.monsterinfo_title);
-        tv.setText(monster.traits.name);
-        tv = (TextView) findViewById(R.id.monsterinfo_difficulty);
-        tv.setText(getMonsterDifficultyResource(world, monster));
-
+        monsterinfo_image = (ImageView) findViewById(R.id.monsterinfo_image);
+        monsterinfo_title = (TextView) findViewById(R.id.monsterinfo_title);
+        monsterinfo_difficulty = (TextView) findViewById(R.id.monsterinfo_difficulty);
+        
         Button b = (Button) findViewById(R.id.monsterinfo_close);
         b.setOnClickListener(new OnClickListener() {
 			@Override
@@ -53,14 +55,42 @@ public final class MonsterInfoActivity extends Activity {
 			}
 		});
 
-        ((TraitsInfoView) findViewById(R.id.monsterinfo_currenttraits)).update(monster.traits);
-        ((ItemEffectsView) findViewById(R.id.monsterinfo_onhiteffects)).update(
-        		null, 
-        		null, 
-        		monster.traits.onHitEffects == null ? null : Arrays.asList(monster.traits.onHitEffects), 
-        		null);
-        RangeBar hp = (RangeBar) findViewById(R.id.monsterinfo_healthbar);
+        monsterinfo_currenttraits = (TraitsInfoView) findViewById(R.id.monsterinfo_currenttraits);
+        monsterinfo_onhiteffects = (ItemEffectsView) findViewById(R.id.monsterinfo_onhiteffects);
+        monsterinfo_currentconditions_title = (TextView) findViewById(R.id.monsterinfo_currentconditions_title);
+        monsterinfo_currentconditions = (ActorConditionList) findViewById(R.id.monsterinfo_currentconditions);
+        hp = (RangeBar) findViewById(R.id.monsterinfo_healthbar);
         hp.init(R.drawable.ui_progress_health, R.string.status_hp);
+    }
+
+    @Override
+	protected void onResume() {
+    	super.onResume();
+    	
+    	Monster monster = Dialogs.getMonsterFromIntent(getIntent(), world);
+        if (monster == null) {
+        	finish();
+        	return;
+        }  
+        
+        updateTitle(monster);
+    	updateTraits(monster);
+        updateConditions(monster);
+    }
+
+	private void updateTitle(Monster monster) {
+		monsterinfo_image.setImageBitmap(world.tileStore.getBitmap(monster.actorTraits.iconID));
+        monsterinfo_title.setText(monster.actorTraits.name);
+        monsterinfo_difficulty.setText(getMonsterDifficultyResource(world, monster));
+	}
+
+	private void updateTraits(Monster monster) {
+		monsterinfo_currenttraits.update(monster.combatTraits);
+		monsterinfo_onhiteffects.update(
+        		null, 
+        		null, 
+        		monster.actorTraits.onHitEffects == null ? null : Arrays.asList(monster.actorTraits.onHitEffects), 
+        		null);
         hp.update(monster.health);
     }
 
@@ -72,5 +102,16 @@ public final class MonsterInfoActivity extends Activity {
 		else if (difficulty >= 20) return R.string.monster_difficulty_hard;
 		else if (difficulty == 0) return R.string.monster_difficulty_impossible;
 		else return R.string.monster_difficulty_veryhard;
+	}
+
+	private void updateConditions(Monster monster) {
+		if (monster.conditions.isEmpty()) {
+			monsterinfo_currentconditions_title.setVisibility(View.GONE);
+			monsterinfo_currentconditions.setVisibility(View.GONE);
+		} else {
+			monsterinfo_currentconditions_title.setVisibility(View.VISIBLE);
+			monsterinfo_currentconditions.setVisibility(View.VISIBLE);
+			monsterinfo_currentconditions.update(monster.conditions);
+		}
 	}
 }

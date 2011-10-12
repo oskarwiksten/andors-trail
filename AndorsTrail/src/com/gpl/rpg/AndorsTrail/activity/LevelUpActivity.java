@@ -36,7 +36,7 @@ public final class LevelUpActivity extends Activity {
     	final Resources res = getResources();
     	
         ImageView img = (ImageView) findViewById(R.id.levelup_image);
-        img.setImageBitmap(world.tileStore.getBitmap(player.traits.iconID));
+        img.setImageBitmap(world.tileStore.getBitmap(player.actorTraits.iconID));
         TextView tv = (TextView) findViewById(R.id.levelup_description);
         tv.setText(res.getString(R.string.levelup_description, player.level+1));
 
@@ -98,21 +98,21 @@ public final class LevelUpActivity extends Activity {
     	LevelUpActivity.this.finish();
     }
     
-    private static void addLevelupEffect(Player player, int selectionID) {
+    public static void addLevelupEffect(Player player, int selectionID) {
     	int hpIncrease = 0;
     	switch (selectionID) {
     	case SELECT_HEALTH:
     		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
     		break;
     	case SELECT_ATK_CH:
-    		player.traits.baseCombatTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
+    		player.actorTraits.baseCombatTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
     		break;
     	case SELECT_ATK_DMG:
-    		player.traits.baseCombatTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		player.traits.baseCombatTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
+    		player.actorTraits.baseCombatTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
+    		player.actorTraits.baseCombatTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
     		break;
     	case SELECT_DEF_CH:
-    		player.traits.baseCombatTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
+    		player.actorTraits.baseCombatTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
     		break;
     	}
     	if (player.nextLevelAddsNewSkillpoint()) {
@@ -122,7 +122,7 @@ public final class LevelUpActivity extends Activity {
     	
     	hpIncrease += player.getSkillLevel(SkillCollection.SKILL_FORTITUDE) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
 		player.health.max += hpIncrease;
-		player.traits.maxHP += hpIncrease;
+		player.actorTraits.maxHP += hpIncrease;
 		player.health.current += hpIncrease;
     	
     	player.recalculateLevelExperience();

@@ -6,30 +6,23 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList;
+import com.gpl.rpg.AndorsTrail.view.ActorConditionList;
 import com.gpl.rpg.AndorsTrail.view.BaseTraitsInfoView;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public final class HeroinfoActivity_Stats extends Activity {
@@ -43,7 +36,7 @@ public final class HeroinfoActivity_Stats extends Activity {
     private TraitsInfoView heroinfo_currenttraits;
     private ItemEffectsView heroinfo_itemeffects;
     private TextView heroinfo_currentconditions_title;
-    private LinearLayout heroinfo_currentconditions;
+    private ActorConditionList heroinfo_currentconditions;
     private TextView heroinfo_level;
     private TextView heroinfo_totalexperience;
     private RangeBar rangebar_hp;
@@ -60,15 +53,15 @@ public final class HeroinfoActivity_Stats extends Activity {
         setContentView(R.layout.heroinfo_stats);
         
         ImageView iv = (ImageView) findViewById(R.id.heroinfo_image);
-        iv.setImageBitmap(world.tileStore.getBitmap(player.traits.iconID));
+        iv.setImageBitmap(world.tileStore.getBitmap(player.actorTraits.iconID));
         
-        ((TextView) findViewById(R.id.heroinfo_title)).setText(player.traits.name);
+        ((TextView) findViewById(R.id.heroinfo_title)).setText(player.actorTraits.name);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
         heroinfo_movecost = (TextView) findViewById(R.id.heroinfo_movecost);
         heroinfo_currenttraits = (TraitsInfoView) findViewById(R.id.heroinfo_currenttraits);
         heroinfo_itemeffects = (ItemEffectsView) findViewById(R.id.heroinfo_itemeffects);
         heroinfo_currentconditions_title = (TextView) findViewById(R.id.heroinfo_currentconditions_title);
-        heroinfo_currentconditions = (LinearLayout) findViewById(R.id.heroinfo_currentconditions);
+        heroinfo_currentconditions = (ActorConditionList) findViewById(R.id.heroinfo_currentconditions);
         heroinfo_level = (TextView) findViewById(R.id.heroinfo_level);
         heroinfo_totalexperience = (TextView) findViewById(R.id.heroinfo_totalexperience);
                 
@@ -118,11 +111,11 @@ public final class HeroinfoActivity_Stats extends Activity {
 		heroinfo_level.setText(Integer.toString(player.level));
 		heroinfo_totalexperience.setText(Integer.toString(player.totalExperience));
 		heroinfo_ap.setText(player.ap.toString());
-        heroinfo_movecost.setText(Integer.toString(player.traits.moveCost));
+        heroinfo_movecost.setText(Integer.toString(player.actorTraits.moveCost));
         rangebar_hp.update(player.health);
         rangebar_exp.update(player.levelExperience);
         
-        heroinfo_currenttraits.update(player.traits);
+        heroinfo_currenttraits.update(player.combatTraits);
 		ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
 		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
 		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
@@ -134,7 +127,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 		if (effects_hit.isEmpty()) effects_hit = null;
 		if (effects_kill.isEmpty()) effects_kill = null;
 		heroinfo_itemeffects.update(null, null, effects_hit, effects_kill);
-		heroinfo_basetraits.update(player.traits);
+		heroinfo_basetraits.update(player.actorTraits.baseCombatTraits);
     }
 
 	private void updateConditions() {
@@ -144,28 +137,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 		} else {
 			heroinfo_currentconditions_title.setVisibility(View.VISIBLE);
 			heroinfo_currentconditions.setVisibility(View.VISIBLE);
-			heroinfo_currentconditions.removeAllViews();
-			final Resources res = getResources();
-			final Context context = this;
-			for (ActorCondition c : player.conditions) {
-				View v = View.inflate(this, R.layout.inventoryitemview, null);
-				((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.getBitmap(c.conditionType.iconID));
-				SpannableString content = new SpannableString(describeEffect(res, c));
-				content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-				((TextView) v.findViewById(R.id.inv_text)).setText(content);
-				final ActorConditionType conditionType = c.conditionType;
-				v.setOnClickListener(new OnClickListener() {
-					@Override
-					public void onClick(View arg0) {
-						Dialogs.showActorConditionInfo(context, conditionType);
-					}
-				});
-				heroinfo_currentconditions.addView(v, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
-			}
+			heroinfo_currentconditions.update(player.conditions);
 		}
-	}
-    
-    private static String describeEffect(Resources res, ActorCondition c) {
-    	return ActorConditionEffectList.describeEffect(res, c.conditionType, c.magnitude, c.duration);
 	}
 }

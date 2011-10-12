@@ -103,7 +103,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		if (isLoading) return false;
 		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) return false;					// if we're creating a new slot
 		
-		final String currentPlayerName = model.player.traits.name;
+		final String currentPlayerName = model.player.actorTraits.name;
 		final FileHeader header = Savegames.quickload(this, slot);
 		if (header == null) return false;
 		
@@ -117,7 +117,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	public void onClick(View view) {
 		final int slot = (Integer) view.getTag();
 		if (requiresConfirmation(slot)) {
-			final String playerName = model.player.traits.name;
+			final String playerName = model.player.actorTraits.name;
 			
 			new AlertDialog.Builder(this)
 		        .setIcon(android.R.drawable.ic_dialog_alert)
