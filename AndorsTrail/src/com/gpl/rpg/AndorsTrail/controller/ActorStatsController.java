@@ -131,10 +131,7 @@ public class ActorStatsController {
 		}
 		view.mainActivity.updateStatus();
 
-		boolean removedAnyConditions = decreaseDurationAndRemoveConditions(player);
-		if (removedAnyConditions) {
-			recalculatePlayerCombatTraits(player);
-		}
+		decreaseDurationAndRemoveConditions(player);
 	}
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
@@ -163,7 +160,7 @@ public class ActorStatsController {
 		}
 	}
 	
-	private static boolean decreaseDurationAndRemoveConditions(Actor actor) {
+	private static void decreaseDurationAndRemoveConditions(Actor actor) {
 		boolean removedAnyConditions = false;
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.conditions.get(i);
@@ -174,7 +171,9 @@ public class ActorStatsController {
 				removedAnyConditions = true;
 			}
 		}
-		return removedAnyConditions;
+		if (removedAnyConditions) {
+			recalculateActorCombatTraits(actor);
+		}
 	}
 	
 	public void applyUseEffect(Actor source, Actor target, ItemTraits_OnUse effect) {
