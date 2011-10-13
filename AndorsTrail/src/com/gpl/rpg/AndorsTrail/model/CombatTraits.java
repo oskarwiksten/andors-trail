@@ -45,6 +45,7 @@ public class CombatTraits {
 	}
 	
 	public boolean equals(CombatTraits other) {
+		if (other == null) return isZero();
 		return 
 			this.attackCost == other.attackCost
 			&& this.attackChance == other.attackChance
@@ -53,6 +54,18 @@ public class CombatTraits {
 			&& this.damagePotential.equals(other.damagePotential)
 			&& this.blockChance == other.blockChance
 			&& this.damageResistance == other.damageResistance;
+	}
+	
+	private boolean isZero() {
+		return 
+			this.attackCost == 0
+			&& this.attackChance == 0
+			&& this.criticalChance == 0
+			&& this.criticalMultiplier == 0
+			&& this.damagePotential.current == 0
+			&& this.damagePotential.max == 0
+			&& this.blockChance == 0
+			&& this.damageResistance == 0;
 	}
 	
 	public boolean hasAttackChanceEffect() { return attackChance != 0; }

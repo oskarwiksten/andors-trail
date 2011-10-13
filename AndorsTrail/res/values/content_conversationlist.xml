@@ -129,7 +129,7 @@
 {jan_default11|Oh that damn Irogotu. If only I could get to him. I\'d show him one thing and another.|||{{Do you think I could help?|jan_default11_1||||}}|};
 {jan_default11_1|Do you think you could help me?|||{{Sure, there may be some treasure in this for me.|jan_default12||||}{Sure. Irogotu should pay for what he did.|jan_default12||||}{No thanks, I would rather not be involved in this. It sounds dangerous.|X||||}}|};
 {jan_default12|Really? You think you could help? Hm, maybe you could. Beware of those bugs though, they\'re really tough bastards.|jan:10||{{N|jan_default13||||}}|};
-{jan_default13|If you really want to help, go find Irogotu down in the cave, and get me back Gandir\'s ring.|||{{Sure|jan_default14||||}{Background|jan_background||||}{Bye|X||||}}|};
+{jan_default13|If you really want to help, go find Irogotu down in the cave, and get me back Gandir\'s ring.|||{{Sure, I\'ll help.|jan_default14||||}{Can you tell me the story again?|jan_background||||}{Never mind, goodbye.|X||||}}|};
 {jan_default14|Return to me when you are done. Bring me Gandir\'s ring from Irogotu down in the cave.|||{{Ok, bye|X||||}}|};
 {jan_return|Hello again kid. Did you find Irogotu down in the cave?|||{{No, not yet.|jan_default14||||}{Can you tell me your story again?|jan_background||||}{Yes, I have killed Irogotu.|jan_complete||ring_gandir|1|}}|};
 {jan_background|Didn\'t you listen the first time I told you the story? Do I really have to tell you the story one more time?|||{{Yes, please tell me the story again.|jan_default3||||}{I wasn\'t listening that much the first time you told it. What was that about a treasure?|jan_default4||||}{No, never mind. I remember it now.|jan_default14||||}}|};
@@ -720,7 +720,7 @@
 {vilegard_villager_5||||{{|vilegard_villager_friend|vilegard:30|||}{|vilegard_villager_5_0||||}}|};
 {vilegard_villager_5_0|Hello there outsider. You look lost, that\'s good. Now leave Vilegard while you can.|||{{Why is everyone in Vilegard so afraid of outsiders?|vilegard_villager_5_1||||}}|};
 {vilegard_villager_5_1|I don\'t trust you. You should go see Jolnor in the chapel if you want some sympathy.|vilegard:10|||};
-{vilegard_villager_friend|Hello there. I heard you helped us common folk here in Vilegard. Please stay for as long as you like friend.|||{{Thank you. Have you seen my brother Andor around here?|vilegard_villager_friend_1||||}{Thank you. Seeyou.|X||||}}|};
+{vilegard_villager_friend|Hello there. I heard you helped us common folk here in Vilegard. Please stay for as long as you like friend.|||{{Thank you. Have you seen my brother Andor around here?|vilegard_villager_friend_1||||}{Thank you. See you.|X||||}}|};
 {vilegard_villager_friend_1|Your brother? No, I haven\'t seen anyone that looks like you. But then again, I never take much notice to outsiders.|||{{Thanks, bye.|X||||}}|};
 	</string>
 
@@ -2176,18 +2176,20 @@
 	<string name="conversationlist_tinlyn">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {tinlyn||||{
-	{|tinlyn_killedsheep_1|benbyr:21|||}
-	{|tinlyn_killedsheep_1|tinlyn:60|||}
+	{|tinlyn_killedsheep_0|benbyr:21|||}
+	{|tinlyn_killedsheep_0|tinlyn:60|||}
 	{|tinlyn_complete_1|tinlyn:31|||}
 	{|tinlyn_complete_1|tinlyn:30|||}
 	{|tinlyn_look_1|tinlyn:15|||}
 	{|tinlyn_story_1||||}
 	}|};
+{tinlyn_killedsheep_0||||{{|tinlyn_killedsheep_0_1|tinlyn:10|||}{|tinlyn_killedsheep_1||||}}|};
+{tinlyn_killedsheep_0_1||tinlyn:60||{{|tinlyn_killedsheep_1||||}}|};
 {tinlyn_killedsheep_1|You attacked my sheep! Get away from me you filthy murderer!||||};
 {tinlyn_complete_1|Hello again. Thank you for helping me find my lost sheep.|||{
 	{I talked to Benbyr and heard the story about you two.|tinlyn_benbyr_1|benbyr:10|||}
 	}|};
-{tinlyn_story_1|Hello there. You wounldn\'t happen to want to help an old shepherd do you?|||{{What\'s the problem?|tinlyn_story_2||||}}|};
+{tinlyn_story_1|Hello there. You wouldn\'t happen to want to help an old shepherd do you?|||{{What\'s the problem?|tinlyn_story_2||||}}|};
 {tinlyn_story_2|You see, I tend my flock of sheep here. These fields are excellent pastures for them.|||{{N|tinlyn_story_3||||}}|};
 {tinlyn_story_3|But the thing is, I have lost four of them. Now I won\'t dare leave the ones I still have in my sight to go look for the lost ones.|tinlyn:10||{{N|tinlyn_story_3_1||||}}|};
 {tinlyn_story_3_1||||{
@@ -2256,7 +2258,7 @@
 {tinlyn_lostsheep_check_4||||{{|tinlyn_lostsheep_placed_1|tinlyn:23|||}{|tinlyn_lostsheep_placed_2||||}}|};
 {tinlyn_lostsheep_placed_1||tinlyn:25||{{|tinlyn_lostsheep_placed_2||||}}|};
 {tinlyn_lostsheep_placed_2|(You place the bells around the neck of the sheep.)||||};
-{tinlyn_lostsheep_atk||||{{|tinlyn_lostsheep_atk1|tinlyn:15|||}{|tinlyn_sheep_atk||||}}|};
+{tinlyn_lostsheep_atk||||{{|tinlyn_lostsheep_atk1|tinlyn:10|||}{|tinlyn_sheep_atk||||}}|};
 {tinlyn_lostsheep_atk1||tinlyn:60||{{|tinlyn_sheep_atk||||}}|};
 {tinlyn_sheep|Baah!|||{{Attack|tinlyn_lostsheep_atk|benbyr:20|||}}|};
 {tinlyn_sheep_atk||benbyr:21||{{|F||||}}|};
@@ -3138,7 +3140,7 @@
 {gauward_sold_1|Good, thank you. Here\'s some gold for your troubles.||gold5||};
 {gauward_sold_5|Excellent, thank you! Here\'s some gold for your troubles.||gold25||};
 {gauward_sold_10|Excellent, thank you! Here\'s some gold for your troubles.||gold50||};
-{gauward_sold_20|Oh wow, you managed to get twenty of those claws? That\'s excellent, thank you! Here\'s some gold and something extra for your troubles.||gauward_sold_20||};
+{gauward_sold_20|Oh wow, you managed to get twenty of those claws? That\'s excellent, thank you! Here\'s some gold and some extra health potions for your troubles.||gauward_sold_20||};
 	</string>
 
 </resources>

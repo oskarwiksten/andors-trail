@@ -153,7 +153,9 @@ public final class Dialogs {
 			if (context.preferences.displayLoot != AndorsTrailPreferences.DISPLAYLOOT_DIALOG) {
 				if (context.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_TOAST) {
 					int numItems = combinedLoot.items.countItems();
-					if (numItems > 0) {
+					if (numItems == 1) {
+						msg += mainActivity.getString(R.string.dialog_loot_pickedupitem);
+					} else if (numItems > 1){
 						msg += mainActivity.getString(R.string.dialog_loot_pickedupitems, numItems);
 					}
 					mainActivity.showToast(msg, Toast.LENGTH_LONG);
