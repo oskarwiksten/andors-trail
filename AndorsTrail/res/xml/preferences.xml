@@ -14,6 +14,11 @@
 			android:defaultValue="1.0f"
 			android:entries="@array/preferences_display_scaling_factor"
 			android:entryValues="@array/preferences_display_scaling_factor_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_optimized_drawing_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_optimized_drawing"
+			android:key="optimized_drawing" />
 	</PreferenceCategory>
 	<PreferenceCategory
 		android:title="@string/preferences_dialog_category">

@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
@@ -43,6 +44,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     private final TileStore tiles;
 	private final ViewContext view;
 	private final InputController inputController;
+	private final AndorsTrailPreferences preferences;
 	
     private final SurfaceHolder holder;
     private final Paint mPaint = new Paint();
@@ -59,6 +61,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     	this.tiles = app.world.tileStore;
     	this.tileSize = tiles.tileSize;
     	this.inputController = view.inputController;
+    	this.preferences = app.preferences;
 
     	holder.addCallback(this);
     	
@@ -156,22 +159,22 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
 	public void redrawAll(int why) {
 		redrawArea_(mapViewArea);
-	}	
+	}
 	public void redrawTile(final Coord p, int why) {
 		p1x1.topLeft.set(p);
 		redrawArea_(p1x1);
-		//redrawAll(why);
 	}
 	public void redrawArea(final CoordRect area, int why) {
 		redrawArea_(area);
-		//redrawAll(why);
 	}
-	private void redrawArea_(final CoordRect area) {
+	private void redrawArea_(CoordRect area) {
 		if (!hasSurface) return;
+		if (!preferences.optimizedDrawing) area = mapViewArea;
+        
 		final PredefinedMap currentMap = model.currentMap;
         boolean b = currentMap.isOutside(area);
         if (b) return;
-		
+				
 		calculateRedrawRect(area);
 		Canvas c = null;
 		try {
@@ -192,8 +195,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	
 	private final Rect redrawRect = new Rect();
-	public void redrawAreaWithEffect(final CoordRect area, final VisualEffectAnimation effect) {
+	public void redrawAreaWithEffect(CoordRect area, final VisualEffectAnimation effect) {
 		if (!hasSurface) return;
+		if (!preferences.optimizedDrawing) area = mapViewArea;
+		
 		final PredefinedMap currentMap = model.currentMap;
         if (currentMap.isOutside(area)) return;
 		
