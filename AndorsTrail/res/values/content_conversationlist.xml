@@ -286,7 +286,7 @@
 {thoronir_default|Bask in the Shadow, my child.|||{{What can you tell me about the Shadow?|thoronir_shadow_1||||}{Can you tell me more about the church?|thoronir_church_1||||}{Are the Bonemeal potions ready yet?|thoronir_trade_bonemeal|bonemeal:100|||}}|};
 {thoronir_shadow_1|Shadows protect us from the dangers of the night. It keeps us safe and comforts us when we sleep.|||{{Tharal sent me and told me to tell you the password \'Glow of the Shadow\'.|thoronir_tharal_select|bonemeal:30|||}{Shadow be with you.|thoronir_default||||}{Sounds like nonsense to me.|thoronir_default||||}}|};
 {thoronir_church_1|This is our chapel of worship in Fallhaven. Our community turns to us for support.|||{{N|thoronir_church_2||||}}|};
-{thoronir_church_2|This church has withstood hundreds of years, and has been kept safe from graverobbers.|||{{N|thoronir_church_3||||}}|};
+{thoronir_church_2|This church has withstood hundreds of years, and has been kept safe from grave robbers.|||{{N|thoronir_church_3||||}}|};
 {thoronir_tharal_select||||{{|thoronir_trade_bonemeal|bonemeal:100|||}{|thoronir_tharal_1||||}}|};
 {thoronir_tharal_1|Glow of the Shadow indeed my child. So my old friend Tharal in Crossglen village sent you?|||{{What can you tell me about bonemeal?|thoronir_tharal_2||||}}|};
 {thoronir_church_3|The catacombs beneath the church house the remains of our passed leaders. Our great King Luthor is rumored to be buried there.|||{{Has anyone entered the catacombs?|thoronir_church_4|bucus:10|||}{There was something else I wanted to talk about.|thoronir_default||||}}|};
@@ -405,7 +405,7 @@
 {vacor_51|Now hurry, I cannot wait much longer. The power shall be MINE!||||};
 {vacor_return2|Hello again. Any progress yet?|||{{About Unzel...|vacor_return2_2||||}{Could you tell me the story again?|vacor_43||||}}|};
 {vacor_return2_2|Have you killed Unzel for me yet? Bring me his signet ring when you have killed him.|||{{I have dealt with him. Here is his ring.|vacor_60||ring_unzel|1|}{I listened to Unzel\'s story and have decided to side with him. The Shadow must be preserved.|vacor_70|vacor:51|||}}|};
-{vacor_60|Haha, Unzel is dead! That pathetic creature is gone!|vacor:60||{{N|vacor_61||||}}|};
+{vacor_60|Ha ha, Unzel is dead! That pathetic creature is gone!|vacor:60||{{N|vacor_61||||}}|};
 {vacor_61|I can see the blood on your boots. And I even got you to kill his minions beforehand.|||{{N|vacor_62||||}}|};
 {vacor_62|This is a great day indeed. I will soon have the power!|||{{N|vacor_63||||}}|};
 {vacor_63|Here, have these coins for your help.||gold200|{{N|vacor_64||||}}|};
@@ -523,12 +523,12 @@
 	<string name="conversationlist_signs_pre067">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {keyarea_andor1|You should talk to Mikhail first.||||};
-{note_lodars|On the ground, you find a piece of paper with a lot of strange symbols. You can barely make out the words \'meet me at Lodars hideaway\', but you are not sure what it means.||||};
+{note_lodars|On the ground, you find a piece of paper with a lot of strange symbols. You can barely make out the words \'meet me at Lodar\'s hideaway\', but you are not sure what it means.||||};
 {keyarea_crossglen_smith|Audir shouts: Hey you, get away! You are not allowed back there.||||};
 {sign_crossglen_cave|The sign on the wall is cracked in several places. You cannot make out anything comprehensible from the writing.||||};
-{sign_wild1|West: Crossglen\nSouth: Fallhaven\nNorth:Feygard||||};
+{sign_wild1|West: Crossglen\nSouth: Fallhaven\nNorth: Feygard||||};
 {sign_notdone|This map is not yet done. Please come back in a later version of the game.||||};
-{sign_wild3|West: Crossglen\nEast: Fallhaven\nNorth:Feygard||||};
+{sign_wild3|West: Crossglen\nEast: Fallhaven\nNorth: Feygard||||};
 {sign_pitcave2|Gandir lies here, slain by the hand of his former friend Irogotu.||||};
 {sign_fallhaven1|Welcome to Fallhaven. Watch out for pickpockets!||||};
 {key_fallhavenchurch|You are not allowed to enter the catacombs of Fallhaven Church without permission.||||};
@@ -1098,7 +1098,7 @@
 {bwm_agent_6_2|Oh yes. In fact, our Blackwater mountain settlement is just down these stairs.|||{{N|bwm_agent_6_4||||}}|};
 {bwm_agent_6_3|Go ahead, I will meet you inside.|||{{Ok, see you inside.|R||||}}|};
 {bwm_agent_6_0|We meet again. Well done fighting your way up here.|||{{N|bwm_agent_6_1||||}}|};
-{bwm_agent_6_4|You should go down these stairs and talk to our battlemaster, Harlenn. He can usually be found at the third level down.|bwm_agent:60||{{N|bwm_agent_6_3||||}}|};
+{bwm_agent_6_4|You should go down these stairs and talk to our battle master, Harlenn. He can usually be found at the third level down.|bwm_agent:60||{{N|bwm_agent_6_3||||}}|};
 {bwm_agent_6_5|Yes, you seem like an able fighter.|||{{Are we there yet?|bwm_agent_6_2||||}}|};
 {bwm_agent_6_6|I learned some shortcuts up and down the mountain a while back. Nothing strange about that right?|||{{N|bwm_agent_6_7||||}}|};
 {bwm_agent_6_7|Anyway, we are right at the settlement now. In fact, our Blackwater mountain settlement is just down these stairs.|||{{N|bwm_agent_6_4||||}}|};
@@ -1230,7 +1230,7 @@
 	{Sure, whatever.|X||||}
 	{Ok.|X||||}
 	}|};
-{prim_tavern_guest2|*hic* Hey theeere kid. Will you buy an oldtimer like me a new round of mead?|||{
+{prim_tavern_guest2|*hic* Hey theeere kid. Will you buy an old-timer like me a new round of mead?|||{
 	{Yikes, what happened to you? Get away from me.|X||||}
 	{No way. And stop blocking my way.|X||||}
 	{Sure. Here you go.|prim_tavern_guest2_1||mead|1|}
@@ -1334,7 +1334,7 @@
 {guthbered_27|Did he say anything about us here in Prim?|||{{No. But he insisted that I go straight east when exiting the mine, thus not reaching Prim.|guthbered_28||||}}|};
 {guthbered_28|That figures. They send out their spies even now.|||{{Do you need any help in dealing with those monsters?|guthbered_23||||}}|};
 {guthbered_29|As I said, we believe those bastards up at the Blackwater Mountain settlement are behind the monster attacks somehow.|||{{N|guthbered_30||||}}|};
-{guthbered_30|I want you to go up there to their settlement and ask their battlemaster, Harlenn, why they are doing this to us.|prim_hunt:25||{{Ok, I will go ask Harlenn in the Blackwater Mountain settlement why they are attacking your village.|guthbered_31||||}}|};
+{guthbered_30|I want you to go up there to their settlement and ask their battle master, Harlenn, why they are doing this to us.|prim_hunt:25||{{Ok, I will go ask Harlenn in the Blackwater Mountain settlement why they are attacking your village.|guthbered_31||||}}|};
 {guthbered_31|Thank you friend.|prim_hunt:25|||};
 
 
@@ -1357,7 +1357,7 @@
 {guthbered_talkedto_harl_9|I want you to go up there in their settlement and find any clues as to what they are planning.|||{{N|guthbered_talkedto_harl_10||||}}|};
 {guthbered_talkedto_harl_10|We believe they are training their fighters to launch a larger raid on us soon.|||{{N|guthbered_talkedto_harl_11||||}}|};
 {guthbered_talkedto_harl_11|Go look for any plans that you might find. But make sure that they do not see you while looking around.|||{{N|guthbered_talkedto_harl_12||||}}|};
-{guthbered_talkedto_harl_12|You should probably start your search around where their battlemaster, Harlenn, stays.|||{{Ok. I will look for clues in their settlement.|guthbered_talkedto_harl_13||||}}|};
+{guthbered_talkedto_harl_12|You should probably start your search around where their battle master, Harlenn, stays.|||{{Ok. I will look for clues in their settlement.|guthbered_talkedto_harl_13||||}}|};
 {guthbered_talkedto_harl_13|Thank you, friend. Report back to me with your findings.|prim_hunt:50|||};
 {guthbered_lookforsigns_1|Hello again. Did you find anything up in the Blackwater Mountain settlement?|||{
 	{No, I am still looking.|guthbered_talkedto_harl_13||||}
@@ -1368,7 +1368,7 @@
 {guthbered_lookforsigns_3|Now you know what I was talking about. They are always looking to cause trouble.|||{{N|guthbered_lookforsigns_4||||}}|};
 {guthbered_lookforsigns_4|Thank you for finding this information for us.|prim_hunt:70||{{N|guthbered_lookforsigns_5||||}}|};
 {guthbered_lookforsigns_5|Very well. We will have to deal with this.|||{{N|guthbered_lookforsigns_6||||}}|};
-{guthbered_lookforsigns_6|I had hoped it would not come to this. But we are left with no choice. We must remove their main driving force behind the raids. We must remove their battlemaster, Harlenn.|||{{N|guthbered_lookforsigns_7||||}}|};
+{guthbered_lookforsigns_6|I had hoped it would not come to this. But we are left with no choice. We must remove their main driving force behind the raids. We must remove their battle master, Harlenn.|||{{N|guthbered_lookforsigns_7||||}}|};
 {guthbered_lookforsigns_7|This would be an excellent task for you my friend. Since you have access to their facilities, you can sneak in and kill that bastard Harlenn.|||{{N|guthbered_lookforsigns_8||||}}|};
 {guthbered_lookforsigns_8|By killing him, we can be sure that their attacks will .. shall we say .. lose their teeth. He he.|||{
 	{No problem, he is as good as dead.|guthbered_lookforsigns_9||||}
@@ -1401,7 +1401,7 @@
 {guthbered_sentbybwm_7|Ok, you have convinced me. I will leave Prim for another town. The survival of my people here is more important than me.|||{{N|guthbered_sentbybwm_leave||||}}|};
 {guthbered_sentbybwm_leave|Thank you friend, for talking some sense into me.|bwm_agent:131||{{You are welcome.|R||||}}|};
 
-{guthbered_killharl_1|Hello again. Did you manage to remove that bastard battlemaster Harlenn from the Blackwater Mountain settlement?|||{
+{guthbered_killharl_1|Hello again. Did you manage to remove that bastard battle master Harlenn from the Blackwater Mountain settlement?|||{
 	{Can you tell me again what I was supposed to do?|guthbered_lookforsigns_6||||}
 	{Not yet. I am still working on it.|guthbered_lookforsigns_9||||}
 	{Yes, he is dead.|guthbered_killharl_2||harlenn_id|1|}
@@ -1419,7 +1419,7 @@
 
 	<string name="conversationlist_blackwater_signs">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{sign_blackwater10|North: Prim\nWest: Elm mine\nEast: (text is unreadable due to several scratchmarks in the wood)\nSouth: Stoutford||||};
+{sign_blackwater10|North: Prim\nWest: Elm mine\nEast: (text is unreadable due to several scratch marks in the wood)\nSouth: Stoutford||||};
 {keyarea_bwm_agent_1|The man shouts at you: You! Please help! You have to help us!||||};
 {sign_blackwater0|East: Fallhaven\nSouthwest: Stoutford\nNorthwest: Blackwater Mountain||||};
 {sign_prim_n|Notice to all citizens: No one is allowed to enter the mines at night! Furthermore, climbing the mountain side is strictly forbidden after the accident with Lorn.||||};
@@ -1498,7 +1498,7 @@
 {harlenn_1|Welcome, traveller.|||{{N|harlenn_2||||}}|};
 {harlenn_2|You must be the newcomer that traveled up the mountain side that I heard about.|||{{N|harlenn_3||||}}|};
 {harlenn_3|We need your help in dealing with some .. problems.|||{{Who are you?|harlenn_4||||}}|};
-{harlenn_4|Oh sorry, I did not introduce myself properly. I am Harlenn, battlemaster of the people living in this mountain settlement.|||{{I was told to see you by the guide that led me up the mountain.|harlenn_5||||}}|};
+{harlenn_4|Oh sorry, I did not introduce myself properly. I am Harlenn, battle master of the people living in this mountain settlement.|||{{I was told to see you by the guide that led me up the mountain.|harlenn_5||||}}|};
 {harlenn_5|Oh yes, we are lucky he found you. You see, we seldom travel that far down the mountain.|||{{N|harlenn_6||||}}|};
 {harlenn_6|Most of the time, we spend in the settlement or up here on the mountain.|||{{N|harlenn_7||||}}|};
 {harlenn_7|However, recent event have forced us to send for help. We are lucky you found us.|||{
@@ -1568,7 +1568,7 @@
 	{I talked to Guthbered in Prim. They say you are the ones doing the attacks, and that you are behind the Gornaud attacks on Prim.|harlenn_prim_1|prim_hunt:25|||}
 	}|};
 {harlenn_workingforprim_1|My scouts have given me a most interesting report. They say you are working for Prim.|||{{N|harlenn_workingforprim_2||||}}|};
-{harlenn_workingforprim_2|Of course we can\'t have that here. We can\'t have a spy in our midsts. You should leave our settlement while you still can, traitor.|bwm_agent:251|||};
+{harlenn_workingforprim_2|Of course we can\'t have that here. We can\'t have a spy in our midst. You should leave our settlement while you still can, traitor.|bwm_agent:251|||};
 
 {harlenn_completed|Thank you, friend. Your help is greatly appreciated. Everyone in the Blackwater Mountain settlement will want to talk to you now.|bwm_agent:240||{{N|harlenn_completed_1||||}}|};
 {harlenn_completed_1|I\'m sure the monster attacks will stop now when we kill the last few monsters that are outside the settlement.|prim_hunt:250|||};
@@ -1713,7 +1713,7 @@
 	{Yes, get out of my way.|R||||}
 	}|};
 {blackwater_throneguard_3|A permit you say? Let me see that.|prim_hunt:140||{{N|blackwater_throneguard_4||||}}|};
-{blackwater_throneguard_4|Well, it has the signature and all. I guess it checks out allright.|||{{N|blackwater_throneguard_2||||}}|};
+{blackwater_throneguard_4|Well, it has the signature and all. I guess it checks out all right.|||{{N|blackwater_throneguard_2||||}}|};
 {blackwater_throneguard_5|Oh, It is you.|||{{N|blackwater_throneguard_2||||}}|};
 	</string>
 
@@ -2078,7 +2078,7 @@
 {erinith_needspotions_2|I am still hurt by this wound that I got from the attack during the night.|||{{N|erinith_needspotions_3||||}}|};
 {erinith_needspotions_3|Ack, it hurts so bad and it doesn\'t seem to be healing itself.|||{{N|erinith_needspotions_4||||}}|};
 {erinith_needspotions_4|I am really in need of some stronger healing here. Maybe some potions would do.|||{{N|erinith_needspotions_5||||}}|};
-{erinith_needspotions_5|I have heard that the potionmakers these days have potions of major health, and not just the regular potions of health.|||{{N|erinith_needspotions_6||||}}|};
+{erinith_needspotions_5|I have heard that the potion makers these days have potions of major health, and not just the regular potions of health.|||{{N|erinith_needspotions_6||||}}|};
 {erinith_needspotions_6|One of those would surely do. Otherwise, I think four regular potions of health would be enough.|erinith:31||{
 	{I\'ll go get those potions for you.|erinith_needspotions_7||||}
 	{Here, take this bonemeal potion instead. It\'s very potent in healing deep wounds.|erinith_gavepotion_bm_1||bonemeal_potion|1|}
@@ -2124,7 +2124,7 @@
 	}|};
 {hadracor_story_1|This is the encampment that we woodcutters set up while working on the trees here for the past few days.|||{
 	{What have you been working on?|hadracor_story_2||||}
-	{I noticed a lot of treestumps around here|hadracor_story_2||||}
+	{I noticed a lot of tree stumps around here|hadracor_story_2||||}
 	}|};
 {hadracor_story_2|Our orders were to cut down all trees south of the Feygard bridge and north of this here road to Carn Tower.|||{{N|hadracor_story_3||||}}|};
 {hadracor_story_3|I guess the nobles of Feygard have some plans for these lands.|||{{N|hadracor_story_4||||}}|};
@@ -2153,7 +2153,7 @@
 	{No problem.|hadracor_accept_3||||}
 	{On second thought, I better stay out of this.|hadracor_decline_2||||}
 	}|};
-{hadracor_decline_2|Fine, I guess we can find someone elese to get revenge on them.||||};
+{hadracor_decline_2|Fine, I guess we can find someone else to help us get revenge on them.||||};
 {hadracor_accept_3|Good, hurry back once you are done.|hadracor:10|||};
 {hadracor_wantsitems_1|Hello again. Did you kill those wasps for us?|||{
 	{Could you tell me your story again?|hadracor_story_2||||}
@@ -2288,7 +2288,7 @@
 {benbyr_story_3_4|Then I will surely disappoint you. Return to me once you are ready for my task.||||};
 {benbyr_story_3_3|The noble adventurer. He he, I like that. Yes, you will do fine.|||{{N|benbyr_story_4||||}}|};
 {benbyr_story_4|A while ago, I did some business with a certain man called Tinlyn, over here at this Crossroads guardhouse.|||{{N|benbyr_story_5||||}}|};
-{benbyr_story_5|As to the nature of our business, I can\'t really tell you. But let\'s just say that our business was of the kind that it was be benficial for us both that the guards did not know about it.|||{{N|benbyr_story_6||||}}|};
+{benbyr_story_5|As to the nature of our business, I can\'t really tell you. But let\'s just say that our business was of the kind that it was be beneficial for us both that the guards did not know about it.|||{{N|benbyr_story_6||||}}|};
 {benbyr_story_6|We were ready to finish the big deal, me and Tinlyn. That\'s when he decided to turn on me.|||{{N|benbyr_story_7||||}}|};
 {benbyr_story_7|He reported me to the guards, and made me take the whole blame for our business.|||{{N|benbyr_story_8||||}}|};
 {benbyr_story_8|I was sent to Feygard prison, while he himself was set free for reporting me.|||{{N|benbyr_story_8_1||||}}|};
@@ -2497,7 +2497,7 @@
 	{What\'s your side of the story then?|rogorn_story_r_1||||}
 	}|};
 {rogorn_story_5|I tell you, we did not steal anything from those snobs.|||{
-	{You are still wanted dead by the Feyard patrol. For Feygard!|rogorn_attack_1||||}
+	{You are still wanted dead by the Feygard patrol. For Feygard!|rogorn_attack_1||||}
 	{Why are they looking for you then?|rogorn_story_r_1||||}
 	}|};
 {rogorn_attack_1|I had hoped it would not come to this. For the Shadow!|rogorn:40||{{Let\'s fight!|F||||}}|};
@@ -2523,7 +2523,7 @@
 {rogorn_story_r_2|We had never been here ourselves. We had only heard stories about how tough the guards from Feygard were, and how they held their precious law above all.|||{{N|rogorn_story_r_3||||}}|};
 {rogorn_story_r_3|Anyway, we got wind of a certain business opportunity here up north. One where we would be on the receiving end of a very profitable deal.|||{{N|rogorn_story_r_4||||}}|};
 {rogorn_story_r_4|So we went here to conduct our business. But I guess the guards from Feygard must have been tipped off about us, since we noticed that we were being followed by the guards after a while.|||{{N|rogorn_story_r_5||||}}|};
-{rogorn_story_r_5|Not willing to risk anything, considering the rumors we had heard about the guards from there, we did the only reasonable thing we could do - we abondoned the plan right away and left, before we could conduct the business we had planned.|||{{N|rogorn_story_r_6||||}}|};
+{rogorn_story_r_5|Not willing to risk anything, considering the rumors we had heard about the guards from there, we did the only reasonable thing we could do - we abandoned the plan right away and left, before we could conduct the business we had planned.|||{{N|rogorn_story_r_6||||}}|};
 {rogorn_story_r_6|But something must have upset the guards there anyway. Now we hear that we are accused of murder and theft in Feygard, without even being there ourselves.|rogorn:35||{
 	{What was your business there?|rogorn_story_r_7||||}
 	{I will not listen to your lies! For Feygard!|rogorn_attack_1||||}
@@ -2650,11 +2650,11 @@
 	}|};
 {ailshara_completed_y_1|Hello again my Shadow friend. How may I help you?|||{{Let me see what you have to trade.|S||||}}|};
 {ailshara_completed_n_1|Sigh, it\'s you. What do you want?|||{{Let me see what you have to trade.|S||||}}|};
-{ailshara_1|Psst, hey. Interested in doing some trading? I am always looking for aquiring.. well, items of others..|||{
+{ailshara_1|Psst, hey. Interested in doing some trading? I am always looking for acquiring.. well, items of others..|||{
 	{Sure, let me see what you have.|S||||}
 	{Items of others?|ailshara_2||||}
 	}|};
-{ailshara_2|Oh yes. You see, these Feygard patrol guards carry some really interesting things. They don\'t seem to care much if some of their shipments.. well, dissappear.|||{
+{ailshara_2|Oh yes. You see, these Feygard patrol guards carry some really interesting things. They don\'t seem to care much if some of their shipments.. well, disappear.|||{
 	{Ok, let me see what you have.|S||||}
 	{I should really not get involved in this. Goodbye.|X||||}
 	}|};
@@ -2705,14 +2705,14 @@
 
 	<string name="conversationlist_vilegard_v0610">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{vilegard_smith_fg_1|Oh, this is most unexpected but very welcome. I will not question how you aquired these items, but instead express my gratitude for bringing them to me.|feygard_shipment:55||{{N|vilegard_smith_fg_2||||}}|};
+{vilegard_smith_fg_1|Oh, this is most unexpected but very welcome. I will not question how you acquired these items, but instead express my gratitude for bringing them to me.|feygard_shipment:55||{{N|vilegard_smith_fg_2||||}}|};
 {vilegard_smith_fg_2|Thank you for bringing me these items, they will be most useful to us here in the southern lands, and Vilegard in particular. We rarely get our hands on Feygard items, so these are really welcome.|||{
 	{I was sent to deliver these items to a Feygard patrol stationed in the Foaming Flask tavern.|vilegard_smith_fg_3||||}
 	}|};
 {vilegard_smith_fg_3|Instead, you brought them to me. You have my thanks.|||{{N|vilegard_smith_fg_4||||}}|};
 {vilegard_smith_fg_4|Hah, this means that we have another opportunity here. What if you were to deliver some other items to the Feygard patrol instead? Hah, this will really make my day.|||{{N|vilegard_smith_fg_5||||}}|};
 {vilegard_smith_fg_5|I might have something that will do just fine..  Let me just find them.|||{{N|vilegard_smith_fg_6||||}}|};
-{vilegard_smith_fg_6|Here they are. Haha, these will do just fine for those deceiving Feygard snobs.|||{{N|vilegard_smith_fg_7||||}}|};
+{vilegard_smith_fg_6|Here they are. Ha ha, these will do just fine for those deceiving Feygard snobs.|||{{N|vilegard_smith_fg_7||||}}|};
 {vilegard_smith_fg_7|Take these items and deliver them to wherever you were supposed to deliver the items you gave me.|feygard_shipment:56|vg_smith_fg_items||};
 
 {ff_captain_vg_items_1||feygard_shipment:60||{{|ff_captain_items_1||||}}|};
@@ -2764,7 +2764,7 @@
 	{|crossroads_sleepguard_4||||}
 	}|};
 {crossroads_sleepguard_4|No, sorry. These beds are for guards and allies of Feygard only.||||};
-{crossroads_sleepguard_5|Say, aren\'t you that kid that helped the guards down in Fallhaven? With the thieves that were plannig an escape?|||{{Yes, I helped the guards in the prison find out about some plans that the thieves had.|crossroads_sleepguard_6||||}}|};
+{crossroads_sleepguard_5|Say, aren\'t you that kid that helped the guards down in Fallhaven? With the thieves that were planning an escape?|||{{Yes, I helped the guards in the prison find out about some plans that the thieves had.|crossroads_sleepguard_6||||}}|};
 {crossroads_sleepguard_6|I knew I had heard about you somewhere. You are always welcome by us guards. You can use that second bed over there to the left if you need to rest.|nondisplay:17|||};
 
 {crossroads_backguard|Uh, hello.|||{{Hello. What\'s back there?|crossroads_backguard_1||||}}|};
@@ -2799,7 +2799,7 @@
 {loneford_farmer0|What have we done to deserve this?|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_farmer0_1|Didn\'t you hear about the illness?|||{{What illness?|loneford_farmer_il_1||||}}|};
 
-{loneford_farmer_il_1|It all started a few days ago. Selgan found Hesor passed out on his old cropfield, completely white face and shivering.|||{{N|loneford_farmer_il_2||||}}|};
+{loneford_farmer_il_1|It all started a few days ago. Selgan found Hesor passed out on his old crop field, completely white face and shivering.|||{{N|loneford_farmer_il_2||||}}|};
 {loneford_farmer_il_2|A few days later, Selgan started showing the same symptoms as Hesor, with stomach aches. I also started feeling the pains and got the shivers.|||{{N|loneford_farmer_il_3||||}}|};
 {loneford_farmer_il_3|Then, all people showed the symptoms in one way or another.|||{{N|loneford_farmer_il_4||||}}|};
 {loneford_farmer_il_4|Poor old Selgan and Hesor apparently got the worst of it, and both died the day before yesterday.|||{{N|loneford_farmer_il_5||||}}|};
@@ -2807,7 +2807,7 @@
 {loneford_farmer_il_6|We all started to investigate what could be the cause. We still aren\'t certain what the cause is, but we have our suspicions.|loneford:10||{{N|loneford_farmer_il_7||||}}|};
 {loneford_farmer_il_7|Luckily, now Feygard has sent patrols up here to help guard the village at least. We are still suffering though, and we fear who will be taken by the illness next.|loneford:11|||};
 
-{loneford_wellguard|Please report any suspicious behaviour you might see.||||};
+{loneford_wellguard|Please report any suspicious behavior you might see.||||};
 
 {rolwynn|What have we done to deserve this? Please, will you help us?|||{
 	{What do you think is the cause of the illness?|rolwynn_1|loneford:11|||}
@@ -2836,7 +2836,7 @@
 {loneford_villager0|*cough* Please help us, soon there won\'t be many left of us!|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_villager1|I can\'t feel my face anymore, please help us!|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_villager2|Don\'t disturb me, I need to finish chopping this wood. Go bother someone else.||||};
-{loneford_villager3|I fear for our survival. It seems we are getting worse every day that passes. It\'s a good thing Feyard helps us at least.|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
+{loneford_villager3|I fear for our survival. It seems we are getting worse every day that passes. It\'s a good thing Feygard helps us at least.|||{{What\'s wrong?|loneford_farmer0_1||||}}|};
 {loneford_villager4|Don\'t I know you from somewhere? You look familiar somehow.||||};
 
 {landa||||{
@@ -2864,7 +2864,7 @@
 {landa_19|Now, get out of here kid, before anyone sees you talking to me. *Looks around anxiously*|||{
 	{Thank you Landa. You secret is safe with me.|X||||}
 	{Thank you Landa. I\'ll consider it.|X||||}
-	{Are you done? Phew, I thought you were never going to stop takling.|X||||}
+	{Are you done? Phew, I thought you were never going to stop talking.|X||||}
 	}|};
 {landa_already_1|You again? I already told you. Get out of here before anyone sees you talking to me.||||};
 	</string>
@@ -2968,7 +2968,7 @@
 {buceth_story_7|They were sending a boy to do some business here, and I was assigned to make sure that the mission was successful.|andor:61||{{N|buceth_story_8||||}}|};
 {buceth_story_8|I was tasked with gathering samples from the water in the well and from the ground around the well. Also, I was given some vials whose contents should be poured into the well.|||{{N|buceth_story_9||||}}|};
 {buceth_story_9|Apparently, the boy they sent was successful in his mission. The task that I did was also successful, if I may say so myself.|loneford:45||{{N|buceth_story_10||||}}|};
-{buceth_story_10|And that\'s where we stand now. The deed is done, and the Shadow will look favourably upon us.|||{
+{buceth_story_10|And that\'s where we stand now. The deed is done, and the Shadow will look favorably upon us.|||{
 	{So the well was poisoned, that\'s horrible. How could you?|buceth_story_11||||}
 	{Thank you for telling me.|buceth_story_12||||}
 	}|};
@@ -2997,7 +2997,7 @@
 	}|};
 {talion_1|The people of Loneford are very keen on following the will of Feygard, whatever it may be.|||{{N|talion_2||||}}|};
 {talion_2|Normally, this would not be a problem. But Lord Geomyr seems to have something against the Shadow. He will do almost anything to oppose all actions that in some way are extend the reach of the Shadow.|||{{N|talion_3||||}}|};
-{talion_3|Because of this, the people of Loneford are now actively abolising the thought of the Shadow guiding them through their lives.|||{{N|talion_4||||}}|};
+{talion_3|Because of this, the people of Loneford are now actively abolishing the thought of the Shadow guiding them through their lives.|||{{N|talion_4||||}}|};
 {talion_4|People around here would rather follow the law of Feygard than follow the old ways.|||{{N|talion_5||||}}|};
 {talion_5|My feeling is that this illness is caused by the Shadow, as punishment to all of us here in Loneford.|loneford:23||{{N|loneford_ill_c_1||||}}|};
 
@@ -3013,7 +3013,7 @@
 {taevinn_2|But even if we here in Loneford keep as peaceful as possible, there\'s always someone that has a desire to cause mischief.|||{{N|taevinn_3||||}}|};
 {taevinn_3|Have you seen him? That fool Sienn. Him and his \'pet\' are always trying to cause some trouble. We can\'t have that around here in our friendly village. Especially not in times like these when we are trying to show our good side to those magnificent guards from Feygard that are here.|||{{N|taevinn_4||||}}|};
 {taevinn_4|Did you know I tried to talk to him on several occasions about his so called \'pet\'? I couldn\'t really make out what he was trying to tell me, but that thing of his nearly tried to kill me, it did!|||{{N|taevinn_5||||}}|};
-{taevinn_5|I tell you, there\'s mischief all around him and that thing ke keeps around. I am sure they are up to something. They probably caused this illness somehow. Maybe we caught something contagious from that thing of his that he keeps around?|loneford:24||{{N|loneford_ill_c_1||||}}|};
+{taevinn_5|I tell you, there\'s mischief all around him and that thing he keeps around. I am sure they are up to something. They probably caused this illness somehow. Maybe we caught something contagious from that thing of his that he keeps around?|loneford:24||{{N|loneford_ill_c_1||||}}|};
 	</string>
 
 	<string name="conversationlist_loneford_kuldan">
@@ -3023,7 +3023,7 @@
 	{|kuldan_bc_1|loneford:54|||}
 	{|kuldan_1||||}
 	}|};
-{kuldan_1|Please report any suspicious behaviour you might see.|||{
+{kuldan_1|Please report any suspicious behavior you might see.|||{
 	{I know what the cause of the illness is. Have a look at this vial that Buceth had on him.|kuldan_bc_1|loneford:50|buceth_vial|1|}
 	{Who are you?|kuldan_2||||}
 	}|};
@@ -3057,7 +3057,7 @@
 	{Who are you?|sienn_who_1||||}
 	{Did you know that Taevinn thinks you caused the illness here in Loneford?|sienn_pet_2|loneford:24|||}
 	}|};
-{sienn_pet_2|Sienn not ill! Sienn stong!||||};
+{sienn_pet_2|Sienn not ill! Sienn strong!||||};
 {sienn_pet|*Shriek!*\n(The creature looks up at you, showing all its teeth, while making a high-pitched piercing sound.)|||{
 	{There, there. Easy now.|X||||}
 	{*slowly back away*|X||||}
@@ -3124,7 +3124,7 @@
 {gauward_1|This place used to be a safe house for travellers between Loneford and Brimhaven, before they had finished the road between the villages.|||{{N|gauward_2||||}}|};
 {gauward_2|But nowadays, no one rarely comes here - because of those cursed creatures from the river.|||{{N|gauward_3||||}}|};
 {gauward_3|Izthiel, they call them.|||{{N|gauward_4||||}}|};
-{gauward_4|Ack, if it wasn\'t for those things out there, I am sure a lof of people would come by here more often.|||{
+{gauward_4|Ack, if it wasn\'t for those things out there, I am sure a lot of people would come by here more often.|||{
 	{Would you like me to kill the creatures for you?|gauward_5||||}
 	}|};
 {gauward_5|Oh sure. I have tried that. But they just keep coming back.|||{{N|gauward_6||||}}|};
