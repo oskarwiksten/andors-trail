@@ -41,8 +41,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 				stopMovement();
 				
 				placePlayerAt(view.mainActivity.getResources(), world, objectType, mapName, placeName, offset_x, offset_y); 
-				view.mainActivity.clearMessages();
-				view.mainActivity.mainview.notifyMapChanged();
 				
 				return null;
 			}
@@ -50,6 +48,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 			@Override
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
+				view.mainActivity.clearMessages();
+				view.mainActivity.mainview.notifyMapChanged();
 				stopMovement();
 				view.gameRoundController.resume();
 			}
