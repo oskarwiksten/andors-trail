@@ -16,18 +16,21 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
-	private final TileStore tileStore;
+	private final TileManager tileManager;
+	private final TileCollection tileCollection;
 	private final OnContainerItemClickedListener clickListener;
 	private final boolean isSelling;
 	private final Resources r;
 	private final Player player;
 	
-	public ShopItemContainerAdapter(Context context, TileStore tileStore, Player player, ItemContainer items, OnContainerItemClickedListener clickListener, boolean isSelling) {
+	public ShopItemContainerAdapter(Context context, TileManager tileManager, Player player, ItemContainer items, OnContainerItemClickedListener clickListener, boolean isSelling) {
 		super(context, 0, items.items);
-		this.tileStore = tileStore;
+		this.tileManager = tileManager;
+		this.tileCollection = tileManager.loadTilesFor(items, context.getResources());
 		this.player = player;
 		this.clickListener = clickListener;
 		this.isSelling = isSelling;
@@ -45,7 +48,7 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 			result = View.inflate(getContext(), R.layout.shopitemview, null);
 		}
 		
-		tileStore.setImageViewTile((ImageView) result.findViewById(R.id.shopitem_image), itemType);
+		tileManager.setImageViewTile((ImageView) result.findViewById(R.id.shopitem_image), itemType, tileCollection);
 		((TextView) result.findViewById(R.id.shopitem_text)).setText(itemType.describeWearEffect(item.quantity));
 		Button b = (Button) result.findViewById(R.id.shopitem_shopbutton);
 		if (isSelling) {

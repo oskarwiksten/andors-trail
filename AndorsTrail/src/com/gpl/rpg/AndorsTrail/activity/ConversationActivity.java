@@ -37,7 +37,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ConversationActivity extends Activity {
 	public static final int ACTIVITYRESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
@@ -58,6 +58,8 @@ public final class ConversationActivity extends Activity {
 	private RadioGroup replyGroup;
 	private OnClickListener radioButtonListener;
 	private boolean displayActors = true;
+	
+	private final ConversationCollection conversationCollection = new ConversationCollection();
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -92,7 +94,7 @@ public final class ConversationActivity extends Activity {
         
         statementList = (ListView) findViewById(R.id.conversation_statements);
         statementList.addFooterView(replyGroup);
-        listAdapter = new StatementContainerAdapter(this, conversationHistory, world.tileStore);
+        listAdapter = new StatementContainerAdapter(this, conversationHistory, world.tileManager);
         statementList.setAdapter(listAdapter);
         
         nextButton = (Button) findViewById(R.id.conversation_next);
@@ -119,7 +121,6 @@ public final class ConversationActivity extends Activity {
 		
         setPhrase(phraseID);
     }
-    
 	
     public void setPhrase(String phraseID) {
 		this.phraseID = phraseID;
@@ -144,7 +145,7 @@ public final class ConversationActivity extends Activity {
     		return;
     	}
     	
-    	phrase = world.conversations.getPhrase(phraseID);
+    	phrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, getResources());
     	if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
     		if (phrase == null) phrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null, null);
     	}
@@ -249,6 +250,7 @@ public final class ConversationActivity extends Activity {
     	}
     	s.text = text;
     	s.color = color;
+    	s.isPlayerActor = actor != null ? actor.isPlayer : false;
     	conversationHistory.add(s);
 		listAdapter.notifyDataSetChanged();
 		statementList.requestLayout();
@@ -277,6 +279,7 @@ public final class ConversationActivity extends Activity {
 		public String text;
 		public int iconID;
 		public int color;
+		public boolean isPlayerActor;
 		
 		public boolean hasActor() {
 			return iconID != NO_ICON;
@@ -291,6 +294,7 @@ public final class ConversationActivity extends Activity {
 			dest.writeString(text);
 			dest.writeInt(iconID);
 			dest.writeInt(color);
+			dest.writeByte((byte) (isPlayerActor ? 1 : 0));
 		}
 		
 		@SuppressWarnings("unused")
@@ -301,6 +305,7 @@ public final class ConversationActivity extends Activity {
 		    	result.text = in.readString();
 		    	result.iconID = in.readInt();
 		    	result.color = in.readInt();
+		    	result.isPlayerActor = in.readByte() == 1;
 		        return result;
 		    }
 		
@@ -312,11 +317,11 @@ public final class ConversationActivity extends Activity {
 
     private static final class StatementContainerAdapter extends ArrayAdapter<ConversationStatement> {
 
-    	private final TileStore tileStore;
+    	private final TileManager tileManager;
     	
-		public StatementContainerAdapter(Context context, ArrayList<ConversationStatement> items, TileStore tileStore) {
+		public StatementContainerAdapter(Context context, ArrayList<ConversationStatement> items, TileManager tileManager) {
 			super(context, 0, items);
-			this.tileStore = tileStore;
+			this.tileManager = tileManager;
 		}
 		
 		@Override
@@ -331,7 +336,8 @@ public final class ConversationActivity extends Activity {
 			final ImageView iv = (ImageView) result.findViewById(R.id.conversation_image);
 			final TextView tv = (TextView) result.findViewById(R.id.conversation_text);
 	        if (statement.hasActor()) {
-				iv.setImageBitmap(tileStore.getBitmap(statement.iconID));
+	        	if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(iv, statement.iconID);
+	        	else tileManager.setImageViewTileForMonster(iv, statement.iconID);
 				iv.setVisibility(View.VISIBLE);
 				
 	    		tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);

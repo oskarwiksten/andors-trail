@@ -1,7 +1,9 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -38,7 +40,8 @@ public class ResourceFileTokenizer {
     	}
 	}
 	
-	public <T> void tokenizeRows(String input, HashMap<String, T> dest, ResourceObjectParser<Pair<String, T>> parser) {
+	public <T> Collection<String> tokenizeRows(String input, HashMap<String, T> dest, ResourceObjectParser<Pair<String, T>> parser) {
+		HashSet<String> ids = new HashSet<String>();
 		ArrayList<Pair<String, T>> objects = new ArrayList<Pair<String, T>>();
 		tokenizeRows(input, objects, parser);
 		
@@ -52,7 +55,9 @@ public class ResourceFileTokenizer {
         		}
     		}
 			dest.put(id, o.second);
+			ids.add(id);
 		}
+		return ids;
 	}
 	
 	private <T> void tokenizeRow(String input, ArrayList<T> dest, ResourceObjectParser<T> parser) {
@@ -89,8 +94,8 @@ public class ResourceFileTokenizer {
 			super(columns);
 		}
 
-		public void parseRows(String input, HashMap<String, T> dest) {
-			tokenizeRows(input, dest, this);
+		public Collection<String> parseRows(String input, HashMap<String, T> dest) {
+			return tokenizeRows(input, dest, this);
 		}
 	}
 }

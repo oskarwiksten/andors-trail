@@ -9,6 +9,7 @@ import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -34,7 +35,7 @@ public final class MapCollection {
 	}
 
 	// Selftest method. Not part of the game logic.
-	public void verifyData(WorldContext world) {
+	public void verifyData(WorldContext world, ConversationCollection conversations) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (PredefinedMap m : predefinedMaps) {
 				for (MapObject o : m.eventObjects) {
@@ -83,13 +84,13 @@ public final class MapCollection {
 							L.log("WARNING: Map \"" + m.name + "\" contains keyarea without phraseid.");
 							continue;
 						} 
-						world.conversations.getPhrase(o.id); // Will warn inside if not available.
+						conversations.getPhrase(o.id); // Will warn inside if not available.
 					} else if (o.type == MapObject.MAPEVENT_SIGN) {
 						if (o.id == null || o.id.length() <= 0) {
 							L.log("WARNING: Map \"" + m.name + "\" contains sign without phraseid.");
 							continue;
 						} 
-						world.conversations.getPhrase(o.id); // Will warn inside if not available.
+						conversations.getPhrase(o.id); // Will warn inside if not available.
 					} else if (o.type == MapObject.MAPEVENT_REST) {
 						if (o.id == null || o.id.length() <= 0) {
 							L.log("WARNING: Map \"" + m.name + "\" contains rest area without id.");

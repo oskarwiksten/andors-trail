@@ -47,11 +47,11 @@ public final class MonsterTypeCollection {
 	}	
 	
 	// Selftest method. Not part of the game logic.
-	public void verifyData(WorldContext world) {
+	public void verifyData(WorldContext world, ConversationCollection conversations) {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		for (MonsterType t : monsterTypesById.values()) {
     			if (t.phraseID != null) {
-    				if (!world.conversations.isValidPhraseID(t.phraseID)) {
+    				if (!conversations.isValidPhraseID(t.phraseID)) {
     					L.log("WARNING: Cannot find phrase \"" + t.phraseID + "\" for MonsterType \"" + t.id + "\".");
     				}
     			}

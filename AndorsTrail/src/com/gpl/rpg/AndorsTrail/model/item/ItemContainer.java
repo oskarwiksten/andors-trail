@@ -30,7 +30,6 @@ public class ItemContainer {
 			this.quantity = initialQuantity;
 		}
 		
-		
 		// ====== PARCELABLE ===================================================================
 
 		public ItemEntry(DataInputStream src, WorldContext world, int fileversion) throws IOException {

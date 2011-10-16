@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.view;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -12,7 +13,8 @@ import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -41,7 +43,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     private CoordRect mapViewArea; // Area in mapcoordinates containing the visible map. topleft == this.topleft
     
     private final ModelContainer model;
-    private final TileStore tiles;
+    private final WorldContext world;
 	private final ViewContext view;
 	private final InputController inputController;
 	private final AndorsTrailPreferences preferences;
@@ -50,6 +52,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     private final Paint mPaint = new Paint();
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
+	
+	private TileCollection tiles;
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -58,8 +62,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.view = app.currentView.get();
         this.model = app.world.model;
-    	this.tiles = app.world.tileStore;
-    	this.tileSize = tiles.tileSize;
+    	this.world = app.world;
+    	this.tileSize = world.tileManager.tileSize;
     	this.inputController = view.inputController;
     	this.preferences = app.preferences;
 
@@ -93,8 +97,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 
 		L.log("surfaceChanged " + w + ", " + h);
 
-		this.scale = tiles.scale;
-		this.scaledTileSize = tiles.viewTileSize;
+		this.scale = world.tileManager.scale;
+		this.scaledTileSize = world.tileManager.viewTileSize;
 		L.log("scale=" + scale);
 		L.log("scaledTileSize=" + scaledTileSize);
 		
@@ -262,7 +266,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         
         for (Loot l : currentMap.groundBags) {
         	if (l.isVisible) {
-        		drawFromMapPosition(canvas, area, l.position, TileStore.iconID_groundbag);
+        		drawFromMapPosition(canvas, area, l.position, TileManager.iconID_groundbag);
         	}
 		}
         
@@ -277,9 +281,9 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         
 		if (model.uiSelections.selectedPosition != null) {
 			if (model.uiSelections.selectedMonster != null) {
-				drawFromMapPosition(canvas, area, model.uiSelections.selectedPosition, TileStore.iconID_attackselect);
+				drawFromMapPosition(canvas, area, model.uiSelections.selectedPosition, TileManager.iconID_attackselect);
 			} else {
-				drawFromMapPosition(canvas, area, model.uiSelections.selectedPosition, TileStore.iconID_moveselect);
+				drawFromMapPosition(canvas, area, model.uiSelections.selectedPosition, TileManager.iconID_moveselect);
 			}
 		}
     }
@@ -336,6 +340,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     			,Math.min(screenSizeTileCount.height, model.currentMap.size.height)
 			);
 		mapViewArea = new CoordRect(mapTopLeft, mapViewSize);
+		
+		tiles = world.tileManager.currentMapTiles;
 		
 		clearCanvas();
 	    

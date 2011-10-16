@@ -116,8 +116,8 @@ public final class CombatView extends RelativeLayout {
 		if (selectedMonster != null) {
 			attackMoveButton.setText(res.getString(R.string.combat_attack, player.combatTraits.attackCost));
 			monsterBar.setVisibility(View.VISIBLE);
-			monsterInfo.setImageBitmap(world.tileStore.getBitmap(selectedMonster.actorTraits.iconID));
-	        updateMonsterHealth(selectedMonster.health);
+			world.tileManager.setImageViewTile(monsterInfo, selectedMonster);
+			updateMonsterHealth(selectedMonster.health);
 	        currentMonster = selectedMonster;
 		} else if (selectedMovePosition != null) {
 			attackMoveButton.setText(res.getString(R.string.combat_move, player.actorTraits.moveCost));

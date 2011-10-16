@@ -8,11 +8,10 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -64,12 +63,12 @@ public final class StatusView extends RelativeLayout {
 		expBar.init(R.drawable.ui_progress_exp, R.string.status_exp);
         
 		levelupDrawable = new LayerDrawable(new Drawable[] {
-				new BitmapDrawable(world.tileStore.getBitmap(player.actorTraits.iconID))
-				,new BitmapDrawable(world.tileStore.getBitmap(TileStore.iconID_moveselect))
+				new BitmapDrawable(world.tileManager.preloadedTiles.getBitmap(player.actorTraits.iconID))
+				,new BitmapDrawable(world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
 		});
 		
 		quickToggle = (ImageButton) findViewById(R.id.quickitem_toggle);
-		quickToggle.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_boxclosed));
+		world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxclosed);
 		quickToggle.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -95,23 +94,24 @@ public final class StatusView extends RelativeLayout {
 		if (canLevelUp) {
 			heroImage.setImageDrawable(levelupDrawable);
 		} else {
-			heroImage.setImageBitmap(world.tileStore.getBitmap(player.actorTraits.iconID));			
+			world.tileManager.setImageViewTile(heroImage, player);			
 		}
 	}
 
 	public void updateActiveConditions(Context androidContext, LinearLayout activeConditions) {
 		GreedyImageViewAppender t = new GreedyImageViewAppender(androidContext, activeConditions);
 		for (ActorCondition condition : player.conditions) {
-			t.setCurrentImage(world.tileStore.getBitmap(condition.conditionType.iconID));
+			ImageView iv = t.getNextImage();
+			world.tileManager.setImageViewTile(iv, condition.conditionType);
 		}
 		t.removeOtherImages();
 	}
 	
 	public void updateQuickItemImage(boolean visible){
 		if(visible){
-			quickToggle.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_boxopened));
+			world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxopened);
 		} else {
-			quickToggle.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_boxclosed));
+			world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxclosed);
 		}
 	}
 	
@@ -127,21 +127,21 @@ public final class StatusView extends RelativeLayout {
 			this.context = context;
 			this.previousChildCount = container.getChildCount();
 		}
-		public void setCurrentImage(Bitmap b) {
+		public ImageView getNextImage() {
 			// Since this is called a lot, we do not want to recreate the view objects every time.
 			// Therefore, we reuse existing ImageView:s if they are present, but just change the image on them.
+			ImageView iv;
 			if (currentChildIndex < previousChildCount) {
 				// There already is a create dimage on this position, reuse it.
-				ImageView iv = (ImageView) container.getChildAt(currentChildIndex);
-				iv.setImageBitmap(b);
+				iv = (ImageView) container.getChildAt(currentChildIndex);
 				iv.setVisibility(View.VISIBLE);
 			} else {
 				// The player has never had this many conditions, create a new ImageView to hold the condition image.
-				ImageView iv = new ImageView(context);
-				iv.setImageBitmap(b);
+				iv = new ImageView(context);
 				container.addView(iv, layoutParams);
 			}
 			++currentChildIndex;
+			return iv;
 		}
 		public void removeOtherImages() {
 			for(int i = previousChildCount - 1; i >= currentChildIndex; --i) {

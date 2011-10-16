@@ -107,7 +107,7 @@ public final class WorldSetup {
 		Context ctx = androidContext.get();
 		int result = Savegames.loadWorld(world, ctx, loadFromSlot);
 		if (result == Savegames.LOAD_RESULT_SUCCESS) {
-			MovementController.loadCurrentTileMap(ctx.getResources(), world);
+			MovementController.cacheCurrentMapData(ctx.getResources(), world, world.model.currentMap);
 		}
 		return result;
 	}

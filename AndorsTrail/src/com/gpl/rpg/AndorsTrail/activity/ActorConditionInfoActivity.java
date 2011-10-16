@@ -33,7 +33,8 @@ public class ActorConditionInfoActivity extends Activity {
         setContentView(R.layout.actorconditioninfo);
 
         ImageView img = (ImageView) findViewById(R.id.actorconditioninfo_image);
-        img.setImageBitmap(world.tileStore.getBitmap(conditionType.iconID));
+        world.tileManager.setImageViewTile(img, conditionType);
+        
         TextView tv = (TextView) findViewById(R.id.actorconditioninfo_title);
         tv.setText(conditionType.name);
 

@@ -53,7 +53,7 @@ public final class HeroinfoActivity_Stats extends Activity {
         setContentView(R.layout.heroinfo_stats);
         
         ImageView iv = (ImageView) findViewById(R.id.heroinfo_image);
-        iv.setImageBitmap(world.tileStore.getBitmap(player.actorTraits.iconID));
+        world.tileManager.setImageViewTile(iv, player);
         
         ((TextView) findViewById(R.id.heroinfo_title)).setText(player.actorTraits.name);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);

@@ -70,8 +70,8 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         npc.dropList.createRandomLoot(merchantLoot, player);
         container_buy = merchantLoot.items;
         
-        buyListAdapter = new ShopItemContainerAdapter(this, world.tileStore, player, container_buy, this, false);
-        sellListAdapter = new ShopItemContainerAdapter(this, world.tileStore, player, player.inventory, this, true);
+        buyListAdapter = new ShopItemContainerAdapter(this, world.tileManager, player, container_buy, this, false);
+        sellListAdapter = new ShopItemContainerAdapter(this, world.tileManager, player, player.inventory, this, true);
 		shoplist_buy.setAdapter(buyListAdapter);
         shoplist_sell.setAdapter(sellListAdapter);
         

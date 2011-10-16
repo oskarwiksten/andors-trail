@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.context;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
+import com.gpl.rpg.AndorsTrail.conversation.ConversationLoader;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
@@ -11,11 +12,12 @@ import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public class WorldContext {
 	//Objectcollections
-	public final ConversationCollection conversations;
+	//public final ConversationCollection conversations;
+	public final ConversationLoader conversationLoader;
 	public final ItemTypeCollection itemTypes;
 	public final MonsterTypeCollection monsterTypes;
 	public final VisualEffectCollection visualEffectTypes;
@@ -25,31 +27,31 @@ public class WorldContext {
 	public final SkillCollection skills;
 
 	//Objectcollections
-	public final TileStore tileStore;
+	public final TileManager tileManager;
 
 	//Model
 	public final MapCollection maps;
 	public ModelContainer model;
 	
 	public WorldContext() {
-		this.conversations = new ConversationCollection();
+		this.conversationLoader = new ConversationLoader();
 		this.itemTypes = new ItemTypeCollection();
 		this.monsterTypes = new MonsterTypeCollection();
 		this.visualEffectTypes = new VisualEffectCollection();
 		this.dropLists = new DropListCollection();
-		this.tileStore = new TileStore();
+		this.tileManager = new TileManager();
 		this.maps = new MapCollection();
 		this.quests = new QuestCollection();
 		this.actorConditionsTypes = new ActorConditionTypeCollection();
 		this.skills = new SkillCollection();
 	}
 	public WorldContext(WorldContext copy) {
-		this.conversations = copy.conversations;
+		this.conversationLoader = copy.conversationLoader;
 		this.itemTypes = copy.itemTypes;
 		this.monsterTypes = copy.monsterTypes;
 		this.visualEffectTypes = copy.visualEffectTypes;
 		this.dropLists = copy.dropLists;
-		this.tileStore = copy.tileStore;
+		this.tileManager = copy.tileManager;
 		this.maps = copy.maps;
 		this.quests = copy.quests;
 		this.model = copy.model;
@@ -61,7 +63,7 @@ public class WorldContext {
 	}
 	
 	// Selftest method. Not part of the game logic.
-	public void verifyData() {
+	public void verifyData(ConversationCollection conversations) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			assert(itemTypes.getItemType("gold") != null);
 

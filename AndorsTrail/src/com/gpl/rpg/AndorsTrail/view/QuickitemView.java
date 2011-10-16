@@ -15,9 +15,9 @@ import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public class QuickitemView extends LinearLayout implements OnClickListener{
+public class QuickitemView extends LinearLayout implements OnClickListener {
 	public static final int NUM_QUICK_SLOTS = 3;
 
 	private final WorldContext world;
@@ -41,7 +41,7 @@ public class QuickitemView extends LinearLayout implements OnClickListener{
 			items[i] = (QuickButton)findViewById(quickButtons.getResourceId(i, -1));
 			QuickButton item = items[i];
 			item.setIndex(i);
-			item.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_shop));
+			world.tileManager.setImageViewTileForUIIcon(item, TileManager.iconID_shop);
 			item.setOnClickListener(this);
 			item.setEmpty(true);
 		}
@@ -74,11 +74,11 @@ public class QuickitemView extends LinearLayout implements OnClickListener{
 		for (int i = 0; i < NUM_QUICK_SLOTS; ++i){
 			QuickButton item = items[i];
 			ItemType type = world.model.player.inventory.quickitem[i];
-			if(type==null){
-				item.setImageBitmap(world.tileStore.getBitmap(TileStore.iconID_shop));
+			if(type==null) {
+				world.tileManager.setImageViewTileForUIIcon(item, TileManager.iconID_shop);
 				item.setEmpty(true);
 			} else {
-				world.tileStore.setImageViewTile(item, type);
+				world.tileManager.setImageViewTileForSingleItemType(item, type, getResources());
 				item.setEmpty(!world.model.player.inventory.hasItem(type.id));
 			}
 		}

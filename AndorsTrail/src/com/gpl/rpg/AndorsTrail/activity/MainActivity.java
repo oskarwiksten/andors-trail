@@ -138,7 +138,7 @@ public final class MainActivity extends Activity {
 		case INTENTREQUEST_PREFERENCES:
 			AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
 	        AndorsTrailPreferences.read(this, app.preferences);
-	        world.tileStore.updatePreferences(app.preferences);
+	        world.tileManager.updatePreferences(app.preferences);
 	        dpad.updateVisibility(app.preferences);
 			break;
 		case INTENTREQUEST_SAVEGAME:

@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.map;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
@@ -17,7 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXProperty;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXTileSet;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -33,9 +34,9 @@ public final class TMXMapTranslator {
 		maps.add(TMXMapFileParser.read(r, xmlResourceId, name));
 	}
 	
-	public static LayeredTileMap readLayeredTileMap(Resources res, TileStore tileStore, PredefinedMap map) {
+	public static LayeredTileMap readLayeredTileMap(Resources res, TileCache tileCache, PredefinedMap map) {
 		TMXLayerMap resultMap = TMXMapFileParser.readLayeredTileMap(res, map.xmlResourceId, map.name);
-		return transformMap(resultMap, tileStore);
+		return transformMap(resultMap, tileCache);
 	}
 
 	public ArrayList<PredefinedMap> transformMaps(DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
@@ -192,7 +193,7 @@ public final class TMXMapTranslator {
 	}
 	
 
-	private static LayeredTileMap transformMap(TMXLayerMap map, TileStore tileStore) {
+	private static LayeredTileMap transformMap(TMXLayerMap map, TileCache tileCache) {
 		final Size mapSize = new Size(map.width, map.height);
 		final MapLayer[] layers = new MapLayer[] {
 			new MapLayer(mapSize)
@@ -200,6 +201,7 @@ public final class TMXMapTranslator {
 			,new MapLayer(mapSize)
 		};
 		Tile tile = new Tile();
+		HashSet<Integer> usedTileIDs = new HashSet<Integer>();
 		for (TMXLayer layer : map.layers) {
 			int ixMapLayer = -2;
 			String layerName = layer.name;
@@ -223,11 +225,13 @@ public final class TMXMapTranslator {
 					
 					if (!getTile(map, gid, tile)) continue;
 					
-					layers[ixMapLayer].tiles[x][y] = tileStore.getTileID(tile.tilesetName, tile.localId);
+					int tileID = tileCache.getTileID(tile.tilesetName, tile.localId);
+					layers[ixMapLayer].tiles[x][y] = tileID;
+					usedTileIDs.add(tileID);
 				}
 			}
 		}
-		return new LayeredTileMap(mapSize, layers);
+		return new LayeredTileMap(mapSize, layers, usedTileIDs);
 	}
 	
 	private static boolean getTile(final TMXLayerMap map, final int gid, final Tile dest) {

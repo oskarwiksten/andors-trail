@@ -43,7 +43,7 @@ public final class MonsterEncounterActivity extends Activity {
         tv.setText(getString(R.string.dialog_monsterencounter_message, difficulty));
 
         ImageView iw = (ImageView) findViewById(R.id.monsterencounter_image);
-        iw.setImageBitmap(world.tileStore.getBitmap(monster.actorTraits.iconID));
+        world.tileManager.setImageViewTile(iw, monster);
         
         Button b = (Button) findViewById(R.id.monsterencounter_attack);
         b.setOnClickListener(new OnClickListener() {

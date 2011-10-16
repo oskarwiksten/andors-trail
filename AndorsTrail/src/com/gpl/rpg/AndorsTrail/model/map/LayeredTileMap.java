@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import java.util.Collection;
+
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LayeredTileMap {
@@ -9,12 +11,14 @@ public final class LayeredTileMap {
 	
 	public final Size size;
 	public final MapLayer[] layers;
+	public final Collection<Integer> usedTileIDs;
 	
-	public LayeredTileMap(Size size, MapLayer[] layers) {
+	public LayeredTileMap(Size size, MapLayer[] layers, Collection<Integer> usedTileIDs) {
 		this.size = size;
 		assert(size.width > 0);
 		assert(size.height > 0);
 		assert(layers.length == 3);
 		this.layers = layers;
+		this.usedTileIDs = usedTileIDs;
 	}
 }

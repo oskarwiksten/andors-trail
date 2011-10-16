@@ -10,14 +10,20 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
-	private final TileStore tileStore;
+	private final TileManager tileManager;
+	private final TileCollection tileCollection;
 	
-	public ItemContainerAdapter(Context context, TileStore tileStore, ItemContainer items) {
+	public ItemContainerAdapter(Context context, TileManager tileManager, ItemContainer items) {
+		this(context, tileManager, items, tileManager.loadTilesFor(items, context.getResources()));
+	}
+	public ItemContainerAdapter(Context context, TileManager tileManager, ItemContainer items, TileCollection tileCollection) {
 		super(context, 0, items.items);
-		this.tileStore = tileStore;
+		this.tileManager = tileManager;
+		this.tileCollection = tileCollection;
 	}
 
 	@Override
@@ -29,7 +35,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 			result = View.inflate(getContext(), R.layout.inventoryitemview, null);
 		}
 		
-		tileStore.setImageViewTile((ImageView) result.findViewById(R.id.inv_image), item.itemType);
+		tileManager.setImageViewTile((ImageView) result.findViewById(R.id.inv_image), item.itemType, tileCollection);
 		((TextView) result.findViewById(R.id.inv_text)).setText(item.itemType.describeWearEffect(item.quantity));
 		return result;
 	}

@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import android.content.res.Resources;
+import android.os.AsyncTask;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
@@ -9,10 +10,12 @@ import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
@@ -30,10 +33,30 @@ public final class MovementController implements TimedMessageTask.Callback {
     	this.movementHandler = new TimedMessageTask(this, Constants.MINIMUM_INPUT_INTERVAL, false);
     }
 	
-	public void placePlayerAt(int objectType, String mapName, String placeName, int offset_x, int offset_y) { 
-		placePlayerAt(view.mainActivity.getResources(), world, objectType, mapName, placeName, offset_x, offset_y); 
-		view.mainActivity.clearMessages();
-		view.mainActivity.mainview.notifyMapChanged();
+	public void placePlayerAt(final int objectType, final String mapName, final String placeName, final int offset_x, final int offset_y) {
+		
+		AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>()  {
+			@Override
+			protected Void doInBackground(Void... arg0) {
+				stopMovement();
+				
+				placePlayerAt(view.mainActivity.getResources(), world, objectType, mapName, placeName, offset_x, offset_y); 
+				view.mainActivity.clearMessages();
+				view.mainActivity.mainview.notifyMapChanged();
+				
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(Void result) {
+				super.onPostExecute(result);
+				stopMovement();
+				view.gameRoundController.resume();
+			}
+			
+		};
+		view.gameRoundController.pause();
+		task.execute();
     }
 	
 	public static void placePlayerAt(final Resources res, final WorldContext world, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
@@ -51,8 +74,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		final ModelContainer model = world.model;
 		
 		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
+		cacheCurrentMapData(res, world, newMap);
 		model.currentMap = newMap;
-		loadCurrentTileMap(res, world);
 		model.player.position.set(place.position.topLeft);
 		model.player.position.x += Math.min(offset_x, place.position.size.width-1);
 		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
@@ -241,8 +264,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 	}
 
-	public static void loadCurrentTileMap(Resources res, WorldContext world) {
-		world.model.currentTileMap = TMXMapTranslator.readLayeredTileMap(res, world.tileStore, world.model.currentMap);
+	public static void cacheCurrentMapData(final Resources res, final WorldContext world, final PredefinedMap nextMap) {
+		LayeredTileMap mapTiles = TMXMapTranslator.readLayeredTileMap(res, world.tileManager.tileCache, nextMap);
+		TileCollection cachedTiles = world.tileManager.loadTilesFor(nextMap, mapTiles, world, res);
+		world.model.currentTileMap = mapTiles;
+		world.tileManager.currentMapTiles = cachedTiles;
 	}
 	
 	private int movementDx;

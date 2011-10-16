@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.conversation;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
@@ -44,8 +45,8 @@ public final class ConversationCollection {
 		return phrases.get(id);
 	}
 	
-	public void initialize(ConversationListParser parser, String input) {
-		parser.parseRows(input, phrases);
+	public Collection<String> initialize(ConversationListParser parser, String input) {
+		return parser.parseRows(input, phrases);
 	}
 	
 	// Selftest method. Not part of the game logic.

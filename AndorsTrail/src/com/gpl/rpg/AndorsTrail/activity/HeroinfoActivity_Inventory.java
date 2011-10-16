@@ -9,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
 import android.app.Activity;
@@ -30,6 +31,7 @@ import android.widget.AdapterView.OnItemClickListener;
 public final class HeroinfoActivity_Inventory extends Activity {
 	private WorldContext world;
 	private ViewContext view;
+	private TileCollection wornTiles;
 
 	private Player player;
 	private ItemContainer container;
@@ -65,7 +67,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			}
 		});
         container = player.inventory;
-        inventoryListAdapter = new ItemContainerAdapter(this, world.tileStore, container);
+        wornTiles = world.tileManager.loadTilesFor(player.inventory, getResources());
+        inventoryListAdapter = new ItemContainerAdapter(this, world.tileManager, container, wornTiles);
         inventoryList.setAdapter(inventoryListAdapter);
         
         heroinfo_stats_gold = (TextView) findViewById(R.id.heroinfo_stats_gold);
@@ -155,7 +158,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
     private void updateWornImage(ImageView view, int resourceIDEmptyImage, ItemType type) {
 		if (type != null) {
-			world.tileStore.setImageViewTile(view, type);
+			world.tileManager.setImageViewTile(view, type, wornTiles);
 		} else {
 			view.setImageResource(resourceIDEmptyImage);
 		}

@@ -48,7 +48,7 @@ public final class ItemInfoActivity extends Activity {
         setContentView(R.layout.iteminfo);
 
         ImageView img = (ImageView) findViewById(R.id.iteminfo_image);
-        world.tileStore.setImageViewTile(img, itemType);
+        world.tileManager.setImageViewTileForSingleItemType(img, itemType, getResources());
         TextView tv = (TextView) findViewById(R.id.iteminfo_title);
         tv.setText(itemType.name);
         tv = (TextView) findViewById(R.id.iteminfo_category);

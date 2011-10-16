@@ -46,7 +46,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
 public final class Dialogs {
@@ -184,12 +184,12 @@ public final class Dialogs {
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
-		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileStore, combinedLoot.items));
+		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileManager, combinedLoot.items));
 		
 		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
         .setTitle(title)
         .setMessage(msg)
-        .setIcon(new BitmapDrawable(context.tileStore.getBitmap(TileStore.iconID_groundbag)))
+        .setIcon(new BitmapDrawable(context.tileManager.preloadedTiles.getBitmap(TileManager.iconID_groundbag)))
         .setNegativeButton(R.string.dialog_close, null)
         .setView(itemList);
 		

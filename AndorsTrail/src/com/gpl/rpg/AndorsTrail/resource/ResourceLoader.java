@@ -1,8 +1,11 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
+import java.util.Collection;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
@@ -38,10 +41,9 @@ public final class ResourceLoader {
     	long start = System.currentTimeMillis();
     	taskStart = start;
     	
-        final TileStore tiles = world.tileStore;
-        final int mTileSize = tiles.tileSize;
+        final int mTileSize = world.tileManager.tileSize;
         
-        DynamicTileLoader loader = new DynamicTileLoader(tiles, r);
+        DynamicTileLoader loader = new DynamicTileLoader(world.tileManager.tileCache);
         prepareTilesets(loader, mTileSize);
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("prepareTilesets");
         
@@ -59,6 +61,11 @@ public final class ResourceLoader {
         
         
         // ========================================================================
+        // Load effects
+        world.visualEffectTypes.initialize(loader);
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("VisualEffectLoader");
+        
+        // ========================================================================
         // Load skills
         world.skills.initialize();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("SkillLoader");
@@ -71,6 +78,11 @@ public final class ResourceLoader {
         	world.actorConditionsTypes.initialize(actorConditionsTypeParser, conditionsToLoad.getString(i));	
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ActorConditionsTypeParser");
+        
+        // ========================================================================
+        // Load preloaded tiles
+        loader.flush();
+        world.tileManager.loadPreloadedTiles(r);
         
         
         // ========================================================================
@@ -110,11 +122,13 @@ public final class ResourceLoader {
         // Load conversations
         final ConversationListParser conversationListParser = new ConversationListParser();
         final TypedArray conversationsListsToLoad = r.obtainTypedArray(conversationsListsResourceId);
+        ConversationCollection conversations = new ConversationCollection();
         for (int i = 0; i < conversationsListsToLoad.length(); ++i) {
-        	world.conversations.initialize(conversationListParser, conversationsListsToLoad.getString(i));
+        	Collection<String> ids = conversations.initialize(conversationListParser, conversationsListsToLoad.getString(i));
+        	world.conversationLoader.addIDs(conversationsListsToLoad.getResourceId(i, -1), ids);
         }
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.conversations.verifyData();
+        	conversations.verifyData();
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ConversationListParser");
         
@@ -128,7 +142,7 @@ public final class ResourceLoader {
         }
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.monsterTypes.verifyData(world);
+        	world.monsterTypes.verifyData(world, conversations);
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("MonsterTypeParser");
         
@@ -148,14 +162,9 @@ public final class ResourceLoader {
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("mapReader.transformMaps");
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.maps.verifyData(world);
+        	world.maps.verifyData(world, conversations);
         }
         
-        
-        // ========================================================================
-        // Load effects
-        world.visualEffectTypes.initialize(loader);
-        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("VisualEffectLoader");
         
         // ========================================================================
         // Load graphics resources (icons and tiles)
@@ -166,7 +175,7 @@ public final class ResourceLoader {
         
 
         if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.verifyData();
+        	world.verifyData(conversations);
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("world.verifyData()");
         

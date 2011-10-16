@@ -41,7 +41,8 @@ public final class ActorConditionList extends LinearLayout {
 		
 		for (ActorCondition c : conditions) {
 			View v = View.inflate(context, R.layout.inventoryitemview, null);
-			((ImageView) v.findViewById(R.id.inv_image)).setImageBitmap(world.tileStore.getBitmap(c.conditionType.iconID));
+			ImageView iw = (ImageView) v.findViewById(R.id.inv_image);
+			world.tileManager.setImageViewTile(iw, c.conditionType);
 			SpannableString content = new SpannableString(describeEffect(res, c));
 			content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
 			((TextView) v.findViewById(R.id.inv_text)).setText(content);

@@ -103,8 +103,8 @@ public final class StartScreenActivity extends Activity {
         }
         
         final Resources res = getResources();
-        app.world.tileStore.setDensity(res);
-        app.world.tileStore.updatePreferences(app.preferences);
+        app.world.tileManager.setDensity(res);
+        app.world.tileManager.updatePreferences(app.preferences);
         app.setup.startResourceLoader(res, app.preferences);
         
         if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {

@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
-import com.gpl.rpg.AndorsTrail.resource.TileStore;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemType {
 	public static final int CATEGORY_WEAPON = 0;
@@ -146,13 +146,13 @@ public final class ItemType {
 	public int getOverlayTileID() {
 		switch (displayType) {
 		case ItemType.DISPLAYTYPE_QUEST:
-			return TileStore.iconID_selection_yellow;
+			return TileManager.iconID_selection_yellow;
 		case ItemType.DISPLAYTYPE_LEGENDARY:
-			return TileStore.iconID_selection_green;
+			return TileManager.iconID_selection_green;
 		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
-			return TileStore.iconID_selection_blue;
+			return TileManager.iconID_selection_blue;
 		case ItemType.DISPLAYTYPE_RARE:
-			return TileStore.iconID_selection_purple;
+			return TileManager.iconID_selection_purple;
 		}
 		return -1;
 	}

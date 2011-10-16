@@ -79,7 +79,7 @@ public final class MonsterInfoActivity extends Activity {
     }
 
 	private void updateTitle(Monster monster) {
-		monsterinfo_image.setImageBitmap(world.tileStore.getBitmap(monster.actorTraits.iconID));
+		world.tileManager.setImageViewTile(monsterinfo_image, monster);
         monsterinfo_title.setText(monster.actorTraits.name);
         monsterinfo_difficulty.setText(getMonsterDifficultyResource(world, monster));
 	}
