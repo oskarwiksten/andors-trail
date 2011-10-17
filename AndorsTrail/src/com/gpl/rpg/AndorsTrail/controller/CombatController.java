@@ -13,6 +13,7 @@ import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectCompletedCallback;
 import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -27,7 +28,7 @@ import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
-public final class CombatController {
+public final class CombatController implements VisualEffectCompletedCallback {
 	private final ViewContext context;
     private final WorldContext world;
     private final ModelContainer model;
@@ -58,7 +59,6 @@ public final class CombatController {
     	updateTurnInfo();
     }
     public void exitCombat(boolean pickupLootBags) {
-    	context.effectController.waitForCurrentEffect();
     	setCombatSelection(null, null);
 		context.mainActivity.combatview.setVisibility(View.GONE);
 		model.uiSelections.isInCombat = false;
@@ -146,7 +146,7 @@ public final class CombatController {
 		if (isMonsterTurn()) {
 			forceFinishMonsterAction();
 		} else if (world.model.uiSelections.selectedMonster != null) {
-			executeAttack();
+			executePlayerAttack();
 		} else if (world.model.uiSelections.selectedPosition != null) {
 			executeCombatMove(world.model.uiSelections.selectedPosition);
 		} else if (canExitCombat()) {
@@ -157,7 +157,7 @@ public final class CombatController {
 			Monster m = getAdjacentMonster();
 			if (m == null) return;
 			setCombatSelection(m);
-			executeAttack();
+			executePlayerAttack();
 		}
 	}
 	
@@ -169,13 +169,17 @@ public final class CombatController {
 		executeCombatMove(world.model.player.nextPosition);
 	}
 	
-	private void executeAttack() {
-		context.effectController.waitForCurrentEffect();
-		
+	private Monster currentlyAttackedMonster;
+	private AttackResult lastAttackResult;
+	private void executePlayerAttack() {
 		if (!useAPs(model.player.combatTraits.attackCost)) return;
-		Monster target = model.uiSelections.selectedMonster;
-			
-		AttackResult attack = playerAttacks(model, target);
+		if (context.effectController.isRunningVisualEffect()) return;
+		final Monster target = model.uiSelections.selectedMonster;
+		this.currentlyAttackedMonster = target;
+		
+		final AttackResult attack = playerAttacks(model, target);
+		this.lastAttackResult = attack;
+		
 		Resources r = context.mainActivity.getResources();
 		if (attack.isHit) {
 			String msg;
@@ -190,24 +194,27 @@ public final class CombatController {
 				msg += " " + r.getString(R.string.combat_result_herokillsmonster, monsterName, attack.damage);
 			}
 			message(msg);
-			startAttackEffect(attack, model.uiSelections.selectedPosition);
-			if (attack.targetDied) {
-				playerKilledMonster(target);
-				Monster nextMonster = getAdjacentMonster();
-				if (nextMonster == null) {
-					exitCombat(true);
-					return;
-				} else {
-					context.effectController.waitForCurrentEffect();
-					setCombatSelection(nextMonster);
-				}
-			}
+			
+			startAttackEffect(attack, model.uiSelections.selectedPosition, this, CALLBACK_PLAYERATTACK);
 		} else {
 			message(r.getString(R.string.combat_result_heromiss));
+			playerAttackCompleted();
+		}
+	}
+	
+	private void playerAttackCompleted() {
+		if (lastAttackResult.targetDied) {
+			playerKilledMonster(currentlyAttackedMonster);
+			Monster nextMonster = getAdjacentMonster();
+			if (nextMonster == null) {
+				exitCombat(true);
+				return;
+			} else {
+				setCombatSelection(nextMonster);
+			}
 		}
 		
 		context.mainActivity.updateStatus();
-		
 		maybeAutoEndTurn();
 	}
 	
@@ -279,6 +286,7 @@ public final class CombatController {
             CombatController.this.handleNextMonsterAction();
         }
 	};
+	
 	public void endPlayerTurn() {
 		model.player.ap.current = 0;
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
@@ -317,42 +325,67 @@ public final class CombatController {
 	private void handleNextMonsterAction() {
 		if (!context.model.uiSelections.isMainActivityVisible) return;
 		
-		context.effectController.waitForCurrentEffect();
-		
 		currentActiveMonster = determineNextMonster(currentActiveMonster);
 		if (currentActiveMonster == null) {
 			endMonsterTurn();
 			return;
 		}
+		
 		context.mainActivity.combatview.updateTurnInfo(currentActiveMonster);
 		Resources r = context.mainActivity.getResources();
 		AttackResult attack = monsterAttacks(model, currentActiveMonster);
+		this.lastAttackResult = attack;
+		
 		String monsterName = currentActiveMonster.actorTraits.name;
 		if (attack.isHit) {
-			startAttackEffect(attack, model.player.position);
 			if (attack.isCriticalHit) {
 				message(r.getString(R.string.combat_result_monsterhitcritical, monsterName, attack.damage));
 			} else {
 				message(r.getString(R.string.combat_result_monsterhit, monsterName, attack.damage));
 			}
-			if (attack.targetDied) {
-				context.controller.handlePlayerDeath();
-				return;
-			}
+			context.mainActivity.updateStatus();
+			
+			startAttackEffect(attack, model.player.position, this, CALLBACK_MONSTERATTACK);
 		} else {
 			message(r.getString(R.string.combat_result_monstermiss, monsterName));
+			context.mainActivity.updateStatus();
+			
+			monsterTurnHandler.sendEmptyMessageDelayed(0, context.preferences.attackspeed_milliseconds);
 		}
-		context.mainActivity.updateStatus();
-		monsterTurnHandler.sendEmptyMessageDelayed(0, context.preferences.attackspeed_milliseconds);
+	}
+	
+	private static final int CALLBACK_MONSTERATTACK = 0;
+	private static final int CALLBACK_PLAYERATTACK = 1;
+	
+	@Override
+	public void onVisualEffectCompleted(int callbackValue) {
+		if (callbackValue == CALLBACK_MONSTERATTACK) {
+			monsterAttackCompleted();
+		} else if (callbackValue == CALLBACK_PLAYERATTACK) {
+			playerAttackCompleted();
+		}
 	}
 
-	private void startAttackEffect(AttackResult attack, final Coord position) {
-		if (context.preferences.attackspeed_milliseconds <= 0) return;
+	private void monsterAttackCompleted() {
+		if (lastAttackResult.targetDied) {
+			context.controller.handlePlayerDeath();
+			return;
+		}
+		handleNextMonsterAction();
+	}
+	
+	private void startAttackEffect(AttackResult attack, final Coord position, VisualEffectCompletedCallback callback, int callbackValue) {
+		if (context.preferences.attackspeed_milliseconds <= 0) {
+			callback.onVisualEffectCompleted(callbackValue);
+			return;
+		}
 		context.effectController.startEffect(
 				context.mainActivity.mainview
 				, position
 				, VisualEffectCollection.EFFECT_BLOOD
-				, attack.damage);
+				, attack.damage
+				, callback
+				, callbackValue);
 	}
 	private void endMonsterTurn() {
 		currentActiveMonster = null;

@@ -179,7 +179,6 @@ public class ActorStatsController {
 	public void applyUseEffect(Actor source, Actor target, ItemTraits_OnUse effect) {
 		if (effect == null) return;
 		
-		applyStatsModifierEffect(source, effect, 1);
 		if (effect.addedConditions_source != null) {
 			for (ActorConditionEffect e : effect.addedConditions_source) {
 				rollForConditionEffect(source, e);
@@ -192,6 +191,7 @@ public class ActorStatsController {
 				}
 			}
 		}
+		applyStatsModifierEffect(source, effect, 1);
 	}
 
 	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
@@ -239,7 +239,9 @@ public class ActorStatsController {
 				view.mainActivity.mainview
 				, actor.position
 				, visualEffectID
-				, effectValue);
+				, effectValue
+				, null
+				, 0);
 		}
 	}
 	

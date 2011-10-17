@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.os.AsyncTask;
 import android.widget.ImageView;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
@@ -19,8 +20,10 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 
 public final class TileManager {
 	public static final int CHAR_HERO = 1;
@@ -46,6 +49,7 @@ public final class TileManager {
 	public final TileCache tileCache = new TileCache();
 	public final TileCollection preloadedTiles = new TileCollection(72);
 	public TileCollection currentMapTiles;
+	public TileCollection adjacentMapTiles;
 	private final HashSet<Integer> preloadedTileIDs = new HashSet<Integer>();
 	
 	
@@ -69,6 +73,15 @@ public final class TileManager {
 	}
 	
 	public TileCollection loadTilesFor(PredefinedMap map, LayeredTileMap tileMap, WorldContext world, Resources r) {
+		HashSet<Integer> iconIDs = getTileIDsFor(map, tileMap, world);
+		TileCollection result = tileCache.loadTilesFor(iconIDs, r);
+		for(int i : preloadedTileIDs) {
+			result.setBitmap(i, preloadedTiles.getBitmap(i));
+		}
+		return result;
+	}
+	
+	public HashSet<Integer> getTileIDsFor(PredefinedMap map, LayeredTileMap tileMap, WorldContext world) {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 		for(MonsterSpawnArea a : map.spawnAreas) {
 			for(String monsterTypeID : a.monsterTypeIDs) {
@@ -76,12 +89,7 @@ public final class TileManager {
 			}
 		}
 		iconIDs.addAll(tileMap.usedTileIDs);
-		
-		TileCollection result = tileCache.loadTilesFor(iconIDs, r);
-		for(int i : preloadedTileIDs) {
-			result.setBitmap(i, preloadedTiles.getBitmap(i));
-		}
-		return result;
+		return iconIDs;
 	}
 	
 	public void setDensity(Resources r) {
@@ -125,12 +133,36 @@ public final class TileManager {
 		}
 	}
 
-
 	public void loadPreloadedTiles(Resources r) {
 		int maxTileID = tileCache.getMaxTileID();
         for(int i = TileManager.CHAR_HERO; i <= maxTileID; ++i) {
         	preloadedTileIDs.add(i);
         }
         tileCache.loadTilesFor(preloadedTileIDs, r, preloadedTiles);
+	}
+
+	public void cacheAdjacentMaps(final Resources res, final WorldContext world, final PredefinedMap nextMap) {
+		(new AsyncTask<Void, Void, Void>()  {
+			@Override
+			protected Void doInBackground(Void... arg0) {
+				adjacentMapTiles = null;
+				
+				HashSet<String> adjacentMapNames = new HashSet<String>();
+				for (MapObject o : nextMap.eventObjects) {
+					if (o.type != MapObject.MAPEVENT_NEWMAP) continue;
+					adjacentMapNames.add(o.map);
+				}
+				
+				HashSet<Integer> tileIDs = new HashSet<Integer>();
+				for (String mapName : adjacentMapNames) {
+					PredefinedMap adjacentMap = world.maps.findPredefinedMap(mapName);
+					LayeredTileMap adjacentMapTiles = TMXMapTranslator.readLayeredTileMap(res, tileCache, adjacentMap);
+					tileIDs.addAll(getTileIDsFor(adjacentMap, adjacentMapTiles, world));
+				}
+				
+				adjacentMapTiles = tileCache.loadTilesFor(tileIDs, res);
+				return null;
+			}
+		}).execute();
 	}
 }

@@ -127,7 +127,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 		if (effects_hit.isEmpty()) effects_hit = null;
 		if (effects_kill.isEmpty()) effects_kill = null;
 		heroinfo_itemeffects.update(null, null, effects_hit, effects_kill);
-		heroinfo_basetraits.update(player.actorTraits.baseCombatTraits);
+		heroinfo_basetraits.update(player.actorTraits);
     }
 
 	private void updateConditions() {

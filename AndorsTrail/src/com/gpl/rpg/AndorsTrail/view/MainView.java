@@ -173,7 +173,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	private void redrawArea_(CoordRect area) {
 		if (!hasSurface) return;
-		if (!preferences.optimizedDrawing) area = mapViewArea;
+		//if (!preferences.optimizedDrawing) area = mapViewArea;
         
 		final PredefinedMap currentMap = model.currentMap;
         boolean b = currentMap.isOutside(area);
@@ -198,10 +198,15 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	    }
 	}
 	
+	private boolean shouldRedrawEverythingForVisualEffect() {
+		if (preferences.optimizedDrawing) return false;
+		if (model.uiSelections.isInCombat) return false; // Discard the "optimized drawing" setting while in combat.
+		return true;
+	}
 	private final Rect redrawRect = new Rect();
-	public void redrawAreaWithEffect(CoordRect area, final VisualEffectAnimation effect) {
+	public void redrawAreaWithEffect(CoordRect area, final VisualEffectAnimation effect, int tileID, int textYOffset, Paint textPaint) {
 		if (!hasSurface) return;
-		if (!preferences.optimizedDrawing) area = mapViewArea;
+		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;
 		
 		final PredefinedMap currentMap = model.currentMap;
         if (currentMap.isOutside(area)) return;
@@ -214,9 +219,9 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        	c.translate(screenOffset.x, screenOffset.y);
 	        	c.scale(scale, scale);
 	        	doDrawRect(c, area);
-	        	drawFromMapPosition(c, area, effect.position, effect.currentTileID);
+	        	drawFromMapPosition(c, area, effect.position, tileID);
     			if (effect.displayText != null) {
-    				drawEffectText(c, area, effect);
+    				drawEffectText(c, area, effect, textYOffset, textPaint);
     			}
 	        }
 	    } finally {
@@ -328,10 +333,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		}
     }
 	
-	private void drawEffectText(Canvas canvas, final CoordRect area, final VisualEffectAnimation e) {
+	private void drawEffectText(Canvas canvas, final CoordRect area, final VisualEffectAnimation e, int textYOffset, Paint textPaint) {
     	int x = (e.position.x - mapViewArea.topLeft.x) * tileSize + tileSize/2;
-    	int y = (e.position.y - mapViewArea.topLeft.y) * tileSize + tileSize/2 + e.textYOffset;
-		canvas.drawText(e.displayText, x, y, e.textPaint);
+    	int y = (e.position.y - mapViewArea.topLeft.y) * tileSize + tileSize/2 + textYOffset;
+		canvas.drawText(e.displayText, x, y, textPaint);
     }
     
 	public void notifyMapChanged() {

@@ -61,7 +61,6 @@ public final class Controller {
 
 	public void handlePlayerDeath() {
 		view.combatController.exitCombat(false);
-		view.effectController.waitForCurrentEffect();		
 		final Player player = model.player;
 		int lostExp = player.levelExperience.current * Constants.PERCENT_EXP_LOST_WHEN_DIED / 100;
 		lostExp -= lostExp * player.getSkillLevel(SkillCollection.SKILL_LOWER_EXPLOSS) * SkillCollection.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT / 100;
