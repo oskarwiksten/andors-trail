@@ -195,10 +195,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			}
 			message(msg);
 			
+			context.mainActivity.updateStatus();
 			if (lastAttackResult.targetDied) {
 				playerKilledMonster(currentlyAttackedMonster);
 			}
-			context.mainActivity.updateStatus();
 			
 			startAttackEffect(attack, model.uiSelections.selectedPosition, this, CALLBACK_PLAYERATTACK);
 		} else {

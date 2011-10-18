@@ -124,14 +124,6 @@ public final class DebugInterface {
 	    			mainActivity.showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
 			})
-			,new DebugButton("exp", new OnClickListener() {
-	    		@Override
-				public void onClick(View arg0) {
-	    			world.model.player.addExperience(10000);
-	    			mainActivity.updateStatus();
-	    			mainActivity.showToast("DEBUG: added 10k exp", Toast.LENGTH_SHORT);
-				}
-			})
 			/*
 			,new DebugButton("cg", new OnClickListener() {
 	    		@Override

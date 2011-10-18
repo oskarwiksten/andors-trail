@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
-import android.os.AsyncTask;
+import android.os.Handler;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection.VisualEffect;
@@ -14,7 +14,7 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class VisualEffectController {
-	private VisualEffectAnimation currentEffect;
+	private int effectCount = 0;
 
 	private final VisualEffectCollection effectTypes;
 	public VisualEffectController(WorldContext world) {
@@ -22,64 +22,28 @@ public final class VisualEffectController {
 	}
 
 	public void startEffect(MainView mainview, Coord position, int effectID, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
-		VisualEffectAnimation e = currentEffect;
-		if (e != null) {
-			e.killjoin();
-		}
-		currentEffect = new VisualEffectAnimation(effectTypes.effects[effectID], position, mainview, displayValue, callback, callbackValue);
-		currentEffect.execute();
+		++effectCount;
+		(new VisualEffectAnimation(effectTypes.effects[effectID], position, mainview, displayValue, callback, callbackValue))
+		.start();
 	}
 	
-	public final class VisualEffectAnimation extends AsyncTask<Void, Integer, Void> {
-		  
-	    @Override
-		protected Void doInBackground(Void... arg0) {
-	    	final int sleepInterval = effect.millisecondPerFrame / 2;
-	    	try {
-	    		while (isAlive) {
-					update();
-        			Thread.sleep(sleepInterval);
-	        		if (isCancelled()) return null;
-				}
-		    	Thread.sleep(effect.millisecondPerFrame);
-	    	} catch (InterruptedException e) { }
-        	
-	    	return null;
-        }
-	    
-	    @Override
-	    protected void onCancelled() {
-	    	isAlive = false;
-	    }
-	      
-	    public void killjoin() { this.cancel(true); }
+	public final class VisualEffectAnimation extends Handler implements Runnable {
 
-	    private void update() {
-        	int elapsed = (int)(System.currentTimeMillis() - startTime);
-        	if (elapsed > effect.duration) {
-        		isAlive = false;
-        		return;
-        	}
-        	
-        	int currentFrame = (int) Math.floor(elapsed / effect.millisecondPerFrame);
-        	
-    		if (currentFrame > effect.lastFrame) currentFrame = effect.lastFrame;
-			if (currentFrame < 0) currentFrame = 0;
-			final boolean changed = currentFrame != this.lastFrame;
-			if (!changed) return;
-			
-			this.lastFrame = currentFrame;
-			this.publishProgress(currentFrame);
-		}
-	    
-	    
 		@Override
-		protected void onProgressUpdate(Integer... progress) {
-			super.onProgressUpdate(progress);
-			redrawFrame(progress[0]);
+		public void run() {
+			update();
+			if (currentFrame == effect.lastFrame) {
+				onCompleted();
+			} else {
+				postDelayed(this, effect.millisecondPerFrame);
+			}
 		}
-		private void redrawFrame(int frame) {
-        	int tileID = effect.frameIconIDs[frame];
+	      
+	    private void update() {
+        	++currentFrame;
+        	int frame = currentFrame;
+        	
+    		int tileID = effect.frameIconIDs[frame];
 			int textYOffset = -2 * (frame);
 			if (frame >= beginFadeAtFrame && displayText != null) {
 				this.textPaint.setAlpha(255 * (effect.lastFrame - frame) / (effect.lastFrame - beginFadeAtFrame)); 
@@ -87,26 +51,19 @@ public final class VisualEffectController {
 			view.redrawAreaWithEffect(area, this, tileID, textYOffset, this.textPaint);
 		}
 
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			VisualEffectController.this.currentEffect = null;
+		protected void onCompleted() {
+    		--effectCount;
 			view.redrawArea(area, MainView.REDRAW_AREA_EFFECT_COMPLETED);
 			if (callback != null) callback.onVisualEffectCompleted(callbackValue);
 		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			this.isAlive = true;
-			redrawFrame(0);
+		
+		public void start() {
+			postDelayed(this, 0);
 		}
 
-		private boolean isAlive = false;
-		private int lastFrame = 0;
+		private int currentFrame = 0;
 		
 		private final VisualEffect effect;
-		private final long startTime;
 		private final MainView view;
 		
 		public final Coord position;
@@ -129,25 +86,16 @@ public final class VisualEffectController {
 			this.textPaint.setTextSize(view.scaledTileSize * 0.5f); // 32dp.
 			this.textPaint.setAlpha(255);
 			this.textPaint.setTextAlign(Align.CENTER);
-			this.startTime = System.currentTimeMillis();
 			this.view = view;
 			this.beginFadeAtFrame = effect.lastFrame / 2;
 		}
 	}
 	
-	
 	public static interface VisualEffectCompletedCallback {
 		public void onVisualEffectCompleted(int callbackValue);
 	}
 
-	public void killCurrentEffect() {
-		VisualEffectAnimation e = currentEffect;
-		if (e != null) {
-			e.killjoin();
-		}
-	}
-
 	public boolean isRunningVisualEffect() {
-		return currentEffect != null;
+		return effectCount > 0;
 	}
 }
