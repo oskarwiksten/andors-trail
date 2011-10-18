@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
-import android.util.Pair;
-
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
@@ -10,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.util.Pair;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {

@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import java.util.HashSet;
+
 import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
@@ -20,6 +22,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClickedListener;
 
@@ -70,8 +73,11 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         npc.dropList.createRandomLoot(merchantLoot, player);
         container_buy = merchantLoot.items;
         
-        buyListAdapter = new ShopItemContainerAdapter(this, world.tileManager, player, container_buy, this, false);
-        sellListAdapter = new ShopItemContainerAdapter(this, world.tileManager, player, player.inventory, this, true);
+        HashSet<Integer> iconIDs = world.tileManager.getTileIDsFor(container_buy);
+        iconIDs.addAll(world.tileManager.getTileIDsFor(player.inventory));
+        TileCollection tiles = world.tileManager.tileCache.loadTilesFor(iconIDs, res);
+        buyListAdapter = new ShopItemContainerAdapter(this, tiles, world.tileManager, player, container_buy, this, false);
+        sellListAdapter = new ShopItemContainerAdapter(this, tiles, world.tileManager, player, player.inventory, this, true);
 		shoplist_buy.setAdapter(buyListAdapter);
         shoplist_sell.setAdapter(sellListAdapter);
         

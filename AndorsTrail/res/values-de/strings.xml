@@ -2,6 +2,7 @@
 
 <resources>
 	<string name="app_name">Andor\'s Trail</string>
+	<string name="app_description">Questgetriebenes Fantasy-Rollenspiel</string>
 	
 	<string name="exit">Beenden</string>
 	<string name="exit_to_menu">Zum Menü</string>
@@ -44,7 +45,7 @@
 	<string name="heroinfo_char">Übersicht</string>
 	<string name="heroinfo_inv">Inventar</string>
 	<string name="heroinfo_wear">Angelegt</string>
-	<string name="heroinfo_skill">Fähigkeiten</string>
+	<string name="heroinfo_skill">Skills</string>
 	<string name="heroinfo_spell">Zauber</string>
 	<string name="heroinfo_levelup">Aufstieg</string>
 	<string name="heroinfo_level">Level</string>
@@ -67,7 +68,7 @@
 	<string name="combat_status_ap">AP: %1$d</string>
 	<string name="combat_monsterhealth">LP:</string>
 	<string name="combat_monsteraction">%1$s greift an.</string>
-	<!-- <string name="combat_cannotexitcombat">Du kannst den Kampf nicht verlassen, weil noch Gegner in der Nähe sind.Du musst dich zunächst auf ein Feld bewegen, wo dich die Gegner nicht mehr erreichen können.</string>  -->
+	<!-- <string name="combat_cannotexitcombat">Du kannst den Kampf nicht verlassen, weil noch Gegner in der Nähe sind. Du musst dich zunächst auf ein Feld bewegen, wo dich die Gegner nicht mehr erreichen können.</string>  -->
 	<string name="combat_result_monstermiss">%1$s verfehlt!</string>
 	<string name="combat_result_monsterhit">%1$s trifft dich und nimmt dir %2$d LP!</string>
 	<string name="combat_result_monsterhitcritical">%1$s macht einen kritischen Treffer (%2$d LP)!</string>
@@ -89,6 +90,7 @@
 
 	<string name="dialog_loot_pickall">Alles einsammeln</string>
 	<string name="dialog_loot_foundgold">Du findest %1$d Gold. </string>
+	<string name="dialog_loot_pickedupitem">Du hebst einen Gegenstand auf.</string>
 	<string name="dialog_loot_pickedupitems">Du hebst %1$d Gegenstände auf.</string>
 	<string name="dialog_groundloot_title">Gegenstände</string>
 	<string name="dialog_groundloot_message">Du hast ein paar Dinge gefunden. </string>
@@ -112,7 +114,7 @@
     <string name="actorinfo_criticalhit">Krit. Treffer:</string>
     <string name="actorinfo_defense">Abwehr:</string>
     <string name="actorinfo_movecost">Bewegungskosten (AP):</string>
-    <string name="actorinfo_basetraits">Kampfeigenschaften (ohne Ausrüstung)</string>
+    <string name="actorinfo_basetraits">Basiskampfeigenschaften (ohne Ausrüstung und Skills)</string>
     <string name="actorinfo_currenttraits">Kampfeigenschaften (aktuell)</string>
     
     <string name="traitsinfo_attack_cost">Angriffskosten (AP):</string>
@@ -121,7 +123,7 @@
     <string name="traitsinfo_criticalhit_chance">Kritische Treffer:</string>
     <string name="traitsinfo_criticalhit_multiplier">Faktor bei krit. Treffern:</string>
     <string name="traitsinfo_defense_chance">Abwehrchance:</string>
-    <string name="traitsinfo_defense_damageresist">Widerstand:</string>
+    <string name="traitsinfo_defense_damageresist">Schadensresistenz:</string>
     
 	<!-- <string name="key_required">Hier kommt man nur mit einem bestimmten Schlüssel weiter.</string>  -->
 
@@ -200,13 +202,11 @@
 		&lt;br /&gt;
 		Wir sollten hier wirklich einmal ein paar Informationen anzeigen, wie man das Spiel spielt :)&lt;br /&gt;
 	</string>
-	
+
 	<string name="dialog_newversion_title">Willkommen</string>
 	<string name="dialog_newversion_message">
         Vielen Dank, dass Du Andor\'s Trail heruntergeladen hast!\n\n
         Bedenke bitte, dass diese Version von Andor\'s Trail noch IN DER ENTWICKLUNG ist und somit noch nicht alle Karten komplett fertig sind.\n
-        Es steht dir frei, alle bestehenden Städte und Dungeons ausgiebig zu erforschen.\n
-        Diese Entwicklungsversion kann Fehler enthalten und das Spiel ist noch nicht gut ausbalanciert. Mit dieser Programmversion sollen Fehler aufgespürt werden, bevor weitere Inhalte hinzugefügt werden.\n
         Bitte besuche das Projekt-Forum für weitere Informationen oder wenn du mithelfen willst (siehe "Über").\n
         \n
         Danke für alle bisherigen Rückmeldungen!
@@ -230,12 +230,12 @@
 	<string name="preferences_dialog_confirmrest_title">Bestätige Ausruhen</string>
 	<string name="preferences_dialog_confirmrest">Fragt nach, ob man ausruhen will, wenn ein Bett berührt wird. Ansonsten ruht man automatisch aus.</string>
 	<string name="preferences_dialog_confirmattack_title">Bestätige Angriff</string>
-	<string name="preferences_dialog_confirmattack">Aktiviert den \'Angreifen..?\' Dialog beim Berühren von Monstern.</string>
+	<string name="preferences_dialog_confirmattack">Aktiviert den \'Angreifen..?\' Dialog beim Angreifen von Gegnern.</string>
 	<string name="preferences_dialog_monsterloot_title">Beute anzeigen</string>
 	<string name="preferences_dialog_monsterloot">Auswahl wie das Ergebnis eines Kampfes angezeigt werden soll (Gold, Erfahrung, Gegenstände).</string>
 	<string name="preferences_combat_category">Kampf</string>
 	<string name="preferences_combat_speed_title">Kampfgeschwindigkeit</string>
-	<string name="preferences_combat_speed">Bestimmt, wie schnell Monster angreifen.</string>
+	<string name="preferences_combat_speed">Bestimmt, wie schnell Gegner angreifen.</string>
 
 	<string-array name="preferences_display_loot">
 		<item>Beute-Dialog anzeigen</item>
@@ -318,5 +318,145 @@
 	<string name="inventory_assign_slot2">Quickslot 2</string>
 	<string name="inventory_assign_slot3">Quickslot 3</string>
 	<string name="inventory_unassign">Quickslot aufheben</string>
+	
+	<!-- =========================================== -->
+	<!-- Added in v0.6.10 -->
+	
+	<string name="preferences_movement_dpad_position_title">virtuelles D-Pad</string>
+	<string name="preferences_movement_dpad_position">Aktiviert ein virtuelles D-Pad auf dem Bildschirm zur Steuerung</string>
+	<string name="preferences_movement_dpad_minimizeable_title">Minimierbares D-Pad</string>
+	<string name="preferences_movement_dpad_minimizeable">Wenn das virtuelle D-Pad aktiviert ist, erlaubt diese Einstellung die Minimierung des D-Pads durch einen Klick auf die Mitte.</string>
+	
+	<string-array name="preferences_movement_dpad_positions">
+		<item>Deaktiviert</item>
+		<item>Untere rechte Ecke</item>
+		<item>Untere linke Ecke</item>
+		<item>Unten in der Mitte</item>
+		<item>Links in der Mitte</item>
+		<item>Rechts in der Mitte</item>
+		<item>Obere linke Ecke</item>
+		<item>Obere rechte Ecke</item>
+		<item>Oben in der Mitte</item>
+	</string-array>
+	<string-array name="preferences_movement_dpad_positions_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+	</string-array>
+	
+	<string name="actorconditioninfo_constant_effect">andauernder Effekt</string>
+	<string name="actorconditioninfo_effect_every_round">Jede Runde</string>
+	<string name="actorconditioninfo_effect_every_full_round">Jede volle Runde</string>
+	<string name="bulkselection_totalcost_buy">Gesamtkosten: %1$d Gold</string>
+	<string name="bulkselection_totalcost_sell">Gesamtkosten: %1$d Gold</string>
+	<string name="bulkselection_select_all">Alles</string>
+	<string name="bulkselection_sell_confirmation_title">Wirklich verkaufen?</string>
+	<string name="bulkselection_sell_confirmation">Soll %1$s wirklich verkauft werden? Dieser Gegenstand ist %2$s und du könntest ihn nicht zurückerlangen können.</string>
+	
+    <string name="skill_title_weapon_chance">Waffen Präzision</string>
+    <string name="skill_title_weapon_dmg">Kräftiger Schlag</string>
+    <string name="skill_title_barter">Kaufmann</string>
+    <string name="skill_title_dodge">Ausweichen</string>
+    <string name="skill_title_barkskin">Rindenhaut</string>
+    <string name="skill_title_more_criticals">Mehr kritischer Schaden</string>
+    <string name="skill_title_better_criticals">Besserer kritischer Schaden</string>
+    <string name="skill_title_speed">Kampfgeschwindigkeit</string>
+    <string name="skill_title_coinfinder">Schatzjäger</string>
+    <string name="skill_title_more_exp">Guter Lehrling</string>
+    <string name="skill_title_cleave">Cleave</string>
+    <string name="skill_title_eater">Leichenesser</string>
+    <string name="skill_title_fortitude">wachsende Standhaftigkeit</string>
+    <string name="skill_title_evasion">Umgehen</string>
+    <string name="skill_title_regeneration">Regeneration</string>
+    <string name="skill_title_lower_exploss">Fehlschläge meistern</string>
+    <string name="skill_title_magicfinder">Magischer Schatzsucher</string>
+    <string name="skill_title_resistance_mental">Starker Verstand</string>
+    <string name="skill_title_resistance_physical_capacity">Ausdauernder Körper</string>
+    <string name="skill_title_resistance_blood_disorder">Reines Blut</string>
+    
+    <string name="skill_shortdescription_weapon_chance">Erhöhte Angriffschance</string>
+    <string name="skill_shortdescription_weapon_dmg">Erhöhter Angriffsschaden</string>
+    <string name="skill_shortdescription_barter">Bessere Händlerpreise</string>
+    <string name="skill_shortdescription_dodge">Erhöhte Abwehrchance</string>
+    <string name="skill_shortdescription_barkskin">Schadensresistenz</string>
+    <string name="skill_shortdescription_more_criticals">Erhöhte kritische Chance</string>
+    <string name="skill_shortdescription_better_criticals">Erhöhter kritischer Schaden</string>
+    <string name="skill_shortdescription_speed">Erhöhte maximale Aktionspunkte</string>
+    <string name="skill_shortdescription_coinfinder">Größere Chance Gold zu finden</string>
+    <string name="skill_shortdescription_more_exp">Größere Erfahrung von Gegnern</string>
+    <string name="skill_shortdescription_cleave">Regeneriere Aktionspunkte von besiegten Gegnern</string>
+    <string name="skill_shortdescription_eater">Regeneriere Lebenspunkte von besiegten Gegnern</string>
+    <string name="skill_shortdescription_fortitude">Erlange Leben bei jedem Aufstieg</string>
+    <string name="skill_shortdescription_evasion">Erhöhte Chance zu Fliehen</string>
+    <string name="skill_shortdescription_regeneration">Regeneriere jede Runde Lebenspunkte</string>
+    <string name="skill_shortdescription_lower_exploss">Verringere den Verlust an Erfahrungspunkten beim Sterben</string>
+    <string name="skill_shortdescription_magicfinder">Größere Chance magische Gegenstände zu finden</string>
+    <string name="skill_shortdescription_resistance_mental">Widerstand gegen mentale Effekte</string>
+    <string name="skill_shortdescription_resistance_physical_capacity">Widerstand gegen physische Effekte</string>
+    <string name="skill_shortdescription_resistance_blood_disorder">Widerstand gegen Blutstörungen</string>
+    
+    <string name="skill_longdescription_weapon_chance">Erhöht die Angriffschance bei jeder Stufe um %1$d.</string>
+    <string name="skill_longdescription_weapon_dmg">Erhöht den minimalen und maximalen Schaden bei jeder Stufe um %1$d.</string>
+    <string name="skill_longdescription_barter">Verringert bei jeder Stufe den Auf- und Abschlag von An- und Verkäufen um %1$d Prozentpunkte.</string>
+    <string name="skill_longdescription_dodge">Erhöht die Abwehrchance bei jeder Stufe um %1$d.</string>
+    <string name="skill_longdescription_barkskin">Erhöht die Schadensresistenz bei jeder Stufe um %1$d.</string>
+    <string name="skill_longdescription_more_criticals">Erhöht bei jeder Stufe die durch die Ausrüstung bestehende kritische Chance um %1$d %% (prozentualer Anteil an der bestehenden kritischen Chance, es handelt sich nicht um zusätzliche Prozentpunkte).</string>
+    <string name="skill_longdescription_better_criticals">Erhöht bei jeder Stufe den durch die Ausrüstung bestehenden kritischen Faktor um %1$d %%.</string>
+    <string name="skill_longdescription_speed">Erhöht die maximalen Aktionspunkte (AP) bei jeder Stufe um %1$d.</string>
+    <string name="skill_longdescription_coinfinder">Erhöht bei jeder Stufe die Chance bei einem Gegner Gold zu finden um %1$d %%. Auch die Menge des gefundenen Goldes erhöht sich jeweils um %2$d %% (bis zu der für den Gegnertyp maximalen Menge).</string>
+    <string name="skill_longdescription_more_exp">Erhöht bei jeder Stufe die Menge der beim besiegen von Gegnern erhaltenen Erfahrung um %1$d %%.</string>
+    <string name="skill_longdescription_cleave">Für besiegte Gegner erhält man bei jeder Stufe +%1$d Aktionspunkte (AP).</string>
+    <string name="skill_longdescription_eater">Für besiegte Gegner erhält man bei jeder Stufe +%1$d Lebenspunkte (LP).</string>
+    <string name="skill_longdescription_fortitude">Für jeden nachfolgenden Level Aufstieg werden die maximalen Lebenspunkte (LP) um %1$d erhöht. Das wird nicht rückwirkend angewand, nur nachfolgende Level Aufstiege sind betroffen.</string>
+    <string name="skill_longdescription_evasion">Verringert bei jeder Stufe sowohl die Chance eines fehlgeschlagenen Fluchtversuches um %1$d %% als auch die Chance das ein benachbarter Gegner dich angreift um %2$d %%.</string>
+    <string name="skill_longdescription_regeneration">Bei jeder Stufe erhält man pro Runde +%1$d Lebenspunkte (LP).</string>
+    <string name="skill_longdescription_lower_exploss">Verringert bei jeder Stufe die Menge der durch den Tod verursachten verlohrenen Erfahrung um %1$d %% (prozentualer Anteil an dem bestehenden Erfahrungsverlust, es handelt sich nicht um Prozentpunkte). Durch %2$d Stufen werden alle Erfahrungsverluste, die durch den Tod verursacht werden, entfernt.</string>
+    <string name="skill_longdescription_magicfinder">Erhöht bei jeder Stufe die Chance ungewöhnliche Gegenstände zu finden um %1$d %%.</string>
+    <string name="skill_longdescription_resistance_mental">Verringert bei jeder Stufe die Chance von mentalen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Benommenheit oder Schwächung der Waffen.</string>
+    <string name="skill_longdescription_resistance_physical_capacity">Verringert bei jeder Stufe die Chance von physischen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Ermüdung.</string>
+    <string name="skill_longdescription_resistance_blood_disorder">Verringert bei jeder Stufe die Chance von Blutstörungen geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Gift oder Blutende Wunden.</string>
+    
+    <string name="skillinfo_action_levelup">Erlernen</string>
+    <string name="skill_current_level">Aktuelle Stufe: %1$d</string>
+    <string name="skill_current_level_with_maximum">Aktuelle Stufe: %1$d / %2$d</string>
+    <string name="skill_prerequisite_other_skill">Um diesen Skill zu erlernen, wird mindestens die %1$d. Stufe des Skills %2$s benötigt.</string>
+    <string name="skill_prerequisite_level">Um diesen Skill zu erlernen, wird mindestens das Erfahrungslevel %1$d benötigt.</string>
+    <string name="skill_prerequisite_stat">Um diesen Skill zu erlernen, wird mindestens %1$d %2$s benötigt (Basiskampfeigenschaften).</string>
+    <string name="skill_number_of_increases_one">Du kannst einen Skillpunkt ausgeben.</string>
+    <string name="skill_number_of_increases_several">Du kannst %1$d Skillpunkte ausgeben.</string>
+    <string name="levelup_adds_new_skillpoint">In diesem Level erhälst du einen neuen Skillpunkt!</string>
+
+	<string name="loadsave_save_to_new_slot">Neuen Speicherplatz anlegen</string>
+	<string name="loadsave_save_overwrite_confirmation_title">Speicherplatz überschreiben?</string>
+	<string name="loadsave_save_overwrite_confirmation">Dieser Speicherplatz enthält einen anderen Spielernamen (%1$s) als den aktuellen Spielernamen (%2$s). Soll dieser Spielstand wirklich überschrieben werden?</string> 
+	
+	<string-array name="iteminfo_displaytypes">
+		<item>Gewöhnlich</item>
+		<item>Quest Gegenstand</item>
+		<item>Legendär</item>
+		<item>Außergewöhnlich</item>
+		<item>Selten</item>
+	</string-array>
+	
+	<string name="actorconditioninfo_category">Condition category: %1$s</string>
+	<string-array name="actorcondition_categories">
+		<item>Geistig</item>
+		<item>Mental</item>
+		<item>Physisch</item>
+		<item>Blutstörungen</item>
+	</string-array>
+	
+	<string name="traitsinfo_base_max_hp">Max LP:</string>
+	<string name="traitsinfo_base_max_ap">Max AP:</string>
+	<string name="menu_save_saving_not_allowed_in_combat">Das Spiel kann während des Kampfes nicht gespeichert werden.</string>
+	
+	<string name="preferences_optimized_drawing_title">Optimierter Bildschirmaufbau</string>
+	<string name="preferences_optimized_drawing">Deaktiviere diese Option wenn du Grafikfehler siehst. Wenn diese Einstellung aktiv ist, werden bei jedem Frame nur die geänderten Teile des Bildschirms neu gezeichnet.</string>
 	
 </resources>

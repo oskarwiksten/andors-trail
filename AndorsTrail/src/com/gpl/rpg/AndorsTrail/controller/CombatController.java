@@ -195,6 +195,11 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			}
 			message(msg);
 			
+			if (lastAttackResult.targetDied) {
+				playerKilledMonster(currentlyAttackedMonster);
+			}
+			context.mainActivity.updateStatus();
+			
 			startAttackEffect(attack, model.uiSelections.selectedPosition, this, CALLBACK_PLAYERATTACK);
 		} else {
 			message(r.getString(R.string.combat_result_heromiss));
@@ -204,7 +209,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	private void playerAttackCompleted() {
 		if (lastAttackResult.targetDied) {
-			playerKilledMonster(currentlyAttackedMonster);
 			Monster nextMonster = getAdjacentMonster();
 			if (nextMonster == null) {
 				exitCombat(true);
@@ -225,7 +229,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		killedMonster.createLoot(loot, player);
 		
 		model.currentMap.remove(killedMonster);
-		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
 		
 		player.ap.add(player.getSkillLevel(SkillCollection.SKILL_CLEAVE) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP, false);
 		player.health.add(player.getSkillLevel(SkillCollection.SKILL_EATER) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);
@@ -244,6 +247,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			ItemController.updateLootVisibility(context, loot);
 			if (model.uiSelections.isInCombat) killedMonsterBags.add(loot);
 		}
+		
+		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
     }
 
 	private void maybeAutoEndTurn() {

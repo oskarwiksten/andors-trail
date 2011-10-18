@@ -1,10 +1,9 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
-import android.util.Pair;
-
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.util.Pair;
 
 public final class ActorConditionsTypeParser extends ResourceParserFor<ActorConditionType> {
 	

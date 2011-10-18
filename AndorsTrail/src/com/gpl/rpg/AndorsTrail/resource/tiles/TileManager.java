@@ -54,18 +54,19 @@ public final class TileManager {
 	
 	
 	public TileCollection loadTilesFor(ItemContainer container, Resources r) {
+		return tileCache.loadTilesFor(getTileIDsFor(container), r);
+	}
+	
+	public HashSet<Integer> getTileIDsFor(ItemContainer container) {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 		for(ItemEntry i : container.items) {
 			iconIDs.add(i.itemType.iconID);
 		}
-		return tileCache.loadTilesFor(iconIDs, r);
+		return iconIDs;
 	}
 	
 	public TileCollection loadTilesFor(Inventory inventory, Resources r) {
-		HashSet<Integer> iconIDs = new HashSet<Integer>();
-		for(ItemEntry i : inventory.items) {
-			iconIDs.add(i.itemType.iconID);
-		}
+		HashSet<Integer> iconIDs = getTileIDsFor(inventory);
 		for(ItemType t : inventory.wear) {
 			if (t != null) iconIDs.add(t.iconID);
 		}
@@ -150,12 +151,14 @@ public final class TileManager {
 				HashSet<String> adjacentMapNames = new HashSet<String>();
 				for (MapObject o : nextMap.eventObjects) {
 					if (o.type != MapObject.MAPEVENT_NEWMAP) continue;
+					if (o.map == null) continue;
 					adjacentMapNames.add(o.map);
 				}
 				
 				HashSet<Integer> tileIDs = new HashSet<Integer>();
 				for (String mapName : adjacentMapNames) {
 					PredefinedMap adjacentMap = world.maps.findPredefinedMap(mapName);
+					if (adjacentMap == null) continue;
 					LayeredTileMap adjacentMapTiles = TMXMapTranslator.readLayeredTileMap(res, tileCache, adjacentMap);
 					tileIDs.addAll(getTileIDsFor(adjacentMap, adjacentMapTiles, world));
 				}

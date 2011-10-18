@@ -11,7 +11,6 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 
 public final class DebugInterface {
 	private final ViewContext viewContext;
@@ -48,7 +47,7 @@ public final class DebugInterface {
 	    			mainActivity.showToast("DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
 				}
 			})*/
-			,new DebugButton("items", new OnClickListener() {
+			/*,new DebugButton("items", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
 	    			world.model.player.inventory.addItem(world.itemTypes.getItemType("elytharan_redeemer"));
@@ -67,7 +66,7 @@ public final class DebugInterface {
 	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: added items", Toast.LENGTH_SHORT);
 				}
-			})
+			})*/
 			/*new DebugButton("skills++", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
@@ -133,6 +132,7 @@ public final class DebugInterface {
 	    			mainActivity.showToast("DEBUG: added 10k exp", Toast.LENGTH_SHORT);
 				}
 			})
+			/*
 			,new DebugButton("cg", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
@@ -169,6 +169,8 @@ public final class DebugInterface {
 	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "roadtocarntower1", "left3", 0, 0);
 				}
 			})
+			*/
+			
     	});
 	}
 

@@ -2,13 +2,12 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import java.util.ArrayList;
 
-import android.util.Pair;
-
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.util.Pair;
 
 public final class ConversationListParser extends ResourceParserFor<Phrase> {
 	

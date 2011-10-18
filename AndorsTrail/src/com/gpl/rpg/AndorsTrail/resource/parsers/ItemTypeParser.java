@@ -1,13 +1,12 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
-import android.util.Pair;
-
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.util.Pair;
 
 public final class ItemTypeParser extends ResourceParserFor<ItemType> {
 

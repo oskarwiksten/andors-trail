@@ -2,8 +2,6 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import java.util.ArrayList;
 
-import android.util.Pair;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
@@ -11,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.Pair;
 
 public final class DropListParser extends ResourceParserFor<DropList> {
 

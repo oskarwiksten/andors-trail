@@ -27,10 +27,10 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	private final Resources r;
 	private final Player player;
 	
-	public ShopItemContainerAdapter(Context context, TileManager tileManager, Player player, ItemContainer items, OnContainerItemClickedListener clickListener, boolean isSelling) {
+	public ShopItemContainerAdapter(Context context, TileCollection tileCollection, TileManager tileManager, Player player, ItemContainer items, OnContainerItemClickedListener clickListener, boolean isSelling) {
 		super(context, 0, items.items);
 		this.tileManager = tileManager;
-		this.tileCollection = tileManager.loadTilesFor(items, context.getResources());
+		this.tileCollection = tileCollection;
 		this.player = player;
 		this.clickListener = clickListener;
 		this.isSelling = isSelling;
@@ -39,7 +39,6 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
-		//return new InventoryItemView(getContext(), getItem(position));
 		final ItemEntry item = getItem(position);
 		final ItemType itemType = item.itemType;
 		
