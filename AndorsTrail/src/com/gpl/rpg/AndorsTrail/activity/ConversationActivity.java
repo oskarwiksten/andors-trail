@@ -12,17 +12,21 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.Spannable;
 import android.text.style.ForegroundColorSpan;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.TextView.BufferType;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -39,7 +43,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public final class ConversationActivity extends Activity {
+public final class ConversationActivity extends Activity implements OnKeyListener {
 	public static final int ACTIVITYRESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
 	public static final int ACTIVITYRESULT_REMOVE = Activity.RESULT_FIRST_USER + 2;
 	private static final int playerConversationColor = Color.argb(255, 0xbb, 0x22, 0x22);
@@ -56,7 +60,7 @@ public final class ConversationActivity extends Activity {
 	private ListView statementList;
 	private Monster npc;
 	private RadioGroup replyGroup;
-	private OnClickListener radioButtonListener;
+	private OnCheckedChangeListener radioButtonListener;
 	private boolean displayActors = true;
 	
 	private final ConversationCollection conversationCollection = new ConversationCollection();
@@ -106,9 +110,9 @@ public final class ConversationActivity extends Activity {
 			}
 		});
         
-        radioButtonListener = new OnClickListener() {
+        radioButtonListener = new OnCheckedChangeListener() {
 			@Override
-			public void onClick(View v) {
+			public void onCheckedChanged(CompoundButton arg0, boolean arg1) {
 				nextButton.setEnabled(true);
 			}
 		};
@@ -120,8 +124,64 @@ public final class ConversationActivity extends Activity {
 		});
 		
         setPhrase(phraseID);
+        
+        statementList.setOnKeyListener(this);
     }
-	
+    
+    private int getSelectedReplyIndex() {
+    	for (int i = 0; i < phrase.replies.length; ++i) {
+			final View v = replyGroup.getChildAt(i);
+			if (v == null) continue;
+			final RadioButton rb = (RadioButton) v;
+			if (rb.isChecked()) return i;
+    	}
+    	return -1;
+    }
+    
+    private void setSelectedReplyIndex(int i) {
+    	if (phrase.replies == null) return;
+    	if (phrase.replies.length <= 0) return;
+    	if (i < 0) i = 0;
+    	else if (i >= phrase.replies.length) i = phrase.replies.length - 1;
+    	
+    	View v = replyGroup.getChildAt(i);
+		if (v == null) return;
+		RadioButton rb = (RadioButton) v;
+		rb.setChecked(true);
+    }
+ 
+	@Override
+	public boolean onKey(View arg0, int keyCode, KeyEvent event) {
+		if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
+		int selectedReplyIndex = getSelectedReplyIndex();
+		
+		switch (keyCode) {
+		case KeyEvent.KEYCODE_DPAD_UP:
+			--selectedReplyIndex;
+			setSelectedReplyIndex(selectedReplyIndex);
+			return true;
+		case KeyEvent.KEYCODE_DPAD_DOWN:
+			++selectedReplyIndex;
+			setSelectedReplyIndex(selectedReplyIndex);
+			return true;
+		case KeyEvent.KEYCODE_SPACE:
+		case KeyEvent.KEYCODE_ENTER:
+		case KeyEvent.KEYCODE_DPAD_CENTER:
+			if (nextButton.isEnabled()) nextButton.performClick();
+			return true;
+		case KeyEvent.KEYCODE_1: setSelectedReplyIndex(0); return true;
+		case KeyEvent.KEYCODE_2: setSelectedReplyIndex(1); return true;
+		case KeyEvent.KEYCODE_3: setSelectedReplyIndex(2); return true;
+		case KeyEvent.KEYCODE_4: setSelectedReplyIndex(3); return true;
+		case KeyEvent.KEYCODE_5: setSelectedReplyIndex(4); return true;
+		case KeyEvent.KEYCODE_6: setSelectedReplyIndex(5); return true;
+		case KeyEvent.KEYCODE_7: setSelectedReplyIndex(6); return true;
+		case KeyEvent.KEYCODE_8: setSelectedReplyIndex(7); return true;
+		case KeyEvent.KEYCODE_9: setSelectedReplyIndex(8); return true;
+		default: return false;
+		}
+	}
+    
     public void setPhrase(String phraseID) {
 		this.phraseID = phraseID;
     	if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
@@ -200,8 +260,9 @@ public final class ConversationActivity extends Activity {
 		RadioButton rb = new RadioButton(this);
 		rb.setLayoutParams(layoutParams);
 		rb.setText(r.text);
-		rb.setOnClickListener(radioButtonListener);
+		rb.setOnCheckedChangeListener(radioButtonListener);
 		rb.setTag(r);
+		rb.setShadowLayer(1, 1, 1, Color.BLACK);
 		replyGroup.addView(rb, layoutParams);
     }
 	
@@ -210,6 +271,7 @@ public final class ConversationActivity extends Activity {
 		if (p.replies[0].text.equals(ConversationCollection.REPLY_NEXT)) return true;
 		return false;
 	}
+	
 	
 	private Reply getSelectedReply() {
 		for (int i = 0; i < phrase.replies.length; ++i) {

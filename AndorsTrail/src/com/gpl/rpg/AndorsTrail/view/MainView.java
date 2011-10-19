@@ -53,7 +53,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
 	
+	private PredefinedMap currentMap;
+	private LayeredTileMap currentTileMap;
 	private TileCollection tiles;
+	private final Coord playerPosition = new Coord();
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -113,7 +116,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 			);
 	    	
     	if (model.currentMap != null) {
-    		notifyMapChanged();
+    		notifyMapChanged(model);
     	}
     	
     	redrawAll(REDRAW_ALL_SURFACE_CHANGED);
@@ -175,8 +178,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		if (!hasSurface) return;
 		//if (!preferences.optimizedDrawing) area = mapViewArea;
         
-		final PredefinedMap currentMap = model.currentMap;
-        boolean b = currentMap.isOutside(area);
+		boolean b = currentMap.isOutside(area);
         if (b) return;
 				
 		calculateRedrawRect(area);
@@ -204,12 +206,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		return true;
 	}
 	private final Rect redrawRect = new Rect();
-	public void redrawAreaWithEffect(CoordRect area, final VisualEffectAnimation effect, int tileID, int textYOffset, Paint textPaint) {
+	public void redrawAreaWithEffect(final VisualEffectAnimation effect, int tileID, int textYOffset, Paint textPaint) {
+		CoordRect area = effect.area;
 		if (!hasSurface) return;
 		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;
 		
-		final PredefinedMap currentMap = model.currentMap;
-        if (currentMap.isOutside(area)) return;
+		if (currentMap.isOutside(area)) return;
 		
 		calculateRedrawRect(area);
 		Canvas c = null;
@@ -263,10 +265,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	}
 	
 	private void doDrawRect(Canvas canvas, CoordRect area) {
-    	final LayeredTileMap currentTileMap = model.currentTileMap;
-    	final PredefinedMap currentMap = model.currentMap;
-    	
-        drawMapLayer(canvas, area, currentTileMap.layers[LayeredTileMap.LAYER_GROUND]);
+		
+    	drawMapLayer(canvas, area, currentTileMap.layers[LayeredTileMap.LAYER_GROUND]);
         tryDrawMapLayer(canvas, area, currentTileMap, LayeredTileMap.LAYER_OBJECTS);
         
         for (Loot l : currentMap.groundBags) {
@@ -275,7 +275,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         	}
 		}
         
-		drawFromMapPosition(canvas, area, model.player.position, model.player.actorTraits.iconID);
+		drawFromMapPosition(canvas, area, playerPosition, model.player.actorTraits.iconID);
 		for (MonsterSpawnArea a : currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				drawFromMapPosition(canvas, area, m.rectPosition, m.actorTraits.iconID);
@@ -339,39 +339,44 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		canvas.drawText(e.displayText, x, y, textPaint);
     }
     
-	public void notifyMapChanged() {
-		Size mapViewSize = new Size(
-    			Math.min(screenSizeTileCount.width, model.currentMap.size.width)
-    			,Math.min(screenSizeTileCount.height, model.currentMap.size.height)
+	public void notifyMapChanged(ModelContainer model) {
+		synchronized (holder) {
+			currentMap = model.currentMap;
+			currentTileMap = model.currentTileMap;
+			Size mapViewSize = new Size(
+    			Math.min(screenSizeTileCount.width, currentMap.size.width)
+    			,Math.min(screenSizeTileCount.height, currentMap.size.height)
 			);
-		mapViewArea = new CoordRect(mapTopLeft, mapViewSize);
 		
-		tiles = world.tileManager.currentMapTiles;
+			mapViewArea = new CoordRect(mapTopLeft, mapViewSize);
+			
+			tiles = world.tileManager.currentMapTiles;
+		}
 		
 		clearCanvas();
 	    
-		recalculateMapTopLeft();
+		recalculateMapTopLeft(model.player.position);
 		redrawAll(REDRAW_ALL_MAP_CHANGED);
 	}
 	
-	private void recalculateMapTopLeft() {
-		mapTopLeft.set(0, 0);
-		
-		final PredefinedMap currentMap = model.currentMap;
-		final Coord playerpos = model.player.position;
-		
-    	if (currentMap.size.width > screenSizeTileCount.width) {
-    		mapTopLeft.x = Math.max(0, playerpos.x - mapViewArea.size.width/2);
-    		mapTopLeft.x = Math.min(mapTopLeft.x, currentMap.size.width - mapViewArea.size.width);
-    	}
-    	if (currentMap.size.height > screenSizeTileCount.height) {
-    		mapTopLeft.y = Math.max(0, playerpos.y - mapViewArea.size.height/2);
-    		mapTopLeft.y = Math.min(mapTopLeft.y, currentMap.size.height - mapViewArea.size.height);
-    	}
+	private void recalculateMapTopLeft(Coord playerPosition) {
+		synchronized (holder) {	
+			this.playerPosition.set(playerPosition);
+			mapTopLeft.set(0, 0);
+			
+	    	if (currentMap.size.width > screenSizeTileCount.width) {
+	    		mapTopLeft.x = Math.max(0, playerPosition.x - mapViewArea.size.width/2);
+	    		mapTopLeft.x = Math.min(mapTopLeft.x, currentMap.size.width - mapViewArea.size.width);
+	    	}
+	    	if (currentMap.size.height > screenSizeTileCount.height) {
+	    		mapTopLeft.y = Math.max(0, playerPosition.y - mapViewArea.size.height/2);
+	    		mapTopLeft.y = Math.min(mapTopLeft.y, currentMap.size.height - mapViewArea.size.height);
+	    	}
+		}
 	}
 	
-	public void notifyPlayerMoved() {
-		recalculateMapTopLeft();
+	public void notifyPlayerMoved(Coord newPosition) {
+		recalculateMapTopLeft(newPosition);
 		redrawAll(REDRAW_ALL_PLAYER_MOVED);
 	}
 }

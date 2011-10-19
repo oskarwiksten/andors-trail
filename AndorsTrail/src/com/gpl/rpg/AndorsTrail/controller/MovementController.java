@@ -49,7 +49,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
 				view.mainActivity.clearMessages();
-				view.mainActivity.mainview.notifyMapChanged();
+				view.mainActivity.mainview.notifyMapChanged(model);
 				stopMovement();
 				view.gameRoundController.resume();
 			}
@@ -213,7 +213,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     	player.lastPosition.set(player.position);
     	player.position.set(newPosition);
     	view.combatController.setCombatSelection(null, null);
-		view.mainActivity.mainview.notifyPlayerMoved();
+		view.mainActivity.mainview.notifyPlayerMoved(newPosition);
 		
 		if (handleEvents) {
 			MapObject o = currentMap.getEventObjectAt(newPosition);

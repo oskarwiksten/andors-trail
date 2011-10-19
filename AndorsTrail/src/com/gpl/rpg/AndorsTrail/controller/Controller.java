@@ -72,7 +72,7 @@ public final class Controller {
 		final MainActivity act = view.mainActivity;
 		MovementController.respawnPlayer(act.getResources(), world);
 		act.updateStatus();
-		act.mainview.notifyMapChanged();
+		act.mainview.notifyMapChanged(world.model);
 		act.message(act.getResources().getString(R.string.combat_hero_dies, lostExp));
 	}
 	

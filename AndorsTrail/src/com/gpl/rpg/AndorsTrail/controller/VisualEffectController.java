@@ -48,7 +48,8 @@ public final class VisualEffectController {
 			if (frame >= beginFadeAtFrame && displayText != null) {
 				this.textPaint.setAlpha(255 * (effect.lastFrame - frame) / (effect.lastFrame - beginFadeAtFrame)); 
 			}
-			view.redrawAreaWithEffect(area, this, tileID, textYOffset, this.textPaint);
+			area.topLeft.y = position.y - 1;
+			view.redrawAreaWithEffect(this, tileID, textYOffset, this.textPaint);
 		}
 
 		protected void onCompleted() {
@@ -68,7 +69,7 @@ public final class VisualEffectController {
 		
 		public final Coord position;
 		public final String displayText;
-		private final CoordRect area;
+		public final CoordRect area;
 		private final Paint textPaint = new Paint();
 		private final int beginFadeAtFrame;
 		private final VisualEffectCompletedCallback callback;
