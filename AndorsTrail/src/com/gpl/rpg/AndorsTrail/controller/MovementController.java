@@ -288,12 +288,12 @@ public final class MovementController implements TimedMessageTask.Callback {
 		movementHandler.stop();
 	}
 	
-	public void onTick(TimedMessageTask task) {
-		if (!model.uiSelections.isMainActivityVisible) return;
-    	if (model.uiSelections.isInCombat) return;
+	public boolean onTick(TimedMessageTask task) {
+		if (!model.uiSelections.isMainActivityVisible) return false;
+    	if (model.uiSelections.isInCombat) return false;
     	
     	movePlayer(movementDx, movementDy);
 		
-    	movementHandler.queueAnotherTick();
+    	return true;
 	}
 }

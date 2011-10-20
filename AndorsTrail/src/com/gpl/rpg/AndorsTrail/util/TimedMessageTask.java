@@ -9,6 +9,7 @@ public final class TimedMessageTask extends Handler {
 	private final Callback callback;
 	private long nextTickTime;
 	private boolean hasQueuedTick = false;
+	private boolean isAlive = false;
 	
 	public TimedMessageTask(Callback callback, long interval, boolean requireIntervalBeforeFirstTick) {
 		this.interval = interval;
@@ -19,14 +20,15 @@ public final class TimedMessageTask extends Handler {
 	
 	@Override
     public void handleMessage(Message msg) {
-    	if (!hasQueuedTick) return;
+		if (!isAlive) return;
+	    if (!hasQueuedTick) return;
     	hasQueuedTick = false;
-    	tick();
+    	if (tick()) queueAnotherTick();
     }
 	
-	private void tick() {
+	private boolean tick() {
 		nextTickTime = System.currentTimeMillis() + interval;
-		callback.onTick(this);
+		return callback.onTick(this);
     }
 
     private void sleep(long delayMillis) {
@@ -52,15 +54,17 @@ public final class TimedMessageTask extends Handler {
     }
     
 	public void start() {
+		isAlive = true;
 		if (shouldCauseTickOnStart()) tick();
 		queueAnotherTick();
 	}
 
 	public void stop() {
     	hasQueuedTick = false;
+    	isAlive = false;
 	}
 	
 	public interface Callback {
-		public void onTick(TimedMessageTask task);
+		public boolean onTick(TimedMessageTask task);
 	}
 }

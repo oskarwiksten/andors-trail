@@ -23,10 +23,10 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 	
     private int ticksUntilNextRound = Constants.TICKS_PER_ROUND;
     private int ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
-    public void onTick(TimedMessageTask task) {
+    public boolean onTick(TimedMessageTask task) {
 		//L.log(id + " : Controller::tick()");
-    	if (!model.uiSelections.isMainActivityVisible) return;
-    	if (model.uiSelections.isInCombat) return;
+    	if (!model.uiSelections.isMainActivityVisible) return false;
+    	if (model.uiSelections.isInCombat) return false;
     	
     	onNewTick();
     	
@@ -42,7 +42,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     		ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
     	}
     	
-    	roundTimer.queueAnotherTick();
+    	return true;
     }
     
     public void resume() {
