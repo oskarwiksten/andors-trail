@@ -172,8 +172,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private Monster currentlyAttackedMonster;
 	private AttackResult lastAttackResult;
 	private void executePlayerAttack() {
-		if (!useAPs(model.player.combatTraits.attackCost)) return;
 		if (context.effectController.isRunningVisualEffect()) return;
+		if (!useAPs(model.player.combatTraits.attackCost)) return;
 		final Monster target = model.uiSelections.selectedMonster;
 		this.currentlyAttackedMonster = target;
 		

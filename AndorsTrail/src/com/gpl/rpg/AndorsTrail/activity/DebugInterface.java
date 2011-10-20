@@ -42,7 +42,7 @@ public final class DebugInterface {
 			/*,new DebugButton("dmg=1", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			world.model.player.traits.damagePotential.set(1, 1);
+	    			world.model.player.traits.combatTraits.set(1, 1);
 	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
 				}
