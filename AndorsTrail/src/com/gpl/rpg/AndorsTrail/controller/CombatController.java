@@ -97,7 +97,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		Coord previousSelection = model.uiSelections.selectedPosition;
 		if (model.uiSelections.selectedPosition != null) {
 			model.uiSelections.selectedPosition = null;
-			if (selectedPosition != null && !selectedPosition.equals(previousSelection)) {	
+			if (selectedPosition == null || !selectedPosition.equals(previousSelection)) {	
 				context.mainActivity.redrawTile(previousSelection, MainView.REDRAW_TILE_SELECTION_REMOVED);
 			}
 		}
