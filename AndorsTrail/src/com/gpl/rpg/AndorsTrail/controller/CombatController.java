@@ -64,6 +64,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		model.uiSelections.isInCombat = false;
     	context.mainActivity.clearMessages();
     	currentActiveMonster = null;
+    	model.uiSelections.selectedPosition = null;
+    	model.uiSelections.selectedMonster = null;
     	if (!killedMonsterBags.isEmpty()) {
     		if (pickupLootBags) {
     			lootCurrentMonsterBags();
@@ -95,7 +97,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		Coord previousSelection = model.uiSelections.selectedPosition;
 		if (model.uiSelections.selectedPosition != null) {
 			model.uiSelections.selectedPosition = null;
-			context.mainActivity.redrawTile(previousSelection, MainView.REDRAW_TILE_SELECTION_REMOVED);
+			if (selectedPosition != null && !selectedPosition.equals(previousSelection)) {	
+				context.mainActivity.redrawTile(previousSelection, MainView.REDRAW_TILE_SELECTION_REMOVED);
+			}
 		}
 		context.mainActivity.combatview.updateCombatSelection(selectedMonster, selectedPosition);
 		model.uiSelections.selectedMonster = selectedMonster;

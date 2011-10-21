@@ -80,7 +80,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
-		if (!model.uiSelections.isMainActivityVisible) return true;
+    	if (!model.uiSelections.isMainActivityVisible) return true;
 
 		if (inputController.onKeyboardAction(keyCode)) return true;
 		else return super.onKeyDown(keyCode, msg);
@@ -91,7 +91,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		if (!model.uiSelections.isMainActivityVisible) return true;
 		
 		inputController.onKeyboardCancel();
-    	return true;
+		
+    	return super.onKeyUp(keyCode, msg);
     }
 
 	@Override
