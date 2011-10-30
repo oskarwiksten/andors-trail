@@ -2,7 +2,8 @@
 
 <resources>
   <string name="app_name">La Piste d\'Andor</string>
-  
+  <string name="app_description">Jeu de rôle fantastique à base de quêtes</string>
+
   <string name="exit">Quitter</string>
   <string name="exit_to_menu">Sortir vers le menu</string>
   <string name="menu_pause">Pause</string>
@@ -70,7 +71,7 @@
   <!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by longclicking a place with no adjacent monster, before you may end the combat.</string>  -->
   <string name="combat_result_monstermiss">%1$s manqué !</string>
   <string name="combat_result_monsterhit">%1$s vous frappe pour %2$d hp!</string>
-  <string name="combat_result_monsterhitcritical">%1$s reçois un coup critique pour %2$d hp !</string>
+  <string name="combat_result_monsterhitcritical">%1$s reçoit un coup critique pour %2$d hp !</string>
   <string name="combat_result_heromiss">Votre attaque est manquée.</string>
   <string name="combat_result_herohit">Vous frappez %1$s pour %2$d hp !</string>
   <string name="combat_result_herohitcritical">Vous avez reçu un coup critique sur %1$s pour %2$d hp!</string>
@@ -89,6 +90,7 @@
 
   <string name="dialog_loot_pickall">Ramasser tout</string>
   <string name="dialog_loot_foundgold">Vous avez trouvé %1$d or. </string>
+  <string name="dialog_loot_pickedupitem">Vous avez ramassé un objet.</string>
   <string name="dialog_loot_pickedupitems">Vous avez ramassé %1$d objets.</string>
   <string name="dialog_groundloot_title">Objets</string>
   <string name="dialog_groundloot_message">Vous avez trouvé quelques objets. </string>
@@ -147,7 +149,7 @@
   
   <string name="startscreen_continue">Continuer le jeu en-cours</string>
   <string name="startscreen_newgame">Nouveau jeu</string>
-  <string name="startscreen_newgame_confirm">Vous perdrez votre jeu en-cours et votre personnage actuel, êtes-vous sûr de vouloir démarrer un nouveau jeu ?</string>
+  <string name="startscreen_newgame_confirm">Vous perdrez votre jeu en cours et votre personnage actuel, êtes-vous sûr de vouloir démarrer un nouveau jeu ?</string>
   <string name="startscreen_about">À propos/aide</string>
   <string name="startscreen_enterheroname">Entrer le nom du héros</string>
   <string name="startscreen_load">Charger</string>
@@ -167,7 +169,7 @@
   <string name="shop_buyitem">Acheter (%1$d or)</string>
   <string name="shop_sellitem">Vendre (%1$d or)</string>
   <string name="shop_yourgold">Votre or : %1$d</string>
-  <string name="shop_item_bought">%1$s bought.</string>
+  <string name="shop_item_bought">%1$s acheté.</string>
   <string name="shop_item_sold">%1$s vendu.</string>
   
   <string name="levelup_title">Niveau supérieur</string>
@@ -200,17 +202,17 @@
     &lt;br /&gt;
     Nous devrions ajouter quelques infos ici sur la façon de jouer le jeu :)&lt;br /&gt;
   </string>
-	<string name="about_contents3">
-		Copyright (C) 2011 Oskar Wiksten&lt;br /&gt;
-		&lt;br /&gt;
-		Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le  modifier suivant les termes de la « GNU General Public License » telle que publiée par la Free Software Foundation : soit la version 2 de cette licence, soit (à votre gré) toute version ultérieure.&lt;br /&gt;
-		&lt;br /&gt;
-                Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.
-		&lt;br /&gt;
-		Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
-		&lt;br /&gt;
-		Pour toute requête surconcernant le code source ou les fonctionnalités, veuillez visiter la page du projet à &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
-	</string>
+  <string name="about_contents3">
+    Copyright (C) 2011 Oskar Wiksten&lt;br /&gt;
+    &lt;br /&gt;
+    Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le  modifier suivant les termes de la « GNU General Public License » telle que publiée par la Free Software Foundation : soit la version 2 de cette licence, soit (à votre gré) toute version ultérieure.&lt;br /&gt;
+    &lt;br /&gt;
+    Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.
+    &lt;br /&gt;
+    Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
+    &lt;br /&gt;
+    Pour toute requête surconcernant le code source ou les fonctionnalités, veuillez visiter la page du projet à &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+  </string>
   
   <string name="dialog_newversion_title">Bienvenue</string>
   <string name="dialog_newversion_message">
@@ -231,12 +233,12 @@
     <item>N\'afficher que les quêtes accomplies</item>
   </string-array>
   <string name="questlog_queststatus">État : %1$s</string>
-  <string name="questlog_queststatus_inprogress">En-cours</string>
+  <string name="questlog_queststatus_inprogress">En cours</string>
   <string name="questlog_queststatus_completed">Accomplie</string>
   
   <string name="preferences_display_category">Affichage</string>
   <string name="preferences_display_fullscreen_title">Plein écran</string>
-  <string name="preferences_display_fullscreen">Afficher le jeu en mode plein-écran (requiert un redémarrage)</string>
+  <string name="preferences_display_fullscreen">Afficher le jeu en mode plein écran (requiert un redémarrage)</string>
   <string name="preferences_dialog_category">Dialogue de confirmation</string>
   <string name="preferences_dialog_confirmrest_title">Confirmer le repos</string>
   <string name="preferences_dialog_confirmrest">Demander si vous voulez vous reposer quand vous êtes sur un lit. Sinon, vous serez toujours automatiquement mis au repos.</string>
@@ -329,5 +331,146 @@
   <string name="inventory_assign_slot2">Emplacement 2</string>
   <string name="inventory_assign_slot3">Emplacement 3</string>
   <string name="inventory_unassign">Désaffecter un emplacement rapide</string>
-	
+
+
+  <!-- =========================================== -->
+  <!-- Added in v0.6.10 -->
+  
+  <string name="preferences_movement_dpad_position_title">Croix directionnelle (D-pad) virtuelle</string>
+  <string name="preferences_movement_dpad_position">Active une croix directionnelle virtuelle sur l\'écran pour guider les déplacements</string>
+  <string name="preferences_movement_dpad_minimizeable_title">Minimisation de la croix directionnelle virtuelle</string>
+  <string name="preferences_movement_dpad_minimizeable">Si le croix directionnelle virtuelle est activéee, ce réglage permet de la réduire en pressant son centre.</string>
+  
+  <string-array name="preferences_movement_dpad_positions">
+    <item>Inactive</item>
+    <item>Coin en basd à droite</item>
+    <item>Coin en bas à gauche</item>
+    <item>Centrée en bas</item>
+    <item>Centrée à gauche</item>
+    <item>Centrée à droite</item>
+    <item>Coin en haut à gauche</item>
+    <item>Coin en haut à droite</item>
+    <item>Centrée en haut</item>
+  </string-array>
+  <string-array name="preferences_movement_dpad_positions_values">
+    <item>0</item>
+    <item>1</item>
+    <item>2</item>
+    <item>3</item>
+    <item>4</item>
+    <item>5</item>
+    <item>6</item>
+    <item>7</item>
+    <item>8</item>
+  </string-array>
+  
+  <string name="actorconditioninfo_constant_effect">Effet continu</string>
+  <string name="actorconditioninfo_effect_every_round">À chaque tour</string>
+  <string name="actorconditioninfo_effect_every_full_round">À chaque tour complet</string>
+  <string name="bulkselection_totalcost_buy">Prix total : %1$d or</string>
+  <string name="bulkselection_totalcost_sell">Prix total : %1$d or</string>
+  <string name="bulkselection_select_all">Tout</string>
+  <string name="bulkselection_sell_confirmation_title">Êtes-vous sûr ?</string>
+  <string name="bulkselection_sell_confirmation">Êtes-vous sûr de vouloir vendre %1$s ? Cet objet est %2$s et vous pourriez ne plus être à même de le retrouver.</string>
+  
+  <string name="skill_title_weapon_chance">Chances de succès au combat</string>
+  <string name="skill_title_weapon_dmg">Points de dégats</string>
+  <string name="skill_title_barter">Marchandage</string>
+  <string name="skill_title_dodge">Esquive</string>
+  <string name="skill_title_barkskin">Endurance</string>
+  <string name="skill_title_more_criticals">Plus de coups critiques</string>
+  <string name="skill_title_better_criticals">Meilleurs coups critiques</string>
+  <string name="skill_title_speed">Vitesse de combat</string>
+  <string name="skill_title_coinfinder">Chasseur de trésor</string>
+  <string name="skill_title_more_exp">Apprentissage rapide</string>
+  <string name="skill_title_cleave">Vivacité</string>
+  <string name="skill_title_eater">Charognard</string>
+  <string name="skill_title_fortitude">Détermination</string>
+  <string name="skill_title_evasion">Évasion</string>
+  <string name="skill_title_regeneration">Régénération</string>
+  <string name="skill_title_lower_exploss">Maîtrise de l\'échec</string>
+  <string name="skill_title_magicfinder">Découvertes magiques</string>
+  <string name="skill_title_resistance_mental">Esprit fort</string>
+  <string name="skill_title_resistance_physical_capacity">Corps endurant</string>
+  <string name="skill_title_resistance_blood_disorder">Sang pur</string>
+  
+  <string name="skill_shortdescription_weapon_chance">Chances d\'attaque augmentées</string>
+  <string name="skill_shortdescription_weapon_dmg">dommages d\'attaque augmentés</string>
+  <string name="skill_shortdescription_barter">Prix d\'achats négociés plus bas</string>
+  <string name="skill_shortdescription_dodge">Chances d\'esquive augmentées</string>
+  <string name="skill_shortdescription_barkskin">Résistance aux dommages</string>
+  <string name="skill_shortdescription_more_criticals">Chances de coups critiques augmentées</string>
+  <string name="skill_shortdescription_better_criticals">Dommages sur coups critiques augmentés</string>
+  <string name="skill_shortdescription_speed">Nombre maximal de points d\'action augmenté</string>
+  <string name="skill_shortdescription_coinfinder">Meilleures chances de trouver de l\'or</string>
+  <string name="skill_shortdescription_more_exp">Plus d\'expérience acquise à chaque monstre tué</string>
+  <string name="skill_shortdescription_cleave">Récupération de points d\'action à chaque monstre tué</string>
+  <string name="skill_shortdescription_eater">Récupération de points de vie à chaque monstre tué</string>
+  <string name="skill_shortdescription_fortitude">Gain de points de vie à chaque montée de niveau</string>
+  <string name="skill_shortdescription_evasion">Meilleures chances de fuite</string>
+  <string name="skill_shortdescription_regeneration">Gain de points de vie à chaque tour</string>
+  <string name="skill_shortdescription_lower_exploss">Réduction de la perte d\'expérience en cas de décès</string>
+  <string name="skill_shortdescription_magicfinder">Augmentation de la chance de trouver des objets magiques</string>
+  <string name="skill_shortdescription_resistance_mental">Résistance aux troubles mentaux</string>
+  <string name="skill_shortdescription_resistance_physical_capacity">Résistance aux troubles physiques</string>
+  <string name="skill_shortdescription_resistance_blood_disorder">Résistance aux troubles du sang</string>
+  
+  <string name="skill_longdescription_weapon_chance">augmente les chances d\'attaque de %1$d à chaque niveau.</string>
+  <string name="skill_longdescription_weapon_dmg">augmente les dommages min et max de %1$d à chaque niveau.</string>
+  <string name="skill_longdescription_barter">À chauqe niveau, réduit le malus financier d\'achat et de vente de %1$d %%.</string>
+  <string name="skill_longdescription_dodge">Augmente les chances de blocage de %1$d à chaque niveau.</string>
+  <string name="skill_longdescription_barkskin">Augmente la résitance aux dommages de %1$d à chaque niveau.</string>
+  <string name="skill_longdescription_more_criticals">Augmente toutes les chances de coups critiques données par l\'équipement de %1$d %% à chaque niveau (pourcentage relatif à la probabilité de base et non pourcentage absolu).</string>
+  <string name="skill_longdescription_better_criticals">Augmente les facteurs multiplicatifs de coups critiques données par l\'équipement de %1$d %% à chaque niveau.</string>
+  <string name="skill_longdescription_speed">Augmente le nombre maximal de points d\'action (AP) de %1$d à chaque niveau.</string>
+  <string name="skill_longdescription_coinfinder">augmente les chances de trouver de l\'or dans les butins de monstres de %1$d %%, et augmente le montant de l\'or de %2$d %% à chaque niveau (jusqu\'au montant maximum correspondant au monstre).</string>
+  <string name="skill_longdescription_more_exp">Augmente le nombre de points d\'expérience acquis en battant un monstre de %1$d %% à chaque niveau</string>
+  <string name="skill_longdescription_cleave">Ajoute +%1$d points d\'action (AP) par niveau à chaque monstre tué.</string>
+  <string name="skill_longdescription_eater">Ajoute +%1$d points de vie (HP) par niveau à chaque monstre tué.</string>
+  <string name="skill_longdescription_fortitude">À chaque montée de niveau ultérieure, augmente le nombre maximal de points de vie (HP) de %1$d par niveau. Ceci n\'est pas appliqué rétroactivement, seules les montées de niveau ultérieures sont affectées.</string>
+  <string name="skill_longdescription_evasion">À chaque niveau, réduit à la fois la probabilité de ne pas pouvoir fuir de %1$d %% et la probabilité qu\'un monstre proche attaque de %2$d %%.</string>
+  <string name="skill_longdescription_regeneration">Ajoute +%1$d points de vie (HP) par niveau à chaque tour.</string>
+  <string name="skill_longdescription_lower_exploss">À chaque niveau, réduit la quantité d\'expérience perdue en cas de décès de %1$d %% (pourcentage relatif à la perte  existante, pas pourcentage absolu). %2$d niveaux enlèvent toute perte d\'expérience causée par décès.</string>
+  <string name="skill_longdescription_magicfinder">Augmente la probabilité de trouver des objets non ordinaires de %1$d %% par niveau.</string>
+  <string name="skill_longdescription_resistance_mental">Réduit la probabilité d\'être affecté par des troubles mentaux de %1$d %% par niveau, jusqu\'à un maximum de %2$d %%. Ceci inclut les troubles causés par les attaques de monstres de type étourdissement ou maladresse au combat.</string>
+  <string name="skill_longdescription_resistance_physical_capacity">Réduit la probabilité d\'être affecté par des troubles physiques de %1$d %% par niveau, jusqu\'à un maximum de %2$d %%. Ceci inclut les troubles causés par les attaques de monstres comme la fatigue.</string>
+  <string name="skill_longdescription_resistance_blood_disorder">Réduit la probabilité d\'être affecté par des troubles du sang de %1$d %% jusqu\'à un maximum de %2$d %%. Ceci inclut les troubles causés par les attaques de monstres comme le poison ou les blessures saignantes.</string>
+  
+  <string name="skillinfo_action_levelup">Montée de niveau</string>
+  <string name="skill_current_level">Niveau courant : %1$d</string>
+  <string name="skill_current_level_with_maximum">Niveau courant : %1$d / %2$d</string>
+  <string name="skill_prerequisite_other_skill">Pour augmenter cette aptitude, vous devez atteindre au moins le niveau %1$d de l\'aptitude %2$s.</string>
+  <string name="skill_prerequisite_level">Pour augmenter cette aptitude, vous devez atteindre au moins le niveau d\'expérience %1$d.</string>
+  <string name="skill_prerequisite_stat">Pour augmenter cette capacité, vous devez avoir au moins %1$d %2$s (statistiques de base).</string>
+  <string name="skill_number_of_increases_one">Vous pouvez sélectionner une aptitude à améliorer.</string>
+  <string name="skill_number_of_increases_several">vous pouvez sélectionner %1$d aptitudes à améliorer.</string>
+  <string name="levelup_adds_new_skillpoint">Ce niveau vous donne également un nouveau point d\'aptitude à utiliser !</string>
+
+  <string name="loadsave_save_to_new_slot">Créer un nouvel emplacement de sauvegarde</string>
+  <string name="loadsave_save_overwrite_confirmation_title">Écrasez la sauvegarde ?</string>
+  <string name="loadsave_save_overwrite_confirmation">Cette sauvegarde contient un nom de personnage différent (%1$s) de votre nom actuel (%2$s). Êtes-vous sûr de vouloir écraser cette sauvegarde ?</string> 
+  
+  <string-array name="iteminfo_displaytypes">
+    <item>Ordinaire</item>
+    <item>Objet de quête</item>
+    <item>Legendaire</item>
+    <item>Extraordinaire</item>
+    <item>Rare</item>
+  </string-array>
+  
+  <string name="actorconditioninfo_category">Catégories d\'états : %1$s</string>
+  <string-array name="actorcondition_categories">
+    <item>Spirituel</item>
+    <item>Mental</item>
+    <item>Capacité physique</item>
+    <item>Troubles du sang</item>
+  </string-array>
+  
+  <string name="traitsinfo_base_max_hp">Max HP:</string>
+  <string name="traitsinfo_base_max_ap">Max AP:</string>
+  <string name="menu_save_saving_not_allowed_in_combat">Impossible de faire une sauvegarde du jeu au cours d\'un combat.</string>
+  
+  <string name="preferences_optimized_drawing_title">Affichage optimisé</string>
+  <string name="preferences_optimized_drawing">Désactivez cette option si vous voyez des artefacts graphiques. Lorsque cette option est active, seules les parties de l\'écran ayant changées sont redessinées lors du rafraîchissement.</string>
+  
 </resources>
