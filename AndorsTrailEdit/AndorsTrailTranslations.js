@@ -42,6 +42,9 @@ var translations = [
 		'content_itemlist.xml', 
 		'content_questlist.xml',
 		'strings.xml'
+	]},
+	{ name: 'Portugese', id: 'values-pt', files: [ 
+		'strings.xml'
 	]}
 ];
 
