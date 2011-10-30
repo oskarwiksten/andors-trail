@@ -413,10 +413,10 @@
     <string name="skill_longdescription_more_exp">Erhöht bei jeder Stufe die Menge der beim besiegen von Gegnern erhaltenen Erfahrung um %1$d %%.</string>
     <string name="skill_longdescription_cleave">Für besiegte Gegner erhält man bei jeder Stufe +%1$d Aktionspunkte (AP).</string>
     <string name="skill_longdescription_eater">Für besiegte Gegner erhält man bei jeder Stufe +%1$d Lebenspunkte (LP).</string>
-    <string name="skill_longdescription_fortitude">Für jeden nachfolgenden Level Aufstieg werden die maximalen Lebenspunkte (LP) um %1$d erhöht. Das wird nicht rückwirkend angewand, nur nachfolgende Level Aufstiege sind betroffen.</string>
+    <string name="skill_longdescription_fortitude">Für jeden nachfolgenden Level Aufstieg werden die maximalen Lebenspunkte (LP) um %1$d erhöht. Das wird nicht rückwirkend angewandt, nur nachfolgende Level Aufstiege sind betroffen.</string>
     <string name="skill_longdescription_evasion">Verringert bei jeder Stufe sowohl die Chance eines fehlgeschlagenen Fluchtversuches um %1$d %% als auch die Chance das ein benachbarter Gegner dich angreift um %2$d %%.</string>
     <string name="skill_longdescription_regeneration">Bei jeder Stufe erhält man pro Runde +%1$d Lebenspunkte (LP).</string>
-    <string name="skill_longdescription_lower_exploss">Verringert bei jeder Stufe die Menge der durch den Tod verursachten verlohrenen Erfahrung um %1$d %% (prozentualer Anteil an dem bestehenden Erfahrungsverlust, es handelt sich nicht um Prozentpunkte). Durch %2$d Stufen werden alle Erfahrungsverluste, die durch den Tod verursacht werden, entfernt.</string>
+    <string name="skill_longdescription_lower_exploss">Verringert bei jeder Stufe die Menge der durch den Tod verursachten verlorenen Erfahrung um %1$d %% (prozentualer Anteil an dem bestehenden Erfahrungsverlust, es handelt sich nicht um Prozentpunkte). Durch %2$d Stufen werden alle Erfahrungsverluste, die durch den Tod verursacht werden, entfernt.</string>
     <string name="skill_longdescription_magicfinder">Erhöht bei jeder Stufe die Chance ungewöhnliche Gegenstände zu finden um %1$d %%.</string>
     <string name="skill_longdescription_resistance_mental">Verringert bei jeder Stufe die Chance von mentalen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Benommenheit oder Schwächung der Waffen.</string>
     <string name="skill_longdescription_resistance_physical_capacity">Verringert bei jeder Stufe die Chance von physischen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Ermüdung.</string>
@@ -427,7 +427,7 @@
     <string name="skill_current_level_with_maximum">Aktuelle Stufe: %1$d / %2$d</string>
     <string name="skill_prerequisite_other_skill">Um diesen Skill zu erlernen, wird mindestens die %1$d. Stufe des Skills %2$s benötigt.</string>
     <string name="skill_prerequisite_level">Um diesen Skill zu erlernen, wird mindestens das Erfahrungslevel %1$d benötigt.</string>
-    <string name="skill_prerequisite_stat">Um diesen Skill zu erlernen, wird mindestens %1$d %2$s benötigt (Basiskampfeigenschaften).</string>
+    <string name="skill_prerequisite_stat">Um diesen Skill zu erlernen, werden mindestens %1$d %2$s benötigt (Basiskampfeigenschaften).</string>
     <string name="skill_number_of_increases_one">Du kannst einen Skillpunkt ausgeben.</string>
     <string name="skill_number_of_increases_several">Du kannst %1$d Skillpunkte ausgeben.</string>
     <string name="levelup_adds_new_skillpoint">In diesem Level erhälst du einen neuen Skillpunkt!</string>
@@ -444,7 +444,7 @@
 		<item>Selten</item>
 	</string-array>
 	
-	<string name="actorconditioninfo_category">Condition category: %1$s</string>
+	<string name="actorconditioninfo_category">Effekt Kategorie: %1$s</string>
 	<string-array name="actorcondition_categories">
 		<item>Geistig</item>
 		<item>Mental</item>
