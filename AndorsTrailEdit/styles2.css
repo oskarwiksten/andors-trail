@@ -9,6 +9,7 @@ html,body 					{ margin:0; padding:0; height: 100%; font-size: 0.9em; }
 #screen #left 				{ width: 250px; padding: 0px; font-size: 1em; }
 #screen #center 			{ left: 256px; right: 0; }
 #screen #center #tabs 		{ border: 0px; padding: 0px; }
+#screen #centerwide 		{ left: 0px; right: 0; }
 
 .ui-icon-close 				{ float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
 .hidden 					{ display: none; }
@@ -40,3 +41,16 @@ input[readonly]				{ color: #888; }
 .imageButton				{ padding: 5px; }
 .importexport-description	{ padding: 15px; text-align: right; }
 .tools-buttons				{ padding-bottom: 10px; }
+
+.validateStep				{ border: 1px #d7d7ff solid; background-color: white; padding: 1em; margin: 2em; float: left; }
+.validateStep h1			{ font-size: 1.1em; }
+.validateStep h1 .number	{ font-size: 1.3em; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px; }
+.validateStep .buttons		{ padding-top: 10px; }
+#validateResultContent table							{ border-collapse: collapse; margin-bottom: 1ex; }	
+#validateResultContent table th,td						{ border: 1px #ccc solid; text-align: left; }
+#validateResultContent table tbody tr:nth-child(even)	{ background-color: #eee }
+#validateResultContent table .ok 						{ background-color: green; }
+#validateResultContent table .red						{ background-color: red; }
+#validateResultContent table .yellow					{ background-color: yellow; }
+#showValidationWarnings			{ cursor: pointer; }
+#showValidationWarnings:hover	{ background-color: #d7d7ff; }
