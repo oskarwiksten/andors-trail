@@ -61,7 +61,7 @@ public final class TileCache {
 	
 	public TileCollection loadTilesFor(Collection<Integer> iconIDs, Resources r) { return loadTilesFor(iconIDs, r, null); }
 	public TileCollection loadTilesFor(Collection<Integer> iconIDs, Resources r, TileCollection result) {
-		cleanQueue();
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) L.log("TileCache::loadTilesFor({" + iconIDs.size() + " items})");
 		int maxTileID = 0;
 		HashMap<ResourceFileTileset, HashMap<Integer, ResourceFileTile>> tilesToLoadPerSourceFile = new HashMap<ResourceFileTileset, HashMap<Integer, ResourceFileTile>>();
 		for(int tileID : iconIDs) {
@@ -75,6 +75,7 @@ public final class TileCache {
 			maxTileID = Math.max(maxTileID, tileID);
 		}
 		
+		boolean hasLoadedTiles = false;
 		if (result == null) result = new TileCollection(maxTileID);
 		for(Entry<ResourceFileTileset, HashMap<Integer, ResourceFileTile>> e : tilesToLoadPerSourceFile.entrySet()) {
 			TileCutter cutter = null;
@@ -91,7 +92,9 @@ public final class TileCache {
 						if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
 							L.log("Loading tiles from tileset " + e.getKey().tilesetName);
 						}
+						if (!hasLoadedTiles) cleanQueue();
 						cutter = new TileCutter(e.getKey(), r);
+						hasLoadedTiles = true;
 					}
 					
 					bitmap = cutter.createTile(tile.localID);
@@ -102,7 +105,7 @@ public final class TileCache {
 			
 			if (cutter != null) cutter.recycle();
 		}
-		cleanQueue();
+		if (hasLoadedTiles) cleanQueue();
 		return result;
 	}
 	

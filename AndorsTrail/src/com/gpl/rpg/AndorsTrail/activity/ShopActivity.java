@@ -75,7 +75,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         
         HashSet<Integer> iconIDs = world.tileManager.getTileIDsFor(container_buy);
         iconIDs.addAll(world.tileManager.getTileIDsFor(player.inventory));
-        TileCollection tiles = world.tileManager.tileCache.loadTilesFor(iconIDs, res);
+        TileCollection tiles = world.tileManager.loadTilesFor(iconIDs, res);
         buyListAdapter = new ShopItemContainerAdapter(this, tiles, world.tileManager, player, container_buy, this, false);
         sellListAdapter = new ShopItemContainerAdapter(this, tiles, world.tileManager, player, player.inventory, this, true);
 		shoplist_buy.setAdapter(buyListAdapter);

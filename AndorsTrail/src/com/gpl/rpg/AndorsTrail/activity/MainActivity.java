@@ -174,12 +174,11 @@ public final class MainActivity extends Activity {
         L.log("onResume");
         if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
 
+		if (world.model.uiSelections.isInCombat) {
+			view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
+			view.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
+		}
         view.gameRoundController.resume();
-
-        if (world.model.uiSelections.isInCombat) {
-        	view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
-        	view.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
-        }
     }
 
 	@Override

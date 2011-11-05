@@ -23,12 +23,13 @@ public final class TimedMessageTask extends Handler {
 		if (!isAlive) return;
 	    if (!hasQueuedTick) return;
     	hasQueuedTick = false;
-    	if (tick()) queueAnotherTick();
+    	tick();
     }
 	
-	private boolean tick() {
+	private void tick() {
 		nextTickTime = System.currentTimeMillis() + interval;
-		return callback.onTick(this);
+		boolean continueTicking = callback.onTick(this);
+		if (continueTicking) queueAnotherTick();
     }
 
     private void sleep(long delayMillis) {
@@ -56,7 +57,7 @@ public final class TimedMessageTask extends Handler {
 	public void start() {
 		isAlive = true;
 		if (shouldCauseTickOnStart()) tick();
-		queueAnotherTick();
+		else queueAnotherTick();
 	}
 
 	public void stop() {

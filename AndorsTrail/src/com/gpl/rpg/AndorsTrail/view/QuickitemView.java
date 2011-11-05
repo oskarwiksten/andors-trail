@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.view;
 
+import java.util.HashSet;
+
 import android.R.color;
 import android.content.Context;
 import android.content.res.Resources;
@@ -15,6 +17,7 @@ import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public class QuickitemView extends LinearLayout implements OnClickListener {
@@ -22,7 +25,9 @@ public class QuickitemView extends LinearLayout implements OnClickListener {
 
 	private final WorldContext world;
 	private final ViewContext view;
-	private final QuickButton[] items = new QuickButton[NUM_QUICK_SLOTS];
+	private final QuickButton[] buttons = new QuickButton[NUM_QUICK_SLOTS];
+	private final HashSet<Integer> loadedTileIDs = new HashSet<Integer>();
+	private TileCollection tiles = null;
 
 	public QuickitemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -37,9 +42,9 @@ public class QuickitemView extends LinearLayout implements OnClickListener {
 		this.setBackgroundColor(res.getColor(color.transparent));
 
 		TypedArray quickButtons = res.obtainTypedArray(R.array.quick_buttons);
-		for(int i = 0; i <items.length ; ++i) {
-			items[i] = (QuickButton)findViewById(quickButtons.getResourceId(i, -1));
-			QuickButton item = items[i];
+		for(int i = 0; i < buttons.length; ++i) {
+			buttons[i] = (QuickButton)findViewById(quickButtons.getResourceId(i, -1));
+			QuickButton item = buttons[i];
 			item.setIndex(i);
 			world.tileManager.setImageViewTileForUIIcon(item, TileManager.iconID_shop);
 			item.setOnClickListener(this);
@@ -48,7 +53,7 @@ public class QuickitemView extends LinearLayout implements OnClickListener {
 	}
 	
 	public boolean isQuickButtonId(int id){
-		for(QuickButton item: items){
+		for(QuickButton item: buttons){
 			if(item.getId()==id)
 				return true;
 		}
@@ -71,21 +76,46 @@ public class QuickitemView extends LinearLayout implements OnClickListener {
 	}
 	
 	public void refreshQuickitems() {
+		loadItemTypeImages();
+		
 		for (int i = 0; i < NUM_QUICK_SLOTS; ++i){
-			QuickButton item = items[i];
+			QuickButton item = buttons[i];
 			ItemType type = world.model.player.inventory.quickitem[i];
-			if(type==null) {
+			if (type == null) {
 				world.tileManager.setImageViewTileForUIIcon(item, TileManager.iconID_shop);
 				item.setEmpty(true);
 			} else {
-				world.tileManager.setImageViewTileForSingleItemType(item, type, getResources());
+				world.tileManager.setImageViewTile(item, type, tiles);
 				item.setEmpty(!world.model.player.inventory.hasItem(type.id));
 			}
 		}
 	}
 	
+	private void loadItemTypeImages() {
+		boolean shouldLoadImages = false;
+		for (ItemType type : world.model.player.inventory.quickitem) {
+			if (type == null) continue;
+			if (!loadedTileIDs.contains(type.iconID)) {
+				shouldLoadImages = true;
+				break;
+			}
+		}
+		if (!shouldLoadImages) return;
+		
+		HashSet<Integer> iconIDs = new HashSet<Integer>();
+		
+		for (ItemType type : world.model.player.inventory.quickitem) {
+			if (type == null) continue;
+			iconIDs.add(type.iconID);
+		}
+		
+		loadedTileIDs.clear();
+		loadedTileIDs.addAll(iconIDs);
+		tiles = world.tileManager.loadTilesFor(iconIDs, getResources());
+	}
+
 	public void registerForContextMenu(MainActivity mainActivity) {
-		for(QuickButton item: items)
+		for(QuickButton item: buttons)
 			mainActivity.registerForContextMenu(item);
 	}
 }

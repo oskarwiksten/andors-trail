@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.resource.tiles;
 
+import java.util.HashMap;
 import java.util.HashSet;
 
 import android.content.res.Resources;
@@ -24,6 +25,7 @@ import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
+import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class TileManager {
 	public static final int CHAR_HERO = 1;
@@ -46,12 +48,16 @@ public final class TileManager {
     public float scale;
 
     
-	public final TileCache tileCache = new TileCache();
+    public final TileCache tileCache = new TileCache();
 	public final TileCollection preloadedTiles = new TileCollection(72);
 	public TileCollection currentMapTiles;
 	public TileCollection adjacentMapTiles;
 	private final HashSet<Integer> preloadedTileIDs = new HashSet<Integer>();
 	
+	
+	public TileCollection loadTilesFor(HashSet<Integer> tileIDs, Resources r) {
+		return tileCache.loadTilesFor(tileIDs, r);
+	}
 	
 	public TileCollection loadTilesFor(ItemContainer container, Resources r) {
 		return tileCache.loadTilesFor(getTileIDsFor(container), r);
@@ -142,10 +148,24 @@ public final class TileManager {
         tileCache.loadTilesFor(preloadedTileIDs, r, preloadedTiles);
 	}
 
+	private HashMap<String, HashSet<Integer>> tileIDsPerMap = new HashMap<String, HashSet<Integer>>();
+	private void addTileIDsFor(HashSet<Integer> dest, String mapName, final Resources res, final WorldContext world) {
+		HashSet<Integer> cachedTileIDs = tileIDsPerMap.get(mapName);
+		if (cachedTileIDs == null) {
+			PredefinedMap adjacentMap = world.maps.findPredefinedMap(mapName);
+			if (adjacentMap == null) return;
+			LayeredTileMap adjacentMapTiles = TMXMapTranslator.readLayeredTileMap(res, tileCache, adjacentMap);
+			cachedTileIDs = getTileIDsFor(adjacentMap, adjacentMapTiles, world);
+			tileIDsPerMap.put(mapName, cachedTileIDs);
+		}
+		dest.addAll(cachedTileIDs);
+	}
 	public void cacheAdjacentMaps(final Resources res, final WorldContext world, final PredefinedMap nextMap) {
 		(new AsyncTask<Void, Void, Void>()  {
 			@Override
 			protected Void doInBackground(Void... arg0) {
+				L.log("-> cacheAdjacentMaps");
+				long start = System.currentTimeMillis();
 				adjacentMapTiles = null;
 				
 				HashSet<String> adjacentMapNames = new HashSet<String>();
@@ -157,13 +177,14 @@ public final class TileManager {
 				
 				HashSet<Integer> tileIDs = new HashSet<Integer>();
 				for (String mapName : adjacentMapNames) {
-					PredefinedMap adjacentMap = world.maps.findPredefinedMap(mapName);
-					if (adjacentMap == null) continue;
-					LayeredTileMap adjacentMapTiles = TMXMapTranslator.readLayeredTileMap(res, tileCache, adjacentMap);
-					tileIDs.addAll(getTileIDsFor(adjacentMap, adjacentMapTiles, world));
+					addTileIDsFor(tileIDs, mapName, res, world);
 				}
+				long duration = System.currentTimeMillis() - start;
+				L.log("  -- cacheAdjacentMaps " + duration + "ms");
 				
 				adjacentMapTiles = tileCache.loadTilesFor(tileIDs, res);
+				duration = System.currentTimeMillis() - start;
+				L.log("  <- cacheAdjacentMaps " + duration + "ms");
 				return null;
 			}
 		}).execute();
