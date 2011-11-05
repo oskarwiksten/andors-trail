@@ -45,6 +45,7 @@ var translations = [
 	]},
 	{ name: 'Portugese', id: 'values-pt', files: [ 
 		'content_actorconditions.xml', 
+		'content_monsterlist.xml', 
 		'strings.xml'
 	]}
 ];
