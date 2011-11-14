@@ -67,6 +67,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 	
 	@Override
 	public void onClick(View arg0) {
+		if (!model.uiSelections.isInCombat) return;
 		onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
     }
     

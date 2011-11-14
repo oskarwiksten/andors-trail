@@ -71,10 +71,12 @@ public class ItemContainer {
 			}
 		}
 		if (index < 0) return false;
-		if (e.quantity <= quantity) {
+		if (e.quantity == quantity) {
 			items.remove(index);
-		} else {
+		} else if (e.quantity > quantity) {
 			e.quantity -= quantity;
+		} else {
+			return false;
 		}
 		return true;
 	}

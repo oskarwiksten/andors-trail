@@ -214,17 +214,19 @@ public final class ItemController {
 	}
 	public static void sell(Player player, ItemType itemType, ItemContainer merchant, int quantity) {
 		int price = getSellingPrice(player, itemType) * quantity;
-		player.inventory.gold += price;
-		player.inventory.removeItem(itemType.id, quantity);
-		merchant.addItem(itemType, quantity);
+		if (player.inventory.removeItem(itemType.id, quantity)) {
+			player.inventory.gold += price;
+			merchant.addItem(itemType, quantity);
+		}
 	}
 	public static void buy(ModelContainer model, Player player, ItemType itemType, ItemContainer merchant, int quantity) {
 		int price = getBuyingPrice(player, itemType) * quantity;
 		if (!canAfford(player, price)) return;
-		player.inventory.gold -= price;
-		player.inventory.addItem(itemType, quantity);
-		merchant.removeItem(itemType.id, quantity);
-		model.statistics.addGoldSpent(price);
+		if (merchant.removeItem(itemType.id, quantity)) {
+			player.inventory.gold -= price;
+			player.inventory.addItem(itemType, quantity);
+			model.statistics.addGoldSpent(price);
+		}
 	}
 
 	public void quickitemUse(int quickSlotId) {

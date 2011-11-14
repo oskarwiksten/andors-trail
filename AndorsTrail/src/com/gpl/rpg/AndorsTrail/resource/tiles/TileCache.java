@@ -2,13 +2,14 @@ package com.gpl.rpg.AndorsTrail.resource.tiles;
 
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
-import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.LruCache;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -17,7 +18,8 @@ public final class TileCache {
 
 	private final ReferenceQueue<Bitmap> gcQueue = new ReferenceQueue<Bitmap>(); 
 	private ResourceFileTile[] resourceTiles = new ResourceFileTile[1];
-	private HashMap<String, HashMap<Integer, Integer>> tileIDsPerTilesetAndLocalID = new HashMap<String, HashMap<Integer,Integer>>();
+	private final HashMap<String, HashMap<Integer, Integer>> tileIDsPerTilesetAndLocalID = new HashMap<String, HashMap<Integer,Integer>>();
+	private final LruCache<Integer, Bitmap> cache = new LruCache<Integer, Bitmap>(1000); 
 	
 	public int getMaxTileID() { return resourceTiles.length-1; }
 	public void allocateMaxTileID(int maxTileID) {
@@ -43,7 +45,7 @@ public final class TileCache {
 	private static final class ResourceFileTile {
 		public final ResourceFileTileset tileset;
 		public final int localID;
-		public SoftReference<Bitmap> bitmap;
+		//public WeakReference<Bitmap> bitmap;
 		public ResourceFileTile(ResourceFileTileset tileset, int localID) {
 			this.tileset = tileset;
 			this.localID = localID;
@@ -84,8 +86,7 @@ public final class TileCache {
 				int tileID = j.getKey();
 				ResourceFileTile tile = j.getValue();
 				
-				Bitmap bitmap = null;
-				if (tile.bitmap != null) bitmap = tile.bitmap.get();
+				Bitmap bitmap = cache.get(tileID);
 				
 				if (bitmap == null) {
 					if (cutter == null) {
@@ -98,7 +99,8 @@ public final class TileCache {
 					}
 					
 					bitmap = cutter.createTile(tile.localID);
-					tile.bitmap = new SoftReference<Bitmap>(bitmap, gcQueue);
+					cache.put(tileID, bitmap);
+					new WeakReference<Bitmap>(bitmap, gcQueue);
 				}
 				result.setBitmap(tileID, bitmap);
 			}
@@ -112,10 +114,8 @@ public final class TileCache {
 	public Bitmap loadSingleTile(int tileID, Resources r) {
 		cleanQueue();
 		ResourceFileTile tile = resourceTiles[tileID];
-		if (tile.bitmap != null) {
-			Bitmap bitmap = tile.bitmap.get();
-			if (bitmap != null) return bitmap;
-		}
+		Bitmap bitmap = cache.get(tileID);
+		if (bitmap != null) return bitmap;
 		
 		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
 			L.log("Loading single tile from tileset " + tile.tileset.tilesetName);
@@ -123,7 +123,7 @@ public final class TileCache {
 		TileCutter cutter = new TileCutter(tile.tileset, r);
 		Bitmap result = cutter.createTile(tile.localID);
 		cutter.recycle();
-		tile.bitmap = new SoftReference<Bitmap>(result, gcQueue);
+		cache.put(tileID, result);
 		return result;
 	}
 }
