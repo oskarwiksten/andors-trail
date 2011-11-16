@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="10" height="8" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
@@ -48,42 +48,34 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="10" height="8">
+ <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJwLYmRgCCISNxLAMHUTCWCYOkcGCHZFwo5IGF0dLgxzGyF1jVD7HZjxqwOpCWTAjh3R+ADZ3Rvn
+   eJy908ENgCAMBdAW3QCH8ODYbCAb4AaO4CJKjEkDpQ2CHv718UlbhwDu52xM3lqjAdgxz2Dqe0RrunJgHmtkk+sRrRnKsYbv65HvIVlPaN9AvAX0aHatp9ktHmcGMoseHp1Fq/fVX3t5TvFWvFPTreSld6TtX3obqUd3nZrS3QXmfamjV+6Pe1/qWOtxZquXmm+8E9wTl7I=
   </data>
  </layer>
- <layer name="Objects" width="10" height="8">
+ <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYEAFSuwMBIEXCwODEVTdSjYIHxlMZIPQUUBxJyTzQHx3ZgR/IVDdbyBuZ4Xwe6B0GFBNOJK6X2wItg4rql2hzAwYYDfQnj1obrrHhqnuNFDNGRZUM99hUYcPAABb3Q28
+   eJxjYBgF6CCMDROTC0yYsIsr4xBHB6ysDAxsrBC2M1CPExJ2QTMDZCZIrQQrfnd0sEDoYKBYEBS7AXEoAbORgSCBMMFmNrqZ2MAJFuz2qDEzMKwHsttZIWaDzAwkYB7MLDksboWFQS9UzhHNvM+MhN26A8mtIPclA/lz2SDxFIbHfchxgS0cYe6FuR/kNlcgDiHg3x0s+OVBAJvbsPkV2V3I8l8YEeY4Qc0ixm3o8YoMQGbC/BhEhFnEAPT4xAf+M0NoWPjhypu43IVN/Rci0g+pANlMYssPUswkBwAAqL0kCA==
   </data>
  </layer>
- <layer name="Walkable" width="10" height="8">
+ <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBwEmAGNxiaPDWBTg0sPqerwuROGAcwqA+w=
+   eJxjYBj64AMzdc16T6Z52NzxnwKz0N2hwkS+2wi5o5pEcwmZ5wmUjwTibCLNJSacklkQ7DAC6skNd2yAkjSBDVDTbaPmYQdfGIk3j1i11CxnQGA4hDMAzbga+Q==
   </data>
  </layer>
- <layer name="Above" width="10" height="8">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYCAe/GceGuq4WRkYhNlxq3tPpHnEAAA2LgYn
+   eJwTZGBgEBzFIwLDADIbWYwcs3ABdLWD0Tx8dgy0eQNlFjH+IMUsYsOFWLOokXYJmUkN82htJrXMo9RMAGfnFA8=
   </data>
  </layer>
- <objectgroup name="mapevents" width="10" height="8">
-  <object name="entrance" type="mapchange" x="192" y="223" width="32" height="32">
+ <objectgroup name="Mapevents" width="20" height="20">
+  <object name="south" type="mapchange" x="160" y="608" width="64" height="32">
    <properties>
-    <property name="map" value="crossglen"/>
-    <property name="place" value="farmhouse"/>
-   </properties>
-  </object>
-  <object name="stairs_down" type="mapchange" x="32" y="192" width="32" height="32">
-   <properties>
-    <property name="map" value="crossglen_farmhouse_basement"/>
-    <property name="place" value="stairs_up"/>
+    <property name="map" value="mountaincave2"/>
+    <property name="place" value="north"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="keys" width="10" height="8"/>
- <objectgroup name="spawn" width="10" height="8" visible="0">
-  <object name="Leta" type="spawn" x="32" y="96" width="256" height="128"/>
- </objectgroup>
+ <objectgroup name="Spawn" width="20" height="20"/>
+ <objectgroup name="Keys" width="20" height="20"/>
 </map>

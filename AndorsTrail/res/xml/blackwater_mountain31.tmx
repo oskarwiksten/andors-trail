@@ -48,14 +48,14 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="11" height="8" visible="0">
+ <layer name="Ground" width="11" height="8">
   <data encoding="base64" compression="zlib">
-   eJxzZGBgcCQBNzISxjC1ExkJY0L2uSJhUtU2opm/EY9aYtwCUxfIgIkdsYiBMAB3Nh2S
+   eJxzZGBgcCQBNzISxjC1ExkJY0L2uSJhUtU2opm/EY9aQm5xYEaoC2TAxI5YxEAYAHejHZQ=
   </data>
  </layer>
  <layer name="Objects" width="11" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYMAPlNhR+dZAvhcLA4MNVDwaSMcAcQYQG6Gp9Qbyo4BqfYD0ZTYGhggkeSc0tdOA/CdANY+hmA/IrwbS61gh8nJsCLXL0PTCwBIW3P7AJbcfyVxOqF3VzAwMkcyo+hyA/PNsDCQDABb0Dx4=
+   eJxjYMAPlNhR+dZAvhcLA4MNVDwaSMcAcQYQG6Gp9Qbyo4BqfYD0ZTYGhggkeSc0tdOA/CdANY+hmA/IrwbS61gh8nJsCLXL0PTCwBIW3P7AJbcfyVxOqF3VzAwMkcyY+s4jqSUWAAAITw7b
   </data>
  </layer>
  <layer name="Above" width="11" height="8" visible="0">
@@ -63,7 +63,7 @@
    eJxjYCAN/GcmXe1lNtqYO5BqiQUAbEcG5g==
   </data>
  </layer>
- <layer name="Walkable" width="11" height="8">
+ <layer name="Walkable" width="11" height="8" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzkGAbQ+fgAsWqx2YVLLyE3YhMHAEfdBDA=
   </data>
