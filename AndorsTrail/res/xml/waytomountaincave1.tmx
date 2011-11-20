@@ -65,7 +65,7 @@
  </layer>
  <layer name="Walkable" width="15" height="19">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgECQCIwNi1GPTR4xeZHXk6MMGaKGPkH5ahQ8l8cKAQx8+/bjUEOtuXPLk6ifV3eSGFyH9pMYnMW6mxN3IcqTYSyygZj4AAC49C48=
+   eJy1k7ENAEAIAlnB/Zf9lkJfxEhiJReJxgAQQrEUf8YpLPscLtMF1/FX+9ncBQX34yuPmrvqu/w0t7uvjp/eU8m8yc29yVxV7i9kvgcxKQug
   </data>
  </layer>
  <objectgroup name="Mapevents" width="15" height="19">
@@ -83,6 +83,29 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="19"/>
+ <objectgroup name="Spawn" width="15" height="19">
+  <object name="irdegh_2" type="spawn" x="96" y="320" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="irdegh_2" type="spawn" x="160" y="96" width="224" height="128">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="irdegh_3" type="spawn" x="288" y="416" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn2" width="15" height="19" visible="0">
+  <object name="irdegh_spawn" type="spawn" x="32" y="64" width="384" height="480">
+   <properties>
+    <property name="quantity" value="8"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="19"/>
 </map>

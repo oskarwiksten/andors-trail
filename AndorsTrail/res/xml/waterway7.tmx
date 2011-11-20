@@ -82,6 +82,32 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="erumen_1" type="spawn" x="64" y="480" width="384" height="448">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="erumen_1" type="spawn" x="608" y="416" width="288" height="512">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="480" y="480" width="96" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="160" y="416" width="256" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_2" type="spawn" x="640" y="384" width="256" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

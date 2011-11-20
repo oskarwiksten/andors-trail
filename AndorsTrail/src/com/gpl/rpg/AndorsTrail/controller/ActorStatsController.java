@@ -41,14 +41,14 @@ public class ActorStatsController {
 			ItemTraits_OnEquip equipEffects = type.effects_equip;
 			if (equipEffects != null && equipEffects.addedConditions != null) {
 				for (ActorConditionEffect e : equipEffects.addedConditions) {
-					addActorCondition(player, e, ActorCondition.DURATION_FOREVER);
+					applyActorCondition(player, e, ActorCondition.DURATION_FOREVER);
 				}
 			}
 		}
 	}
 	
-	private static void addActorCondition(Actor actor, ActorConditionEffect e) { addActorCondition(actor, e, e.duration); }
-	private static void addActorCondition(Actor actor, ActorConditionEffect e, int duration) {
+	private static void applyActorCondition(Actor actor, ActorConditionEffect e) { applyActorCondition(actor, e, e.duration); }
+	private static void applyActorCondition(Actor actor, ActorConditionEffect e, int duration) {
 		final ActorConditionType type = e.conditionType;
 		if (e.isRemovalEffect()) {
 			removeAllConditionsOfType(actor, type.conditionTypeID);
@@ -154,10 +154,12 @@ public class ActorStatsController {
 	}
 
 	private void applyStatsEffects(Actor actor, boolean isFullRound) {
+		VisualEffect effectToStart = null;
 		for (ActorCondition c : actor.conditions) {
 			StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
-			applyStatsModifierEffect(actor, effect, c.magnitude);
+			effectToStart = applyStatsModifierEffect(actor, effect, c.magnitude, effectToStart);
 		}
+		startVisualEffect(actor, effectToStart);
 	}
 	
 	private static void decreaseDurationAndRemoveConditions(Actor actor) {
@@ -191,7 +193,8 @@ public class ActorStatsController {
 				}
 			}
 		}
-		applyStatsModifierEffect(source, effect, 1);
+		VisualEffect effectToStart = applyStatsModifierEffect(source, effect, 1, null);
+		startVisualEffect(source, effectToStart);
 	}
 
 	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
@@ -199,12 +202,31 @@ public class ActorStatsController {
 		if (actor.isPlayer) chanceRollBias = SkillController.getActorConditionEffectChanceRollBias(conditionEffect, (Player) actor);
 		
 		if (!Constants.rollResult(conditionEffect.chance, chanceRollBias)) return;
-		addActorCondition(actor, conditionEffect);
+		applyActorCondition(actor, conditionEffect);
 		recalculateActorCombatTraits(actor);
 	}
 
-	private void applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude) {
-		if (effect == null) return;
+	private static class VisualEffect {
+		public final int visualEffectID;
+		public int effectValue;
+		public VisualEffect(int visualEffectID) {
+			this.visualEffectID = visualEffectID;
+		}
+	}
+
+	private void startVisualEffect(Actor actor, VisualEffect effectToStart) {
+		if (effectToStart == null) return;
+		view.effectController.startEffect(
+			view.mainActivity.mainview
+			, actor.position
+			, effectToStart.visualEffectID
+			, effectToStart.effectValue
+			, null
+			, 0);
+	}
+	
+	private VisualEffect applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude, VisualEffect existingVisualEffect) {
+		if (effect == null) return existingVisualEffect;
 		
 		int effectValue = 0;
 		int visualEffectID = effect.visualEffectID;
@@ -235,14 +257,18 @@ public class ActorStatsController {
 			}
 		}
 		if (effectValue != 0) {
+			if (existingVisualEffect == null) existingVisualEffect = new VisualEffect(visualEffectID);
+			existingVisualEffect.effectValue += effectValue;
+			/*
 			view.effectController.startEffect(
 				view.mainActivity.mainview
 				, actor.position
 				, visualEffectID
 				, effectValue
 				, null
-				, 0);
+				, 0);*/
 		}
+		return existingVisualEffect;
 	}
 	
 	public void applyKillEffectsToPlayer(Player player) {

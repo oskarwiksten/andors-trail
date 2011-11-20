@@ -63,9 +63,9 @@
    eJxjYBgYYM7KwGDBikoPJ6BOoX80SNAPsguknhw7nVkRZuAyE5tbKPVfMJFmIruBUjuxAWLNDAeqc0dLs+lAnEHjdAuzExtwplEaM8djJwhgi7tRAAEHmQfaBQjwYYDc8n8Q20tpnsEG3hNhL7XyjBuNykBC9U0YjvKalHoKXS9y2UasvwjVU8huQjcTZmc4khpkfxFT1xHjX3QzYXYS8g+5YYkNmBNpJ7o4tjqfkDgus9HVogNcdTqucICpx1cnEjKbGIBLXzgW/1IDEDITm38BApgbtg==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="25" visible="0">
+ <layer name="Walkable" width="30" height="25">
   <data encoding="base64" compression="zlib">
-   eJztkksOACEIQ7kC97/s7AmfWpCN08SYqPQ1pioi+vASs0/4CeBnZTN499k8wqzmK2+WVf29Jp7TzFuek93YYke6xfXYXT9Gm3+9xfQybDN/btyDqYxW2RsvA+KNeJ2K5WZeHS46GzE7PYwyVtlPz71clQcjtqtT52inbs51FsP8AJaNJIc=
+   eJztkksKACEMQ3uF3v+ysy/9pN+NExBBbV6QMBHxw4vEPuFHgJ+UzKDde/MIM5qPvKus6O/Z8ZxmbnlOduOKbWmLq7G7fhVd/vUVU8twzfy5dg+mMkp5b7QMiDfilVWV63l1uOisxez00MoYZc+ea7kij4qqXZ06Rzu1OdddWeYHmgEkmA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="25">
@@ -82,6 +82,37 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25"/>
+ <objectgroup name="Spawn" width="30" height="25">
+  <object name="erumen_4" type="spawn" x="128" y="320" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="erumen_4" type="spawn" x="768" y="64" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="erumen_1" type="spawn" x="128" y="64" width="608" height="256">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="irdegh_1" type="spawn" x="448" y="416" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="irdegh_spawn" type="spawn" x="96" y="512" width="800" height="224">
+   <properties>
+    <property name="quantity" value="7"/>
+   </properties>
+  </object>
+  <object name="irdegh_1" type="spawn" x="640" y="448" width="224" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="25"/>
 </map>

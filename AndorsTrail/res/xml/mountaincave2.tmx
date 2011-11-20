@@ -63,7 +63,7 @@
    eJxjYICA/8wMWAEucXIALrO+MFLHnA9A8fd43PuBSL/8x2MOofAgNrzwuROfGSpMuPUqMxFnNwiQGubkAmLDnBJAzTQ6kHYMdJwcAoqLsjAwCAOxCAuCfZAMvw/H8KKlfcjhRas8g2wHreIH2VxahBe2Mp6a4YWrDqGmX9DDfiY7qv20sAMZUMMv6OFkwI5bLblguJTrIDuusKGKIYfXZTQ5ctIAqf4gJw0MdP1ETT0wvySzEK9nMNVpAJwjOwU=
   </data>
  </layer>
- <layer name="Walkable" width="25" height="30" visible="0">
+ <layer name="Walkable" width="25" height="30">
   <data encoding="base64" compression="zlib">
    eJztk0EOACEIA/kC//+sx002IhRbTpJ4ox1K0M3M7SsXvsfA/Kc5VSai2fXcMHa6rBQ5FIwKpzIHeyamhumP/pWOvwN9E4yolAxUO5FDzWEwTvpu5r8u0qN5Ozdc7UPuLNsTysh2faoJBosT+aqydG64uy/UO5pX9VizIowFXb8hmw==
   </data>
@@ -81,7 +81,39 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="remains_mountaincave2" type="sign" x="64" y="768" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="30"/>
+ <objectgroup name="Spawn" width="25" height="30" visible="0">
+  <object name="scaradon_3" type="spawn" x="352" y="288" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="scaradon_3" type="spawn" x="416" y="288" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="scaradon_2" type="spawn" x="480" y="96" width="288" height="800">
+   <properties>
+    <property name="quantity" value="5"/>
+   </properties>
+  </object>
+  <object name="scaradon_3" type="spawn" x="128" y="448" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="scaradon_2" type="spawn" x="32" y="480" width="256" height="416">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="scaradon_1" type="spawn" x="32" y="64" width="288" height="384">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="25" height="30"/>
 </map>

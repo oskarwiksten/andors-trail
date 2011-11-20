@@ -82,6 +82,22 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="14" height="7"/>
+ <objectgroup name="Spawn" width="14" height="7">
+  <object name="allaceph_4" type="spawn" x="224" y="96" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="allaceph_3" type="spawn" x="96" y="128" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="allaceph_3" type="spawn" x="160" y="96" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="14" height="7"/>
 </map>

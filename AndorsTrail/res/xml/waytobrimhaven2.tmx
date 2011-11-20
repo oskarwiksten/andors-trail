@@ -81,13 +81,39 @@
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="832" y="864" width="32" height="32">
+  <object name="down" type="mapchange" x="832" y="864" width="32" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave0"/>
-    <property name="place" value="north"/>
+    <property name="place" value="up"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="erumen_1" type="spawn" x="192" y="448" width="320" height="416">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="erumen_2" type="spawn" x="160" y="96" width="352" height="352">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="erumen_2" type="spawn" x="512" y="96" width="352" height="352">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="erumen_3" type="spawn" x="512" y="448" width="320" height="416">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="skeleton3" type="spawn" x="736" y="864" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

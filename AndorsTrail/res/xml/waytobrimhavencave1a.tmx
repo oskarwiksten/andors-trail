@@ -65,7 +65,7 @@
  </layer>
  <layer name="Walkable" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzFdMPogNbmYgMD4S9S7ManFps9+Mwl1l5i3U9IHbH2YjMDmx5s8tSwlxwxUsIPF6C2vcS6gRi1tMgXg8XeUYwfAwDp9BgL
+   eJwTZGBgEBzFdMPogNbmYgMD4S9S7ManFps9+Mwl1l5i3U9IHbH2YjMDmx5s8tSwlxwxUsIP3a20spcUNxBSS+08Qawb6WHvKMaPARbnGBw=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="15">
@@ -82,6 +82,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15"/>
+ <objectgroup name="Spawn" width="30" height="15">
+  <object name="erumen_3" type="spawn" x="64" y="96" width="832" height="288">
+   <properties>
+    <property name="quantity" value="5"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="15"/>
 </map>

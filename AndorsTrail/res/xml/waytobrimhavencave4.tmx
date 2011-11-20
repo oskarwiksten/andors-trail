@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzNlrFuwzAMRCUt2QLYX9Gif+2to7J1jP8gHjP2SxoBJnxgjqLkGEGHA4JE4ZPOPFpTDGH6R5ofSimEW9yvmPqYwhtf5A7J58/AFN5X2PTRIfxfjZ9XLesZ9/IsNvIXw98jmBa7iDGPOmuNjV4zZvm9fH80W5jf4ZlZlNdnbdX6VGJrro8al8g9zqSX0AtW7xx9bqkxQ89cjRwhd1D97p2VcQeYAfosFhc9uRAuOy9j4wwo+6jND+Y1O3OL17qntI9jes4vZvynobfORi9YfaP5Pf2F7JYcMa9HkmFZJ30pfdqba11T9zZmTbTErS+lT2u5bplZHlc8+a34vJer5yXzucdX9i6wMrqsysRn7WtL3RZmywzxPMPnk9X+dT3vrmO9B63/309b37Ocyp5a7liMO0HtwhEWzmN5NrhGy2KyrOjacn+TtbfI1zOxux3ODzbr8bNmsfUel72LX8ltTV4/v5P7DrbFlUxKHlFsHnhrerhe1mRvLTNI7+sPaRIy3w==
+   eJy9ljFuwzAMRSUt3QLYp0jRW3vr6G4dnRvEY8eepCDgD7PfJGXZRgYCRsTokdQnpSGnNAT2OGHRvhGvlJSe+bjl0sYHrz/J7UrM17URJngfabV7g+n/RfxxsXnJ8SjPY2v+7NT3CqbHFpsM5lW5RmypdcSUdfn9ava4MD/Tlon1PuC+k1k+UtMvpc+BNGXlinVrv1uuc6FdaIbPdaCYxER3k1qr5WpxOzUDOBePq+OzuFa+FlvPAInDYvNZcI8fqTVrqiv/c+3Ltn/R43L+3zu0dXO04OlGW6u+NHtPH3GtkTNz4QddQqetfe1pNtLXnFddQqdRX++ZWTUuavIb1PkoF3V85O29gDq31NW6C6xZOCz3H7TLPlzXPftGFr032LdWM30+I8XPudTeOt49aGlDuD9v61lBFxPth5jGgOudqd5b60LPY5yN9mHzmFav8N54v8H3mW1/y/h9x3PLmvX6m1mWf41r3cVn+jaymp5fyX0F2+OiJ7X2uTd5BkU+LdxajyO2PTOI4/oDLcY3Yw==
   </data>
  </layer>
  <layer name="Objects" width="30" height="30">
@@ -63,7 +63,7 @@
    eJztVksSgjAMLaCwduEBXHgEj+DJvIYHEm6Al0DcuVI62jF2kjQtEVn4NmVayEtePtSYeeJexL1fL3X4Ynh3pTHtCF7L5fi6YT0sZN/tS/pMYsNydpH6hrBmfErhDNmTAubzmunYDPFhsV4EsW+JmPvs0/ceiaMj9HV70trCQPkeq6eN71g9n93KgetFTk/srHj1aSPoV44X097hFjaNoh60aCp6BuT5+5mKW1JfPtqB88zkAcZKaaI9RyBgH2nNAwn8ul553ClaQ9SM5pxtmINUHzY5vs/VvM2B018737H/eS3AHJ9Az43NbSq+2Udzga9tOwEnvGNh8Oetm8UanDE5Dc1iKe8v6miKe9Uf0+AB9llKag==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztk0sKwEAIQ73C3P+y3ZahxsTPlEIF6Sb61EmXma0/X0/bvozeBD2qV/pk655q990z7Kg20jDsCa53D8RgdlGZHp+9kTcr8jfacYJ7ZzO1UU9GE0XVixnmFJf1lvr+LBexkYbtp7I7/MpwGW+e4LKhcjsi4y3Uh+FFXI/Nzl35T6L9JvMUp3Kbr3Pv0XHzPbI6dQ5F3x3d71G97cm8AP3KKzw=
   </data>
@@ -75,7 +75,49 @@
     <property name="place" value="west"/>
    </properties>
   </object>
+  <object name="sign_brimcave4" type="sign" x="480" y="352" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="erumen_3" type="spawn" x="192" y="672" width="640" height="256">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="skeleton2" type="spawn" x="128" y="384" width="128" height="288">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="erumen_3" type="spawn" x="64" y="96" width="288" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="skeleton2" type="spawn" x="384" y="544" width="384" height="128">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="erumen_3" type="spawn" x="800" y="288" width="32" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="erumen_2" type="spawn" x="640" y="96" width="224" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="undeadrat1" type="spawn" x="736" y="416" width="192" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="ulirfendor" type="spawn" x="480" y="352" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

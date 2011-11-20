@@ -63,7 +63,7 @@
    eJxrY2FgUGJlYAgDYhBwg9KKQHoaCwPNAMxsRah9MPtHwdABH5gHxt7/o/aO2juEwSGg/0SB5Z8wEIsgYZjYQRr4f6Tl1fd0steNDvVWGwn1MDnuQTafHv6hFAwFN9IL4EsbpKQbXGpJMeMzI/FqsQFc8UpufFMznSCHwxUoewcN28eUAlLiDRmcQNKH7r8TaHxiw5cct8DS0hUserGJoYMTOOIIXS9MHiRObPrdQcXyEmQnzDwQ+wqO8EcPexBA9wuy+5H1fmFENQOXP0F6AFbTLeY=
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztlVEKACEIRL1C97/s/kasNYOjEjTgn/hstBpmNl5cGydlcrvO+7i9XEVPs5Daf7lRLiOVp2gtNTfDIzU3Mp+5pw6u10vmPkb4KsYu98Rd91wthMvWY9kdquB682b5Xi673xGhPaD3SOX/je/VzhPFn4T6XxXVvOz4ANb1JFQ=
   </data>
@@ -88,6 +88,47 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="erumen_2" type="spawn" x="64" y="416" width="288" height="512">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="erumen_3" type="spawn" x="256" y="544" width="672" height="384">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="544" y="384" width="32" height="96">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_4" type="spawn" x="608" y="320" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="128" y="384" width="384" height="128">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="608" y="480" width="320" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="736" y="320" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="izthiel_4" type="spawn" x="704" y="192" width="32" height="96">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

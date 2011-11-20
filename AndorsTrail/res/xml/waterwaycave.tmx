@@ -63,7 +63,7 @@
    eJxjYBg48IEZlX+SnYHhFDumOmzi/5kx1RELKNH7iZF8vcQC9HAhRf49DjmYHlxhjM8uXGYSAsjhbMpGvl50gM0PJ5H4IL2k+hMG0OOXXHNIAQD2dxhl
   </data>
  </layer>
- <layer name="Walkable" width="15" height="15" visible="0">
+ <layer name="Walkable" width="15" height="15">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEByiGBlgE0MWx6cXmx58ZuAzlxQ1Q1UverjgCidsZuID+PQSA0ixA5+9uNQQo4ccDADhnAr2
   </data>
@@ -75,7 +75,39 @@
     <property name="place" value="east"/>
    </properties>
   </object>
+  <object name="sign_waterwaycave" type="sign" x="32" y="384" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="15"/>
+ <objectgroup name="Spawn" width="15" height="15">
+  <object name="burrower_2" type="spawn" x="160" y="128" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="burrower_2" type="spawn" x="288" y="96" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="burrower_3" type="spawn" x="352" y="160" width="32" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="burrower_3" type="spawn" x="320" y="288" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="burrower_3" type="spawn" x="96" y="320" width="352" height="128">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="burrower_2" type="spawn" x="224" y="96" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="15"/>
 </map>

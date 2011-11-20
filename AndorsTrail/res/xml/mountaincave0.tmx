@@ -63,7 +63,7 @@
    eJxjYKAf+MCMnU2OfhD4z4ydTaw56HreM2NnEwIwc4jRY8RGWA3MHGLUDjaAz83kxDk+c0iJc3yAlPjD5x4YINccdPdQA6gwUe4eQmAoplNSwWdG8vUSk+5JyRvEpA9S0hAl5gEAk2gcOg==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20" visible="0">
+ <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzFYMyAxkYHxOgnFVBqDrp6fGYRMpvYMCLFbaSEPSE/UBqnhMyjxA4GLHxy3U0IUNM8cvxNDKDEjbQOQ3LimFppZbiZBwBk7hMh
   </data>
@@ -82,6 +82,27 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20"/>
+ <objectgroup name="Spawn" width="20" height="20">
+  <object name="scaradon_1" type="spawn" x="448" y="544" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="scaradon_1" type="spawn" x="288" y="320" width="288" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="scaradon_1" type="spawn" x="64" y="96" width="480" height="192">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="scaradon_1" type="spawn" x="288" y="288" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="20"/>
 </map>

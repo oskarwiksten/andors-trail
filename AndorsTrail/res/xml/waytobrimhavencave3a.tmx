@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="20" height="22">
   <data encoding="base64" compression="zlib">
-   eJzVVNsNwyAMNEjJBmTx7pCfjtABOkG6QTtHsaoTrmsDIfnph2Xl4M7xA6+BaHVsjkRT9M9rxtwt+0cofslYMnDJ4W8rJnOf2b9C8Xf6mMYlh7+TyoPjgNtj4Eksxe84e7W0nhfH4nEuc/ytt+YgZw+HcS5LrP+bzNnCt8rc1OrtxeNeXsmeG6/eemb0+Y3suenplVeTkTn6F70jmq39cJZOS3uE72n27kLM6YWKAcPble9G7kJ5D3qYU6kHDG9Xz7T2cl/hrtQ70uNR7hm9btkbuGcqRw==
+   eJzVVNsNwjAMdCK1G6SLs0N/GIEBmIBuAHMQC51ijJ2kaX/4sCxdeuf6uQai1bE5Ek3Rf68Zc7fsH6H4JWPJwDXHisncV/bPUPydPqZxzUkqD44Dbo+BJ7EUv+Ps1dJ6XhyLx7nM8bfemoOcPRzGuSyx/m8yZwvfKnNTq7cXj/t2JXtuvHrrmdHvN7LnpqdXXk1G5uhf9I5otu7DWTot7RG+p9l7C3HbLlQMGHZX7o28hfAyFm6b1AOG3dUzrb28V/hW6h3p8Sj3jF637A25VypH
   </data>
  </layer>
  <layer name="Objects" width="20" height="22">
@@ -63,7 +63,7 @@
    eJxjYKAd+M+MXcyYjTQ9MHEQLmNH1f8eh3pkPbjk8OklRQ8+ewiZBwPIfiLHbejmESOOD3zA46dvjKSbh81PX4kwB90NsHAixk8fcMQVCMyBpiMQDQLEhDc2O2H61rCj0sQAcuIFHyAnXkYBcQBbWsIFYPFKqGwi1TxkgF6GUmoeulvxuR3d7sGc7gCTbzAX
   </data>
  </layer>
- <layer name="Walkable" width="20" height="22" visible="0">
+ <layer name="Walkable" width="20" height="22">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzBmAGJxgXINYdSd1HDHGx+I0cvqXLk+IkU8xhw0LjMI2QuNkCsebjUEvIzpYDYcCZkBj6zSHUnJekS3b2UpnlK881wNg9buBNKv4TUEwtoGQ7oGAA+kBVS
   </data>
@@ -76,6 +76,53 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="22"/>
+ <objectgroup name="Spawn" width="20" height="22">
+  <object name="toszylae" type="spawn" x="320" y="96" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="allaceph_4" type="spawn" x="224" y="96" width="32" height="32"/>
+  <object name="toszylae_guard" type="spawn" x="288" y="96" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+  <object name="allaceph_4" type="spawn" x="96" y="224" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="allaceph_4" type="spawn" x="320" y="512" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="allaceph_3" type="spawn" x="160" y="320" width="448" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="allaceph_4" type="spawn" x="288" y="640" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="allaceph_3" type="spawn" x="224" y="640" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="allaceph_3" type="spawn" x="416" y="608" width="64" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="allaceph_3" type="spawn" x="448" y="192" width="160" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="22"/>
 </map>

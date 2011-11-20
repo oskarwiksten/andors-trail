@@ -63,16 +63,16 @@
    eJxjYKAP+M+MwPQEpNpLjLp/QDXvCaijhb3EmjNqL24AirsPVLCbHHup4Wdy7KWGn8m1l1I/jzR73w+QvSBAjr2EykFiwHsS7aWGnTBArL3UtJMW5pEDqFEOkgPo3Qaglr0X2QfGXnLBJ8aBsXckAQCm0E65
   </data>
  </layer>
- <layer name="Walkable" width="30" height="24" visible="0">
+ <layer name="Walkable" width="30" height="24">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzFGJhhgOwkBAbCzlF7h19ao7W9AxXOI83ekZKeyA1narkJ3VxC5lPT3sGWxuhhBy3sJTbcCMnTyl5ahDM1ATHmErKfVu4ciPQIwgAGTiSH
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="24">
-  <object name="north" type="mapchange" x="320" y="64" width="32" height="32">
+  <object name="up" type="mapchange" x="320" y="64" width="32" height="32">
    <properties>
     <property name="map" value="waytobrimhaven2"/>
-    <property name="place" value="south"/>
+    <property name="place" value="down"/>
    </properties>
   </object>
   <object name="east" type="mapchange" x="928" y="672" width="32" height="64">
@@ -82,6 +82,37 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="24"/>
+ <objectgroup name="Spawn" width="30" height="24">
+  <object name="erumen_2" type="spawn" x="256" y="128" width="320" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="undeadrat1" type="spawn" x="256" y="288" width="320" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="erumen_3" type="spawn" x="448" y="480" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="erumen_3" type="spawn" x="480" y="640" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="skeleton3" type="spawn" x="32" y="608" width="256" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="skeleton3" type="spawn" x="704" y="704" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="24"/>
 </map>

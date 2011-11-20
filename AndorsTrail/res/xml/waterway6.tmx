@@ -93,7 +93,44 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="sign_waterway6" type="sign" x="544" y="640" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="izthiel_4" type="spawn" x="544" y="224" width="32" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="352" y="64" width="352" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="burrower_2" type="spawn" x="640" y="64" width="288" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="izthiel_3" type="spawn" x="32" y="288" width="320" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="izthiel_2" type="spawn" x="224" y="448" width="320" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="izthiel_2" type="spawn" x="576" y="448" width="320" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="erumen_1" type="spawn" x="128" y="640" width="768" height="288">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>
