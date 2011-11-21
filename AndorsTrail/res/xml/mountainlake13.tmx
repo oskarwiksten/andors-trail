@@ -82,6 +82,39 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="29"/>
+ <objectgroup name="Spawn" width="30" height="29">
+  <object name="mwolf_1" type="spawn" x="320" y="352" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="352" y="448" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="800" y="352" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="96" y="416" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="96" y="352" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn2" width="30" height="29">
+  <object name="mwolf_1" type="spawn" x="32" y="96" width="864" height="608">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="29"/>
 </map>

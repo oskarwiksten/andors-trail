@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="15" height="25">
   <data encoding="base64" compression="zlib">
-   eJzVVMENwjAMtKpmIxZoSxFfCkU8kZgAEPzhxUh82YENYBAcaivXkKQ84SQrauNzksvFRETzjGjCMeN45vTGxhDtOXam+97yWPH8UvIQBfw7cd7ZuBF5NcciwG05So4xx1XWf8gY45Hsu5G9tzJfSq0UL1TDoslcDPH+GZWnlWqfykddLWpP+1iNInO5qrPV9mD69+d7Cr2Wm8+699zVD/kR7/4iuSOok/JyK2dZc/5UOCvTfdvw6yvmX+rhr4l81FT5RzPM9fdggfcbOmuMb4Fv4RffA3qyhPOmfKwIedLXPLYm6qi9Eu89xkfPqB9tr7vl/f4b4+Kc9kbdQ8wXL58fN+s=
+   eJzVVEEOwiAQ3DTwIz/Q1hqvttZ4NPEFavSuJ5/k1T/4g/oQF7uEKQL1qJNMamVngWEKEVGTEc2YC+ZT0RtbTXRg7nX/vuNnyeMrqUPk8N+Z6y7aPVFXMZcBbcssmFPmTebvVFpHsu5a1t7KeCG9UrpQD4M6cxzT/TNKzyvrfaoefTWoPO9jPfLM1VqfjbdHPTw/P1OYNaU/+z6U6x/KI579VWon0CeV5Vb2suH6uWjWun839PtbNF/64c+JevTU6k96XOuvwQDPN7TXmN4Av4Vf/B4wkwXsN5Vji1Amfc9jc6KP9q7Ec4/pMTM2j+auu6vh/RvT4lin3G+zhlguXgl7ODA=
   </data>
  </layer>
  <layer name="Above" width="15" height="25">
@@ -63,7 +63,7 @@
    eJxjYMAEhaxYBIGgCIc4IZAM1NdEht5GMvWRCz4wk6/3/wjT+x5NrxsF8RRGxzgmBCKAbkmAYlwAJOcxiNxMCzAU8wJ6mqQX2MgyMPYSAgA63w/0
   </data>
  </layer>
- <layer name="Walkable" width="15" height="25" visible="0">
+ <layer name="Walkable" width="15" height="25">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEIRiZCBIIiZXH7q95LqBGvrJcftI1UtKOGMDxKYZXICQfmxqyXE7OWFFCFBiBiVuGArpil56KQ0fcvQjq8PFpmaaAgAQ5BJ3
   </data>
@@ -82,6 +82,17 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="25"/>
+ <objectgroup name="Spawn" width="15" height="25">
+  <object name="mwolf_1" type="spawn" x="96" y="64" width="224" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="remgard_bridge" type="spawn" x="192" y="416" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="25"/>
 </map>

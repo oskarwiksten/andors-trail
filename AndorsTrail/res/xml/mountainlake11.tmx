@@ -63,7 +63,7 @@
    eJxjYBgFtAAfmAfGzvd0tncg7ASB/1Syk9R4AtlbyMrAUMQK4SOzSbGT1DAj5N+NLJSbQYyeQjS/EuN3fPYqM2GKqTBRJ02B7CUmXAiBRlZUdhMeP8Pi9iAWe6nhFmzhBQLUyoP48gO63SY43EIOQE4j1AgncuylBJDqZmrZSyoYjPZuwiMnDgzXjWTqBQFq5At6pkdiwWB00yigHwAArcwmcg==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="25" visible="0">
+ <layer name="Walkable" width="30" height="25">
   <data encoding="base64" compression="zlib">
    eJztkkEOACEIA/sF//9ZT5sYI1qq4B4k4UYZSy0AyuvXh/qrbF4md1TZN76Rj6ptdezd2DlvThns3iu7czbDvsPyyXgBxnsUrmfHDnd2ZzYnK7Odeyt+PWzF84obWaf8thpW651l/rR3l8Jlcorgrni32BFcK+e/dwUalSXs
   </data>
@@ -82,6 +82,47 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25"/>
+ <objectgroup name="Spawn" width="30" height="25">
+  <object name="mwolf_3" type="spawn" x="864" y="384" width="32" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_2" type="spawn" x="768" y="128" width="160" height="256">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_3" type="spawn" x="672" y="544" width="192" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="mwolf_2" type="spawn" x="352" y="256" width="288" height="288">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_3" type="spawn" x="192" y="544" width="224" height="32">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="mwolf_2" type="spawn" x="448" y="320" width="192" height="448">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_2" type="spawn" x="384" y="576" width="416" height="192">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="64" y="384" width="128" height="224">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="25"/>
 </map>

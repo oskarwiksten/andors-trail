@@ -63,7 +63,7 @@
    eJxjYKAf+MCMSqOzidGLDP4zo9LobHxmvceiDiaGLIdNHS59xABnVuLUERsuyCAQaHYQFvNx+ZdcQEwYD7R56OFMbLjjMo8QICW+vjAi2IVAdxWhuY2c+MJnPznhi0sPuWnpP5a8j88eYszD5hZ8bsMW1sj6cLmF3LQzFPIJpQAAxDgreg==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20" visible="0">
+ <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="zlib">
    eJztkkkKACAMA/OF/v+zgsdSaxIFLxaKCzpNlwAQ36cjrXnv8Bhz9GFx7pj5Puep6KreVX8YbpcPW5OXdXfmZKfL4VV8d45XutT+MPG7Oqi8iqHoVYxlKTFv8NQenzAGxzASzA==
   </data>
@@ -82,6 +82,42 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20"/>
+ <objectgroup name="Spawn" width="20" height="20">
+  <object name="plaguespider_3" type="spawn" x="160" y="512" width="96" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_3" type="spawn" x="320" y="384" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_3" type="spawn" x="256" y="416" width="256" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="plaguespider_3" type="spawn" x="288" y="288" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="288" y="96" width="288" height="192">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="256" y="128" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_3" type="spawn" x="32" y="256" width="256" height="224">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="20"/>
 </map>

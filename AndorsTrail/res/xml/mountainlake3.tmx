@@ -63,7 +63,7 @@
    eJxjYBh8oIh1oF1AOShkpa4/NrJQz6yhAJDDb6ikB5ibkd1eSEW3g8xKpnFYNALNL0ayg1Zh34hkbhMN7PjMiCn2BU3sAzP17UUH/2lkB7JfYHYoM5FuDrZwQgawMEL2Bzn24AP/sdhBTQDyw3sCdhCTzvH5G9lcZDZ6+JJrjwoTwg/odmAD1Mi374mID+TyDl+dR+36EJv5pLppFIw8AAATACTZ
   </data>
  </layer>
- <layer name="Walkable" width="25" height="28" visible="0">
+ <layer name="Walkable" width="25" height="28">
   <data encoding="base64" compression="zlib">
    eJztk1EKACEIRL1C97/sfi0ssZPKjCHUgBCVPjUbZjaAvULnCvtqB0PN8dQ1NuoLWlfVoKgLxVByGDH/wYsV3YvWwtzN1hbhsDO+yqUqdheGqocnMViO5z+rgvHHyWhmrHhKZXuA/BUMJid2Ttm3v4btAXMOIok=
   </data>
@@ -82,6 +82,57 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="28"/>
+ <objectgroup name="Spawn" width="25" height="28">
+  <object name="maonit_2" type="spawn" x="224" y="640" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="64" y="544" width="160" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_3" type="spawn" x="576" y="576" width="32" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_3" type="spawn" x="576" y="512" width="32" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_3" type="spawn" x="576" y="448" width="32" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_3" type="spawn" x="576" y="384" width="32" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="256" y="640" width="448" height="160">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="480" y="288" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="448" y="320" width="224" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="64" y="64" width="384" height="320">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="25" height="28"/>
 </map>

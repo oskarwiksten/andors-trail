@@ -124,6 +124,12 @@
    </properties>
   </object>
   <object name="sign_loneford2" type="sign" x="192" y="416" width="32" height="32"/>
+  <object name="east" type="mapchange" x="928" y="256" width="32" height="32">
+   <properties>
+    <property name="map" value="waytobrimhaven0"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Spawn" width="30" height="26">
   <object name="loneford_wellguard" type="spawn" x="320" y="384" width="32" height="32">

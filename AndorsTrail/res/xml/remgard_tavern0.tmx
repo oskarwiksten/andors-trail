@@ -72,13 +72,13 @@
   <object name="south" type="mapchange" x="640" y="608" width="32" height="32">
    <properties>
     <property name="map" value="remgard1"/>
-    <property name="place" value="remgard tavern"/>
+    <property name="place" value="remgard_tavern"/>
    </properties>
   </object>
-  <object name="tavern up" x="736" y="480" width="32" height="32">
+  <object name="up" type="mapchange" x="736" y="480" width="32" height="32">
    <properties>
-    <property name="map" value="tavern1"/>
-    <property name="place" value="tavern down"/>
+    <property name="map" value="remgard_tavern1"/>
+    <property name="place" value="down"/>
    </properties>
   </object>
  </objectgroup>

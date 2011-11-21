@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="20" height="25">
   <data encoding="base64" compression="zlib">
-   eJyVVDFuAjEQ5A6bHvKE8AOoeQIS0CORvACa1EmV76SjzTXhAfwEevCKW914mfUpI6G7M+vZWe+sBwOOY8i/h9EJBJzD89q87t5n8P7i8LE80zr/XrR5ahI7M7FeHsSy5ZuY2Kqw97V+XtNat4HHjhPfPv0OhFfOGznnhF/O9xjy3nwmrq+Y723gf8bD0BjN34HXqIhQy6jnjFEvcqpfVKPWYuNYn5G3pBMhcaJX+hwN5y/xrgfVjXoxRwmntPc25Hs9IOeC1Gzn7lo9+of4I56Uvi1J3au0vjbahFNg7wWFrm/BN/rcJa63ls/6THCpuvef0OUq4RTypwft6z52OjWf5GJ6+uCdQclDOIclj3jcglE7c/Y+VE7r6RJEj3C9Gx+qLz9gDnHOvfvrP57GOHZ/eWfg+aLPAwKZEfS17hFO1NMQX21i7lEF+lpnkGm3uhlXCfbO9yAa7rZbRw8=
+   eJyVVEFuwjAQJMHm3vYJ9Adw5glItHeklhfQC2c48R1uXMkFHtCflDv1SlllvJl1xEhRHGc9O/bOejTiOIf8exydQMBv6M/N6248g/Gbw8fyvNf596LNU5PYmYn18iCWLd+ria0Ka6d1f073ug489iXxbdPzQ3jlvJFzTvjlfM8hr80+cR1ivraB/4xHcYS4JvT/sT0qIuxlMnDGqBc51S+qUfdi41idkbekEyFxolfqHA3nhXjXg+pGvZijhFta+xjztR6Qc0H2bPvuXuW1FVyJJ6VuS7LvVZr/MNqEU2DvBYXOr8E3+v5KXN8tn/WZ4K/qxqfQ5SrhFvK3B63rNnY6NZ/kYnqG4J1ByUPYhyWPeNyCSdtz9j5UTuvpEkSPcG2MD9WXO+hD7HPv/nrG0xjH7i/vDDxfDHlAID2CvtY1wol6GuKrz5h7VIG+1h5k2q1uxlWCvfM9iIZ/5nRHmw==
   </data>
  </layer>
  <layer name="Above" width="20" height="25">
@@ -63,9 +63,9 @@
    eJxjYICAD8wMcPAeiU0u+E8FM5ABzE0fqGguyCxq+BXmJmqYRU1zkMFgDDcYICetbGQh3bxCVtLtgZkH0ltEpn508IWROuYMJKBGeFAzTYIAvnQECnNS3EuNNI7sP0rLQ2T3gPwBY5MbD9Qun5HTNDXzCjZAyHxnGto9WACuvAMAKi8j4w==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="25" visible="0">
+ <layer name="Walkable" width="20" height="25">
   <data encoding="base64" compression="zlib">
-   eJy90VEOwCAIA1Cu4P0v65c/BENbiyQmm24vWFZErLRO5X11TXguy+1V5bJuew6/enfdH3Hj8ozmgvTA5tHNgflPzasynfNVPbRfxFNmzHrI+ev3Pz0lH7Y31e3qxWdKsSeyzeaktwGX3RgL
+   eJy9klEKACAIQ72C979sX/2I0ja1QRBWj7HlZuZhXcW5ujZ4U6xpXqYpVjWb6mbDM+rXij2aC+KB8Y70wLxT88qYSheVH5WH+kX/Htsxy0POu/d/8pR8WG8q96UOn5HC3sg2Mjd5B/rxGBw=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="25">
@@ -82,6 +82,52 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25"/>
+ <objectgroup name="Spawn" width="20" height="25">
+  <object name="plaguespider_2" type="spawn" x="160" y="576" width="448" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="224" y="544" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="32" y="256" width="384" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="plaguespider_1" type="spawn" x="192" y="320" width="192" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="plaguespider_3" type="spawn" x="224" y="128" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="320" y="160" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="320" y="224" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="384" y="160" width="192" height="192">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="plaguespider_2" type="spawn" x="96" y="128" width="128" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="20" height="25"/>
 </map>

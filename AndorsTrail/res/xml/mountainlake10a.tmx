@@ -63,7 +63,7 @@
    eJxjYKAcFLIyMBSxQtgwmpagiUI7nNH0w9yP7A9qgkIqm4nuXmzmU+IPfO7FZR+1zKcGwBUe1LKX1u7HZSc106YJI3HqjIDqNrKQZ4cLkXY4EamOEvCfmXZmW0DD5z2N7EAvr0bBKMAFABHHEAc=
   </data>
  </layer>
- <layer name="Walkable" width="25" height="20" visible="0">
+ <layer name="Walkable" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJwTZGBgECQDowNyzCDFDlqYSQhQYr4gFhqXOmq4nRphR4meoa6eVD2kqCPHDkrSA7Xcj8seWsQDqXpIdQ817cCln1I3kQqo4W9kcUrMJ8cv5Jg/ivFjAK7OGbQ=
   </data>
@@ -82,6 +82,22 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20"/>
+ <objectgroup name="Spawn" width="25" height="20">
+  <object name="mwolf_2" type="spawn" x="544" y="64" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="160" y="64" width="384" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="mwolf_1" type="spawn" x="448" y="96" width="224" height="448">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="25" height="20"/>
 </map>

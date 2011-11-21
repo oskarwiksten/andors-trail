@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYMAPHJkYGAKZIGxBNgKKiQAg80KB2IWJPP3/mVH5wUBz3JDcqEymucgA3c+UmonNz8hm+jJj6kEGhPyMbKYEKwNDLFA9GyvpboSZ18FCml5C5sEALP3sAJrvDJRzIiFcYWEIAk5QvcjhCZJ3JcE8UBgGQdUHQcMzlAlhdhgW9yMDQukXZj4yDsGhB2Y3uXkCBkyYEHZjSx+UAEYW3JgUsIMF1Y2hSHEpApQTxWHeZ0ZMMVi+6EAyEzkukcPzC5J+bGaNAvIAADViHRM=
+   eJxjYMAPHJkYGAKZIGxBNgKKiQAg80KB2IWJPP3/mVH5wUBz3JDcqEymucgA3c+UmonNz8hm+jJj6kEGhPyMbKYEKwNDLFA9GyvpboSZ18FCml5C5sEALP3sAJrvDJRzIiFcYWEIAk5QvcjhCZJ3JcE8UBgGQdUHQcMzlAlhdhgW9yMDQukXZj4yDsGhB2Y3uXkCBkyYEHZjSx+kgitI+Z2RBTcmBexgQXVjKFJcigDlRHGY95kRUwyWLzqQzESOS+Tw/IKkH5tZo4A8AAAIIh3t
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
@@ -87,8 +87,9 @@
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="remains_mcave_6" type="sign" x="96" y="416" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="scaradon_1" type="spawn" x="352" y="224" width="224" height="96">
    <properties>
     <property name="quantity" value="2"/>

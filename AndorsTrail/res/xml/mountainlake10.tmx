@@ -84,10 +84,63 @@
   <object name="west" type="mapchange" x="0" y="256" width="32" height="96">
    <properties>
     <property name="map" value="mountainlake11"/>
-    <property name="place " value="east"/>
+    <property name="place" value="east"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="mbrute_2" type="spawn" x="832" y="288" width="64" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mbrute_1" type="spawn" x="800" y="352" width="64" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mbrute_1" type="spawn" x="640" y="608" width="64" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mbrute_1" type="spawn" x="480" y="544" width="64" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_2" type="spawn" x="128" y="672" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_3" type="spawn" x="96" y="608" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_3" type="spawn" x="96" y="544" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_2" type="spawn" x="128" y="736" width="128" height="160">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mwolf_3" type="spawn" x="64" y="192" width="416" height="352">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn2" width="30" height="30">
+  <object name="mwolf_2" type="spawn" x="64" y="128" width="832" height="768">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

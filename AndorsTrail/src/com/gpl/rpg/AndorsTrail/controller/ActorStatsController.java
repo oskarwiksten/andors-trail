@@ -207,7 +207,7 @@ public class ActorStatsController {
 	}
 
 	private static class VisualEffect {
-		public final int visualEffectID;
+		public int visualEffectID;
 		public int effectValue;
 		public VisualEffect(int visualEffectID) {
 			this.visualEffectID = visualEffectID;
@@ -257,16 +257,12 @@ public class ActorStatsController {
 			}
 		}
 		if (effectValue != 0) {
-			if (existingVisualEffect == null) existingVisualEffect = new VisualEffect(visualEffectID);
+			if (existingVisualEffect == null) {
+				existingVisualEffect = new VisualEffect(visualEffectID);
+			} else if (Math.abs(effectValue) > Math.abs(existingVisualEffect.effectValue)) { 
+				existingVisualEffect.visualEffectID = visualEffectID;
+			}
 			existingVisualEffect.effectValue += effectValue;
-			/*
-			view.effectController.startEffect(
-				view.mainActivity.mainview
-				, actor.position
-				, visualEffectID
-				, effectValue
-				, null
-				, 0);*/
 		}
 		return existingVisualEffect;
 	}

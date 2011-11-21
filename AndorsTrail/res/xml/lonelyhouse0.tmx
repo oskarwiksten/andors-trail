@@ -71,7 +71,7 @@
  <objectgroup name="Mapevents" width="15" height="10">
   <object name="south" type="mapchange" x="352" y="288" width="32" height="32">
    <properties>
-    <property name="map" value="mountainlake11a"/>
+    <property name="map" value="mountainlake10a"/>
     <property name="place" value="lonelyhouse"/>
    </properties>
   </object>
@@ -82,6 +82,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="10"/>
+ <objectgroup name="Spawn" width="15" height="10">
+  <object name="algangror" type="spawn" x="352" y="128" width="32" height="32">
+   <properties>
+    <property name="respawn" value="false"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="15" height="10"/>
 </map>

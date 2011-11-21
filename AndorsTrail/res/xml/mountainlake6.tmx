@@ -63,7 +63,7 @@
    eJxjYCAeFLIyMBSxQuhRgB/AwoqagBrmIcfdYHAfejiRm7bQ/UWLNEqu/6hhHin+2chCvFpKAa5wJ8cNzkOgXBnMbqRGvFOr3Bps5QwMYMtHpJrnTKc6EJafkGlCgFruolZ5Sqj8wycPAKvjFmc=
   </data>
  </layer>
- <layer name="Walkable" width="19" height="29" visible="0">
+ <layer name="Walkable" width="19" height="29">
   <data encoding="base64" compression="zlib">
    eJy9klEOACAIQr1C979sv65lgLjc/MMXmCsiFuhcSMuyXM7py2XeapLV4Z1zXVblQ2WhPCwPVdZN5GJ8vXKp+698ufua0CkcNueUd+Wmf7LYDB1Wh4tqgqN6yzO3jI4v50+qbMp7js65qY53xHT27t662hsZlBqA
   </data>
@@ -82,6 +82,34 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="29"/>
+ <objectgroup name="Spawn" width="19" height="29">
+  <object name="maonit_2" type="spawn" x="64" y="608" width="224" height="256">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="160" y="480" width="32" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="maonit_2" type="spawn" x="160" y="416" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="mbrute_1" type="spawn" x="288" y="576" width="256" height="256">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn2" width="19" height="29" visible="0">
+  <object name="mbrute_2" type="spawn" x="32" y="64" width="512" height="800">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="19" height="29"/>
 </map>
