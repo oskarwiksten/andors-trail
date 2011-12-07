@@ -219,7 +219,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     		}
     	}
     	
-    	String message = phrase.message;
+    	String message = ConversationController.getDisplayMessage(phrase, player);
+    	
     	if (loot != null && loot.hasItemsOrExp()) {
     		message += "\n";
 	    	if (loot.exp > 0) {
@@ -259,7 +260,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		RadioGroup.LayoutParams layoutParams = new RadioGroup.LayoutParams(RadioGroup.LayoutParams.MATCH_PARENT, RadioGroup.LayoutParams.WRAP_CONTENT);
 		RadioButton rb = new RadioButton(this);
 		rb.setLayoutParams(layoutParams);
-		rb.setText(r.text);
+		rb.setText(ConversationController.getDisplayMessage(r, player));
 		rb.setOnCheckedChangeListener(radioButtonListener);
 		rb.setTag(r);
 		rb.setShadowLayer(1, 1, 1, Color.BLACK);
@@ -273,13 +274,13 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 	
 	
-	private Reply getSelectedReply() {
+	private RadioButton getSelectedReplyButton() {
 		for (int i = 0; i < phrase.replies.length; ++i) {
 			final View v = replyGroup.getChildAt(i);
 			if (v == null) continue;
 			final RadioButton rb = (RadioButton) v;
 			if (rb.isChecked()) {
-				return (Reply) rb.getTag();
+				return rb;
 			}
 		}
 		return null; // No reply was found. This is probably an error.
@@ -291,9 +292,10 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 			// If there is only a "Next" as reply, we don't need to add it to the conversation history.
 			r = phrase.replies[0];
 		} else {
-			r = getSelectedReply();
-			if (r == null) return;
-			addConversationStatement(player, r.text, playerConversationColor);
+			RadioButton rb = getSelectedReplyButton();
+			if (rb == null) return;
+			r = (Reply) rb.getTag();
+			addConversationStatement(player, rb.getText().toString(), playerConversationColor);
 		}
 		replyGroup.removeAllViews();
 		

@@ -462,38 +462,42 @@
 {allaceph_6|monsters_rltiles2:103|Ancient Allaceph|allaceph_3|1x1|133|10|5|3|80|40|2|3|7|115|3|allaceph_b||1|7|7||||{{feebleness_minor|3|3|20|}}|};
 {vaeregh_1|monsters_rltiles1:42|Vaeregh|allaceph_4|1x1|149|10|5|3|80|40|2|2|7|120|4|allaceph||1|10|10||||{{feebleness_minor|4|3|20|}}|};
 
-{irdegh_sp_1|monsters_rltiles2:26|Irdegh spawn|irdegh_spawn|1x1|57|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_weak|2|3|10|}}|};
-{irdegh_sp_2|monsters_rltiles2:26|Irdegh spawn|irdegh_spawn|1x1|68|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_weak|2|3|10|}}|};
-{irdegh_1|monsters_rltiles2:15|Irdegh|irdegh_1|1x1|115|10|5|3|120|||3|7|60|10|irdegh||1||||||{{poison_weak|3|4|50|}}|};
-{irdegh_2|monsters_rltiles2:15|Venomous Irdegh|irdegh_2|1x1|120|10|5|3|120|||3|7|60|11|irdegh||1||||||{{poison_weak|3|4|50|}}|};
-{irdegh_3|monsters_rltiles2:14|Piercing Irdegh|irdegh_3|1x1|125|10|5|3|120|10|2|3|7|60|11|irdegh||1||||||{{poison_weak|3|4|50|}}|};
-{irdegh_4|monsters_rltiles2:14|Ancient piercing Irdegh|irdegh_4|1x1|130|10|5|3|120|30|2|3|7|60|14|irdegh_b||1||||||{{poison_weak|3|4|70|}}|};
+{irdegh_sp_1|monsters_rltiles2:26|Irdegh spawn|irdegh_spawn|1x1|57|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_irdegh|2|3|10|}}|};
+{irdegh_sp_2|monsters_rltiles2:26|Irdegh spawn|irdegh_spawn|1x1|68|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_irdegh|2|3|10|}}|};
+{irdegh_1|monsters_rltiles2:15|Irdegh|irdegh_1|1x1|115|10|5|3|120|||3|7|60|10|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_2|monsters_rltiles2:15|Venomous Irdegh|irdegh_2|1x1|120|10|5|3|120|||3|7|60|11|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_3|monsters_rltiles2:14|Piercing Irdegh|irdegh_3|1x1|125|10|5|3|120|10|2|3|7|60|11|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_4|monsters_rltiles2:14|Ancient piercing Irdegh|irdegh_4|1x1|130|10|5|3|120|30|2|3|7|60|14|irdegh_b||1||||||{{poison_irdegh|3|4|70|}}|};
 
-{maonit_1|monsters_rltiles1:104|Maonit troll|maonit_1|1x1|255|5|5|5|60|10|3|1|5|20|4|maonit|||||||||};
-{maonit_2|monsters_rltiles1:104|Giant Maonit troll|maonit_1|1x1|270|5|5|5|60|10|3|1|5|20|4|maonit|||||||||};
-{maonit_3|monsters_rltiles1:104|Strong Maonit troll|maonit_2|1x1|285|5|5|5|60|20|3|1|5|20|5|maonit|||||||||};
-{maonit_4|monsters_rltiles1:107|Maonit brute|maonit_2|1x1|290|5|5|5|60|20|3|1|5|20|5|maonit|||||||||};
-{maonit_5|monsters_rltiles1:107|Tough Maonit brute|maonit_3|1x1|310|5|5|5|60|30|3|1|5|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
-{maonit_6|monsters_rltiles1:107|Strong Maonit brute|maonit_3|1x1|320|5|5|5|60|30|3|1|5|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
-{arulir_1|monsters_rltiles1:13|Arulir|arulir_1|1x1|325|5|5|5|60|30|3|1|5|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
-{arulir_2|monsters_rltiles1:13|Giant Arulir|arulir_1|1x1|330|5|5|5|60|30|3|1|5|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
+{maonit_1|monsters_rltiles1:104|Maonit troll|maonit_1|1x1|255|5|5|5|65|10|3|1|20|20|4|maonit|||||||||};
+{maonit_2|monsters_rltiles1:104|Giant Maonit troll|maonit_1|1x1|270|5|5|5|65|10|3|1|20|20|4|maonit|||||||||};
+{maonit_3|monsters_rltiles1:104|Strong Maonit troll|maonit_2|1x1|285|5|5|5|65|20|3|1|20|20|5|maonit|||||||||};
+{maonit_4|monsters_rltiles1:107|Maonit brute|maonit_2|1x1|290|5|5|5|65|20|3|1|20|20|5|maonit|||||||||};
+{maonit_5|monsters_rltiles1:107|Tough Maonit brute|maonit_3|1x1|310|5|5|5|65|30|3|1|20|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
+{maonit_6|monsters_rltiles1:107|Strong Maonit brute|maonit_3|1x1|320|5|5|5|65|30|3|1|20|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
+{arulir_1|monsters_rltiles1:13|Arulir|arulir_1|1x1|325|5|5|5|70|30|3|1|20|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
+{arulir_2|monsters_rltiles1:13|Giant Arulir|arulir_1|1x1|330|5|5|5|70|30|3|1|20|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
 
 {burrower_1|monsters_rltiles2:164|Larval cave burrower|burrower_1|1x1|30|10|5|5|95|||1|25|80|2|burrower|||||||||};
 {burrower_2|monsters_rltiles2:164|Cave burrower|burrower_1|1x1|37|10|5|5|95|||1|25|80|2|burrower|||||||||};
 {burrower_3|monsters_rltiles2:165|Strong larval burrower|burrower_2|1x1|44|10|5|5|95|||1|25|80|2|burrower|||||||||};
 {burrower_4|monsters_rltiles2:165|Giant larval burrower|burrower_3|1x1|75|10|5|5|95|||1|25|80|2|burrower|||||||||};
+	</string>
+
+	<string name="monsterlist_v0611_npcs1">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
 
 {ulirfendor|monsters_rltiles1:84|Ulirfendor|ulirfendor|1x1||10|5|5||||||||ulirfendor|ulirfendor||||||||};
 {gylew|monsters_mage2:0|Gylew|gylew|1x1||10|5|5|||||||||gylew||||||||};
 {gylew_henchman|monsters_men:8|Gylew\'s henchman|gylew_henchman|1x1||10|5|5|||||||||gylew_henchman||||||||};
 {toszylae|monsters_liches:1|Toszylae|toszylae|1x1||10|5|5||||||||toszylae|toszylae||||||||};
 {toszylae_guard|monsters_rltiles1:20|Radiant guardian|toszylae_guard|1x1||10|5|5||||||||toszylae_guard|toszylae_guard||||||||};
-{thorin|monsters_rltiles1:66|Thorin|thorin|1x1||10|5|5|||||||||thorin||||||||};
+{thorin|monsters_rltiles1:66|Thorin|thorin|1x1||10|5|5||||||||shop_thorin|thorin||||||||};
 
 {lonelyhouse_sp|monsters_rats:1|Basement rat|lonelyhouse_sp|1x1|79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};
 {galoduil|monsters_men:4|Galoduil|galoduil|1x1||10|5|5||||||||shop_galoduil|galoduil||||||||};
 {algangror|monsters_rltiles1:68|Algangror|algangror|1x1||10|5|5|||||||||algangror||||||||};
-{remgard_bridge|monsters_men2:4|Bridge lookuot|remgard_bridge|1x1||10|5|5|||||||||remgard_bridge||||||||};
+{remgard_bridge|monsters_men2:4|Bridge lookout|remgard_bridge|1x1||10|5|5|||||||||remgard_bridge||||||||};
 	</string>
 
 </resources>

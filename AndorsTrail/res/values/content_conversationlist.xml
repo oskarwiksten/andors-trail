@@ -3143,4 +3143,221 @@
 {gauward_sold_20|Oh wow, you managed to get twenty of those claws? That\'s excellent, thank you! Here\'s some gold and some extra health potions for your troubles.||gauward_sold_20||};
 	</string>
 
+	<string name="conversationlist_thorin">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{thorin||||{
+	{|thorin_return_1|thorin:40|||}
+	{|thorin_search_1|thorin:20|||}
+	{|thorin_1||||}
+	}|};
+{thorin_1|What\'s this, a visitor? How unexpected.|||{{N|thorin_2||||}}|};
+{thorin_2|Tell me, what can Thorin do for you?|||{
+	{What are you doing here?|thorin_what_1||||}
+	{Who are you?|thorin_who_1||||}
+	{Mind if I use your bed over there to rest?|thorin_rest_1||||}
+	{Do you have anything to trade?|thorin_trade_1||||}
+	}|};
+{thorin_what_1|Oh, not much. Well actually, I am waiting for someone - or rather, some people.|||{{N|thorin_story_1||||}}|};
+{thorin_story_1|You see, me and my fellow gatherers were out investigating the poisonous nature of the Irdegh.|||{{N|thorin_story_2||||}}|};
+{thorin_story_2|Apparently, I was the only one that was careful enough when handling our wares.|||{{N|thorin_story_3||||}}|};
+{thorin_story_3|The others got ill quite quick, and we hid in this cave to rest up. But we had not anticipated these bugs in here.|||{{N|thorin_story_4||||}}|};
+{thorin_story_4|Those \'Scaradon\' things are tough! They did not even seen to take any damage when I hit them.|||{{N|thorin_story_5||||}}|};
+{thorin_story_5|So, that\'s where I am now. The people that sent us to investigate told us to set up camp if we encountered any problems, and they would come help us.|||{{N|thorin_story_6||||}}|};
+{thorin_story_6|So far, you are the first visitor here for quite a while.|||{
+	{You don\'t seem all that upset that your friends died.|thorin_story_6_1||||}
+	{Anything I can do to help you meanwhile?|thorin_story_7||||}
+	{Tough luck. I bet help will be here any day now. Goodbye.|X||||}
+	}|};
+{thorin_story_6_1|Nah, it\'s just business. Just business.|||{
+	{Anything I can do to help you?|thorin_story_7||||}
+	{Tough luck. I bet your rescue will be here any day now. Goodbye.|X||||}
+	}|};
+{thorin_story_7|Hmm. Yes, actually there is something that you could do for me.|||{{N|thorin_story_8||||}}|};
+{thorin_story_8|The others that I was travelling with, they did not make it this far into the cave, but got attacked by those bugs closer to the entrance.|||{{N|thorin_story_9||||}}|};
+{thorin_story_9|Considering how they died, I would be very interested in seeing what effects both the Irdegh and the Scaradons had on them.|||{{N|thorin_story_10||||}}|};
+{thorin_story_10|If you could find me their remains, I would be most grateful. Maybe I could continue my investigation based on their remains. Hmm, yes that would be great.|||{
+	{Sure, find their remains. Sound easy enough, I\'ll do it.|thorin_story_11||||}
+	{I\'m all for finding dead things. I\'ll do it.|thorin_story_11||||}
+	{Hm, this sounds a bit shady to me. I\'m not sure I should do this.|thorin_decline||||}
+	}|};
+{thorin_story_11|Excellent. Bring me back the remains of all six of them. I would go search myself if those nasty bugs weren\'t there.|thorin:20|||};
+{thorin_who_1|Oh, I did not introduce me, my apologies. I am Thorin.|||{{What are you doing here?|thorin_what_1||||}}|};
+{thorin_decline|Too bad. Good day to you then.||||};
+{thorin_search_1|Welcome back. Did you find all six of them?|||{
+	{No, not yet. I am still looking.|thorin_search_2||||}
+	{Yes, this is what I found.|thorin_search_c_1||thorin_bone|6|}
+	{Mind if I use your bed over there to rest?|thorin_rest_1||||}
+	{Do you have anything to trade?|thorin_trade_1||||}
+	}|};
+{thorin_search_2|Ok then. Please return when you have found them all. I would go search myself if those nasty bugs weren\'t there.||||};
+{thorin_rest_1||||{
+	{|thorin_rest_y|thorin:40|||}
+	{|thorin_rest_n||||}
+	}|};
+{thorin_rest_y|Please, go ahead. You may rest here as much as you like.||||};
+{thorin_rest_n|My bed? No, that\'s mine. Maybe I will let you use it if you help me with a small task.|||{{What\'s that?|thorin_story_1||||}}|};
+{thorin_trade_1||||{
+	{|thorin_trade_y|thorin:40|||}
+	{|thorin_trade_n||||}
+	}|};
+{thorin_trade_y|Oh yes. The upside of this cave is that it literally is crawling with dead bodies of those Scaradon bugs.|||{{N|thorin_trade_y2||||}}|};
+{thorin_trade_y2|By chance, I happened to find out that with the right mixture, they can be made into a healing substance.|||{{Let\'s see what you have to trade.|S||||}}|};
+{thorin_trade_n|No. I might have something to trade if you help me with a small task.|||{{What\'s that?|thorin_story_1||||}}|};
+{thorin_search_c_1|Thank you. I would have gone myself if those nasty bugs weren\'t there. This turned out to be much easier though.|thorin:40||{{N|thorin_search_c_2||||}}|};
+{thorin_search_c_2|As a token of my appreciation, you are welcome to use the bed over there to rest. Also, if you are interested in healing, I might be able to provide some help.|||{
+	{I think I should use the bed to rest right now. Thank you.|X||||}
+	{Do you have anything to trade?|thorin_trade_1||||}
+	{You are welcome. Goodbye.|X||||}
+	}|};
+{thorin_return_1|My friend returns. What can Thorin do for you?|||{
+	{Mind if I use your bed over there to rest?|thorin_rest_1||||}
+	{Do you have anything to trade?|thorin_trade_1||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_thorinbone">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{mountaincave_sleep|Thorin shouts at you: Hey, get away from there! That\'s my bed.||||};
+{remains_mcave_1||||{{|remains_mcave_a|thorin:31|||}{|remains_mcave_1b|thorin:20|||}{|remains_mcave_c||||}}|};
+{remains_mcave_2||||{{|remains_mcave_a|thorin:32|||}{|remains_mcave_2b|thorin:20|||}{|remains_mcave_c||||}}|};
+{remains_mcave_3||||{{|remains_mcave_a|thorin:33|||}{|remains_mcave_3b|thorin:20|||}{|remains_mcave_c||||}}|};
+{remains_mcave_4||||{{|remains_mcave_a|thorin:34|||}{|remains_mcave_4b|thorin:20|||}{|remains_mcave_c||||}}|};
+{remains_mcave_5||||{{|remains_mcave_a|thorin:35|||}{|remains_mcave_5b|thorin:20|||}{|remains_mcave_c||||}}|};
+{remains_mcave_6||||{{|remains_mcave_a|thorin:36|||}{|remains_mcave_6b|thorin:20|||}{|remains_mcave_c||||}}|};
+{remains_mcave_1b|You see a pile of skeletal remains. This must be one of Thorin\'s former companions.|||{{Leave it alone.|X||||}{Pick up one of the bones.|remains_mcave_1d||||}}|};
+{remains_mcave_2b|You see a pile of skeletal remains. This must be one of Thorin\'s former companions.|||{{Leave it alone.|X||||}{Pick up one of the bones.|remains_mcave_2d||||}}|};
+{remains_mcave_3b|You see a pile of skeletal remains. This must be one of Thorin\'s former companions.|||{{Leave it alone.|X||||}{Pick up one of the bones.|remains_mcave_3d||||}}|};
+{remains_mcave_4b|You see a pile of skeletal remains. This must be one of Thorin\'s former companions.|||{{Leave it alone.|X||||}{Pick up one of the bones.|remains_mcave_4d||||}}|};
+{remains_mcave_5b|You see a pile of skeletal remains. This must be one of Thorin\'s former companions.|||{{Leave it alone.|X||||}{Pick up one of the bones.|remains_mcave_5d||||}}|};
+{remains_mcave_6b|You see a pile of skeletal remains. This must be one of Thorin\'s former companions.|||{{Leave it alone.|X||||}{Pick up one of the bones.|remains_mcave_6d||||}}|};
+{remains_mcave_1d|You pick up one of the bones. It seems to have been severely damaged by something corrosive.|thorin:31|thorin_bone||};
+{remains_mcave_2d|You pick up one of the bones. It seems to have been severely damaged by something corrosive.|thorin:32|thorin_bone||};
+{remains_mcave_3d|You pick up one of the bones. It seems to have been severely damaged by something corrosive.|thorin:33|thorin_bone||};
+{remains_mcave_4d|You pick up one of the bones. It seems to have been severely damaged by something corrosive.|thorin:34|thorin_bone||};
+{remains_mcave_5d|You pick up one of the bones. It seems to have been severely damaged by something corrosive.|thorin:35|thorin_bone||};
+{remains_mcave_6d|You pick up one of the bones. It seems to have been severely damaged by something corrosive.|thorin:36|thorin_bone||};
+{remains_mcave_a|You see a pile of skeletal remains, from where you removed some pieces earlier.||||};
+{remains_mcave_c|You see a pile of skeletal remains.||||};
+	</string>
+
+	<string name="conversationlist_algangror">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{algangror||||{
+	{|algangror_return_c1|algangror:21|||}
+	{|algangror_return_3|algangror:20|||}
+	{|algangror_return_1|algangror:15|||}
+	{|algangror_1||||}
+	}|};
+{algangror_1|Oh my, a child. He he, how nice. Tell me, what brings you here?|||{
+	{I am looking for my brother.|algangror_2a||||}
+	{I just entered to see if there\'s any loot to be found here.|algangror_2b||||}
+	{I\'m an adventurer, looking to help anyone in need of help.|algangror_2c||||}
+	{I\'d rather not tell.|algangror_2d||||}
+	}|};
+{algangror_2a|Run away has he? He he.|||{{N|algangror_3||||}}|};
+{algangror_2b|Oh sure, you think you can just pick up anything and claim it as yours?|||{{N|algangror_3||||}}|};
+{algangror_2c|How noble. maybe you can be of use to me.|||{{N|algangror_3||||}}|};
+{algangror_2d|Clever. I like that.|||{{N|algangror_3||||}}|};
+{algangror_3|Tell me, now that you have entered this house, would you be willing to help me with a small.. problem?|||{
+	{Sure, what\'s the problem?|algangror_4||||}
+	{Maybe, it depends on what the problem is.|algangror_4||||}
+	{Maybe, it depends on what type of reward we are talking about.|algangror_3c||||}
+	}|};
+{algangror_3c|Reward? No, no, I don\'t have anything to give you, unfortunately.|||{
+	{I guess you won\'t get any help either then.|X||||}
+	{Fine, what\'s the problem you want help with?|algangror_4||||}
+	}|};
+{algangror_4|You see, I have this slight problem with .. ahem .. vermin.|||{{N|algangror_5||||}}|};
+{algangror_5|Always sneaking around, always trying to cause mischief.|||{{N|algangror_6||||}}|};
+{algangror_6|Fortunately, I managed to capture some of them, and locked them in my basement.|||{{N|algangror_7||||}}|};
+{algangror_7|Now, I can\'t handle them myself because of certain .. issues.|||{{N|algangror_8||||}}|};
+{algangror_8|That\'s where you come in. Would you be willing to .. ahem .. handle those rodents for me?|algangror:10||{
+	{Sure, some rodents, I can handle that.|algangror_9||||}
+	{No problem, I\'ll be right back once I have killed them.|algangror_9||||}
+	{Something feels wrong here. I better not get involved in this.|algangror_decline_1||||}
+	}|};
+{algangror_decline_1|Ah yes. After all, you are just a child and I can understand such a task would be too much for you. He he.||||};
+{algangror_9|Splendid. Return to me with some proof that they are have been dealt with.|algangror:15|||};
+{algangror_return_1|You return. Did you handle all those .. ahem .. rodents in my basement?|||{
+	{Yes, they are all dead.|algangror_return_2||algangror_rat|6|}
+	{I am still working on it. Goodbye.|X||||}
+	}|};
+{algangror_return_2|He he. I bet you sure showed them. Excellent. Thank you for .. ahem .. helping me.|algangror:20||{{N|algangror_return_3||||}}|};
+{algangror_return_3|Those rodents have really been bothering me. Good thing I managed to catch some of them. He he.|||{{N|algangror_return_4||||}}|};
+{algangror_return_4|Now, there was something else I wanted to talk to you about. Have you been to the city of Remgard in your travels?|||{
+	{Yes, I have been there.|algangror_remgard_2||||}
+	{No, where is that?|algangror_remgard_1||||}
+	}|};
+{algangror_return_c1|You return. Thank you for helping me with my .. ahem .. rodent problem earlier.||||};
+{algangror_remgard_1|Oh, it\'s not far from here. Doesn\'t matter really.|||{{N|algangror_remgard_2||||}}|};
+{algangror_remgard_2|You see, I used to live there. To make a long story short, there were some .. ahem .. misunderstandings.|||{{N|algangror_remgard_3||||}}|};
+{algangror_remgard_3|These days, I think they are looking for me, for some reason. Can\'t think of any reason why really. But I believe they are.|||{{N|algangror_remgard_4||||}}|};
+{algangror_remgard_4|Because of our previous .. misunderstanding, I think it\'s best they don\'t find out that I\'m here.|||{{N|algangror_remgard_5||||}}|};
+{algangror_remgard_5|Therefore, I ask of you kind sir to not reveal my whereabouts to them.|||{{Ok|algangror_remgard_6||||}{(Lie) Ok|algangror_remgard_6||||}}|};
+{algangror_remgard_6|Thank you. Under no circumstances should you tell them where I am. They will most likely try to persuade you into revealing my location.|||{{Ok|algangror_remgard_7||||}}|};
+{algangror_remgard_7|Under no circumstances.|algangror:21|||};
+	</string>
+
+	<string name="conversationlist_remgard_bridgeguard">
+[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+{remgard_bridge||||{
+	{|remgardb_helped_1|remgard:35|||}
+	{|remgardb_helped_n|remgard:31|||}
+	{|remgardb_helped_y|remgard:30|||}
+	{|remgardb_help_return|remgard:20|||}
+	{|remgardb_1||||}
+	}|};
+{remgardb_1|Halt! No one is allowed to enter or exit Remgard.|||{{Why? Is there something wrong?|remgardb_2||||}}|};
+{remgardb_2|Wrong? You bet there is. Several of the townspeople have disappeared, and we are still conducting the investigation.|||{{N|remgardb_3||||}}|};
+{remgardb_3|We are searching for them in the town, and questioning everyone for clues on where they might be.|remgard:10||{
+	{Please continue.|remgardb_5||||}
+	{Maybe they just left?|remgardb_4||||}
+	}|};
+{remgardb_4|No, I highly doubt that.|||{{N|remgardb_5||||}}|};
+{remgardb_5|Considering our town is surrounded by lake Laeroth, we guards are able to keep a watchful eye on everything going on here. We are able to keep a log of who comes and goes, since this bridge is our only connection to the mainland.|||{{N|remgardb_6||||}}|};
+{remgardb_6|For your sake, it is probably safer for you to remain out of town until our investigation is complete.|||{
+	{I am willing to help you with the investigation if you want.|remgardb_help_1||||}
+	{Ok, I will leave you to your investigation.|X||||}
+	{How about you allow me to enter town anyway, so that I can trade. I promise to be quick.|remgardb_7||||}
+	}|};
+{remgardb_7|No. As I said, no one excepts us guards are allowed to enter or exit town until our investigation is completed. I suggest you leave now.||||};
+{remgardb_help_1|Hm, yes, that might be a good idea actually. Considering you made it up here, you must have some knowledge of the surroundings.|remgard:15||{{N|remgardb_help_2||||}}|};
+{remgardb_help_2|Tell you what. You might be able to help us.|||{{N|remgardb_help_2b||||}}|};
+{remgardb_help_2b|There is an abandoned house some way to the east of here, on a peninsula on the northern shore of lake Laeroth.|||{{N|remgardb_help_3||||}}|};
+{remgardb_help_3|We have reason to believe that this cabin in inhabited by someone, since we have seen candlelight coming from there during the night across the lake. We are not certain though, it could just be the moonlight on the water.|||{{N|remgardb_help_4||||}}|};
+{remgardb_help_4|That\'s where you come in, and might be able to help us.|||{{N|remgardb_help_5||||}}|};
+{remgardb_help_5|I must stay here and guard the bridge, but you could go over there and peek inside.|||{{N|remgardb_help_6||||}}|};
+{remgardb_help_6|Now, I must warn you - this could be dangerous. If it is as we suspected, then the person in the cabin could be a .. shall we say .. persuasive talker.|||{{N|remgardb_help_7||||}}|};
+{remgardb_help_7|So, if you really want to help us, the task I ask of you is that you only peek inside that cabin and identify if there\'s anyone there, and if so who that might be.|||{{N|remgardb_help_8||||}}|};
+{remgardb_help_8|Report back to me as soon as possible, and do not speak for too long with anyone that might be there.|||{{N|remgardb_help_9s||||}}|};
+{remgardb_help_9s||||{
+	{|X|remgard:20|||}
+	{|remgardb_help_9||||}
+	}|};
+{remgardb_help_9|Would you be willing to do this task for us?|||{
+	{Sure, I would be happy to help.|remgardb_help_10||||}
+	{I\'ll do it. I sure hope there will be some reward for this though.|remgardb_help_10||||}
+	{No way, this sounds way too dangerous for me.|remgardb_help_9||||}
+	{Actually, I have already been there. There is a woman called Algangror in the cabin.|remgardb_helped_y|algangror:10|||}
+	{Actually, I have already been there, but the cabin was empty.|remgardb_helped_n|algangror:10|||}
+	}|};
+{remgardb_help_9|I don\'t blame you for declining. After all, it could be a dangerous task. Didn\'t hurt to ask though.||||};
+{remgardb_help_10|Excellent. Report back as soon as possible.|remgard:20|||};
+{remgardb_help_return|Did you find anything in that abandoned house?|||{
+	{Not yet. What was I supposed to do again?|remgardb_help_2b||||}
+	{Not yet, I am still working on it.|remgardb_help_10||||}
+	{There is a woman called Algangror in the cabin.|remgardb_helped_y|algangror:10|||}
+	{Yes, I have been there, but the cabin was empty.|remgardb_helped_n|algangror:10|||}
+	}|};
+{remgardb_helped_y|Algangror, sigh. Then it is as we feared. This is terrible news.|remgard:30||{{N|remgardb_helped_1||||}}|};
+{remgardb_helped_1|You should go visit our village elder, Jhaeld, and talk to him about what we should do next. I will let you enter Remgard to speak to him.|remgard:35||{{N|remgardb_helped_2||||}}|};
+{remgardb_helped_2|You can probably find him in the tavern to the southeast, since that\'s where he spends most of his time.|||{{I will go see him.|R||||}}|};
+{remgardb_helped_n|Thank you for scouting that cabin. It\'s a relief to hear that it is empty. Our fears might not be true then after all.|remgard:31||{
+	{You are welcome. Anything else I can help you with?|remgardb_helped_n_2||||}
+	{You are welcome. Now, about that reward?|remgardb_helped_n_3||||}
+	}|};
+{remgardb_helped_n_2|I guess you have proven yourself to be useful. We might have more work for you if you are interested.|||{{N|remgardb_helped_1||||}}|};
+{remgardb_helped_n_3|No no, we did not discuss any reward. But there might be one for you if you are willing to help us further.|||{{N|remgardb_helped_1||||}}|};
+	</string>
+
 </resources>

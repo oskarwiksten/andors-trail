@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJytlMsRwyAMRGWcDpIifOCamRRMBynB6cAlpBHDJBp2lJUxdg47fPfxkSANIsnRy9SZPK/1XILIkssx1DpTGWcc67nl9juX11DrTGV8BpZyrCfKfiFPOT3+Ld4Zjiqd4D2HKhbfI+ey8UfeJB+xfdg+zB2M/0x4yMU1kYe5Y9fxeNPXV+bouVr3gHtkPGXquXru1uMV9eTlHp4Xqy2m5tI/mBjn1l5730mLiW+DvRf1sz+N8eycSPoW50/zYm3/M+a9y68eRHZOJH1FK0gFlbs=
+   eJytlMsRwjAMRBWHDqCIHHzNDAW7A0oIHaQEKAR7QOMdsYpjwmHH333+SHYaRJKju6kzeV7rOQWRNZdjqHWmMs441nPJ7Ucuz6HWmcr4AizlWE+U/UKecnr8W7wjHFU6wLsNVU8S01/OZeOPvEneYvuwfZg7GP+F8JCLayIPc8eu4/Gmj6/M0XO17gH3yHjK1HP13K3HK+rJyz08L1ZbTM2lfzAxzq299r6TFhPfBnsv6md/GuPZOZH0rc6f5sXa/mfMO8u3rkR2TiR9RS/MhZXb
   </data>
  </layer>
  <layer name="Objects" width="20" height="20">
@@ -63,7 +63,7 @@
    eJxjYKAf+MCMnU2OfhD4z4ydTaw56HreM2NnEwIwc4jRY8RGWA3MHGLUDjaAz83kxDk+c0iJc3yAlPjD5x4YINccdPdQA6gwUe4eQmAoplNSwWdG8vUSk+5JyRvEpA9S0hAl5gEAk2gcOg==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzFYMyAxkYHxOgnFVBqDrp6fGYRMpvYMCLFbaSEPSE/UBqnhMyjxA4GLHxy3U0IUNM8cvxNDKDEjbQOQ3LimFppZbiZBwBk7hMh
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="scaradon_1" type="spawn" x="448" y="544" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>

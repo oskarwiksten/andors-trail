@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="23" height="18">
   <data encoding="base64" compression="zlib">
-   eJyllNENgzAMRJ1QqQPAGF2XDegE7QbpBh2BRYpVWbLgbGzycV8JD9/5YClEC9AHCN3L6laJvuWoofZx35umjbGWo8b651/1xOz5TvQgrLHDE7OfDpsV9YSy9riexBPyIFlfZYsnfkcD7B6uVi/75dxHmViMvWRfej9yZnXE86Z50j3Zzz6DSEeaOtM86Z6Vr56Hn0UdaeBbjexOctDeLPbZXq2MrVn0PFlupHf6LurL2T8kO09W2Xki+gHXmcUx
+   eJyllNENgzAMRJ20UgeAMVi3G8AEdIN0g47AImBVliw4OzH5uK+Eh+98MCeiGegLhO5F9cxEv3TVI/dxP4fGg7Glq4b859/1xOz3i2girKHDE7MXh82qefKy9riexBPyIFnfZYsnfkcB7B6uVi97de6jTCzGWdI9vR85szriedM86Z7s55xBS0eKOtM86Z6Vr56Hn0UdKeBbbdmd5KC9WezaXq2MrVn0PFFuS+/0XdSX2j8kOk9U0XlatAOrCsTx
   </data>
  </layer>
  <layer name="Objects" width="23" height="18">
@@ -63,7 +63,7 @@
    eJxjYKA/+M9MO3NpafZ7GppNKzDUw9qIjfpm0wqQY/YHIvUQazayecTqwacOl3nE5AV8aeQDM+nmIbsHX34kN6/C3INP7xdG0s1FNpsWgFw3DSQAACZdI6w=
   </data>
  </layer>
- <layer name="Walkable" width="23" height="18">
+ <layer name="Walkable" width="23" height="18" visible="0">
   <data encoding="base64" compression="zlib">
    eJztUkEOACAI4gv+/7PdmyxwcouNdUiBzAJQnxJxndvaHVK6nY/rN4Xi5Wiw+5c283plUTM7O+XM293X7VqnPj071sOgvEnpc/NO8rj/kdBN8QDgbRR1
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="23" height="18">
+ <objectgroup name="Spawn" width="23" height="18" visible="0">
   <object name="plaguespider_6" type="spawn" x="160" y="352" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
