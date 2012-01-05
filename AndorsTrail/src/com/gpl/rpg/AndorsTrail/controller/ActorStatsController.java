@@ -47,18 +47,46 @@ public class ActorStatsController {
 		}
 	}
 	
-	private static void applyActorCondition(Actor actor, ActorConditionEffect e) { applyActorCondition(actor, e, e.duration); }
+	public static void applyActorCondition(Actor actor, ActorConditionEffect e) { applyActorCondition(actor, e, e.duration); }
 	private static void applyActorCondition(Actor actor, ActorConditionEffect e, int duration) {
-		final ActorConditionType type = e.conditionType;
 		if (e.isRemovalEffect()) {
-			removeAllConditionsOfType(actor, type.conditionTypeID);
+			removeAllConditionsOfType(actor, e.conditionType.conditionTypeID);
 		} else if (e.magnitude > 0) {
-			if (!e.conditionType.isStacking) {
-				if (actor.hasCondition(type.conditionTypeID)) return;
-				//TODO: Maybe only keep the one with the highest magnitude?
+			if (e.conditionType.isStacking) {
+				addStackableActorCondition(actor, e, duration);
+			} else {
+				addNonStackableActorCondition(actor, e, duration);
 			}
-			actor.conditions.add(e.createCondition(duration));
 		}
+	}
+
+	private static void addStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
+		final ActorConditionType type = e.conditionType;
+		int magnitude = e.magnitude;
+		
+		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
+			ActorCondition c = actor.conditions.get(i);
+			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
+			if (c.duration == duration) {
+				// If the actor already has a condition of this type and the same duration, just increase the magnitude instead.
+				actor.conditions.remove(i);
+				magnitude += c.magnitude;
+				break;
+			}
+		}
+		actor.conditions.add(new ActorCondition(type, magnitude, duration));
+	}
+	private static void addNonStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
+		final ActorConditionType type = e.conditionType;
+		
+		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
+			ActorCondition c = actor.conditions.get(i);
+			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
+			if (c.magnitude > e.magnitude) return;
+			// If the actor already has this condition, but of a lower magnitude, we remove the old one and add this higher magnitude.
+			actor.conditions.remove(i);
+		}
+		actor.conditions.add(e.createCondition(duration));
 	}
 
 	public static void removeAllTemporaryConditions(final Actor actor) {

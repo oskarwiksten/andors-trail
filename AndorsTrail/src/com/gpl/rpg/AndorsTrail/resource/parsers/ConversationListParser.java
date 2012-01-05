@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
+import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
@@ -25,6 +26,7 @@ public final class ConversationListParser extends ResourceParserFor<Phrase> {
 					, QuestProgress.parseQuestProgress(parts[2])		// requiresProgress
 			       	, ResourceParserUtils.parseNullableString(parts[3])	// requiresItemType
 			       	, ResourceParserUtils.parseInt(parts[4], 0)			// requiresItemQuantity
+			       	, Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE		// itemRequirementType
 				);
 		}
 	};
@@ -37,11 +39,17 @@ public final class ConversationListParser extends ResourceParserFor<Phrase> {
 		replyResourceTokenizer.tokenizeArray(parts[4], replies, replyParser);
 		final Reply[] _replies = replies.toArray(new Reply[replies.size()]);
 		
+		final ArrayList<Reward> rewards = new ArrayList<Reward>();
+		QuestProgress questProgress = QuestProgress.parseQuestProgress(parts[2]);
+		if (questProgress != null) rewards.add(new Reward(Reward.REWARD_TYPE_QUEST_PROGRESS, questProgress.questID, questProgress.progress));
+		String rewardDroplist = ResourceParserUtils.parseNullableString(parts[3]);
+		if (rewardDroplist != null) rewards.add(new Reward(Reward.REWARD_TYPE_DROPLIST, rewardDroplist, 0));
+		final Reward[] _rewards = rewards.toArray(new Reward[rewards.size()]);
+		
 		return new Pair<String, Phrase>(parts[0], new Phrase(
 				ResourceParserUtils.parseNullableString(parts[1])	// message
     			, _replies											// replies
-    			, QuestProgress.parseQuestProgress(parts[2])		// questProgress
-	        	, ResourceParserUtils.parseNullableString(parts[3])	// rewardDroplist
+				, _rewards 											// rewards
 			));
 	}
 }

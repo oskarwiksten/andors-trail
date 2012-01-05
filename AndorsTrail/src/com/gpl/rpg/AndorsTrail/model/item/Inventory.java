@@ -24,6 +24,14 @@ public final class Inventory extends ItemContainer {
 	public boolean isEmptySlot(int slot) {
 		return wear[slot] == null;
 	}
+
+	public boolean isWearing(String itemTypeID) {
+		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
+			if (wear[i] == null) continue;
+			if (wear[i].id.equals(itemTypeID)) return true;
+		}
+		return false;
+	}
 	
 	
 	// ====== PARCELABLE ===================================================================

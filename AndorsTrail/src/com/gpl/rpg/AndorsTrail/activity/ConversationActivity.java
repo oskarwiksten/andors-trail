@@ -207,9 +207,9 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	
     	phrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, getResources());
     	if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-    		if (phrase == null) phrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null, null);
+    		if (phrase == null) phrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null);
     	}
-    	Loot loot = ConversationController.applyPhraseEffect(player, phrase, world.quests, world.dropLists);
+    	Loot loot = ConversationController.applyPhraseRewards(player, phrase, world);
     	
     	if (phrase.message == null) {
     		for (Reply r : phrase.replies) {

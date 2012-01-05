@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
+import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
@@ -14,6 +15,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -137,9 +139,11 @@ public final class ConversationCollection {
 	public void verifyData(QuestCollection quests) {
     	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
     		for (Phrase p : phrases.values()) {
-				if (p.progressQuest != null) {
-					quests.getQuestLogEntry(p.progressQuest); // Will warn inside if invalid.
-    			}
+    			if (p.rewards == null) continue;
+				for (Reward r : p.rewards) {
+					if (r.rewardType != Reward.REWARD_TYPE_QUEST_PROGRESS) continue;
+					quests.getQuestLogEntry(new QuestProgress(r.rewardID, r.value)); // Will warn inside if invalid.
+				}
     		}
     	}
     }
@@ -151,10 +155,15 @@ public final class ConversationCollection {
 				for (Reply r : e.getValue().replies) {
 					if (!r.requiresItem()) continue;
 					ItemType itemType = itemTypes.getItemType(r.requiresItemTypeID);
+					
+					if (r.itemRequirementType == Reply.ITEM_REQUIREMENT_TYPE_WEAR_KEEP) {
+						if (!itemType.isEquippable()) L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that requires a worn \"" + itemType + "\", but the item is not wearable.");
+					}
+					
 					if (!itemType.isQuestItem()) continue;
 					
 					Phrase nextPhrase = getPhrase(r.nextPhrase);
-					if (nextPhrase.progressQuest == null) {
+					if (!hasQuestProgressReward(nextPhrase)) {
 						L.log("WARNING: Phrase \"" + e.getKey() + "\" has a reply that requires a questitem, but the next phrase does not add quest progress.");
 					}
 				}
@@ -162,12 +171,24 @@ public final class ConversationCollection {
 		}	
     }
 
+	private boolean hasQuestProgressReward(Phrase nextPhrase) {
+		if (nextPhrase.rewards == null) return false;
+		for (Reward r : nextPhrase.rewards) {
+			if (r.rewardType == Reward.REWARD_TYPE_QUEST_PROGRESS) return true;
+		}
+		return false;
+	}
+
 	// Selftest method. Not part of the game logic.
 	public void DEBUG_getSuppliedQuestStages(HashSet<String> suppliedStages) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Phrase p : phrases.values()) {
-				if (p.progressQuest == null) continue;
-				suppliedStages.add(p.progressQuest.toString());
+				if (p.rewards == null) continue;
+				for (Reward r : p.rewards) {
+					if (r.rewardType != Reward.REWARD_TYPE_QUEST_PROGRESS) continue;
+					QuestProgress progressQuest = new QuestProgress(r.rewardID, r.value);
+					suppliedStages.add(progressQuest.toString());
+				}
 			}
 		}
 	}
@@ -215,8 +236,11 @@ public final class ConversationCollection {
 	public void DEBUG_getUsedDroplists(HashSet<DropList> usedDropLists, final DropListCollection dropListCollection) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (Phrase p : phrases.values()) {
-				if (p.rewardDropListID != null) {
-					DropList d = dropListCollection.getDropList(p.rewardDropListID);
+				if (p.rewards == null) continue;
+				for (Reward r : p.rewards) {
+					if (r.rewardType != Reward.REWARD_TYPE_DROPLIST) continue;
+					
+					DropList d = dropListCollection.getDropList(r.rewardID);
 					if (d != null) usedDropLists.add(d);
 				}
 			}

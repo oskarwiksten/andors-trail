@@ -57,7 +57,7 @@ public final class HeroinfoActivity_Skills extends Activity {
 			if (resultCode != RESULT_OK) break;
 			
 			int skillID = data.getExtras().getInt("skillID");
-			player.addSkillLevel(skillID);
+			player.addSkillLevel(skillID, true);
 			break;
 		}
 	}
