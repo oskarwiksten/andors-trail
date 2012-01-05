@@ -50,6 +50,9 @@ public final class ConversationController {
 					}
 				}
 				break;
+			case Reward.REWARD_TYPE_ALIGNMENT_CHANGE:
+				player.addAlignment(reward.rewardID, reward.value);
+				break;
 			}
 		}
 		

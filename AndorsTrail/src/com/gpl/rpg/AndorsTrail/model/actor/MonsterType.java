@@ -12,6 +12,7 @@ public final class MonsterType extends ActorTraits {
 	public final DropList dropList;
 	public final String phraseID;
 	public boolean isRespawnable = true;
+	public final String faction;
 
 	public MonsterType(
 			String id, 
@@ -26,7 +27,8 @@ public final class MonsterType extends ActorTraits {
 			ItemTraits_OnUse onHitEffects,
 			int exp, 
 			DropList dropList, 
-			String phraseID) {
+			String phraseID,
+			String faction) {
 		super(iconID, tileSize, baseCombatTraits, moveCost, onHitEffects == null ? null : new ItemTraits_OnUse[] { onHitEffects });
 		this.id = id;
 		this.spawnGroup = spawnGroup;
@@ -37,5 +39,6 @@ public final class MonsterType extends ActorTraits {
 		this.moveCost = moveCost;
 		this.dropList = dropList;
 		this.phraseID = phraseID;
+		this.faction = faction;
 	}
 }

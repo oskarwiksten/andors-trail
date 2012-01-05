@@ -49,6 +49,7 @@ public final class Phrase {
 		public static final int REWARD_TYPE_DROPLIST = 1;
 		public static final int REWARD_TYPE_SKILL_INCREASE = 2;
 		public static final int REWARD_TYPE_ACTOR_CONDITION = 3;
+		public static final int REWARD_TYPE_ALIGNMENT_CHANGE = 4;
 		
 		public final int rewardType;
 		public final String rewardID;

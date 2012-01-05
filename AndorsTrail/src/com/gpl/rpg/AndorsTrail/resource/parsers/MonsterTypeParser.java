@@ -47,6 +47,7 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 			, exp 											// Exp
 			, droplists.getDropList(parts[16]) 				// Droplist
 			, ResourceParserUtils.parseNullableString(parts[17]) // PhraseID
+			, null 											// Faction
 		));
 	}
 	

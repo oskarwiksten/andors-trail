@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.Savegames;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
+import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
@@ -120,6 +121,7 @@ public final class MainActivity extends Activity {
 			}
 			break;
 		case INTENTREQUEST_CONVERSATION:
+			MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
 			if (resultCode == ConversationActivity.ACTIVITYRESULT_ATTACK) {
 				final Coord p = world.model.player.nextPosition;
 				Monster m = world.model.currentMap.getMonsterAt(p);

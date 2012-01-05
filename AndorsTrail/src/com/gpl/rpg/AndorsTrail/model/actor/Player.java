@@ -37,6 +37,7 @@ public final class Player extends Actor {
 	public String spawnMap;
 	public String spawnPlace;
 	public int availableSkillIncreases = 0;
+	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 	
 	public Player() {
 		super(new ActorTraits(TileManager.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null), true);
@@ -70,6 +71,7 @@ public final class Player extends Actor {
 		totalExperience = 1;
 		availableSkillIncreases = 0;
 		skillLevels.clear();
+		alignments.clear();
 		recalculateLevelExperience();
 		
 		Loot startItems = new Loot();
@@ -158,6 +160,16 @@ public final class Player extends Actor {
 	}
 	public boolean hasAvailableSkillpoints() {
 		return availableSkillIncreases > 0;
+	}
+
+	public int getAlignment(String faction) {
+		Integer v = alignments.get(faction);
+		if (v == null) return 0;
+		return v;
+	}
+	public void addAlignment(String faction, int delta) {
+		int newValue = getAlignment(faction) + delta;
+		alignments.put(faction, newValue);
 	}
 
 	
@@ -264,6 +276,15 @@ public final class Player extends Actor {
 			if (hasExactQuestProgress("prim_hunt", 240)) addQuestProgress(new QuestProgress("bwm_agent", 250));
 			if (hasExactQuestProgress("bwm_agent", 240)) addQuestProgress(new QuestProgress("prim_hunt", 250));
 		}
+		
+		if (fileversion < 26) return;
+		
+		final int size3 = src.readInt();
+		for(int i = 0; i < size3; ++i) {
+			final String faction = src.readUTF();
+			final int alignment = src.readInt();
+			alignments.put(faction, alignment);
+		}
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -291,6 +312,11 @@ public final class Player extends Actor {
 			}
 		}
 		dest.writeInt(availableSkillIncreases);
+		dest.writeInt(alignments.size());
+		for(Entry<String, Integer> e : alignments.entrySet()) {
+			dest.writeUTF(e.getKey());
+			dest.writeInt(e.getValue());
+		}
 	}
 }
 

@@ -83,6 +83,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		
 		if (!newMap.visited) playerVisitsMapFirstTime(world, newMap);
 		else playerVisitsMap(world, newMap);
+		
+		refreshMonsterAggressiveness(newMap, model.player);
 	}
     
 	private static void playerVisitsMapFirstTime(final WorldContext world, PredefinedMap m) {
@@ -299,5 +301,14 @@ public final class MovementController implements TimedMessageTask.Callback {
     	movePlayer(movementDx, movementDy);
 		
     	return true;
+	}
+
+	public static void refreshMonsterAggressiveness(final PredefinedMap map, final Player player) {
+		for(MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (m.faction == null) continue;
+				if (player.getAlignment(m.faction) < 0) m.forceAggressive = true;
+			}
+		}
 	}
 }

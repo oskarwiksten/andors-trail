@@ -24,6 +24,7 @@ public final class Monster extends Actor {
 	public final String phraseID;
 	public final int exp;
 	public final DropList dropList;
+	public final String faction;
 	
 	public Monster(MonsterType monsterType, Coord position) {
 		super(monsterType, false);
@@ -34,6 +35,7 @@ public final class Monster extends Actor {
 		this.phraseID = monsterType.phraseID;
 		this.exp = monsterType.exp;
 		this.dropList = monsterType.dropList;
+		this.faction = monsterType.faction;
 	}
 
 	public void createLoot(Loot container, Player player) {
@@ -72,6 +74,7 @@ public final class Monster extends Actor {
 		this.exp = monsterType.exp;
 		this.dropList = monsterType.dropList;
 		this.forceAggressive = src.readBoolean();
+		this.faction = monsterType.faction;
 	}
 
 	private static Monster readFromParcel_pre_v0610(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
