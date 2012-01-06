@@ -44,7 +44,8 @@ public final class ConversationListParser extends ResourceParserFor<Phrase> {
 		if (questProgress != null) rewards.add(new Reward(Reward.REWARD_TYPE_QUEST_PROGRESS, questProgress.questID, questProgress.progress));
 		String rewardDroplist = ResourceParserUtils.parseNullableString(parts[3]);
 		if (rewardDroplist != null) rewards.add(new Reward(Reward.REWARD_TYPE_DROPLIST, rewardDroplist, 0));
-		final Reward[] _rewards = rewards.toArray(new Reward[rewards.size()]);
+		Reward[] _rewards = rewards.toArray(new Reward[rewards.size()]);
+		if (_rewards.length == 0) _rewards = null;
 		
 		return new Pair<String, Phrase>(parts[0], new Phrase(
 				ResourceParserUtils.parseNullableString(parts[1])	// message

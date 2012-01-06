@@ -44,10 +44,4 @@ public final class MapObject {
 	public static MapObject createNewContainerArea(final CoordRect position, final DropList dropList) {
 		return new MapObject(position, MAPEVENT_CONTAINER, null, null, null, null, dropList);
 	}
-	
-	public boolean shouldHaveDestinationMap() {
-		if (type != MAPEVENT_NEWMAP) return false;
-		if (id.equals("exit")) return false;
-		return true;
-	}
 }

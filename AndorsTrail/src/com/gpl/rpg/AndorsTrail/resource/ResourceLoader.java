@@ -112,9 +112,6 @@ public final class ResourceLoader {
         for (int i = 0; i < questsToLoad.length(); ++i) {
         	world.quests.initialize(questParser, questsToLoad.getString(i));
         }
-        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.quests.verifyData();
-        }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("QuestParser");
     	
 
@@ -122,13 +119,10 @@ public final class ResourceLoader {
         // Load conversations
         final ConversationListParser conversationListParser = new ConversationListParser();
         final TypedArray conversationsListsToLoad = r.obtainTypedArray(conversationsListsResourceId);
-        ConversationCollection conversations = new ConversationCollection();
         for (int i = 0; i < conversationsListsToLoad.length(); ++i) {
+        	ConversationCollection conversations = new ConversationCollection();
         	Collection<String> ids = conversations.initialize(conversationListParser, conversationsListsToLoad.getString(i));
         	world.conversationLoader.addIDs(conversationsListsToLoad.getResourceId(i, -1), ids);
-        }
-        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	conversations.verifyData();
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ConversationListParser");
         
@@ -139,10 +133,6 @@ public final class ResourceLoader {
         final TypedArray monstersToLoad = r.obtainTypedArray(monstersResourceId);
         for (int i = 0; i < monstersToLoad.length(); ++i) {
         	world.monsterTypes.initialize(monsterTypeParser, monstersToLoad.getString(i));
-        }
-
-        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.monsterTypes.verifyData(world, conversations);
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("MonsterTypeParser");
         
@@ -160,10 +150,6 @@ public final class ResourceLoader {
         world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));
         mapReader = null;
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("mapReader.transformMaps");
-
-        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.maps.verifyData(world, conversations);
-        }
         
         
         // ========================================================================
@@ -174,11 +160,6 @@ public final class ResourceLoader {
         // ========================================================================
         
 
-        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-        	world.verifyData(conversations);
-        }
-        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("world.verifyData()");
-        
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
         	long duration = System.currentTimeMillis() - start;
         	L.log("ResourceLoader ran for " + duration + " ms.");

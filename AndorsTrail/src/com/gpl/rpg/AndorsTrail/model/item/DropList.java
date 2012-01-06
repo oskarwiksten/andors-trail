@@ -9,15 +9,12 @@ import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class DropList {
 	private final DropItem[] items;
-	public final DropItem[] DEBUG_items;
 	
 	public DropList(DropItem[] items) {
 		this.items = items;
-		this.DEBUG_items = this.items;
 	}
 	public DropList(Collection<DropItem> items) {
 		this.items = items.toArray(new DropItem[items.size()]);
-		this.DEBUG_items = this.items;
 	}
 	public void createRandomLoot(Loot loot, Player player) {
 		for (DropItem item : items) {
@@ -38,13 +35,10 @@ public final class DropList {
 			}
 		}
 	}
-	
-	// Selftest method. Not part of the game logic.
-	public boolean DEBUG_contains(String itemTypeID) {
-		for (DropItem item : items) {
-			if (item.itemType.id.equals(itemTypeID)) return true;
-		}
-		return false;
+
+	// Unit test method. Not part of the game logic.
+	public DropItem[] UNITTEST_getAllDropItems() {
+		return items;
 	}
 	
 	public static class DropItem {

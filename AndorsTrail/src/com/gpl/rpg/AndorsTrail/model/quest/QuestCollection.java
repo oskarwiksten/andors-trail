@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -44,48 +42,5 @@ public final class QuestCollection  {
 
 	public void initialize(QuestParser parser, String input) {
 		parser.parseRows(input, quests);
-	}
-
-	
-	// Selftest method. Not part of the game logic.
-	public void verifyData() {
-		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			for (Quest q : quests.values()) {
-				if (q.name.trim().length() <= 0) {
-    				L.log("WARNING: Quest \"" + q.questID + "\" has empty name.");
-    			}
-    			if (q.stages.length <= 0) {
-    				L.log("WARNING: Quest \"" + q.questID + "\" has no log entries.");
-    			}
-    			boolean hasFinishingEntry = false;
-				for (QuestLogEntry entry : q.stages) {
-					if (entry.finishesQuest) hasFinishingEntry = true;
-					if (entry.rewardExperience == 1) {
-						L.log("WARNING: Quest \"" + q.questID + "\" has stage " + entry.progress + " that rewards just 1 exp. Might be malformed resourcefile?");
-					}
-				}
-    			if (q.showInLog) {
-    				if (!hasFinishingEntry) {
-    					L.log("WARNING: Quest \"" + q.questID + "\" is shown in log, but has no progress stage that finishes the quest.");
-    				}
-    			}
-    		}	
-		}
-	}
-	
-	// Selftest method. Not part of the game logic.
-	public void verifyData(ConversationCollection conversations) {
-		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			final HashSet<String> suppliedStages = new HashSet<String>();
-			conversations.DEBUG_getSuppliedQuestStages(suppliedStages);
-			for (Quest q : quests.values()) {
-				for (QuestLogEntry e : q.stages) {
-					String s = q.questID + ":" + e.progress;
-	    			if (!suppliedStages.contains(s)) {
-	    				L.log("OPTIMIZE: Quest stage \"" + s + "\" cannot be reached by any conversation phrase.");
-	    			}
-				}
-    		}	
-		}
 	}
 }
