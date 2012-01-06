@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="monsterlist_crossglen_animals">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{tiny_rat|monsters_rats:0|Маленькая крыса|trainingrat||2|||10|50|||1|1|||trainingrat|||||||||};
+{cave_rat|monsters_rats:1|Пещерная крыса|crossglen_caverat||5|||10|90|||2|2|||rat|||||||||};
+{tough_cave_rat|monsters_rats:1|Крутая пещерная крыса|crossglen_caverat2||5|||5|90|||3|3|||rat|||||||||};
+{strong_cave_rat|monsters_rats:3|Сильная пещерная крыса|crossglen_caveboss||20|||5|100|||2|4|10||caveratboss|||||||||};
+{black_ant|monsters_insects:0|Черный муравей|crossglen_ant||3|||10|70|||1|2|||insect|||||||||};
+{small_wasp|monsters_insects:1|Малая оса|crossglen_wasp||4|||10|70|||1|2|||wasp|||||||||};
+{beetle|monsters_insects:4|Жук|crossglen_beetle||4|||10|70|||3|3|||insect|||||||||};
+{forest_wasp|monsters_insects:1|Лесная оса|forestwasp||6|||10|70|||1|2|||wasp|||||||||};
+{forest_ant|monsters_insects:0|Лесной муравей|forestant||4|||10|90|||1|2|10||insect|||||||||};
+{yellow_forest_ant|monsters_insects:2|Желтый лесной муравей|forestant||5|||10|100|||2|2|15||insect|||||||||};
+{small_rabid_dog|monsters_dogs:1|Малая бешеная собака|forestdog||6|||10|90|||2|2|||canine|||||||||};
+{forest_snake|monsters_snakes:1|Лесная змея|forestsnake||7|||10|110|||1|2|10||snake|||||||||};
+{young_cave_snake|monsters_snakes:3|Молодая пещерная змея|cavesnake1||8|||5|110|10|2|2|2|10||snake|||||||||};
+{cave_snake|monsters_snakes:3|Пещерная змея|cavesnake1||12|||5|110|20|2|2|2|15||snake|||||||||};
+{venomous_cave_snake|monsters_snakes:3|Ядовитая пещерная змея|cavesnake2|1x1|15|10||5|110|40|2|2|2|10||snake||1||||||{{poison_weak|1|1|10|}}|};
+{tough_cave_snake|monsters_snakes:3|Крутая пещерная змея|cavesnake2||21|||5|110|20|2|2|2|15||snake|||||||||};
+{basilisk|monsters_rats:4|Василиск|cavesnake2_boss||40|||7|40|||3|9|50|2|cavecritter|||||||||};
+{snake_servant|monsters_liches:0|Смотритель за змеями|cavesnake3||35|||5|80|40|3|2|3|10|1|lich1|||||||||};
+{snake_master|monsters_liches:1|Хозяин змей|cavesnake3_boss||55|||5|60|100|3|1|4|10|4|snakemaster|snakemaster||||||||};
+{rabid_boar|monsters_dogs:6|Бешеный кабан|forestboar||20|||5|110|||3|3|30||canineboss|||||||||};
+{rabid_fox|monsters_dogs:3|Бешеный лис|fox1||25|||5|100|||3|3|50||canine|||||||||};
+{yellow_cave_ant|monsters_insects:2|Желтый пещерный муравей|pitcave1||20|||3|30|||1|1|80||insect|||||||||};
+{young_teeth_critter|monsters_misc:0|Молодая зубастая тварь|pitcave2||15|||2|50|||1|1|70||cavecritter|||||||||};
+{teeth_critter|monsters_misc:0|Зубастая тварь|pitcave2||25|||2|60|10|3|1|1|70||cavecritter|||||||||};
+{young_minotaur|monsters_misc:5|Молодой минотавр|pitcave2||45|||6|20|40|3|4|4|50|2|cavemonster|||||||||};
+{strong_minotaur|monsters_misc:5|Сильный минотавр|pitcave2_boss||53|||6|40|50|3|5|5|50|2|cavemonster|||||||||};
+{irogotu|monsters_liches:0|Ирогот|pitcave_boss||61|||3|50|40|3|2|5|70|4|irogotu|irogotu||||||||};
+	</string>
+	
+	<string name="monsterlist_fallhaven_animals">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{lost_spirit|monsters_rltiles2:45|Потерянный дух|minorhaunt1||15|||10|50|||1|2|10|3|haunt|haunt||||||||};
+{lost_soul|monsters_rltiles2:45|Потерянная душа|minorhaunt2||15|||10|50|||1|2|10|4|haunt|||||||||};
+{haunting|monsters_ghost1:0|Преследующий|haunt3||31|10|10|5|120|20|2|1|5|30|1|haunt|||||||||};
+{skeletal_warrior|monsters_skeleton1:0|Скелет-воин|skeleton1||52|10|10|5|60|||1|3|40|1|skeleton|||||||||};
+{skeletal_master|monsters_skeleton2:0|Скелет-вождь|skeletonmaster||52|10|10|5|70|||1|3|30|2|skeleton|||||||||};
+{skeleton|monsters_skeleton1:0|Скелет|skeleton1||35|10|10|10|60|||1|4|40||skeleton|||||||||};
+
+{guardian_of_the_catacombs|monsters_rltiles2:45|Хранитель катакомб|catacombguard1||6|10|10|10|10|||1|6|10|3|catacombguard|catacombguard||||||||};
+{catacomb_rat|monsters_rats:0|Катакомбная крыса|catacombrat1||15|10|10|3|60|||1|1|40||catacombrat|||||||||};
+{large_catacomb_rat|monsters_rats:3|Большие катакомбная крыса|catacombrat1||21|10|10|3|60|10|2|1|2|40||catacombrat|||||||||};
+{ghostly_visage|monsters_ghost1:0|Призрачный лик|catacombguard2||16|10|10|5|20|||1|4|20|2|catacombguard|||||||||};
+{spectre|monsters_rltiles2:45|Призрак|catacombguard2||15|10|10|3|50|||1|5|60|2|catacombguard|||||||||};
+{apparition|monsters_rltiles2:45|Привидение|catacombguard3||17|10|10|3||||1|5|70|2|catacombguard|||||||||};
+{shade|monsters_ghost1:0|Бесплотный дух|catacombguard3||16|10|10|5|20|||1|4|20|3|catacombguard|||||||||};
+{young_gargoyle|monsters_misc:2|Молодые горгульи|catacombguard3||35|10|10|10|110|10|2|2|5|70|1|catacombguard|||||||||};
+{ghost_of_luthor|monsters_liches:2|Призрак Лютора|luthor||86|10|10|5|120|15|2|2|5|50|3|luthor|luthor||||||||};
+	</string>
+	
+	<string name="monsterlist_crossglen_npcs">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{mikhail|monsters_mage2:0|Михаил|mikhail|1x1|1|1|1|1|0|||0|0||||mikhail_start_select||||||||};
+{leta|monsters_men:2|Лета|leta|1x1|1|1|1|1|0|||0|0||||leta1||||||||};
+{audir|monsters_men:0|Аудир|audir|1x1|1|1|1|1|0|||0|0|||shop_audir|audir1||||||||};
+{arambold|monsters_men:3|Арамболд|arambold|1x1|1|1|1|1|0|||0|0|||shop_arambold|arambold1||||||||};
+{tharal|monsters_men:4|Тарал|tharal|1x1|1|1|1|1|0|||0|0|||shop_tharal|tharal1||||||||};
+{drunk|monsters_rltiles3:14|Пьяница|drunk|1x1|1|1|1|1|0|||0|0||||drunk1||||||||};
+{mara|monsters_men:7|Мара|mara|1x1|1|1|1|1|0|||0|0|||shop_mara|mara1||||||||};
+{gruil|monsters_rogue1:0|Груил|gruil|1x1|1|1|1|1|0|||0|0|||shop_gruil|gruil1||||||||};
+{leonid|monsters_men:3|Леонид|leonid|1x1|1|1|1|1|0|||0|0||||leonid1||||||||};
+{farmer|monsters_man1:0|Фермер|crossglen_farmer1|1x1|1|1|1|1|0|||0|0||||farm1||||||||};
+{tired_farmer|monsters_man1:0|Усталый фермер|crossglen_farmer2|1x1|1|1|1|1|0|||0|0||||farm2||||||||};
+{oromir|monsters_man1:0|Оромир|oromir|1x1|1|1|1|1|0|||0|0||||oromir1||||||||};
+{odair|monsters_men:8|Одаир|odair|1x1|1|1|1|1|0|||0|0||||odair1||||||||};
+{jan|monsters_rltiles3:14|Ян|jan|1x1|1|1|1|1|0|||0|0||||jan_start_select||||||||};
+	</string>
+	
+	<string name="monsterlist_fallhaven_npcs">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{warden|monsters_men:3|Надзиратель|fallhaven_warden|1x1|1|1|1|1|0|||0|0||||fallhaven_warden_select_1||||||||};
+{guard|monsters_rltiles3:14|Охранник|fallhaven_guard|1x1|1|1|1|1|0|||0|0||||fallhaven_guard||||||||};
+{acolyte|monsters_men:4|Псаломщик|fallhaven_priest|1x1|1|1|1|1|0|||0|0||||fallhaven_priest||||||||};
+{bearded_citizen|monsters_man1:0|Бородатый горожанин|fallhaven_citizen1|1x1|1|1|1|1|0|||0|0||||fallhaven_citizen1||||||||};
+{old_citizen|monsters_men:2|Старый горожанин|fallhaven_citizen2|1x1|1|1|1|1|0|||0|0||||fallhaven_citizen2||||||||};
+{tired_citizen|monsters_men:7|Усталый горожанин|fallhaven_citizen4|1x1|1|1|1|1|0|||0|0||||fallhaven_citizen4||||||||};
+{citizen|monsters_man1:0|Горожанин|fallhaven_citizen3|1x1|1|1|1|1|0|||0|0||||fallhaven_citizen3||||||||};
+{grumpy_citizen|monsters_men:2|Сердитый горожанин|fallhaven_citizen5|1x1|1|1|1|1|0|||0|0||||fallhaven_citizen5||||||||};
+{blond_citizen|monsters_men:7|Светловолосый горожанин|fallhaven_citizen6|1x1|1|1|1|1|0|||0|0||||fallhaven_citizen6||||||||};
+{bucus|monsters_rogue1:0|Букус|bucus|1x1|1|1|1|1|0|||0|0||||bucus_welcome||||||||};
+{drunkard|monsters_men:0|Пьяница|fallhaven_drunk|1x1|1|1|1|1|0|||0|0||||fallhaven_drunk||||||||};
+{old_man|monsters_men:5|Старик|fallhaven_oldman|1x1|1|1|1|1|0|||0|0||||fallhaven_oldman||||||||};
+{nocmar|monsters_men:8|Нокмар|nocmar|1x1|1|1|1|1|0|||0|0|||nocmar|nocmar||||||||};
+{prisoner|monsters_rogue1:0|Заключенный|fallhaven_prisoner|1x1|1|1|1|1|0|||0|0||||||||||||};
+{ganos|monsters_rogue1:0|Ганос|ganos|1x1|1|1|1|1|0|||0|0|||shop_ganos|ganos||||||||};
+{arcir|monsters_mage2:0|Арцир|arcir|1x1|1|1|1|1|0|||0|0||||arcir_start||||||||};
+{athamyr|monsters_men:4|Атамир|athamyr|1x1|1|1|1|1|0|||0|0||||athamyr||||||||};
+{thoronir|monsters_men2:8|Форонир|thoronir|1x1|1|1|1|1|0|||0|0|||shop_thoronir|thoronir_default||||||||};
+{chapelgoer|monsters_men:6|Сектант|chapelgoer|1x1|1|1|1|1|0|||0|0||||chapelgoer||||||||};
+{potion_merchant|monsters_mage2:0|Торговец зельями|fallhaven_potions|1x1|1|1|1|1|0|||0|0|||shop_fallhaven_potions|fallhaven_potions||||||||};
+{tailor|monsters_men2:0|Портной|fallhaven_clothes|1x1|1|1|1|1|0|||0|0|||shop_fallhaven_clothes|fallhaven_clothes||||||||};
+{bela|monsters_men:7|Бела|bela|1x1|1|1|1|1|0|||0|0|||shop_bela|bela||||||||};
+{larcal|monsters_men2:2|Ларкар|larcal|1x1|51|10|10|10|25|||1|2|50||larcal|larcal||||||||};
+{gaela|monsters_men2:9|Гаэла|gaela|1x1|1|1|1|1|0|||0|0||||gaela||||||||};
+{unnmir|monsters_mage2:0|Уннмир|unnmir|1x1|1|1|1|1|0|||0|0||||unnmir||||||||};
+{rigmor|monsters_men:1|Ригмор|rigmor|1x1|1|1|1|1|0|||0|0||||rigmor||||||||};
+
+{jakrar|monsters_men2:2|Жакрар|fallhaven_lumberjack||1|1|1|1|1|||1|1|1|||fallhaven_lumberjack||||||||};
+{alaun|monsters_mage2:0|Алаун|alaun||1|1|1|1|1|||1|1|1|||alaun||||||||};
+{busy_farmer|monsters_man1:0|Работающий фермер|fallhaven_farmer1||1|1|1|1|1|||1|1|1|||fallhaven_farmer1||||||||};
+{old_farmer|monsters_mage2:0|Старый фермер|fallhaven_farmer2||1|1|1|1|1|||1|1|1|||fallhaven_farmer2||||||||};
+{khorand|monsters_men:3|Хоранд|khorand||1|1|1|1|1|||1|1|1|||khorand||||||||};
+
+{vacor|monsters_mage:0|Вакор|vacor||72|||5|110|||4|8|40|2|vacor|vacor||||||||};
+{unzel|monsters_men:8|Унзел|unzel||59|||10|80|30|3|5|9|40|2|unzel|unzel||||||||};
+{shady_bandit|monsters_men2:9|Известный бандит|fallhaven_bandit||45|||5|70|30|3|3|9|50|2|fallhaven_bandit|fallhaven_bandit||||||||};
+	</string>
+
+	<string name="monsterlist_wilderness">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{wild_fox|monsters_dogs:3|Дикая лиса|fox2||25|||5|100|||4|5|40||canine|||||||||};
+{stinging_wasp|monsters_insects:1|Жалящая оса|forestwasp2||15|||10|150|||1|2|60||wasp|||||||||};
+{wild_boar|monsters_dogs:6|Дикий кабан|forestboar2||20|||5|110|||3|3|30||canineboss|||||||||};
+{forest_beetle|monsters_insects:4|Лесной жук|forestbeetle||14|||10|150|||2|4|60|2|insect|||||||||};
+{wolf|monsters_dogs:4|Волк|forestwolf1||30|10|3|5|110|||3|6|30||canine|||||||||};
+{forest_serpent|monsters_snakes:4|Лесная змея|forestserpent1||20|10|5|3|150|30|2|2|3|60||snake2|||||||||};
+{vicious_forest_serpent|monsters_snakes:4|Ядовитая лесная змея|forestserpent2||27|10|5|3|150|30|2|3|4|50||snake2|||||||||};
+{anklebiter|monsters_dogs:6|Пяткокусатель|forestboar3||31|||5|150|||3|9|60|3|canine2|||||||||};
+{flagstone_sentry|monsters_men:3|Флагстоунский часовой|flagstone_sentry||1|1|1|1|1|||1|1|1|||flagstone_sentry||||||||};
+{escaped_prisoner|monsters_men:0|Сбежавший заключенный|prisoner1||15|||10|50|||3|7|20||prisoner|prisoner1||||||||};
+{starving_prisoner|monsters_misc:11|Голодающий заключенный|prisoner2||10|||3|60|||3|5|60||prisoner|prisoner2||||||||};
+{bone_warrior|monsters_skeleton1:0|Костяной воин|skeleton2||32|||5|120|||3|9|60|2|skeleton2|||||||||};
+{bone_champion|monsters_skeleton1:0|Костяной боец|skeleton3||49|||5|130|||4|9|60|2|skeleton3|||||||||};
+{undead_warden|monsters_liches:0|Надзиратель нежити|flagstone_guard0||57|||5|120|20|2|4|8|60|1|flagstone_guard0|flagstone_guard0||||||||};
+{cave_guardian|monsters_rltiles1:16|Пещерный стражник|flagstone_guard1||61|||5|150|10|3|4|10|90|2|flagstone_guard1|flagstone_guard1||||||||};
+{winged_demon|monsters_demon1:0|Крылатый демон|flagstone_guard2|2x2|82|||5|90|10|2|4|12|70|5|flagstone_guard2|flagstone_guard2||||||||};
+{narael|monsters_man1:0|Нараэль|narael||1|1|1|1|1|||1|1|1|||narael||||||||};
+{rotting_corpse|monsters_zombie1:0|Гниющий труп|undead1||71|||10|30|50|2|2|5|30|2|undead1|zombie1||||||||};
+{walking_corpse|monsters_zombie1:0|Ходячий мертвец|undead1||90|||10|30|40|2|2|4|30|2|undead1|||||||||};
+{gargoyle|monsters_misc:2|Горгулья|undead1||47|||10|110|10|2|3|7|70|2|undead1|||||||||};
+{fledgling_gargoyle|monsters_misc:1|Птенец горгульи|undead1||35|||10|110|||3|6|60|2|undead1|||||||||};
+{large_cave_rat|monsters_rats:3|Большая пещерная крыса|undeadrat1||21|10|10|3|60|10|2|3|4|40||catacombrat|||||||||};
+{pack_leader|monsters_dogs:5|Вожак стаи|pack_boss||65|||5|90|20|2|2|10|40|4|pack_boss|||||||||};
+{pack_hunter|monsters_dogs:4|Стайный охотник|pack3||45|||5|90|10|2|2|7|40|3|pack3|||||||||};
+{rabid_wolf|monsters_dogs:4|Бешеный волк|pack2||42|||5|90|||2|6|50|3|pack2|||||||||};
+{fledgling_wolf|monsters_dogs:3|Волк-щенок|pack2||42|||3|70|||2|5|50|3|pack2|||||||||};
+{young_wolf|monsters_dogs:4|Молодой волк|pack1||35|||3|60|||2|5|30|2|pack1|||||||||};
+{hunting_dog|monsters_dogs:2|Охотничья собака|pack1||25|||5|60|||2|5|50||pack1|||||||||};
+{highwayman|monsters_men:8|Разбойник|bandit1||54|||5|90|50|2|2|4|30|2|bandit1|bandit1||||||||};
+	</string>
+	
+	<string name="monsterlist_v068_npcs">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{smug_looking_thief|monsters_men2:9|Элегантно выглядящий вор|tg_thief|1x1|1|1|1|1|0|||0|0||||thievesguild_thief_1||||||||};
+{thieves_guild_cook|monsters_men:0|Кашевар воровской гильдии|tg_cook|1x1|1|1|1|1|0|||0|0|||shop_thieves_guild_cook|thievesguild_cook_1||||||||};
+{pickpocket|monsters_men:7|Карманник|pickpocket|1x1|1|1|1|1|0|||0|0||||thievesguild_pickpocket_1||||||||};
+{troublemaker|monsters_men:8|Бузотер|troublemaker|1x1|1|1|1|1|0|||0|0|||shop_troublemaker|thievesguild_troublemaker_1||||||||};
+{farrik|monsters_rogue1:0|Фаррик|farrik|1x1|1|1|1|1|0|||0|0||||farrik_select_1||||||||};
+{umar|monsters_man1:0|Умар|umar|1x1|1|1|1|1|0|||0|0||||umar_select_1||||||||};
+{kaori|monsters_men:7|Каори|kaori|1x1|1|1|1|1|0|||0|0||||kaori_start||||||||};
+{old_vilegard_villager|monsters_men:0|Старый вильгардский житель|vilegard_villager_1|1x1|1|1|1|1|0|||0|0||||vilegard_villager_1||||||||};
+{grumpy_vilegard_villager|monsters_men:5|Сердитый вильгардский житель|vilegard_villager_2|1x1|1|1|1|1|0|||0|0||||vilegard_villager_2||||||||};
+{vilegard_citizen|monsters_men:1|Вильгардский житель|vilegard_villager_3|1x1|1|1|1|1|0|||0|0||||vilegard_villager_3||||||||};
+{vilegard_resident|monsters_men2:0|Вильгардский старожил|vilegard_villager_4|1x1|1|1|1|1|0|||0|0||||vilegard_villager_4||||||||};
+{vilegard_woman|monsters_men:6|Вильгардская жительница|vilegard_villager_5|1x1|1|1|1|1|0|||0|0||||vilegard_villager_5||||||||};
+{erttu|monsters_mage2:0|Эртту|erttu|1x1|1|1|1|1|0|||0|0||||erttu_1||||||||};
+{dunla|monsters_rogue1:0|Дунла|dunla|1x1|1|1|1|1|0|||0|0|||shop_dunla|dunla_default||||||||};
+{tharwyn|monsters_men:7|Фарвин|tharwyn|1x1|1|1|1|1|0|||0|0|||shop_tharwyn|tharwyn_select||||||||};
+{tavern_guest|monsters_men:0|Посетитель таверны|vg_tavern_drunk|1x1|1|1|1|1|0|||0|0||||vilegard_tavern_drunk_1||||||||};
+{jolnor|monsters_men2:8|Жолнор|jolnor|1x1|1|1|1|1|0|||0|0|||shop_jolnor|jolnor_select_1||||||||};
+{alynndir|monsters_mage2:0|Алинндир|alynndir|1x1|1|1|1|1|0|||0|0|||shop_alynndir|alynndir_1||||||||};
+{vilegard_armorer|monsters_mage2:0|Вильгардский оружейник|vg_armorer|1x1|1|1|1|1|0|||0|0|||shop_vg_armorer|vilegard_armorer_select||||||||};
+{vilegard_smith|monsters_mage2:0|Вильгардский кузнец|vg_smith|1x1|1|1|1|1|0|||0|0|||shop_vg_smith|vilegard_smith_select||||||||};
+{ogam|monsters_men:0|Огам|ogam|1x1|1|1|1|1|0|||0|0||||ogam_1||||||||};
+{foaming_flask_cook|monsters_men:0|Повар из Пенящейся Бутылки|ff_cook|1x1|1|1|1|1|0|||0|0||||ff_cook_1||||||||};
+{torilo|monsters_men2:9|Торило|torilo|1x1|1|1|1|1|0|||0|0|||shop_torilo|torilo_1||||||||};
+{ambelie|monsters_men:6|Амбелия|ambelie|1x1|1|1|1|1|0|||0|0||||ambelie_1||||||||};
+{feygard_patrol|monsters_rltiles3:14|Фейгардский патрульный|ff_guard|1x1|1|1|1|1|0|||0|0||||ff_guard_1||||||||};
+{feygard_patrol_captain|monsters_men:3|Капитан фейгардского патруля|ff_captain|1x1|1|1|1|1|0|||0|0||||ff_captain_1||||||||};
+{feygard_patrol_watch|monsters_rltiles3:14|Фейгардский страж патруля|ff_outsideguard|1x1|80|||5|70|||2|7|80|3|ff_outsideguard|ff_outsideguard_select||||||||};
+{wrye|monsters_men:6|Врия|wrye|1x1|1|1|1|1|0|||0|0||||wrye_select_1||||||||};
+{oluag|monsters_men:8|Олуаг|oluag|1x1|1|1|1|1|0|||0|0||||oluag_1||||||||};
+
+{cave_dwelling_boar|monsters_dogs:6|Пещерный кабан|caveboar1||35|||5|70|||3|8|60|3|canine2|||||||||};
+{hardshell_beetle|monsters_insects:4|Панцирный жук|beetle2||25|||5|50|||0|5|40|9|beetle2|||||||||};
+{young_shadow_gargoyle|monsters_misc:1|Молодая теневая горгулья|shadowgarg1||35|||5|65|8|3|3|9|75|3|shadowgarg1|||||||||};
+{fledgling_shadow_gargoyle|monsters_misc:1|Птенец теневой горгульи|shadowgarg1||36|||5|65|8|3|3|9|75|3|shadowgarg1|||||||||};
+{shadow_gargoyle|monsters_misc:2|Теневая горгулья|shadowgarg2||37|||5|70|8|3|4|10|85|3|shadowgarg1|||||||||};
+{tough_shadow_gargoyle|monsters_misc:2|Крутая теневая горгулья|shadowgarg2||37|||5|70|8|3|4|10|85|4|shadowgarg2|||||||||};
+{shadow_gargoyle_trainer|monsters_liches:0|Дрессировщик теневых горгулий|shadowgarg3||35|||5|90|12|3|3|6|90|5|shadowgarg3|||||||||};
+{shadow_gargoyle_master|monsters_liches:1|Хозяин теневых горгулий|shadowgarg4||35|||5|125|12|3|3|6|90|5|shadowgarg3|||||||||};
+{maelveon|monsters_liches:2|Мелвеон|maelveon||55|||3|80|15|3|0|12|90|5|maelveon|maelveon||||||||};
+	</string>
+
+	<string name="monsterlist_v069_monsters">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{puny_caverat|monsters_rats:0|Пещерная крыса|puny_caverat|1x1|5|10|5|5|50|||1|1|30||rat|||||||||};
+{rabid_hound|monsters_rltiles2:108|Бешеная собака|forestwolf2|1x1|40|10|5|5|110|||3|9|30||canine|||||||||};
+{vicious_hound|monsters_rltiles2:110|Злая собака|forestboar4|1x1|31|10|5|5|150|||3|9|60|3|canineboss|||||||||};
+{mountain_wolf|monsters_rltiles2:109|Горный волк|primwolf1|1x1|49|10|5|5|150|||3|9|60|3|canine|||||||||};
+
+{hatchling_white_wyrm|monsters_rltiles1:118|Детеныш белого змея|wyrm_1|1x1|41|10|5|5|75|||4|10|130|5|wyrm_1||1||||||{{fatigue_minor|1|5|10|}}|};
+{young_white_wyrm|monsters_rltiles1:118|Молодой белый змей|wyrm_2|1x1|47|10|5|5|75|||4|10|130|5|wyrm_2||1||||||{{fatigue_minor|1|5|20|}}|};
+{white_wyrm|monsters_rltiles1:119|Белый змей|wyrm_3|1x1|55|10|5|3|75|||4|10|130|5|wyrm_3||1||||||{{fatigue_minor|1|5|50|}}|};
+{young_aulaeth|monsters_rltiles2:176|Молодой аулет|wyrm_1|1x1|105|10|5|5|40|||0|4|30|5|aulaeth||1|1|1|||||};
+{aulaeth|monsters_rltiles2:58|Аулет|wyrm_2|1x1|120|10|5|5|40|||0|5|40|6|aulaeth||1|1|1|||||};
+{strong_aulaeth|monsters_rltiles2:58|Сильный аулет|wyrm_3|1x1|135|10|5|5|40|||0|5|35|6|aulaeth||1|1|1|||||};
+{wyrm_trainer|monsters_rltiles2:0|Дрессировщик змеев|wyrm_4|1x1|69|10|5|3|90|||2|9|90|4|wyrm_4||1|1|1||||{{fatigue_minor|1|10|70|}}|};
+{wyrm_apprentice|monsters_rltiles2:0|Ученик дрессировщика змеев|wyrm_4|1x1|69|10|5|5|140|||2|9|90|4|wyrm_4||1|1|1||||{{fatigue_minor|1|10|70|}}|};
+{young_gornaud|monsters_rltiles2:29|Молодой горнод|gornaud_1|1x1|70|10|5|5|70|||0|15|50||gornaud_1||1||||||{{dazed|1|5|20|}}|};
+{gornaud|monsters_rltiles2:29|Горнод|gornaud_2|1x1|95|10|5|5|70|||0|15|50|4|gornaud_2||1||||||{{dazed|1|5|50|}}|};
+{strong_gornaud|monsters_rltiles2:30|Сильный горнод|gornaud_3|1x1|95|10|5|5|70|||0|15|50|5|gornaud_3||1||||||{{dazed|1|5|70|}}|};
+{slithering_venomfang|monsters_snakes:2|Скользящий ядозуб|gornaud_1|1x1|35|10|5|3|120|||1|2|90|2|cave_serpent||1||||||{{poison_weak|1|2|20|}}|};
+{scaled_venomfang|monsters_snakes:3|Чешуйчатый ядозуб|gornaud_2|1x1|35|10|5|3|150|||2|4|90|2|cave_serpent||1||||||{{poison_weak|1|2|50|}}|};
+{tough_venomfang|monsters_snakes:3|Курутой ядозуб|gornaud_3|1x1|41|10|5|3|150|||2|5|90|2|cave_serpent||1||||||{{poison_weak|1|2|50|}}|};
+
+{restless_dead|monsters_rltiles1:47|Беспокойный мертвец|restless_dead_1|1x1|25|10|5|5|50|80|2|0|3|140|3|restless_dead_1|||||||||};
+{grave_spawn|monsters_rltiles1:49|Могильное отродье|restless_dead_1|1x1|45|10|5|5|110|40|2|2|5|35|3|restless_dead_1|||||||||};
+{restless_apparition|monsters_rltiles1:47|Беспокойный призрак|restless_dead_2|1x1|29|10|5|3|90|60|3|2|6|10|1|restless_dead_2|||||||||};
+{skeletal_reaper|monsters_rltiles1:27|Скелет-жнец|restless_dead_2|1x1|15|10|5|5|150|20|2|0|9|110||restless_dead_2|||||||||};
+{kazaul_spawn|monsters_rltiles1:41|Казаулское отродье|kazaul_1|1x1|45|10|5|3|70|50|2|3|5|90|1|kazaul_1|||||||||};
+{kazaul_imp|monsters_rltiles1:45|Казаулский бес|kazaul_2|1x1|45|10|5|3|70|40|2|3|7|105|1|kazaul_2|||||||||};
+{kazaul_guardian|monsters_rltiles1:42|Казаулский стражник|kazaul_guardian|1x1|95|10|5|5|70|40|2|3|8|90|3|kazaul_guardian|kazaul_guardian||||||||};
+{graverobber|monsters_karvis2:3|Грабитель могил|bjorgur_bandit|1x1|62|10|5|5|120|||2|6|72|1|bjorgur_bandit|bjorgur_bandit||||||||};
+	</string>
+
+	<string name="monsterlist_v069_npcs">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{agent1|monsters_men:4|Агент|bwm_agent_1|1x1||10|5|5|||||||||bwm_agent_1_start||||||||};
+{agent2|monsters_men:4|Агент|bwm_agent_2|1x1||10|5|5|||||||||bwm_agent_2_start||||||||};
+{agent3|monsters_men:4|Агент|bwm_agent_3|1x1||10|5|5|||||||||bwm_agent_3_start||||||||};
+{agent4|monsters_men:4|Агент|bwm_agent_4|1x1||10|5|5|||||||||bwm_agent_4_start||||||||};
+{agent5|monsters_men:4|Агент|bwm_agent_5|1x1||10|5|5|||||||||bwm_agent_5_start||||||||};
+{agent6|monsters_men:4|Агент|bwm_agent_6|1x1||10|5|5|||||||||bwm_agent_6_start||||||||};
+{arghest|monsters_rltiles2:81|Аргест|arghest|1x1||10|5|5|||||||||arghest_start||||||||};
+{tonis|monsters_rltiles1:67|Тонис|tonis|1x1||10|5|5|||||||||tonis_start||||||||};
+
+{moyra|monsters_rltiles1:74|Мойра|moyra|1x1||10|5|5|||||||||moyra_1||||||||};
+{prim_citizen|monsters_karvis2:6|Примский горожанина|prim_commoner1|1x1||10|5|5|||||||||prim_commoner1||||||||};
+{prim_commoner|monsters_rltiles1:68|Примский простолюдин|prim_commoner2|1x1||10|5|5|||||||||prim_commoner2||||||||};
+{prim_resident|monsters_karvis2:2|Примский старожил|prim_commoner3|1x1||10|5|5|||||||||prim_commoner3||||||||};
+{prim_evoker|monsters_rltiles1:84|Примский заклинатель|prim_commoner4|1x1||10|5|5|||||||||prim_commoner4||||||||};
+{laecca|monsters_rltiles1:72|Лаесса|laecca|1x1||10|5|5|||||||||laecca_1||||||||};
+{prim_cook|monsters_karvis2:0|Примский повар|prim_cook|1x1||10|5|5|||||||||prim_cook_start||||||||};
+{prim_visitor|monsters_rltiles1:63|Примский приезжий|prim_innguest|1x1||10|5|5|||||||||prim_innguest||||||||};
+{birgil|monsters_rltiles2:81|Биргил|birgil|1x1||10|5|5||||||||shop_birgil|birgil_1||||||||};
+{prim_tavern_guest|monsters_rltiles1:106|Примский посетитель таверны|prim_tavern_guest1|1x1||10|5|5|||||||||prim_tavern_guest1||||||||};
+{prim_tavern_regular|monsters_rltiles1:106|Примский завсегдатай таверны|prim_tavern_guest2|1x1||10|5|5|||||||||prim_tavern_guest2||||||||};
+{prim_bar_guest|monsters_rltiles1:106|Примский посетитель бара|prim_tavern_guest3|1x1||10|5|5|||||||||prim_tavern_guest3||||||||};
+{prim_bar_regular|monsters_rltiles1:106|Примский завсегдатай бара|prim_tavern_guest4|1x1||10|5|5|||||||||prim_tavern_guest4||||||||};
+{prim_armorer|monsters_rltiles1:88|Примский оружейник|prim_armorer|1x1||10|5|5||||||||shop_prim_armorer|prim_armorer||||||||};
+{jueth|monsters_men2:0|Джуф|prim_tailor|1x1||10|5|5|||||||||prim_tailor||||||||};
+{bjorgur|monsters_karvis2:7|Бьоргур|bjorgur|1x1||10|5|5|||||||||bjorgur_start||||||||};
+{prim_prisoner|monsters_rltiles2:81|Примский заключенный|prim_prisoner|1x1||10|5|5|||||||||||||||||};
+{fulus|monsters_karvis2:3|Фулус|fulus|1x1||10|5|5|||||||||fulus_start||||||||};
+{guthbered|monsters_rltiles1:92|Гатберед|guthbered|1x1|80|10|5|5|70|||4|9|80|4|guthbered|guthbered_start||||||||};
+{guthbereds_bodyguard|monsters_rltiles1:76|Телохранитель Гатбереда|guthbered_guard|1x1||10|5|5|||||||||guthbered_guard||||||||};
+{prim_weapon_guard|monsters_rltiles1:65|Примский вооруженный охранник|prim_guard1|1x1||10|5|5|||||||||prim_guard1||||||||};
+{prim_sentry|monsters_rltiles3:14|Примский часовой|prim_guard2|1x1||10|5|5|||||||||prim_guard2||||||||};
+{prim_guard|monsters_rltiles1:65|Примский охранник|prim_guard4|1x1||10|5|5|||||||||prim_guard4||||||||};
+{tired_prim_guard|monsters_rltiles1:76|Усталый примский охранник|prim_guard3|1x1||10|5|5|||||||||prim_guard3||||||||};
+{prim_treasury_guard|monsters_rltiles1:69|Примский охранник сокровищницы|prim_treasury_guard|1x1||10|5|5|||||||||prim_treasury_guard||||||||};
+{samar|monsters_rltiles2:93|Самар|prim_priest|1x1||10|5|5||||||||shop_samar|prim_priest||||||||};
+{prim_priestly_acolyte|monsters_rltiles1:83|Примский псаломщик|prim_acolyte|1x1||10|5|5|||||||||prim_acolyte||||||||};
+{studying_prim_pupil|monsters_rltiles1:74|Обучающийся примский ученик|prim_pupil1|1x1||10|5|5|||||||||prim_pupil1||||||||};
+{reading_prim_pupil|monsters_rltiles1:74|Читающий примский ученик|prim_pupil2|1x1||10|5|5|||||||||prim_pupil2||||||||};
+{prim_pupil|monsters_rltiles1:74|Примский ученик|prim_pupil3|1x1||10|5|5|||||||||prim_pupil3||||||||};
+
+{blackwater_entrance_guard|monsters_rltiles3:14|Блеквотский привратник|blackwater_entranceguard|1x1|30|10|||||||||||blackwater_entranceguard||||||||};
+{blackwater_dinner_guest|monsters_karvis2:2|Блеквотский обеденный гость|blackwater_guest1|1x1|20|10|||||||||||blackwater_guest1||||||||};
+{blackwater_inhabitant|monsters_man1:0|Блеквотский житель|blackwater_guest2|1x1|10|10|||||||||||blackwater_guest2||||||||};
+{blackwater_cook|monsters_karvis2:0|Блеквотский повар|blackwater_cook|1x1||10|5|5|||||||||blackwater_cook||||||||};
+{keneg|monsters_rltiles1:86|Кенег|keneg|1x1||10|5|5|||||||||keneg||||||||};
+{mazeg|monsters_rltiles1:85|Мазег|mazeg|1x1||10|5|5||||||||shop_mazeg|mazeg||||||||};
+{waeges|monsters_rltiles1:88|Ваегес|waeges|1x1||10|5|5||||||||shop_waeges|waeges||||||||};
+{blackwater_fighter|monsters_rltiles1:66|Блеквотский боевик|blackwater_fighter|1x1||10|5|5|||||||||blackwater_fighter||||||||};
+{ungorm|monsters_rltiles1:83|Унгорм|ungorm|1x1||10|5|5|||||||||ungorm||||||||};
+{blackwater_pupil|monsters_rltiles1:74|Блеквотский ученик|blackwater_pupil|1x1||10|5|5|||||||||blackwater_pupil||||||||};
+{laede|monsters_rltiles1:81|Лаед|blackwater_sleephall|1x1||10|5|5|||||||||laede||||||||};
+{herec|monsters_men2:9|Херец|herec|1x1||10|5|5||||||||shop_herec|herec_start||||||||};
+{iducus|monsters_rltiles1:87|Идукус|iducus|1x1||10|5|5||||||||shop_iducus|iducus||||||||};
+{blackwater_priest|monsters_rltiles1:80|Блеквотский священника|blackwater_priest|1x1||10|5|5|||||||||blackwater_priest||||||||};
+{studying_blackwater_priest|monsters_rltiles1:84|Обучающийся блеквотский священник|blackwater_pupil|1x1||10|5|5|||||||||blackwater_pupil||||||||};
+{blackwater_guard|monsters_rltiles1:76|Блеквотский охранник|blackwater_guard1|1x1||10|5|5|||||||||blackwater_guard1||||||||};
+{blackwater_border_patrol|monsters_rltiles1:76|Блеквотский пограничник|blackwater_guard2|1x1||10|5|5|||||||||blackwater_guard2||||||||};
+{harlenns_bodyguard|monsters_rltiles1:76|Телохранитель Харленна|blackwater_bossguard|1x1||10|5|5|||||||||blackwater_bossguard||||||||};
+{blackwater_chamber_guard|monsters_men:3|Блеквотский тюремщик|blackwater_throneguard|1x1||10|5|5|||||||||blackwater_throneguard||||||||};
+{harlenn|monsters_men2:6|Харленн|harlenn|1x1|80|10|5|5|70|||4|9|80|4|harlenn|harlenn_start||||||||};
+{throdna|monsters_men2:4|Фродна|throdna|1x1||10|5|5|||||||||throdna_start||||||||};
+{throdnas_guard|monsters_rltiles1:85|Охранник Фродна|throdna_guard|1x1||10|5|5|||||||||throdna_guard||||||||};
+{blackwater_mage|monsters_rltiles1:80|Блеквотский маг|blackwater_acolyte|1x1||10|5|5|||||||||blackwater_acolyte||||||||};
+	</string>
+	
+	<string name="monsterlist_v0610_monsters1">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{young_larval_burrower|monsters_rltiles2:164|Молодая личинка бурителя|larva_1|1x1|30|10|5|5|120|35|3|1|6|25||larva_1|||||||||};
+{larval_burrower|monsters_rltiles2:164|Личинка бурителя|larva_2|1x1|35|10|5|5|120|35|3|1|6|25||larva_2|||||||||};
+{larval_boss|monsters_rltiles2:164|Сильная личинка бурителя|larva_boss|1x1|35|10|5|5|120|35|3|1|6|25||larva_boss|||||||||};
+
+{rivertroll|monsters_rltiles1:104|Речной тролль|rivertroll|1x1|210|10|5|5|120|30|4|2|9|65|7|rivertroll|||||||||};
+{grass_ant|monsters_insects:0|Луговой муравей|fieldcritter_0|1x1|29|10|5|3|120|||0|4|80||fieldcritter_0|||||||||};
+{grass_ant2|monsters_insects:2|Крутой луговой муравей|fieldcritter_0|1x1|29|10|5|3|125|||1|5|80||fieldcritter_0|||||||||};
+{grass_beetle|monsters_insects:4|Луговой жук|fieldcritter_1|1x1|34|10|5|5|120|||0|5|80|3|fieldcritter_1|||||||||};
+{grass_beetle2|monsters_insects:4|Крутой луговой жук|fieldcritter_1|1x1|35|10|5|5|125|||1|6|80|4|fieldcritter_1|||||||||};
+{grass_snake|monsters_rltiles2:25|Луговая змея|fieldcritter_2|1x1|36|10|5|3|120|||0|6|80||fieldcritter_2|||||||||};
+{grass_snake2|monsters_rltiles2:25|Крутая луговая змея|fieldcritter_2|1x1|38|10|5|3|125|||1|7|80||fieldcritter_2|||||||||};
+{grass_lizard|monsters_rltiles2:114|Луговая ящерица|fieldcritter_3|1x1|45|10|5|3|120|||0|8|80|3|fieldcritter_3|||||||||};
+{grass_lizard2|monsters_rltiles2:117|Черная луговая ящерица|fieldcritter_3|1x1|45|10|5|3|125|||2|9|80|4|fieldcritter_3|||||||||};
+
+{keknazar|monsters_misc:9|Кекназар|keknazar|1x1|90|10|5|5|50|20|3|3|9|70|8|keknazar|keknazar||||||||};
+
+{crossroads_rat|monsters_rats:0|Крыса|crossroads_rat|1x1|5|10|5|5|50|||1|1|30||rat|||||||||};
+{fieldwasp_0|monsters_insects:1|Злющая лесная оса|fieldwasp_0|1x1|29|10|5|3|70|60|3|2|6|95||fieldwasp|||||||||};
+{fieldwasp_1|monsters_insects:1|Злющая лесная оса|fieldwasp_1|1x1|32|10|5|3|70|70|3|2|6|125||fieldwasp|||||||||};
+{fieldwasp_2|monsters_insects:1|Злющая лесная оса|fieldwasp_2|1x1|35|10|5|3|70|75|3|2|6|130||fieldwasp|||||||||};
+
+{izthiel_1|monsters_rltiles2:51|Молодой изтиель|izthiel_1|1x1|40|10|5|3|70|||2|7|57|5|izthiel||0|||||||};
+{izthiel_2|monsters_rltiles2:49|Изтиель|izthiel_2|1x1|45|10|5|3|90|||2|7|58|6|izthiel||0|||||||};
+{izthiel_3|monsters_rltiles2:48|Сильный изтиель|izthiel_3|1x1|52|10|5|3|80|||2|7|60|8|izthiel||1||||||{{bleeding_wound|2|4|40|}}|};
+{izthiel_4|monsters_rltiles2:52|Охранник изтиелей|izthiel_4|1x1|54|10|5|3|120|||3|7|60|11|izthiel_4||1||||||{{bleeding_wound|3|5|50|}}|};
+{frog_1|monsters_rltiles1:131|Речная лягушка|frog_1|1x1|15|10|5|2|150|||0|5|45||frog||0|||||||};
+{frog_2|monsters_rltiles1:131|Крутая речная лягушка|frog_2|1x1|17|10|5|2|160|||0|5|49||frog||0|||||||};
+{frog_3|monsters_rltiles1:130|Ядовитая речная лягушка|frog_3|1x1|21|10|5|2|165|||0|5|55||frog_3||1||||||{{poison_weak|2|5|30|}}|};
+	</string>
+
+	<string name="monsterlist_v0610_npcs1">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{lostsheep1|monsters_karvis2:8|Овца|tinlyn_lostsheep1|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep1||||||||};
+{lostsheep2|monsters_karvis2:8|Овца|tinlyn_lostsheep2|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep2||||||||};
+{lostsheep3|monsters_karvis2:8|Овца|tinlyn_lostsheep3|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep3||||||||};
+{lostsheep4|monsters_karvis2:8|Овца|tinlyn_lostsheep4|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_lostsheep4||||||||};
+{sheep1|monsters_karvis2:8|Овца|tinlyn_sheep|1x1|5|10|5|5|10|||0|1|5||tinlyn_sheep|tinlyn_sheep||||||||};
+
+{ailshara|monsters_men:8|Аилшара|ailshara|1x1||10|5|5||||||||shop_ailshara|ailshara||||||||};
+{arngyr|monsters_rltiles1:65|Арнгир|arngyr|1x1||10|5|5|||||||||arngyr||||||||};
+{benbyr|monsters_rltiles1:74|Бенбир|benbyr|1x1||10|5|5|||||||||benbyr||||||||};
+{celdar|monsters_rltiles1:94|Селдар|celdar|1x1||10|5|5|||||||||celdar||||||||};
+{conren|monsters_karvis2:5|Конрен|conren|1x1||10|5|5|||||||||conren||||||||};
+{crossroads_backguard|monsters_rltiles1:76|Охранник|crossroads_backguard|1x1||10|5|5|||||||||crossroads_backguard||||||||};
+{crossroads_guard|monsters_rltiles1:76|Охранник|crossroads_guard|1x1||10|5|5|||||||||crossroads_guard||||||||};
+{crossroads_sleepguard|monsters_rltiles1:76|Охранник|crossroads_sleepguard|1x1||10|5|5|||||||||crossroads_sleepguard||||||||};
+{crossroads_guest|monsters_rltiles1:83|Приезжий|crossroads_guest|1x1||10|5|5|||||||||crossroads_guest||||||||};
+{erinith|monsters_rltiles1:82|Эринит|erinith|1x1||10|5|5|||||||||erinith||||||||};
+{fanamor|monsters_men:7|Фанамор|fanamor|1x1||10|5|5|||||||||fanamor||||||||};
+{feygard_bridgeguard|monsters_men2:4|Фейгардский охранник моста|feygard_bridgeguard|1x1||10|5|5|||||||||feygard_bridgeguard||||||||};
+{fieldwasp_unique|monsters_insects:1|Злющая лесная оса|fieldwasp_unique|1x1|70|10|5|3|70|100|3|2|6|150||fieldwasp_unique|||||||||};
+{gallain|monsters_man1:0|Галлейн|gallain|1x1||10|5|5||||||||shop_gallain|gallain||||||||};
+{gandoren|monsters_rltiles1:69|Гандорен|gandoren|1x1||10|5|5|||||||||gandoren||||||||};
+{grimion|monsters_men2:2|Гримион|grimion|1x1||10|5|5||||||||shop_grimion|grimion||||||||};
+{hadracor|monsters_men2:2|Хадракор|hadracor|1x1||10|5|5||||||||shop_hadracor|hadracor||||||||};
+{kuldan|monsters_rltiles1:85|Кулдан|kuldan|1x1||10|5|5|||||||||kuldan||||||||};
+{kuldan_guard|monsters_rltiles3:14|Охранник Кулдана|kuldan_guard|1x1||10|5|5|||||||||kuldan_guard||||||||};
+{landa|monsters_men:0|Ланда|landa|1x1||10|5|5|||||||||landa||||||||};
+{loneford_chapelguard|monsters_rltiles1:78|Охранник часовни|loneford_chapelguard|1x1||10|5|5|||||||||loneford_chapelguard||||||||};
+{loneford_farmer0|monsters_karvis2:1|Фермер|loneford_farmer0|1x1||10|5|5|||||||||loneford_farmer0||||||||};
+{loneford_guard0|monsters_rltiles3:14|Охранник|loneford_guard0|1x1||10|5|5|||||||||loneford_guard0||||||||};
+{loneford_tavern_patron|monsters_karvis2:2|Завсегдатай таверны|loneford_tavern_patron|1x1||10|5|5|||||||||loneford_tavern_patron||||||||};
+{loneford_villager0|monsters_karvis2:0|Крестьянин|loneford_villager0|1x1||10|5|5|||||||||loneford_villager0||||||||};
+{loneford_villager1|monsters_karvis2:1|Крестьянин|loneford_villager1|1x1||10|5|5|||||||||loneford_villager1||||||||};
+{loneford_villager2|monsters_karvis2:3|Крестьянин|loneford_villager2|1x1||10|5|5|||||||||loneford_villager2||||||||};
+{loneford_villager3|monsters_karvis2:5|Крестьянин|loneford_villager3|1x1||10|5|5|||||||||loneford_villager3||||||||};
+{loneford_villager4|monsters_men:2|Крестьянин|loneford_villager4|1x1||10|5|5|||||||||loneford_villager4||||||||};
+{loneford_wellguard|monsters_rltiles1:72|Охранник|loneford_wellguard|1x1||10|5|5|||||||||loneford_wellguard||||||||};
+{mienn|monsters_rltiles1:87|Мьенн|mienn|1x1||10|5|5|||||||||mienn||||||||};
+{minarra|monsters_rltiles1:86|Минарра|minarra|1x1||10|5|5||||||||shop_minarra|minarra||||||||};
+{puny_warehouserat|monsters_rats:1|Складская крыса|puny_warehouserat|1x1|5|10|5|5|50|||1|1|30||rat|||||||||};
+{rolwynn|monsters_rltiles1:77|Ролвинн|rolwynn|1x1||10|5|5|||||||||rolwynn||||||||};
+{sienn|monsters_rltiles1:66|Сьенн|sienn|1x1||10|5|5|||||||||sienn||||||||};
+{sienn_pet|monsters_misc:0|Питомец Сьенна|sienn_pet|1x1||10|5|5|||||||||sienn_pet||||||||};
+{siola|monsters_rltiles1:90|Сиола|siola|1x1||10|5|5||||||||shop_siola|siola||||||||};
+{taevinn|monsters_karvis2:5|Тайвинн|taevinn|1x1||10|5|5|||||||||taevinn||||||||};
+{talion|monsters_men2:8|Талион|talion|1x1||10|5|5||||||||shop_talion|talion||||||||};
+{telund|monsters_rltiles1:74|Телунд|telund|1x1||10|5|5|||||||||telund||||||||};
+{tinlyn|monsters_karvis2:7|Тинлин|tinlyn|1x1||10|5|5|||||||||tinlyn||||||||};
+{wallach|monsters_rltiles1:75|Уоллах|wallach|1x1||10|5|5|||||||||wallach||||||||};
+{woodcutter_0|monsters_men:0|Дровосек|woodcutter_0|1x1||10|5|5|||||||||woodcutter_0||||||||};
+{woodcutter_2|monsters_men:0|Дровосек|woodcutter_2|1x1||10|5|5|||||||||woodcutter_2||||||||};
+{woodcutter_3|monsters_men2:2|Дровосек|woodcutter_3|1x1||10|5|5|||||||||woodcutter_3||||||||};
+{woodcutter_4|monsters_rltiles1:93|Дровосек|woodcutter_4|1x1||10|5|5|||||||||woodcutter_4||||||||};
+{woodcutter_5|monsters_men2:2|Дровосек|woodcutter_5|1x1||10|5|5|||||||||woodcutter_5||||||||};
+{rogorn|monsters_rltiles1:63|Рогорн|rogorn|1x1|145|10|5|3|90|||5|9|120|5|rogorn|rogorn||||||||};
+{rogorn_henchman|monsters_rogue1:0|Приспешник Рогорна|rogorn_henchman|1x1|130|10|5|3|80|||5|8|120|4|rogorn_henchman|rogorn_henchman||||||||};
+{buceth|monsters_men2:7|Буцет|buceth|1x1|75|10|5|3|80|100|2|3|9|120|4|buceth|buceth||||||||};
+{gauward|monsters_mage2:0|Гаувард|gauward|1x1||10|5|5|||||||||gauward||||||||};
+	</string>
+
+	<string name="monsterlist_v0610_monsters2">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{iqhan_1a|monsters_rltiles2:96|Иканский раб-рабочий|iqhan_1|1x1|55|10|5|3|110|||2|9|70||iqhan_lesser|||||||||};
+{iqhan_1b|monsters_rltiles2:96|Иканский раб-слуга|iqhan_1|1x1|57|10|5|3|120|15|2|2|9|70||iqhan_lesser|||||||||};
+{iqhan_2a|monsters_rltiles2:97|Иканский раб-охранник|iqhan_2|1x1|59|10|5|3|130|15|2|2|9|70||iqhan_lesser|||||||||};
+{iqhan_2b|monsters_rltiles2:97|Иканский раб|iqhan_2|1x1|62|10|5|3|130|15|2|2|10|70||iqhan_lesser|||||||||};
+{iqhan_3a|monsters_rltiles2:128|Иканский раб-воин|iqhan_3|1x1|65|10|5|3|140|15|2|2|11|70||iqhan_lesser|||||||||};
+{iqhan_3b|monsters_rltiles2:129|Иканский мастер|iqhan_3|1x1|67|10|5|3|140|20|2|2|12|60||iqhan_lesser|||||||||};
+{iqhan_4a|monsters_rltiles2:129|Иканский мастер|iqhan_4|1x1|69|10|5|3|140|20|2|2|13|60||iqhan_lesser|||||||||};
+{iqhan_4b|monsters_rltiles2:133|Иканский мастер|iqhan_4|1x1|71|10|5|3|140|20|2|2|15|60||iqhan|||||||||};
+{iqhan_ch_1a|monsters_rltiles2:135|Иканский вызыватель хаоса|iqhan_ch_1|1x1|73|10|5|3|140|20|2|2|15|60||iqhan||1||||||{{chaotic_grip|2|5|20|}}|};
+{iqhan_ch_1b|monsters_rltiles2:135|Иканский вызыватель хаоса|iqhan_ch_1|1x1|75|10|5|3|150|20|2|2|14|60||iqhan||1||||||{{chaotic_grip|2|5|20|}}|};
+{iqhan_ch_2a|monsters_rltiles2:134|Иканский слуга хаоса|iqhan_ch_2|1x1|78|10|5|3|150|20|2|2|14|60||iqhan||1||||||{{chaotic_grip|4|5|50|}}|};
+{iqhan_ch_2b|monsters_rltiles2:134|Иканский слуга хаоса|iqhan_ch_2|1x1|79|10|5|3|150|25|2|2|13|75||iqhan||1||||||{{chaotic_grip|4|5|50|}}|};
+{iqhan_ch_3a|monsters_rltiles2:136|Иканский мастер хаоса|iqhan_ch_3|1x1|83|10|5|3|170|25|2|2|13|75||iqhan_master||1||||||{{chaotic_grip|4|5|50|}}|};
+{iqhan_ch_3b|monsters_rltiles2:137|Иканский мастер хаоса|iqhan_ch_3|1x1|85|10|5|3|170|25|2|2|13|75||iqhan_master||1||||||{{chaotic_grip|4|5|50|}}|};
+{iqhan_chb_1a|monsters_rltiles1:19|Иканский зверь хаоса|iqhan_chb_1|1x1|122|10|10|10|150|10|3|0|15|45|9|iqhan_beast||1||||||{{chaotic_grip|5|5|50|}}|};
+{iqhan_chb_1b|monsters_rltiles1:19|Иканский зверь хаоса|iqhan_chb_1|1x1|140|10|10|10|150|10|3|0|15|45|9|iqhan_beast||1||||||{{chaotic_grip|5|5|50|}}|};
+{iqhan_greeter|monsters_men:8|Ранцент|iqhan_greeter|1x1||10|5|5|||||||||iqhan_greeter||||||||};
+{iqhan_boss|monsters_rltiles1:5|Иканский поработитель хаоса|iqhan_boss|1x1|120|10|5|3|170|30|2|2|13|75|2|iqhan_boss|iqhan_boss|1||||||{{chaotic_grip|7|5|50|}{chaotic_curse|3|5|50|}}|};
+	</string>
+
+	<string name="monsterlist_v0611_monsters1">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{cbeetle_1|monsters_rltiles2:63|Молодой жук-падальщик|scaradon_1|1x1|45|10|5|5|65|||0|5|30|9|scaradon|||||||||};
+{cbeetle_2|monsters_rltiles2:63|Жук-падальщик|scaradon_1|1x1|51|10|5|5|75|||0|5|30|9|scaradon|||||||||};
+{scaradon_1|monsters_rltiles1:98|Молодой скарадон|scaradon_1|1x1|32|10|5|3|50|||0|4|30|15|scaradon|||||||||};
+{scaradon_2|monsters_rltiles1:98|Малый скарадон|scaradon_2|1x1|35|10|5|3|50|||1|4|30|15|scaradon|||||||||};
+{scaradon_3|monsters_rltiles1:97|Скарадон|scaradon_2|1x1|35|10|5|3|50|||0|4|30|17|scaradon|||||||||};
+{scaradon_4|monsters_rltiles1:97|Крутой скарадон|scaradon_2|1x1|37|10|5|3|50|||1|4|30|17|scaradon|||||||||};
+{scaradon_5|monsters_rltiles1:97|Панцирный скарадон|scaradon_3|1x1|38|10|5|3|50|||1|5|30|18|scaradon_b|||||||||};
+
+{mwolf_1|monsters_dogs:3|Щенок горного волка|mwolf_1|1x1|45|10|5|5|80|10|2|2|7|40|3|mwolf|||||||||};
+{mwolf_2|monsters_dogs:3|Молодой горный волк|mwolf_1|1x1|52|10|5|5|80|10|2|3|7|44|3|mwolf|||||||||};
+{mwolf_3|monsters_dogs:2|Молодая горная лиса|mwolf_1|1x1|56|10|5|5|80|10|2|3|7|48|4|mwolf|||||||||};
+{mwolf_4|monsters_dogs:2|Горная лиса|mwolf_2|1x1|60|10|5|5|85|10|2|3|8|52|4|mwolf|||||||||};
+{mwolf_5|monsters_dogs:2|Свирепая горная лиса|mwolf_2|1x1|64|10|5|3|85|10|2|3|8|54|5|mwolf|||||||||};
+{mwolf_6|monsters_dogs:4|Бешеный горный волк|mwolf_2|1x1|67|10|5|3|90|10|2|3|9|56|5|mwolf|||||||||};
+{mwolf_7|monsters_dogs:4|Сильный горный волк|mwolf_3|1x1|73|10|5|3|90|10|2|3|9|57|6|mwolf|||||||||};
+{mwolf_8|monsters_dogs:4|Свирепый горный волк|mwolf_3|1x1|78|10|5|3|90|10|2|3|10|59|6|mwolf_b|||||||||};
+
+{mbrute_1|monsters_rltiles2:35|Молодой горный зверь|mbrute_1|1x1|148|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_2|monsters_rltiles2:35|Слабый горный зверь|mbrute_1|1x1|157|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_3|monsters_rltiles2:36|Белошерстный горный зверь|mbrute_1|1x1|166|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_4|monsters_rltiles2:35|Горный зверь|mbrute_2|1x1|175|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_5|monsters_rltiles2:36|Большой горный зверь|mbrute_2|1x1|184|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_6|monsters_rltiles2:34|Быстрый горный зверь|mbrute_2|1x1|82|12|5|3|80|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_7|monsters_rltiles2:34|Резвый горный зверь|mbrute_3|1x1|93|12|5|3|80|20|2.5|0|15|60|4|mbrute|||||||||};
+{mbrute_8|monsters_rltiles2:34|Агрессивный горный зверь|mbrute_3|1x1|104|12|5|3|80|20|2.5|1|15|60|4|mbrute|||||||||};
+{mbrute_9|monsters_rltiles2:33|Сильные горный зверь|mbrute_3|1x1|115|10|5|3|80|20|2.5|1|15|60|4|mbrute|||||||||};
+{mbrute_10|monsters_rltiles2:33|Крутой горный зверь|mbrute_4|1x1|126|10|5|3|80|30|3|2|15|60|4|mbrute|||||||||};
+{mbrute_11|monsters_rltiles2:33|Бесстрашный горный зверь|mbrute_4|1x1|137|10|5|3|80|30|3|2|15|60|4|mbrute_b|||||||||};
+{mbrute_12|monsters_rltiles2:33|Разъяренный горный зверь|mbrute_4|1x1|148|10|5|3|80|40|3|2|16|60|4|mbrute_b|||||||||};
+
+{erumen_1|monsters_rltiles2:114|Молодая эрумская ящерица|erumen_1|1x1|45|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_2|monsters_rltiles2:114|Пятнистая эрумская ящерица|erumen_1|1x1|45|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_3|monsters_rltiles2:114|Эрумская ящерица|erumen_2|1x1|45|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_4|monsters_rltiles2:115|Сильная эрумская ящерица|erumen_2|1x1|79|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_5|monsters_rltiles2:115|Мерзкая эрумская ящерица|erumen_3|1x1|89|10|5|3|150|||2|9|80|4|erumen|||||||||};
+{erumen_6|monsters_rltiles2:117|Крутая эрумская ящерица|erumen_3|1x1|91|10|5|3|125|||2|9|90|8|erumen|||||||||};
+{erumen_7|monsters_rltiles2:117|Закаленная эрумская ящерица|erumen_4|1x1|93|10|5|3|125|||2|9|90|12|erumen_b||||||||{{bleeding_wound|3|3|50|}}|};
+
+{plaguesp_1|monsters_rltiles2:61|Слабый червемор|plaguespider_1|1x1|55|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|1|5|70|}{blister|1|5|20|}}|};
+{plaguesp_2|monsters_rltiles2:61|Червемор|plaguespider_1|1x1|57|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|1|5|70|}{blister|1|5|20|}}|};
+{plaguesp_3|monsters_rltiles2:61|Крутой червемор|plaguespider_1|1x1|59|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|2|5|70|}{blister|1|5|20|}}|};
+{plaguesp_4|monsters_rltiles2:61|Черный червемор|plaguespider_2|1x1|61|10|5|3|80|60|3|1|6|150||plaguespider||1||||||{{contagion|2|5|70|}{blister|1|5|20|}}|};
+{plaguesp_5|monsters_rltiles2:151|Чумоход|plaguespider_2|1x1|62|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|2|5|70|}{blister|2|5|20|}}|};
+{plaguesp_6|monsters_rltiles2:151|Панцирный чумоход|plaguespider_2|1x1|63|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|2|5|70|}{blister|2|5|20|}}|};
+{plaguesp_7|monsters_rltiles2:151|Крутой чумоход|plaguespider_3|1x1|64|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|20|}}|};
+{plaguesp_8|monsters_rltiles2:153|Шерстистый чумоход|plaguespider_3|1x1|65|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|50|}}|};
+{plaguesp_9|monsters_rltiles2:153|Крутой шерстистый чумоход|plaguespider_3|1x1|66|10|5|3|80|70|3|2|7|160||plaguespider||1||||||{{contagion|3|5|70|}{blister|3|5|50|}}|};
+{plaguesp_10|monsters_rltiles2:151|Мерзкий чумоход|plaguespider_4|1x1|67|10|5|3|85|70|3|2|7|160||plaguespider||1||||||{{contagion|3|5|70|}{blister|3|5|50|}}|};
+{plaguesp_11|monsters_rltiles2:153|Гнездовой чумоход|plaguespider_4|1x1|68|10|5|3|85|70|3|2|7|165||plaguespider||1||||||{{contagion|3|5|70|}{blister|3|5|50|}}|};
+{plaguesp_12|monsters_rltiles2:38|Смотритель за чумоходами|plaguespider_5|1x1|65|10|5|3|85|80|3|2|7|165||plaguespider||1||||||{{contagion|4|5|70|}{blister|3|5|50|}}|};
+{plaguesp_13|monsters_rltiles2:38|Хозяин чумоходов|plaguespider_6|1x1|65|10|5|3|85|80|3|2|8|175|2|plaguespider_b||1||||||{{contagion|4|5|70|}{blister|3|5|50|}}|};
+
+{allaceph_1|monsters_rltiles2:101|Молодой аллацеф|allaceph_1|1x1|90|10|5|3|80|40|2|3|7|105|1|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
+{allaceph_2|monsters_rltiles2:101|Аллацеф|allaceph_1|1x1|94|10|5|3|80|40|2|3|7|105|1|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
+{allaceph_3|monsters_rltiles2:102|Сильный аллацеф|allaceph_2|1x1|101|10|5|3|80|40|2|3|7|105|2|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
+{allaceph_4|monsters_rltiles2:102|Крутой аллацеф|allaceph_2|1x1|111|10|5|3|80|40|2|3|7|110|2|allaceph||1|4|4||||{{feebleness_minor|3|3|20|}}|};
+{allaceph_5|monsters_rltiles2:103|Сияющий аллацеф|allaceph_3|1x1|124|10|5|3|80|40|2|3|7|110|3|allaceph_b||1|6|6||||{{feebleness_minor|3|3|20|}}|};
+{allaceph_6|monsters_rltiles2:103|Древний аллацеф|allaceph_3|1x1|133|10|5|3|80|40|2|3|7|115|3|allaceph_b||1|7|7||||{{feebleness_minor|3|3|20|}}|};
+{vaeregh_1|monsters_rltiles1:42|Вайрег|allaceph_4|1x1|149|10|5|3|80|40|2|2|7|120|4|allaceph||1|10|10||||{{feebleness_minor|4|3|20|}}|};
+
+{irdegh_sp_1|monsters_rltiles2:26|Ирдегское отродье|irdegh_spawn|1x1|57|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_irdegh|2|3|10|}}|};
+{irdegh_sp_2|monsters_rltiles2:26|Ирдегское отродье|irdegh_spawn|1x1|68|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_irdegh|2|3|10|}}|};
+{irdegh_1|monsters_rltiles2:15|Ирдег|irdegh_1|1x1|115|10|5|3|120|||3|7|60|10|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_2|monsters_rltiles2:15|Ядовитый ирдег|irdegh_2|1x1|120|10|5|3|120|||3|7|60|11|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_3|monsters_rltiles2:14|Прокалывающий ирдег|irdegh_3|1x1|125|10|5|3|120|10|2|3|7|60|11|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_4|monsters_rltiles2:14|Древний прокалывающий ирдег|irdegh_4|1x1|130|10|5|3|120|30|2|3|7|60|14|irdegh_b||1||||||{{poison_irdegh|3|4|70|}}|};
+
+{maonit_1|monsters_rltiles1:104|Маонитский тролль|maonit_1|1x1|255|5|5|5|65|10|3|1|20|20|4|maonit|||||||||};
+{maonit_2|monsters_rltiles1:104|Гигантский маонитский тролль|maonit_1|1x1|270|5|5|5|65|10|3|1|20|20|4|maonit|||||||||};
+{maonit_3|monsters_rltiles1:104|Сильный маонитский тролль|maonit_2|1x1|285|5|5|5|65|20|3|1|20|20|5|maonit|||||||||};
+{maonit_4|monsters_rltiles1:107|Маонитский зверь|maonit_2|1x1|290|5|5|5|65|20|3|1|20|20|5|maonit|||||||||};
+{maonit_5|monsters_rltiles1:107|Крутой маонитский зверь|maonit_3|1x1|310|5|5|5|65|30|3|1|20|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
+{maonit_6|monsters_rltiles1:107|Сильный маонитский зверь|maonit_3|1x1|320|5|5|5|65|30|3|1|20|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
+{arulir_1|monsters_rltiles1:13|Арулир|arulir_1|1x1|325|5|5|5|70|30|3|1|20|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
+{arulir_2|monsters_rltiles1:13|Гигантский арулир|arulir_1|1x1|330|5|5|5|70|30|3|1|20|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
+
+{burrower_1|monsters_rltiles2:164|Личинка пещерного бурителя|burrower_1|1x1|30|10|5|5|95|||1|25|80|2|burrower|||||||||};
+{burrower_2|monsters_rltiles2:164|Пещерный буритель|burrower_1|1x1|37|10|5|5|95|||1|25|80|2|burrower|||||||||};
+{burrower_3|monsters_rltiles2:165|Сильная личинка бурителя|burrower_2|1x1|44|10|5|5|95|||1|25|80|2|burrower|||||||||};
+{burrower_4|monsters_rltiles2:165|Гигантская личинка бурителя|burrower_3|1x1|75|10|5|5|95|||1|25|80|2|burrower|||||||||};
+	</string>
+
+	<string name="monsterlist_v0611_npcs1">
+[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+
+{ulirfendor|monsters_rltiles1:84|Улирфендор|ulirfendor|1x1||10|5|5||||||||ulirfendor|ulirfendor||||||||};
+{gylew|monsters_mage2:0|Гилев|gylew|1x1||10|5|5|||||||||gylew||||||||};
+{gylew_henchman|monsters_men:8|Приспешник Гилева|gylew_henchman|1x1||10|5|5|||||||||gylew_henchman||||||||};
+{toszylae|monsters_liches:1|Тозилай|toszylae|1x1||10|5|5||||||||toszylae|toszylae||||||||};
+{toszylae_guard|monsters_rltiles1:20|Сиящий охранник|toszylae_guard|1x1||10|5|5||||||||toszylae_guard|toszylae_guard||||||||};
+{thorin|monsters_rltiles1:66|Торин|thorin|1x1||10|5|5||||||||shop_thorin|thorin||||||||};
+
+{lonelyhouse_sp|monsters_rats:1|Подвальная крыса|lonelyhouse_sp|1x1|79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};
+{galoduil|monsters_men:4|Галодуил|galoduil|1x1||10|5|5||||||||shop_galoduil|galoduil||||||||};
+{algangror|monsters_rltiles1:68|Алгангрор|algangror|1x1||10|5|5|||||||||algangror||||||||};
+{remgard_bridge|monsters_men2:4|Смотритель моста|remgard_bridge|1x1||10|5|5|||||||||remgard_bridge||||||||};
+	</string>
+
+</resources>

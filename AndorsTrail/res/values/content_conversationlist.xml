@@ -256,8 +256,8 @@
 	<string name="conversationlist_fallhaven_tavern">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {bela|Welcome to Fallhaven Tavern. Have a seat anywhere.|||{{Let me see what drink you have available|S||||}{Are there any rooms available?|bela_room_select||||}}|};
-{bela_room_1|A room will cost you only 10 gold.|||{{Buy [10 gold]|bela_room_2||||}{No thanks.|bela||||}}|};
-{bela_room_2|Thanks. Take the last room down at the end of the hall.|fallhaventavern:10|gold-10|{{Thank you. There was something else I wanted to talk about.|bela||||}{Thanks, bye.|X||||}}|};
+{bela_room_1|A room will cost you only 10 gold.|||{{Buy [10 gold]|bela_room_2||gold|10|}{No thanks.|bela||||}}|};
+{bela_room_2|Thanks. Take the last room down at the end of the hall.|fallhaventavern:10||{{Thank you. There was something else I wanted to talk about.|bela||||}{Thanks, bye.|X||||}}|};
 {bela_room_3|I hope the room suits your needs. It\'s the last room down at the end of the hall.|||{{Thank you. There was something else I wanted to talk about.|bela||||}{Thanks, bye.|X||||}}|};
 {bela_room_select||||{{|bela_room_3|fallhaventavern:10|||}{|bela_room_1||||}}|};
 {ganos|You seem familiar somehow.|||{{Do you have anything to trade?|S||||}{Do you know anything about the thieves guild?|ganos_1|andor:30|||}}|};

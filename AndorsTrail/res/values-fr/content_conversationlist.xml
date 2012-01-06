@@ -256,8 +256,8 @@
 	<string name="conversationlist_fallhaven_tavern">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {bela|Bienvenue à la taverne de Fallhaven. Prenez place où vous voulez.|||{{Montrez-moi ce que vous avez à boire|S||||}{Avez-vous des chambres libres ?|bela_room_select||||}}|};
-{bela_room_1|Une chambre ne vous coûtera que 10 ors.|||{{Acheter [10 ors]|bela_room_2||||}{Non merci.|bela||||}}|};
-{bela_room_2|Merci. Prenez la dernière chambre au fond.|fallhaventavern:10|gold-10|{{Merci. J\'avais autre chose à vous dire.|bela||||}{Merci. Au revoir.|X||||}}|};
+{bela_room_1|Une chambre ne vous coûtera que 10 ors.|||{{Acheter [10 ors]|bela_room_2||gold|10|}{Non merci.|bela||||}}|};
+{bela_room_2|Merci. Prenez la dernière chambre au fond.|fallhaventavern:10||{{Merci. J\'avais autre chose à vous dire.|bela||||}{Merci. Au revoir.|X||||}}|};
 {bela_room_3|J\'espère que la chambre vous convient. C\'est la dernière au fond.|||{{Merci. J\'avais autre chose à vous dire.|bela||||}{Merci. Au revoir.|X||||}}|};
 {bela_room_select||||{{|bela_room_3|fallhaventavern:10|||}{|bela_room_1||||}}|};
 {ganos|Vous me rappelez quelqu\'un.|||{{Avez-vous quelque chose à marchander ?|S||||}{Auriez-vous des informations concernant la guilde des voleurs ?|ganos_1|andor:30|||}}|};

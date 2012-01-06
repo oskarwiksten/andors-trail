@@ -256,8 +256,8 @@
 	<string name="conversationlist_fallhaven_tavern">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {bela|Добро пожаловать в таверну Фоллхейвена. Присаживайтесь за любой столик.|||{{Торговать|S||||}{Комната|bela_room_select||||}}|};
-{bela_room_1|Комната стоит 10 золотых в сутки.|||{{Я беру|bela_room_2||||}{Назад|bela||||}}|};
-{bela_room_2|Спасибо. Ваша комната последняя по коридору.|fallhaventavern:10|gold-10|{{Назад|bela||||}{Пока|X||||}}|};
+{bela_room_1|Комната стоит 10 золотых в сутки.|||{{Я беру|bela_room_2||gold|10|}{Назад|bela||||}}|};
+{bela_room_2|Спасибо. Ваша комната последняя по коридору.|fallhaventavern:10||{{Назад|bela||||}{Пока|X||||}}|};
 {bela_room_3|Я надеюсь комната вас устроит. Это последняя комната по коридору.|||{{Назад|bela||||}{Пока|X||||}}|};
 {bela_room_select||||{{|bela_room_3|fallhaventavern:10|||}{|bela_room_1||||}}|};
 {ganos|YТы мне кого-то напоминаешь.|||{{Торговать|S||||}{Гильдия Воров|ganos_1|andor:30|||}}|};

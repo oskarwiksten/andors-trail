@@ -256,8 +256,8 @@
 	<string name="conversationlist_fallhaven_tavern">
 [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
 {bela|Benvenuto nella taverna di Fallhaven. Ho un mucchio di posti liberi.|||{{Compra|S||||}{Stanza|bela_room_select||||}}|};
-{bela_room_1|Una stanza per l\' notte vi costerà 10 monete.|||{{Compra [10 gold]|bela_room_2||||}{Indietro|bela||||}}|};
-{bela_room_2|Grazie. Prendete l\'ultima stanza già¹ in fondo al corridoio.|fallhaventavern:10|gold-10|{{Indietro|bela||||}{Ciao|X||||}}|};
+{bela_room_1|Una stanza per l\' notte vi costerà 10 monete.|||{{Compra [10 gold]|bela_room_2||gold|10|}{Indietro|bela||||}}|};
+{bela_room_2|Grazie. Prendete l\'ultima stanza già¹ in fondo al corridoio.|fallhaventavern:10||{{Indietro|bela||||}{Ciao|X||||}}|};
 {bela_room_3|Mi auguro che la stanza sa di tuo gradimento. E\'l\'ultima sala già¹ in fondo al corridoio.|||{{Indietro|bela||||}{Ciao|X||||}}|};
 {bela_room_select||||{{|bela_room_3|fallhaventavern:10|||}{|bela_room_1||||}}|};
 {ganos|Tu mi sei familiare.|||{{Compra|S||||}{Gilda dei ladri|ganos_1|andor:30|||}}|};
