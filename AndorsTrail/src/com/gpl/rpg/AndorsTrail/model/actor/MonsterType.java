@@ -6,13 +6,23 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType extends ActorTraits {
+	public static final int MONSTERCLASS_HUMANOID = 0;
+	public static final int MONSTERCLASS_INSECT = 1;
+	public static final int MONSTERCLASS_DEMON = 2;
+	public static final int MONSTERCLASS_CONSTRUCT = 3;
+	public static final int MONSTERCLASS_ANIMAL = 4;
+	public static final int MONSTERCLASS_GIANT = 5;
+	public static final int MONSTERCLASS_UNDEAD = 6;
+	public static final int MONSTERCLASS_REPTILE = 7;
+	
 	public final String id;
 	public final String spawnGroup;
 	public final int exp;
 	public final DropList dropList;
 	public final String phraseID;
-	public boolean isRespawnable = true;
+	public final boolean isRespawnable;
 	public final String faction;
+	public final int monsterClass;
 
 	public MonsterType(
 			String id, 
@@ -28,7 +38,9 @@ public final class MonsterType extends ActorTraits {
 			int exp, 
 			DropList dropList, 
 			String phraseID,
-			String faction) {
+			boolean isRespawnable,
+			String faction,
+			int monsterClass) {
 		super(iconID, tileSize, baseCombatTraits, moveCost, onHitEffects == null ? null : new ItemTraits_OnUse[] { onHitEffects });
 		this.id = id;
 		this.spawnGroup = spawnGroup;
@@ -40,5 +52,7 @@ public final class MonsterType extends ActorTraits {
 		this.dropList = dropList;
 		this.phraseID = phraseID;
 		this.faction = faction;
+		this.isRespawnable = isRespawnable;
+		this.monsterClass = monsterClass;
 	}
 }

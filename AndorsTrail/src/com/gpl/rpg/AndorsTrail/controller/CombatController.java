@@ -233,6 +233,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		killedMonster.createLoot(loot, player);
 		
 		model.currentMap.remove(killedMonster);
+		VisualEffectController.addSplatter(model.currentMap, killedMonster);
 		
 		player.ap.add(player.getSkillLevel(SkillCollection.SKILL_CLEAVE) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP, false);
 		player.health.add(player.getSkillLevel(SkillCollection.SKILL_EATER) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);

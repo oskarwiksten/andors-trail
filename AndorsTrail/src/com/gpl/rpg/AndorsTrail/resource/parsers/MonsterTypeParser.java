@@ -33,6 +33,9 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 		final CombatTraits combatTraits = ResourceParserUtils.parseCombatTraits(parts, 8);
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 18, true);
 		final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, maxHP, maxAP);
+		int monsterClass = MonsterType.MONSTERCLASS_HUMANOID;
+		if (parts[1].contains("insect")) monsterClass = MonsterType.MONSTERCLASS_INSECT; //TODO: Should be read from resource file.
+		
 		return new Pair<String, MonsterType>(monsterTypeId, new MonsterType(
 			monsterTypeId
 			, parts[2]										// Name
@@ -47,7 +50,9 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 			, exp 											// Exp
 			, droplists.getDropList(parts[16]) 				// Droplist
 			, ResourceParserUtils.parseNullableString(parts[17]) // PhraseID
+			, true											// isRespawnable
 			, null 											// Faction
+			, monsterClass				// Class
 		));
 	}
 	

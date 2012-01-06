@@ -41,6 +41,17 @@ public final class TileManager {
 	public static final int iconID_selection_purple = 8;
 	public static final int iconID_selection_green = 9;
 
+	public static final int iconID_splatter_red_1a = 10;
+	public static final int iconID_splatter_red_1b = 11;
+	public static final int iconID_splatter_red_2a = 12;
+	public static final int iconID_splatter_red_2b = 13;
+	public static final int iconID_splatter_brown_1a = 14;
+	public static final int iconID_splatter_brown_1b = 15;
+	public static final int iconID_splatter_brown_2a = 16;
+	public static final int iconID_splatter_brown_2b = 17;
+	public static final int iconID_splatter_white_1a = 18;
+	public static final int iconID_splatter_white_1b = 19;
+	
     private float density;
 	public int tileSize;
 
@@ -49,7 +60,7 @@ public final class TileManager {
 
     
     public final TileCache tileCache = new TileCache();
-	public final TileCollection preloadedTiles = new TileCollection(74);
+	public final TileCollection preloadedTiles = new TileCollection(84);
 	public TileCollection currentMapTiles;
 	public TileCollection adjacentMapTiles;
 	private final HashSet<Integer> preloadedTileIDs = new HashSet<Integer>();

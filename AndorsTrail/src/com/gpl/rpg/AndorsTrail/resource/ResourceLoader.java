@@ -49,15 +49,19 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load various ui icons
-        /*tiles.iconID_CHAR_HERO = */loader.prepareTileID(R.drawable.char_hero, 0);
-        /*tiles.iconID_selection_red = */loader.prepareTileID(R.drawable.ui_selections, 0);
-        /*tiles.iconID_selection_yellow = */loader.prepareTileID(R.drawable.ui_selections, 1);
-        /*tiles.iconID_groundbag = */loader.prepareTileID(R.drawable.ui_icon_equipment, 0);
-    	/*tiles.iconID_boxopened = */loader.prepareTileID(R.drawable.ui_quickslots, 1);
-        /*tiles.iconID_boxclosed = */loader.prepareTileID(R.drawable.ui_quickslots, 0);
-        /*tiles.iconID_selection_blue = */loader.prepareTileID(R.drawable.ui_selections, 2);
-        /*tiles.iconID_selection_purple = */loader.prepareTileID(R.drawable.ui_selections, 3);
-        /*tiles.iconID_selection_green = */loader.prepareTileID(R.drawable.ui_selections, 4);
+        /*TileManager.iconID_CHAR_HERO = */loader.prepareTileID(R.drawable.char_hero, 0);
+        /*TileManager.iconID_selection_red = */loader.prepareTileID(R.drawable.ui_selections, 0);
+        /*TileManager.iconID_selection_yellow = */loader.prepareTileID(R.drawable.ui_selections, 1);
+        /*TileManager.iconID_groundbag = */loader.prepareTileID(R.drawable.ui_icon_equipment, 0);
+    	/*TileManager.iconID_boxopened = */loader.prepareTileID(R.drawable.ui_quickslots, 1);
+        /*TileManager.iconID_boxclosed = */loader.prepareTileID(R.drawable.ui_quickslots, 0);
+        /*TileManager.iconID_selection_blue = */loader.prepareTileID(R.drawable.ui_selections, 2);
+        /*TileManager.iconID_selection_purple = */loader.prepareTileID(R.drawable.ui_selections, 3);
+        /*TileManager.iconID_selection_green = */loader.prepareTileID(R.drawable.ui_selections, 4);
+        for(int i = 0; i < 5; ++i) {
+        	loader.prepareTileID(R.drawable.ui_splatters1, i);
+            loader.prepareTileID(R.drawable.ui_splatters1, i+8);
+        }
         
         
         // ========================================================================
@@ -181,6 +185,7 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.ui_selections, "ui_selections", new Size(5, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.ui_quickslots, "ui_quickslots", new Size(2, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.ui_icon_equipment, "ui_icon_equipment", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.ui_splatters1, "ui_splatters1", new Size(8, 2), defaultTileSize);
         
         loader.prepareTileset(R.drawable.actorconditions_1, "actorconditions_1", new Size(14, 8), defaultTileSize);
         loader.prepareTileset(R.drawable.actorconditions_2, "actorconditions_2", new Size(3, 1), defaultTileSize);

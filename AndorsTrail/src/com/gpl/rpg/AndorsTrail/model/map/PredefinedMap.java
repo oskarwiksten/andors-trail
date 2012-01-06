@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
@@ -30,6 +31,7 @@ public final class PredefinedMap {
 	public long lastVisitTime = VISIT_RESET;
 
 	public final boolean[][] isWalkable;
+	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 	
 	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
 		this.xmlResourceId = xmlResourceId;
@@ -206,6 +208,7 @@ public final class PredefinedMap {
 		for(MonsterSpawnArea a : spawnAreas) {
 			a.reset();
 		}
+		splatters.clear();
 		visited = false;
 		lastVisitTime = VISIT_RESET;
 	}
@@ -225,6 +228,7 @@ public final class PredefinedMap {
 		for(MonsterSpawnArea a : spawnAreas) {
 			if (!a.isUnique) a.reset();
 		}
+		splatters.clear();
 		lastVisitTime = VISIT_RESET;
 	}
 

@@ -8,6 +8,10 @@ import android.os.Handler;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection.VisualEffect;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
@@ -98,5 +102,62 @@ public final class VisualEffectController {
 
 	public boolean isRunningVisualEffect() {
 		return effectCount > 0;
+	}
+	
+
+	public static final class BloodSplatter {
+		public static final int TYPE_RED = 0;
+		public static final int TYPE_BROWN = 2;
+		public static final int TYPE_WHITE = 3;
+		public final long removeAfter;
+		public final long reduceIconAfter;
+		public final Coord position;
+		public int iconID;
+		public boolean updated = false;
+		public BloodSplatter(int iconID, Coord position) {
+			this.iconID = iconID;
+			this.position = position;
+			long now = System.currentTimeMillis();
+			removeAfter = now + 20000;
+			reduceIconAfter = now + 10000;
+		}
+	}
+	
+	public static void updateSplatters(PredefinedMap map) {
+		long now = System.currentTimeMillis();
+		for (int i = map.splatters.size() - 1; i >= 0; --i) {
+			BloodSplatter b = map.splatters.get(i);
+			if (b.removeAfter <= now) map.splatters.remove(i);
+			else if (!b.updated && b.reduceIconAfter <= now) {
+				b.updated = true;
+				b.iconID++;
+			}
+		}
+	}
+	
+	public static void addSplatter(PredefinedMap map, Monster m) {
+		int iconID = getSplatterIconFromMonsterClass(m.monsterClass);
+		if (iconID > 0) map.splatters.add(new BloodSplatter(iconID, m.position));
+	}
+	
+	private static int getSplatterIconFromMonsterClass(int monsterClass) {
+		return -1;
+		/*
+		switch (monsterClass) {
+		case MonsterType.MONSTERCLASS_INSECT: 
+		case MonsterType.MONSTERCLASS_UNDEAD: 
+		case MonsterType.MONSTERCLASS_REPTILE: 
+			return TileManager.iconID_splatter_brown_1a + Constants.rnd.nextInt(2) * 2;
+		case MonsterType.MONSTERCLASS_HUMANOID:
+		case MonsterType.MONSTERCLASS_ANIMAL:
+		case MonsterType.MONSTERCLASS_GIANT:
+			return TileManager.iconID_splatter_red_1a + Constants.rnd.nextInt(2) * 2;
+		case MonsterType.MONSTERCLASS_DEMON:
+		case MonsterType.MONSTERCLASS_CONSTRUCT:
+			return TileManager.iconID_splatter_white_1a;
+		default:
+			return -1;
+		}
+		*/
 	}
 }

@@ -142,7 +142,6 @@ public final class TMXMapTranslator {
 						String[] monsterTypeIDs = new String[types.size()];
 						for (int i = 0; i < monsterTypeIDs.length; ++i) {
 							monsterTypeIDs[i] = types.get(i).id;
-							if (isUnique) types.get(i).isRespawnable = false;
 						}
 						MonsterSpawnArea area = new MonsterSpawnArea(
 								position

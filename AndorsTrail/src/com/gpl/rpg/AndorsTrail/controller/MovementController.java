@@ -85,6 +85,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		else playerVisitsMap(world, newMap);
 		
 		refreshMonsterAggressiveness(newMap, model.player);
+		VisualEffectController.updateSplatters(newMap);
 	}
     
 	private static void playerVisitsMapFirstTime(final WorldContext world, PredefinedMap m) {

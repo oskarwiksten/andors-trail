@@ -73,5 +73,6 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 	private void onNewTick() {
 		view.controller.moveAndSpawnMonsters();
 		view.monsterMovementController.attackWithAgressiveMonsters();
+		VisualEffectController.updateSplatters(model.currentMap);
 	}
 }

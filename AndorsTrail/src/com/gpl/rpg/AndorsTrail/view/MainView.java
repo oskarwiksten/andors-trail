@@ -5,6 +5,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
+import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -269,6 +270,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		
     	drawMapLayer(canvas, area, currentTileMap.layers[LayeredTileMap.LAYER_GROUND]);
         tryDrawMapLayer(canvas, area, currentTileMap, LayeredTileMap.LAYER_OBJECTS);
+        
+        for (BloodSplatter splatter : currentMap.splatters) {
+    		drawFromMapPosition(canvas, area, splatter.position, splatter.iconID);
+        }
         
         for (Loot l : currentMap.groundBags) {
         	if (l.isVisible) {
