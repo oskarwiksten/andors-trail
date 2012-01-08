@@ -668,18 +668,21 @@
 				<textarea rows="4" cols="40" id="message"></textarea>
 			</div>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasProgressQuest" />Reaching this phrase progresses quest</div>
+				<div class="label"><input type="checkbox" id="hasRewards" />Reaching this phrase gives rewards</div>
 			</div>
-			<div class="fieldWithLabel" id="hasProgressQuestDisplay">
-				<label for="progressQuest" class="label">Progress to quest stage: (questname:stage)</label>
-				<input type="text" size="30" id="progressQuest" class="field fieldInput" title="For example, 'mikhail:20' would advance the quest mikhail to stage 20."/>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasRewardDroplist" />Reaching this phrase gives items</div>
-			</div>
-			<div class="fieldWithLabel" id="hasRewardDroplistDisplay">
-				<label for="rewardDropListID" class="label">Droplist ID of items to give</label>
-				<input type="text" size="30" id="rewardDropListID" class="field fieldInput"/>
+			<div class="fieldWithLabel" id="hasRewardsDisplay">
+				<label for="rewards" class="label">Rewards</label>
+				<table class="field" id="rewards">
+					<thead><tr>
+						<th id="rewardType">Type</th>
+						<th id="rewardID">ID</th>
+						<th id="value">Value</th>
+					</tr></thead>
+					<tbody>
+						
+					</tbody>
+				</table>
+				<div id="add">Add</div>
 			</div>
 		</fieldset>
 		<fieldset class="fieldSet" id="dialoguePhraseReplies">
@@ -746,6 +749,14 @@
 					<label for="requires_Quantity" class="label">Required item quantity</label>
 					<input type="text" size="5" id="requires_Quantity" class="field fieldInput integer"/>
 				</div>
+				<div class="fieldWithLabel">
+					<label for="requires_Type" class="label">Player should have item in:</label>
+					<select class="field fieldInput" id="requires_Type">
+						<option value="0">Inventory & item will be removed</option>
+						<option value="1">Inventory</option>
+						<option value="2">Worn equipment</option>
+					</select>
+				</div>
 			</div>
 			<div class="fieldWithLabel">
 				<div class="label"><input type="checkbox" id="requiresQuest" />Player must have progressed quest to select this reply</div>
@@ -757,6 +768,27 @@
 			
 		</fieldset>
 		<div class="endSets"> </div>
+	</div>
+	
+	<div id="dialog-phrasereward">
+		<div class="fieldWithLabel">
+			<label for="rewardType" class="label">Type:</label>
+			<select class="field fieldInput" id="rewardType">
+				<option value="0">Quest progress</option>
+				<option value="1">Droplist</option>
+				<option value="2">Skill increase</option>
+				<option value="3">Actor condition</option>
+				<option value="4">Alignment/faction change</option>
+			</select>
+		</div>
+		<div class="fieldWithLabel">
+			<label for="rewardID" class="label">ID:</label>
+			<input type="text" size="30" id="rewardID" class="field fieldInput"/>
+		</div>
+		<div class="fieldWithLabel">
+			<label for="value" class="label">Value:</label>
+			<input type="text" size="5" id="value" class="field fieldInput integer"/>
+		</div>
 	</div>
 		
 		

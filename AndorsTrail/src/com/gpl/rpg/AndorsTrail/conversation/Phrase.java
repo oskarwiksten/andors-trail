@@ -11,7 +11,7 @@ public final class Phrase {
 	
 	public Phrase(String message, Reply[] replies, Reward[] rewards) {
 		this.message = message;
-		if (replies == null) replies = NO_REPLIES;
+		if (replies == null || replies.length == 0) replies = NO_REPLIES;
 		this.replies = replies;
 		this.rewards = rewards;
 	}

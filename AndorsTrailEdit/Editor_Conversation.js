@@ -62,10 +62,7 @@ function buildEditorForPhrase(div, phrase, tree, treeNode) {
 	var dialoguePhrase = $( "#dialoguePhrase", div );
 	var dialoguePhraseReplies = $( "#dialoguePhraseReplies", div );
 	
-	checkboxHidesElement( $( '#hasProgressQuest', dialoguePhrase ), $( '#hasProgressQuestDisplay', dialoguePhrase ), phrase.progressQuest);
-	checkboxHidesElement( $( '#hasRewardDroplist', dialoguePhrase ), $( '#hasRewardDroplistDisplay', dialoguePhrase ), phrase.rewardDropListID);
-	bindFieldToDataStore( $( "#progressQuest", dialoguePhrase ), model.quests);
-	bindFieldToDataStore( $( "#rewardDropListID", dialoguePhrase ), model.droplists);
+	checkboxHidesElement( $( '#hasRewards', dialoguePhrase ), $( '#hasRewardsDisplay', dialoguePhrase ), phrase.rewards);
 	
 	var rebuildChildNodes = function() {
 		updatePhraseReplyTreeNodesBelow(tree, treeNode, phrase);
@@ -121,6 +118,17 @@ function buildEditorForPhrase(div, phrase, tree, treeNode) {
 	});
 
 	$( '#message', dialoguePhrase ).change(function() { treeNode.setTitle( getPhraseNodeText(phrase) ); });
+	
+	var createNewReward = function() { return { rewardType: 0 }; }
+	var setupEditor = function(div) { }
+	if (!phrase.rewards) phrase.rewards = [];
+	applyTableEditor({
+		table: $( '#rewards', dialoguePhrase ),
+		dialog: phraseRewardDialog, 
+		array: phrase.rewards, 
+		templateFunction: createNewReward, 
+		editorSetup: setupEditor
+	});
 	
 	dialoguePhrase.show();
 	dialoguePhraseReplies.show();

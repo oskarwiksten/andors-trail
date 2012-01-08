@@ -13,10 +13,10 @@ import com.gpl.rpg.AndorsTrail.util.Pair;
 public final class ConversationListParser extends ResourceParserFor<Phrase> {
 	
 	public ConversationListParser() { 
-		super(5); 
+		super(4); 
 	}
 
-	private final ResourceFileTokenizer replyResourceTokenizer = new ResourceFileTokenizer(5);
+	private final ResourceFileTokenizer replyResourceTokenizer = new ResourceFileTokenizer(6);
 	private final ResourceObjectParser<Reply> replyParser = new ResourceObjectParser<Reply>() {
 		@Override
 		public Reply parseRow(String[] parts) {
@@ -26,24 +26,33 @@ public final class ConversationListParser extends ResourceParserFor<Phrase> {
 					, QuestProgress.parseQuestProgress(parts[2])		// requiresProgress
 			       	, ResourceParserUtils.parseNullableString(parts[3])	// requiresItemType
 			       	, ResourceParserUtils.parseInt(parts[4], 0)			// requiresItemQuantity
-			       	, Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE		// itemRequirementType
+			       	, ResourceParserUtils.parseInt(parts[5], Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE)	// itemRequirementType
+				);
+		}
+	};
+	
+	private final ResourceFileTokenizer rewardResourceTokenizer = new ResourceFileTokenizer(3);
+	private final ResourceObjectParser<Reward> rewardParser = new ResourceObjectParser<Reward>() {
+		@Override
+		public Reward parseRow(String[] parts) {
+			return new Reward(
+					Integer.parseInt(parts[0]) 					// rewardType
+					, parts[1]									// rewardID
+					, ResourceParserUtils.parseInt(parts[2], 0)	// value
 				);
 		}
 	};
 	
 	@Override
 	public Pair<String, Phrase> parseRow(String[] parts) {
-		// [id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
+		// [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 		
 		final ArrayList<Reply> replies = new ArrayList<Reply>();
-		replyResourceTokenizer.tokenizeArray(parts[4], replies, replyParser);
+		replyResourceTokenizer.tokenizeArray(parts[3], replies, replyParser);
 		final Reply[] _replies = replies.toArray(new Reply[replies.size()]);
 		
 		final ArrayList<Reward> rewards = new ArrayList<Reward>();
-		QuestProgress questProgress = QuestProgress.parseQuestProgress(parts[2]);
-		if (questProgress != null) rewards.add(new Reward(Reward.REWARD_TYPE_QUEST_PROGRESS, questProgress.questID, questProgress.progress));
-		String rewardDroplist = ResourceParserUtils.parseNullableString(parts[3]);
-		if (rewardDroplist != null) rewards.add(new Reward(Reward.REWARD_TYPE_DROPLIST, rewardDroplist, 0));
+		rewardResourceTokenizer.tokenizeArray(parts[2], rewards, rewardParser);
 		Reward[] _rewards = rewards.toArray(new Reward[rewards.size()]);
 		if (_rewards.length == 0) _rewards = null;
 		

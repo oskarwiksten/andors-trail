@@ -26,6 +26,7 @@ var questlogDialog;
 var onHitConditionsDialog;
 var equipConditionsDialog;
 var droplistItemDialog;
+var phraseRewardDialog;
 
 
 function openTabForObject(obj, dataStore) {
@@ -136,7 +137,7 @@ function startEditor() {
 		})
 		,dialogue: new DataStore({
 			objectTypename: 'dialogue'
-			,fieldList: new FieldList("[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];")
+			,fieldList: new FieldList("[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];")
 			,idField: 'id'
 			,nameField: 'id'
 		})
@@ -219,6 +220,15 @@ function startEditor() {
 	droplistItemDialog = $( "#templates #dialog-droplistItem" )
 		.dialog({
 			title: "Droplist item",
+			modal: true,
+			autoOpen: false,
+			width: 350,
+			buttons: defaultButtons
+		});
+	
+	phraseRewardDialog = $( "#templates #dialog-phrasereward" )
+		.dialog({
+			title: "Phrase reward",
 			modal: true,
 			autoOpen: false,
 			width: 350,
