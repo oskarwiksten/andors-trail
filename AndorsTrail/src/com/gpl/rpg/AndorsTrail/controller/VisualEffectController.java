@@ -154,6 +154,7 @@ public final class VisualEffectController {
 			return TileManager.iconID_splatter_red_1a + Constants.rnd.nextInt(2) * 2;
 		case MonsterType.MONSTERCLASS_DEMON:
 		case MonsterType.MONSTERCLASS_CONSTRUCT:
+		case MonsterType.MONSTERCLASS_GHOST:
 			return TileManager.iconID_splatter_white_1a;
 		default:
 			return -1;

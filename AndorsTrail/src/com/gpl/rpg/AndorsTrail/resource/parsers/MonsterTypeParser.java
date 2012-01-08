@@ -19,7 +19,7 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 	private final DynamicTileLoader tileLoader;
 	
 	public MonsterTypeParser(final DropListCollection droplists, final ActorConditionTypeCollection actorConditionTypes, final DynamicTileLoader tileLoader) {
-		super(25);
+		super(28);
 		this.itemTraitsParser = new ItemTraitsParser(actorConditionTypes);
 		this.droplists = droplists;
 		this.tileLoader = tileLoader;
@@ -28,14 +28,11 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 	@Override
 	public Pair<String, MonsterType> parseRow(String[] parts) {
 		final String monsterTypeId = parts[0];
-		final int maxHP = ResourceParserUtils.parseInt(parts[5], 1);
-		final int maxAP = ResourceParserUtils.parseInt(parts[6], 10);
-		final CombatTraits combatTraits = ResourceParserUtils.parseCombatTraits(parts, 8);
-		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 18, true);
+		final int maxHP = ResourceParserUtils.parseInt(parts[8], 1);
+		final int maxAP = ResourceParserUtils.parseInt(parts[9], 10);
+		final CombatTraits combatTraits = ResourceParserUtils.parseCombatTraits(parts, 11);
+		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 21, true);
 		final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, maxHP, maxAP);
-		int monsterClass = MonsterType.MONSTERCLASS_HUMANOID;
-		if (parts[1].contains("insect")) monsterClass = MonsterType.MONSTERCLASS_INSECT; //TODO: Should be read from resource file.
-		
 		return new Pair<String, MonsterType>(monsterTypeId, new MonsterType(
 			monsterTypeId
 			, parts[2]										// Name
@@ -44,15 +41,15 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 			, ResourceParserUtils.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
 			, maxHP 										// HP
 			, maxAP											// AP
-			, ResourceParserUtils.parseInt(parts[7], 10)		// MoveCost
+			, ResourceParserUtils.parseInt(parts[10], 10)	// MoveCost
 			, combatTraits
 	        , hitEffect
 			, exp 											// Exp
-			, droplists.getDropList(parts[16]) 				// Droplist
-			, ResourceParserUtils.parseNullableString(parts[17]) // PhraseID
-			, true											// isRespawnable
-			, null 											// Faction
-			, monsterClass				// Class
+			, droplists.getDropList(parts[19]) 				// Droplist
+			, ResourceParserUtils.parseNullableString(parts[20]) 	// PhraseID
+			, ResourceParserUtils.parseBoolean(parts[6], false)		// isUnique
+			, ResourceParserUtils.parseNullableString(parts[7])		// Faction
+			, Integer.parseInt(parts[5])					// MonsterClass
 		));
 	}
 	

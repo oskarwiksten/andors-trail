@@ -140,6 +140,7 @@ public final class TMXMapTranslator {
 						}
 						
 						String[] monsterTypeIDs = new String[types.size()];
+						isUnique = types.get(0).isUnique;
 						for (int i = 0; i < monsterTypeIDs.length; ++i) {
 							monsterTypeIDs[i] = types.get(i).id;
 						}

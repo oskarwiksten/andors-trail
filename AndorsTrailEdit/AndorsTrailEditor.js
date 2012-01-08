@@ -142,7 +142,7 @@ function startEditor() {
 		})
 		,monsters: new DataStore({
 			objectTypename: 'monster'
-			,fieldList: new FieldList("[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|"
+			,fieldList: new FieldList("[id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|"
 				+ "hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|"
 				+ "];"
 			)
