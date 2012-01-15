@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJy9ljFuwzAMRSUt3QLYp0jRW3vr6G4dnRvEY8eepCDgD7PfJGXZRgYCRsTokdQnpSGnNAT2OGHRvhGvlJSe+bjl0sYHrz/J7UrM17URJngfabV7g+n/RfxxsXnJ8SjPY2v+7NT3CqbHFpsM5lW5RmypdcSUdfn9ava4MD/Tlon1PuC+k1k+UtMvpc+BNGXlinVrv1uuc6FdaIbPdaCYxER3k1qr5WpxOzUDOBePq+OzuFa+FlvPAInDYvNZcI8fqTVrqiv/c+3Ltn/R43L+3zu0dXO04OlGW6u+NHtPH3GtkTNz4QddQqetfe1pNtLXnFddQqdRX++ZWTUuavIb1PkoF3V85O29gDq31NW6C6xZOCz3H7TLPlzXPftGFr032LdWM30+I8XPudTeOt49aGlDuD9v61lBFxPth5jGgOudqd5b60LPY5yN9mHzmFav8N54v8H3mW1/y/h9x3PLmvX6m1mWf41r3cVn+jaymp5fyX0F2+OiJ7X2uTd5BkU+LdxajyO2PTOI4/oDLcY3Yw==
+   eJy9ljFuwzAMRSUt2QLYp0jRW3vr6G4dnRtk7ZaepCCQjzD0JyXZRoYPBBWrJ1KflKec0hToukPRvhGvlJRuebty6eODN+7kDiXm69oIE7zP9NSlQ/r/Iv78EHLcyvPYls/qewTTY4sWwjwq14gttY6Ysi5/P5o9P5hfac3E+hhwP4xYjNT0W/lzMp5iuWKd7XfOdS68C8/Ye53MmUTiu0Wt1XJl3KG89ofOxePq8zEuy5ex9QyQczC2vQvb41tqbT01lNdcx7LuX9RJ7v+nwVtnxwueb7R6/aXZLX1ka42cLRdx8CV82tvXnmcjf2lfwqdRX7fMrBoXNbkHdd7KRR2vef0uoM49dWVvAZuFeP/gXVZnXdeWfSOxuQXZ2FrN9P3M5vw2l9q3jvcOsnML9/f0vCv4YjH74UxzwPXuVO+tfaF9j7tBzF9u+9YsTq/YveELxN4yj2ey33d2brFZr39bFouvcdlbvKdvI9X8/E7uO9geFz2pvW97k80gL6aHG80WfTZv3c4PrX+BeTcZ
   </data>
  </layer>
  <layer name="Objects" width="30" height="30">
@@ -63,12 +63,12 @@
    eJztVksSgjAMLaCwduEBXHgEj+DJvIYHEm6Al0DcuVI62jF2kjQtEVn4NmVayEtePtSYeeJexL1fL3X4Ynh3pTHtCF7L5fi6YT0sZN/tS/pMYsNydpH6hrBmfErhDNmTAubzmunYDPFhsV4EsW+JmPvs0/ceiaMj9HV70trCQPkeq6eN71g9n93KgetFTk/srHj1aSPoV44X097hFjaNoh60aCp6BuT5+5mKW1JfPtqB88zkAcZKaaI9RyBgH2nNAwn8ul553ClaQ9SM5pxtmINUHzY5vs/VvM2B018737H/eS3AHJ9Az43NbSq+2Udzga9tOwEnvGNh8Oetm8UanDE5Dc1iKe8v6miKe9Uf0+AB9llKag==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30">
+ <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJztk0sKwEAIQ73C3P+y3ZahxsTPlEIF6Sb61EmXma0/X0/bvozeBD2qV/pk655q990z7Kg20jDsCa53D8RgdlGZHp+9kTcr8jfacYJ7ZzO1UU9GE0XVixnmFJf1lvr+LBexkYbtp7I7/MpwGW+e4LKhcjsi4y3Uh+FFXI/Nzl35T6L9JvMUp3Kbr3Pv0XHzPbI6dQ5F3x3d71G97cm8AP3KKzw=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents" width="30" height="30" visible="0">
   <object name="east" type="mapchange" x="928" y="800" width="32" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave1a"/>

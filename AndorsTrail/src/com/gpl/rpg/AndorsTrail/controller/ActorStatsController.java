@@ -26,25 +26,61 @@ public class ActorStatsController {
     	this.view = context;
     	//this.world = context;
     }
-	
-	public static void removeOrAddConditionsFromEquippedItems(Player player) {
-		for(int i = player.conditions.size() - 1; i >= 0; --i) {
-			if (!player.conditions.get(i).isTemporaryEffect()) {
-				player.conditions.remove(i);
+
+	public static void addConditionsFromEquippedItem(Player player, ItemType itemType) {
+		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
+		if (equipEffects == null) return;
+		if (equipEffects.addedConditions == null) return;
+		for (ActorConditionEffect e : equipEffects.addedConditions) {
+			applyActorCondition(player, e, ActorCondition.DURATION_FOREVER);
+		}
+	}
+	public static void removeConditionsFromUnequippedItem(Player player, ItemType itemType) {
+		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
+		if (equipEffects == null) return;
+		if (equipEffects.addedConditions == null) return;
+		for (ActorConditionEffect e : equipEffects.addedConditions) {
+			if (e.isRemovalEffect()) continue;
+			if (e.magnitude <= 0) continue;
+			if (e.conditionType.isStacking) {
+				removeStackableActorCondition(player, e.conditionType, e.magnitude, ActorCondition.DURATION_FOREVER);
+			} else {
+				removeNonStackableActorCondition(player, e.conditionType, e.magnitude, ActorCondition.DURATION_FOREVER);
 			}
 		}
-		
+	}
+
+	private static void removeStackableActorCondition(Actor actor, ActorConditionType type, int magnitude, int duration) {
+		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
+			ActorCondition c = actor.conditions.get(i);
+			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
+			if (c.duration != duration) continue;
+			
+			actor.conditions.remove(i);
+			magnitude = c.magnitude - magnitude;
+			if (magnitude > 0) {
+				actor.conditions.add(new ActorCondition(type, magnitude, duration));
+			}
+			break;
+		}
+	}
+
+	private static void removeNonStackableActorCondition(Player player, ActorConditionType type, int magnitude, int duration) {
 		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
-			ItemType type = player.inventory.wear[i];
-			if (type == null) continue;
+			ItemType t = player.inventory.wear[i];
+			if (t == null) continue;
 		
-			ItemTraits_OnEquip equipEffects = type.effects_equip;
-			if (equipEffects != null && equipEffects.addedConditions != null) {
-				for (ActorConditionEffect e : equipEffects.addedConditions) {
-					applyActorCondition(player, e, ActorCondition.DURATION_FOREVER);
-				}
+			ItemTraits_OnEquip equipEffects = t.effects_equip;
+			if (equipEffects == null) continue;
+			if (equipEffects.addedConditions == null) continue;
+			for (ActorConditionEffect e : equipEffects.addedConditions) {
+				if (!e.conditionType.conditionTypeID.equals(type.conditionTypeID)) continue;
+				if (e.duration != duration) continue;
+				// The player is wearing some other item that gives this condition. It will not be removed now.
+				return;
 			}
 		}
+		removeStackableActorCondition(player, type, magnitude, duration);
 	}
 	
 	public static void applyActorCondition(Actor actor, ActorConditionEffect e) { applyActorCondition(actor, e, e.duration); }

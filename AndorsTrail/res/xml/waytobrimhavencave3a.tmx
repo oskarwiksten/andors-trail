@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="20" height="22">
   <data encoding="base64" compression="zlib">
-   eJzVVNsNwjAMdCK1G6SLs0N/GIEBmIBuAHMQC51ijJ2kaX/4sCxdeuf6uQai1bE5Ek3Rf68Zc7fsH6H4JWPJwDXHisncV/bPUPydPqZxzUkqD44Dbo+BJ7EUv+Ps1dJ6XhyLx7nM8bfemoOcPRzGuSyx/m8yZwvfKnNTq7cXj/t2JXtuvHrrmdHvN7LnpqdXXk1G5uhf9I5otu7DWTot7RG+p9l7C3HbLlQMGHZX7o28hfAyFm6b1AOG3dUzrb28V/hW6h3p8Sj3jF637A25VypH
+   eJy1VEkOwjAMdCLRH5SP84dcOKcXzoUX0B/AO6hFRnHNtLQsB8vqKDOu1xREUrGzsyaK7OIrnhwnEVPuMPprqH4/Yi3Be8fRmFarK9z76G+h+os8zeO947RxqqlxwF1j0LOYato4a7WyyWlNHMbTXJpY6zaXk75jeugpuJrLPk7rzf6hLW8YPpS6s7lZqjdielz7dhQ+N3P1tvVgOZyEz81S39/VZOsc/UuP1XCrsT3+pRYsb9DNCzpM12tng8/x/H3ztw69YrfQ38Qu1Nt2kGrAsLt2b+wthMe96sxts3rAsLt+pr239wpvrd438/cJl80A6+UaYzx8PwDdRjFz
   </data>
  </layer>
  <layer name="Objects" width="20" height="22">
@@ -63,12 +63,12 @@
    eJxjYKAd+M+MXcyYjTQ9MHEQLmNH1f8eh3pkPbjk8OklRQ8+ewiZBwPIfiLHbejmESOOD3zA46dvjKSbh81PX4kwB90NsHAixk8fcMQVCMyBpiMQDQLEhDc2O2H61rCj0sQAcuIFHyAnXkYBcQBbWsIFYPFKqGwi1TxkgF6GUmoeulvxuR3d7sGc7gCTbzAX
   </data>
  </layer>
- <layer name="Walkable" width="20" height="22">
+ <layer name="Walkable" width="20" height="22" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzBmAGJxgXINYdSd1HDHGx+I0cvqXLk+IkU8xhw0LjMI2QuNkCsebjUEvIzpYDYcCZkBj6zSHUnJekS3b2UpnlK881wNg9buBNKv4TUEwtoGQ7oGAA+kBVS
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="22">
+ <objectgroup name="Mapevents" width="20" height="22" visible="0">
   <object name="south" type="mapchange" x="96" y="608" width="96" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave3b"/>
@@ -76,7 +76,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="22">
+ <objectgroup name="Spawn" width="20" height="22" visible="0">
   <object name="toszylae" type="spawn" x="320" y="96" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>

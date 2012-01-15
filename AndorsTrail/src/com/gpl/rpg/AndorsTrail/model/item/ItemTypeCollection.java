@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
-import java.util.Collection;
 import java.util.HashMap;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -31,8 +30,8 @@ public final class ItemTypeCollection {
 	}
 
 	// Unit test method. Not part of the game logic.
-	public Collection<ItemType> UNITTEST_getAllItemTypes() {
-		return itemTypes.values();
+	public HashMap<String, ItemType> UNITTEST_getAllItemTypes() {
+		return itemTypes;
 	}
 }
   

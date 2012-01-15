@@ -50,7 +50,7 @@
  </tileset>
  <layer name="Ground" width="14" height="7">
   <data encoding="base64" compression="zlib">
-   eJxbxsjAsIxMzMrEwMAGxNeA7KuM+GmQWpg+USBbDIifAdlPGfHTokj6jjOQhonVNxkJ49JHatiQqgcAhGVDLQ==
+   eJxbxsjAsAyKjxGBYWq3ATErEwMDGxBfA7KvMuKnQWph+kSBbDEgfgZkP2XET4PUHoXqO85AGiZW32QkDNO3DE3fViS/b8WBkcMG2RxiMADDt0WC
   </data>
  </layer>
  <layer name="Objects" width="14" height="7">
@@ -63,12 +63,12 @@
    eJxjYKAc/GcmTf0HZvL0wdS/x6JvDjtuPiF7PuCQ/8ZIvNuINRMXAAClLgoR
   </data>
  </layer>
- <layer name="Walkable" width="14" height="7">
+ <layer name="Walkable" width="14" height="7" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEByCmBDApx5ZDJccuhpy3EeKegBXSAVi
   </data>
  </layer>
- <objectgroup name="Mapevents" width="14" height="7">
+ <objectgroup name="Mapevents" width="14" height="7" visible="0">
   <object name="south" type="mapchange" x="64" y="192" width="32" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave3"/>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="14" height="7">
+ <objectgroup name="Spawn" width="14" height="7" visible="0">
   <object name="allaceph_4" type="spawn" x="224" y="96" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
