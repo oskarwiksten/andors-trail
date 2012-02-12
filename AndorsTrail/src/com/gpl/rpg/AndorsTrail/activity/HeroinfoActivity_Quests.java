@@ -38,6 +38,7 @@ public final class HeroinfoActivity_Quests extends Activity {
         super.onCreate(savedInstanceState);
         
         final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        if (!app.isInitialized()) { finish(); return; }
         AndorsTrailApplication.setWindowParameters(this, app.preferences);
         this.questCollection = app.world.quests;
         this.player = app.world.model.player;

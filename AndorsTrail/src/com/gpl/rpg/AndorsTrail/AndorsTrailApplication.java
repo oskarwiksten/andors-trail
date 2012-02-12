@@ -37,6 +37,8 @@ public final class AndorsTrailApplication extends Application {
 		return (Activity) context;
 	}
 	
+	public boolean isInitialized() { return world.model != null; }
+	
 	public static void setWindowParameters(Activity activity, final AndorsTrailPreferences preferences) {
 		activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		if (preferences.fullscreen) {

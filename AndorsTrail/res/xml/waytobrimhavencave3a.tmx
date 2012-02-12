@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="20" height="22">
   <data encoding="base64" compression="zlib">
-   eJy9VDsOwjAMTYuaHKCiYkftBThC78YIF+AIrLAww8J56Ap5AquOsSNAok+K2iT++8XOTYOlfz9rqu/tLJhOVzrXxtV73T4wN3xAFzrr8NTXUMfzTUh1gLbUZbdh9In9rXBuKNIvxyrKHKLOMaQ2O2Ff6llAHudo66LkVBs5AlpsTTnmA/D/+yzdA1Rnn6k3B2rPcx6Yf5yTPYsjuKeeIxYtv5rdA6e4dmHkDYA6YZ+rjwT5vca1Z76p5lpcufis+9xdpdRF64vcSz2K1eIY+qL5opjQB/7G4O8Tvg6GDOfPp7y3bP+qPwWofpzfWp0B601JeTmXrNmnzcr+Nb9gg96qlOM85L7AOyt2jbvUF+pT7//Xqwf8SCzp
+   eJy9VLsNwjAQdYxiDxAR0aNkASQWyG6UsAAj0EJDDQ3zkBb8BKeczZ0VkMiTrMT2/e/5jJkGS/d5Vpff21kwndYa04TVOdk+MFd8QBc6G//Sl1CF862PdYDGyrI7P/jE/l4Y0xfxl2MVZI5B5+Rjm21iP9XTgDwuwdZVyKlScgSk2Go75APw/8cs3gNUZ5epNwdqz3PumX+ckz2NI7inniMWKb+K3QPnsPbhf20H36gTYsvVJwX5vYV1YL6p5lJcufi0+9xdKdRF6ku6T/UoVo1j6Ivki2JCH/gbg78xfO0VGc6fsbzXbP+qPwWofpzfUp0B7U2l8ulc0mafNCu79/yCDXqrqRznIfcF3mmxS9ylvlCfOve/Xj0BOxcs+Q==
   </data>
  </layer>
  <layer name="Above" width="20" height="22">
@@ -65,18 +65,19 @@
  </layer>
  <layer name="Walkable" width="20" height="22" visible="0">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzBmAGJxgXINYdSd1HDHGx+I0cvqXLk+IkU8xhw0LjMI2QuNkCsebjUEvIzpYDYcCZkBj6zSHUnJekS3b2UpnlK881wNg9buBNKv4TUEwtoGQ7oGAA+kBVS
+   eJzlk8sNACAIQ7sC+y/r1RD+1XiwCeEgvhREASAfB7bsacphfZ3gWL1N7nbPJj11eHCyx8u4lqo8rzbrmVV1zhkjYnV9Mnup/bI7z/4blhfN5TVPq7K/WX1VN99JxwK1cRTs
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="22" visible="0">
-  <object name="south" type="mapchange" x="96" y="608" width="96" height="32">
+ <objectgroup name="Mapevents" width="20" height="22">
+  <object name="south" type="mapchange" x="96" y="544" width="96" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave3b"/>
     <property name="place" value="north"/>
    </properties>
   </object>
+  <object name="sign_toszylae" type="sign" x="320" y="96" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="22" visible="0">
+ <objectgroup name="Spawn" width="20" height="22">
   <object name="toszylae" type="spawn" x="320" y="96" width="32" height="32">
    <properties>
     <property name="respawn" value="false"/>

@@ -22,6 +22,7 @@ public final class MonsterEncounterActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        if (!app.isInitialized()) { finish(); return; }
         this.world = app.world;
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);

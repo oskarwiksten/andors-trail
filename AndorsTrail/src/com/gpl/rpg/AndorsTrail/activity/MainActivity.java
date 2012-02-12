@@ -75,6 +75,7 @@ public final class MainActivity extends Activity {
         L.log("onCreate");
     	
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        if (!app.isInitialized()) { finish(); return; }
         this.world = app.world;
         this.view = new ViewContext(app, this);
     	app.currentView = new WeakReference<ViewContext>(this.view);

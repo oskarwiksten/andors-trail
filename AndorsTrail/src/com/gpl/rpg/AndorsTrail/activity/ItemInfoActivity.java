@@ -33,6 +33,7 @@ public final class ItemInfoActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        if (!app.isInitialized()) { finish(); return; }
         this.world = app.world;
         
         AndorsTrailApplication.setWindowParameters(this, app.preferences);

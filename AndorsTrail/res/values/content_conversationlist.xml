@@ -2991,9 +2991,18 @@
 
 	<string name="conversationlist_talion">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{talion|Shadow be with you.||{
-	{Do you know anything about the illness?|talion_1|loneford:11||||}
+{talion|||{
+	{|talion_0|maggots:51||||}
+	{|talion_cured_1|maggots:50||||}
+	{|talion_cure_5|maggots:45||||}
+	{|talion_infect_30|maggots:30||||}
+	{|talion_infect_1|maggots:10||||}
+	{|talion_0|||||}
+	}|};
+{talion_0|Shadow be with you.||{
+	{Do you know anything about the illness here in Loneford?|talion_1|loneford:11||||}
 	{Do you have anything to trade?|S|||||}
+	{What blessings can you provide?|talion_bless_1|maggots:51||||}
 	}|};
 {talion_1|The people of Loneford are very keen on following the will of Feygard, whatever it may be.||{{N|talion_2|||||}}|};
 {talion_2|Normally, this would not be a problem. But Lord Geomyr seems to have something against the Shadow. He will do almost anything to oppose all actions that in some way extend the reach of the Shadow.||{{N|talion_3|||||}}|};
@@ -3360,4 +3369,491 @@
 {remgardb_helped_n_3|No no, we did not discuss any reward. But there might be one for you if you are willing to help us further.||{{N|remgardb_helped_1|||||}}|};
 	</string>
 
+	<string name="conversationlist_ulirfendor">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{ulirfendor|||{
+	{|ulirfendor_dp_bless_6|darkprotector:40||||}
+	{|ulirfendor_dp_bless_6|darkprotector:41||||}
+	{|ulirfendor_helmet_keep3|darkprotector:51||||}
+	{|ulirfendor_helmet_keep2|darkprotector:50||||}
+	{|ulirfendor_dp_proc_16|darkprotector:35||||}
+	{|ulirfendor_dp_proc_3|darkprotector:31||||}
+	{|ulirfendor_dp_proc_1|darkprotector:30||||}
+	{|ulirfendor_dp_return1|darkprotector:15||||}
+	{|ulirfendor_cured_1|maggots:50||||}
+	{|ulirfendor_infected_8|toszylae:60||||}
+	{|ulirfendor_infected_1|toszylae:50||||}
+	{|ulirfendor_findparts_10|toszylae:32||||}
+	{|ulirfendor_findparts_6|toszylae:30||||}
+	{|ulirfendor_findparts_1|toszylae:15||||}
+	{|ulirfendor_4|toszylae:10||||}
+	{|ulirfendor_1|||||}
+	}|};
+{ulirfendor_1|No! Stay away! You shall not defeat me!||{{N|ulirfendor_2|||||}}|};
+{ulirfendor_2|Oh wait, you are not one of them. You.. you are not one of those spawns.||{
+	{Relax, I am not here to hurt you.|ulirfendor_4|||||}
+	{What\'s going on here?|ulirfendor_4|||||}
+	{Who are you?|ulirfendor_4|||||}
+	}|};
+{ulirfendor_4|Oh, how long have I been down here? I can\'t remember.||{{N|ulirfendor_5|||||}}|};
+{ulirfendor_5|No matter. I must finish my work here. You see this shrine here?||{{N|ulirfendor_5_1|||||}}|};
+{ulirfendor_5_1|If my understanding is correct, this shrine is a remnant of Kazaul.||{{N|ulirfendor_6|||||}}|};
+{ulirfendor_6|The writings on it have almost vanished, but I have managed to read parts of it. It speaks in an ancient Kazaul tongue, so all parts are not clear to me.||{{N|ulirfendor_7|||||}}|};
+{ulirfendor_7|I am sure that this shrine is part of the cause for these .. these .. things .. that lurk in this cave. I will do anything in my power to defeat whatever mischief that comes from it.||{
+	{What are these creatures?|ulirfendor_8|||||}
+	{How come these creatures do not attack you?|ulirfendor_10|||||}
+	{What have you translated so far?|ulirfendor_12|||||}
+	}|};
+{ulirfendor_8|Ah, the Allaceph. I had not seen one for many years until I entered this cave. They are a remnant of the guardians of Kazaul.||{{N|ulirfendor_9|||||}}|};
+{ulirfendor_9|Have you noticed how they seem to feed upon whoever tries to fight them? Cursed things, almost got a hold of me, they did.||{
+	{How come these creatures do not attack you?|ulirfendor_10|||||}
+	{What have you translated from the shrine so far?|ulirfendor_12|||||}
+	}|};
+{ulirfendor_10|I have placed a blessing of the Shadow upon this small island here, so that I may work uninterrupted. Strangely enough, it seems to be very effective on them. They seem to be undead wards of Ah, the Allaceph. I had not seen one for many years until I entered this cave. They are a remnant of the guardians of Kazaul.||{{N|ulirfendor_11|||||}}|};
+{ulirfendor_11|They seem to be very cautious about it. So far, not even one has dared to approach me. Even those pesky lizards are keeping their distance.||{
+	{What are these creatures?|ulirfendor_8|||||}
+	{What have you translated from the shrine so far?|ulirfendor_12|||||}
+	}|};
+{ulirfendor_12|It speaks of Kazaul and of the misery that comes to anyone that opposes the will of Kazaul.||{{N|ulirfendor_13|||||}}|};
+{ulirfendor_13|Something about \'re-birth from within the followers\'. Not sure I have translated that part correctly, but I think that is what it says. Definitely something about re-birth or birth.||{{N|ulirfendor_14|||||}}|};
+{ulirfendor_14|It also speaks of someone or some .. thing called the \'Dark protector\'. Most parts of the text for that is missing from the shrine however.||{{N|ulirfendor_15|||||}}|};
+{ulirfendor_15|Whatever it means, it seems important. It is also obvious that the \'Dark protector\' brings power to Kazaul, and misery to any opposition.||{{N|ulirfendor_16|||||}}|};
+{ulirfendor_16|Regardless, it must be stopped, whatever it means. Maybe it refers to something deeper down this cave? I have not ventured further into the cave to the east since I could not get past those .. things.|{{0|toszylae|10|}}|{{N|ulirfendor_16_1|||||}}|};
+{ulirfendor_16_1|||{
+	{|ulirfendor_19|toszylae:15||||}
+	{|ulirfendor_17|||||}
+	}|};
+{ulirfendor_17|Forgive me, I must continue translating the few readable parts left on this shrine.||{
+	{Would you like any help with that?|ulirfendor_18|||||}
+	{Well, good luck with that.|ulirfendor_bye|||||}
+	}|};
+{ulirfendor_bye|Thank you. Goodbye.|||};
+{ulirfendor_18|Hm, maybe. I need to figure out what this last part should be. Hmm..||{{N|ulirfendor_19|||||}}|};
+{ulirfendor_19|The last part of this piece has been eroded from the rock. It begins with \'Kulauil hamar urum Kazaul\'te\'. But what is the rest of that?|{{0|toszylae|11|}}|{{N|ulirfendor_19_1|||||}}|};
+{ulirfendor_19_1|||{
+	{|ulirfendor_21|toszylae:15||||}
+	{|ulirfendor_19_2|||||}
+	}|};
+{ulirfendor_19_2|Argh, if this cave wasn\'t so damp, I bet the rest of the text would still be there.|toszylae:15|{
+	{I could go look for other clues about the missing parts if you want?|ulirfendor_20|||||}
+	{Good luck with that, goodbye.|ulirfendor_bye|||||}
+	}|};
+{ulirfendor_20|Sure, you do that.||{{N|ulirfendor_21|||||}}|};
+{ulirfendor_21|I have looked thoroughly for any clues in the west part of this cave, but have not found any. I have not entered the eastern parts of the cave however.||{{N|ulirfendor_22|||||}}|};
+{ulirfendor_22|Also, I should warn you that I believe the shrine talks of a powerful creature somewhere in this cave. Maybe if you find that creature, it will provide some clue as to what the missing parts are? You need to be careful though.|{{0|toszylae|15|}}|{
+	{I will go look in the eastern parts of the cave then.|ulirfendor_bye|||||}
+	}|};
+{ulirfendor_findparts_1|Hello again. Did you find any clues about what the missing parts are?||{
+	{No, I have not found any clues yet.|ulirfendor_findparts_2|||||}
+	{Can you tell me again what you have translated from the shrine?|ulirfendor_5_1|||||}
+	{Yes, I encountered a creature to the east that spoke the words you told me.|ulirfendor_findparts_3|toszylae:20||||}
+	}|};
+{ulirfendor_findparts_2|If you really want to help, then please go look for any other clues you might find.||{{N|ulirfendor_21|||||}}|};
+{ulirfendor_findparts_3|Oh good, tell me, did you find any more clues?||{{Yes, the creature also spoke the words \'Kazaul hamat urul\', maybe that is parts of the missing piece?|ulirfendor_findparts_4|||||}}|};
+{ulirfendor_findparts_4|Hmm.. \'hamat urul\'.. Yes of course! That\'s what it says on the eroded parts of the shrine!||{{N|ulirfendor_findparts_5|||||}}|};
+{ulirfendor_findparts_5|Excellent work my friend! Now I just need to translate it.|{{0|toszylae|30|}}|{{N|ulirfendor_findparts_6|||||}}|};
+{ulirfendor_findparts_6|I wonder what this whole piece means. \'Kulauil hamar urum Kazaul\'te. Kazaul hamat urul\' - that\'s the part you heard the creature speak.||{{N|ulirfendor_findparts_7|||||}}|};
+{ulirfendor_findparts_7|The next part is \'Klatam ur turum Kazaul\'te\', and I am not sure what that means. Something about handing over some item?||{{N|ulirfendor_findparts_8|||||}}|};
+{ulirfendor_findparts_8|Maybe the creature you encountered responds to that phrase if you speak to it? If you want to help, you could go try speak that phrase to it.||{
+	{Sure, I will go speak the words to the creature.|ulirfendor_findparts_9|||||}
+	{Whatever, I\'ll do it. But I hope this is the last time that I have to run back and forth!|ulirfendor_findparts_9|||||}
+	{No way, I have helped you enough now.|ulirfendor_decline|||||}
+	{I had better not get involved in this.|ulirfendor_decline|||||}
+	}|};
+{ulirfendor_decline|No matter, I will find out myself then. Thank you for your help so far. Goodbye.|||};
+{ulirfendor_findparts_9|Good. Please return as soon as possible.|{{0|toszylae|32|}}||};
+{ulirfendor_findparts_10|Hello again. Did you speak those words to the creature you encountered?||{
+	{What was I supposed to do again?|ulirfendor_findparts_6|||||}
+	{Can you repeat the words I was supposed to speak to the guardian?|ulirfendor_findparts_11|||||}
+	{No, not yet. But I am working on it.|ulirfendor_findparts_9|||||}
+	{Yes, it is done.|ulirfendor_findparts_12|toszylae:42||||}
+	}|};
+{ulirfendor_findparts_11|Sure. It\'s \'Klatam ur turum Kazaul\'te\'.|||};
+{ulirfendor_findparts_12|So, did anything happen?||{
+	{The creature started attacking me.|ulirfendor_findparts_13|||||}
+	{No, nothing happened.|ulirfendor_findparts_13|||||}
+	}|};
+{ulirfendor_findparts_13|Well, you should probably investigate that area some more. I am sure there are more clues in there about what this shrine speaks of.|||};
+{ulirfendor_infected_1|(Ulirfendor gives you a terrified look)||{{N|ulirfendor_infected_2|||||}}|};
+{ulirfendor_infected_2|You are back! Please tell me you are well! Please tell me nothing happened to you!||{{N|ulirfendor_infected_3|||||}}|};
+{ulirfendor_infected_3|I managed to translate the piece that we spoke about. Oh, what have I done. Please, tell me you are well!||{
+	{No, I am not well. My stomach is turning and I feel weaker than usual. I encountered a lich down there that did something to me.|ulirfendor_infected_4|||||}
+	}|};
+{ulirfendor_infected_4|Nooo! What have I done?||{{N|ulirfendor_infected_5|||||}}|};
+{ulirfendor_infected_5|You see, while you were away, I managed to translate the words that we spoke about before.||{{N|ulirfendor_infected_6|||||}}|};
+{ulirfendor_infected_6|The part that the creature spoke basically means \'No offering is worthy for Kazaul\'.||{{N|ulirfendor_infected_7|||||}}|};
+{ulirfendor_infected_7|And, the last part, that I made you speak to the creature, \'Klatam ur turum Kazaul\'te\', means \'My body for Kazaul\'.||{{N|ulirfendor_infected_8|||||}}|};
+{ulirfendor_infected_8|Oh, what have I done? I made you say it. And now you are touched by its vile essence.|{{0|toszylae|60|}}|{
+	{It\'s not that bad. I have had worse.|ulirfendor_infected_9|||||}
+	{What can I do to get rid of this affliction?|ulirfendor_infected_9|||||}
+	{You better have a plan for how you should repay me for this trickery!|ulirfendor_infected_9|||||}
+	{I at least defeated the lich that infected me with this thing.|ulirfendor_demon_s|darkprotector:10||||}
+	{I found a strange looking helmet among the remains of the lich that I defeated. Do you know anything about it?|ulirfendor_helmet_s|toszylae:70||||}
+	}|};
+{ulirfendor_infected_9|Let me have a look at you.||{{N|ulirfendor_infected_10|||||}}|};
+{ulirfendor_infected_10|No.. can it be? Are they actually real?||{{What is?|ulirfendor_infected_11|||||}}|};
+{ulirfendor_infected_11|You show all the signs. If this is true, then you are in great danger.||{{N|ulirfendor_infected_12|||||}}|};
+{ulirfendor_infected_12|Long ago, I read a book on Kazaul rituals. The first part of one particular ritual I read about talks about \'the carrier\', that supposedly is infected with Kazaul rotworms.||{{N|ulirfendor_infected_13|||||}}|};
+{ulirfendor_infected_13|The Kazaul rotworms need a living being to feed upon, before their eggs can hatch. Their eggs can slowly kill a person from the inside, and the worms themselves cause the carrier to become weak during the whole process.||{{N|ulirfendor_infected_14|||||}}|};
+{ulirfendor_infected_14|The ritual proceeds with the carrier being eaten alive by the rotworms and their eggs. Also, the process can have .. shall we say .. unusual effect on the carrier.||{{N|ulirfendor_infected_15|||||}}|};
+{ulirfendor_infected_15|Needless to say, you are in great danger, and you should seek help immediately.|{{0|maggots|20|}}|{{N|ulirfendor_infected_16|||||}}|};
+{ulirfendor_infected_16|The ritual proceeds with the carrier being eaten from inside by the rotworms and their eggs, in effect, giving birth to the creatures within. Also, the process can have .. shall we say .. unusual effect on the carrier before that.||{{N|ulirfendor_infected_17|||||}}|};
+{ulirfendor_infected_17|You should hurry and seek help from one of the priests of the Shadow as quick as possible. My dear friend Talion in the temple of Loneford should be able to help you.|{{0|maggots|21|}}|{{N|ulirfendor_infected_18_s|||||}}|};
+{ulirfendor_infected_18_s|||{
+	{|ulirfendor_infected_18|toszylae:70||||}
+	{|ulirfendor_infected_19|||||}
+	}|};
+{ulirfendor_infected_18|Seek him out immediately. Hurry! You might not have much time.||{{Ok, I will go to Talion in the Loneford temple at once. Goodbye.|X|||||}}|};
+{ulirfendor_infected_19|I should also tell you that it is of great importance that you first destroy whatever creature that infected you with this.||{
+	{Ok, I will defeat the lich first. Goodbye.|X|||||}
+	{I defeated the lich in the depths of the eastern cave.|ulirfendor_demon_s|darkprotector:10||||}
+	}|};
+{ulirfendor_demon_s|||{
+	{|ulirfendor_demon_1|toszylae:70||||}
+	{|ulirfendor_demon_d1|||||}
+	}|};
+{ulirfendor_demon_1|Yes, you told me that you killed the lich. Excellent work.||{{N|ulirfendor_demon_2|||||}}|};
+{ulirfendor_demon_2|The people of the surrounding towns will have you to thank.||{
+	{No problem. Goodbye.|X|||||}
+	{I found a strange looking helmet among the remains of that lich. Do you know anything about it?|ulirfendor_helmet_s|toszylae:70||||}
+	}|};
+{ulirfendor_demon_d1|Oh, that is good news indeed. A lich you say? With your help, the people of the surrounding towns should be safe from whatever mischief the lich could have caused now.|{{0|toszylae|70|}}|{{N|ulirfendor_demon_d2|||||}}|};
+{ulirfendor_demon_d2|Thank you so much for your help!||{{N|ulirfendor_demon_2|||||}}|};
+
+{ulirfendor_helmet_s|||{
+	{|ulirfendor_helmet_1|maggots:50||||}
+	{|ulirfendor_helmet_d1|||||}
+	}|};
+{ulirfendor_helmet_d1|That is most interesting, but you seem to have more pressing matters to attend to.||{{N|ulirfendor_infected_17|||||}}|};
+{ulirfendor_cured_1|I am glad to see that you are looking better than before. I assume you got the help you needed from Talion in Loneford?||{{Yes, Talion cured me of that thing.|ulirfendor_cured_2|||||}}|};
+{ulirfendor_cured_2|That\'s good to hear. I hope that .. thing .. didn\'t have any permanent side-effects on you.||{
+	{I defeated the lich in the depths of the eastern cave.|ulirfendor_demon_s|darkprotector:10||||}
+	{I found a strange looking helmet among the remains of that lich. Do you know anything about it?|ulirfendor_helmet_s|toszylae:70||||}
+	}|};
+
+{ulirfendor_helmet_1|Could it be? Hmm. Let me look at that thing.||{{N|ulirfendor_helmet_2|||||}}|};
+{ulirfendor_helmet_2|Those markings on it are most peculiar. And it was found by the lich that you spoke of?||{{N|ulirfendor_helmet_3|||||}}|};
+{ulirfendor_helmet_3|Hmm. You know what, this could actually be connected to what the shrine speaks of - The Dark Protector||{{N|ulirfendor_helmet_4|||||}}|};
+{ulirfendor_helmet_4|I am not certain of what the term \'The Dark Protector\' refers to. At first I thought it might be some creature protecting something, but this helmet seems to fit better in on what the shrine speaks of.||{{N|ulirfendor_helmet_5|||||}}|};
+{ulirfendor_helmet_5|It could either be the helmet itself, or that the helmet has some effect on whoever wears it, meaning that the wearer will become the Dark Protector.||{{N|ulirfendor_helmet_6|||||}}|};
+{ulirfendor_helmet_6|Nevertheless, I am almost certain that this artifact is connected to what this shrine speaks of, and that the artifact is rich with Kazaul influence.||{{N|ulirfendor_helmet_7|||||}}|};
+{ulirfendor_helmet_7|As such, it would most certainly bring misery to the surroundings of whoever carries it. Directly or indirectly, I do not know.||{{N|ulirfendor_helmet_8|||||}}|};
+{ulirfendor_helmet_8|I say, we must destroy that item immediately to make sure that the Kazaul taint is forever cleansed from this place and to make sure it does not fall into the wrong hands.|{{0|darkprotector|15|}}|{
+	{He he, a powerful item you say? How much would you think it is worth?|ulirfendor_helmet_worth|||||}
+	{What should we do in order to destroy it?|ulirfendor_helmet_n2|||||}
+	{Absolutely. I will do anything to protect the people from this thing.|ulirfendor_helmet_n1|||||}
+	{Interesting. How powerful could someone become by wearing this thing?|ulirfendor_helmet_power|||||}
+	}|};
+{ulirfendor_helmet_worth|Worth!? What difference would that make? We need to destroy it immediately!||{
+	{How powerful could someone become by wearing this thing?|ulirfendor_helmet_power|||||}
+	{What should we do in order to destroy it?|ulirfendor_helmet_n2|||||}
+	{No. I will keep this item for myself instead.|ulirfendor_helmet_keep1|||||}
+	}|};
+{ulirfendor_helmet_power|I don\'t even want to think about that. It would surely bring misery to the surroundings of whoever wears it. We must destroy it immediately!||{
+	{He he, sounds powerful. How much would you think it is worth?|ulirfendor_helmet_worth|||||}
+	{What should we do in order to destroy it?|ulirfendor_helmet_n2|||||}
+	{No. I will keep this item for myself instead.|ulirfendor_helmet_keep1|||||}
+	}|};
+{ulirfendor_helmet_n1|I\'m glad to hear that.||{{N|ulirfendor_helmet_n2|||||}}|};
+{ulirfendor_helmet_n2|To destroy it, I think it will suffice to use what we normally use when removing the taint of Kazaul - a vial of purifying spirit.||{{N|ulirfendor_helmet_n3|||||}}|};
+{ulirfendor_helmet_n3|Fortunately, I always carry some on me, so that won\'t be a problem.||{{N|ulirfendor_helmet_n4|||||}}|};
+{ulirfendor_helmet_n4|What could be a problem however, is the other thing we will need. This artifact is most likely connected to that lich you encountered.||{{N|ulirfendor_helmet_n5|||||}}|};
+{ulirfendor_helmet_n5|We would need to use the vial of purifying spirit on something powerful from that lich as well.||{{I managed to get the heart of the lich, would that do?|ulirfendor_helmet_n6|||||}}|};
+{ulirfendor_helmet_n6|The heart? Oh yes, that would surely do.|{{0|darkprotector|26|}}|{{N|ulirfendor_helmet_n7|||||}}|};
+{ulirfendor_helmet_n7|Quickly now, give me the helmet and the heart of the lich, and I will begin the procedure.||{
+	{Here is the helmet.|ulirfendor_dp_proc_1||helm_protector0|1|0|}
+	{I think I should give this a second thought before we begin.|ulirfendor_helmet_n8|||||}
+	{No. I will keep this item for myself instead.|ulirfendor_helmet_keep1|||||}
+	}|};
+{ulirfendor_helmet_n8|Think all you want, but please hurry. We need to destroy this thing as soon as possible!|||};
+{ulirfendor_dp_proc_1|Thank you. And the heart of that lich.|{{0|darkprotector|30|}}|{{Here it is.|ulirfendor_dp_proc_2||toszylae_heart|1|0|}}|};
+{ulirfendor_dp_proc_2|Excellent. I will begin the procedure immediately.|{{0|darkprotector|31|}}|{{N|ulirfendor_dp_proc_3|||||}}|};
+{ulirfendor_dp_proc_3|(Ulirfendor places the helmet and the lich\'s heart on the ground before him, and opens his backpack of items.)||{{N|ulirfendor_dp_proc_4|||||}}|};
+{ulirfendor_dp_proc_4|(He pulls out a leathery potion case from his backpack, and takes out a vial of clear but almost shining liquid.)||{{N|ulirfendor_dp_proc_5|||||}}|};
+{ulirfendor_dp_proc_5|(Ulirfendor pours the contents of the vial on the helmet and the heart in circling motions, taking good care to not spill any on the ground.)||{{N|ulirfendor_dp_proc_6|||||}}|};
+{ulirfendor_dp_proc_6|It should be as simple as that really. Powerful stuff this.||{{N|ulirfendor_dp_proc_7|||||}}|};
+{ulirfendor_dp_proc_7|(The surface of the helmet seems to freeze, almost like it had a layer of ice on it.)||{{N|ulirfendor_dp_proc_8|||||}}|};
+{ulirfendor_dp_proc_8|(After a while, small cracks appear on the surface, making tiny sounds as they appear.)||{{N|ulirfendor_dp_proc_9|||||}}|};
+{ulirfendor_dp_proc_9|(The cracks start to get larger and more dense along the surface, until the helmet is completely covered by them.)||{{N|ulirfendor_dp_proc_10|||||}}|};
+{ulirfendor_dp_proc_10|Now, watch this. I love this part.||{{N|ulirfendor_dp_proc_11|||||}}|};
+{ulirfendor_dp_proc_11|(Ulirfendor takes aim with his foot and stomps the helmet with the heel of his boot in a powerful motion.||{{N|ulirfendor_dp_proc_12|||||}}|};
+{ulirfendor_dp_proc_12|(The helmet completely shatters, leaving nothing but a fine dust.)|{{0|darkprotector|35|}}|{{N|ulirfendor_dp_proc_13|||||}}|};
+{ulirfendor_dp_proc_13|Ha ha! Look at that!||{{N|ulirfendor_dp_proc_14|||||}}|};
+{ulirfendor_dp_proc_14|(He does the same with the heart that also seems to have completely frozen and gotten covered with cracks.)||{{N|ulirfendor_dp_proc_15|||||}}|};
+{ulirfendor_dp_proc_15|Ah, that sure felt good.||{{N|ulirfendor_dp_proc_16|||||}}|};
+{ulirfendor_dp_proc_16|You, my friend, have done a great deed here today. This thing would have brought great misery if it would have fallen into the wrong hands.||{{N|ulirfendor_dp_proc_17|||||}}|};
+{ulirfendor_dp_proc_17|The people of the surrounding towns are now safe from whatever misery that helmet would have brought. All thanks to you!||{{N|ulirfendor_dp_proc_18|||||}}|};
+{ulirfendor_dp_proc_18|As a token of my appreciation, I am willing to grant upon you a blessing of the Shadow.||{
+	{What would the blessing do?|ulirfendor_dp_bless_2|||||}
+	{Thank you, but that will not be necessary. I am just happy to help.|ulirfendor_dp_bless_1|||||}
+	{Thank you, please go ahead.|ulirfendor_dp_bless_3|||||}
+	}|};
+{ulirfendor_dp_bless_1|You truly have a large heart.|{{0|darkprotector|41|}}|{{N|ulirfendor_dp_bless_6|||||}}|};
+{ulirfendor_dp_bless_2|The blessing will grant you the aid of the Shadow while in combat, protecting you from harmful effects that you opponent might inflict upon you.||{
+	{Thank you, but that will not be necessary. I am just happy to help.|ulirfendor_dp_bless_1|||||}
+	{Thank you, please go ahead.|ulirfendor_dp_bless_3|||||}
+	}|};
+{ulirfendor_dp_bless_3|Very well, I will give you the dark blessing of the Shadow.||{{N|ulirfendor_dp_bless_4|||||}}|};
+{ulirfendor_dp_bless_4|(Ulirfendor starts chanting in a tongue that you do not recognize.)||{{N|ulirfendor_dp_bless_5|||||}}|};
+{ulirfendor_dp_bless_5|There. You now have the dark blessing of the Shadow upon you.|{{0|darkprotector|40|}{2|20|1|}}|{{N|ulirfendor_dp_bless_6|||||}}|};
+{ulirfendor_dp_bless_6|Thank you yet again for all you have done here.|||};
+{ulirfendor_helmet_keep1|What!? Keep it!? Have you gone mad? We need to destroy it to protect the people!||{
+	{Who knows that power I could gain from it? I will keep this for myself.|ulirfendor_helmet_keep2|||||}
+	{It could be worth a lot. I will keep this for myself.|ulirfendor_helmet_keep2|||||}
+	{I think I should give this a second thought before we begin.|ulirfendor_helmet_n8|||||}
+	}|};
+{ulirfendor_helmet_keep2|What is this!? I knew there was something wrong about you the first time I saw you.|{{0|darkprotector|50|}}|{{N|ulirfendor_helmet_keep3|||||}}|};
+{ulirfendor_helmet_keep3|By the Shadow, I will stop you. Whatever it takes. You will not live to see the next day!|{{0|darkprotector|51|}}|{{Attack!|F|||||}}|};
+
+{ulirfendor_dp_return1|Hello again. Have you made up your mind about what we talked about before?||{
+	{What was that about destroying the helmet?|ulirfendor_helmet_8|||||}
+	{Can you tell me again what you think about this helmet?|ulirfendor_helmet_2|||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_toszylae_guard">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{toszylae_guard|||{
+	{|toszylae_guard_8|toszylae:45||||}
+	{|toszylae_guard_5|toszylae:42||||}
+	{|toszylae_guard_1|||||}
+	}|};
+{toszylae_guard_1|(The horrifying creature looks down on you with its burning eyes, and speaks in a wheezing voice)||{{N|toszylae_guard_s|||||}}|};
+{toszylae_guard_s|||{
+	{|toszylae_guard_3_1|toszylae:32||||}
+	{|toszylae_guard_2_1|toszylae:15||||}
+	{|toszylae_guard_1_1|||||}
+	}|};
+{toszylae_guard_1_1|Kulauil hamar urum Kazaul\'te. Kazaul hamat urul.||{
+	{What?|toszylae_guard_1_n|||||}
+	{Kazaul something?|toszylae_guard_1_n|||||}
+	}|};
+{toszylae_guard_1_n|(The creature turns away)||{{Attack!|toszylae_guard_1_n2|||||}{Leave the creature|X|||||}}|};
+{toszylae_guard_1_n2|(As you try to make your attack against the guardian, your arms are held back by an enormous force.)|||};
+{toszylae_guard_2_1|Kulauil hamar urum Kazaul\'te. Kazaul hamat urul.|{{0|toszylae|20|}}|{
+	{This must be the phrase that Ulirfendor was looking for.|toszylae_guard_2_n|||||}
+	}|};
+{toszylae_guard_2_n|(The creature turns away)||{{Attack!|toszylae_guard_2_n2|||||}{Leave the creature|X|||||}}|};
+{toszylae_guard_2_n2|(As you try to make your attack against the guardian, your arms are held back by an enormous force.)|{{0|toszylae|21|}}||};
+{toszylae_guard_3_1|Kulauil hamar urum Kazaul\'te. Kazaul hamat urul.||{
+	{Klaatu varmun ur Kazaul\'te|toszylae_guard_2_n|||||}
+	{Klaatu ur Kazaul\'te|toszylae_guard_2_n|||||}
+	{Klatam ur turum Kazaul\'te|toszylae_guard_4|||||}
+	{Klaatu.. verata.. n.. nick.. (hide the rest in a well-timed cough)|toszylae_guard_2_n|||||}
+	}|};
+{toszylae_guard_4|Kulum Kazaul.|{{0|toszylae|42|}}|{{N|toszylae_guard_5|||||}}|};
+{toszylae_guard_5|(Its eyes pulsate in an intense glow as the creature starts moving towards you.)||{{N|toszylae_guard_6|||||}}|};
+{toszylae_guard_6|(The guardian gives off a laughter that makes the hair on the back of your neck stand up.)||{{N|toszylae_guard_7|||||}}|};
+{toszylae_guard_7|Kazaul\'te vaarmun iktel urul.||{{N|toszylae_guard_8|||||}}|};
+{toszylae_guard_8|(It raises its claw-like hands above its head, looking to get ready to strike at you.)|{{0|toszylae|45|}}|{{Attack!|F|||||}}|};
+	</string>
+	
+	<string name="conversationlist_toszylae">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{toszylae|||{
+	{|toszylae_10|toszylae:50||||}
+	{|toszylae_1|||||}
+	}|};
+{toszylae_1|(The lich looks at you with its burning eyes, and glances at the remains of the guardian you defeated.)||{{N|toszylae_2|||||}}|};
+{toszylae_2|Kazaul\'te vaarmun iktel urul. Klatam ku turum Kazaul\'te?||{{N|toszylae_3|||||}}|};
+{toszylae_3|(The lich raises its hands towards the ceiling, chanting something you cannot understand.)||{{N|toszylae_4|||||}}|};
+{toszylae_4|(While chanting, it slowly lowers its hands towards you, until they finally point towards you.)||{{N|toszylae_5|||||}}|};
+{toszylae_5|Klatam ku turum Kazaul\'te.||{{N|toszylae_6|||||}}|};
+{toszylae_6|(As if having swallowed a thousand needles, you suddenly feel a sharp pain in your stomach)|{{3|rotworm|999|}{0|maggots|10|}{0|toszylae|50|}}|{{N|toszylae_7|||||}}|};
+{toszylae_7|(You start to feel nauseous, and your stomach turns and twists - as if it had a life of its own.)||{{N|toszylae_8|||||}}|};
+{toszylae_8|(The pain increases slightly, and you start to realize that something is moving inside of you.)||{{N|toszylae_9|||||}}|};
+{toszylae_9|(The lich must have infected you with something.)||{{What is happening to me!?|toszylae_10|||||}}|};
+{toszylae_10|(The lich seems to enjoy seeing you in pain.)||{{You will pay for what you did to me!|F|||||}}|};
+{sign_toszylae|||{
+	{|sign_toszylae_2|darkprotector:10||||}
+	{|sign_toszylae_1|||||}
+	}|};
+{sign_toszylae_1|(Among the remains of the lich \'Toszylae\' that you defeated, you find a strange looking helmet.)|{{0|darkprotector|10|}{1|sign_toszylae|0|}}||};
+{sign_toszylae_2|(You see the remains of the lich \'Toszylae\' that you defeated.)|||};
+	</string>
+	
+	<string name="conversationlist_sign_ulirfendor">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{sign_brimcave4|||{
+	{|sign_ulirfendor_r|darkprotector:70||||}
+	{|sign_ulirfendor_8|darkprotector:66||||}
+	{|sign_ulirfendor_6|darkprotector:65||||}
+	{|sign_ulirfendor_1|||||}
+	}|};
+{sign_ulirfendor_1|In front of the shrine, you find a book laying in the sand. \'Reflections on Kazaul rituals\'.||{{N|sign_ulirfendor_2|||||}}|};
+{sign_ulirfendor_2|You quickly look through the book, and find several chants and rituals of Kazaul.||{{N|sign_ulirfendor_3|||||}}|};
+{sign_ulirfendor_3|There is one in particular that you spot, that talks of imbuing ancient artifacts with the power of Kazaul.||{{N|sign_ulirfendor_4|||||}}|};
+{sign_ulirfendor_4|The ritual itself would require the heart of a lich, and from the text surrounding the ritual in the book, it could surely restore the helmet to its former glory.|{{0|darkprotector|55|}}|{
+	{Begin the ritual.|sign_ulirfendor_5|||||}
+	{Leave the shrine alone.|X|||||}
+	}|};
+{sign_ulirfendor_5|You place yourself in front of the shrine, kneeling like the drawings in the book show.|{{0|darkprotector|60|}}|{
+	{Place the helmet in front of the shrine|sign_ulirfendor_6||helm_protector0|1|0|}
+	}|};
+{sign_ulirfendor_6|You place the helmet on the ground in front of you, leaning it slightly against the shrine.|{{0|darkprotector|65|}}|{
+	{Place the heart of the lich in front of the shrine|sign_ulirfendor_7||toszylae_heart|1|0|}
+	}|};
+{sign_ulirfendor_7|You place the heart of the lich beside the helmet in front of the shrine.|{{0|darkprotector|66|}}|{{Speak the words of the ritual from the book|sign_ulirfendor_8|||||}}|};
+{sign_ulirfendor_8|You start reciting the words of the Kazaul tongue from the book, taking great care of saying the words exactly as the book states them.||{{N|sign_ulirfendor_9|||||}}|};
+{sign_ulirfendor_9|As you speak the words, you notice a faint glow coming from the shrine, and you get the eerie feeling that the sand on the ground almost moves by itself.||{{N|sign_ulirfendor_10|||||}}|};
+{sign_ulirfendor_10|The movements start to get more visible, almost as if there\'s something crawling under the sand.||{{N|sign_ulirfendor_11|||||}}|};
+{sign_ulirfendor_11|As you get closer to the end of the ritual, the helmet falls over its side, leaving one side down on the ground.||{{N|sign_ulirfendor_12|||||}}|};
+{sign_ulirfendor_12|Once you speak the final words of the ritual, the ground sinks slightly in front of the shrine, taking part of the helmet down under the sand.||{{N|sign_ulirfendor_13|||||}}|};
+{sign_ulirfendor_13|As you pull it out and dust off the sand, you notice a change in texture on the part that was submerged in the sand.||{{Take the helmet|sign_ulirfendor_14|||||}}|};
+{sign_ulirfendor_14|You take the helmet, and examine it more closely.|{{0|darkprotector|70|}{1|sign_ulirfendor|0|}}|{{N|sign_ulirfendor_15|||||}}|};
+{sign_ulirfendor_15|Along the side, you notice some ornaments that were not there before. The helmet also gives a slight tingling feeling in the hands as you hold it.||{{N|sign_ulirfendor_16|||||}}|};
+{sign_ulirfendor_16|Completing the ritual must have restored the helmet to its former glory.|||};
+{sign_ulirfendor_r|You see the shrine of Kazaul, where you performed the Kazaul ritual.|||};
+	</string>
+
+	<string name="conversationlist_talion_2">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{talion_infect_1|Oh my, what has happened to you? You don\'t look too well.||{
+	{I was infected with something by a lich of Kazaul.|talion_infect_5|||||}
+	{A man called Ulirfendor told me he thought I might be infected with Kazaul rotworms.|talion_infect_2|||||}
+	{I was told to find you, and that you might be able to help me.|talion_infect_4|||||}
+	}|};
+{talion_infect_2|Ah, my old friend Ulirfendor. It\'s good to hear that he is still alive. But what was that, Rotworms you say, eh? ||{{N|talion_infect_3|||||}}|};
+{talion_infect_3|Nasty things, they are. I have seen people going mad from the stomach pains, and I have seen people being eaten alive from the inside.||{
+	{Are you able to help me?|talion_infect_4|||||}
+	{It\'s not that bad. I have had worse.|talion_infect_4|||||}
+	}|};
+{talion_infect_4|It\'s good that you came to see me. I might be able to help you.||{{N|talion_demon_1|||||}}|};
+{talion_infect_5|A lich of Kazaul eh? Then I am sure that whatever ails you are those curse rotworms.||{{N|talion_infect_3|||||}}|};
+{talion_demon_1|Just to be sure, you did kill whatever creature that infected you with this, right?||{
+	{Yes, I killed that lich.|talion_demon_2|darkprotector:10||||}
+	{No, I have not killed it yet.|talion_demon_3|||||}
+	}|};
+{talion_demon_2|Good. Then I am able to help you.||{{N|talion_infect_6|||||}}|};
+{talion_demon_3|Then you better go take care of that first!||{{Ok, I will be back once the lich is defeated.|X|||||}}|};
+{talion_infect_6|But there is a slight problem. You see, normally my supply of potions and ingredients would be fully stocked. But with this trouble that we have here in Loneford, my supplies are lower than they have ever been before.||{{N|talion_infect_7|||||}}|};
+{talion_infect_7|I am not even able to go out and gather new supplies, what with the illness and all.||{
+	{Then what can you do?|talion_infect_8|||||}
+	{Is there anything I can do to help?|talion_infect_8|||||}
+	{Bah! Then you are useless to me. Guess you should have prepared better before then.|talion_infect_9|||||}
+	}|};
+{talion_infect_9|Yes, I guess I should have.|||};
+{talion_infect_8|You know what, maybe you can go out and gather some items for me. With your condition, it is important that we hurry as much as we can.||{
+	{What would you like me to do?|talion_infect_11|||||}
+	{Argh! The pains are getting worse! Isn\'t there anything you can do?|talion_infect_10|||||}
+	}|};
+{talion_infect_10|No, unfortunately not. Not with this few supplies I\'m sorry.||{
+	{Fine. What would you like me to do?|talion_infect_11|||||}
+	{Bah! Then you are useless to me. Guess you should have prepared better before then.|talion_infect_9|||||}
+	}|};
+{talion_infect_11|For this particular cure to work, I would need help with gathering four items.||{{N|talion_infect_12|||||}}|};
+{talion_infect_12|Or .. well .. actually, eight items in total but four different types. Eh .. well, you get the idea.||{{N|talion_infect_13|||||}}|};
+{talion_infect_13|Anyway, what you need to bring me is first and foremost some more fresh bones. Five bones will do I think. Make sure they are fresh. Any old skeleton will do, but I\'d rather take some fresh bones of some nasty animal.||{{N|talion_infect_14|||||}}|};
+{talion_infect_14|Secondly, I will need some animal fur to go with that. Two pieces of animal hair will surely do. I\'m sure any old animal fur from the wilderness outside town will do.||{{N|talion_infect_15|||||}}|};
+{talion_infect_15|Third, I will need a gland of poison from a creature called the Irdegh.||{{N|talion_infect_16|||||}}|};
+{talion_infect_16|Now, I have not seen an Irdegh myself, but I hear they are particularly nasty creatures. Venomous like nothing I\'ve heard of.||{
+	{Ok, one Irdegh poison gland. Where can I find one?|talion_infect_17|||||}
+	{Got it. Anything else?|talion_infect_18|||||}
+	}|};
+{talion_infect_17|Some people have talked about seeing some of them far to the east, across the bridges.||{{Anything else?|talion_infect_18|||||}}|};
+{talion_infect_18|Lastly, I would need a clean empty vial to make the potion in. I hear that the potion-maker in Fallhaven has the best vials available.||{{N|talion_infect_19|||||}}|};
+{talion_infect_19|Bring me these things and I will be able to help you with your .. condition.|{{0|maggots|30|}}|{
+	{Very well, I will be back shortly.|X|||||}
+	}|};
+{talion_infect_30|You return. Have you gathered those things that I asked for?||{
+	{What was I supposed to collect again?|talion_infect_11|||||}
+	{I brought five bones for you.|talion_bone_s|||||}
+	{I brought two pieces of animal hair for you.|talion_hair_s|||||}
+	{I brought an Irdegh poison gland for you.|talion_irdegh_s|||||}
+	{I brought an empty vial for you.|talion_vial_s|||||}
+	{Do you know anything about the illness here in Loneford?|talion_1|loneford:11||||}
+	{Do you have anything to trade?|S|||||}
+	}|};
+{talion_infect_31|There are still some more of those items that I need.||{
+	{What was I supposed to collect again?|talion_infect_11|||||}
+	{I brought five bones for you.|talion_bone_s|||||}
+	{I brought two pieces of animal hair for you.|talion_hair_s|||||}
+	{I brought an Irdegh poison gland for you.|talion_irdegh_s|||||}
+	{I brought an empty vial for you.|talion_vial_s|||||}
+	}|};
+{talion_gather_r|No need, you already brought me that before. But thank you anyway.||{{N|talion_gather_s|||||}}|};
+{talion_bone_s|||{{|talion_gather_r|maggots:40||||}{|talion_bone_1|||||}}|};
+{talion_bone_1|Oh, good. Please, give them to me.||{{Here you go.|talion_bone_2||bone|5|0|}{On second thought, I\'ll be right back.|X|||||}}|};
+{talion_bone_2|Thank you.|{{0|maggots|40|}}|{{N|talion_gather_s|||||}}|};
+{talion_hair_s|||{{|talion_gather_r|maggots:41||||}{|talion_hair_1|||||}}|};
+{talion_hair_1|Oh, good. Please, give them to me.||{{Here you go.|talion_hair_2||hair|2|0|}{On second thought, I\'ll be right back.|X|||||}}|};
+{talion_hair_2|Thank you.|{{0|maggots|41|}}|{{N|talion_gather_s|||||}}|};
+{talion_irdegh_s|||{{|talion_gather_r|maggots:42||||}{|talion_irdegh_1|||||}}|};
+{talion_irdegh_1|Oh, good. Please, give it to me.||{{Here you go.|talion_irdegh_2||irdegh|1|0|}{On second thought, I\'ll be right back.|X|||||}}|};
+{talion_irdegh_2|Thank you.|{{0|maggots|42|}}|{{N|talion_gather_s|||||}}|};
+{talion_vial_s|||{{|talion_gather_r|maggots:43||||}{|talion_vial_1|||||}}|};
+{talion_vial_1|Oh, good. Please, give it to me.||{
+	{Here you go, one small empty vial.|talion_vial_2||vial_empty1|1|0|}
+	{Here you go, one empty vial.|talion_vial_2||vial_empty2|1|0|}
+	{On second thought, I\'ll be right back.|X|||||}
+	}|};
+{talion_vial_2|Thank you.|{{0|maggots|43|}}|{{N|talion_gather_s|||||}}|};
+{talion_gather_s|||{{|talion_gather_s2|maggots:40||||}{|talion_infect_31|||||}}|};
+{talion_gather_s2|||{{|talion_gather_s3|maggots:41||||}{|talion_infect_31|||||}}|};
+{talion_gather_s3|||{{|talion_gather_s4|maggots:42||||}{|talion_infect_31|||||}}|};
+{talion_gather_s4|||{{|talion_cure_1|maggots:43||||}{|talion_infect_31|||||}}|};
+{talion_cure_1|That\'s all I need to cure you. Good work.|{{0|maggots|45|}}|{{N|talion_cure_2|||||}}|};
+{talion_cure_2|Now, let\'s get this cure started. I just need to grind this .. and mix those .. and ..||{{N|talion_cure_3|||||}}|};
+{talion_cure_3|Give me a minute.||{{N|talion_cure_4|||||}}|};
+{talion_cure_4|(Talion mixes the ground up ingredients together in the vial you brought, with some leaves and berries that he kept with him.)||{{N|talion_cure_5|||||}}|};
+{talion_cure_5|(He gives the potion a thorough shake for quite a while.)||{{N|talion_cure_6|||||}}|};
+{talion_cure_6|There. Drink this. This should do it.||{{Drink the potion|talion_cure_7|||||}}|};
+{talion_cure_7|(The potion smells rancid, but you manage to drink it all down. The pain from the stomach decreases, and you feel one of the rotworms crawling up into your mouth. You quickly spit the worm out into the now empty vial.)|{{0|maggots|50|}{1|potion_rotworm|0|}{3|rotworm|-99|}}|{{N|talion_cured_1|||||}}|};
+{talion_cured_1|Ah, that seems to have worked. Frankly, I was a little worried that it might not have worked, but seeing you spit out that worm really confirms it. Ha ha.||{
+	{Yuck! Those things were inside of me?|talion_cured_2|||||}
+	{What now?|talion_cure_7|||||}
+	}|};
+{talion_cured_2|Yes. Nasty, aren\'t they? *chuckle*||{{N|talion_cured_3|||||}}|};
+{talion_cured_3|That one worm you spit out, you should make sure you hold on to that. It might be valuable in the future.||{
+	{For what?|talion_cured_4|||||}
+	{Ok, I will hold on to it.|talion_cured_7|||||}
+	{I think I had better put it under my boot.|talion_cured_5|||||}
+	}|};
+{talion_cured_4|Well, you never know. Some people really like .. exotic things.||{{N|talion_cured_7|||||}}|};
+{talion_cured_5|It\'s your choice of course.||{{N|talion_cured_7|||||}}|};
+{talion_cured_7|Now, I know you must have gone through a lot to get infected with these things. You seem like the experienced type.||{{N|talion_cured_8|||||}}|};
+{talion_cured_8|Tell you what, I don\'t normally offer this to anyone, but you seem like you could use the help.||{{N|talion_cured_9|||||}}|};
+{talion_cured_9|Seeing as you managed to pull through all of this, I would be willing to offer you the help of giving you blessings of the Shadow if you want.|{{0|maggots|51|}}|{{Blessings of the Shadow?|talion_cured_10|||||}}|};
+{talion_cured_10|Yes. Well .. for a fee of course.||{
+	{What blessings can you provide?|talion_bless_1|||||}
+	}|};
+{talion_bless_1|I am able to bless you with either the Shadow\'s strength, regeneration, accuracy, or even the blessing of the Shadow guardian.||{
+	{I\'m interested in the blessing of Shadow strength|talion_bless_str_1|||||}
+	{I\'m interested in the blessing of Shadow regeneration|talion_bless_heal_1|||||}
+	{I\'m interested in the blessing of Shadow accuracy|talion_bless_acc_1|||||}
+	{I\'m interested in the Shadow guardian blessing|talion_bless_guard_1|||||}
+	{Never mind.|talion_0|||||}
+	}|};
+{talion_bless_str_1|The blessing of Shadow strength grants you more strength while attacking, thus increasing the amount of damage you do on each hit. I can give you the blessing for 250 gold.||{
+	{Ok, I\'ll take it for 300 gold.|talion_bless_str_2||gold|300|0|}
+	{Never mind, let\'s go back to those other blessings.|talion_bless_1|||||}
+	}|};
+{talion_bless_heal_1|The blessing of Shadow regeneration will slowly heal you back if you get hurt. I can give you the blessing for 250 gold.||{
+	{Ok, I\'ll take it for 250 gold.|talion_bless_heal_2||gold|250|0|}
+	{Never mind, let\'s go back to those other blessings.|talion_bless_1|||||}
+	}|};
+{talion_bless_acc_1|The blessing of Shadow accuracy grants you a keen sense of where best to strike your opponent, thus increasing the chance of a successful hit while fighting. I can give you the blessing for 250 gold.||{
+	{Ok, I\'ll take it for 250 gold.|talion_bless_acc_2||gold|250|0|}
+	{Never mind, let\'s go back to those other blessings.|talion_bless_1|||||}
+	}|};
+{talion_bless_guard_1|Ah yes, the blessing of the Shadow guardian. The Shadow protects you in dark places, and keeps you safe where others might not see. I can give you the blessing for 400 gold.||{
+	{Ok, I\'ll take it for 400 gold.|talion_bless_guard_2||gold|400|0|}
+	{Never mind, let\'s go back to those other blessings.|talion_bless_1|||||}
+	}|};
+{talion_bless_str_2|Very well. *starts chanting*|{{3|shadowbless_str|60|}}|{{N|talion_bless_2|||||}}|};
+{talion_bless_heal_2|Very well. *starts chanting*|{{3|shadowbless_heal|100|}}|{{N|talion_bless_2|||||}}|};
+{talion_bless_acc_2|Very well. *starts chanting*|{{3|shadowbless_acc|60|}}|{{N|talion_bless_2|||||}}|};
+{talion_bless_guard_2|Very well. *starts chanting*|{{3|shadowbless_guard|50|}}|{{N|talion_bless_2|||||}}|};
+{talion_bless_2|There. I hope you will find it useful on your travels.||{
+	{Thank you, goodbye.|X|||||}
+	{How about some of those other blessings?|talion_bless_1|||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_gylew">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{gylew|Beat it, kid. You shouldn\'t be out here.|||};
+{gylew_henchman|Hey, I\'m trying to admire the view here. Get out of my way.|||};
+	</string>
+	
 </resources>

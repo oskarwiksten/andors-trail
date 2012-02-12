@@ -12,6 +12,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
+import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class SkillController {
 	public static void applySkillEffects(Player player) {
@@ -60,9 +61,13 @@ public final class SkillController {
 	}
 	
 	private static int getRollBias(DropItem item, Player player, int skill, int perSkillpointIncrease) {
+		return getRollBias(item.chance, player, skill, perSkillpointIncrease);
+	}
+	
+	private static int getRollBias(ConstRange chance, Player player, int skill, int perSkillpointIncrease) {
 		int skillLevel = player.getSkillLevel(skill);
 		if (skillLevel <= 0) return 0;
-		return item.chance.current * skillLevel * perSkillpointIncrease / 100;
+		return chance.current * skillLevel * perSkillpointIncrease / 100;
 	}
 	
 	
@@ -84,6 +89,13 @@ public final class SkillController {
 	public static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player) {
 		if (effect.chance.isMax()) return 0;
 		
+		int result = 0;
+		result += getActorConditionEffectChanceRollBiasFromResistanceSkills(effect, player);
+		result += getActorConditionEffectChanceRollBias(effect, player, SkillCollection.SKILL_SHADOW_BLESS, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS);
+		return result;
+	}
+	
+	private static int getActorConditionEffectChanceRollBiasFromResistanceSkills(ActorConditionEffect effect, Player player) {
 		int skill;
 		switch (effect.conditionType.conditionCategory) {
 		case ActorConditionType.ACTORCONDITIONTYPE_MENTAL:
@@ -96,10 +108,11 @@ public final class SkillController {
 			return 0;
 		}
 		
-		int skillLevel = player.getSkillLevel(skill);
-		if (skillLevel <= 0) return 0;
-
+		return getActorConditionEffectChanceRollBias(effect, player, skill, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT);
+	}
+	
+	private static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player, int skill, int chanceIncreasePerSkillLevel) {
 		// Note that the bias should be negative, making it less likely that the chance roll will succeed
-		return effect.chance.current * skillLevel * -SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT / 100;
+		return getRollBias(effect.chance, player, skill, -chanceIncreasePerSkillLevel);
 	}
 }

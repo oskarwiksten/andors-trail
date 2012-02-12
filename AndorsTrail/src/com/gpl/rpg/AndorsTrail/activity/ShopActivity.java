@@ -43,6 +43,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         super.onCreate(savedInstanceState);
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        if (!app.isInitialized()) { finish(); return; }
         this.world = app.world;
         this.player = world.model.player;
         

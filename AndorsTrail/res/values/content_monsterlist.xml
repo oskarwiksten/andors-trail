@@ -245,7 +245,7 @@
 {prim_armorer|monsters_rltiles1:88|Prim armorer|prim_armorer||0|1|||||||||||||shop_prim_armorer|prim_armorer||||||||};
 {jueth|monsters_men2:0|Jueth|prim_tailor||0|1||||||||||||||prim_tailor||||||||};
 {bjorgur|monsters_karvis2:7|Bjorgur|bjorgur||0|1||||||||||||||bjorgur_start||||||||};
-{prim_prisoner|monsters_rltiles2:81|Prim prisoner|prim_prisoner||0||||10|5|5|||||||||||||||||};
+{prim_prisoner|monsters_rltiles2:81|Prim prisoner|prim_prisoner||0|1||||||||||||||||||||||};
 {fulus|monsters_karvis2:3|Fulus|fulus||0|1||||||||||||||fulus_start||||||||};
 {guthbered|monsters_rltiles1:92|Guthbered|guthbered||0|1||80|10|5|5|70|||4|9|80|4|guthbered|guthbered_start||||||||};
 {guthbereds_bodyguard|monsters_rltiles1:76|Guthbered\'s bodyguard|guthbered_guard||0|1||||||||||||||guthbered_guard||||||||};
@@ -360,7 +360,7 @@
 {puny_warehouserat|monsters_rats:1|Warehouse rat|puny_warehouserat||4|||5|10|5|5|50|||1|1|30||rat|||||||||};
 {rolwynn|monsters_rltiles1:77|Rolwynn|rolwynn||0|1||||||||||||||rolwynn||||||||};
 {sienn|monsters_rltiles1:66|Sienn|sienn||0|1||||||||||||||sienn||||||||};
-{sienn_pet|monsters_misc:0|Sienn\'s pet|sienn_pet||7|1|||10|5|5|||||||||sienn_pet||||||||};
+{sienn_pet|monsters_misc:0|Sienn\'s pet|sienn_pet||7|1||||||||||||||sienn_pet||||||||};
 {siola|monsters_rltiles1:90|Siola|siola||0|1|||||||||||||shop_siola|siola||||||||};
 {taevinn|monsters_karvis2:5|Taevinn|taevinn||0|1||||||||||||||taevinn||||||||};
 {talion|monsters_men2:8|Talion|talion||0|1|||||||||||||shop_talion|talion||||||||};
@@ -486,12 +486,11 @@
 
 	<string name="monsterlist_v0611_npcs1">
 [id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
-
-{ulirfendor|monsters_rltiles1:84|Ulirfendor|ulirfendor||0|1|||||||||||||ulirfendor|ulirfendor||||||||};
+{ulirfendor|monsters_rltiles1:84|Ulirfendor|ulirfendor||0|1||288|10|5|3|70|30|2|1|16|60|6|ulirfendor|ulirfendor||||||||};
 {gylew|monsters_mage2:0|Gylew|gylew||0|1||||||||||||||gylew||||||||};
 {gylew_henchman|monsters_men:8|Gylew\'s henchman|gylew_henchman||0|1||||||||||||||gylew_henchman||||||||};
-{toszylae|monsters_liches:1|Toszylae|toszylae||6|1|||10|5|5||||||||toszylae|toszylae||||||||};
-{toszylae_guard|monsters_rltiles1:20|Radiant guardian|toszylae_guard||2|1|||10|5|5||||||||toszylae_guard|toszylae_guard||||||||};
+{toszylae|monsters_liches:1|Toszylae|toszylae||6|1||207|8|5|2|80|40|2|2|7|120|4|toszylae|toszylae|1|6|6||||{{feebleness_minor|3|3|20|}}|};
+{toszylae_guard|monsters_rltiles1:20|Radiant guardian|toszylae_guard||2|1||320|10|5|3|80|40|2|2|7|120|4|toszylae_guard|toszylae_guard|1|5|5||||{{feebleness_minor|2|3|20|}}|};
 {thorin|monsters_rltiles1:66|Thorin|thorin||0|1|||||||||||||shop_thorin|thorin||||||||};
 
 {lonelyhouse_sp|monsters_rats:1|Basement rat|lonelyhouse_sp||4|1||79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};

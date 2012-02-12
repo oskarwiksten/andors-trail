@@ -26,7 +26,7 @@
 {cavecritter|{{gold|4|8|70|}{gem1|1|1|25|}{claws|1|1|30|}}|};
 {lich1|{{gold|5|15|70|}{gem2|1|1|25|}{health_minor|1|1|25|}}|};
 {irogotu|{{neck_irogotu|1|1|100|}{ring_gandir|1|1|100|}{health|1|1|100|}}|};
-{canineboss|{{gold|7|10|70|}{hair|1|1|30|}{gem1|1|1|25|}{meat|1|1|30|}{boots1|1|1|25|}}|};
+{canineboss|{{gold|1|1|70|}{hair|1|1|30|}{meat|1|1|30|}{boots1|1|1|5|}}|};
 {snakemaster|{{gold|9|9|70|}{dagger_venom|1|1|100|}{gem3|1|1|100|}{health|1|1|100|}}|};
 	</string>
 
@@ -56,7 +56,7 @@
 {skeleton3|{{gold|20|29|70|}{gem2|1|1|25|}{health|1|1|25|}{bone|1|1|30|}{ring_dmg2|1|1|1|}}|};
 {vacor|{{gold|16|30|100|}{health|1|1|100|}{ring_vacor|1|1|100|}{boots_vacor|1|1|100|}}|};
 {fallhaven_bandit|{{gold|4|41|100|}{vacor_spell|1|1|100|}}|};
-{undead1|{{gold|16|23|70|}{gem2|1|1|25|}{health|1|1|25|}{ironsword1|1|1|25|}}|};
+{undead1|{{gold|5|23|70|}{gem2|1|1|25|}{health|1|1|25|}{ironsword1|1|1|10|}}|};
 
 {flagstone_guard2|{{gold|62|62|100|}{gem4|1|1|100|}{health|3|3|100|}{sword_flagstone|1|1|100|}{ring_jinxed1|1|1|100|}}|};
 {flagstone_guard1|{{gold|20|52|100|}{gem4|1|1|100|}{health|2|2|100|}{ring_block1|1|1|100|}{ironsword1|1|1|100|}}|};
@@ -624,5 +624,30 @@
 {lonelyhouse_sp|{{algangror_rat|1|1|100|}}|};
 </string>
 
+<string name="droplists_v0611_questitems">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
+{sign_toszylae|{{helm_protector0|1|1|100|}}|};
+{toszylae|{
+	{gold|0|20|100|}
+	{toszylae_heart|1|1|100|}
+	{health|5|7|100|}
+	{gem5|2|2|100|}
+	{rock|1|1|100|}
+	}|};
+{toszylae_guard|{
+	{gold|0|20|100|}
+	{health|1|2|100|}
+	{gem4|1|1|100|}
+	{rock|1|1|100|}
+	}|};
+{sign_ulirfendor|{{helm_protector|1|1|100|}}|};
+{potion_rotworm|{{potion_rotworm|1|1|100|}}|};
+{ulirfendor|{
+	{gold|0|50|70|}
+	{club3|1|1|100|}
+	{health_minor|1|2|100|}
+	{vial_empty2|3|5|100|}
+	}|};
+</string>
 
 </resources>

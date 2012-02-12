@@ -114,6 +114,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		case SkillCollection.SKILL_RESISTANCE_MENTAL: return R.string.skill_shortdescription_resistance_mental;
 		case SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY: return R.string.skill_shortdescription_resistance_physical_capacity;
 		case SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER: return R.string.skill_shortdescription_resistance_blood_disorder;
+		case SkillCollection.SKILL_SHADOW_BLESS: return R.string.skill_shortdescription_shadow_bless;
 		default:
 			return -1;
 		}

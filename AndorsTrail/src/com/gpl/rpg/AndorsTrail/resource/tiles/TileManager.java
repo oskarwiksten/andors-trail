@@ -11,6 +11,7 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -60,7 +61,7 @@ public final class TileManager {
 
     
     public final TileCache tileCache = new TileCache();
-	public final TileCollection preloadedTiles = new TileCollection(84);
+	public final TileCollection preloadedTiles = new TileCollection(86);
 	public TileCollection currentMapTiles;
 	public TileCollection adjacentMapTiles;
 	private final HashSet<Integer> preloadedTileIDs = new HashSet<Integer>();
@@ -153,6 +154,11 @@ public final class TileManager {
 
 	public void loadPreloadedTiles(Resources r) {
 		int maxTileID = tileCache.getMaxTileID();
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (maxTileID >= preloadedTiles.bitmaps.length) {
+				L.log("ERROR: TileManager.preloadedTiles needs to be initialized with at least " + maxTileID + " slots. Application will crash now.");
+			}
+		}
         for(int i = TileManager.CHAR_HERO; i <= maxTileID; ++i) {
         	preloadedTileIDs.add(i);
         }

@@ -69,6 +69,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        if (!app.isInitialized()) { finish(); return; }
         this.world = app.world;
         this.player = world.model.player;
         
