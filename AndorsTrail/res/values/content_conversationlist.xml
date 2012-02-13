@@ -255,7 +255,7 @@
 
 	<string name="conversationlist_fallhaven_tavern">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{bela|Welcome to Fallhaven Tavern. Have a seat anywhere.||{{Let me see what drink you have available|S|||||}{Are there any rooms available?|bela_room_select|||||}}|};
+{bela|Welcome to Fallhaven Tavern. Have a seat anywhere.||{{Let me see what food and drinks you have available|S|||||}{Are there any rooms available?|bela_room_select|||||}}|};
 {bela_room_1|A room will cost you only 10 gold.||{{Buy [10 gold]|bela_room_2||gold|10|0|}{No thanks.|bela|||||}}|};
 {bela_room_2|Thanks. Take the last room down at the end of the hall.|{{0|fallhaventavern|10|}}|{{Thank you. There was something else I wanted to talk about.|bela|||||}{Thanks, bye.|X|||||}}|};
 {bela_room_3|I hope the room suits your needs. It\'s the last room down at the end of the hall.||{{Thank you. There was something else I wanted to talk about.|bela|||||}{Thanks, bye.|X|||||}}|};
@@ -836,10 +836,10 @@
 {ff_cook_1|Hello. Do you want something from the kitchen?||{{Sure, let me see what food you have to sell.|ff_cook_3|||||}{That smells horrible. What are you cooking?|ff_cook_2|||||}{That smells wonderful. What are you cooking?|ff_cook_2|||||}}|};
 {ff_cook_2|Oh this? This is supposed to be a stew of Anklebiter. Needs more seasoning I guess.||{{I look forward to trying it when it is done. Good luck cooking.|X|||||}{Yuck, that sounds awful. Can you really eat those things? I\'m grossed out, goodbye.|X|||||}}|};
 {ff_cook_3|No sorry, I don\'t have any food to sell. Go talk to Torilo over there if you want some drink or ready-made food.|||};
-{torilo_1|Welcome to the Foaming Flask tavern. We welcome all travelers in here.||{{Thank you. Are you the patron here?|torilo_2|||||}{Have you seen a boy called Rincel around here recently?|torilo_rincel_1|wrye:41||||}}|};
-{torilo_2|I am Torilo, the proprietor of this establishment. Please have a seat anywhere you like.||{{Can I see what you have available for food and drink?|torilo_shop_1|||||}{Do you have somewhere I can rest?|torilo_rest_select|||||}{ Are those guards always shouting and yelling that much?|torilo_guards_1|||||}}|};
+{torilo_1|Welcome to the Foaming Flask tavern. We welcome all travelers in here.||{{Thank you. Are you the innkeeper here?|torilo_2|||||}{Have you seen a boy called Rincel around here recently?|torilo_rincel_1|wrye:41||||}}|};
+{torilo_2|I am Torilo, the proprietor of this establishment. Please have a seat anywhere you like.||{{Can I see what you have available in food and drink?|torilo_shop_1|||||}{Do you have somewhere I can rest?|torilo_rest_select|||||}{ Are those guards always shouting and yelling that much?|torilo_guards_1|||||}}|};
 {torilo_default|Was there anything else you wanted?||{{Can I see what you have available for food and drink?|torilo_shop_1|||||}{Are those guards always shouting and yelling that much?|torilo_guards_1|||||}{Have you seen a boy called Rincel around here recently?|torilo_rincel_1|wrye:41||||}}|};
-{torilo_shop_1|Absolutely. We have a wide selection of food and beverage.||{{N|S|||||}}|};
+{torilo_shop_1|Absolutely. We have a wide selection of food and beverages.||{{N|S|||||}}|};
 {torilo_rest_select|||{{|torilo_rest_1|nondisplay:10||||}{|torilo_rest_3|||||}}|};
 {torilo_rest_1|Yes, you already rented the back room.||{{N|torilo_rest_2|||||}}|};
 {torilo_rest_2|Please feel free to use it in any way you like. I hope you can get some sleep even with these guards yelling their songs.||{{Thanks.|torilo_default|||||}}|};
@@ -2473,7 +2473,7 @@
 	{Why? What is out here?|rogorn_first_4|||||}
 	{You are right, I better leave|X|||||}
 	}|};
-{rogorn_first_3|I bet you do.||{{N|rogorn_first_6|||||}}|};
+{rogorn_first_3|I bet you can.||{{N|rogorn_first_6|||||}}|};
 {rogorn_first_4|Well, west of here is not much. No towns for quite a while, only the harsh and dangerous wilderness.||{{N|rogorn_first_5|||||}}|};
 {rogorn_first_5|Of course, there is Carn Tower if you travel really far west, but you really do not want to head there.||{{N|rogorn_first_6|||||}}|};
 {rogorn_first_6|So, what brings you to these parts of the land?||{
@@ -2599,7 +2599,7 @@
 {gandoren_14|Bad things? Who have you been talking to then? I would urge you to make up your own opinion of Feygard by travelling there yourself.||{{N|gandoren_15|||||}}|};
 {gandoren_15|Personally, I cannot think of a greater place to be than in Feygard. Order is kept and people are friendly.||{{N|gandoren_16|||||}}|};
 {gandoren_16|As to why you would help us, I can only say that Feygard would be grateful for your services if you help us.||{
-	{Fine, whatever. I will carry your stupid swords and bucklers. I still hope there will be some reward for this.|gandoren_19|||||}
+	{Fine, whatever. I will carry your stupid swords. I still hope there will be some reward for this.|gandoren_19|||||}
 	{Sounds good to me. Anything for the glory of Feygard.|gandoren_17|||||}
 	{I had better not get involved in your Feygard business.|gandoren_rej_1|||||}
 	}|};
@@ -2634,7 +2634,7 @@
 	{|gandoren_tr_4|rogorn:60||||}
 	{|gandoren_tr_6|||||}
 	}|};
-{gandoren_tr_4|Absolutely, as thanks for the help you provided earlier for both me and Minarra, we could accept to trade with you.||{{N|gandoren_tr_5|||||}}|};
+{gandoren_tr_4|Absolutely, as thanks for the help you provided earlier to both Minarra and me, we could agree to trade with you.||{{N|gandoren_tr_5|||||}}|};
 {gandoren_tr_5|Go up in the lookout tower over there and talk to Minarra about equipment. She has our supply.|{{0|nondisplay|18|}}||};
 {gandoren_tr_6|I hear that Minarra up in the lookout tower over there wants help with something. Why don\'t you go up to her and ask her about it, and we might be able to work something out after that.|||};
 	</string>
@@ -3131,7 +3131,7 @@
 	{I have some Izthiel claws to sell you.|gauward_sell_1|nondisplay:20||||}
 	}|};
 {gauward_1|This place used to be a safe house for travellers between Loneford and Brimhaven, before they had finished the road between the villages.||{{N|gauward_2|||||}}|};
-{gauward_2|But nowadays, anyone rarely comes here - because of those cursed creatures from the river.||{{N|gauward_3|||||}}|};
+{gauward_2|But nowadays, hardly anyone comes here - because of those cursed creatures from the river.||{{N|gauward_3|||||}}|};
 {gauward_3|Izthiel, they call them.||{{N|gauward_4|||||}}|};
 {gauward_4|Ack, if it wasn\'t for those things out there, I am sure a lot of people would come by here more often.||{
 	{Would you like me to kill the creatures for you?|gauward_5|||||}
