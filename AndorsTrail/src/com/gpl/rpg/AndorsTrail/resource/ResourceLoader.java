@@ -196,6 +196,9 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.items_consumables, "items_consumables", new Size(14, 5), defaultTileSize);
         loader.prepareTileset(R.drawable.items_books, "items_books", new Size(11, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.items_misc, "items_misc", new Size(14, 4), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc_2, "items_misc_2", new Size(20, 12), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc_3, "items_misc_3", new Size(20, 12), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc_4, "items_misc_4", new Size(20, 4), defaultTileSize);
         loader.prepareTileset(R.drawable.items_necklaces_1, "items_necklaces_1", new Size(10, 3), defaultTileSize);
         loader.prepareTileset(R.drawable.items_weapons_3, "items_weapons_3", new Size(13, 5), defaultTileSize);
         loader.prepareTileset(R.drawable.items_armours_2, "items_armours_2", new Size(7, 1), defaultTileSize);
@@ -222,6 +225,8 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.monsters_rltiles2, "monsters_rltiles2", new Size(20, 9), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_rltiles3, "monsters_rltiles3", new Size(10, 3), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_karvis2, "monsters_karvis2", new Size(9, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_ld1, "monsters_ld1", new Size(20, 12), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_ld2, "monsters_ld2", new Size(20, 12), defaultTileSize);
 
         loader.prepareTileset(R.drawable.map_tiles_1_1, "map_tiles_1_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_1_2, "map_tiles_1_2.png", src_mapTileSize, defaultTileSize);
