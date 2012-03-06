@@ -3169,8 +3169,8 @@
 {thorin_what_1|Oh, not much. Well actually, I am waiting for someone - or rather, some people.||{{N|thorin_story_1|||||}}|};
 {thorin_story_1|You see, me and my fellow gatherers were out investigating the poisonous nature of the Irdegh.||{{N|thorin_story_2|||||}}|};
 {thorin_story_2|Apparently, I was the only one that was careful enough when handling our wares.||{{N|thorin_story_3|||||}}|};
-{thorin_story_3|The others got ill quite quick, and we hid in this cave to rest up. But we had not anticipated these bugs in here.||{{N|thorin_story_4|||||}}|};
-{thorin_story_4|Those \'Scaradon\' things are tough! They did not even seen to take any damage when I hit them.||{{N|thorin_story_5|||||}}|};
+{thorin_story_3|The others got ill quite quick, and we hid in this cave to rest up. However, we had not anticipated these bugs in here.||{{N|thorin_story_4|||||}}|};
+{thorin_story_4|Those \'Scaradon\' things are tough! They did not even seem to take any damage when I hit them.||{{N|thorin_story_5|||||}}|};
 {thorin_story_5|So, that\'s where I am now. The people that sent us to investigate told us to set up camp if we encountered any problems, and they would come help us.||{{N|thorin_story_6|||||}}|};
 {thorin_story_6|So far, you are the first visitor here for quite a while.||{
 	{You don\'t seem all that upset that your friends died.|thorin_story_6_1|||||}
@@ -3726,7 +3726,7 @@
 	}|};
 {talion_demon_2|Good. Then I am able to help you.||{{N|talion_infect_6|||||}}|};
 {talion_demon_3|Then you better go take care of that first!||{{Ok, I will be back once the lich is defeated.|X|||||}}|};
-{talion_infect_6|But there is a slight problem. You see, normally my supply of potions and ingredients would be fully stocked. But with this trouble that we have here in Loneford, my supplies are lower than they have ever been before.||{{N|talion_infect_7|||||}}|};
+{talion_infect_6|But there is a slight problem. You see, normally my supply of potions and ingredients would be fully stocked. However with this trouble that we have here in Loneford, my supplies are lower than they have ever been before.||{{N|talion_infect_7|||||}}|};
 {talion_infect_7|I am not even able to go out and gather new supplies, what with the illness and all.||{
 	{Then what can you do?|talion_infect_8|||||}
 	{Is there anything I can do to help?|talion_infect_8|||||}
@@ -3855,5 +3855,44 @@
 {gylew|Beat it, kid. You shouldn\'t be out here.|||};
 {gylew_henchman|Hey, I\'m trying to admire the view here. Get out of my way.|||};
 	</string>
-	
+
+	<string name="conversationlist_ingus">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{ingus|||{
+	{|ingus_r1|sisterfight:10||||}
+	{|ingus_1|||||}
+	}|};
+{ingus_1|Hello there. I don\'t think I have seen you here in Remgard before.||{{N|ingus_speak1|||||}}|};
+{ingus_r1|Hello again. I hope you enjoy your stay in Remgard.||{{N|ingus_speak1|||||}}|};
+{ingus_speak1|How may I help you?||{
+	{What is there to do around here?|ingus_2|||||}
+	{Is there a shop in town?|ingus_s1|||||}
+	{What is happening around town?|ingus_2|||||}
+	}|};
+{ingus_2|Oh, there\'s not much happening around here. We try to keep the town as peaceful as possible.||{{N|ingus_3|||||}}|};
+{ingus_3|We don\'t get many visitors up here in the mountains.||{{N|ingus_4|||||}}|};
+{ingus_4|However, lately there has been some trouble here in town.||{
+	{What trouble?|ingus_t1|||||}
+	{Never mind that, is there a shop in town?|ingus_s1|||||}
+	}|};
+{ingus_t1|Oh, I don\'t know much about it. The guards say they have seen strange signs outside town, and some people have gone missing.||{{N|ingus_t2|||||}}|};
+{ingus_t2|I try to keep out of it though. Sounds like trouble to me.||{
+	{Anything else?|ingus_t3|||||}
+	{Thank you, goodbye.|X|||||}
+	}|};
+{ingus_t3|Well, there\'s always the Elwille sisters, fighting as always.||{{N|ingus_t2|||||}}|};
+{ingus_t4|Last night, they must have kept the whole town awake, they way they were shouting at each other.||{{What are they fighting about?|ingus_t5|||||}}|};
+{ingus_t5|Oh .. nothing .. everything. I don\'t know. No one really puts much weight in their squabbling.||{{N|ingus_t6|||||}}|};
+{ingus_t6|They live in one of the cabins on the southern shore. *Ingus points to the southwest*.|{{0|sisterfight|10|}}|{
+	{Thank you, I might go visit them. Goodbye.|X|||||}
+	{Thank you. Goodbye.|X|||||}
+	{Thank you. I wanted to ask you, is there a shop in town?|ingus_s1|||||}
+	}|};
+{ingus_s1|Shop? Oh yes, of course. There\'s Rothses\' and Arnal\'s shops right there. *Ingus points to the two nearby houses to the west*||{{N|ingus_t6|||||}}|};
+{ingus_s2|Also, if you have the coin, you can always spend it in the tavern down in town.||{
+	{Thank you. What is happening around town?|ingus_2|||||}
+	{Thank you, goodbye.|X|||||}
+	}|};
+	</string>
+
 </resources>

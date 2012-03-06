@@ -145,7 +145,10 @@ public final class PredefinedMap {
 	public boolean monsterCanMoveTo(final CoordRect p) {
 		if (!isWalkable(p)) return false;
 		if (getMonsterAt(p) != null) return false;
-		if (getEventObjectAt(p.topLeft) != null) return false;
+		MapObject m = getEventObjectAt(p.topLeft);
+		if (m != null) {
+			if (m.type == MapObject.MAPEVENT_NEWMAP) return false;
+		}
     	return true;
 	}
 	
