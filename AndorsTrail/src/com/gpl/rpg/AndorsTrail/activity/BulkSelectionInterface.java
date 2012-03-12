@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -100,7 +101,13 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		final Button decrementButton = (Button)findViewById(R.id.bulkselection_decrement_button);
 		final Button incrementButton = (Button)findViewById(R.id.bulkselection_increment_button);
 		final Button selectAllButton = (Button)findViewById(R.id.bulkselection_select_all_button);
-		
+
+		// change image and name of the item
+		final ImageView itemImage = (ImageView)findViewById(R.id.bulkselection_itemimage);
+        world.tileManager.setImageViewTileForSingleItemType(itemImage, itemType, getResources());
+        final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
+        itemName.setText(itemType.name);
+
         int actionTextResourceID = 0;
 		if (interfaceType == BULK_INTERFACE_BUY) {
         	pricePerUnit = ItemController.getBuyingPrice(world.model.player, itemType);
@@ -120,6 +127,15 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		bulkselection_action_type.setText(actionText + " ");
 		bulkselection_amount_available.setText(Integer.toString(totalAvailableAmount));
 		bulkselection_slider.setMax(totalAvailableAmount - 1);
+		
+		// hide Slider and Buttons when there is only 1 item available
+		if(totalAvailableAmount == 1){
+			decrementButton.setVisibility(View.GONE);
+			incrementButton.setVisibility(View.GONE);
+			selectAllButton.setVisibility(View.GONE);
+			bulkselection_slider.setVisibility(View.GONE);
+		}
+		
 		updateControls(intialSelection);
 
 		OnTouchListener incrementDecrementListener = new OnTouchListener() {
