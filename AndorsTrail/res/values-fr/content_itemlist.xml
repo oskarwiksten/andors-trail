@@ -28,10 +28,10 @@
 
 	<string name="itemlist_rings">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{ring_dmg1|items_jewelry:0|Anneau de dommage +1|7|||215|1||||||||1|1|||||||||||||||||||||||};
-{ring_dmg2|items_jewelry:1|Anneau de dommage +2|7|||398|1||||||||2|2|||||||||||||||||||||||};
-{ring_dmg5|items_jewelry:2|Anneau de dommage +5|7|4||2014|1||||||||5|5|||||||||||||||||||||||};
-{ring_dmg6|items_jewelry:3|Anneau de dommage +6|7|4||3186|1||||||||6|6|||||||||||||||||||||||};
+{ring_dmg1|items_jewelry:0|Anneau de dégât +1|7|||215|1||||||||1|1|||||||||||||||||||||||};
+{ring_dmg2|items_jewelry:1|Anneau de dégât +2|7|||398|1||||||||2|2|||||||||||||||||||||||};
+{ring_dmg5|items_jewelry:2|Anneau de dégât +5|7|4||2014|1||||||||5|5|||||||||||||||||||||||};
+{ring_dmg6|items_jewelry:3|Anneau de dégât +6|7|4||3186|1||||||||6|6|||||||||||||||||||||||};
 {ring_block1|items_jewelry:0|Anneau de blocage|7|4||1239|1||||||||||10||||||||||||||||||||||};
 {ring_block2|items_jewelry:0|Anneau de blocage|7|4||3866|1||||||||||15||||||||||||||||||||||};
 {ring_atkch1|items_jewelry:0|Anneau du coup sûr|7|||215|1|||||15|||||||||||||||||||||||||||};
@@ -43,37 +43,37 @@
 	<string name="itemlist_necklaces">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {jewel_fallhaven|items_jewelry:6|Joyau de Fallhaven|6|4||3125|1||||-1||||||||||||||||||||||||||||};
-{necklace_shield1|items_jewelry:7|Collier de protection|6|4||935|1||||||||||9||||||||||||||||||||||};
+{necklace_shield1|items_jewelry:7|Collier du gardien|6|4||935|1||||||||||9||||||||||||||||||||||};
 {necklace_shield2|items_jewelry:7|Collier de protection|6|4||1255|1||||||||||12||||||||||||||||||||||};
 	</string>
 	
 <string name="itemlist_armour">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {shirt1|items_armours:14|Chemise|3|||16|1||||||||||2||||||||||||||||||||||};
-{shirt2|items_armours:14|Chemise fine|3|||72|1||||||||||5||||||||||||||||||||||};
+{shirt2|items_armours:14|Chemise de bonne facture|3|||72|1||||||||||5||||||||||||||||||||||};
 {shirt_dmgresist|items_armours:15|Chemise de cuir durci|3|4||1633|1||||||||||5|1|||||||||||||||||||||};
-{armor1|items_armours:15|Armure en cuir|3|||464|1||||||||||8||||||||||||||||||||||};
-{armor2|items_armours:15|Armure en cuir supérieure|3|||624|1||||||||||9||||||||||||||||||||||};
-{armor3|items_armours:16|Armure en cuir dur|3|||2407|1||||||||||13||||||||||||||||||||||};
-{armor4|items_armours:16|Armure en cuir dur supérieure|3|||3866|1||||||||||15||||||||||||||||||||||};
+{armor1|items_armours:15|Armure de cuir|3|||464|1||||||||||8||||||||||||||||||||||};
+{armor2|items_armours:15|Armure de cuir supérieure|3|||624|1||||||||||9||||||||||||||||||||||};
+{armor3|items_armours:16|Armure de cuir dur|3|||2407|1||||||||||13||||||||||||||||||||||};
+{armor4|items_armours:16|Armure de cuir dur supérieure|3|||3866|1||||||||||15||||||||||||||||||||||};
 {hat1|items_armours:21|Chapeau vert|2|||13|1||||||||||1||||||||||||||||||||||};
-{hat2|items_armours:21|Chapeau fin vert|2|||25|1||||||||||2||||||||||||||||||||||};
-{hat3|items_armours:24|Casquette en cuir|2|||72|1||||||||||5||||||||||||||||||||||};
-{hat4|items_armours:24|Casquette de cuir fin|2|||146|1||||||||||6||||||||||||||||||||||};
-{gloves1|items_armours:35|Gants de cuir|4|||23|1||||||||||3||||||||||||||||||||||};
-{gloves2|items_armours:35|Gants de cuir fin|4|||38|1||||||||||4||||||||||||||||||||||};
-{gloves3|items_armours:36|Gants de peau de serpent|4|||72|1||||||||||5||||||||||||||||||||||};
-{gloves4|items_armours:36|Gants fins de peau de serpent|4|||146|1||||||||||6||||||||||||||||||||||};
+{hat2|items_armours:21|Chapeau vert de bonne facture|2|||25|1||||||||||2||||||||||||||||||||||};
+{hat3|items_armours:24|Casquette en cuir de mauvaise facture|2|||72|1||||||||||5||||||||||||||||||||||};
+{hat4|items_armours:24|Casquette en cuir|2|||146|1||||||||||6||||||||||||||||||||||};
+{gloves1|items_armours:35|Gants en cuir|4|||23|1||||||||||3||||||||||||||||||||||};
+{gloves2|items_armours:35|Gants en cuir de bonne facture|4|||38|1||||||||||4||||||||||||||||||||||};
+{gloves3|items_armours:36|Gants en peau de serpent|4|||72|1||||||||||5||||||||||||||||||||||};
+{gloves4|items_armours:36|Gants en peau de serpent de bonne facture|4|||146|1||||||||||6||||||||||||||||||||||};
 {shield1|items_armours:0|Petit bouclier en bois|1|||72|1|||||-2|||||5||||||||||||||||||||||};
 {shield3|items_armours:1|Petit bouclier en bois renforcé|1|||226|1|||||-5|||||7||||||||||||||||||||||};
 {shield4|items_armours:2|Bouclier en bois|1|||464|1|||||-5|||||8||||||||||||||||||||||};
 {shield5|items_armours:2|Bouclier en bois supérieur|1|||624|1|||||-4|||||9||||||||||||||||||||||};
 {boots1|items_armours:28|Bottes en cuir|5|||23|1||||||||||3||||||||||||||||||||||};
 {boots2|items_armours:28|Bottes en cuir supérieures|5|||38|1||||||||||4||||||||||||||||||||||};
-{boots3|items_armours:29|Bottes de peau de serpent|5|||146|1||||||||||6||||||||||||||||||||||};
+{boots3|items_armours:29|Bottes en peau de serpent|5|||146|1||||||||||6||||||||||||||||||||||};
 {boots5|items_armours:30|Bottes renforcées|5|||226|1||||||||||7||||||||||||||||||||||};
 {gloves_attack1|items_armours:35|Gants d\'attaque rapide|4|||150|1|||||15|||||-9||||||||||||||||||||||};
-{gloves_attack2|items_armours:35|Gants fins d\'attaque rapide|4|||221|1|||||17|||||-9||||||||||||||||||||||};
+{gloves_attack2|items_armours:35|Gants d\'attaque rapide de bonne facture|4|||221|1|||||17|||||-9||||||||||||||||||||||};
 	</string>
 	
 <string name="itemlist_food">
@@ -95,13 +95,13 @@
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {vial_empty1|items_consumables:56|Petit flacon vide|31||1|2|||||||||||||||||||||||||||||||||};
 {vial_empty2|items_consumables:57|Flacon vide|31||1|4|||||||||||||||||||||||||||||||||};
-{vial_empty3|items_consumables:59|Flasque vide|31||1|6|||||||||||||||||||||||||||||||||};
+{vial_empty3|items_consumables:59|Fiole vide|31||1|6|||||||||||||||||||||||||||||||||};
 {vial_empty4|items_consumables:58|Potion vide|31||1|11|||||||||||||||||||||||||||||||||};
-{health_minor|items_consumables:35|Potion mineure de santé|20||1|5||||||||||||||1|5|5|||||||||||||||||};
-{health_minor2|items_consumables:35|Potion mineure de santé|20|||18||||||||||||||1|5|5|||||||||||||||||};
-{health|items_consumables:49|Potion normale de santé|20|||40||||||||||||||1|10|10|||||||||||||||||};
-{health_major|items_consumables:28|Potion supérieure de santé|20||1|210||||||||||||||1|40|40|||||||||||||||||};
-{health_major2|items_consumables:28|Potion supérieure de santé|20|||280||||||||||||||1|40|40|||||||||||||||||};
+{health_minor|items_consumables:35|Petit flacon de santé|20||1|5||||||||||||||1|5|5|||||||||||||||||};
+{health_minor2|items_consumables:35|Petite potion de santé|20|||18||||||||||||||1|5|5|||||||||||||||||};
+{health|items_consumables:49|Potion de santé|20|||40||||||||||||||1|10|10|||||||||||||||||};
+{health_major|items_consumables:28|Grande fiole de santé|20||1|210||||||||||||||1|40|40|||||||||||||||||};
+{health_major2|items_consumables:28|Grande potion de santé|20|||280||||||||||||||1|40|40|||||||||||||||||};
 {mead|items_consumables:51|Hydromel|20|||15||||||||||||||1|1|1|||||||||||||||||};
 {milk|items_consumables:55|Lait|20|||21||||||||||||||1|2|2|||||||||||||||||};
 {bonemeal_potion|items_consumables:34|Potion d\'os|20||1|45||||||||||||||1|40|40|||||||||||||||||};
@@ -151,14 +151,14 @@
 {dagger_venom|items_weapons:17|Dague empoisonnée|0|3||15|1||||4|10|5|2|1|2|||||||||||||||||||||||};
 {key_luthor|items_misc:21|Clef de Luthor|31|1|1|0|||||||||||||||||||||||||||||||||};
 {calomyran_secrets|items_books:0|Les secrets de Calomyran|31|1|1|0|||||||||||||||||||||||||||||||||};
-{heartstone|items_misc:6|Cœur de pierre|31|1|1|0|||||||||||||||||||||||||||||||||};
-{vacor_spell|items_books:7|Article du sort de Vacor|31|1|1|0|||||||||||||||||||||||||||||||||};
+{heartstone|items_misc:6|Pierre de vie|31|1|1|0|||||||||||||||||||||||||||||||||};
+{vacor_spell|items_books:7|Morceau du sort de Vacor|31|1|1|0|||||||||||||||||||||||||||||||||};
 {ring_unzel|items_jewelry:0|Anneau d\'Unzel|31|1|1|0|||||||||||||||||||||||||||||||||};
 {ring_vacor|items_jewelry:0|Anneau de Vacor|31|1|1|0|||||||||||||||||||||||||||||||||};
 {boots_unzel|items_armours:29|Bottes défensive d\'Unzel|5|3||185|1||||||||||8||||||||||||||||||||||};
-{boots_vacor|items_armours:29|Bottes  d\'attaque de Vacor|5|3||185|1|||||9|||||2||||||||||||||||||||||};
+{boots_vacor|items_armours:29|Bottes d\'attaque de Vacor|5|3||185|1|||||9|||||2||||||||||||||||||||||};
 {necklace_flagstone|items_jewelry:6|Collier du garde de Flagstone|31|1|1|0|||||||||||||||||||||||||||||||||};
-{packhide|items_armours:15|Peau de la meute de loups|3|3|1|121|1|||||-15|||||2|1|||||||||||||||||||||};
+{packhide|items_armours:15|Peau de Wolfpack|3|3|1|121|1|||||-15|||||2|1|||||||||||||||||||||};
 {sword_flagstone|items_weapons:7|Fierté de Flagstone|0|3||169|1||||4|21|10|2|1|6|||||||||||||||||||||||};
 	</string>
 	
@@ -166,13 +166,13 @@
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {armor_chain1|items_armours:17|Cotte de mailles rouillée|3|||3629|1|||||-9|||||20||||||||||||||||||||||};
 {armor_chain2|items_armours:17|Cotte de mailles ordinaire|3|||4191|1|||||-10|||||22||||||||||||||||||||||};
-{hat_leather1|items_armours:24|Casquette de cuir durci|2|||261|1|||||-2|||||7||||||||||||||||||||||};
+{hat_leather1|items_armours:24|Casquette de cuir ordinaire|2|||261|1|||||-2|||||7||||||||||||||||||||||};
 {sleepingmead|items_consumables:51|Hydromel somnifère|31|1|1|0|||||||||||||||||||||||||||||||||};
 {ffguard_qitem|items_jewelry:0|Bague de la patrouille de Feygard|31|1|1|0|||||||||||||||||||||||||||||||||};
 {shield6|items_armours:3|Pavois en bois|1|||952|1|||||-6|||||12||||||||||||||||||||||};
 {shield7|items_armours:3|Pavois en bois épais|1|||1538|1|||||-6|||||14||||||||||||||||||||||};
 {club_wood1|items_weapons:44|Bâton lourd en acier|0|||950|1||||8|15|5|3|2|11|||||||||||||||||||||||};
-{club_wood2|items_weapons:44|Bâton en acier lourd équilibré|0|||2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
+{club_wood2|items_weapons:44|Bâton lourd équilibré en acier|0|||2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
 {gloves_grip|items_armours:35|Gant de prise assurée|4|||471|1|||||9|||||1||||||||||||||||||||||};
 {gloves_fancy|items_armours:35|Gants fantaisistes|4|||78|1|||||5|||||||||||||||||||||||||||};
 {ring_crit1|items_jewelry:0|Anneau d\'attaque|7|4||2921|1||||||5||||||||||||||||||||||||||};
@@ -183,7 +183,7 @@
 
 	<string name="itemlist_v069">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rapier_lifesteal|items_weapons:71|Rapière voleuse de vie|0|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{rapier_lifesteal|items_weapons:71|Rapière du drain de vie|0|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
 {dagger_barbed|items_weapons:17|Dague dentelée|0|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
 {elytharan_redeemer|items_weapons:70|Rédempteur d\'Elytharan|0|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
 {clouded_rage|items_weapons:71|Épée de la rage de l\'Ombre|0|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
@@ -202,7 +202,7 @@
 {woodcutter_boots|items_armours:30|Bottes du bûcheron|5|||873|1|1||||3|||||8||||||||||||||||||||||};
 {heavy_club|items_weapons:44|Bâton lourd|0|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
 
-{pot_speed_1|items_consumables:41|Potion mineure de rapidité|20||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
+{pot_speed_1|items_consumables:41|Petite potion de rapidité|20||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
 {pot_poison_weak|items_consumables:40|Poison faible|20||1|125||||||||||||||1|||||{{poison_weak|1|5|100|}}||||||||||||||};
 {pot_poison_weak_antidote|items_consumables:54|Antidote de poison faible|20||1|337||||||||||||||1|||||{{poison_weak|-99||100|}}||||||||||||||};
 {pot_bleeding_ointment|items_consumables:35|Pommade cicatrisante|20||1|310||||||||||||||1|||||{{bleeding_wound|-99||100|}}||||||||||||||};
@@ -214,18 +214,169 @@
 	<string name="itemlist_v069_2">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {rusted_iron_sword|items_weapons:0|Épée en fer rouillée|0|||52|1||||5|10|||1|2|||||||||||||||||||||||};
-{broken_buckler|items_armours:0|Bouclier de bois brisé|1|||120|1|||||-5|||||1||||||||||||||||||||||};
+{broken_buckler|items_armours:0|Bouclier en bois brisé|1|||120|1|||||-5|||||1||||||||||||||||||||||};
 {used_gloves|items_armours:35|Gants tâchés de sang|4|||56|1||||||||||1||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v069_questitems">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
 {bwm_claws|items_misc:47|Griffe de wyrm blanche|31||1|35|||||||||||||||||||||||||||||||||};
-{bwm_permit|items_books:8|Laisser-passer falsifié de Blackwater|31|1|1|0|||||||||||||||||||||||||||||||||};
+{bwm_permit|items_books:8|Laissez-passer falsifié pour Blackwater|31|1|1|0|||||||||||||||||||||||||||||||||};
 {bjorgur_dagger|items_weapons:14|Dague de famille de Bjorgur|0|1|1|0|1||||5||||||||||||||||||||||||||||};
 {q_kazaul_vial|items_consumables:57|Fiole d\'élixir purificateur|31|1|1|0|||||||||||||||||||||||||||||||||};
 {guthbered_id|items_jewelry:0|Anneau de Guthbered|31|1|1|0|||||||||||||||||||||||||||||||||};
-{harlenn_id|items_jewelry:0|Anneau de Harlenn|31|1|1|0|||||||||||||||||||||||||||||||||};
+{harlenn_id|items_jewelry:0|Anneau d\'Harlenn|31|1|1|0|||||||||||||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0610_1">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{dagger_shadow_priests|items_weapons:17|Dague des prêtres de l\'Ombre|0|3|1|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
+{sword_hard_iron|items_weapons:0|Épée en fer renforcée|0||0|369|1||||5|15|||2|4|||||||||||||||||||||||};
+{club_fine_wooden|items_weapons:42|Bâton en bois de bonne facture|0||0|245|1||||5|12|||0|7|||||||||||||||||||||||};
+{axe_fine_iron|items_weapons:56|Hache en fer de bonne facture|0||0|365|1||||6|9|||4|6|||||||||||||||||||||||};
+{longsword_hard_iron|items_weapons:1|Épée longue en fer renforcée|0||0|362|1||||5|14|||2|6|||||||||||||||||||||||};
+{broadsword_fine_iron|items_weapons:5|Épée large en fer de bonne facture|0||0|422|1||||7|5|||4|10|||||||||||||||||||||||};
+{dagger_sharp_steel|items_weapons:14|Dague en acier aiguisée|0||0|1428|1||||4|24|||2|4|||||||||||||||||||||||};
+{sword_balanced_steel|items_weapons:7|Épée équilibrée en acier |0||0|2797|1||||4|32|||3|7|||||||||||||||||||||||};
+{broadsword_fine_steel|items_weapons:6|Épée large en acier de bonne facture|0||0|1206|1||||6|20|||4|11|||||||||||||||||||||||};
+{sword_defenders|items_weapons:2|Lame du défenseur|0||0|1711|1||||5|26|||3|7|3||||||||||||||||||||||};
+{sword_villains|items_weapons:16|Lame du traître|0||0|1665|1||||4|20|5|3|1|2|||||||||||||||||||||||};
+{sword_challengers|items_weapons:1|Épée en fer du provocateur|0||0|785|1||||5|20|||2|6|||||||||||||||||||||||};
+{sword_fencing|items_weapons:13|Lame d\'escrime|0||0|922|1||||4|14|||2|5|5||||||||||||||||||||||};
+{club_brutal|items_weapons:44|Bâton offensif|0||0|2522|1||||7|20|5|3|2|21|||||||||||||||||||||||};
+{axe_gutsplitter|items_weapons:58|Répandeur d\'entrailles|0||0|2733|1||||6|21|||7|17|||||||||||||||||||||||};
+{hammer_skullcrusher|items_weapons:45|Écraseur de crâne|0||0|3142|1||||7|20|5|3|0|26|||||||||||||||||||||||};
+{shield_crude_wooden|items_armours:0|Petit bouclier en bois de mauvaise facture|1||0|31|1||||||||||1||||||||||||||||||||||};
+{shield_cracked_wooden|items_armours:0|Petit bouclier en bois fendu|1||0|34|1|||||-2|||||2||||||||||||||||||||||};
+{shield_wooden_buckler|items_armours:0|Petit bouclier en bois d\'occasion|1||0|92|1|||||-2|||||3||||||||||||||||||||||};
+{shield_wooden|items_armours:2|Bouclier en bois|1||0|514|1|||||-4|||||8||||||||||||||||||||||};
+{shield_wooden_defender|items_armours:2|Grand bouclier en bois|1||0|1996|1|||||-8|-5||||14|1|||||||||||||||||||||};
+{hat_hard_leather|items_armours:24|Casquette en cuir durci|2||0|648|1|||||-3|-1||||8||||||||||||||||||||||};
+{hat_fine_leather|items_armours:24|Casquette en cuir de bonne facture|2||0|846|1|||||-3|-2||||9||||||||||||||||||||||};
+{hat_leather_vision|items_armours:24|Casquette en cuir de vision réduite|2||0|971|1|||||-3|-4||||10||||||||||||||||||||||};
+{helm_crude_iron|items_armours:25|Casque en fer de mauvaise facture|2||0|1120|1|||||-3|-5||||11||||||||||||||||||||||};
+{shirt_torn|items_armours:14|Chemise déchirée|3||0|92|1|||||-2|||||3||||||||||||||||||||||};
+{shirt_weathered|items_armours:14|Chemise délavée|3||0|125|1|||||-1|||||3||||||||||||||||||||||};
+{shirt_patched_cloth|items_armours:14|Chemise rapiécée|3||0|208|1||||||||||4||||||||||||||||||||||};
+{armour_crude_leather|items_armours:16|Armure de cuir de mauvaise facture|3||0|514|1|||||-4|||||8||||||||||||||||||||||};
+{armour_firm_leather|items_armours:16|Armure de cuir solide|3||0|417|1|||1|||||||8||||||||||||||||||||||};
+{armour_rigid_leather|items_armours:16|Armure de cuir rigide|3||0|625|1|||1||-1|||||9||||||||||||||||||||||};
+{armour_rigid_chain|items_armours:17|Cotte de mailles rigide|3||0|4667|1||||1|-5|||||23||||||||||||||||||||||};
+{armour_superior_chain|items_armours:17|Cotte de mailles supérieure|3||0|5992|1|||||-9|||||23||||||||||||||||||||||};
+{armour_chain_champ|items_armours:17|Cotte de mailles du Champion|3||0|6808|1|2||||-9|-5||||24||||||||||||||||||||||};
+{armour_leather_villain|items_armours:16|Armure de cuir du Traître|3||0|3700|1|||-1||-4|3||||15||||||||||||||||||||||};
+{armour_misfortune|items_armours:15|Chemise en cuir de malchance|3||0|2459|1|||||-5|||-1|-1|15||||||||||||||||||||||};
+{gloves_barbrawler|items_armours:35|Gants de bagarreur de bistrot|4||0|95|1|||||5|||||2||||||||||||||||||||||};
+{gloves_fumbling|items_armours:35|Gants de fouille|4||0|-432|1|||||-5|||||1||||||||||||||||||||||};
+{gloves_crude_cloth|items_armours:35|Gants en tissu de mauvaise facture|4||0|31|1||||||||||1||||||||||||||||||||||};
+{gloves_crude_leather|items_armours:35|Gants en cuir de mauvaise facture|4||0|180|1|||||-4|||||6||||||||||||||||||||||};
+{gloves_troublemaker|items_armours:36|Gants du Fauteur de troubles|4||0|501|1|1||||7|4||||4||||||||||||||||||||||};
+{gloves_guards|items_armours:37|Gants de garde|4||0|636|1|3||||3|||||5||||||||||||||||||||||};
+{gloves_leather_attack|items_armours:35|Gants d\'attaque en cuir|4||0|510|1|3||||13|||||-2||||||||||||||||||||||};
+{gloves_woodcutter|items_armours:35|Gants de bûcheron|4||0|426|1|3||||8|||||1||||||||||||||||||||||};
+{boots_crude_leather|items_armours:28|Bottes en cuir de mauvaise facture|5||0|31|1||||||||||1||||||||||||||||||||||};
+{boots_sewn|items_armours:28|Chaussures cousues|5||0|73|1||||||||||2||||||||||||||||||||||};
+{boots_coward|items_armours:28|Bottes du Froussard|5||0|933|1|||-1|||||||2||||||||||||||||||||||};
+{boots_hard_leather|items_armours:30|Bottes en cuir durci|5||0|626|1|||1||-4|||||10||||||||||||||||||||||};
+{boots_defender|items_armours:30|Bottes du Défenseur|5||0|1190|1|2|||||||||9||||||||||||||||||||||};
+{necklace_shield_0|items_jewelry:7|Collier de protection mineure|6||0|131|1||||||||||3||||||||||||||||||||||};
+{necklace_strike|items_jewelry:6|Collier d\'attaque|6||0|832|1|5|||||5||||||||||||||||||||||||||};
+{necklace_defender_stone|items_jewelry:7|Pierre du Défenseur|6|4|0|1325|1|||||||||||1|||||||||||||||||||||};
+{necklace_protector|items_jewelry:7|Collier du protecteur|6|4|0|3207|1|5||||||||||2|||||||||||||||||||||};
+{ring_crude_combat|items_jewelry:0|Anneau de combat de mauvaise facture|7||0|44|1|||||5|||0|1|||||||||||||||||||||||};
+{ring_crude_surehit|items_jewelry:0|Anneau du coup sûr de mauvaise facture|7||0|52|1|||||7|||||||||||||||||||||||||||};
+{ring_crude_block|items_jewelry:0|Anneau de blocage de mauvaise facture|7||0|73|1||||||||||2||||||||||||||||||||||};
+{ring_rough_life|items_jewelry:0|Anneau grossier de force vive|7||0|100|1|1|||||||||||||||||||||||||||||||};
+{ring_fumbling|items_jewelry:0|Anneau de fouille|7||0|-463|1|||||-5|||||||||||||||||||||||||||};
+{ring_rough_damage|items_jewelry:0|Anneau grossier de dégâts|7||0|56|1||||||||0|2|||||||||||||||||||||||};
+{ring_barbrawler|items_jewelry:0|Anneau du bagarreur de bistrot|7||0|222|1|||||12|||0|1|||||||||||||||||||||||};
+{ring_dmg_3|items_jewelry:0|Anneau de dégât +3|7||0|624|1||||||||3|3|||||||||||||||||||||||};
+{ring_life|items_jewelry:0|Anneau de force vive|7||0|557|1|5|||||||||||||||||||||||||||||||};
+{ring_taverbrawler|items_jewelry:0|Anneau du bagarreur de taverne|7||0|314|1|||||12|||0|3|||||||||||||||||||||||};
+{ring_defender|items_jewelry:0|Anneau du Défenseur|7||0|755|1|||||-6|||||11||||||||||||||||||||||};
+{ring_challenger|items_jewelry:0|Anneau du Provocateur|7||0|408|1|||||12|||||4||||||||||||||||||||||};
+{ring_dmg_4|items_jewelry:2|Anneau de dégât +4|7||0|1168|1||||||||4|4|||||||||||||||||||||||};
+{ring_troublemaker|items_jewelry:2|Anneau du Fauteur de trouble|7||0|797|1|||||15|||2|4|||||||||||||||||||||||};
+{ring_guardian|items_jewelry:2|Anneau du Gardien|7|4|0|1489|1|||||19|||3|5|||||||||||||||||||||||};
+{ring_block|items_jewelry:2|Anneau de blocage|7|4|0|2192|1||||||||||13||||||||||||||||||||||};
+{ring_backstab|items_jewelry:2|Anneau de poignardage|7||0|1363|1|||||17|7||||3||||||||||||||||||||||};
+{ring_polished_combat|items_jewelry:2|Anneau de combat poli|7|4|0|1346|1|5||||15|||1|5|||||||||||||||||||||||};
+{ring_villain|items_jewelry:2|Anneau du Traître|7|4|0|2750|1|4||||25|||3|6|||||||||||||||||||||||};
+{ring_polished_backstab|items_jewelry:2|Anneau de poignardage poli|7|4|0|2731|1|||||21|7||4|4|||||||||||||||||||||||};
+{ring_protector|items_jewelry:4|Anneau du Protecteur|7|4|0|3744|1|3||||20|||0|3|14||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0610_2">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{erinith_book|items_books:0|Livre d\'Erinith|31|1|1|0|||||||||||||||||||||||||||||||||};
+{hadracor_waspwing|items_misc:52|Aile de guêpe géante|31|1|1|0|||||||||||||||||||||||||||||||||};
+{tinlyn_bells|items_necklaces_1:10|Cloche à mouton de Tinlyn|31|1|1|0|||||||||||||||||||||||||||||||||};
+{tinlyn_sheep_meat|items_consumables:25|Viande de mouton de Tinlyn|31|1|1|0|||||||||||||||||||||||||||||||||};
+{rogorn_qitem|items_books:7|Morceaux de peinture|31|1|1|0|||||||||||||||||||||||||||||||||};
+{fg_ironsword|items_weapons:0|Épée en fer deFeygard|0|1|1|0|1||||5|10|||1|5|||||||||||||||||||||||};
+{fg_ironsword_d|items_weapons:0|Épée en fer de Feygard dégradée|0|1|1|0|1||||5|-50|||0|0|||||||||||||||||||||||};
+{buceth_vial|items_consumables:47|Flacon de Buceth rempli de liquide vert|31|1|1|0|||||||||||||||||||||||||||||||||};
+{chaosreaper|items_weapons:49|Rapière du Chaos|0|3|1|339|1||||4|-30|||0|2||||0||||||1||||||{{chaotic_grip|5|3|50|}}|||||||};
+{izthiel_claw|items_misc:47|Griffe d\'Izthiel|21||1|1||||||||||||||1|1|6|||||||||||||||||};
+{iqhan_pendant|items_necklaces_1:2|Pendentif d\'Iqhan|6||1|10|1|||||6|||||||||||||||||||||||||||};
+{shadowfang|items_weapons_3:41|Croc de l\'Ombre|0|3|1|512|1|-20|||4|40|||2|5||||0||||||1|||||{{fatigue_minor|1|3|20|}}||||||||};
+{gloves_life|items_armours_2:1|Gants de force vive|4|3|1|390|1|9||||5|||||3||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0611_1">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{pot_focus_dmg|items_consumables:39|Potion de concentration des dégâts|20||1|272||||||||||||||1|||||{{focus_dmg|1|4|100|}}||||||||||||||};
+{pot_focus_dmg2|items_consumables:39|Grande potion de concentration des dégâts|20||1|630||||||||||||||1|||||{{focus_dmg|2|4|100|}}||||||||||||||};
+{pot_focus_ac|items_consumables:37|Potion de concentration en précision|20||1|210||||||||||||||1|||||{{focus_ac|1|4|100|}}||||||||||||||};
+{pot_focus_ac2|items_consumables:37|Grande potion de concentration en précision|20||1|618||||||||||||||1|||||{{focus_ac|2|4|100|}}||||||||||||||};
+{pot_scaradon|items_consumables:48|Extrait de Scaradon|20||0|28||||||||||||||1|5|10|||||||||||||||||};
+
+{remgard_shield_1|items_armours_3:24|Bouclier de Remgard|1||0|2189|1|||||-3|||||9|1|||||||||||||||||||||};
+{remgard_shield_2|items_armours_3:24|Bouclier de combat de Remgard|1||0|2720|1|||||-3|||||11|1|||||||||||||||||||||};
+
+{helm_combat1|items_armours:25|Casque de combat|2||0|455|1|||||5|||||6||||||||||||||||||||||};
+{helm_combat2|items_armours:25|Casque de combat amélioré|2||0|485|1|||||7|||||6||||||||||||||||||||||};
+{helm_combat3|items_armours:26|Casque de combat de Remgard|2||0|1540|1|1||||-3|-5||||12||||||||||||||||||||||};
+{helm_redeye1|items_armours:24|Chapeau des yeux rouges|2||0|1|1|-5|||||||||8||||||||||||||||||||||};
+{helm_redeye2|items_armours:24|Chapeau des yeux de sang|2||0|1|1|-5|||||||0|1|8||||||||||||||||||||||};
+{helm_defend1|items_armours_3:31|Casque du Défenseur|2||0|1975|1|||||-3|||||8|1|||||||||||||||||||||};
+{helm_protector0|items_armours_3:31|Casque d\'allure étrange|2|1|1|0|1|-9|||||||0|1|5||||||||||||||||||||||};
+{helm_protector|items_armours_3:31|Protecteur sombre|2|3|0|1794|1|-6|||||||0|1|13||||||||||||||||||||||};
+
+{armour_chain_remg|items_armours_3:13|Cotte de mailles de Remgard|3||0|8927|1|||||-7|||||25||||||||||||||||||||||};
+{armour_cvest1|items_armours_3:5|Veste de combat|3||0|1116|1|||||15|||||8||||||||||||||||||||||};
+{armour_cvest2|items_armours_3:5|Veste de combat de Remgard|3||0|1244|1|||||17|||||8||||||||||||||||||||||};
+
+{gloves_leather1|items_armours:38|Gants en cuir durci|4||0|757|1|3||||2|||||6||||||||||||||||||||||};
+{gloves_arulir|items_armours_2:1|Gants en peau d\'Arulir|4||0|1793|1|||||-3|||||7|1|||||||||||||||||||||};
+{gloves_combat1|items_armours:36|Gants de combat|4||0|956|1|4||||-5|||||9||||||||||||||||||||||};
+{gloves_combat2|items_armours:36|Gants de combat améliorés|4||0|1204|1|4||||-5|||||10||||||||||||||||||||||};
+{gloves_remgard1|items_armours:37|Gants de combat de Remgard|4||0|1205|1|4|||||||||8||||||||||||||||||||||};
+{gloves_remgard2|items_armours:37|Gants enchantés de Remgard|4||0|1326|1|5||||2|||||8||||||||||||||||||||||};
+{gloves_guard1|items_armours:38|Gants du Gardien|4||1|601|1|||||-9|-5||||14||||||||||||||||||||||};
+
+{boots_combat1|items_armours:30|Bottes de combat|5||0|0|1|||||7|||||7||||||||||||||||||||||};
+{boots_combat2|items_armours:30|Bottes de combat améliorées|5||0|0|1|||||7|||||11||||||||||||||||||||||};
+{boots_remgard1|items_armours:31|Bottes de Remgard|5||0|0|1|4|||||||||12||||||||||||||||||||||};
+{boots_guard1|items_armours:31|Bottes du Gardien|5||0|0|1||||||||||7|1|||||||||||||||||||||};
+{boots_brawler|items_armours_3:38|Bottes du bagarreur de bistrot|5||0|0|1|2|||||4||||7||||||||||||||||||||||};
+
+{marrowtaint|items_necklaces_1:9|Souillure intérieure|6|3|0|4760|1|5|||-1|9|||||9||||||||||||||||||||||};
+{valugha_gown|items_armours_3:2|Robe en soie de Valugha|3|3|0|3616|1|5||-1||35|||||-25|||||||||0|||||||||||||};
+{valugha_hat|items_armours_3:1|Chapeau chatoyant de Valugha|2|3|1|648|1|||||15|||-4|-4|-10||||||||||||||||||||||};
+{hat_crit|items_armours_3:0|Chapeau à plume de bûcheron|2|3|0|1|1||||||4||||-5||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0611_2">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{thorin_bone|items_misc:44|Os mâché|31|1|1|0|||||||||||||||||||||||||||||||||};
+{spider|items_misc:41|Araignée morte|31||1|1|||||||||||||||||||||||||||||||||};
+{irdegh|items_misc:49|Glande à poison d\'Irdegh|31||1|5|||||||||||||||||||||||||||||||||};
+{arulir_skin|items_misc:39|Peau d\'Arulir|31||1|4|||||||||||||||||||||||||||||||||};
+{algangror_rat|items_misc:38|Queue de rat d\'allure étrange|31|1|1|0|||||||||||||||||||||||||||||||||};
+{oegyth|items_misc:35|Cristal d\'Oegyth|31|1|1|0|||||||||||||||||||||||||||||||||};
+{toszylae_heart|items_misc:6|Cœur de démon|31|1|1|0|||||||||||||||||||||||||||||||||};
+{potion_rotworm|items_consumables:63|Ver pourri de Kazaul|31|1|1|0|||||||||||||||||||||||||||||||||};
 	</string>
 
 </resources>
