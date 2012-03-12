@@ -411,9 +411,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
     	context.mainActivity.updateStatus();
 	}
 	
+	private static boolean hasCriticalAttack(Actor attacker, Actor target) {
+		if (!attacker.combatTraits.hasCriticalAttacks()) return false;
+		if (target.isImmuneToCriticalHits) return false;
+		return true;
+	}
 	private static float getAverageDamagePerHit(Actor attacker, Actor target) {
 		float result = (float) (getAttackHitChance(attacker.combatTraits, target.combatTraits)) * attacker.combatTraits.damagePotential.average() / 100;
-		result += (float) attacker.combatTraits.criticalChance * result * attacker.combatTraits.criticalMultiplier / 100;
+		if (hasCriticalAttack(attacker, target)) {
+			result += (float) attacker.combatTraits.criticalChance * result * attacker.combatTraits.criticalMultiplier / 100;
+		}
 		result -= target.combatTraits.damageResistance;
 		return result;
 	}
@@ -421,7 +428,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return getAverageDamagePerHit(attacker, target) * attacker.getAttacksPerTurn();
 	}
 	private static int getTurnsToKillTarget(Actor attacker, Actor target) {
-		if (attacker.combatTraits.hasCriticalAttacks()) {
+		if (hasCriticalAttack(attacker, target)) {
 			if (attacker.combatTraits.damagePotential.max * attacker.combatTraits.criticalMultiplier <= target.combatTraits.damageResistance) return 999;
 		} else {
 			if (attacker.combatTraits.damagePotential.max <= target.combatTraits.damageResistance) return 999;
@@ -466,7 +473,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		
 		int damage = Constants.rollValue(attacker.combatTraits.damagePotential);
 		boolean isCriticalHit = false;
-		if (attacker.combatTraits.hasCriticalAttacks()) {
+		if (hasCriticalAttack(attacker, target)) {
 			isCriticalHit = Constants.roll100(attacker.combatTraits.criticalChance);
 			if (isCriticalHit) {
 				damage *= attacker.combatTraits.criticalMultiplier;

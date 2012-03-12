@@ -87,6 +87,12 @@ public class ItemContainer {
 		}
 		return null;
 	}
+	public int findItemIndex(String itemTypeID) {
+		for (int i = 0; i < items.size(); ++i) {
+			if (items.get(i).itemType.id.equals(itemTypeID)) return i;
+		}
+		return -1;
+	}
 	public boolean hasItem(String itemTypeID) { return findItem(itemTypeID) != null; }
 	public boolean hasItem(String itemTypeID, int minimumQuantity) { 
 		return getItemQuantity(itemTypeID) >= minimumQuantity;
@@ -96,6 +102,18 @@ public class ItemContainer {
 		ItemEntry e = findItem(itemTypeID);
 		if (e == null) return 0;
 		return e.quantity;
+	}
+
+	public void sortToTop(String itemTypeID) {
+		int i = findItemIndex(itemTypeID);
+		if (i <= 0) return;
+		items.add(0, items.remove(i));
+	}
+
+	public void sortToBottom(String itemTypeID) {
+		int i = findItemIndex(itemTypeID);
+		if (i < 0) return;
+		items.add(items.remove(i));
 	}
 	
 	

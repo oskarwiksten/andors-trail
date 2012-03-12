@@ -40,7 +40,7 @@ public final class Player extends Actor {
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 	
 	public Player() {
-		super(new ActorTraits(TileManager.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null), true);
+		super(new ActorTraits(TileManager.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null), true, false);
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();
@@ -177,7 +177,7 @@ public final class Player extends Actor {
 	// ====== PARCELABLE ===================================================================
 
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion, true, null);
+		super(src, world, fileversion, true, false, null);
 		this.lastPosition = new Coord(src, fileversion);
 		this.nextPosition = new Coord(src, fileversion);
 		this.level = src.readInt();

@@ -229,6 +229,12 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		case R.id.inv_assign_slot3:
 			view.itemController.setQuickItem(lastSelectedItem, 2);
 			break;
+		case R.id.inv_menu_movetop:
+			player.inventory.sortToTop(getSelectedItemType(info).id);
+			break;
+		case R.id.inv_menu_movebottom:
+			player.inventory.sortToBottom(getSelectedItemType(info).id);
+			break;
 		default:
 			return super.onContextItemSelected(item);
 		}

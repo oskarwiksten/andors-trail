@@ -21,6 +21,9 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 public final class LevelUpActivity extends Activity {
 	private WorldContext world;
 	private Player player;
+	private ImageView levelup_image;
+	private TextView levelup_description;
+	private View levelup_adds_new_skillpoint;
 	
     /** Called when the activity is first created. */
     @Override
@@ -34,13 +37,10 @@ public final class LevelUpActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         setContentView(R.layout.levelup);
-    	final Resources res = getResources();
     	
-        ImageView img = (ImageView) findViewById(R.id.levelup_image);
-        world.tileManager.setImageViewTile(img, player);
-        
-        TextView tv = (TextView) findViewById(R.id.levelup_description);
-        tv.setText(res.getString(R.string.levelup_description, player.level+1));
+    	levelup_image = (ImageView) findViewById(R.id.levelup_image);
+        levelup_description = (TextView) findViewById(R.id.levelup_description);
+        levelup_adds_new_skillpoint = findViewById(R.id.levelup_adds_new_skillpoint);
 
         Button b;
         
@@ -79,12 +79,24 @@ public final class LevelUpActivity extends Activity {
 			}
 		});
         b.setText(getString(R.string.levelup_add_blockchance, Constants.LEVELUP_EFFECT_DEF_CH));
-        
-        View v = findViewById(R.id.levelup_adds_new_skillpoint);
+    }
+    
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	final Resources res = getResources();
+    	
+    	if (!player.canLevelup()) {
+    		this.finish();
+    		return;
+    	}
+    	
+    	world.tileManager.setImageViewTile(levelup_image, player);
+        levelup_description.setText(res.getString(R.string.levelup_description, player.level+1));
         if (player.nextLevelAddsNewSkillpoint()) {
-        	v.setVisibility(View.VISIBLE);
+        	levelup_adds_new_skillpoint.setVisibility(View.VISIBLE);
         } else {
-        	v.setVisibility(View.GONE);
+        	levelup_adds_new_skillpoint.setVisibility(View.GONE);
         }
     }
 

@@ -28,7 +28,7 @@ public final class Monster extends Actor {
 	public final int monsterClass;
 	
 	public Monster(MonsterType monsterType, Coord position) {
-		super(monsterType, false);
+		super(monsterType, false, monsterType.isImmuneToCriticalHits());
 		this.monsterTypeID = monsterType.id;
 		this.position.set(position);
 		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
@@ -68,7 +68,7 @@ public final class Monster extends Actor {
 	}
 
 	public Monster(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
-		super(src, world, fileversion, false, monsterType);
+		super(src, world, fileversion, false, monsterType.isImmuneToCriticalHits(), monsterType);
 		this.monsterTypeID = monsterType.id;
 		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
 		this.nextPosition = new CoordRect(new Coord(), actorTraits.tileSize);

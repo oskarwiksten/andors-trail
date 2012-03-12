@@ -30,6 +30,7 @@ public final class MonsterInfoActivity extends Activity {
 	private TraitsInfoView monsterinfo_currenttraits;
 	private ItemEffectsView monsterinfo_onhiteffects;
     private TextView monsterinfo_currentconditions_title;
+    private TextView monsterinfo_immune_criticals;
     private ActorConditionList monsterinfo_currentconditions;
 	private RangeBar hp;
 	private WorldContext world;
@@ -47,6 +48,7 @@ public final class MonsterInfoActivity extends Activity {
         monsterinfo_image = (ImageView) findViewById(R.id.monsterinfo_image);
         monsterinfo_title = (TextView) findViewById(R.id.monsterinfo_title);
         monsterinfo_difficulty = (TextView) findViewById(R.id.monsterinfo_difficulty);
+        monsterinfo_immune_criticals = (TextView) findViewById(R.id.monsterinfo_immune_criticals);
         
         Button b = (Button) findViewById(R.id.monsterinfo_close);
         b.setOnClickListener(new OnClickListener() {
@@ -93,6 +95,7 @@ public final class MonsterInfoActivity extends Activity {
         		monster.actorTraits.onHitEffects == null ? null : Arrays.asList(monster.actorTraits.onHitEffects), 
         		null);
         hp.update(monster.health);
+        monsterinfo_immune_criticals.setVisibility(monster.isImmuneToCriticalHits ? View.VISIBLE : View.GONE);
     }
 
 	public static int getMonsterDifficultyResource(WorldContext world, Monster monster) {

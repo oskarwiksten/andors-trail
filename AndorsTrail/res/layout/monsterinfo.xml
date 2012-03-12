@@ -63,6 +63,12 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/actorinfo_immune_criticals"
+				android:id="@+id/monsterinfo_immune_criticals"
+				/>
 			<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
 				android:id="@+id/monsterinfo_onhiteffects"
 				android:layout_width="match_parent"

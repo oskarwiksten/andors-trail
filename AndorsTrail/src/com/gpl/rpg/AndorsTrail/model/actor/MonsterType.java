@@ -56,4 +56,11 @@ public final class MonsterType extends ActorTraits {
 		this.isUnique = isUnique;
 		this.monsterClass = monsterClass;
 	}
+
+	public boolean isImmuneToCriticalHits() {
+		if (monsterClass == MONSTERCLASS_GHOST) return true;
+		else if (monsterClass == MONSTERCLASS_UNDEAD) return true;
+		else if (monsterClass == MONSTERCLASS_DEMON) return true;
+		return false;
+	}
 }

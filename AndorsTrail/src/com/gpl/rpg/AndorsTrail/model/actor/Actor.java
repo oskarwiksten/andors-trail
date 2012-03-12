@@ -21,8 +21,9 @@ public class Actor {
 	public final CoordRect rectPosition;
 	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
 	public final boolean isPlayer;
+	public final boolean isImmuneToCriticalHits;
 	
-	public Actor(ActorTraits actorTraits, boolean isPlayer) {
+	public Actor(ActorTraits actorTraits, boolean isPlayer, boolean isImmuneToCriticalHits) {
 		this.combatTraits = new CombatTraits(actorTraits.baseCombatTraits);
 		this.actorTraits = actorTraits;
 		this.ap = new Range(actorTraits.maxAP, actorTraits.maxAP);
@@ -30,6 +31,7 @@ public class Actor {
 		this.position = new Coord();
 		this.rectPosition = new CoordRect(position, actorTraits.tileSize);
 		this.isPlayer = isPlayer;
+		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 	}
 	
 	public int getAttacksPerTurn() { return combatTraits.getAttacksPerTurn(actorTraits.maxAP); }
@@ -64,11 +66,13 @@ public class Actor {
 		actorTraits.moveCost = actorTraits.baseMoveCost;
 	}
 
+
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, ActorTraits actorTraits) throws IOException {
+	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, boolean isImmuneToCriticalHits, ActorTraits actorTraits) throws IOException {
 		this.isPlayer = isPlayer;
+		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 		
 		CombatTraits combatTraits = null;
 		boolean readCombatTraits = true;
