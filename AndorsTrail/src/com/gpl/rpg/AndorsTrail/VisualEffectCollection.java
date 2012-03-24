@@ -17,7 +17,7 @@ public final class VisualEffectCollection {
 	public final VisualEffect[] effects = new VisualEffect[NUM_EFFECTS];
 	
 	public void initialize(DynamicTileLoader loader) {
-		effects[EFFECT_BLOOD] = createEffect(loader, R.drawable.effect_blood3, new ConstRange(16, 0), 400, Color.RED);
+		effects[EFFECT_BLOOD] = createEffect(loader, R.drawable.effect_blood4, new ConstRange(14, 0), 400, Color.RED);
 		effects[EFFECT_RESTORE_HP] = createEffect(loader, R.drawable.effect_heal2, new ConstRange(16, 0), 400, Color.rgb(150, 150, 255));
 		effects[EFFECT_POISON] = createEffect(loader, R.drawable.effect_poison1, new ConstRange(16, 0), 400, Color.GREEN);
 	}

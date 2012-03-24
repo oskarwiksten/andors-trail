@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public final class HeroinfoActivity_Stats extends Activity {
@@ -53,10 +52,9 @@ public final class HeroinfoActivity_Stats extends Activity {
         
         setContentView(R.layout.heroinfo_stats);
         
-        ImageView iv = (ImageView) findViewById(R.id.heroinfo_image);
-        world.tileManager.setImageViewTile(iv, player);
-        
-        ((TextView) findViewById(R.id.heroinfo_title)).setText(player.actorTraits.name);
+        TextView tv = (TextView) findViewById(R.id.heroinfo_title);
+        tv.setText(player.actorTraits.name);
+        world.tileManager.setImageViewTile(tv, player);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
         heroinfo_movecost = (TextView) findViewById(R.id.heroinfo_movecost);
         heroinfo_currenttraits = (TraitsInfoView) findViewById(R.id.heroinfo_currenttraits);

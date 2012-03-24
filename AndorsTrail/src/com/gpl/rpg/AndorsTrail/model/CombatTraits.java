@@ -4,6 +4,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+import android.util.FloatMath;
+
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class CombatTraits {
@@ -84,7 +86,7 @@ public class CombatTraits {
 		case STAT_COMBAT_ATTACK_COST: return attackCost;
 		case STAT_COMBAT_ATTACK_CHANCE: return attackChance;
 		case STAT_COMBAT_CRITICAL_CHANCE: return criticalChance;
-		case STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) Math.floor(criticalMultiplier);
+		case STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) FloatMath.floor(criticalMultiplier);
 		case STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return damagePotential.current;
 		case STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return damagePotential.max;
 		case STAT_COMBAT_BLOCK_CHANCE: return blockChance;

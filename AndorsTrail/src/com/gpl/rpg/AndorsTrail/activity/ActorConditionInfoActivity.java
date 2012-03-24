@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,12 +32,11 @@ public class ActorConditionInfoActivity extends Activity {
         
         setContentView(R.layout.actorconditioninfo);
 
-        ImageView img = (ImageView) findViewById(R.id.actorconditioninfo_image);
-        world.tileManager.setImageViewTile(img, conditionType);
         
         TextView tv = (TextView) findViewById(R.id.actorconditioninfo_title);
         tv.setText(conditionType.name);
-
+        world.tileManager.setImageViewTile(tv, conditionType);
+        
         Button b = (Button) findViewById(R.id.actorconditioninfo_close);
         b.setOnClickListener(new OnClickListener() {
 			@Override

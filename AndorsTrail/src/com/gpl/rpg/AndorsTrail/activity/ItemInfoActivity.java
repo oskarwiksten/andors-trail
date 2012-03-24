@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -48,10 +47,9 @@ public final class ItemInfoActivity extends Activity {
         
         setContentView(R.layout.iteminfo);
 
-        ImageView img = (ImageView) findViewById(R.id.iteminfo_image);
-        world.tileManager.setImageViewTileForSingleItemType(img, itemType, getResources());
         TextView tv = (TextView) findViewById(R.id.iteminfo_title);
         tv.setText(itemType.name);
+        world.tileManager.setImageViewTileForSingleItemType(tv, itemType, getResources());
         tv = (TextView) findViewById(R.id.iteminfo_category);
         tv.setText(getCategoryNameRes(itemType.category));
         

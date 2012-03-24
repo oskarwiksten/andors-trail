@@ -1,7 +1,9 @@
 package com.gpl.rpg.AndorsTrail.model.ability;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashMap;
+
+import android.util.SparseArray;
 
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
@@ -66,7 +68,7 @@ public final class SkillCollection {
 	public static final int MAX_LEVEL_LOWER_EXPLOSS = 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT;
 	public static final int MAX_LEVEL_RESISTANCE = 70 / PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT;
 	
-	private final HashMap<Integer, SkillInfo> skills = new HashMap<Integer, SkillInfo>();
+	private final SparseArray<SkillInfo> skills = new SparseArray<SkillInfo>();
 	private void initializeSkill(SkillInfo skill) {
 		skills.put(skill.id, skill);
 	}
@@ -116,6 +118,8 @@ public final class SkillCollection {
 	}
 	
 	public Collection<SkillInfo> getAllSkills() {
-		return skills.values();
+		ArrayList<SkillInfo> result = new ArrayList<SkillInfo>(skills.size());
+		for(int i = 0; i < skills.size(); ++i) result.add(skills.valueAt(i));
+		return result;
 	}
 }

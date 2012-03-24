@@ -1,9 +1,5 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import android.content.res.Resources;
-import android.widget.ImageView;
-
-import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -82,10 +78,6 @@ public final class SkillController {
 		return true;
 	}
 	
-	public static void setSkillIcon(ImageView iconImageView, int skillID, Resources res) {
-		iconImageView.setImageResource(R.drawable.ui_icon_skill);
-	}
-
 	public static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player) {
 		if (effect.chance.isMax()) return 0;
 		

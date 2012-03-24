@@ -30,27 +30,15 @@
 				android:id="@+id/shop_tab1"
 				>
 			
-				<LinearLayout
-					android:layout_width="match_parent"
+				<TextView
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:gravity="right|center_vertical"
-					>
-				
-					<ImageView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:src="@drawable/ui_icon_coins"
-						android:layout_marginRight="@dimen/boxshape_margin"
-						/>
-						
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:id="@+id/shop_buy_gc"
-						/>
-						
-				</LinearLayout>
+					android:id="@+id/shop_buy_gc"
+					android:drawableLeft="@drawable/ui_icon_coins"
+					android:drawablePadding="@dimen/boxshape_margin"
+					android:layout_gravity="right"
+					android:gravity="center_vertical"
+					/>
 				
 				<ListView 
 					android:id="@+id/shop_buy_list"
@@ -71,27 +59,15 @@
 				android:id="@+id/shop_tab2"
 				>
 			
-				<LinearLayout
-					android:layout_width="match_parent"
+				<TextView
+					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
-					android:orientation="horizontal"
-					android:gravity="right|center_vertical"
-					>
-				
-					<ImageView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:src="@drawable/ui_icon_coins"
-						android:layout_marginRight="@dimen/boxshape_margin"
-						/>
-						
-					<TextView
-						android:layout_width="wrap_content"
-						android:layout_height="wrap_content"
-						android:id="@+id/shop_sell_gc"
-						/>
-						
-				</LinearLayout>
+					android:id="@+id/shop_sell_gc"
+					android:drawableLeft="@drawable/ui_icon_coins"
+					android:drawablePadding="@dimen/boxshape_margin"
+					android:layout_gravity="right"
+					android:gravity="center_vertical"
+					/>
 				
 				<ListView 
 					android:id="@+id/shop_sell_list"

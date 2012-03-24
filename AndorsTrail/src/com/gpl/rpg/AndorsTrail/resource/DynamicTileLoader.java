@@ -1,7 +1,9 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
 import java.util.HashMap;
-import java.util.Map.Entry;
+
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.tiles.ResourceFileTileset;
@@ -12,13 +14,13 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 public final class DynamicTileLoader {
 	private final TileCache tileCache;
 	
-	private final HashMap<Integer, ResourceFileTilesetLoadList> preparedTilesetsByResourceId = new HashMap<Integer, ResourceFileTilesetLoadList>();
+	private final SparseArray<ResourceFileTilesetLoadList> preparedTilesetsByResourceId = new SparseArray<ResourceFileTilesetLoadList>();
 	private final HashMap<String, ResourceFileTilesetLoadList> preparedTilesetsByResourceName = new HashMap<String, ResourceFileTilesetLoadList>();
 	private int currentTileStoreIndex;
 	
 	private static final class ResourceFileTilesetLoadList {
 		public final ResourceFileTileset tileset;
-		public final HashMap<Integer, Integer> tileIDsToLoadPerLocalID = new HashMap<Integer, Integer>();
+		public final SparseIntArray tileIDsToLoadPerLocalID = new SparseIntArray();
 		public ResourceFileTilesetLoadList(ResourceFileTileset tileset) {
 			this.tileset = tileset;
 		}
@@ -43,7 +45,7 @@ public final class DynamicTileLoader {
 	}
 	private ResourceFileTilesetLoadList getTilesetBitmap(int tilesetImageResourceID) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			if (!preparedTilesetsByResourceId.containsKey(tilesetImageResourceID)) {
+			if (preparedTilesetsByResourceId.get(tilesetImageResourceID) == null) {
 				L.log("WARNING: Cannot load tileset " + tilesetImageResourceID);
 				return null;
 			}
@@ -75,10 +77,8 @@ public final class DynamicTileLoader {
 	}
 	
 	private int prepareTileID(ResourceFileTilesetLoadList tileset, int localID) {
-		int tileID = 0;
-		if (tileset.tileIDsToLoadPerLocalID.containsKey(localID)) {
-			tileID = tileset.tileIDsToLoadPerLocalID.get(localID);
-		} else {
+		int tileID = tileset.tileIDsToLoadPerLocalID.get(localID);
+		if (tileID == 0) {
 			++currentTileStoreIndex;
 			tileID = currentTileStoreIndex;
 			tileset.tileIDsToLoadPerLocalID.put(localID, tileID);
@@ -89,10 +89,12 @@ public final class DynamicTileLoader {
 	
 	public void flush() {
 		tileCache.allocateMaxTileID(currentTileStoreIndex);	
-		for(Entry<Integer, ResourceFileTilesetLoadList> e : preparedTilesetsByResourceId.entrySet()) {
-			ResourceFileTileset tileset = e.getValue().tileset;
-			for(Entry<Integer, Integer> tile : e.getValue().tileIDsToLoadPerLocalID.entrySet()) {
-				tileCache.setTile(tile.getValue(), tileset, tile.getKey());
+		for (int i = 0; i < preparedTilesetsByResourceId.size(); ++i) {
+			ResourceFileTilesetLoadList e = preparedTilesetsByResourceId.valueAt(i);
+			ResourceFileTileset tileset = e.tileset;
+			SparseIntArray tileIDsToLoad = e.tileIDsToLoadPerLocalID;
+			for (int j = 0; j < tileIDsToLoad.size(); ++j) {
+				tileCache.setTile(tileIDsToLoad.valueAt(j), tileset, tileIDsToLoad.keyAt(j));
 			}
 		}
 	}

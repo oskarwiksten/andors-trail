@@ -20,7 +20,6 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public final class SkillInfoActivity extends Activity {
@@ -43,9 +42,6 @@ public final class SkillInfoActivity extends Activity {
         final Intent intent = getIntent();
         final int skillID = intent.getExtras().getInt("skillID");
         SkillInfo skill = world.skills.getSkill(skillID);
-        
-        ImageView skillinfo_image = (ImageView) findViewById(R.id.skillinfo_image);
-        SkillController.setSkillIcon(skillinfo_image, skillID, res);
         
         TextView skillinfo_title = (TextView) findViewById(R.id.skillinfo_title);
         skillinfo_title.setText(getSkillTitleResourceID(skillID));

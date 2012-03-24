@@ -5,6 +5,7 @@ import java.util.HashSet;
 import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Message;
+import android.util.FloatMath;
 import android.view.View;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
@@ -436,7 +437,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);
 		if (averageDamagePerTurn <= 0) return 100;
-		return (int) Math.ceil(target.actorTraits.maxHP / averageDamagePerTurn);
+		return (int) FloatMath.ceil(target.actorTraits.maxHP / averageDamagePerTurn);
 	}
 	public static int getMonsterDifficulty(WorldContext world, Monster monster) {
 		// returns [0..100) . 100 == easy.

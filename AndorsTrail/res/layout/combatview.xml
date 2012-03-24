@@ -16,7 +16,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/smalltext_buttonheight"
 			android:textSize="@dimen/actionbar_text"
-			android:text="Action"
+			android:text="@string/combat_attack"
 			/>
 	 
 		<TextView android:id="@+id/combatview_status"
@@ -29,7 +29,7 @@
 			android:shadowRadius="1"
 			android:shadowColor="#000"
 			android:paddingBottom="4sp"
-			android:text="AP"
+			android:text="@string/status_ap"
 			/>
 
 		<Button android:id="@+id/combatview_endturn"
@@ -58,7 +58,7 @@
 		android:shadowRadius="1"
 		android:shadowColor="#000"
 		android:paddingBottom="4sp"
-		android:text="Monsteraction"
+		android:text="@string/combat_monsteraction"
 		android:gravity="center"
 		/>
 	
@@ -75,6 +75,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/smalltext_buttonheight"
 			android:layout_marginRight="5sp"
+			android:contentDescription="@string/dialog_monsterencounter_info"
 			/>
 		
 		<com.gpl.rpg.AndorsTrail.view.RangeBar

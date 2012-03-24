@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.util;
 
+import android.util.FloatMath;
+
 public final class ConstRange {
 	public final int max;
 	public final int current;
@@ -34,6 +36,6 @@ public final class ConstRange {
 		return ((float) max + current) / 2f;
 	}
 	public String toPercentString() {
-		return Integer.toString((int) Math.ceil((float)current * 100 / max)) + "%";
+		return Integer.toString((int) FloatMath.ceil((float)current * 100 / max)) + "%";
 	}
 }

@@ -17,39 +17,35 @@
 			android:orientation="vertical"
 			android:padding="@dimen/dialog_margin"
 			>
+			
+			<TextView
+				android:id="@+id/monsterinfo_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/dialog_monsterencounter_info" 
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/char_hero"
+				/>
+			
 			<LinearLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:orientation="horizontal"
-				android:gravity="center_vertical"
-				>
-				<ImageView 
-					android:id="@+id/monsterinfo_image"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:src="@drawable/char_hero" 
-					android:paddingRight="@dimen/dialog_iconpadding_right"
-					android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-					/>
-				<TextView
-					android:id="@+id/monsterinfo_title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="Monster" 
-					android:textSize="@dimen/titletext"
-					/>
-			</LinearLayout>
-			
-			<TableLayout
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
 				android:layout_marginBottom="@dimen/section_margin"
 				>
-				<TableRow>
-					<TextView android:text="@string/actorinfo_difficulty" android:layout_marginRight="10sp" />
-					<TextView android:id="@+id/monsterinfo_difficulty" />
-				</TableRow>
-			</TableLayout>
+				<TextView 
+				    android:text="@string/actorinfo_difficulty" 
+				    android:layout_marginRight="10sp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					/>
+				<TextView 
+				    android:id="@+id/monsterinfo_difficulty"
+				    android:text="@string/monster_difficulty_normal" 
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+				    />
+			</LinearLayout>
 	
 			<com.gpl.rpg.AndorsTrail.view.RangeBar
 				android:id="@+id/monsterinfo_healthbar"
@@ -106,7 +102,6 @@
             android:layout_height="wrap_content"
 	        android:layout_weight="1"
 	        android:text="@string/dialog_close"
-			android:layout_alignParentRight="true"
 			/>
 	</LinearLayout>
 </LinearLayout>

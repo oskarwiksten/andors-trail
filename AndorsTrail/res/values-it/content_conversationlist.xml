@@ -3,7 +3,9 @@
 <resources>
 	<string name="conversationlist_mikhail">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{mikhail_start_select|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
+{mikhail_start_select|||{{|mikhail_start_select2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_start_select2|||||}}|};
+{mikhail_start_select2|||{{|mikhail_start_select_default|mikhail_rats:100||||}{|mikhail_rats_continue|mikhail_rats:10||||}{|mikhail_start_select_default|||||}}|};
+{mikhail_start_select_default|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
 {mikhail_gamestart|Oh, bene, Siete sveglio.||{{N|mikhail_visited|||||}}|};
 {mikhail_visited|Non riesco a trovare tuo fratello da nessuna parte. Da quando ieri è uscito non è più tornato.|{{0|andor|1|}}|{{N|mikhail3|||||}}|};
 {mikhail3|Non preoccuparti, sarà sicuramente di ritorno presto.||{{N|mikhail_default|||||}}|};
@@ -20,7 +22,7 @@
 {mikhail_rats_start|Ho visto di nuovo dei topi fuori, nel giardino. Puoi andare in giardino a controllare? Se puoi uccidi tutti i topi che trovi.|{{0|mikhail_rats|10|}}|{{Fatto|mikhail_rats_complete||tail_trainingrat|2|0|}{Certo|mikhail_rats_start2|||||}}|};
 {mikhail_rats_start2|Se con i topi ti facessi male, puoi tornare qua nel tuo letto. Questo ti fa recuperare le forze.||{{N|mikhail_rats_start3|||||}}|};
 {mikhail_rats_start3|Non dimenticare di controllare nel tuo inventario. Sicuramente hai ancora quel\'anello che ti ho dato. Assicurati di indossarlo.||{{Ok|mikhail_default|||||}}|};
-{mikhail_rats_continue|Hai ucciso quei ratti nel nostro giardino?||{{Si|mikhail_rats_complete||tail_trainingrat|2|0|}{Non ancora|mikhail_default|||||}}|};
+{mikhail_rats_continue|Hai ucciso quei ratti nel nostro giardino?||{{Si|mikhail_rats_complete||tail_trainingrat|2|0|}{Non ancora|mikhail_rats_start2|||||}}|};
 {mikhail_rats_complete|Oh, l\'hai fatto?! Se ti sei ferito, usa il tuo letto per riposare. Questo è un modo per recuperare le forze.|{{0|mikhail_rats|100|}}|{{N|mikhail_default|||||}}|};
 {mikhail_rats_complete2|Grazie per il tuo aiuto con i topi. Se sei ferito, usa il letto per riposare. In questo modo potrai recuperare le forze.||{{N|mikhail_default|||||}}|};
 	</string>

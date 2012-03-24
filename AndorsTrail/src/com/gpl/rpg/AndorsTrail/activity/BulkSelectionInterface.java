@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
@@ -103,11 +102,10 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		final Button selectAllButton = (Button)findViewById(R.id.bulkselection_select_all_button);
 
 		// change image and name of the item
-		final ImageView itemImage = (ImageView)findViewById(R.id.bulkselection_itemimage);
-        world.tileManager.setImageViewTileForSingleItemType(itemImage, itemType, getResources());
-        final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
+		final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
         itemName.setText(itemType.name);
-
+        world.tileManager.setImageViewTileForSingleItemType(itemName, itemType, getResources());
+        
         int actionTextResourceID = 0;
 		if (interfaceType == BULK_INTERFACE_BUY) {
         	pricePerUnit = ItemController.getBuyingPrice(world.model.player, itemType);

@@ -17,31 +17,17 @@
 			android:orientation="vertical"
 			android:padding="@dimen/dialog_margin"
 			>
-			<LinearLayout
+			<TextView
+				android:id="@+id/skillinfo_title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:orientation="horizontal"
-				android:gravity="center_vertical"
-				>
-				<ImageView 
-					android:id="@+id/skillinfo_image"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:src="@drawable/icon" 
-					android:paddingRight="@dimen/dialog_iconpadding_right"
-					android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-					/>
-				<TextView
-					android:id="@+id/skillinfo_title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="Skill" 
-					android:textSize="@dimen/titletext"
-					/>
-			</LinearLayout>
+				android:text="@string/heroinfo_skill" 
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/ui_icon_skill"
+				/>
 		
 			<TextView 
-				android:text="Current level" 
+				android:text="@string/skill_current_level" 
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:layout_gravity="right"
@@ -50,7 +36,7 @@
 				/>
 			
 			<TextView 
-				android:text="Long description" 
+				android:text="@string/skill_longdescription_weapon_chance" 
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:id="@+id/skillinfo_longdescription"
@@ -58,7 +44,7 @@
 				/>
 			
 			<TextView 
-				android:text="Next level requires" 
+				android:text="@string/skill_prerequisite_other_skill" 
 				android:layout_width="wrap_content"
 				android:layout_height="wrap_content"
 				android:id="@+id/skillinfo_requirement"

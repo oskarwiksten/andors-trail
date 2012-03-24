@@ -21,8 +21,8 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 public final class LevelUpActivity extends Activity {
 	private WorldContext world;
 	private Player player;
-	private ImageView levelup_image;
 	private TextView levelup_description;
+	private TextView levelup_title;
 	private View levelup_adds_new_skillpoint;
 	
     /** Called when the activity is first created. */
@@ -38,8 +38,8 @@ public final class LevelUpActivity extends Activity {
         
         setContentView(R.layout.levelup);
     	
-    	levelup_image = (ImageView) findViewById(R.id.levelup_image);
-        levelup_description = (TextView) findViewById(R.id.levelup_description);
+        levelup_title = (TextView) findViewById(R.id.levelup_title);
+    	levelup_description = (TextView) findViewById(R.id.levelup_description);
         levelup_adds_new_skillpoint = findViewById(R.id.levelup_adds_new_skillpoint);
 
         Button b;
@@ -91,7 +91,7 @@ public final class LevelUpActivity extends Activity {
     		return;
     	}
     	
-    	world.tileManager.setImageViewTile(levelup_image, player);
+    	world.tileManager.setImageViewTile(levelup_title, player);
         levelup_description.setText(res.getString(R.string.levelup_description, player.level+1));
         if (player.nextLevelAddsNewSkillpoint()) {
         	levelup_adds_new_skillpoint.setVisibility(View.VISIBLE);

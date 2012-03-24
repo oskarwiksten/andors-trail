@@ -3,7 +3,9 @@
 <resources>
 	<string name="conversationlist_mikhail">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{mikhail_start_select|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
+{mikhail_start_select|||{{|mikhail_start_select2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_start_select2|||||}}|};
+{mikhail_start_select2|||{{|mikhail_start_select_default|mikhail_rats:100||||}{|mikhail_rats_continue|mikhail_rats:10||||}{|mikhail_start_select_default|||||}}|};
+{mikhail_start_select_default|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
 {mikhail_gamestart|Ah, parfait, tu es réveillé.||{{N|mikhail_visited|||||}}|};
 {mikhail_visited|Je ne trouve nulle part ton frère Andor. Il n\'est pas rentré depuis son départ d\'hier.|{{0|andor|1|}}|{{N|mikhail3|||||}}|};
 {mikhail3|Cela n\'est pas grave, il sera probablement bientôt de retour.||{{N|mikhail_default|||||}}|};
@@ -20,7 +22,7 @@
 {mikhail_rats_start|J\'ai vu quelques rats dans le jardin tout à l\'heure. Pourrais-tu nous débarasser de tous ceux que tu trouves ?|{{0|mikhail_rats|10|}}|{{Je me suis déjà occupé des rats.|mikhail_rats_complete||tail_trainingrat|2|0|}{D\'accord, je vais aller voir au jardin.|mikhail_rats_start2|||||}}|};
 {mikhail_rats_start2|Si les rats te blessent, reviens ici et repose toi dans le lit. Tu pourras ainsi recouvrer toutes tes forces.||{{N|mikhail_rats_start3|||||}}|};
 {mikhail_rats_start3|Au fait n\'oublie pas de faire l\'inventaire de ton équipement. Tu as probablement toujours le vieil anneau que je t\'avais donné. N\'oublie pas de le porter.||{{Très bien, je comprends. Je peux me reposer ici si je suis blessé, et je dois vérifier mon inventaire pour tous les objets utiles que je peux avoir.|mikhail_default|||||}}|};
-{mikhail_rats_continue|As-tu tué les deux rats du jardin ?||{{Oui, je m\'en suis occupé.|mikhail_rats_complete||tail_trainingrat|2|0|}{Non, pas encore.|mikhail_default|||||}}|};
+{mikhail_rats_continue|As-tu tué les deux rats du jardin ?||{{Oui, je m\'en suis occupé.|mikhail_rats_complete||tail_trainingrat|2|0|}{Non, pas encore.|mikhail_rats_start2|||||}}|};
 {mikhail_rats_complete|Ah tu l\'as fait ? Bravo, merci pour ton aide !\n\nSi tu es blessé, reviens à ton lit ici pour te reposer et reprendre des forces.|{{0|mikhail_rats|100|}}|{{N|mikhail_default|||||}}|};
 {mikhail_rats_complete2|Merci de m\'avoir débarassé des rats tout à l\'heure.\n\nSi tu es blessé, reviens à ton lit ici pour te reposer et reprendre des forces.||{{N|mikhail_default|||||}}|};
 	</string>

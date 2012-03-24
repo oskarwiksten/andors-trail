@@ -65,7 +65,6 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		final TextView title = (TextView) result.findViewById(R.id.skillentry_title);
 		final TextView description = (TextView) result.findViewById(R.id.skillentry_description);
 		
-		SkillController.setSkillIcon(icon, skillID, r);
 		String skillTitle = r.getString(SkillInfoActivity.getSkillTitleResourceID(skillID));
 		final int skillLevel = player.getSkillLevel(skillID);
 		if (skillLevel > 0) {

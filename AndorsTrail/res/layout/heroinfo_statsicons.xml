@@ -1,83 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:orientation="vertical"
-	android:gravity="right"
-	>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:orientation="vertical" >
 
-	<LinearLayout
-		android:layout_width="@dimen/boxshape_width"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		android:background="@drawable/ui_boxshape"
-		android:layout_margin="@dimen/boxshape_margin"
-		android:padding="@dimen/boxshape_margin"
-		
-		>
-		<ImageView 
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/ui_icon_coins"
-			android:layout_marginRight="@dimen/boxshape_margin"
-			/>
-		<TextView 
-			android:id="@+id/heroinfo_stats_gold"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="@dimen/smalltext"
-			android:text="Gold: 0"
-			/>
-	</LinearLayout>
+    <TextView
+        android:id="@+id/heroinfo_stats_gold"
+        style="@style/statsBoxStyle"
+        android:layout_width="@dimen/boxshape_width"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/ui_icon_coins"
+        android:text="@string/shop_yourgold"
+        />
 
-	<LinearLayout
-		android:layout_width="@dimen/boxshape_width"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		android:background="@drawable/ui_boxshape"
-		android:layout_margin="@dimen/boxshape_margin"
-		android:padding="@dimen/boxshape_margin"
-		>
-		<ImageView 
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/equip_weapon"
-			android:layout_marginRight="@dimen/boxshape_margin"
-			/>
-		<TextView 
-			android:id="@+id/heroinfo_stats_attack"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="@dimen/smalltext"
-			android:text="Atk: "
-			/>
-	</LinearLayout>
+    <TextView
+        android:id="@+id/heroinfo_stats_attack"
+        style="@style/statsBoxStyle"
+        android:layout_width="@dimen/boxshape_width"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/equip_weapon"
+        android:text="@string/actorinfo_attack"
+        />
 
-	<LinearLayout
-		android:layout_width="@dimen/boxshape_width"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		android:background="@drawable/ui_boxshape"
-		android:layout_margin="@dimen/boxshape_margin"
-		android:padding="@dimen/boxshape_margin"
-		>
-		<ImageView 
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:src="@drawable/equip_shield"
-			android:layout_marginRight="@dimen/boxshape_margin"
-			/>
-		<TextView 
-			android:id="@+id/heroinfo_stats_defense"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:textSize="@dimen/smalltext"
-			android:text="Def: "
-			/>
-	</LinearLayout>
-	
+    <TextView
+        android:id="@+id/heroinfo_stats_defense"
+        style="@style/statsBoxStyle"
+        android:layout_width="@dimen/boxshape_width"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/equip_shield"
+        android:text="@string/actorinfo_defense"
+		/>
+
 </LinearLayout>

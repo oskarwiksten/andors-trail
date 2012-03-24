@@ -29,6 +29,6 @@ public final class Quest implements Comparable<Quest> {
 
 	@Override
 	public int compareTo(Quest q) {
-		return (new Integer(sortOrder)).compareTo(q.sortOrder);
+		return sortOrder - q.sortOrder;
 	}
 }

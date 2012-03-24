@@ -3,7 +3,9 @@
 <resources>
 	<string name="conversationlist_mikhail">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{mikhail_start_select|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
+{mikhail_start_select|||{{|mikhail_start_select2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_start_select2|||||}}|};
+{mikhail_start_select2|||{{|mikhail_start_select_default|mikhail_rats:100||||}{|mikhail_rats_continue|mikhail_rats:10||||}{|mikhail_start_select_default|||||}}|};
+{mikhail_start_select_default|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
 {mikhail_gamestart|Oh good, you are awake.||{{N|mikhail_visited|||||}}|};
 {mikhail_visited|I can\'t seem to find your brother Andor anywhere. He hasn\'t been back since he left yesterday.|{{0|andor|1|}}|{{N|mikhail3|||||}}|};
 {mikhail3|Never mind, he will probably be back soon.||{{N|mikhail_default|||||}}|};
@@ -20,7 +22,7 @@
 {mikhail_rats_start|I saw some rats out back in our garden earlier. Could you please go kill any rats that you see out there.|{{0|mikhail_rats|10|}}|{{I have already dealt with the rats.|mikhail_rats_complete||tail_trainingrat|2|0|}{Ok, I\'ll go check out in our garden.|mikhail_rats_start2|||||}}|};
 {mikhail_rats_start2|If you get hurt by the rats, come back here and rest in your bed. That way you can regain your strength.||{{N|mikhail_rats_start3|||||}}|};
 {mikhail_rats_start3|Also, don\'t forget to check your inventory. You probably still have that old ring I gave you. Make sure you wear it.||{{Ok, I understand. I can rest here if I get hurt, and I should check my inventory for useful items.|mikhail_default|||||}}|};
-{mikhail_rats_continue|Did you kill those two rats in our garden?||{{Yes, I have dealt with the rats now.|mikhail_rats_complete||tail_trainingrat|2|0|}{No, not yet.|mikhail_default|||||}}|};
+{mikhail_rats_continue|Did you kill those two rats in our garden?||{{Yes, I have dealt with the rats now.|mikhail_rats_complete||tail_trainingrat|2|0|}{No, not yet.|mikhail_rats_start2|||||}}|};
 {mikhail_rats_complete|Oh you did? Wow, thanks a lot for your help!\n\nIf you are hurt, use your bed over there to rest and regain your strength.|{{0|mikhail_rats|100|}}|{{N|mikhail_default|||||}}|};
 {mikhail_rats_complete2|Thanks for your help with the rats earlier.\n\nIf you are hurt, use your bed over there to rest and regain your strength.||{{N|mikhail_default|||||}}|};
 	</string>
@@ -3329,7 +3331,7 @@
 	{Ok, I will leave you to your investigation.|X|||||}
 	{How about you allow me to enter town anyway, so that I can trade. I promise to be quick.|remgardb_7|||||}
 	}|};
-{remgardb_7|No. As I said, no one excepts us guards are allowed to enter or exit town until our investigation is completed. I suggest you leave now.|||};
+{remgardb_7|No. As I said, no one except us guards are allowed to enter or exit town until our investigation is completed. I suggest you leave now.|||};
 {remgardb_help_1|Hm, yes, that might be a good idea actually. Considering you made it up here, you must have some knowledge of the surroundings.|{{0|remgard|15|}}|{{N|remgardb_help_2|||||}}|};
 {remgardb_help_2|Tell you what. You might be able to help us.||{{N|remgardb_help_2b|||||}}|};
 {remgardb_help_2b|There is an abandoned house some way to the east of here, on a peninsula on the northern shore of lake Laeroth.||{{N|remgardb_help_3|||||}}|};
@@ -3409,7 +3411,7 @@
 	{How come these creatures do not attack you?|ulirfendor_10|||||}
 	{What have you translated from the shrine so far?|ulirfendor_12|||||}
 	}|};
-{ulirfendor_10|I have placed a blessing of the Shadow upon this small island here, so that I may work uninterrupted. Strangely enough, it seems to be very effective on them. They seem to be undead wards of Ah, the Allaceph. I had not seen one for many years until I entered this cave. They are a remnant of the guardians of Kazaul.||{{N|ulirfendor_11|||||}}|};
+{ulirfendor_10|I have placed a blessing of the Shadow upon this small island here, so that I may work uninterrupted. Strangely enough, it seems to be very effective on them.||{{N|ulirfendor_11|||||}}|};
 {ulirfendor_11|They seem to be very cautious about it. So far, not even one has dared to approach me. Even those pesky lizards are keeping their distance.||{
 	{What are these creatures?|ulirfendor_8|||||}
 	{What have you translated from the shrine so far?|ulirfendor_12|||||}
@@ -3824,7 +3826,7 @@
 	{I\'m interested in the Shadow guardian blessing|talion_bless_guard_1|||||}
 	{Never mind.|talion_0|||||}
 	}|};
-{talion_bless_str_1|The blessing of Shadow strength grants you more strength while attacking, thus increasing the amount of damage you do on each hit. I can give you the blessing for 250 gold.||{
+{talion_bless_str_1|The blessing of Shadow strength grants you more strength while attacking, thus increasing the amount of damage you do on each hit. I can give you the blessing for 300 gold.||{
 	{Ok, I\'ll take it for 300 gold.|talion_bless_str_2||gold|300|0|}
 	{Never mind, let\'s go back to those other blessings.|talion_bless_1|||||}
 	}|};
@@ -3880,7 +3882,7 @@
 	{Anything else?|ingus_t3|||||}
 	{Thank you, goodbye.|X|||||}
 	}|};
-{ingus_t3|Well, there\'s always the Elwille sisters, fighting as always.||{{N|ingus_t2|||||}}|};
+{ingus_t3|Well, there\'s always the Elwille sisters, fighting as always.||{{N|ingus_t4|||||}}|};
 {ingus_t4|Last night, they must have kept the whole town awake, they way they were shouting at each other.||{{What are they fighting about?|ingus_t5|||||}}|};
 {ingus_t5|Oh .. nothing .. everything. I don\'t know. No one really puts much weight in their squabbling.||{{N|ingus_t6|||||}}|};
 {ingus_t6|They live in one of the cabins on the southern shore. *Ingus points to the southwest*.|{{0|sisterfight|10|}}|{
@@ -3888,11 +3890,11 @@
 	{Thank you. Goodbye.|X|||||}
 	{Thank you. I wanted to ask you, is there a shop in town?|ingus_s1|||||}
 	}|};
-{ingus_s1|Shop? Oh yes, of course. There\'s Rothses\' and Arnal\'s shops right there. *Ingus points to the two nearby houses to the west*||{{N|ingus_t6|||||}}|};
+{ingus_s1|Shop? Oh yes, of course. There\'s Rothses\' and Arnal\'s shops right there. *Ingus points to the two nearby houses to the west*||{{N|ingus_s2|||||}}|};
 {ingus_s2|Also, if you have the coin, you can always spend it in the tavern down in town.||{
 	{Thank you. What is happening around town?|ingus_2|||||}
 	{Thank you, goodbye.|X|||||}
 	}|};
 	</string>
-
+	
 </resources>

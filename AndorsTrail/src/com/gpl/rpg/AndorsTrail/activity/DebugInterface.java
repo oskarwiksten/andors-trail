@@ -12,6 +12,7 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
+@SuppressWarnings("unused")
 public final class DebugInterface {
 	private final ViewContext viewContext;
 	private final MainActivity mainActivity;
@@ -175,7 +176,7 @@ public final class DebugInterface {
 		}
     }
     
-    private void addDebugButton(DebugButton button, int id, RelativeLayout layout) {
+	private void addDebugButton(DebugButton button, int id, RelativeLayout layout) {
     	if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
     	
     	RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, res.getDimensionPixelSize(R.dimen.smalltext_buttonheight));
@@ -193,7 +194,7 @@ public final class DebugInterface {
         layout.addView(b);
     }
     
-    private void addDebugButtons(DebugButton[] buttons) {
+	private void addDebugButtons(DebugButton[] buttons) {
     	if (!AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) return;
     	
     	if (buttons == null || buttons.length <= 0) return;

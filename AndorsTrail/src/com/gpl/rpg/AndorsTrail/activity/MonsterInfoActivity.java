@@ -24,7 +24,6 @@ import android.widget.TextView;
 
 public final class MonsterInfoActivity extends Activity {
 	
-	private ImageView monsterinfo_image;
 	private TextView monsterinfo_title;
 	private TextView monsterinfo_difficulty;
 	private TraitsInfoView monsterinfo_currenttraits;
@@ -45,7 +44,6 @@ public final class MonsterInfoActivity extends Activity {
         
         setContentView(R.layout.monsterinfo);
 
-        monsterinfo_image = (ImageView) findViewById(R.id.monsterinfo_image);
         monsterinfo_title = (TextView) findViewById(R.id.monsterinfo_title);
         monsterinfo_difficulty = (TextView) findViewById(R.id.monsterinfo_difficulty);
         monsterinfo_immune_criticals = (TextView) findViewById(R.id.monsterinfo_immune_criticals);
@@ -82,8 +80,8 @@ public final class MonsterInfoActivity extends Activity {
     }
 
 	private void updateTitle(Monster monster) {
-		world.tileManager.setImageViewTile(monsterinfo_image, monster);
-        monsterinfo_title.setText(monster.actorTraits.name);
+		monsterinfo_title.setText(monster.actorTraits.name);
+		world.tileManager.setImageViewTile(monsterinfo_title, monster);
         monsterinfo_difficulty.setText(getMonsterDifficultyResource(world, monster));
 	}
 

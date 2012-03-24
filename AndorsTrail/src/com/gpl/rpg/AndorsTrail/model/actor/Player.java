@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
 
+import android.util.FloatMath;
+import android.util.SparseIntArray;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
@@ -33,7 +36,7 @@ public final class Player extends Actor {
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	public int useItemCost;
 	public int reequipCost;
-	private final HashMap<Integer, Integer> skillLevels = new HashMap<Integer, Integer>();
+	private final SparseIntArray skillLevels = new SparseIntArray();
 	public String spawnMap;
 	public String spawnPlace;
 	public int availableSkillIncreases = 0;
@@ -132,8 +135,7 @@ public final class Player extends Actor {
 	}
 	
 	public int getSkillLevel(int skillID) {
-		if (!skillLevels.containsKey(skillID)) return 0;
-		else return skillLevels.get(skillID);
+		return skillLevels.get(skillID);
 	}
 	public boolean hasSkill(int skillID) {
 		return getSkillLevel(skillID) > 0;
@@ -143,8 +145,7 @@ public final class Player extends Actor {
 			if (!hasAvailableSkillpoints()) return;
 			--availableSkillIncreases;
 		}
-		if (!skillLevels.containsKey(skillID)) skillLevels.put(skillID, 1);
-		else skillLevels.put(skillID, skillLevels.get(skillID) + 1);
+		skillLevels.put(skillID, skillLevels.get(skillID) + 1);
 		ActorStatsController.recalculatePlayerCombatTraits(this);
 	}
 	public boolean nextLevelAddsNewSkillpoint() {
@@ -156,7 +157,7 @@ public final class Player extends Actor {
 	public static int getExpectedNumberOfSkillpointsForLevel(int level) {
 		level -= Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL;
 		if (level < 0) return 0;
-		return 1 + (int) Math.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
+		return 1 + (int) FloatMath.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
 	}
 	public boolean hasAvailableSkillpoints() {
 		return availableSkillIncreases > 0;
@@ -266,7 +267,7 @@ public final class Player extends Actor {
 		
 		if (fileversion <= 21) {
 			int assignedSkillpoints = 0;
-			for (int v : skillLevels.values()) assignedSkillpoints += v;
+			for (int i = 0; i < skillLevels.size(); ++i) assignedSkillpoints += skillLevels.valueAt(i);
 			this.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(this.level) - assignedSkillpoints;
 		} else {
 			this.availableSkillIncreases = src.readInt();
@@ -297,9 +298,9 @@ public final class Player extends Actor {
 		dest.writeInt(useItemCost);
 		dest.writeInt(reequipCost);
 		dest.writeInt(skillLevels.size());
-		for (Entry<Integer, Integer> skillLevel: skillLevels.entrySet()) {
-			dest.writeInt(skillLevel.getKey());
-			dest.writeInt(skillLevel.getValue());
+		for (int i = 0; i < skillLevels.size(); ++i) {
+			dest.writeInt(skillLevels.keyAt(i));
+			dest.writeInt(skillLevels.valueAt(i));
 		}
 		dest.writeUTF(spawnMap);
 		dest.writeUTF(spawnPlace);

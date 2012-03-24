@@ -398,18 +398,16 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 				result = View.inflate(getContext(), R.layout.conversation_statement, null);
 			}
 			
-			final ImageView iv = (ImageView) result.findViewById(R.id.conversation_image);
 			final TextView tv = (TextView) result.findViewById(R.id.conversation_text);
 	        if (statement.hasActor()) {
-	        	if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(iv, statement.iconID);
-	        	else tileManager.setImageViewTileForMonster(iv, statement.iconID);
-				iv.setVisibility(View.VISIBLE);
+	        	if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(tv, statement.iconID);
+	        	else tileManager.setImageViewTileForMonster(tv, statement.iconID);
 				
 	    		tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);
 		        Spannable sp = (Spannable) tv.getText();
 		        sp.setSpan(new ForegroundColorSpan(statement.color), 0, statement.actorName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 	        } else {
-	        	iv.setVisibility(View.GONE);
+	        	tv.setCompoundDrawables(null, null, null, null);
 	    		tv.setText(statement.text);
 		    }
 			

@@ -18,28 +18,14 @@
 			android:orientation="vertical"
 			android:padding="@dimen/dialog_margin"
 			>
-			<LinearLayout
+			<TextView
+				android:id="@+id/actorconditioninfo_title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:orientation="horizontal"
-				android:gravity="center_vertical"
-				>
-				<ImageView 
-					android:id="@+id/actorconditioninfo_image"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:src="@drawable/equip_weapon" 
-					android:paddingRight="@dimen/dialog_iconpadding_right"
-					android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-					/>
-				<TextView
-					android:id="@+id/actorconditioninfo_title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="Actor condition" 
-					android:textSize="@dimen/titletext"
-					/>
-			</LinearLayout>
+				android:text="@string/actorinfo_currentconditions" 
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/equip_weapon"
+				/>
 			
 			<TextView 
 				android:text="@string/actorconditioninfo_category" 

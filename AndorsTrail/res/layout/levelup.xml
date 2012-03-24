@@ -12,33 +12,20 @@
 		android:orientation="vertical"
 		>
 	
-		<LinearLayout
+		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:gravity="center_vertical"
-			>
-			<ImageView 
-				android:id="@+id/levelup_image"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-				android:src="@drawable/char_hero"
-				android:paddingRight="@dimen/dialog_iconpadding_right"
-				android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-				/>
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/levelup_title" 
-				android:textSize="@dimen/titletext"
-				/>
-		</LinearLayout>
-
+			android:id="@+id/levelup_title" 
+			android:text="@string/levelup_title" 
+			style="@style/titleWithIcon"
+			android:drawableLeft="@drawable/char_hero"
+			/>
+		
 		<TextView 
 			android:id="@+id/levelup_description"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:text="Welcome to level N!"
+			android:text="@string/levelup_description"
 			/>
 			
 		<Button
@@ -66,28 +53,14 @@
 			android:text="@string/levelup_add_blockchance"
 			/>
 		
-		<LinearLayout
+		<TextView 
+			android:id="@+id/levelup_adds_new_skillpoint"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:orientation="horizontal"
-			android:gravity="center_vertical"
-			android:layout_marginBottom="@dimen/section_margin"
-			android:id="@+id/levelup_adds_new_skillpoint"
-			>
-			<ImageView 
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content" 
-				android:src="@drawable/ui_icon_skill"
-				android:paddingRight="@dimen/dialog_iconpadding_right"
-				android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-				/>
-
-			<TextView 
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/levelup_adds_new_skillpoint"
-				/>
-		</LinearLayout>
+			android:text="@string/levelup_adds_new_skillpoint"
+			style="@style/textWithIcon"
+			android:drawableLeft="@drawable/ui_icon_skill"
+			/>
 
 		<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
 		<ListView android:layout_width="match_parent" android:layout_height="1dp" />  

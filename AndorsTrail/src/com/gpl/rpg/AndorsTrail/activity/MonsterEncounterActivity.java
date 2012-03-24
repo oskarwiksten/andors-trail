@@ -6,7 +6,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -39,13 +38,11 @@ public final class MonsterEncounterActivity extends Activity {
 
         TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
         tv.setText(monster.actorTraits.name);
+        world.tileManager.setImageViewTile(tv, monster);
         
         tv = (TextView) findViewById(R.id.monsterencounter_description);
         tv.setText(getString(R.string.dialog_monsterencounter_message, difficulty));
 
-        ImageView iw = (ImageView) findViewById(R.id.monsterencounter_image);
-        world.tileManager.setImageViewTile(iw, monster);
-        
         Button b = (Button) findViewById(R.id.monsterencounter_attack);
         b.setOnClickListener(new OnClickListener() {
 			@Override

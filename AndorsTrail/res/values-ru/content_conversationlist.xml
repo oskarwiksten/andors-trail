@@ -3,7 +3,9 @@
 <resources>
 	<string name="conversationlist_mikhail">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{mikhail_start_select|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
+{mikhail_start_select|||{{|mikhail_start_select2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_start_select2|||||}}|};
+{mikhail_start_select2|||{{|mikhail_start_select_default|mikhail_rats:100||||}{|mikhail_rats_continue|mikhail_rats:10||||}{|mikhail_start_select_default|||||}}|};
+{mikhail_start_select_default|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
 {mikhail_gamestart|Отлично, ты проснулся.||{{N|mikhail_visited|||||}}|};
 {mikhail_visited|Я нигде не могу найти твоего брата. Он не вернулся, с тех пор как ушел вчера.|{{0|andor|1|}}|{{N|mikhail3|||||}}|};
 {mikhail3|Неважно, он, наверное, скоро вернется.||{{N|mikhail_default|||||}}|};
@@ -20,7 +22,7 @@
 {mikhail_rats_start|Я видел несколько крыс в огороде. Не мог бы ты поискать их? Пожалуйста, убей всех крыс, которых увидишь.|{{0|mikhail_rats|10|}}|{{Готово|mikhail_rats_complete||tail_trainingrat|2|0|}{Конечно|mikhail_rats_start2|||||}}|};
 {mikhail_rats_start2|Если пострадаешь от крыс, то возвращайся и отдохни в кровати. Это поможет восстановить силы.||{{N|mikhail_rats_start3|||||}}|};
 {mikhail_rats_start3|Так же не забудь проверить свой инвентарь. У тебя, наверное, еще сохранилось кольцо, которое я тебе подарил. Убедись что надел его.||{{Хорошо|mikhail_default|||||}}|};
-{mikhail_rats_continue|Ты убил крыс в огороде?||{{Да|mikhail_rats_complete||tail_trainingrat|2|0|}{Еще нет|mikhail_default|||||}}|};
+{mikhail_rats_continue|Ты убил крыс в огороде?||{{Да|mikhail_rats_complete||tail_trainingrat|2|0|}{Еще нет|mikhail_rats_start2|||||}}|};
 {mikhail_rats_complete|Вау, Спасибо за твою помощь!\n\nЕсли устал, используй кровать для отдыха. Это поможет восстановить твои силы.|{{0|mikhail_rats|100|}}|{{N|mikhail_default|||||}}|};
 {mikhail_rats_complete2|Спасибо, еще раз, за помощь с крысами.\n\nЕсли устал, используй кровать для отдыха. Это поможет восстановить твои силы.||{{N|mikhail_default|||||}}|};
 	</string>

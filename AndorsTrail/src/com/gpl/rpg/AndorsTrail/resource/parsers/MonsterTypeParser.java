@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
+import android.util.FloatMath;
+
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
@@ -64,6 +66,6 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 		if (hitEffect != null && hitEffect.addedConditions_target != null && hitEffect.addedConditions_target.length > 0) {
 			attackConditionBonus += 50;
 		}
-		return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING) + attackConditionBonus;
+		return (int) FloatMath.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING) + attackConditionBonus;
 	}
 }

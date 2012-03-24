@@ -11,7 +11,7 @@
         android:layout_marginRight="6dip"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/icon"
+        android:src="@drawable/ui_icon_skill"
 		/>
 
 	<TextView
@@ -20,7 +20,7 @@
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/skillentry_icon"
         android:layout_alignParentTop="true"
-        android:text="Title"
+        android:text="@string/skill_title_weapon_chance"
 		android:textSize="22dp"
 		/>
 
@@ -30,7 +30,7 @@
 		android:layout_height="wrap_content"
 		android:layout_toRightOf="@id/skillentry_icon"
         android:layout_below="@id/skillentry_title"
-        android:text="Description"
+        android:text="@string/skill_shortdescription_weapon_chance"
 		/>
 
 </RelativeLayout>

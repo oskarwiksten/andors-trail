@@ -54,15 +54,15 @@
     </array>
     
 	<string name="conversationlist_debug">
-[id|message|progressQuest|rewardDropListID|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|]|];
-{debugshop|Welcome adventurer!|||{{Trade items very very long text|S||||}{Bye|X||||}{Fight|F||||}}|};
-{debugquest|Debug quest start\nTest.|debugquest:10||{{Iron sword*2|debugquest2||dagger0|1|}{Progress+=10|debugquest4||||}{Progress=100|debugquest1|debugquest:100|||}}|};
-{debugquest1|Yes, you have already completed this quest.||debuglist1|{{Next|debugquest3||||}}|};
-{debugquest2|Thank you for the items.|debugquest:100||{{Next|debugquest3||||}}|};
-{debugquest3|Quest is now completed.|||{{Bye|X||||}}|};
-{debugquest4|More info. Quest progress should now be updated to 20.|debugquest:20||{{Back|debugquest||||}}|};
-{debugsign|This should be a signpost.||||};
-{debugrequireskey|This tile requires a questprogress.||||};
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{debugshop|Welcome adventurer!||{{Trade items very very long text|S|||||}{Bye|X|||||}{Fight|F|||||}}|};
+{debugquest|Debug quest start\nTest.|{{0|debugquest|10|}}|{{Iron sword*2|debugquest2||dagger0|1|0|}{Progress+=10|debugquest4|||||}{Progress=100|debugquest1|debugquest:100||||}}|};
+{debugquest1|Yes, you have already completed this quest.|{{1|debuglist1||}}|{{Next|debugquest3|||||}}|};
+{debugquest2|Thank you for the items.|{{0|debugquest|100|}}|{{Next|debugquest3|||||}}|};
+{debugquest3|Quest is now completed.||{{Bye|X|||||}}|};
+{debugquest4|More info. Quest progress should now be updated to 20.|{{0|debugquest|20|}}|{{Back|debugquest|||||}}|};
+{debugsign|This should be a signpost.|||};
+{debugrequireskey|This tile requires a questprogress.|||};
 	</string>
 
 
@@ -72,13 +72,13 @@
     </array>
     
    	<string name="monsterlist_debug">
-[id|iconID|name|tags|size|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
-{traveller1|monsters_man1:0|Traveller1|debugNPC1||10|10|10|10|50|||1|2|||debugshop1|debugshop||||||||};
-{traveller2|monsters_man1:0|Traveller2|debugNPC2||10|10|10|10|50|||1|2|||debugshop1|debugquest||||||||};
-{black_ant|monsters_insects:0|Ant|insect||10|10|10|10|50|||1|2|||debuglist1|||||||||};
-{small_wasp|monsters_insects:1|Pitiful debug bug with long name|insect||10|10|10|10|50|||1|2|||debuglist1|||||||||};
-{winged_demon|monsters_demon1:0|Winged demon|demon|2x2|10|10|10|10|50|||10|20|||debuglist1|||||||||};
-{troll|monsters_misc:5|Troll|troll||10|10|10|2|50|||1|2|||debuglist1|||||||||};
+[id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{traveller1|monsters_man1:0|Traveller1|debugNPC1||0|1||10|10|10|10|50|||1|2|||debugshop1|debugshop||||||||};
+{traveller2|monsters_man1:0|Traveller2|debugNPC2||0|1||10|10|10|10|50|||1|2|||debugshop1|debugquest||||||||};
+{black_ant|monsters_insects:0|Ant|insect||1|||10|10|10|10|50|||1|2|||debuglist1|||||||||};
+{small_wasp|monsters_insects:1|Pitiful debug bug with long name|insect||1|||10|10|10|10|50|||1|2|||debuglist1|||||||||};
+{winged_demon|monsters_demon1:0|Winged demon|demon|2x2|2|||10|10|10|10|50|||10|20|||debuglist1|||||||||};
+{troll|monsters_misc:5|Troll|troll||5|||10|10|10|2|50|||1|2|||debuglist1|||||||||};
 	</string>
 
 

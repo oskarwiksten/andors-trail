@@ -17,28 +17,14 @@
 			android:orientation="vertical"
 			android:padding="@dimen/dialog_margin"
 			>
-			<LinearLayout
+			<TextView
+				android:id="@+id/iteminfo_title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:orientation="horizontal"
-				android:gravity="center_vertical"
-				>
-				<ImageView 
-					android:id="@+id/iteminfo_image"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:src="@drawable/equip_weapon" 
-					android:paddingRight="@dimen/dialog_iconpadding_right"
-					android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-	        		/>
-				<TextView
-					android:id="@+id/iteminfo_title"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content"
-					android:text="Item" 
-					android:textSize="@dimen/titletext"
-	        		/>
-			</LinearLayout>
+				android:text="@string/inventory_info" 
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/equip_weapon"
+				/>
 		
 			<TextView 
 				android:id="@+id/iteminfo_displaytype"

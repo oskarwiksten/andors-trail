@@ -13,7 +13,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -42,13 +41,12 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
                 
         setContentView(R.layout.loadsave);
     	
-        ImageView img = (ImageView) findViewById(R.id.loadsave_image);
         TextView tv = (TextView) findViewById(R.id.loadsave_title);
         if (isLoading) {
-        	img.setImageResource(android.R.drawable.ic_menu_search);
+        	tv.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_menu_search, 0, 0, 0);
         	tv.setText(R.string.loadsave_title_load);
         } else {
-        	img.setImageResource(android.R.drawable.ic_menu_save);
+        	tv.setCompoundDrawablesWithIntrinsicBounds(android.R.drawable.ic_menu_save, 0, 0, 0);
         	tv.setText(R.string.loadsave_title_save);
         }
         

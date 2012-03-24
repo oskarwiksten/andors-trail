@@ -245,7 +245,7 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.map_tiles_2_7, "map_tiles_2_7.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_2_8, "map_tiles_2_8.png", src_mapTileSize7, defaultTileSize);
 
-        loader.prepareTileset(R.drawable.effect_blood3, "effect_blood3", new Size(8, 2), defaultTileSize);
+        loader.prepareTileset(R.drawable.effect_blood4, "effect_blood4", new Size(7, 2), defaultTileSize);
         loader.prepareTileset(R.drawable.effect_heal2, "effect_heal2", new Size(8, 2), defaultTileSize);
         loader.prepareTileset(R.drawable.effect_poison1, "effect_poison1", new Size(8, 2), defaultTileSize);
 	}

@@ -13,12 +13,14 @@ import com.gpl.rpg.AndorsTrail.util.LruCache;
 
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 
 public final class TileCache {
 
 	private final ReferenceQueue<Bitmap> gcQueue = new ReferenceQueue<Bitmap>(); 
 	private ResourceFileTile[] resourceTiles = new ResourceFileTile[1];
-	private final HashMap<String, HashMap<Integer, Integer>> tileIDsPerTilesetAndLocalID = new HashMap<String, HashMap<Integer,Integer>>();
+	private final HashMap<String, SparseIntArray> tileIDsPerTilesetAndLocalID = new HashMap<String, SparseIntArray>();
 	private final LruCache<Integer, Bitmap> cache = new LruCache<Integer, Bitmap>(1000); 
 	
 	public int getMaxTileID() { return resourceTiles.length-1; }
@@ -31,9 +33,9 @@ public final class TileCache {
 	}
 	public void setTile(int tileID, ResourceFileTileset tileset, int localID) {
 		if (resourceTiles[tileID] == null) resourceTiles[tileID] = new ResourceFileTile(tileset, localID);
-		HashMap<Integer, Integer> tileIDsPerLocalID = tileIDsPerTilesetAndLocalID.get(tileset.tilesetName);
+		SparseIntArray tileIDsPerLocalID = tileIDsPerTilesetAndLocalID.get(tileset.tilesetName);
 		if (tileIDsPerLocalID == null) {
-			tileIDsPerLocalID = new HashMap<Integer, Integer>();
+			tileIDsPerLocalID = new SparseIntArray();
 			tileIDsPerTilesetAndLocalID.put(tileset.tilesetName, tileIDsPerLocalID);
 		}
 		tileIDsPerLocalID.put(localID, tileID);
@@ -65,12 +67,12 @@ public final class TileCache {
 	public TileCollection loadTilesFor(Collection<Integer> iconIDs, Resources r, TileCollection result) {
 		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) L.log("TileCache::loadTilesFor({" + iconIDs.size() + " items})");
 		int maxTileID = 0;
-		HashMap<ResourceFileTileset, HashMap<Integer, ResourceFileTile>> tilesToLoadPerSourceFile = new HashMap<ResourceFileTileset, HashMap<Integer, ResourceFileTile>>();
+		HashMap<ResourceFileTileset, SparseArray<ResourceFileTile>> tilesToLoadPerSourceFile = new HashMap<ResourceFileTileset, SparseArray<ResourceFileTile>>();
 		for(int tileID : iconIDs) {
 			ResourceFileTile tile = resourceTiles[tileID];
-			HashMap<Integer, ResourceFileTile> tiles = tilesToLoadPerSourceFile.get(tile.tileset);
+			SparseArray<ResourceFileTile> tiles = tilesToLoadPerSourceFile.get(tile.tileset);
 			if (tiles == null) {
-				tiles = new HashMap<Integer, TileCache.ResourceFileTile>();
+				tiles = new SparseArray<TileCache.ResourceFileTile>();
 				tilesToLoadPerSourceFile.put(tile.tileset, tiles);
 			}
 			tiles.put(tileID, tile);
@@ -79,12 +81,13 @@ public final class TileCache {
 		
 		boolean hasLoadedTiles = false;
 		if (result == null) result = new TileCollection(maxTileID);
-		for(Entry<ResourceFileTileset, HashMap<Integer, ResourceFileTile>> e : tilesToLoadPerSourceFile.entrySet()) {
+		for(Entry<ResourceFileTileset, SparseArray<ResourceFileTile>> e : tilesToLoadPerSourceFile.entrySet()) {
 			TileCutter cutter = null;
 			
-			for(Entry<Integer, ResourceFileTile> j : e.getValue().entrySet()) {
-				int tileID = j.getKey();
-				ResourceFileTile tile = j.getValue();
+			SparseArray<ResourceFileTile> tilesToLoad = e.getValue();
+			for (int i = 0; i < tilesToLoad.size(); ++i) {
+				int tileID = tilesToLoad.keyAt(i);
+				ResourceFileTile tile = tilesToLoad.valueAt(i);
 				
 				Bitmap bitmap = cache.get(tileID);
 				

@@ -19,29 +19,15 @@
 			android:padding="@dimen/dialog_margin"
 			>
 			
-			<LinearLayout 
-				android:layout_height="wrap_content"
+			<TextView
+				android:id="@+id/bulkselection_itemname"
 				android:layout_width="wrap_content"
-				android:orientation="horizontal"
-				android:gravity="center_vertical"
+				android:layout_height="wrap_content"
 				android:layout_gravity="center_horizontal"
-				>
-				<ImageView 
-					android:id="@+id/bulkselection_itemimage"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:src="@drawable/equip_weapon" 
-					android:paddingRight="@dimen/dialog_iconpadding_right"
-					android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-		       		/>
-				<TextView
-					android:id="@+id/bulkselection_itemname"
-					android:layout_width="wrap_content"
-					android:layout_height="wrap_content"
-					android:text="Item" 
-					android:textSize="@dimen/titletext"
-					/>	
-			</LinearLayout>
+				android:text="@string/inventory_info" 
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/equip_weapon"
+			/>	
 			
 			<LinearLayout 
 				android:layout_height="wrap_content" 

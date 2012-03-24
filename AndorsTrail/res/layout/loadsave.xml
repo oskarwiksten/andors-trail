@@ -1,49 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout
 	xmlns:android="http://schemas.android.com/apk/res/android"
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	android:padding="@dimen/dialog_margin"
+	android:orientation="vertical"
 	>
 	
-	<LinearLayout
+	<TextView
+		android:id="@+id/loadsave_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentTop="true"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		android:id="@+id/loadsave_titlelayout"
-		>
-		<ImageView 
-			android:id="@+id/loadsave_image"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content" 
-			android:paddingRight="@dimen/dialog_iconpadding_right"
-			android:paddingBottom="@dimen/dialog_iconpadding_bottom"
-			/>
-		<TextView
-			android:id="@+id/loadsave_title"
-			android:layout_width="match_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/loadsave_title_save" 
-			android:textSize="@dimen/titletext"
-			/>
-	</LinearLayout>
+		android:text="@string/loadsave_title_save" 
+		style="@style/titleWithIcon"
+		/>
 
 	<TextView 
 		android:id="@+id/loadsave_description"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_below="@id/loadsave_titlelayout"
-		android:layout_alignParentLeft="true"
 		android:text="@string/loadsave_selectslot"
 		/>
 		
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
-		android:layout_alignParentLeft="true"
-		android:layout_below="@id/loadsave_description"
 		>
 		<LinearLayout
 			android:id="@+id/loadsave_slot_list"
@@ -67,4 +48,4 @@
 		
 	</ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

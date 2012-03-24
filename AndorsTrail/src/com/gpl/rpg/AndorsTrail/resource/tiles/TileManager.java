@@ -10,6 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
@@ -122,6 +123,36 @@ public final class TileManager {
 	}
 	
 	
+	
+	public void setImageViewTile(TextView textView, Monster monster) { setImageViewTileForMonster(textView, monster.actorTraits.iconID); }
+	public void setImageViewTile(TextView textView, Player player) { setImageViewTileForPlayer(textView, player.actorTraits.iconID); }
+	public void setImageViewTileForMonster(TextView textView, int iconID) { setImageViewTile(textView, currentMapTiles.getBitmap(iconID)); }
+	public void setImageViewTileForPlayer(TextView textView, int iconID) { setImageViewTile(textView, preloadedTiles.getBitmap(iconID)); }
+	public void setImageViewTile(TextView textView, ActorConditionType conditionType) { setImageViewTile(textView, preloadedTiles.getBitmap(conditionType.iconID)); }
+	public void setImageViewTileForUIIcon(TextView textView, int iconID) { setImageViewTile(textView, preloadedTiles.getBitmap(iconID)); }
+	private void setImageViewTile(TextView textView, Bitmap b) { textView.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(b), null, null, null); }
+
+	public void setImageViewTileForSingleItemType(TextView textView, ItemType itemType, Resources r) {
+		final Bitmap icon = tileCache.loadSingleTile(itemType.iconID, r);
+		setImageViewTile(textView, itemType, icon);
+	}
+	public void setImageViewTile(TextView textView, ItemType itemType, TileCollection itemTileCollection) {
+		final Bitmap icon = itemTileCollection.getBitmap(itemType.iconID);
+		setImageViewTile(textView, itemType, icon);
+	}
+	private void setImageViewTile(TextView textView, ItemType itemType, Bitmap icon) {
+		final int overlayIconID = itemType.getOverlayTileID();
+		if (overlayIconID != -1) {
+			textView.setCompoundDrawablesWithIntrinsicBounds(
+				new LayerDrawable(new Drawable[] {
+					new BitmapDrawable(preloadedTiles.getBitmap(overlayIconID))
+					,new BitmapDrawable(icon)
+				}), null, null, null
+			);
+		} else {
+			setImageViewTile(textView, icon);
+		}
+	}
 	
 	public void setImageViewTile(ImageView imageView, Monster monster) { setImageViewTileForMonster(imageView, monster.actorTraits.iconID); }
 	public void setImageViewTile(ImageView imageView, Player player) { setImageViewTileForPlayer(imageView, player.actorTraits.iconID); }
