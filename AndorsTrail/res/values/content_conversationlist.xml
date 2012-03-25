@@ -1655,12 +1655,6 @@
 {keneg_1|Have to get away!||{{N|keneg_2|||||}}|};
 {keneg_2|The monsters, they come at night.||{{N|keneg_3|||||}}|};
 {keneg_3|*Looks nervous*\nHave to hide.|||};
-{mazeg|||{
-	{|mazeg_1|bwm_agent:240||||}
-	{|mazeg_2|||||}
-	}|};
-{mazeg_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?||{{Sure. Show me what you have.|S|||||}}|};
-{mazeg_2|Welcome traveller. Have you come to ask for help from me and my potions?||{{N|blackwater_notrust|||||}}|};
 {blackwater_notrust|Regardless, I cannot help you. My services are only for residents of Blackwater Mountain. And I don\'t trust you enough yet.|||};
 {waeges|||{
 	{|waeges_1|bwm_agent:240||||}
@@ -3885,7 +3879,7 @@
 {ingus_t3|Well, there\'s always the Elwille sisters, fighting as always.||{{N|ingus_t4|||||}}|};
 {ingus_t4|Last night, they must have kept the whole town awake, they way they were shouting at each other.||{{What are they fighting about?|ingus_t5|||||}}|};
 {ingus_t5|Oh .. nothing .. everything. I don\'t know. No one really puts much weight in their squabbling.||{{N|ingus_t6|||||}}|};
-{ingus_t6|They live in one of the cabins on the southern shore. *Ingus points to the southwest*.|{{0|sisterfight|10|}}|{
+{ingus_t6|They live in one of the cabins on the southern shore. *Ingus points to the south*.|{{0|sisterfight|10|}}|{
 	{Thank you, I might go visit them. Goodbye.|X|||||}
 	{Thank you. Goodbye.|X|||||}
 	{Thank you. I wanted to ask you, is there a shop in town?|ingus_s1|||||}
@@ -3896,5 +3890,216 @@
 	{Thank you, goodbye.|X|||||}
 	}|};
 	</string>
-	
+
+	<string name="conversationlist_elwyl">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{elwel|||{
+	{|elwel_4|sisterfight:71||||}
+	{|elwel_3|sisterfight:20||||}
+	{|elwel_1|||||}
+	}|};
+{elwel_1|Go away, I don\'t want to talk you!||{
+	{Wow, you\'re the friendly type, aren\'t you?|elwel_2|||||}
+	{Goodbye.|X|||||}
+	}|};
+{elwel_2|(Elwel mutters to herself) Stupid kids ..|||};
+{elwel_3|I saw you talking to that cursed sister of mine. Don\'t listen to her, she always tries her best to portray me in the worst way possible.|{{0|sisterfight|21|}}||};
+{elwel_4|Now look what you did!|{{0|sisterfight|21|}}|{{N|elwyl_2|||||}}|};
+{elwyl|||{
+	{|elwyl_cmp_1|sisterfight:71||||}
+	{|elwyl_res_2|sisterfight:70||||}
+	{|elwyl_pot_1|sisterfight:31||||}
+	{|elwyl_12|sisterfight:20||||}
+	{|elwyl_1|||||}
+	}|};
+{elwyl_1|Who are you? Did we invite you here? No, I didn\'t think so. Now get out!||{
+	{Are you sisters?|elwyl_3|||||}
+	{I go wherever I wish.|elwyl_2|||||}
+	{Ok, I\'ll leave.|X|||||}
+	}|};
+{elwyl_2|Bah. Leave, before I call the guards over here!|||};
+{elwyl_3|Yes. Argh. It\'s not like I am proud of being a sister to .. her.||{{N|elwyl_4|||||}}|};
+{elwyl_4|She is the black sheep of the family. She never agrees to anything, and always complains. Just look at her.||{{N|elwyl_5|||||}}|};
+{elwyl_5|She even has the stomach to call ME the black sheep of the family, when it is clearly SHE that is causing all the trouble around here.||{{N|elwyl_6|||||}}|};
+{elwyl_6|She\'s always nagging me about how I should move out of what she considers to be HER house, when it in fact is MY house and SHE is the one that should move out so that things can settle down.||{{N|elwyl_8|||||}}|};
+{elwyl_8|Argh. I am so upset at her!||{
+	{Good luck with that. I\'ll leave you to your fighting.|X|||||}
+	{Is there anything I can do to help?|elwyl_9|||||}
+	{Some people have been complaining that your squabbling has kept people awake at night.|elwyl_10|sisterfight:10||||}
+	}|};
+{elwyl_9|Yes, you can leave! I never invited you here. Leave, before I call the guards!|||};
+{elwyl_10|That\'s what I always tell her, to keep it down. But she insist on shouting at me when we argue. I guess all of her shouting must have made her more or less deaf, since I also have to shout to her to make her understand.||{{N|elwyl_11|||||}}|};
+{elwyl_11|And she doesn\'t stop either. I can\'t remember for how long this has been going on, it almost feels like forever.|{{0|sisterfight|20|}}|{{N|elwyl_12|||||}}|};
+{elwyl_12|Oh, my sister is just so stubborn! You know, last night, I was talking to her about those potions that Hjaldar used to make. The smell from his brewing used to reach into our house here.. Or, I mean .. my house here.||{{N|elwyl_13|||||}}|};
+{elwyl_13|So, I was talking to her about those potions of accuracy focus and how I always thought their blue liquid seem so odd, since there were no blue things that he used while making them.||{{N|elwyl_14|||||}}|};
+{elwyl_14|Then all of a sudden, she started arguing with me about how I have things completely wrong. She insist that the potions were green.||{{N|elwyl_15|||||}}|};
+{elwyl_15|I can\'t understand why she would make such a big out of it, when the potion was clearly blue. I remember it distinctly. Argh, how stubborn she is! She wouldn\'t even admit that she is wrong!|{{0|sisterfight|30|}}|{
+	{Are you sure it was blue?|elwyl_16|||||}
+	{Why make such a big thing out of what color some potion was?|elwyl_17|||||}
+	{Is there anything I can do to help you two?|elwyl_18|||||}
+	}|};
+{elwyl_16|Why .. yes .. of course. I am not wrong! They were clearly blue.||{
+	{Why make such a big thing out of what color some potion was?|elwyl_17|||||}
+	{Is there anything I can do to help you two?|elwyl_18|||||}
+	}|};
+{elwyl_17|Exactly. She is clearly wrong, so why won\'t she just admit it, and we can move along?||{
+	{Are you sure it was blue?|elwyl_16|||||}
+	{Is there anything I can do to help you two?|elwyl_18|||||}
+	}|};
+{elwyl_18|Maybe you could go visit Hjaldar and get one of those potions of accuracy focus, and we can both show her that she she is clearly wrong.||{{N|elwyl_19|||||}}|};
+{elwyl_19|His house is up on the northeast shore of town. *Elwyl points outside*||{{N|elwyl_20|||||}}|};
+{elwyl_20|I\'m not sure why he doesn\'t make those potions anymore though. Maybe he still has some old ones still in supply that you may have?||{
+	{I\'ll return with one of those potions.|elwyl_21|||||}
+	{I am not getting involved in this. You\'ll have to solve your own conflict.|elwyl_22|||||}
+	}|};
+{elwyl_21|Good. Maybe when you bring that potion, she will agree to being wrong for once!|{{0|sisterfight|31|}}||};
+{elwyl_22|Bah, you kids are never good for anything.|||};
+{elwyl_pot_1|Oh, it\'s you again. What do you want?||{
+	{I have one of those potions of accuracy focus for you.|elwyl_res_1||pot_focus_ac|1|0|}
+	{I have a strong potion of accuracy focus for you.|elwyl_res_1||pot_focus_ac2|1|0|}
+	{You talked about some potion before. Could you repeat that?|elwyl_12|||||}
+	{Some people have been complaining that your squabbling has kept people awake at night.|elwyl_10|sisterfight:10||||}
+	}|};
+{elwyl_res_1|Oh good. Give me that.|{{0|sisterfight|70|}}|{{N|elwyl_res_2|||||}}|};
+{elwyl_res_2|Huh, what\'s this? It\'s yellow.. I was sure that it used to be blue. Let me smell it to make sure that it the right kind of potion.||{{N|elwyl_res_3|||||}}|};
+{elwyl_res_3|Hm, yes, it smells exactly as I remember it. It must be the right potion.||{{N|elwyl_res_4|||||}}|};
+{elwyl_res_4|But, this means .. that Elwel was wrong anyway!||{{N|elwyl_res_5|||||}}|};
+{elwyl_res_5|Elwel, look at this, you are wrong! The potion wasn\'t green as you said, it\'s yellow! Why didn\'t you just listen to me?!||{{N|elwyl_res_6|||||}}|};
+{elwyl_res_6|Elwel, you are always trying your best to prove me wrong. Well look at this, now you are wrong for once!||{
+	{Whatever, you two don\'t seem to get along very well. I\'ll leave you to your squabbling.|elwyl_res_7|||||}
+	{I hope that you two will get along some day.|elwyl_res_7|||||}
+	}|};
+{elwyl_res_7|Hey Elwel, you were wrong all along! Why won\'t you ever admit it when you are clearly wrong?|{{0|sisterfight|71|}}||};
+{elwyl_cmp_1|Oh, it\'s you again. Thanks for bringing me that potion earlier.||{{N|elwyl_res_7|||||}}|};
+	</string>
+
+	<string name="conversationlist_hjaldar">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{hjaldar|||{
+	{|hjaldar_pots_1|sisterfight:61||||}
+	{|hjaldar_r3|sisterfight:60||||}
+	{|hjaldar_r1|sisterfight:45||||}
+	{|hjaldar_7r|sisterfight:40||||}
+	{|hjaldar_1|||||}
+	}|};
+{hjaldar_1|Hello there. I am Hjaldar||{{What do you do here?|hjaldar_2|||||}}|};
+{hjaldar_2|I used to be a potion-maker. In fact, I used to be the only potion-maker here in Remgard.||{{N|hjaldar_3|||||}}|};
+{hjaldar_3|That was good business. People even travelled to here from other cities down the mountain.||{{What made you stop?|hjaldar_4|||||}}|};
+{hjaldar_4|Well, two things. Firstly, I am getting older and don\'t have the desire to be working full days, making potions for gold.||{{N|hjaldar_5|||||}}|};
+{hjaldar_5|Secondly, I ran out of most of the ingredients. Some of them are really hard to get.||{
+	{Too bad. Nice talking to you, goodbye.|X|||||}
+	{I am looking for a potion of accuracy focus for the Elwille sisters, can you help with that?|hjaldar_6|sisterfight:31||||}
+	}|};
+{hjaldar_6|Oh, potions of accuracy focus. Yes, those were popular. Unfortunately, I can\'t help you with that now.||{{N|hjaldar_7|||||}}|};
+{hjaldar_7|My supply of Lyson marrow extract has gone dry. Without some of that, I can\'t make potions that are useful for anything really.|{{0|sisterfight|40|}}|{
+	{Too bad. Thanks anyway. Goodbye.|X|||||}
+	{Is there somewhere I can get some, and bring it to you?|hjaldar_8|||||}
+	}|};
+{hjaldar_7r|Hello again. Sorry about not being able to help you with those potions of accuracy focus that you asked for.||{{N|hjaldar_7|||||}}|};
+{hjaldar_8|I doubt that. It is really hard to find. Only the most well-stocked potion-makers have it.||{{N|hjaldar_9|||||}}|};
+{hjaldar_9|I used to get my supply from my old friend Mazeg. I have no idea where he might be these days though.||{{N|hjaldar_10|||||}}|};
+{hjaldar_10|I guess, if you can find him, he might be able to provide you with some Lyson marrow extract.||{
+	{Any ideas on where I might find him?|hjaldar_12|||||}
+	{This sounds like too much trouble. Never mind that potion.|hjaldar_11|||||}
+	}|};
+{hjaldar_11|Ok then. Sorry I couldn\'t help you. Goodbye.|||};
+{hjaldar_12|No, I don\'t know. Last time I saw him, he was headed west. From the looks of his backpack, it looked like he was getting ready for quite a long trip to the west.||{{N|hjaldar_13|||||}}|};
+{hjaldar_13|He even had gear for travelling through colder climates - snow and ice and that sort of thing.|{{0|sisterfight|41|}}|{
+	{Thanks for the info. I will try to find him.|hjaldar_14|||||}
+	{This sounds like too much trouble. Never mind that potion.|hjaldar_11|||||}
+	}|};
+{hjaldar_14|Good luck finding him. If you do find him, which I doubt you do, please say hello to him from me, and tell him that I am well.|{{0|sisterfight|45|}}||};
+{hjaldar_r1|Hello again. Did you find my old friend Mazeg?||{
+	{Yes, I brought you some Lyson marrow extract.|hjaldar_r2||lyson_marrow|1|0|}
+	{What was that you were saying about those potions of accuracy focus?|hjaldar_6|||||}
+	{What made you stop making potions?|hjaldar_4|||||}
+	{Any ideas on where I might find Mazeg?|hjaldar_12|||||}
+	}|};
+{hjaldar_r2|Oh wow. Yes, this is indeed some of that marrow extract. Nice work finding it!|{{0|sisterfight|60|}}|{{N|hjaldar_r4|||||}}|};
+{hjaldar_r3|Thanks for bringing me some of that marrow extract. Nice work finding it!||{{N|hjaldar_r4|||||}}|};
+{hjaldar_r4|Tell me, did you find Mazeg or did you get it from somewhere else?||{
+	{I visited Mazeg up in the Blackwater Mountain settlement.|hjaldar_r5|||||}
+	{You made me run all the way to Blackwater Mountain, I sure hope those potions are worth it!|hjaldar_r5|||||}
+	}|};
+{hjaldar_r5|Blackwater Mountain? I\'m afraid I don\'t know where that is. Never mind, I hope that all is well with my old friend.||{
+	{He told me to send you his warmest greetings.|hjaldar_r6|||||}
+	{He seemed like a pitiful old man that has seen the best of his days.|hjaldar_r7|||||}
+	}|};
+{hjaldar_r6|Good. Good. I am glad to hear he is well.||{{N|hjaldar_r8|||||}}|};
+{hjaldar_r7|Time has not been on his side, I see.||{{N|hjaldar_r8|||||}}|};
+{hjaldar_r8|Anyway. Let\'s make that potion that you asked for earlier. I even prepared the other ingredients for another potion beforehand.||{{N|hjaldar_r9|||||}}|};
+{hjaldar_r9|Now, let\'s see. Some of these.. *Hjaldar pulls out some dried up berries and puts them in his mortar*||{{N|hjaldar_r10|||||}}|};
+{hjaldar_r10|And some of this into some clean vials..||{{N|hjaldar_r11|||||}}|};
+{hjaldar_r11|Just a pinch of these into one of these vials..||{{N|hjaldar_r12|||||}}|};
+{hjaldar_r12|And finally, the Lyson marrow extract..||{{N|hjaldar_r13|||||}}|};
+{hjaldar_r13|There. Now we just need to give them a good shake.||{{N|hjaldar_r14|||||}}|};
+{hjaldar_r14|*Hjaldar shakes the vials vigorously, one in each of his hands*||{{N|hjaldar_r15|||||}}|};
+{hjaldar_r15|Ah, that should do it. Here you go. One potion of accuracy focus and one potion of damage focus. I hope they will be useful to you.|{{0|sisterfight|61|}{1|hjaldar_pots|0|}}|{
+	{Thank you.|X|||||}
+	{Whatever. I sure hope all this work is worth it!|X|||||}
+	}|};
+{hjaldar_pots_1|Thanks for contacting Mazeg for me earlier. With this Lyson marrow extract that you brought me, I can now make other potions for you if you want.||{
+	{Let me see what potions you have.|S|||||}
+	{You are welcome, goodbye.|X|||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_mazeg">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{mazeg|||{
+	{|mazeg_1|bwm_agent:240||||}
+	{|mazeg_2|||||}
+	}|};
+{mazeg_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?||{
+	{Sure. Show me what you have.|S|||||}
+	{I am looking for some Lyson Marrow extract, for Hjaldar in Remgard.|mazeg_e_1|sisterfight:45||||}
+	}|};
+{mazeg_2|Welcome traveller. Have you come to ask for help from me and my potions?||{
+	{Yes. Please show me what you have.|blackwater_notrust|||||}
+	{I am looking for some Lyson Marrow extract, for Hjaldar in Remgard.|mazeg_e_1|sisterfight:45||||}
+	}|};
+{mazeg_e_1|||{
+	{|mazeg_d|sisterfight:55||||}
+	{|mazeg_e_5b|sisterfight:51||||}
+	{|mazeg_e_5b|sisterfight:50||||}
+	{|mazeg_e_2|||||}
+	}|};
+{mazeg_d|I already sold you some before. Did you lose it? Please tell my old friend Hjaldar that I said hello.|||};
+{mazeg_e_2|Hjaldar, my old friend! Tell me, how is he these days?||{
+	{He asked me to relay his greetings to you, and to tell you that he is well.|mazeg_e_3|||||}
+	{He is sick, and getting worse every day.|mazeg_e_4|||||}
+	}|};
+{mazeg_e_3|Oh, I am so glad to hear that! We sure did have some nice times while working together.||{{N|mazeg_e_5|||||}}|};
+{mazeg_e_4|I\'m sorry to hear that. He always seemed like a tough old boy to me.||{{N|mazeg_e_5|||||}}|};
+{mazeg_e_5|You asked for some Lyson marrow extract.||{{N|mazeg_e_5b|||||}}|};
+{mazeg_e_5b|Sure, I have it.||{{N|mazeg_e_6|||||}}|};
+{mazeg_e_6|||{
+	{|mazeg_e_7a|bwm_agent:240||||}
+	{|mazeg_e_7b|||||}
+	}|};
+{mazeg_e_7a|Since you helped us up here in the Blackwater Mountain settlement earlier, I am willing to give you a discount on the price for some Lyson marrow extract. For 400 gold, I am willing to sell you some of it for my old friend Hjaldar.|{{0|sisterfight|50|}}|{
+	{Here is 400 gold.|mazeg_e_9||gold|400|0|}
+	{Ouch, that much?! Is there anything you can do to lower the price?|mazeg_e_8a|||||}
+	{I\'ll return when I have the gold for it.|X|||||}
+	}|};
+{mazeg_e_8a|No, 400 gold it is. That\'s a really good price, considering how hard this stuff is to find. Besides, if it weren\'t for Hjaldar, I wouldn\'t even be selling this to you.||{
+	{Here is 400 gold.|mazeg_e_9||gold|400|0|}
+	{I\'ll return when I have the gold for it.|X|||||}
+	}|};
+{mazeg_e_7b|For 800 gold, I am willing to sell you some of it for my old friend Hjaldar.|{{0|sisterfight|51|}}|{
+	{Here is 800 gold.|mazeg_e_9||gold|800|0|}
+	{Ouch, that much?! Is there anything you can do to lower the price?|mazeg_e_8b|||||}
+	{I\'ll return when I have the gold for it.|X|||||}
+	}|};
+{mazeg_e_8b|No, 800 gold it is. That\'s a really good price, considering how hard this stuff is to find. Besides, if it weren\'t for Hjaldar, I wouldn\'t even be selling this to you.||{
+	{Here is 800 gold.|mazeg_e_9||gold|800|0|}
+	{I\'ll return when I have the gold for it.|X|||||}
+	}|};
+{mazeg_e_9|Thanks. Here\'s some of the Lyson marrow extract.|{{0|sisterfight|55|}{1|lyson_marrow|0|}}|{{N|mazeg_e_10|||||}}|};
+{mazeg_e_10|Please give my warmest greetings to my good friend Hjaldar. Tell him that I am well.||{
+	{Will do. Thanks and goodbye.|X|||||}
+	{Whatever. Goodbye.|X|||||}
+	}|};
+	</string>
+
 </resources>
