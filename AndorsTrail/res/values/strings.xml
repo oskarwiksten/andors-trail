@@ -120,7 +120,7 @@
     <string name="traitsinfo_attack_cost">Attack cost (AP):</string>
     <string name="traitsinfo_attack_chance">Attack chance:</string>
     <string name="traitsinfo_attack_damage">Attack damage:</string>
-    <string name="traitsinfo_criticalhit_chance">Critical hit chance:</string>
+    <string name="traitsinfo_criticalhit_skill">Critical hit skill:</string>
     <string name="traitsinfo_criticalhit_multiplier">Critical multiplier:</string>
     <string name="traitsinfo_defense_chance">Block chance:</string>
     <string name="traitsinfo_defense_damageresist">Damage resistance:</string>
@@ -403,7 +403,7 @@
     <string name="skill_shortdescription_barter">Better shop prices</string>
     <string name="skill_shortdescription_dodge">Increased block chance</string>
     <string name="skill_shortdescription_barkskin">Damage resistance</string>
-    <string name="skill_shortdescription_more_criticals">Increased critical chance</string>
+    <string name="skill_shortdescription_more_criticals">Increased critical skill</string>
     <string name="skill_shortdescription_better_criticals">Increased critical damage</string>
     <string name="skill_shortdescription_speed">Increased maximum action points</string>
     <string name="skill_shortdescription_coinfinder">Higher chance of finding gold</string>
@@ -424,7 +424,7 @@
     <string name="skill_longdescription_barter">For every skill level, decreases the buying and selling gold penalty by %1$d percentage points.</string>
     <string name="skill_longdescription_dodge">Increases block chance by %1$d for each skill level.</string>
     <string name="skill_longdescription_barkskin">Increases damage resistance by %1$d for each skill level.</string>
-    <string name="skill_longdescription_more_criticals">Increases any existing critical chance given by equipment by %1$d %% for each skill level (percentage of existing critical chance value, not percentage points).</string>
+    <string name="skill_longdescription_more_criticals">Increases any existing critical skill given by equipment by %1$d %% for each skill level (percentage of existing critical skill value, not percentage points).</string>
     <string name="skill_longdescription_better_criticals">Increases any existing critical multiplier given by equipment by %1$d %% for each skill level.</string>
     <string name="skill_longdescription_speed">Increases maximum action points (AP) by %1$d for each skill level.</string>
     <string name="skill_longdescription_coinfinder">Increases chance of finding gold in monster drops by %1$d %%, and increases amount of gold in drops by %2$d %% for each skill level (up to the maximum amount that the monster drops).</string>
@@ -487,5 +487,6 @@
     <string name="inventory_movetop">Move to top</string>
     <string name="inventory_movebottom">Move to bottom</string>
     <string name="actorinfo_immune_criticals">Immune to critical hits</string>
-        
+    <string name="traitsinfo_criticalhit_effectivechance">Effective critical chance:</string>
+            
 </resources>

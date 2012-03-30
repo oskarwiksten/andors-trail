@@ -26,8 +26,8 @@
 	<TableRow
 		android:id="@+id/traitsinfo_critical_row1"
 		>
-		<TextView android:text="@string/traitsinfo_criticalhit_chance" android:layout_marginRight="10sp" />
-		<TextView android:id="@+id/traitsinfo_criticalhit_chance" />
+		<TextView android:text="@string/traitsinfo_criticalhit_skill" android:layout_marginRight="10sp" />
+		<TextView android:id="@+id/traitsinfo_criticalhit_skill" />
 	</TableRow>
 	<TableRow
 		android:id="@+id/traitsinfo_critical_row2"
@@ -36,6 +36,12 @@
 		<TextView android:id="@+id/traitsinfo_criticalhit_multiplier" />
 	</TableRow>
 	<TableRow
+		android:id="@+id/traitsinfo_critical_row3"
+		>
+		<TextView android:text="@string/traitsinfo_criticalhit_effectivechance" android:layout_marginRight="10sp" />
+		<TextView android:id="@+id/traitsinfo_criticalhit_effectivechance" />
+	</TableRow>
+		<TableRow
 		android:id="@+id/traitsinfo_defense_row1"
 		>
 		<TextView android:text="@string/traitsinfo_defense_chance" android:layout_marginRight="10sp" />

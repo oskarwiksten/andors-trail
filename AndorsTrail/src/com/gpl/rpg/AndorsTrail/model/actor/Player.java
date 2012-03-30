@@ -54,7 +54,7 @@ public final class Player extends Actor {
 		CombatTraits combat = new CombatTraits();
 		combat.attackCost = 3;
 		combat.attackChance = 60;
-		combat.criticalChance = 0;
+		combat.criticalSkill = 0;
 		combat.criticalMultiplier = 1;
 		combat.damagePotential.set(1, 1);
 		combat.blockChance = 0;

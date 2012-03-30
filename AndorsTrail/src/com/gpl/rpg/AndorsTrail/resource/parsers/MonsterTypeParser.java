@@ -60,7 +60,7 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 	}
 	private static int getExpectedMonsterExperience(final CombatTraits t, ItemTraits_OnUse hitEffect, final int maxHP, final int maxAP) {
 		if (t == null) return 0;
-		final float avgAttackHP  = t.getAttacksPerTurn(maxAP) * div100(t.attackChance) * t.damagePotential.averagef() * (1 + div100(t.criticalChance) * t.criticalMultiplier);
+		final float avgAttackHP  = t.getAttacksPerTurn(maxAP) * div100(t.attackChance) * t.damagePotential.averagef() * (1 + div100(t.criticalSkill) * t.criticalMultiplier);
 		final float avgDefenseHP = maxHP * (1 + div100(t.blockChance)) + Constants.EXP_FACTOR_DAMAGERESISTANCE * t.damageResistance;
 		int attackConditionBonus = 0;
 		if (hitEffect != null && hitEffect.addedConditions_target != null && hitEffect.addedConditions_target.length > 0) {

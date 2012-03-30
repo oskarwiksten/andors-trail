@@ -32,7 +32,7 @@ public final class AbilityModifierInfoView extends LinearLayout {
 		final Resources res = getResources();
 		
 		if (traits != null && traits.combatProficiency != null) {
-			abilitymodifierinfo_traits.update(traits.combatProficiency);
+			abilitymodifierinfo_traits.update(traits);
 			abilitymodifierinfo_traits.setVisibility(View.VISIBLE);
 		} else {
 			abilitymodifierinfo_traits.setVisibility(View.GONE);

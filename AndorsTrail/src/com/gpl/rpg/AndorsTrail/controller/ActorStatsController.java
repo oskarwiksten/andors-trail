@@ -164,7 +164,7 @@ public class ActorStatsController {
 				actorCombatTraits.criticalMultiplier += (combatTraits.criticalMultiplier * magnitude);
 			}
 			actorCombatTraits.attackChance += (combatTraits.attackChance * magnitude);
-			actorCombatTraits.criticalChance += (combatTraits.criticalChance * magnitude);
+			actorCombatTraits.criticalSkill += (combatTraits.criticalSkill * magnitude);
 			actorCombatTraits.damagePotential.add(combatTraits.damagePotential.current * magnitude, true);
 			actorCombatTraits.damagePotential.max += (combatTraits.damagePotential.max * magnitude);
 			actorCombatTraits.blockChance += (combatTraits.blockChance * magnitude);

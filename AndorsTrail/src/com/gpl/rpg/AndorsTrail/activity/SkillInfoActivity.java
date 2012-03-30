@@ -196,7 +196,7 @@ public final class SkillInfoActivity extends Activity {
 		switch (statID) {
 		case CombatTraits.STAT_COMBAT_ATTACK_COST: return R.string.traitsinfo_attack_cost;
 		case CombatTraits.STAT_COMBAT_ATTACK_CHANCE: return R.string.traitsinfo_attack_chance;
-		case CombatTraits.STAT_COMBAT_CRITICAL_CHANCE: return R.string.traitsinfo_criticalhit_chance;
+		case CombatTraits.STAT_COMBAT_CRITICAL_SKILL: return R.string.traitsinfo_criticalhit_skill;
 		case CombatTraits.STAT_COMBAT_CRITICAL_MULTIPLIER: return R.string.traitsinfo_criticalhit_multiplier;
 		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return R.string.traitsinfo_attack_damage;
 		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return R.string.traitsinfo_attack_damage;

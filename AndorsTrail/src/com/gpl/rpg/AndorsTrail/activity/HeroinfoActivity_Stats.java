@@ -114,7 +114,7 @@ public final class HeroinfoActivity_Stats extends Activity {
         rangebar_hp.update(player.health);
         rangebar_exp.update(player.levelExperience);
         
-        heroinfo_currenttraits.update(player.combatTraits);
+        heroinfo_currenttraits.update(player);
 		ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
 		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
 		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {

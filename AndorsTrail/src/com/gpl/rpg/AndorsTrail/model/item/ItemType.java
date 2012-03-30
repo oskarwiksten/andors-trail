@@ -116,11 +116,13 @@ public final class ItemType {
 			sb.append(attackEffect.damagePotential.toMinMaxString());
 			addSpace = true;
 		}
-		if (attackEffect.hasCriticalChanceEffect()) {
+		if (attackEffect.hasCriticalSkillEffect()) {
 			sb.append(" +");
-			sb.append(attackEffect.criticalChance);
-			sb.append("%x");
-			sb.append(attackEffect.criticalMultiplier);	
+			sb.append(attackEffect.criticalSkill);
+			sb.append("x");
+			if (attackEffect.hasCriticalMultiplierEffect()) {
+				sb.append(attackEffect.criticalMultiplier);				
+			}	
 		}
 	}
 	public static String describeAttackEffect(CombatTraits attackEffect) {

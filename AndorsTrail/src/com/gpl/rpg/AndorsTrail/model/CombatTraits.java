@@ -11,7 +11,7 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 public class CombatTraits {
 	public static final int STAT_COMBAT_ATTACK_COST = 0;
 	public static final int STAT_COMBAT_ATTACK_CHANCE = 1;
-	public static final int STAT_COMBAT_CRITICAL_CHANCE = 2;
+	public static final int STAT_COMBAT_CRITICAL_SKILL = 2;
 	public static final int STAT_COMBAT_CRITICAL_MULTIPLIER = 3;
 	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MIN = 4;
 	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MAX = 5;
@@ -21,7 +21,7 @@ public class CombatTraits {
 	public int attackCost;
 
 	public int attackChance;
-	public int criticalChance;
+	public int criticalSkill;
 	public float criticalMultiplier;
 	public final Range damagePotential;
 
@@ -39,7 +39,7 @@ public class CombatTraits {
 		if (copy == null) return;
 		this.attackCost = copy.attackCost;
 		this.attackChance = copy.attackChance;
-		this.criticalChance = copy.criticalChance;
+		this.criticalSkill = copy.criticalSkill;
 		this.criticalMultiplier = copy.criticalMultiplier;
 		this.damagePotential.set(copy.damagePotential);
 		this.blockChance = copy.blockChance;
@@ -51,7 +51,7 @@ public class CombatTraits {
 		return 
 			this.attackCost == other.attackCost
 			&& this.attackChance == other.attackChance
-			&& this.criticalChance == other.criticalChance
+			&& this.criticalSkill == other.criticalSkill
 			&& this.criticalMultiplier == other.criticalMultiplier
 			&& this.damagePotential.equals(other.damagePotential)
 			&& this.blockChance == other.blockChance
@@ -62,7 +62,7 @@ public class CombatTraits {
 		return 
 			this.attackCost == 0
 			&& this.attackChance == 0
-			&& this.criticalChance == 0
+			&& this.criticalSkill == 0
 			&& this.criticalMultiplier == 0
 			&& this.damagePotential.current == 0
 			&& this.damagePotential.max == 0
@@ -73,10 +73,17 @@ public class CombatTraits {
 	public boolean hasAttackChanceEffect() { return attackChance != 0; }
 	public boolean hasAttackDamageEffect() { return damagePotential.max != 0; }
 	public boolean hasBlockEffect() { return blockChance != 0; }
-	public boolean hasCriticalChanceEffect() { return criticalChance != 0; }
+	public boolean hasCriticalSkillEffect() { return criticalSkill != 0; }
 	public boolean hasCriticalMultiplierEffect() { return criticalMultiplier != 0 && criticalMultiplier != 1; }
-	public boolean hasCriticalAttacks() { return hasCriticalChanceEffect() && hasCriticalMultiplierEffect(); }
+	public boolean hasCriticalAttacks() { return hasCriticalSkillEffect() && hasCriticalMultiplierEffect(); }
 
+	public int getEffectiveCriticalChance() {
+		if (criticalSkill <= 0) return 0;
+		int v = (int) (-5 + 2 * FloatMath.sqrt(5*criticalSkill));
+		if (v < 0) return 0;
+		return v;
+	}
+	
 	public int getAttacksPerTurn(final int maxAP) {
 		return (int) Math.floor(maxAP / attackCost);
 	}
@@ -85,7 +92,7 @@ public class CombatTraits {
 		switch (statID) {
 		case STAT_COMBAT_ATTACK_COST: return attackCost;
 		case STAT_COMBAT_ATTACK_CHANCE: return attackChance;
-		case STAT_COMBAT_CRITICAL_CHANCE: return criticalChance;
+		case STAT_COMBAT_CRITICAL_SKILL: return criticalSkill;
 		case STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) FloatMath.floor(criticalMultiplier);
 		case STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return damagePotential.current;
 		case STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return damagePotential.max;
@@ -108,10 +115,10 @@ public class CombatTraits {
 		final int costDMG_Max = isWeapon ?
 				(int) (2*Math.pow(Math.max(0, damagePotential.max), 2.1))
 				:(int) (2*Math.pow(Math.max(0, damagePotential.max), 3) + damagePotential.max*20);
-		final int costCC = (int) (2.2*Math.pow(criticalChance, 3));
+		final int costCS = (int) (2.2*Math.pow(criticalSkill, 3));
 		final int costCM = (int) (50*Math.pow(Math.max(0, criticalMultiplier), 2));
 		
-		return costBC + costAC + costAP + costDR + costDMG_Min + costDMG_Max + costCC + costCM;
+		return costBC + costAC + costAP + costDR + costDMG_Min + costDMG_Max + costCS + costCM;
 	}
 
 	
@@ -120,7 +127,7 @@ public class CombatTraits {
 	public CombatTraits(DataInputStream src, int fileversion) throws IOException {
 		this.attackCost = src.readInt();
 		this.attackChance = src.readInt();
-		this.criticalChance = src.readInt();
+		this.criticalSkill = src.readInt();
 		if (fileversion <= 20) {
 			this.criticalMultiplier = src.readInt();
 		} else {
@@ -134,7 +141,7 @@ public class CombatTraits {
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(attackCost);
 		dest.writeInt(attackChance);
-		dest.writeInt(criticalChance);
+		dest.writeInt(criticalSkill);
 		dest.writeFloat(criticalMultiplier);
 		damagePotential.writeToParcel(dest, flags);
 		dest.writeInt(blockChance);

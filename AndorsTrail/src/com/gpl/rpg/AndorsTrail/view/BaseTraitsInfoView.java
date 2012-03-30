@@ -19,7 +19,7 @@ public final class BaseTraitsInfoView extends TraitsInfoView {
     }
 
 	public void update(ActorTraits traits) {
-		super.update(traits.baseCombatTraits);
+		super.update(traits);
 		
 		basetraitsinfo_max_hp.setText(Integer.toString(traits.maxHP));
 		basetraitsinfo_max_ap.setText(Integer.toString(traits.maxAP));

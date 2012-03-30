@@ -420,7 +420,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private static float getAverageDamagePerHit(Actor attacker, Actor target) {
 		float result = (float) (getAttackHitChance(attacker.combatTraits, target.combatTraits)) * attacker.combatTraits.damagePotential.average() / 100;
 		if (hasCriticalAttack(attacker, target)) {
-			result += (float) attacker.combatTraits.criticalChance * result * attacker.combatTraits.criticalMultiplier / 100;
+			result += (float) attacker.combatTraits.getEffectiveCriticalChance() * result * attacker.combatTraits.criticalMultiplier / 100;
 		}
 		result -= target.combatTraits.damageResistance;
 		return result;
@@ -475,7 +475,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		int damage = Constants.rollValue(attacker.combatTraits.damagePotential);
 		boolean isCriticalHit = false;
 		if (hasCriticalAttack(attacker, target)) {
-			isCriticalHit = Constants.roll100(attacker.combatTraits.criticalChance);
+			isCriticalHit = Constants.roll100(attacker.combatTraits.getEffectiveCriticalChance());
 			if (isCriticalHit) {
 				damage *= attacker.combatTraits.criticalMultiplier;
 			}

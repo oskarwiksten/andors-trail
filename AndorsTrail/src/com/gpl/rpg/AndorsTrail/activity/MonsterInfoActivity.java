@@ -85,7 +85,7 @@ public final class MonsterInfoActivity extends Activity {
 	}
 
 	private void updateTraits(Monster monster) {
-		monsterinfo_currenttraits.update(monster.combatTraits);
+		monsterinfo_currenttraits.update(monster);
 		monsterinfo_onhiteffects.update(
         		null, 
         		null, 
