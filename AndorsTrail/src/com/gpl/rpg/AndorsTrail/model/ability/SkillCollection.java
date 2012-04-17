@@ -110,7 +110,7 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SKILL_RESISTANCE_MENTAL, MAX_LEVEL_RESISTANCE, false, null));
 		initializeSkill(new SkillInfo(SKILL_RESISTANCE_PHYSICAL_CAPACITY, MAX_LEVEL_RESISTANCE, false, null));
 		initializeSkill(new SkillInfo(SKILL_RESISTANCE_BLOOD_DISORDER, MAX_LEVEL_RESISTANCE, false, null));
-		initializeSkill(new SkillInfo(SKILL_SHADOW_BLESS, SkillInfo.MAXLEVEL_NONE, true, null));
+		initializeSkill(new SkillInfo(SKILL_SHADOW_BLESS, 1, true, null));
 	}
 
 	public SkillInfo getSkill(int skillID) {

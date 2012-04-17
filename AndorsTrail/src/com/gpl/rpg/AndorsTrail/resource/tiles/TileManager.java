@@ -212,8 +212,6 @@ public final class TileManager {
 		(new AsyncTask<Void, Void, Void>()  {
 			@Override
 			protected Void doInBackground(Void... arg0) {
-				L.log("-> cacheAdjacentMaps");
-				long start = System.currentTimeMillis();
 				adjacentMapTiles = null;
 				
 				HashSet<String> adjacentMapNames = new HashSet<String>();
@@ -227,12 +225,8 @@ public final class TileManager {
 				for (String mapName : adjacentMapNames) {
 					addTileIDsFor(tileIDs, mapName, res, world);
 				}
-				long duration = System.currentTimeMillis() - start;
-				L.log("  -- cacheAdjacentMaps " + duration + "ms");
 				
 				adjacentMapTiles = tileCache.loadTilesFor(tileIDs, res);
-				duration = System.currentTimeMillis() - start;
-				L.log("  <- cacheAdjacentMaps " + duration + "ms");
 				return null;
 			}
 		}).execute();

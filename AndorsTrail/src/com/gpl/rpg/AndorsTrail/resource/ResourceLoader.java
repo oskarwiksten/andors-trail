@@ -173,22 +173,26 @@ public final class ResourceLoader {
 	private static void prepareTilesets(DynamicTileLoader loader, int mTileSize) {
 		final Size dst_sz1x1 = new Size(mTileSize, mTileSize);
         final Size dst_sz2x2 = new Size(mTileSize*2, mTileSize*2);
+        final Size dst_sz2x3 = new Size(mTileSize*2, mTileSize*3);
         final Size defaultTileSize = dst_sz1x1;
         final Size src_sz1x1 = new Size(1, 1);
+        final Size src_sz2x1 = new Size(2, 1);
+        final Size src_sz3x1 = new Size(3, 1);
         final Size src_sz6x1 = new Size(6, 1);
         final Size src_sz7x1 = new Size(7, 1);
+        final Size src_sz20x12 = new Size(20, 12);
         final Size src_mapTileSize = new Size(16, 8);
         final Size src_mapTileSize7 = new Size(16, 7);
         
         loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
         
         loader.prepareTileset(R.drawable.ui_selections, "ui_selections", new Size(5, 1), defaultTileSize);
-        loader.prepareTileset(R.drawable.ui_quickslots, "ui_quickslots", new Size(2, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.ui_quickslots, "ui_quickslots", src_sz2x1, defaultTileSize);
         loader.prepareTileset(R.drawable.ui_icon_equipment, "ui_icon_equipment", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.ui_splatters1, "ui_splatters1", new Size(8, 2), defaultTileSize);
         
         loader.prepareTileset(R.drawable.actorconditions_1, "actorconditions_1", new Size(14, 8), defaultTileSize);
-        loader.prepareTileset(R.drawable.actorconditions_2, "actorconditions_2", new Size(3, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.actorconditions_2, "actorconditions_2", src_sz3x1, defaultTileSize);
         
         loader.prepareTileset(R.drawable.items_armours, "items_armours", new Size(14, 3), defaultTileSize);
         loader.prepareTileset(R.drawable.items_weapons, "items_weapons", new Size(14, 6), defaultTileSize);
@@ -196,38 +200,50 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.items_consumables, "items_consumables", new Size(14, 5), defaultTileSize);
         loader.prepareTileset(R.drawable.items_books, "items_books", new Size(11, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.items_misc, "items_misc", new Size(14, 4), defaultTileSize);
-        loader.prepareTileset(R.drawable.items_misc_2, "items_misc_2", new Size(20, 12), defaultTileSize);
-        loader.prepareTileset(R.drawable.items_misc_3, "items_misc_3", new Size(20, 12), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc_2, "items_misc_2", src_sz20x12, defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc_3, "items_misc_3", src_sz20x12, defaultTileSize);
         loader.prepareTileset(R.drawable.items_misc_4, "items_misc_4", new Size(20, 4), defaultTileSize);
         loader.prepareTileset(R.drawable.items_necklaces_1, "items_necklaces_1", new Size(10, 3), defaultTileSize);
         loader.prepareTileset(R.drawable.items_weapons_3, "items_weapons_3", new Size(13, 5), defaultTileSize);
-        loader.prepareTileset(R.drawable.items_armours_2, "items_armours_2", new Size(7, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_armours_2, "items_armours_2", src_sz7x1, defaultTileSize);
         loader.prepareTileset(R.drawable.items_armours_3, "items_armours_3", new Size(10, 4), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_rings_1, "items_rings_1", new Size(10, 3), defaultTileSize);
         
+        loader.prepareTileset(R.drawable.monsters_armor1, "monsters_armor1", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_cyclops, "monsters_cyclops", src_sz1x1, dst_sz2x3);
         loader.prepareTileset(R.drawable.monsters_demon1, "monsters_demon1", src_sz1x1, dst_sz2x2);
         loader.prepareTileset(R.drawable.monsters_dogs, "monsters_dogs", src_sz7x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_eye1, "monsters_eye1", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_eye2, "monsters_eye2", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_eye3, "monsters_eye3", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_eye4, "monsters_eye4", src_sz1x1, defaultTileSize);
 	    loader.prepareTileset(R.drawable.monsters_ghost1, "monsters_ghost1", src_sz1x1, defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_hydra1, "monsters_hydra1", src_sz1x1, dst_sz2x2);
         loader.prepareTileset(R.drawable.monsters_insects, "monsters_insects", src_sz6x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_karvis1, "monsters_karvis1", src_sz2x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_karvis2, "monsters_karvis2", new Size(9, 1), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_ld1, "monsters_ld1", new Size(20, 12), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_ld2, "monsters_ld2", new Size(20, 12), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_liches, "monsters_liches", new Size(4, 1), defaultTileSize);
-	    loader.prepareTileset(R.drawable.monsters_mage2, "monsters_mage2", src_sz1x1, defaultTileSize);
-	    loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_man1, "monsters_man1", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_mage, "monsters_mage", src_sz1x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_mage2, "monsters_mage2", src_sz1x1, defaultTileSize);
+	    loader.prepareTileset(R.drawable.monsters_man1, "monsters_man1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_men, "monsters_men", new Size(9, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_men2, "monsters_men2", new Size(10, 1), defaultTileSize);
 	    loader.prepareTileset(R.drawable.monsters_misc, "monsters_misc", new Size(12, 1), defaultTileSize);
     	loader.prepareTileset(R.drawable.monsters_rats, "monsters_rats", new Size(5, 1), defaultTileSize);
+    	loader.prepareTileset(R.drawable.monsters_redshrike1, "monsters_redshrike1", src_sz6x1, defaultTileSize);
+    	loader.prepareTileset(R.drawable.monsters_rltiles1, "monsters_rltiles1", new Size(20, 8), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_rltiles2, "monsters_rltiles2", new Size(20, 9), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_rltiles3, "monsters_rltiles3", new Size(10, 3), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_rogue1, "monsters_rogue1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_skeleton1, "monsters_skeleton1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_skeleton2, "monsters_skeleton2", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_snakes, "monsters_snakes", src_sz6x1, defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_wraiths, "monsters_wraiths", src_sz3x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_zombie1, "monsters_zombie1", src_sz1x1, defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_rltiles1, "monsters_rltiles1", new Size(20, 8), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_rltiles2, "monsters_rltiles2", new Size(20, 9), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_rltiles3, "monsters_rltiles3", new Size(10, 3), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_karvis2, "monsters_karvis2", new Size(9, 1), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_ld1, "monsters_ld1", new Size(20, 12), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_ld2, "monsters_ld2", new Size(20, 12), defaultTileSize);
-
+        loader.prepareTileset(R.drawable.monsters_zombie2, "monsters_zombie2", src_sz1x1, defaultTileSize);
+        
         loader.prepareTileset(R.drawable.map_tiles_1_1, "map_tiles_1_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_1_2, "map_tiles_1_2.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tiles_1_3, "map_tiles_1_3.png", src_mapTileSize, defaultTileSize);
