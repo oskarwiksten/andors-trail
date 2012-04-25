@@ -245,7 +245,7 @@
 {prim_armorer|monsters_rltiles1:88|Prim armorer|prim_armorer||0|1|||||||||||||shop_prim_armorer|prim_armorer||||||||};
 {jueth|monsters_men2:0|Jueth|prim_tailor||0|1||||||||||||||prim_tailor||||||||};
 {bjorgur|monsters_karvis2:7|Bjorgur|bjorgur||0|1||||||||||||||bjorgur_start||||||||};
-{prim_prisoner|monsters_rltiles2:81|Prim prisoner|prim_prisoner||0|1||||||||||||||||||||||};
+{prim_prisoner|monsters_rltiles2:81|Prim prisoner|prim_prisoner||0|1||||||||||||||prim_guard1||||||||};
 {fulus|monsters_karvis2:3|Fulus|fulus||0|1||||||||||||||fulus_start||||||||};
 {guthbered|monsters_rltiles1:92|Guthbered|guthbered||0|1||80|10|5|5|70|||4|9|80|4|guthbered|guthbered_start||||||||};
 {guthbereds_bodyguard|monsters_rltiles1:76|Guthbered\'s bodyguard|guthbered_guard||0|1||||||||||||||guthbered_guard||||||||};
@@ -547,9 +547,15 @@
 {rg_villager6|monsters_ld1:188|Villager|remgard_villager6||0|1||||||||||||||remgard_villager6||||||||};
 {rg_villager7|monsters_ld1:10|Villager|remgard_villager7||0|1||||||||||||||remgard_villager7||||||||};
 {rg_villager8|monsters_rltiles3:18|Villager|remgard_villager8||0|1||||||||||||||remgard_villager8||||||||};
-{skylenar|monsters_ld1:3|Skylenar|skylenar||0|1||||||||||||||skylenar||||||||};
+{skylenar|monsters_ld1:3|Skylenar|skylenar||0|1|||||||||||||shop_skylenar|skylenar||||||||};
 {taylin|monsters_rltiles1:74|Taylin|taylin||0|1||||||||||||||taylin||||||||};
 {petdog|monsters_dogs:0|Dog|petdog||4|1||||||||||||||petdog||||||||};
+
+{izthiel_cr|monsters_rltiles2:52|Izthiel Guardian|izthiel_cr||7|1||354|10|5|3|120|||3|7|60|11|oegyth1||1||||||{{bleeding_wound|3|5|50|}}|};
+{burrower_cr|monsters_rltiles2:165|Giant larval burrower|burrower_cr||1|1||175|10|5|5|95|||1|25|80|2|oegyth1|||||||||};
+{allaceph_cr|monsters_rltiles2:103|Ancient Allaceph|allaceph_cr||2|1||333|10|5|3|80|40|2|3|7|115|3|oegyth1||1|7|7||||{{feebleness_minor|3|3|20|}}|};
+{plaguesp_cr|monsters_rltiles2:38|Plaguestrider master|plaguespider_cr||6|1||365|10|5|3|85|80|3|2|8|175|2|oegyth1||1||||||{{contagion|4|5|70|}{blister|3|5|50|}}|};
+{maonit_cr|monsters_rltiles1:107|Strong Maonit brute|maonit_cr||5|1||620|5|5|5|65|30|3|1|20|20|6|oegyth1||1||||||{{stunned|1|3|10|}}|};
 	</string>
 
 </resources>

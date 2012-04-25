@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" width="30" height="30">
   <object name="allaceph_2" type="spawn" x="608" y="192" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -94,7 +94,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="30" height="30" visible="0">
+ <objectgroup name="Spawn2" width="30" height="30">
   <object name="allaceph_3" type="spawn" x="416" y="544" width="192" height="64">
    <properties>
     <property name="quantity" value="1"/>
@@ -115,7 +115,7 @@
     <property name="quantity" value="1"/>
    </properties>
   </object>
-  <object name="allaceph_3" type="spawn" x="96" y="576" width="192" height="160">
+  <object name="allaceph_3" type="spawn" x="96" y="608" width="192" height="160">
    <properties>
     <property name="quantity" value="1"/>
    </properties>
@@ -165,6 +165,7 @@
     <property name="quantity" value="1"/>
    </properties>
   </object>
+  <object name="allaceph_cr" type="spawn" x="96" y="576" width="96" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

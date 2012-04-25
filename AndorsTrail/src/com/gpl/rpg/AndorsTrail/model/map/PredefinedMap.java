@@ -252,8 +252,8 @@ public final class PredefinedMap {
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		final int size1 = src.readInt();
-		for(int i = 0; i < size1; ++i) {
+		final int loadedSpawnAreas = src.readInt();
+		for(int i = 0; i < loadedSpawnAreas; ++i) {
 			this.spawnAreas[i].readFromParcel(src, world, fileversion);
 		}
 		
@@ -279,6 +279,12 @@ public final class PredefinedMap {
 			return;
 		}
 		lastVisitTime = src.readLong();
+		
+		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
+			MonsterSpawnArea area = this.spawnAreas[i];
+			if (area.isUnique && visited) spawnAllInArea(world, area, true);
+			else area.reset();
+		}
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

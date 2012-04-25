@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="23" height="18" visible="0">
+ <objectgroup name="Spawn" width="23" height="18">
   <object name="plaguespider_6" type="spawn" x="160" y="352" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -118,11 +118,12 @@
     <property name="quantity" value="1"/>
    </properties>
   </object>
-  <object name="plaguespider_4" type="spawn" x="352" y="352" width="224" height="128">
+  <object name="plaguespider_4" type="spawn" x="384" y="352" width="192" height="128">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
+  <object name="plaguespider_cr" type="spawn" x="352" y="416" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="23" height="18"/>
 </map>
