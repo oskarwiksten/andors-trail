@@ -51,7 +51,7 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 			, ResourceParserUtils.parseNullableString(parts[20]) 	// PhraseID
 			, ResourceParserUtils.parseBoolean(parts[6], false)		// isUnique
 			, ResourceParserUtils.parseNullableString(parts[7])		// Faction
-			, Integer.parseInt(parts[5])					// MonsterClass
+			, ResourceParserUtils.parseInt(parts[5], MonsterType.MONSTERCLASS_HUMANOID) // MonsterClass
 		));
 	}
 	

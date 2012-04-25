@@ -639,7 +639,7 @@
 }|};
 </string>
 
-<string name="droplists_v0611_questitems">
+<string name="droplists_v0611_npcs">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {sign_toszylae|{{helm_protector0|1|1|100|}}|};
 {toszylae|{
@@ -664,15 +664,35 @@
 	{vial_empty2|3|5|100|}
 	}|};
 {lyson_marrow|{{lyson_marrow|1|1|100|}}|};
+{hjaldar_pots|{
+	{pot_focus_dmg|1|1|100|}
+	{pot_focus_ac|1|1|100|}
+	}|};
+{fiveidols|{{algangror_idol|5|5|100|}}|};
+{algangror|{
+	{algangror_ring|1|1|100|}
+	{gold|0|20|100|}
+	{health|1|2|100|}
+	{gem4|1|1|100|}
+	{vial_empty2|3|5|100|}
+	}|};
+{gloves_combat2|{{gloves_combat2|1|1|100|}}|};
+{remgard_shield_2|{{remgard_shield_2|1|1|100|}}|};
+{armour_chain_remg|{{armour_chain_remg|1|1|100|}}|};
+{marrowtaint|{{marrowtaint|1|1|100|}}|};
+</string>
+
+<string name="droplists_v0611_shops">
+[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {shop_hjaldar|{
 	{pot_focus_dmg|5|5|100|}
 	{pot_focus_ac|5|5|100|}
 	{pot_focus_dmg2|1|1|100|}
 	{pot_focus_ac2|1|1|100|}
 	}|};
-{hjaldar_pots|{
-	{pot_focus_dmg|1|1|100|}
-	{pot_focus_ac|1|1|100|}
+{shop_rothses|{
+	{gloves_combat1|1|1|100|}
+	{remgard_shield_1|1|1|100|}
 	}|};
 </string>
 

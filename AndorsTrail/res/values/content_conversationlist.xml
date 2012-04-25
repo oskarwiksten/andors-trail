@@ -3248,44 +3248,60 @@
 	<string name="conversationlist_algangror">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {algangror|||{
+	{|algangror_fight_6|remgard2:35||||}
+	{|algangror_fight_3|remgard2:30||||}
+	{|algangror_return_d1|fiveidols:100||||}
+	{|algangror_cmp5|fiveidols:70||||}
+	{|algangror_cmp1|fiveidols:61||||}
+	{|algangror_story1|fiveidols:51||||}
+	{|algangror_task2_ret1|fiveidols:37||||}
+	{|algangror_task2_7|fiveidols:20||||}
+	{|algangror_return_d1|algangror:101||||}
+	{|algangror_return_d1|algangror:100||||}
 	{|algangror_return_c1|algangror:21||||}
 	{|algangror_return_3|algangror:20||||}
 	{|algangror_return_1|algangror:15||||}
 	{|algangror_1|||||}
 	}|};
-{algangror_1|Oh my, a child. He he, how nice. Tell me, what brings you here?||{
+{algangror_1|Oh my, a child. He he, how nice. Tell me, what brings you here?|{{0|algangror|10|}}|{
 	{I am looking for my brother.|algangror_2a|||||}
 	{I just entered to see if there\'s any loot to be found here.|algangror_2b|||||}
 	{I\'m an adventurer, looking to help anyone in need of help.|algangror_2c|||||}
 	{I\'d rather not tell.|algangror_2d|||||}
+	{I am sent by Jhaeld to end whatever it is you do to the people of Remgard.|algangror_fight_1|remgard2:21||||}
 	}|};
-{algangror_2a|Run away has he? He he.||{{N|algangror_3|||||}}|};
+{algangror_2a|Run away, has he? He he.||{{N|algangror_3|||||}}|};
 {algangror_2b|Oh sure, you think you can just pick up anything and claim it as yours?||{{N|algangror_3|||||}}|};
-{algangror_2c|How noble. maybe you can be of use to me.||{{N|algangror_3|||||}}|};
+{algangror_2c|How noble. Maybe you can be of use to me.||{{N|algangror_3|||||}}|};
 {algangror_2d|Clever. I like that.||{{N|algangror_3|||||}}|};
 {algangror_3|Tell me, now that you have entered this house, would you be willing to help me with a small.. problem?||{
 	{Sure, what\'s the problem?|algangror_4|||||}
 	{Maybe, it depends on what the problem is.|algangror_4|||||}
 	{Maybe, it depends on what type of reward we are talking about.|algangror_3c|||||}
+	{No way. You are acting way too creepy for me.|algangror_decline_1|||||}
 	}|};
 {algangror_3c|Reward? No, no, I don\'t have anything to give you, unfortunately.||{
 	{I guess you won\'t get any help either then.|X|||||}
 	{Fine, what\'s the problem you want help with?|algangror_4|||||}
+	{Something feels wrong here. I better not get involved in this.|algangror_decline_1|||||}
 	}|};
 {algangror_4|You see, I have this slight problem with .. ahem .. vermin.||{{N|algangror_5|||||}}|};
 {algangror_5|Always sneaking around, always trying to cause mischief.||{{N|algangror_6|||||}}|};
 {algangror_6|Fortunately, I managed to capture some of them, and locked them in my basement.||{{N|algangror_7|||||}}|};
 {algangror_7|Now, I can\'t handle them myself because of certain .. issues.||{{N|algangror_8|||||}}|};
-{algangror_8|That\'s where you come in. Would you be willing to .. ahem .. handle those rodents for me?|{{0|algangror|10|}}|{
+{algangror_8|That\'s where you come in. Would you be willing to .. ahem .. handle those rodents for me?|{{0|algangror|11|}}|{
 	{Sure, some rodents, I can handle that.|algangror_9|||||}
 	{No problem, I\'ll be right back once I have killed them.|algangror_9|||||}
 	{Something feels wrong here. I better not get involved in this.|algangror_decline_1|||||}
 	}|};
-{algangror_decline_1|Ah yes. After all, you are just a child and I can understand such a task would be too much for you. He he.|||};
+{algangror_decline_1|Ah yes. After all, you are just a child and I can understand such a task would be too much for you. He he.|{{0|algangror|100|}}||};
 {algangror_9|Splendid. Return to me with some proof that they are have been dealt with.|{{0|algangror|15|}}||};
 {algangror_return_1|You return. Did you handle all those .. ahem .. rodents in my basement?||{
 	{Yes, they are all dead.|algangror_return_2||algangror_rat|6|0|}
 	{I am still working on it. Goodbye.|X|||||}
+	{I won\'t do your stupid task, count me out.|algangror_decline_1|||||}
+	{I have decided not to help you with your rodents.|algangror_decline_1|||||}
+	{I am sent by Jhaeld to end whatever it is you do to the people of Remgard.|algangror_fight_1|remgard2:21||||}
 	}|};
 {algangror_return_2|He he. I bet you sure showed them. Excellent. Thank you for .. ahem .. helping me.|{{0|algangror|20|}}|{{N|algangror_return_3|||||}}|};
 {algangror_return_3|Those rodents have really been bothering me. Good thing I managed to catch some of them. He he.||{{N|algangror_return_4|||||}}|};
@@ -3293,14 +3309,151 @@
 	{Yes, I have been there.|algangror_remgard_2|||||}
 	{No, where is that?|algangror_remgard_1|||||}
 	}|};
-{algangror_return_c1|You return. Thank you for helping me with my .. ahem .. rodent problem earlier.|||};
+{algangror_return_c1|You return. Thank you for helping me with my .. ahem .. rodent problem earlier.||{{N|algangror_return_c2|||||}}|};
+{algangror_return_c2|||{
+	{|algangror_told_1|remgard2:10||||}
+	{|algangror_return_c4|remgard:75||||}
+	{|algangror_return_c3|||||}
+	}|};
+{algangror_return_c3|I hope that will teach those *other* rats.|||};
+{algangror_return_c4|Say, you seem like a resourceful person. Would you be interested in helping me with yet another .. task?||{
+	{Depends on the task.|algangror_task2_1|||||}
+	{Sure.|algangror_task2_1|||||}
+	{Not right now.|algangror_task2_d|||||}
+	}|};
 {algangror_remgard_1|Oh, it\'s not far from here. Doesn\'t matter really.||{{N|algangror_remgard_2|||||}}|};
 {algangror_remgard_2|You see, I used to live there. To make a long story short, there were some .. ahem .. misunderstandings.||{{N|algangror_remgard_3|||||}}|};
 {algangror_remgard_3|These days, I think they are looking for me, for some reason. Can\'t think of any reason why really. But I believe they are.||{{N|algangror_remgard_4|||||}}|};
 {algangror_remgard_4|Because of our previous .. misunderstanding, I think it\'s best they don\'t find out that I\'m here.||{{N|algangror_remgard_5|||||}}|};
-{algangror_remgard_5|Therefore, I ask of you kind sir to not reveal my whereabouts to them.||{{Ok|algangror_remgard_6|||||}{(Lie) Ok|algangror_remgard_6|||||}}|};
+{algangror_remgard_5|Therefore, I ask of you not to reveal my whereabouts to them.||{{Ok|algangror_remgard_6|||||}{(Lie) Ok|algangror_remgard_6|||||}}|};
 {algangror_remgard_6|Thank you. Under no circumstances should you tell them where I am. They will most likely try to persuade you into revealing my location.||{{Ok|algangror_remgard_7|||||}}|};
 {algangror_remgard_7|Under no circumstances.|{{0|algangror|21|}}||};
+{algangror_return_d1|Oh, it\'s you again.||{{N|algangror_return_d2|||||}}|};
+{algangror_return_d2|You should probably leave before you tip something over that might .. ahem .. break. He he.||{
+	{I am sent by Jhaeld to end whatever it is you do to the people of Remgard.|algangror_fight_1|remgard2:21||||}
+	{Watch your tongue, witch.|X|||||}
+	{You are right, I had better leave.|X|||||}
+	}|};
+{algangror_fight_1|||{
+	{|algangror_fight_2|algangror:100||||}
+	{|algangror_fight_2|algangror:101||||}
+	{|algangror_fight_1a|algangror:10||||}
+	{|algangror_fight_2|||||}
+	}|};
+{algangror_fight_1a||{{0|algangror|101|}}|{{|algangror_fight_2|||||}}|};
+{algangror_fight_2|||{{|algangror_fight_2a|fiveidols:10||||}{|algangror_fight_3|||||}}|};
+{algangror_fight_2a||{{0|fiveidols|100|}}|{{|algangror_fight_3|||||}}|};
+{algangror_fight_3|Jhaeld, the fool. He hides behind his guards and his stone walls. Such a pitiful man he is. Yes, I made those people disappear, but they were all worth it. I will have my revenge!|{{0|remgard2|30|}}|{{|algangror_fight_4|||||}}|};
+{algangror_fight_4|And you, what are you trying to accomplish by running his errands? How fortunate that you entered my house. He he.||{{|algangror_fight_5|||||}}|};
+{algangror_fight_5|Do you really think you can defeat *me*? Ha ha, this will be fun!||{{Fight!|algangror_fight_6|||||}}|};
+{algangror_fight_6||{{0|remgard2|35|}}|{{|F|||||}}|};
+{algangror_told_1|||{{|algangror_told_1a|algangror:10||||}{|algangror_told_2|||||}}|};
+{algangror_told_1a||{{0|algangror|101|}}|{{|algangror_told_2|||||}}|};
+{algangror_told_2|Say, despite my previous urging to you to keep my location a secret to the people of Remgard, I have this feeling that this trust has been broken. Please tell me it isn\'t so.||{
+	{Yes, I have told Jhaeld where you are.|algangror_told_3|||||}
+	{(Lie) No, I have not told anyone.|algangror_told_3|||||}
+	}|};
+{algangror_told_3|I can feel it in me.||{{N|algangror_return_d2|||||}}|};
+{algangror_task2_d|Very well, return to me once you are ready.|||};
+{algangror_task2_1|Now, I can\'t tell you what task I have in mind before I am confident that you will actually help me. Granted, you have already shown some level of respect for my need of discretion.||{{N|algangror_task2_2|||||}}|};
+{algangror_task2_2|Nor can I describe my reasoning behind this task before you are done with it.||{{N|algangror_task2_3|||||}}|};
+{algangror_task2_3|Rest assured, you will be sufficiently rewarded by helping me. In fact, you see this necklace here? It has some peculiar powers that many people seek.||{{N|algangror_task2_4|||||}}|};
+{algangror_task2_4|The world around you seems to move a bit slower when you wear it.|{{0|fiveidols|10|}}|{
+	{Ok. I will help you with your task.|algangror_task2_6|||||}
+	{Ok, I\'ll help. I\'m always interested in new items.|algangror_task2_6|||||}
+	{It all depends on what you want me to do.|algangror_task2_5|||||}
+	{Something feels wrong here. I don\'t think I should help you.|algangror_task2_n|||||}
+	}|};
+{algangror_task2_5|As I said, I cannot tell you what task I have in mind, or my reasoning behind it until you are done. I would need your total .. cooperation with this.||{
+	{Ok. I will agree to help you with your task.|algangror_task2_6|||||}
+	{Ok, I\'ll help. I\'m always interested in new items.|algangror_task2_6|||||}
+	{No. I will not help you unless you tell me what you want me to do.|algangror_task2_n|||||}
+	{No, I would never help someone like you.|algangror_task2_n|||||}
+	}|};
+{algangror_task2_n|Ah yes. After all, you are just a child and I can understand that all of this must be too much for you. He he.|{{0|algangror|100|}}|{{N|algangror_task2_n2|||||}}|};
+{algangror_task2_n2|Can I at least urge you not to disclose my location to the people of Remgard?||{
+	{I will keep your location secret. Goodbye.|X|||||}
+	{We\'ll see. Goodbye.|X|||||}
+	{Don\'t tell me what to do! Goodbye.|X|||||}
+	}|};
+{algangror_task2_6|Good, good.|{{0|fiveidols|20|}}|{{N|algangror_task2_7|||||}}|};
+{algangror_task2_7|You will tell no one of this task that I am about to give you, and you must be as discreet as possible.||{{N|algangror_task2_8|||||}}|};
+{algangror_task2_8|I have in my possession five idols. Five idols with very unique .. qualities. What I want you to do is .. deliver these idols to various people in the town of Remgard.||{{N|algangror_task2_9|||||}}|};
+{algangror_task2_9|You will place them by the beds of five particular persons, and you must hide it well so that the person does not find the idol itself.||{{N|algangror_task2_10|||||}}|};
+{algangror_task2_10|Remember, it is of utmost importance that you be as discreet as possible about this. The idols must not be found once you have placed them, and no one must notice that you place the idols.|{{0|fiveidols|30|}}|{{Go on.|algangror_task2_11|||||}}|};
+{algangror_task2_11|So, the first person that I want you to visit is Jhaeld. I hear that he spends most of his time in the Remgard tavern these days.|{{0|fiveidols|31|}}|{{N|algangror_task2_12|||||}}|};
+{algangror_task2_12|Secondly, I want you to visit one of the farmers named Larni. He lives in a cabin with his wife Caeda to the northwest in Remgard.|{{0|fiveidols|32|}}|{{N|algangror_task2_13|||||}}|};
+{algangror_task2_13|The third person is Arnal the weapon-smith, that lives in the northwest of Remgard.|{{0|fiveidols|33|}}|{{N|algangror_task2_14|||||}}|};
+{algangror_task2_14|Fourth is Emerei, that can probably be found in his house to the southeast of Remgard.|{{0|fiveidols|34|}}|{{N|algangror_task2_15|||||}}|};
+{algangror_task2_15|The fifth person is the farmer Carthe. Carthe lives on the eastern shore of Remgard, near the tavern.|{{0|fiveidols|35|}}|{{N|algangror_task2_16|||||}}|};
+{algangror_task2_16|Once you have placed these five idols by the beds of these five people, return to me as soon as possible.||{{N|algangror_task2_17|||||}}|};
+{algangror_task2_17|Again, I cannot stress this enough - you must not tell anyone about these idols, and you must not be seen while placing them.||{{I understand.|algangror_task2_18s|||||}}|};
+{algangror_task2_18s|||{
+	{|algangror_task2_19|fiveidols:37||||}
+	{|algangror_task2_18|||||}
+	}|};
+{algangror_task2_18|Here are the idols.|{{1|fiveidols||}{0|fiveidols|37|}}|{
+	{I will be back shortly.|algangror_task2_19|||||}
+	{This should be easy.|algangror_task2_19|||||}
+	}|};
+{algangror_task2_19|Now go, and please hurry, we might not have much time.|||};
+{algangror_task2_ret1|Tell me, how goes the task of placing the idols?||{
+	{Can you repeat what you wanted me to do?|algangror_task2_8|||||}
+	{I am still trying to find everyone.|algangror_task2_ret2|||||}
+	{It is done.|algangror_task2_done1|fiveidols:50||||}
+	{I won\'t do your stupid task.|algangror_task2_n|||||}
+	{I will not help you with your task.|algangror_task2_n|||||}
+	}|};
+{algangror_task2_ret2|Please hurry, we might not have much time.|||};
+{algangror_task2_done1|Excellent. Maybe, now I can rest easily. Thank you so much for helping me.||{{N|algangror_task2_done2|||||}}|};
+{algangror_task2_done2|Did anyone see you or where you placed the idols?||{{No, I hid the idols as you instructed.|algangror_task2_done3|||||}}|};
+{algangror_task2_done3|Good. Thank you again for helping me.|{{0|fiveidols|51|}}|{{N|algangror_story|||||}}|};
+{algangror_story|Let me tell you my story.||{
+	{Please do.|algangror_story1|||||}
+	{Can we just skip to the end?|algangror_cmp1|||||}
+	}|};
+{algangror_story1|You see, I used to live in the city of Remgard. The times were good, and the city prospered.||{{N|algangror_story2|||||}}|};
+{algangror_story2|Our crops grew well, and some people had very fortunate trading agreements with other cities, making the life for most of us living in Remgard very easy.||{{N|algangror_story3|||||}}|};
+{algangror_story3|I even sold some of the baskets that I used to make to a wealthy merchant that visited us from from Nor City.||{{N|algangror_story4|||||}}|};
+{algangror_story4|However, even the easy life gets boring after a while. I believe it is in our nature to strive for new and better things, to free us from the boredom of day-to-day life.||{{N|algangror_story5|||||}}|};
+{algangror_story5|I wanted to learn more of things that I knew nothing about, and wanted to explore things I had only read of in books before.||{{N|algangror_story6|||||}}|};
+{algangror_story6|So I went to Nor City myself, and visited many .. interesting people and .. dark corners.||{{N|algangror_story7|||||}}|};
+{algangror_story7|Naturally, I was thrilled of the knowledge I gained from the experience, and from what I learned while there.||{{What then?|algangror_story8|||||}}|};
+{algangror_story8|As I got back home, I wanted to continue practicing what I had observed and learned while in Nor City.||{{N|algangror_story9|||||}}|};
+{algangror_story9|You could say I got obsessed with learning more. I guess the others living in Remgard did not .. share my enthusiasm. Some of them even questioned the fact that I wanted to learn more.||{{N|algangror_story10|||||}}|};
+{algangror_story10|So I told myself that others would not hinder me in my curiosity to better myself.||{{N|algangror_story11|||||}}|};
+{algangror_story11|Those books that I bought from the Blackmarrow residence in Nor City - I must have read them all perhaps five times over. This was something completely new to me, and at the same time very exciting.||{{What then?|algangror_story12|||||}}|};
+{algangror_story12|For some reason, the others in Remgard started giving me strange looks, and I could hear the whispers behind my back.||{{N|algangror_story13|||||}}|};
+{algangror_story13|I was even barred from the tavern. \'People come here for a good time, and we don\'t want people like you here ruining that\' they said. What fools they are.||{{N|algangror_story14|||||}}|};
+{algangror_story14|I heard one woman whispering to her boy, \'Don\'t look at her, she\'ll turn you to stone!\'. Others just turned the other way when they met me.||{{N|algangror_story15|||||}}|};
+{algangror_story15|What fools they are.||{{So what happened?|algangror_story16|||||}}|};
+{algangror_story16|One day, Jhaeld showed up at my doorstep with a group of guards.||{{N|algangror_story17|||||}}|};
+{algangror_story17|The people of Remgard had decided that I could not stay there anymore, he said. The things I did were causing other people harm, he said.||{{N|algangror_story18|||||}}|};
+{algangror_story18|What had I done, I ask myself? I had never hurt anyone, much less affected anyone with my .. experiments. Am I not allowed to do what I wish?||{{N|algangror_story19|||||}}|};
+{algangror_story19|I had little chance to argue, however. The guards led me out of the city. They did not even let me gather my things. All my books, all my notes and all my findings - gone. I lost everything.|{{0|fiveidols|60|}}|{{What now?|algangror_story20|||||}}|};
+{algangror_story20|All this happened several seasons ago. I knew I had to get revenge for what they did to me.||{{N|algangror_story21|||||}}|};
+{algangror_story21|Oh, how I despise them all. The people that gave me those looks, the people that whispered behind my back, and most of all that fool Jhaeld.||{{N|algangror_story22|||||}}|};
+{algangror_story22|So, I decided to extend my .. experiments .. to larger things. To people, to living things. This is the perfect opportunity to learn even more than what is in the books.||{{N|algangror_story23|||||}}|};
+{algangror_story23|And to think that I could do it while at the same time get revenge on those despicable people - it\'s an excellent plan, if I may say so myself. He he.||{{So, what happened to all those people that have gone missing?|algangror_story24|||||}}|};
+{algangror_story24|I lured them here. Once I managed to trap them, I placed a curse on them that, in theory, should have only made them unable to speak.||{{N|algangror_story25|||||}}|};
+{algangror_story25|Maybe I haven\'t understood everything correctly from the books that I have read, since instead of making them unable to speak, they were all turned into rats instead.||{{N|algangror_story26|||||}}|};
+{algangror_story26|Practice makes perfect, I suppose. Ha ha.||{{Wait, does this mean that those rats I killed for you were..|algangror_story27|||||}}|};
+{algangror_story27|Oh yes. With your help, they are now one less problem to deal with, so to speak. He he.||{{N|algangror_story28|||||}}|};
+{algangror_story28|So, that\'s my story. Thank you for listening to it.|{{0|fiveidols|61|}}|{
+	{I understand, and I agree with your actions.|algangror_story29a|||||}
+	{I do not fully agree with your actions.|algangror_story29b|||||}
+	{What did could never be justified!|algangror_story29b|||||}
+	}|};
+{algangror_story29a|Thank you. It is good to know there are more people interested in learning more.||{{N|algangror_cmp1|||||}}|};
+{algangror_story29b|I never expected you to understand it. No one else seems to understand me either. Oh well, your loss, I guess.||{{N|algangror_cmp1|||||}}|};
+{algangror_cmp1|So, for helping me with the idols, I believe I promised you my enchanted necklace, \'Marrowtaint\'.||{{N|algangror_cmp2|||||}}|};
+{algangror_cmp2|Wear it well, my friend. Do not let others get hold of the power that Marrowtaint provides.||{{N|algangror_cmp3|||||}}|};
+{algangror_cmp3|Here you go.|{{0|fiveidols|70|}{1|marrowtaint||}}|{
+	{Thank you.|algangror_cmp5|||||}
+	{That\'s all? One lousy necklace for all this trouble I went through?|algangror_cmp4|||||}
+	}|};
+{algangror_cmp4|Do not underestimate it, my friend.||{{N|algangror_cmp5|||||}}|};
+{algangror_cmp5|Again, thank you for helping me. You will always be welcome here, friend.|||};
 	</string>
 
 	<string name="conversationlist_remgard_bridgeguard">
@@ -4127,6 +4280,479 @@
 {sign_bwm31_15|I just hope that those disgusting snakes will stay away from me this time, with their nasty venom.||{{N|sign_bwm31_16|||||}}|};
 {sign_bwm31_16|If luck is on my side, I might even be home safe by nightfall.||{{N|sign_bwm31_17|||||}}|};
 {sign_bwm31_17|(The journal has no more pages)|||};
+	</string>
+
+	<string name="conversationlist_jhaeld">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{jhaeld|||{
+	{|jhaeld_idol_1|fiveidols:41||||}
+	{|jhaeld_completed|remgard2:45||||}
+	{|jhaeld_killalg_3|remgard2:41||||}
+	{|jhaeld_killalg_2|remgard2:40||||}
+	{|jhaeld_killalg|remgard2:21||||}
+	{|jhaeld_alg_3|remgard2:10||||}
+	{|jhaeld_rejected|remgard:110||||}
+	{|jhaeld_return8|remgard:80||||}
+	{|jhaeld_return6|remgard:75||||}
+	{|jhaeld_return1|remgard:50||||}
+	{|jhaeld_1|||||}
+	}|};
+{jhaeld_1|What, who are you? Don\'t bother me, child. We don\'t want kids running around in here.||{
+	{Are you Jhaeld? I was sent here to help you investigate the missing people.|jhaeld_3|||||}
+	{Hey, watch that tone of yours. It would be a pity if more of your people would .. disappear.|jhaeld_2|||||}
+	}|};
+{jhaeld_2|Hrmpf. I don\'t take threats lightly. Especially not from snot-nosed kids like you.||{
+	{I was sent here to help you investigate the missing people.|jhaeld_3|||||}
+	{You better get used to it with an attitude like that.|jhaeld_leave|||||}
+	}|};
+{jhaeld_reject||{{0|remgard|110|}}|{{|jhaeld_leave|||||}}|};
+{jhaeld_leave|I think you had better leave, before anything bad might happen to you.|||};
+{jhaeld_3|Yes, yes. The missing people. What could possibly a kid like you help with, hm?||{
+	{I was thinking you could provide me with some tasks to help you with the investigation.|jhaeld_4|||||}
+	{The bridge guard told me to talk to you.|jhaeld_4|||||}
+	}|};
+{jhaeld_4|Hm, now that you are here you might as well make yourself useful instead of just standing there looking stupid. Even if you are a kid, you might be able to gather some information for me.||{
+	{Sure, what do you need help with?|jhaeld_7|||||}
+	{Sigh. Ok. I guess.|jhaeld_7|||||}
+	{I\'d rather kill something.|jhaeld_6|||||}
+	{Hey, watch that tone of yours!|jhaeld_5|||||}
+	}|};
+{jhaeld_5|No, you watch that attitude of yours! Remember where you are and who you are talking to. I am Jhaeld, and you are in Remgard - which could be called *my* city.||{
+	{Fine. What do you need help with?|jhaeld_7|||||}
+	{You don\'t scare me, old man!|jhaeld_leave|||||}
+	}|};
+{jhaeld_6|Ha ha. You? Killing something?! Now that\'s about the funniest thing I have heard all day. Just about.||{
+	{Hey, watch that tone of yours!|jhaeld_5|||||}
+	{I can handle myself. What do you need help with?|jhaeld_7|||||}
+	{You just wait and see.|jhaeld_7|||||}
+	}|};
+{jhaeld_7|Sigh. To even think that we need to get help from children to run errands now.||{{N|jhaeld_8|||||}}|};
+{jhaeld_8|I guess you know the background to this situation already. We have had some people disappear on us for some time now. We have no idea what has happened to the people that have disappeared, or even if they are still alive.||{{N|jhaeld_9|||||}}|};
+{jhaeld_9|And considering how many there are that have disappeared without anyone knowing what happened, it doesn\'t seem like they are out travelling.|{{0|remgard|40|}}|{{N|jhaeld_10|||||}}|};
+{jhaeld_10|Ok, so what I would like you to do for me is ask some people what they know of the missing people. The fact that you are not from around here might help you get information that neither me nor my guards would be able to acquire.||{
+	{Sound simple enough.|jhaeld_14|||||}
+	{Sure, I\'ll do it. Who do you want me to ask?|jhaeld_14|||||}
+	{I\'m not too sure about this. Will there be a reward?|jhaeld_11|||||}
+	{I\'m not too sure about this. Why would I want to help you people?|jhaeld_13|||||}
+	}|};
+{jhaeld_11|What, you have the arrogance to ask for a reward for helping us find the people that are missing? If it\'s gold you seek, I suggest you look somewhere else.||{
+	{Fine, I\'ll do it. Who do you want me to ask?|jhaeld_14|||||}
+	{No reward, no help.|jhaeld_12|||||}
+	}|};
+{jhaeld_12|I knew you were just trouble. Sigh. Please leave me.||{
+	{Fine, I\'ll do it. Who do you want me to ask?|jhaeld_14|||||}
+	{Suit yourself.|jhaeld_reject|||||}
+	}|};
+{jhaeld_13|Why!? It would be the right thing to do, of course. If you can\'t understand that, you had better go somewhere else.||{
+	{Fine, I\'ll do it. Who do you want me to ask?|jhaeld_14|||||}
+	{I won\'t do it. I fail to see why I should help you.|jhaeld_reject|||||}
+	}|};
+{jhaeld_14|There are four people here in Remgard that I believe have more to tell than what we have managed to get out of them. I want you to go ask them what they know of the disappearances.|{{0|remgard|50|}}|{{N|jhaeld_15|||||}}|};
+{jhaeld_15|First, there\'s Norath and his wife Bethir that lives in the farmhouse on the southwestern shore. Bethir is nowhere to be found, and Norath might know more about where she is.|{{0|remgard|51|}}|{{N|jhaeld_16|||||}}|};
+{jhaeld_16|Secondly, as you might have heard, we have been blessed by a visit from a delegation of the Knights of Elythom here in Remgard. Unfortunately, one of the knights has vanished, which is most embarrassing for us. They can be found here in the tavern.|{{0|remgard|52|}}|{{N|jhaeld_17|||||}}|};
+{jhaeld_17|Third, the old woman Duaina usually has great wisdom to share, considering the experience she has with .. things out of the ordinary. You\'ll find her in her house to the south.|{{0|remgard|53|}}|{{N|jhaeld_18|||||}}|};
+{jhaeld_18|Lastly, you should go talk to Rothses, the armorer in town. He meets most people now and then, and might have picked up something that he won\'t dare tell us guards. His house is on the western side of town.|{{0|remgard|54|}}|{{N|jhaeld_19|||||}}|};
+{jhaeld_19|Please be as swift as possible.||{
+	{What about that Algangror woman that lives outside town?|jhaeld_21|remgard:30||||}
+	{I\'ll go ask them.|jhaeld_20|||||}
+	}|};
+{jhaeld_20|As I said, please be as quick as possible.|||};
+{jhaeld_21|What was that? Are you still here? I told you to be as quick as possible.|{{0|remgard|59|}}|{
+	{What about her? The bridge guard sent me to investigate that house, and seemed very upset when I mentioned that she\'s there.|jhaeld_22|||||}
+	{I\'ll go ask those people you mentioned.|jhaeld_20|||||}
+	}|};
+{jhaeld_22|Did you not hear me? I told you to be as quick as possible! That means you should go talk to those people instead of standing around here blabbing.||{
+	{But the bridge guard seemed ...|jhaeld_23|||||}
+	{But I thought that ...|jhaeld_23|||||}
+	{What about the ...|jhaeld_23|||||}
+	{I\'ll go ask those people you mentioned.|jhaeld_20|||||}
+	}|};
+{jhaeld_23|Are you still talking? I knew you were nothing but trouble the moment I saw you. Now, can you please hurry up and go talk to those people?||{
+	{Fine. I\'ll go ask them.|jhaeld_20|||||}
+	}|};
+{jhaeld_rejected|What now? Look, we don\'t want kids like you running around here, messing with our things.||{{N|jhaeld_leave|||||}}|};
+{jhaeld_return1|Did you talk to those people that I sent you to ask about the missing people?||{
+	{Yes, I have talked to all of them.|jhaeld_return2|remgard:70||||}
+	{Can you repeat the names of those that you wanted me to ask?|jhaeld_14|||||}
+	{I\'m not too sure about this. Will there be a reward?|jhaeld_11|||||}
+	{I\'m not too sure about this. Why would I want to help you people?|jhaeld_13|||||}
+	{Not yet, but I will.|jhaeld_19|||||}
+	}|};
+{jhaeld_return2|Well, what did you find out?||{
+	{Nothing. None of them told me anything new about the missing people.|jhaeld_return3|||||}
+	}|};
+{jhaeld_return3|So.. Let me get things straight. You went and asked them about the missing people, and they didn\'t tell you anything new?||{
+	{No. None of them had anything new to say.|jhaeld_return4|||||}
+	{You heard me the first time.|jhaeld_return4|||||}
+	{Maybe you should have sent me to ask other people than these losers you sent me to.|jhaeld_return4|||||}
+	}|};
+{jhaeld_return4|Oh, I knew you were nothing but trouble the moment I saw you.||{{N|jhaeld_return5|||||}}|};
+{jhaeld_return5|I sent you to do a simple task. And you return with .. nothing!||{{N|jhaeld_return6|||||}}|};
+{jhaeld_return6|(Jhaeld mumbles) Stupid kids..|{{0|remgard|75|}}|{{N|jhaeld_return7|||||}}|};
+{jhaeld_return7|Fine then.||{{N|jhaeld_return8|||||}}|};
+{jhaeld_return8|I suggest you go look in other places if you really want to help us.|{{0|remgard|80|}}|{{N|jhaeld_return_s|||||}}|};
+{jhaeld_return_s|||{
+	{|jhaeld_task2_n|fiveidols:20||||}
+	{|jhaeld_task2_f|remgard:59||||}
+	{|jhaeld_task2_y|remgard:30||||}
+	{|jhaeld_task2|||||}
+	}|};
+{jhaeld_task2_f|Maybe someone else knows something that we haven\'t taken into account yet. Also, I seem to recall you saying something about Algangror before, is that right?||{{Yes. As I tried to tell you, Algangror is hiding in that abandoned house outside town.|jhaeld_alg_3|||||}}|};
+{jhaeld_task2_y|Maybe someone else knows something that we haven\'t taken into account yet.||{
+	{The bridge guard sent me to scout an abandoned house outside town.|jhaeld_alg_1|||||}
+	{Does the name \'Algangror\' mean anything to you?|jhaeld_alg_2|||||}
+	}|};
+{jhaeld_task2|Maybe someone else knows something that we haven\'t taken into account yet.||{
+	{The bridge guard sent me to scout an abandoned house outside town.|jhaeld_alg_1|||||}
+	{I might know something, but I have promised not to tell anyone.|jhaeld_task2_1|remgard:31||||}
+	{I don\'t know anything else.|jhaeld_task2_n|||||}
+	{I\'ll go ask around.|jhaeld_task2_n|||||}
+	}|};
+{jhaeld_task2_1|A secret, eh? You would do well to tell me what you know. Lives may be at stake here.||{
+	{The bridge guard sent me to scout an abandoned house outside town.|jhaeld_alg_1|||||}
+	{No, I will keep my word and not tell.|jhaeld_task2_2|||||}
+	{Never mind, it was nothing.|jhaeld_task2_n|||||}
+	{Never mind, I\'ll go ask around if anyone else knows anything.|jhaeld_task2_n|||||}
+	}|};
+{jhaeld_task2_2|Ah, someone with honor. I respect that, and will not ask any more.||{{N|jhaeld_task2_n|||||}}|};
+{jhaeld_task2_n|I have nothing more to say to you.|||};
+{jhaeld_alg_1|Hm, yes, and what of it?||{{I met a woman named Algangror in that house.|jhaeld_alg_2|||||}}|};
+{jhaeld_alg_2|Algangror?! Now that\'s a name I have not heard in a long time.||{{Algangror is hiding in that abandoned house outside town.|jhaeld_alg_3|||||}}|};
+{jhaeld_alg_3|If Algangror is here, this is grim news indeed.|{{0|remgard2|10|}}|{{N|jhaeld_alg_4|||||}}|};
+{jhaeld_alg_4|To be honest, I had heard about this before, but I dismissed all talk of is since I did not believe it. Now you tell me this also, and I am starting to think that it may be true. She may have returned.||{{Who is she?|jhaeld_alg_5|||||}}|};
+{jhaeld_alg_5|She used to live here in Remgard, during the days of prosperity. She even helped with the crops on some days.||{{N|jhaeld_alg_6|||||}}|};
+{jhaeld_alg_6|Then something happened. She started getting ideas, and occasionally locked herself in her house for several days. No one really knew what she was doing in there, but we all knew that she was up to no good.||{{N|jhaeld_alg_7|||||}}|};
+{jhaeld_alg_7|I can still recall the stench that came from her house. Ugh. What could possibly smell that bad?||{{N|jhaeld_alg_8|||||}}|};
+{jhaeld_alg_8|Anyway, we started questioning her, and tried to persuade her to tell what she was up to. Stubborn and crazy as she is, she refused of course.||{{N|jhaeld_alg_9|||||}}|};
+{jhaeld_alg_9|Things started getting worse, and the stench spread like a deep fog over the whole town. All of us living here in Remgard knew we had to act before she did something that could hurt us all.||{{N|jhaeld_alg_10|||||}}|};
+{jhaeld_alg_10|So we forced her to explain herself.||{{Did she tell?|jhaeld_alg_11|||||}}|};
+{jhaeld_alg_11|Would you believe it, she told us that what she believed in, and what she was doing was no concern of ours. She even had the stomach to tell us that she wanted to be left alone.||{{What did you do?|jhaeld_alg_12|||||}}|};
+{jhaeld_alg_12|Of course, we did what any sane man would do. We forced her to abandon her house and find somewhere else to live. Somewhere other than Remgard.||{{N|jhaeld_alg_13|||||}}|};
+{jhaeld_alg_13|You should have seen her. Nails long as your finger, and her face full of unwashed hair. Clearly, she was crazy and could not be reasoned with.||{{N|jhaeld_alg_14|||||}}|};
+{jhaeld_alg_14|When we marched her out of town, the children started crying out of fear for her.||{{N|jhaeld_alg_15|||||}}|};
+{jhaeld_alg_15|The worst thing though, is that she said she would put a curse on all of us.||{{N|jhaeld_alg_16|||||}}|};
+{jhaeld_alg_16|All of this was several seasons ago, and things have gone back to the usual business nowadays.||{{What now then, when she is back?|jhaeld_alg_17|||||}}|};
+{jhaeld_alg_17|Yes. Her being back would explain the missing people. She must have done something to them. I fear for the worst.||{{N|jhaeld_alg_18|||||}}|};
+{jhaeld_alg_18|Considering the people that have disappeared, I frankly don\'t know what to do. As you know, even one of the Knights of Elythom has disappeared.||{{N|jhaeld_alg_19|||||}}|};
+{jhaeld_alg_19|Someone that can do that is dangerous indeed. I am not sure I would even risk sending the guards out there for her, in fear of what she might do.||{{So, what then?|jhaeld_alg_20|||||}}|};
+{jhaeld_alg_20|If I were to choose, I would rather not deal with it, and just seal the town bridge as safely as possible, to prevent any more people disappearing.|{{0|remgard2|20|}}|{{N|jhaeld_alg_21s|||||}}|};
+{jhaeld_alg_21s|||{
+	{|jhaeld_alg_21n|remgard2:21||||}
+	{|jhaeld_alg_21|||||}
+	}|};
+{jhaeld_alg_21n|I.. I don\'t know what to do.|||};
+{jhaeld_alg_21|I.. I don\'t know what to do.||{
+	{I could help you if you want.|jhaeld_alg_24|||||}
+	{You pathetic fool. You would rather sit here and do nothing instead of confronting her?|jhaeld_alg_22|||||}
+	{Hah, sucks to be you!|jhaeld_alg_23|||||}
+	}|};
+{jhaeld_alg_22|I will not see more of my people get hurt, or whatever it is she has done to them. I will keep my people safe.||{
+	{I could help you if you want.|jhaeld_alg_24|||||}
+	{Hah, sucks to be you!|jhaeld_alg_23|||||}
+	}|};
+{jhaeld_alg_23|Insults won\'t get you anywhere. The people that have disappeared are still missing, and may be hurt, while you run around handing out insults. I pity you.||{
+	{I could help you if you want.|jhaeld_alg_24|||||}
+	{You pathetic fool. You would rather sit here and do nothing instead of confronting her?|jhaeld_alg_22|||||}
+	}|};
+{jhaeld_alg_24|If you really want to help us, then please be careful. She can not be trusted.||{{N|jhaeld_alg_25|||||}}|};
+{jhaeld_alg_25|However, if you were to find a way to make her disappear, we would of course be forever in your debt.||{
+	{I\'ll see what I can do.|jhaeld_alg_26|||||}
+	{I have dealt with stronger foes.|jhaeld_alg_27|||||}
+	}|};
+{jhaeld_alg_26|Remember, please be careful! I would not want to be responsible for another person disappearing.|{{0|remgard2|21|}}||};
+{jhaeld_alg_27|I doubt it.||{{N|jhaeld_alg_26|||||}}|};
+{jhaeld_killalg|Hello again. What news do you bring?||{
+	{Can you tell me the story of Algangror again?|jhaeld_alg_5|||||}
+	{I am still trying to find a way to make Algangror disappear.|jhaeld_alg_26|||||}
+	{Algangror is dead.|jhaeld_killalg_1||algangror_ring|1|0|}
+	}|};
+{jhaeld_killalg_1|I can\'t believe it! Yes, this is indeed her ring.|{{0|remgard2|40|}}|{{N|jhaeld_killalg_2|||||}}|};
+{jhaeld_killalg_2|You actually defeated her? I am so relieved! Tell me, how crazy was she? No, don\'t tell me, I don\'t want to hear more of her filth.||{{N|jhaeld_killalg_3|||||}}|};
+{jhaeld_killalg_3|This means that the people of Remgard are now safe from her. And it is all thanks to you! Who would have thought.|{{0|remgard2|41|}}|{{N|jhaeld_killalg_4|||||}}|};
+{jhaeld_killalg_4|I.. I don\'t know what to say. Thank you, that\'s the least I can say.||{
+	{You are most welcome.|jhaeld_killalg_5|||||}
+	{That was a tough fight. Now, let\'s talk reward.|jhaeld_killalg_5|||||}
+	{Just another body behind me.|jhaeld_killalg_5|||||}
+	}|};
+{jhaeld_killalg_5|I would think that the whole town is in your debt, but they may not know it.||{{N|jhaeld_killalg_6|||||}}|};
+{jhaeld_killalg_6|Go talk to Rothses over at the west side of town. He should be able to help you improve some of your equipment.|{{0|remgard2|45|}}|{{N|jhaeld_completed|||||}}|};
+{jhaeld_completed|Again, thank you for all your help.|||};
+{jhaeld_idol_1|Please leave me be, child. I just had a sudden attack of nausea. I should probably lie down.|||};
+	</string>
+
+	<string name="conversationlist_norath">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{norath|||{{|norath_1|||||}}|};
+{norath_1|Hello there. Can I help you?||{
+	{I was sent by Jhaeld to ask about your missing wife.|norath_jhaeld1|remgard:51||||}
+	{Do you have anything to trade?|norath_2|||||}
+	{What do you do around here?|norath_3|||||}
+	}|};
+{norath_2|Me? No, I don\'t have anything to sell you. Does this look like a shop to you?||{
+	{I was sent by Jhaeld to ask about your missing wife.|norath_jhaeld1|remgard:51||||}
+	{What do you do around here?|norath_3|||||}
+	}|};
+{norath_3|Well, usually I tend to the crops that we grow here. Now, I can\'t find the strength to do that though.||{
+	{Why, what\'s wrong?|norath_4|||||}
+	}|};
+{norath_4|My wife, Bethir. She is gone, and no one seems to know where she is.||{{N|norath_5|||||}}|};
+{norath_5|I even went so far as to ask the guards to look for her, but she is nowhere to be found.||{
+	{Are you sure she isn\'t just out of town running some errands?|norath_6|||||}
+	{Where do you think she has gone?|norath_7|||||}
+	{I was sent by Jhaeld to ask you about her.|norath_jhaeld1|remgard:51||||}
+	}|};
+{norath_6|If that were the case, I would have hoped she would have told me first. No, I can feel it - I am sure something bad has happened to her.||{
+	{Where do you think she has gone?|norath_7|||||}
+	{I was sent by Jhaeld to ask you about her.|norath_jhaeld1|remgard:51||||}
+	}|};
+{norath_7|To be quite honest, I have no idea.||{
+	{Are you sure she isn\'t just out of town running some errands?|norath_6|||||}
+	{I was sent by Jhaeld to ask you about her.|norath_jhaeld1|remgard:51||||}
+	}|};
+{norath_jhaeld1|What do you want me to say? She is missing.||{{Is there anything else you have found out that you didn\'t tell the guards earlier?|norath_jhaeld2|||||}}|};
+{norath_jhaeld2|No. I told those guards the whole story. And if I were to find out more, I would immediately tell them of course.||{{N|norath_jhaeld3|||||}}|};
+{norath_jhaeld3|We did have a minor argument just the night before she went missing. But it was just a minor thing, nothing serious.||{{N|norath_jhaeld_s_1|||||}}|};
+{norath_jhaeld_s_1||{{0|remgard|61|}}|{{|norath_jhaeld_s_2|remgard:62||||}{|norath_jhaeld4|||||}}|};
+{norath_jhaeld_s_2|||{{|norath_jhaeld_s_3|remgard:63||||}{|norath_jhaeld4|||||}}|};
+{norath_jhaeld_s_3|||{{|norath_jhaeld_s_4|remgard:64||||}{|norath_jhaeld4|||||}}|};
+{norath_jhaeld_s_4||{{0|remgard|70|}}|{{|norath_jhaeld4|||||}}|};
+{norath_jhaeld4|Now, if you\'ll excuse me, I have things to tend to.|||};
+	</string>
+
+	<string name="conversationlist_elythom_1">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{krell|||{{|krell_1|||||}}|};
+{krell_1|Hey there. I am master Krell of the Knights of Elythom. How may we be of service?||{
+	{Knights of Elythom? What\'s that?|krell_knights_1|||||}
+	{I was sent by Jhaeld to ask about the missing people.|krell_jhaeld1|remgard:52||||}
+	{What do you do around here?|krell_2|||||}
+	}|};
+{krell_2|Me and my band of knights are just visiting Remgard in .. shall we say .. unfinished business.||{{N|krell_3|||||}}|};
+{krell_3|As to the nature of our business here, that is something I would rather not disclose.||{{N|krell_4|||||}}|};
+{krell_4|We serve the order of Elythom.||{
+	{What\'s that?|krell_knights_1|||||}
+	{Jhaeld sent me to ask about the missing people.|krell_jhaeld1|remgard:52||||}
+	}|};
+{krell_knights_1|We are an order of knights that hail from Brimhaven.||{{N|krell_knights_2|||||}}|};
+{krell_knights_2|You should visit our compound in Brimhaven, if you ever make your way there.||{{N|krell_knights_3|||||}}|};
+{krell_knights_3|We serve all types of clients, from the wealthiest to even the poorest of poor.||{{N|krell_knights_4|||||}}|};
+{krell_knights_4|Regardless, we always get the job done.||{{What types of work do you do?|krell_knights_5|||||}}|};
+{krell_knights_5|Mostly, we help people get back money that other people owe them.||{{N|krell_knights_6|||||}}|};
+{krell_knights_6|We also help people find .. erm .. people that have gone missing.||{
+	{About that, Jhaeld sent me to ask about the missing people.|krell_jhaeld1|remgard:52||||}
+	{Good luck with that.|X|||||}
+	}|};
+{krell_jhaeld1|Shh, not so loud!||{{N|krell_jhaeld2|||||}}|};
+{krell_jhaeld2|Yes, we have heard the reports that people have gone missing here in Remgard. Most .. unfortunate.||{{N|krell_jhaeld3|||||}}|};
+{krell_jhaeld3|We even had one of our knights disappear on us. Now, due to the nature of our order, I presume you can see how that puts us in a .. peculiar situation.||{{N|krell_jhaeld4|||||}}|};
+{krell_jhaeld4|You see, usually it is us knights that find .. missing people. Now, we have had one of our own disappear. This has never happened before, and we are really unsure about what to do about it.||{{N|krell_jhaeld5|||||}}|};
+{krell_jhaeld5|Granted, people in our order have succumbed in combat to greater foes, but to just .. disappear without a trace, that\'s unheard of.||{{N|krell_jhaeld6|||||}}|};
+{krell_jhaeld6|We have a strong connection to each other, and to have someone leave the order would be unthinkable.||{{N|krell_jhaeld7|||||}}|};
+{krell_jhaeld7|As you can see, this puts us in a difficult situation.||{
+	{What do you know about the knight that is missing?|krell_jhaeld8|||||}
+	{Is there anything else you have found out that you didn\'t tell the guards earlier?|krell_jhaeld8|||||}
+	}|};
+{krell_jhaeld8|Well, we told the guards everything we know so far. They also seem to find this situation rather embarrassing, that they can\'t even keep a knight safe here in their town.||{{N|krell_jhaeld9|||||}}|};
+{krell_jhaeld9|We have no clues apart from the fact that she is missing, unfortunately. Where our sister knight is, is still a mystery to us.||{
+	{N|krell_jhaeld_s_1|||||}
+	}|};
+{krell_jhaeld_s_1||{{0|remgard|62|}}|{{|krell_jhaeld_s_2|remgard:61||||}{|krell_jhaeld10|||||}}|};
+{krell_jhaeld_s_2|||{{|krell_jhaeld_s_3|remgard:63||||}{|krell_jhaeld10|||||}}|};
+{krell_jhaeld_s_3|||{{|krell_jhaeld_s_4|remgard:64||||}{|krell_jhaeld10|||||}}|};
+{krell_jhaeld_s_4||{{0|remgard|70|}}|{{|krell_jhaeld10|||||}}|};
+{krell_jhaeld10|For the sake of our order\'s reputation, please keep this to yourself if possible. We wouldn\'t want people to get the perception that the Knights of Elythom can be weakened in any way.|||};
+{elythom_knight1|Hello there. What can the Knights of Elythom do for you?||{
+	{Knights of Elythom? What\'s that?|elythom_knight1_2|||||}
+	{That\'s a very nice suit of armour you have there.|elythom_knight1_3|||||}
+	}|};
+{elythom_knight1_2|Talk to master Krell over there, he can tell you all about us.|||};
+{elythom_knight1_3|Thank you, it\'s our standard set of armour that we use in the order. It takes a lot of scrubbing and polishing to make it this clean though.|||};
+{elythom_knight2|Hello. *cough*||{
+	{Who are you?|elythom_knight1_2|||||}
+	{That\'s a very nice suit of armour you have there.|elythom_knight1_3|||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_duaina">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{duaina|||{{|duaina_0|||||}}|};
+{duaina_0|You! I have seen you.||{
+	{Jhaeld sent me to ask you about the people that have gone missing.|duaina_1|remgard:52||||}
+	{I don\'t think so, I\'ve never been here before.|duaina_stop|||||}
+	{Yes, I was just here, remember?|duaina_1|remgard:63||||}
+	}|};
+{duaina_1|The dreams and the visions. It is you! The child that challenges the beast. (Duaina gives you a terrified look)||{{So you have seen me in your visions?|duaina_2|||||}}|};
+{duaina_2|The sleeping beast. No, no. The blinding light. Oh, why have you come here? Have you come for me?||{{What are you talking about?|duaina_3|||||}}|};
+{duaina_3|Nooo, please spare me!||{{I\'m not here to get you, if that\'s what you are afraid of.|duaina_4|||||}}|};
+{duaina_4|I can see it in you. You have the gift. The gift that will destroy the beast. My visions were true.||{{Maybe you are confusing me with my brother Andor?|duaina_5|||||}}|};
+{duaina_5|A brother? Yes, that must be what I saw in my visions. It is all becoming clearer.||{{N|duaina_6|||||}}|};
+{duaina_6|The black hand sweeps over the land. The beast that hunts. Nooo! Leave this place!||{{I\'m not here to hurt you!|duaina_7|||||}}|};
+{duaina_7|The child and the brother. The unsuspecting people. The beast casts its shadow.||{{N|duaina_s_0|||||}}|};
+{duaina_s_0|I have seen you in my visions.||{{N|duaina_s_1|||||}}|};
+{duaina_s_1|||{{|duaina_s_1a|flagstone:60||||}{|duaina_s_2|||||}}|};
+{duaina_s_1a|Slaying the beast beneath the prison of Flagstone.||{{N|duaina_s_2|||||}}|};
+{duaina_s_2|||{{|duaina_s_2a|farrik:70||||}{|duaina_s_2b|farrik:90||||}{|duaina_s_3|||||}}|};
+{duaina_s_2a|Cooperating with the thieves in Fallhaven.||{{N|duaina_s_3|||||}}|};
+{duaina_s_2b|Working against the thieves in Fallhaven.||{{N|duaina_s_3|||||}}|};
+{duaina_s_3|||{{|duaina_s_3a|bjorgur_grave:50||||}{|duaina_s_3b|bjorgur_grave:60||||}{|duaina_s_4|||||}}|};
+{duaina_s_3a|Something about a dagger returned to an ancestor in a tomb.||{{N|duaina_s_4|||||}}|};
+{duaina_s_3b|Something about stealing a dagger in a dark tomb.||{{N|duaina_s_4|||||}}|};
+{duaina_s_4|||{{|duaina_s_4a|benbyr:30||||}{|duaina_jhaeld_s_1|||||}}|};
+{duaina_s_4a|Killing innocent sheep.||{{N|duaina_jhaeld_s_1|||||}}|};
+{duaina_jhaeld_s_1||{{0|remgard|63|}}|{{|duaina_jhaeld_s_2|remgard:61||||}{|duaina_8|||||}}|};
+{duaina_jhaeld_s_2|||{{|duaina_jhaeld_s_3|remgard:62||||}{|duaina_8|||||}}|};
+{duaina_jhaeld_s_3|||{{|duaina_jhaeld_s_4|remgard:64||||}{|duaina_8|||||}}|};
+{duaina_jhaeld_s_4||{{0|remgard|70|}}|{{|duaina_8|||||}}|};
+{duaina_8|(Duaina stares at you in silence while holding her hand over her mouth)||{
+	{What else have you seen in your visions?|duaina_stop|||||}
+	{I don\'t understand.|duaina_stop|||||}
+	}|};
+{duaina_stop|(Duaina stares at you in silence)|||};
+	</string>
+
+	<string name="conversationlist_rothses">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{rothses|||{
+	{|rothses_c1|remgard2:45||||}
+	{|rothses_1|||||}
+	}|};
+{rothses_c1|Our hero enters my shop. I am honored. How may I help you? A new set of boots perhaps, or some new gloves?||{
+	{Let me see what you have for sale.|S|||||}
+	{Jhaeld told me you could help me improve my equipment.|rothses_c2|remgard2:45||||}
+	}|};
+{rothses_c2|Oh yes, I can make modifications to most of our defensive equipment that I sell. Want me to look through your things to see if there\'s anything I can improve for you?||{
+	{Sure, go ahead.|rothses_imp_s|||||}
+	{No, I would not want you going through my stuff.|rothses_c3|||||}
+	{Maybe some other time.|rothses_c3|||||}
+	}|};
+{rothses_c3|Sure. I would be honored to have you back if you change your mind.|||};
+{rothses_1|Hi. How may I help you? A new set of boots perhaps, or some new gloves?||{
+	{Let me see what you have for sale.|S|||||}
+	{Jhaeld sent me to ask you about the people that have gone missing.|rothses_3s|remgard:52||||}
+	{How is business?|rothses_2|||||}
+	}|};
+{rothses_2|It\'s ok, I guess. Not as good as I would like it to be, now that the gates to the town are closed. But people here still seem to need new pieces of leather every now and then.||{
+	{Let me see what you have for sale.|S|||||}
+	{Jhaeld sent me to ask you about the people that have gone missing.|rothses_3s|remgard:52||||}
+	}|};
+{rothses_3s|||{{|rothses_19|remgard:64||||}{|rothses_3|||||}}|};
+{rothses_3|Oh, I don\'t know much about that. Funny you should ask. (Rothses gives you a suspicious look)||{{Are you sure? Anything you know or might have seen may be of interest.|rothses_4|||||}}|};
+{rothses_4|Well, you would think that I see most of what is going on here, considering my shop is this close to Remgard\'s connecting entrance bridge.||{{N|rothses_5|||||}}|};
+{rothses_5|However, I don\'t know anything about it. *cough*||{
+	{Is there something you are not telling me?|rothses_7|||||}
+	{Did the guards ask you about what you know?|rothses_6|||||}
+	}|};
+{rothses_6|Oh yes, they\'ve been around asking everyone. I told them everything I know, already.||{{N|rothses_7|||||}}|};
+{rothses_7|I did see Bethir the night before she disappeared. She had some equipment to sell. Nothing out of the ordinary though.||{{N|rothses_8|||||}}|};
+{rothses_8|I did not see where she went after that.||{{N|rothses_9|||||}}|};
+{rothses_9|Look, I told all this to the guards before. Are you implying anything?||{
+	{I\'ll keep my eye on you.|rothses_jhaeld_s_1|||||}
+	{Thank you for your cooperation.|rothses_jhaeld_s_1|||||}
+	}|};
+{rothses_jhaeld_s_1||{{0|remgard|64|}}|{{|rothses_jhaeld_s_2|remgard:61||||}{|rothses_20|||||}}|};
+{rothses_jhaeld_s_2|||{{|rothses_jhaeld_s_3|remgard:62||||}{|rothses_20|||||}}|};
+{rothses_jhaeld_s_3|||{{|rothses_jhaeld_s_4|remgard:63||||}{|rothses_20|||||}}|};
+{rothses_jhaeld_s_4||{{0|remgard|70|}}|{{|rothses_20|||||}}|};
+{rothses_19|Look, I told you before.||{{N|rothses_20|||||}}|};
+{rothses_20|Now, if you\'ll excuse me, I have things to do.|||};
+{rothses_imp_s|||{{|rothses_imp_shield||remgard_shield_1|1|1|}{|rothses_imp_shield_w||remgard_shield_1|1|2|}{|rothses_imp_s3|||||}}|};
+{rothses_imp_s3|||{{|rothses_imp_gloves||gloves_combat1|1|1|}{|rothses_imp_gloves_w||gloves_combat1|1|2|}{|rothses_imp_s4|||||}}|};
+{rothses_imp_s4|||{{|rothses_imp_armour||armour_superior_chain|1|1|}{|rothses_imp_armour_w||armour_superior_chain|1|2|}{|rothses_imp_s5|||||}}|};
+{rothses_imp_s5|||{{|rothses_imp_n|||||}}|};
+{rothses_imp_n|No, you don\'t seem to have anything that I can improve. Come back later and I might be able to help you.|||};
+{rothses_imp_shield|That\'s a nice looking Remgard shield you have there. For 700 gold, I am able to improve it so that it blocks blows a bit better.||{
+	{Sure, here is the gold.|rothses_imp_shield_1||gold|700|0|}
+	{Maybe later. Do I have anything else that you can improve?|rothses_imp_s3|||||}
+	}|};
+{rothses_imp_shield_1|||{{|rothses_imp_shield_2||remgard_shield_1|1|0|}{|rothses_imp_s3|||||}}|};
+{rothses_imp_shield_2|Here you go. One improved Remgard shield.|{{1|remgard_shield_2||}}|{{Do I have anything else that you can improve?|rothses_imp_s3|||||}}|};
+{rothses_imp_shield_w|That\'s a nice looking Remgard shield you are wearing. Remove it from your hands and I might be able to help you improve it, if you want.||{{Anything else?|rothses_imp_s3|||||}}|};
+{rothses_imp_gloves|Those are some nice looking combat gloves you have there. For 300 gold, I am able to improve them so that they blocks blows a bit better.||{
+	{Sure, here is the gold.|rothses_imp_gloves_1||gold|300|0|}
+	{Maybe later. Do I have anything else that you can improve?|rothses_imp_s4|||||}
+	}|};
+{rothses_imp_gloves_1|||{{|rothses_imp_gloves_2||gloves_combat1|1|0|}{|rothses_imp_s4|||||}}|};
+{rothses_imp_gloves_2|Here you go. One pair of improved combat gloves.|{{1|gloves_combat2||}}|{{Do I have anything else that you can improve?|rothses_imp_s4|||||}}|};
+{rothses_imp_gloves_w|Those are some nice looking combat gloves you are wearing. Remove them from your hands and I might be able to help you improve them, if you want.||{{Anything else?|rothses_imp_s4|||||}}|};
+{rothses_imp_armour|Now that is one fine looking chain mail you have there! For 3000 gold, I am able to improve it so that it not only blocks blows better, but also hinders your attacks less.||{
+	{Sure, here is the gold.|rothses_imp_armour_1||gold|3000|0|}
+	{Maybe later. Do I have anything else that you can improve?|rothses_imp_s5|||||}
+	}|};
+{rothses_imp_armour_1|||{{|rothses_imp_armour_2||armour_superior_chain|1|0|}{|rothses_imp_s5|||||}}|};
+{rothses_imp_armour_2|Here you go. One improved chain mail.|{{1|armour_chain_remg||}}|{{Do I have anything else that you can improve?|rothses_imp_s5|||||}}|};
+{rothses_imp_armour_w|Now that is one fine looking chain mail you are wearing. Remove it from your chest and I might be able to help you improve it, if you want.||{{Anything else?|rothses_imp_s5|||||}}|};
+	</string>
+
+	<string name="conversationlist_remgard_villagers">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{remgard_villager1|I don\'t recognize you. You\'re not from Remgard, are you?||{
+	{No, I am from a small settlement called Crossglen, and I am looking for my brother Andor.|remgard_villager1_2|||||}
+	}|};
+{remgard_villager1_2|Ok then. Good luck with that.|||};
+{remgard_villager2|Don\'t get in my way, I\'m trying to walk here, don\'t you see?||{
+	{No problem, please go ahead.|X|||||}
+	{No, you get out of *my* way!|remgard_villager2_2|||||}
+	}|};
+{remgard_villager2_2|Hah! *snort*|||};
+{remgard_villager3|Have you seen my ring? I dropped in among these trees, I am sure. That was a pretty ring.|||};
+	</string>
+
+	<string name="conversationlist_remgard_idolsigns">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{jhaeld_bed|||{{|jhaeld_bed_2|fiveidols:41||||}{|jhaeld_bed_3|fiveidols:31||||}{|jhaeld_bed_1|||||}}|};
+{jhaeld_bed_1|You see a bed and nightstand.|||};
+{jhaeld_bed_2|You see a bed and nightstand. The idol is still where you left it.|||};
+{jhaeld_bed_3|You see a bed and nightstand. This must be Jhaeld\'s bed.||{{Hide one of the idols under the bed.|jhaeld_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
+{jhaeld_bed_4s1||{{0|fiveidols|41|}}|{{|jhaeld_bed_4s2|fiveidols:42||||}{|jhaeld_bed_4|||||}}|};
+{jhaeld_bed_4s2|||{{|jhaeld_bed_4s3|fiveidols:43||||}{|jhaeld_bed_4|||||}}|};
+{jhaeld_bed_4s3|||{{|jhaeld_bed_4s4|fiveidols:44||||}{|jhaeld_bed_4|||||}}|};
+{jhaeld_bed_4s4|||{{|jhaeld_bed_4s5|fiveidols:45||||}{|jhaeld_bed_4|||||}}|};
+{jhaeld_bed_4s5||{{0|fiveidols|50|}}|{{|jhaeld_bed_4|||||}}|};
+{jhaeld_bed_4|You hide the idol under the bed.|||};
+
+{larni_bed|||{{|larni_bed_2|fiveidols:42||||}{|larni_bed_3|fiveidols:32||||}{|larni_bed_1|||||}}|};
+{larni_bed_1|You see a bed and nightstand.|||};
+{larni_bed_2|You see a bed and nightstand. The idol is still where you left it.|||};
+{larni_bed_3|You see a bed and nightstand. This must be Larni\'s bed.||{{Hide one of the idols under the bed.|larni_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
+{larni_bed_4s1||{{0|fiveidols|42|}}|{{|larni_bed_4s2|fiveidols:41||||}{|larni_bed_4|||||}}|};
+{larni_bed_4s2|||{{|larni_bed_4s3|fiveidols:43||||}{|larni_bed_4|||||}}|};
+{larni_bed_4s3|||{{|larni_bed_4s4|fiveidols:44||||}{|larni_bed_4|||||}}|};
+{larni_bed_4s4|||{{|larni_bed_4s5|fiveidols:45||||}{|larni_bed_4|||||}}|};
+{larni_bed_4s5||{{0|fiveidols|50|}}|{{|larni_bed_4|||||}}|};
+{larni_bed_4|You hide the idol under the bed.|||};
+
+{arnal_bed|||{{|arnal_bed_2|fiveidols:43||||}{|arnal_bed_3|fiveidols:33||||}{|arnal_bed_1|||||}}|};
+{arnal_bed_1|You see a bed and nightstand.|||};
+{arnal_bed_2|You see a bed and nightstand. The idol is still where you left it.|||};
+{arnal_bed_3|You see a bed and nightstand. This must be Arnal\'s bed.||{{Hide one of the idols under the bed.|arnal_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
+{arnal_bed_4s1||{{0|fiveidols|43|}}|{{|arnal_bed_4s2|fiveidols:41||||}{|arnal_bed_4|||||}}|};
+{arnal_bed_4s2|||{{|arnal_bed_4s3|fiveidols:42||||}{|arnal_bed_4|||||}}|};
+{arnal_bed_4s3|||{{|arnal_bed_4s4|fiveidols:44||||}{|arnal_bed_4|||||}}|};
+{arnal_bed_4s4|||{{|arnal_bed_4s5|fiveidols:45||||}{|arnal_bed_4|||||}}|};
+{arnal_bed_4s5||{{0|fiveidols|50|}}|{{|arnal_bed_4|||||}}|};
+{arnal_bed_4|You hide the idol under the bed.|||};
+
+{emerei_bed|||{{|emerei_bed_2|fiveidols:44||||}{|emerei_bed_3|fiveidols:34||||}{|emerei_bed_1|||||}}|};
+{emerei_bed_1|You see a bed and nightstand.|||};
+{emerei_bed_2|You see a bed and nightstand. The idol is still where you left it.|||};
+{emerei_bed_3|You see a bed and nightstand. This must be Emerei\'s bed.||{{Hide one of the idols under the bed.|emerei_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
+{emerei_bed_4s1||{{0|fiveidols|44|}}|{{|emerei_bed_4s2|fiveidols:41||||}{|emerei_bed_4|||||}}|};
+{emerei_bed_4s2|||{{|emerei_bed_4s3|fiveidols:42||||}{|emerei_bed_4|||||}}|};
+{emerei_bed_4s3|||{{|emerei_bed_4s4|fiveidols:43||||}{|emerei_bed_4|||||}}|};
+{emerei_bed_4s4|||{{|emerei_bed_4s5|fiveidols:45||||}{|emerei_bed_4|||||}}|};
+{emerei_bed_4s5||{{0|fiveidols|50|}}|{{|emerei_bed_4|||||}}|};
+{emerei_bed_4|You hide the idol under the bed.|||};
+
+{carthe_bed|||{{|carthe_bed_2|fiveidols:45||||}{|carthe_bed_3|fiveidols:35||||}{|carthe_bed_1|||||}}|};
+{carthe_bed_1|You see a bed and nightstand.|||};
+{carthe_bed_2|You see a bed and nightstand. The idol is still where you left it.|||};
+{carthe_bed_3|You see a bed and nightstand. This must be Carthe\'s bed.||{{Hide one of the idols under the bed.|carthe_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
+{carthe_bed_4s1||{{0|fiveidols|45|}}|{{|carthe_bed_4s2|fiveidols:41||||}{|carthe_bed_4|||||}}|};
+{carthe_bed_4s2|||{{|carthe_bed_4s3|fiveidols:42||||}{|carthe_bed_4|||||}}|};
+{carthe_bed_4s3|||{{|carthe_bed_4s4|fiveidols:43||||}{|carthe_bed_4|||||}}|};
+{carthe_bed_4s4|||{{|carthe_bed_4s5|fiveidols:44||||}{|carthe_bed_4|||||}}|};
+{carthe_bed_4s5||{{0|fiveidols|50|}}|{{|carthe_bed_4|||||}}|};
+{carthe_bed_4|You hide the idol under the bed.|||};
 	</string>
 	
 </resources>

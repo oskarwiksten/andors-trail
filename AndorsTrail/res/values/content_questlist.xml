@@ -343,18 +343,13 @@
 	{40|Thorin thanked me for helping him. In return, he has allowed me to use his bed to rest, and is willing to sell me some of his potions.|400|1|}
 	}|};
 {algangror|Of mice and men|1|{
-	{10|In a lonely house on a peninsula at the northern shore of lake Laeroth up in the mountains to the north-east, I met Algangror. She has a rodent problem and needs help dealing with some of them that she has trapped in her basement.|||}
+	{10|In a lonely house on a peninsula at the northern shore of lake Laeroth up in the mountains to the north-east, I met a woman called Algangror.|||}
+	{11|She has a rodent problem and needs help dealing with some of them that she has trapped in her basement.|||}
 	{15|I have agreed to help Algangror deal with her rodent problem. I should return to her when I have killed all six rodents in her basement.|||}
 	{20|Algangror thanked me for helping her with her problem.|500||}
 	{21|She also told me not to talk to anyone in Remgard about her whereabouts. Apparently, they are looking for her for some reason that she would not say. Under no circumstances should I tell anyone where she is.||1|}
-	}|};
-{remgard|Everything in order|1|{
-	{10|I have reached the bridge to enter the town of Remgard. According to the bridge guard, the town is closed for outsiders to enter, and no-one is currently allowed to leave. They are investigating some disappearances of some of the townspeople.|||}
-	{15|I have offered my assistance in helping the people of Remgard investigate what has happened to the townspeople that have disappeared.|||}
-	{20|The bridge guard has asked me to investigate an abandoned house to the east along the northern shore of the lake. I should be wary of any inhabitants that may be there.|||}
-	{30|I have reported back to the bridge guard that I met Algangror in the abandoned house.|300||}
-	{31|I have reported back to the bridge guard that the abandoned house was empty.|300||}
-	{35|I have been granted entrance into Remgard. I should go visit Jhaeld, the town elder, to talk about what the next step should be. Jhaeld can probably be found in the tavern to the southeast.|||}
+	{100|I will not help Algangror with her task.||1|}
+	{101|Algangror won\'t talk to me, and I will be unable to help her with her task.||1|}
 	}|};
 </string>
 
@@ -420,6 +415,66 @@
 	{61|Hjaldar can now create potions again, and is willing to trade with me. He even gave me some of the first potions that he made. I should go visit the Elwille sisters here in Remgard again, and show them a potion of accuracy focus.|||}
 	{70|I have given a potion of accuracy focus to Elwyl.|||}
 	{71|Unfortunately, it did not cause their squabbling to diminish. On the contrary, they seem to be even more angry at each other now, since both of them had the color wrong.|900|1|}
+	}|};
+</string>
+
+<string name="questlist_v0611_3">
+[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
+{remgard|Everything in order|1|{
+	{10|I have reached the bridge to enter the town of Remgard. According to the bridge guard, the town is closed for outsiders to enter, and no-one is currently allowed to leave. They are investigating some disappearances of some of the townspeople.|||}
+	{15|I have offered my assistance in helping the people of Remgard investigate what has happened to the townspeople that have disappeared.|||}
+	{20|The bridge guard has asked me to investigate an abandoned house to the east along the northern shore of the lake. I should be wary of any inhabitants that may be there.|||}
+	{30|I have reported back to the bridge guard that I met Algangror in the abandoned house.|300||}
+	{31|I have reported back to the bridge guard that the abandoned house was empty.|300||}
+	{35|I have been granted entrance into Remgard. I should go visit Jhaeld, the town elder, to talk about what the next step should be. Jhaeld can probably be found in the tavern to the southeast.|||}
+	{40|Jhaeld was rather arrogant, but told me that they have had a problem with people disappearing for a while now. They have no clue what could be causing it.|||}
+	{50|I should visit four people in Remgard, and ask them about any clues on what might have happened to the missing people.|||}
+	{51|First is Norath, whose wife Bethir has disappeared. Norath can be found in the south-westernmost farmhouse.|||}
+	{52|Second, I should go talk to the Knights of Elythom, here in the tavern.|||}
+	{53|Third, I should go talk to the old woman Duaina in her house to the south.|||}
+	{54|Lastly, I should talk to Rothses, the armorer. He lives on the west side of town.|||}
+	{59|I tried to tell Jhaeld about Algangror, but he dismissed me as he had not heard me.|||}
+	{61|I have talked to Norath. He and his wife had been fighting recently, but he has no idea on what may have happened to her.|||}
+	{62|The Knights of Elythom in the Remgard tavern have had one of their knights disappearing recently. No one noticed anything when she disappeared, however.|||}
+	{63|Duaina has seen me in her visions. I did not understand all that she spoke of, but the parts that were clear were that me and Andor were parts of a larger plot. I wonder what this means? She did not speak of any disappearing people however, not that I could understand anyway.|||}
+	{64|Rothses told me that Bethir visited him the night before she disappeared, to sell some equipment. He did not see where she went after that.|||}
+	{70|I have talked to all of the people that Jhaeld wanted me to talk to, but did not get any information from any of them about what may have happened to the missing people. I should go back to Jhaeld and ask what his plans are next.|||}
+	{75|Jhaeld was really upset that I did not find out anything from the people that I was sent to talk to.|1500||}
+	{80|If I still want to help Jhaeld and the people of Remgard, I should look for clues in other places.||1|}
+	{110|Jhaeld does not want to talk to me. I will not help them find out what happened to the missing people of Remgard.||1|}
+	}|};
+{remgard2|What is that stench?|1|{
+	{10|I have told Jhaeld, the village elder in Remgard, about the woman named Algangror that lives in the abandoned house to the east along the northern shore of the lake outside Remgard.|||}
+	{20|Jhaeld told me that he would rather not deal with her, since he believes she is very dangerous. For the sake of his guards, he will not risk going against her since he is afraid of what might happen to all of them.|||}
+	{21|If I want to help Jhaeld and the people of Remgard, I should find a way to make Algangror disappear. He also warns me to be extremely careful.|||}
+	{30|Algangror admitted to me that she had made some people disappear from Remgard. She would not tell me what happened to them though.|||}
+	{35|I have started attacking Algangror. I should return to Jhaeld with proof of defeating her when she is dead.|||}
+	{40|I have told Jhaeld that I defeated Algangror.|||}
+	{41|Jhaeld was very pleased to hear the good news. The people of Remgard should now be safe, and the town can be opened to outsiders again.|||}
+	{45|For helping the people of Remgard find the cause of the disappearing people, Jhaeld told me to talk to Rothses. He might be able to improve some of my equipment.|2100|1|}
+	{46|Ervelyn, the Remgard tailor, gave me a feathered hat as thanks for helping the people of Remgard find out what happened to the missing people.|||}
+	}|};
+{fiveidols|The five idols|1|{
+	{10|Algangror wants me to help her with a task. She cannot describe the nature of the task, or the reasoning behind it. If I help her, she has promised to give me her enchanted necklace, that apparently is worth a lot.|||}
+	{20|I have agreed to help Algangror with her task.|||}
+	{30|Algangror wants me to place five idols near five different people in Remgard. The idols should be placed near the beds of these five people, and must be hidden so that they are not found easily.|||}
+	{31|The first person is Jhaeld, the village elder that can be found in the Remgard tavern.|||}
+	{32|Second, I should place an idol by the bed of Larni the farmer, that lives in a cabin to the northwest in Remgard.|||}
+	{33|The third person is Arnal the weapon-smith, that lives in the northwest of Remgard.|||}
+	{34|Fourth is Emerei, that can be found to the southeast of Remgard.|||}
+	{35|The fifth person is Carthe. Carthe lives on the eastern shore of Remgard, near the tavern.|||}
+	{37|I must not tell anyone of my task, or of the placement of the idols.|||}
+	{41|I have placed an idol by Jhaeld\'s bed.|||}
+	{42|I have placed an idol by Larni the farmer\'s bed.|||}
+	{43|I have placed an idol by Arnal\'s bed.|||}
+	{44|I have placed an idol by Emerei\'s bed.|||}
+	{45|I have placed an idol by Carthe\'s bed.|||}
+	{50|All the idols have been placed by the beds of the people that Algangror told me to visit. I should return to Algangror.|||}
+	{51|Algangror thanked me for helping her.|||}
+	{60|She told me her story, with how she used to live in the city, but was persecuted for her beliefs. According to her, the persecution was totally unjustified since she does no harm to people.|||}
+	{61|To take revenge on the city of Remgard, she managed to lure some people into her cabin and turn them into rats.|||}
+	{70|For helping her with the tasks that she could not perform herself, Algangror gave me her enchanted necklace, \'Marrowtaint\'.|2100|1|}
+	{100|I have decided not to help Algangror with her task.||1|}
 	}|};
 </string>
 
