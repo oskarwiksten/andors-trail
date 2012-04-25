@@ -168,7 +168,7 @@
 {rigmor|Well hello there! Aren\'t you a cute little fellow.||{{Have you seen my brother Andor?|rigmor_1|||||}{I really need to go.|rigmor_leave_select|||||}}|};
 {rigmor_1|Your brother, you say? His name is Andor? No. I don\'t recall meeting anyone like that.||{{I really need to go.|rigmor_leave_select|||||}}|};
 {rigmor_leave_select|||{{|rigmor_thanks|calomyran:100||||}{|X|||||}}|};
-{rigmor_thanks|I heard you helped my old man find his book, thank you. He had been talking about that book for weeks. Poor thing, he tends to forget things.||{{It was my pleasure. Goodbye.|X|||||}{You should keep an eye on him, or bad things might happen to him.|X|||||}{Whatever, I just did it for the money.|X|||||}}|};
+{rigmor_thanks|I heard you helped my old man find his book, thank you. He had been talking about that book for weeks. Poor thing, he tends to forget things.||{{It was my pleasure. Goodbye.|X|||||}{You should keep an eye on him, or bad things might happen to him.|X|||||}{Whatever, I just did it for the gold.|X|||||}}|};
 
 {fallhaven_clothes|Welcome to my shop. Please browse my selection of fine clothing and jewelry.||{{Let me see your wares.|S|||||}}|};
 {fallhaven_potions|Welcome to my shop. Please browse my fine selection of everyday potions.||{{Let me see what potions you have available.|S|||||}}|};
@@ -630,8 +630,8 @@
 {fallhaven_warden_5|I could get fined for drinking on duty. I don\'t think I would dare try it right now.||{{N|fallhaven_warden_6|||||}}|};
 {fallhaven_warden_6|Thank you for the drink though, I will enjoy it when I get home later tomorrow.||{{You are welcome. Goodbye.|X|||||}{What if someone would pay you the amount of the fine?|fallhaven_warden_7|||||}}|};
 {fallhaven_warden_7|Oh, that sounds a bit shady. And I doubt anyone could afford the 450 gold around here. Anyway, I would need a bit more than that just to risk it.||{{I have 500 gold right here that you could have.|fallhaven_warden_9||gold|500|0|}{But you know you want the mead right?|fallhaven_warden_8|||||}{Yes, I agree. This is starting to sound too shady. Goodbye.|X|||||}}|};
-{fallhaven_warden_8|Oh sure. Now that you mention it. It sure would be good.||{{So what if I pay you, say, 400 gold. Would that cover enough of your anxiety to enjoy the drink now?|fallhaven_warden_9||gold|400|0|}{This is starting to sound too shady for me. I\'ll leave you to your duty, goodbye.|X|||||}{I\'ll go get that money for you. Goodbye.|X|||||}}|};
-{fallhaven_warden_9|Wow, that much money? I\'m sure I could even get away with this without being fined. Then I could have the money AND a nice drink of mead at the same time.|{{0|farrik|60|}}|{{N|fallhaven_warden_10|||||}}|};
+{fallhaven_warden_8|Oh sure. Now that you mention it. It sure would be good.||{{So what if I pay you, say, 400 gold. Would that cover enough of your anxiety to enjoy the drink now?|fallhaven_warden_9||gold|400|0|}{This is starting to sound too shady for me. I\'ll leave you to your duty, goodbye.|X|||||}{I\'ll go get that gold for you. Goodbye.|X|||||}}|};
+{fallhaven_warden_9|Wow, that much gold? I\'m sure I could even get away with this without being fined. Then I could have the gold AND a nice drink of mead at the same time.|{{0|farrik|60|}}|{{N|fallhaven_warden_10|||||}}|};
 {fallhaven_warden_10|Thank you kid, you really are nice. Now leave me to enjoy my drink.|||};
 {fallhaven_warden_select_1|||{{|fallhaven_warden_11|farrik:60||||}{|fallhaven_warden_35|farrik:90||||}{|fallhaven_warden_select_2|||||}}|};
 {fallhaven_warden_select_2|||{{|fallhaven_warden_30|farrik:50||||}{|fallhaven_warden_12|farrik:32||||}{|fallhaven_warden|||||}}|};
@@ -690,7 +690,7 @@
 {kaori_4|I am still not convinced that you are not a spy from Feygard sent to cause mischief.||{{What can you tell me about Vilegard?|kaori_trust_1|||||}{I can assure you that I am not a spy.|kaori_5|||||}{Feygard, where or what is that?|kaori_trust_1|||||}}|};
 {kaori_5|Hm. Maybe not. But then again, maybe you are. I am still not sure.||{{Is there anything I can do to gain your trust?|kaori_10|||||}{[Bribe] How would 100 gold sound? Could that help you to trust me?|kaori_bribe|||||}}|};
 {kaori_trust_1|I still don\'t fully trust you enough to talk about that.||{{Is there anything I can do to gain your trust?|kaori_10|||||}{[Bribe] How would 100 gold sound? Could that help you to trust me?|kaori_bribe|||||}}|};
-{kaori_bribe|Are you trying to bribe me, kid? That won\'t work on me. What use would I have for money if you actually were a spy?||{{Is there anything I can do to gain your trust?|kaori_10|||||}}|};
+{kaori_bribe|Are you trying to bribe me, kid? That won\'t work on me. What use would I have for gold if you actually were a spy?||{{Is there anything I can do to gain your trust?|kaori_10|||||}}|};
 {kaori_10|If you really want to prove to me that you are not a spy from Feygard, there actually is something that you can do for me.||{{N|kaori_11|||||}}|};
 {kaori_11|Up until recently, we have been using special potions made of ground bones as healing. These potions are very potent healing potions, and were used for several purposes.||{{N|kaori_12|||||}}|};
 {kaori_12|But now, they have been banned by Lord Geomyr, and most use of them has stopped.||{{N|kaori_13|||||}}|};
@@ -2055,7 +2055,7 @@
 {erinith_story_gold_1|Worth? Well, I was hoping you would help me anyway, but I guess 200 gold could do.||{
 	{200 gold it is then. I\'ll go look for you book.|erinith_story_gold_2|||||}
 	{A lousy 200 gold, is that all you can do? Fine, I\'ll go look for you stupid book.|erinith_story_gold_2|||||}
-	{Keep your money, I\'ll return your book for you anyway.|erinith_story_7|||||}
+	{Keep your gold, I\'ll return your book for you anyway.|erinith_story_7|||||}
 	{No, I am not getting involved in this. Goodbye.|X|||||}
 	}|};
 {erinith_story_gold_2|Make it quick.|{{0|erinith|21|}}|{{N|erinith_story_8|||||}}|};
@@ -4537,7 +4537,7 @@
 {krell_knights_2|You should visit our compound in Brimhaven, if you ever make your way there.||{{N|krell_knights_3|||||}}|};
 {krell_knights_3|We serve all types of clients, from the wealthiest to even the poorest of poor.||{{N|krell_knights_4|||||}}|};
 {krell_knights_4|Regardless, we always get the job done.||{{What types of work do you do?|krell_knights_5|||||}}|};
-{krell_knights_5|Mostly, we help people get back money that other people owe them.||{{N|krell_knights_6|||||}}|};
+{krell_knights_5|Mostly, we help people get back gold that other people owe them.||{{N|krell_knights_6|||||}}|};
 {krell_knights_6|We also help people find .. erm .. people that have gone missing.||{
 	{About that, Jhaeld sent me to ask about the missing people.|krell_jhaeld1|remgard:52||||}
 	{Good luck with that.|X|||||}
@@ -4683,7 +4683,7 @@
 {rothses_imp_armour_w|Now that is one fine looking chain mail you are wearing. Remove it from your chest and I might be able to help you improve it, if you want.||{{Anything else?|rothses_imp_s5|||||}}|};
 	</string>
 
-	<string name="conversationlist_remgard_villagers">
+	<string name="conversationlist_remgard_villagers1">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {remgard_villager1|I don\'t recognize you. You\'re not from Remgard, are you?||{
 	{No, I am from a small settlement called Crossglen, and I am looking for my brother Andor.|remgard_villager1_2|||||}
@@ -4694,15 +4694,191 @@
 	{No, you get out of *my* way!|remgard_villager2_2|||||}
 	}|};
 {remgard_villager2_2|Hah! *snort*|||};
-{remgard_villager3|Have you seen my ring? I dropped in among these trees, I am sure. That was a pretty ring.|||};
+{remgard_villager3|Have you seen my ring? I dropped it among these trees, I am sure. That was a pretty ring.|||};
+{remgard_villager4|Good day.|||};
+{remgard_villager5|Excuse me, I have no time to talk.|||};
+{remgard_villager6|You are not from around here, are you? If you ever need a place to stay, visit the tavern. I hear that Kendelow has a room available for rent.|||};
+{remgard_villager7|I have heard strange noises from across the water of lake Laeroth. I wonder what lurks on the shores of the other side.|||};
+{remgard_villager8|Hello.|||};
+{petdog|Woof! *pant* *pant*|||};
+{taylin|No, get away! They can\'t find me here. Don\'t give away my good hiding spot!|||};
+{larni|||{{|larni_2|fiveidols:42||||}{|larni_1|||||}}|};
+{larni_1|Hey, get out of here! This is my house!|||};
+{larni_2|(You see Larni holding his forehead.) Hey, *cough* get out of here! This is .. *cough* .. my house!|||};
+{caeda|So much work to do. I sure hope we will have some rain soon.|||};
+{arnal|||{{|arnal_2|fiveidols:43||||}{|arnal_1|||||}}|};
+{arnal_1|Welcome to my shop. Would you like to see what I have available?||{
+	{Yes, please show me what you have.|S|||||}
+	{No thank you. Goodbye.|X|||||}
+	}|};
+{arnal_2|(Arnal clears his throat)||{{N|arnal_3|||||}}|};
+{arnal_3|Welcome to .. *cough* .. my shop. Would you like .. *cough* .. to see what I have available?||{
+	{Yes, please show me what you have.|S|||||}
+	{No thank you. Goodbye.|X|||||}
+	{Are you all right?|arnal_4|||||}
+	{Get away from me, I don\'t want to catch whatever it is you are infected with!|X|||||}
+	}|};
+{arnal_4|I don\'t know what .. *cough* .. happened. I started getting dizzy and nauseous. Now this cough is really irritating. It must have been something I ate. *cough*|||};
+{skylenar|May you forever walk with the Shadow, my child.||{
+	{Do you have anything to trade?|S|||||}
+	{What do you do around here?|skylenar_1|||||}
+	}|};
+{skylenar_1|I provide .. guidance to those that seek it. The Shadow guides us. It keeps us safe and comforts us when we sleep.||{{N|skylenar_2|||||}}|};
+{skylenar_2|Lately, it seems Remgard has been in dire need of the comfort that the Shadow provides.||{
+	{I see. Goodbye.|X|||||}
+	{Do you have anything to trade?|S|||||}
+	}|};
+{atash|The Shadow follows us wherever we go. Go with the Shadow my child.||{{Shadow be with you.|X|||||}{Whatever, bye.|X|||||}}|};
+{remgard_guard1|I\'ve got my eye on you. Don\'t do anything stupid.|||};
+{remgard_prison_guard|Don\'t even think about it.|||};
+{remgard_drunk1|*burp* Ha ha! I never thought she would! Or was it the other way around? I can\'t rememeber.|||};
+{remgard_drunk2|*burp* This is the best place in all of the northern lands!||{{N|remgard_drunk2_2|||||}}|};
+{remgard_drunk2_2|Oh, hello there. *burp* Kid, I tell you, don\'t go looking for trouble even if you think you can handle it.||{{N|remgard_drunk2_3|||||}}|};
+{remgard_drunk2_3|I did once, and ended up in those horrid caverns of Mount Galmore.||{{N|remgard_drunk2_4|||||}}|};
+{remgard_drunk2_4|That place twists your mind. I tell you, don\'t go there, even if you think you do!||{
+	{Mount Galmore, where is that?|remgard_drunk2_5|||||}
+	{I\'ll keep that in mind.|X|||||}
+	{Get out of my way!|X|||||}
+	}|};
+{remgard_drunk2_5|*burp* What was that? Were you saying something?|||};
+{remgard_farmer1|Oh, hello. I can\'t talk right now, must finish planting these crops.|||};
+{remgard_farmer2|I hope the lands will be good on us this season.|||};
+{chael|(Chael gies you a blank stare)||{{N|chael_2|||||}}|};
+{chael_2|Chael chop wood. Wood make Chael happy.|||};
+{morgisia|Guards! Someone has broken into my room and is trying to rob me!||{
+	{That\'s right. Hand over all your belongings and you may still live.|morgisia_1|||||}
+	{But I was just..|morgisia_1|||||}
+	{Sorry, I thought..|morgisia_1|||||}
+	}|};
+{morgisia_1|Help! Guards!|||};
+{easturlie|Hey, this is my house. Get out of here before I call the guards!|||};
+	</string>
+
+	<string name="conversationlist_kendelow">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{kendelow|||{{|kendelow_1|remgard2:45||||}{|kendelow_2|||||}}|};
+{kendelow_1|I heard that you helped us get rid of that witch Algangror. Thank you.||{{N|kendelow_d|||||}}|};
+{kendelow_2|Welcome to my tavern. I hope you will find your stay a pleasant one.||{{N|kendelow_d|||||}}|};
+{kendelow_d|How may I be of service?||{
+	{What is there to do around here?|kendelow_3|||||}
+	{Do you have anything to trade?|kendelow_shop|||||}
+	{Are there any rooms available?|kendelow_room_1|||||}
+	}|};
+{kendelow_shop|Oh sure. Here, have a look.||{{N|S|||||}}|};
+{kendelow_3|Most people here in Remgard tend to their crops. Other than that, I hear that Arnal the armourer over on the western shore has some good business trading.||{{N|kendelow_4|||||}}|};
+{kendelow_4|Also, we usually get a lot of visitors here in the tavern. Lately, it has been a lot fewer people in here though, with the closing of the bridge because of those missing people and all.||{{N|kendelow_5|||||}}|};
+{kendelow_5|On your way in, maybe you noticed that we even have a visit from the Knights of Elythom here in the tavern? It seems that more and more people are becoming aware of the hospitality of Remgard.||{{Thank you. I had some other questions.|kendelow_d|||||}}|};
+{kendelow_room_1|||{{|kendelow_room_2|nondisplay:21||||}{|kendelow_room_3|||||}}|};
+{kendelow_room_2|You have already rented my last room. We don\'t have any more rooms other than that one.|||};
+{kendelow_room_3|Why, yes, as a matter of fact, I do. There is one very fine room available upstairs.||{{N|kendelow_room_4|||||}}|};
+{kendelow_room_4|The previous tenant left in a hurry some days ago.||{{N|kendelow_room_5|||||}}|};
+{kendelow_room_5|You may rent the room for as long as you like for only 600 gold.||{
+	{600 gold, are you mad!? That\'s a fortune.|kendelow_room_6s|||||}
+	{Is there anything you can do to lower the price?|kendelow_room_6s|||||}
+	{I\'ll take it. Here is the gold.|kendelow_room_8||gold|600|0|}
+	{I dont\'t have that much gold.|kendelow_room_7|||||}
+	}|};
+{kendelow_room_6s|||{{|kendelow_room_6b|remgard2:45||||}{|kendelow_room_6a|||||}}|};
+{kendelow_room_6a|The price is fixed. I cannot go around handing out discounts to just anyone. Also, keep in mind that you may rent it for as long as you wish.||{
+	{I\'ll take it. Here is the gold.|kendelow_room_8||gold|600|0|}
+	{I dont\'t have that much gold.|kendelow_room_7|||||}
+	}|};
+{kendelow_room_6b|Since you helped us here in Remgard with that witch Algangror, I am prepared to offer you a discount. How about we say 400 gold for it instead?||{
+	{I\'ll take it. Here is the gold.|kendelow_room_8||gold|400|0|}
+	{I dont\'t have that much gold.|kendelow_room_7|||||}
+	}|};
+{kendelow_room_7|You are welcome to return once you have the gold, if you are still interested.||{{N|kendelow_d|||||}}|};
+{kendelow_room_8|Thank you. The room is upstairs. You may rent it for as long as you wish.|{{0|nondisplay|21|}}||};
+	</string>
+
+	<string name="conversationlist_arghes">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{arghes|||{{|arghes_2|andor:51||||}{|arghes_1|||||}}|};
+{arghes_1|You will find no business here, child.|||};
+{arghes_2|How interesting. The child from Fallhaven, here in Remgard?||{
+	{I\'m not from Fallhaven, I am from Crossglen, west of Fallhaven.|arghes_3a|||||}
+	{Who are you?|arghes_3b|||||}
+	{How do you know where I am from?|arghes_3c|||||}
+	}|};
+{arghes_3a|Is that so? Hm, most interesting. It does not change anything, however.||{{N|arghes_4|||||}}|};
+{arghes_3b|Who I am is of no importance in this situation. You on the other hand, is most important.||{{N|arghes_4|||||}}|};
+{arghes_3c|I know .. a great deal of things.||{{N|arghes_4|||||}}|};
+{arghes_4|$playername - yes, that is what they call you.||{{How do you know my name? Who are you?|arghes_5|||||}}|};
+{arghes_5|Let\'s just say that I am a .. friend. You would do well to keep your .. friends close.||{{N|arghes_6|||||}}|};
+{arghes_6|Now, how may I help you? Equipment? Information?||{
+	{Let me see what you have to trade.|arghes_shop|||||}
+	{What information do you have?|arghes_7|||||}
+	}|};
+{arghes_shop|Certainly.||{{N|S|||||}}|};
+{arghes_7|Hm, let me see.||{{N|arghes_8|||||}}|};
+{arghes_8|No, I cannot tell you anything at this time. You are welcome to return once your path has become .. clearer.|||};
+	</string>
+
+	<string name="conversationlist_remgard_villagers2">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{perester|If you are looking for Duaina, she is out in the backyard.|||};
+{freen|Sorry, we are closed. If you want to practice your reading skills, please come back another day. If there is a specific book you are looking for, I might be able to help you.||{{No thank you. Goodbye.|X|||||}}|};
+{almars|He he. They will never knew what hit them.||{{N|almars_1|||||}}|};
+{almars_1|Oh, hello! Never mind me, I am just strolling along here. Nothing strange about that. See?|||};
+{carthe|||{{|carthe_1|fiveidols:45||||}{|carthe_2|||||}}|};
+{carthe_1|*cough* Please leave me be. I haven\'t *cough* done anything!|||};
+{carthe_2|Hey, what are you doing in here? Don\'t try any funny business.|||};
+{emerei|We don\'t get many visitors here these days. I hope you like what you see here in Remgard.|||};
+{janach|This is no place for children. You had better leave.|||};
+{perlynn|See this? The harvested crops have begun to rot. Argh, I knew we should have fixed that door when we had the chance.|||};
+{maelf|Ah, isn\'t this place nice? What else could anyone wish for? This place has all that a man needs - good food, a warm bed and people to exchange stories with.|||};
+	</string>
+
+	<string name="conversationlist_ervelyn">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{ervelyn|||{
+	{|ervelyn_gave1|remgard2:46||||}
+	{|ervelyn_give1|remgard2:45||||}
+	{|ervelyn_1|||||}
+	}|};
+{ervelyn_gave1|Hello again, my friend. You are always welcome here.||{{N|ervelyn_d|||||}}|};
+{ervelyn_1|Hello there. Welcome to my shop.||{{N|ervelyn_d|||||}}|};
+{ervelyn_d|How may I be of service?||{
+	{Let me see what you have to trade.|ervelyn_shop|||||}
+	{Never mind. Goodbye.|X|||||}
+	}|};
+{ervelyn_shop|Certainly.||{{N|S|||||}}|};
+{ervelyn_give1|It is you! I heard what you did, helping us with that witch Algangror. You have my thanks, friend!||{{N|ervelyn_give2|||||}}|};
+{ervelyn_give2|As a token of my appreciation, please accept this hat that I made. May it guide you through the blinding light.|{{1|ervelyn_hat||}{0|remgard2|46|}}|{{Thank you.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_reinkarr">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{reinkarr|You look just like an adventurer. Tell me child, what brings you here?||{
+	{Who are you?|reinkarr_3|||||}
+	{I\'m looking for my brother Andor.|reinkarr_1|||||}
+	{I\'m just looking for trouble.|reinkarr_2|||||}
+	}|};
+{reinkarr_1|Ok then. Good luck with that.||{{Who are you?|reinkarr_3|||||}}|};
+{reinkarr_2|Ha ha, that sure sounds like an adventurer! Guts, that\'s what you need to be a successful adventurer, child. And you don\'t seem to lack courage, if I may say so.||{{Who are you?|reinkarr_3|||||}}|};
+{reinkarr_3|I am Reinkarr. I guess you could call me an adventurer of sorts.||{{Any good tales to tell?|reinkarr_4|||||}}|};
+{reinkarr_4|No, not really. I never got the hang of the whole adventuring business. Me and some other fellows went looking for these .. crystals .. that we had heard about.||{{What chrystals?|reinkarr_5|||||}}|};
+{reinkarr_5|Doesn\'t really matter. We never found any of them anyway.||{{What chrystals were you looking for?|reinkarr_6|||||}}|};
+{reinkarr_6|They were called \'Oegyth crystals\'. Supposedly very powerful and worth a fortune.||{
+	{I have one of those.|reinkarr_oeg_1||oegyth|1|1|}
+	{So what made you stop looking?|reinkarr_8|||||}
+	{What are they?|reinkarr_7|||||}
+	}|};
+{reinkarr_7|Actually, all I know is that they are some sort of crystals. As I said, they are supposedly very powerful. We were only looking for them so that we could sell them and become rich.||{{What made you stop looking?|reinkarr_8|||||}}|};
+{reinkarr_8|Just the boredom of it, I guess. We never were any good at the whole fighting thing, and as such we never found one of those things.||{{N|reinkarr_9|||||}}|};
+{reinkarr_9|Anyway, it\'s been nice talking to you, kid. Take care.|||};
+{reinkarr_oeg_1|What!? Wou actually have one of those things? Let me see. Yes, that sure matches the description I read.||{{N|reinkarr_oeg_2|||||}}|};
+{reinkarr_oeg_2|You would do well to keep that to yourself, kid. Whatever you do, don\'t lose it! And don\'t go around showing it to everyone you might meet. You could get in serious trouble.||{{What can I do with it?|reinkarr_oeg_3|||||}}|};
+{reinkarr_oeg_3|I hear there are merchants that would do anything to get their hands on some of those crystals. You should seek out the merchants in one of the larger cities, and ask them.||{{N|reinkarr_oeg_4|||||}}|};
+{reinkarr_oeg_4|Please be careful though!||{{N|reinkarr_9|||||}}|};
 	</string>
 
 	<string name="conversationlist_remgard_idolsigns">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {jhaeld_bed|||{{|jhaeld_bed_2|fiveidols:41||||}{|jhaeld_bed_3|fiveidols:31||||}{|jhaeld_bed_1|||||}}|};
-{jhaeld_bed_1|You see a bed and nightstand.|||};
-{jhaeld_bed_2|You see a bed and nightstand. The idol is still where you left it.|||};
-{jhaeld_bed_3|You see a bed and nightstand. This must be Jhaeld\'s bed.||{{Hide one of the idols under the bed.|jhaeld_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
+{jhaeld_bed_1|You see a bed.|||};
+{jhaeld_bed_2|You see a bed. The idol is still where you left it.|||};
+{jhaeld_bed_3|You see a bed, that you suppose must be Jhaeld\'s bed.||{{Hide one of the idols under the bed.|jhaeld_bed_4s1||algangror_idol|1|0|}{Leave the bed alone.|X|||||}}|};
 {jhaeld_bed_4s1||{{0|fiveidols|41|}}|{{|jhaeld_bed_4s2|fiveidols:42||||}{|jhaeld_bed_4|||||}}|};
 {jhaeld_bed_4s2|||{{|jhaeld_bed_4s3|fiveidols:43||||}{|jhaeld_bed_4|||||}}|};
 {jhaeld_bed_4s3|||{{|jhaeld_bed_4s4|fiveidols:44||||}{|jhaeld_bed_4|||||}}|};
@@ -4753,6 +4929,11 @@
 {carthe_bed_4s4|||{{|carthe_bed_4s5|fiveidols:44||||}{|carthe_bed_4|||||}}|};
 {carthe_bed_4s5||{{0|fiveidols|50|}}|{{|carthe_bed_4|||||}}|};
 {carthe_bed_4|You hide the idol under the bed.|||};
+	</string>
+	
+	<string name="conversationlist_remgard_tavern">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{remgard_tavern_room|You are not allowed to enter this room until you have rented it.|||};
 	</string>
 	
 </resources>

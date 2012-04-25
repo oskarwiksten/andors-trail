@@ -63,7 +63,7 @@
    eJxjYBgc4D/zqB2k2sHOzsDAxo4qx47GB8mzoomRYgc3KwQjAwE0PjY1pNhBSzCY7KDELUPFDkJmEGvHewJ2+ALTWwkb6XqJBYMp3dDSDmq4gV528OMpY5DtaMFS3mETQweE0g010hWtAQAc8B6G
   </data>
  </layer>
- <layer name="Walkable" width="25" height="20" visible="0">
+ <layer name="Walkable" width="25" height="20">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzFVMOUAFLtwGYnNj42PSPFDmxxQmy8DSY70NXjs4PSsKKHHYTCABsg13xcfiLVDmoBQuZRwz5SwgNZjFQ+Pf1BTDqkpR3EpGNizaUGxmYHAOjUFDE=
   </data>
@@ -82,6 +82,22 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20"/>
+ <objectgroup name="Spawn" width="25" height="20">
+  <object name="kendelow" type="spawn" x="32" y="416" width="192" height="192"/>
+  <object name="remgard_drunk" type="spawn" x="320" y="448" width="384" height="96">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="arghes" type="spawn" x="288" y="288" width="32" height="32"/>
+  <object name="krell" type="spawn" x="640" y="256" width="32" height="32"/>
+  <object name="elythom_knight1" type="spawn" x="608" y="288" width="32" height="32"/>
+  <object name="elythom_knight2" type="spawn" x="672" y="256" width="32" height="32"/>
+  <object name="remgard_drunk" type="spawn" x="288" y="96" width="480" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
  <objectgroup name="Keys" width="25" height="20"/>
 </map>

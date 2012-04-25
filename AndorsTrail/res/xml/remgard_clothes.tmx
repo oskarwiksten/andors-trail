@@ -63,7 +63,7 @@
    eJxjYKAe+M88dMxJZqHMHGT9/qwItg8rplpi3EMKeE8lc6gBABWzB3A=
   </data>
  </layer>
- <layer name="Walkable" width="18" height="8" visible="0">
+ <layer name="Walkable" width="18" height="8">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBwBGBngEselBpt+XOrQ9eAzB599hMwhZB459pBjPwAAJwc+
   </data>
@@ -76,6 +76,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="18" height="8"/>
+ <objectgroup name="Spawn" width="18" height="8">
+  <object name="ervelyn" type="spawn" x="64" y="96" width="192" height="128"/>
+ </objectgroup>
  <objectgroup name="Keys" width="18" height="8"/>
 </map>

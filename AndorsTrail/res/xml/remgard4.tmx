@@ -66,7 +66,7 @@
    eJxjYKANKGRlYChihdDUNKsIj3kg+WQgLibDTnQ7kM2C0djspsROEGhEswOZBgFcdjdSYCcxAOaGJhrYQY00QSwIBNoVRMU0iItPa4CelwjlLRNG4sw1wqGO3DhyIdJeJyLVURv8Z6bcDOS4dyMynNDtJRQ/2OKlEUdZgM+u92j2EoofXPHSSIQ/0e0iBVAjXsgB+NxMThxRAjZDw5jcOCIXHCYzDZMLSoD2RWGx0x2H+ZSkq5EEIulYH5Fq72ygmrlAPAdK08teUsAmIs0bqHAeBaOA1gAAiyQsyw==
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJztlFEKACEIROcK3f+y+7tEa+qMRrCCBJXzbKgGgPHnFfkO797o2o5r1a32fEWU6Q2rvoq54io0PbrMeXf9ZesZbvY9dJ3X+xbneZYX6UvNBWw9b2S4irD8sbhsf+o7p/TlBi6g53r6wTQyXrHeRWqjXKW3ak0Vt+sOK/Qy3Gq/T/7Vqv+J0cyyO5gV+QAWaSBY
   </data>
@@ -103,6 +103,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30"/>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="remgard_villager3" type="spawn" x="480" y="96" width="384" height="256"/>
+  <object name="remgard_villager8" type="spawn" x="448" y="352" width="320" height="256"/>
+  <object name="remgard_farmer2" type="spawn" x="128" y="672" width="384" height="160"/>
+  <object name="fallhaven_farmer2" type="spawn" x="416" y="672" width="384" height="160"/>
+  <object name="almars" type="spawn" x="192" y="320" width="32" height="32"/>
+ </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>

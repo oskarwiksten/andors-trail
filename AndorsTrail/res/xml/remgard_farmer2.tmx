@@ -75,7 +75,10 @@
     <property name="place" value="remgard_farmer2"/>
    </properties>
   </object>
+  <object name="carthe_bed" type="sign" x="256" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="11" height="8"/>
+ <objectgroup name="Spawn" width="11" height="8">
+  <object name="carthe" type="spawn" x="64" y="96" width="64" height="96"/>
+ </objectgroup>
  <objectgroup name="Keys" width="11" height="8"/>
 </map>

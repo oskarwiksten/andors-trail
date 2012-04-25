@@ -75,7 +75,10 @@
     <property name="place" value="remgard_weapon"/>
    </properties>
   </object>
+  <object name="arnal_bed" type="sign" x="64" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="12" height="8"/>
+ <objectgroup name="Spawn" width="12" height="8">
+  <object name="arnal" type="spawn" x="160" y="96" width="128" height="64"/>
+ </objectgroup>
  <objectgroup name="Keys" width="12" height="8"/>
 </map>

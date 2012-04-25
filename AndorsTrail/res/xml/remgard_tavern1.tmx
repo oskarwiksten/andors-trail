@@ -65,7 +65,7 @@
  </layer>
  <layer name="Walkable" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJztkjEOACAIA/kC//+sO1EoLQ4mkpA6CEdRNzP/OZpoTDB8o9kMjIeKEc+Ml6hVqAxkr+qukHkYD2y9wnudgYbaJ/OW3YmK7qtiIHOqDNXHqV+HUdWj3rvvf/vvdnMBCv0Zkg==
+   eJztkkEOADAEBPcL/v/Z3qXYWj00qUQ4YKwwAPZ91FmbYNgmZjt0NFQMn3e0+FiZymDuqt6K2aejoduv8F5nsKbOybRlNT6y96oYzJ4qQ9URzWMZTD+COvWPbv/uqS/5IhmB
   </data>
  </layer>
  <objectgroup name="Mapevents" width="25" height="20">
@@ -75,7 +75,22 @@
     <property name="place" value="up"/>
    </properties>
   </object>
+  <object name="jhaeld_bed" type="sign" x="704" y="256" width="32" height="32"/>
+  <object name="rest1" type="rest" x="256" y="544" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20"/>
- <objectgroup name="Keys" width="25" height="20"/>
+ <objectgroup name="Spawn" width="25" height="20">
+  <object name="jhaeld" type="spawn" x="480" y="128" width="256" height="96"/>
+  <object name="remgard_guard" type="spawn" x="608" y="96" width="32" height="32"/>
+  <object name="maelf" type="spawn" x="64" y="448" width="32" height="32"/>
+  <object name="remgard_guard2" type="spawn" x="64" y="544" width="32" height="32"/>
+  <object name="morgisia" type="spawn" x="544" y="512" width="96" height="64"/>
+  <object name="remgard_guard2" type="spawn" x="128" y="544" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="25" height="20">
+  <object name="nondisplay:21" type="key" x="448" y="480" width="32" height="32">
+   <properties>
+    <property name="phrase" value="remgard_tavern_room"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

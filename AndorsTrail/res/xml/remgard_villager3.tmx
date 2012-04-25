@@ -63,7 +63,7 @@
    eJxjYCAP/GceeD3JLPSxBxd4T4YeUgEAxhkGZA==
   </data>
  </layer>
- <layer name="Walkable" width="13" height="8" visible="0">
+ <layer name="Walkable" width="13" height="8">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzkGAZwyeHTgw8QsgefvZTqIdbvAM+0BYQ=
   </data>
@@ -75,7 +75,10 @@
     <property name="place" value="remgard_villager3"/>
    </properties>
   </object>
+  <object name="emerei_bed" type="sign" x="320" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="13" height="8"/>
+ <objectgroup name="Spawn" width="13" height="8">
+  <object name="emerei" type="spawn" x="64" y="96" width="64" height="96"/>
+ </objectgroup>
  <objectgroup name="Keys" width="13" height="8"/>
 </map>
