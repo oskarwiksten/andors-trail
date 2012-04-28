@@ -4051,7 +4051,7 @@
 	{|elwel_3|sisterfight:20||||}
 	{|elwel_1|||||}
 	}|};
-{elwel_1|Go away, I don\'t want to talk you!||{
+{elwel_1|Go away, I don\'t want to talk to you!||{
 	{Wow, you\'re the friendly type, aren\'t you?|elwel_2|||||}
 	{Goodbye.|X|||||}
 	}|};
@@ -4135,7 +4135,7 @@
 	{|hjaldar_7r|sisterfight:40||||}
 	{|hjaldar_1|||||}
 	}|};
-{hjaldar_1|Hello there. I am Hjaldar||{{What do you do here?|hjaldar_2|||||}}|};
+{hjaldar_1|Hello there. I am Hjaldar.||{{What do you do here?|hjaldar_2|||||}}|};
 {hjaldar_2|I used to be a potion-maker. In fact, I used to be the only potion-maker here in Remgard.||{{N|hjaldar_3|||||}}|};
 {hjaldar_3|That was good business. People even travelled to here from other cities down the mountain.||{{What made you stop?|hjaldar_4|||||}}|};
 {hjaldar_4|Well, two things. Firstly, I am getting older and don\'t have the desire to be working full days, making potions for gold.||{{N|hjaldar_5|||||}}|};
@@ -4326,9 +4326,9 @@
 	{I can handle myself. What do you need help with?|jhaeld_7|||||}
 	{You just wait and see.|jhaeld_7|||||}
 	}|};
-{jhaeld_7|Sigh. To even think that we need to get help from children to run errands now.||{{N|jhaeld_8|||||}}|};
+{jhaeld_7|(Sigh) To even think that we need to get help from children to run errands now.||{{N|jhaeld_8|||||}}|};
 {jhaeld_8|I guess you know the background to this situation already. We have had some people disappear on us for some time now. We have no idea what has happened to the people that have disappeared, or even if they are still alive.||{{N|jhaeld_9|||||}}|};
-{jhaeld_9|And considering how many there are that have disappeared without anyone knowing what happened, it doesn\'t seem like they are out travelling.|{{0|remgard|40|}}|{{N|jhaeld_10|||||}}|};
+{jhaeld_9|Considering how many there are that have disappeared without anyone knowing what happened, it doesn\'t seem like they are out travelling.|{{0|remgard|40|}}|{{N|jhaeld_10|||||}}|};
 {jhaeld_10|Ok, so what I would like you to do for me is ask some people what they know of the missing people. The fact that you are not from around here might help you get information that neither me nor my guards would be able to acquire.||{
 	{Sound simple enough.|jhaeld_14|||||}
 	{Sure, I\'ll do it. Who do you want me to ask?|jhaeld_14|||||}
@@ -4419,7 +4419,7 @@
 {jhaeld_alg_1|Hm, yes, and what of it?||{{I met a woman named Algangror in that house.|jhaeld_alg_2|||||}}|};
 {jhaeld_alg_2|Algangror?! Now that\'s a name I have not heard in a long time.||{{Algangror is hiding in that abandoned house outside town.|jhaeld_alg_3|||||}}|};
 {jhaeld_alg_3|If Algangror is here, this is grim news indeed.|{{0|remgard2|10|}}|{{N|jhaeld_alg_4|||||}}|};
-{jhaeld_alg_4|To be honest, I had heard about this before, but I dismissed all talk of is since I did not believe it. Now you tell me this also, and I am starting to think that it may be true. She may have returned.||{{Who is she?|jhaeld_alg_5|||||}}|};
+{jhaeld_alg_4|To be honest, I had heard about this before, but I dismissed all talk of it since I did not believe it. Now you tell me this also, and I am starting to think that it may be true. She may have returned.||{{Who is she?|jhaeld_alg_5|||||}}|};
 {jhaeld_alg_5|She used to live here in Remgard, during the days of prosperity. She even helped with the crops on some days.||{{N|jhaeld_alg_6|||||}}|};
 {jhaeld_alg_6|Then something happened. She started getting ideas, and occasionally locked herself in her house for several days. No one really knew what she was doing in there, but we all knew that she was up to no good.||{{N|jhaeld_alg_7|||||}}|};
 {jhaeld_alg_7|I can still recall the stench that came from her house. Ugh. What could possibly smell that bad?||{{N|jhaeld_alg_8|||||}}|};
@@ -4431,7 +4431,7 @@
 {jhaeld_alg_13|You should have seen her. Nails long as your finger, and her face full of unwashed hair. Clearly, she was crazy and could not be reasoned with.||{{N|jhaeld_alg_14|||||}}|};
 {jhaeld_alg_14|When we marched her out of town, the children started crying out of fear for her.||{{N|jhaeld_alg_15|||||}}|};
 {jhaeld_alg_15|The worst thing though, is that she said she would put a curse on all of us.||{{N|jhaeld_alg_16|||||}}|};
-{jhaeld_alg_16|All of this was several seasons ago, and things have gone back to the usual business nowadays.||{{What now then, when she is back?|jhaeld_alg_17|||||}}|};
+{jhaeld_alg_16|All of this was several seasons ago, and things have gone back to the usual business nowadays.||{{What now then, since she has returned?|jhaeld_alg_17|||||}}|};
 {jhaeld_alg_17|Yes. Her being back would explain the missing people. She must have done something to them. I fear for the worst.||{{N|jhaeld_alg_18|||||}}|};
 {jhaeld_alg_18|Considering the people that have disappeared, I frankly don\'t know what to do. As you know, even one of the Knights of Elythom has disappeared.||{{N|jhaeld_alg_19|||||}}|};
 {jhaeld_alg_19|Someone that can do that is dangerous indeed. I am not sure I would even risk sending the guards out there for her, in fear of what she might do.||{{So, what then?|jhaeld_alg_20|||||}}|};
@@ -4464,9 +4464,13 @@
 {jhaeld_killalg|Hello again. What news do you bring?||{
 	{Can you tell me the story of Algangror again?|jhaeld_alg_5|||||}
 	{I am still trying to find a way to make Algangror disappear.|jhaeld_alg_26|||||}
-	{Algangror is dead.|jhaeld_killalg_1||algangror_ring|1|0|}
+	{Algangror is dead.|jhaeld_killalg_1|remgard2:35||||}
 	}|};
-{jhaeld_killalg_1|I can\'t believe it! Yes, this is indeed her ring.|{{0|remgard2|40|}}|{{N|jhaeld_killalg_2|||||}}|};
+{jhaeld_killalg_1|I find this very hard to believe. For to have killed Algangror would have been a difficult task, given her power.||{
+	{I have brought you her ring as proof that what I say is true.|jhaeld_killalg_1b||algangror_ring|1|0|}
+	{No, never mind. I haven\'t actually defeated her yet.|jhaeld_alg_26|||||}
+	}|};
+{jhaeld_killalg_1b|I can hardly believe it! Yes, this is indeed her ring.|{{0|remgard2|40|}}|{{N|jhaeld_killalg_2|||||}}|};
 {jhaeld_killalg_2|You actually defeated her? I am so relieved! Tell me, how crazy was she? No, don\'t tell me, I don\'t want to hear more of her filth.||{{N|jhaeld_killalg_3|||||}}|};
 {jhaeld_killalg_3|This means that the people of Remgard are now safe from her. And it is all thanks to you! Who would have thought.|{{0|remgard2|41|}}|{{N|jhaeld_killalg_4|||||}}|};
 {jhaeld_killalg_4|I.. I don\'t know what to say. Thank you, that\'s the least I can say.||{
@@ -4621,7 +4625,7 @@
 	{Jhaeld told me you could help me improve my equipment.|rothses_c2|remgard2:45||||}
 	}|};
 {rothses_c2|Oh yes, I can make modifications to most of our defensive equipment that I sell. Want me to look through your things to see if there\'s anything I can improve for you?||{
-	{Sure, go ahead.|rothses_imp_s|||||}
+	{Sure, go ahead.|rothses_imp_s0|||||}
 	{No, I would not want you going through my stuff.|rothses_c3|||||}
 	{Maybe some other time.|rothses_c3|||||}
 	}|};
@@ -4655,6 +4659,7 @@
 {rothses_jhaeld_s_4||{{0|remgard|70|}}|{{|rothses_20|||||}}|};
 {rothses_19|Look, I told you before.||{{N|rothses_20|||||}}|};
 {rothses_20|Now, if you\'ll excuse me, I have things to do.|||};
+{rothses_imp_s0|Hm, let me see.||{{N|rothses_imp_s|||||}}|};
 {rothses_imp_s|||{{|rothses_imp_shield||remgard_shield_1|1|1|}{|rothses_imp_shield_w||remgard_shield_1|1|2|}{|rothses_imp_s3|||||}}|};
 {rothses_imp_s3|||{{|rothses_imp_gloves||gloves_combat1|1|1|}{|rothses_imp_gloves_w||gloves_combat1|1|2|}{|rothses_imp_s4|||||}}|};
 {rothses_imp_s4|||{{|rothses_imp_armour||armour_superior_chain|1|1|}{|rothses_imp_armour_w||armour_superior_chain|1|2|}{|rothses_imp_s5|||||}}|};
@@ -4742,7 +4747,7 @@
 	}|};
 {remgard_drunk2_5|*burp* What was that? Were you saying something?|||};
 {remgard_farmer1|Oh, hello. I can\'t talk right now, must finish planting these crops.|||};
-{remgard_farmer2|I hope the lands will be good on us this season.|||};
+{remgard_farmer2|I hope the lands will be good to us this season.|||};
 {chael|(Chael gives you a blank stare)||{{N|chael_2|||||}}|};
 {chael_2|Chael chop wood. Wood make Chael happy.|||};
 {morgisia|Guards! Someone has broken into my room and is trying to rob me!||{
@@ -4770,7 +4775,7 @@
 {kendelow_5|On your way in, maybe you noticed that we even have a visit from the Knights of Elythom here in the tavern? It seems that more and more people are becoming aware of the hospitality of Remgard.||{{Thank you. I had some other questions.|kendelow_d|||||}}|};
 {kendelow_room_1|||{{|kendelow_room_2|nondisplay:21||||}{|kendelow_room_3|||||}}|};
 {kendelow_room_2|You have already rented my last room. We don\'t have any more rooms other than that one.|||};
-{kendelow_room_3|Why, yes, as a matter of fact, I do. There is one very fine room available upstairs.||{{N|kendelow_room_4|||||}}|};
+{kendelow_room_3|Why, yes, as a matter of fact, there is. I have one very fine room available upstairs.||{{N|kendelow_room_4|||||}}|};
 {kendelow_room_4|The previous tenant left in a hurry some days ago.||{{N|kendelow_room_5|||||}}|};
 {kendelow_room_5|You may rent the room for as long as you like for only 600 gold.||{
 	{600 gold, are you mad!? That\'s a fortune.|kendelow_room_6s|||||}
@@ -4864,7 +4869,7 @@
 	{So what made you stop looking?|reinkarr_8|||||}
 	{What are they?|reinkarr_7|||||}
 	}|};
-{reinkarr_7|Actually, all I know is that they are some sort of crystals. As I said, they are supposedly very powerful. We were only looking for them so that we could sell them and become rich.||{{What made you stop looking?|reinkarr_8|||||}}|};
+{reinkarr_7|Actually, all I know is that they are some sort of crystal. As I said, they are supposedly very powerful. We were only looking for them so that we could sell them and become rich.||{{What made you stop looking?|reinkarr_8|||||}}|};
 {reinkarr_8|Just the boredom of it, I guess. We never were any good at the whole fighting thing, and as such we never found one of those things.||{{N|reinkarr_9|||||}}|};
 {reinkarr_9|Anyway, it\'s been nice talking to you, kid. Take care.|||};
 {reinkarr_oeg_1|What!? You actually have one of those things? Let me see. Yes, that sure matches the description I read.||{{N|reinkarr_oeg_2|||||}}|};

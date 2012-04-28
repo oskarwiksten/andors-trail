@@ -214,6 +214,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	if (phrase.message == null) {
     		for (Reply r : phrase.replies) {
     			if (!ConversationController.canSelectReply(player, r)) continue;
+    			ConversationController.applyReplyEffect(player, r);
     			setPhrase(r.nextPhrase);
     			return;
     		}
