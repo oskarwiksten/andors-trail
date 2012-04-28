@@ -1,10 +1,12 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
@@ -106,5 +108,25 @@ public final class SkillController {
 	private static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player, int skill, int chanceIncreasePerSkillLevel) {
 		// Note that the bias should be negative, making it less likely that the chance roll will succeed
 		return getRollBias(effect.chance, player, skill, -chanceIncreasePerSkillLevel);
+	}
+	
+	public static void applyCriticalHitSkillEffectsToMonster(WorldContext world, Player player, Monster monster) {
+		int skillLevel = player.getSkillLevel(SkillCollection.SKILL_ATTENUATION);
+		if (skillLevel > 0) {
+			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_ATTENUATION * skillLevel)) {
+				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("attenuation");
+				ActorConditionEffect effect = new ActorConditionEffect(conditionType, 1, 5, null);
+				ActorStatsController.applyActorCondition(monster, effect);
+			}
+		}
+		
+		skillLevel = player.getSkillLevel(SkillCollection.SKILL_ENERVATION);
+		if (skillLevel > 0) {
+			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_ENERVATION * skillLevel)) {
+				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("enervation");
+				ActorConditionEffect effect = new ActorConditionEffect(conditionType, 1, 5, null);
+				ActorStatsController.applyActorCondition(monster, effect);
+			}
+		}
 	}
 }

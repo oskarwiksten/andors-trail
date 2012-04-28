@@ -182,7 +182,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		final Monster target = model.uiSelections.selectedMonster;
 		this.currentlyAttackedMonster = target;
 		
-		final AttackResult attack = playerAttacks(model, target);
+		final AttackResult attack = playerAttacks(world, target);
 		this.lastAttackResult = attack;
 		
 		Resources r = context.mainActivity.getResources();
@@ -450,8 +450,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return result;
 	}
 	
-	private AttackResult playerAttacks(ModelContainer model, Monster currentMonster) {
-    	return attack(model.player, currentMonster);
+	private AttackResult playerAttacks(WorldContext world, Monster currentMonster) {
+    	AttackResult result = attack(world.model.player, currentMonster);
+    	if (result.isCriticalHit) SkillController.applyCriticalHitSkillEffectsToMonster(world, model.player, currentMonster);
+    	return result;
 	}
 	
 	private AttackResult monsterAttacks(ModelContainer model, Monster currentMonster) {

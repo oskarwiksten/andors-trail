@@ -94,6 +94,7 @@ public class ActorStatsController {
 				addNonStackableActorCondition(actor, e, duration);
 			}
 		}
+		recalculateActorCombatTraits(actor);
 	}
 
 	private static void addStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
@@ -267,7 +268,6 @@ public class ActorStatsController {
 		
 		if (!Constants.rollResult(conditionEffect.chance, chanceRollBias)) return;
 		applyActorCondition(actor, conditionEffect);
-		recalculateActorCombatTraits(actor);
 	}
 
 	private static class VisualEffect {

@@ -32,8 +32,10 @@ public final class SkillCollection {
 	public static final int SKILL_RESISTANCE_PHYSICAL_CAPACITY = 18; // lowers chance to get negative active conditions by monsters (Physical Capacity like Minor fatigue)
 	public static final int SKILL_RESISTANCE_BLOOD_DISORDER = 19;    // lowers chance to get negative active conditions by monsters (Blood Disorder like Weak Poison)
 	public static final int SKILL_SHADOW_BLESS = 20;
+	public static final int SKILL_ENERVATION = 21;		// lowers atk ability
+	public static final int SKILL_ATTENUATION = 22;		// lowers def ability
 	
-	public static final int NUM_SKILLS = SKILL_SHADOW_BLESS + 1;
+	public static final int NUM_SKILLS = SKILL_ATTENUATION + 1;
 	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 1;
@@ -57,6 +59,8 @@ public final class SkillCollection {
 	public static final int PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT = 20;
 	public static final int PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT = 10;
 	public static final int PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS = 5;
+	public static final int PER_SKILLPOINT_INCREASE_ENERVATION = 50;
+	public static final int PER_SKILLPOINT_INCREASE_ATTENUATION = 50; 
 
 	public static final int MAX_LEVEL_BARTER = (int) Math.floor((float) Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
 	public static final int MAX_LEVEL_BARKSKIN = 5;
@@ -111,6 +115,15 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SKILL_RESISTANCE_PHYSICAL_CAPACITY, MAX_LEVEL_RESISTANCE, false, null));
 		initializeSkill(new SkillInfo(SKILL_RESISTANCE_BLOOD_DISORDER, MAX_LEVEL_RESISTANCE, false, null));
 		initializeSkill(new SkillInfo(SKILL_SHADOW_BLESS, 1, true, null));
+		initializeSkill(new SkillInfo(SKILL_ENERVATION, 1, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 3)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_BETTER_CRITICALS, 3)
+		}));
+		initializeSkill(new SkillInfo(SKILL_ATTENUATION, 1, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 6)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_BETTER_CRITICALS, 6)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_ENERVATION, 1)
+		}));
 	}
 
 	public SkillInfo getSkill(int skillID) {
