@@ -132,8 +132,8 @@ public final class SkillInfoActivity extends Activity {
 		case SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY: return R.string.skill_title_resistance_physical_capacity;
 		case SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER: return R.string.skill_title_resistance_blood_disorder;
 		case SkillCollection.SKILL_SHADOW_BLESS: return R.string.skill_title_shadow_bless;
-		case SkillCollection.SKILL_ENERVATION: return R.string.skill_title_enervation;
-		case SkillCollection.SKILL_ATTENUATION: return R.string.skill_title_attenuation;
+		case SkillCollection.SKILL_CRIT1: return R.string.skill_title_crit1;
+		case SkillCollection.SKILL_CRIT2: return R.string.skill_title_crit2;
 		default:
 			return -1;
 		}
@@ -162,8 +162,8 @@ public final class SkillInfoActivity extends Activity {
 		case SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY: return res.getString(R.string.skill_longdescription_resistance_physical_capacity, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT * SkillCollection.MAX_LEVEL_RESISTANCE);
 		case SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER: return res.getString(R.string.skill_longdescription_resistance_blood_disorder, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT * SkillCollection.MAX_LEVEL_RESISTANCE);
 		case SkillCollection.SKILL_SHADOW_BLESS: return res.getString(R.string.skill_longdescription_shadow_bless, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS);
-		case SkillCollection.SKILL_ENERVATION: return res.getString(R.string.skill_longdescription_enervation, SkillCollection.PER_SKILLPOINT_INCREASE_ENERVATION);
-		case SkillCollection.SKILL_ATTENUATION: return res.getString(R.string.skill_longdescription_attenuation, SkillCollection.PER_SKILLPOINT_INCREASE_ATTENUATION);
+		case SkillCollection.SKILL_CRIT1: return res.getString(R.string.skill_longdescription_crit1, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1);
+		case SkillCollection.SKILL_CRIT2: return res.getString(R.string.skill_longdescription_crit2, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2);
 		default:
 			return "";
 		}

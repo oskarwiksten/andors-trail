@@ -56,7 +56,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
     	context.mainActivity.clearMessages();
     	if (beginTurnAs == BEGIN_TURN_PLAYER) newPlayerTurn();
     	else if (beginTurnAs == BEGIN_TURN_MONSTERS) endPlayerTurn();
-    	else maybeAutoEndTurn();
+    	else continueTurn();
     	updateTurnInfo();
     }
     public void exitCombat(boolean pickupLootBags) {
@@ -223,8 +223,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			}
 		}
 		
-		context.mainActivity.updateStatus();
-		maybeAutoEndTurn();
+		playerActionCompleted();
 	}
 	
     public void playerKilledMonster(Monster killedMonster) {
@@ -257,12 +256,18 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
     }
 
-	private void maybeAutoEndTurn() {
-		if (model.player.ap.current < model.player.useItemCost
-			&& model.player.ap.current < model.player.combatTraits.attackCost
-			&& model.player.ap.current < model.player.actorTraits.moveCost) {
-			endPlayerTurn();
-		}
+	private boolean playerHasApLeft() {
+		if (model.player.ap.current >= model.player.useItemCost) return true;
+		if (model.player.ap.current >= model.player.combatTraits.attackCost) return true;
+		if (model.player.ap.current >= model.player.actorTraits.moveCost) return true;
+		return false;
+	}
+	private void playerActionCompleted() {
+		context.mainActivity.updateStatus();
+		if (!playerHasApLeft()) endPlayerTurn();
+	}
+	private void continueTurn() {
+    	if (!playerHasApLeft()) handleNextMonsterAction();
 	}
 
 	private void executeCombatMove(final Coord dest) {
@@ -281,8 +286,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		
 		if (canExitCombat()) exitCombat(true);
 		
-		context.mainActivity.updateStatus();
-		maybeAutoEndTurn();
+		playerActionCompleted();
 	}
 
 	private void fleeingFailed() {
@@ -290,7 +294,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		message(r.getString(R.string.combat_flee_failed));
 		endPlayerTurn();
 	}
-
+	
 	private final Handler monsterTurnHandler = new Handler() {
         public void handleMessage(Message msg) {
         	monsterTurnHandler.removeMessages(0);
@@ -315,7 +319,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		//monsterTurnHandler.removeMessages(0);
 		//monsterTurnHandler.sendEmptyMessage(0);
 	}
-
+	
 	private Monster determineNextMonster(Monster previousMonster) {
 		if (previousMonster != null) {
 			if (previousMonster.useAPs(previousMonster.combatTraits.attackCost)) return previousMonster;

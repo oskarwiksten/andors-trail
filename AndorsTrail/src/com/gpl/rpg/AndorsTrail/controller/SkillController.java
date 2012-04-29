@@ -111,19 +111,19 @@ public final class SkillController {
 	}
 	
 	public static void applyCriticalHitSkillEffectsToMonster(WorldContext world, Player player, Monster monster) {
-		int skillLevel = player.getSkillLevel(SkillCollection.SKILL_ATTENUATION);
+		int skillLevel = player.getSkillLevel(SkillCollection.SKILL_CRIT2);
 		if (skillLevel > 0) {
-			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_ATTENUATION * skillLevel)) {
-				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("attenuation");
+			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2 * skillLevel)) {
+				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("crit2");
 				ActorConditionEffect effect = new ActorConditionEffect(conditionType, 1, 5, null);
 				ActorStatsController.applyActorCondition(monster, effect);
 			}
 		}
 		
-		skillLevel = player.getSkillLevel(SkillCollection.SKILL_ENERVATION);
+		skillLevel = player.getSkillLevel(SkillCollection.SKILL_CRIT1);
 		if (skillLevel > 0) {
-			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_ENERVATION * skillLevel)) {
-				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("enervation");
+			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1 * skillLevel)) {
+				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("crit1");
 				ActorConditionEffect effect = new ActorConditionEffect(conditionType, 1, 5, null);
 				ActorStatsController.applyActorCondition(monster, effect);
 			}
