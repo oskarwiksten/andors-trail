@@ -39,6 +39,7 @@ public final class TileManager {
 	public static final int iconID_boxopened = 5;
 	public static final int iconID_boxclosed = 6;
 	public static final int iconID_shop = iconID_groundbag;
+	public static final int iconID_unassigned_quickslot = iconID_groundbag;
 	public static final int iconID_selection_blue = 7;
 	public static final int iconID_selection_purple = 8;
 	public static final int iconID_selection_green = 9;

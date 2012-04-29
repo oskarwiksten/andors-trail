@@ -1,13 +1,19 @@
 package com.gpl.rpg.AndorsTrail.view;
 
+import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
+
 import android.content.Context;
 import android.graphics.ColorFilter;
 import android.graphics.ColorMatrixColorFilter;
 import android.util.AttributeSet;
 import android.view.ContextMenu;
-import android.widget.ImageButton;
+import android.widget.Button;
 
-public class QuickButton extends ImageButton {
+public class QuickButton extends Button {
 	private final ColorFilter grayScaleFilter = new ColorMatrixColorFilter(
 			new float[] { 0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
                           0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
@@ -16,10 +22,12 @@ public class QuickButton extends ImageButton {
 			});
 	private boolean empty;
 	private QuickButtonContextMenuInfo menuInfo;
+	private final int textPadding;
 	
 	public QuickButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		menuInfo = new QuickButtonContextMenuInfo();
+		textPadding = getResources().getDimensionPixelSize(R.dimen.boxshape_margin);
 	}
 	
 	public void setIndex(int index){
@@ -35,13 +43,31 @@ public class QuickButton extends ImageButton {
 		return menuInfo;
 	}
 	
-	public void setEmpty(boolean empty) {
-		this.empty = empty;
-		if(empty){
-			setColorFilter(grayScaleFilter);
+	private String currentItemID = "unassigned";
+	public void setItemType(ItemType type, WorldContext world, TileCollection tiles) {
+		if (type == null) {
+			if (currentItemID == null) return;
+			empty = true;
+			world.tileManager.setImageViewTileForUIIcon(this, TileManager.iconID_unassigned_quickslot);
+			currentItemID = null;
+			setGrayScale(true);
+			setText("");
+			setCompoundDrawablePadding(0);
 		} else {
-			setColorFilter(null);
+			int quantity = world.model.player.inventory.getItemQuantity(type.id);
+			empty = quantity == 0;
+			if (!type.id.equals(currentItemID)) {
+				world.tileManager.setImageViewTile(this, type, tiles);
+				setCompoundDrawablePadding(textPadding);
+				currentItemID = type.id;
+			}
+			setGrayScale(empty);
+			setText(Integer.toString(quantity));
 		}
+	}
+	
+	private void setGrayScale(boolean useGrayscale) {
+		getCompoundDrawables()[0].setColorFilter(useGrayscale ? grayScaleFilter : null);
 	}
 	
 	public boolean isEmpty() {

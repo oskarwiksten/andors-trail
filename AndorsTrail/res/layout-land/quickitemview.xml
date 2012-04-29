@@ -1,27 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
-	android:orientation="vertical"
-	android:gravity="left"
-	>
-    <com.gpl.rpg.AndorsTrail.view.QuickButton
-        android:id="@+id/quickitemview_item1"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/smalltext_buttonheight"
-        android:textSize="@dimen/actionbar_text"
-        android:longClickable="true"/>
-    <com.gpl.rpg.AndorsTrail.view.QuickButton
-        android:id="@+id/quickitemview_item2"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/smalltext_buttonheight"
-        android:textSize="@dimen/actionbar_text"
-        android:longClickable="true"/>
-    <com.gpl.rpg.AndorsTrail.view.QuickButton
-        android:id="@+id/quickitemview_item3"
-        android:layout_width="wrap_content"
-        android:layout_height="@dimen/smalltext_buttonheight"
-        android:textSize="@dimen/actionbar_text"
-        android:longClickable="true"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="left"
+    android:orientation="vertical" >
+
+    <com.gpl.rpg.AndorsTrail.view.QuickButton android:id="@+id/quickitemview_item1" style="@style/quickButton" />
+    <com.gpl.rpg.AndorsTrail.view.QuickButton android:id="@+id/quickitemview_item2" style="@style/quickButton" />
+    <com.gpl.rpg.AndorsTrail.view.QuickButton android:id="@+id/quickitemview_item3" style="@style/quickButton" />
+    
 </LinearLayout>

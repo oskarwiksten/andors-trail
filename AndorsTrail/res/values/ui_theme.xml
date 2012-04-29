@@ -22,4 +22,11 @@
         <item name="android:padding">@dimen/boxshape_margin</item>
         <item name="android:textSize">@dimen/smalltext</item>
     </style>
+    
+	<style name="quickButton">
+        <item name="android:longClickable">true</item>
+        <item name="android:textSize">@dimen/actionbar_text</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/smalltext_buttonheight</item>
+    </style>
 </resources>

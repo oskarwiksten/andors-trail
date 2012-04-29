@@ -5,14 +5,14 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.view.QuickitemView;
 
 public final class Inventory extends ItemContainer {
 
 	public int gold = 0;
 	public static final int NUM_WORN_SLOTS = ItemType.MAX_CATEGORY_WEAR+1+1; // +1 for 0 based index. +1 for left+right rings.
+	public static final int NUM_QUICK_SLOTS = 3;
 	public final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
-	public final ItemType[] quickitem = new ItemType[QuickitemView.NUM_QUICK_SLOTS];
+	public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
 	
 	public Inventory() { }
 
@@ -73,8 +73,8 @@ public final class Inventory extends ItemContainer {
 				dest.writeBoolean(false);
 			}
 		}
-		dest.writeInt(QuickitemView.NUM_QUICK_SLOTS);
-		for(int i = 0; i < QuickitemView.NUM_QUICK_SLOTS; ++i) {
+		dest.writeInt(NUM_QUICK_SLOTS);
+		for(int i = 0; i < NUM_QUICK_SLOTS; ++i) {
 			if (quickitem[i] != null) {
 				dest.writeBoolean(true);
 				dest.writeUTF(quickitem[i].id);
