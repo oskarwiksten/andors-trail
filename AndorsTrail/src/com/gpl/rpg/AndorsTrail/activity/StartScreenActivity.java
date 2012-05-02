@@ -98,7 +98,7 @@ public final class StartScreenActivity extends Activity {
 		});
     	
         TextView development_version = (TextView) findViewById(R.id.startscreen_dev_version);
-        if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
+        if (AndorsTrailApplication.DEVELOPMENT_INCOMPATIBLE_SAVEGAMES) {
         	development_version.setVisibility(View.VISIBLE);
         }
         

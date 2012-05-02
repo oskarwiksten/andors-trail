@@ -257,8 +257,6 @@ public final class PredefinedMap {
 			this.spawnAreas[i].readFromParcel(src, world, fileversion);
 		}
 		
-		if (fileversion < 26) spawnPreV0611UniqueMonsters(world);
-		
 		groundBags.clear();
 		if (fileversion <= 5) return;
 		
@@ -298,52 +296,5 @@ public final class PredefinedMap {
 		}
 		dest.writeBoolean(visited);
 		dest.writeLong(lastVisitTime);
-	}
-	
-	
-	private void spawnPreV0611UniqueMonsters(WorldContext world) {
-		// These monsters were not marked as unique in v0.6.10, and were therefore
-		// not persisted in the savegame files from older versions.
-		if (name.equals("crossglen")) {
-			spawnPreV0611UniqueMonster(world, "farmer");
-			spawnPreV0611UniqueMonster(world, "tired_farmer");
-			spawnPreV0611UniqueMonster(world, "odair");
-			spawnPreV0611UniqueMonster(world, "oromir");
-		} else if (name.equals("crossglen_hall")) {
-			spawnPreV0611UniqueMonster(world, "leonid");
-			spawnPreV0611UniqueMonster(world, "mara");
-			spawnPreV0611UniqueMonster(world, "drunk");
-			spawnPreV0611UniqueMonster(world, "arambold");
-			spawnPreV0611UniqueMonster(world, "tharal");
-			spawnPreV0611UniqueMonster(world, "gruil");
-		} else if (name.equals("wild3")) {
-			spawnPreV0611UniqueMonster(world, "jan");
-		} else if (name.equals("fallhaven_nw")) {
-			spawnPreV0611UniqueMonster(world, "bearded_citizen");
-			spawnPreV0611UniqueMonster(world, "old_citizen");
-			spawnPreV0611UniqueMonster(world, "tired_citizen");
-			spawnPreV0611UniqueMonster(world, "old_man");
-			spawnPreV0611UniqueMonster(world, "guard");
-			spawnPreV0611UniqueMonster(world, "drunkard");
-			spawnPreV0611UniqueMonster(world, "acolyte");
-		} else if (name.equals("fallhaven_sw")) {
-			spawnPreV0611UniqueMonster(world, "citizen");
-			spawnPreV0611UniqueMonster(world, "jakrar");
-		} else if (name.equals("foaming_flask")) {
-			spawnPreV0611UniqueMonster(world, "foaming_flask_cook");
-			spawnPreV0611UniqueMonster(world, "torilo");
-			spawnPreV0611UniqueMonster(world, "feygard_patrol");
-			spawnPreV0611UniqueMonster(world, "feygard_patrol_captain");
-			spawnPreV0611UniqueMonster(world, "ambelie");
-		} else if (name.equals("gapfiller4")) {
-			spawnPreV0611UniqueMonster(world, "guard");
-		}
-	}
-
-	private void spawnPreV0611UniqueMonster(WorldContext world, String monsterTypeID) {
-		for (MonsterSpawnArea a : spawnAreas) {
-			if (!a.monsterTypeIDs[0].equals(monsterTypeID)) continue;
-			spawnAllInArea(world, a, true);
-		}
 	}
 }
