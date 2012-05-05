@@ -10,7 +10,7 @@ public final class ActorConditionsTypeParser extends ResourceParserFor<ActorCond
 	private final DynamicTileLoader tileLoader;
 		
 	public ActorConditionsTypeParser(final DynamicTileLoader tileLoader) {
-		super(29);
+		super(30);
 		this.tileLoader = tileLoader;
 	}
 	
@@ -23,9 +23,10 @@ public final class ActorConditionsTypeParser extends ResourceParserFor<ActorCond
 				, ResourceParserUtils.parseImageID(tileLoader, parts[2])
 				, Integer.parseInt(parts[3])
 				, ResourceParserUtils.parseBoolean(parts[4], false)
-				, ResourceParserUtils.parseStatsModifierTraits(parts, 5)
-    			, ResourceParserUtils.parseStatsModifierTraits(parts, 11)
-    			, ResourceParserUtils.parseAbilityModifierTraits(parts, 17)
+				, ResourceParserUtils.parseBoolean(parts[5], false)
+				, ResourceParserUtils.parseStatsModifierTraits(parts, 6)
+    			, ResourceParserUtils.parseStatsModifierTraits(parts, 12)
+    			, ResourceParserUtils.parseAbilityModifierTraits(parts, 18)
 			));
 	}
 }

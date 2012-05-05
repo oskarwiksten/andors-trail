@@ -21,7 +21,7 @@
 {tough_cave_snake|monsters_snakes:3|Крутая пещерная змея|cavesnake2||7|||21|||5|110|20|2|2|2|15||snake|||||||||};
 {basilisk|monsters_rats:4|Василиск|cavesnake2_boss||7|||40|||7|40|||3|9|50|2|cavecritter|||||||||};
 {snake_servant|monsters_liches:0|Смотритель за змеями|cavesnake3||6|||35|||5|80|40|3|2|3|10|1|lich1|||||||||};
-{snake_master|monsters_liches:1|Хозяин змей|cavesnake3_boss||6|1||55|||5|60|100|3|1|4|10|4|snakemaster|snakemaster||||||||};
+{snake_master|monsters_liches:1|Хозяин змей|cavesnake3_boss||6|1||55|||5|60|200|3|1|4|10|4|snakemaster|snakemaster||||||||};
 {rabid_boar|monsters_dogs:6|Бешеный кабан|forestboar||4|||20|||5|110|||3|3|30||canineboss|||||||||};
 {rabid_fox|monsters_dogs:3|Бешеный лис|fox1||4|||25|||5|100|||3|3|50||canine|||||||||};
 {yellow_cave_ant|monsters_insects:2|Желтый пещерный муравей|pitcave1||1|||20|||3|30|||1|1|80||insect|||||||||};
@@ -337,7 +337,7 @@
 {erinith|monsters_rltiles1:82|Эринит|erinith||0|||||||||||||||erinith||||||||};
 {fanamor|monsters_men:7|Фанамор|fanamor||0|||||||||||||||fanamor||||||||};
 {feygard_bridgeguard|monsters_men2:4|Фейгардский охранник моста|feygard_bridgeguard||0|||||||||||||||feygard_bridgeguard||||||||};
-{fieldwasp_unique|monsters_insects:1|Злющая лесная оса|fieldwasp_unique||1|1||70|10|5|3|70|100|3|2|6|150||fieldwasp_unique|||||||||};
+{fieldwasp_unique|monsters_insects:1|Злющая лесная оса|fieldwasp_unique||1|1||70|10|5|3|70|200|3|2|6|150||fieldwasp_unique|||||||||};
 {gallain|monsters_man1:0|Галлейн|gallain||0||||||||||||||shop_gallain|gallain||||||||};
 {gandoren|monsters_rltiles1:69|Гандорен|gandoren||0|||||||||||||||gandoren||||||||};
 {grimion|monsters_men2:2|Гримион|grimion||0||||||||||||||shop_grimion|grimion||||||||};
@@ -374,7 +374,7 @@
 {woodcutter_5|monsters_men2:2|Дровосек|woodcutter_5||0|||||||||||||||woodcutter_5||||||||};
 {rogorn|monsters_rltiles1:63|Рогорн|rogorn||0|1||145|10|5|3|90|||5|9|120|5|rogorn|rogorn||||||||};
 {rogorn_henchman|monsters_rogue1:0|Приспешник Рогорна|rogorn_henchman||0|1||130|10|5|3|80|||5|8|120|4|rogorn_henchman|rogorn_henchman||||||||};
-{buceth|monsters_men2:7|Буцет|buceth||0|1||75|10|5|3|80|100|2|3|9|120|4|buceth|buceth||||||||};
+{buceth|monsters_men2:7|Буцет|buceth||0|1||75|10|5|3|80|200|2|3|9|120|4|buceth|buceth||||||||};
 {gauward|monsters_mage2:0|Гаувард|gauward||0|||||||||||||||gauward||||||||};
 	</string>
 
@@ -441,18 +441,18 @@
 {erumen_7|monsters_rltiles2:117|Закаленная эрумская ящерица|erumen_4||7|||93|10|5|3|125|||2|9|90|12|erumen_b||||||||{{bleeding_wound|3|3|50|}}|};
 
 {plaguesp_1|monsters_rltiles2:61|Слабый червемор|plaguespider_1||1|||55|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|1|5|70|}{blister|1|5|20|}}|};
-{plaguesp_2|monsters_rltiles2:61|Червемор|plaguespider_1||1|||57|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|1|5|70|}{blister|1|5|20|}}|};
-{plaguesp_3|monsters_rltiles2:61|Крутой червемор|plaguespider_1||1|||59|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|2|5|70|}{blister|1|5|20|}}|};
-{plaguesp_4|monsters_rltiles2:61|Черный червемор|plaguespider_2||1|||61|10|5|3|80|60|3|1|6|150||plaguespider||1||||||{{contagion|2|5|70|}{blister|1|5|20|}}|};
-{plaguesp_5|monsters_rltiles2:151|Чумоход|plaguespider_2||1|||62|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|2|5|70|}{blister|2|5|20|}}|};
-{plaguesp_6|monsters_rltiles2:151|Панцирный чумоход|plaguespider_2||1|||63|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|2|5|70|}{blister|2|5|20|}}|};
-{plaguesp_7|monsters_rltiles2:151|Крутой чумоход|plaguespider_3||1|||64|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|20|}}|};
-{plaguesp_8|monsters_rltiles2:153|Шерстистый чумоход|plaguespider_3||1|||65|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|50|}}|};
-{plaguesp_9|monsters_rltiles2:153|Крутой шерстистый чумоход|plaguespider_3||1|||66|10|5|3|80|70|3|2|7|160||plaguespider||1||||||{{contagion|3|5|70|}{blister|3|5|50|}}|};
-{plaguesp_10|monsters_rltiles2:151|Мерзкий чумоход|plaguespider_4||1|||67|10|5|3|85|70|3|2|7|160||plaguespider||1||||||{{contagion|3|5|70|}{blister|3|5|50|}}|};
-{plaguesp_11|monsters_rltiles2:153|Гнездовой чумоход|plaguespider_4||1|||68|10|5|3|85|70|3|2|7|165||plaguespider||1||||||{{contagion|3|5|70|}{blister|3|5|50|}}|};
-{plaguesp_12|monsters_rltiles2:38|Смотритель за чумоходами|plaguespider_5||6|||65|10|5|3|85|80|3|2|7|165||plaguespider||1||||||{{contagion|4|5|70|}{blister|3|5|50|}}|};
-{plaguesp_13|monsters_rltiles2:38|Хозяин чумоходов|plaguespider_6||6|||65|10|5|3|85|80|3|2|8|175|2|plaguespider_b||1||||||{{contagion|4|5|70|}{blister|3|5|50|}}|};
+{plaguesp_2|monsters_rltiles2:61|Червемор|plaguespider_1||1|||57|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|20|}}|};
+{plaguesp_3|monsters_rltiles2:61|Крутой червемор|plaguespider_1||1|||59|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|20|}}|};
+{plaguesp_4|monsters_rltiles2:61|Черный червемор|plaguespider_2||1|||61|10|5|3|80|60|3|1|6|150||plaguespider||1||||||{{contagion|4|5|70|}{blister|3|5|20|}}|};
+{plaguesp_5|monsters_rltiles2:151|Чумоход|plaguespider_2||1|||62|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|4|5|70|}{blister|3|5|20|}}|};
+{plaguesp_6|monsters_rltiles2:151|Панцирный чумоход|plaguespider_2||1|||63|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|5|5|70|}{blister|4|5|20|}}|};
+{plaguesp_7|monsters_rltiles2:151|Крутой чумоход|plaguespider_3||1|||64|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|5|5|70|}{blister|4|5|20|}}|};
+{plaguesp_8|monsters_rltiles2:153|Шерстистый чумоход|plaguespider_3||1|||65|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_9|monsters_rltiles2:153|Крутой шерстистый чумоход|plaguespider_3||1|||66|10|5|3|80|70|3|2|7|160||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_10|monsters_rltiles2:151|Мерзкий чумоход|plaguespider_4||1|||67|10|5|3|85|70|3|2|7|160||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_11|monsters_rltiles2:153|Гнездовой чумоход|plaguespider_4||1|||68|10|5|3|85|70|3|2|7|165||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_12|monsters_rltiles2:38|Смотритель за чумоходами|plaguespider_5||6|||65|10|5|3|85|120|3|2|7|165||plaguespider||1||||||{{contagion|7|5|70|}{blister|6|5|50|}}|};
+{plaguesp_13|monsters_rltiles2:38|Хозяин чумоходов|plaguespider_6||6|||65|10|5|3|85|120|3|2|8|175|2|plaguespider_b||1||||||{{contagion|7|5|70|}{blister|6|5|50|}}|};
 
 {allaceph_1|monsters_rltiles2:101|Молодой аллацеф|allaceph_1||2|||90|10|5|3|80|40|2|3|7|105|1|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
 {allaceph_2|monsters_rltiles2:101|Аллацеф|allaceph_1||2|||94|10|5|3|80|40|2|3|7|105|1|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
@@ -494,7 +494,7 @@
 {thorin|monsters_rltiles1:66|Торин|thorin||0||||||||||||||shop_thorin|thorin||||||||};
 
 {lonelyhouse_sp|monsters_rats:1|Подвальная крыса|lonelyhouse_sp||4|1||79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};
-{algangror|monsters_rltiles1:68|Алгангрор|algangror||0|1||241|10|5|3|80|100|2|3|9|120|4|algangror|algangror||||||||};
+{algangror|monsters_rltiles1:68|Алгангрор|algangror||0|1||241|10|5|3|80|200|2|3|9|120|4|algangror|algangror||||||||};
 {remgard_bridge|monsters_men2:4|Смотритель моста|remgard_bridge||0|1||||||||||||||remgard_bridge||||||||};
 	</string>
 

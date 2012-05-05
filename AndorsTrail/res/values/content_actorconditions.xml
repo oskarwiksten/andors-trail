@@ -2,50 +2,50 @@
 
 <resources>
 	<string name="actorconditions_v069">
-[id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{bless|Bless|actorconditions_1:41|0||||||||||||||1|||||5|||||||};
-{poison_weak|Weak Poison|actorconditions_1:60|3||1|2|-1|-1|||||||||||||||||||||};
-{str|Strength|actorconditions_1:70|2||||||||||||||1||||||||2|2|||};
-{regen|Shadow Regeneration|actorconditions_1:35|0||1|1|1|1|||||||||0||||||||||||};
+[id|name|iconID|category|isStacking|isPositive|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
+{bless|Bless|actorconditions_1:41|0||1|||||||||||||1|||||5|||||||};
+{poison_weak|Weak Poison|actorconditions_1:60|3|||1|2|-1|-1|||||||||||||||||||||};
+{str|Strength|actorconditions_1:70|2||1|||||||||||||1||||||||2|2|||};
+{regen|Shadow Regeneration|actorconditions_1:35|0||1|1|1|1|1|||||||||0||||||||||||};
 	</string>
 	
 	<string name="actorconditions_v069_bwm">
-[id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{speed_minor|Minor speed|actorconditions_1:87|2||||||||||||||1||2||||||||||};
-{fatigue_minor|Minor fatigue|actorconditions_1:14|2||0||||||0||||||1|||2|2||||-1|-1|||};
-{feebleness_minor|Minor weapon feebleness|actorconditions_1:74|1||||||||||||||1||||||||-3|-3|||};
-{bleeding_wound|Bleeding wound|actorconditions_2:0|3|1|1|0|-1|-1|||||||||||||||||||||};
-{rage_minor|Minor berserker rage|actorconditions_1:90|1||0|-1|||||||||||1|35||||60|||||-90|-1|};
-{blackwater_misery|Blackwater misery|actorconditions_1:58|3||||||||||||||1||||1|-50|-50||||||};
-{intoxicated|Intoxicated|actorconditions_2:1|1||||||||||||||1|15|||1|-30|||4|4|||};
-{dazed|Dazed|actorconditions_1:65|1||||||||||||||1||||||||||-40||};
+[id|name|iconID|category|isStacking|isPositive|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
+{speed_minor|Minor speed|actorconditions_1:87|2||1|||||||||||||1||2||||||||||};
+{fatigue_minor|Minor fatigue|actorconditions_1:14|2|||0||||||0||||||1|||2|2||||-1|-1|||};
+{feebleness_minor|Minor weapon feebleness|actorconditions_1:74|1|||||||||||||||1||||||||-3|-3|||};
+{bleeding_wound|Bleeding wound|actorconditions_2:0|3|1||1|0|-1|-1|||||||||||||||||||||};
+{rage_minor|Minor berserker rage|actorconditions_1:90|1||1|0|-1|||||||||||1|35||||60|||||-90|-1|};
+{blackwater_misery|Blackwater misery|actorconditions_1:58|3|||||||||||||||1||||1|-50|-50||||||};
+{intoxicated|Intoxicated|actorconditions_2:1|1||1|||||||||||||1|15|||1|-30|||4|4|||};
+{dazed|Dazed|actorconditions_1:65|1|||||||||||||||1||||||||||-40||};
 	</string>
 	
 	<string name="actorconditions_v0610">
-[id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{chaotic_grip|Chaotic grip|actorconditions_1:96|1||0||||||||||||1||||||||||-10|-1|};
-{chaotic_curse|Chaotic curse|actorconditions_1:89|1||0||||||||||||1||-1||||||-1|-1|-10|-1|};
+[id|name|iconID|category|isStacking|isPositive|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
+{chaotic_grip|Chaotic grip|actorconditions_1:96|1|||0||||||||||||1||||||||||-10|-1|};
+{chaotic_curse|Chaotic curse|actorconditions_1:89|1|||0||||||||||||1||-1||||||-1|-1|-10|-1|};
 	</string>
 
 	<string name="actorconditions_v0611">
-[id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{contagion|Insect contagion|actorconditions_1:58|3|1|0|2|||||||||||1|||||-10|||-1|-1|||};
-{blister|Blistering skin|actorconditions_1:15|3|1|1|0|-1|-1|||||||||||||||||||||};
-{stunned|Stunned|actorconditions_1:95|2||||||||||||||1||-2|8|5||||||||};
-{focus_dmg|Focused damage|actorconditions_1:70|1||||||||||||||1||||1||||3|3|||};
-{focus_ac|Focused accuracy|actorconditions_1:98|1||||||||||||||1||||1|40|||||||};
-{poison_irdegh|Irdegh poison|actorconditions_1:60|3|1|1|2|-1|-1|||||||||||||||||||||};
+[id|name|iconID|category|isStacking|isPositive|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
+{contagion|Insect contagion|actorconditions_1:58|3|||0|2|||||||||||1|||||-10|||-1|-1|||};
+{blister|Blistering skin|actorconditions_1:15|3|||1|0|-1|-1|||||||||||||||||||||};
+{stunned|Stunned|actorconditions_1:95|2|||||||||||||||1||-2|8|5||||||||};
+{focus_dmg|Focused damage|actorconditions_1:70|1||1|||||||||||||1||||1||||3|3|||};
+{focus_ac|Focused accuracy|actorconditions_1:98|1||1|||||||||||||1||||1|40|||||||};
+{poison_irdegh|Irdegh poison|actorconditions_1:60|3|1||1|2|-1|-1|||||||||||||||||||||};
 	</string>
 
 	<string name="actorconditions_v0611_2">
-[id|name|iconID|category|isStacking|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
-{rotworm|Kazaul rotworms|actorconditions_1:82|2||||||||||||||1|-15|-3|||||||||-1|};
-{shadowbless_str|Blessing of Shadow strength|actorconditions_1:70|0||||||||||||||1||||||||1|1|||};
-{shadowbless_heal|Blessing of Shadow regeneration|actorconditions_1:35|0||1|1|1|1|||||||||||||||||||||};
-{shadowbless_acc|Blessing of Shadow accuracy|actorconditions_1:98|0||||||||||||||1|||||30|||||||};
-{shadowbless_guard|Shadow guardian blessing|actorconditions_1:91|0||||||||||||||1|30||||||||||1|};
-{crit1|Internal bleeding|actorconditions_1:89|2|1|||||||||||||1||||1|-50|||-3|-3|||};
-{crit2|Fracture|actorconditions_1:89|2|1|||||||||||||1||||||||||-50|-2|};
+[id|name|iconID|category|isStacking|isPositive|hasRoundEffect|round_visualEffectID|round_boostHP_Min|round_boostHP_Max|round_boostAP_Min|round_boostAP_Max|hasFullRoundEffect|fullround_visualEffectID|fullround_boostHP_Min|fullround_boostHP_Max|fullround_boostAP_Min|fullround_boostAP_Max|hasAbilityEffect|boostMaxHP|boostMaxAP|moveCostPenalty|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|];
+{rotworm|Kazaul rotworms|actorconditions_1:82|2|||||||||||||||1|-15|-3|||||||||-1|};
+{shadowbless_str|Blessing of Shadow strength|actorconditions_1:70|0||1|||||||||||||1||||||||1|1|||};
+{shadowbless_heal|Blessing of Shadow regeneration|actorconditions_1:35|0||1|1|1|1|1|||||||||||||||||||||};
+{shadowbless_acc|Blessing of Shadow accuracy|actorconditions_1:98|0||1|||||||||||||1|||||30|||||||};
+{shadowbless_guard|Shadow guardian blessing|actorconditions_1:91|0||1|||||||||||||1|30||||||||||1|};
+{crit1|Internal bleeding|actorconditions_1:89|2|1||||||||||||||1||||1|-50|||-3|-3|||};
+{crit2|Fracture|actorconditions_1:89|2|1||||||||||||||1||||||||||-50|-2|};
 	</string>
 
 </resources>
