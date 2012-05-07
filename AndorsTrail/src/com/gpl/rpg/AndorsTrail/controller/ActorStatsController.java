@@ -205,25 +205,32 @@ public class ActorStatsController {
 		decreaseDurationAndRemoveConditions(player);
 	}
 
-	private void removeConditionsFromSkillEffects(Player player) {
+	private static void removeConditionsFromSkillEffects(Player player) {
 		if (SkillController.rollForSkillChance(player, SkillCollection.SKILL_REJUVENATION, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
-			ArrayList<Integer> potentialConditionsToDecrease = new ArrayList<Integer>();
-			for(int i = 0; i < player.conditions.size(); ++i) {
-				ActorCondition c = player.conditions.get(i);
-				if (!c.isTemporaryEffect()) continue;
-				potentialConditionsToDecrease.add(i);
+			int i = getRandomConditionForRejuvenate(player);
+			if (i >= 0) {
+				ActorCondition c = player.conditions.remove(i);
+				if (c.magnitude > 1) {
+					int magnitude = c.magnitude - 1;
+					player.conditions.add(i, new ActorCondition(c.conditionType, magnitude, c.duration));
+				}
+				recalculateActorCombatTraits(player);
 			}
-			if (potentialConditionsToDecrease.isEmpty()) return;
-			
-			int i = potentialConditionsToDecrease.get(Constants.rnd.nextInt(potentialConditionsToDecrease.size()));
-			
-			ActorCondition c = player.conditions.remove(i);
-			if (c.magnitude > 1) {
-				int magnitude = c.magnitude - 1;
-				player.conditions.add(i, new ActorCondition(c.conditionType, magnitude, c.duration));
-			}
-			recalculateActorCombatTraits(player);
 		}
+	}
+
+	private static int getRandomConditionForRejuvenate(Player player) {
+		ArrayList<Integer> potentialConditions = new ArrayList<Integer>();
+		for(int i = 0; i < player.conditions.size(); ++i) {
+			ActorCondition c = player.conditions.get(i);
+			if (!c.isTemporaryEffect()) continue;
+			if (c.conditionType.isPositive) continue;
+			if (c.conditionType.conditionCategory == ActorConditionType.ACTORCONDITIONTYPE_SPIRITUAL) continue;
+			potentialConditions.add(i);
+		}
+		if (potentialConditions.isEmpty()) return -1;
+		
+		return potentialConditions.get(Constants.rnd.nextInt(potentialConditions.size()));
 	}
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
@@ -316,7 +323,7 @@ public class ActorStatsController {
 			, 0);
 	}
 	
-	private VisualEffect applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude, VisualEffect existingVisualEffect) {
+	private static VisualEffect applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude, VisualEffect existingVisualEffect) {
 		if (effect == null) return existingVisualEffect;
 		
 		int effectValue = 0;
