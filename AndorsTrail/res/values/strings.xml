@@ -494,6 +494,15 @@
     <string name="skill_longdescription_crit1">For every critical hit made, there is a %1$d %% chance that the hit will cause internal bleeding on the target, effectively causing the \'Internal bleeding\' condition on the target. Internal bleeding severely lowers offensive combat abilities, making the target less able to land successful attacks.</string>
    	<string name="skill_title_crit2">Fracture</string>
     <string name="skill_shortdescription_crit2">Chance of bone fracture</string>
-    <string name="skill_longdescription_crit2">For every critical hit made, there is a %1$d %% chance that the hit will fracture some of the target\'s bones, effectively causing the \'Fracture\' condition on the target. This will severely lower the target\'s defensive combat abilities, making the it less able to defend itself in subsequent attacks.</string>
+    <string name="skill_longdescription_crit2">For every critical hit made, there is a %1$d %% chance that the hit will fracture some of the target\'s bones, effectively causing the \'Fracture\' condition on the target. This will severely lower the target\'s defensive combat abilities, making it less able to defend itself in subsequent attacks.</string>
+    <string name="skill_title_rejuvenation">Rejuvenation</string>
+    <string name="skill_shortdescription_rejuvenation">Chance of effect removal</string>
+    <string name="skill_longdescription_rejuvenation">Every round (6 seconds), there is a %1$d %% chance that one of the active negative actor conditions will be lowered by one magnitude. This applies to all effect types that affect the body; mental conditions such as Dazed, physical capacity conditions such as Fatigue and also blood disorders such as poison.</string>
+   	<string name="skill_title_taunt">Taunt</string>
+    <string name="skill_shortdescription_taunt">Attacker loses AP on miss</string>
+    <string name="skill_longdescription_taunt">When an attacker makes an attack that misses, there is a %1$d %% chance that the attacker loses %2$d action points (AP). This applies to all types of melee attacks against you.</string>
+   	<string name="skill_title_concussion">Concussion</string>
+    <string name="skill_shortdescription_concussion">Chance of concussion</string>
+    <string name="skill_longdescription_concussion">When making an attack on a target whose block chance (BC) is at least %1$d lower than your attack chance (AC), there is a %2$d %% chance that the hit will cause a concussion on the target. A concussion will severely lower the target\'s offensive combat abilities, making the target less able to land successful attacks.</string>
     
 </resources>

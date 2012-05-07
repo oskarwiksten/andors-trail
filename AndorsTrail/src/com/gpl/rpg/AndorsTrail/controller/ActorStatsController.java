@@ -1,11 +1,14 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -189,6 +192,9 @@ public class ActorStatsController {
 	}
 
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
+		if (player.conditions.isEmpty()) return;
+		removeConditionsFromSkillEffects(player);
+		
 		applyStatsEffects(player, isFullRound);
 		if (player.isDead()) {
 			view.controller.handlePlayerDeath();
@@ -197,6 +203,27 @@ public class ActorStatsController {
 		view.mainActivity.updateStatus();
 
 		decreaseDurationAndRemoveConditions(player);
+	}
+
+	private void removeConditionsFromSkillEffects(Player player) {
+		if (SkillController.rollForSkillChance(player, SkillCollection.SKILL_REJUVENATION, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
+			ArrayList<Integer> potentialConditionsToDecrease = new ArrayList<Integer>();
+			for(int i = 0; i < player.conditions.size(); ++i) {
+				ActorCondition c = player.conditions.get(i);
+				if (!c.isTemporaryEffect()) continue;
+				potentialConditionsToDecrease.add(i);
+			}
+			if (potentialConditionsToDecrease.isEmpty()) return;
+			
+			int i = potentialConditionsToDecrease.get(Constants.rnd.nextInt(potentialConditionsToDecrease.size()));
+			
+			ActorCondition c = player.conditions.remove(i);
+			if (c.magnitude > 1) {
+				int magnitude = c.magnitude - 1;
+				player.conditions.add(i, new ActorCondition(c.conditionType, magnitude, c.duration));
+			}
+			recalculateActorCombatTraits(player);
+		}
 	}
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
@@ -231,7 +258,7 @@ public class ActorStatsController {
 		boolean removedAnyConditions = false;
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.conditions.get(i);
-			if (c.duration == ActorCondition.DURATION_FOREVER) continue;
+			if (!c.isTemporaryEffect()) continue;
 			c.duration -= 1;
 			if (c.duration <= 0) {
 				actor.conditions.remove(i);

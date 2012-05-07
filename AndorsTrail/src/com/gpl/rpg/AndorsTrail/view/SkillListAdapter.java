@@ -116,6 +116,9 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		case SkillCollection.SKILL_SHADOW_BLESS: return R.string.skill_shortdescription_shadow_bless;
 		case SkillCollection.SKILL_CRIT1: return R.string.skill_shortdescription_crit1;
 		case SkillCollection.SKILL_CRIT2: return R.string.skill_shortdescription_crit2;
+		case SkillCollection.SKILL_REJUVENATION: return R.string.skill_shortdescription_rejuvenation;
+		case SkillCollection.SKILL_TAUNT: return R.string.skill_shortdescription_taunt;
+		case SkillCollection.SKILL_CONCUSSION: return R.string.skill_shortdescription_concussion;
 		default:
 			return -1;
 		}

@@ -1,11 +1,13 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
@@ -110,22 +112,43 @@ public final class SkillController {
 		return getRollBias(effect.chance, player, skill, -chanceIncreasePerSkillLevel);
 	}
 	
-	public static void applyCriticalHitSkillEffectsToMonster(WorldContext world, Player player, Monster monster) {
-		int skillLevel = player.getSkillLevel(SkillCollection.SKILL_CRIT2);
-		if (skillLevel > 0) {
-			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2 * skillLevel)) {
-				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("crit2");
-				ActorConditionEffect effect = new ActorConditionEffect(conditionType, 1, 5, null);
-				ActorStatsController.applyActorCondition(monster, effect);
+	public static boolean rollForSkillChance(Player player, int skill, int chancePerSkillLevel) {
+		int skillLevel = player.getSkillLevel(skill);
+		if (skillLevel <= 0) return false;
+		return Constants.roll100(chancePerSkillLevel * skillLevel);
+	}
+	private static void addConditionToActor(Actor target, WorldContext world, String conditionName, int magnitude, int duration) {
+		ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(conditionName);
+		ActorConditionEffect effect = new ActorConditionEffect(conditionType, magnitude, duration, null);
+		ActorStatsController.applyActorCondition(target, effect);
+	}
+			
+	public static void applySkillEffectsFromPlayerAttack(AttackResult result, WorldContext world, Monster monster) {
+		if (!result.isHit) return;
+		
+		Player player = world.model.player;
+		
+		if (player.combatTraits.attackChance - monster.combatTraits.blockChance > SkillCollection.CONCUSSION_THRESHOLD) {
+			if (rollForSkillChance(player, SkillCollection.SKILL_CONCUSSION, SkillCollection.PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE)) {
+				addConditionToActor(monster, world, "concussion", 1, 5);
 			}
 		}
 		
-		skillLevel = player.getSkillLevel(SkillCollection.SKILL_CRIT1);
-		if (skillLevel > 0) {
-			if (Constants.roll100(SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1 * skillLevel)) {
-				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType("crit1");
-				ActorConditionEffect effect = new ActorConditionEffect(conditionType, 1, 5, null);
-				ActorStatsController.applyActorCondition(monster, effect);
+		if (result.isCriticalHit) {
+			if (rollForSkillChance(player, SkillCollection.SKILL_CRIT2, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2_CHANCE)) {
+				addConditionToActor(monster, world, "crit2", 1, 5);
+			}
+			
+			if (rollForSkillChance(player, SkillCollection.SKILL_CRIT1, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1_CHANCE)) {
+				addConditionToActor(monster, world, "crit1", 1, 5);
+			}
+		}
+	}
+	
+	public static void applySkillEffectsFromMonsterAttack(AttackResult result, WorldContext world, Monster monster) {
+		if (!result.isHit) {
+			if (rollForSkillChance(world.model.player, SkillCollection.SKILL_TAUNT, SkillCollection.PER_SKILLPOINT_INCREASE_TAUNT_CHANCE)) {
+				monster.ap.subtract(SkillCollection.TAUNT_AP_LOSS, false);
 			}
 		}
 	}

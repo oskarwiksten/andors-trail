@@ -34,8 +34,11 @@ public final class SkillCollection {
 	public static final int SKILL_SHADOW_BLESS = 20;
 	public static final int SKILL_CRIT1 = 21;			// lowers atk ability
 	public static final int SKILL_CRIT2 = 22;			// lowers def ability
+	public static final int SKILL_REJUVENATION = 23;	// Reduces magnitudes of conditions
+	public static final int SKILL_TAUNT = 24;			// Causes AP loss of attackers that miss
+	public static final int SKILL_CONCUSSION = 25;		// AC loss for monsters with (AC-BC)>N
 	
-	public static final int NUM_SKILLS = SKILL_CRIT2 + 1;
+	public static final int NUM_SKILLS = SKILL_CONCUSSION + 1;
 	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 1;
@@ -59,8 +62,13 @@ public final class SkillCollection {
 	public static final int PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT = 20;
 	public static final int PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT = 10;
 	public static final int PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS = 5;
-	public static final int PER_SKILLPOINT_INCREASE_CRIT1 = 50;
-	public static final int PER_SKILLPOINT_INCREASE_CRIT2 = 50; 
+	public static final int PER_SKILLPOINT_INCREASE_CRIT1_CHANCE = 50;
+	public static final int PER_SKILLPOINT_INCREASE_CRIT2_CHANCE = 50;
+	public static final int PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE = 20;
+	public static final int PER_SKILLPOINT_INCREASE_TAUNT_CHANCE = 25;
+	public static final int TAUNT_AP_LOSS = 2;
+	public static final int CONCUSSION_THRESHOLD = 50;
+	public static final int PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE = 15;
 
 	public static final int MAX_LEVEL_BARTER = (int) Math.floor((float) Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
 	public static final int MAX_LEVEL_BARKSKIN = 5;
@@ -123,6 +131,20 @@ public final class SkillCollection {
 			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 6)
 			,SkillLevelRequirement.requireOtherSkill(SKILL_BETTER_CRITICALS, 6)
 			,SkillLevelRequirement.requireOtherSkill(SKILL_CRIT1, 1)
+		}));
+		initializeSkill(new SkillInfo(SKILL_REJUVENATION, 1, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_RESISTANCE_BLOOD_DISORDER, 3)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_RESISTANCE_MENTAL, 3)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_RESISTANCE_PHYSICAL_CAPACITY, 3)
+		}));
+		initializeSkill(new SkillInfo(SKILL_TAUNT, 1, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_EVASION, 2)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_DODGE, 4)
+		}));
+		initializeSkill(new SkillInfo(SKILL_CONCUSSION, 1, false, new SkillLevelRequirement[] { 
+			SkillLevelRequirement.requireOtherSkill(SKILL_SPEED, 2)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_CHANCE, 3)
+			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 5)
 		}));
 	}
 
