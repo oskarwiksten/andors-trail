@@ -418,7 +418,7 @@
     <string name="skill_longdescription_regeneration">Bei jeder Stufe erhält man pro Runde +%1$d Lebenspunkte (LP).</string>
     <string name="skill_longdescription_lower_exploss">Verringert bei jeder Stufe die Menge der durch den Tod verursachten verlorenen Erfahrung um %1$d %% (prozentualer Anteil an dem bestehenden Erfahrungsverlust, es handelt sich nicht um Prozentpunkte). Durch %2$d Stufen werden alle Erfahrungsverluste, die durch den Tod verursacht werden, entfernt.</string>
     <string name="skill_longdescription_magicfinder">Erhöht bei jeder Stufe die Chance ungewöhnliche Gegenstände zu finden um %1$d %%.</string>
-    <string name="skill_longdescription_resistance_mental">Verringert bei jeder Stufe die Chance von mentalen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Benommenheit oder Schwächung der Waffen.</string>
+    <string name="skill_longdescription_resistance_mental">Verringert bei jeder Stufe die Chance von mentalen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Benommen oder Schwächung der Waffen.</string>
     <string name="skill_longdescription_resistance_physical_capacity">Verringert bei jeder Stufe die Chance von physischen Effekten geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Ermüdung.</string>
     <string name="skill_longdescription_resistance_blood_disorder">Verringert bei jeder Stufe die Chance von Blutstörungen geplagt zu werden um %1$d %%, bis hin zu einem Maximum von %2$d %%. Das beinhaltet von Gegnern hinzugefügte Effekte wie Gift oder Blutende Wunden.</string>
     
@@ -458,5 +458,16 @@
 	
 	<string name="preferences_optimized_drawing_title">Optimierter Bildschirmaufbau</string>
 	<string name="preferences_optimized_drawing">Deaktiviere diese Option wenn du Grafikfehler siehst. Wenn diese Einstellung aktiv ist, werden bei jedem Frame nur die geänderten Teile des Bildschirms neu gezeichnet.</string>
+
+	<!-- =========================================== -->
+	<!-- Added in v0.6.11 -->
+	
+	<string name="skill_title_shadow_bless">Dunkler Segen des Schattens</string>
+    <string name="skill_shortdescription_shadow_bless">Widerstand gegen Effekte aller Art</string>
+    <string name="skill_longdescription_shadow_bless">Verringert bei jeder Stufe die Chance von Effekten aller Art geplagt zu werden um %1$d %%. Das beeinhaltet alle von Gegnern hinzugefügten Effekte wie beispielsweise Vergiftung, Benommen und Ermüdung.</string>
+    
+    <string name="inventory_movetop">Nach ganz oben verschieben</string>
+    <string name="inventory_movebottom">Nach ganz unten verschieben</string>
+    <string name="actorinfo_immune_criticals">Kritischen Treffern gegenüber immun</string>
 	
 </resources>
