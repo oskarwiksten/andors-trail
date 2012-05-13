@@ -3343,8 +3343,8 @@
 {algangror_fight_1a||{{0|algangror|101|}}|{{|algangror_fight_2|||||}}|};
 {algangror_fight_2|||{{|algangror_fight_2a|fiveidols:10||||}{|algangror_fight_3|||||}}|};
 {algangror_fight_2a||{{0|fiveidols|100|}}|{{|algangror_fight_3|||||}}|};
-{algangror_fight_3|Jhaeld, the fool. He hides behind his guards and his stone walls. Such a pitiful man he is. Yes, I made those people disappear, but they were all worth it. I will have my revenge!|{{0|remgard2|30|}}|{{|algangror_fight_4|||||}}|};
-{algangror_fight_4|And you, what are you trying to accomplish by running his errands? How fortunate that you entered my house. He he.||{{|algangror_fight_5|||||}}|};
+{algangror_fight_3|Jhaeld, the fool. He hides behind his guards and his stone walls. Such a pitiful man he is. Yes, I made those people disappear, but they were all worth it. I will have my revenge!|{{0|remgard2|30|}}|{{N|algangror_fight_4|||||}}|};
+{algangror_fight_4|And you, what are you trying to accomplish by running his errands? How fortunate that you entered my house. He he.||{{N|algangror_fight_5|||||}}|};
 {algangror_fight_5|Do you really think you can defeat *me*? Ha ha, this will be fun!||{{Fight!|algangror_fight_6|||||}}|};
 {algangror_fight_6||{{0|remgard2|35|}}|{{|F|||||}}|};
 {algangror_told_1|||{{|algangror_told_1a|algangror:10||||}{|algangror_told_2|||||}}|};
@@ -4037,7 +4037,11 @@
 	{Anything else?|ingus_t3|||||}
 	{Thank you, goodbye.|X|||||}
 	}|};
-{ingus_t3|Well, there\'s always the Elwille sisters, fighting as always.||{{N|ingus_t4|||||}}|};
+{ingus_t3|Well, there\'s always the Elwille sisters, fighting as always.||{{N|ingus_t4s|||||}}|};
+{ingus_t4s|||{
+	{|ingus_q1|sisterfight:71||||}
+	{|ingus_t4|||||}
+	}|};
 {ingus_t4|Last night, they must have kept the whole town awake, the way they were shouting at each other.||{{What are they fighting about?|ingus_t5|||||}}|};
 {ingus_t5|Oh .. nothing .. everything. I don\'t know. No one really puts much weight in their squabbling.||{{N|ingus_t6|||||}}|};
 {ingus_t6|They live in one of the cabins on the southern shore. *Ingus points to the south*.|{{0|sisterfight|10|}}|{
@@ -4050,6 +4054,9 @@
 	{Thank you. What is happening around town?|ingus_2|||||}
 	{Thank you, goodbye.|X|||||}
 	}|};
+{ingus_q1|Unfortunately, for whatever reason, people that live in their neighborhood have been reporting the situation between the two of them has recently become more..., shall we say.., \'noticeable\'.||{{N|ingus_q2|||||}}|};
+{ingus_q2|I\'m afraid that if they don\'t resolve their differences soon on their own, that the city council will have to act and resolve the matter for them.||{{N|ingus_q3|||||}}|};
+{ingus_q3|It wouldn\'t be the first time the city council had to intervene in private matters that got out of hand.|||};
 	</string>
 
 	<string name="conversationlist_elwyl">
@@ -4119,13 +4126,13 @@
 	{I have one of those potions of accuracy focus for you.|elwyl_res_1||pot_focus_ac|1|0|}
 	{I have a strong potion of accuracy focus for you.|elwyl_res_1||pot_focus_ac2|1|0|}
 	{You talked about some potion before. Could you repeat that?|elwyl_12|||||}
-	{Some people have been complaining that your squabbling has kept people awake at night.|elwyl_10|sisterfight:10||||}
+	{Some people have been complaining that your squabbling has kept them awake at night.|elwyl_10|sisterfight:10||||}
 	}|};
 {elwyl_res_1|Oh good. Give me that.|{{0|sisterfight|70|}}|{{N|elwyl_res_2|||||}}|};
-{elwyl_res_2|Huh, what\'s this? It\'s yellow.. I was sure that it used to be blue. Let me smell it to make sure that it the right kind of potion.||{{N|elwyl_res_3|||||}}|};
+{elwyl_res_2|Huh, what\'s this? It\'s yellow.. I was sure that it used to be blue. Let me smell it to make sure that it\'s the right kind of potion.||{{N|elwyl_res_3|||||}}|};
 {elwyl_res_3|Hm, yes, it smells exactly as I remember it. It must be the right potion.||{{N|elwyl_res_4|||||}}|};
-{elwyl_res_4|But, this means .. that Elwel was wrong anyway!||{{N|elwyl_res_5|||||}}|};
-{elwyl_res_5|Elwel, look at this, you are wrong! The potion wasn\'t green as you said, it\'s yellow! Why didn\'t you just listen to me?!||{{N|elwyl_res_6|||||}}|};
+{elwyl_res_4|This means .. that Elwel was wrong anyway!||{{N|elwyl_res_5|||||}}|};
+{elwyl_res_5|Elwel, look at this, you were wrong! The potion wasn\'t green as you said, it\'s yellow! Why didn\'t you just listen to me?!||{{N|elwyl_res_6|||||}}|};
 {elwyl_res_6|Elwel, you are always trying your best to prove me wrong. Well look at this, now you are wrong for once!||{
 	{Whatever, you two don\'t seem to get along very well. I\'ll leave you to your squabbling.|elwyl_res_7|||||}
 	{I hope that you two will get along some day.|elwyl_res_7|||||}
@@ -4190,9 +4197,9 @@
 {hjaldar_r7|Time has not been on his side, I see.||{{N|hjaldar_r8|||||}}|};
 {hjaldar_r8|Anyway. Let\'s make that potion that you asked for earlier. I even prepared the other ingredients for another potion beforehand.||{{N|hjaldar_r9|||||}}|};
 {hjaldar_r9|Now, let\'s see. Some of these.. *Hjaldar pulls out some dried up berries and puts them in his mortar*||{{N|hjaldar_r10|||||}}|};
-{hjaldar_r10|And some of this into some clean vials..||{{N|hjaldar_r11|||||}}|};
+{hjaldar_r10|Add some of this into some clean vials..||{{N|hjaldar_r11|||||}}|};
 {hjaldar_r11|Just a pinch of these into one of these vials..||{{N|hjaldar_r12|||||}}|};
-{hjaldar_r12|And finally, the Lyson marrow extract..||{{N|hjaldar_r13|||||}}|};
+{hjaldar_r12|Finally, the Lyson marrow extract..||{{N|hjaldar_r13|||||}}|};
 {hjaldar_r13|There. Now we just need to give them a good shake.||{{N|hjaldar_r14|||||}}|};
 {hjaldar_r14|*Hjaldar shakes the vials vigorously, one in each of his hands*||{{N|hjaldar_r15|||||}}|};
 {hjaldar_r15|Ah, that should do it. Here you go. One potion of accuracy focus and one potion of damage focus. I hope they will be useful to you.|{{0|sisterfight|61|}{1|hjaldar_pots|0|}}|{
@@ -4213,11 +4220,11 @@
 	}|};
 {mazeg_1|Welcome friend! Would you like to browse my selection of fine potions and ointments?||{
 	{Sure. Show me what you have.|S|||||}
-	{I am looking for some Lyson Marrow extract, for Hjaldar in Remgard.|mazeg_e_1|sisterfight:45||||}
+	{I am looking for some Lyson marrow extract, for Hjaldar in Remgard.|mazeg_e_1|sisterfight:45||||}
 	}|};
 {mazeg_2|Welcome traveller. Have you come to ask for help from me and my potions?||{
 	{Yes. Please show me what you have.|blackwater_notrust|||||}
-	{I am looking for some Lyson Marrow extract, for Hjaldar in Remgard.|mazeg_e_1|sisterfight:45||||}
+	{I am looking for some Lyson marrow extract, for Hjaldar in Remgard.|mazeg_e_1|sisterfight:45||||}
 	}|};
 {mazeg_e_1|||{
 	{|mazeg_d|sisterfight:55||||}
@@ -4951,6 +4958,7 @@
 {sign_waterway9|West: Loneford\nEast: Brightport, Lake Laeroth|||};
 {sign_waterway11|West: Loneford\nSouth: Brightport|||};
 {sign_remgard0|Welcome to Lake Laeroth and the city of Remgard!|||};
+{wild16_cave|The thicket is too dense for you to get through.|||};
 	</string>
 	
 </resources>

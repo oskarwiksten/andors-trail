@@ -696,16 +696,31 @@
 {marrowtaint|{{marrowtaint|1|1|100|}}|};
 {ervelyn_hat|{{hat_crit|1|1|100|}}|};
 {oegyth1|{{oegyth|1|1|100|}}|};
+{wild16_cave1|{
+	{vial_empty|1|1|100|}
+	{vial_empty2|2|2|100|}
+	{health_minor2|2|2|100|}
+	}|};
+{wild16_cave2|{
+	{health|2|2|100|}
+	{milk|3|3|100|}
+	{pot_speed_1|1|1|5|}
+	{pot_poison_weak|3|3|5|}
+	{pot_poison_weak_antidote|1|1|100|}
+	{pot_blind_rage|1|1|100|}
+	{pot_bleeding_ointment|1|1|100|}
+	{health_major2|1|1|100|}
+	}|};
 </string>
 
 <string name="droplists_v0611_shops">
 [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
 {shop_thorin|{{pot_scaradon|30|30|100|}}|};
 {shop_hjaldar|{
-	{pot_focus_dmg|5|5|100|}
-	{pot_focus_ac|5|5|100|}
-	{pot_focus_dmg2|1|1|100|}
-	{pot_focus_ac2|1|1|100|}
+	{pot_focus_dmg|8|8|100|}
+	{pot_focus_ac|8|8|100|}
+	{pot_focus_dmg2|5|5|100|}
+	{pot_focus_ac2|5|5|100|}
 	}|};
 {shop_rothses|{
 	{remgard_shield_1|1|1|100|}

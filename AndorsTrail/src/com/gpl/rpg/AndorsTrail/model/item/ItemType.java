@@ -117,12 +117,16 @@ public final class ItemType {
 			addSpace = true;
 		}
 		if (attackEffect.hasCriticalSkillEffect()) {
-			sb.append(" +");
+			if (addSpace) sb.append(' ');
+			if (attackEffect.criticalSkill >= 0) {
+				sb.append('+');
+			}
 			sb.append(attackEffect.criticalSkill);
 			sb.append("x");
 			if (attackEffect.hasCriticalMultiplierEffect()) {
 				sb.append(attackEffect.criticalMultiplier);				
-			}	
+			}
+			addSpace = true;
 		}
 	}
 	public static String describeAttackEffect(CombatTraits attackEffect) {
