@@ -368,7 +368,7 @@
 
 	<string name="conversationlist_fallhaven_vacor">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{vacor|||{{|vacor_return_complete|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
+{vacor|||{{|vacor_return_complete0|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
 {vacor_select1|||{{|vacor_return1|vacor:20||||}{|vacor_begin|||||}}|};
 {vacor_begin|Ciao.||{{N|vacor_2|||||}}|};
 {vacor_2|Cosa sei, una specie di avventuriero? Hm. Forse puoi essermi utile.||{{N|vacor_3|||||}}|};
@@ -412,6 +412,12 @@
 {vacor_62|Questo è un giorno veramente grande. Avrò presto il potere!||{{N|vacor_63|||||}}|};
 {vacor_63|Ecco, queste monete sono per il tuo aiuto.|{{1|gold200||}}|{{N|vacor_64|||||}}|};
 {vacor_64|Ora lasciami, ho del lavoro da fare prima di poter lanciare l\'incantesimo.|||};
+{vacor_return_complete0|||{
+	{|vacor_msg_16|kaverin:90||||}
+	{|vacor_msg_9|kaverin:75||||}
+	{|vacor_msg1|kaverin:60|kaverin_message|1|1|}
+	{|vacor_return_complete|||||}
+	}|};
 {vacor_return_complete|Bentornato, Mio amico assassino. presto avremo l\'incantesimo per il varco.|||};
 {vacor_70|Cosa? Ti ha raccontato la sua storia? E tu ci hai creduto?||{{N|vacor_71|||||}}|};
 {vacor_71|Ti darò un\'altra possibilità . O uccidi Unzel per me, e io ti ricompenserò generosamente. Oppure dovrai combattere contro di me.||{{Combatti|vacor_72|||||}{Vai|X|||||}}|};
@@ -442,8 +448,8 @@
 {unzel_21|Dovresti andare a parlare con lui del Ombra.|||};
 {unzel_return_1|bentornato. Hai parlato con Vacor?||{{Fatto|unzel_30||ring_vacor|1|0|}{Ripeti|X|||||}}|};
 {unzel_30|L\'hai ucciso? Sei un amico Grazie. Ora siamo al sicuro dall\'incantesimo di Vacor. Ecco, prendi queste monete per il tuo aiuto.|{{0|vacor|61|}{1|gold200||}}|{{Ciao|X|||||}{Grazie.|X|||||}}|};
-{unzel_40|Grazie per il tuo aiuto, ora siamo al sicuro dall\'incantesimo di Vacor.|||};
-{unzel|||{{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
+{unzel_40|Grazie per il tuo aiuto, ora siamo al sicuro dall\'incantesimo di Vacor.||{{I have a message for you from Kaverin in Remgard|unzel_msg1|kaverin:25|kaverin_message|1|1|}}|};
+{unzel|||{{|unzel_msg_r0|kaverin:30||||}{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
 	</string>
 
 	<string name="conversationlist_wilderness">

@@ -368,7 +368,7 @@
 
 	<string name="conversationlist_fallhaven_vacor">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{vacor|||{{|vacor_return_complete|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
+{vacor|||{{|vacor_return_complete0|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
 {vacor_select1|||{{|vacor_return1|vacor:20||||}{|vacor_begin|||||}}|};
 {vacor_begin|Hello.||{{N|vacor_2|||||}}|};
 {vacor_2|What are you, some kind of adventurer? Hm. Maybe you can be of use to me.||{{N|vacor_3|||||}}|};
@@ -412,6 +412,12 @@
 {vacor_62|This is a great day indeed. I will soon have the power!||{{N|vacor_63|||||}}|};
 {vacor_63|Here, have these coins for your help.|{{1|gold200||}}|{{N|vacor_64|||||}}|};
 {vacor_64|Now leave me, I have work to do before I can cast the rift spell.|||};
+{vacor_return_complete0|||{
+	{|vacor_msg_16|kaverin:90||||}
+	{|vacor_msg_9|kaverin:75||||}
+	{|vacor_msg1|kaverin:60|kaverin_message|1|1|}
+	{|vacor_return_complete|||||}
+	}|};
 {vacor_return_complete|Hello again, my assassin friend. I will soon have my rift spell ready.|||};
 {vacor_70|What? He told you his story? And you actually believed it?||{{N|vacor_71|||||}}|};
 {vacor_71|I will give you one more chance. Either kill Unzel for me, and I will reward you handsomely, or you will have to fight me.||{{No. You must be stopped.|vacor_72|||||}{Ok, I\'ll think about it once more.|X|||||}}|};
@@ -442,8 +448,8 @@
 {unzel_21|You should go talk to him about the Shadow.|||};
 {unzel_return_1|Welcome back. Did you talk to Vacor?||{{Yes, I have dealt with him.|unzel_30||ring_vacor|1|0|}{No, not yet.|X|||||}}|};
 {unzel_30|You killed him? You have my thanks friend. Now we are safe from Vacor\'s rift spell. Here, take these coins for your help.|{{0|vacor|61|}{1|gold200||}}|{{Shadow be with you.|X|||||}{Thank you.|X|||||}}|};
-{unzel_40|Thank you for your help. Now we are safe from Vacor\'s rift spell.|||};
-{unzel|||{{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
+{unzel_40|Thank you for your help. Now we are safe from Vacor\'s rift spell.||{{I have a message for you from Kaverin in Remgard|unzel_msg1|kaverin:25|kaverin_message|1|1|}}|};
+{unzel|||{{|unzel_msg_r0|kaverin:30||||}{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
 	</string>
 
 	<string name="conversationlist_wilderness">
@@ -4959,6 +4965,112 @@
 {sign_waterway11|West: Loneford\nSouth: Brightport|||};
 {sign_remgard0|Welcome to Lake Laeroth and the city of Remgard!|||};
 {wild16_cave|The thicket is too dense for you to get through.|||};
+{sign_wild16|||{
+	{|sign_wild16_r|kaverin:100||||}
+	{|sign_wild16_1|||||}
+	}|};
+{sign_wild16_r|You squeeze through the narrow opening of the cave.|||};
+{sign_wild16_1|You squeeze through the narrow opening of the cave. The thick smell of damp cave, mold and old books fills your nose.|{{0|kaverin|100|}}|{{N|sign_wild16_2|||||}}|};
+{sign_wild16_2|This must be the cave that the map leads to. This must be Vacor\'s old hideout.|||};
 	</string>
-	
+
+	<string name="conversationlist_kaverin">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{kaverin|||{
+	{|kaverin_decline2|kaverin:21||||}
+	{|kaverin_fight_1|kaverin:60||||}
+	{|kaverin_done_ret|kaverin:90||||}
+	{|kaverin_done3|kaverin:45||||}
+	{|kaverin_done1|kaverin:40||||}
+	{|kaverin_return1|kaverin:25||||}
+	{|kaverin_accept2|kaverin:22||||}
+	{|kaverin_8r|kaverin:20||||}
+	{|kaverin_1|||||}
+	}|};
+{kaverin_1|From the looks of you, you don\'t seem to be from around here. That makes two of us then. He he.||{{I\'m from the village of Crossglen, far to the west of here.|kaverin_2|||||}}|};
+{kaverin_2|Crossglen! I know that place, it\'s not far from Fallhaven, right?||{{N|kaverin_3|||||}}|};
+{kaverin_3|I have an old .. shall we say .. friend .. from Fallhaven. Goes by the name of Unzel.||{{N|kaverin_4|||||}}|};
+{kaverin_4|You wouldn\'t by any chance have met him, would you?|{{0|kaverin|10|}}|{
+	{No, I\'ve never met him.|kaverin_5|||||}
+	{Yes, I\'ve met that fool. He was an easy kill.|kaverin_6|vacor:60||||}
+	{Yes, I have met him. I still have some of his blood on my boots.|kaverin_6|vacor:60||||}
+	{Yes, I even helped him defeat a scoundrel named Vacor.|kaverin_7|vacor:61||||}
+	}|};
+{kaverin_5|I guess he keeps to himself. I sure hope he is OK. If you ever run into him, please say hi to him for me.||{{I\'m trying to find my brother Andor, have you seen him?|kaverin_5b|||||}}|};
+{kaverin_5b|Andor? No, I\'m sorry. I\'ve never heard of him.|||};
+{kaverin_6|You?! But.. But.. This is terrible! I bet you are one of the goons of that Vacor fellow.||{{N|kaverin_fight_1|||||}}|};
+{kaverin_fight_1|Oh yes, I can feel it. You work for Vacor! He must be stopped!|{{0|kaverin|60|}}|{{Fight!|F|||||}}|};
+{kaverin_7|Excellent, that is good news indeed! May you walk with the Shadow, my friend!||{{N|kaverin_8|||||}}|};
+{kaverin_8r|My friend from Fallhaven returns. It\'s comforting to hear that Unzel is still alive.||{{N|kaverin_8|||||}}|};
+{kaverin_8|Would you be willing to deliver a message to him?|{{0|kaverin|20|}}|{{N|kaverin_9|||||}}|};
+{kaverin_9|You\'d be compensated for your efforts.||{
+	{Anything for the sake of the Shadow.|kaverin_accept1|||||}
+	{Sure.|kaverin_accept1|||||}
+	{No, I am done helping you people.|kaverin_decline1|||||}
+	}|};
+{kaverin_decline1|That is unfortunate, you seemed like such a bright boy too.|{{0|kaverin|21|}}||};
+{kaverin_decline2|The friend from Fallhaven returns. Please leave me be, I have things to do.|||};
+{kaverin_accept1|Good, that\'s exactly what I wanted to hear.|{{0|kaverin|22|}}|{{N|kaverin_accept2|||||}}|};
+{kaverin_accept2|Make sure this doesn\'t fall into the hands of Feygard, or her loyalists.||{{N|kaverin_accept3|||||}}|};
+{kaverin_accept3|(He gives you a sealed message.)|{{1|kaverin_message||}{0|kaverin|25|}}|{{You can count on me, Kaverin|kaverin_accept4|||||}}|};
+{kaverin_accept4|Good. Now go deliver that message to Unzel.|||};
+{kaverin_return1|It\'s good to see you again. Have you delivered my message to Unzel?||{
+	{Yes, the message is delivered.|kaverin_done1|kaverin:30||||}
+	{No, not yet.|kaverin_return2|||||}
+	}|};
+{kaverin_return2|Please don\'t take too long. Walk with the Shadow, my friend.|||};
+{kaverin_done1|Thank you, my friend. May you walk in the glow of the Shadow.|{{0|kaverin|40|}}|{{N|kaverin_done2|||||}}|};
+{kaverin_done2|Take this map as compensation for a job well done.|{{1|vacor_map||}{0|kaverin|45|}}|{{N|kaverin_done3|||||}}|};
+{kaverin_done3|We\'ve discovered one of Vacor\'s hideouts, far to the south.||{{N|kaverin_done4|||||}}|};
+{kaverin_done4|Since you helped us stop him, it\'s fitting that you have this.||{{N|kaverin_done5|||||}}|};
+{kaverin_done5|According to the map, the hideout should be just to the north-west of the former prison of Flagstone. Feel free to take whatever is left in there.|{{0|kaverin|90|}}|{{N|kaverin_done6|||||}}|};
+{kaverin_done6|Walk with the Shadow, my friend.|||};
+{kaverin_done_ret|Hello again. It\'s comforting to know that Unzel is still alive, and that you delivered my message to him.||{{N|kaverin_done6|||||}}|};
+	</string>
+
+	<string name="conversationlist_vacor2">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{vacor_msg1|What\'s that in your hands?! ... I recognize that seal!|{{0|kaverin|70|}}|{
+	{You should recognize it, I found this on one of Unzel\'s associates in Remgard.|vacor_msg_a1|||||}
+	{What? ... Oh, this?|vacor_msg_b1|||||}
+	}|};
+{vacor_msg_a1|Surely, he didn\'t just give it to you!||{{He was asking too many questions. He needed to be silenced.|vacor_msg_a2|||||}}|};
+{vacor_msg_a2|So, you killed him? Right?!||{{Kaverin is dead. His blood is still on my boots.|vacor_msg_3|||||}}|};
+{vacor_msg_b1|How did you get your hands on that document?!||{{A man in Remgard, by the name of Kaverin, was asking about Unzel...|vacor_msg_b2|||||}}|};
+{vacor_msg_b2|What happened boy?!||{{Kaverin is dead. His blood is still on my boots.|vacor_msg_3|||||}}|};
+{vacor_msg_3|Good, maybe now I can work on my Rift Spell in peace...||{{N|vacor_msg_4|||||}}|};
+{vacor_msg_4|But, I must have that document!||{{N|vacor_msg_5|||||}}|};
+{vacor_msg_5|I must know what they are planning!||{
+	{Here, have the message.|vacor_msg_8||kaverin_message|1|0|}
+	{What\'s in it for me?|vacor_msg_6|||||}
+	}|};
+{vacor_msg_6|I have a cache of potions hidden, far to the south.||{
+	{Excellent, I could always use more supplies.|vacor_msg_7|||||}
+	}|};
+{vacor_msg_7|Good. Now give me the message.||{{Here is the message, Vacor.|vacor_msg_8||kaverin_message|1|0|}}|};
+{vacor_msg_8|Here, take this map as compensation for your troubles.|{{1|vacor_map||}{0|kaverin|75|}}|{{N|vacor_msg_9|||||}}|};
+{vacor_msg_9|It will lead you far to the south, to one of my secret retreats... where a cache of potions is hidden.||{{N|vacor_msg_10|||||}}|};
+{vacor_msg_10|(The map shows a location to the northwest of the former prison of Flagstone.)|{{0|kaverin|90|}}|{{N|vacor_msg_11|||||}}|};
+{vacor_msg_11|Now, let\'s see here.||{{N|vacor_msg_12|||||}}|};
+{vacor_msg_12|(Vacor opens the sealed message and starts reading)||{{N|vacor_msg_13|||||}}|};
+{vacor_msg_13|Yes ... hm ... Really?! *mumbles* ... yes, indeed ...||{{N|vacor_msg_14|||||}}|};
+{vacor_msg_14|Thanks kid, you have helped me more than you can possibly understand.||{{N|vacor_msg_15|||||}}|};
+{vacor_msg_15|HA HA HA!!! THE POWER WILL SOON BE MINE!||{
+	{Excellent! The Shadow must be stopped!|vacor_msg_16|||||}
+	{I just wanted a reward... Weirdo.|vacor_msg_16|||||}
+	}|};
+{vacor_msg_16|Thanks for giving me that message, but now please leave me. I have more important things to do than to talk to you.|||};
+	</string>
+
+	<string name="conversationlist_unzel2">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{unzel_msg1|Kaverin, my old friend! It\'s good to hear that he is still alive. What is the message?||{{Here, you have it.|unzel_msg2||kaverin_message|1|0|}}|};
+{unzel_msg2|Hm, yes. Let me see... (Unzel opens the sealed message and reads it)|{{0|kaverin|30|}}|{{N|unzel_msg3|||||}}|};
+{unzel_msg3|Yes, this makes sense with what I have seen.||{{N|unzel_msg4|||||}}|};
+{unzel_msg4|Thank you for bringing it to me.||{{N|unzel_msg5|||||}}|};
+{unzel_msg5|Your help could prove more valuable than you might realize.||{{N|unzel_msg6|||||}}|};
+{unzel_msg6|Say hello to my old friend Kaverin the next time you see him, will you?|||};
+{unzel_msg_r0|Hello again. Thank you for your help with defeating Vacor and bringing me the message from Kaverin.||{{N|unzel_msg5|||||}}|};
+	</string>
+
 </resources>

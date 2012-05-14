@@ -368,7 +368,7 @@
 
 	<string name="conversationlist_fallhaven_vacor">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{vacor|||{{|vacor_return_complete|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
+{vacor|||{{|vacor_return_complete0|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
 {vacor_select1|||{{|vacor_return1|vacor:20||||}{|vacor_begin|||||}}|};
 {vacor_begin|Bonjour.||{{N|vacor_2|||||}}|};
 {vacor_2|Qui es-tu ? Le genre aventurier ? Hmm. Tu pourrais peut-être m\'être utile.||{{N|vacor_3|||||}}|};
@@ -412,6 +412,12 @@
 {vacor_62|C\'est vraiment un grand jour. J\'aurais bientôt le pouvoir !||{{N|vacor_63|||||}}|};
 {vacor_63|Allez, prends ces pièces pour ton aide.|{{1|gold200||}}|{{N|vacor_64|||||}}|};
 {vacor_64|Maintenant, laisse-moi, j\'ai du travail à faire avant de pouvoir lancer le sort de scission.|||};
+{vacor_return_complete0|||{
+	{|vacor_msg_16|kaverin:90||||}
+	{|vacor_msg_9|kaverin:75||||}
+	{|vacor_msg1|kaverin:60|kaverin_message|1|1|}
+	{|vacor_return_complete|||||}
+	}|};
 {vacor_return_complete|Re-bonjour, mon ami assassin. Bientôt, mon sort de scission sera prêt.|||};
 {vacor_70|Quoi ? Il t\'a raconté son histoire ? Et tu l\'as cru ?||{{N|vacor_71|||||}}|};
 {vacor_71|Je te donne encore une chance. Soit tu tues Unzel pour moi, auquel cas je te récompenserais avec largesse, soit tu devras me combattre.||{{Non. Vous devez être arrêté.|vacor_72|||||}{D\'accord, je vais y réfléchir.|X|||||}}|};
@@ -442,8 +448,8 @@
 {unzel_21|Vous devriez aller lui parler de l\'Ombre.|||};
 {unzel_return_1|Bienvenue. Avez-vous parlé à Vacor ?||{{Oui, je me suis occupé de lui.|unzel_30||ring_vacor|1|0|}{Non, pas encore.|X|||||}}|};
 {unzel_30|Vous l\'avez tué ? Je vous remercie mon ami. Maintenant nous sommes à l\'abri du sort de scission de Vacor. Tenez, prenez ces pièces pour votre aide.|{{0|vacor|61|}{1|gold200||}}|{{Que l\'Ombre soit avec vous.|X|||||}{Merci.|X|||||}}|};
-{unzel_40|Merci pour votre aide. Maintenant, nous sommes à l\'abri du sort de scission de Vacor.|||};
-{unzel|||{{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
+{unzel_40|Merci pour votre aide. Maintenant, nous sommes à l\'abri du sort de scission de Vacor.||{{I have a message for you from Kaverin in Remgard|unzel_msg1|kaverin:25|kaverin_message|1|1|}}|};
+{unzel|||{{|unzel_msg_r0|kaverin:30||||}{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
 	</string>
 
 </resources>

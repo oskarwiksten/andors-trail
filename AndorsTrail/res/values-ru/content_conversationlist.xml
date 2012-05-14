@@ -368,7 +368,7 @@
 
 	<string name="conversationlist_fallhaven_vacor">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{vacor|||{{|vacor_return_complete|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
+{vacor|||{{|vacor_return_complete0|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
 {vacor_select1|||{{|vacor_return1|vacor:20||||}{|vacor_begin|||||}}|};
 {vacor_begin|Привет.||{{N|vacor_2|||||}}|};
 {vacor_2|Юный авантюрист? Хм. Возможно ты будешь мне полезен.||{{N|vacor_3|||||}}|};
@@ -412,6 +412,12 @@
 {vacor_62|Это замечательный день. Скоро я получу силу!||{{N|vacor_63|||||}}|};
 {vacor_63|Вот, возми эти монеты за твою помощь.|{{1|gold200||}}|{{N|vacor_64|||||}}|};
 {vacor_64|А теперь оставь меня, я должен подготовиться к созданию заклинания.|||};
+{vacor_return_complete0|||{
+	{|vacor_msg_16|kaverin:90||||}
+	{|vacor_msg_9|kaverin:75||||}
+	{|vacor_msg1|kaverin:60|kaverin_message|1|1|}
+	{|vacor_return_complete|||||}
+	}|};
 {vacor_return_complete|Снова здравствуй, мой ассасин. Скоро я закончу свое Заклинание разрыва.|||};
 {vacor_70|Что? Он поведал тебе историю? И ты конечно же поверил ему?||{{N|vacor_71|||||}}|};
 {vacor_71|Я даю тебе один шанс. Или ты убиваешь Унзела и получаешь свои деньги. Или ты будешь иметь честь познать мою силу!||{{В бой!|vacor_72|||||}{Уйти|X|||||}}|};
@@ -442,8 +448,8 @@
 {unzel_21|Ты должен поговорить с ним о Тени.|||};
 {unzel_return_1|С возвращением. Ты поговорил с Вакором?||{{Да|unzel_30||ring_vacor|1|0|}{Вакор?|X|||||}}|};
 {unzel_30|Ты убил его? Прими мою благодарность, друг. Теперь мы в безопасности. Вот, Возми эти монеты за твою помощь.|{{0|vacor|61|}{1|gold200||}}|{{Пока|X|||||}{Thank you.|X|||||}}|};
-{unzel_40|Спасибо за помощь. Мы спасены от заклинания Вакора.|||};
-{unzel|||{{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
+{unzel_40|Спасибо за помощь. Мы спасены от заклинания Вакора.||{{I have a message for you from Kaverin in Remgard|unzel_msg1|kaverin:25|kaverin_message|1|1|}}|};
+{unzel|||{{|unzel_msg_r0|kaverin:30||||}{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
 	</string>
 
 	<string name="conversationlist_wilderness">
