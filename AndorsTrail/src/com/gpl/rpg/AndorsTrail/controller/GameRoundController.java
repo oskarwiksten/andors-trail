@@ -3,8 +3,8 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
-import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
+import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class GameRoundController implements TimedMessageTask.Callback {
     
@@ -46,13 +46,11 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     }
     
     public void resume() {
-    	//L.log("GameRoundController::resume() from " + from);
     	view.mainActivity.updateStatus();
 		model.uiSelections.isMainActivityVisible = true;
 		roundTimer.start();
     }
     public void pause() {
-    	//L.log("GameRoundController::pause() from " + from);
     	roundTimer.stop();
     	model.uiSelections.isMainActivityVisible = false;
     }
@@ -66,13 +64,15 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     private void onNewRound() {
     	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);
     	view.actorStatsController.applyConditionsToPlayer(model.player, false);
-    	
-    	model.player.health.add(model.player.getSkillLevel(SkillCollection.SKILL_REGENERATION) * SkillCollection.PER_SKILLPOINT_INCREASE_REGENERATION, false);
+    	view.actorStatsController.applySkillEffectsForNewRound(model.player);
     }
     
 	private void onNewTick() {
-		view.controller.moveAndSpawnMonsters();
+		boolean hasChanged = false;
+		if (view.controller.moveAndSpawnMonsters()) hasChanged = true;
 		view.monsterMovementController.attackWithAgressiveMonsters();
-		VisualEffectController.updateSplatters(model.currentMap);
+		if (VisualEffectController.updateSplatters(model.currentMap)) hasChanged = true;
+		
+    	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
 	}
 }

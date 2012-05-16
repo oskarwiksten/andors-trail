@@ -113,7 +113,7 @@ public final class VisualEffectController {
 		public final long reduceIconAfter;
 		public final Coord position;
 		public int iconID;
-		public boolean updated = false;
+		public boolean reducedIcon = false;
 		public BloodSplatter(int iconID, Coord position) {
 			this.iconID = iconID;
 			this.position = position;
@@ -123,16 +123,21 @@ public final class VisualEffectController {
 		}
 	}
 	
-	public static void updateSplatters(PredefinedMap map) {
+	public static boolean updateSplatters(PredefinedMap map) {
 		long now = System.currentTimeMillis();
+		boolean hasChanges = false;
 		for (int i = map.splatters.size() - 1; i >= 0; --i) {
 			BloodSplatter b = map.splatters.get(i);
-			if (b.removeAfter <= now) map.splatters.remove(i);
-			else if (!b.updated && b.reduceIconAfter <= now) {
-				b.updated = true;
+			if (b.removeAfter <= now) {
+				map.splatters.remove(i);
+				hasChanges = true;
+			} else if (!b.reducedIcon && b.reduceIconAfter <= now) {
+				b.reducedIcon = true;
 				b.iconID++;
+				hasChanges = true;
 			}
 		}
+		return hasChanges;
 	}
 	
 	public static void addSplatter(PredefinedMap map, Monster m) {
@@ -141,8 +146,6 @@ public final class VisualEffectController {
 	}
 	
 	private static int getSplatterIconFromMonsterClass(int monsterClass) {
-		return -1;
-		/*
 		switch (monsterClass) {
 		case MonsterType.MONSTERCLASS_INSECT: 
 		case MonsterType.MONSTERCLASS_UNDEAD: 
@@ -159,6 +162,5 @@ public final class VisualEffectController {
 		default:
 			return -1;
 		}
-		*/
 	}
 }

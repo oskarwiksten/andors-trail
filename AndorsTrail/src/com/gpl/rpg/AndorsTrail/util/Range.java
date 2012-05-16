@@ -32,9 +32,11 @@ public final class Range {
 		this.max = max;
 		this.current = current;
 	}
-	public void add(int value, boolean mayOverflow) {
+	public boolean add(int value, boolean mayOverflow) {
+		int valueBefore = current;
 		this.current += value;
 		if (!mayOverflow) capAtMax();
+		return (this.current != valueBefore);
 	}
 	public void capAtMax() {
 		if (current > max) current = max;
@@ -42,9 +44,11 @@ public final class Range {
 	public void addToMax(int value) {
 		this.max += value;
 	}
-	public void subtract(int value, boolean mayUnderflow) {
+	public boolean subtract(int value, boolean mayUnderflow) {
+		int valueBefore = current;
 		this.current -= value;
 		if (!mayUnderflow && current < 0) current = 0;
+		return (this.current != valueBefore);
 	}
 	public boolean change(int value, boolean mayUnderflow, boolean mayOverflow) {
 		int valueBefore = current;

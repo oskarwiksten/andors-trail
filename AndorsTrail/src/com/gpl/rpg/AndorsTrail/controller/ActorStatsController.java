@@ -193,7 +193,7 @@ public class ActorStatsController {
 
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
 		if (player.conditions.isEmpty()) return;
-		removeConditionsFromSkillEffects(player);
+		if (!isFullRound) removeConditionsFromSkillEffects(player);
 		
 		applyStatsEffects(player, isFullRound);
 		if (player.isDead()) {
@@ -202,7 +202,7 @@ public class ActorStatsController {
 		}
 		view.mainActivity.updateStatus();
 
-		decreaseDurationAndRemoveConditions(player);
+		if (!isFullRound) decreaseDurationAndRemoveConditions(player);
 	}
 
 	private static void removeConditionsFromSkillEffects(Player player) {
@@ -371,6 +371,13 @@ public class ActorStatsController {
 			if (type == null) continue;
 			
 			applyUseEffect(player, null, type.effects_kill);
+		}
+	}
+
+	public void applySkillEffectsForNewRound(Player player) {
+		boolean changed = player.health.add(player.getSkillLevel(SkillCollection.SKILL_REGENERATION) * SkillCollection.PER_SKILLPOINT_INCREASE_REGENERATION, false);
+		if (changed) {
+			view.mainActivity.updateStatus();
 		}
 	}
 }

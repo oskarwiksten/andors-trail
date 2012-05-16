@@ -14,7 +14,6 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class Controller {
     
@@ -110,11 +109,10 @@ public final class Controller {
     	}
 	}
 
-	public void moveAndSpawnMonsters() {
+	public boolean moveAndSpawnMonsters() {
     	boolean hasChanged = false;
     	if (view.monsterMovementController.moveMonsters()) hasChanged = true;
     	if (model.currentMap.maybeSpawn(world)) hasChanged = true;
-    	
-    	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
+    	return hasChanged;
 	}
 }
