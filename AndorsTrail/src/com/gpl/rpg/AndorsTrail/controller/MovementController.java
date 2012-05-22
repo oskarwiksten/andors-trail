@@ -268,15 +268,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
 
 	public static void cacheCurrentMapData(final Resources res, final WorldContext world, final PredefinedMap nextMap) {
-		L.log("-> cacheCurrentMapData");
-		long start = System.currentTimeMillis();
 		LayeredTileMap mapTiles = TMXMapTranslator.readLayeredTileMap(res, world.tileManager.tileCache, nextMap);
 		TileCollection cachedTiles = world.tileManager.loadTilesFor(nextMap, mapTiles, world, res);
 		world.model.currentTileMap = mapTiles;
 		world.tileManager.currentMapTiles = cachedTiles;
 		world.tileManager.cacheAdjacentMaps(res, world, nextMap);
-		long duration = System.currentTimeMillis() - start;
-		L.log("  <- cacheCurrentMapData " + duration + "ms");
 	}
 	
 	

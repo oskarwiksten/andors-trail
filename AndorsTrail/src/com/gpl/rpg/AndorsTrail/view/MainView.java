@@ -18,7 +18,6 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
-import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 import android.content.Context;
@@ -100,12 +99,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
 		if (w <= 0 || h <= 0) return;
 
-		L.log("surfaceChanged " + w + ", " + h);
-
 		this.scale = world.tileManager.scale;
 		this.scaledTileSize = world.tileManager.viewTileSize;
-		L.log("scale=" + scale);
-		L.log("scaledTileSize=" + scaledTileSize);
 		
 		screenSizeTileCount = new Size(
 				(int) Math.floor(w / scaledTileSize)
@@ -132,7 +127,6 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	@Override
 	public void surfaceDestroyed(SurfaceHolder holder) {
 		hasSurface = false;
-		L.log("surfaceDestroyed");
 	}
 
 	@Override

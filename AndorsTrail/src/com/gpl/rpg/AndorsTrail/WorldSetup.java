@@ -18,7 +18,9 @@ public final class WorldSetup {
 	private final WeakReference<Context> androidContext;
 	private boolean isResourcesInitialized = false;
 	private boolean isInitializingResources = false;
-	private WeakReference<OnSceneLoadedListener> listener;
+	private WeakReference<OnResourcesLoadedListener> onResourcesLoadedListener;
+	private WeakReference<OnSceneLoadedListener> onSceneLoadedListener;
+	private Object sceneLoaderId;
 
 	public boolean createNewCharacter = false;
 	public int loadFromSlot = Savegames.SLOT_QUICKSAVE;
@@ -29,6 +31,17 @@ public final class WorldSetup {
 	public WorldSetup(WorldContext world, Context androidContext) {
 		this.world = world;
 		this.androidContext = new WeakReference<Context>(androidContext);
+	}
+
+	public void setOnResourcesLoadedListener(OnResourcesLoadedListener listener) {
+		synchronized (this) {
+			onResourcesLoadedListener = null;
+			if (isResourcesInitialized) {
+				if (listener != null) listener.onResourcesLoaded();
+				return;
+			}
+			onResourcesLoadedListener = new WeakReference<WorldSetup.OnResourcesLoadedListener>(listener);
+		}
 	}
 	
 	public void startResourceLoader(final Resources r, final AndorsTrailPreferences preferences) {
@@ -52,52 +65,71 @@ public final class WorldSetup {
 				synchronized (WorldSetup.this) {
 					isResourcesInitialized = true;
 					isInitializingResources = false;
-					if (listener == null) return; // sceneloader will be fired by next caller.
+					
+					if (onResourcesLoadedListener == null) return;
+					WorldSetup.OnResourcesLoadedListener listener = onResourcesLoadedListener.get();
+					onResourcesLoadedListener = null;
+					if (listener == null) return;
+					listener.onResourcesLoaded();
 				}
-				startSceneLoader();
 			}
         }).execute();
 	}
 	
 	public void startCharacterSetup(final OnSceneLoadedListener listener) {
 		synchronized (WorldSetup.this) {
-			this.listener = new WeakReference<OnSceneLoadedListener>(listener);
-			if (!isResourcesInitialized) return; // sceneloader will be fired by the resourceloader.
+			this.onSceneLoadedListener = new WeakReference<OnSceneLoadedListener>(listener);
 		}
 		startSceneLoader();
 	}
+	public void removeOnSceneLoadedListener(final OnSceneLoadedListener listener) {
+		synchronized (WorldSetup.this) {
+			if (this.onSceneLoadedListener == null) return;
+			if (this.onSceneLoadedListener.get() == listener) this.onSceneLoadedListener = null;
+		}
+	}
 	
+	private final Object onlyOneThreadAtATimeMayLoadSavegames = new Object();
 	private void startSceneLoader() {
 		isSceneReady = false;
+		final Object thisLoaderId = new Object();
+		synchronized (WorldSetup.this) {
+			sceneLoaderId = thisLoaderId;
+		}
+		
 		(new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... arg0) {
-				if (world.model != null) world.reset();
-				if (createNewCharacter) {
-					createNewWorld();
-					loadResult = Savegames.LOAD_RESULT_SUCCESS;
-				} else {
-					loadResult = continueWorld();
+				synchronized (onlyOneThreadAtATimeMayLoadSavegames) {
+					if (world.model != null) world.reset();
+					if (createNewCharacter) {
+						createNewWorld();
+						loadResult = Savegames.LOAD_RESULT_SUCCESS;
+					} else {
+						loadResult = continueWorld();
+					}
+					createNewCharacter = false;
 				}
-				createNewCharacter = false;
 		    	return null;
 			}
 
 			@Override
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
-				isSceneReady = true;
-				OnSceneLoadedListener o;
 				synchronized (WorldSetup.this) {
-					if (listener == null) return;
-					o = listener.get();
-					listener = null;
-				}
-				if (o == null) return;
-				if (loadResult == Savegames.LOAD_RESULT_SUCCESS) {
-					o.onSceneLoaded();
-				} else {
-					o.onSceneLoadFailed(loadResult);
+					if (sceneLoaderId != thisLoaderId) return; // Some other thread has started after we started.
+					isSceneReady = true;
+					
+					if (onSceneLoadedListener == null) return;
+					OnSceneLoadedListener o = onSceneLoadedListener.get();
+					onSceneLoadedListener = null;
+					if (o == null) return;
+					
+					if (loadResult == Savegames.LOAD_RESULT_SUCCESS) {
+						o.onSceneLoaded();
+					} else {
+						o.onSceneLoadFailed(loadResult);
+					}
 				}
 			}
         }).execute();
@@ -106,7 +138,7 @@ public final class WorldSetup {
 	private int continueWorld() {
 		Context ctx = androidContext.get();
 		int result = Savegames.loadWorld(world, ctx, loadFromSlot);
-		if (result == Savegames.LOAD_RESULT_SUCCESS) {
+    	if (result == Savegames.LOAD_RESULT_SUCCESS) {
 			MovementController.cacheCurrentMapData(ctx.getResources(), world, world.model.currentMap);
 		}
 		return result;
@@ -124,5 +156,8 @@ public final class WorldSetup {
     public interface OnSceneLoadedListener {
     	void onSceneLoaded();
     	void onSceneLoadFailed(int loadResult);
+    }
+    public interface OnResourcesLoadedListener {
+    	void onResourcesLoaded();
     }
 }

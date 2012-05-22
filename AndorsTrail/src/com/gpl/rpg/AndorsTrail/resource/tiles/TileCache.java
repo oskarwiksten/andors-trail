@@ -7,8 +7,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.LruCache;
 
 import android.content.res.Resources;
@@ -65,7 +63,6 @@ public final class TileCache {
 	
 	public TileCollection loadTilesFor(Collection<Integer> iconIDs, Resources r) { return loadTilesFor(iconIDs, r, null); }
 	public TileCollection loadTilesFor(Collection<Integer> iconIDs, Resources r, TileCollection result) {
-		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) L.log("TileCache::loadTilesFor({" + iconIDs.size() + " items})");
 		int maxTileID = 0;
 		HashMap<ResourceFileTileset, SparseArray<ResourceFileTile>> tilesToLoadPerSourceFile = new HashMap<ResourceFileTileset, SparseArray<ResourceFileTile>>();
 		for(int tileID : iconIDs) {
@@ -93,9 +90,6 @@ public final class TileCache {
 				
 				if (bitmap == null) {
 					if (cutter == null) {
-						if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-							L.log("Loading tiles from tileset " + e.getKey().tilesetName);
-						}
 						if (!hasLoadedTiles) cleanQueue();
 						cutter = new TileCutter(e.getKey(), r);
 						hasLoadedTiles = true;
@@ -120,9 +114,6 @@ public final class TileCache {
 		Bitmap bitmap = cache.get(tileID);
 		if (bitmap != null) return bitmap;
 		
-		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-			L.log("Loading single tile from tileset " + tile.tileset.tilesetName);
-		}
 		TileCutter cutter = new TileCutter(tile.tileset, r);
 		Bitmap result = cutter.createTile(tile.localID);
 		cutter.recycle();

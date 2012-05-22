@@ -12,31 +12,46 @@ import android.os.Bundle;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.Savegames;
+import com.gpl.rpg.AndorsTrail.WorldSetup;
+import com.gpl.rpg.AndorsTrail.WorldSetup.OnResourcesLoadedListener;
 import com.gpl.rpg.AndorsTrail.WorldSetup.OnSceneLoadedListener;
-import com.gpl.rpg.AndorsTrail.util.L;
 
-public final class LoadingActivity extends Activity implements OnSceneLoadedListener {
+public final class LoadingActivity extends Activity implements OnResourcesLoadedListener, OnSceneLoadedListener {
 
     private static final int DIALOG_LOADING = 1;
     private static final int DIALOG_LOADING_FAILED = 2;
     private static final int DIALOG_LOADING_WRONGVERSION = 3;
-
+    private WorldSetup setup;
+    
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         AndorsTrailApplication.setWindowParameters(this, app.preferences);
-        
-        L.log("LoadingActivity::onCreate");
-        
-        showDialog(DIALOG_LOADING);
-        app.setup.startCharacterSetup(this);
+        this.setup = app.setup;
     }
 	
 	@Override
+    public void onResume() {
+		super.onResume();
+		showDialog(DIALOG_LOADING);
+        setup.setOnResourcesLoadedListener(this);
+	}
+	
+	@Override
+    public void onPause() {
+		super.onPause();
+		setup.setOnResourcesLoadedListener(null);
+		setup.removeOnSceneLoadedListener(this);
+	}
+	
+	@Override
+	public void onResourcesLoaded() {
+		setup.startCharacterSetup(this);
+	}
+	
+	@Override
 	public void onSceneLoaded() {
-    	L.log("LoadingActivity::onSceneLoaded");
-        
     	removeDialog(DIALOG_LOADING);
     	startActivity(new Intent(this, MainActivity.class));
     	this.finish();
@@ -44,8 +59,6 @@ public final class LoadingActivity extends Activity implements OnSceneLoadedList
 	
 	@Override
 	public void onSceneLoadFailed(int loadResult) {
-    	L.log("LoadingActivity::onSceneLoadFailed");
-        
     	removeDialog(DIALOG_LOADING);
     	if (loadResult == Savegames.LOAD_RESULT_FUTURE_VERSION) {
     		showDialog(DIALOG_LOADING_WRONGVERSION);	

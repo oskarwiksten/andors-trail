@@ -15,7 +15,6 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 import com.gpl.rpg.AndorsTrail.view.VirtualDpadView;
@@ -72,8 +71,7 @@ public final class MainActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        L.log("onCreate");
-    	
+        
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.world;
@@ -164,7 +162,6 @@ public final class MainActivity extends Activity {
 	@Override
     protected void onPause() {
         super.onPause();
-        L.log("onPause");
         view.gameRoundController.pause();
         view.movementController.stopMovement();
         
@@ -174,7 +171,6 @@ public final class MainActivity extends Activity {
     @Override
     protected void onResume() {
         super.onResume();
-        L.log("onResume");
         if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
 
         view.gameRoundController.resume();
