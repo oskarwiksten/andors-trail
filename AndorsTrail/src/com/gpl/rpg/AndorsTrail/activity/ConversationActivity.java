@@ -78,7 +78,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
         this.npc = Dialogs.getMonsterFromIntent(getIntent(), world);
         displayActors = (npc != null);
 
-        String phraseID = uri.getLastPathSegment().toString(); 
+        phraseID = uri.getLastPathSegment().toString(); 
         if (savedInstanceState != null) {
         	phraseID = savedInstanceState.getString("phraseID");
         	conversationHistory = savedInstanceState.getParcelableArrayList("conversationHistory");
@@ -122,13 +122,23 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 				nextButtonClicked();
 			}
 		});
-		
-        setPhrase(phraseID);
         
         statementList.setOnKeyListener(this);
+        
+    	statementList.setSelected(false);
+    	statementList.setFocusable(false);
+    	statementList.setFocusableInTouchMode(false);
     }
     
-    private int getSelectedReplyIndex() {
+    @Override
+	protected void onResume() {
+		super.onResume();
+		
+        setPhrase(phraseID);
+    	nextButton.requestFocus();
+	}
+
+	private int getSelectedReplyIndex() {
     	for (int i = 0; i < phrase.replies.length; ++i) {
 			final View v = replyGroup.getChildAt(i);
 			if (v == null) continue;
@@ -150,11 +160,20 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		rb.setChecked(true);
     }
  
+    @Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (handleKeypress(keyCode, event)) return true;
+		else return super.onKeyDown(keyCode, event);
+    }
+    
 	@Override
 	public boolean onKey(View arg0, int keyCode, KeyEvent event) {
 		if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
+		return handleKeypress(keyCode, event);
+	}
+
+	public boolean handleKeypress(int keyCode, KeyEvent event) {
 		int selectedReplyIndex = getSelectedReplyIndex();
-		
 		switch (keyCode) {
 		case KeyEvent.KEYCODE_DPAD_UP:
 			--selectedReplyIndex;
@@ -265,6 +284,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		rb.setOnCheckedChangeListener(radioButtonListener);
 		rb.setTag(r);
 		rb.setShadowLayer(1, 1, 1, Color.BLACK);
+    	rb.setFocusable(false);
+    	rb.setFocusableInTouchMode(false);
 		replyGroup.addView(rb, layoutParams);
     }
 	
@@ -317,6 +338,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	s.color = color;
     	s.isPlayerActor = actor != null ? actor.isPlayer : false;
     	conversationHistory.add(s);
+    	statementList.clearFocus();
 		listAdapter.notifyDataSetChanged();
 		statementList.requestLayout();
 	}
@@ -412,6 +434,16 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		    }
 			
 			return result;
+		}
+
+		@Override
+		public boolean areAllItemsEnabled() {
+			return false;
+		}
+
+		@Override
+		public boolean isEnabled(int position) {
+			return false;
 		}
     }
 }
