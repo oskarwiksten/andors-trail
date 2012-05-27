@@ -9,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -53,14 +54,15 @@ public final class ItemController {
 		if (!player.inventory.removeItem(type.id, 1)) return;
 		
 		if (!player.inventory.isEmptySlot(slot)) {
-			player.inventory.addItem(player.inventory.wear[slot]);
+			ItemType removedItemType = player.inventory.wear[slot];
+			player.inventory.addItem(removedItemType);
+			player.inventory.wear[slot] = null;
+			ActorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
 		}
 		player.inventory.wear[slot] = type;
 		
 		ActorStatsController.addConditionsFromEquippedItem(player, type);
 		ActorStatsController.recalculatePlayerCombatTraits(player);
-		
-    	//message(androidContext, androidContext.getResources().getString(R.string.inventory_item_equipped, t.name));
     }
 
    	public void unequipSlot(ItemType type, int slot) {
@@ -77,8 +79,6 @@ public final class ItemController {
 		
 		ActorStatsController.removeConditionsFromUnequippedItem(player, type);
 		ActorStatsController.recalculatePlayerCombatTraits(player);
-		
-    	//message(androidContext, androidContext.getResources().getString(R.string.inventory_item_unequipped, t.name));
     }
     
     public void useItem(ItemType type) {
@@ -246,5 +246,23 @@ public final class ItemController {
 	    	view.mainActivity.quickitemview.bringToFront();
 			view.mainActivity.statusview.updateQuickItemImage(true);
 		}
+	}
+
+	public static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, String itemTypeIDWithCondition) {
+		if (!player.hasCondition(conditionTypeID)) return;
+		boolean hasItemWithCondition = false;
+		for (ItemType t : player.inventory.wear) {
+			if (t == null) continue;
+			if (t.effects_equip == null) continue;
+			if (t.effects_equip.addedConditions == null) continue;
+			for(ActorConditionEffect e : t.effects_equip.addedConditions) {
+				if (!e.conditionType.conditionTypeID.equals(conditionTypeID)) continue;
+				hasItemWithCondition = true;
+				break;
+			}
+		}
+		if (hasItemWithCondition) return;
+		
+		ActorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
 	}
 }

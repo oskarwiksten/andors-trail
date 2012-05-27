@@ -14,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -285,6 +286,12 @@ public final class Player extends Actor {
 			final String faction = src.readUTF();
 			final int alignment = src.readInt();
 			alignments.put(faction, alignment);
+		}
+		
+		if (fileversion <= 27) {
+			ItemController.correctActorConditionsFromItemsPre0611b1(this, "bless", world, "elytharan_redeemer");
+			ItemController.correctActorConditionsFromItemsPre0611b1(this, "blackwater_misery", world, "bwm_dagger");
+			ItemController.correctActorConditionsFromItemsPre0611b1(this, "regen", world, "ring_shadow0");
 		}
 	}
 	
