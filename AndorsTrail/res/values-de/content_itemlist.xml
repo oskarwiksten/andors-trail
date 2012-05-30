@@ -187,10 +187,10 @@
 {rapier_lifesteal|items_weapons:71|Vampirdegen|0|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
 {dagger_barbed|items_weapons:17|Spitzdolch|0|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
 {elytharan_redeemer|items_weapons:70|Elytharanischer Erlöser|0|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
-{clouded_rage|items_weapons:71|Raserei der Schatten|0|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{clouded_rage|items_weapons:71|Raserei des Schattens|0|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
 {shadow_slayer|items_weapons:60|Schatten des Mörders|0|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
 
-{ring_shadow_embrace|items_jewelry:0|Umarmung der Schatten|7|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
+{ring_shadow_embrace|items_jewelry:0|Umarmung des Schattens|7|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
 
 {bwm_dagger|items_weapons:19|Blackwater Dolch|0|4|1|539|1||||3|40|||1|1|5||{{blackwater_misery|1|}}||||||||||||||||||||};
 {bwm_dagger_venom|items_weapons:19|Blackwater Giftdolch|0|4|1|1552|1||||3|45|||1|1|||{{blackwater_misery|1|}}|||||||1||||||{{poison_weak|1|5|50|}}|||||||};
@@ -322,6 +322,71 @@
 {iqhan_pendant|items_necklaces_1:2|Iqhan Anhänger|6||1|10|1|||||6|||||||||||||||||||||||||||};
 {shadowfang|items_weapons_3:41|Reißzahn des Schattens|0|3|1|512|1|-20|||4|40|||2|5||||0||||||1|||||{{fatigue_minor|1|3|20|}}||||||||};
 {gloves_life|items_armours_2:1|Handschuhe der Lebenskraft|4|3|1|390|1|9||||5|||||3||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0611_1">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{pot_focus_dmg|items_consumables:39|Trank der Wucht|20||1|272||||||||||||||1|||||{{focus_dmg|1|4|100|}}||||||||||||||};
+{pot_focus_dmg2|items_consumables:39|Starker Trank der Wucht|20||1|630||||||||||||||1|||||{{focus_dmg|2|4|100|}}||||||||||||||};
+{pot_focus_ac|items_consumables:37|Trank der Treffsicherheit|20||1|210||||||||||||||1|||||{{focus_ac|1|4|100|}}||||||||||||||};
+{pot_focus_ac2|items_consumables:37|Starker Trank der Treffsicherheit|20||1|618||||||||||||||1|||||{{focus_ac|2|4|100|}}||||||||||||||};
+{pot_scaradon|items_consumables:48|Scaradon Extrakt|20||0|28||||||||||||||1|5|10|||||||||||||||||};
+
+{remgard_shield_1|items_armours_3:24|Remgard Schild|1||0|2189|1|||||-3|||||9|1|||||||||||||||||||||};
+{remgard_shield_2|items_armours_3:24|Remgard Kampfschild|1||0|2720|1|||||-3|||||11|1|||||||||||||||||||||};
+
+{helm_combat1|items_armours:25|Kampfhelm|2||0|455|1|||||5|||||6||||||||||||||||||||||};
+{helm_combat2|items_armours:25|Verbesserter Kampfhelm|2||0|485|1|||||7|||||6||||||||||||||||||||||};
+{helm_combat3|items_armours:26|Remgard Kampfhelm|2||0|1540|1|1||||-3|-5||||12||||||||||||||||||||||};
+{helm_redeye1|items_armours:24|Kappe der roten Augen|2||0|1|1|-5|||||||||8||||||||||||||||||||||};
+{helm_redeye2|items_armours:24|Kappe der blutigen Augen|2||0|1|1|-5|||||||0|1|8||||||||||||||||||||||};
+{helm_defend1|items_armours_3:31|Helm des Verteidigers|2||0|1975|1|||||-3|||||8|1|||||||||||||||||||||};
+{helm_protector0|items_armours_3:31|seltsam aussehender Helm|2|1|1|0|1|-9|||||||0|1|5||||||||||||||||||||||};
+{helm_protector|items_armours_3:31|Dunkler Beschützer|2|3|0|3119|1|-6|||||||0|1|13|1|||||||||||||||||||||};
+
+{armour_chain_remg|items_armours_3:13|Remgard Kettenrüstung|3||0|8927|1|||||-7|||||25||||||||||||||||||||||};
+{armour_cvest1|items_armours_3:5|Kampfweste|3||0|1116|1|||||15|||||8||||||||||||||||||||||};
+{armour_cvest2|items_armours_3:5|Remgard Kampfweste|3||0|1244|1|||||17|||||8||||||||||||||||||||||};
+
+{gloves_leather1|items_armours:38|Gehärtete Lederhandschuhe|4||0|757|1|3||||2|||||6||||||||||||||||||||||};
+{gloves_arulir|items_armours_2:1|Handschuhe aus Arulirfell|4||0|1793|1|||||-3|||||7|1|||||||||||||||||||||};
+{gloves_combat1|items_armours:36|Kampfhandschuhe|4||0|956|1|4||||-5|||||9||||||||||||||||||||||};
+{gloves_combat2|items_armours:36|Verbesserte Kampfhandschuhe|4||0|1204|1|4||||-5|||||10||||||||||||||||||||||};
+{gloves_remgard1|items_armours:37|Remgard Kampfhandschuhe|4||0|1205|1|4|||||||||8||||||||||||||||||||||};
+{gloves_remgard2|items_armours:37|Verbesserte Remgard Handschuhe|4||0|1326|1|5||||2|||||8||||||||||||||||||||||};
+{gloves_guard1|items_armours:38|Handschuhe des Beschützers|4||1|601|1|||||-9|-5||||14||||||||||||||||||||||};
+
+{boots_combat1|items_armours:30|Kampfschuhe|5||0|0|1|||||7|||||7||||||||||||||||||||||};
+{boots_combat2|items_armours:30|Verbesserte Kampfschuhe|5||0|0|1|||||7|||||11||||||||||||||||||||||};
+{boots_remgard1|items_armours:31|Remgard Schuhe|5||0|0|1|4|||||||||12||||||||||||||||||||||};
+{boots_guard1|items_armours:31|Schuhe des Beschützers|5||0|0|1||||||||||7|1|||||||||||||||||||||};
+{boots_brawler|items_armours_3:38|Schuhe des Kneipenraufboldes|5||0|0|1|2|||||4||||7||||||||||||||||||||||};
+
+{marrowtaint|items_necklaces_1:9|Marrow\'s Verderben|6|3|0|4760|1|5|||-1|9|||||9||||||||||||||||||||||};
+{valugha_gown|items_armours_3:2|Valugha\'s Seidengewand|3|3|0|3109|1|5||-1||30|||||-10|||||||||0|||||||||||||};
+{valugha_hat|items_armours_3:1|Valugha\'s schimmernder Hut|2|3|1|648|1|3||-1||15|||-2|-2|-5||||||||||||||||||||||};
+{hat_crit|items_armours_3:0|Gefederter Hut des Holzfällers|2|3|0|1|1||||||4||||-5||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0611_2">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{thorin_bone|items_misc:44|Chewed bone|31|1|1|0|||||||||||||||||||||||||||||||||};
+{spider|items_misc:40|Tote Spinne|31||1|1|||||||||||||||||||||||||||||||||};
+{irdegh|items_misc:49|Irdegh Giftdrüse|31||1|5|||||||||||||||||||||||||||||||||};
+{arulir_skin|items_misc:39|Arulir Fell|31||1|4|||||||||||||||||||||||||||||||||};
+{algangror_rat|items_misc:38|Eigenartig aussehender Rattenschwanz|31|1|1|0|||||||||||||||||||||||||||||||||};
+{oegyth|items_misc:35|Oegyth Kristall|31|1|1|0|||||||||||||||||||||||||||||||||};
+{toszylae_heart|items_misc:6|Dämonenherz|31|1|1|0|||||||||||||||||||||||||||||||||};
+{potion_rotworm|items_consumables:63|Kazaul-Maden|31|1|1|0|||||||||||||||||||||||||||||||||};
+	</string>
+
+	<string name="itemlist_v0611_3">
+[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
+{lyson_marrow|items_consumables:63|Glasröhrchen mit Lyson Marrowextrakt|31|1|1|0|||||||||||||||||||||||||||||||||};
+{algangror_idol|items_misc_2:220|Kleine Figur|31|1|1|0|||||||||||||||||||||||||||||||||};
+{algangror_ring|items_rings_1:11|Algangror\'s Ring|31|1|1|0|||||||||||||||||||||||||||||||||};
+{kaverin_message|items_books:7|Kaverin\'s versiegelte Nachricht|31|1|1|0|||||||||||||||||||||||||||||||||};
+{vacor_map|items_books:9|Karte zu Vacor\'s altem Versteck|31|1|1|0|||||||||||||||||||||||||||||||||};
 	</string>
 
 </resources>

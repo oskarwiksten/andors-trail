@@ -90,7 +90,7 @@
 {arcir|monsters_mage2:0|Arcir|arcir||0|||||||||||||||arcir_start||||||||};
 {athamyr|monsters_men:4|Athamyr|athamyr||0|||||||||||||||athamyr||||||||};
 {thoronir|monsters_men2:8|Thoronir|thoronir||0||||||||||||||shop_thoronir|thoronir_default||||||||};
-{chapelgoer|monsters_men:6|Kirchgänger|chapelgoer||0|||||||||||||||chapelgoer||||||||};
+{chapelgoer|monsters_men:6|Trauernde Frau|chapelgoer||0|||||||||||||||chapelgoer||||||||};
 {potion_merchant|monsters_mage2:0|Händler für Tränke|fallhaven_potions||0||||||||||||||shop_fallhaven_potions|fallhaven_potions||||||||};
 {tailor|monsters_men2:0|Schneider|fallhaven_clothes||0||||||||||||||shop_fallhaven_clothes|fallhaven_clothes||||||||};
 {bela|monsters_men:7|Bela|bela||0||||||||||||||shop_bela|bela||||||||};
@@ -193,7 +193,7 @@
 {vicious_hound|monsters_rltiles2:110|Tückischer Jagdhund|forestboar4||4|||31|10|5|5|150|||3|9|60|3|canineboss|||||||||};
 {mountain_wolf|monsters_rltiles2:109|Bergwolf|primwolf1||4|||49|10|5|5|150|||3|9|60|3|canine|||||||||};
 
-{hatchling_white_wyrm|monsters_rltiles1:118|Geschlüpfter weißer|wyrm_1||7|||41|10|5|5|75|||4|10|130|5|wyrm_1||1||||||{{fatigue_minor|1|5|10|}}|};
+{hatchling_white_wyrm|monsters_rltiles1:118|Geschlüpfter weißer Lindwurm|wyrm_1||7|||41|10|5|5|75|||4|10|130|5|wyrm_1||1||||||{{fatigue_minor|1|5|10|}}|};
 {young_white_wyrm|monsters_rltiles1:118|Junger weißer Lindwurm|wyrm_2||7|||47|10|5|5|75|||4|10|130|5|wyrm_2||1||||||{{fatigue_minor|1|5|20|}}|};
 {white_wyrm|monsters_rltiles1:119|Weißer Lindwurm|wyrm_3||7|||55|10|5|3|75|||4|10|130|5|wyrm_3||1||||||{{fatigue_minor|1|5|50|}}|};
 {young_aulaeth|monsters_rltiles2:176|Junger Aulaeth|wyrm_1||5|||105|10|5|5|40|||0|4|30|5|aulaeth||1|1|1|||||};
@@ -212,7 +212,7 @@
 {grave_spawn|monsters_rltiles1:49|Gruftbewohner|restless_dead_1||2|||45|10|5|5|110|40|2|2|5|35|3|restless_dead_1|||||||||};
 {restless_apparition|monsters_rltiles1:47|Ruhelose Erscheinung|restless_dead_2||8|||29|10|5|3|90|60|3|2|6|10|1|restless_dead_2|||||||||};
 {skeletal_reaper|monsters_rltiles1:27|Sensenmann|restless_dead_2||3|||15|10|5|5|150|20|2|0|9|110||restless_dead_2|||||||||};
-{kazaul_spawn|monsters_rltiles1:41|Kazaul Spawn|kazaul_1||2|||45|10|5|3|70|50|2|3|5|90|1|kazaul_1|||||||||};
+{kazaul_spawn|monsters_rltiles1:41|Kazaul Nestling|kazaul_1||2|||45|10|5|3|70|50|2|3|5|90|1|kazaul_1|||||||||};
 {kazaul_imp|monsters_rltiles1:45|Kazaul Kobold|kazaul_2||2|||45|10|5|3|70|40|2|3|7|105|1|kazaul_2|||||||||};
 {kazaul_guardian|monsters_rltiles1:42|Kazaul Wächter|kazaul_guardian||2|1||95|10|5|5|70|40|2|3|8|90|3|kazaul_guardian|kazaul_guardian||||||||};
 {graverobber|monsters_karvis2:3|Grabräuber|bjorgur_bandit||0|1||62|10|5|5|120|||2|6|72|1|bjorgur_bandit|bjorgur_bandit||||||||};
@@ -398,6 +398,165 @@
 {iqhan_chb_1b|monsters_rltiles1:19|Iqhan Chaos Bestie|iqhan_chb_1||3|||140|10|10|10|150|10|3|0|15|45|9|iqhan_beast||1||||||{{chaotic_grip|5|5|50|}}|};
 {iqhan_greeter|monsters_men:8|Rancent|iqhan_greeter||0|1||||||||||||||iqhan_greeter||||||||};
 {iqhan_boss|monsters_rltiles1:5|Iqhan Chaos Versklaver|iqhan_boss||6|1||120|10|5|3|170|30|2|2|13|75|2|iqhan_boss|iqhan_boss|1||||||{{chaotic_grip|7|5|50|}{chaotic_curse|3|5|50|}}|};
+	</string>
+
+	<string name="monsterlist_v0611_monsters1">
+[id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{cbeetle_1|monsters_rltiles2:63|Junger Aaskäfer|scaradon_1||1|||45|10|5|5|65|||0|5|30|9|scaradon|||||||||};
+{cbeetle_2|monsters_rltiles2:63|Aaskäfer|scaradon_1||1|||51|10|5|5|75|||0|5|30|9|scaradon|||||||||};
+{scaradon_1|monsters_rltiles1:98|Junger Scaradon|scaradon_1||1|||32|10|5|3|50|||0|4|30|15|scaradon|||||||||};
+{scaradon_2|monsters_rltiles1:98|Kleiner Scaradon|scaradon_2||1|||35|10|5|3|50|||1|4|30|15|scaradon|||||||||};
+{scaradon_3|monsters_rltiles1:97|Scaradon|scaradon_2||1|||35|10|5|3|50|||0|4|30|17|scaradon|||||||||};
+{scaradon_4|monsters_rltiles1:97|Kräftiger Scaradon|scaradon_2||1|||37|10|5|3|50|||1|4|30|17|scaradon|||||||||};
+{scaradon_5|monsters_rltiles1:97|Hartschalen Scaradon|scaradon_3||1|||38|10|5|3|50|||1|5|30|18|scaradon_b|||||||||};
+
+{mwolf_1|monsters_dogs:3|Bergwolfwelpe|mwolf_1||4|||45|10|5|5|80|10|2|2|7|40|3|mwolf|||||||||};
+{mwolf_2|monsters_dogs:3|Junger  Bergwolf|mwolf_1||4|||52|10|5|5|80|10|2|3|7|44|3|mwolf|||||||||};
+{mwolf_3|monsters_dogs:2|Junger Bergfuchs|mwolf_1||4|||56|10|5|5|80|10|2|3|7|48|4|mwolf|||||||||};
+{mwolf_4|monsters_dogs:2|Bergfuchs|mwolf_2||4|||60|10|5|5|85|10|2|3|8|52|4|mwolf|||||||||};
+{mwolf_5|monsters_dogs:2|Wilder Bergfuchs|mwolf_2||4|||64|10|5|3|85|10|2|3|8|54|5|mwolf|||||||||};
+{mwolf_6|monsters_dogs:4|Tollwütiger Bergwolf|mwolf_2||4|||67|10|5|3|90|10|2|3|9|56|5|mwolf|||||||||};
+{mwolf_7|monsters_dogs:4|Starker Bergwolf|mwolf_3||4|||73|10|5|3|90|10|2|3|9|57|6|mwolf|||||||||};
+{mwolf_8|monsters_dogs:4|Wilder Bergwolf|mwolf_3||4|||78|10|5|3|90|10|2|3|10|59|6|mwolf_b|||||||||};
+
+{mbrute_1|monsters_rltiles2:35|Junge Bergkreatur|mbrute_1||5|||148|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_2|monsters_rltiles2:35|Schwache Bergkreatur|mbrute_1||5|||157|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_3|monsters_rltiles2:36|Weißpelzige Bergkreatur|mbrute_1||5|||166|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_4|monsters_rltiles2:35|Bergkreatur|mbrute_2||5|||175|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_5|monsters_rltiles2:36|Große Bergkreatur|mbrute_2||5|||184|10|5|5|70|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_6|monsters_rltiles2:34|Schnelle Bergkreatur|mbrute_2||5|||82|12|5|3|80|20|2.5|0|14|60|4|mbrute|||||||||};
+{mbrute_7|monsters_rltiles2:34|Flinke Bergkreatur|mbrute_3||5|||93|12|5|3|80|20|2.5|0|15|60|4|mbrute|||||||||};
+{mbrute_8|monsters_rltiles2:34|Aggressive Bergkreatur|mbrute_3||5|||104|12|5|3|80|20|2.5|1|15|60|4|mbrute|||||||||};
+{mbrute_9|monsters_rltiles2:33|Starke Bergkreatur|mbrute_3||5|||115|10|5|3|80|20|2.5|1|15|60|4|mbrute|||||||||};
+{mbrute_10|monsters_rltiles2:33|Kräftige Bergkreatur|mbrute_4||5|||126|10|5|3|80|30|3|2|15|60|4|mbrute|||||||||};
+{mbrute_11|monsters_rltiles2:33|Furchtlose Bergkreatur|mbrute_4||5|||137|10|5|3|80|30|3|2|15|60|4|mbrute_b|||||||||};
+{mbrute_12|monsters_rltiles2:33|Wütende Bergkreatur|mbrute_4||5|||148|10|5|3|80|40|3|2|16|60|4|mbrute_b|||||||||};
+
+{erumen_1|monsters_rltiles2:114|Junge Erumem Echse|erumen_1||7|||45|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_2|monsters_rltiles2:114|Gefleckte Erumem Echse|erumen_1||7|||45|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_3|monsters_rltiles2:114|Erumem Echse|erumen_2||7|||45|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_4|monsters_rltiles2:115|Starke Erumen Echse|erumen_2||7|||79|10|5|3|125|||2|9|80|4|erumen|||||||||};
+{erumen_5|monsters_rltiles2:115|Widerliche Erumen Echse|erumen_3||7|||89|10|5|3|150|||2|9|80|4|erumen|||||||||};
+{erumen_6|monsters_rltiles2:117|Kräftige Erumen Echse|erumen_3||7|||91|10|5|3|125|||2|9|90|8|erumen|||||||||};
+{erumen_7|monsters_rltiles2:117|Gehärtete Erumen Echse|erumen_4||7|||93|10|5|3|125|||2|9|90|12|erumen_b||||||||{{bleeding_wound|3|3|50|}}|};
+
+{plaguesp_1|monsters_rltiles2:61|Mickriger Seuchenkrabbler|plaguespider_1||1|||55|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|1|5|70|}{blister|1|5|20|}}|};
+{plaguesp_2|monsters_rltiles2:61|Seuchenkrabbler|plaguespider_1||1|||57|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|20|}}|};
+{plaguesp_3|monsters_rltiles2:61|Kräftiger Seuchenkrabbler|plaguespider_1||1|||59|10|5|3|80|60|3|1|6|140||plaguespider||1||||||{{contagion|3|5|70|}{blister|2|5|20|}}|};
+{plaguesp_4|monsters_rltiles2:61|Schwarzer Seuchenkrabbler|plaguespider_2||1|||61|10|5|3|80|60|3|1|6|150||plaguespider||1||||||{{contagion|4|5|70|}{blister|3|5|20|}}|};
+{plaguesp_5|monsters_rltiles2:151|Pestkrabbler|plaguespider_2||1|||62|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|4|5|70|}{blister|3|5|20|}}|};
+{plaguesp_6|monsters_rltiles2:151|Hartschalen Pestkrabbler|plaguespider_2||1|||63|10|5|3|80|60|3|2|6|150||plaguespider||1||||||{{contagion|5|5|70|}{blister|4|5|20|}}|};
+{plaguesp_7|monsters_rltiles2:151|Kräftiger Pestkrabbler|plaguespider_3||1|||64|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|5|5|70|}{blister|4|5|20|}}|};
+{plaguesp_8|monsters_rltiles2:153|Flauschiger Pestkrabbler|plaguespider_3||1|||65|10|5|3|80|70|3|2|6|155||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_9|monsters_rltiles2:153|Kräftiger flauschiger Pestkrabbler|plaguespider_3||1|||66|10|5|3|80|70|3|2|7|160||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_10|monsters_rltiles2:151|Widerlicher Pestkrabbler|plaguespider_4||1|||67|10|5|3|85|70|3|2|7|160||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_11|monsters_rltiles2:153|Nistender Pestkrabbler|plaguespider_4||1|||68|10|5|3|85|70|3|2|7|165||plaguespider||1||||||{{contagion|6|5|70|}{blister|5|5|50|}}|};
+{plaguesp_12|monsters_rltiles2:38|Pestkrabbler Diener|plaguespider_5||6|||65|10|5|3|85|120|3|2|7|165||plaguespider||1||||||{{contagion|7|5|70|}{blister|6|5|50|}}|};
+{plaguesp_13|monsters_rltiles2:38|Pestkrabbler Meister|plaguespider_6||6|||65|10|5|3|85|120|3|2|8|175|2|plaguespider_b||1||||||{{contagion|7|5|70|}{blister|6|5|50|}}|};
+
+{allaceph_1|monsters_rltiles2:101|Junger Allaceph|allaceph_1||2|||90|10|5|3|80|40|2|3|7|105|1|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
+{allaceph_2|monsters_rltiles2:101|Allaceph|allaceph_1||2|||94|10|5|3|80|40|2|3|7|105|1|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
+{allaceph_3|monsters_rltiles2:102|Starker Allaceph|allaceph_2||2|||101|10|5|3|80|40|2|3|7|105|2|allaceph||1|4|4||||{{feebleness_minor|2|3|20|}}|};
+{allaceph_4|monsters_rltiles2:102|Kräftiger Allaceph|allaceph_2||2|||111|10|5|3|80|40|2|3|7|110|2|allaceph||1|4|4||||{{feebleness_minor|3|3|20|}}|};
+{allaceph_5|monsters_rltiles2:103|Strahlender Allaceph|allaceph_3||2|||124|10|5|3|80|40|2|3|7|110|3|allaceph_b||1|6|6||||{{feebleness_minor|3|3|20|}}|};
+{allaceph_6|monsters_rltiles2:103|Ehrwürdiger Allaceph|allaceph_3||2|||133|10|5|3|80|40|2|3|7|115|3|allaceph_b||1|7|7||||{{feebleness_minor|3|3|20|}}|};
+{vaeregh_1|monsters_rltiles1:42|Vaeregh|allaceph_4||2|||149|10|5|3|80|40|2|2|7|120|4|allaceph||1|10|10||||{{feebleness_minor|4|3|20|}}|};
+
+{irdegh_sp_1|monsters_rltiles2:26|Irdegh Nestling|irdegh_spawn||7|||57|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_irdegh|2|3|10|}}|};
+{irdegh_sp_2|monsters_rltiles2:26|Irdegh Nestling|irdegh_spawn||7|||68|12|5|3|120|||0|6|80||irdegh_spawn||1||||||{{poison_irdegh|2|3|10|}}|};
+{irdegh_1|monsters_rltiles2:15|Irdegh|irdegh_1||7|||115|10|5|3|120|||3|7|60|10|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_2|monsters_rltiles2:15|Giftiger Irdegh|irdegh_2||7|||120|10|5|3|120|||3|7|60|11|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_3|monsters_rltiles2:14|Stachliger Irdegh|irdegh_3||7|||125|10|5|3|120|10|2|3|7|60|11|irdegh||1||||||{{poison_irdegh|3|4|50|}}|};
+{irdegh_4|monsters_rltiles2:14|Ehrwürdiger stachliger Irdegh|irdegh_4||7|||130|10|5|3|120|30|2|3|7|60|14|irdegh_b||1||||||{{poison_irdegh|3|4|70|}}|};
+
+{maonit_1|monsters_rltiles1:104|Maonit Kobold|maonit_1||5|||255|5|5|5|65|10|3|1|20|20|4|maonit|||||||||};
+{maonit_2|monsters_rltiles1:104|Riesiger Maonit Kobold|maonit_1||5|||270|5|5|5|65|10|3|1|20|20|4|maonit|||||||||};
+{maonit_3|monsters_rltiles1:104|Starker Maonit Kobold|maonit_2||5|||285|5|5|5|65|20|3|1|20|20|5|maonit|||||||||};
+{maonit_4|monsters_rltiles1:107|Maonitkreatur brute|maonit_2||5|||290|5|5|5|65|20|3|1|20|20|5|maonit|||||||||};
+{maonit_5|monsters_rltiles1:107|Kräftige Maonitkreatur|maonit_3||5|||310|5|5|5|65|30|3|1|20|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
+{maonit_6|monsters_rltiles1:107|Starke Maonitkreatur|maonit_3||5|||320|5|5|5|65|30|3|1|20|20|6|maonit||1||||||{{stunned|1|3|10|}}|};
+{arulir_1|monsters_rltiles1:13|Arulir|arulir_1||5|||325|5|5|5|70|30|3|1|20|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
+{arulir_2|monsters_rltiles1:13|Riesiger Arulir|arulir_1||5|||330|5|5|5|70|30|3|1|20|20|8|arulir||1||||||{{stunned|1|3|20|}}|};
+
+{burrower_1|monsters_rltiles2:164|Höhlengräberraupe|burrower_1||1|||30|10|5|5|95|||1|25|80|2|burrower|||||||||};
+{burrower_2|monsters_rltiles2:164|Höhlengräber|burrower_1||1|||37|10|5|5|95|||1|25|80|2|burrower|||||||||};
+{burrower_3|monsters_rltiles2:165|Starker Raupengräber|burrower_2||1|||44|10|5|5|95|||1|25|80|2|burrower|||||||||};
+{burrower_4|monsters_rltiles2:165|Riesiger Raupengräber|burrower_3||1|||75|10|5|5|95|||1|25|80|2|burrower|||||||||};
+	</string>
+
+	<string name="monsterlist_v0611_npcs1">
+[id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{ulirfendor|monsters_rltiles1:84|Ulirfendor|ulirfendor||0|1||288|10|5|3|70|30|2|1|16|60|6|ulirfendor|ulirfendor||||||||};
+{gylew|monsters_mage2:0|Gylew|gylew||0|||||||||||||||gylew||||||||};
+{gylew_henchman|monsters_men:8|Gylew\'s Anhänger|gylew_henchman||0|||||||||||||||gylew_henchman||||||||};
+{toszylae|monsters_liches:1|Toszylae|toszylae||6|1||207|8|5|2|80|40|2|2|7|120|4|toszylae|toszylae|1|6|6||||{{feebleness_minor|3|3|20|}}|};
+{toszylae_guard|monsters_rltiles1:20|Strahlender Wächter|toszylae_guard||2|1||320|10|5|3|80|40|2|2|7|120|4|toszylae_guard|toszylae_guard|1|5|5||||{{feebleness_minor|2|3|20|}}|};
+{thorin|monsters_rltiles1:66|Thorin|thorin||0||||||||||||||shop_thorin|thorin||||||||};
+
+{lonelyhouse_sp|monsters_rats:1|Kellerratte|lonelyhouse_sp||4|1||79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};
+{algangror|monsters_rltiles1:68|Algangror|algangror||0|1||241|10|5|3|80|200|2|3|9|120|4|algangror|algangror||||||||};
+{remgard_bridge|monsters_men2:4|Brücken Beobachtungsposten|remgard_bridge||0|1||||||||||||||remgard_bridge||||||||};
+	</string>
+
+	<string name="monsterlist_v0611_npcs2">
+[id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
+{ingus|monsters_rltiles1:94|Ingus|ingus||0|||||||||||||||ingus||||||||};
+{elwyl|monsters_rltiles3:17|Elwyl|elwyl||0|||||||||||||||elwyl||||||||};
+{elwel|monsters_rltiles3:17|Elwel|elwel||0|||||||||||||||elwel||||||||};
+{hjaldar|monsters_rltiles1:70|Hjaldar|hjaldar||0||||||||||||||shop_hjaldar|hjaldar||||||||};
+{norath|monsters_ld1:8|Norath|norath||0|||||||||||||||norath||||||||};
+{rothses|monsters_ld1:14|Rothses|rothses||0||||||||||||||shop_rothses|rothses||||||||};
+{duaina|monsters_ld1:154|Duaina|duaina||0|||||||||||||||duaina||||||||};
+{rg_villager1|monsters_ld1:132|Bürger|remgard_villager1||0|||||||||||||||remgard_villager1||||||||};
+{rg_villager2|monsters_ld1:20|Bürger|remgard_villager2||0|||||||||||||||remgard_villager2||||||||};
+{rg_villager3|monsters_ld1:134|Bürger|remgard_villager3||0|||||||||||||||remgard_villager3||||||||};
+{jhaeld|monsters_mage:0|Jhaeld|jhaeld||0|||||||||||||||jhaeld||||||||};
+{krell|monsters_men2:6|Krell|krell||0|||||||||||||||krell||||||||};
+{elythom_kn1|monsters_men:3|Ritter von Elythom|elythom_knight1||0|||||||||||||||elythom_knight1||||||||};
+{elythom_kn2|monsters_men:3|Ritter von Elythom|elythom_knight2||0|||||||||||||||elythom_knight2||||||||};
+
+{almars|monsters_rogue1:0|Almars|almars||0|||||||||||||||almars||||||||};
+{arghes|monsters_rogue1:0|Arghes|arghes||0||||||||||||||shop_arghes|arghes||||||||};
+{arnal|monsters_ld1:28|Arnal|arnal||0||||||||||||||shop_arnal|arnal||||||||};
+{atash|monsters_ld1:38|Aatash|atash||0|||||||||||||||atash||||||||};
+{caeda|monsters_ld1:145|Caeda|caeda||0|||||||||||||||caeda||||||||};
+{carthe|monsters_man1:0|Carthe|carthe||0|||||||||||||||carthe||||||||};
+{chael|monsters_men:0|Chael|chael||0|||||||||||||||chael||||||||};
+{easturlie|monsters_men:6|Easturlie|easturlie||0|||||||||||||||easturlie||||||||};
+{emerei|monsters_ld1:27|Emerei|emerei||0|||||||||||||||emerei||||||||};
+{ervelyn|monsters_ld1:228|Ervelyn|ervelyn||0||||||||||||||shop_ervelyn|ervelyn||||||||};
+{freen|monsters_rltiles1:77|Freen|freen||0|||||||||||||||freen||||||||};
+{janach|monsters_rltiles3:8|Janach|janach||0|||||||||||||||janach||||||||};
+{kendelow|monsters_man1:0|Kendelow|kendelow||0||||||||||||||shop_kendelow|kendelow||||||||};
+{larni|monsters_ld1:26|Larni|larni||0|||||||||||||||larni||||||||};
+{maelf|monsters_ld1:53|Maelf|maelf||0|||||||||||||||maelf||||||||};
+{morgisia|monsters_rltiles3:5|Morgisia|morgisia||0|||||||||||||||morgisia||||||||};
+{perester|monsters_rltiles3:18|Perester|perester||0|||||||||||||||perester||||||||};
+{perlynn|monsters_mage2:0|Perlynn|perlynn||0|||||||||||||||perlynn||||||||};
+{reinkarr|monsters_rltiles1:66|Reinkarr|reinkarr||0|||||||||||||||reinkarr||||||||};
+{remgard_d1|monsters_ld1:18|Tavernengast|remgard_drunk||0|||||||||||||||remgard_drunk1||||||||};
+{remgard_d2|monsters_rltiles2:81|Tavernengast|remgard_drunk||0|||||||||||||||remgard_drunk2||||||||};
+{remgard_farmer1|monsters_ld1:26|Bauer|remgard_farmer1||0|||||||||||||||remgard_farmer1||||||||};
+{remgard_farmer2|monsters_ld1:220|Bauer|remgard_farmer2||0|||||||||||||||remgard_farmer2||||||||};
+{remgard_g1|monsters_ld1:4|Wachposten|remgard_guard||0|||||||||||||||fallhaven_guard||||||||};
+{remgard_g2|monsters_ld1:5|Wachposten|remgard_guard||0|||||||||||||||blackwater_guard1||||||||};
+{remgard_g3|monsters_ld1:67|Wachposten|remgard_guard2||0|||||||||||||||remgard_guard1||||||||};
+{remgard_pg|monsters_ld1:11|Gefängnis Wachposten|remgard_prison_guard||0|||||||||||||||remgard_prison_guard||||||||};
+{rg_villager4|monsters_ld1:164|Bürger|remgard_villager4||0|||||||||||||||remgard_villager4||||||||};
+{rg_villager5|monsters_ld1:148|Bürger|remgard_villager5||0|||||||||||||||remgard_villager5||||||||};
+{rg_villager6|monsters_ld1:188|Bürger|remgard_villager6||0|||||||||||||||remgard_villager6||||||||};
+{rg_villager7|monsters_ld1:10|Bürger|remgard_villager7||0|||||||||||||||remgard_villager7||||||||};
+{rg_villager8|monsters_rltiles3:18|Bürger|remgard_villager8||0|||||||||||||||remgard_villager8||||||||};
+{skylenar|monsters_ld1:3|Skylenar|skylenar||0||||||||||||||shop_skylenar|skylenar||||||||};
+{taylin|monsters_rltiles1:74|Taylin|taylin||0|||||||||||||||taylin||||||||};
+{petdog|monsters_dogs:0|Hund|petdog||4|||||||||||||||petdog||||||||};
+{kaverin|monsters_ld1:100|Kaverin|kaverin||5|1||320|5|5|3|65|30|3|1|20|90|6|kaverin|kaverin|0|||||||};
+
+{izthiel_cr|monsters_rltiles2:52|Izthiel Wächter|izthiel_cr||7|1||354|10|5|3|120|||3|7|60|11|oegyth1||1||||||{{bleeding_wound|3|5|50|}}|};
+{burrower_cr|monsters_rltiles2:165|Riesiger Raupengräber|burrower_cr||1|1||175|10|5|5|95|||1|25|80|2|oegyth1|||||||||};
+{allaceph_cr|monsters_rltiles2:103|Ehrwürdiger Allaceph|allaceph_cr||2|1||333|10|5|3|80|40|2|3|7|115|3|oegyth1||1|7|7||||{{feebleness_minor|3|3|20|}}|};
+{plaguesp_cr|monsters_rltiles2:38|Pestkrabbler Meister|plaguespider_cr||6|1||365|10|5|3|85|160|3|2|8|175|2|oegyth1||1||||||{{contagion|4|5|70|}{blister|3|5|50|}}|};
+{maonit_cr|monsters_rltiles1:107|Starke Maonitkreatur|maonit_cr||5|1||620|5|5|5|65|30|3|1|20|20|6|oegyth1||1||||||{{stunned|1|3|10|}}|};
 	</string>
 
 </resources>

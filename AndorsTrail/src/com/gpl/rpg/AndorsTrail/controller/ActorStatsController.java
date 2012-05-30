@@ -200,9 +200,10 @@ public class ActorStatsController {
 			view.controller.handlePlayerDeath();
 			return;
 		}
-		view.mainActivity.updateStatus();
 
 		if (!isFullRound) decreaseDurationAndRemoveConditions(player);
+		
+		view.mainActivity.updateStatus();
 	}
 
 	private static void removeConditionsFromSkillEffects(Player player) {

@@ -1,0 +1,465 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<resources>
+	<string name="conversationlist_mikhail">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{mikhail_start_select|||{{|mikhail_start_select2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_start_select2|||||}}|};
+{mikhail_start_select2|||{{|mikhail_start_select_default|mikhail_rats:100||||}{|mikhail_rats_continue|mikhail_rats:10||||}{|mikhail_start_select_default|||||}}|};
+{mikhail_start_select_default|||{{|mikhail_visited|andor:1||||}{|mikhail_gamestart|||||}}|};
+{mikhail_gamestart|Oh gut, du bist wach.||{{N|mikhail_visited|||||}}|};
+{mikhail_visited|Ich kann deinen Bruder Andor nirgends finden. Weißt du, wo er sein könnte? Er ging gestern weg und ist bis jetzt noch nicht zurück.|{{0|andor|1|}}|{{N|mikhail3|||||}}|};
+{mikhail3|Naja, er wird wahrscheinlich bald wieder da sein.||{{N|mikhail_default|||||}}|};
+{mikhail_default|Kann ich dir noch bei etwas anderem helfen?||{{Hast du eine Aufgabe für mich?|mikhail_tasks|||||}{Gibt es noch etwas anderes, das du mir über Andor sagen kannst?|mikhail_andor1|||||}}|};
+{mikhail_tasks|Oh natürlich, es gibt zwei Dinge, die erledigt werden müssten: Brot und Ratten. Was möchtest du machen?||{{Was ist mit dem Brot?|mikhail_bread_select|||||}{Was ist mit den Ratten?|mikhail_rats_select|||||}{Reden wir über die anderen Dinge.|mikhail_default|||||}}|};
+{mikhail_andor1|Wie ich schon sagte, ging Andor gestern weg und ist seither nicht wieder gekommen. Ich mache mir langsam Sorgen um ihn. Bitte suche nach deinem Bruder, denn er hat eigentlich gesagt, dass er nur kurz weggehen würde.||{{N|mikhail_andor2|||||}}|};
+{mikhail_andor2|Vielleicht ist er wieder in die Lagerhöhle gegangen und sitzt dort fest. Oder er ist in Leta\'s Keller und trainiert wieder mal mit diesem Holzschwert. Bitte schau, ob du ihn irgendwo im Dorf finden kannst.||{{N|mikhail_default|||||}}|};
+{mikhail_bread_select|||{{|mikhail_bread_complete2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_bread_start|||||}}|};
+{mikhail_bread_start|Oh, das habe ich beinahe vergessen: Wenn du Zeit hast, gehe bitte zu Mara ins Gemeindehaus und kaufe noch ein Brot.|{{0|mikhail_bread|10|}}|{{N|mikhail_default|||||}}|};
+{mikhail_bread_continue|Hast Du das Brot von Mara schon besorgt?||{{Ja, hier ist es.|mikhail_bread_complete||bread|1|0|}{Nein, noch nicht.|mikhail_default|||||}}|};
+{mikhail_bread_complete|Danke schön, jetzt kann ich endlich frühstücken. Hier, diese Münzen hast du dir verdient.|{{0|mikhail_bread|100|}{1|gold20||}}|{{N|mikhail_default|||||}}|};
+{mikhail_bread_complete2|Danke, dass du mir das Brot geholt hast.||{{Gern geschehen.|mikhail_default|||||}}|};
+{mikhail_rats_select|||{{|mikhail_rats_complete2|mikhail_rats:100||||}{|mikhail_rats_continue|mikhail_rats:10||||}{|mikhail_rats_start|||||}}|};
+{mikhail_rats_start|Ich habe heute Morgen ein paar Ratten in unserem Garten entdeckt. Könntest du sie bitte töten, bevor sie Schaden anrichten?|{{0|mikhail_rats|10|}}|{{Ich habe mich schon um die Ratten gekümmert.|mikhail_rats_complete||tail_trainingrat|2|0|}{Okay, ich werde mal im Garten nach dem Rechten sehen.|mikhail_rats_start2|||||}}|};
+{mikhail_rats_start2|Wenn du von den Ratten verletzt wirst, komm\' wieder rein und ruh dich im Bett aus. Das wird dich wieder zu Kräften kommen lassen.||{{N|mikhail_rats_start3|||||}}|};
+{mikhail_rats_start3|Ach so: Schau mal in deinen Rucksack. Vielleicht ist dort noch der alte Ring, den ich dir einmal gegeben habe. Du solltest ihn an den Finger stecken.||{{Okay, verstanden. Ich kann mich hier ausruhen, wenn ich verletzt werde und ich sollte in meinem Rucksack nach nützlichen Gegenständen suchen.|mikhail_default|||||}}|};
+{mikhail_rats_continue|Hast du die beiden Ratten in unserem Garten erwischt?||{{Ja, das Rattenproblem ist erledigt.|mikhail_rats_complete||tail_trainingrat|2|0|}{Nein, ich bin noch dabei.|mikhail_rats_start2|||||}}|};
+{mikhail_rats_complete|Tatsächlich? Ich bin dir wirklich sehr dankbar für deine Hilfe\n\nDenk\' dran: Wenn du verletzt bist, kannst du dich jederzeit im Bett ausruhen.|{{0|mikhail_rats|100|}}|{{N|mikhail_default|||||}}|};
+{mikhail_rats_complete2|Danke nochmal für deine Hilfe mit den Ratten.\n\nWenn du verletzt bist, kannst du dich in dem Bett dort drüben ausruhen.||{{N|mikhail_default|||||}}|};
+	</string>
+	
+	<string name="conversationlist_crossglen_leta">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{leta1|Hey, das ist mein Haus. Raus hier!||{{Aber ich wollte doch nur...|leta2|||||}{Was ist mit deinem Mann Oromir?|leta_oromir_select|||||}}|};
+{leta2|Zisch ab Junge, raus aus meinem Haus!||{{Was ist mit deinem Mann Oromir?|leta_oromir_select|||||}}|};
+{leta_oromir_select|||{{|leta_oromir_complete2|leta:100||||}{|leta_oromir1|||||}}|};
+{leta_oromir1|Weißt du etwas über meinen Ehemann? Der Faulpelz sollte mir heute bei der Arbeit auf dem Hof helfen, aber er glänzt wieder einmal mit seiner Abwesenheit.\n[Seufz].||{{Ich habe keine Ahnung.|leta_oromir2|||||}{Ja, ich habe gesehen, wie er sich bei einigen Bäumen östlich von hier versteckt hat.|leta_oromir_complete|leta:20||||}}|};
+{leta_oromir2|Wenn du ihn findest, kannst du ihm ausrichten, dass er schnellstens zurück kommen soll um mir bei der Arbeit zu helfen.\nUnd jetzt raus hier!|{{0|leta|10|}}||};
+{leta_oromir_complete|Er versteckt sich? Das sieht ihm ja mal wieder ähnlich. Es wird Zeit, dass ich ihn erinnere, wer hier der Boss ist.\nDanke übrigens für die Information.|{{0|leta|100|}}||};
+{leta_oromir_complete2|Danke für deine Informationen über Oromir. Ich werde ihn mir gleich vorknöpfen.|||};
+{oromir1|Puh, hast du mich erschreckt.\nHallo.||{{Hallo|oromir2|||||}}|};
+{oromir2|Ich verstecke mich vor meiner Frau Leta. Sie wird immer ziemlich sauer, wenn ich ihr nicht auf dem Hof helfe. Bitte erzähle ihr nicht, wo ich bin.|{{0|leta|20|}}|{{In Ordnung.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{audir1|Willkommen in meinem Laden!\n\nBitte schaue dir meine erlesenen Waren nur näher an.||{{Bitte zeige mir dein Angebot.|S|||||}}|};
+{arambold1|Oh Mann, ob ich wohl jemals ein wenig schlafen kann, wenn diese Saufköpfe so weitersingen?\n\nJemand sollte etwas dagegen tun.||{{Kann ich mich hier ausruhen?|arambold2|||||}{Hast du etwas zu verkaufen?|S|||||}}|};
+{arambold2|Na klar Junge, du kannst dich hier ausruhen.\n\nNimm\' dir einfach ein Bett.||{{Wiedersehen, und danke!|X|||||}}|};
+{drunk1|Trink, trink, trink - trink noch ein wenig mehr.\nTrink, trink, trink - dann wird der Becher leer.\n\nHey Junge, willst du bei unserem Trinkspiel mitmachen?||{{Nein danke.|X|||||}{Vielleicht ein andermal.|X|||||}}|};
+{mara_default|Achte nicht auf die besoffenen Typen, die machen immer Ärger.\n\nDarf es was zu essen sein?||{{Hast du etwas zu verkaufen?|S|||||}}|};
+{mara1|||{{|mara_thanks|odair:100||||}{|mara_default|||||}}|};
+{mara_thanks|Ich habe gehört, dass du Odair bei der Säuberung der alten Vorratshöhle geholfen hast. Vielen Dank, wir werden sie bald wieder benutzen können.||{{Es war mir ein Vergnügen.|mara_default|||||}}|};
+{farm1|Bitte stör\' mich nicht, ich habe zu arbeiten.||{{Hast du meinen Bruder Andor gesehen?|farm_andor|||||}}|};
+{farm2|Was? Kannst du nicht sehen, dass ich beschäftigt bin. Belästige jemand anderen.||{{Hast du meinen Bruder Andor gesehen?|farm_andor|||||}}|};
+{farm_andor|Andor? Nein, den hab\' ich in letzter Zeit nicht mehr gesehen.|||};
+{snakemaster|Ah, wen haben wir den hier? Einen Besucher, wie nett. Ich bin beeindruckt, dass du es an meinen Leuten vorbei bis hierher geschafft hast.\n\nNun stirb, jämmerliche Kreatur.||{{Wunderbar, ich habe mich auf einen Kampf gefreut!|F|||||}{Wir werden sehen, wer hier stirbt.|F|||||}{Bitte tut mir nichts!|F|||||}}|};
+{haunt|Oh Sterblicher, befreit mich aus dieser verfluchten Welt!||{{Oh, ich werde dich befreien.|F|||||}{Du meinst, ich soll dich töten?|F|||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen_tharal">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{tharal1|Das Leuchten des Schattens sei mit dir, mein Junge.||{{Hast du etwas zu verkaufen?|S|||||}{Was kannst du mir über Knochenmehl sagen?|tharal_bonemeal_select|bonemeal:10||||}}|};
+{tharal_bonemeal_select|||{{|tharal_bonemeal4|bonemeal:30||||}{|tharal_bonemeal1|||||}}|};
+{tharal_bonemeal1|Knochenmehl? Darüber sollten wir lieber nicht reden. Laut einem Erlass von Lord Geomyr ist es nicht mehr erlaubt.||{{Bitte?|tharal_bonemeal2_1|||||}}|};
+{tharal_bonemeal2_1|Nein, wir sollten wirklich nicht darüber reden.||{{Ach, komm\' schon.|tharal_bonemeal2|||||}}|};
+{tharal_bonemeal2|Nun, wenn du darauf bestehst: Bring mir 5 Insektenflügel die ich für das Herstellen von Tränken brauche, dann können wir weiterreden.|{{0|bonemeal|20|}}|{{Hier sind die Insektenflügel.|tharal_bonemeal3||insectwing|5|0|}{Okay, ich werde welche holen.|X|||||}}|};
+{tharal_bonemeal3|Danke mein Junge. Ich weiß, dass ich mich auf dich verlassen kann.|{{0|bonemeal|30|}}|{{N|tharal_bonemeal4|||||}}|};
+{tharal_bonemeal4|Oh ja, Knochenmehl. Gemischt mit den richtigen Zutaten kann es zu einem sehr wirksamen Heilmittel werden.||{{N|tharal_bonemeal5|||||}}|};
+{tharal_bonemeal5|Wir haben es früher oft benutzt. Aber jetzt hat der Bastard Lord Geomyr jeglichen Gebrauch verboten.||{{N|tharal_bonemeal6|||||}}|};
+{tharal_bonemeal6|Wie soll ich jetzt die Leute heilen? Mit normalen Heiltränken? Pah, die sind so unwirksam.||{{N|tharal_bonemeal7|||||}}|};
+{tharal_bonemeal7|Ich kenne jemand, der noch einen Vorrat an Knochenmehl hat, wenn du interessiert bist. Rede mit Thoronir, meinem Priesterkollegen in Fallhaven. Nenne ihm das Passwort \'Leuchten des Schattens\'.||{{Danke. Wiedersehen.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen_gruil">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{gruil1|Psst, hey.\n\nWillst du was kaufen?||{{Sicher, zeig\' mir deine Waren.|S|||||}{Ich habe gehört, dass du vor einiger Zeit mit meinem Bruder gesprochen hast.|gruil_select|andor:10||||}}|};
+{gruil_select|||{{|gruil_return|andor:30||||}{|gruil2|||||}}|};
+{gruil2|Dein Bruder? Oh, meinst du Andor? Ich könnte etwas wissen, aber diese Information wird dich was kosten. Wenn du mir eine Giftdrüse von einer dieser Giftschlagen bringst, werde ich es dir vielleicht sagen.|{{0|andor|20|}}|{{Hier, ich habe eine Giftdrüse für dich.|gruil_complete||gland|1|0|}{Okay, ich besorge eine.|X|||||}}|};
+{gruil_complete|Danke Kleiner. Das wird genügen.|{{0|andor|30|}}|{{N|gruil_andor1|||||}}|};
+{gruil_return|Schau Junge, ich habe dir doch schon alles erzählt.||{{N|gruil_andor1|||||}}|};
+{gruil_andor1|Ich habe gestern mit ihm gesprochen. Er fragte, ob ich jemanden mit dem Namen Umar oder so ähnlich kenne. Ich habe keine Ahnung, von was er da geredet hat.||{{N|gruil_andor2|||||}}|};
+{gruil_andor2|Er schien wirklich sehr nervös wegen irgendeiner Sache und brach beinahe fluchtartig auf. Es hatte anscheinend etwas mit der Diebesgilde in Fallhaven zu tun.||{{N|gruil_andor3|||||}}|};
+{gruil_andor3|Das ist alles was ich weiß. Vielleicht fragst du ein wenig in Fallhaven herum. Halte nach meinem Freund Gaela Ausschau, er weiß möglicherweise mehr.||{{Danke, Wiedersehen.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_crossglen_leonid">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{leonid1|Hallo Kleiner. Du bist Mikhail\'s Sohn, stimmt\'s? Und du hast noch einen Bruder.\n\nIch bin Leonid, der Vogt von Crossglen.||{{Hast du meinen Bruder Andor gesehen?|leonid_andor|||||}{Was kannst du mir über Crossglen berichten?|leonid_crossglen|||||}{Na dann, bis später.|leonid_bye|||||}}|};
+{leonid_andor|Deinen Bruder? Nein, heute habe ich ihn noch nicht gesehen. Ich denke, dass ich ihn gestern mit Gruil zusammen gesehen habe. Vielleicht weiß er mehr?|{{0|andor|10|}}|{{Danke, ich werde mit Gruil reden. Vorher möchte ich jedoch noch etwas anderes wissen.|leonid_continue|||||}{Danke, ich werde dann mal mit Gruil reden.|leonid_bye|||||}}|};
+{leonid_continue|Kann ich dir noch bei etwas anderem helfen?||{{Hast du meinen Bruder Andor gesehen?|leonid_andor|||||}{Was kannst du mir über Crossglen berichten?|leonid_crossglen|||||}{Na dann, bis später.|leonid_bye|||||}}|};
+{leonid_crossglen|Wie du weißt, ist das hier das Dorf Crossglen. Vor allem sind wir eine Bauerngemeinde.||{{N|leonid_crossglen1|||||}}|};
+{leonid_crossglen1|Wir haben Audir mit seiner Schmiede im Südwesten, die Hütte von Leta und ihrem Mann im Westen, dieses Gemeindehaus und natürlich die Hütte deines Vaters im Nordwesten.||{{N|leonid_crossglen2|||||}}|};
+{leonid_crossglen2|Das war es dann auch schon. Wir versuchen, ein friedliches Leben zu leben.||{{Ist im Dorf kürzlich etwas Besonderes geschehen?|leonid_crossglen3|||||}{In Ordnung, zurück zu den Themen von vorhin.|leonid_continue|||||}}|};
+{leonid_crossglen3|Es gab ein paar kleinere Unruhen vor einigen Wochen - wie du vielleicht bemerkt hast. Einige Dörfler stritten sich über den neuen Erlass von Lord Geomyr.||{{N|leonid_crossglen4|||||}}|};
+{leonid_crossglen4|Lord Geomyr ließ eine Anordnung betreffend der illegalen Verwendung von Knochenmehl als Heilsubstanz verkünden. Einige Dorfbewohner meinten, dass wir uns Lord Geomyr\'s Wort entgegenstellen und es dennoch weiter verwenden sollten.|{{0|bonemeal|10|}}|{{N|leonid_crossglen4_1|||||}}|};
+{leonid_crossglen4_1|Tharal, unser Geistlicher, war besonders aufgeregt und schlug vor, dass wir etwas gegen Lord Geomyr unternehmen sollten.||{{N|leonid_crossglen5|||||}}|};
+{leonid_crossglen5|Andere Dörfler meinten, dass wir Lord Geomyr\'s Erlass befolgen sollten.\n\nIch persönlich habe mich noch nicht entschieden.||{{N|leonid_crossglen6|||||}}|};
+{leonid_crossglen6|Einerseits gewährt Lord Geomyr Crossglen seinen Schutz. *er zeigt auf die Soldaten im Gemeindehaus*||{{N|leonid_crossglen7|||||}}|};
+{leonid_crossglen7|Andererseits fordern die Steuern und die jüngsten Bestimmungen, was erlaubt ist und was nicht, hohen Tribut von Crossglen.||{{N|leonid_crossglen8|||||}}|};
+{leonid_crossglen8|Jemand sollte zur Burg Geomyr gehen und mit dem Verwalter dort über unsere Situation hier in Crossglen sprechen.|{{0|crossglen|1|}}|{{N|leonid_crossglen9|||||}}|};
+{leonid_crossglen9|In der Zwischenzeit, haben wir jegliche Verwendung von Knochenmehl als Heilsubstanz untersagt.||{{Danke für die Information. Ich möchte noch etwas anderes fragen.|leonid_continue|||||}{Danke für die Information. Wiedersehen.|leonid_bye|||||}}|};
+{leonid_bye|Der Schatten sei mit dir.||{{Der Schatten sei auch mit dir.|X|||||}}|};
+	</string>
+	
+	<string name="conversationlist_crossglen_odair">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{odair1|Oh, du bist es. Du und dein Bruder, immer für etwas Ärger gut.||{{N|odair_select|||||}}|};
+{odair_select|||{{|odair_complete2|odair:100||||}{|odair_continue|odair:10||||}{|odair2|||||}}|};
+{odair2|Hmm, vielleicht könntest du mir nützlich sein. Meinst du, dass du eine kleine Aufgabe für mich erledigen kannst?||{{Erzähle mir mehr über die Aufgabe.|odair3|||||}{Sicher, wenn dabei etwas für mich herausspringt.|odair3|||||}}|};
+{odair3|Ich war kürzlich in der Höhle dort *er deutet nach Westen*, um unsere Vorräte zu prüfen. Aber offensichtlich wurde die Höhle von Ratten heimgesucht.||{{N|odair4|||||}}|};
+{odair4|Inbesonders ist mir eine Ratte aufgefallen, die größer als alle anderen war. Denkst du, dass du das Zeug dazu hast, die Ratten zu entfernen?||{{Sicher helfe ich, damit Crossglen die Vorratshöhle wieder benutzen kann.|odair5|||||}{Sicher helfe ich, aber nur, weil dabei etwas für mich herausspringen könnte.|odair5|||||}{Nein danke.|odair_cowards|||||}}|};
+{odair5|Du musst in diese Höhle und die große Ratte töten. Damit sollten wir die Rattenplage in der Höhle stoppen können. Dann endlich können wir unsere Vorratshöhle wieder benutzen.|{{0|odair|10|}}|{{Okay.|X|||||}{Wenn ich so darüber nachdenke, denke ich, dass ich dir doch nicht helfen kann.|odair_cowards|||||}}|};
+{odair_cowards|Ich habe mich nicht getäuscht. Du und dein Bruder wart schon immer Feiglinge.||{{Tschüss.|X|||||}}|};
+{odair_continue|Hast du die große Ratte in der Höhle westlich von hier schon getötet?||{{Ja, ich habe die große Ratte getötet.|odair_complete||tail_caverat|1|0|}{Was sollte ich nochmal tun?|odair5|||||}{Nein, noch nicht.|odair_cowards|||||}}|};
+{odair_complete|Vielen Dank für deine Hilfe, Junge! Vielleicht bis du und dein Bruder doch nicht so feige wie ich dachte. Hier, nimm diese Münzen als Belohnung.|{{0|odair|100|}{1|gold20||}}|{{Danke|X|||||}}|};
+{odair_complete2|Nochmals vielen Dank für deine Hilfe. Nun können wir die Höhle endlich wieder als Vorratsraum verwenden.||{{Wiedersehen.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_jan">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{jan_start_select|||{{|jan_complete2|jan:100||||}{|jan_return|jan:10||||}{|jan_default|||||}}|};
+{jan_default|Hallo, Junge. Lass mich bitte allein mit meiner Trauer.||{{Was ist das Problem?|jan_default2|||||}{Möchtest du darüber reden?|jan_default2|||||}{Alles klar, Wiedersehen.|X|||||}}|};
+{jan_default2|Oh, es ist so traurig. Ich möchte wirklich nicht darüber reden.||{{Bitte, erzähl es mir.|jan_default3|||||}{Okay, Wiedersehen.|X|||||}}|};
+{jan_default3|Nun, ich denke es ist in Ordnung wenn ich es dir erzähle. Du scheinst ein freundlicher Junge zu sein.||{{N|jan_default4|||||}}|};
+{jan_default4|Mein Freund Gandir, sein Freund Irogotu und ich gingen hinunter in dieses Loch um zu graben. Wir hatten gehört, dass es hier einen verborgenen Schatz gibt.||{{N|jan_default5|||||}}|};
+{jan_default5|Wir haben angefangen zu graben und sind schließlich in ein tiefer liegendes Höhlensystem durchgebrochen. Da haben wir sie entdeckt: Kriechtiere und Käfer.||{{N|jan_default6|||||}}|};
+{jan_default6|Oh, dieses verdammte Kriechzeugs. Hätten mich beinahe getötet.\n\nGandir und ich sagten zu Irogotu, dass wir die Grabung beenden und fliehen sollten, solange wir noch könnten.||{{N|jan_default7|||||}}|};
+{jan_default7|Aber Irogotu wollte weiter in die Höhlen vordringen. Er und Gandir gerieten in Streit und fingen an zu kämpfen.||{{N|jan_default8|||||}}|};
+{jan_default8|Dann passierte es.\n\n*schluchz*\n\nOh, was haben wir nur getan?||{{Bitte erzähl weiter.|jan_default9|||||}}|};
+{jan_default9|Irogotu tötete Gandir mit seinen bloßen Händen. Man konnte das Feuer in seinen Augen sehen, beinahe als hätte er es genossen.||{{N|jan_default10|||||}}|};
+{jan_default10|Ich bin geflohen und habe mich wegen der Kriechtiere und Irogotu selbst auch nicht mehr zurück nach unten getraut.||{{N|jan_default11|||||}}|};
+{jan_default11|Oh dieser verdammte Irogotu. Wenn ich nur zu ihm gelangen könnte, dann würde ich es ihm schon zeigen.||{{Denkst du, ich kann helfen?|jan_default11_1|||||}}|};
+{jan_default11_1|Glaubst du, dass du mir helfen könntest?||{{Sicher! Da könnten ein paar Schätze auf mich warten.|jan_default12|||||}{Sicher! Irogotu soll für seine Taten bezahlen.|jan_default12|||||}{Nein danke, da möchte ich lieber nicht hineingezogen werden. Das klingt gefährlich.|X|||||}}|};
+{jan_default12|Wirklich? Du glaubst, dass du mir helfen kannst? Hm, vielleicht kannst du das wirklich. Hüte dich vor diesen Käfern, sie sind ziemlich zähe Bastarde.|{{0|jan|10|}}|{{N|jan_default13|||||}}|};
+{jan_default13|Wenn du wirklich helfen willst, finde Irogotu unten in dieser Höhle und bring mir Gandir\'s Ring zurück.||{{Sicher, ich werde dir helfen.|jan_default14|||||}{Kannst du mir deine Geschichte noch mal erzählen?|jan_background|||||}{Nichts für ungut, Wiedersehen.|X|||||}}|};
+{jan_default14|Komm zu mir zurück, wenn du fertig bist. Und hole Gandir\'s Ring von Irogotu unten in der Höhle.||{{Okay, bis später.|X|||||}}|};
+{jan_return|Hallo Junge. Hast du Irogotu in der Höhle gefunden?||{{Nein, noch nicht.|jan_default14|||||}{Kannst du mir deine Geschichte noch mal erzählen?|jan_background|||||}{Ja, ich habe Irogotu getötet.|jan_complete||ring_gandir|1|0|}}|};
+{jan_background|Hast du nicht zugehört, als ich dir alles erzählt habe? Muss ich die Geschichte wirklich noch einmal erzählen?||{{Ja, bitte wiederhole die Geschichte noch einmal.|jan_default3|||||}{Ich habe beim ersten Mal nicht so genau zugehört. Wie war das nochmal mit dem Schatz?|jan_default4|||||}{Nein, vergiss es. Ich erinnere mich wieder.|jan_default14|||||}}|};
+{jan_complete2|Danke für deine Hilfe mit Irogotu! Ich stehe für immer in deiner Schuld.||{{Wiedersehen.|X|||||}}|};
+{jan_complete|Warte mal. Du bist wirklich da hinuntergegangen und lebend zurückgekommen? Wie hast du das gemacht. Wow, ich bin schon beinahe gestorben, als ich in die Höhle gegangen bin.\n\nVielen Dank für Gandir\'s Ring. Jetzt habe ich wenigstens eine Erinnerung an ihn.|{{0|jan|100|}}|{{Ich habe gern geholfen. Auf Wiedersehen.|X|||||}{Möge der Schatten mit dir sein. Auf Wiedersehen.|X|||||}{Jaja, ich hab\' es nur wegen der Beute getan.|X|||||}}|};
+
+{irogotu|Wen haben wir den da? Wieder ein Abenteurer der gekommen ist, meinen Schatz zu stehlen. Das ist MEINE HÖHLE. Und der Schatz ist MEIN!||{{Hast du Gandir getötet?|irogotu1|jan:10||||}}|};
+{irogotu1|Dieser Frischling Gandir. Er stand mir im Weg. Ich habe ihn lediglich als Werkzeug benutzt, um mich tiefer in diese Höhle zu graben.||{{N|irogotu2|||||}}|};
+{irogotu2|Nebenbei, ich konnte ihn nie ausstehen.||{{Ich schätze, er hat den Tod verdient. Hatte er einen Ring dabei?|irogotu3|||||}{Jan erwähnte etwas von einem Ring?|irogotu3|||||}}|};
+{irogotu3|NEIN! Du kannst ihn nicht haben. Er gehört mir. Und überhaupt, wer bist du Junge, dass du hier herunterkommst, um mich zu stören?!||{{Ich bin kein Junge mehr! Und jetzt gib mir den Ring!|irogotu4|||||}{Gib mir diesen Ring und wir könnten beide lebend aus dieser Sache heraus kommen.|irogotu4|||||}}|};
+{irogotu4|Nein. Wenn du ihn willst, musst du ihn meiner leblosen Hand entreißen. Der Fairness halber sollte ich dir mitteilen, dass ich über große Macht verfüge, so dass du dich eventuell lieber für die Flucht entscheiden solltest.||{{Sehr gut, lass uns sehen, wer von uns sterben wird.|F|||||}{Beim Schatten, Gandir wird gerächt werden.|F|||||}}|};
+	</string>
+	
+	<string name="conversationlist_fallhaven">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{fallhaven_citizen1|Hallo, schönes Wetter, nicht wahr?||{{Hast du meinen Bruder Andor gesehen?|fallhaven_andor_1|||||}}|};
+{fallhaven_citizen2|Hallo, möchtest du etwas von mir?||{{Hast du meinen Bruder Andor gesehen?|fallhaven_andor_2|||||}}|};
+{fallhaven_citizen3|Hallo, kann ich dir helfen?||{{Hast du meinen Bruder Andor gesehen?|fallhaven_andor_3|||||}}|};
+{fallhaven_citizen4|Du bis der Junge aus dem Dorf Crossglen, richtig?||{{Hast du meinen Bruder Andor gesehen?|fallhaven_andor_4|||||}}|};
+{fallhaven_citizen5|Geh mir aus dem Weg.|||};
+{fallhaven_citizen6|Ich wünsche dir einen guten Tag.||{{Hast du meinen Bruder Andor gesehen?|fallhaven_andor_6|||||}}|};
+{fallhaven_andor_1|Nein, leider nicht. Ich habe niemanden gesehen, auf den deine Beschreibung passt.|||};
+{fallhaven_andor_2|Ein anderer Junge sagt du? Lass mich mal nachdenken.||{{N|fallhaven_andor_1|||||}}|};
+{fallhaven_andor_3|Hm, möglicherweise habe ich vor ein paar Tagen jemand gesehen, auf den die Beschreibung passt. Erinnere mich aber nicht mehr wo.|||};
+{fallhaven_andor_4|Oh ja, vor ein paar Tagen war da ein anderer Junge aus dem Dorf Crossglen. Obwohl ich nicht ganz sicher bin, ob deine Beschreibung passt.||{{N|fallhaven_andor_4_1|||||}}|};
+{fallhaven_andor_4_1|Da waren ein paar zwielichtige Gestalten bei ihm. Mehr als das habe ich aber nicht gesehen.|||};
+{fallhaven_andor_6|Nein, ich habe ihn nicht gesehen.|||};
+{fallhaven_guard|Mach keinen Ärger.|||};
+
+{fallhaven_priest|Der Schatten sei mit dir.||{{Kannst du mir mehr über den Schatten erzählen?|priest_shadow_1|||||}}|};
+{priest_shadow_1|Der Schatten beschützt uns. Er hält Schaden von uns fern und behütet uns, wenn wir schlafen.||{{N|priest_shadow_2|||||}}|};
+{priest_shadow_2|Er folgt uns wohin wir auch gehen. Geh mit dem Schatten mein Junge.||{{Der Schatten sei mit dir.|X|||||}{Wie du meinst, tschüss.|X|||||}}|};
+
+{rigmor|Hey du! Bist du nicht der nette kleine Bursche.||{{Hast du meinen Bruder Andor gesehen?|rigmor_1|||||}{Ich muss jetzt wirklich gehen.|rigmor_leave_select|||||}}|};
+{rigmor_1|Dein Bruder sagst du? Sein Name ist Andor? Nein, ich kann mich nicht an ihn erinnern.||{{Ich muss jetzt wirklich gehen.|rigmor_leave_select|||||}}|};
+{rigmor_leave_select|||{{|rigmor_thanks|calomyran:100||||}{|X|||||}}|};
+{rigmor_thanks|Ich hörte du hast dem alten Mann geholfen sein Buch zu finden, vielen Dank. Seit Wochen hatte er über das Buch gesprochen. Armer Mann, er neigt dazu Dinge zu vergessen.||{{Es war mir ein Vergnügen. Wiedersehen.|X|||||}{Du solltest ihn im Auge behalten, sonst könnten ihm schlimme Dinge passieren.|X|||||}{Egal, ich habe es nur wegen den Goldmünzen gemacht.|X|||||}}|};
+
+{fallhaven_clothes|Willkommen in meinem Laden. Bitte schaue dir meine erlesenen Kleider und Juwelen an.||{{Lass mich deine Waren ansehen.|S|||||}}|};
+{fallhaven_potions|Willkommen in meinem Laden. Bitte schaue dir meine wohlmundenden Getränke an.||{{Lass mich sehen, welche Getränke du hast.|S|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_bucus">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{bucus_welcome|Hallo nochmal, willkommen zurück zu .. Oh wart mal, Ich dachte, du wärst jemand anders.||{{Hast du meinen Bruder Andor gesehen?|bucus_andor_select|||||}{Was weisst du über die Diebesgilde?|bucus_thieves_select|||||}}|};
+{bucus_andor_select|||{{|bucus_umar_1|bucus:100||||}{|bucus_andor_no_1|||||}}|};
+{bucus_andor_no_1|Wie interessant, dass du fragst. Was wenn ich ihn gesehen hätte? Warum sollte ich es dir erzählen?||{{N|bucus_andor_no_2|||||}}|};
+{bucus_andor_no_2|Nein, das kann ich dir nicht sagen. Jetzt geh bitte.|||};
+{bucus_thieves_select|||{{|bucus_thieves_complete_3|bucus:100||||}{|bucus_thieves_continue|bucus:10||||}{|bucus_thieves_select2|||||}}|};
+{bucus_thieves_select2|||{{|bucus_thieves_1|andor:40||||}{|bucus_thieves_no|||||}}|};
+{bucus_thieves_no|Wa, was? Nein, ich weiss nichts darüber.|||};
+{bucus_umar_1|Okay Junge. Du hast dich als nützlich erwiesen. Ja, ich sah vor ein paar Tagen einen Junge nach deiner Beschreibung hier herumlaufen.||{{N|bucus_umar_2|||||}}|};
+{bucus_umar_2|Ich weiss nicht genau, was er wollte. Er stellte andauernd irgendwelche Fragen. Ganz ähnlich wie du. *kicher*||{{N|bucus_umar_3|||||}}|};
+{bucus_umar_3|Jedenfalls ist das alles, was ich weiss. Du solltest mit Umar sprechen, er weiss wahrscheinlich mehr. Durch die Bodenluke dort hinten.|{{0|andor|50|}}|{{Okay, tschüss|X|||||}}|};
+{bucus_thieves_1|Wer hat dir das gesagt? Argh.\n\nOkay du hast uns gefunden. Und jetzt?||{{Kann ich mich der Diebesgilde anschliessen?|bucus_thieves_2|||||}}|};
+{bucus_thieves_2|Hah! Der Diebesgilde beitreten?! Du?!\n\nDu bist ein spaßiger Junge.||{{Es ist mir ernst.|bucus_thieves_3|||||}{Ja ja, sehr lustig, hä?|bucus_thieves_3|||||}}|};
+{bucus_thieves_3|Okay, ich sag dir was Junge. Erfülle eine Aufgabe für mich und vielleicht ziehe ich es dann in betracht dir mehr Informationen zu geben.||{{Über was für eine Aufgabe sprechen wir?|bucus_thieves_4|||||}{Solange etwas für mich dabei herausspringt, bin ich dabei!|bucus_thieves_4|||||}}|};
+{bucus_thieves_4|Bring mir den Schlüssel von Luthor und wir sprechen weiter. Ich weiß nichts über den Schlüssel selbst, aber Gerüchte sagen er ist irgendwo in den Katakomben unter der Fallhaven Kirche versteckt.|{{0|bucus|10|}}|{{Okay, hört sich leicht genug an.|X|||||}}|};
+{bucus_thieves_continue|Wie geht die Suche nach dem Schlüssel von Luthor vorwärts?||{{Was sollte ich nochmal tun?|bucus_thieves_4|||||}{Hier, ich habe ihn. Den Schlüssel von Luthor.|bucus_thieves_complete_1||key_luthor|1|0|}{Ich bin immer noch am suchen. Tschüss.|X|||||}}|};
+{bucus_thieves_complete_1|Wow, du hast den Schlüssel von Luthor wirklich bekommen? Ich denke, ich würde es dort nicht mehr heraus schaffen.|{{0|bucus|100|}}|{{N|bucus_thieves_complete_2|||||}}|};
+{bucus_thieves_complete_2|Gut gemacht, Junge.||{{N|bucus_thieves_complete_3|||||}}|};
+{bucus_thieves_complete_3|Also lass uns reden. Was wolltest du wissen?||{{Was weißt du über meinen Bruder Andor?|bucus_umar_1|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_drunk">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{fallhaven_drunk|Kein Problem. Nein mein Herr! Mache jetzt keinen Ärger mehr. Ich sitze jetzt hier draussen.||{{N|fallhaven_drunk_2|||||}}|};
+{fallhaven_drunk_2|Warte, wer bist du noch? Bist du dieser Wachmann?||{{Ja|fallhaven_drunk_3_1|||||}{Nein|fallhaven_drunk_3_2|||||}}|};
+{fallhaven_drunk_3_1|Oh, Herr. Ich mache jetzt keine Mühe mehr, schau? Ich sitze hier draussen, wie du gesagt hast, okay?||{{N|fallhaven_drunk_4|||||}}|};
+{fallhaven_drunk_3_2|Oh gut. Dieser Wachmann hat mich aus der Schenke geworfen. Falls ich ihn nochmals sehe, zeige ich es ihm aber.||{{N|fallhaven_drunk_4|||||}}|};
+{fallhaven_drunk_4|Trink trink trink, trink noch mehr. Trink, trink .. Wie ging das nochmal?||{{N|fallhaven_drunk_5|||||}}|};
+{fallhaven_drunk_5|Hast du was gesagt? Wo war ich? Ja, wir waren also in dieser Höhle.||{{N|fallhaven_drunk_6|||||}}|};
+{fallhaven_drunk_6|Oder war es doch ein Haus? Ich kann mich nicht erinnern.||{{N|fallhaven_drunk_7|||||}}|};
+{fallhaven_drunk_7|Nein nein, es war draussen! Jetzt erinnere ich mich.||{{N|fallhaven_drunk_7_select|||||}}|};
+{fallhaven_drunk_7_select|||{{|fallhaven_drunk_11|fallhavendrunk:100||||}{|fallhaven_drunk_8|||||}}|};
+{fallhaven_drunk_8|Das war als wir..\n\nHey, wo ist mein Met hin? Hast du es mir weggenommen? ||{{Yes|fallhaven_drunk_9_1|||||}{No|fallhaven_drunk_9_2|||||}}|};
+{fallhaven_drunk_9_1|Also dann gib es mir zurück! Oder kauf mir ein anderes Met.|{{0|fallhavendrunk|10|}}|{{Hier, nimm etwas Met.|fallhaven_drunk_10||mead|1|0|}{Okay, ich gehe dir etwas Met kaufen.|X|||||}{Nein. Ich denke nicht, dass ich dir helfen sollte. Auf Wiedersehen.|X|||||}}|};
+{fallhaven_drunk_9_2|Ich muss es wohl getrunken haben. Könntest du mir ein neues Met besorgen? |{{0|fallhavendrunk|10|}}|{{Hier, nimm etwas Met.|fallhaven_drunk_10||mead|1|0|}{Okay, Ich gehe dir etwas Met kaufen.|X|||||}{Nein. Ich denke nicht, dass ich dir helfen sollte. Auf Wiedersehen.|X|||||}}|};
+{fallhaven_drunk_10|Oh, süßer Trank der Freude. Möge der SSSSchatten mir dir sein mein Junge. *macht große Augen*||{{N|fallhaven_drunk_11|||||}}|};
+{fallhaven_drunk_11|*nimmt einen grossen Schluck vom Met*\n\nDas ist gutes Gesöff!||{{N|fallhaven_drunk_12|||||}}|};
+{fallhaven_drunk_12|Jaaa, ich und Unnmir hatten gute Zeiten. Geh, frag in selber, er üblicherweise im Stall östlich von hier. Ich wundere mich *görps* wo der Schatz geblieben ist.|{{0|fallhavendrunk|100|}}|{{Schatz? Ich bin dabei! Ich gehe sofort Unnmir suchen.|X|||||}{Danke für die Geschichte. Auf Wiedersehen.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_oldman">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{fallhaven_oldman|||{{|fallhaven_oldman_complete_2|calomyran:100||||}{|fallhaven_oldman_continue|calomyran:10||||}{|fallhaven_oldman_1|||||}}|};
+{fallhaven_oldman_1|Kannst du bitte einem alten Mann helfen?||{{Sicher, für was brauchst du Hilfe?|fallhaven_oldman_2|||||}{Vielleicht. Reden wir über eine Art von Belohnung?|fallhaven_oldman_2|||||}{Nein, ich helfe keinem Oldie wie dir. Tschüss.|X|||||}}|};
+{fallhaven_oldman_2|Ich verlor kürzlich ein mir sehr wertvolles Buch.||{{N|fallhaven_oldman_3|||||}}|};
+{fallhaven_oldman_3|Ich weiß, dass ich es gestern noch hatte. Wie es scheint kann ich es jetzt nicht mehr finden.||{{N|fallhaven_oldman_4|||||}}|};
+{fallhaven_oldman_4|Ich verliere meine Sachen nie! Irgendjemand muss es gestohlen haben, das ist meine Vermutung.||{{N|fallhaven_oldman_5|||||}}|};
+{fallhaven_oldman_5|Würdest du bitte nach meinem Buch suchen? Es heißt \'Calomyranische Geheimnisse\'.||{{N|fallhaven_oldman_6|||||}}|};
+{fallhaven_oldman_6|Ich habe keine Ahnung, wo es sein könnte. Kannst du Arcir fragen, er scheint sehr verliebt in seine Bücher zu sein. *zeigt zum Haus im Süden*|{{0|calomyran|10|}}|{{Okay, ich werde Arcir fragen. Auf Wiedersehen.|X|||||}}|};
+{fallhaven_oldman_continue|Wie geht die Suche nach meinem Buch vorwärts? Es heißt \'Calomyranische Geheimnisse\'. Hast du mein Buch gefunden?||{{Ja, ich habe es.|fallhaven_oldman_complete||calomyran_secrets|1|0|}{Nein, ich habe es noch nicht gefunden.|fallhaven_oldman_6|||||}{Kannst du mir bitte die Geschichte nochmal erzählen?|fallhaven_oldman_2|||||}}|};
+{fallhaven_oldman_complete|Mein Buch! Danke, vielen Dank! Wo war es? Nein, sag es nicht. Hier, nimm ein paar Münzen für deine Bemühungen.|{{0|calomyran|100|}{1|gold51||}}|{{Danke. Auf Wiedersehen.|X|||||}{Letztendlich etwas Gold. Tschüss.|X|||||}}|};
+{fallhaven_oldman_complete_2|Vielen vielen Dank, dass du mein Buch gefunden hast!|||};
+	</string>
+
+	<string name="conversationlist_fallhaven_nocmar">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{nocmar|Hallo, ich bin Nocmar.||{{Sieht so aus als wäre das hier die Schmiede. Hast du etwas zum handeln?|nocmar_trade_select|||||}{Unnmir schickte mich.|nocmar_quest_select|nocmar:10||||}{Tschüss|X|||||}}|};
+{nocmar_quest_select|||{{|nocmar_complete_5|nocmar:200||||}{|nocmar_continue|nocmar:20||||}{|nocmar_quest|||||}}|};
+{nocmar_trade_select|||{{|S|nocmar:200||||}{|nocmar_trade_1|||||}}|};
+{nocmar_trade_1|Ich habe keine Gegenstände zu verkaufen. Ich hatte viele Sachen zum Verkauf, aber heutzutage ist es mir nicht erlaubt etwas zu verkaufen.||{{N|nocmar_trade_2|||||}}|};
+{nocmar_trade_2|Ich war einmal einer der besten Schmiede in Fallhaven. Dann verbot mir dieser Bastard Lord Geomyr die Benutzung von Herzstahl.||{{N|nocmar_trade_3|||||}}|};
+{nocmar_trade_3|Durch einen Erlass von Lord Geomyr, ist es sogar niemand in Fallhaven auch nur erlaubt Herzstahlwaffen zu benutzen. Und schon gar nicht welche zu verkaufen.||{{N|nocmar_trade_4|||||}}|};
+{nocmar_trade_4|Darum muss ich jetzt die wenigen Herzstahlwaffen, die ich noch habe, verstecken. Und ich riskiere keinesfalls sie zu verkaufen.||{{N|nocmar_trade_4_1|||||}}|};
+{nocmar_trade_4_1|I habe das Herzstahlleuchten, jetzt wo Lord Geomyr ihn verboten hat, seit mehreren Jahren nicht gesehen.||{{N|nocmar_trade_5|||||}}|};
+{nocmar_trade_5|Leider kann ich dir keine meiner Waffen verkaufen.|||};
+{nocmar_quest|Unnmir schickte dich, huh? Ich vermute, es muss dann wichtig sein.|{{0|nocmar|20|}}|{{N|nocmar_quest_1|||||}}|};
+{nocmar_quest_1|Okay, diese alten Waffen haben, nachdem sie länger nicht mehr benutzt wurden, ihr inneres Leuchten verloren.||{{N|nocmar_quest_2|||||}}|};
+{nocmar_quest_2|Um den Herzstahl erneut zum Leuchten zu bringen, brauchen wir einen Herzstein.||{{N|nocmar_quest_3|||||}}|};
+{nocmar_quest_3|Vor Jahren, bekämpften wir die Lichs von Undertell. Ich habe keine Ahnung, ob sie den Ort immer noch heimsuchen.||{{Undertell? Was ist das?|nocmar_quest_4|||||}}|};
+{nocmar_quest_4|Undertell; die Gruben der verlorenen Seelen. Reise nach Süden und betrete die Höhle der Zwerge. Von dort folge dem schrecklichen Gestank.||{{N|nocmar_quest_5|||||}}|};
+{nocmar_quest_5|Hüte dich vor den Lichs von Undertell, falls sie immer noch da sind. Diese Dinger können dich mit ihren Blicken allein töten.|||};
+{nocmar_continue|Hast du schon einen Herzstein gefunden?||{{Ja, letztendlich habe ich einen gefunden.|nocmar_complete||heartstone|1|0|}{Kannst du mir die Geschichte nochmal erzählen?|nocmar_quest_1|||||}{Nein, noch nicht.|nocmar_continue_2|||||}}|};
+{nocmar_continue_2|Bitte such weiter. Unnmir muss etwas Wichtiges mit dir vorhaben.|||};
+{nocmar_complete|Beim Schatten! Du hast tatsächlich einen Herzstein gefunden. Ich dachte, ich würde diesen Tag nicht mehr erleben.|{{0|nocmar|200|}}|{{N|nocmar_complete_2|||||}}|};
+{nocmar_complete_2|Kannst du das Leuchten sehen? Es ist buchstäblich pulsierend.||{{N|nocmar_complete_3|||||}}|};
+{nocmar_complete_3|Schnell. Lass uns die alten Herzstahlwaffen wieder zum Leuchten bringen.||{{N|nocmar_complete_4|||||}}|};
+{nocmar_complete_4|*Nocmar legt den Herzstein zwischen die Herzstahlwaffen*||{{N|nocmar_complete_5|||||}}|};
+{nocmar_complete_5|Kannst du es spüren? Der Herzstahl leuchtet wieder.||{{Lass mich sehen, welche Gegenstände du für mich hast.|S|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_tavern">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{bela|Willkommen in der Fallhaven Taverne. Setzt dich irgendwo.||{{Lass mich sehen, welche Speisen und Getränke es hier gibt.|S|||||}{Gibt es freie Zimmer?|bela_room_select|||||}}|};
+{bela_room_1|Ein Zimmer kostet dich nur 10 Goldmünzen.||{{Kaufen [10 Goldmünzen]|bela_room_2||gold|10|0|}{Nein danke.|bela|||||}}|};
+{bela_room_2|Danke. Nimm das Zimmer dort am Ende des Ganges.|{{0|fallhaventavern|10|}}|{{Vielen dank. Da war noch etwas, über das ich reden wollte.|bela|||||}{Danke, tschüss.|X|||||}}|};
+{bela_room_3|Ich hoffe, das Zimmer erfüllt deine Erwartungen. Es ist das letzte Zimmer dort am Ende des Ganges.||{{Vielen dank. Da war noch etwas, über das ich reden wollte.|bela|||||}{Danke, tschüss.|X|||||}}|};
+{bela_room_select|||{{|bela_room_3|fallhaventavern:10||||}{|bela_room_1|||||}}|};
+{ganos|Du kommst mir irgendwie bekannt vor.||{{Hast du etwas zu verkaufen?|S|||||}{Was weißt du über die Diebesgilde?|ganos_1|andor:30||||}}|};
+{ganos_1|Diebesgilde? Wie sollte ich etwas wissen? Sehe ich für dich wie ein Dieb aus?! Hrmpf.|||};
+	</string>
+
+	<string name="conversationlist_fallhaven_arcir">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{arcir_start|Hallo, ich bin Arcir.||{{Ich habe deine Statue von Elythara unten bemerkt.|arcir_elythara_1|arcir:10||||}{Du scheinst deine Bücher wirklich zu mögen.|arcir_books_1|||||}}|};
+{arcir_anythingelse|Möchtest du irgend was anderes wissen?||{{Ich habe deine Statue von Elythara unten bemerkt.|arcir_elythara_1|arcir:10||||}{Du scheinst deine Bücher wirklich zu mögen.|arcir_books_1|||||}}|};
+{arcir_elythara_1|Oh, du hast meine Statue im Keller gefunden?\n\nJa, Elythara ist mein Beschützer.||{{Okay.|arcir_anythingelse|||||}}|};
+{arcir_books_1|Ich habe großes Vergnügen an meinen Büchern. Sie enthalten das angehäufte Wissen vergangener Generationen.||{{Hast du ein Buch mit dem Namen \'Calomyranische Geheimnisse\'?|arcir_calomyran_select|calomyran:10||||}{Okay.|arcir_anythingelse|||||}}|};
+{arcir_calomyran_1|\'Calomyranische Geheimnisse\'? Hm, ja ich denke ich habe eins davon im Keller.||{{N|arcir_calomyran_2|||||}}|};
+{arcir_calomyran_2|Der alte Mann Benradas kam letzte Woche vorbei, wollte mir das Buch verkaufen. Weil das Buch nicht wirklich mein Fall ist, habe ich abgelehnt.||{{N|arcir_calomyran_3|||||}}|};
+{arcir_calomyran_3|Er scheint sehr verärgert gewesen zu sein, dass ich sein Buch nicht mochte und warf es nach mir, während er aus dem Haus stürmte.||{{N|arcir_calomyran_4|||||}}|};
+{arcir_calomyran_4|Der arme alte Mann Benradas, er vergass wahrscheinlich, dass er es hier gelassen hatte. Er neigt dazu Dinge zu vergessen.||{{N|arcir_anythingelse|||||}}|};
+{arcir_calomyran_5|Du hast unten nachgeschaut, aber nichts gefunden? Eine Notiz sagst du? Ich vermute, es muss jemand in meinem Haus gewesen sein.||{{N|arcir_calomyran_6|||||}}|};
+{arcir_calomyran_select|||{{|arcir_calomyran_complete|calomyran:100||||}{|arcir_calomyran_5|calomyran:20||||}{|arcir_calomyran_1|||||}}|};
+{arcir_calomyran_complete|Ich hörte du hast es gefunden und zum alten Mann Benradas zurückgebracht. Vielen Dank. Er neigt dazu Dinge zu vergessen.||{{N|arcir_anythingelse|||||}}|};
+{arcir_calomyran_6|Was stand auf der Notiz?\n\nLarcal.. Ist mir bekannt. Macht immer Ärger. Er ist normalerweise im Stall östlich von hier.||{{Danke, tschüss|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_church">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{chapelgoer|Shadow, embrace me.|||};
+{thoronir_default|Wärm dich beim Schatten, mein Junge.||{{Kannst du mir mehr über den Schatten erzählen?|thoronir_shadow_1|||||}{Kannst du mir mehr über die Kirche erzählen?|thoronir_church_1|||||}{Sind die Knochenmehltränke schon fertig?|thoronir_trade_bonemeal|bonemeal:100||||}}|};
+{thoronir_shadow_1|Der Schatten beschützt uns vor den Gefahren der Nacht. Er hält uns unbeschadet und behütet uns, wenn wir schlafen.||{{Tharal schickt mich und wies mich an dir das Passwort \'Leuchten des Schattens\' zu sagen.|thoronir_tharal_select|bonemeal:30||||}{Der Schatten sei mit dir.|thoronir_default|||||}{Hört sich für mich unsinnig an.|thoronir_default|||||}}|};
+{thoronir_church_1|Das ist unsere Kapelle der Verehrung in Fallhaven. Unsere Gemeinde wendet sich an uns um Unterstützung zu erhalten.||{{N|thoronir_church_2|||||}}|};
+{thoronir_church_2|Diese Kirche hat hunderten von Jahren standgehalten und wurde vor Grabjägern bewahrt.||{{N|thoronir_church_3|||||}}|};
+{thoronir_tharal_select|||{{|thoronir_trade_bonemeal|bonemeal:100||||}{|thoronir_tharal_1|||||}}|};
+{thoronir_tharal_1|\'Leuchten des Schattens\' wirklich mein Junge. Also mein alter Freund Tharal im Dorf Crossglen schickt dich?||{{Was kannst du mir über Knochenmehl erzählen?|thoronir_tharal_2|||||}}|};
+{thoronir_church_3|Die Katakomben unter dem Kirchenschiff gehören zu den Überbleibseln vergangener Anführer. Unser großer König Luthor ist Gerüchten zufolge dort begraben.||{{War schon jemand in den Katakomben?|thoronir_church_4|bucus:10||||}{Da war noch etwas, über das ich reden wollte.|thoronir_default|||||}}|};
+{thoronir_church_4|Niemand ist es erlaubt in die Katakomben zu gehen, abgesehen von Athamyr, meinem Lehrling. Seit Jahren ist er der einzige, der jemals dort unten war.|{{0|bucus|20|}}|{{Okay, vielleicht besuche ich ihn.|thoronir_default|||||}}|};
+{thoronir_tharal_2|Shhh, wir sollten nicht laut über die Verwendung von Knochenmehl reden. Wie du weißt, erliess Lord Geomyr ein Verbot auf jegliche Verwendung von Knochenmehl.||{{N|thoronir_tharal_3|||||}}|};
+{thoronir_tharal_3|Als das Verbot kam, riskierte ich nicht welches zu behalten, darum habe ich alle meine Vorräte weggeworfen. Wenn ich es jetzt bedenke, war das ziemlich töricht.||{{N|thoronir_tharal_4|||||}}|};
+{thoronir_tharal_4|Könntest du mir 5 Skelettknochen finden, die ich zum Anmischen von Knochenmehl verwenden kann? Das Knochenmehl ist sehr gut geeignet alte Wunden zu heilen.||{{Sicher, ich schaff das schon.|thoronir_tharal_5|||||}{Ich habe die Knochen für dich.|thoronir_tharal_complete||bone|5|0|}}|};
+{thoronir_tharal_5|Vielen dank, bitte komm bald zurück. Ich hörte da wären einige Untote bei einem verlassenen Haus ein wenig nördlich von Fallhaven. Vielleicht kannst du dort Knochen finden?|{{0|bonemeal|40|}}|{{Okay, ich werde es überprüfen.|thoronir_default|||||}}|};
+{thoronir_tharal_complete|Vielen dank, diese Knochen werden genügen. Jetzt kann ich anfangen, einige Knochenmehl Heiltränke für dich zu mischen.|{{0|bonemeal|100|}}|{{N|thoronir_complete_2|||||}}|};
+{thoronir_complete_2|Gib mir zum Herstellen der Knochenmehltränke etwas Zeit. Es ist ein sehr starker Heiltrank. Komm in kürze wieder her.|||};
+{thoronir_trade_bonemeal|Ja, die Knochenmehltränke sind fertig. Bitte verwende sie mit Bedacht und lass es die Wachen nicht sehen. Wir dürften es eigentlich nicht mehr verwenden.||{{Lass mich sehen, welche Tränke du schon gemacht hast.|S|||||}{Da war noch etwas anderes, über das ich reden wollte.|thoronir_default|||||}}|};
+{catacombguard|Kehr um solange du noch kannst, Sterblicher. Das ist kein Ort für dich. Nur der Tod erwartet dich hier.||{{Schön, ich kehr um.|X|||||}{Geh zur Seite, ich muss tiefer in die Katakomben hinein kommen.|catacombguard1|||||}{Beim Schatten, du wirst mich nicht aufhalten.|catacombguard1|||||}}|};
+{catacombguard1|Neinnn, du kannst nicht vorbei!||{{Okay. Lass uns kämpfen.|F|||||}}|};
+{luthor|*zischen* Welcher Sterbliche stört meinen Schlaf?||{{Beim Schatten, was bist du?|F|||||}{Immerhin, ein würdiger Kampf! Darauf habe ich gewartet.|F|||||}{Na los, bringen wir es hinter uns.|F|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_athamyr">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{athamyr|Geh mit dem Schatten.||{{Warst du unten in den Katakomben?|athamyr_select|bucus:20||||}}|};
+{athamyr_1|Ja, ich war in den Katakomben unter der Fallhaven Kirche.||{{N|athamyr_2|||||}}|};
+{athamyr_2|Aber ich bin der einzige, der sowohl die Erlaubnis als auch die Tapferkeit hat dort hinunter zu gehen.||{{Wie kann ich die Erlaubnis bekommen hinunter zu gehen?|athamyr_3|||||}}|};
+{athamyr_3|Du willst hinunter in die Katakomben? Hm, vielleicht können wir einen Handel machen.||{{N|athamyr_4|||||}}|};
+{athamyr_4|Bring mir etwas von diesem köstlich zubereiteten Braten aus der Schenke und ich gebe dir die Erlaubnis zum Betreten der Katakomben der Fallhaven Kirche.|{{0|bucus|30|}}|{{Hier, ich habe einen Braten für dich.|athamyr_complete||meat_cooked|1|0|}{Okay, ich gehe etwas holen.|X|||||}}|};
+{athamyr_complete_2|Du hast die Erlaubnis zum Betreten der Katakomben der Fallhaven Kirche.|{{0|bucus|50|}}||};
+{athamyr_select|||{{|athamyr_complete_2|bucus:40||||}{|athamyr_1|||||}}|};
+{athamyr_complete|Danke, den werde ich genießen.|{{0|bucus|40|}}|{{N|athamyr_complete_2|||||}}|};
+	</string>
+	
+	<string name="conversationlist_fallhaven_larcal">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{larcal|Ich habe keine Zeit für dich, Junge. Verschwinde.||{{Ich fand eine Notiz mit deinem Namen drauf, während ich nach dem Buch \'Calomyranische Geheimnisse\' suchte.|larcal_1|calomyran:20||||}}|};
+{larcal_1|Wie jetzt, was ist denn jetzt los? Willst du andeuten, ich wäre unten in Arcir\'s Keller gewesen?||{{N|larcal_2|||||}}|};
+{larcal_2|Na, möglicherweise war ich das. Das Buch gehört jedenfalls mir.||{{N|larcal_3|||||}}|};
+{larcal_3|Schau, lass uns das friedlich regeln. Du gehst weg und vergisst alles über das Buch und du darfst am Leben bleiben.||{{Also gut. Behalte dein Buch.|larcal_4|||||}{Nein, du wirst mir das Buch geben.|larcal_5|||||}}|};
+{larcal_4|Guter Knabe, jetzt lauf weg.|||};
+{larcal_5|Okay, jetzt fängst du an mich zu nerven, Junge. Verschwinde solange du noch kannst.||{{Also gut, ich gehe.|X|||||}{Nein, dieses Buch gehört nicht dir!|larcal_6|||||}}|};
+{larcal_6|Du bist immer noch da? Also dann, wenn du das Buch so dringend brauchst, wirst du es mir wegnehmen müssen!||{{Na endlich, ein Kampf. Darauf habe ich gewartet!|F|||||}{Ich habe gehofft, dass es nicht so weit kommen würde.|F|||||}{Also gut, ich werde verschwinden.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_unnmir">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{unnmir|||{
+	{|unnmir_r|nocmar:10||||}
+	{|unnmir_0|||||}
+	}|};
+{unnmir_r|Hallo nochmal. Du solltest mit Nocmar reden.||{{N|unnmir_13|||||}}|};
+{unnmir_0|Hallo.||{{Da war ein Betrunkener draußen vor der Schenke, der mir eine Geschichte über euch beide erzählt hat.|unnmir_1|fallhavendrunk:100||||}}|};
+{unnmir_1|Dieser betrunkene alte Mann bei der Schenke hat dir seine Geschichte erzählt, nicht wahr?||{{N|unnmir_2|||||}}|};
+{unnmir_2|Die selbe alte Geschichte. Vor ein paar Jahren pflegten wir miteinander zu Reisen.||{{N|unnmir_3|||||}}|};
+{unnmir_3|Echte Abenteuer du weißt schon, mit Schwertern und Zaubersprüchen.||{{N|unnmir_4|||||}}|};
+{unnmir_4|Aber dann hörten wir auf. Ich kann nicht einmal sagen warum, ich vermute wir wurden des Vagabundenlebens müde. Wir ließen uns hier in Fallhaven nieder.||{{N|unnmir_5|||||}}|};
+{unnmir_5|Nette kleine Stadt hier. Obwohl viele Diebe umher streifen, aber die kümmern mich nicht.||{{N|unnmir_6|||||}}|};
+{unnmir_6|Also wie ist deine Geschichte, Junge? Wie bist du nach Fallhaven gekommen?||{{Ich suche nach meinem Bruder.|unnmir_7|||||}}|};
+{unnmir_7|Ja ja, ich verstehe. Dein Bruder ist wahrscheinlich abgehauen um in irgendeiner Höhle ein Abenteuer zu erleben. *rollt mit seinen Augen*||{{N|unnmir_8|||||}}|};
+{unnmir_8|Oder vielleicht ist er in eine der größeren Städte im Norden gegangen.||{{N|unnmir_9|||||}}|};
+{unnmir_9|Ich kann es ihm nicht verübeln, dass er die Welt sehen will.||{{N|unnmir_10|||||}}|};
+{unnmir_10|He, so nebenbei, versuchst du ein Abenteurer zu sein?||{{Ja|unnmir_11|||||}{Nein, nicht wirklich.|unnmir_12|||||}}|};
+{unnmir_11|Gut, ich gebe dir einen Tipp, Junge. *kichert*. Geh zu Nocmar drüben auf der Westseite der Stadt. Sag ihm ich schicke dich.|{{0|nocmar|10|}}|{{N|unnmir_13|||||}}|};
+{unnmir_12|Gute Einstellung. Abenteuer führen zu vielen Narben, wenn du verstehst was ich meine.|||};
+{unnmir_13|Sein Haus ist etwas südwestlich der Schenke.||{{Danke, ich werde zu ihm gehen.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_gaela">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{gaela|||{
+	{|gaela_r|andor:40||||}
+	{|gaela_0|||||}
+	}|};
+{gaela_r|Hallo nochmal. I hoffe du findest was du suchst.|||};
+{gaela_0|Flink ist meine Klinge. Giftig meine Zunge. Oder war es anders herum?||{{Es gibt hier in Fallhaven scheinbar eine Menge Diebe.|gaela_1|||||}}|};
+{gaela_1|Ja, wir Diebe sind hier stark Präsent.||{{Sonst noch was?|gaela_2|andor:30||||}}|};
+{gaela_2|Ich hörte du hast Gruil, einem Diebesgenossen im Dorf Crossglen, geholfen.||{{N|gaela_3|||||}}|};
+{gaela_3|Es hat mich auch die Nachricht erreicht, dass du jemand suchst. Ich kann dir vielleicht helfen.||{{N|gaela_4|||||}}|};
+{gaela_4|Du solltest mit Bucus, im heruntergekommenen Haus etwas südwestlich von hier, reden. Sag ihm, du möchtest mehr über die Diebesgilde wissen.|{{0|andor|40|}}|{{Danke, ich werde mit ihm reden.|gaela_5|||||}}|};
+{gaela_5|Betrachte diesen Gefallen als Gegenleistung für deine Hilfe Gruil gegenüber.|||};
+	</string>
+
+	<string name="conversationlist_fallhaven_vacor">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{vacor|||{{|vacor_return_complete0|vacor:60||||}{|vacor_return2|vacor:40||||}{|vacor_42|vacor:30||||}{|vacor_select1|||||}}|};
+{vacor_select1|||{{|vacor_return1|vacor:20||||}{|vacor_begin|||||}}|};
+{vacor_begin|Hallo.||{{N|vacor_2|||||}}|};
+{vacor_2|Was bist du, eine Art Abenteurer? Hm. Vielleicht kannst für mich nützlich sein.||{{N|vacor_3|||||}}|};
+{vacor_3|Willst du mir helfen?||{{Sicher, was für Hilfe brauchst du?|vacor_4|||||}{Nein, warum sollte ich dir helfen?|vacor_bah|||||}}|};
+{vacor_bah|Bah, niedrige Kreatur. Ich wusste, ich hätte dich nicht fragen sollen. Jetzt verschwinde.|||};
+{vacor_4|Vor einiger Zeit, arbeitete ich an einem Spaltzauber, über den ich gelesen hatte.||{{N|vacor_5|||||}}|};
+{vacor_5|Der Zauberspruch soll angeblich, sagen wir mal so, neue Möglichkeiten eröffnen.||{{N|vacor_6|||||}}|};
+{vacor_6|Erm, ja, der Spaltzauber wird Dinge öffnen, ganz richtig. Ähm.||{{N|vacor_7|||||}}|};
+{vacor_7|Also war ich hart am arbeiten, um die letzten Teile zusammenzusetzen.||{{N|vacor_8|||||}}|};
+{vacor_8|Dann plötzlich, kam eine Rotte von Schlägern hierher und begann mich zu terrorisieren.||{{N|vacor_9|||||}}|};
+{vacor_9|Sie sagten, sie wären Botschafter des Schattens und beharrten darauf, dass ich meine Zauberei unterlassen sollte.||{{N|vacor_10|||||}}|};
+{vacor_10|Lächerlich, nicht war? Ich war so kurz davor die Macht zu besitzen!||{{N|vacor_11|||||}}|};
+{vacor_11|Oh, die Macht, die ich hätte haben können. Mein teurer Spaltzauber.|{{0|vacor|10|}}|{{N|vacor_12|||||}}|};
+{vacor_12|Jedenfalls, ich war gerade dabei den letzten Teils des Spaltzaubers zu beenden, als diese Banditen kamen und mich ausraubten.||{{N|vacor_13|||||}}|};
+{vacor_13|Die Banditen klauten meine Notizen des Zauberspruchs und flüchteten bevor ich die Wache rufen konnten.||{{N|vacor_14|||||}}|};
+{vacor_14|Nach Jahren der Arbeit, kann ich mich scheinbar nicht mehr an die letzten Teile des Zauberspruchs erinnern.||{{N|vacor_15|||||}}|};
+{vacor_15|Kannst du mir helfen, sie zu finden? Dann kann ich letztendlich die Macht doch haben!||{{N|vacor_16|||||}}|};
+{vacor_16|Für deine Beteiligung mir die Macht zu verschaffen wirst du natürlich angemessen belohnt werden.||{{Eine Belohnung? Ich bin dabei!|vacor_17|||||}{Also gut. Ich werde dir helfen.|vacor_17|||||}{Nein danke, das scheint etwas zu sein, in das ich lieber nicht verwickelt werden will.|vacor_bah|||||}}|};
+{vacor_17|Ich wusste ich könnte dir nicht trauen... Warte, was? Du hast wirklich ja gesagt? Ha, also gut.||{{N|vacor_18|||||}}|};
+{vacor_18|Okay, finde die 4 Teile meines Spaltzaubers, die die Banditen weggenommen haben, und bring die Teile zu mir.|{{0|vacor|20|}}|{{N|vacor_19|||||}}|};
+{vacor_19|Es waren 4 Banditen und nachdem sie mich überfallen hatten verteilten sie sich im Süden von Fallhaven .||{{N|vacor_20|||||}}|};
+{vacor_20|Du solltest in den Gegenden südlich von Fallhaven nach den 4 Banditen suchen.||{{N|vacor_21|||||}}|};
+{vacor_21|Bitte beeile dich! Ich bin so begierig den Spalt zu öffnen.. äh, ich meine den Zauberspruch zu vollenden. Ist nichts falsches dabei, oder?|||};
+{vacor_return1|Hallo nochmal. Wie ist die Suche nach meinen verlorenen Teilen des Spaltzaubers verlaufen?||{{Ich habe alle Teile gefunden.|vacor_40||vacor_spell|4|0|}{Was sollte ich nochmal machen?|vacor_18|||||}{Kannst du mir die ganze Geschichte nochmal erzählen?|vacor_4|||||}}|};
+{vacor_40|Oh, du hast alle 4 Teile gefunden? Schnell, gib sie mir.|{{0|vacor|30|}}|{{N|vacor_41|||||}}|};
+{vacor_41|Ja, das sind die Teile, die die Banditen mitgenommen haben.||{{N|vacor_42|||||}}|};
+{vacor_42|Jetzt sollte ich fähig sein den Spaltzauber zu vollenden und den Schattenspalt zu öffnen.. äh, ich meine neue Möglichkeiten zu eröffnen. Ja, das meinte ich.||{{N|vacor_43|||||}}|};
+{vacor_43|Das einzige Hindernis zwischen mir und der fortlaufenden Erforschung des Spaltzaubers, ist dieser blöde Kerl Unzel.||{{N|vacor_44|||||}}|};
+{vacor_44|Unzel war vor einiger Zeit mein Lehrling. Aber er begann mich mit seinen Fragen und seinem Vortrag über Moral zu nerven.||{{N|vacor_45|||||}}|};
+{vacor_45|Er sagte meine Zauberei würde den Willen des Schattens zerbrechen.||{{N|vacor_46|||||}}|};
+{vacor_46|Bah, der Schatten. Was hat er jemals für MICH getan?!||{{N|vacor_47|||||}}|};
+{vacor_47|Eines Tages werde ich meinen Spaltzauber ausführen und wir werden vom Schatten befreit sein.||{{N|vacor_48|||||}}|};
+{vacor_48|Jedenfalls habe ich das Gefühl, dass Unzel diese Banditen zu mir sandte. Wenn ich ihn nicht aufhalte, wird er vermutlich weitere schicken.||{{N|vacor_49|||||}}|};
+{vacor_49|Ich brauche dich um Unzel zu finden und ihn für mich zu töten. Er kann wahrscheinlich irgendwo südwestlich von Fallhaven gefunden werden.|{{0|vacor|40|}}|{{N|vacor_50|||||}}|};
+{vacor_50|Bring mir seinen Siegelring als Beweis wenn du ihn getötet hast.||{{N|vacor_51|||||}}|};
+{vacor_51|Jetzt beeil dich, ich kann nicht mehr viel länger warten. Die Macht soll MIR gehören!|||};
+{vacor_return2|Hallo nochmal. Irgendein Fortschritt bisher?||{{Über Unzel...|vacor_return2_2|||||}{Kannst du mir die Geschichte noch einmal erzählen?|vacor_43|||||}}|};
+{vacor_return2_2|Hast du Unzel schon für mich getötet? Bring mir seinen Siegelring wenn du ihn getötet hast.||{{Ich habe ihn erledigt. Hier ist sein Ring.|vacor_60||ring_unzel|1|0|}{Ich habe mir Unzel\'s Geschichte angehört und habe entschieden auf seine Seite zu wechseln. Der Schatten muss bewahrt werden.|vacor_70|vacor:51||||}}|};
+{vacor_60|Ha ha, Unzel ist tot! Diese erbärmliche Kreatur ist weg!|{{0|vacor|60|}}|{{N|vacor_61|||||}}|};
+{vacor_61|Ich kann Blut an deinen Schuhen sehen. Und ich habe dich sogar überzeugt vorher seine Lakaien zu töten.||{{N|vacor_62|||||}}|};
+{vacor_62|Das ist wirklich ein großer Tag. Bald werde ich die Macht haben!||{{N|vacor_63|||||}}|};
+{vacor_63|Hier, nimm diese Goldmünzen für deine Hilfe.|{{1|gold200||}}|{{N|vacor_64|||||}}|};
+{vacor_64|Jetzt geh, ich muss Vorbereitungen treffen bevor ich den Spaltzauber ausführen kann.|||};
+{vacor_return_complete0|||{
+	{|vacor_msg_16|kaverin:90||||}
+	{|vacor_msg_9|kaverin:75||||}
+	{|vacor_msg1|kaverin:60|kaverin_message|1|1|}
+	{|vacor_return_complete|||||}
+	}|};
+{vacor_return_complete|Hallo nochmal, mein Freund der Attentäter. Bald werde ich den Spaltzauber fertig haben.|||};
+{vacor_70|Was? Er erzählte dir seine Geschichte? Und du glaubst sie wirklich?||{{N|vacor_71|||||}}|};
+{vacor_71|Ich gebe dir noch eine Chance. Entweder du tötest Unzel für mich und ich werde dich stattlich belohnen, oder du musst mit mir kämpfen.||{{Nein. Du musst aufgehalten werden.|vacor_72|||||}{Okay, ich werde noch einmal darüber nachdenken.|X|||||}}|};
+{vacor_72|Bah, niedrige Kreatur. Ich wusste ich hätte dir nicht trauen sollen. Jetzt wirst du sterben zusammen mit deinem heißgeliebten Schatten.|{{0|vacor|54|}}|{{Für den Schatten!|F|||||}{Du musst aufgehalten werden.|F|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_unzel">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{unzel_1|Hallo. Ich bin Unzel.||{{Ist das dein Lager?|unzel_2|||||}{Ich wurde von Vacor geschickt um dich zu töten.|unzel_3|vacor:40||||}}|};
+{unzel_2|Ja, das ist mein Lager. Herrlicher Platz, nicht wahr?||{{Tschüss|X|||||}}|};
+{unzel_3|Vacor hat dich geschickt huh? Ich fürchte ich hätte wissen müssen, dass er früher oder später jemand schicken wird.||{{N|unzel_4|||||}}|};
+{unzel_4|Nun gut. Töte mich oder erlaube mir dir meine Seite der Geschichte zu erzählen.||{{Hah, ich werde dich mit Vergnügen töten!|unzel_fight|||||}{Okay, ich werde mir deine Geschichte anhören.|unzel_5|||||}}|};
+{unzel_fight|Nun denn, lass uns kämpfen.|{{0|vacor|53|}}|{{A fight it is!|F|||||}}|};
+{unzel_5|Vielen Dank fürs zuhören.||{{N|unzel_10|||||}}|};
+{unzel_10|Vacor und ich reisten gewöhnlich miteinander. Aber er begann von der Zauberei besessen zu werden.||{{N|unzel_11|||||}}|};
+{unzel_11|Er stellte sogar den Schatten in Frage. Ich wusste ich musste etwas tun, um ihn aufzuhalten!||{{N|unzel_12|||||}}|};
+{unzel_12|Ich begann die Dinge die er vorhatte in Frage zu stellen, aber wollte immer nur weitermachen.||{{N|unzel_13|||||}}|};
+{unzel_13|Nach einer Weile, wurde er vom Gedanken eines Spaltzaubers besessen. Er sagte er würde ihm unbeschränkte Macht gegen den Schatten geben.||{{N|unzel_14|||||}}|};
+{unzel_14|Darum konnte ich nur noch eines tun. Ich verließ ihn und musste ihn bei seinen Versuche den Spaltzauber zu erzeugen aufhalten.||{{N|unzel_15|||||}}|};
+{unzel_15|Ich schickte einige Freunde, um ihm den Zauberspruch wegzunehmen.||{{N|unzel_16_select|||||}}|};
+{unzel_16_select|||{{|unzel_16_2|vacor:50||||}{|unzel_16_1|||||}}|};
+{unzel_16_1|Und nun sind wir hier.||{{Ich tötete die 4 Banditen, die du zu Vacor geschickt hast.|unzel_17|||||}}|};
+{unzel_16_2|Und nun sind wir hier.||{{N|unzel_19|||||}}|};
+{unzel_17|Was? Du hast meine Freunde getötet? Argh, ich fühle die Wut in mir aufsteigen.||{{N|unzel_18|||||}}|};
+{unzel_18|Aber ich verstehe auch, dass das die alleinigen Machenschaften von Vacor sind. Ich stelle dich jetzt vor eine Entscheidung. Wähle klug.||{{N|unzel_19|||||}}|};
+{unzel_19|Entweder du wählst die Seite von Vacor und seinem Spaltzauber, oder die Seite des Schattens und hilfst mir, ihn los zu werden. Wem willst du helfen?|{{0|vacor|50|}}|{{Ich will dir helfen. Der Schatten darf nicht gestört werden.|unzel_20|||||}{Ich helfe Vacor.|unzel_fight|||||}}|};
+{unzel_20|Vielen Dank mein Freund. Wir werden den Schatten vor Vacor bewahren.|{{0|vacor|51|}}|{{N|unzel_21|||||}}|};
+{unzel_21|Du solltest nochmals mit ihm über den Schatten sprechen.|||};
+{unzel_return_1|Willkommen zurück. Hast du mit Vacor gesprochen?||{{Ja, ich habe ihn erledigt.|unzel_30||ring_vacor|1|0|}{Nein, noch nicht.|X|||||}}|};
+{unzel_30|Du hast ihn getötet? Du hast meinen Dank verdient, Freund. Nun sind wir sicher vor Vacor\'s Spaltzauber. Hier, nimm diese Goldmünzen für deine Hilfe.|{{0|vacor|61|}{1|gold200||}}|{{Der Schatten sei mit dir.|X|||||}{Vielen Dank.|X|||||}}|};
+{unzel_40|Danke für deine Hilfe. Nun sind wir vor Vacor\'s Spaltzauber sicher.||{{Ich habe eine Nachricht von Kaverin in Remgard für dich.|unzel_msg1|kaverin:25|kaverin_message|1|1|}}|};
+{unzel|||{{|unzel_msg_r0|kaverin:30||||}{|unzel_40|vacor:61||||}{|unzel_return_1|vacor:51||||}{|unzel_1|||||}}|};
+	</string>
+
+	<string name="conversationlist_wilderness">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{fallhaven_bandit|Verschwinde Junge. Ich habe keine Zeit für dich.||{{Ich suche einen Teil des Spaltzaubers.|fallhaven_bandit_2|vacor:20||||}}|};
+{fallhaven_bandit_2|Nein! Vacor wird die Macht des Spaltzaubers nicht bekommen! ||{{Lass uns kämpfen!|F|||||}}|};
+{bandit1|Was haben wir hier? Einen verirrten Wanderer?||{{N|bandit1_2|||||}}|};
+{bandit1_2|Wie viel ist dir dein Leben wert? Gib mir 100 Goldmünzen und ich lasse dich gehen.||{{Okay okay. Hier sind die Goldmünzen. Bitte verletze mich nicht!|bandit1_3||gold|100|0|}{Wie wäre es, wenn wir darum kämpfen?|bandit1_4|||||}{Wie wertvoll ist dir dein Leben?|bandit1_4|||||}}|};
+{bandit1_3|Wird langsam Zeit. Du kannst gehen wohin du willst.|||};
+{bandit1_4|Nun gut, dein Leben also. Lass uns kämpfen. Ich habe schon auf einen guten Kampf gewartet!||{{Lass uns anfangen!|F|||||}}|};
+	</string>
+
+</resources>

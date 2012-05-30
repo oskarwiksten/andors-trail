@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+	<!--  These quests do not need translation: -->
+	<string name="questlist_nondisplayed">
+[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
+{nondisplay|Platzhalter für versteckte Queststatus (wird nicht angezeigt)|0|{
+	{10|Raum in der \'Foaming Flask\'|||}
+	{16|Quartier in Blackwater Mountain|||}
+	{17|Schlafplatz in Crossroads1|||}
+	{18|Einkaufen bei Minarra im Turm von Crossroads|||}
+	{19|Quartier in Loneford10|||}
+	{20|Verkauf von Izthiel Klauen an Gauward|||}
+	{21|Raum in der Taverne in Remgard|||}
+	}|};
+{crossglen|ToDo|0|{{1|||0|}}|};
+{fallhaventavern|Zimmer zur Miete|0|{{10|||1|}}|};
+{arcir|Elythara|0|{{10|||0|}}|};
+	</string>
 
 	<string name="questlist">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
@@ -35,7 +51,7 @@
 {bonemeal|Verbotene Substanz|1|{
 	{10|Leonid erzählte mir in der Gemeindehalle von Crossglen etwas über eine Unruhe im Dorf vor einigen Wochen. Offensichtlich hat Lord Geomyr jeglichen Gebrauch von Knochenmehl als Heilsubstanz untersagt.\n\nTharal, der Dorfpriester sollte mehr darüber wissen.||0|}
 	{20|Tharal möchte nicht über Knochenmehl reden. Mit 5 Insektenflügeln sollte ich ihn umstimmen können.||0|}
-	{30|Tharal erzählte mir, dass Knochenmehl eine sehr wirksame Heilsubstanz ist und er hat sich ziemlich darüber aufgeregt, dass es nicht mehr erlaubt ist, welches zu besitzen. Falls ich mehr darüber wissen will, soll ich zu Thoronir nach Fallhaven reisen und das Passwort \'Das Leuchten der Schatten\' nennen.||0|}
+	{30|Tharal erzählte mir, dass Knochenmehl eine sehr wirksame Heilsubstanz ist und er hat sich ziemlich darüber aufgeregt, dass es nicht mehr erlaubt ist, welches zu besitzen. Falls ich mehr darüber wissen will, soll ich zu Thoronir nach Fallhaven reisen und das Passwort \'Das Leuchten des Schattens\' nennen.||0|}
 	{40|Ich habe mit Thoronir in Fallhaven gesprochen. Er könnte mir einen Knochenmehltrank herstellen, wenn ich ihm 5 Skelettknochen bringe. Er meinte, dass es in dem verlassenen Haus nördlich von Fallhaven wahrscheinlich ein paar Skelette geben könnte.||0|}
 	{100|Ich habe Thoronir die Knochen gegeben. Er kann mich ab jetzt mit Knochenmehltränken versorgen.\nIch sollte aber vorsichtig sein, wenn ich sie benutzen will, da das Verwenden der Tränke von Lord Geomyr verboten wurde.|90|1|}
 	}|};
@@ -65,7 +81,7 @@
 	{20|Nocmar sagte mir, dass er früher einmal als Schmied gearbeitet hat. Aber da Lord Geomyr die Verwendung von Herzstahl verboten hat, kann er seine Waffen nicht mehr schmieden.\nWenn ich einen Herzstein finde und ihn zu Nocmar bringe, sollte er wieder Herzstahl schmieden können.||0|}
 	{200|Ich habe einen Herzstein zu Nocmar gebracht. Bald wird es wieder Gegenstände aus Herzstahl geben.|120|1|}
 	}|};
-{flagstone|Geheimnisse aus alter Zeit|1|{
+{flagstone|Uralte Geheimnisse|1|{
 	{10|Ich traf einen Wachposten außerhalb der Festung Flagstone. Er erzählte mir, dass Flagstone früher als Straflager für flüchtige Arbeiter von Mount Galmore genutzt wurde. Neuerdings ergiesst sich allerdings ein Strom untoter Monster aus Flagstone. Ich sollte die Quelle der Untoten finden! Der Wachposten will mir helfen, falls es nötig sein sollte.||0|}
 	{20|Ich habe eine Art Fluchttunnel unterhalb von Flagstone gefunden, der in eine größere Höhle führt. Diese Höhle wird von einem Dämon bewacht, dem ich auf keinen Fall gewachsen bin. Vielleicht weiß der Wachposten außerhalb von Flagstone mehr?||0|}
 	{30|Der Wachposten erzählt mir, dass der frühere Aufseher eine Halskette hatte, die er immer trug. Auf dieser Kette könnten möglicherweise die Worte zu finden sein, die den Dämon besänftigen. Ich soll zum Wachposten zurückkehren wenn ich die Kette gefunden habe, damit er die Worte entschlüsseln kann.||0|}
@@ -92,12 +108,12 @@
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
 {farrik|Nächtlicher Besuch|1|{
 	{10|Farrik, ein Mitglied der Diebesgilde in Fallhaven, hat mir von einer geplanten Flucht erzählt. Ein Mitglied der Gilde soll aus dem Gefängnis von Fallhaven befreit werden.||0|}
-	{20|Farrik hat mir die Details zu dem Fluchtplan genannt und ich habe zugestimmt, ihm zu helfen. Der Hauptmann der Wache hat anscheinend ein Alkoholproblem. Dem Plan zufolge soll ich eine präparierte Flasche Met vom Koch der Diebesgilde an ihn übergeben, was ihn mit Sicherheit einige Stunden außer Gefecht setzen wird. Es könnte außerdem notwendig sein, den Hauptmann zu bestechen.||0|}
+	{20|Farrik hat mir die Details zu dem Fluchtplan genannt und ich habe die Aufgabe der Gilde zu helfen angenommen. Der Hauptmann der Wache hat anscheinend ein Alkoholproblem. Dem Plan zufolge soll ich eine präparierte Flasche Met vom Koch der Diebesgilde an ihn übergeben, was ihn mit Sicherheit einige Stunden außer Gefecht setzen wird. Es könnte außerdem notwendig sein, den Hauptmann zu bestechen.||0|}
 	{25|Ich habe den präparierten Met vom Koch der Diebesgilde erhalten.||0|}
 	{30|Ich habe Ferrik gesagt, dass ich nicht in allen Punkten mit seinem Plan einverstanden bin. Ich könnte dem Hauptmann der Wache von ihrem zwielichtigen Plan berichten...||0|}
 	{32|Ich habe den präparierten Met an den Hauptmann der Wache übergeben.||0|}
 	{40|Ich habe dem Hauptmann der Wache von Plan der Diebe, ihren Freund zu befreien, erzählt.||0|}
-	{50|Der Hauptmann möchte, dass ich den Dieben erzähle, dass die Wache heute Nacht nur aus einer Notmannschaft besteht. Dass sollte dafür sorgen, dass einige Diebe gefangen werden können.||0|}
+	{50|Der Hauptmann möchte, dass ich den Dieben erzähle, dass die Wache heute Nacht nur aus einer Notmannschaft besteht. Das sollte dafür sorgen, dass einige Diebe gefangen werden können.||0|}
 	{60|Ich habe den Hauptmann dazu gebracht, den präparierten Met zu trinken. Er sollte heute Nacht außer Gefecht sein, so dass die Diebe ihren Freund befreien können.||0|}
 	{70|Farrik hat mich für meine Hilfe der Diebesgilde gegenüber belohnt.|150|1|}
 	{80|Ich habe Ferrik erzählt, dass die Wache heute Nacht nur sehr dünn besetzt sein wird.||0|}
@@ -106,7 +122,7 @@
 {lodar|Ein verlorener Trank|1|{
 	{10|Ich soll einen Alchemisten namens Lodar finden. Umar von der Diebesgilde in Fallhaven erzählte mir auch, dass ich auf dem Weg zu Lodar\'s Versteck einen Wächter passieren müsse, für den ich ein Passwort benötigen würde.||0|}
 	{15|Umar sagte mir, dass ich das Passwort für Lodar\'s Versteck bei Ogam in Vilegard in Erfahrung bringen könnte.||0|}
-	{20|Ich habe Ogam im Südwesten von Vilegard besucht. Er schien in Rätseln zu sprechen. Ich konnte kaum etwas verstehen, als ich in nach Lodar\'s Versteck fragte. \'Auf halbem Weg zwischen den Schatten und dem Licht. Felsformationen.\' und \'Das Leuchten der Schatten.\' waren einige seiner Worte. Ich habe keine Ahnung, was das bedeuten könnte.||0|}
+	{20|Ich habe Ogam im Südwesten von Vilegard besucht. Er schien in Rätseln zu sprechen. Ich konnte kaum etwas verstehen, als ich in nach Lodar\'s Versteck fragte. \'Auf halbem Weg zwischen dem Schatten und dem Licht. Felsformationen.\' und \'Das Leuchten des Schattens.\' waren einige seiner Worte. Ich habe keine Ahnung, was das bedeuten könnte.||0|}
 	}|};
 {vilegard|Vertrauen für einen Fremden|1|{
 	{10|Die Leute von Vilegard sind sehr misstrauisch gegenüber Fremden. Mir wurde gesagt, dass ich mit Jolnor in der Kapelle von Vilegard rede soll, wenn ich das Vertrauen der Bewohner erlangen möchte.||0|}
@@ -281,11 +297,11 @@
 	{10|Ich habe Gandoren, den Hauptmann der Garde in der Wachstube von Crossroads getroffen. Er erzählte mir von einigen Schwierigkeiten in Loneford, welche die Wachleute zu erhöhter Wachsamkeit zwingen. Aus diesem Grund haben sie keine Zeit für ihre gewöhnlichen Botengänge und könnten da ein wenig Hilfe gebrauchen.|||}
 	{20|Gandoren möchte, dass ich eine Lieferung von 10 Eisenschwerter zu einem Gardeposten im Süden bringe.|||}
 	{21|Ich habe zugestimmt, die Lieferung für Gandoren zu übernehmen, als Dienst an Feygard.|||}
-	{22|Ich habe schließlich zugestimmt, die Lieferung für Gandoren zu übernehmen.|||}
+	{22|Ich habe widerwillig zugestimmt, die Lieferung für Gandoren zu übernehmen.|||}
 	{25|Ich soll die Lieferung zum Hauptmann der Patrouille bringen, die in der Taverne \'Schäumende Flasche\' stationiert ist.|||}
 	{26|Gandoren sagte mir, dass Ailshara Interesse an den Lieferungen von Feygard bekundet hat und drängte mich, Abstand von ihr zu halten.|||}
 	{30|Ailshara ist in der Tat an der Lieferungen interessiert und möchte, dass ich Nor City mit den Lieferungen helfe.|||}
-	{35|Wenn ich Ailshara und damit Nor City helfen möchte, soll ich die Lieferung zum Schmied in Vilegard bringen.|||}
+	{35|Wenn ich Ailshara und Nor City helfen möchte, soll ich die Lieferung stattdessen zum Schmied in Vilegard bringen.|||}
 	{50|Ich habe die Lieferung zum Hauptmann der Patrouille in der Taverne \'Schäumende Flasche\' gebracht. Ich sollte Gandoren in der Wachstube von Crossroads mitteilen, das die Lieferung erfolgt ist.|||}
 	{55|Ich habe die Lieferung beim Schmied in Vilegard abgegeben.|||}
 	{56|Der Schmied von Vilegard hat mir eine Lieferung von minderwertigen Schwertern mitgegeben, die ich beim Hauptmann der Patrouille in der Taverne \'Schäumende Flasche\' statt der normalen Schwerter abliefern kann.|||}
@@ -296,13 +312,13 @@
 	}|};
 {loneford|Es fließt durch die Adern|1|{
 	{10|Ich habe eine Geschichte über Loneford gehört. Offenbar wurden dort in der letzten Zeit viele Menschen krank, einige sind sogar gestorben. Die Ursache ist immer noch unbekannt.|||}
-	{11|Ich sollte nachforschen, was die Leute aus Loneford krank macht. Ich sollte bei den Menschen im Dorf und aus der näheren Umgebung nach Hinweisen fragen.|||}
+	{11|Ich sollte herausbekommen, was die Leute aus Loneford krank gemacht haben könnte. Um Hinweise zu sammeln sollte ich die Einwohner von Loneford und der näheren Umgebung nach möglichen Ursachen befragen.|||}
 	{21|Die Wächter aus der Wachstube von Crossroads sind sich sicher, dass die Krankheit in Loneford durch einen Anschlag der Priester oder durch Leute aus Nor City ausgelöst wurde.|||}
 	{22|Einige Dorfbewohner aus Loneford glauben, dass die Krankheit durch die Wachen aus Feygard verursacht wurde - als Teil eines Plans, die Leute noch mehr leiden zu lassen.|||}
 	{23|Talion, der Priester aus Loneford denkt, dass die Krankheit ein Werk des Schattens ist - als Strafe für Loneford\'s mangelnde Hingabe an den Schatten.|||}
 	{24|Taevinn aus Loneford ist sicher, dass Sienn in der Scheune im Südosten irgendetwas mit der Krankheit zu tun hat. Offenbar hält Sienn ein Haustier, durch das sich Taevinn schon mehrmals bedroht fühlte.|||}
 	{25|Ich sollte nach Landa in der Taverne von Loneford sehen. Gerüchten zufolge solle er etwas gesehen haben, das er sich niemandem zu erzählen traut.|||}
-	{30|Landa verwechselte mich zunächst mit jemandem. Er behauptet, einen kleinen Jungen gesehen zu haben, der in der Nacht, bevor sich die Krankheit ausbreitete um den Dorfbrunnen schlich und irgendetwas machte. Er hatte sich deshalb vor mir gefürchtet, weil ich dem Jungen sehr ähnlich sehe. Könnte der Junge, den er gesehen hat, vielleicht Andor gewesen sein?|||}
+	{30|Landa verwechselte mich zunächst mit jemandem. Er behauptet, einen kleinen Jungen gesehen zu haben, der in der Nacht, bevor sich die Krankheit ausbreitete um den Dorfbrunnen schlich und irgendetwas machte. Er hatte zuerst Angst mit mir zu sprechen, weil ich dem Jungen den er gesehen hat sehr ähnlich bin. Könnte der Junge, den er gesehen hat, vielleicht Andor gewesen sein?|||}
 	{31|Außerdem hat er in der Nacht, als er den Jungen am Brunnen gesehen hatte, Buceth dabei beobachtet, wie dieser Proben des Brunnenwassers genommen hat. Verdächtigerweise ist Buceth auch nicht krank geworden wie die anderen im Dorf.|||}
 	{35|Ich sollte Buceth in der Kapelle von Loneford aufsuchen und ihn danach fragen, was er am Brunnen gemacht hat. Vielleicht weiß er auch etwas über Andor.|||}
 	{41|Ich habe Buceth bestochen, damit er mit mir redet.|||}
@@ -325,7 +341,7 @@
 	{34|Ich habe ein paar Knochenreste in der gleichen Höhle gefunden, in der ich Thorin getroffen habe.|||}
 	{35|Ich habe ein paar Knochenreste in der gleichen Höhle gefunden, in der ich Thorin getroffen habe.|||}
 	{36|Ich habe ein paar Knochenreste in der gleichen Höhle gefunden, in der ich Thorin getroffen habe.|||}
-	{40|Thorin dankte mir für meine Hilfe. Im Gegenzug darf ich seine Ruhestätte benutzen und er hat mir auch angeboten ein paar Tränke von ihm zu erwerben.|400|1|}
+	{40|Thorin dankte mir für meine Hilfe. Im Gegenzug darf ich sein Lager nutzen um mich auszuruhen. Er hat mir auch angeboten ein paar Tränke von ihm zu erwerben.|400|1|}
 	}|};
 {algangror|Von Mäusen und Menschen|1|{
 	{10|In einem einsamen Haus auf einer Halbinsel am Nordufer vom Laerothsee in den nordöstlichen Bergen habe ich Algangror getroffen.|||}
@@ -333,24 +349,23 @@
 	{15|Ich werde Algangror bei ihrem Nagertier-Problem helfen. Wenn die sechs Störenfriede beseitigt sind, soll ich ihr Bescheid geben.|||}
 	{20|Algangror war dankbar für die Hilfe bei ihrem Problem.|500||}
 	{21|Sie bat mich noch, mit niemandem in Remgard über ihren Aufenthaltsort zu sprechen. Offensichtlich wird sie dort wegen irgendetwas gesucht, will mir aber nicht sagen warum. Ich soll unter keinen Umständen sagen wo sie ist.||1|}
-	{100|I will not help Algangror with her task.||1|}
-	{101|Algangror won\'t talk to me, and I will be unable to help her with her task.||1|}
+	{100|Ich werde Algangror mit ihrer Aufgabe nicht helfen.||1|}
+	{101|Algangror wird nicht mit mir reden, ich werde ihr deswegen mit ihrer Aufgabe nicht helfen können.||1|}
 	}|};
 </string>
 
-<!--
-Incomplete translations:
-
+<string name="questlist_v0611_2">
+[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
 {toszylae|Ein unfreiwilliger Botschafter|1|{
 	{10|Auf der Straße zwischen Loneford und Brimhaven habe ich ein ausgetrocknetes Flussbett mit einer größeren Höhle darunter gefunden. Tief in der Höhle traf ich auf Ulirfendor, einen Priester des Schattens aus Brimhaven. Ulirfendor versucht, die Inschriften auf einem Schrein von Kazaul zu entziffern und hat herausgefunden, dass sie von einem \'Dunklen Beschützer\' sprechen. Er weiß allerdings nicht, wer das sein soll. Was auch immer es bedeutet, er hat beschlossen, dass es aufgehalten werden muss.|||}
 	{11|Ulirfendor braucht Hilfe beim Bestimmen der fehlenden Teile der Inschriften auf dem Schrein. Die Inschrift lautet \'Kulauil hamar urum Kazaul\'te\', aber die nächsten Teile sind auf dem Felsen nicht mehr lesbar.|||}
 	{15|Ich habe Ulirfendor meine Hilfe angeboten und werde versuchen herauszufinden, wie die fehlenden Teile der Inschrift lauten. Ulirfendor glaubt, dass der Schrein von einer mächtigen Kreatur spricht, welche tiefer in der Höhle hausen soll. Vielleicht kann ich dort Hinweise über die fehlenden Teile finden.|||}
-	{20|Tief im inneren der Höhle, bin ich auf einen leuchtenden Wächter gestoßen, der irgendeine andere Kreatur beschützt. Er stieß die Worte \'Kulauil hamar urum Kazaul\'te. Kazaul hamat urul\' hervor. Das müssen die fehlenden Worte sein, nach denen Ulirfendor sucht. Ich sollte sofort zu ihm zurückkehren.|||}
+	{20|Tief im inneren der Höhle, bin ich auf einen strahlenden Wächter gestoßen, der irgendeine andere Kreatur beschützt. Er stieß die Worte \'Kulauil hamar urum Kazaul\'te. Kazaul hamat urul\' hervor. Das müssen die fehlenden Worte sein, nach denen Ulirfendor sucht. Ich sollte sofort zu ihm zurückkehren.|||}
 	{21|Ich habe versucht, den Wächter anzugreifen, konnte ihm jedoch nicht einmal nahe kommen. Irgendeine starke Macht hielt mich zurück. Vielleicht weiß Ulirfendor mehr.|||}
 	{30|Ulirfendor war sehr davon angetan, dass ich die fehlenden Teile der Inschrift in Erfahrung bringen konnte.|200||}
 	{32|Er erzählte mir auch, wie die Inschrift weiter lautete, wusste jedoch wieder nicht um deren Bedeutung. Ich soll zum Wächter zurückgehen und ihm die Worte von Ulirfendor ausrichten.|||}
 	{42|Ich habe die Worte vor dem Wächter ausgesprochen.|500||}
-	{45|Der Wächter brach in schallendes Lachen aus... und griff mich an.|||}
+	{45|Der Wächter brach in schallendes Lachen aus und griff mich an.|||}
 	{50|Ich habe den Wächter besiegt und gelangte so zum Lich \'Toszylae\'. Er hat es geschafft, mich mit irgendetwas zu infizieren. Ich muss ihn töten und zu Ulirfendor zurückkehren.|||}
 	{60|Ulirfendor teilte mir mit, dass er es geschafft habe, die Worte zu übersetzen, die ich zu dem Wächter gesagt habe. Frei übersetzt lauteten die Worte \'Mein Körper für Kazaul\'. Ulirfendor war sehr betroffen von der Bedeutung der Worte für mich und bedauerte, dass er mich diese Worte sprechen lies.|||}
 	{70|Ulirfendor war sehr glücklich zu hören, dass ich den Lich besiegen konnte. Das wird die Leute in der Umgebung wieder ruhiger schlafen lassen.|2000|1|}
@@ -373,9 +388,9 @@ Incomplete translations:
 	{70|Das Ritual ist beendet und die Macht und der uralte Ruhm des Helmes wurden wiederhergestellt.|500|1|}
 	}|};
 {maggots|Es ist in mir!|1|{
-	{10|Tief im inneren einer Höhle bin ich mit einem Lich von Kazaul zusammengestoßen. Irgendwie hat es der Lich geschafft, mich mit etwas zu infizieren, was in meinem Bauch herumkrabbelt! Ich muss das irgendwie los werden. Vielleicht sollte ich Ulirfendor fragen, oder gleich Hilfe in einer Kirche suchen.|||}
+	{10|Tief im inneren einer Höhle bin ich mit einem Lich von Kazaul zusammengestoßen. Irgendwie hat es der Lich geschafft, mich mit etwas zu infizieren, was in meinem Bauch herumkrabbelt! Ich muss das irgendwie los werden. Ich sollte Ulirfendor fragen, oder gleich Hilfe in einer Kirche suchen.|||}
 	{20|Ulirfendor sagte, dass er einmal etwas über Maden gelesen hätte, die sich von lebendem Gewebe ernähren. Das kann bei mir \'ungewöhnliche\' Auswirkungen haben und die Eier der Maden können einen Menschen langsam von innen her töten. Ich sollte so schnell wie möglich Hilfe suchen, bevor es zu spät ist.|||}
-	{21|Ulirfendor meinte, dass mir ein Priester des Schattens helfen könnte. Ich solle Talion in Loneford aufsuchen.|||}
+	{21|Ulirfendor meinte, dass mir ein Priester des Schattens helfen könnte. Ich solle Talion in Loneford sofort aufsuchen.|||}
 	{30|Der Priester Talion aus Loneford sagte mir, dass er für die Heilung meines Leidens ein paar Sachen benötigt. Zunächst einmal braucht er fünf Knochen und zwei Büschel Tierfell. Außerdem wird noch eine Irdegh-Giftdrüse und ein leeres Fläschchen benötigt. Knochen und Fell sollten sich in der Wildnis leicht finden lassen. Die Giftdrüse sollte einer der Irdeghs liefern können, die östlich von hier gesichtet wurden.|||}
 	{40|Ich habe fünf Knochen zu Talion gebracht.|||}
 	{41|Ich habe die zwei Büschel Tierhaar zu Talion gebracht.|||}
@@ -385,18 +400,98 @@ Incomplete translations:
 	{50|Talion hat mich von den Kazaul-Maden geheilt. Ich konnte eine der Maden in einem leeren Fläschchen auffangen. Talion meinte, das wäre sehr wertvoll. Ich kann mir aber nicht vorstellen wofür.|3000||}
 	{51|Wegen meiner früheren Erkrankung kann ich mich jetzt jederzeit gegen eine geringe Gebühr bei Talion mit dem Segen des Schattens belegen lassen.||1|}
 	}|};
-{sisterfight|Zankende Schwestern|1|{
+{sisterfight|Meinungsverschiedenheiten|1|{
 	{10|Ich habe von zwei zankenden Schwestern aus Remgard gehört: Elwel und Elwyl. Anscheinend halten sie nachts die Leute wach, so laut schreien sie sich gegenseitig an. Ich sollte sie vielleicht einmal in ihrem Haus am Südrand von Remgard besuchen.|||}
+	{20|Ich habe mit Elwyl, einer der Elwille Schwestern in Remgard, geredet. Sie ist wütend auf ihre Schweser, da sie ihr nicht einmal bei ganz einfachen Fakten zustimmt. Scheinbar haben sie ihre gegenseitigen Meinungsverschiedenheiten seit mehreren Jahren.|||}
+	{21|Elwel will nicht mit mir reden.|||}
+	{30|Eine Sache in der die beiden Schwestern aktuell unterschiedlicher Meinung sind ist die Farbe eines bestimmten Trankes, den der Stadtalchemist Hjaldar zubereitet. Elwyl sagt, dass der Trank der Treffsicherheit den Hjaldar macht ein blauer Trank ist, aber Elwel besteht darauf, dass der Trank aus einer grünen Substanz ist.|||}
+	{31|Elwyl will, dass ich einen Trank der Treffsicherheit von Hjaldar hier in Remgard besorge, so dass sie endgültig beweisen kann, dass Elwel falsch liegt.|||}
+	{40|Ich habe mit Hjaldar in Remgard gesprochen. Hjaldar kann seine Tränke nicht mehr zubereiten, da ihm sein Vorrat an Lyson Marrowextrakt ausgegangen ist.|||}
+	{41|Offenbar hätte Hjaldar\'s alter Freund Mazeg sicher noch etwas Lyson Marrowextrakt zu verkaufen. Unglücklicherweise weiß er nicht wo Mazeg aktuell lebt. Er weiß nur, dass Mazeg bei ihrem letzten Treffen auf der Reise weit nach Westen war.|||}
+	{45|Ich sollte Mazeg finden um etwas Lyson Marrowextrakt zu bekommen, so dass Hjaldar wieder seine Tränke machen kann.|||}
+	{50|Ich habe mit Mazeg in der Blackwater Mountain Siedlung gesprochen. Er würde mir Lyson Marrowextrakt für 800 Goldstücke verkaufen.|||}
+	{51|Ich habe mit Mazeg in der Blackwater Mountain Siedlung gesprochen. Da ich den Leuten aus Blackwater Mountain geholfen habe, würde er mir Lyson Marrowextrakt für nur 400 Goldstücke verkaufen.|||}
+	{55|Ich habe etwas Lyson Marrowextrakt von Mazeg gekauft. Ich sollte nach Remgard zurückkehren und es Hjaldar geben.|||}
+	{60|Hjaldar dankte mir für das Lyson Marrowextrakt, dass ich ihm gebracht habe.|1500||}
+	{61|Hjaldar kann jetzt wieder Tränke herstellen, und er würde gern mit mir handeln. Er gab mir sogar ein paar seiner ersten Tränke, die er zubereitet hatte. Ich sollte die Elwille sisters hier in Remgard wieder besuchen und ihnen einen Trank der Treffsicherheit zeigen.|||}
+	{70|Ich habe Elwyl einen Trank der Treffsicherheit gegeben.|||}
+	{71|Bedauerlicherweise haben ihre Zankereien nicht aufgehört. Im Gegensatz, sie scheinen noch wütender aufeinander zu sein, da sie bei der Farbe beide falsch lagen.|900|1|}
 	}|};
+</string>
 
-
-{remgard|Alles in bester Ordnung|1|{
-	{10|Ich habe die Brücke erreicht, die nach Remgard führt. Dem Brückenwächter zufolge ist die Stadt für Nichtbürger gesperrt und es darf gegenwärtig auch niemand die Stadt verlassen. Es finden Untersuchungen wegen dem Verschwinden einiger Bewohner statt.|||}
+<string name="questlist_v0611_3">
+[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
+{remgard|Alles in Ordnung|1|{
+	{10|Ich habe die Brücke erreicht, die nach Remgard führt. Dem Brückenwächter zufolge ist die Stadt für Fremde gesperrt und es darf gegenwärtig auch niemand die Stadt verlassen. Es finden Untersuchungen wegen dem Verschwinden einiger Bewohner statt.|||}
 	{15|Ich habe angeboten, den Leuten von Remgard bei der Untersuchung im Fall der verschwundenen Bewohner zu helfen.|||}
-	{20|Der Brückenwächter hat mich gefragt, ob ich das verlassene Haus im Osten am Nordufer des Sees untersuchen könnte. Ich soll prüfen ob dort irgendjemand wohnt.|||}
+	{20|Der Brückenwächter hat mich gefragt, ob ich das verlassene Haus im Osten am Nordufer des Sees untersuchen könnte. Ich soll vor jeglichen Bewohnern die sich dort aufhalten auf der Hut sein.|||}
 	{30|Ich habe dem Brückenwächter berichtet, dass ich Algangror in dem verlassenen Haus getroffen habe.|300||}
 	{31|Ich habe dem Brückenwächter berichtet, dass außer ein paar Ratten niemand in dem Haus war.|300||}
 	{35|Ich habe Zugang zur Stadt Remgard erhalten. Ich sollte bei Jhaeld dem Stadtältesten vorsprechen, um weitere Schritte zu erfahren. Jhaeld könnte sich möglicherweise in der Taverne im Südosten der Stadt aufhalten.|||}
+	{40|Jhaeld war ziemlich überheblich, aber er hat mir gesagt sie hätten seit einer ganzen Weile ein Problem mit verschwindenden Bewohner. Sie haben keinen Anhaltspunkt was die Ursache dafür sein könnte.|||}
+	{50|Ich soll 4 Bewohner in Remgard besuchen und sie nach Hinweisen was mit den verschwundenen Bewohnern passiert sein könnte befragen.|||}
+	{51|Der erste ist Norath, dessen Frau Bethir verschwunden ist. Norath kann im südwestlichsten Bauernhaus gefunden werden.|||}
+	{52|Als zweites sollte ich mit den Rittern von Elythom hier in der Taverne reden.|||}
+	{53|Als drittes sollte ich mit der alten Frau Duaina in ihrem Haus im Süden reden.|||}
+	{54|Als letztes sollte ich mit Rothses dem Rüstungsbauer reden. Er lebt auf der Westseite der Stadt.|||}
+	{59|Ich habe versucht mit Jhaeld über Algangror zu reden, aber er entließ als ob er mich nicht gehört hätte.|||}
+	{61|Ich habe mit Norath gesprochen. Er und seine Frau hatten kürzlich einen Streit, aber er hat keine Ahnung was mit ihr passiert sein könnte.|||}
+	{62|Die Ritter von Elythom in der Remgard Taverne sagen eine der Ritterinnen sei kürzlich verschwunden. Allerdings hatte niemand etwas bemerkt als sie verschwunden war.|||}
+	{63|Duaina hat mich ih ihrer Vision gesehen. Ich habe nicht alles verstanden was sie gesagt hatte, aber was ich verstanden hatte war, dass ich und Andor teil eines größeren Plans wären. Ich frage mich was das bedeutet? Sie redete nicht über irgendwelche verschwundenen Bewohner, jedenfalls nicht so, dass ich es verstehen konnte.|||}
+	{64|Rothses hat mir gesagt, dass Bethir ihn in der Nacht vor ihrem Verschwinden besucht hatte, um einige Gegenstände zu verkaufen. Er hatte nicht gesehen, wo sie anschließend hingegangen ist.|||}
+	{70|Wie Jhaeld es wollte habe ich mit allen Bewohnern gesprochen, aber ich habe von niemanden Informationen bekommen, was mir den verschwundenen Bewohnern passiert sein könnte. Ich sollte zurück zu Jhaeld gehen und ihn nach seinen weiteren Plänen fragen.|||}
+	{75|Jhaeld war sehr enttäuscht, dass ich von den Bewohnern, mit denen ich sprechen sollte, nichts herausfinden konnte.|1500||}
+	{80|Wenn ich Jhaeld und den Bewohnern von Remgard immer noch helfen will, sollte ich an anderen Orten nach Hinweisen suchen.||1|}
+	{110|Jhaeld will nicht mit mir reden. Ich werde ihnen nicht helfen herauszufinden was mit den vermissten Bewohnern aus Remgard passiert ist.||1|}
 	}|};
--->
+{remgard2|Was ist das für ein Gestank?|1|{
+	{10|Ich habe Jhaeld dem Stadtältesten in Remgard über die Frau namens Algangror erzählt. Sie wohnt in dem verlassenen Haus im Osten des Nordstrandes von dem See außerhalb Remgard\'s.|||}
+	{20|Jhaeld hat mir gesagt er würde sich lieber nicht mit ihr anlegen, da er glaubt, dass sie sehr gefährlich sei. Den Wachen zuliebe wird er es nicht riskieren gegen sie vorzugehen, da er Angst hat was mit ihnen allen passieren könnte.|||}
+	{21|Wenn ich Jhaeld und den Bewohnern von Remgard helfen wollte, sollte ich einen Weg finden damit Algangror verschwindet. Er hat mich auch gewarnt äußerst vorsichtig zu sein.|||}
+	{30|Algangror hat mir gegenüber zugegeben einige Bewohner Remgard\'s verschwinden zu lassen. Aber sie würde mir nicht erzählen was mit ihnen passiert ist.|||}
+	{35|Ich habe Algangror angegriffen. Ich sollte mit einem Beweis sie besiegt zu haben zu Jhaeld zurückkehren wenn sie tot ist.|||}
+	{40|Ich habe Jhaeld erzählt, dass ich Algangror besiegt habe.|||}
+	{41|Jhaeld war sehr erfreut die guten Neuigkeiten zu hören. Die Bewohner aus Remgard sollten jetzt sicher sein und die Stadt kann nun für Fremde wieder geöffnet werden.|||}
+	{45|Dafür, dass ich die Ursache für das Verschwinden der Bewohner aus Remgard gefunden habe, sagte Jhaeld mir ich sollte mit Rothses reden. Es könnte ihm möglich sein etwas von meiner Ausrüstung zu verbessern.|2100|1|}
+	{46|Ervelyn, der Schneider aus Remgard, gab mir einen gefederten Hut als Dank für die Hilfe den Bewohnern Remgard\'s gegenüber.|||}
+	}|};
+{fiveidols|Die fünf Figuren|1|{
+	{10|Algangror will, dass ich ihr bei einer Aufgabe helfe. Sie kann mir weder den Inhalt der Aufgabe beschreiben, noch ihre Beweggründe erklären. Sie hat versprochen mir ihre magische Halskette, die offensichtlich sehr wertvoll ist, zu geben, wenn ich ihr helfe.|||}
+	{20|Ich habe zugestimmt Algangror mit ihrer Aufgabe zu helfen.|||}
+	{30|Algangror will, dass ich fünf Figuren bei fünf verschiedenen Bewohnern aus Remgard aufstelle. Die Figuren soll ich jeweils nah am Bett der fünf Bewohner platzieren. Die Figuren müssen gut versteckt werden, damit sie nicht so einfach gefunden werden können.|||}
+	{31|Der erste Bewohner ist Jhaeld, der Stadtältesten der in der Remgard Tavern gefunden werden kann.|||}
+	{32|Als zweites soll ich eine Figur beim Bett von Larni dem Bauern platzieren. Er wohnt in einem Haus im Norden von Remgard.|||}
+	{33|Der dritte Bewohner ist Arnal der Waffenschmied, der im Nordwesten von Remgard lebt.|||}
+	{34|Der vierte ist Emerei, der im Südosten von Remgard gefunden werden kann.|||}
+	{35|Der fünfte Bewohner ist Carthe. Carthe lebt am östlichem Strand von Remgard, in der Nähe der Taverne.|||}
+	{37|Ich darf niemand von meiner Aufgabe oder dem Platzieren der Figuren erzählen.|||}
+	{41|Ich habe eine Figur bei Jhaeld\'s Bett platziert.|||}
+	{42|Ich habe eine Figur bei dem Bett von Larni dem Bauern platziert.|||}
+	{43|Ich habe eine Figur bei Arnal\'s Bett platziert.|||}
+	{44|Ich habe eine Figur bei Emerei\'s Bett platziert.|||}
+	{45|Ich habe eine Figur bei Carthe\'s Bett platziert.|||}
+	{50|Wie Algangror mir gesagt hat habe ich alle Figuren bei den Betten der fünf Bewohner aufgestellt. Ich sollte zu Algangror zurückkehren.|||}
+	{51|Algangror dankte mir, dass ich ihr geholfen hatte.|||}
+	{60|Sie erzählte mir ihre Geschichte, wie sie in der Stadt lebte, aber für ihren Glauben verfolgt wurde. Ihrer Meinung nach war die Verfolgung vollkommen ungerechtfertigt, da sie den Bewohnern kein Schaden zugefügt hatte.|||}
+	{61|Um sich an der Stadt Remgard zu rächen, hatte sie es geschafft ein paar Bewohner in ihr Haus zu locken und sie in Ratten zu verwandeln.|||}
+	{70|Für die Hilfe bei der Aufgabe, die sie selbst nicht durchführen konnte, gab mir Algangror ihre magische Halskette, \'Marrow\'s Verderben\'.|2100|1|}
+	{100|Ich habe mich entschieden Algangror bei ihrer Aufgabe nicht zu helfen.||1|}
+	}|};
+{kaverin|Alte Freunde?|1|{
+	{10|Ich traf Kaverin in Remgard, der offenbar ein alter Bekannter von Unzel ist, der außerhalb von Fallhaven lebt.|||}
+	{20|Kaverin will, dass ich Unzel eine Nachricht überbringe.|||}
+	{21|Ich habe abgelehnt Kaverin zu helfen.||1|}
+	{22|Ich habe zugestimmt die Nachricht zu überbringen.|||}
+	{25|Kaverin hat mir die Nachricht gegeben, die ich Unzel weitergeben soll.|||}
+	{30|Ich habe Unzel die Nachricht überreicht. Ich sollte zu Kaverin in Remgard zurückkehren.|||}
+	{40|Kaverin dankte mir für das überbringen der Nachricht an Unzel.|1000||}
+	{45|Im Gegenzug, gab Kaverin mir eine alte Karte, die in seinen Besitz gelangt war. Offenbar führt sie zu Vacor\'s altem Versteck.|||}
+	{60|Kaverin war darüber dass ich Unzel getötet und Vacor geholfen hatte sehr aufgebracht. Er fing an mich zu attakieren. Ich sollte zu Vacor zurückkehren, wenn Kaverin tot ist.|||}
+	{70|Kaverin trug eine versiegelte Nachricht bei sich. Vacor hatte das Siegel sofort erkannt und schien sehr an der Nachricht interessiert zu sein.|||}
+	{75|Ich habe Vacor die Nachricht von Kaverin gegeben. Im Gegenzug gab mir Vacor eine alte Karte, die zu seinem alten Versteck führte.|1000||}
+	{90|Ich sollte versuchen Vacor\'s altes Versteck auf der Straße westlich des ehemaligen Gefängnisses in Flagstone, südwestlich von Fallhaven zu finden.|||}
+	{100|Ich habe Vacor\'s altes Versteck gefunden.||1|}
+	}|};
+</string>
+
 </resources>

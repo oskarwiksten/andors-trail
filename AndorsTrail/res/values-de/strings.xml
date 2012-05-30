@@ -77,7 +77,7 @@
 	<string name="combat_result_herohitcritical">Dein kritischer Treffer kostet %1$s %2$d LP!</string>
 	<string name="combat_result_herokillsmonster">%1$s ist besiegt!</string>
 	<string name="combat_not_enough_ap">Es sind nicht mehr genug AP in dieser Runde übrig.</string>
-	<string name="combat_hero_dies">Du wirst bewusstlos, wachst aber glücklicherweise lebendig wieder auf. Du verlierst %1$d Erfahrungspunkte.</string>
+	<string name="combat_hero_dies">Du wirst bewusstlos, wachst aber glücklicherweise wieder lebendig auf. Du verlierst %1$d Erfahrungspunkte.</string>
 		
 	<string name="inventory_info">Info</string>
 	<string name="inventory_equip">Anlegen</string>
@@ -120,7 +120,7 @@
     <string name="traitsinfo_attack_cost">Angriffskosten (AP):</string>
     <string name="traitsinfo_attack_chance">Angriffschance:</string>
     <string name="traitsinfo_attack_damage">Schaden:</string>
-    <string name="traitsinfo_criticalhit_skill">Kritische Treffer:</string>
+    <string name="traitsinfo_criticalhit_skill">Kritische Fähigkeit:</string>
     <string name="traitsinfo_criticalhit_multiplier">Faktor bei krit. Treffern:</string>
     <string name="traitsinfo_defense_chance">Abwehrchance:</string>
     <string name="traitsinfo_defense_damageresist">Schadensresistenz:</string>
@@ -199,10 +199,26 @@
 		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Projekt Homepage auf code.google.com für Entwickler.&lt;/a&gt;&lt;br /&gt;
 		&lt;br /&gt;
 		Bitte besuchen sie uns im Forum, um das Spiel mit anderen Spielern zu diskutieren.&lt;br /&gt;
-		&lt;br /&gt;
-		Wir sollten hier wirklich einmal ein paar Informationen anzeigen, wie man das Spiel spielt :)&lt;br /&gt;
 	</string>
 
+	<!-- 
+		This is the GNU GPL v2 text, originally from 
+			http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+		For translation of this text, you might be able to find a version in your language here: 
+			http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
+	-->
+	<string name="about_contents3">
+		Copyright (C) 2011-2012 Oskar Wiksten&lt;br /&gt;
+		&lt;br /&gt;
+		Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 2 der Lizenz oder (nach Ihrer Option) jeder späteren Version.&lt;br /&gt;
+		&lt;br /&gt;
+		Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.&lt;br /&gt;
+		&lt;br /&gt;
+		Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe hier:&lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		Für den Quelltext und Verbesserungsanfragen, besuchen Sie bitte die Projektseite:&lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+	</string>
+	
 	<string name="dialog_newversion_title">Willkommen</string>
 	<string name="dialog_newversion_message">
         Vielen Dank, dass Du Andor\'s Trail heruntergeladen hast!\n\n
@@ -385,7 +401,7 @@
     <string name="skill_shortdescription_barter">Bessere Händlerpreise</string>
     <string name="skill_shortdescription_dodge">Erhöhte Abwehrchance</string>
     <string name="skill_shortdescription_barkskin">Schadensresistenz</string>
-    <string name="skill_shortdescription_more_criticals">Erhöhte kritische Chance</string>
+    <string name="skill_shortdescription_more_criticals">Erhöhte kritische Fähigkeit</string>
     <string name="skill_shortdescription_better_criticals">Erhöhter kritischer Schaden</string>
     <string name="skill_shortdescription_speed">Erhöhte maximale Aktionspunkte</string>
     <string name="skill_shortdescription_coinfinder">Größere Chance Gold zu finden</string>
@@ -406,7 +422,7 @@
     <string name="skill_longdescription_barter">Verringert bei jeder Stufe den Auf- und Abschlag von An- und Verkäufen um %1$d Prozentpunkte.</string>
     <string name="skill_longdescription_dodge">Erhöht die Abwehrchance bei jeder Stufe um %1$d.</string>
     <string name="skill_longdescription_barkskin">Erhöht die Schadensresistenz bei jeder Stufe um %1$d.</string>
-    <string name="skill_longdescription_more_criticals">Erhöht bei jeder Stufe die durch die Ausrüstung bestehende kritische Chance um %1$d %% (prozentualer Anteil an der bestehenden kritischen Chance, es handelt sich nicht um zusätzliche Prozentpunkte).</string>
+    <string name="skill_longdescription_more_criticals">Erhöht bei jeder Stufe die durch die Ausrüstung bestehende kritische Fähigkeit um %1$d %% (prozentualer Anteil an der bestehenden kritischen Fähigkeit, es handelt sich nicht um zusätzliche Prozentpunkte).</string>
     <string name="skill_longdescription_better_criticals">Erhöht bei jeder Stufe den durch die Ausrüstung bestehenden kritischen Faktor um %1$d %%.</string>
     <string name="skill_longdescription_speed">Erhöht die maximalen Aktionspunkte (AP) bei jeder Stufe um %1$d.</string>
     <string name="skill_longdescription_coinfinder">Erhöht bei jeder Stufe die Chance bei einem Gegner Gold zu finden um %1$d %%. Auch die Menge des gefundenen Goldes erhöht sich jeweils um %2$d %% (bis zu der für den Gegnertyp maximalen Menge).</string>
@@ -464,10 +480,29 @@
 	
 	<string name="skill_title_shadow_bless">Dunkler Segen des Schattens</string>
     <string name="skill_shortdescription_shadow_bless">Widerstand gegen Effekte aller Art</string>
-    <string name="skill_longdescription_shadow_bless">Verringert bei jeder Stufe die Chance von Effekten aller Art geplagt zu werden um %1$d %%. Das beeinhaltet alle von Gegnern hinzugefügten Effekte wie beispielsweise Vergiftung, Benommen und Ermüdung.</string>
+    <string name="skill_longdescription_shadow_bless">Verringert die Chance von Effekten aller Art geplagt zu werden um %1$d %%. Das beeinhaltet alle von Gegnern hinzugefügten Effekte wie beispielsweise Vergiftung, Benommen und Ermüdung.</string>
     
     <string name="inventory_movetop">Nach ganz oben verschieben</string>
     <string name="inventory_movebottom">Nach ganz unten verschieben</string>
     <string name="actorinfo_immune_criticals">Kritischen Treffern gegenüber immun</string>
-	
+    <string name="traitsinfo_criticalhit_effectivechance">Effektive kritische Treffer:</string>
+
+   	<string name="skill_title_crit1">Innere Blutung</string>
+    <string name="skill_shortdescription_crit1">Chance innere Blutungen zuzufügen</string>
+    <string name="skill_longdescription_crit1">Bei jedem kritischen Treffer gibt es eine %1$d %% Chance dem Gegner innere Blutungen zuzufügen. Durch den Effekt \'Innere Blutung\' werden die offensiven Kampfeigenschaften stark eingeschränkt und der Gegner wird weniger erfolgreiche Angriffe durchführen können.</string>
+   	<string name="skill_title_crit2">Knochenbrecher</string>
+    <string name="skill_shortdescription_crit2">Chance Knochen zu brechen</string>
+    <string name="skill_longdescription_crit2">Bei jedem kritischen Treffer gibt es eine %1$d %% Chance einige Knochen des Gegners zu brechen. Durch den Effekt \'Knochenbruch\' werden die defensiven Kampfeigenschaften stark eingeschränkt und der Gegner wird sich weniger gegen nachfolgende Angriffe verteidigen können.</string>
+    <string name="skill_title_rejuvenation">Verjüngung</string>
+    <string name="skill_shortdescription_rejuvenation">Chance Effekte zu entfernen</string>
+    <string name="skill_longdescription_rejuvenation">Jede Runde (alle 6 Sekunden) gibt es eine %1$d %% Chance dass einer der aktiven negativen Effekte um eine Größenordnung verringert wird. Das gilt für alle Effektarten die den Körper betreffen; mentale Effekte wie Benommen, physische Effekte wie Ermüdung und auch Blutstörungen wie Gift.</string>
+   	<string name="skill_title_taunt">Verspotten</string>
+    <string name="skill_shortdescription_taunt">Angreifer verliert bei Fehlschlägen Aktionspunkte</string>
+    <string name="skill_longdescription_taunt">Wenn ein Angriff eines Gegners fehlschlägt gibt es eine %1$d %% Chance dass er dabei %2$d Aktionspunkte (AP) verliert. Das gilt für alle Nahkampfangriffe gegen dich.</string>
+   	<string name="skill_title_concussion">Gehirnerschütterung</string>
+    <string name="skill_shortdescription_concussion">größere Chance eine Gehirnerschütterung zuzufügen</string>
+    <string name="skill_longdescription_concussion">Bei einem Angriff auf einen Gegner dessen Abwehrchance (BC) mindestens um %1$d tiefer als deine Angriffschance (AC) ist, gibt es eine %2$d %% Chance dass ein Treffer dem Gegner eine Gehirnerschütterung zufügt. Durch den Effekt \'Gehirnerschütterung\' werden die offensiven Kampfeigenschaften stark eingeschränkt und der Gegner wird weniger erfolgreiche Angriffe durchführen können.</string>
+
+    <string name="about_button4">Über</string>
+    
 </resources>
