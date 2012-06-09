@@ -4,26 +4,6 @@ import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemType {
-	public static final int CATEGORY_WEAPON = 0;
-	public static final int CATEGORY_SHIELD = 1;
-	public static final int CATEGORY_WEARABLE_HEAD = 2;
-	public static final int CATEGORY_WEARABLE_BODY = 3;
-	public static final int CATEGORY_WEARABLE_HAND = 4;
-	public static final int CATEGORY_WEARABLE_FEET = 5;
-	//public static final int CATEGORY_WEARABLE_CAPE = 6;
-	//public static final int CATEGORY_WEARABLE_LEGS = 7;
-	public static final int CATEGORY_WEARABLE_NECK = 6;
-	public static final int CATEGORY_WEARABLE_RING = 7;
-	public static final int MAX_CATEGORY_WEAR = CATEGORY_WEARABLE_RING;
-	public static final int CATEGORY_POTION = 20;
-	public static final int CATEGORY_FOOD = 21;
-	public static final int MAX_CATEGORY_USE = CATEGORY_FOOD;
-	public static final int CATEGORY_MONEY = 30;
-	public static final int CATEGORY_OTHER = 31;
-	
-	public static final int ACTIONTYPE_NONE = 0;
-	public static final int ACTIONTYPE_USE = 1;
-	public static final int ACTIONTYPE_EQUIP = 2;
 	
 	public static final int DISPLAYTYPE_ORDINARY = 0;
 	public static final int DISPLAYTYPE_QUEST = 1;
@@ -34,8 +14,7 @@ public final class ItemType {
 	public final String id;
 	public final int iconID;
 	public final String name;
-	public final int category;
-	public final int actionType;
+	public final ItemCategory category;
 	public final boolean hasManualPrice;
 	public final int baseMarketCost;
 	public final int fixedBaseMarketCost;
@@ -46,12 +25,11 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(String id, int iconID, String name, int category, int displayType, boolean hasManualPrice, int fixedBaseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	public ItemType(String id, int iconID, String name, ItemCategory category, int displayType, boolean hasManualPrice, int fixedBaseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
 		this.category = category;
-		this.actionType = getActionType(category);
 		this.displayType = displayType;
 		this.hasManualPrice = hasManualPrice;
 		this.baseMarketCost = hasManualPrice ? fixedBaseMarketCost : calculateCost(category, effects_equip, effects_use);
@@ -62,17 +40,13 @@ public final class ItemType {
 		this.effects_kill = effects_kill;
 	}
 	
-	private static int getActionType(int category) {
-		if (category <= MAX_CATEGORY_WEAR) return ACTIONTYPE_EQUIP;
-		else if (category <= MAX_CATEGORY_USE) return ACTIONTYPE_USE;
-		else return ACTIONTYPE_NONE;
-	}
-	public boolean isEquippable() { return actionType == ACTIONTYPE_EQUIP; }
-	public boolean isUsable() { return actionType == ACTIONTYPE_USE; }
+	public boolean isEquippable() { return category.isEquippable(); }
+	public boolean isUsable() { return category.isUsable(); }
 	public boolean isQuestItem() { return displayType == DISPLAYTYPE_QUEST; }
 	public boolean isOrdinaryItem() { return displayType == DISPLAYTYPE_ORDINARY; }
-	public boolean isWeapon() { return isWeaponCategory(category); }
-	public static boolean isWeaponCategory(int category) { return category == CATEGORY_WEAPON; }
+	public boolean isWeapon() { return category.isWeapon(); }
+	public boolean isTwohandWeapon() { return category.isTwohandWeapon(); }
+	public boolean isOffhandCapableWeapon() { return category.isOffhandCapableWeapon(); }
 	public boolean isSellable() {
 		if (isQuestItem()) return false;
 		if (baseMarketCost == 0) return false;
@@ -164,8 +138,8 @@ public final class ItemType {
 	}
 	
 	public int calculateCost() { return calculateCost(category, effects_equip, effects_use); }
-	public static int calculateCost(int category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use) {
-		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateCost(isWeaponCategory(category));
+	public static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use) {
+		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateCost(category.isWeapon());
 		final int costUse = effects_use == null ? 0 : effects_use.calculateCost();
 		//final int costHit = effects_hit == null ? 0 : effects_hit.calculateCost();
 		//final int costKill = effects_kill == null ? 0 : effects_kill.calculateCost();

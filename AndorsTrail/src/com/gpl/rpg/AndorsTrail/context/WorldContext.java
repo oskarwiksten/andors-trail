@@ -7,6 +7,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
+import com.gpl.rpg.AndorsTrail.model.item.ItemCategoryCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
@@ -16,6 +17,7 @@ public class WorldContext {
 	//Objectcollections
 	public final ConversationLoader conversationLoader;
 	public final ItemTypeCollection itemTypes;
+	public final ItemCategoryCollection itemCategories;
 	public final MonsterTypeCollection monsterTypes;
 	public final VisualEffectCollection visualEffectTypes;
 	public final DropListCollection dropLists;
@@ -33,6 +35,7 @@ public class WorldContext {
 	public WorldContext() {
 		this.conversationLoader = new ConversationLoader();
 		this.itemTypes = new ItemTypeCollection();
+		this.itemCategories = new ItemCategoryCollection();
 		this.monsterTypes = new MonsterTypeCollection();
 		this.visualEffectTypes = new VisualEffectCollection();
 		this.dropLists = new DropListCollection();
@@ -45,6 +48,7 @@ public class WorldContext {
 	public WorldContext(WorldContext copy) {
 		this.conversationLoader = copy.conversationLoader;
 		this.itemTypes = copy.itemTypes;
+		this.itemCategories = copy.itemCategories;
 		this.monsterTypes = copy.monsterTypes;
 		this.visualEffectTypes = copy.visualEffectTypes;
 		this.dropLists = copy.dropLists;

@@ -76,15 +76,15 @@ public final class HeroinfoActivity_Inventory extends Activity {
         heroinfo_stats_attack = (TextView) findViewById(R.id.heroinfo_stats_attack);
         heroinfo_stats_defense = (TextView) findViewById(R.id.heroinfo_stats_defense);
         
-        setWearSlot(ItemType.CATEGORY_WEAPON, R.id.heroinfo_worn_weapon, R.drawable.equip_weapon);
-        setWearSlot(ItemType.CATEGORY_SHIELD, R.id.heroinfo_worn_shield, R.drawable.equip_shield);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_HEAD, R.id.heroinfo_worn_head, R.drawable.equip_head);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_BODY, R.id.heroinfo_worn_body, R.drawable.equip_body);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_FEET, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_NECK, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_RING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
-        setWearSlot(ItemType.CATEGORY_WEARABLE_RING+1, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
+        setWearSlot(Inventory.WEARSLOT_WEAPON, R.id.heroinfo_worn_weapon, R.drawable.equip_weapon);
+        setWearSlot(Inventory.WEARSLOT_SHIELD, R.id.heroinfo_worn_shield, R.drawable.equip_shield);
+        setWearSlot(Inventory.WEARSLOT_HEAD, R.id.heroinfo_worn_head, R.drawable.equip_head);
+        setWearSlot(Inventory.WEARSLOT_BODY, R.id.heroinfo_worn_body, R.drawable.equip_body);
+        setWearSlot(Inventory.WEARSLOT_FEET, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
+        setWearSlot(Inventory.WEARSLOT_NECK, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
+        setWearSlot(Inventory.WEARSLOT_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
+        setWearSlot(Inventory.WEARSLOT_RING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
+        setWearSlot(Inventory.WEARSLOT_RING+1, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
     }
 
     @Override
@@ -119,7 +119,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
 	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_EQUIP) {
-	        	view.itemController.equipItem(itemType);
+	    		int slot = suggestInventorySlot(itemType, player);
+	        	view.itemController.equipItem(itemType, slot);
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_USE) {
 				view.itemController.useItem(itemType);	
 			}
@@ -132,6 +133,16 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			dropItem(itemTypeID, quantity);
 			break;
 		}
+	}
+
+	private static int suggestInventorySlot(ItemType itemType, Player player) {
+		int slot = itemType.category.inventorySlot;
+		if (slot == Inventory.WEARSLOT_RING) {
+			if (!player.inventory.isEmptySlot(slot)) return slot + 1;
+		} else if (itemType.isOffhandCapableWeapon()) { 
+			if (player.inventory.isEmptySlot(Inventory.WEARSLOT_SHIELD)) return Inventory.WEARSLOT_SHIELD;
+		}
+		return slot;
 	}
 
 	private void dropItem(String itemTypeID, int quantity) {
@@ -182,7 +193,11 @@ public final class HeroinfoActivity_Inventory extends Activity {
 				menu.findItem(R.id.inv_menu_use).setVisible(true);
 				menu.findItem(R.id.inv_menu_assign).setVisible(true);
 			}
-			if (type.isEquippable()) menu.findItem(R.id.inv_menu_equip).setVisible(true);
+			if (type.isEquippable()) {
+				menu.findItem(R.id.inv_menu_equip).setVisible(true);
+				if (type.isOffhandCapableWeapon()) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
+				else if (type.category.inventorySlot == Inventory.WEARSLOT_RING) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
+			}
 			break;
 		}
 		lastSelectedItem = null;
@@ -193,6 +208,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
     }
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+    	ItemType itemType;
     	AdapterContextMenuInfo info = (AdapterContextMenuInfo) item.getMenuInfo();
 		switch (item.getItemId()) {
 		case R.id.inv_menu_info:
@@ -209,7 +225,12 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			}
 			break;
 		case R.id.inv_menu_equip:
-			view.itemController.equipItem(getSelectedItemType(info));
+			itemType = getSelectedItemType(info);
+			view.itemController.equipItem(itemType, itemType.category.inventorySlot);
+			break;
+		case R.id.inv_menu_equip_offhand:
+			itemType = getSelectedItemType(info);
+			view.itemController.equipItem(itemType, itemType.category.inventorySlot + 1);
 			break;
 		/*case R.id.inv_menu_unequip:
 			context.controller.unequipItem(this, getSelectedItemType(info));

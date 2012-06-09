@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.DropListParser;
+import com.gpl.rpg.AndorsTrail.resource.parsers.ItemCategoryParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ItemTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.MonsterTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
@@ -21,6 +22,7 @@ import android.content.res.TypedArray;
 
 public final class ResourceLoader {
 
+	private static final int itemCategoriesResourceId = R.array.loadresource_itemcategories;
 	private static final int actorConditionsResourceId = R.array.loadresource_actorconditions;
 	private static final int itemsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_items_debug : R.array.loadresource_items;
 	private static final int droplistsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_droplists_debug : R.array.loadresource_droplists;
@@ -74,6 +76,15 @@ public final class ResourceLoader {
         world.skills.initialize();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("SkillLoader");
         
+        // ========================================================================
+        // Load item categories
+        final ItemCategoryParser itemCategoryParser = new ItemCategoryParser();
+        final TypedArray categoriesToLoad = r.obtainTypedArray(itemCategoriesResourceId);
+        for (int i = 0; i < categoriesToLoad.length(); ++i) {
+        	world.itemCategories.initialize(itemCategoryParser, categoriesToLoad.getString(i));	
+        }
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ItemCategoryParser");
+        
     	// ========================================================================
         // Load condition types
         final ActorConditionsTypeParser actorConditionsTypeParser = new ActorConditionsTypeParser(loader);
@@ -91,7 +102,7 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load items
-        final ItemTypeParser itemTypeParser = new ItemTypeParser(loader, world.actorConditionsTypes);
+        final ItemTypeParser itemTypeParser = new ItemTypeParser(loader, world.actorConditionsTypes, world.itemCategories);
         final TypedArray itemsToLoad = r.obtainTypedArray(itemsResourceId);
         for (int i = 0; i < itemsToLoad.length(); ++i) {
         	world.itemTypes.initialize(itemTypeParser, itemsToLoad.getString(i));	

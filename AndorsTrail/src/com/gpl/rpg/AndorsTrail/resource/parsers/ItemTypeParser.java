@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.item.ItemCategoryCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
@@ -12,11 +13,13 @@ public final class ItemTypeParser extends ResourceParserFor<ItemType> {
 
 	private final DynamicTileLoader tileLoader;
 	private final ItemTraitsParser itemTraitsParser;
+	private final ItemCategoryCollection itemCategories;
 	
-	public ItemTypeParser(DynamicTileLoader tileLoader, ActorConditionTypeCollection actorConditionsTypes) {
+	public ItemTypeParser(DynamicTileLoader tileLoader, ActorConditionTypeCollection actorConditionsTypes, ItemCategoryCollection itemCategories) {
 		super(39);
 		this.tileLoader = tileLoader;
 		this.itemTraitsParser = new ItemTraitsParser(actorConditionsTypes);
+		this.itemCategories = itemCategories;
 	}
 
 	@Override
@@ -34,8 +37,8 @@ public final class ItemTypeParser extends ResourceParserFor<ItemType> {
 				id
     			, ResourceParserUtils.parseImageID(tileLoader, parts[1])
     			, itemTypeName
-	        	, Integer.parseInt(parts[3]) 												// category
-    			, ResourceParserUtils.parseInt(parts[4], ItemType.DISPLAYTYPE_ORDINARY) 		// Displaytype
+	        	, itemCategories.getItemCategory(parts[3])									// category
+    			, ResourceParserUtils.parseInt(parts[4], ItemType.DISPLAYTYPE_ORDINARY) 	// Displaytype
     			, hasManualPrice								 							// hasManualPrice
     			, baseMarketCost 															// Base market cost
     			, equipEffect
