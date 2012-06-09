@@ -14,11 +14,13 @@ var translateFiles = [
 	'content_monsterlist.xml',
 	'content_questlist.xml'
 ];
+
 var translations = [ 
 	{ name: 'French', id: 'values-fr', files: [ 
 		'content_actorconditions.xml', 
 		'content_conversationlist.xml', 
 		'content_itemlist.xml', 
+		'content_monsterlist.xml', 
 		'content_questlist.xml',
 		'strings.xml'
 	]},
@@ -31,15 +33,20 @@ var translations = [
 	]},
 	{ name: 'German', id: 'values-de', files: [ 
 		'content_actorconditions.xml', 
+		'content_conversationlist.xml', 
 		'content_itemlist.xml', 
+		'content_monsterlist.xml', 
+		'content_questlist.xml', 
 		'strings.xml'
 	]},
 	{ name: 'Hebrew', id: 'values-iw', files: [ 
 		'strings.xml'
 	]},
 	{ name: 'Russian', id: 'values-ru', files: [ 
+		'content_actorconditions.xml', 
 		'content_conversationlist.xml', 
 		'content_itemlist.xml', 
+		'content_monsterlist.xml', 
 		'content_questlist.xml',
 		'strings.xml'
 	]},
@@ -64,7 +71,7 @@ function loadResourceFile(filename, onSuccess) {
 	url = url.substring(0, url.lastIndexOf('/'));
 	url = url.substring(0, url.lastIndexOf('/'));
 	url += "/AndorsTrail/res/" + filename;
-	//var url = "http://andors-trail.googlecode.com/svn/trunk/AndorsTrail/res/" + filename;
+	//var url = "http://andors-trail.googlecode.com/git/AndorsTrail/res/" + filename;
 	$.get(url, function(data) {
 		onSuccess(data);
 	}, 'text');
