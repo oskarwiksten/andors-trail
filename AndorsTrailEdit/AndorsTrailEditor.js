@@ -29,6 +29,16 @@ var equipConditionsDialog;
 var droplistItemDialog;
 var phraseRewardDialog;
 
+function loadResourceFile(filename, onSuccess) {
+	var url = document.location.href;
+	url = url.substring(0, url.lastIndexOf('/'));
+	url = url.substring(0, url.lastIndexOf('/'));
+	url += "/AndorsTrail/res/" + filename;
+	//var url = "http://andors-trail.googlecode.com/git/AndorsTrail/res/" + filename;
+	$.get(url, function(data) {
+		onSuccess(data);
+	}, 'text');
+}
 
 function openTabForObject(obj, dataStore) {
 	tabs.openTabForObject(obj, dataStore.objectTypename, obj[dataStore.nameField]);
@@ -95,8 +105,8 @@ function addExampleModelItems(model) {
 
 	model.quests.add({id: "testQuest", name: "Test quest", stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] });
 
-	model.items.add({id: "item0", iconID: "items_weapons:0", name: "Test item", category: 0, baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4});
-	model.items.add({id: "dmg_ring1", iconID: "items_jewelry:0", name: "Ring of damage +1", category: 7, baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
+	model.items.add({id: "item0", iconID: "items_weapons:0", name: "Longsword", category: 'lsword', baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4});
+	model.items.add({id: "dmg_ring1", iconID: "items_jewelry:0", name: "Ring of damage +1", category: 'ring', baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1});
 
 	model.droplists.add({id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity_Min: 4, quantity_Max: 5, chance: 100 } , { itemID: 'item0', quantity_Min: 1, quantity_Max: 1, chance: 100 } ] } );
 
@@ -165,10 +175,16 @@ function startEditor() {
 			,nameField: 'name'
 			,iconField: 'iconID'
 		})
+		,itemCategories: new DataStore({
+			objectTypename: 'itemcategory'
+			,fieldList: new FieldList("[id|name|actionType|inventorySlot|size|];")
+			,idField: 'id'
+			,nameField: 'name'
+		})
 	};
 	
 	addExampleModelItems(model);
-
+	
 	
 	
 	
@@ -232,6 +248,7 @@ function startEditor() {
 	
 	tabs = new EditorTabs( $( "#center #tabs" ) );
 	
+	
 	bindEditorType(model.actorConditions, $( "#tools #actorconditionlist" ), createActorConditionEditor, function() {
 		return {name: "New Condition", id: 'new_condition' };
 	});
@@ -239,7 +256,7 @@ function startEditor() {
 		return {name: "New Quest", id: 'new_quest' };
 	});
 	bindEditorType(model.items, $( "#tools #itemlist" ), createItemEditor, function() {
-		return {name: "New Item", id: "new_item", category: 31 };
+		return {name: "New Item", id: "new_item", category: 'other' };
 	});
 	bindEditorType(model.droplists, $( "#tools #droplist" ), createDroplistEditor, function() {
 		return {id: "new_droplist" };
@@ -307,5 +324,16 @@ function startEditor() {
 			width: 350,
 			buttons: defaultButtons
 		});
+	
+	loadResourceFile( 'values/content_itemcategories.xml', function(data) {
+		var allContent = '';
+		$( data ).find("string").each(function() {
+			allContent = allContent + $(this).text();
+		});
+		model.itemCategories.deserialize(allContent);
+		model.itemCategories.items.forEach(function(c) {
+			$("#editItem select#category").append( $("<option>").val(c.id).text(c.name) );
+		});
+	});
 }
 
