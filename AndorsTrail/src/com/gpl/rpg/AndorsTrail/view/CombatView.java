@@ -110,7 +110,7 @@ public final class CombatView extends RelativeLayout {
 		statusTextView.setText(res.getString(R.string.combat_status_ap, range.current));
 	}
 	public void updateCombatSelection(Monster selectedMonster, Coord selectedMovePosition) {
-		if (currentMonster == selectedMonster) return;
+		if (currentMonster != null && currentMonster == selectedMonster) return;
 		
 		attackMoveButton.setEnabled(true);
 		monsterBar.setVisibility(View.INVISIBLE);
