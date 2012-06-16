@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJylld0NwyAMhIEN2jW6dTZIN0g26AjdpEGRJWPdHU76cC+B4/MPMUstZUlqD8r6vF+tt1bKp46qjcfB/MjT9T70PNa+ddSjjR4fh//u/d2zEcarYJknxuH50Y8YPT7GMA+Kw/MVw+K7w/DnzRh+fa2nrjL8uurFRr6rnkXGrBeIgeL0YvtZL1B+ioFiiv8HqxOLK8OI/8dVRszlTl9Rn7L7ZwzVp8z+WMssw/bHuaQYqr6K4XuI6jerL/Og+cPqp+o786hZ0uu3J3qu7i1aj/VDb8g/jH5WnP/xPUJ5NjJDWN/Z/EcMy1P1Qs3ADMPyVHW6wmD3hM01dbe87B1DnhWInc88aM8PDAYpUg==
+  </data>
+ </layer>
+ <layer name="Objects" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzNVTFuwzAMlB0rmVM0a4H2B80/CuQD+Z1/4A5+gtHOXpqtQ4ZuyZglFRERUWie6BoZeoCAxDLJ051IO/f/sPLTY99m9js/If8srEVYj5laiMfWqLEunTuF2GLuXFc59x7Wazl8bw7yU3wNYiTa6vp7729jOA/x0HK1cQ9hE/ZWcZ/PItHEZ7yX1jmP0IlwKK7PjsWFcyNq8TlJy6XgTM/SHCmId6vwlnVTHTpFF+3sFnolhrjU1bD+GIx5f5n4pUHqyiAvvsF9lPqRr88xP4pBeAK8pKeMHnjbgv6oM3cBeZjTVfPwnkA9gvTgnpZAd5zx1/v7qfj6YXitcUZ1ie/ODz38mjD7kVak7c7f9sLamKmavlYM1Uj1pzvD/0twHqmL5R/ShfR7UPZIEzkDcr3BHPYiVxNnofY9sjjnQLleYr5Omekp+ljb+4sXVk+e4hkKMaM6MHe5B9l3qYEGimEeU+f5vfALDvtMZg==
+  </data>
+ </layer>
+ <layer name="Above" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJzNlVEOgCAMQzHG+9/TH40X0PhhYgjb2jKM+5S9FVYHpfwr9nksf69vgIZVB+FPsL5VB+F7cyIe7ZNX55h0lsnzPLfYmok0lF7W31UN5l9RNZjzqb6yPVR8ZTUyfH3C8kmZEVZbmZFsDaa/lt/endNa95hWbzPP8N7DaI2MOf9CI3oz1oXLR9+IHia6z7KYUXEBc0VXlw==
+  </data>
+ </layer>
+ <layer name="Walkable" width="25" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztksENwCAMA70C+y/bL6oScjG06qNIeQCOLxYMSeOvVqmp7egpI1vUh8x19404hL/ikJ4qJ8nR4VJ9lTGac4dBzmfvpxjd3OQvZD7OTLv/wM3nME6900mGk/uLjDffQ4s9yd7tIXond8bI/KIcDkPBncuYNZU/nYP0VPqn6gL+gyA2
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="25" height="25" visible="0">
+  <object name="up north" type="mapchange" x="64" y="96" width="32" height="32">
+   <properties>
+    <property name="map" value="roadcave0"/>
+    <property name="place" value="down north"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="25" height="25">
+  <object name="forestsnail2" type="spawn" x="64" y="224" width="32" height="192"/>
+  <object name="forestsnail1" type="spawn" x="96" y="448" width="32" height="96"/>
+  <object name="forestsnail2" type="spawn" x="64" y="608" width="64" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail2" type="spawn" x="192" y="736" width="64" height="32"/>
+  <object name="forestsnail3" type="spawn" x="256" y="352" width="32" height="288">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail2" type="spawn" x="288" y="256" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail3" type="spawn" x="320" y="96" width="224" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail2" type="spawn" x="480" y="256" width="32" height="128"/>
+  <object name="forestsnail3" type="spawn" x="448" y="480" width="96" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail4" type="spawn" x="608" y="128" width="160" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail3" type="spawn" x="608" y="448" width="64" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestsnail4" type="spawn" x="480" y="640" width="288" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="25" height="25" visible="0"/>
+</map>

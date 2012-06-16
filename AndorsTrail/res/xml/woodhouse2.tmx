@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="16" height="8" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxLZmRgCCYTJwNxCBAvZSIPh0D1b2UiD8P0OzGQju2ZIXqLydQPwsVQv5OrfynUH+TqB+kNYiCMnfDIAQBuyjGn
+  </data>
+ </layer>
+ <layer name="Objects" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAcRLMzMMQAsRcLA8NKNgaGUChbjBUiD2L7AtkBrBA2CPiwYpoTBZRjBYqnskPYIBCAxAbJgdizgHZIIOkPAPJF2CEYpg4EQPwEdoS6TVB6FRuqvSB1u4Hm7mGBsEVZEWIg/VqsEKwJxDtYsOs/DRQ/w4JwA4heDeQXAGkrVgi2hLprF5p+mHqY3hNQ/y5hQcgLIuk5gSROKQAADHQVyQ==
+  </data>
+ </layer>
+ <layer name="Above" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAc/GceevqR9YDYP9gYGNjZUdVwQvnY5ND1kwreM2Nn0xsAAPvaCxs=
+  </data>
+ </layer>
+ <layer name="Walkable" width="16" height="8">
+  <data encoding="base64" compression="zlib">
+   eJwTZGBgEBziGB/AJi+IRGNjM6CJodtFC/3kAFLCB5ccALGCBeo=
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="16" height="8" visible="0">
+  <object name="south" type="mapchange" x="288" y="224" width="32" height="32">
+   <properties>
+    <property name="map" value="woodsettlement"/>
+    <property name="place" value="woodhouse2"/>
+   </properties>
+  </object>
+  <object name="down woodhouse2" type="mapchange" x="448" y="96" width="32" height="32">
+   <properties>
+    <property name="map" value="woodhouse3"/>
+    <property name="place" value="up woodhouse3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="16" height="8">
+  <object name="wood_drunk" type="spawn" x="224" y="96" width="32" height="32"/>
+  <object name="wood_guest_1" type="spawn" x="32" y="96" width="128" height="32"/>
+  <object name="wood_guest_2" type="spawn" x="32" y="128" width="96" height="96"/>
+  <object name="wood_guest_3" x="128" y="96" width="96" height="128"/>
+  <object name="tavern_owner_wood" type="spawn" x="288" y="96" width="128" height="32"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="16" height="8" visible="0"/>
+</map>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="20" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzTZGBg0BzFo3gUk4W1B7l5ww1rUzmMtGlgJi3cORTNpGbY0sLM4RC2gzW+aOleWoUtLTAANQxgbQ==
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="30">
+  <data encoding="base64" compression="zlib">
+   eJyVVT1vE0EQPZ/nrjcSLVIkJGiRFbCokAGHMonlWCmT/xAoqHAsUSBFNLRUrqFwimsTXZEfYLcUiZWS38A87Yx2dr13EU8azd3e7ts3H3s7LbJsj23a4Adsr1q+x/6hNc/Znv3HnvEa/Rbv0TZ+RX59vM83tgu2n2zfDcdxN8smXec/dz0ntMwo1Kecv9iAXfHn5PyCPckYUMu45bT6bAzAXOY/5fevbL9L975n5vyJxtSDa8nrfxjNFxIroM/xur9luoaqNa4j8JH9TkPtB4WP2daqrQeuJe4lpWv6he2GXH4B1KWpr4C3eZYN2d6xrclr2O9k2csGa+or+CPm+cT+IHc6gD6/jzq+/ksZX5Gvo/bFnLY5AfDp94ocH2K7pe26Iw5wP5b6XyY47XwAfHXEpX5H5qFf+2ZN6lzjfUE+3tS+Q5Nz4MboO2E7jXr9Tvh079R5ACbCeddylnT+G+b70AnnXIkOoFc6XcpZy3lty6PmMN73kNeP8m2dq0hn3OvgWydqAoyF87YIOfE/mNP2mdpIDs8TvTCVNcpZkecc5mG9etJTM1PjWJ8+rwznvfSFxvOk9JrfF65XX3ec/pQ+fV4bTu2dR6KpMvXSvgHqKOY4z5VwHhoD/8LkQTlfFP5cp/5XAHJ5LWcT+R4XoeZeGeYW3BvyeW86ozPycV1GebgvfD4mhhdaUv8p4Kzw+VHdllPj3y/Dfqip/b622ES5HeW+B7RuTVxNuvUOAMZ5eL4qSt/9A+lxvTdS38fSX8tI86AI77eHvP7D+mZ8Y+79f5cSvNs=
+  </data>
+ </layer>
+ <layer name="Above" width="20" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBh8YCPLQLsAApJZUGlCQIMVv7w6K2E1xJqpzoqpRp1Is9HNxKaPWu6EgYGOU5j7/NiobyYhQEq8g9ThU48t3okFxMQ7PjsDgXQQiXaS4h587iM3/ZAaRgNlJgygx8lgcz+uNDPY3EkscKbAjqHiZ0JlylAwm5J4Qga0KMPQ/Q/jg2gAr+kOEQ==
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztlDsOACEIRLkC97/sthbIfCBWOwnRRHyOYMyIyD/WIo4RieVV++KS43hV15DPLWYC5q02am4ntdeoZ4jPqKpNx1TqdfPs9p05U31Dm8xODrNjOUxGm3d2zlO9MqyJz1fMc62aO9yp2H9qwpv4RTzVt8Kb/E0u7wMgaBZA
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="20" height="30" visible="0">
+  <object name="west" type="mapchange" x="0" y="352" width="32" height="256">
+   <properties>
+    <property name="map" value="roadbeforecrossroads5"/>
+    <property name="place" value="east"/>
+   </properties>
+  </object>
+  <object name="east1" type="mapchange" x="608" y="736" width="32" height="224">
+   <properties>
+    <property name="map" value="roadbeforecrossroads7"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
+  <object name="east2" type="mapchange" x="608" y="256" width="32" height="128">
+   <properties>
+    <property name="map" value="waytominingtown0"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="20" height="30">
+  <object name="beetle2" type="spawn" x="192" y="224" width="192" height="192">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="forestserpent2" type="spawn" x="352" y="224" width="256" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestboar3" type="spawn" x="384" y="480" width="160" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="forestfly3" type="spawn" x="32" y="352" width="160" height="96"/>
+  <object name="fox2" type="spawn" x="96" y="736" width="192" height="128"/>
+  <object name="esgam" type="spawn" x="128" y="128" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="30" visible="0"/>
+</map>

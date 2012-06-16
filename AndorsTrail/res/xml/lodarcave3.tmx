@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxbxMjAsAiINwGxNgMDw0EoHx1zMlAXLxok9jIyDYy9gkwQuw8xQvAiKE1re2F2X2RE4Et0sheEHzIi8CM62ouOqW0vOh5p9mKzmx52DqS9o3gUj+KRg0dK+TYY6o+BjutRPIpHIgYAS5dHcQ==
+  </data>
+ </layer>
+ <layer name="Objects" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAP/jFDML3BqL20AYZMA2Mvut20shdmLi6zh3v8IvufUFjQ2m56gYGydxSMglEwcsBIKd8GQ/0xCkbBKKA/AACSWDGY
+  </data>
+ </layer>
+ <layer name="Above" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt1TEKADAIBEEh//+yWKTU+i7EHbBeK43o8vRRUHSnBl26qj1+7U5tFVcXwB4v3FTXD1Fw3XD+BnAVk1FjZA==
+  </data>
+ </layer>
+ <layer name="Walkable" width="30" height="30">
+  <data encoding="base64" compression="zlib">
+   eJy9k0sKwDAIRL1C7n/ZbrooovGNphGEQnQ+yXSZ2XrbPt83u8s71avs+7rNe0Kfqrua91w7XspdeYh4snlSHjM7z/xlOpXq+FN5uzmjvDSDNBcG5whvVGR/NzvxRrxXGqNdoq3DeSpfGU7HB+lK/yS/0SzZ3Z1nlWFTrdXbqzlT9z2GiknwLTjv+J/6yniz2QqL8FbcJLOEM8JX/NGZirOrqfOmCp4yp+ROzeeUj+DsimJV+8p9eF76T5x4H6KdePujibZvP5QdKGE=
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="30" height="30">
+  <object name="north" type="mapchange" x="96" y="0" width="32" height="32">
+   <properties>
+    <property name="map" value="lodarcave2"/>
+    <property name="place" value="south"/>
+   </properties>
+  </object>
+  <object name="south" type="mapchange" x="576" y="928" width="96" height="32">
+   <properties>
+    <property name="map" value="lodarcave4"/>
+    <property name="place" value="north"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="cavegir1" type="spawn" x="96" y="160" width="224" height="192"/>
+  <object name="cavegir1" type="spawn" x="416" y="32" width="160" height="160"/>
+  <object name="cavegir1" type="spawn" x="608" y="224" width="32" height="32"/>
+  <object name="cavegir2" type="spawn" x="384" y="352" width="64" height="32"/>
+  <object name="cavegir2" type="spawn" x="32" y="352" width="128" height="192"/>
+  <object name="cavegir2" type="spawn" x="640" y="320" width="64" height="128"/>
+  <object name="cavegir1" type="spawn" x="768" y="96" width="128" height="32"/>
+  <object name="cavegir2" type="spawn" x="768" y="384" width="128" height="96"/>
+  <object name="cavegir2" type="spawn" x="416" y="576" width="288" height="192"/>
+  <object name="cavegir1" type="spawn" x="384" y="576" width="320" height="192"/>
+  <object name="cavegir2" type="spawn" x="128" y="704" width="64" height="160"/>
+  <object name="cavegir3" type="spawn" x="352" y="832" width="128" height="64"/>
+  <object name="cavegir3" type="spawn" x="704" y="800" width="96" height="64"/>
+ </objectgroup>
+ <objectgroup name="Keys" width="30" height="30"/>
+</map>

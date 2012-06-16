@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="29" height="30" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="29" height="30">
+  <data encoding="base64" compression="zlib">
+   eJy9VdsRgzAMC7QbwBh8dmQ2oBvABozAIm0OfGdcxRaP64d+wI5sRXb6KqXewbTBi0E5zDeEZ53SXK141MdyRvAtOuP9RfuNWaoVTb0/J8oZwbfojBzbpT0YTonNPU1bj+wZZzh7ldNserYXOaV2ttcFnBF5wcY3hKdQrbbHCSDzWU107ZEfIs4ZoMSHzijVjOKlpgWA4cvQ8xvVPBI6eBiq3/mNatacw0Fe8Y7nlYjzaL72zr84kU4akT6Mv5mamfpLs8Xe7RlOL4/RWXagBpPv7T17R7b/Bswl8rPOj94GtBPtbrEzKfclnJ4Wpf1+Zh9qTk8LdJ9ov7D7QutR0uKMh7x9Eelx9C26A96dMvnRPFvvM9719llp/zF7gwWrkfjB47Qz5EF68WI0ZykGvfNXkTm9/+idvwo0mxqvdD+64P8HEuiexA==
+  </data>
+ </layer>
+ <layer name="Objects" width="29" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzlVj9PwlAQh8J7Bh0MVUAXE5jddHSBTUiUFYKwi4lfww/CN4CB3UV0xUHY2Y24uOi79C69Hm15FQYTf8mltL1/73d/aCr19zBRqdSpTmZTVJvFfDP2FwljhkFb5nHueNe2iXnm2Nu09eqzT2Xv4ylrp0f4zvgxn9nZRsaPY8lXTq/mvQ4t5GWmvDNeov1Her2tq30flQRx+0a3YeQWr10jBUv7cdaPCbCtB/C7YLxKngrmXcnIi/J6PIO61D8nRr/H8iaxje9ibTiv1MNzcz0ycqD8eGXGLWBozt0UtZkofx4d5Z2B8BUxH42QM8B9x8iu9rm5jugDmF9l5N2Ia+QQcz5G/auIOi7TXi/TuWA+eA3o91jMDfExxedV1BvgPdU0qu/Jn6uDelU2K5fCFnqlrn2uGowjwJ6oTRSAzyGeM8fiQ+40d3EAzngMyZnMme8c0OOzEmcr0UJbyVlcng7jc5T184ZnrkVc0t9HfRt+AH1Wn3u2T2zQ08H63mm7vSch60QzuQiZwdYvY4RB7kDYIbAHdlS4XlI4uBMBM7xyvm/YDumIelHMIu7UUsQ+knBRT7PdMmV9DX75/NV08B3kADzM0X7ddwLtlwqbF/ovarI4NFvQzzwf3kPAg4O7M653YVahx+s6uIsf0C/1IqCsg3WGfOm+xvLK47PHmN5asnd5xtsr+qC+BL2++I/oRvTtMEEvg1/ieLDm+0jO1CYAX1Nxxigk/X7aBv5LzG3Vc5sxfwBar3Eg
+  </data>
+ </layer>
+ <layer name="Above" width="29" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztljsSwjAMRM0QOAg3wPevcoacggYKehgXmvE4/ki7MlDwyky0u5EVJSH8Ho+jT41WJ913N3rWaiw6L+AZazUWHcTzedhfs/QK8UwgM8B6Mlmt8yPU+qsB9RNS5tuJ07DCZm5Rzsr17KPb00FnRSgzr8u4Bp0Vgc3c49LoFZs5h9kJJZui34mZPRt5ajN6enqgPSfPb0Nvt8RsNhFPZr+jnux5SN5o2IWe7+ofXzx3n5Zv7r5PMuu/hOENK3g07w==
+  </data>
+ </layer>
+ <layer name="Walkable" width="29" height="30">
+  <data encoding="base64" compression="zlib">
+   eJztk0sOwCAIRLmC979sV00awmcGUbuQxLQxzjwEHCIy7jqy3mA1yF7EY7n6LKOXgqaDyfKs+lSZHdyZfBF9Nw9ler3MfCv5ovPgMTKmGF9E593H8mF7jjC9/0g7Mz9o7Hwn33oj2qy23e+EZSJe2bkq409MK1YxNde7e5WpPbOI6oHm4flGe9HcWrnN9o/1rszPrrll+tLJ7MrrMtcwHwZhKoE=
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="29" height="30">
+  <object name="up lostmine1" type="mapchange" x="672" y="928" width="32" height="32">
+   <properties>
+    <property name="map" value="lostmine0"/>
+    <property name="place" value="down lostmine0"/>
+   </properties>
+  </object>
+  <object name="north" type="mapchange" x="832" y="96" width="32" height="32">
+   <properties>
+    <property name="map" value="lostmine2"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
+  <object name="west" type="mapchange" x="0" y="320" width="32" height="32">
+   <properties>
+    <property name="map" value="lostmine1a"/>
+    <property name="place" value="east"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="29" height="30">
+  <object name="noedidh_1" type="spawn" x="672" y="768" width="32" height="96"/>
+  <object name="noedidh_1" type="spawn" x="704" y="672" width="192" height="64"/>
+  <object name="fardaph_1" type="spawn" x="672" y="544" width="32" height="192"/>
+  <object name="noedidh_1" type="spawn" x="544" y="704" width="64" height="64"/>
+  <object name="noedidh_1" type="spawn" x="192" y="608" width="256" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="fardaph_1" type="spawn" x="448" y="608" width="128" height="128"/>
+  <object name="noedidh_2" type="spawn" x="160" y="608" width="288" height="224"/>
+  <object name="fardaph_2" type="spawn" x="96" y="96" width="384" height="448"/>
+  <object name="fardaph_1" type="spawn" x="64" y="96" width="416" height="448">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="noedidh_2" type="spawn" x="352" y="544" width="64" height="64"/>
+  <object name="fardaph_2" type="spawn" x="672" y="96" width="32" height="128"/>
+  <object name="noedidh_2" type="spawn" x="704" y="128" width="160" height="224">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="fardaph_2" type="spawn" x="512" y="352" width="320" height="192"/>
+  <object name="noedidh_2" type="spawn" x="480" y="352" width="320" height="192">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="29" height="30"/>
+</map>

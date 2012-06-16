@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="129" name="tiles_1_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="257" name="map_tiles_2_1" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_1.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="385" name="tiles_2_2" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_2.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="513" name="tiles_2_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="641" name="tiles_2_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="769" name="tiles_2_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="897" name="tiles_1_3" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_3.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1025" name="tiles_1_4" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_4.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1153" name="tiles_1_5" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_5.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1281" name="tiles_1_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
+ </tileset>
+ <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_6.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1777" name="tiles_2_7" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_7.png" width="512" height="256"/>
+ </tileset>
+ <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
+  <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
+ </tileset>
+ <layer name="Ground" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJzbwMjAsIFGWICJgeE+kH7AiKD5mcg3SwGI3wPZHxgRtDwZdlxghJh1ggE7JtUOkHm4zCLFjvMUmIcN09q881jClhTz0MMPm3nYMD6zYGkFXYxcjJxWSEnnuNILclxg8y/MPvT0gSu9EGMeKfE7lMzDls8F8ORrQuZhy+f4yglcaRBfPifVLErzL6n5iBh9yBgAfH4mPA==
+  </data>
+ </layer>
+ <layer name="Objects" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJylVDtOw0AQHZyNk9ZIoByBkpIOS1DQUUDPMbiOi9wgLlyn8gF8lrRhh92nPE/GFjJPWs16d34788Yi11ivncN/4t7xuTRO6djdTfiai1EXIn1I+yHL5+Ji48X51Qm+rzafH7KsyiT1/CHvu5BiKDbR/3eU744/tt9meYx6L9H2Na59tsE33rGLul8UA9C45xuRRi5Los5HXJ9Fyllt8a057yneYHJEbhaNXMcA1Af8ay5LYWM0jk47UVMPzJGlnAS/wUPme2F81tS/OTyV45zAx1vjD72bQp178JZ1euqr1kl7yXzB3RSYg53hDdDT++ydBd9zbPD+ZN47hDH/bM9wx3yraP5s7TlX7hV6yDm1VDvM+TGM+XxeJT2tKXq1y/KRZk7/CRXVjmfUg+oeKP+O+m5nG2sOnv5f7Bg/SVBECQ==
+  </data>
+ </layer>
+ <layer name="Above" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAt+MBMXbPeU8k8apoFAv+paNaoeYPLPGLSCinpnJDbSE2bhMwjNSxGzaPMPAYm/NLklDvULEepCQB6XByE
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJwTZGBgEBzBGAYEkWhKzcIG0O1C14fPLEE0mhhAjB20MI+YMKbUPGLtHCnm4QpTbPbhAqSYRyyg1Dx0OWLDD5d+arsPnz5y3UdNN9ADAwALwRL/
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="20" height="20">
+  <object name="up oldcave0" type="mapchange" x="544" y="128" width="32" height="32">
+   <properties>
+    <property name="map" value="roadbeforecrossroads9"/>
+    <property name="place" value="down oldcave0"/>
+   </properties>
+  </object>
+  <object name="down oldcave0" type="mapchange" x="544" y="448" width="32" height="32">
+   <properties>
+    <property name="map" value="oldcave1"/>
+    <property name="place" value="up oldcave1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Spawn" width="20" height="20">
+  <object name="hadar_2" type="spawn" x="288" y="128" width="288" height="128">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="morphrang_2" type="spawn" x="256" y="128" width="320" height="128"/>
+  <object name="hadar_1" type="spawn" x="224" y="96" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="morphrang_1" type="spawn" x="160" y="96" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="morphrang_2" type="spawn" x="64" y="192" width="32" height="32"/>
+  <object name="hadar_2" type="spawn" x="64" y="256" width="32" height="128"/>
+  <object name="hadar_1" type="spawn" x="32" y="384" width="64" height="224">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="morphrang_2" type="spawn" x="128" y="576" width="64" height="32"/>
+  <object name="hadar_2" type="spawn" x="224" y="576" width="96" height="32"/>
+  <object name="morphrang_3" type="spawn" x="320" y="384" width="288" height="192"/>
+  <object name="morphrang_2" type="spawn" x="288" y="384" width="320" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="20"/>
+</map>
