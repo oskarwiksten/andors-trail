@@ -69,14 +69,14 @@
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="25">
-  <object name="up olcave1" type="mapchange" x="96" y="96" width="32" height="32">
+  <object name="up oldcave1" type="mapchange" x="96" y="96" width="32" height="32">
    <properties>
     <property name="map" value="oldcave0"/>
     <property name="place" value="down oldcave0"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25">
+ <objectgroup name="Spawn" width="20" height="25" visible="0">
   <object name="hadar_3" type="spawn" x="32" y="128" width="288" height="160">
    <properties>
     <property name="quantity" value="2"/>

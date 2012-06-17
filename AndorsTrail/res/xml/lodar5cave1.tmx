@@ -50,17 +50,12 @@
  </tileset>
  <layer name="Ground" width="20" height="30">
   <data encoding="base64" compression="zlib">
-   eJy9lesNwyAMhE02aKaI1K3ZoNkg3aAjdJPGShAnauOLEuXHCQmJj/MLchLJhN6rhkHkKZvSsO0xZ1sp57OuI/Ae+55yIx8oZSnnmyqrSPeUuwQ+UOjJk8WbU/WB8hgTyONN8q8e505eNnhRnBEPPUY1QJ7XM7OR/8hv6UUvh1FsHteL+WoeeryLZ3GZmkQ8ZPbm2MohcwcTM9vTZ3ge03sDvVlua8B4K+8gUwM21vFiHju7bO68XvF4ljf8f6LaRrHiP9Tmjunrxcg//j9Ha3HkDbV4r1TFzgIyeuej+Y/uZ3X2fNEPi5Dgqg==
+   eJy9lesNgyAUhYEN6hQm3ZoN6gZ2g47QTeqNJZyQ+zhG448TEyIf576g5pQqofemUlJ6pl257GvM3lHC+WzfCXiP/5pwIx8oYQnnmzurSdaEuwY+UOjJksZbcveBshgzyOKN/80B505eVXhRnBFPPHosi2v1zKLkP/LbetHLoRebxfVyeCUPPd7F07hMTSIeMr051nLInMHEzPb0GZ7FtO5AnBOvBoy3dg8yNWBjnS7msbPL5s7qFYunecP3J6ptFCu+Q2PumL5elfzj+3O0FkfuUI33yl3sLCDD2x/Nf3Q+q7P7m37OpOCz
   </data>
  </layer>
  <layer name="Objects" width="20" height="30">
   <data encoding="base64" compression="zlib">
-   eJy9VTtOw0AQdfzZFmEIoiESRwg9RQyhhiQgUXMEBGfhANwgKVJTcYDQQEWKUHOCMKPsyM/jtXfd8CRL+5l9uzPzZhxF3bBMOx5oQJKV47nl7Gdu2xAc0NmzuJwPaXwYwHdENnFWvZt5crMbr2n9HXwexpEXOZ05pu9bvemVeBaWa0zrE/quWvjEZqJsMQdiM7N7oxa+G9i7oPEdzAembuPju6W9y7jkOjXVfY4b2xTWzscnnMyFMf+w4+esalcoH1x4U3rVce+Z6h3zQH1zLscQ96ni3YdYtGlmm5R369gzOF4ru7/pWB9NfBp7pr6mwfXg4kO/fwLfJzWA+imUTqae2kBwDJfAyZoYmeod+FZf3QnWyp9rB6fAp2vRs+htATrbZlVOXZsu6N6APn3ad0u+fG9DWwTmgDXahU/7I/kVv1Yd+LiH9q3+dGxOaP0L/A2J3aPSCkPqHvsO84X4KsD6ZD2KXrgXSK9o4svgrO5RA3ue55vA3PL/zNj/j9ii/vEtXCtt/ZQ57qnGHlTdPqX13P722mMkOE92sc6hpkL6uQtc/4yXNPz+/8IfYalQfQ==
-  </data>
- </layer>
- <layer name="Kachelebene 5" width="20" height="30">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFgxUYMQ20C/CD/8wD7YJRMApGwSgYBaNgcAIAz+sBNw==
+   eJy9VTtOAzEQ3eyu3SIWgmiIxBFCT5GEUANhkag5AoKzcABukBSpqThAaKAiRag5QZjRerTPk/14G55kxbHHz56ZN7NR1A3LtOOBGiSmnM8dZ99U24bggM6exeX/Ic0PA/iOyCY2/t3Mk9livqb1d/B5GEetyOjMMY1v9aZX4lk4rimt39C4bODjs2KHtpgD2b91e6MGvuu4GIwJ/d6B7cCWNogmvm1S2AvXqfX3OW45rY9pXAS8j5E7Loz5h5s/G99urHyowpvSq457z/p3zAP1zbmcQtxnincfYtGkGY6h3K1jz+B4rdz+pmN91PFp7NndNQ2uhyo+9Psn8H1SA7nTxcTlEnUya6kNBMdwCZysiZH178C3ttWdYK38uargFLTpWvQseluAzrbG59S1WQXsC9qnT/duyVfb29AWgTlgjXbh0/5IfsWvVQc+7oN96/cawQmtf4G/IbF7VFphSN1j32G+EF8FWJ+sR9EL9wLpFXV8Bs7qHjVw5/n/JjC3/D2z7vsjtqh/fAvXSlM/ZY57qrEHVbdP6W5uf3vNMRKcJ0WsM6ipkH5eBa5/xksafv9/4Q/0sFFo
   </data>
  </layer>
  <layer name="Above" width="20" height="30">
@@ -68,7 +63,7 @@
    eJxjYCAN/GcmUQMO8AFqznsqmAcyi1xzPmDRR4lZ1PAPDFArrGll3idG6poHAtjigxIwGoaUA3qEoSEb+eaRE4aGTPjl8YXhe1bS7cMXhieB5iWzoIp9JOCnwZyuB7ocHIphh5zeCIUdobxCSfhjCzt6hhehuMMGaFGGUgsAAJf0KZk=
   </data>
  </layer>
- <layer name="Walkable" width="20" height="30">
+ <layer name="Walkable" width="20" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJzVkkEOgDAIBPcL/f9nPXmpVdllNErCpWmHKTAkDSP3cN78kXcWFIvyov/5Fd5dpKz53HWu3HNd3brVu2/6VXvj8JLaq/nS+9fhJf1PvWkmySOdEj/pyJqD2JXE7WqWXV5nFiuX7r+IPlE79URuYCQfBA==
   </data>
@@ -87,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="30">
+ <objectgroup name="Spawn" width="20" height="30" visible="0">
   <object name="caveslir2" type="spawn" x="128" y="64" width="448" height="512">
    <properties>
     <property name="quantity" value="3"/>

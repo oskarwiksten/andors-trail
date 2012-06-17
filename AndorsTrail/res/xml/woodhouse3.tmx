@@ -50,12 +50,12 @@
  </tileset>
  <layer name="Ground" width="16" height="8">
   <data encoding="base64" compression="zlib">
-   eJxLZmRgCCYTJwNxCBAvZSIPh0D1b2XCjz2YsYvD9N9lY2DQY8BNg/SDaHQM0lsMxG+h6nDRMP2lQLoMiMuBuIIZohfkD2xmI+MIHPYvhfqDkH5cGKQ3iIEyDAAS5zRo
+   eJxLZmRgCCYTJwNxCBAvZSIPh0D1b2XCjz2YsYvD9Osx4Mcg/djEQXqLSdBfCqTLgLgciCuYIXpB/iCkPwKH/Uuh/iCkHxcG6Q1ioAwDANQuLoA=
   </data>
  </layer>
  <layer name="Objects" width="16" height="8">
   <data encoding="base64" compression="zlib">
-   eJxjYKAcBLAyMPgAsT+UhmFfVoSaWnYILcqKqZ8NSYwVTV4Ci3ps4BRU3RIWVPFVbBA6GSr+DKpOnxlV3S00e2DuQNePDexnwxSD+XMXG4QN078DSrsj2X8eqOYCGu6GmnkCyV41oB5VIHYF4nA095MLALQXEl4=
+   eJxjYKAcBLAyMPgAsT+UhmFfVoSaWnYILcqKqZ8NSYwVTV4Ci3p0cJeNgeEUK4RewgKhYeKroOxkFgj9DGqePjNC/1ugmlusEBrGZ4Xy0fVjA/vZMMVg/tzFBmHD9O+A0u5I9p8HqrmAhruhZp5AslcNqEcViF2BOBxJPyUAAHnfGbY=
   </data>
  </layer>
  <layer name="Above" width="16" height="8">
@@ -63,20 +63,20 @@
    eJxjYKAc/Gemnf5ZbNSzPxWqLh1IZyDpoaX7iQHvKdRPCQAA2VcH2g==
   </data>
  </layer>
- <layer name="Walkable" width="16" height="8">
+ <layer name="Walkable" width="16" height="8" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBwGmAEHjSyPDvDJYVNDyH5S7CDWT6TqIRUDAPl+BoM=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="16" height="8" visible="0">
+ <objectgroup name="Mapevents" width="16" height="8">
   <object name="up woodhouse3" type="mapchange" x="448" y="96" width="32" height="32">
    <properties>
-    <property name="map" value="woddhouse2"/>
+    <property name="map" value="woodhouse2"/>
     <property name="place" value="down woodhouse2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="8">
+ <objectgroup name="Spawn" width="16" height="8" visible="0">
   <object name="beetle2" type="spawn" x="320" y="96" width="128" height="128">
    <properties>
     <property name="quantity" value="2"/>

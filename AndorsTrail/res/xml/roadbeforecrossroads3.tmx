@@ -55,7 +55,7 @@
  </layer>
  <layer name="Objects" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJyVVDtOAzEQXVne7ckBkFCQ4AZJyzd1EpLUcIek51NwAW6QGyQFLYhilZqloEuQOAd+8lh+a7yfjDSaHe/4zZvx2LM0SQZGZy1t32hvj/gq2waT10+NnrTk5PwYLse86iRZ6f97p/KvV4MFfxxwchxjXJti6oQ5xrBDjsy1rhdNFlLo6rPpSkxuYt6MfmjrD6ieXNb2yd2X/S+RM3g0a8fGPgjuT4B/rrxeKhtXNxts36UGh/2s7Rx8at8LyJPYdVBvJ7N2Irm3xB+42thbo3dGd9r25kKVOTN37h9mcpF6Lq6mpS7HTRrwCsk5FX8j3A8C7pB77c8RPdlSvSNl9VpZTOz/Fawl9Yf5ICf6if/fwYwcZj4W+dEfnMeG7qKbSXAZS27IQmK4jpy4r+T7SnneI9oP2aXl2pkfzzPOcBzgxPBcL5DzRtk5RT1r4g6ujvfQ+Ec1d5QF98LN4LyCD3K6urXs76blvnWycs1t3gOOC4XXXf+/yOfc8FFzWG/V3ax7i0OOmNtC7q57k86Un8thpN4/yqGKog==
+   eJyVVDtOAzEQXVne7ckBkFCQ4AZJy3frJCSp4Q5Jz6fgAtwgN9gUtCCKVWqWgi5B4hz4yWP5rdlfRhrNjnf85s147HkcRanReUc7NDrYI77OdsHk9VOjJx05Ob8Kl2NedRRl+v/emfwbNGDBnwScHMcqrm0xTcIcq7BDjsy1qRdtFlLo+rPpS0xuYt6Mfmjrp1RPLmv75B7K/peKM3g0a8fGPgjuT4B/rrxeKhvXNBts36UGh/2s7Rx8at8LyJPYdVBvL7F2Krm3xB+42thbo3dGd9r25kKVOTN37h9mchl7Lq6mlS7HTVvwCsk5E38j3A8C7pB77c8RPdlSvWNl9VpZTOz/FawV9Yf5ICf6if/fwYwcJj4W+dEfnMeG7qKbSXCZSG7IUmK4jpy4Z/J9pTzvMe2H7OJy7cwvpb7jDCcBThWe6wVy3ig7p6hnTdzB1fEeGf+o4Y6y4F64GVzU8EHOjDhD+nG5b72kXHOX94DjQuF11/8v8jk3fNQc1lt3N5ve4pAj5raQu+vepDPl53JUUe8fX7uLeg==
   </data>
  </layer>
  <layer name="Above" width="30" height="15">
@@ -65,19 +65,19 @@
  </layer>
  <layer name="Walkable" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBzFGJhhAOzDBwYqDAjZjUsNpe7HpYdQ+OCTIzUeBNFofHYT6y5i4xuXHehhMxCAXvZSI9yo7Q5am0NKuiTWTGLVkloe4NJPTTvJLbOIAcj6ABooDzY=
+   eJwTZGBgEBzFGJhhAOzDBwYqDAjZjUsNpe7HpYdQ+OCTIzUeBNFofHYT6y5i4xuXHehhMxCAXvZSI9yo5Q5q2E1JPsdlDinuIiYdk5LXcemnpp2UlFuk2AsAPtAPaQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="15" visible="0">
-  <object name="west" type="mapchange" x="0" y="160" width="32" height="224">
+ <objectgroup name="Mapevents" width="30" height="15">
+  <object name="west" type="mapchange" x="0" y="160" width="32" height="192">
    <properties>
     <property name="map" value="roadbeforecrossroads2"/>
     <property name="place" value="east"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="512" y="448" width="352" height="32">
+  <object name="south" type="mapchange" x="544" y="448" width="288" height="32">
    <properties>
-    <property name="map" value="roadbeforecrossroads3"/>
+    <property name="map" value="roadbeforecrossroads4"/>
     <property name="place" value="north"/>
    </properties>
   </object>

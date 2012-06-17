@@ -50,20 +50,20 @@
  </tileset>
  <layer name="Ground" width="25" height="17">
   <data encoding="base64" compression="zlib">
-   eJytU8ENwyAMBDaANbo1G5QN0g06QjcpVmPJnM7Ekfo4KcHcnW3snlPqE2PiOL//gRc5KyWlXGJcxrdx0XrnVU9qaPO/ln0tykU+xkXrk1c98XikH4TLch2Gi3yMq5aAeVQn1wFczWcX9zwELFemgbUwj34Rt3l4d7BfXixSa6RfmMfO48hxD/b2rE86d8zjzrtaHaxBzpvjEXlXOxeNeNhz5hHpF5u9CMfbS9sLvaNx7PcdD7uXjXjUssbwvSMedi+9OxjDmfJ209tLq3M1ZxbPE945YncHNb6l0cAz
+   eJytU9sNwyAMBDYIa3TrbNBs0G7QbtBNitUgHaczMVI/LCU2d+fnnlPamx3NHuf3P+wpfKWklEsMq/AYN65XHvmshtr+tzKvpWMZz3Hj+uSRzzRu6WeGVbkegGU8xzuXmdLYnFwPwvZ8ZnFPw0zlqji4FqWxX8QxD+8N98uLRWqN9IvzmGm8c1xDzV71qe+d0liZK/JwDeavjkZkrrgXVWigHzErM1G7F8F4d4m96G96HPu9qoF3WYXGVsYYzzuigXfpveEY75R3m95dIs/VnqHdT/P8bLM3zPEFQUTAZg==
   </data>
  </layer>
  <layer name="Objects" width="25" height="17">
   <data encoding="base64" compression="zlib">
-   eJxjYBi6wJeZfL1irAwMTKy45VmhcrFY7DBiYmAwZCJsxymgGUJ47BBlhZh1ggXTvA4WiH4QYGbF7leQ3kMsEDY294DkBdkg7CVAdeVY3HKLFaJXmBW7X2FACGjOMyz6/6Pp+ciIXf4E1J2lWPwKUrMZKP6IFbdfQGAHC273bQHKiQLd+BOPWhk2BPsqFvlPULdvxmHPIzT/C7JhVwcCS/C4FQTQwwkZwOIU5IcALHYoQsWu4Il7bPpIAejxKkSCeaB0FwnUn8yCMAukH5s7QWEICotPWMLDCEc6QBZHT5NXCIS7KBZ/bMGip5cNolYOiIuR5JHDVQzJbmR3wNLWaSQxbPG9Fk+YwsoEEaAZ7KzYwwIkfxsqhytvgML+CdCeajZUN8DiF+R3mF5Quoel202MCHeAACgccOULSsBGPPkABgCNLzlb
+   eJzVVLtOAzEQdC5ep87BpUJIfAL5DyRaCio+ASEKfoCGv0hLAUmRmiqCNjTQRYgeOirYkc86Y8aOAhUjnWR5d3ZnHz5j/i8O+r/njsSYSvJ2aW3HJMe4Mma/Wp/jXmPUhRyN+FgL+zPepfV8oC+8VnDvrD8zPbAPnT9P1O+caHkSz90SXmtArXFeCf8z4bz1uH3R6jwjtcJnqvcrydcCzG1e30xtjWr8KPjuuO78SOxB6zSTZ5XUP3TcD5gUtAJpn2KEmaKGQ5Jjr71bFmbPeJsgnWu9QTzs3ZHyT2wXC3ymEz1EL95JP8aZPYjv051crul7Q+qYEc6V8767+p1G9rivoyh3rCPs1kN0x+Z9Xehp+Cdsa4yB8F7A/tzacm8DvX/RPBfuu4YwX9QeuNj7sLe3vU4HgD7k3sVfcFN4BwFfwxU5ag==
   </data>
  </layer>
  <layer name="Above" width="25" height="17">
   <data encoding="base64" compression="zlib">
-   eJzVk0EOACEIA934/7e62Q+s8WYIxTHEgxzbQhMKpdxbb2UY7fX45uh+4DH6vV7KE4+VJssTzffkeKqheWU1Uc27ULPobRAPNSuTm707pVtlou7Xw6NZdBcEJ5lYza6HwqOdqj8/ka8ttXvyc9TjdHWXoDaJ
+   eJzVk0EOACEIA934/7e62Q+s8WYIlTHEgxxLoabFUu6ttzKMznr95vB+oDHmvVnaJxoRJ9snnO/J9SmH5pXhRO+YvVC76G0QDbUrk5u9O8WLvFD36+GrXdQLgpNMLGdXQ+ErT9U/P5GvLeU9+XNU43R1ASM3fA==
   </data>
  </layer>
- <layer name="Walkable" width="25" height="17">
+ <layer name="Walkable" width="25" height="17" visible="0">
   <data encoding="base64" compression="zlib">
    eJztkTEOACAIA/kC//+sqzG1FMS4SMJU7FlwM/Pf27aHDJXN5ubaacxnrSzjhgfTUa6qT4WhZlVuqXhUGVEOJQtjoCyVGeVvJwyWDWnKLtCbzH47GdF9UDE9y+joAY3lFYU=
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="17">
+ <objectgroup name="Spawn" width="25" height="17" visible="0">
   <object name="slargrum_1" type="spawn" x="640" y="96" width="96" height="160">
    <properties>
     <property name="quantity" value="2"/>

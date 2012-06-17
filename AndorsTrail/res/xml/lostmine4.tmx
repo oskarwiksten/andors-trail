@@ -60,10 +60,10 @@
  </layer>
  <layer name="Above" width="15" height="17">
   <data encoding="base64" compression="zlib">
-   eJxjYKA++MBMvr73ZOr9T6a+gdKL7tdDLOTpI9c+GLhCwN6hGCdfGPHLhzCRZt4rVvLdgg18JuA+egEA2D8UQw==
+   eJxjYKA++MBMvr73ZOr9T6a+gdKL7tdDLOTpI9c+GLhCwN7BECfJRIYNDHxhxC8fwkSaea9YMcVIcRO62s8E3EcvAADurhV4
   </data>
  </layer>
- <layer name="Walkable" width="15" height="17">
+ <layer name="Walkable" width="15" height="17" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBxEmGEA9TKQYQY+QKq7ydVLjrvR7aXEz/QIZ0r1jmJMDAA70w7h
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="17">
+ <objectgroup name="Spawn" width="15" height="17" visible="0">
   <object name="fardaph_4" type="spawn" x="160" y="128" width="224" height="160">
    <properties>
     <property name="quantity" value="2"/>

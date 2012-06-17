@@ -55,27 +55,27 @@
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJx1VEtOQkEQRJjn3g+GlYnRBPYsRA8gBzCRk4hrny64gDfgAgYXbiEkcACee9B4AD2AdklV6DeMnUzm0/2qa3qqXyerVM5tdDj3bHS5n4fKn2l/a+OBZ/1sPbdtvmLskL4j+mDCfg+bPXK0bJwQb2ojt1Ew5sbOX2w9sZHZuurwvL2Gcg7Yys7ObL2gD3nvbN9kzrqNfcZeVNezfLAl7wEubZ6Bi3LBcFflbBCvFd0Z2K0E77nDUV3BVRyarH8vK/PrOsyMuPXdMpbq+lNLv6kwvQ971OTS5nvj8RQ2sV4H4rdI+D131CxP3NG/+1ekudgfc4YVoRzTTOSHXj6YexLK/phzip/OtdZbDcP//BAnbcTY6oNnV7859T4L6Zx5QtPCaPCdxtG3S36j3pRu6vTXIh0KA73yvbPhFlzciliP7ENgKu6Auj8kn5H5j6nFUSjXr+cwx66PFmH7jujVPeLk5FbwTLn1jupvaFY1hRXu/WHAmLmcwlFur71Tchkw/i3bYKgm+h4aHro79KkD+K4TGvF1RtzAvbPXNGavl1jv2nuNFC5+GrZ7y+vF94Hnp3/3ZwIbpn+hj8EdfgE0CnnJ
+   eJx1VEtOAkEQHaXHvR8MKxOjCexdiB5ADmAiJxHXggsu4A24gMGFWwgJHIBxDxoPoAfQevKe1DRtJZWe6ap59br61TTzLDs3b3Jtm/dD9mszW+fmLcZvzUeMdZh3ZutVvsodMHaYZ38m7LewfkeNhvmxec/2J+Zd84I5N7b/bM9j89yetx2et5dQrgFb2t5pvuINQ907e6+zZtV8j7kX26tVMdiC5yh4Nhi4qJb6opo14jWiMwO7keA9czjqK7iKA9YWe+T5tRxmTtzqThlLff2ubN6px/QxvKMnl7beG4/HsM4Vv5njN0/EPXf0rJs4o7/3z0hzcTzmDCtCOaeeqA+9vLP2OJTjMecUP+3rWXc1CP/zQ560EWNrDp5c/2bU+zSka3YTmhZGjfc0ir5d8JseV+mmyngl0qEwMCtfW2tuweUtifXAOQSm8vap+wPyGVr8iFochnL/2g5z5OZoHjbPiFndJU6X3AruqbbuUfMNzaqnsMLdPwwYU1dTOKrttXdCLvr/veZrDPVE30PDA3eGDnWA2HVCI77PyOu7e/aaxur1Eutd714jhcufhM3Z8nrxc+D56d/9kcCG6V/oc3CGHzUme24=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYMAP1FkR7P/M2NXgEicEhpp5oLDQYMUujg7CsYgh6yMmXDXQzEA28wNQz3tm7PZ/ZsRuHjYzLVhR3YDNL8iAkDzMfJDbCKklFqC7mRhAjN3Uch82sz6QmeawAeS4pgbAZxZyWG9koY595MQfPc10ZkWYCcvjo4A4AADpBxhw
+   eJxjYMAEGqwItjoS+z8zFsV4xAmBoWYeKCxAYYNNHB2EYxFD1kdMuGqgmYFs5gegnvfM2O3/zIjdPGxmWrCiugGbX5ABIXmY+SC3EVJLLEB3MzGAGLup5T5sZn0gM81hA8hxTQ2AzyzksN7IQh37yIk/eprpzIowE5bHRwFxAAD+zRid
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJztklEKACAIQ72C979sX4HIlmn7bDCCHC/L3MyceAvtodrJN6wODzEzp8urmBNe7EPBYrwpK/NeOGwOKp4yq8wp++u+G1J37q+8KhtrKMc0uXs+a/LX0PqNvQCnShS5
+   eJztksEKACAIQ/0F//9nOwUhGzLdscHo4HpZlhGRwFdqjRntQdowK0fldcwJ7+3DwWK8KavyNhw2BxfPmXXmnP2p74akzn3L67JvDeWYJnevZ03+Glq/sQ90JRTb
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20" visible="0">
-  <object name="north1" type="mapchange" x="224" y="0" width="64" height="32">
+ <objectgroup name="Mapevents" width="20" height="20">
+  <object name="north1" type="mapchange" x="192" y="0" width="64" height="32">
    <properties>
     <property name="map" value="lodar20"/>
     <property name="place" value="south1"/>
    </properties>
   </object>
-  <object name="north2" type="mapchange" x="384" y="0" width="128" height="32">
+  <object name="north2" type="mapchange" x="416" y="0" width="64" height="32">
    <properties>
     <property name="map" value="lodar20"/>
     <property name="place" value="south2"/>
@@ -88,7 +88,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="undeadcr2" type="spawn" x="224" y="64" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>

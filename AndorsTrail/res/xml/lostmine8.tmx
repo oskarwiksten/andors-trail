@@ -63,7 +63,7 @@
    eJxjYKAMfGAmTQ4k9h6HHmxy+NSDwH8sctjESNVjzkZYzz9G/Pbg8yepgJBdtALkuJVQ+FOiB9k92MLXEC3eCKUfStyCDAjFD3p6ogcAAKziGfY=
   </data>
  </layer>
- <layer name="Walkable" width="13" height="19">
+ <layer name="Walkable" width="13" height="19" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBwAzEBjPegAlxwpevDZQ6p7SbUHm/twmTFQYT4QekgNB2L14AL44hyXOlLcR0l4oGMAMJcMfQ==
   </data>
@@ -71,18 +71,18 @@
  <objectgroup name="Mapevents" width="13" height="19">
   <object name="up lostmine8" type="mapchange" x="128" y="64" width="32" height="32">
    <properties>
-    <property name="map" value="lostmine8"/>
+    <property name="map" value="lostmine7"/>
     <property name="place" value="down lostmine7"/>
    </properties>
   </object>
   <object name="down lostmine8" type="mapchange" x="96" y="480" width="32" height="32">
    <properties>
-    <property name="map" value="lostmine8"/>
+    <property name="map" value="lostmine9"/>
     <property name="place" value="up lostmine9"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="13" height="19">
+ <objectgroup name="Spawn" width="13" height="19" visible="0">
   <object name="sphinx_2" type="spawn" x="64" y="96" width="128" height="128"/>
   <object name="sphinx_3" type="spawn" x="96" y="224" width="96" height="64"/>
   <object name="sphinx_1" type="spawn" x="288" y="128" width="96" height="32"/>

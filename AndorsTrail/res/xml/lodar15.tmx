@@ -55,34 +55,34 @@
  </layer>
  <layer name="Objects" width="19" height="19">
   <data encoding="base64" compression="zlib">
-   eJyFVE1OAlEMfk76Zg8R9kYTZ+8C9AByA13rTRSPMhcgsmALIZED4AGEi9hm2rRTO88mL9/0vfZr6Q9NTukIKd0iNnhERCdc4Hlm/YptgHHGb2Qzx7OC7m6elUN0b0tygA4/GW2sLd7tQOOQz7hO6cPZWrlBvYV+TMI99O02Rl8E+VneO/6+5rwezZvwLkH9fd2EX2omfHT3hOe+Uj6qA+W2h7/5CA/168B2L6i/mpgN89lekuyCmkgeFGtS92tqkfgkF5I1x36DLpdv0F6OCjxRbWwNW+jXZ4jH/oahnpX8vf2a58z37L+40UyfkCfXce/87JNU+D1hfWref7gW727+PVoZs36JmDnekf0FZdamxvfCfD9UOg+nYEeox2fQfRU+ilnjGWXl+QKNK3se9Yn2een204r40mydHU/Uz6F3yr8181qyG9q9WZB/KZ/ov6B0H+Ev2uhf5A==
+   eJyFVEtOAzEMDSNn9q1o9wgkZs+ihQPQG8AabgLlKHMBRBdsqSrRA8ABaC+Cn8ZWnOAJlqIXJ86zx5/pYghfFMIlY8dLRXXgite92J2JDTFuWV/IHWyWvF7lbBkTh+qlLWRPA74Jqi+8+6DBB0Q5pm0IL4WtlQvWe8p9AneU270bfeXEZ3mvZH8ucd2aO+Vdm1yUeVN+ijkfzu54XTeJD3lAbDv6G4/yoA57sXtg/dH47ITP1hKydXKiccDXrM1zahF8GgtkI76faIjlm1ItJxUeLzc2hz3l+Rnjsd8wVrPa+9J+I31W1uw/v15PH5gntn7tyt6HNLyfiT439z+Si+ei/0u0MhX9lDHGNLMQRe21uXl7YvY3TeqHgzMjqPGR0rwqH3y2vCYx8XxS8qtz7tUJ87wu5tOKvkVvHQser55j94i/N/1asxubvYUTfy0e719QO/fwF7D1YVU=
   </data>
  </layer>
  <layer name="Above" width="19" height="19">
   <data encoding="base64" compression="zlib">
-   eJxjYBg8QJ2VPLUarBC+Bgn6ibGTHPOIAYFAc4OoaDa6H2B8UsMEV1hYoIU1ueZgA9jMg7mbFHOQzSNFP63imBjwgZl65rzHYRap/sNmDjnxgA0QyrPI8YYvTxPKs8S6lxJ/kZrOKAEA6foMLA==
+   eJxjYCAeaLCSoJgMoE6C+chqQe4C8clxHz47aeXfQKC5QVQ0G90PMD6pYYIrLCzQwppcc7ABbObB3E2KOcjmkaKf1mkaH/jATD1z3uMwi1T/YTOHnHjABgjlWeR4w5enCeVZYt1Lib9ITWeUAADgHAxZ
   </data>
  </layer>
  <layer name="Walkable" width="19" height="19">
   <data encoding="base64" compression="zlib">
-   eJy9UkEKADAI8gv9/7O7Rw1RNyG6lGVZAIqMCWyvw4elR9lLqWU1sHoTfKmZ7C1u9RMcDyg8rh7Hx5tXXZ7UbmhZ+Yl6302Li19+f83DxAHVFhC9
+   eJwTZGBgECQBIwNS9BEyC5+ZDDj0kGoOuWqpFR7UNI9adhIbFvjUYwOUpAFyzKHUP5SmZWxplVJzqOU2BjSanDghN3xx+YVSQK/0TmtziMEAjgUQ3w==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="19" visible="0">
+ <objectgroup name="Mapevents" width="19" height="19">
   <object name="east" type="mapchange" x="576" y="416" width="32" height="32">
    <properties>
     <property name="map" value="lodar17"/>
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="352" y="0" width="160" height="32">
+  <object name="north" type="mapchange" x="384" y="0" width="96" height="32">
    <properties>
     <property name="map" value="lodar14"/>
     <property name="place" value="south"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="19">
+ <objectgroup name="Spawn" width="19" height="19" visible="0">
   <object name="undeadcr1" type="spawn" x="352" y="32" width="192" height="96">
    <properties>
     <property name="quantity" value="2"/>

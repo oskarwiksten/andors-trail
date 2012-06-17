@@ -36,7 +36,7 @@
  <tileset firstgid="1409" name="tiles_1_7" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_7.png" width="512" height="256"/>
  </tileset>
- <tileset firstgid="1537" name="tiles_2_1" tilewidth="32" tileheight="32">
+ <tileset firstgid="1537" name="tiles_1_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_8.png" width="512" height="224"/>
  </tileset>
  <tileset firstgid="1649" name="tiles_2_6" tilewidth="32" tileheight="32">
@@ -63,7 +63,7 @@
    eJxjYKA9+MBMHfUw8fckmgdSr87KwKDBimoWsjno8qSC/0h2qBNpzkYW3Gr/k+BHYsIXZh4pagmpQQ9DGDjJjsonFF8wc0jxMyG3IdMgkAoM5zQC8SKCQ/49Hr+CQCBQXxBUrxsRcY/LLGeo3kQgnYTDnMMsmGLo4XYIqiYYixlXgXKbsZiBzzxsYAkLdrYKK2YYwMyD+e8xC/78toNM91kgmXcFagYoTp0JxMkXRlS+KwnlwBYCbh3uAADpUC7m
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJzNUkEKACAI8wv+/7OdgpDNchIljDzY2lxuZp5gVjZTwY98qLo8Gbf61jrP+tc7ZfcUPqZD2VvsUal/ReXa6UBaT72iE3F3vFYzYX5UPpYvu8e0V3NREP12uCoZ3sYAEb4Tyw==
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="mpr8" type="spawn" x="256" y="32" width="64" height="96"/>
   <object name="mpr7" type="spawn" x="96" y="128" width="96" height="32"/>
   <object name="mpr8" type="spawn" x="320" y="128" width="64" height="64"/>

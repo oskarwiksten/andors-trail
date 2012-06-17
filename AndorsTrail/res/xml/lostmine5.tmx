@@ -55,15 +55,15 @@
  </layer>
  <layer name="Objects" width="12" height="29">
   <data encoding="base64" compression="zlib">
-   eJxjYKAOYGJlYLBnYWAQY8UuDxJnZUXICwFpf6B6ERzqPwLFRYGYHYhNmCBi8UD1gmwMDMZMqGpB8tvZGRh2sEP4V1kgdBRQLT8QH2LB1HMCKOYPlOME4iVI6kEggA1V7SWguVugap5B3buDBcLmg6rtYEGo/8+MUMsNlN8MlGNiQ5h/AkktuptgQA6qXgCq5zMjqtorULVcbBC3ILtfEc39MDchh5Ef1HyQG9HNRgdfGCFhGoXFXBj4hCUehdgImw0DV3CECT5wlQQ9oDBixON+dBCFlC6IVU8KAKl3IqBHByh/EhquoDS0g4B7bIDqb0LzCyw80dM9DIDUgNJbFhsCg/hKWPIXCIDyHSwPIIcLKP3I4dADci8XNP+B8hkoPfyE+mcGO6paWaT8AfPncyS/o6cjUHoGqRckIY2RE0eEwpxU8wHFKDst
+   eJytkz1OxDAQhSfBdsQiAbsCOlaCmg5KJCQOwFKnoaDjJByBA3ADkEhNtbRot+ACUPPTUMF7si07JtkQxJNGiWc+jyaTGZH/Ua5FjpTIlm6O0691iI/wnIDfaOFf4d+EFbCD3PrOwA+NyH5eZxm/K0Sqwp7nyj5LsGuwe/XzzhS+CWLLsOuIp05NnX1E3lvHPLt6K2XfVx17qQL/tRTYFcRvEMtNyD+N2LQmr7Hj12Hn8L9ndXbm2IGxtcT17yT1+5riHp24/KwxzZ3qI7M9LRvyer01/MeR6c7tNWvpySLNe9xhj7IF9acqo7n4Ld9H5I877uwh/uD6yhmqOuo5BP/k9sX3M517LzKctwsTjOfdhv2iuHd+B+K+cH7GLXdY78DtH/eM8/Cp7TxfFXV2O9oP/50v0benc8R5Jj/sMWN/+UddPe+b/xuxtjv7
   </data>
  </layer>
  <layer name="Above" width="12" height="29">
   <data encoding="base64" compression="zlib">
-   eJxjYKAO+MBMmvx7POpBapezMzCsYCfO7v8E7Ka3+i+MpKkHAULhhw7+YwmjKyzUdRMlgBz/DHX1RmzUNR85DPHlF5haQmpw2X8IT7rBph4ZvGQlTT2p5uMCoPSML71jA4MhTQIA+CYjxA==
+   eJxjYKAO+MBMmvx7POpBapezMzCsYCfO7v8E7E5mwa8eXZ5U89HBF0bSzAcBQuGHDv5jCaMreOxBdxOtATn+Gerqjdioaz5yGOLLLzC1hNTgsv8QEekTl3tfshJWD0v/+PIBOXkMX3rHBgZDmgQACYclxw==
   </data>
  </layer>
- <layer name="Walkable" width="12" height="29">
+ <layer name="Walkable" width="12" height="29" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBwgzECiWgYi9KADYszCBfCZi64flx2CaDS1zMdmLrFhis8dlIY/Nv/TMj3QwmxyzR9M7iHGDmQzCZlPCBDjXkJ2kWI+vdIMtdUDAJh3EN8=
   </data>
@@ -78,11 +78,11 @@
   <object name="south" type="mapchange" x="96" y="896" width="64" height="32">
    <properties>
     <property name="map" value="lostmine6"/>
-    <property name="place" value="north "/>
+    <property name="place" value="north"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="12" height="29">
+ <objectgroup name="Spawn" width="12" height="29" visible="0">
   <object name="fardaph_5" type="spawn" x="32" y="96" width="320" height="288">
    <properties>
     <property name="quantity" value="3"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="20" height="12" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="19" height="12" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
@@ -48,27 +48,27 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="20" height="12">
+ <layer name="Ground" width="19" height="12">
   <data encoding="base64" compression="zlib">
-   eJzTZGBg0BwGeDozdkyuecuZsWMPCszEhj2obGYEMwQPdHyMYvpgAMQ8LOc=
+   eJzTZGBg0BzCeDozdkyOWcuZsWMPMs3Dhj2oaF4EMwQPdByMYuphAMncKvs=
   </data>
  </layer>
- <layer name="Objects" width="20" height="12">
+ <layer name="Objects" width="19" height="12">
   <data encoding="base64" compression="zlib">
-   eJwLZ2VgcAficCrR2MQsgNicBDOQ1cPYyGIaQKyOpgcXQFd/hAUi3gSkg9HchWwXPoDsXhCYCjVzB5SGmfEIyn8CZG9nZmCoZmNg6EXCIDEYgNm9mQUh9pgF4k4QaIHSB1kg5p2A6l3LhsAnkMxTZYZgkL4TLBB9V2DuQXOvEBvCjqtA3MgCCSdRoPgSqJo+NkQ4P0RyowpQ7DiQ3wwVM2aFuM8UiOXYIO5fz4YIcxhwR4pLGFBEYh9C8jfIvM1IuB2qbh0rBONKSyBwFSkMBdkQ8XEYCSO7h1B6LUVLG+j60MVwpVdiaA0i8g0AxTdOcw==
+   eJwLZ2VgcAficBrRFkBsToZ6dBokrwHE6mjqcQFk9UdYIGJNQDoYzT3I9uADyPZNhZq3A0rD9D+C8p8A2duZGRiq2RgYepEwSAwGQOo3syD4j1kg7gOBFih9kAVi1gmovrVsCHwCySxVZoieEywQPVdg7kBzpxAbwvyrQNzIAgkbUaD4EqiaPqiah0huUwG64TiQ3wwVM2aFuMsUiOXYIO5ez4YIYxhAjx9FJP4hJL+CzNqMhNuh6taxQjAsvpHTCghcRQozQTZE2B9GwjB3oMc3etorRXMruh50MeT0RUqe0CCQHwDrXEqa
   </data>
  </layer>
- <layer name="Above" width="20" height="12">
+ <layer name="Above" width="19" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYBg6wJl1oF1AOtjIgmBfZ0bFxOrDBY4zo2JkkAzUr07F8KKlWSC+Bonmw/Tgcxc2M5H1gWgRAmZgMxOf3dQMJ2IAAB9lDA4=
+   eJxjYBj8wJl1oF1APNjIgmBfZ0bFxOjBBY4zo2JkkEyEfmKBOpXCGmaOBiuErUGiuTA9uNyDzTxkPSBaBI9+bObhs5Na4UIIAADQ9wwP
   </data>
  </layer>
- <layer name="Walkable" width="20" height="12" visible="0">
+ <layer name="Walkable" width="19" height="12">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBxBGBlQyzxc5pJjDyGATy0+84g1n5DdhMRx2Y1NDz73EAo/XOLEhOVgS0OUYACCMgtc
+   eJwTZGBgEBzmGBlQwyxcZpJqByGATy0us4g1G5+dhMRx2UusWfjMQw9nUsNusKQTcjEAFnQKoQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="12">
+ <objectgroup name="Mapevents" width="19" height="12">
   <object name="west" type="mapchange" x="0" y="96" width="32" height="192">
    <properties>
     <property name="map" value="waytominingtown1"/>
@@ -76,7 +76,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="12">
+ <objectgroup name="Spawn" width="19" height="12">
   <object name="mushroom2" type="spawn" x="160" y="320" width="96" height="32"/>
   <object name="mushroom1" type="spawn" x="64" y="96" width="224" height="224">
    <properties>
@@ -85,8 +85,8 @@
   </object>
   <object name="forestenxadir2" type="spawn" x="32" y="96" width="256" height="224"/>
   <object name="outlaw_1" type="spawn" x="352" y="160" width="32" height="32"/>
-  <object name="outlaw_2" type="spawn" x="352" y="192" width="256" height="128"/>
-  <object name="outlaw_3" type="spawn" x="320" y="192" width="288" height="128"/>
+  <object name="outlaw_2" type="spawn" x="352" y="192" width="224" height="128"/>
+  <object name="outlaw_3" type="spawn" x="320" y="192" width="256" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="12"/>
+ <objectgroup name="Keys" width="19" height="12"/>
 </map>

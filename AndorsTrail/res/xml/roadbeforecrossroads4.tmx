@@ -65,17 +65,17 @@
  </layer>
  <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJzF08EJADAIA0BXcP9l+5dqE4004K8eFtHNzJNCkvV2LNZEXMaqPNbZcid/je+Q/NgraqlNxnvtlHWzvpupuAnE6gb1lPc7mQu5F4W3PWc0VFY13wGGrw5Z
+   eJzF08EJADAIA0BXcP9l+5daE41U6E8Pi8TNzJOHVDbbsVgTcRnr5bHOljv5a+xD6sddUUttMl51U9bN5m6mIhOI1S3UU+Z3sheSF4W3vWc0NnaMvQeK7w57
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20" visible="0">
+ <objectgroup name="Mapevents" width="20" height="20">
   <object name="north" type="mapchange" x="224" y="0" width="288" height="32">
    <properties>
     <property name="map" value="roadbeforecrossroads3"/>
     <property name="place" value="south"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="256" y="608" width="288" height="32">
+  <object name="south" type="mapchange" x="288" y="608" width="224" height="32">
    <properties>
     <property name="map" value="roadbeforecrossroads5"/>
     <property name="place" value="north"/>

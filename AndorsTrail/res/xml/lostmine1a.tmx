@@ -55,15 +55,15 @@
  </layer>
  <layer name="Objects" width="23" height="17">
   <data encoding="base64" compression="zlib">
-   eJzFVLFKA0EQ3Wyys6ggeHrRysJfMF+gNmqIgmkSgh+ghT8laK9gaisRK7FSa3vRXt+wM9zd5kguweCDx2Q2t2/fzcytMf8L70KsS2y6v9Neh9YGuApee2PWZtBOXdCxLvPWsiHukzF30B2CK/i9bafTvvLBVwLdJ5/pMvoU4kPDmI8pfbOO+noD38HFnFfVZtxAf1lyW+Gcex/iEPtuwV2ctSe+1aeeqeC6JDPU/gT7urmadOBzS7zquzCq1N7imZdG0VtKWZ6I7hkV2Qa/apO9soeFEo1D8LSCBvcsfodWlPMsxOjR6FqM71qx5wqt4RKVr5ftKUP83FGUbyLfoTAzxzS6x42ZjVhb5y3f/0upC88y97Ev88Df+6do83f8GN0xWrtUcp23A+lbPAu8diGROZBz+A57lbuGwX3ryX8kaz/1MCPPfvIscL/OK3qYJ34BcrRBBg==
+   eJzFVE0vBEEQbb3b3UEiMQxODv6C/QW4+AgSLrsRP4CDPyXhTmLPTiJO4oSzu3DnvXRVZqZ3Ymc3xEteaqpn+vWbqpox5n8RXIwtiQvu97QXobUEzoGXwZj5MbRzF3WsK7x1bIyb3pgb6PbBWVyv2tG0L0L0lUH3IRS6RM/HeNc25m1E39RRXy/gKzhV8qraxBX0ZyS3Dc65DTH2se8aXMdZG+JbfeqZCtYlG6P2B9h3WKrJLnyuiFd9F6JJ7S2eeWpXveW+yDPRPfFV7oAfE8O90sNkjcY2eNxAgz1L36GT5JyFFF0/uJbiq1XtuUJrOO3r1+v21CF9bi/Jl5Gv+Tgz+35wj/thNlJtnbdy/8+lLpxl9rEn88Dv/V20+R3fJ/8YrV0uuc7blvQtnQWunUkkj+Qc/sOe5V9DsG9duedljT3gjDyG4bPwifunDT38Jb4Bj4pBEw==
   </data>
  </layer>
  <layer name="Above" width="23" height="17">
   <data encoding="base64" compression="zlib">
-   eJxjYBhY8IGZdua+h5q9nJ0yc9DBeyq4Gdl9p5HcB3LrCiC+wkK+2f+JcB/IzjNkhAsxZsMAzC+kmo3uNnLdis1sSgC2tIAcj8iA1PjD5j6QGK4wJDVs0d2DzT4jNlT+ISL9gB4u/5HyHSluxAbQ3UmNeIQB9Hijptno4Asj7cymFQAAM+EoMQ==
+   eJxjYBhY8IGZdua+h5q9nJ0yc9DBeyq4Gdl9p5HcB3LrCiC+wkK+2f+JcB/IzjNkhAsxZsMAzC+kmo3uNnLdis1sSgC2tIAcj8iA1PjD5j6QGK4wJCVsvzBiugebfUZsqPxDRPoBPVz+I+U7UuIfG0B3JzXiEQbQ442aZqMDUBwMNQAAU5YpJg==
   </data>
  </layer>
- <layer name="Walkable" width="23" height="17">
+ <layer name="Walkable" width="23" height="17" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEBzFFGMGGpmJDAaLuYQAujpqmUsNO3DpI8YuYszCxibHfaSECTXSKyXm4TML2Uxy3I3LbELhQy13EwLEmo1LjNK8QG66IgYDAAk5Eu4=
   </data>
@@ -76,7 +76,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="23" height="17">
+ <objectgroup name="Spawn" width="23" height="17" visible="0">
   <object name="fardaph_2" type="spawn" x="640" y="352" width="32" height="160">
    <properties>
     <property name="quantity" value="2"/>

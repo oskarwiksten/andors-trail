@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="19" height="30" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="18" height="30" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="tiles_1_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_1_1.png" width="512" height="256"/>
  </tileset>
@@ -48,98 +48,98 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="19" height="30">
+ <layer name="Ground" width="18" height="30">
   <data encoding="base64" compression="zlib">
-   eJzTZGBg0BzFo3gUk4VXMVKmfy4Ug8yhxCxOJoQZuMxiINIsSaBZNxlRMSV+fMmIigc6zkbxKB7FIwsDAAx9ZTQ=
+   eJzTZGBg0BzFo3gUw/EqRvL1zoVikBnkmsPJhNCPzRwGIs2RBJpzkxEVk+uvl4yoeKDjaBSP4lE89DAAyg5gZg==
   </data>
  </layer>
- <layer name="Objects" width="19" height="30">
+ <layer name="Objects" width="18" height="30">
   <data encoding="base64" compression="zlib">
-   eJydVTtOA0EM3ZCZ7QOCHgkp21MkqSORA0SCE8ANoCdQcAFuwA1CkTarSOwB4AAELkGHrbW1ZjQez2Jp5NHEef49exe+KK7gLDL0FM6kh30K5xwOSg4e+435RzkFvXHt3YqzEljjiJ+9wGH70C7Ei+E8uvz8Unm/A86oLIpVRn5anaaiPixWfvi+hv/cBb+zfAR1srRWpzCe//CO+9Y42w559zPQ/aG8uHhcsr4oiDM3/D0odaoojtq1GNifpdI/WXet7yxLuiNv3sj3RYQP95G48P2J3k/gPiCsIWns3yXZTHy6fyyzg1aP4K2Ec+S7PjEvv8nn2ugf416DvqFeMq9ufcfLWvQvB48l9r4jrA3NoTZfFu8+g3pL2Ym8K5+Oe5uYOznnuftL0332c84ew/yPlfpZe0zaszSUJ87q3um4mD/yAXkxjtSjFtxjWTl9v6XqKfd+2OfcOnEeOJ9fGftM4+OZ8H1Y/o1DqxPujmfX5Yd2jZFP6vsRfjec0fc+fHrt+f35BfJNqLg=
+   eJyVVTtOw0AQdWDtPiDokZDsniKhRoIDRMIngBtAT0LBBbhBbpAUabEofIBwAAKXoGOfPCNPltnxMtJqrN3ZN5+3M67zLLvxqx7QU78mxnkqxoVfkBhW6E/zCznzeuO6by0+tq0ETqnEsxMYbF8q8WhnjPHs7JyG6gOMrccYF1k2N3KqjbpMRT1YrLixt/L2j8EZy0dQl5i26hLGYb2r2Bn4aZ1dW35XPyPdBrJ0ejyynhBgXBl+FpG6VOS/cd19cDGLcMii5STrNqPvLfm8Vjh/UuLB/gvtn/rvEeEcEk+3dD7JbZ5YLg86PfZ7hV/HombI85t8rQZ4Ysw7r++JM8TzkPdvrhE8pWCFsbO8E86G+irWM6EPefbpdGzG57tV/jdevvNm9JHs2ZT5E9NDM/U/8xk5n0TqZc1nacvSUm7ovZ3bt5P5gnNwXyr5N+JtscxdP5+G5rM2p0M+U+Yzx45++zLeuTWfz4XPo2Lff2iPXND/r67PCTatkUPs/YR7EKdwa+lYXdaJ/wnWv9VTnnw=
   </data>
  </layer>
- <layer name="Above" width="19" height="30">
+ <layer name="Above" width="18" height="30">
   <data encoding="base64" compression="zlib">
-   eJxjYCAdqLOSoYlCALJTA4u9yGLUctdA+I8YMBj8N9zDe7D6D1vapxSQ4y5s7sBmDkgdrjxLCcBlHrn24HInejqgxB8bWRDmELKXEIDpwwcGa3qjBqBlekKPD3LDEVs80wo44zF7MPlnoMsvAILnCjM=
+   eJxjYCANqLOSqIECALJLA4t9yGLUcA89/UQMGEg/DcewHWx+wpamKQGkugeb/djMAKnDlQfJBYTyM6lmobsPPa7JNXsjC8IMfPYR60Z8YLClJ0oBrdILetiTE27Y4pPawBmPmYPBDwNZ/gAAg3EKMw==
   </data>
  </layer>
- <layer name="Walkable" width="19" height="30">
+ <layer name="Walkable" width="18" height="30" visible="0">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEBwgzEAlM5ABtcwbLOag+3Ggw4la5gzW8B7u/hts7qJmeCObQW13Ucs8avgbn3pK3UmsPQOd3igJP2LNJMdcdH3UMmegwmmw+IdS8wDnjR+M
+   eJwTZGBgEKQzZqCCfmRADbMG2gx0fw1UuFDDjMEWtsPRT4PFPdQKW2T91HQPNcyi1K/41FLiPmLtGKj0RG54EWseqWai66GGGfQOl4H2A6VmAQDf1R2O
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="30" visible="0">
-  <object name="east" type="mapchange" x="576" y="736" width="32" height="32">
+ <objectgroup name="Mapevents" width="18" height="30">
+  <object name="east" type="mapchange" x="544" y="736" width="32" height="32">
    <properties>
     <property name="map" value="lodar7"/>
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="224" y="928" width="64" height="32">
+  <object name="south" type="mapchange" x="192" y="928" width="64" height="32">
    <properties>
     <property name="map" value="lodar13"/>
     <property name="place" value="north"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="30">
-  <object name="undeadcr1" type="spawn" x="448" y="704" width="128" height="96">
+ <objectgroup name="Spawn" width="18" height="30" visible="0">
+  <object name="undeadcr1" type="spawn" x="416" y="704" width="128" height="96">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_3" type="spawn" x="352" y="608" width="64" height="32">
+  <object name="slargrum_3" type="spawn" x="320" y="608" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_4" type="spawn" x="320" y="640" width="128" height="160">
+  <object name="slargrum_4" type="spawn" x="288" y="640" width="128" height="160">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="forestregral3" type="spawn" x="256" y="576" width="128" height="32"/>
-  <object name="urdom_3" type="spawn" x="320" y="32" width="128" height="96">
+  <object name="forestregral3" type="spawn" x="224" y="576" width="128" height="32"/>
+  <object name="urdom_3" type="spawn" x="288" y="32" width="128" height="96">
    <properties>
     <property name="respawn" value="false"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="96" y="480" width="160" height="160">
+  <object name="undeadcr1" type="spawn" x="64" y="480" width="160" height="160">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="werewolf_2" type="spawn" x="224" y="416" width="64" height="32">
+  <object name="werewolf_2" type="spawn" x="192" y="416" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="224" y="352" width="64" height="32">
+  <object name="undeadcr1" type="spawn" x="192" y="352" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_4" type="spawn" x="224" y="288" width="64" height="32">
+  <object name="slargrum_4" type="spawn" x="192" y="288" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="224" y="160" width="192" height="96">
+  <object name="undeadcr1" type="spawn" x="192" y="160" width="192" height="96">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_4" type="spawn" x="320" y="128" width="64" height="32">
+  <object name="slargrum_4" type="spawn" x="288" y="128" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="320" y="800" width="128" height="96"/>
-  <object name="slargrum_4" type="spawn" x="224" y="864" width="64" height="32">
+  <object name="undeadcr1" type="spawn" x="288" y="800" width="128" height="96"/>
+  <object name="slargrum_4" type="spawn" x="192" y="864" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="19" height="30" visible="0"/>
+ <objectgroup name="Keys" width="18" height="30" visible="0"/>
 </map>

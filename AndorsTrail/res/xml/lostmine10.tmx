@@ -50,31 +50,26 @@
  </tileset>
  <layer name="Ground" width="14" height="20">
   <data encoding="base64" compression="zlib">
-   eJylk9ENgCAMRAGjG+inQzg0m+gGuoHOYRttOIlA0Y9Lw9EHxnLeGuNBYxPUuudeTsj1xK3kbTbU1FnIsXbyDhtqr+TepPnWGq50nvY+8TtXzzEzZLgSE3PdPauY45khE3O8t3+Yg6b/D6eZjfaN1M5ZempyM5MWG3LD7HL70hOvPeQKM4d5S1XJFf4DzFuqTuYScuLldAIR+3uv
+   eJylk9ENgCAMREEjG+inC/jn0GwiG+gGOoc02nCiYNGPS8PRB8ZyVitlQX0d1FTXvZyQaz03e2/RoabOQo60em/TobZC7kmSby3h3s6T3se+qco5YroMl2MGdefMOauYo5khE3O0t36Yg6T/DyeZjfSNlM6Ze0pyM3k5HXJDrDt97onXFnKFmcO8pSrnCv8B5i1VR3UIOfZy2gFBCXvD
   </data>
  </layer>
  <layer name="Objects" width="14" height="20">
   <data encoding="base64" compression="zlib">
-   eJydk00KwjAQhaetiWsRo3uv0HYv7QWk3q5b8Ya61RmSh9PQRMmDIZDMNy9/Q7TUVBPdairSwNwYWGP8eDS/OXgKfzCePXHYDPtuON8S3TdfXtcZM2eYV+JVlZ9d2CHDWV4zHI/Kh9aU4Zzch2K1Un7i1XN0ioVk/pLgXJhv7JeFz1in99lH990Ff9zl3qbzkbOzyxqyh2d0Xp2P9xJhTvLnlf1hLdZ5xSP2iyV/LseIroW9U8I547kusOgdEfoOPeTCiHW8jWYh6T2nam15bMmHfqf2j/gAEfYlgg==
+   eJydk0EOgjAQRQewdW2M1b1XAC4AHkDxdmyNN9St9KedMDRtMfzkp0k7r8NMGaKlhpLoWdImdZbrPauUW89qneOc4E/KsRdrnWF/lY3XRK/dzMt7+kwNY8TfYnvtYLsMp+2Zsn4XzlJDhjPoh2ClUvUhV2vdCJaF/XuCM36/0jPLzC3TlzboN9iHN5ijTsdzvw96eQe+4ROpl+P5vSDeQ/wY+T4+C3WN5AjzhcI/l2OgVH/XtIUzynGNZ3l2IJ47niHjVz7nt5EsC7NnxF17u9bkLN+p/sMTWholow==
   </data>
  </layer>
  <layer name="Above" width="14" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYEAF/5kZyAKU6DNmg7BNmYjX940RvzwpZg0k+IAn3HDJgcTf49GHLS7w6YHZg03eDEc4EnIDKW4jRd9XAvFOjH34whyfPkJpDpc+YsBQ0UdqnAMAw+sbOw==
+   eJxjYEAF/5kZyAKU6DNmg7BNmYjX940RvzwpZg0k+IAn3HDJgcTf49GHLS7w6YHZg00enx5ccmZ4wp7S9PWVQLwTYx++MMenj1Caw6WPGDBU9OFLd9gAANkmHC0=
   </data>
  </layer>
- <layer name="Kachelebene 5" width="14" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFowA3eM880C4YBUMZAAAk+wDz
-  </data>
- </layer>
- <layer name="Walkable" width="14" height="20">
+ <layer name="Walkable" width="14" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJwTZGBgEETCMCBIBiZXLzXsRAf0dL/gMNdHKFywyePTQwiQ4gZi3DbYw3eo6SNFLwDvMw+t
   </data>
  </layer>
  <objectgroup name="Mapevents" width="14" height="20">
-  <object name="south" type="mapchange" x="64" y="608" width="64" height="32">
+  <object name="south" type="mapchange" x="64" y="608" width="96" height="32">
    <properties>
     <property name="map" value="lostmine9"/>
     <property name="place" value="north"/>
@@ -87,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="14" height="20">
+ <objectgroup name="Spawn" width="14" height="20" visible="0">
   <object name="lava_spawn_2" type="spawn" x="64" y="416" width="32" height="160">
    <properties>
     <property name="quantity" value="2"/>

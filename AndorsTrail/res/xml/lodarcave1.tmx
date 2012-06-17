@@ -63,7 +63,7 @@
    eJxjYKAu+MBMnBghM95j0YNNDB/4T6L6oWLOJ0bS1JMa/rgAKe7HZycp5uBTS8gcZDfgSzv45HClRVLBYEpDg81PpKZnagFq5QtywnIg8iQuQE56wOZ+cswgRQ+uMIOFgSEbcebgCjNSw5Ja5uBK/+Tki8GUrrCZAwDWcC3Z
   </data>
  </layer>
- <layer name="Walkable" width="18" height="30">
+ <layer name="Walkable" width="18" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJzNk0EOACEMAvmC//+sdyNtwepuEy+WjEJ1ABg/XWhiYGE5XLUcBtNH2SjnKj5vcpQZZIyvfO30Fc/VUhmsd3IXJw+H4fwNZd4nHPfdOu+x06fKysrhMLbqqcLZ9Zg+Y0R5ZF7dLKN91uvQv+ZM2j8YPg==
   </data>
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="18" height="30">
+ <objectgroup name="Spawn" width="18" height="30" visible="0">
   <object name="slargrum_10" type="spawn" x="32" y="96" width="256" height="192">
    <properties>
     <property name="quantity" value="2"/>
