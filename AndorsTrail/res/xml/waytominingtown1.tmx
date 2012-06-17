@@ -101,11 +101,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Spawn" width="30" height="30">
-  <object name="forestboar3" type="spawn" x="32" y="736" width="128" height="192">
-   <properties>
-    <property name="" value=""/>
-   </properties>
-  </object>
+  <object name="forestboar3" type="spawn" x="32" y="736" width="128" height="192"/>
   <object name="forestenxadir2" type="spawn" x="128" y="544" width="256" height="192">
    <properties>
     <property name="quantity" value="3"/>
@@ -151,7 +147,7 @@
    </properties>
   </object>
   <object name="mushroom2" type="spawn" x="448" y="544" width="128" height="96"/>
-  <object name="forestenxadir2" x="512" y="416" width="320" height="224"/>
+  <object name="forestenxadir2" type="spawn" x="512" y="416" width="320" height="224"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>
