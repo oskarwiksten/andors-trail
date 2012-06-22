@@ -61,10 +61,16 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	view.actorStatsController.applyConditionsToPlayer(model.player, true);
     }
     
-    private void onNewRound() {
-    	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);
+    public void onNewRound() {
+    	onNewMonsterRound();
+    	onNewPlayerRound();
+    }
+    public void onNewPlayerRound() {
     	view.actorStatsController.applyConditionsToPlayer(model.player, false);
     	view.actorStatsController.applySkillEffectsForNewRound(model.player);
+    }
+    public void onNewMonsterRound() {
+    	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);
     }
     
 	private void onNewTick() {

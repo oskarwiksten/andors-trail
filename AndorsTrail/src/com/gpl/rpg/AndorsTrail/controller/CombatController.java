@@ -54,8 +54,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
     	model.uiSelections.isInCombat = true;
     	killedMonsterBags.clear();
     	context.mainActivity.clearMessages();
-    	if (beginTurnAs == BEGIN_TURN_PLAYER) newPlayerTurn();
-    	else if (beginTurnAs == BEGIN_TURN_MONSTERS) endPlayerTurn();
+    	if (beginTurnAs == BEGIN_TURN_PLAYER) newPlayerTurn(true);
+    	else if (beginTurnAs == BEGIN_TURN_MONSTERS) beginMonsterTurn(true);
     	else continueTurn();
     	updateTurnInfo();
     }
@@ -149,7 +149,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	public void executeMoveAttack(int dx, int dy) {
 		if (isMonsterTurn()) {
-			forceFinishMonsterAction();
+			return;
 		} else if (world.model.uiSelections.selectedMonster != null) {
 			executePlayerAttack();
 		} else if (world.model.uiSelections.selectedPosition != null) {
@@ -264,7 +264,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	private void playerActionCompleted() {
 		context.mainActivity.updateStatus();
-		if (!playerHasApLeft()) endPlayerTurn();
+		if (!playerHasApLeft()) beginMonsterTurn(false);
 	}
 	private void continueTurn() {
     	if (!playerHasApLeft()) handleNextMonsterAction();
@@ -292,7 +292,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void fleeingFailed() {
 		Resources r = context.mainActivity.getResources();
 		message(r.getString(R.string.combat_flee_failed));
-		endPlayerTurn();
+		beginMonsterTurn(false);
 	}
 	
 	private final Handler monsterTurnHandler = new Handler() {
@@ -302,22 +302,15 @@ public final class CombatController implements VisualEffectCompletedCallback {
         }
 	};
 	
-	public void endPlayerTurn() {
+	public void beginMonsterTurn(boolean isFirstRound) {
 		model.player.ap.current = 0;
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				m.setMaxAP();
 			}
 		}
+		if (!isFirstRound) context.gameRoundController.onNewMonsterRound();
 		handleNextMonsterAction();
-	}
-
-	private void forceFinishMonsterAction() {
-		//TODO:
-		return;
-		//waitForEffect = false;
-		//monsterTurnHandler.removeMessages(0);
-		//monsterTurnHandler.sendEmptyMessage(0);
 	}
 	
 	private Monster determineNextMonster(Monster previousMonster) {
@@ -404,11 +397,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	private void endMonsterTurn() {
 		currentActiveMonster = null;
-		newPlayerTurn();
+		newPlayerTurn(false);
 	}
 	
-	private void newPlayerTurn() {
+	private void newPlayerTurn(boolean isFirstRound) {
 		model.player.setMaxAP();
+		if (!isFirstRound) context.gameRoundController.onNewPlayerRound();
     	updateTurnInfo();
 	}
 	private void updateTurnInfo() {
