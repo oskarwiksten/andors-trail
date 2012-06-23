@@ -119,6 +119,22 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		case SkillCollection.SKILL_REJUVENATION: return R.string.skill_shortdescription_rejuvenation;
 		case SkillCollection.SKILL_TAUNT: return R.string.skill_shortdescription_taunt;
 		case SkillCollection.SKILL_CONCUSSION: return R.string.skill_shortdescription_concussion;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_DAGGER: return R.string.skill_shortdescription_weapon_prof_dagger;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_1HSWORD: return R.string.skill_shortdescription_weapon_prof_1hsword;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_2HSWORD: return R.string.skill_shortdescription_weapon_prof_2hsword;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_AXE: return R.string.skill_shortdescription_weapon_prof_axe;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_BLUNT: return R.string.skill_shortdescription_weapon_prof_blunt;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_UNARMED: return R.string.skill_shortdescription_weapon_prof_unarmed;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_SHIELD: return R.string.skill_shortdescription_armor_prof_shield;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_UNARMORED: return R.string.skill_shortdescription_armor_prof_unarmored;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT: return R.string.skill_shortdescription_armor_prof_light;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY: return R.string.skill_shortdescription_armor_prof_heavy;
+		case SkillCollection.SKILL_FIGHTSTYLE_DUAL_WIELD: return R.string.skill_shortdescription_fightstyle_dualwield;
+		case SkillCollection.SKILL_FIGHTSTYLE_2HAND: return R.string.skill_shortdescription_fightstyle_2hand;
+		case SkillCollection.SKILL_FIGHTSTYLE_WEAPON_SHIELD: return R.string.skill_shortdescription_fightstyle_weapon_shield;
+		case SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD: return R.string.skill_shortdescription_specialization_dualwield;
+		case SkillCollection.SKILL_SPECIALIZATION_2HAND: return R.string.skill_shortdescription_specialization_2hand;
+		case SkillCollection.SKILL_SPECIALIZATION_WEAPON_SHIELD: return R.string.skill_shortdescription_specialization_weapon_shield;
 		default:
 			return -1;
 		}

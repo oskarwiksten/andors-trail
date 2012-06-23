@@ -36,8 +36,24 @@ public final class SkillCollection {
 	public static final int SKILL_REJUVENATION = 23;	// Reduces magnitudes of conditions
 	public static final int SKILL_TAUNT = 24;			// Causes AP loss of attackers that miss
 	public static final int SKILL_CONCUSSION = 25;		// AC loss for monsters with (AC-BC)>N
+	public static final int SKILL_WEAPON_PROFICIENCY_DAGGER = 26;
+	public static final int SKILL_WEAPON_PROFICIENCY_1HSWORD = 27;
+	public static final int SKILL_WEAPON_PROFICIENCY_2HSWORD = 28;
+	public static final int SKILL_WEAPON_PROFICIENCY_AXE = 29;
+	public static final int SKILL_WEAPON_PROFICIENCY_BLUNT = 30;
+	public static final int SKILL_WEAPON_PROFICIENCY_UNARMED = 31;
+	public static final int SKILL_ARMOR_PROFICIENCY_SHIELD = 32;
+	public static final int SKILL_ARMOR_PROFICIENCY_UNARMORED = 33;
+	public static final int SKILL_ARMOR_PROFICIENCY_LIGHT = 34;
+	public static final int SKILL_ARMOR_PROFICIENCY_HEAVY = 35;
+	public static final int SKILL_FIGHTSTYLE_DUAL_WIELD = 36;
+	public static final int SKILL_FIGHTSTYLE_2HAND = 37;
+	public static final int SKILL_FIGHTSTYLE_WEAPON_SHIELD = 38;
+	public static final int SKILL_SPECIALIZATION_DUAL_WIELD = 39;
+	public static final int SKILL_SPECIALIZATION_2HAND = 40;
+	public static final int SKILL_SPECIALIZATION_WEAPON_SHIELD = 41;
 	
-	public static final int NUM_SKILLS = SKILL_CONCUSSION + 1;
+	public static final int NUM_SKILLS = SKILL_SPECIALIZATION_WEAPON_SHIELD + 1;
 	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 1;
@@ -145,6 +161,37 @@ public final class SkillCollection {
 			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_CHANCE, 3)
 			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 5)
 		}));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_DAGGER, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_1HSWORD, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_2HSWORD, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_AXE, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_BLUNT, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_UNARMED, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_SHIELD, 2, false, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_UNARMORED, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_LIGHT, 3, false, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_HEAVY, 4, false, null));
+		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_DUAL_WIELD, 2, false, new SkillLevelRequirement[] { 
+				SkillLevelRequirement.requireExperienceLevels(15, 0) 
+			}));
+		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_2HAND, 2, false, new SkillLevelRequirement[] { 
+				SkillLevelRequirement.requireExperienceLevels(15, 0) 
+			}));
+		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2, false, new SkillLevelRequirement[] { 
+				SkillLevelRequirement.requireExperienceLevels(15, 0) 
+			}));
+		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_DUAL_WIELD, 1, false, new SkillLevelRequirement[] { 
+				SkillLevelRequirement.requireExperienceLevels(45, 0)
+				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_DUAL_WIELD, 2)
+			}));
+		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_2HAND, 1, false, new SkillLevelRequirement[] { 
+				SkillLevelRequirement.requireExperienceLevels(45, 0)
+				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_2HAND, 2)
+			}));
+		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_WEAPON_SHIELD, 1, false, new SkillLevelRequirement[] { 
+				SkillLevelRequirement.requireExperienceLevels(45, 0)
+				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2)
+			}));
 	}
 
 	public SkillInfo getSkill(int skillID) {
