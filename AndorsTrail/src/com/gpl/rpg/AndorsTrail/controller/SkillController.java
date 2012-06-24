@@ -232,13 +232,13 @@ public final class SkillController {
 			int skill = getProficiencySkillForItemCategory(itemType.category);
 			if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT) {
 				if (skillLevelLightArmor > 0) {
-					playerTraits.blockChance += FloatMath.floor(itemType.effects_equip.combatProficiency.blockChance * 30 * skillLevelLightArmor / 100.0f);
+					playerTraits.blockChance += getPercentage(itemType.effects_equip.combatProficiency.blockChance, 30 * skillLevelLightArmor);
 				}
 			} else if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY) { 
 				if (skillLevelHeavyArmor > 0) {
-					playerTraits.blockChance += FloatMath.floor(itemType.effects_equip.combatProficiency.blockChance * 10 * skillLevelHeavyArmor / 100.0f);
-					player.actorTraits.moveCost -= FloatMath.floor(itemType.effects_equip.moveCostPenalty * 25 * skillLevelHeavyArmor / 100.0f);
-					playerTraits.attackCost -= FloatMath.floor(itemType.effects_equip.combatProficiency.attackCost * 25 * skillLevelHeavyArmor / 100.0f);
+					playerTraits.blockChance += getPercentage(itemType.effects_equip.combatProficiency.blockChance, 10 * skillLevelHeavyArmor);
+					player.actorTraits.moveCost -= getPercentage(itemType.effects_equip.moveCostPenalty, 25 * skillLevelHeavyArmor);
+					playerTraits.attackCost -= getPercentage(itemType.effects_equip.combatProficiency.attackCost, 25 * skillLevelHeavyArmor);
 				}
 			}
 		}
