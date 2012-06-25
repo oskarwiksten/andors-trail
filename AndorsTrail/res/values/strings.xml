@@ -573,14 +573,14 @@
 	<string name="skill_title_weapon_prof_blunt">Bludgeoning weapon proficiency</string>
 	<string name="skill_title_weapon_prof_unarmed">Unarmed fighting</string>
 	<string name="skill_title_armor_prof_shield">Shield proficiency</string>
-	<string name="skill_title_armor_prof_unarmored">Armour proficiency: unarmored</string>
+	<string name="skill_title_armor_prof_unarmored">Unarmored fighting</string>
 	<string name="skill_title_armor_prof_light">Light armor proficiency</string>
 	<string name="skill_title_armor_prof_heavy">Heavy armor proficiency</string>
 	<string name="skill_title_fightstyle_dualwield">Fighting style: Dual wield</string>
-	<string name="skill_title_fightstyle_2hand">Fighting style: Two handed weapon</string>
+	<string name="skill_title_fightstyle_2hand">Fighting style: Two-handed weapon</string>
 	<string name="skill_title_fightstyle_weapon_shield">Fighting style: Weapon and shield</string>
 	<string name="skill_title_specialization_dualwield">Specialization: Dual wield</string>
-	<string name="skill_title_specialization_2hand">Specialization: Two handed weapon</string>
+	<string name="skill_title_specialization_2hand">Specialization: Two-handed weapon</string>
 	<string name="skill_title_specialization_weapon_shield">Specialization: Weapon and shield</string>
 	
 	<string name="skill_shortdescription_weapon_prof_dagger">Better at fighting with daggers</string>
@@ -608,13 +608,23 @@
 	<string name="skill_longdescription_weapon_prof_unarmed">When fighting without a weapon and shield, gain %1$d attack chance, %2$d damage potential and %3$d block chance per skill level.</string>
 	<string name="skill_longdescription_armor_prof_shield">Increase damage resistance by %1$d per skill level while having a shield equipped.</string>
 	<string name="skill_longdescription_armor_prof_unarmored">While fighting without having any armor equipped, gain %1$d block chance per skill level. Items made of cloth are not considered as being armor.</string>
-	<string name="skill_longdescription_armor_prof_light">Increases block chance of every piece of light armor being worn by %1$d %% per skill level. Light armors include leather and light metal.</string>
-	<string name="skill_longdescription_armor_prof_heavy">Increases block chance of every piece of heavy armor being worn by %1$d %% per skill level. Pieces of heavy armor have their movement penalties reduced by %2$d %% per skill level, and their attack speed penalties reduced by %3$d %% per skill level. Heavy armors include metal armors, chain mail and plate mail.</string>
-	<string name="skill_longdescription_fightstyle_dualwield">Fighting style: Dual wield</string>
-	<string name="skill_longdescription_fightstyle_2hand">Fighting style: Two handed weapon</string>
-	<string name="skill_longdescription_fightstyle_weapon_shield">Fighting style: Weapon and shield</string>
-	<string name="skill_longdescription_specialization_dualwield">Specialization: Dual wield</string>
-	<string name="skill_longdescription_specialization_2hand">Specialization: Two handed weapon</string>
-	<string name="skill_longdescription_specialization_weapon_shield">Specialization: Weapon and shield</string>
+	<string name="skill_longdescription_armor_prof_light">For every skill level, increases the block chance of every piece of light armor being worn by %1$d %% of their original block chances. Light armors include leather and light metal.</string>
+	<string name="skill_longdescription_armor_prof_heavy">For every skill level, increases the block chance of every piece of heavy armor being worn by %1$d %% of their original block chances. Pieces of heavy armor have their movement penalties reduced by %2$d %% per skill level, and their attack speed penalties reduced by %3$d %% per skill level. Heavy armors include metal armors, chain mail and plate mail.</string>
+	<string name="skill_longdescription_fightstyle_dualwield">"Gives benefits when fighting with two weapons at the same time, one in the main hand and one in the off-hand.
+
+Without this skill, only %1$d %% of a weapon\'s qualities may be used when equipped in the off-hand. This includes attack chance, critical skill, damage potential and block chance. Without this skill, attack speed (AP cost) of making an attack is the sum of the attack speed of the main weapon and that of the weapon used in the off-hand.
+
+With one level of this skill, %2$d %% of the off-hand\'s weapon\'s qualities may be used, and the attack speed is the attack speed of the weapon in the main hand plus %3$d %% of the attack speed of the weapon in the off-hand.
+
+With two levels of this skill, %4$d %% of the off-hand\'s weapon\'s qualities may be used, and the attack speed equals the highest of the attack speeds of the two equipped weapons."</string>
+	<string name="skill_longdescription_fightstyle_2hand">"Gives benefits when using weapons that require both hands to wield, such as two-handed swords, greataxes or giant hammers.
+
+Every skill level increases damage potential of two-handed weapons with %1$d %% of the original damage potential."</string>
+	<string name="skill_longdescription_fightstyle_weapon_shield">"Gives benefits when fighting with a weapon in the main hand and having a shield equipped in the off-hand.
+
+Every skill level increases the attack chance of weapons with %1$d %% of their original attack chances, and the block chance of shields by %2$d %% of their original block chances."</string>
+	<string name="skill_longdescription_specialization_dualwield">Increases the attack chance of both wielded weapons by an additional %1$d %% of their original attack chances, in addition to the benefis given by the weapon style skill. The block chances of both wielded weapons are also increased by %2$d %% of their original block chances.</string>
+	<string name="skill_longdescription_specialization_2hand">Increases damage potential of two-handed weapons by an additional %1$d %% of the original damage potential, in addition to the benefis given by the weapon style skill. The attack chances of two-handed weapons are also increased by %2$d %% of their original attack chances.</string>
+	<string name="skill_longdescription_specialization_weapon_shield">Increases both attack chances and damage potential of weapons. The attack chance is increased by %1$d %% of the original attack chance, and the damage potential is increased by %2$d %% of the original damage potential.</string>
 
 </resources>
