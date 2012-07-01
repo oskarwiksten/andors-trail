@@ -245,7 +245,7 @@
 {nocmar_quest_2|To make the heartsteel glow again, we will need a heartstone.||{{N|nocmar_quest_3|||||}}|};
 {nocmar_quest_3|Years ago, we used to fight the liches of Undertell. I have no idea if they still haunt the place.||{{Undertell? What\'s that?|nocmar_quest_4|||||}}|};
 {nocmar_quest_4|Undertell; the pits of the lost souls. Travel south and enter the caverns of the Dwarves. Follow the horrid smell from there.||{{N|nocmar_quest_5|||||}}|};
-{nocmar_quest_5|Beware the liches of Undertell, if they still are around. Those things can kill you by their gaze alone.|||};
+{nocmar_quest_5|Beware the liches of Undertell, if they are still are around. Those things can kill you by their gaze alone.|||};
 {nocmar_continue|Have you found a heartstone yet?||{{Yes, at last I found it.|nocmar_complete||heartstone|1|0|}{Could you tell me the story again?|nocmar_quest_1|||||}{No, not yet|nocmar_continue_2|||||}}|};
 {nocmar_continue_2|Please keep looking. Unnmir must have something important planned for you.|||};
 {nocmar_complete|By the Shadow. You actually found a heartstone. I thought I wouldn\'t live to see the day.|{{0|nocmar|200|}}|{{N|nocmar_complete_2|||||}}|};
@@ -286,7 +286,7 @@
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {chapelgoer|Shadow, embrace me.|||};
 {thoronir_default|Bask in the Shadow, my child.||{{What can you tell me about the Shadow?|thoronir_shadow_1|||||}{Can you tell me more about the church?|thoronir_church_1|||||}{Are the Bonemeal potions ready yet?|thoronir_trade_bonemeal|bonemeal:100||||}}|};
-{thoronir_shadow_1|Shadows protect us from the dangers of the night. It keeps us safe and comforts us when we sleep.||{{Tharal sent me and told me to tell you the password \'Glow of the Shadow\'.|thoronir_tharal_select|bonemeal:30||||}{Shadow be with you.|thoronir_default|||||}{Sounds like nonsense to me.|thoronir_default|||||}}|};
+{thoronir_shadow_1|The Shadow protects us from the dangers of the night. It keeps us safe and comforts us when we sleep.||{{Tharal sent me and told me to tell you the password \'Glow of the Shadow\'.|thoronir_tharal_select|bonemeal:30||||}{Shadow be with you.|thoronir_default|||||}{Sounds like nonsense to me.|thoronir_default|||||}}|};
 {thoronir_church_1|This is our chapel of worship in Fallhaven. Our community turns to us for support.||{{N|thoronir_church_2|||||}}|};
 {thoronir_church_2|This church has withstood hundreds of years, and has been kept safe from grave robbers.||{{N|thoronir_church_3|||||}}|};
 {thoronir_tharal_select|||{{|thoronir_trade_bonemeal|bonemeal:100||||}{|thoronir_tharal_1|||||}}|};
@@ -297,7 +297,7 @@
 {thoronir_tharal_3|When the ban came, I did not dare keep any, so I threw my whole supply away. It was quite foolish now that I look back on it.||{{N|thoronir_tharal_4|||||}}|};
 {thoronir_tharal_4|Do you think you could find me 5 skeletal bones that I can use for mixing a Bonemeal potion? The bonemeal is very potent in healing old wounds.||{{Sure, I might be able to do that.|thoronir_tharal_5|||||}{I have those bones for you.|thoronir_tharal_complete||bone|5|0|}}|};
 {thoronir_tharal_5|Thank you, please come back soon. I heard there were some undead near an old abandoned house just north of Fallhaven. Maybe you can check for bones there?|{{0|bonemeal|40|}}|{{Ok, I\'ll go check there.|thoronir_default|||||}}|};
-{thoronir_tharal_complete|Thank you, these bones will do fine. Now I can start creating some bonemeal healing potion for you.|{{0|bonemeal|100|}}|{{N|thoronir_complete_2|||||}}|};
+{thoronir_tharal_complete|Thank you, these bones will do fine. Now I can start creating some bonemeal healing potions for you.|{{0|bonemeal|100|}}|{{N|thoronir_complete_2|||||}}|};
 {thoronir_complete_2|Give me some time to mix the Bonemeal potion. It is a very potent healing potion. Come back in a little while.|||};
 {thoronir_trade_bonemeal|Yes, the Bonemeal potions are ready. Please use them with care, and don\'t let the guards see you. We are not actually allowed to use them anymore.||{{Let me see what potions you have made so far.|S|||||}{There was something else I wanted to talk about.|thoronir_default|||||}}|};
 {catacombguard|Turn back while you still can, mortal. This is no place for you. Only death awaits you here.||{{Very well. I will turn back.|X|||||}{Move aside, I need to get deeper into the catacombs.|catacombguard1|||||}{By the Shadow, you will not stop me.|catacombguard1|||||}}|};
@@ -312,7 +312,7 @@
 {athamyr_2|But I\'m the only one that both has the permission and the bravery to go down there.||{{How can I get permission to go down there?|athamyr_3|||||}}|};
 {athamyr_3|You want to go down in the catacombs? Hm, maybe we can make a deal.||{{N|athamyr_4|||||}}|};
 {athamyr_4|Bring me some of that delicious cooked meat from the tavern and I will give you my permission to enter the catacombs of Fallhaven Church.|{{0|bucus|30|}}|{{Here, I have cooked meat for you.|athamyr_complete||meat_cooked|1|0|}{Ok, I\'ll go get some.|X|||||}}|};
-{athamyr_complete_2|You have my permission enter the catacombs of Fallhaven Church.|{{0|bucus|50|}}||};
+{athamyr_complete_2|You have my permission to enter the catacombs of Fallhaven Church.|{{0|bucus|50|}}||};
 {athamyr_select|||{{|athamyr_complete_2|bucus:40||||}{|athamyr_1|||||}}|};
 {athamyr_complete|Thanks, this will do nicely.|{{0|bucus|40|}}|{{N|athamyr_complete_2|||||}}|};
 	</string>
@@ -340,7 +340,7 @@
 {unnmir_2|Same old story. We used to travel together a few years back.||{{N|unnmir_3|||||}}|};
 {unnmir_3|Real adventuring you know, swords and spells.||{{N|unnmir_4|||||}}|};
 {unnmir_4|But then we stopped. I can\'t really say why, I guess we got tired of life on the road. We settled down here in Fallhaven.||{{N|unnmir_5|||||}}|};
-{unnmir_5|Nice little town here. A lot thieves around though, but they don\'t bother me.||{{N|unnmir_6|||||}}|};
+{unnmir_5|Nice little town here. A lot of thieves around, but they don\'t bother me.||{{N|unnmir_6|||||}}|};
 {unnmir_6|So what\'s your story, kid? How did you end up here in Fallhaven?||{{I\'m looking for my brother.|unnmir_7|||||}}|};
 {unnmir_7|Yeah yeah, I get it. Your brother has probably run off to some dungeon, trying to go adventuring. *rolls eyes*||{{N|unnmir_8|||||}}|};
 {unnmir_8|Or maybe he has gone to one of the bigger cities to the north.||{{N|unnmir_9|||||}}|};
@@ -472,7 +472,7 @@
 {flagstone_guard1|Die mortal!||{{Shadow take you.|F|||||}{Prepare to meet my blade.|F|||||}}|};
 {flagstone_guard2|What, a mortal in here that is not marked by my touch?|{{0|flagstone|50|}}|{{N|flagstone_guard2_2|||||}}|};
 {flagstone_guard2_2|You seem delicious and soft, will you be part of the feast?||{{N|flagstone_guard2_3|||||}}|};
-{flagstone_guard2_3|Yes, I think you will. My undead army will spread far outside Flagstone once I am done with you.||{{By the Shadow, you must be stopped!|F|||||}{No! This land must be protected from the undead!|F|||||}}|};
+{flagstone_guard2_3|Yes, I think you will. My undead army will spread far outside of Flagstone once I am done with you.||{{By the Shadow, you must be stopped!|F|||||}{No! This land must be protected from the undead!|F|||||}}|};
 {flagstone_sentry|||{{|flagstone_sentry_return4|flagstone:60||||}{|flagstone_sentry_return3|flagstone:40||||}{|flagstone_sentry_select0|||||}}|};
 {flagstone_sentry_select0|||{{|flagstone_sentry_return2|flagstone:30||||}{|flagstone_sentry_return1|flagstone:10||||}{|flagstone_sentry_1|||||}}|};
 {flagstone_sentry_1|Halt! Who\'s there? No one is allowed to approach Flagstone.||{{N|flagstone_sentry_2|||||}}|};
@@ -557,7 +557,7 @@
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {thievesguild_thief_1|Hello kid.||{{Hello. Do you know where I can find Umar?|thievesguild_thief_4|||||}{What is this place?|thievesguild_thief_2|||||}}|};
 {thievesguild_thief_2|This is our guild hall. We are safe from the guards of Fallhaven in here.||{{N|thievesguild_thief_3|||||}}|};
-{thievesguild_thief_3|We can do pretty much as we like here. As long as Umar allows it, that is.||{{Hello. Do you know where I can find Umar?|thievesguild_thief_4|||||}{Who is Umar?|thievesguild_thief_5|||||}}|};
+{thievesguild_thief_3|We can do pretty much as we like here. As long as Umar allows it, that is.||{{Do you know where I can find Umar?|thievesguild_thief_4|||||}{Who is Umar?|thievesguild_thief_5|||||}}|};
 {thievesguild_thief_4|He is probably in his room over there. *points*||{{Thanks.|X|||||}}|};
 {thievesguild_thief_5|Umar is our guild leader. He decides our rules and guides us in moral decisions.||{{Where can I find him?|thievesguild_thief_4|||||}}|};
 
@@ -673,7 +673,7 @@
 {umar_conflict_4|In turn, the rumor is that the priests of the Shadow are planning to overthrow Lord Geomyr and his forces.||{{N|umar_conflict_5|||||}}|};
 {umar_conflict_5|Also, the rumor is that the priests of the Shadow are still doing their rituals, despite of them being banned.||{{N|umar_conflict_6|||||}}|};
 {umar_conflict_6|Lord Geomyr and his royal guard on the other hand, are still trying their best to rule in a way that they feel is fair.||{{N|umar_conflict_7|||||}}|};
-{umar_conflict_7|We in the Thieves Guild try not to get involved in the conflict. Our business is so far unaffected by all this.||{{Thank you for telling me.|umar_return_2|||||}{Whatever, that doesn\'t concern me.|umar_return_2|||||}}|};
+{umar_conflict_7|We in the Thieves Guild try not to get involved in the conflict. Our business is so far unaffected by all of this.||{{Thank you for telling me.|umar_return_2|||||}{Whatever, that doesn\'t concern me.|umar_return_2|||||}}|};
 {umar_andor_1|He asked me for my support, and asked of how to find Lodar.||{{Who is Lodar?|umar_andor_2|||||}}|};
 {umar_andor_2|Lodar? He is one of our famous potion makers in the Thieves Guild. He can make all sorts of strong sleeping potions, healing potions and cures.||{{N|umar_andor_3|||||}}|};
 {umar_andor_3|But his specialty is, of course, his poisons. His poison can harm even the largest of monsters.||{{What would Andor want with him?|umar_andor_4|||||}}|};
@@ -691,7 +691,7 @@
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {kaori_start|||{{|kaori_default_1|kaori:20||||}{|kaori_return_1|kaori:10||||}{|kaori_1|||||}}|};
 {kaori_1|You are not welcome here. Please leave now.||{{Why is everyone in Vilegard so afraid of outsiders?|kaori_2|||||}{Jolnor asked me to talk to you.|kaori_3|kaori:5||||}}|};
-{kaori_2|I don\'t want to talk to you. Go talk Jolnor in the chapel if you want to help us.|{{0|vilegard|10|}}|{{Ok, bye.|X|||||}{Fine. Don\'t tell me.|X|||||}}|};
+{kaori_2|I don\'t want to talk to you. Go talk to Jolnor in the chapel if you want to help us.|{{0|vilegard|10|}}|{{Ok, bye.|X|||||}{Fine. Don\'t tell me.|X|||||}}|};
 {kaori_3|He did? I guess you are not all that bad as I first thought.||{{N|kaori_4|||||}}|};
 {kaori_4|I am still not convinced that you are not a spy from Feygard sent to cause mischief.||{{What can you tell me about Vilegard?|kaori_trust_1|||||}{I can assure you that I am not a spy.|kaori_5|||||}{Feygard, where or what is that?|kaori_trust_1|||||}}|};
 {kaori_5|Hm. Maybe not. But then again, maybe you are. I am still not sure.||{{Is there anything I can do to gain your trust?|kaori_10|||||}{[Bribe] How would 100 gold sound? Could that help you to trust me?|kaori_bribe|||||}}|};
@@ -738,7 +738,7 @@
 {erttu_default|What do you want to talk about?||{{Why is everyone in Vilegard so suspicious of outsiders?|erttu_distrust_1|vilegard:10||||}{What can you tell me about Vilegard?|erttu_vilegard_1|||||}}|};
 {erttu_distrust_1|Most of us that live here in Vilegard have a history of trusting people too much. People that have hurt us in the end.||{{N|erttu_distrust_2|||||}}|};
 {erttu_distrust_2|Now we start by being suspicious, and ask that outsiders coming here gain our trust by helping us first.||{{N|erttu_distrust_3|||||}}|};
-{erttu_distrust_3|Also, other people generally look down upon us here in Vilegard for some reason. Especially those snobs from Feygard and the northern cities.||{{What can else you tell me about Vilegard?|erttu_vilegard_1|||||}}|};
+{erttu_distrust_3|Also, other people generally look down upon us here in Vilegard for some reason. Especially those snobs from Feygard and the northern cities.||{{What else can you tell me about Vilegard?|erttu_vilegard_1|||||}}|};
 {erttu_vilegard_1|We have almost everything we need here in Vilegard. Our center of the village is the chapel.||{{N|erttu_vilegard_2|||||}}|};
 {erttu_vilegard_2|The chapel serves as our place of worship for the Shadow, and also as our place to gather when discussing larger issues in our village.||{{N|erttu_vilegard_3|||||}}|};
 {erttu_vilegard_3|Apart from the chapel, we have a tavern, a smith and an armorer.||{{Thanks for the information. There was something else I wanted to talk about.|erttu_default|||||}{Thanks for the information. Goodbye.|X|||||}{Wow, nothing more? I wonder what I am doing in a puny village such as this one.|X|||||}}|};
@@ -761,7 +761,7 @@
 {jolnor_default_2|Walk with the Shadow my child.||{{Can you tell me again what this place is?|jolnor_chapel_1|||||}{Let\'s talk about those missions for gaining trust that you talked about earlier.|jolnor_quests_1|||||}{I require healing. Can I see what items you have available?|jolnor_shop_1|||||}}|};
 {jolnor_default_3|Walk with the Shadow my friend.||{{Can you tell me again what this place is?|jolnor_chapel_1|||||}{I require healing. Can I see what items you have available?|jolnor_shop_1|||||}}|};
 {jolnor_chapel_1|This is Vilegard\'s place of worship for the Shadow. We praise the Shadow in all its might and glory.||{{Can you tell me more about the Shadow?|jolnor_shadow_1|||||}{I require healing. Can I see what items you have available?|jolnor_shop_1|||||}{Whatever. Just show me your goods.|jolnor_shop_1|||||}}|};
-{jolnor_shadow_1|The Shadow protect us from the dangers of the night. It keeps us safe and comforts us when we sleep.||{{N|jolnor_select_1|||||}}|};
+{jolnor_shadow_1|The Shadow protects us from the dangers of the night. It keeps us safe and comforts us when we sleep.||{{N|jolnor_select_1|||||}}|};
 {jolnor_shop_1|||{{|S|vilegard:30||||}{|jolnor_shop_2|||||}}|};
 {jolnor_shop_2|I don\'t trust you enough yet to feel comfortable trading with you.||{{Why are you that suspicious?|jolnor_suspicious_1|||||}{Very well.|jolnor_select_1|||||}}|};
 {jolnor_suspicious_1|Suspicious? No, I wouldn\'t call it suspicion. I would rather call it that we are careful nowadays.||{{N|jolnor_suspicious_2|||||}}|};
@@ -771,7 +771,7 @@
 {jolnor_gaintrust_select|||{{|jolnor_gaintrust_return_2|vilegard:30||||}{|jolnor_gaintrust_return|vilegard:20||||}{|jolnor_gaintrust_1|||||}}|};
 {jolnor_gaintrust_return_2|With your help earlier, you have already gained our trust.||{{N|jolnor_default_3|||||}}|};
 {jolnor_gaintrust_return|As I said before, you have to help some people here in Vilegard to gain our trust.||{{N|jolnor_quests_1|||||}}|};
-{jolnor_gaintrust_1|If you do us a favor, we might consider trusting you. There are three people I can think of that are influential here in Vilegard, that you should try help.||{{N|jolnor_gaintrust_2|||||}}|};
+{jolnor_gaintrust_1|If you do us a favor, we might consider trusting you. There are three people I can think of that are influential here in Vilegard, that you should try to help.||{{N|jolnor_gaintrust_2|||||}}|};
 {jolnor_gaintrust_2|First, there is Kaori. She lives up in the northern part of Vilegard. Ask her if she wants help with anything.|{{0|kaori|5|}}|{{Ok. Talk to Kaori. Got it.|jolnor_gaintrust_3|||||}}|};
 {jolnor_gaintrust_3|Then there is Wrye. Wrye also lives up in the northern part of Vilegard. Many people here in Vilegard seek her advice on various things.||{{N|jolnor_gaintrust_4|||||}}|};
 {jolnor_gaintrust_4|She recently lost her son in a tragic way. If you can gain her trust, you will have a strong ally here.|{{0|wrye|10|}}|{{Talk to Wrye. Got it.|jolnor_gaintrust_5|||||}}|};
@@ -925,7 +925,7 @@
 {ff_outsideguard_trouble_25|Thanks a lot my friend.|||};
 {ff_outsideguard_shadow_1|Shadow? How curious that you would mention that. Explain yourself!||{{I did not mean a thing by it. Never mind I said anything.|ff_outsideguard_shadow_2|||||}{The Shadow watches over us when we sleep.|ff_outsideguard_shadow_3|||||}}|};
 {ff_outsideguard_shadow_2|Good. Now be gone before I will have to deal with you.|||};
-{ff_outsideguard_shadow_3|What? Are you one of those troublemakers sent here to sabotage our mission?||{{The Shadow protect us.|ff_outsideguard_shadow_4|||||}{Fine. I better not start a fight with the royal guard.|X|||||}}|};
+{ff_outsideguard_shadow_3|What? Are you one of those troublemakers sent here to sabotage our mission?||{{The Shadow protects us.|ff_outsideguard_shadow_4|||||}{Fine. I better not start a fight with the royal guard.|X|||||}}|};
 {ff_outsideguard_shadow_4|That does it. You better fight or flee right now kid.||{{Good. I have been waiting for a fight!|ff_outsideguard_shadow_5|||||}{For the Shadow!|ff_outsideguard_shadow_5|||||}{Never mind. I was just kidding with you.|ff_outsideguard_shadow_2|||||}}|};
 {ff_outsideguard_shadow_5||{{0|jolnor|21|}}|{{|F|||||}}|};
 	</string>
@@ -947,9 +947,9 @@
 {wrye_story_2|They tried to pressure everyone in Vilegard into recruiting more soldiers.||{{N|wrye_story_3|||||}}|};
 {wrye_story_3|The guards would say they needed more support to help squelch the supposed uprising and sabotage.||{{How did this relate to your son?|wrye_story_4|||||}{Are you going to get to the point soon?|wrye_story_4|||||}}|};
 {wrye_story_4|My son, Rincel, did not seem to care much for the stories they told.||{{N|wrye_story_5|||||}}|};
-{wrye_story_5|I also told Rincel of how bad idea I thought it was to recruit more people to the royal guard.||{{N|wrye_story_6|||||}}|};
+{wrye_story_5|I also told Rincel of how bad an idea I thought it was to recruit more people to the Royal Guard.||{{N|wrye_story_6|||||}}|};
 {wrye_story_6|The guards stayed a couple of days to talk to everyone here in Vilegard. Then they left. They went to the next town I guess.||{{N|wrye_story_7|||||}}|};
-{wrye_story_7|A few of days passed, and then suddenly my boy Rincel was gone one day. I am sure those guards managed to somehow persuade him to join them.||{{N|wrye_story_8|||||}}|};
+{wrye_story_7|A few days passed, and then suddenly my boy Rincel was gone one day. I am sure those guards managed to somehow persuade him to join them.||{{N|wrye_story_8|||||}}|};
 {wrye_story_8|Oh how I despise those evil and snobby Feygard bastards.||{{What now?|wrye_story_9|||||}}|};
 {wrye_story_9|This was several weeks ago. Now I feel an emptiness inside. I know in me that something has happened to my son Rincel.||{{N|wrye_story_10|||||}}|};
 {wrye_story_10|I fear he has died or got hurt somehow. Those bastards probably drove him into his own death.|{{0|wrye|30|}}|{{N|wrye_story_11|||||}}|};
@@ -1019,7 +1019,7 @@
 {maelveon_1|Sssshadow take you.||{{N|maelveon_2|||||}}|};
 {maelveon_2|G.. argoyle Shadow.||{{N|maelveon_3|||||}}|};
 {maelveon_3|A.. llow the Sssshadow in you.||{{The Shadow, what do you mean?|maelveon_4|||||}{Die, evil creature!|maelveon_4|||||}{I will not be affected by your nonsense!|maelveon_4|||||}}|};
-{maelveon_4|[the figure lift his hand and points at you]||{{N|maelveon_5|||||}}|};
+{maelveon_4|[the figure lifts his hand and points at you]||{{N|maelveon_5|||||}}|};
 {maelveon_5|Sssshadow be with you.||{{Shadow, what?|F|||||}{Die, evil creature!|F|||||}{Please don\'t hurt me!|F|||||}}|};
 	</string>
 
