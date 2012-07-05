@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="20" height="23">
   <data encoding="base64" compression="zlib">
-   eJzjZGBg4BzFo3gUD0usjYSpZQ46prZ55JhJyDxamDkYzRss6YVW5g00BgCuNxdZ
+   eJyllNENwzAIRMEbtGt0a2+QbOBu0BG6SYWcSOgMNTYf9+PAC75DrkxUN1QK0Yu62kLf25Cwnhs86fvwKM2K8s6r78ujNGuFh32ePB56lOGhV+iR6K6d8SyvPBbuCn6LeMXF35Ud7x/F9sHLIeK95YPM7e1ZNEuc28rCqz+4a2VXPF4L/hPvnOXJnXX+WR7mb+27tVfR/O/6QynzPkTfVYuns/83S4TX1PnKez/jZbTj00wzj36HXNBU
   </data>
  </layer>
  <layer name="Objects" width="20" height="23">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUDFfwjxmBqWkOpebi0keumfj0UWImOXLE6kEOQ0r9TI04RnYjNcyCmUMttw0GAABCwCAh
+   eJzNVEFOwzAQdErWBzggAilcqMQTwg/4AOIzVb/AQ/hBe+AJVc/k0iOH3ttLr3jlHWVrbJMEDowUOUq849nZXRvzP1CTX9/KYXETibuVlWR9nIzTUbn4O+G4Ia+LuWrrvxW2Pxc0rCSnqyD2fWCuIfaFMQf3tI5nJ5pnGX0b2TOVde3ijtRxAYfC9MKWPEdjT/3eJ+Jfy/Q/jmctleN6UjmsIh5RRHOIjyDuJeLLmeqV+Q+1gE8XiudTvjUu3rr3a+rXd9DPZ3JNluWp5gfbzQF6hKibkRB8Jtef+2CbqedS5chcTULrOvBiFzkXvXRpv3sdYkF+HzxcRPigG/OFWaHI3mdVgzrR76k5QM7aS/aHNeGJ9RXvgS9zVZt723HaRH1yOFc60aPoq2rAXcNoRRd7ghxYd25Ocgjvq79A+8s7TwN9PTa/MfgCmZE4lA==
   </data>
  </layer>
  <layer name="Above" width="20" height="23">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUDFfwjxmBqWUOOqa2eeSYia6XmmZS2zxa+JkacYxuJjUAtc0baAAA+JE0NQ==
+   eJz7x8zA8G8Uj+JRPIpH8SgexXgxAJP1zdw=
   </data>
  </layer>
  <layer name="Walkable" width="20" height="23">
   <data encoding="base64" compression="zlib">
-   eJy9lMsNACAIQ1mB/Zf1xI1PC0gTDib6LCKoiGgzTMi+6Kwn5E5EW/7Z95Bg3fHA5IfmXwn1HuWRcRjm5A96OU1qwqr6/x2mcSLelHvVb9e+fvMy9lTbnG5dMxY7W5herLhbcwSNB7ThD0c=
+   eJzVkkEKACAIBP2C//9spyCkdHexg4IEluNQuZm5mDvU/kk8lYWEyqrqDI/ZU+4I4Zz91XyGF0PhvdxufdmczM3Dinijf4DhIWdjnXHseHvUrzrH5A9e5sryu7ym8LyZheQCyaEWQA==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="23">
@@ -83,19 +83,30 @@
   </object>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="23">
-  <object name="cavegir6" type="spawn" x="320" y="32" width="96" height="64"/>
-  <object name="cavegir7" type="spawn" x="512" y="224" width="64" height="64"/>
-  <object name="cavegir7" type="spawn" x="192" y="128" width="160" height="128">
+  <object name="cavegir6" type="spawn" x="416" y="32" width="128" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="cavegir8" type="spawn" x="64" y="288" width="512" height="416">
+  <object name="cavegir7" type="spawn" x="288" y="320" width="256" height="384">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir7" type="spawn" x="448" y="224" width="32" height="96"/>
+  <object name="cavegir8" type="spawn" x="320" y="320" width="224" height="384">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="cavegir7" type="spawn" x="32" y="288" width="544" height="416">
+  <object name="cavegir7" type="spawn" x="352" y="128" width="64" height="32"/>
+  <object name="cavegir7" type="spawn" x="224" y="128" width="128" height="128"/>
+  <object name="cavegir8" type="spawn" x="32" y="256" width="256" height="256">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir7" type="spawn" x="0" y="256" width="288" height="256">
    <properties>
     <property name="quantity" value="2"/>
    </properties>

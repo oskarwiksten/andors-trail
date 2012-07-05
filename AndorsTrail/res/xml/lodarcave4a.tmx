@@ -50,27 +50,22 @@
  </tileset>
  <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJzjZGBg4BzFIxZfZGRguMSIoCk17yHQjEeMCJpS896yMDC8Y0HQlJr3F2jGPxYETal52mh4oONzFBMXVyPBPHpgAFdlHds=
-  </data>
- </layer>
- <layer name="Kachelebene 5" width="20" height="20">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2Dkga3sDAzb2Kln3lGgWceoaN4ooA3YS+U42j3C4xwAVxMEmQ==
+   eJydlEEOAiEMRUtvgNeYuaqXYOcSdy7HG+gN9CRKmIaf2gLj4iXE4PMXPqZAlBzuQFLrozATPULjQm0d+Ljr9OUVGjdq68jVqfNbXEN1rdQnqvxeZp5wCZi/+LfJbO9QGfktn97zVDPljnfGx/x7D9a+kS8788s5WT7rbvF3vLvZjFl0NvSVmYrrTDbyXcuHnZQ8ce/zyIcZJRN2cqbHq+HDWbGTy4QrG91HX3FoPBe+WXnjM75lzyFYbxbPZuTr9VLOxusK5hCf1yMP778qO5/rrll38w84i7fnAznQtmo=
   </data>
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFIxn8Y0bFo+YNrHmjgHaA2vE02M2jBwAAY7AdHg==
+   eJy9kz2OwjAQhU1g4hoQq632DnAGrsAJKDgBLEfgCttvQ70UFJQUQAs0SBQ0INFBg7QVHo2tTMYOCRLiSRbBTr5582Ol3quefg2nAcnzL2PG4L9bRK1IqWFFqb1ZE8Nbmr1voL1mRO/MtR87i/VXSe8t7P9qTL/IPBjOOYcVWw9ds6ZmXUrJ2dU+f1km+v0XnkPeZpp4tTgdR3JRJ7s/Eflwbe0Z9/Yh8nIxUWDORg94nMM98JycxyNQP+Q3Tn0RpyXqwpmuzkXFWRDoo/M4y5l5N08/OukD35PiuZYhPY/tiHJCb2Pt5zMWPFmfOpAHnEtkdCJich3B95GlqeXjXKKXFYSZz+oGdKd2gd7z+cU76+qD+QwCfcLZdvdw86D/WNeN4X2CP0choY+8Gq1FP4rUNCvWKzjP6g4Pmzzp
   </data>
  </layer>
- <layer name="Above" width="20" height="20">
+ <layer name="Above" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFIxn8Y0bFo+YNrHmjgHaA2vE02M2jBwAAY7AdHg==
+   eJz7x8zA8G8Uj+JRPIpH8SgmEQMAUGaRoA==
   </data>
  </layer>
  <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJzFk1EOwCAMQnsF73/Z/ZsBD7dsJP2wKVhaXTOzfoh5ge9worPnVK9Kn95N+218pB7auSTOEz3qV/mgc/pCb/eTzoqb0Ogpzh2X5sgeXS5pUj8EdNZuX67W1bTvxqH5W0T/VM/FBYktEYk=
+   eJwTZGBgEBzFVMeEALnm4bOHGubhcz8hdaSECT411PQ7qfpINQ8bIGQ/KeYR4x9am4cLkGI/IbNINY9UfcS6jxrpkhiMbi8lZhGTrmmFAbinFCA=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="20">
@@ -82,12 +77,41 @@
   </object>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="20">
-  <object name="harskardaer" type="spawn" x="288" y="320" width="32" height="32"/>
-  <object name="cavegir5" type="spawn" x="224" y="256" width="224" height="192"/>
-  <object name="cavegir4" type="spawn" x="128" y="480" width="160" height="96"/>
-  <object name="cavegir4" type="spawn" x="512" y="128" width="64" height="96"/>
-  <object name="cavegir5" type="spawn" x="128" y="96" width="96" height="32"/>
-  <object name="cavegir5" type="spawn" x="416" y="448" width="192" height="160"/>
+  <object name="harskardaer" type="spawn" x="288" y="256" width="64" height="64">
+   <properties>
+    <property name="respawn" value="unique"/>
+   </properties>
+  </object>
+  <object name="cavegir5" type="spawn" x="256" y="320" width="160" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir4" type="spawn" x="128" y="384" width="256" height="96">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="cavegir4" type="spawn" x="128" y="256" width="32" height="128"/>
+  <object name="cavegir5" type="spawn" x="192" y="128" width="64" height="96"/>
+  <object name="cavegir5" type="spawn" x="448" y="192" width="160" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir5" type="spawn" x="256" y="128" width="224" height="64">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="cavegir4" type="spawn" x="512" y="320" width="32" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir5" type="spawn" x="352" y="544" width="96" height="64"/>
+  <object name="cavegir4" type="spawn" x="448" y="480" width="96" height="96"/>
+  <object name="cavegir3" type="spawn" x="64" y="480" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="20" height="20"/>
 </map>

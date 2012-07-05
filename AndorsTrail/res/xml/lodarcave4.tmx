@@ -50,22 +50,22 @@
  </tileset>
  <layer name="Ground" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJzjZGBg4BzFo3gUj2ICWBsNj9oxikfx4MIA/c8TLQ==
+   eJylVcERwyAMAzYga3RrNmg3IBtkhGzScpSr4srYRx76EMuyLftSYghF4PXBI/xQScxdeDX2L1Y0UtI1Rt4Wc8SOmHx5kbspGpi3xZyxI6erDutPcjF/w5gf5pUxQ4f1Z3FHD9Ijhpz++6sOruaRF5YG+sBm6IE1A5zlag9M4xk7tFtBrqeHImLZnjMfZnsga5S1yj3XfNA0ZreIsbjnmg+VzAC57AZlPdnYI4uLN7gr9Xh91DzBGzxEvJZX89Fzm6ejptm/w3s7dzVW5mt992jIXIw7m/9Mg3Ha2xuVIstu
   </data>
  </layer>
  <layer name="Objects" width="25" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALC4B8zKh61YxSMgsEFAOieDA0=
+   eJy1VTtuwkAQNRZealAcpQBXuUByEu4SxblCjpADcAMocgSLDgkaOqdwjxva7JNn5PFmdm0IPMlyMev35vNmHUU61mNP4IYoSCNJ7quTW/40oLH9p/6e6vh2ehZb3kfiPtI7lIdEJXJ+jZv3xvKfRt1zM3umTNozwEsc/YHW4weH/6DMnGNc29Q0dWk6bm0yp7OIuTV8UOzJ0xvogIs9KXVT0/RqRbGix7fMAU9g7rtJG6sCOTKeEz3OtWamidX2+Ry3c2dNQOvzj4dX8mveqek86meOkdG5cHZqdH4gNd1cJDYiZ1+OQzEnHd8d0zdDALPTfC53xd1HAD3gfe3bxaPj85T2DHMtBvaDv608Wjy/pWl9Lv3xpux8SKfs0QFmHn/4wLvL/sgoV6NofYnc8wF3He6lpePJleB4V2YI/fKC/5O8hxai9jpQP8ewC0P7JHdLfhPSuQahfH4Bwu1GMg==
   </data>
  </layer>
- <layer name="Above" width="25" height="20">
+ <layer name="Above" width="25" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjALC4B8zKqaVHdjY1LaD1v4YBaNgIAAAbdYKCw==
+   eJz7x8zA8G8Uj+JRPIpH8SgexUMaAwAiH/YE
   </data>
  </layer>
- <layer name="Walkable" width="25" height="20">
+ <layer name="Walkable" width="25" height="20" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzNk8sNwDAIQ7NC9l+216rC5jmlUpG4BOJPAnuttYu8R1WfyBN80l9FooHcJZhUhzt3+qbvpH//hsN5r7QkvpUuhdt5ftaIjm6+6Dt05y66PaGav+IgO5NgV5jdnBAuVVecKYerOw6FlXigM3uyJ06b6kmwVBAfk/knngvUixYe
+   eJzdU8kNwDAIYwX2X7avSFVFjB1XPILEK/jgSEZEFvmO6v2PvEUjBzQYfscDmtMuVF6EQ4H6Y72hug7P8Kv+dnUnO6p4kUd2V+x9qBrMrFyNjovVQHjmXfkj6hzYOmUuHWbCV6fl9PHdPeJweji5N+ceVz5seBb7
   </data>
  </layer>
  <objectgroup name="Mapevents" width="25" height="20">
@@ -81,20 +81,48 @@
     <property name="place" value="north"/>
    </properties>
   </object>
-  <object name="east" type="mapchange" x="768" y="512" width="32" height="32">
+  <object name="east" type="mapchange" x="768" y="512" width="32" height="96">
    <properties>
     <property name="map" value="lodarcave4a"/>
     <property name="place" value="west"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20">
-  <object name="cavegir3" type="spawn" x="128" y="128" width="64" height="128"/>
-  <object name="cavegir3" type="spawn" x="96" y="416" width="96" height="128"/>
-  <object name="cavegir3" type="spawn" x="352" y="224" width="96" height="160"/>
-  <object name="cavegir3" type="spawn" x="704" y="96" width="64" height="96"/>
-  <object name="cavegir4" type="spawn" x="480" y="288" width="224" height="160"/>
-  <object name="cavegir3" type="spawn" x="672" y="480" width="32" height="32"/>
+ <objectgroup name="Spawn" width="25" height="20" visible="0">
+  <object name="cavegir1" type="spawn" x="224" y="96" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir4" type="spawn" x="64" y="320" width="32" height="96"/>
+  <object name="cavegir3" type="spawn" x="224" y="256" width="192" height="224"/>
+  <object name="cavegir4" type="spawn" x="576" y="384" width="32" height="32"/>
+  <object name="cavegir3" type="spawn" x="512" y="416" width="224" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir3" type="spawn" x="32" y="128" width="224" height="192">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir3" type="spawn" x="128" y="480" width="128" height="128">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir1" type="spawn" x="96" y="448" width="64" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="cavegir3" type="spawn" x="352" y="128" width="384" height="192">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="cavegir4" type="spawn" x="320" y="128" width="416" height="256"/>
  </objectgroup>
  <objectgroup name="Keys" width="25" height="20"/>
 </map>
