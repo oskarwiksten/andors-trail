@@ -27,6 +27,7 @@ function DataStore(input) {
 	this.fieldList = input.fieldList;
 	this.nameField = input.nameField ? input.nameField : 'name';
 	this.idField = input.idField ? input.idField : 'id';
+	this.iconField = input.iconField;
 	this.items = [];
 	
 	this.add = function(obj) { 

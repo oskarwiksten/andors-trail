@@ -48,18 +48,26 @@ function ImageSelector(imagePath, dialog) {
 		return name + ":" + localID;
 	}
 	
-	var updateImageFromFormField = function(image, formField) {
-		var img = parseImageID(formField.val());
+	this.setImage = function(imageElem, imageID, scale) {
+		if (!scale) scale = 1;
+		var img = parseImageID(imageID);
 		var tilesetImage = get(img.name);
 		if (!tilesetImage) { tilesetImage = get(""); }
 		var c = tilesetImage.localIDToCoords(img.localID);
-		image.css({
+		imageElem.css({
 			"background-image": "url(" +img.path + img.name + ".png)", 
-			"background-position": (-c.x)+"px " + (-c.y)+"px",
-			"width": tilesetImage._tileSize.x + "px",
-			"height": tilesetImage._tileSize.y + "px",
+			"background-position": (-c.x)*scale+"px " + (-c.y)*scale+"px",
+			"width": tilesetImage._tileSize.x * scale + "px",
+			"height": tilesetImage._tileSize.y * scale + "px",
 			"cursor": "pointer"
 		});
+		if (scale) {
+			imageElem.css({
+				"background-size": 
+					tilesetImage._tileSize.x * tilesetImage._numTiles.x * scale + "px "
+					+ tilesetImage._tileSize.y * tilesetImage._numTiles.y * scale + "px "
+			});
+		}
 	}
 	
 	this.add = function(tileset) { 
@@ -85,14 +93,15 @@ function ImageSelector(imagePath, dialog) {
 		});
 	}
 	
-	this.imageify = function(img, val, showTilesetTag) {
-		val.change(function() { updateImageFromFormField(img, val); });
+	this.imageify = function(img, elem, showTilesetTag) {
+		var setImage = this.setImage;
+		elem.change(function() { setImage(img, elem.val()); });
 		img.click(function() {
-			currentInput = val;
+			currentInput = elem;
 			showImages(showTilesetTag);
 			dialog.dialog("open");
 		});
-		val.change();
+		elem.change();
 	}
 	
 	

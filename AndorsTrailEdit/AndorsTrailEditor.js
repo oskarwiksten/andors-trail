@@ -17,6 +17,7 @@ IncludeJavascript("Editor_Conversation.js");
 IncludeJavascript("Editor_Monster.js");
 
 IncludeJavascript("inc/jquery.dynatree.min.js");
+IncludeJavascript("inc/mustache.js");
 
 
 var model;
@@ -36,7 +37,12 @@ function openTabForObject(obj, dataStore) {
 function bindObjectsToItemList(itemListDiv, dataStore) {
 	itemListDiv.children().remove();
 	var addToList = function(obj) { 
-		var item = $("<li>" + obj[dataStore.nameField] + "</li>");
+		//var item = $("<li>" + obj[dataStore.nameField] + "</li>");
+		var item = $( Mustache.to_html( $('#listitem').html(), { name: obj[dataStore.nameField] } ) );
+		if (dataStore.iconField) {
+			var elem = $( 'img', item );
+			imageSelector.setImage( elem , obj[dataStore.iconField] , 0.7);
+		}
 		item.click(function() { openTabForObject(obj, dataStore); });
 		itemListDiv.append(item);
 		item.hide().fadeIn('slow');
@@ -110,6 +116,7 @@ function startEditor() {
 			)
 			,idField: 'id'
 			,nameField: 'name'
+			,iconField: 'iconID'
 		})
 		,quests: new DataStore({
 			objectTypename: 'quest'
@@ -128,6 +135,7 @@ function startEditor() {
 			)
 			,idField: 'id'
 			,nameField: 'name'
+			,iconField: 'iconID'
 		})
 		,droplists: new DataStore({
 			objectTypename: 'droplist'
@@ -149,11 +157,70 @@ function startEditor() {
 			)
 			,idField: 'id'
 			,nameField: 'name'
+			,iconField: 'iconID'
 		})
 	};
 	
 	addExampleModelItems(model);
 
+	
+	
+	
+	imageSelector = new ImageSelector("../AndorsTrail/res/drawable/", $( "#dialog-images" ) );
+	imageSelector.add(new TilesetImage("actorconditions_1", {x:14, y:8}, undefined, [ 'conditions' ] ));
+	imageSelector.add(new TilesetImage("actorconditions_2", {x:3, y:1}, undefined, [ 'conditions' ] ));
+	imageSelector.add(new TilesetImage("items_armours", {x:14, y:3}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_armours_3", {x:10, y:4}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_armours_2", {x:7, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons", {x:14, y:6}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons_3", {x:13, y:5}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_weapons_2", {x:7, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_jewelry", {x:14, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_rings_1", {x:10, y:3}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_necklaces_1", {x:10, y:3}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_consumables", {x:14, y:5}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_books", {x:11, y:1}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_misc", {x:14, y:4}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_misc_2", {x:20, y:12}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_misc_3", {x:20, y:12}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("items_misc_4", {x:20, y:4}, undefined, [ 'items' ] ));
+	imageSelector.add(new TilesetImage("monsters_armor1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, {x:64, y:64}, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_dogs", {x: 7, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_eye1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_eye2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_eye3", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_eye4", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_ghost1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_hydra1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_insects", {x: 6, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_liches", {x: 4, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_mage", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_mage2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_man1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_men", {x: 9, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_men2", {x: 10, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_misc", {x: 12, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rats", {x: 5, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rogue1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_skeleton1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_skeleton2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_snakes", {x: 6, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_cyclops", {x: 1, y:1}, {x:64, y:96}, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_warrior1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_wraiths", {x: 3, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_zombie1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_zombie2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_karvis1", {x: 2, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_karvis2", {x: 9, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rltiles1", {x:20, y:8}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rltiles2", {x:20, y:9}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_rltiles3", {x:10, y:3}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_redshrike1", {x:6, y:1}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_ld1", {x:20, y:12}, undefined, [ 'monsters' ] ));
+	imageSelector.add(new TilesetImage("monsters_ld2", {x:20, y:12}, undefined, [ 'monsters' ] ));
+	
+	
 	
 	$( "#left #tools" ).accordion({ fillSpace: true });
 	
@@ -234,60 +301,5 @@ function startEditor() {
 			width: 350,
 			buttons: defaultButtons
 		});
-	
-	imageSelector = new ImageSelector("../AndorsTrail/res/drawable/", $( "#dialog-images" ) );
-	imageSelector.add(new TilesetImage("actorconditions_1", {x:14, y:8}, undefined, [ 'conditions' ] ));
-	imageSelector.add(new TilesetImage("actorconditions_2", {x:3, y:1}, undefined, [ 'conditions' ] ));
-	imageSelector.add(new TilesetImage("items_armours", {x:14, y:3}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_armours_3", {x:10, y:4}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_armours_2", {x:7, y:1}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_weapons", {x:14, y:6}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_weapons_3", {x:13, y:5}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_weapons_2", {x:7, y:1}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_jewelry", {x:14, y:1}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_rings_1", {x:10, y:3}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_necklaces_1", {x:10, y:3}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_consumables", {x:14, y:5}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_books", {x:11, y:1}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_misc", {x:14, y:4}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_misc_2", {x:20, y:12}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_misc_3", {x:20, y:12}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("items_misc_4", {x:20, y:4}, undefined, [ 'items' ] ));
-	imageSelector.add(new TilesetImage("monsters_armor1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_demon1", {x: 1, y:1}, {x:64, y:64}, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_dogs", {x: 7, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_eye1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_eye2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_eye3", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_eye4", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_ghost1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_hydra1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_insects", {x: 6, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_liches", {x: 4, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_mage", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_mage2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_man1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_men", {x: 9, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_men2", {x: 10, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_misc", {x: 12, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_rats", {x: 5, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_rogue1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_skeleton1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_skeleton2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_snakes", {x: 6, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_cyclops", {x: 1, y:1}, {x:64, y:96}, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_warrior1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_wraiths", {x: 3, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_zombie1", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_zombie2", {x: 1, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_karvis1", {x: 2, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_karvis2", {x: 9, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_rltiles1", {x:20, y:8}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_rltiles2", {x:20, y:9}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_rltiles3", {x:10, y:3}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_redshrike1", {x:6, y:1}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_ld1", {x:20, y:12}, undefined, [ 'monsters' ] ));
-	imageSelector.add(new TilesetImage("monsters_ld2", {x:20, y:12}, undefined, [ 'monsters' ] ));
-	
 }
 
