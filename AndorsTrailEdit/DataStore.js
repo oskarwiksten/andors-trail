@@ -49,7 +49,7 @@ function DataStore(input) {
 	}
 	
 	this.onAdded = function(obj) { }
-	this.onNameChanged = function(obj, name) { }
+	this.onPropertyChanged = function(obj, propertyName, value) { }
 	this.onDeserialized = function() { }
 	
 	this.deserialize = function(str) {

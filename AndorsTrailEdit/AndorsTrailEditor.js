@@ -36,13 +36,16 @@ function openTabForObject(obj, dataStore) {
 
 function bindObjectsToItemList(itemListDiv, dataStore) {
 	itemListDiv.children().remove();
-	var addToList = function(obj) { 
-		//var item = $("<li>" + obj[dataStore.nameField] + "</li>");
+	var createListItem = function(obj) {
 		var item = $( Mustache.to_html( $('#listitem').html(), { name: obj[dataStore.nameField] } ) );
 		if (dataStore.iconField) {
 			var elem = $( 'img', item );
 			imageSelector.setImage( elem , obj[dataStore.iconField] , 0.7);
 		}
+		return item;
+	};
+	var addToList = function(obj) { 
+		var item = createListItem(obj);
 		item.click(function() { openTabForObject(obj, dataStore); });
 		itemListDiv.append(item);
 		item.hide().fadeIn('slow');
@@ -53,11 +56,14 @@ function bindObjectsToItemList(itemListDiv, dataStore) {
 		bindObjectsToItemList(itemListDiv, dataStore);
 		// TODO: Should also close all tabs.
 	};
-	dataStore.onNameChanged = function(obj, name) {
-		$("li:eq(" + dataStore.items.indexOf(obj) + ")", itemListDiv).html(name);
-		//TODO: Should this really be in the same function? 
-		// (splitting the left part from the tab controls would reduce coupling, which would be a good thing.)
-		tabs.renameTabForObject(obj, name);
+	dataStore.onPropertyChanged = function(obj, propertyName, value) {
+		var listItem = $("li:eq(" + dataStore.items.indexOf(obj) + ")", itemListDiv);
+		listItem.html( createListItem(obj).html() );
+		if (propertyName == dataStore.nameField) {
+			//TODO: Should this really be in the same function? 
+			// (splitting the left part from the tab controls would reduce coupling, which would be a good thing.)
+			tabs.renameTabForObject(obj, value);
+		}
 	};
 }
 

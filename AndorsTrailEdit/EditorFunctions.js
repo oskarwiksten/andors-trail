@@ -59,7 +59,9 @@ function applyEditorBindingsForObject(div, obj) {
 function applyCommonEditorBindings(div, obj, dataStore) {
 	applyEditorBindingsForObject(div, obj);
 	if (dataStore) {
-		div.find("#" + dataStore.nameField).change(function() { dataStore.onNameChanged(obj, $(this).val()); });
+		div.find("input").change(function() { 
+			dataStore.onPropertyChanged(obj, $(this).attr('id'), $(this).val()); 
+		});
 	}
 }
 
