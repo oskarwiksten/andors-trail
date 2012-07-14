@@ -35,6 +35,8 @@ public final class Constants {
 	public static final String PREFERENCE_MODEL_LASTRUNVERSION = "lastversion";
 	public static final String FILENAME_SAVEGAME_QUICKSAVE = "savegame";
 	public static final String FILENAME_SAVEGAME_DIRECTORY = "andors-trail";
+	public static final String FILENAME_WORLDMAP_DIRECTORY = "worldmap";
+	public static final String FILENAME_WORLDMAP_HTMLFILE = "worldmap.html";
 	public static final String FILENAME_SAVEGAME_FILENAME_PREFIX = "savegame";
 	
 	
