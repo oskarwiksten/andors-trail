@@ -210,6 +210,15 @@ public final class MainActivity extends Activity {
 				return true;
 			}
 		});
+		menu.add(R.string.menu_button_worldmap)
+		.setIcon(android.R.drawable.ic_menu_mapmode)
+		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+			@Override
+			public boolean onMenuItemClick(MenuItem arg0) {
+				startActivity(new Intent(MainActivity.this, DisplayWorldMapActivity.class));
+				return true;
+			}
+		});
 		return true;
 	}
 	

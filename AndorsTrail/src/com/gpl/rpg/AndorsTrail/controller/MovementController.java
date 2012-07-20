@@ -277,7 +277,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		world.tileManager.currentMapTiles = cachedTiles;
 		world.tileManager.cacheAdjacentMaps(res, world, nextMap);
 
-		WorldMapController.updateWorldMap(world, nextMap, mapTiles, cachedTiles);
+		WorldMapController.updateWorldMap(world, nextMap, mapTiles, cachedTiles, res);
 	}
 	
 	

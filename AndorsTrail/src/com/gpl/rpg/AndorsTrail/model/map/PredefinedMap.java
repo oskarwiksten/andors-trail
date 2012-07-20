@@ -24,16 +24,19 @@ public final class PredefinedMap {
 	public final int xmlResourceId;
 	public final String name;
 	public final Size size;
+	public final Coord worldMapPosition = new Coord();
 	public final MapObject[] eventObjects;
 	public final MonsterSpawnArea[] spawnAreas;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
+	public int lastVisitVersion = 0;
+	public final boolean isOutdoors;
 
 	public final boolean[][] isWalkable;
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 	
-	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW) {
+	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW, boolean isOutdoors) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
@@ -44,6 +47,7 @@ public final class PredefinedMap {
 		assert(isWalkable.length == size.width);
 		assert(isWalkable[0].length == size.height);
 		this.isWalkable = isWalkable;
+		this.isOutdoors = isOutdoors;
 	}
 	
 	public final boolean isWalkable(final Coord p) { 
@@ -224,6 +228,7 @@ public final class PredefinedMap {
 	}
 	public void updateLastVisitTime() {
 		lastVisitTime = System.currentTimeMillis();
+		lastVisitVersion = AndorsTrailApplication.CURRENT_VERSION;
 	}
 	public void resetTemporaryData() {
 		for(MonsterSpawnArea a : spawnAreas) {
@@ -277,6 +282,11 @@ public final class PredefinedMap {
 		}
 		lastVisitTime = src.readLong();
 		
+		if (visited) {
+			if (fileversion <= 30) lastVisitVersion = 30;
+			else lastVisitVersion = src.readInt();
+		}
+		
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
 			if (area.isUnique && visited) spawnAllInArea(world, area, true);
@@ -295,5 +305,6 @@ public final class PredefinedMap {
 		}
 		dest.writeBoolean(visited);
 		dest.writeLong(lastVisitTime);
+		if (visited) dest.writeInt(lastVisitVersion);
 	}
 }

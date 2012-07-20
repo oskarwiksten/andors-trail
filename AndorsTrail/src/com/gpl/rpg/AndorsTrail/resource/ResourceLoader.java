@@ -13,6 +13,7 @@ import com.gpl.rpg.AndorsTrail.resource.parsers.DropListParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ItemTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.MonsterTypeParser;
 import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
+import com.gpl.rpg.AndorsTrail.resource.parsers.WorldMapParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
@@ -162,6 +163,14 @@ public final class ResourceLoader {
         loader = null;
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("DynamicTileLoader");
         // ========================================================================
+        
+        
+        // ========================================================================
+        // Load worldmap coordinates
+        WorldMapParser.read(r, R.xml.worldmap, world.maps);
+        if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("WorldMapParser");
+        // ========================================================================
+        
         
 
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {

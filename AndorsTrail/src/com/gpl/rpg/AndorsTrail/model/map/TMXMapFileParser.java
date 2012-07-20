@@ -49,6 +49,8 @@ public final class TMXMapFileParser {
 									map.objectGroups.add(readTMXObjectGroup(xrp));
 								} else if (tagName.equals("layer")) {
 									layers.add(readTMXMapLayer(xrp));
+								} else if (tagName.equals("property")) {
+									map.properties.add(readTMXProperty(xrp));
 								}
 							}
 						});
@@ -147,12 +149,9 @@ public final class TMXMapFileParser {
 		object.width = xrp.getAttributeIntValue(null, "width", -1);
 		object.height = xrp.getAttributeIntValue(null, "height", -1);
 		readCurrentTagUntilEnd(xrp, new TagHandler() {
-			public void handleTag(XmlResourceParser xrp, String tagName) {
+			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("property")) {
-					final TMXProperty property = new TMXProperty();
-					object.properties.add(property);
-					property.name = xrp.getAttributeValue(null, "name");
-					property.value = xrp.getAttributeValue(null, "value");
+					object.properties.add(readTMXProperty(xrp));
 				}
 			}
 		});
@@ -207,6 +206,13 @@ public final class TMXMapFileParser {
 				//L.log("(" + x + "," + y + ") : " + layer.gids[x][y]);
 			}
 		}
+	}
+	
+	private static TMXProperty readTMXProperty(XmlResourceParser xrp) throws XmlPullParserException, IOException {
+		final TMXProperty property = new TMXProperty();
+		property.name = xrp.getAttributeValue(null, "name");
+		property.value = xrp.getAttributeValue(null, "value");
+		return property;
 	}
 	
 	private static void copyStreamToBuffer(InflaterInputStream zi, byte[] buffer, int len) throws IOException {
@@ -270,6 +276,7 @@ public final class TMXMapFileParser {
 		public int height;
 		public TMXTileSet[] tileSets;
 		public TMXLayer[] layers;
+		public final ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
 	}
 	public static final class TMXTileSet {
 		public int firstgid;
@@ -289,7 +296,7 @@ public final class TMXMapFileParser {
 		public String name;
 		public int width;
 		public int height;
-		public ArrayList<TMXObject> objects = new ArrayList<TMXObject>();
+		public final ArrayList<TMXObject> objects = new ArrayList<TMXObject>();
 	}
 	public static final class TMXObject {
 		public String name;
@@ -298,7 +305,7 @@ public final class TMXMapFileParser {
 		public int y;
 		public int width;
 		public int height;
-		public ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
+		public final ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
 	}
 	public static final class TMXProperty {
 		public String name;
