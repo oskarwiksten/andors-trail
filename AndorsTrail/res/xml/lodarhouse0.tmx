@@ -60,7 +60,7 @@
  </layer>
  <layer name="Above" width="26" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYMANglgZGJqBuIUVj6IBAh+YsYtrUNmt/3HYAwMbWWhrD638w0KiueqspLkFZo8Imh58ZqiT4Vd88QOzyxnJXGLsOAVU8wQtXmH24NKvQYQdu5gRNDaMbA8lgJg0+R7NHnQ3E+MfWgNK0j4+/9Aa4LILmzihfAWTpyQOkPXicgM+QG7YkaMPpscNLf0RSo/kpFdYuKKHL6XhTQ2Ay230BgDdaxsx
+   eJxjYMANglgZGJqBuIUVjyIqAhNG4tUa4VCrQYRbXUiwx4mA2o0suOUGs39YSIxTdVbi3AID/5khtAiaHnxmqJORzmD2YAMwu5yRzCXGjlNANU/Q4hVmDy79GkTYsYsZQWPDyPZQAvClSRh4j2YPupuJ8Q+tASnpDR3g8w+tAS67sIkTylcweUriAFkvLjfgA+SGHTn6YHrc0NIfofRITnqFhSt6+FIa3tQAuNxGbwAAwMUZGA==
   </data>
  </layer>
  <layer name="Walkable" width="26" height="20" visible="0">
@@ -82,7 +82,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="26" height="20">
+ <objectgroup name="Spawn" width="26" height="20" visible="0">
   <object name="beetle2" type="spawn" x="32" y="32" width="288" height="256">
    <properties>
     <property name="quantity" value="2"/>
