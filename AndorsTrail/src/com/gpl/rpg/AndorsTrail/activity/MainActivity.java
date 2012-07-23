@@ -11,13 +11,13 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
-import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.MainView;
+import com.gpl.rpg.AndorsTrail.view.ToolboxView;
 import com.gpl.rpg.AndorsTrail.view.VirtualDpadView;
 import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
 import com.gpl.rpg.AndorsTrail.view.QuickitemView;
@@ -40,7 +40,6 @@ import android.widget.Toast;
 
 public final class MainActivity extends Activity {
 
-    public static final int INTENTREQUEST_HEROINFO = 1;
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
     public static final int INTENTREQUEST_ITEMINFO = 3;
     public static final int INTENTREQUEST_CONVERSATION = 4;
@@ -60,6 +59,7 @@ public final class MainActivity extends Activity {
     public StatusView statusview;
     public CombatView combatview;
     public QuickitemView quickitemview;
+    private ToolboxView toolboxview;
     private LinearLayout activeConditions;
     private VirtualDpadView dpad;
 	
@@ -87,6 +87,7 @@ public final class MainActivity extends Activity {
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
         activeConditions = (LinearLayout) findViewById(R.id.statusview_activeconditions);
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
+        toolboxview = (ToolboxView) findViewById(R.id.main_toolboxview);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
 		statusText.setOnClickListener(new OnClickListener() {
@@ -97,7 +98,7 @@ public final class MainActivity extends Activity {
 		});
 		clearMessages();
 		
-        if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) new DebugInterface(view).addDebugButtons();
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) new DebugInterface(view).addDebugButtons();
         
 		quickitemview.setVisibility(View.GONE);
         quickitemview.registerForContextMenu(this);
@@ -110,9 +111,6 @@ public final class MainActivity extends Activity {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
-		case INTENTREQUEST_HEROINFO:
-			updateStatus();
-			break;
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
 				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
@@ -211,15 +209,6 @@ public final class MainActivity extends Activity {
 				return true;
 			}
 		});
-		menu.add(R.string.menu_button_worldmap)
-		.setIcon(android.R.drawable.ic_menu_mapmode)
-		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			@Override
-			public boolean onMenuItemClick(MenuItem arg0) {
-				WorldMapController.displayWorldMap(MainActivity.this, world);
-				return true;
-			}
-		});
 		return true;
 	}
 	
@@ -270,6 +259,7 @@ public final class MainActivity extends Activity {
 		statusview.updateActiveConditions(this, activeConditions);
 		quickitemview.refreshQuickitems();
 		combatview.updateStatus();
+		toolboxview.updateIcons();
 	}
 	
 	public void redrawAll(int why) {
@@ -313,4 +303,8 @@ public final class MainActivity extends Activity {
 		t.show();
 	}
 
+	public void toggleToolboxVisibility() {
+		toolboxview.toggleVisibility();
+		statusview.bringToFront();
+	}
 }

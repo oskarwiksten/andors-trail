@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	android:background="@drawable/ui_gradientshape"
+	>
+
+	<ImageButton 
+	    android:id="@+id/toolbox_playerinfo"
+		style="@style/toolboxButton"
+		android:src="@drawable/char_hero"
+	    />
+	<ImageButton 
+		android:id="@+id/toolbox_map"
+		style="@style/toolboxButton"
+		android:src="@drawable/ui_icon_map"
+	    />
+</LinearLayout>

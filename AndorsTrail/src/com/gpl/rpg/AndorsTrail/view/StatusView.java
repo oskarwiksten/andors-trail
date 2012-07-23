@@ -2,8 +2,6 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.activity.MainActivity;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
@@ -11,7 +9,6 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
@@ -52,8 +49,7 @@ public final class StatusView extends RelativeLayout {
         heroImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(context, HeroinfoActivity.class);
-				AndorsTrailApplication.getActivityFromActivityContext(context).startActivityForResult(intent, MainActivity.INTENTREQUEST_HEROINFO);
+				view.mainActivity.toggleToolboxVisibility();
 			}
 		});
 		healthBar = (RangeBar) findViewById(R.id.statusview_health);
@@ -132,7 +128,7 @@ public final class StatusView extends RelativeLayout {
 			// Therefore, we reuse existing ImageView:s if they are present, but just change the image on them.
 			ImageView iv;
 			if (currentChildIndex < previousChildCount) {
-				// There already is a create dimage on this position, reuse it.
+				// There already is a created image on this position, reuse it.
 				iv = (ImageView) container.getChildAt(currentChildIndex);
 				iv.setVisibility(View.VISIBLE);
 			} else {

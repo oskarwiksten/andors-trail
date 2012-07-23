@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.DisplayWorldMapActivity;
-import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
@@ -202,15 +202,17 @@ public final class WorldMapController {
 		pw.close();
 	}
 
-	public static void displayWorldMap(MainActivity mainActivity, WorldContext world) {
+	public static boolean displayWorldMap(Context context, WorldContext world) {
 		String worldMapSegmentName = world.maps.getWorldMapSegmentNameForMap(world.model.currentMap.name);
 		if (worldMapSegmentName == null) {
-			Toast.makeText(mainActivity, mainActivity.getResources().getString(R.string.display_worldmap_not_available), Toast.LENGTH_LONG).show();
-			return;
+			Toast.makeText(context, context.getResources().getString(R.string.display_worldmap_not_available), Toast.LENGTH_LONG).show();
+			return false;
 		}
 		
-		Intent intent = new Intent(mainActivity, DisplayWorldMapActivity.class);
+		Intent intent = new Intent(context, DisplayWorldMapActivity.class);
 		intent.putExtra("worldMapSegmentName", worldMapSegmentName);
-		mainActivity.startActivity(intent);
+		context.startActivity(intent);
+
+		return true;
 	}
 }
