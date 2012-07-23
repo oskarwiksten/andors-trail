@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
+import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
@@ -215,7 +216,7 @@ public final class MainActivity extends Activity {
 		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem arg0) {
-				startActivity(new Intent(MainActivity.this, DisplayWorldMapActivity.class));
+				WorldMapController.displayWorldMap(MainActivity.this, world);
 				return true;
 			}
 		});

@@ -24,7 +24,6 @@ public final class PredefinedMap {
 	public final int xmlResourceId;
 	public final String name;
 	public final Size size;
-	public final Coord worldMapPosition = new Coord();
 	public final MapObject[] eventObjects;
 	public final MonsterSpawnArea[] spawnAreas;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
@@ -35,7 +34,7 @@ public final class PredefinedMap {
 
 	public final boolean[][] isWalkable;
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
-	
+
 	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW, boolean isOutdoors) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
@@ -220,6 +219,7 @@ public final class PredefinedMap {
 		}
 		groundBags.clear();
 		visited = false;
+		lastVisitVersion = 0;
 	}
 
 	public boolean isRecentlyVisited() {

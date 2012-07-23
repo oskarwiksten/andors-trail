@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.Config;
@@ -12,13 +13,18 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Environment;
+import android.widget.Toast;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.DisplayWorldMapActivity;
+import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment;
+import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.WorldMapSegmentMap;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -30,55 +36,53 @@ public final class WorldMapController {
     
 	public static void updateWorldMap(final WorldContext world, final PredefinedMap map, final LayeredTileMap mapTiles, final TileCollection cachedTiles, final Resources res) {
 		
-		if (!shouldUpdateWorldMap(map)) return;
+		final String worldMapSegmentName = world.maps.getWorldMapSegmentNameForMap(map.name);
+		if (worldMapSegmentName == null) return;
+		
+		if (!shouldUpdateWorldMap(map, worldMapSegmentName)) return;
 		
 		(new AsyncTask<Void, Void, Void>()  {
 			@Override
 			protected Void doInBackground(Void... arg0) {
 				final MapRenderer renderer = new MapRenderer(world, map, mapTiles, cachedTiles);
-				updateCachedBitmap(map, renderer);
 				try {
-					updateCombinedWorldMap(res, world);
-				} catch (IOException e) {}
+					updateCachedBitmap(map, renderer);
+					updateWorldMapSegment(res, world, worldMapSegmentName);
+				} catch (IOException e) {
+					L.log("Error creating worldmap file for map " + map.name + " : " + e.toString());
+				}
 		    	return null;
 			}
 		}).execute();
 	}
 	
-	private static boolean isVisibleOnWorldMap(PredefinedMap map) {
-		return map.isOutdoors;
-	}
-
-	private static boolean shouldUpdateWorldMap(PredefinedMap map) {
-		if (!isVisibleOnWorldMap(map)) return false;
-    	if (!map.visited) return true;
+	private static boolean shouldUpdateWorldMap(PredefinedMap map, String worldMapSegmentName) {
+		if (!map.visited) return true;
 		File file = getFileForMap(map);
 		if (!file.exists()) return true;
 		
 		if (map.lastVisitVersion < AndorsTrailApplication.CURRENT_VERSION) return true;
 		
-		file = getCombinedWorldMapFile();
+		file = getCombinedWorldMapFile(worldMapSegmentName);
 		if (!file.exists()) return true;
 		
 		return false;
 	}
 
-	private static void updateCachedBitmap(PredefinedMap map, MapRenderer renderer) {
+	private static void updateCachedBitmap(PredefinedMap map, MapRenderer renderer) throws IOException {
 
 		File file = getFileForMap(map);
-    	if (file.exists()) return;
-		
-    	try {
-    		Bitmap image = renderer.drawMap();
-    		ensureWorldmapDirectoryExists();
-        	FileOutputStream fos = new FileOutputStream(file);
-        	image.compress(Bitmap.CompressFormat.PNG, 70, fos);
-            fos.flush();
-            fos.close();
-            image.recycle();
-    	} catch (IOException e) {
-    		L.log("Error creating worldmap file for map " + map.name + " : " + e.toString());
+    	if (file.exists()) {
+    		if (map.lastVisitVersion == AndorsTrailApplication.CURRENT_VERSION) return;
     	}
+		
+		Bitmap image = renderer.drawMap();
+		ensureWorldmapDirectoryExists();
+    	FileOutputStream fos = new FileOutputStream(file);
+    	image.compress(Bitmap.CompressFormat.PNG, 70, fos);
+        fos.flush();
+        fos.close();
+        image.recycle();
 	}
 
 	private static final class MapRenderer {
@@ -135,34 +139,38 @@ public final class WorldMapController {
 		dir = new File(dir, Constants.FILENAME_WORLDMAP_DIRECTORY);
 		if (!dir.exists()) dir.mkdir();
     }
-    public static File getFileForMap(PredefinedMap map) {
-    	File root = getWorldmapDirectory();
-		return new File(root, map.name + ".png");
+    public static File getFileForMap(PredefinedMap map) { return getFileForMap(map.name); }
+    public static File getFileForMap(String mapName) {
+    	return new File(getWorldmapDirectory(), mapName + ".png");
     }
     public static File getWorldmapDirectory() {
     	File dir = Environment.getExternalStorageDirectory();
     	dir = new File(dir, Constants.FILENAME_SAVEGAME_DIRECTORY);
     	return new File(dir, Constants.FILENAME_WORLDMAP_DIRECTORY);
     }
-    public static File getCombinedWorldMapFile() {
-    	return new File(getWorldmapDirectory(), Constants.FILENAME_WORLDMAP_HTMLFILE);
+    public static File getCombinedWorldMapFile(String segmentName) {
+    	return new File(getWorldmapDirectory(), Constants.FILENAME_WORLDMAP_HTMLFILE_PREFIX + segmentName + Constants.FILENAME_WORLDMAP_HTMLFILE_SUFFIX);
     }
 	
-	private static String getCombinedWorldMapAsHtml(Resources res, WorldContext world) throws IOException {
+	private static String getWorldMapSegmentAsHtml(Resources res, WorldContext world, String segmentName) throws IOException {
+		WorldMapSegment segment = world.maps.worldMapSegments.get(segmentName);
+		
 		StringBuffer sb = new StringBuffer();
 		
 		Coord offsetWorldmapTo = new Coord(999999, 999999);
-		for (PredefinedMap map : world.maps.predefinedMaps) {
-			File f = WorldMapController.getFileForMap(map);
+		for (WorldMapSegmentMap map : segment.maps.values()) {
+			File f = WorldMapController.getFileForMap(map.mapName);
 			if (!f.exists()) continue;
 			
-			offsetWorldmapTo.x = Math.min(offsetWorldmapTo.x, map.worldMapPosition.x);
-			offsetWorldmapTo.y = Math.min(offsetWorldmapTo.y, map.worldMapPosition.y);
+			offsetWorldmapTo.x = Math.min(offsetWorldmapTo.x, map.worldPosition.x);
+			offsetWorldmapTo.y = Math.min(offsetWorldmapTo.y, map.worldPosition.y);
 		}
 		
-		for (PredefinedMap map : world.maps.predefinedMaps) {
-			File f = WorldMapController.getFileForMap(map);
+		for (WorldMapSegmentMap segmentMap : segment.maps.values()) {
+			File f = WorldMapController.getFileForMap(segmentMap.mapName);
 			if (!f.exists()) continue;
+			
+			PredefinedMap map = world.maps.findPredefinedMap(segmentMap.mapName);
 			
 			sb
 				.append("<img src=\"")
@@ -174,9 +182,9 @@ public final class WorldMapController {
 				.append("px; height: ")
 				.append(map.size.height * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
 				.append("px; position: absolute; left: ")
-				.append((map.worldMapPosition.x - offsetWorldmapTo.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append((segmentMap.worldPosition.x - offsetWorldmapTo.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
 				.append("px; top: ")
-				.append((map.worldMapPosition.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append((segmentMap.worldPosition.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
 				.append("px;\" />");
 		}
 		
@@ -186,21 +194,23 @@ public final class WorldMapController {
 				.replace("{{offsety}}", Integer.toString(offsetWorldmapTo.y * WorldMapController.WORLDMAP_DISPLAY_TILESIZE));
 	}
 	
-	private static void updateCombinedWorldMap(Resources res, WorldContext world) throws IOException {
-		String mapAsHtml = getCombinedWorldMapAsHtml(res, world);
-		File outputFile = new File(WorldMapController.getWorldmapDirectory(), Constants.FILENAME_WORLDMAP_HTMLFILE);
+	private static void updateWorldMapSegment(Resources res, WorldContext world, String segmentName) throws IOException {
+		String mapAsHtml = getWorldMapSegmentAsHtml(res, world, segmentName);
+		File outputFile = getCombinedWorldMapFile(segmentName);
 		PrintWriter pw = new PrintWriter(outputFile);
 		pw.write(mapAsHtml);
 		pw.close();
 	}
 
-	public static Coord getPlayerWorldPosition(WorldContext world) {
-		PredefinedMap map = world.model.currentMap;
-		if (!isVisibleOnWorldMap(map)) return null;
+	public static void displayWorldMap(MainActivity mainActivity, WorldContext world) {
+		String worldMapSegmentName = world.maps.getWorldMapSegmentNameForMap(world.model.currentMap.name);
+		if (worldMapSegmentName == null) {
+			Toast.makeText(mainActivity, mainActivity.getResources().getString(R.string.display_worldmap_not_available), Toast.LENGTH_LONG).show();
+			return;
+		}
 		
-		return new Coord(
-				world.model.player.position.x + map.worldMapPosition.x,
-				world.model.player.position.y + map.worldMapPosition.y
-			);
+		Intent intent = new Intent(mainActivity, DisplayWorldMapActivity.class);
+		intent.putExtra("worldMapSegmentName", worldMapSegmentName);
+		mainActivity.startActivity(intent);
 	}
 }
