@@ -5,7 +5,10 @@ import java.io.File;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.webkit.WebView;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -35,9 +38,17 @@ public class DisplayWorldMapActivity extends Activity {
         setContentView(R.layout.displayworldmap);
         
         displayworldmap_webview = (WebView) findViewById(R.id.displayworldmap_webview);
-        displayworldmap_webview.setBackgroundColor(getResources().getColor(android.R.color.black));
+        displayworldmap_webview.setBackgroundColor(getResources().getColor(R.color.displayworldmap_background));
         displayworldmap_webview.getSettings().setBuiltInZoomControls(true);
         enableJavascript();
+        
+        Button b = (Button) findViewById(R.id.displayworldmap_close);
+        b.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				DisplayWorldMapActivity.this.finish();
+			}
+		});
         
         worldMapSegmentName = getIntent().getStringExtra("worldMapSegmentName");
     }

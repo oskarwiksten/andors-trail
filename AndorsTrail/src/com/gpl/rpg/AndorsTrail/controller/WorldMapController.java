@@ -31,7 +31,7 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class WorldMapController {
 
-	public static int WORLDMAP_SCREENSHOT_TILESIZE = 12;
+	public static int WORLDMAP_SCREENSHOT_TILESIZE = 8;
     public static int WORLDMAP_DISPLAY_TILESIZE = WORLDMAP_SCREENSHOT_TILESIZE;
     
 	public static void updateWorldMap(final WorldContext world, final PredefinedMap map, final LayeredTileMap mapTiles, final TileCollection cachedTiles, final Resources res) {
