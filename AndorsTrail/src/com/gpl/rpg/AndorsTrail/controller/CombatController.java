@@ -257,9 +257,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
     }
 
 	private boolean playerHasApLeft() {
-		if (model.player.ap.current >= model.player.useItemCost) return true;
-		if (model.player.ap.current >= model.player.combatTraits.attackCost) return true;
-		if (model.player.ap.current >= model.player.actorTraits.moveCost) return true;
+		final Player player = model.player;
+		if (player.hasAPs(player.useItemCost)) return true;
+		if (player.hasAPs(player.combatTraits.attackCost)) return true;
+		if (player.hasAPs(player.actorTraits.moveCost)) return true;
 		return false;
 	}
 	private void playerActionCompleted() {
@@ -267,7 +268,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (!playerHasApLeft()) beginMonsterTurn(false);
 	}
 	private void continueTurn() {
-    	if (!playerHasApLeft()) handleNextMonsterAction();
+		if (model.uiSelections.isPlayersCombatTurn) return;
+		if (playerHasApLeft()) return;
+		handleNextMonsterAction();
 	}
 
 	private void executeCombatMove(final Coord dest) {
@@ -304,6 +307,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	public void beginMonsterTurn(boolean isFirstRound) {
 		model.player.ap.current = 0;
+		model.uiSelections.isPlayersCombatTurn = false;
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				m.setMaxAP();
@@ -315,7 +319,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	private Monster determineNextMonster(Monster previousMonster) {
 		if (previousMonster != null) {
-			if (previousMonster.useAPs(previousMonster.combatTraits.attackCost)) return previousMonster;
+			if (previousMonster.hasAPs(previousMonster.combatTraits.attackCost)) return previousMonster;
 		}
 		
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
@@ -323,7 +327,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				if (!m.isAgressive()) continue;
 				
 				if (m.rectPosition.isAdjacentTo(model.player.position)) {
-					if (m.useAPs(m.combatTraits.attackCost)) return m;
+					if (m.hasAPs(m.combatTraits.attackCost)) return m;
 				}
 			}
 		}
@@ -338,6 +342,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			endMonsterTurn();
 			return;
 		}
+		currentActiveMonster.useAPs(currentActiveMonster.combatTraits.attackCost);
 		
 		context.mainActivity.combatview.updateTurnInfo(currentActiveMonster);
 		Resources r = context.mainActivity.getResources();
@@ -403,6 +408,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void newPlayerTurn(boolean isFirstRound) {
 		model.player.setMaxAP();
 		if (!isFirstRound) context.gameRoundController.onNewPlayerRound();
+		model.uiSelections.isPlayersCombatTurn = true;
     	updateTurnInfo();
 	}
 	private void updateTurnInfo() {

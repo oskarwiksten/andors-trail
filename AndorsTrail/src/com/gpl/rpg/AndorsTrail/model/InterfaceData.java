@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 public final class InterfaceData {
 	public boolean isMainActivityVisible = false;
 	public boolean isInCombat = false;
+	public boolean isPlayersCombatTurn = false;
     public Monster selectedMonster;
 	public Coord selectedPosition;
 	public String selectedTabHeroInfo = "";
