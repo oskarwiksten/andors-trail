@@ -51,6 +51,9 @@ public class Actor {
 		ap.subtract(cost, false);
 		return true;
 	}
+	public boolean hasAPs(int cost) {
+		return ap.current >= cost;
+	}
 	
 	public boolean hasCondition(final String conditionTypeID) {
 		for (ActorCondition c : conditions) {
