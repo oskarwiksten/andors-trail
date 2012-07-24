@@ -15,10 +15,11 @@ public final class Inventory extends ItemContainer {
 	public static final int WEARSLOT_HAND = 4;
 	public static final int WEARSLOT_FEET = 5;
 	public static final int WEARSLOT_NECK = 6;
-	public static final int WEARSLOT_RING = 7;
+	public static final int WEARSLOT_LEFTRING = 7;
+	public static final int WEARSLOT_RIGHTRING = 8;
 	
 	public int gold = 0;
-	public static final int NUM_WORN_SLOTS = WEARSLOT_RING+1+1; // +1 for 0 based index. +1 for left+right rings.
+	public static final int NUM_WORN_SLOTS = WEARSLOT_RIGHTRING+1; // +1 for 0 based index.
 	public static final int NUM_QUICK_SLOTS = 3;
 	public final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
 	public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];

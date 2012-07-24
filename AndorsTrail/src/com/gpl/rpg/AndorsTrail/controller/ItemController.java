@@ -113,7 +113,8 @@ public final class ItemController {
 		applyInventoryEffects(player, Inventory.WEARSLOT_HAND);
 		applyInventoryEffects(player, Inventory.WEARSLOT_FEET);
 		applyInventoryEffects(player, Inventory.WEARSLOT_NECK);
-		applyInventoryEffects(player, Inventory.WEARSLOT_RING);
+		applyInventoryEffects(player, Inventory.WEARSLOT_LEFTRING);
+		applyInventoryEffects(player, Inventory.WEARSLOT_RIGHTRING);
 		
 		SkillController.applySkillEffectsFromItemProficiencies(player);
 		SkillController.applySkillEffectsFromFightingStyles(player);

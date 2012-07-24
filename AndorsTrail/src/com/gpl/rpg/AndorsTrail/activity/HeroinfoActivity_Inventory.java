@@ -83,8 +83,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
         setWearSlot(Inventory.WEARSLOT_FEET, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
         setWearSlot(Inventory.WEARSLOT_NECK, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
         setWearSlot(Inventory.WEARSLOT_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
-        setWearSlot(Inventory.WEARSLOT_RING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
-        setWearSlot(Inventory.WEARSLOT_RING+1, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
+        setWearSlot(Inventory.WEARSLOT_LEFTRING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
+        setWearSlot(Inventory.WEARSLOT_RIGHTRING, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
     }
 
     @Override
@@ -139,8 +139,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		int slot = itemType.category.inventorySlot;
 		if (player.inventory.isEmptySlot(slot)) return slot;
 		
-		if (slot == Inventory.WEARSLOT_RING) {
-			return slot + 1;
+		if (slot == Inventory.WEARSLOT_LEFTRING) {
+			return Inventory.WEARSLOT_RIGHTRING;
 		} else if (itemType.isOffhandCapableWeapon()) {
 			ItemType mainWeapon = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
 			if (mainWeapon != null && mainWeapon.isTwohandWeapon()) return slot;
@@ -200,7 +200,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			if (type.isEquippable()) {
 				menu.findItem(R.id.inv_menu_equip).setVisible(true);
 				if (type.isOffhandCapableWeapon()) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
-				else if (type.category.inventorySlot == Inventory.WEARSLOT_RING) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
+				else if (type.category.inventorySlot == Inventory.WEARSLOT_LEFTRING) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
 			}
 			break;
 		}
