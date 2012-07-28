@@ -16,6 +16,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
+import com.gpl.rpg.AndorsTrail.view.DisplayActiveActorConditionIcons;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 import com.gpl.rpg.AndorsTrail.view.VirtualDpadView;
 import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
@@ -33,7 +34,7 @@ import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View.OnClickListener;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -59,7 +60,7 @@ public final class MainActivity extends Activity {
     public StatusView statusview;
     public CombatView combatview;
     public QuickitemView quickitemview;
-    private LinearLayout activeConditions;
+    private DisplayActiveActorConditionIcons activeConditions;
     private VirtualDpadView dpad;
 	
 	private static final int NUM_MESSAGES = 3;
@@ -84,7 +85,7 @@ public final class MainActivity extends Activity {
         statusview = (StatusView) findViewById(R.id.main_statusview);
         combatview = (CombatView) findViewById(R.id.main_combatview);
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
-        activeConditions = (LinearLayout) findViewById(R.id.statusview_activeconditions);
+        activeConditions = new DisplayActiveActorConditionIcons(world.tileManager, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
@@ -165,6 +166,8 @@ public final class MainActivity extends Activity {
         view.gameRoundController.pause();
         view.movementController.stopMovement();
         
+        activeConditions.unsubscribe(world);
+        
         save(Savegames.SLOT_QUICKSAVE);
     }
     
@@ -173,6 +176,8 @@ public final class MainActivity extends Activity {
         super.onResume();
         if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
 
+        activeConditions.subscribe(world);
+        
         view.gameRoundController.resume();
         
 		if (world.model.uiSelections.isInCombat) {
@@ -257,7 +262,6 @@ public final class MainActivity extends Activity {
 	
 	public void updateStatus() {
 		statusview.updateStatus();
-		statusview.updateActiveConditions(this, activeConditions);
 		quickitemview.refreshQuickitems();
 		combatview.updateStatus();
 	}

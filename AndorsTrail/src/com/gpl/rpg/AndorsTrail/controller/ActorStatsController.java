@@ -59,10 +59,12 @@ public class ActorStatsController {
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
 			if (c.duration != duration) continue;
 			
-			actor.conditions.remove(i);
-			magnitude = c.magnitude - magnitude;
-			if (magnitude > 0) {
-				actor.conditions.add(new ActorCondition(type, magnitude, duration));
+			if (c.magnitude > magnitude) {
+				c.magnitude -= magnitude;
+				actor.conditionListener.onActorConditionMagnitudeChanged(actor, c);
+			} else {
+				actor.conditions.remove(i);
+				actor.conditionListener.onActorConditionRemoved(actor, c);
 			}
 			break;
 		}
@@ -109,12 +111,14 @@ public class ActorStatsController {
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
 			if (c.duration == duration) {
 				// If the actor already has a condition of this type and the same duration, just increase the magnitude instead.
-				actor.conditions.remove(i);
-				magnitude += c.magnitude;
-				break;
+				c.magnitude += magnitude;
+				actor.conditionListener.onActorConditionMagnitudeChanged(actor, c);
+				return;
 			}
 		}
-		actor.conditions.add(new ActorCondition(type, magnitude, duration));
+		ActorCondition c = new ActorCondition(type, magnitude, duration);
+		actor.conditions.add(c);
+		actor.conditionListener.onActorConditionAdded(actor, c);
 	}
 	private static void addNonStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
 		final ActorConditionType type = e.conditionType;
@@ -123,24 +127,34 @@ public class ActorStatsController {
 			ActorCondition c = actor.conditions.get(i);
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
 			if (c.magnitude > e.magnitude) return;
+			else if (c.magnitude == e.magnitude) {
+				if (c.duration >= duration) return;
+			}
 			// If the actor already has this condition, but of a lower magnitude, we remove the old one and add this higher magnitude.
 			actor.conditions.remove(i);
+			actor.conditionListener.onActorConditionRemoved(actor, c);
 		}
-		actor.conditions.add(e.createCondition(duration));
+		
+		ActorCondition c = e.createCondition(duration);
+		actor.conditions.add(c);
+		actor.conditionListener.onActorConditionAdded(actor, c);
 	}
 
 	public static void removeAllTemporaryConditions(final Actor actor) {
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			if (!actor.conditions.get(i).isTemporaryEffect()) continue;
+			ActorCondition c = actor.conditions.get(i);
+			if (!c.isTemporaryEffect()) continue;
 			actor.conditions.remove(i);
+			actor.conditionListener.onActorConditionRemoved(actor, c);
 		}
 	}
 	
 	private static void removeAllConditionsOfType(final Actor actor, final String conditionTypeID) {
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
-			if (actor.conditions.get(i).conditionType.conditionTypeID.equals(conditionTypeID)) {
-				actor.conditions.remove(i);
-			}
+			ActorCondition c = actor.conditions.get(i);
+			if (!c.conditionType.conditionTypeID.equals(conditionTypeID)) continue;
+			actor.conditions.remove(i);
+			actor.conditionListener.onActorConditionRemoved(actor, c);
 		}
 	}
 	
@@ -210,10 +224,13 @@ public class ActorStatsController {
 		if (SkillController.rollForSkillChance(player, SkillCollection.SKILL_REJUVENATION, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
 			int i = getRandomConditionForRejuvenate(player);
 			if (i >= 0) {
-				ActorCondition c = player.conditions.remove(i);
+				ActorCondition c = player.conditions.get(i);
 				if (c.magnitude > 1) {
-					int magnitude = c.magnitude - 1;
-					player.conditions.add(i, new ActorCondition(c.conditionType, magnitude, c.duration));
+					c.magnitude -= 1;
+					player.conditionListener.onActorConditionMagnitudeChanged(player, c);
+				} else {
+					player.conditions.remove(i);
+					player.conditionListener.onActorConditionRemoved(player, c);
 				}
 				recalculateActorCombatTraits(player);
 			}
@@ -258,6 +275,7 @@ public class ActorStatsController {
 		for (ActorCondition c : actor.conditions) {
 			StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
 			effectToStart = applyStatsModifierEffect(actor, effect, c.magnitude, effectToStart);
+			if (effect != null) actor.conditionListener.onActorConditionRoundEffectApplied(actor, c);
 		}
 		startVisualEffect(actor, effectToStart);
 	}
@@ -267,10 +285,13 @@ public class ActorStatsController {
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.conditions.get(i);
 			if (!c.isTemporaryEffect()) continue;
-			c.duration -= 1;
-			if (c.duration <= 0) {
+			if (c.duration <= 1) {
 				actor.conditions.remove(i);
+				actor.conditionListener.onActorConditionRemoved(actor, c);
 				removedAnyConditions = true;
+			} else {
+				c.duration -= 1;
+				actor.conditionListener.onActorConditionDurationChanged(actor, c);
 			}
 		}
 		if (removedAnyConditions) {

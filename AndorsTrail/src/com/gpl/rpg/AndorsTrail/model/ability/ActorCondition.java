@@ -11,7 +11,7 @@ public class ActorCondition {
 	public static final int DURATION_FOREVER = 999;
 	
 	public final ActorConditionType conditionType;
-	public final int magnitude;
+	public int magnitude;
 	public int duration;
 	
 	public ActorCondition(ActorConditionType conditionType, int magnitude, int duration) {
