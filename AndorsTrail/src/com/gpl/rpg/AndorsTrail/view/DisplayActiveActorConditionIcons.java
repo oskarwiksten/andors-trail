@@ -33,53 +33,50 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 		this.androidContext = new WeakReference<Context>(androidContext);
 		this.activeConditions = activeConditions;
 	}
-	
-	private ActiveConditionIcon getIconFor(ActorCondition condition) {
-		for (ActiveConditionIcon icon : currentConditionIcons) {
-			if (icon.condition == condition) return icon;
-		}
-		return null;
-	}
-	private ActiveConditionIcon getFirstFreeIcon() {
-		for (ActiveConditionIcon icon : currentConditionIcons) {
-			if (!icon.isVisible()) return icon;
-		}
-		return addNewActiveConditionIcon();
-	}
-	
-	private RelativeLayout.LayoutParams getLayoutParamsForIconIndex(int index) {
-		RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		layout.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-		if (index == 0) {
-			layout.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-		} else {
-			layout.addRule(RelativeLayout.LEFT_OF, currentConditionIcons.get(index-1).id);
-		}
-		return layout;
+
+	@Override
+	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
+		ActiveConditionIcon icon = getFirstFreeIcon();
+		icon.setActiveCondition(condition);
+		icon.show();
 	}
 
-	private ActiveConditionIcon addNewActiveConditionIcon() {
-		int index = currentConditionIcons.size();
-				
-		ActiveConditionIcon icon = new ActiveConditionIcon(androidContext.get(), index+1);
-		
-		activeConditions.addView(icon.image, getLayoutParamsForIconIndex(index));
-		
-		RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		layout.addRule(RelativeLayout.ALIGN_RIGHT, icon.id);
-		layout.addRule(RelativeLayout.ALIGN_BOTTOM, icon.id);
-		activeConditions.addView(icon.text, layout);
-		
-		/*
-		layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		layout.addRule(RelativeLayout.ALIGN_RIGHT, icon.image.getId());
-		layout.addRule(RelativeLayout.ALIGN_BOTTOM, icon.image.getId());
-		activeConditions.addView(icon.duration, layout);
-		*/
-		
-		currentConditionIcons.add(icon);
-		
-		return icon;
+	@Override
+	public void onActorConditionRemoved(Actor actor, ActorCondition condition) {
+		ActiveConditionIcon icon = getIconFor(condition);
+		if (icon == null) return;
+		icon.hide(true);
+	}
+
+	@Override
+	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition) {
+	}
+
+	@Override
+	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition) {
+		ActiveConditionIcon icon = getIconFor(condition);
+		if (icon == null) return;
+		icon.setIconText();
+	}
+
+	@Override
+	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition) {
+		ActiveConditionIcon icon = getIconFor(condition);
+		if (icon == null) return;
+		icon.pulseAnimate();
+	}
+
+	public void unsubscribe(final WorldContext world) {
+		world.model.player.conditionListener.remove(this);
+		for (ActiveConditionIcon icon : currentConditionIcons) icon.condition = null;
+	}
+
+	public void subscribe(final WorldContext world) {
+		for (ActiveConditionIcon icon : currentConditionIcons) icon.hide(false);
+		for (ActorCondition condition : world.model.player.conditions) {
+			getFirstFreeIcon().setActiveCondition(condition);
+		}
+		world.model.player.conditionListener.add(this);
 	}
 
 	private final class ActiveConditionIcon implements AnimationListener {
@@ -87,7 +84,6 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 		public ActorCondition condition;
 		public final ImageView image;
 		public final TextView text;
-		//public final TextView duration;
 		private final Animation onNewIconAnimation;
 		private final Animation onRemovedIconAnimation;
 		private final Animation onAppliedEffectAnimation;
@@ -101,23 +97,8 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 			this.onRemovedIconAnimation = AnimationUtils.loadAnimation(context, R.anim.scaledown);
 			this.onAppliedEffectAnimation = AnimationUtils.loadAnimation(context, R.anim.scalebeat);
 			this.onRemovedIconAnimation.setAnimationListener(this);
-			//duration = new TextView(context);
 			
 			final Resources res = context.getResources();
-			
-			//float textSize = ;
-			//magnitude.setTextSize(res.getDimension(R.dimen.smalltext));
-			/*
-			duration.setTextSize(res.getDimension(R.dimen.smalltext));
-			
-			int textColor = res.getColor(android.R.color.white);
-			int shadowColor = res.getColor(android.R.color.black);
-			magnitude.setTextColor(textColor);
-			duration.setTextColor(textColor);
-			
-			magnitude.setShadowLayer(1, 1, 1, shadowColor);
-			duration.setShadowLayer(2, 1, 1, shadowColor);
-			*/
 			
 			text.setTextColor(res.getColor(android.R.color.white));
 			text.setShadowLayer(1, 1, 1, res.getColor(android.R.color.black));
@@ -132,34 +113,12 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 
 		public void setIconText() {
 			boolean showMagnitude = (condition.magnitude != 1);
-			boolean showDuration = condition.isTemporaryEffect();
-			if (showMagnitude/* || showDuration*/) {
-				/*if (showMagnitude && showDuration) {
-					icon.text.setText(condition.duration + "x" + condition.magnitude);
-				} else if (showDuration) {
-					icon.text.setText(condition.duration);
-				} else if (showMagnitude) {
-					icon.text.setText("x" + condition.magnitude);
-				}*/
+			if (showMagnitude) {
 				text.setText(Integer.toString(condition.magnitude));
 				text.setVisibility(View.VISIBLE);
 			} else {
 				text.setVisibility(View.GONE);
 			}
-			/*
-			if (condition.magnitude != 1) {
-				icon.magnitude.setText(Integer.toString(condition.magnitude));
-				icon.magnitude.setVisibility(View.VISIBLE);
-			} else {
-				icon.magnitude.setVisibility(View.GONE);
-			}
-			if (condition.isTemporaryEffect()) {
-				icon.duration.setText(Integer.toString(condition.duration));
-				icon.duration.setVisibility(View.VISIBLE);
-			} else {
-				icon.duration.setVisibility(View.GONE);
-			}
-			*/
 		}
 		
 		public void hide(boolean useAnimation) {
@@ -201,60 +160,48 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 		currentConditionIcons.remove(i);
 		currentConditionIcons.add(icon);
 		for(; i < currentConditionIcons.size(); ++i) {
-			ActiveConditionIcon aci = currentConditionIcons.get(i);
-			aci.image.setLayoutParams(getLayoutParamsForIconIndex(i));
+			currentConditionIcons.get(i).image.setLayoutParams(getLayoutParamsForIconIndex(i));
 		}
-	}
-
-	@Override
-	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
-		ActiveConditionIcon icon = getFirstFreeIcon();
-		icon.setActiveCondition(condition);
-		icon.show();
-	}
-
-	@Override
-	public void onActorConditionRemoved(Actor actor, ActorCondition condition) {
-		ActiveConditionIcon icon = getIconFor(condition);
-		if (icon == null) return;
-		icon.hide(true);
-	}
-
-	@Override
-	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition) {
-		ActiveConditionIcon icon = getIconFor(condition);
-		if (icon == null) return;
-		icon.setIconText();
-	}
-
-	@Override
-	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition) {
-		ActiveConditionIcon icon = getIconFor(condition);
-		if (icon == null) return;
-		icon.setIconText();
-	}
-
-	@Override
-	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition) {
-		ActiveConditionIcon icon = getIconFor(condition);
-		if (icon == null) return;
-		icon.pulseAnimate();
-	}
-
-	public void unsubscribe(final WorldContext world) {
-		world.model.player.conditionListener.remove(this);
-		hideAllIcons();
-	}
-
-	public void subscribe(final WorldContext world) {
-		hideAllIcons();
-		for (ActorCondition condition : world.model.player.conditions) {
-			getFirstFreeIcon().setActiveCondition(condition);
-		}
-		world.model.player.conditionListener.add(this);
 	}
 	
-	private void hideAllIcons() {
-		for (ActiveConditionIcon icon : currentConditionIcons) icon.hide(false);
+	private ActiveConditionIcon getIconFor(ActorCondition condition) {
+		for (ActiveConditionIcon icon : currentConditionIcons) {
+			if (icon.condition == condition) return icon;
+		}
+		return null;
+	}
+	private ActiveConditionIcon getFirstFreeIcon() {
+		for (ActiveConditionIcon icon : currentConditionIcons) {
+			if (!icon.isVisible()) return icon;
+		}
+		return addNewActiveConditionIcon();
+	}
+	
+	private RelativeLayout.LayoutParams getLayoutParamsForIconIndex(int index) {
+		RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		layout.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+		if (index == 0) {
+			layout.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+		} else {
+			layout.addRule(RelativeLayout.LEFT_OF, currentConditionIcons.get(index-1).id);
+		}
+		return layout;
+	}
+
+	private ActiveConditionIcon addNewActiveConditionIcon() {
+		int index = currentConditionIcons.size();
+				
+		ActiveConditionIcon icon = new ActiveConditionIcon(androidContext.get(), index+1);
+		
+		activeConditions.addView(icon.image, getLayoutParamsForIconIndex(index));
+		
+		RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
+		layout.addRule(RelativeLayout.ALIGN_RIGHT, icon.id);
+		layout.addRule(RelativeLayout.ALIGN_BOTTOM, icon.id);
+		activeConditions.addView(icon.text, layout);
+		
+		currentConditionIcons.add(icon);
+		
+		return icon;
 	}
 }

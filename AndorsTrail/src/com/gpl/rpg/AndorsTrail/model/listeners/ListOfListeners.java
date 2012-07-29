@@ -3,10 +3,19 @@ package com.gpl.rpg.AndorsTrail.model.listeners;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+
 public class ListOfListeners<T> {
 	private final ArrayList<WeakReference<T>> listeners = new ArrayList<WeakReference<T>>();
 	
 	public void add(T listener) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			for (WeakReference<T> ref : listeners) {
+				if (ref.get() == listener) {
+					throw new IndexOutOfBoundsException("FAIL: listener added twice to ListOfListeners.");
+				}
+			}
+		}
 		listeners.add(new WeakReference<T>(listener));
 	}
 	public void remove(T listenerToRemove) {
