@@ -28,6 +28,7 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class Player extends Actor {
 	public static final int DEFAULT_PLAYER_MOVECOST = 6;
+	public static final int DEFAULT_PLAYER_ATTACKCOST = 4;
 	public final Coord lastPosition;
 	public final Coord nextPosition;
 	public int level;
@@ -53,7 +54,7 @@ public final class Player extends Actor {
 	
 	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
 		CombatTraits combat = new CombatTraits();
-		combat.attackCost = 3;
+		combat.attackCost = DEFAULT_PLAYER_ATTACKCOST;
 		combat.attackChance = 60;
 		combat.criticalSkill = 0;
 		combat.criticalMultiplier = 1;
@@ -279,19 +280,23 @@ public final class Player extends Actor {
 			if (hasExactQuestProgress("bwm_agent", 240)) addQuestProgress(new QuestProgress("prim_hunt", 250));
 		}
 		
-		if (fileversion < 26) return;
-		
-		final int size3 = src.readInt();
-		for(int i = 0; i < size3; ++i) {
-			final String faction = src.readUTF();
-			final int alignment = src.readInt();
-			alignments.put(faction, alignment);
+		if (fileversion >= 26) {
+			final int size3 = src.readInt();
+			for(int i = 0; i < size3; ++i) {
+				final String faction = src.readUTF();
+				final int alignment = src.readInt();
+				alignments.put(faction, alignment);
+			}
 		}
 		
 		if (fileversion <= 27) {
 			ItemController.correctActorConditionsFromItemsPre0611b1(this, "bless", world, "elytharan_redeemer");
 			ItemController.correctActorConditionsFromItemsPre0611b1(this, "blackwater_misery", world, "bwm_dagger");
 			ItemController.correctActorConditionsFromItemsPre0611b1(this, "regen", world, "ring_shadow0");
+		}
+		
+		if (fileversion <= 30) {
+			this.actorTraits.baseCombatTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
 		}
 	}
 	
