@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 
 import android.content.Context;
 import android.content.Intent;
@@ -24,10 +25,13 @@ import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment;
+import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.NamedWorldMapArea;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.WorldMapSegmentMap;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class WorldMapController {
 
@@ -152,48 +156,103 @@ public final class WorldMapController {
     	return new File(getWorldmapDirectory(), Constants.FILENAME_WORLDMAP_HTMLFILE_PREFIX + segmentName + Constants.FILENAME_WORLDMAP_HTMLFILE_SUFFIX);
     }
 	
+    private static boolean shouldDisplayMapOnWorldmap(String mapName) {
+    	File f = WorldMapController.getFileForMap(mapName);
+		return f.exists();
+    }
 	private static String getWorldMapSegmentAsHtml(Resources res, WorldContext world, String segmentName) throws IOException {
 		WorldMapSegment segment = world.maps.worldMapSegments.get(segmentName);
 		
-		StringBuffer sb = new StringBuffer();
-		
+		HashSet<String> displayedMapNames = new HashSet<String>();
 		Coord offsetWorldmapTo = new Coord(999999, 999999);
 		for (WorldMapSegmentMap map : segment.maps.values()) {
-			File f = WorldMapController.getFileForMap(map.mapName);
-			if (!f.exists()) continue;
+			if (!shouldDisplayMapOnWorldmap(map.mapName)) continue;
 			
+			displayedMapNames.add(map.mapName);
 			offsetWorldmapTo.x = Math.min(offsetWorldmapTo.x, map.worldPosition.x);
 			offsetWorldmapTo.y = Math.min(offsetWorldmapTo.y, map.worldPosition.y);
 		}
 		
+		StringBuffer mapsAsHtml = new StringBuffer();
 		for (WorldMapSegmentMap segmentMap : segment.maps.values()) {
 			File f = WorldMapController.getFileForMap(segmentMap.mapName);
 			if (!f.exists()) continue;
 			
-			PredefinedMap map = world.maps.findPredefinedMap(segmentMap.mapName);
-			
-			sb
+			Size size = getMapSize(segmentMap, world);
+			mapsAsHtml
 				.append("<img src=\"")
 				.append(f.getName())
 				.append("\" id=\"")
-				.append(map.name)
-				.append("\" style=\"width: ")
-				.append(map.size.width * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
-				.append("px; height: ")
-				.append(map.size.height * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
-				.append("px; position: absolute; left: ")
+				.append(segmentMap.mapName)
+				.append("\" style=\"width:")
+				.append(size.width * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append("px; height:")
+				.append(size.height * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append("px; left:")
 				.append((segmentMap.worldPosition.x - offsetWorldmapTo.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
-				.append("px; top: ")
+				.append("px; top:")
 				.append((segmentMap.worldPosition.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
 				.append("px;\" />");
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) mapsAsHtml.append("\n");
+		}
+		
+		StringBuffer namedAreasAsHtml = new StringBuffer();
+		for (NamedWorldMapArea area : segment.namedAreas.values()) {
+			CoordRect r = determineNamedAreaBoundary(area, segment, world, displayedMapNames);
+			if (r == null) continue;
+			namedAreasAsHtml
+				.append("<div class=\"namedarea ")
+				.append(area.type)
+				.append("\" style=\"width:")
+				.append(r.size.width * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append("px; line-height:")
+				.append(r.size.height * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append("px; left:")
+				.append((r.topLeft.x - offsetWorldmapTo.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append("px; top:")
+				.append((r.topLeft.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
+				.append("px;\"><span>")
+				.append(area.name)
+				.append("</span></div>");
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) namedAreasAsHtml.append("\n");
 		}
 		
 		return res.getString(R.string.worldmap_template)
-				.replace("{{maps}}", sb.toString())
+				.replace("{{maps}}", mapsAsHtml.toString())
+				.replace("{{areas}}", namedAreasAsHtml.toString())
 				.replace("{{offsetx}}", Integer.toString(offsetWorldmapTo.x * WorldMapController.WORLDMAP_DISPLAY_TILESIZE))
 				.replace("{{offsety}}", Integer.toString(offsetWorldmapTo.y * WorldMapController.WORLDMAP_DISPLAY_TILESIZE));
 	}
 	
+	private static Size getMapSize(WorldMapSegmentMap map, WorldContext world) {
+		return world.maps.findPredefinedMap(map.mapName).size;
+	}
+	
+	private static CoordRect determineNamedAreaBoundary(NamedWorldMapArea area, WorldMapSegment segment, WorldContext world, HashSet<String> displayedMapNames) {
+		Coord topLeft = null;
+		Coord bottomRight = null;
+		
+		for (String mapName : area.mapNames) {
+			if (!displayedMapNames.contains(mapName)) continue;
+			WorldMapSegmentMap map = segment.maps.get(mapName);
+			Size size = getMapSize(map, world);
+			if (topLeft == null) {
+				topLeft = new Coord(map.worldPosition);
+			} else {
+				topLeft.x = Math.min(topLeft.x, map.worldPosition.x);
+				topLeft.y = Math.min(topLeft.y, map.worldPosition.y);
+			}
+			if (bottomRight == null) {
+				bottomRight = new Coord(map.worldPosition.x + size.width, map.worldPosition.y + size.height);
+			} else {
+				bottomRight.x = Math.max(bottomRight.x, map.worldPosition.x + size.width);
+				bottomRight.y = Math.max(bottomRight.y, map.worldPosition.y + size.height);
+			}
+		}
+		if (topLeft == null) return null;
+		return new CoordRect(topLeft, new Size(bottomRight.x - topLeft.x, bottomRight.y - topLeft.y));
+	}
+
 	private static void updateWorldMapSegment(Resources res, WorldContext world, String segmentName) throws IOException {
 		String mapAsHtml = getWorldMapSegmentAsHtml(res, world, segmentName);
 		File outputFile = getCombinedWorldMapFile(segmentName);

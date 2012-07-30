@@ -1,12 +1,14 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
 import java.util.HashMap;
+import java.util.HashSet;
 
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class WorldMapSegment {
 	public final String name;
 	public final HashMap<String, WorldMapSegmentMap> maps = new HashMap<String, WorldMapSegmentMap>();
+	public final HashMap<String, NamedWorldMapArea> namedAreas = new HashMap<String, NamedWorldMapArea>();
 	
 	public WorldMapSegment(String name) {
 		this.name = name;
@@ -20,6 +22,19 @@ public final class WorldMapSegment {
 		public WorldMapSegmentMap(String mapName, Coord worldPosition) {
 			this.mapName = mapName;
 			this.worldPosition = worldPosition;
+		}
+	}
+	
+	// Towns, cities, villages, taverns, named dungeons
+	public static final class NamedWorldMapArea {
+		public final String id;
+		public final String name;
+		public final String type; // "settlement" or "other"
+		public final HashSet<String> mapNames = new HashSet<String>();
+		public NamedWorldMapArea(String id, String name, String type) {
+			this.id = id;
+			this.name = name;
+			this.type = type;
 		}
 	}
 }

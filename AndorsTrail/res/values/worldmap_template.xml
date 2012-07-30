@@ -6,7 +6,12 @@
 	<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\" />
 	<title></title>
 	<style type=\"text/css\">
-#playerPosition { position: absolute; z-index: 2; font-size: 19pt; color: red; text-shadow: rgba(0, 0, 0, 1) 2px 2px 2px; }
+#playerPosition { position: absolute; z-index: 3; font-size: 19pt; color: red; text-shadow: rgba(0, 0, 0, 1) 2px 2px 2px; }
+img { z-index: 1; position: absolute; }
+.namedarea { position: absolute; z-index: 2; font-size: 16pt; text-shadow: black 0.1em 0.1em 0.2em; text-align: center; }
+.namedarea span { display: inline-block; vertical-align: middle; line-height: 1em; }
+.settlement { color: white; }
+.other { color: #cccccc; }
 	</style>
 </head>
 <body>
@@ -14,6 +19,7 @@
 <div id=\"maps\">
 	
 {{maps}}
+{{areas}}
 	
 	<div id=\"playerPosition\">x</div>
 </div>

@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import org.xmlpull.v1.XmlPullParserException;
 
@@ -9,9 +10,11 @@ import android.content.res.XmlResourceParser;
 
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment;
+import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.NamedWorldMapArea;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.WorldMapSegmentMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.Pair;
 import com.gpl.rpg.AndorsTrail.util.XmlResourceParserUtils;
 
 public final class WorldMapParser {
@@ -41,6 +44,7 @@ public final class WorldMapParser {
 		String segmentName = xrp.getAttributeValue(null, "id");
 		final WorldMapSegment segment = new WorldMapSegment(segmentName);
 		
+		final ArrayList<Pair<String, String>> mapsInNamedAreas = new ArrayList<Pair<String,String>>();
 		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 			@Override
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
@@ -52,9 +56,21 @@ public final class WorldMapParser {
 						);
 					WorldMapSegmentMap map = new WorldMapSegmentMap(mapName, mapPosition);
 					segment.maps.put(mapName, map);
+					
+					String namedArea = xrp.getAttributeValue(null, "area");
+					if (namedArea != null) mapsInNamedAreas.add(new Pair<String, String>(mapName, namedArea));
+				} else if (tagName.equals("namedarea")) {
+					String id = xrp.getAttributeValue(null, "id");
+					String name = xrp.getAttributeValue(null, "name");
+					String type = xrp.getAttributeValue(null, "type");
+					segment.namedAreas.put(id, new NamedWorldMapArea(id, name, type));
 				}
 			}
 		});
+		
+		for (Pair<String, String> m : mapsInNamedAreas) {
+			segment.namedAreas.get(m.second).mapNames.add(m.first);
+		}
 		
 		return segment;
 	}
