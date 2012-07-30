@@ -63,7 +63,7 @@
  <map id="fields0" x="179" y="292" />
  <map id="lodar19" x="343" y="373" />
  <map id="wild14_clearing" x="318" y="433" />
- <map id="fallhaven_nw" x="210" y="390" />
+ <map id="fallhaven_nw" x="210" y="390" area="fallhaven" />
  <map id="waterway12" x="458" y="228" />
  <map id="waterway11" x="582" y="228" />
  <map id="mountainlake10a" x="725" y="31" />
@@ -72,7 +72,7 @@
  <map id="blackwater_mountain4" x="14" y="411" />
  <map id="waterway15" x="412" y="197" />
  <map id="waterway11_east" x="613" y="229" />
- <map id="fallhaven_ne" x="241" y="390" />
+ <map id="fallhaven_ne" x="241" y="390" area="fallhaven" />
  <map id="waterway10" x="551" y="259" />
  <map id="wild3" x="173" y="394" />
  <map id="wild2" x="152" y="394" />
@@ -97,7 +97,7 @@
  <map id="roadbeforecrossroads9" x="356" y="428" />
  <map id="wild13" x="293" y="444" />
  <map id="roadbeforecrossroads6" x="293" y="413" />
- <map id="flagstone0" x="95" y="477" />
+ <map id="flagstone0" x="95" y="477" area="flagstone" />
  <map id="wild14" x="314" y="449" />
  <map id="roadbeforecrossroads7" x="314" y="428" />
  <map id="wild11" x="238" y="442" />
@@ -122,7 +122,7 @@
  <map id="waytomountaincave0" x="628" y="255" />
  <map id="waytomountaincave2" x="623" y="305" />
  <map id="wild11_clearing" x="241" y="463" />
- <map id="fallhaven_sw" x="210" y="421" />
+ <map id="fallhaven_sw" x="210" y="421" area="fallhaven" />
  <map id="waterwayextention" x="343" y="189" />
  <map id="mountainlake3" x="757" y="128" />
  <map id="waytominingtown0" x="314" y="412" />
@@ -142,17 +142,17 @@
  <map id="gapfiller1" x="259" y="442" />
  <map id="lostmine0" x="426" y="369" />
  <map id="gapfiller3" x="179" y="383" />
- <map id="fallhaven_se" x="241" y="421" />
+ <map id="fallhaven_se" x="241" y="421" area="fallhaven" />
  <map id="gapfiller4" x="194" y="390" />
  <map id="fields10" x="96" y="292" />
  <map id="waytolake0" x="650" y="266" />
  <map id="fields11" x="238" y="226" />
  <map id="fields12" x="259" y="222" />
- <map id="vilegard_n" x="360" y="479" />
+ <map id="vilegard_n" x="360" y="479" area="vilegard" />
  <map id="waytolostmine0" x="395" y="355" />
  <map id="roadbeforecrossroads1" x="232" y="330" />
  <map id="waytolake3" x="673" y="208" />
- <map id="vilegard_s" x="360" y="500" />
+ <map id="vilegard_s" x="360" y="500" area="vilegard" />
  <map id="waytolake1" x="671" y="255" />
  <map id="waytolake2" x="671" y="229" />
  <map id="waytolostmine2" x="426" y="309" />
@@ -162,20 +162,28 @@
  <map id="mountainlake12" x="672" y="8" />
  <map id="mountainlake11" x="702" y="4" />
  <map id="mountainlake10" x="733" y="0" />
- <map id="loneford2" x="238" y="259" />
+ <map id="loneford2" x="238" y="259" area="loneford" />
  <map id="loneford1" x="210" y="286" />
- <map id="crossglen" x="148" y="363" />
- <map id="remgard1" x="674" y="83" />
- <map id="remgard0" x="643" y="76" />
- <map id="remgard3" x="653" y="107" />
- <map id="remgard2" x="674" y="114" />
- <map id="remgard4" x="622" y="107" />
- <map id="road1" x="356" y="453" />
- <map id="crossroads" x="179" y="308" />
+ <map id="crossglen" x="148" y="363" area="crossglen" />
+ <map id="remgard1" x="674" y="83" area="remgard" />
+ <map id="remgard0" x="643" y="76" area="remgard" />
+ <map id="remgard3" x="653" y="107" area="remgard" />
+ <map id="remgard2" x="674" y="114" area="remgard" />
+ <map id="remgard4" x="622" y="107" area="remgard" />
+ <map id="road1" x="356" y="453" area="fflask" />
+ <map id="crossroads" x="179" y="308" area="crossroads" />
  <map id="road3" x="403" y="467" />
  <map id="road2" x="382" y="463" />
  <map id="road5" x="455" y="470" />
  <map id="road4" x="429" y="462" />
+ <namedarea id="crossglen" name="Crossglen" type="settlement"/>
+ <namedarea id="loneford" name="Loneford" type="settlement"/>
+ <namedarea id="flagstone" name="Flagstone Prison" type="other"/>
+ <namedarea id="fallhaven" name="Fallhaven" type="settlement"/>
+ <namedarea id="fflask" name="Fomaing Flask Tavern" type="other"/>
+ <namedarea id="crossroads" name="Crossroads Guardhouse" type="other"/>
+ <namedarea id="remgard" name="Remgard" type="settlement"/>
+ <namedarea id="vilegard" name="Vilegard" type="settlement"/>
 </segment>
 <segment id="blackwater" x="10" y="214">
  <map id="blackwater_mountain15" x="81" y="302" />
@@ -183,10 +191,11 @@
  <map id="blackwater_mountain40" x="77" y="354" />
  <map id="blackwater_mountain32" x="128" y="214" />
  <map id="blackwater_mountain14" x="60" y="333" />
- <map id="blackwater_mountain11" x="39" y="302" />
+ <map id="blackwater_mountain11" x="39" y="302" area="prim" />
  <map id="blackwater_mountain30" x="130" y="245" />
  <map id="blackwater_mountain12" x="10" y="323" />
  <map id="blackwater_mountain10" x="39" y="333" />
+ <namedarea id="prim" name="Prim" type="settlement"/>
 </segment>
 <segment id="pwcave" x="288" y="42">
  <map id="pwcave4" x="319" y="99" />
