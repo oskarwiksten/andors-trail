@@ -17,15 +17,13 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	this.view = context;
     	this.world = context;
     	this.model = world.model;
-    	//this.id = ModelContainer.rnd.nextInt();
     	this.roundTimer = new TimedMessageTask(this, Constants.TICK_DELAY, true);
     }
 	
     private int ticksUntilNextRound = Constants.TICKS_PER_ROUND;
     private int ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
     public boolean onTick(TimedMessageTask task) {
-		//L.log(id + " : Controller::tick()");
-    	if (!model.uiSelections.isMainActivityVisible) return false;
+		if (!model.uiSelections.isMainActivityVisible) return false;
     	if (model.uiSelections.isInCombat) return false;
     	
     	onNewTick();
@@ -67,7 +65,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     }
     public void onNewPlayerRound() {
     	view.actorStatsController.applyConditionsToPlayer(model.player, false);
-    	view.actorStatsController.applySkillEffectsForNewRound(model.player);
+    	view.actorStatsController.applySkillEffectsForNewRound(model.player, model.currentMap);
     }
     public void onNewMonsterRound() {
     	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);

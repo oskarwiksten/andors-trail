@@ -375,10 +375,14 @@ public class ActorStatsController {
 		}
 	}
 
-	public void applySkillEffectsForNewRound(Player player) {
-		boolean changed = player.health.add(player.getSkillLevel(SkillCollection.SKILL_REGENERATION) * SkillCollection.PER_SKILLPOINT_INCREASE_REGENERATION, false);
-		if (changed) {
-			view.mainActivity.updateStatus();
+	public void applySkillEffectsForNewRound(Player player, PredefinedMap currentMap) {
+		int level = player.getSkillLevel(SkillCollection.SKILL_REGENERATION);
+		if (level > 0) {
+			boolean hasAdjacentMonster = MovementController.hasAdjacentAggressiveMonster(currentMap, player.position);
+			if (!hasAdjacentMonster) {
+				boolean changed = player.health.add(level * SkillCollection.PER_SKILLPOINT_INCREASE_REGENERATION, false);
+				if (changed) view.mainActivity.updateStatus();
+			}
 		}
 	}
 }

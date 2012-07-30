@@ -308,4 +308,17 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 	}
+	
+	public static boolean hasAdjacentAggressiveMonster(PredefinedMap map, Coord position) {
+		return getAdjacentAggressiveMonster(map, position) != null;
+	}
+	public static Monster getAdjacentAggressiveMonster(PredefinedMap map, Coord position) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!m.isAgressive()) continue;
+				if (m.rectPosition.isAdjacentTo(position)) return m;
+			}
+		}
+		return null;
+	}
 }

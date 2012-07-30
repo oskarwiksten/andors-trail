@@ -135,16 +135,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	public boolean canExitCombat() { return getAdjacentMonster() == null; }
-	private Monster getAdjacentMonster() {
-		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
-			for (Monster m : a.monsters) {
-				if (!m.isAgressive()) continue;
-				if (m.rectPosition.isAdjacentTo(model.player.position)) {
-					return m;
-				}
-			}
-		}
-		return null;
+	private Monster getAdjacentMonster() { 
+		return MovementController.getAdjacentAggressiveMonster(model.currentMap, model.player.position); 
 	}
 
 	public void executeMoveAttack(int dx, int dy) {
