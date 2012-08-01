@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
 import android.widget.ListView;
 import android.widget.TabHost;
@@ -16,11 +15,10 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClickedListener;
 
@@ -44,10 +42,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         
         AndorsTrailApplication.setWindowParameters(this, app.preferences);
         
-        Uri uri = getIntent().getData();
-        String monsterTypeID = uri.getLastPathSegment().toString();
-        final MonsterType npcType = world.monsterTypes.getMonsterType(monsterTypeID);
-        
+        final Monster npc = Dialogs.getMonsterFromIntent(getIntent(), world);
         final Player player = world.model.player;
         
         setContentView(R.layout.shop);
@@ -68,9 +63,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         shoplist_buy = (ListView) h.findViewById(R.id.shop_buy_list);
         shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
         
-        Loot merchantLoot = new Loot();
-        npcType.dropList.createRandomLoot(merchantLoot, player);
-        container_buy = merchantLoot.items;
+        container_buy = npc.getShopItems(player);
         
 		shoplist_buy.setAdapter(new ShopItemContainerAdapter(
 				this
