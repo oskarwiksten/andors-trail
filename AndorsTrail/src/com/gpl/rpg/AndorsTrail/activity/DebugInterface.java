@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 @SuppressWarnings("unused")
 public final class DebugInterface {
@@ -114,6 +115,16 @@ public final class DebugInterface {
 	    			mainActivity.showToast("DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
+			,new DebugButton("reset", new OnClickListener() {
+	    		@Override
+				public void onClick(View arg0) {
+	    			for(PredefinedMap map : world.maps.predefinedMaps) {
+	    				map.lastVisitTime = 1;
+	    				map.resetIfNotRecentlyVisited();
+	    			}
+	    			mainActivity.showToast("DEBUG: maps respawned", Toast.LENGTH_SHORT);
+				}
+			})
 			,new DebugButton("hp", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {

@@ -83,6 +83,12 @@ public final class MonsterSpawnArea {
 		monsters.clear();
 		quantity.current = 0;
 	}
+
+	public void resetShops() {
+		for (Monster m : monsters) {
+			m.resetShopItems();
+		}
+	}
 	
 	
 	// ====== PARCELABLE ===================================================================

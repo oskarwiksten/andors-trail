@@ -232,7 +232,8 @@ public final class PredefinedMap {
 		
 		// We reset all non-unique spawn areas. This keeps the savegame file smaller, thus reducing load and save times. Also keeps the running memory usage slightly lower.
 		for(MonsterSpawnArea a : spawnAreas) {
-			if (!a.isUnique) a.reset();
+			if (a.isUnique) a.resetShops();
+			else a.reset();
 		}
 		splatters.clear();
 		lastVisitTime = VISIT_RESET;

@@ -213,6 +213,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/shop"));
     		Dialogs.addMonsterIdentifiers(intent, npc);
     		startActivityForResult(intent, MainActivity.INTENTREQUEST_SHOP);
+    		ConversationActivity.this.finish();
     		return;
     	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
     		ConversationActivity.this.setResult(ACTIVITYRESULT_ATTACK);

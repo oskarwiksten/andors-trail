@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
+import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
@@ -25,6 +26,7 @@ public final class Monster extends Actor {
 	public final int exp;
 	public final DropList dropList;
 	public final String faction;
+	private ItemContainer shopItems = null;
 	public final int monsterClass;
 	
 	public Monster(MonsterType monsterType, Coord position) {
@@ -46,6 +48,16 @@ public final class Monster extends Actor {
 		container.exp += exp;
 		if (this.dropList == null) return;
 		this.dropList.createRandomLoot(container, player);
+	}
+	public ItemContainer getShopItems(Player player) {
+		if (shopItems != null) return shopItems;
+		Loot loot = new Loot();
+		shopItems = loot.items;
+		this.dropList.createRandomLoot(loot, player);
+		return shopItems;
+	}
+	public void resetShopItems() {
+		this.shopItems = null;
 	}
 	
 	public boolean isAgressive() {
@@ -78,6 +90,11 @@ public final class Monster extends Actor {
 		this.forceAggressive = src.readBoolean();
 		this.faction = monsterType.faction;
 		this.monsterClass = monsterType.monsterClass;
+		if (fileversion >= 31) {
+			if (src.readBoolean()) {
+				this.shopItems = new ItemContainer(src, world, fileversion);
+			}
+		}
 	}
 
 	private static Monster readFromParcel_pre_v0610(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
@@ -95,5 +112,11 @@ public final class Monster extends Actor {
 		dest.writeUTF(monsterTypeID);
 		super.writeToParcel(dest, flags);
 		dest.writeBoolean(forceAggressive);
+		if (shopItems != null) {
+			dest.writeBoolean(true);
+			shopItems.writeToParcel(dest, flags);
+		} else {
+			dest.writeBoolean(false);
+		}
 	}
 }

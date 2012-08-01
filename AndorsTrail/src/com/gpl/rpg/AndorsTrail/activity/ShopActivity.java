@@ -21,7 +21,6 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter;
 import com.gpl.rpg.AndorsTrail.view.ShopItemContainerAdapter.OnContainerItemClickedListener;
@@ -70,9 +69,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         shoplist_buy = (ListView) h.findViewById(R.id.shop_buy_list);
         shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
         
-        Loot merchantLoot = new Loot();
-        npc.dropList.createRandomLoot(merchantLoot, player);
-        container_buy = merchantLoot.items;
+        container_buy = npc.getShopItems(player);
         
         HashSet<Integer> iconIDs = world.tileManager.getTileIDsFor(container_buy);
         iconIDs.addAll(world.tileManager.getTileIDsFor(player.inventory));
