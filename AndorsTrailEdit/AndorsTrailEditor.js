@@ -37,7 +37,8 @@ function loadResourceFile(filename, onSuccess) {
 	//var url = "http://andors-trail.googlecode.com/git/AndorsTrail/res/" + filename;
 	$.get(url, function(data) {
 		onSuccess(data);
-	}, 'text');
+	}, 'text')
+	.error(function() { alert("Error loading " + url); });
 }
 
 function openTabForObject(obj, dataStore) {
