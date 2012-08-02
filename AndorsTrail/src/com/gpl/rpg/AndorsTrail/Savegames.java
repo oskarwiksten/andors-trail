@@ -10,6 +10,8 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -59,8 +61,14 @@ public final class Savegames {
 	    	fos.close();
 	    	return result;
     	} catch (IOException e) {
-    		L.log("Error loading world: " + e.toString());
-	    	return LOAD_RESULT_UNKNOWN_ERROR;
+    		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+    			L.log("Error loading world: " + e.toString());
+    			StringWriter sw = new StringWriter();
+    			PrintWriter pw = new PrintWriter(sw);
+    			e.printStackTrace(pw);
+    			L.log("Load error: " + sw.toString());
+			}
+			return LOAD_RESULT_UNKNOWN_ERROR;
     	}
     }
     
