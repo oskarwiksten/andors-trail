@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListeners;
+import com.gpl.rpg.AndorsTrail.controller.PathFinder.EvaluateWalkable;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
@@ -12,7 +13,7 @@ import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
-public final class MonsterMovementController {
+public final class MonsterMovementController implements EvaluateWalkable {
 	private final ControllerContext controllers;
     private final WorldContext world;
     public final MonsterMovementListeners monsterMovementListeners = new MonsterMovementListeners();
@@ -79,11 +80,7 @@ public final class MonsterMovementController {
     		// Monster has been moving and arrived at the destination.
     		cancelCurrentMonsterMovement(m);
     	} else {
-    		// Monster is moving.
-    		m.nextPosition.topLeft.set(
-    				m.position.x + sgn(m.movementDestination.x - m.position.x)
-					,m.position.y + sgn(m.movementDestination.y - m.position.y)
-				);
+    		determineMonsterNextPosition(m, area, model.player.position);
     		
     		if (!monsterCanMoveTo(map, tileMap, m.nextPosition)) {
     			cancelCurrentMonsterMovement(m);
@@ -104,7 +101,21 @@ public final class MonsterMovementController {
     	}
 	}
     
-    private static void cancelCurrentMonsterMovement(final Monster m) {
+    private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
+    	if (m.aggressionType == Monster.AGGRESSIONTYPE_PROTECT_SPAWN) {
+    		if (area.area.contains(playerPosition)) {
+    			if (findPathFor(m, playerPosition)) return;
+    		}
+    	}
+		
+    	// Monster is moving in a straight line.
+		m.nextPosition.topLeft.set(
+				m.position.x + sgn(m.movementDestination.x - m.position.x)
+				,m.position.y + sgn(m.movementDestination.y - m.position.y)
+			);
+	}
+
+	private void cancelCurrentMonsterMovement(final Monster m) {
     	m.movementDestination = null;
 		m.nextActionTime += getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns);
     }
@@ -117,5 +128,15 @@ public final class MonsterMovementController {
 		if (i <= -1) return -1;
 		if (i >= 1) return 1;
 		return 0;
+	}
+	
+	private final PathFinder pathfinder = new PathFinder(Constants.MAX_MAP_WIDTH, Constants.MAX_MAP_HEIGHT, this);
+	public boolean findPathFor(Monster m, Coord to) {
+		return pathfinder.findPathBetween(m.rectPosition, to, m.nextPosition);
+	}
+
+	@Override
+	public boolean isWalkable(CoordRect r) {
+		return model.currentMap.monsterCanMoveTo(r);
 	}
 }

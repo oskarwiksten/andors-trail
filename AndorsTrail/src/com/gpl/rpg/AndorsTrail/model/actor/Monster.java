@@ -23,6 +23,11 @@ public final class Monster extends Actor {
 	
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
+
+	public final int aggressionType = AGGRESSIONTYPE_PROTECT_SPAWN;
+	public static final int AGGRESSIONTYPE_NONE = 0;
+	public static final int AGGRESSIONTYPE_HELP_OTHERS = 1; // Will move to help if the player attacks some other monster in the same spawn.
+	public static final int AGGRESSIONTYPE_PROTECT_SPAWN = 2; // Will move to attack if the player stands inside the spawn. 
 	
 	private final MonsterType monsterType;
 	
