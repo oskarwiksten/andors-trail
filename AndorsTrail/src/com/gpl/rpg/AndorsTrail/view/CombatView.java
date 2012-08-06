@@ -5,6 +5,9 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -34,6 +37,8 @@ public final class CombatView extends RelativeLayout {
 	private final ViewContext view;
 	private final Resources res;
 	private final Player player;
+	private final Animation displayAnimation;
+	private final Animation hideAnimation;
 
 	private Monster currentMonster;
 	public CombatView(final Context context, AttributeSet attr) {
@@ -90,6 +95,16 @@ public final class CombatView extends RelativeLayout {
         
         monsterBar.setBackgroundColor(res.getColor(color.transparent));
         actionBar.setBackgroundColor(res.getColor(color.transparent));
+        
+        displayAnimation = AnimationUtils.loadAnimation(context, R.anim.showcombatbar);
+        hideAnimation = AnimationUtils.loadAnimation(context, R.anim.hidecombatbar);
+        hideAnimation.setAnimationListener(new AnimationListener() {
+			@Override public void onAnimationStart(Animation animation) {}
+			@Override public void onAnimationRepeat(Animation animation) {}
+			@Override public void onAnimationEnd(Animation arg0) {
+				CombatView.this.setVisibility(View.GONE);
+			}
+		});
     }
 	
 	public void updateTurnInfo(Monster currentActiveMonster) {
@@ -134,5 +149,16 @@ public final class CombatView extends RelativeLayout {
 			updateMonsterHealth(world.model.uiSelections.selectedMonster.health);
 		}
 		updateCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
+	}
+
+	public void show() {
+		setVisibility(View.VISIBLE);
+    	bringToFront();
+    	startAnimation(displayAnimation);
+	}
+
+	public void hide() {
+		startAnimation(hideAnimation);
+		//setVisibility(View.GONE);
 	}
 }
