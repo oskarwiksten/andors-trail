@@ -2,8 +2,6 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import java.util.ArrayList;
 
-import android.view.View;
-
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -235,17 +233,6 @@ public final class ItemController {
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
 		model.player.inventory.quickitem[quickSlotId] = itemType;
 		view.mainActivity.updateStatus();
-	}
-	
-	public void toggleQuickItemView() {
-		if (view.mainActivity.quickitemview.getVisibility()==View.VISIBLE){
-			view.mainActivity.quickitemview.setVisibility(View.GONE);
-			view.mainActivity.statusview.updateQuickItemImage(false);
-		} else {
-	    	view.mainActivity.quickitemview.setVisibility(View.VISIBLE);
-	    	view.mainActivity.quickitemview.bringToFront();
-			view.mainActivity.statusview.updateQuickItemImage(true);
-		}
 	}
 
 	public static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, String itemTypeIDWithCondition) {

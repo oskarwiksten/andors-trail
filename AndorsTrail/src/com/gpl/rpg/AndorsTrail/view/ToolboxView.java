@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.view;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,17 +12,18 @@ import android.widget.LinearLayout;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public class ToolboxView extends LinearLayout implements OnClickListener {
 	private final WorldContext world;
-	private final Animation slideUpAnimation;
-	private final Animation slideDownAnimation;
-	private final ImageButton toolbox_playerinfo;
+	private final Animation showAnimation;
+	private final Animation hideAnimation;
+	private final ImageButton toolbox_quickitems;
 	private final ImageButton toolbox_map;
+	private ImageButton toggleVisibility;
+	private QuickitemView quickitemView;
 	
 	public ToolboxView(final Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -32,49 +32,66 @@ public class ToolboxView extends LinearLayout implements OnClickListener {
 
         inflate(context, R.layout.toolboxview, this);
 		
-		this.slideUpAnimation = AnimationUtils.loadAnimation(context, R.anim.slideup);
-        this.slideDownAnimation = AnimationUtils.loadAnimation(context, R.anim.slidedown);
-        this.slideDownAnimation.setAnimationListener(new AnimationListener() {
-			@Override
-			public void onAnimationStart(Animation animation) { }
-			@Override
-			public void onAnimationRepeat(Animation animation) { }
-			@Override
-			public void onAnimationEnd(Animation animation) {
-				ToolboxView.this.setVisibility(View.GONE);
-			}
+		this.showAnimation = AnimationUtils.loadAnimation(context, R.anim.showtoolbox);
+        this.hideAnimation = AnimationUtils.loadAnimation(context, R.anim.hidetoolbox);
+        this.hideAnimation.setAnimationListener(new AnimationListener() {
+        	@Override public void onAnimationStart(Animation animation) { }
+        	@Override public void onAnimationRepeat(Animation animation) { }
+        	@Override public void onAnimationEnd(Animation animation) {
+        		ToolboxView.this.setVisibility(View.GONE);
+        	}
 		});
         
-        toolbox_playerinfo = (ImageButton)findViewById(R.id.toolbox_playerinfo);
-        toolbox_playerinfo.setOnClickListener(this);
+        toolbox_quickitems = (ImageButton)findViewById(R.id.toolbox_quickitems);
+        toolbox_quickitems.setOnClickListener(this);
         toolbox_map = (ImageButton)findViewById(R.id.toolbox_map);
         toolbox_map.setOnClickListener(this);
-        
-        updateIcons();
+	}
+	
+	public void registerToolboxViews(ImageButton toggleVisibility, QuickitemView quickitemView) {
+		this.toggleVisibility = toggleVisibility;
+		this.quickitemView = quickitemView;
 	}
 	
 	@Override
 	public void onClick(View btn) {
 		Context context = getContext();
-		if (btn == toolbox_playerinfo) {
-			context.startActivity(new Intent(context, HeroinfoActivity.class));
+		if (btn == toolbox_quickitems) {
+			toggleQuickItemView();
 		} else if (btn == toolbox_map) {
 			if (!WorldMapController.displayWorldMap(context, world)) return;
+			setVisibility(View.GONE);
 		}
-		ToolboxView.this.setVisibility(View.GONE);
+	}
+	
+	private void toggleQuickItemView() {
+		if (quickitemView.getVisibility() == View.VISIBLE){
+			quickitemView.setVisibility(View.GONE);
+		} else {
+			quickitemView.setVisibility(View.VISIBLE);
+		}
 	}
 
 	public void toggleVisibility() {
 		if (getVisibility() == View.VISIBLE) {
-			startAnimation(slideDownAnimation);
+			startAnimation(hideAnimation);
+			setToolboxIcon(false);
 		} else {
 			setVisibility(View.VISIBLE);
-			bringToFront();
-			startAnimation(slideUpAnimation);
+			startAnimation(showAnimation);
+			setToolboxIcon(true);
 		}
 	}
 	
 	public void updateIcons() {
-		world.tileManager.setImageViewTile(toolbox_playerinfo, world.model.player);
+		setToolboxIcon(getVisibility() == View.VISIBLE);
+	}
+	
+	private void setToolboxIcon(boolean opened) {
+		if (opened) {
+			world.tileManager.setImageViewTileForUIIcon(toggleVisibility, TileManager.iconID_boxopened);
+		} else {
+			world.tileManager.setImageViewTileForUIIcon(toggleVisibility, TileManager.iconID_boxclosed);
+		}
 	}
 }

@@ -50,7 +50,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	public void enterCombat(int beginTurnAs) {
     	context.mainActivity.combatview.setVisibility(View.VISIBLE);
-    	context.mainActivity.combatview.bringToFront();
     	model.uiSelections.isInCombat = true;
     	killedMonsterBags.clear();
     	context.mainActivity.clearMessages();

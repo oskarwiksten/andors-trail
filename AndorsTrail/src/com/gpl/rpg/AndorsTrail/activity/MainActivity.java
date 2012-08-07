@@ -88,6 +88,7 @@ public final class MainActivity extends Activity {
         activeConditions = (LinearLayout) findViewById(R.id.statusview_activeconditions);
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         toolboxview = (ToolboxView) findViewById(R.id.main_toolboxview);
+        statusview.registerToolboxViews(toolboxview, quickitemview);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
 		statusText.setOnClickListener(new OnClickListener() {
@@ -102,9 +103,15 @@ public final class MainActivity extends Activity {
         
 		quickitemview.setVisibility(View.GONE);
         quickitemview.registerForContextMenu(this);
-    	quickitemview.refreshQuickitems();
     	
     	dpad.updateVisibility(app.preferences);
+    	
+    	// Define which views are in front of each other.
+    	dpad.bringToFront();
+    	quickitemview.bringToFront();
+    	toolboxview.bringToFront();
+    	combatview.bringToFront();
+    	statusview.bringToFront();
     }
     	
     @Override
@@ -301,10 +308,5 @@ public final class MainActivity extends Activity {
 			t.setDuration(duration);
 		}
 		t.show();
-	}
-
-	public void toggleToolboxVisibility() {
-		toolboxview.toggleVisibility();
-		statusview.bringToFront();
 	}
 }
