@@ -61,6 +61,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	private RadioGroup replyGroup;
 	private OnCheckedChangeListener radioButtonListener;
 	private boolean displayActors = true;
+	private boolean applyPhraseRewards = true;
 	
 	private final ConversationCollection conversationCollection = new ConversationCollection();
 	
@@ -80,6 +81,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 
         phraseID = uri.getLastPathSegment().toString(); 
         if (savedInstanceState != null) {
+        	applyPhraseRewards = false;
         	phraseID = savedInstanceState.getString("phraseID");
         	conversationHistory = savedInstanceState.getParcelableArrayList("conversationHistory");
         	if (conversationHistory == null) conversationHistory = new ArrayList<ConversationStatement>();
@@ -135,6 +137,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		super.onResume();
 		
         setPhrase(phraseID);
+        applyPhraseRewards = true;
     	nextButton.requestFocus();
 	}
 
@@ -229,7 +232,11 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
     		if (phrase == null) phrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null);
     	}
-    	Loot loot = ConversationController.applyPhraseRewards(player, phrase, world);
+    	
+    	Loot loot = null;
+    	if (applyPhraseRewards) {
+    		loot = ConversationController.applyPhraseRewards(player, phrase, world);
+    	}
     	
     	if (phrase.message == null) {
     		for (Reply r : phrase.replies) {
@@ -242,23 +249,25 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	
     	String message = ConversationController.getDisplayMessage(phrase, player);
     	
-    	if (loot != null && loot.hasItemsOrExp()) {
-    		message += "\n";
-	    	if (loot.exp > 0) {
-	    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, loot.exp);
-	    	}
-	    	if (loot.gold > 0) {
-	    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, loot.gold);
-	    	} else if (loot.gold < 0) {
-	    		message += "\n" + getResources().getString(R.string.conversation_lostgold, -loot.gold);
-	    	}
-	    	if (!loot.items.isEmpty()) {
-	    		final int len = loot.items.countItems();
-	    		if (len == 1) {
-	    			message += "\n" + getResources().getString(R.string.conversation_rewarditem);
-	    		} else {
-	    			message += "\n" + getResources().getString(R.string.conversation_rewarditems, len);
-	    		}
+    	if (applyPhraseRewards && loot != null) {
+	    	if (loot.hasItemsOrExp()) {
+	    		message += "\n";
+		    	if (loot.exp > 0) {
+		    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, loot.exp);
+		    	}
+		    	if (loot.gold > 0) {
+		    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, loot.gold);
+		    	} else if (loot.gold < 0) {
+		    		message += "\n" + getResources().getString(R.string.conversation_lostgold, -loot.gold);
+		    	}
+		    	if (!loot.items.isEmpty()) {
+		    		final int len = loot.items.countItems();
+		    		if (len == 1) {
+		    			message += "\n" + getResources().getString(R.string.conversation_rewarditem);
+		    		} else {
+		    			message += "\n" + getResources().getString(R.string.conversation_rewarditems, len);
+		    		}
+		    	}
 	    	}
     	}
 
