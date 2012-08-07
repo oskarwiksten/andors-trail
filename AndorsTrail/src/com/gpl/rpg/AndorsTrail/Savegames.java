@@ -24,6 +24,7 @@ import android.os.Environment;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -110,7 +111,8 @@ public final class Savegames {
     	world.model.writeToParcel(dest, flags);
     	dest.close();
     }
-    public static int loadWorld(WorldContext world, InputStream inState) throws IOException {
+	
+	public static int loadWorld(WorldContext world, InputStream inState) throws IOException {
     	DataInputStream src = new DataInputStream(inState);
     	final FileHeader header = new FileHeader(src);
     	if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
@@ -119,12 +121,17 @@ public final class Savegames {
     	world.model = new ModelContainer(src, world, header.fileversion);
     	src.close();
     	
-    	ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
-		MovementController.moveBlockedActors(world);
+    	onWorldLoaded(world);
     	
     	return LOAD_RESULT_SUCCESS;
     }
     
+	private static void onWorldLoaded(WorldContext world) {
+		ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
+		Controller.resetMaps(world, true, true);
+		MovementController.moveBlockedActors(world);
+	}
+	
 	public static FileHeader quickload(Context androidContext, int slot) {
 		try {
 			if (slot != SLOT_QUICKSAVE) {

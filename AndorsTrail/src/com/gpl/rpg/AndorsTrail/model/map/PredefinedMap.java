@@ -159,7 +159,7 @@ public final class PredefinedMap {
 			spawnAllInArea(world, a, respawnUniqueMonsters);
 		}
 	}
-	public void spawnAllInArea(WorldContext world, MonsterSpawnArea area, boolean respawnUniqueMonsters) {
+	private void spawnAllInArea(WorldContext world, MonsterSpawnArea area, boolean respawnUniqueMonsters) {
 		while (area.isSpawnable(respawnUniqueMonsters)) {
 			final boolean wasAbleToSpawn = spawnInArea(area, world, null);
 			if (!wasAbleToSpawn) break;
@@ -226,8 +226,10 @@ public final class PredefinedMap {
 	public void updateLastVisitTime() {
 		lastVisitTime = System.currentTimeMillis();
 	}
-	public void resetIfNotRecentlyVisited() {
-		if (lastVisitTime == VISIT_RESET) return;
+	public void resetIfNotRecentlyVisited(boolean resetEvenIfMapIsAlreadyReset) {
+		if (!resetEvenIfMapIsAlreadyReset) {
+			if (lastVisitTime == VISIT_RESET) return;
+		}
 		if (isRecentlyVisited()) return;
 		
 		// We reset all non-unique spawn areas. This keeps the savegame file smaller, thus reducing load and save times. Also keeps the running memory usage slightly lower.

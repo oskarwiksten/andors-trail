@@ -85,9 +85,7 @@ public final class Controller {
 			player.spawnPlace = area.id;
 			player.spawnMap = world.model.currentMap.name;
 		}
-		for (PredefinedMap m : world.maps.predefinedMaps) {
-        	if (m.visited) m.spawnAll(world);
-        }
+		resetMaps(world, false, true);
 	}
 
 	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext, MapObject area) {
@@ -102,10 +100,12 @@ public final class Controller {
 		return false;
 	}
 
-	public void resetMaps() {
+	public static void resetMaps(final WorldContext world, boolean excludeCurrentMap, boolean resetEvenIfMapIsAlreadyReset) {
 		for (PredefinedMap m : world.maps.predefinedMaps) {
-    		if (m == model.currentMap) continue;
-			m.resetIfNotRecentlyVisited();
+			if (excludeCurrentMap) {
+				if (m == world.model.currentMap) continue;
+			}
+			m.resetIfNotRecentlyVisited(resetEvenIfMapIsAlreadyReset);
     	}
 	}
 
