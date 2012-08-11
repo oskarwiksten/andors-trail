@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -102,7 +103,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
     
     private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-    	if (m.aggressionType == Monster.AGGRESSIONTYPE_PROTECT_SPAWN) {
+    	if (m.aggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
     		if (area.area.contains(playerPosition)) {
     			if (findPathFor(m, playerPosition)) return;
     		}

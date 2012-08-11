@@ -15,6 +15,7 @@ import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -326,14 +327,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return true;
 	}
 	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
-		if (m.aggressionType == Monster.AGGRESSIONTYPE_NONE) return false;
+		if (m.aggressionType == MonsterType.AGGRESSIONTYPE_NONE) return false;
 		
 		if (!m.hasAPs(m.actorTraits.moveCost)) return false;
 		if (m.position.isAdjacentTo(playerPosition)) return false;
 		
-		if (m.aggressionType == Monster.AGGRESSIONTYPE_PROTECT_SPAWN) {
+		if (m.aggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
 			if (a.area.contains(playerPosition)) return true;
-		} else if (m.aggressionType == Monster.AGGRESSIONTYPE_HELP_OTHERS) {
+		} else if (m.aggressionType == MonsterType.AGGRESSIONTYPE_HELP_OTHERS) {
 			for (Monster o : a.monsters) {
 				if (o == m) continue;
 				if (o.rectPosition.isAdjacentTo(playerPosition)) return true;

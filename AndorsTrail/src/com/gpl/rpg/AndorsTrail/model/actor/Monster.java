@@ -24,10 +24,7 @@ public final class Monster extends Actor {
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
 
-	public final int aggressionType = AGGRESSIONTYPE_PROTECT_SPAWN;
-	public static final int AGGRESSIONTYPE_NONE = 0;
-	public static final int AGGRESSIONTYPE_HELP_OTHERS = 1; // Will move to help if the player attacks some other monster in the same spawn.
-	public static final int AGGRESSIONTYPE_PROTECT_SPAWN = 2; // Will move to attack if the player stands inside the spawn. 
+	public final int aggressionType;
 	
 	private final MonsterType monsterType;
 	
@@ -52,6 +49,7 @@ public final class Monster extends Actor {
 		this.criticalMultiplier = monsterType.criticalMultiplier;
 		if (monsterType.damagePotential != null) this.damagePotential.set(monsterType.damagePotential);
 		else this.damagePotential.set(0, 0);
+		this.aggressionType = monsterType.aggressionType;
 		this.blockChance = monsterType.blockChance;
 		this.damageResistance = monsterType.damageResistance;
 		this.onHitEffects = monsterType.onHitEffects;
@@ -148,6 +146,7 @@ public final class Monster extends Actor {
 				this.shopItems = new ItemContainer(src, world, fileversion);
 			}
 		}
+		this.aggressionType = monsterType.aggressionType;
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
