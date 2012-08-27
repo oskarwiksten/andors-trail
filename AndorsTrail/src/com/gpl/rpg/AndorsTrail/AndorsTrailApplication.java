@@ -17,11 +17,11 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = false;
 	public static final boolean DEVELOPMENT_FORCE_CONTINUEGAME = false;
 	public static final boolean DEVELOPMENT_DEBUGBUTTONS = false;
-	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
-	public static final boolean DEVELOPMENT_DEBUGMESSAGES = true;
-	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES || true;
+	public static final boolean DEVELOPMENT_VALIDATEDATA = false;
+	public static final boolean DEVELOPMENT_DEBUGMESSAGES = false;
+	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES;
 	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 31;
-	public static final String CURRENT_VERSION_DISPLAY = "0.7.0dev";
+	public static final String CURRENT_VERSION_DISPLAY = "0.6.12a1";
 	
 	public final WorldContext world = new WorldContext();
 	public final WorldSetup setup = new WorldSetup(world, this);
