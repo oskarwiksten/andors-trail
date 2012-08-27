@@ -51,14 +51,14 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="30" height="30">
+ <layer name="Ground" width="30" height="30" opacity="0.99">
   <data encoding="base64" compression="zlib">
-   eJzl1d0NgzAMBGAHkQG6BaiDMAL7doNu1CIVyYQf2Xep88DDSTzxcXZEBhEZDHn+MgJJncgrbWMxtY24j6/7TttEuEsYl523jtctfZ0IV/tdj82AtRd3fY60tWtNK3fKvI24c+bnjfYtba+P9p0OXI+Pnqujvh4bdddZX/W+8pn9nu3Z8g019uuxR8It3+Ptrf/P6D1l3XPpsncjsmcmc97bZ/Oo6Vo71p6Dd6fRff9hRvdtNeO7pfV+o8/zB3TinLI=
+   eJzl1csNgCAQBNDFSAF2obEQS7BfO7Aj9UCC+MnuDMLBw1x9zi6BXkR6RQYirhFZ3Dka88hIuN3uru4crcvajBtsxg+xuqkfp4Qb+02LzYC1Dxc997lcbWq5k+dtxJ09P2+0b2pbfbTvdONafPRc3fW12KgbZv3W+81n9vu0Z80/5NivxR4IN/2OtXd8P6PvlHbPqcu+jciemcz+aj/NI6er7Zh7Dtadlu77hVm6b60Z/y2191v6PG9Kwpyv
   </data>
  </layer>
  <layer name="Objects" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJy9VkFOwzAQbKLkB3ygcOSEKtFcg6BInChQ7nAp36DtgQ/QF/CDPg0ewK7qVTbTteMkTUda1XFtz+ys7WQ0akaZVu05tdfZ4Zhxfth3Dn0XxpgQnolrlla8sh7yIw/jtSUXQnJe0O8Nxa3yQOcqPLrvisaeuee8R86aX4fWIkBPRI81NsT9BPwac6NfvEe/Fx6dXfhlLWuPaQ3f2X5uF27NzxAdlv9WSN0sj7rqiAlG2SPnvjr7+H0sbt+ZGJIb98fQ/AXt8U22P+fIPwT3VJ21T7hbTul9kdc1WN6fwv818B+7/pznFO63lfJ9o9roASPmjtLBXEXDuwnHiJ7SyPUyMnAv6fwxT4Z+ryHvXct7UnLyYeXRhvfxS1rXqedtoV/z6Tbna3mBNXlI6Hsi8hvC9378yvz19vkxS6r2RI2ResSsx/9b34rWGtLWvAirPltPzRiPtNZ1ZBRJXVsbDQLJhXOQfHA/4zPC8hW/rcbgsYB5Ub9PbygP1DiBPSycwhWqGc6xgJqtGoRqxsCzJPn57pOmOlhnyapnSHMTeO/Ker+Uy1+Djwzxcknx4TS+0e975B1x7+Yz347ix8XOxT9tjF+Y
+   eJy9VktOwzAUTKLkBlygsGSFKtFsg6BIrPiVPWzgGrRdcAF6Am7Qo8EB8FMy6uv02XGapiM91XFtz7x5tpMkCeMpS5Kpi5mL66zuW+T170uxGTcqdueeUt+ZMSaEquEDN9YDv4+HtXUFcgb3lcpdoHMFj+67cGNPmueiow7Nrfl1aC0AewI91tgQ9yPxazwY/fCe/Z55dO7Dj7WsPaY1fOe7e3UffgF0WP5bgbpZHu2rIyYEVY+c++rs4/ehuH1nYkhu3h9D85dujy/z+pwz/xDcE3XWPuluOab3ZbGtwfL+GP4viP/Q9Zc8J3S/zZXvS9VmDwQxd5QO4Spb3k08BnoqI9fzyOC9pPPnPAX6vca8Nx3vSeTkw9yjje/j52xbp563on7Np9uSr+UF1+Qudd8Tkd8QvvfjV+6vt8+Pabppj9UY1CNmPfmfv0t8a6CteRlWfVaemgnu3VqXkVGm29q6aACQi+SAfHg/8zPD8pW/rUbkMSC8rN+nN5QHaxzTHgYnuEI14zkWWLNVg1DNBHyWkJ/vPmmrg3WWrHqGNLdB9i7W+3W5/LX4KICX7y4+Go2v7vct8o64beYL39rFTxPrJv4B/gBg4Q==
   </data>
  </layer>
  <layer name="Above" width="30" height="30">
@@ -68,11 +68,11 @@
  </layer>
  <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzF1csNwCAMA1BWYP9luaLIEINNiFSph8Kz1V9vrXXiUIbZ322rJuui66rsLFOl38N5dX+HOdsoR+zott09Ktwfa+f5kfnWV1xks/s5+57Yat8sw0uXncq+K9/lRvsmD5PX0dvlvnAYF9nOTE7zZN3N94PNsctW9RwhH9lKH/QM7dzXo/b6cV9co36bs3cvXovWZnsy/5/V+ngMdSsfBA==
+   eJzFlVEOwCAIQ72C97+sv4ZUQCjQhGSJ4Gsz5/Zaaxv1krYm+6IVVYb5w0Z9XWzLUyd/i+fu/AzmzUY+ZEY2m52jgzsxe2vCc5Sf4SK2dz9m3h92Nq/loZLrVWfeF5/FleyIH49fRm4Wt4Lj4SI20xOT+TMXuT+8PjRvXecI8RE7kwedIY1brWyuiffCUvZutr492YtmrT09/5/XvKwDjxQe8w==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="30">
-  <object name="north" type="mapchange" x="320" y="0" width="192" height="32">
+  <object name="north" type="mapchange" x="288" y="0" width="192" height="32">
    <properties>
     <property name="map" value="waterway5"/>
     <property name="place" value="south"/>
