@@ -67,9 +67,9 @@ public final class Controller {
 		if (lostExp < 0) lostExp = 0;
 		player.addExperience(-lostExp);
 		model.statistics.addPlayerDeath(lostExp);
-		playerRested(world, null);
 		final MainActivity act = view.mainActivity;
 		MovementController.respawnPlayer(act.getResources(), world);
+		playerRested(world, null);
 		act.updateStatus();
 		act.mainview.notifyMapChanged(world.model);
 		act.message(act.getResources().getString(R.string.combat_hero_dies, lostExp));
@@ -86,6 +86,9 @@ public final class Controller {
 			player.spawnMap = world.model.currentMap.name;
 		}
 		resetMaps(world, false, true);
+		if (area != null) {
+			world.model.currentMap.spawnAll(world);
+		}
 	}
 
 	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext, MapObject area) {
