@@ -40,7 +40,7 @@ public final class WorldMapParser {
 		}
 	}
 
-	private static WorldMapSegment parseSegment(XmlResourceParser xrp, MapCollection maps) throws XmlPullParserException, IOException {
+	private static WorldMapSegment parseSegment(XmlResourceParser xrp, final MapCollection maps) throws XmlPullParserException, IOException {
 		String segmentName = xrp.getAttributeValue(null, "id");
 		final WorldMapSegment segment = new WorldMapSegment(segmentName);
 		
@@ -50,6 +50,7 @@ public final class WorldMapParser {
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("map")) {
 					String mapName = xrp.getAttributeValue(null, "id");
+					if (maps.findPredefinedMap(mapName) == null) return;
 					Coord mapPosition = new Coord(
 							xrp.getAttributeIntValue(null, "x", -1),
 							xrp.getAttributeIntValue(null, "y", -1)
