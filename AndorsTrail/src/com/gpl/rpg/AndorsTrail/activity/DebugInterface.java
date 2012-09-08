@@ -119,8 +119,7 @@ public final class DebugInterface {
 	    		@Override
 				public void onClick(View arg0) {
 	    			for(PredefinedMap map : world.maps.predefinedMaps) {
-	    				map.lastVisitTime = 1;
-	    				map.resetIfNotRecentlyVisited(true);
+	    				map.resetTemporaryData();
 	    			}
 	    			mainActivity.showToast("DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}

@@ -128,7 +128,7 @@ public final class Savegames {
     
 	private static void onWorldLoaded(WorldContext world) {
 		ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
-		Controller.resetMaps(world, true, true);
+		Controller.resetMapsNotRecentlyVisited(world);
 		MovementController.moveBlockedActors(world);
 	}
 	

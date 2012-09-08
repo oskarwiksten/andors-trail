@@ -210,13 +210,12 @@ public final class PredefinedMap {
 		groundBags.remove(loot);
 	}
 	public void reset() {
-		groundBags.clear();
+		resetTemporaryData();
 		for(MonsterSpawnArea a : spawnAreas) {
 			a.reset();
 		}
-		splatters.clear();
+		groundBags.clear();
 		visited = false;
-		lastVisitTime = VISIT_RESET;
 	}
 
 	public boolean isRecentlyVisited() {
@@ -226,19 +225,16 @@ public final class PredefinedMap {
 	public void updateLastVisitTime() {
 		lastVisitTime = System.currentTimeMillis();
 	}
-	public void resetIfNotRecentlyVisited(boolean resetEvenIfMapIsAlreadyReset) {
-		if (!resetEvenIfMapIsAlreadyReset) {
-			if (lastVisitTime == VISIT_RESET) return;
-		}
-		if (isRecentlyVisited()) return;
-		
-		// We reset all non-unique spawn areas. This keeps the savegame file smaller, thus reducing load and save times. Also keeps the running memory usage slightly lower.
+	public void resetTemporaryData() {
 		for(MonsterSpawnArea a : spawnAreas) {
 			if (a.isUnique) a.resetShops();
 			else a.reset();
 		}
 		splatters.clear();
 		lastVisitTime = VISIT_RESET;
+	}
+	public boolean hasResetTemporaryData() {
+		return lastVisitTime == VISIT_RESET;
 	}
 
 	public void createAllContainerLoot() {

@@ -89,6 +89,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
     
 	private static void playerVisitsMapFirstTime(final WorldContext world, PredefinedMap m) {
+		m.reset();
 		m.spawnAll(world);
 		m.createAllContainerLoot();
 		m.visited = true;

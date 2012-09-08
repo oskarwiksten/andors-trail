@@ -53,9 +53,9 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	model.uiSelections.isMainActivityVisible = false;
     }
 	
-    private void onNewFullRound() {
-    	Controller.resetMaps(world, true, false);
-    	view.actorStatsController.applyConditionsToMonsters(model.currentMap, true);
+    public void onNewFullRound() {
+    	Controller.resetMapsNotRecentlyVisited(world);
+		view.actorStatsController.applyConditionsToMonsters(model.currentMap, true);
     	view.actorStatsController.applyConditionsToPlayer(model.player, true);
     }
     
