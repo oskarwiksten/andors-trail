@@ -42,6 +42,14 @@ public final class Inventory extends ItemContainer {
 		return false;
 	}
 	
+	public static boolean isArmorSlot(int slot) {
+		if (slot == WEARSLOT_HEAD) return true;
+		else if (slot == WEARSLOT_BODY) return true;
+		else if (slot == WEARSLOT_HAND) return true;
+		else if (slot == WEARSLOT_FEET) return true;
+		else return false;
+	}
+	
 	
 	// ====== PARCELABLE ===================================================================
 

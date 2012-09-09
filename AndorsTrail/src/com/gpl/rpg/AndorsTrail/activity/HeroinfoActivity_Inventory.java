@@ -137,10 +137,14 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
 	private static int suggestInventorySlot(ItemType itemType, Player player) {
 		int slot = itemType.category.inventorySlot;
+		if (player.inventory.isEmptySlot(slot)) return slot;
+		
 		if (slot == Inventory.WEARSLOT_RING) {
-			if (!player.inventory.isEmptySlot(slot)) return slot + 1;
-		} else if (itemType.isOffhandCapableWeapon()) { 
-			if (player.inventory.isEmptySlot(Inventory.WEARSLOT_SHIELD)) return Inventory.WEARSLOT_SHIELD;
+			return slot + 1;
+		} else if (itemType.isOffhandCapableWeapon()) {
+			ItemType mainWeapon = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+			if (mainWeapon != null && mainWeapon.isTwohandWeapon()) return slot;
+			else if (player.inventory.isEmptySlot(Inventory.WEARSLOT_SHIELD)) return Inventory.WEARSLOT_SHIELD;
 		}
 		return slot;
 	}

@@ -7,7 +7,6 @@ import android.view.View;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
@@ -101,24 +100,41 @@ public final class ItemController {
 	}
 	
 	public static void applyInventoryEffects(Player player) {
-		ItemType weapon = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+		ItemType weapon = getMainWeapon(player);
 		if (weapon != null) {
-			if (weapon.effects_equip != null) {
-				CombatTraits weaponTraits = weapon.effects_equip.combatProficiency;
-				if (weaponTraits != null) {
-					player.combatTraits.attackCost = weaponTraits.attackCost;
-					player.combatTraits.criticalMultiplier = weaponTraits.criticalMultiplier;
-				}
-			}
+			player.combatTraits.attackCost = 0;
+			player.combatTraits.criticalMultiplier = weapon.effects_equip.combatProficiency.criticalMultiplier;
 		}
 		
-		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
-			ItemType type = player.inventory.wear[i];
-			if (type == null) continue;
-			
-			final boolean isWeapon = type.isWeapon();
-			ActorStatsController.applyAbilityEffects(player, type.effects_equip, isWeapon, 1);
+		applyInventoryEffects(player, Inventory.WEARSLOT_WEAPON);
+		applyInventoryEffects(player, Inventory.WEARSLOT_SHIELD);
+		applyInventoryEffects(player, Inventory.WEARSLOT_HEAD);
+		applyInventoryEffects(player, Inventory.WEARSLOT_BODY);
+		applyInventoryEffects(player, Inventory.WEARSLOT_HAND);
+		applyInventoryEffects(player, Inventory.WEARSLOT_FEET);
+		applyInventoryEffects(player, Inventory.WEARSLOT_NECK);
+		applyInventoryEffects(player, Inventory.WEARSLOT_RING);
+		
+		SkillController.applySkillEffectsFromItemProficiencies(player);
+		SkillController.applySkillEffectsFromFightingStyles(player);
+	}
+	public static ItemType getMainWeapon(Player player) {
+		ItemType itemType = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+		if (itemType != null) return itemType;
+		itemType = player.inventory.wear[Inventory.WEARSLOT_SHIELD];
+		if (itemType != null && itemType.isWeapon()) return itemType;
+		return null;
+	}
+
+	private static void applyInventoryEffects(Player player, int slot) {
+		ItemType type = player.inventory.wear[slot];
+		if (type == null) return;
+		if (slot == Inventory.WEARSLOT_SHIELD) {
+			ItemType mainHandItem = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+			// The stats for off-hand weapons will be added later in SkillController.applySkillEffectsFromFightingStyles
+			if (SkillController.isDualWielding(mainHandItem, type)) return;
 		}
+		ActorStatsController.applyAbilityEffects(player, type.effects_equip, 1);
 	}
 	
 	public static void recalculateHitEffectsFromWornItems(Player player) {

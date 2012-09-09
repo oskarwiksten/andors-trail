@@ -45,6 +45,8 @@ public final class ItemType {
 	public boolean isQuestItem() { return displayType == DISPLAYTYPE_QUEST; }
 	public boolean isOrdinaryItem() { return displayType == DISPLAYTYPE_ORDINARY; }
 	public boolean isWeapon() { return category.isWeapon(); }
+	public boolean isArmor() { return category.isArmor(); }
+	public boolean isShield() { return category.isShield(); }
 	public boolean isTwohandWeapon() { return category.isTwohandWeapon(); }
 	public boolean isOffhandCapableWeapon() { return category.isOffhandCapableWeapon(); }
 	public boolean isSellable() {

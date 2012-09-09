@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
@@ -151,5 +152,15 @@ public final class SkillController {
 				monster.ap.subtract(SkillCollection.TAUNT_AP_LOSS, false);
 			}
 		}
+	}
+
+	public static void applySkillEffectsFromItemProficiencies(Player player) {
+	}
+
+	public static void applySkillEffectsFromFightingStyles(Player player) {
+	}
+
+	public static boolean isDualWielding(ItemType mainHandItem, ItemType offHandItem) {
+		return false;
 	}
 }

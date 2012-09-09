@@ -146,33 +146,29 @@ public class ActorStatsController {
 	
 	private static void applyEffectsFromCurrentConditions(Actor actor) {
 		for (ActorCondition c : actor.conditions) {
-			applyAbilityEffects(actor, c.conditionType.abilityEffect, false, c.magnitude);
+			applyAbilityEffects(actor, c.conditionType.abilityEffect, c.magnitude);
 		}
-		actor.health.capAtMax();
-		actor.ap.capAtMax();
 	}
 	
-	public static void applyAbilityEffects(Actor actor, AbilityModifierTraits effects, boolean isWeapon, int magnitude) {
+	public static void applyAbilityEffects(Actor actor, AbilityModifierTraits effects, int multiplier) {
 		if (effects == null) return;
 		
 		CombatTraits actorCombatTraits = actor.combatTraits;
 		
-		actor.health.addToMax(effects.maxHPBoost * magnitude);
-		actor.ap.addToMax(effects.maxAPBoost * magnitude);
-		actor.actorTraits.moveCost += (effects.moveCostPenalty * magnitude);
+		actor.health.addToMax(effects.maxHPBoost * multiplier);
+		actor.ap.addToMax(effects.maxAPBoost * multiplier);
+		actor.actorTraits.moveCost += effects.moveCostPenalty * multiplier;
 		
 		CombatTraits combatTraits = effects.combatProficiency;
 		if (combatTraits != null) {
-			if (!isWeapon) { // For weapons, these stats are modified elsewhere (since they are not cumulative)
-				actorCombatTraits.attackCost += (combatTraits.attackCost * magnitude);
-				actorCombatTraits.criticalMultiplier += (combatTraits.criticalMultiplier * magnitude);
-			}
-			actorCombatTraits.attackChance += (combatTraits.attackChance * magnitude);
-			actorCombatTraits.criticalSkill += (combatTraits.criticalSkill * magnitude);
-			actorCombatTraits.damagePotential.add(combatTraits.damagePotential.current * magnitude, true);
-			actorCombatTraits.damagePotential.max += (combatTraits.damagePotential.max * magnitude);
-			actorCombatTraits.blockChance += (combatTraits.blockChance * magnitude);
-			actorCombatTraits.damageResistance += (combatTraits.damageResistance * magnitude);
+			actorCombatTraits.attackCost += combatTraits.attackCost * multiplier;
+			//criticalMultiplier should not be increased. It is always defined by the weapon in use.
+			actorCombatTraits.attackChance += combatTraits.attackChance * multiplier;
+			actorCombatTraits.criticalSkill += combatTraits.criticalSkill * multiplier;
+			actorCombatTraits.damagePotential.add(combatTraits.damagePotential.current * multiplier, true);
+			actorCombatTraits.damagePotential.addToMax(combatTraits.damagePotential.max * multiplier);
+			actorCombatTraits.blockChance += combatTraits.blockChance * multiplier;
+			actorCombatTraits.damageResistance += combatTraits.damageResistance * multiplier;
 		}
 		
 		if (actorCombatTraits.attackCost <= 0) actorCombatTraits.attackCost = 1;
@@ -189,6 +185,8 @@ public class ActorStatsController {
 		if (actor.isPlayer) SkillController.applySkillEffects((Player) actor);
 		applyEffectsFromCurrentConditions(actor);
 		if (actor.isPlayer) ItemController.recalculateHitEffectsFromWornItems((Player) actor);
+		actor.health.capAtMax();
+		actor.ap.capAtMax();
 	}
 
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
