@@ -58,6 +58,7 @@ function DataStore(input) {
 			alert("Could not find header row, cannot deserialize");
 			return;
 		}
+		this.fieldList = header;
 		this.items = deserializeObjectList(header, str);
 		this.onDeserialized();
 	}

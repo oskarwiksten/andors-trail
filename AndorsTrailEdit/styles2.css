@@ -47,6 +47,7 @@ input[readonly]				{ color: #888; }
 .validateStep h1			{ font-size: 1.1em; }
 .validateStep h1 .number	{ font-size: 1.3em; font-weight: bold; text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 1px; }
 .validateStep .buttons		{ padding-top: 10px; }
+
 #validateResultContent table							{ border-collapse: collapse; margin-bottom: 1ex; }	
 #validateResultContent table th,td						{ border: 1px #ccc solid; text-align: left; }
 #validateResultContent table tbody tr:nth-child(even)	{ background-color: #eee }
@@ -55,3 +56,14 @@ input[readonly]				{ color: #888; }
 #validateResultContent table .yellow					{ background-color: yellow; }
 #showValidationWarnings			{ cursor: pointer; }
 #showValidationWarnings:hover	{ background-color: #d7d7ff; }
+
+.clickToEdit			{ cursor: pointer; }
+.clickToEdit:hover		{ background-color: #d7d7ff; }
+
+#validateResultContent	{ width: 400px; float: left;d }
+#editorForms 			{ width: 670px; float: right;}
+#editorForms #translation_edit_list 			{ table-layout: fixed; }
+#editorForms #translation_edit_list tr:nth-child(1)	{ width: 17em }
+#editorForms #translation_edit_list tr:nth-child(2)	{ width: 8em }
+#editorForms #translation_edit_list textarea	{ width: 100%; height: 8em; }
+
