@@ -62,6 +62,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	private OnCheckedChangeListener radioButtonListener;
 	private boolean displayActors = true;
 	private boolean applyPhraseRewards = true;
+	private boolean hasResumed = false;
 	
 	private final ConversationCollection conversationCollection = new ConversationCollection();
 	
@@ -136,7 +137,10 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	protected void onResume() {
 		super.onResume();
 		
-        setPhrase(phraseID);
+		if (!hasResumed) {
+			setPhrase(phraseID);
+			hasResumed = true;
+		}
         applyPhraseRewards = true;
     	nextButton.requestFocus();
 	}
@@ -204,7 +208,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		}
 	}
     
-    public void setPhrase(String phraseID) {
+    private void setPhrase(String phraseID) {
 		this.phraseID = phraseID;
     	if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
     		ConversationActivity.this.finish();
