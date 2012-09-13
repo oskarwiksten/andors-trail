@@ -7,6 +7,7 @@ IncludeJavascript("DataStore.js");
 
 var translateFiles = [ 
 	'strings.xml', 
+	'strings_about.xml', 
 	'content_actorconditions.xml',
 	'content_conversationlist.xml',
 	'content_droplist.xml',
@@ -37,6 +38,7 @@ var translations = [
 		'content_itemlist.xml', 
 		'content_monsterlist.xml', 
 		'content_questlist.xml', 
+		'strings_about.xml',
 		'strings.xml'
 	]},
 	{ name: 'Hebrew', id: 'values-iw', files: [ 
@@ -53,6 +55,10 @@ var translations = [
 	{ name: 'Portugese', id: 'values-pt', files: [ 
 		'content_actorconditions.xml', 
 		'content_monsterlist.xml', 
+		'strings.xml'
+	]},
+	{ name: 'Japanese', id: 'values-ja', files: [ 
+		'content_conversationlist.xml', 
 		'strings.xml'
 	]}
 ];
