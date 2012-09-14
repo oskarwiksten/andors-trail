@@ -72,7 +72,7 @@
 {boots1|items_armours:28|Кожаные сапоги|feet_lthr|||23|1||||||||||3||||||||||||||||||||||};
 {boots2|items_armours:28|Превосходные кожаные сапоги|feet_lthr|||38|1||||||||||4||||||||||||||||||||||};
 {boots3|items_armours:29|Сапоги из змеиной кожи|feet_lthr|||146|1||||||||||6||||||||||||||||||||||};
-{boots5|items_armours:30|Усиленные сапоги|feet_mtl_li|||226|1||||||||||7||||||||||||||||||||||};
+{boots5|items_armours:30|Усиленные сапоги|feet_mtl_hv|||226|1||||||||||7||||||||||||||||||||||};
 {gloves_attack1|items_armours:35|Перчатки быстрой атаки|hnd_lthr|||150|1|||||15|||||-9||||||||||||||||||||||};
 {gloves_attack2|items_armours:35|Первоклассные перчатки быстрой атаки|hnd_lthr|||221|1|||||17|||||-9||||||||||||||||||||||};
 	</string>
@@ -103,8 +103,8 @@
 {health|items_consumables:49|Обычное зелье здоровья|pot|||40||||||||||||||1|10|10|||||||||||||||||};
 {health_major|items_consumables:28|Большая бутыль здоровья|pot||1|210||||||||||||||1|40|40|||||||||||||||||};
 {health_major2|items_consumables:28|Большое зелье здоровья|pot|||280||||||||||||||1|40|40|||||||||||||||||};
-{mead|items_consumables:51|Медовуха|pot|||15||||||||||||||1|1|1|||||||||||||||||};
-{milk|items_consumables:55|Молоко|pot|||21||||||||||||||1|2|2|||||||||||||||||};
+{mead|items_consumables:51|Медовуха|drink|||15||||||||||||||1|1|1|||||||||||||||||};
+{milk|items_consumables:55|Молоко|drink|||21||||||||||||||1|2|2|||||||||||||||||};
 {bonemeal_potion|items_consumables:34|Зелье из костной муки|pot||1|45||||||||||||||1|40|40|||||||||||||||||};
 	</string>
 	
@@ -184,10 +184,10 @@
 
 	<string name="itemlist_v069">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rapier_lifesteal|items_weapons:71|Рапира-душегуб|lsword|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{rapier_lifesteal|items_weapons:71|Рапира-душегуб|rapier|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
 {dagger_barbed|items_weapons:17|Кинжал с зазубринами|dagger|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
-{elytharan_redeemer|items_weapons:70|Элитаран-Спаситель|lsword|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
-{clouded_rage|items_weapons:71|Меч ярости Тени|lsword|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{elytharan_redeemer|items_weapons:70|Элитаран-Спаситель|2hsword|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
+{clouded_rage|items_weapons:71|Меч ярости Тени|rapier|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
 {shadow_slayer|items_weapons:60|Тень убийцы|axe2h|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
 
 {ring_shadow_embrace|items_jewelry:0|Кольцо объятия Тени|ring|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
@@ -243,7 +243,7 @@
 {sword_defenders|items_weapons:2|Клинок защитника|lsword||0|1711|1||||5|26|||3|7|3||||||||||||||||||||||};
 {sword_villains|items_weapons:16|Клинок злодея|ssword||0|1665|1||||4|20|5|3|1|2|||||||||||||||||||||||};
 {sword_challengers|items_weapons:1|Железный меч для поединков|lsword||0|785|1||||5|20|||2|6|||||||||||||||||||||||};
-{sword_fencing|items_weapons:13|Фехтовальный клинок|lsword||0|922|1||||4|14|||2|5|5||||||||||||||||||||||};
+{sword_fencing|items_weapons:13|Фехтовальный клинок|rapier||0|922|1||||4|14|||2|5|5||||||||||||||||||||||};
 {club_brutal|items_weapons:44|Брутальная булава|mace||0|2522|1||||7|20|5|3|2|21|||||||||||||||||||||||};
 {axe_gutsplitter|items_weapons:58|Потрошитель|axe2h||0|2733|1||||6|21|||7|17|||||||||||||||||||||||};
 {hammer_skullcrusher|items_weapons:45|Сокрушитель черепов|hammer2h||0|3142|1||||7|20|5|3|0|26|||||||||||||||||||||||};
@@ -341,8 +341,8 @@
 {helm_redeye1|items_armours:24|Шапка красных глаз|hd_lthr||0|1|1|-5|||||||||8||||||||||||||||||||||};
 {helm_redeye2|items_armours:24|Шапка кровавых глаз|hd_lthr||0|1|1|-5|||||||0|1|8||||||||||||||||||||||};
 {helm_defend1|items_armours_3:31|Шлем защитника|hd_mtl_hv||0|1975|1|||||-3|||||8|1|||||||||||||||||||||};
-{helm_protector0|items_armours_3:31|Странно выглядящий шлем|hd_mtl_hv|1|1|0|1|-9|||||||0|1|5||||||||||||||||||||||};
-{helm_protector|items_armours_3:31|Темный покровитель|hd_mtl_hv|3|0|3119|1|-6|||||||0|1|13|1|||||||||||||||||||||};
+{helm_protector0|items_armours_3:31|Странно выглядящий шлем|hd_mtl_li|1|1|0|1|-9|||||||0|1|5||||||||||||||||||||||};
+{helm_protector|items_armours_3:31|Темный покровитель|hd_mtl_li|3|0|3119|1|-6|||||||0|1|13|1|||||||||||||||||||||};
 
 {armour_chain_remg|items_armours_3:13|Ремгардская кольчуга|chmail||0|8927|1|||||-7|||||25||||||||||||||||||||||};
 {armour_cvest1|items_armours_3:5|Бронежилет|bdy_lt||0|1116|1|||||15|||||8||||||||||||||||||||||};

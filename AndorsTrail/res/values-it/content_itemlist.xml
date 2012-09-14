@@ -72,7 +72,7 @@
 {boots1|items_armours:28|Stivali di pelle|feet_lthr|||23|1||||||||||3||||||||||||||||||||||};
 {boots2|items_armours:28|Stivali di pelle pregiati|feet_lthr|||38|1||||||||||4||||||||||||||||||||||};
 {boots3|items_armours:29|Stivali pitonati|feet_lthr|||146|1||||||||||6||||||||||||||||||||||};
-{boots5|items_armours:30|Stivali rinforzati|feet_mtl_li|||226|1||||||||||7||||||||||||||||||||||};
+{boots5|items_armours:30|Stivali rinforzati|feet_mtl_hv|||226|1||||||||||7||||||||||||||||||||||};
 {gloves_attack1|items_armours:35|Guanti dell\'attacco rapido|hnd_lthr|||150|1|||||15|||||-9||||||||||||||||||||||};
 {gloves_attack2|items_armours:35|Pregiati guanti dell\'attacco rapido|hnd_lthr|||221|1|||||17|||||-9||||||||||||||||||||||};
 	</string>
@@ -103,8 +103,8 @@
 {health|items_consumables:49|Pozione curativa normale|pot|||40||||||||||||||1|10|10|||||||||||||||||};
 {health_major|items_consumables:28|Pozione curativa grande|pot||1|210||||||||||||||1|40|40|||||||||||||||||};
 {health_major2|items_consumables:28|Pozione curativa grande|pot|||280||||||||||||||1|40|40|||||||||||||||||};
-{mead|items_consumables:51|Idromele|pot|||15||||||||||||||1|1|1|||||||||||||||||};
-{milk|items_consumables:55|Latte|pot|||21||||||||||||||1|2|2|||||||||||||||||};
+{mead|items_consumables:51|Idromele|drink|||15||||||||||||||1|1|1|||||||||||||||||};
+{milk|items_consumables:55|Latte|drink|||21||||||||||||||1|2|2|||||||||||||||||};
 {bonemeal_potion|items_consumables:34|Pozione farina d\'ossa|pot||1|45||||||||||||||1|40|40|||||||||||||||||};
 	</string>
        
@@ -184,10 +184,10 @@
 
 	<string name="itemlist_v069">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rapier_lifesteal|items_weapons:71|Stocco Rubavita|lsword|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{rapier_lifesteal|items_weapons:71|Stocco Rubavita|rapier|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
 {dagger_barbed|items_weapons:17|Pugnale spinato|dagger|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
-{elytharan_redeemer|items_weapons:70|Redentore Elytharan|lsword|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
-{clouded_rage|items_weapons:71|Spada Rabbia dell\'Ombra|lsword|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{elytharan_redeemer|items_weapons:70|Redentore Elytharan|2hsword|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
+{clouded_rage|items_weapons:71|Spada Rabbia dell\'Ombra|rapier|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
 {shadow_slayer|items_weapons:60|Ombra che uccide|axe2h|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
 
 {ring_shadow_embrace|items_jewelry:0|Anello Abbraccio dell\'Ombra|ring|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
