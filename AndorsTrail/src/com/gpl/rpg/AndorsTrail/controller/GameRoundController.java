@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
@@ -31,13 +32,13 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	--ticksUntilNextRound;
     	if (ticksUntilNextRound <= 0) {
     		onNewRound();
-    		ticksUntilNextRound = Constants.TICKS_PER_ROUND;
+    		restartWaitForNextRound();
     	}
     	
     	--ticksUntilNextFullRound;
     	if (ticksUntilNextFullRound <= 0) {
     		onNewFullRound();
-    		ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
+    		restartWaitForNextFullRound();
     	}
     	
     	return true;
@@ -46,21 +47,32 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     public void resume() {
     	view.mainActivity.updateStatus();
 		model.uiSelections.isMainActivityVisible = true;
+		restartWaitForNextRound();
+		restartWaitForNextFullRound();
 		roundTimer.start();
     }
-    public void pause() {
+    
+    private void restartWaitForNextFullRound() {
+    	ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
+	}
+
+	private void restartWaitForNextRound() {
+    	ticksUntilNextRound = Constants.TICKS_PER_ROUND;
+	}
+
+	public void pause() {
     	roundTimer.stop();
     	model.uiSelections.isMainActivityVisible = false;
     }
 	
     public void onNewFullRound() {
-    	Controller.resetMapsNotRecentlyVisited(world);
+		Controller.resetMapsNotRecentlyVisited(world);
 		view.actorStatsController.applyConditionsToMonsters(model.currentMap, true);
     	view.actorStatsController.applyConditionsToPlayer(model.player, true);
     }
     
     public void onNewRound() {
-    	onNewMonsterRound();
+		onNewMonsterRound();
     	onNewPlayerRound();
     }
     public void onNewPlayerRound() {
