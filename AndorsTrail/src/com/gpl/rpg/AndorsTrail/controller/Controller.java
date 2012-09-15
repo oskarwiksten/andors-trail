@@ -88,9 +88,7 @@ public final class Controller {
 		for (PredefinedMap m : world.maps.predefinedMaps) {
 			m.resetTemporaryData();
     	}
-		if (area != null) {
-			world.model.currentMap.spawnAll(world);
-		}
+		world.model.currentMap.spawnAll(world);
 	}
 
 	public static void ui_playerRested(final Activity currentActivity, final ViewContext viewContext, MapObject area) {

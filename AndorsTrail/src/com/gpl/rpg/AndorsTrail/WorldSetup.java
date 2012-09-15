@@ -148,8 +148,8 @@ public final class WorldSetup {
 		Context ctx = androidContext.get();
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
-		Controller.playerRested(world, null);
 		MovementController.respawnPlayer(ctx.getResources(), world);
+		Controller.playerRested(world, null);
 	}
 
 
