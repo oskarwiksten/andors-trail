@@ -3,10 +3,10 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
@@ -81,31 +81,17 @@ public final class ItemTraitsParser {
 		boolean hasEffect = ResourceParserUtils.parseBoolean(parts[startIndex], false);
 		if (!hasEffect) return null;
 		
-		String boostMaxHP = parts[startIndex + 1];
-		String boostMaxAP = parts[startIndex + 2];
-		String moveCostPenalty = parts[startIndex + 3];
-		CombatTraits combatTraits = ResourceParserUtils.parseCombatTraits(parts, startIndex + 4);
+		AbilityModifierTraits stats = ResourceParserUtils.parseAbilityModifierTraits(parts, startIndex + 1);
 		final ArrayList<ActorConditionEffect> addedConditions = new ArrayList<ActorConditionEffect>();
 		tokenize2Fields.tokenizeArray(parts[startIndex + 12], addedConditions, actorConditionEffectParser_withoutDuration);
 		
-		if (       boostMaxHP.length() <= 0 
-				&& boostMaxAP.length() <= 0
-				&& moveCostPenalty.length() <= 0
-				&& combatTraits == null
-				&& addedConditions.isEmpty()
-			) {
+		if (stats == null && addedConditions.isEmpty()) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 				L.log("OPTIMIZE: Tried to parseItemTraits_OnEquip , where hasEffect=" + parts[startIndex] + ", but all data was empty.");
 			}
 			return null;
 		} else {
-			return new ItemTraits_OnEquip(
-					ResourceParserUtils.parseInt(boostMaxHP, 0)
-					,ResourceParserUtils.parseInt(boostMaxAP, 0)
-					,ResourceParserUtils.parseInt(moveCostPenalty, 0)
-					,combatTraits
-					,listToArray(addedConditions)
-					);
+			return new ItemTraits_OnEquip(stats, listToArray(addedConditions));
 		}
 	}
 	

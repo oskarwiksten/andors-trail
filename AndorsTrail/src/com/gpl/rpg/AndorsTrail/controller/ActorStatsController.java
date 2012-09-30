@@ -155,21 +155,18 @@ public class ActorStatsController {
 		
 		CombatTraits actorCombatTraits = actor.combatTraits;
 		
-		actor.health.addToMax(effects.maxHPBoost * multiplier);
-		actor.ap.addToMax(effects.maxAPBoost * multiplier);
-		actor.actorTraits.moveCost += effects.moveCostPenalty * multiplier;
+		actor.health.addToMax(effects.increaseMaxHP * multiplier);
+		actor.ap.addToMax(effects.increaseMaxAP * multiplier);
+		actor.actorTraits.moveCost += effects.increaseMoveCost * multiplier;
 		
-		CombatTraits combatTraits = effects.combatProficiency;
-		if (combatTraits != null) {
-			actorCombatTraits.attackCost += combatTraits.attackCost * multiplier;
-			//criticalMultiplier should not be increased. It is always defined by the weapon in use.
-			actorCombatTraits.attackChance += combatTraits.attackChance * multiplier;
-			actorCombatTraits.criticalSkill += combatTraits.criticalSkill * multiplier;
-			actorCombatTraits.damagePotential.add(combatTraits.damagePotential.current * multiplier, true);
-			actorCombatTraits.damagePotential.addToMax(combatTraits.damagePotential.max * multiplier);
-			actorCombatTraits.blockChance += combatTraits.blockChance * multiplier;
-			actorCombatTraits.damageResistance += combatTraits.damageResistance * multiplier;
-		}
+		actorCombatTraits.attackCost += effects.increaseAttackCost * multiplier;
+		//criticalMultiplier should not be increased. It is always defined by the weapon in use.
+		actorCombatTraits.attackChance += effects.increaseAttackChance * multiplier;
+		actorCombatTraits.criticalSkill += effects.increaseCriticalSkill * multiplier;
+		actorCombatTraits.damagePotential.add(effects.increaseMinDamage * multiplier, true);
+		actorCombatTraits.damagePotential.addToMax(effects.increaseMaxDamage * multiplier);
+		actorCombatTraits.blockChance += effects.increaseBlockChance * multiplier;
+		actorCombatTraits.damageResistance += effects.increaseDamageResistance * multiplier;
 		
 		if (actorCombatTraits.attackCost <= 0) actorCombatTraits.attackCost = 1;
 		if (actorCombatTraits.attackChance < 0) actorCombatTraits.attackChance = 0;

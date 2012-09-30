@@ -121,30 +121,47 @@ public final class ResourceParserUtils {
 	}
 	
 	public static AbilityModifierTraits parseAbilityModifierTraits(String[] parts, int startIndex) {
-		boolean hasEffect = parseBoolean(parts[startIndex], false);
-		if (!hasEffect) return null;
+		String increaseMaxHP = parts[startIndex + 0];
+		String increaseMaxAP = parts[startIndex + 1];
+		String increaseMoveCost = parts[startIndex + 2];
+		String increaseAttackCost = parts[startIndex + 3];
+		String increaseAttackChance = parts[startIndex + 4];
+		String increaseBlockChance = parts[startIndex + 9];
+		String increaseMinDamage = parts[startIndex + 7];
+		String increaseMaxDamage = parts[startIndex + 8];
+		String increaseCriticalSkill = parts[startIndex + 5];
+		String setCriticalMultiplier = parts[startIndex + 6];
+		String increaseDamageResistance = parts[startIndex + 10];
 		
-		String boostMaxHP = parts[startIndex + 1];
-		String boostMaxAP = parts[startIndex + 2];
-		String moveCostPenalty = parts[startIndex + 3];
-		CombatTraits combatTraits = parseCombatTraits(parts, startIndex + 4);
-		
-		if (       boostMaxHP.length() <= 0 
-				&& boostMaxAP.length() <= 0 
-				&& moveCostPenalty.length() <= 0
-				&& combatTraits == null
+		if (       increaseMaxHP.length() <= 0 
+				&& increaseMaxAP.length() <= 0 
+				&& increaseMoveCost.length() <= 0
+				&& increaseAttackCost.length() <= 0 
+				&& increaseAttackChance.length() <= 0
+				&& increaseBlockChance.length() <= 0
+				&& increaseMinDamage.length() <= 0
+				&& increaseMaxDamage.length() <= 0
+				&& increaseCriticalSkill.length() <= 0
+				&& setCriticalMultiplier.length() <= 0
+				&& increaseDamageResistance.length() <= 0
 			) {
-			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				L.log("OPTIMIZE: Tried to parseAbilityModifierTraits , where hasEffect=" + parts[startIndex] + ", but all data was empty.");
-			}
 			return null;
 		} else {
 			return new AbilityModifierTraits(
-					parseInt(boostMaxHP, 0)
-					,parseInt(boostMaxAP, 0)
-					,parseInt(moveCostPenalty, 0)
-					,combatTraits
-					);
+					parseInt(increaseMaxHP, 0)
+					,parseInt(increaseMaxAP, 0)
+					,parseInt(increaseMoveCost, 0)
+					,0 // increaseUseItemCost
+					,0 // increaseReequipCost
+					,parseInt(increaseAttackCost, 0)
+					,parseInt(increaseAttackChance, 0)
+					,parseInt(increaseBlockChance, 0)
+					,parseInt(increaseMinDamage, 0)
+					,parseInt(increaseMaxDamage, 0)
+					,parseInt(increaseCriticalSkill, 0)
+					,parseFloat(setCriticalMultiplier, 0)
+					,parseInt(increaseDamageResistance, 0)
+				);
 		}
 	}
 	

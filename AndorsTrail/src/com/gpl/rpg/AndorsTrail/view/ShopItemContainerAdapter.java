@@ -48,7 +48,7 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		}
 		
 		tileManager.setImageViewTile((ImageView) result.findViewById(R.id.shopitem_image), itemType, tileCollection);
-		((TextView) result.findViewById(R.id.shopitem_text)).setText(itemType.describeWearEffect(item.quantity));
+		((TextView) result.findViewById(R.id.shopitem_text)).setText(ItemController.describeItemForListView(item));
 		Button b = (Button) result.findViewById(R.id.shopitem_shopbutton);
 		if (isSelling) {
 			b.setText(r.getString(R.string.shop_sellitem, ItemController.getSellingPrice(player, itemType)));
