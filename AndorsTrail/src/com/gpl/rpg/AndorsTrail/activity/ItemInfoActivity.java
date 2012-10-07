@@ -51,7 +51,7 @@ public final class ItemInfoActivity extends Activity {
         tv.setText(itemType.name);
         world.tileManager.setImageViewTileForSingleItemType(tv, itemType, getResources());
         tv = (TextView) findViewById(R.id.iteminfo_category);
-        tv.setText(getCategoryNameRes(itemType.category));
+        tv.setText(itemType.category.displayName);
         
         ((ItemEffectsView) findViewById(R.id.iteminfo_effects)).update(
         		itemType.effects_equip,
@@ -101,32 +101,4 @@ public final class ItemInfoActivity extends Activity {
     public static String getDisplayTypeString(Resources res, ItemType itemType) {
     	return res.getStringArray(R.array.iteminfo_displaytypes)[itemType.displayType];
     }
-
-    private static int getCategoryNameRes(int itemCategory) {
-		switch (itemCategory) {
-		case ItemType.CATEGORY_MONEY:
-			return R.string.itemcategory_money;
-		case ItemType.CATEGORY_WEAPON:
-			return R.string.itemcategory_weapon;
-		case ItemType.CATEGORY_SHIELD:
-			return R.string.itemcategory_shield;
-		case ItemType.CATEGORY_WEARABLE_HEAD:
-			return R.string.itemcategory_wearable_head;
-		case ItemType.CATEGORY_WEARABLE_HAND:
-			return R.string.itemcategory_wearable_hand;
-		case ItemType.CATEGORY_WEARABLE_FEET:
-			return R.string.itemcategory_wearable_feet;
-		case ItemType.CATEGORY_WEARABLE_BODY:
-			return R.string.itemcategory_wearable_body;
-		case ItemType.CATEGORY_WEARABLE_NECK:
-			return R.string.itemcategory_wearable_neck;
-		case ItemType.CATEGORY_WEARABLE_RING:
-			return R.string.itemcategory_wearable_ring;
-		case ItemType.CATEGORY_POTION:
-			return R.string.itemcategory_potion;
-		default:
-			return R.string.itemcategory_other;
-		}
-	}
-
 }

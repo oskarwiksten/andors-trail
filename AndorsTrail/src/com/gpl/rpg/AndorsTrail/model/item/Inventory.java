@@ -8,8 +8,18 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
 public final class Inventory extends ItemContainer {
 
+	public static final int WEARSLOT_WEAPON = 0;
+	public static final int WEARSLOT_SHIELD = 1;
+	public static final int WEARSLOT_HEAD = 2;
+	public static final int WEARSLOT_BODY = 3;
+	public static final int WEARSLOT_HAND = 4;
+	public static final int WEARSLOT_FEET = 5;
+	public static final int WEARSLOT_NECK = 6;
+	public static final int WEARSLOT_LEFTRING = 7;
+	public static final int WEARSLOT_RIGHTRING = 8;
+	
 	public int gold = 0;
-	public static final int NUM_WORN_SLOTS = ItemType.MAX_CATEGORY_WEAR+1+1; // +1 for 0 based index. +1 for left+right rings.
+	public static final int NUM_WORN_SLOTS = WEARSLOT_RIGHTRING+1; // +1 for 0 based index.
 	public static final int NUM_QUICK_SLOTS = 3;
 	public final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
 	public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
@@ -31,6 +41,14 @@ public final class Inventory extends ItemContainer {
 			if (wear[i].id.equals(itemTypeID)) return true;
 		}
 		return false;
+	}
+	
+	public static boolean isArmorSlot(int slot) {
+		if (slot == WEARSLOT_HEAD) return true;
+		else if (slot == WEARSLOT_BODY) return true;
+		else if (slot == WEARSLOT_HAND) return true;
+		else if (slot == WEARSLOT_FEET) return true;
+		else return false;
 	}
 	
 	

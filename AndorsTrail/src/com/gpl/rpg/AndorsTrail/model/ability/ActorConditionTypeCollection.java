@@ -21,4 +21,8 @@ public class ActorConditionTypeCollection {
 	public void initialize(final ActorConditionsTypeParser parser, String input) {
 		parser.parseRows(input, conditionTypes);
 	}
+
+	public HashMap<String, ActorConditionType> UNITTEST_getAllActorConditionsTypes() {
+		return conditionTypes;
+	}
 }

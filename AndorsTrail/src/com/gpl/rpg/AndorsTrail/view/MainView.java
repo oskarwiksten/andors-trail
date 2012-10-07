@@ -307,7 +307,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         	for (int x = 0; x < area.size.width; ++x, ++mx, px += tileSize) {
         		final int tile = layer.tiles[mx][my];
         		if (tile != 0) {
-        			canvas.drawBitmap(tiles.bitmaps[tile], px, py, mPaint);
+        			tiles.drawTile(canvas, tile, px, py, mPaint);
         		}
             }
         }
@@ -326,10 +326,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     	y -= mapViewArea.topLeft.y;
 		if (	   (x >= 0 && x < mapViewArea.size.width)
 				&& (y >= 0 && y < mapViewArea.size.height)) {
-			canvas.drawBitmap(tiles.bitmaps[tile], 
-	        		x * tileSize,
-	        		y * tileSize,
-	        		mPaint);
+			tiles.drawTile(canvas, tile, x * tileSize, y * tileSize, mPaint);
 		}
     }
 	

@@ -12,6 +12,7 @@ var translateFiles = [
 	'content_conversationlist.xml',
 	'content_droplist.xml',
 	'content_itemlist.xml',
+	'content_itemcategories.xml',
 	'content_monsterlist.xml',
 	'content_questlist.xml'
 ];

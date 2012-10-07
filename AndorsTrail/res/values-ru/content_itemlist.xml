@@ -3,381 +3,381 @@
 <resources>
 	<string name="itemlist_money">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{gold|items_misc:10|Золото|30||1|1|||||||||||||||||||||||||||||||||};
+{gold|items_misc:10|Золото|money||1|1|||||||||||||||||||||||||||||||||};
 	</string>
 	
 	<string name="itemlist_weapons">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{club1|items_weapons:42|Дубинка|0|||7|1||||5|10|||0|1|||||||||||||||||||||||};
-{club3|items_weapons:44|Палица|0|||253|1||||6|5|||2|7|||||||||||||||||||||||};
-{ironsword0|items_weapons:0|Скверный железный меч|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
-{hammer0|items_weapons:45|Железный молот|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
-{hammer1|items_weapons:45|Большой молот|0|||121|1||||10|5|||4|7|||||||||||||||||||||||};
-{dagger0|items_weapons:14|Железный кинжал|0|||12|1||||5|10|||0|1|||||||||||||||||||||||};
-{dagger1|items_weapons:14|Острый железный кинжал|0|||53|1||||4|20|||1|2|||||||||||||||||||||||};
-{dagger2|items_weapons:14|Превосходный железный кинжал|0|||70|1||||4|25|||1|2|||||||||||||||||||||||};
-{shortsword1|items_weapons:15|Железный короткий меч|0|||78|1||||4|15|||1|2|||||||||||||||||||||||};
-{ironsword1|items_weapons:0|Железный меч|0|||78|1||||5|10|||1|3|||||||||||||||||||||||};
-{ironsword2|items_weapons:1|Железный полуторный меч|0|||121|1||||5|10|||1|4|||||||||||||||||||||||};
-{broadsword1|items_weapons:5|Железный палаш|0|||251|1||||7|2|||1|10|||||||||||||||||||||||};
-{broadsword2|items_weapons:6|Стальной палаш|0|||582|1||||6|15|||3|10|||||||||||||||||||||||};
-{steelsword1|items_weapons:7|Стальной меч|0|||874|1||||4|24|||3|7|||||||||||||||||||||||};
-{axe1|items_weapons:56|Топор для колки дров|0|||24|1||||5|5|||1|3|||||||||||||||||||||||};
-{axe2|items_weapons:56|Железный топор|0|||312|1||||6|5|||2|5|||||||||||||||||||||||};
-{quickdagger1|items_weapons:14|Кинжал быстрого удара|0|4||512|1||||3|20|||0|0|-20||||||||||||||||||||||};
+{club1|items_weapons:42|Дубинка|club|||7|1||||5|10|||0|1|||||||||||||||||||||||};
+{club3|items_weapons:44|Палица|mace|||253|1||||6|5|||2|7|||||||||||||||||||||||};
+{ironsword0|items_weapons:0|Скверный железный меч|lsword|||12|1||||5|10|||0|1|||||||||||||||||||||||};
+{hammer0|items_weapons:45|Железный молот|hammer|||12|1||||5|10|||0|1|||||||||||||||||||||||};
+{hammer1|items_weapons:45|Большой молот|hammer2h|||121|1||||10|5|||4|7|||||||||||||||||||||||};
+{dagger0|items_weapons:14|Железный кинжал|dagger|||12|1||||5|10|||0|1|||||||||||||||||||||||};
+{dagger1|items_weapons:14|Острый железный кинжал|dagger|||53|1||||4|20|||1|2|||||||||||||||||||||||};
+{dagger2|items_weapons:14|Превосходный железный кинжал|dagger|||70|1||||4|25|||1|2|||||||||||||||||||||||};
+{shortsword1|items_weapons:15|Железный короткий меч|ssword|||78|1||||4|15|||1|2|||||||||||||||||||||||};
+{ironsword1|items_weapons:0|Железный меч|lsword|||78|1||||5|10|||1|3|||||||||||||||||||||||};
+{ironsword2|items_weapons:1|Железный полуторный меч|lsword|||121|1||||5|10|||1|4|||||||||||||||||||||||};
+{broadsword1|items_weapons:5|Железный палаш|bsword|||251|1||||7|2|||1|10|||||||||||||||||||||||};
+{broadsword2|items_weapons:6|Стальной палаш|bsword|||582|1||||6|15|||3|10|||||||||||||||||||||||};
+{steelsword1|items_weapons:7|Стальной меч|lsword|||874|1||||4|24|||3|7|||||||||||||||||||||||};
+{axe1|items_weapons:56|Топор для колки дров|axe|||24|1||||5|5|||1|3|||||||||||||||||||||||};
+{axe2|items_weapons:56|Железный топор|axe|||312|1||||6|5|||2|5|||||||||||||||||||||||};
+{quickdagger1|items_weapons:14|Кинжал быстрого удара|dagger|4||512|1||||3|20|||0|0|-20||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_rings">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{ring_dmg1|items_jewelry:0|Кольцо урона +1|7|||215|1||||||||1|1|||||||||||||||||||||||};
-{ring_dmg2|items_jewelry:1|Кольцо урона +2|7|||398|1||||||||2|2|||||||||||||||||||||||};
-{ring_dmg5|items_jewelry:2|Кольцо урона +5|7|4||2014|1||||||||5|5|||||||||||||||||||||||};
-{ring_dmg6|items_jewelry:3|Кольцо урона +6|7|4||3186|1||||||||6|6|||||||||||||||||||||||};
-{ring_block1|items_jewelry:0|Малое кольцо защиты|7|4||1239|1||||||||||10||||||||||||||||||||||};
-{ring_block2|items_jewelry:0|Блестящее кольцо защиты|7|4||3866|1||||||||||15||||||||||||||||||||||};
-{ring_atkch1|items_jewelry:0|Кольцо атаки|7|||215|1|||||15|||||||||||||||||||||||||||};
-{ring1|items_jewelry:0|Обычное кольцо|7||1|13|1||||||||0|1|||||||||||||||||||||||};
-{ring2|items_jewelry:0|Блестящее кольцо|7||1|21|1||||||||||1||||||||||||||||||||||};
-{ring_jinxed1|items_jewelry:2|Порченое кольцо защиты от урона|7|||229|1||||||||||-9|1|||||||||||||||||||||};
+{ring_dmg1|items_jewelry:0|Кольцо урона +1|ring|||215|1||||||||1|1|||||||||||||||||||||||};
+{ring_dmg2|items_jewelry:1|Кольцо урона +2|ring|||398|1||||||||2|2|||||||||||||||||||||||};
+{ring_dmg5|items_jewelry:2|Кольцо урона +5|ring|4||2014|1||||||||5|5|||||||||||||||||||||||};
+{ring_dmg6|items_jewelry:3|Кольцо урона +6|ring|4||3186|1||||||||6|6|||||||||||||||||||||||};
+{ring_block1|items_jewelry:0|Малое кольцо защиты|ring|4||1239|1||||||||||10||||||||||||||||||||||};
+{ring_block2|items_jewelry:0|Блестящее кольцо защиты|ring|4||3866|1||||||||||15||||||||||||||||||||||};
+{ring_atkch1|items_jewelry:0|Кольцо атаки|ring|||215|1|||||15|||||||||||||||||||||||||||};
+{ring1|items_jewelry:0|Обычное кольцо|ring||1|13|1||||||||0|1|||||||||||||||||||||||};
+{ring2|items_jewelry:0|Блестящее кольцо|ring||1|21|1||||||||||1||||||||||||||||||||||};
+{ring_jinxed1|items_jewelry:2|Порченое кольцо защиты от урона|ring|||229|1||||||||||-9|1|||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_necklaces">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{jewel_fallhaven|items_jewelry:6|Драгоценность Фоллхейвена|6|4||3125|1||||-1||||||||||||||||||||||||||||};
-{necklace_shield1|items_jewelry:7|Ожерелье стражника|6|4||935|1||||||||||9||||||||||||||||||||||};
-{necklace_shield2|items_jewelry:7|Защитное ожерелье|6|4||1255|1||||||||||12||||||||||||||||||||||};
+{jewel_fallhaven|items_jewelry:6|Драгоценность Фоллхейвена|neck|4||3125|1||||-1||||||||||||||||||||||||||||};
+{necklace_shield1|items_jewelry:7|Ожерелье стражника|neck|4||935|1||||||||||9||||||||||||||||||||||};
+{necklace_shield2|items_jewelry:7|Защитное ожерелье|neck|4||1255|1||||||||||12||||||||||||||||||||||};
 	</string>
 	
 <string name="itemlist_armour">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{shirt1|items_armours:14|Хлопковая рубаха|3|||16|1||||||||||2||||||||||||||||||||||};
-{shirt2|items_armours:14|Первоклассная рубаха|3|||72|1||||||||||5||||||||||||||||||||||};
-{shirt_dmgresist|items_armours:15|Рубаха из грубой кожи|3|4||1633|1||||||||||5|1|||||||||||||||||||||};
-{armor1|items_armours:15|Кожаная броня|3|||464|1||||||||||8||||||||||||||||||||||};
-{armor2|items_armours:15|Превосходная кожаная броня|3|||624|1||||||||||9||||||||||||||||||||||};
-{armor3|items_armours:16|Жесткая кожаная броня|3|||2407|1||||||||||13||||||||||||||||||||||};
-{armor4|items_armours:16|Превосходная жесткая кожаная броня|3|||3866|1||||||||||15||||||||||||||||||||||};
-{hat1|items_armours:21|Зеленая шапка|2|||13|1||||||||||1||||||||||||||||||||||};
-{hat2|items_armours:21|Первоклассная зеленая шапка|2|||25|1||||||||||2||||||||||||||||||||||};
-{hat3|items_armours:24|Скверная кожаная шапка|2|||72|1||||||||||5||||||||||||||||||||||};
-{hat4|items_armours:24|Шапка из кожи|2|||146|1||||||||||6||||||||||||||||||||||};
-{gloves1|items_armours:35|Кожаные перчатки|4|||23|1||||||||||3||||||||||||||||||||||};
-{gloves2|items_armours:35|Первоклассные кожаные перчатки|4|||38|1||||||||||4||||||||||||||||||||||};
-{gloves3|items_armours:36|Перчатки из змеиной кожи|4|||72|1||||||||||5||||||||||||||||||||||};
-{gloves4|items_armours:36|Первоклассные перчатки из змеиной кожи|4|||146|1||||||||||6||||||||||||||||||||||};
-{shield1|items_armours:0|Деревянный круглый щит|1|||72|1|||||-2|||||5||||||||||||||||||||||};
-{shield3|items_armours:1|Усиленный деревянный круглый щит|1|||226|1|||||-5|||||7||||||||||||||||||||||};
-{shield4|items_armours:2|Скверный деревянный щит|1|||464|1|||||-5|||||8||||||||||||||||||||||};
-{shield5|items_armours:2|Превосходный деревянный щит|1|||624|1|||||-4|||||9||||||||||||||||||||||};
-{boots1|items_armours:28|Кожаные сапоги|5|||23|1||||||||||3||||||||||||||||||||||};
-{boots2|items_armours:28|Превосходные кожаные сапоги|5|||38|1||||||||||4||||||||||||||||||||||};
-{boots3|items_armours:29|Сапоги из змеиной кожи|5|||146|1||||||||||6||||||||||||||||||||||};
-{boots5|items_armours:30|Усиленные сапоги|5|||226|1||||||||||7||||||||||||||||||||||};
-{gloves_attack1|items_armours:35|Перчатки быстрой атаки|4|||150|1|||||15|||||-9||||||||||||||||||||||};
-{gloves_attack2|items_armours:35|Первоклассные перчатки быстрой атаки|4|||221|1|||||17|||||-9||||||||||||||||||||||};
+{shirt1|items_armours:14|Хлопковая рубаха|bdy_clth|||16|1||||||||||2||||||||||||||||||||||};
+{shirt2|items_armours:14|Первоклассная рубаха|bdy_clth|||72|1||||||||||5||||||||||||||||||||||};
+{shirt_dmgresist|items_armours:15|Рубаха из грубой кожи|bdy_lthr|4||1633|1||||||||||5|1|||||||||||||||||||||};
+{armor1|items_armours:15|Кожаная броня|bdy_lthr|||464|1||||||||||8||||||||||||||||||||||};
+{armor2|items_armours:15|Превосходная кожаная броня|bdy_lthr|||624|1||||||||||9||||||||||||||||||||||};
+{armor3|items_armours:16|Жесткая кожаная броня|bdy_lthr|||2407|1||||||||||13||||||||||||||||||||||};
+{armor4|items_armours:16|Превосходная жесткая кожаная броня|bdy_lthr|||3866|1||||||||||15||||||||||||||||||||||};
+{hat1|items_armours:21|Зеленая шапка|hd_cloth|||13|1||||||||||1||||||||||||||||||||||};
+{hat2|items_armours:21|Первоклассная зеленая шапка|hd_cloth|||25|1||||||||||2||||||||||||||||||||||};
+{hat3|items_armours:24|Скверная кожаная шапка|hd_lthr|||72|1||||||||||5||||||||||||||||||||||};
+{hat4|items_armours:24|Шапка из кожи|hd_lthr|||146|1||||||||||6||||||||||||||||||||||};
+{gloves1|items_armours:35|Кожаные перчатки|hnd_lthr|||23|1||||||||||3||||||||||||||||||||||};
+{gloves2|items_armours:35|Первоклассные кожаные перчатки|hnd_lthr|||38|1||||||||||4||||||||||||||||||||||};
+{gloves3|items_armours:36|Перчатки из змеиной кожи|hnd_cloth|||72|1||||||||||5||||||||||||||||||||||};
+{gloves4|items_armours:36|Первоклассные перчатки из змеиной кожи|hnd_cloth|||146|1||||||||||6||||||||||||||||||||||};
+{shield1|items_armours:0|Деревянный круглый щит|buckler|||72|1|||||-2|||||5||||||||||||||||||||||};
+{shield3|items_armours:1|Усиленный деревянный круглый щит|buckler|||226|1|||||-5|||||7||||||||||||||||||||||};
+{shield4|items_armours:2|Скверный деревянный щит|shld_wd_li|||464|1|||||-5|||||8||||||||||||||||||||||};
+{shield5|items_armours:2|Превосходный деревянный щит|shld_wd_li|||624|1|||||-4|||||9||||||||||||||||||||||};
+{boots1|items_armours:28|Кожаные сапоги|feet_lthr|||23|1||||||||||3||||||||||||||||||||||};
+{boots2|items_armours:28|Превосходные кожаные сапоги|feet_lthr|||38|1||||||||||4||||||||||||||||||||||};
+{boots3|items_armours:29|Сапоги из змеиной кожи|feet_lthr|||146|1||||||||||6||||||||||||||||||||||};
+{boots5|items_armours:30|Усиленные сапоги|feet_mtl_hv|||226|1||||||||||7||||||||||||||||||||||};
+{gloves_attack1|items_armours:35|Перчатки быстрой атаки|hnd_lthr|||150|1|||||15|||||-9||||||||||||||||||||||};
+{gloves_attack2|items_armours:35|Первоклассные перчатки быстрой атаки|hnd_lthr|||221|1|||||17|||||-9||||||||||||||||||||||};
 	</string>
 	
 <string name="itemlist_food">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{apple_green|items_consumables:2|Зеленое яблоко|21|||9||||||||||||||1|4|4|||||||||||||||||};
-{apple_red|items_consumables:3|Красное яблоко|21|||15||||||||||||||1|6|6|||||||||||||||||};
-{meat|items_consumables:25|Мясо|21||1|29||||||||||||||1|12|12|||||||||||||||||};
-{meat_cooked|items_consumables:27|Приготовленное мясо|21||1|78||||||||||||||1|21|21|||||||||||||||||};
-{strawberry|items_consumables:8|Клубника|21|||1||||||||||||||1|1|1|||||||||||||||||};
-{carrot|items_consumables:15|Морковь|21|||9||||||||||||||1|4|4|||||||||||||||||};
-{bread|items_consumables:21|Хлеб|21||1|6||||||||||||||1|5|5|||||||||||||||||};
-{mushroom|items_consumables:19|Гриб|21|||1||||||||||||||1|1|1|||||||||||||||||};
-{pear|items_consumables:9|Груша|21|||9||||||||||||||1|4|4|||||||||||||||||};
-{eggs|items_consumables:20|Яйца|21|||8||||||||||||||1|3|3|||||||||||||||||};
-{radish|items_consumables:14|Редиска|21|||5||||||||||||||1|2|2|||||||||||||||||};
+{apple_green|items_consumables:2|Зеленое яблоко|food|||9||||||||||||||1|4|4|||||||||||||||||};
+{apple_red|items_consumables:3|Красное яблоко|food|||15||||||||||||||1|6|6|||||||||||||||||};
+{meat|items_consumables:25|Мясо|animal_e||1|29||||||||||||||1|12|12|||||||||||||||||};
+{meat_cooked|items_consumables:27|Приготовленное мясо|food||1|78||||||||||||||1|21|21|||||||||||||||||};
+{strawberry|items_consumables:8|Клубника|food|||1||||||||||||||1|1|1|||||||||||||||||};
+{carrot|items_consumables:15|Морковь|food|||9||||||||||||||1|4|4|||||||||||||||||};
+{bread|items_consumables:21|Хлеб|food||1|6||||||||||||||1|5|5|||||||||||||||||};
+{mushroom|items_consumables:19|Гриб|food|||1||||||||||||||1|1|1|||||||||||||||||};
+{pear|items_consumables:9|Груша|food|||9||||||||||||||1|4|4|||||||||||||||||};
+{eggs|items_consumables:20|Яйца|food|||8||||||||||||||1|3|3|||||||||||||||||};
+{radish|items_consumables:14|Редиска|food|||5||||||||||||||1|2|2|||||||||||||||||};
 	</string>
 
 	<string name="itemlist_potions">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{vial_empty1|items_consumables:56|Пустая склянка|31||1|2|||||||||||||||||||||||||||||||||};
-{vial_empty2|items_consumables:57|Пустой пузырек|31||1|4|||||||||||||||||||||||||||||||||};
-{vial_empty3|items_consumables:59|Пустой флакон|31||1|6|||||||||||||||||||||||||||||||||};
-{vial_empty4|items_consumables:58|Пустая бутыль|31||1|11|||||||||||||||||||||||||||||||||};
-{health_minor|items_consumables:35|Малый пузырек здоровья|20||1|5||||||||||||||1|5|5|||||||||||||||||};
-{health_minor2|items_consumables:35|Малое зелье здоровья|20|||18||||||||||||||1|5|5|||||||||||||||||};
-{health|items_consumables:49|Обычное зелье здоровья|20|||40||||||||||||||1|10|10|||||||||||||||||};
-{health_major|items_consumables:28|Большая бутыль здоровья|20||1|210||||||||||||||1|40|40|||||||||||||||||};
-{health_major2|items_consumables:28|Большое зелье здоровья|20|||280||||||||||||||1|40|40|||||||||||||||||};
-{mead|items_consumables:51|Медовуха|20|||15||||||||||||||1|1|1|||||||||||||||||};
-{milk|items_consumables:55|Молоко|20|||21||||||||||||||1|2|2|||||||||||||||||};
-{bonemeal_potion|items_consumables:34|Зелье из костной муки|20||1|45||||||||||||||1|40|40|||||||||||||||||};
+{vial_empty1|items_consumables:56|Пустая склянка|flask||1|2|||||||||||||||||||||||||||||||||};
+{vial_empty2|items_consumables:57|Пустой пузырек|flask||1|4|||||||||||||||||||||||||||||||||};
+{vial_empty3|items_consumables:59|Пустой флакон|flask||1|6|||||||||||||||||||||||||||||||||};
+{vial_empty4|items_consumables:58|Пустая бутыль|flask||1|11|||||||||||||||||||||||||||||||||};
+{health_minor|items_consumables:35|Малый пузырек здоровья|pot||1|5||||||||||||||1|5|5|||||||||||||||||};
+{health_minor2|items_consumables:35|Малое зелье здоровья|pot|||18||||||||||||||1|5|5|||||||||||||||||};
+{health|items_consumables:49|Обычное зелье здоровья|pot|||40||||||||||||||1|10|10|||||||||||||||||};
+{health_major|items_consumables:28|Большая бутыль здоровья|pot||1|210||||||||||||||1|40|40|||||||||||||||||};
+{health_major2|items_consumables:28|Большое зелье здоровья|pot|||280||||||||||||||1|40|40|||||||||||||||||};
+{mead|items_consumables:51|Медовуха|drink|||15||||||||||||||1|1|1|||||||||||||||||};
+{milk|items_consumables:55|Молоко|drink|||21||||||||||||||1|2|2|||||||||||||||||};
+{bonemeal_potion|items_consumables:34|Зелье из костной муки|pot||1|45||||||||||||||1|40|40|||||||||||||||||};
 	</string>
 	
 	<string name="itemlist_animal">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{hair|items_misc:48|Шерсть животного|31||1|2|||||||||||||||||||||||||||||||||};
-{insectwing|items_misc:52|Крыло насекомого|31||1|3|||||||||||||||||||||||||||||||||};
-{bone|items_misc:44|Кость|31||1|2|||||||||||||||||||||||||||||||||};
-{claws|items_misc:47|Коготь|31||1|2|||||||||||||||||||||||||||||||||};
-{shell|items_misc:54|Оболочка насекомого|31||1|2|||||||||||||||||||||||||||||||||};
-{gland|actorconditions_1:60|Ядовитая железа|31||1|15|||||||||||||||||||||||||||||||||};
-{rat_tail|items_misc:38|Хвост крысы|31||1|2|||||||||||||||||||||||||||||||||};
+{hair|items_misc:48|Шерсть животного|animal||1|2|||||||||||||||||||||||||||||||||};
+{insectwing|items_misc:52|Крыло насекомого|animal||1|3|||||||||||||||||||||||||||||||||};
+{bone|items_misc:44|Кость|animal||1|2|||||||||||||||||||||||||||||||||};
+{claws|items_misc:47|Коготь|animal||1|2|||||||||||||||||||||||||||||||||};
+{shell|items_misc:54|Оболочка насекомого|animal||1|2|||||||||||||||||||||||||||||||||};
+{gland|actorconditions_1:60|Ядовитая железа|animal||1|15|||||||||||||||||||||||||||||||||};
+{rat_tail|items_misc:38|Хвост крысы|animal||1|2|||||||||||||||||||||||||||||||||};
 	</string>
 
 <!--
 	<string name="itemlist_pre0610_unused">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{eye|items_misc:45|Глаз|31||1|6|||||||||||||||||||||||||||||||||};
-{bat_wing|items_misc:46|Крыло летучей мыши|31||1|2|||||||||||||||||||||||||||||||||};
-{feather|items_misc:16|Перо|31||1|6|||||||||||||||||||||||||||||||||};
-{red_feather|items_misc:15|Красное перо|31||1|11|||||||||||||||||||||||||||||||||};
-{clay|actorconditions_1:9|Комок глины|31||1|1|||||||||||||||||||||||||||||||||};
-{gem6|items_misc:4|Мерцающий драгоценный камень|31||1|26|||||||||||||||||||||||||||||||||};
-{gem8|actorconditions_1:50|Брильянт|31||1|68|||||||||||||||||||||||||||||||||};
+{eye|items_misc:45|Глаз|animal||1|6|||||||||||||||||||||||||||||||||};
+{bat_wing|items_misc:46|Крыло летучей мыши|animal||1|2|||||||||||||||||||||||||||||||||};
+{feather|items_misc:16|Перо|animal||1|6|||||||||||||||||||||||||||||||||};
+{red_feather|items_misc:15|Красное перо|animal||1|11|||||||||||||||||||||||||||||||||};
+{clay|actorconditions_1:9|Комок глины|other||1|1|||||||||||||||||||||||||||||||||};
+{gem6|items_misc:4|Мерцающий драгоценный камень|gem||1|26|||||||||||||||||||||||||||||||||};
+{gem8|actorconditions_1:50|Брильянт|gem||1|68|||||||||||||||||||||||||||||||||};
 	</string>
 -->
 
 	<string name="itemlist_junk">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rock|items_misc:28|Камушек|31||1|1|||||||||||||||||||||||||||||||||};
-{gem1|items_misc:0|Стекляшка|31||1|2|||||||||||||||||||||||||||||||||};
-{gem2|items_misc:1|Самоцвет|31||1|6|||||||||||||||||||||||||||||||||};
-{gem3|items_misc:2|Полированный самоцвет|31||1|8|||||||||||||||||||||||||||||||||};
-{gem4|items_misc:3|Ограненный камень|31||1|13|||||||||||||||||||||||||||||||||};
-{gem5|items_misc:5|Полированный сверкающий камень|31||1|15|||||||||||||||||||||||||||||||||};
+{rock|items_misc:28|Камушек|gem||1|1|||||||||||||||||||||||||||||||||};
+{gem1|items_misc:0|Стекляшка|gem||1|2|||||||||||||||||||||||||||||||||};
+{gem2|items_misc:1|Самоцвет|gem||1|6|||||||||||||||||||||||||||||||||};
+{gem3|items_misc:2|Полированный самоцвет|gem||1|8|||||||||||||||||||||||||||||||||};
+{gem4|items_misc:3|Ограненный камень|gem||1|13|||||||||||||||||||||||||||||||||};
+{gem5|items_misc:5|Полированный сверкающий камень|gem||1|15|||||||||||||||||||||||||||||||||};
 	</string>
 	
 	<string name="itemlist_quest">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{tail_caverat|items_misc:38|Хвост пещерной крысы|31|1|1|0|||||||||||||||||||||||||||||||||};
-{tail_trainingrat|items_misc:38|Хвост малой крысы|31|1|1|0|||||||||||||||||||||||||||||||||};
-{ring_mikhail|items_jewelry:0|Кольцо Михаила|7|||15|1|||||10|||||||||||||||||||||||||||};
-{neck_irogotu|items_jewelry:7|Ожерелье Ирогота|6|3|1|30|1||||||||||5|1|||||||||||||||||||||};
-{ring_gandir|items_jewelry:0|Кольцо Гандира|31|1|1|0|||||||||||||||||||||||||||||||||};
-{dagger_venom|items_weapons:17|Отравленный кинжал|0|3||15|1||||4|10|5|2|1|2|||||||||||||||||||||||};
-{key_luthor|items_misc:21|Ключ Лютора|31|1|1|0|||||||||||||||||||||||||||||||||};
-{calomyran_secrets|items_books:0|Секреты Каломирана|31|1|1|0|||||||||||||||||||||||||||||||||};
-{heartstone|items_misc:6|Камень-сердце|31|1|1|0|||||||||||||||||||||||||||||||||};
-{vacor_spell|items_books:7|Часть заклинания Вакора|31|1|1|0|||||||||||||||||||||||||||||||||};
-{ring_unzel|items_jewelry:0|Кольцо Унзела|31|1|1|0|||||||||||||||||||||||||||||||||};
-{ring_vacor|items_jewelry:0|Кольцо Вакора|31|1|1|0|||||||||||||||||||||||||||||||||};
-{boots_unzel|items_armours:29|Сапоги обороны Унзела|5|3||185|1||||||||||8||||||||||||||||||||||};
-{boots_vacor|items_armours:29|Сапоги атаки Вакора|5|3||185|1|||||9|||||2||||||||||||||||||||||};
-{necklace_flagstone|items_jewelry:6|Ожерелье надзирателя Флагстоуна|31|1|1|0|||||||||||||||||||||||||||||||||};
-{packhide|items_armours:15|Куртка из шкур|3|3|1|121|1|||||-15|||||2|1|||||||||||||||||||||};
-{sword_flagstone|items_weapons:7|Сокровище Флагстоуна|0|3||169|1||||4|21|10|2|1|6|||||||||||||||||||||||};
+{tail_caverat|items_misc:38|Хвост пещерной крысы|animal|1|1|0|||||||||||||||||||||||||||||||||};
+{tail_trainingrat|items_misc:38|Хвост малой крысы|animal|1|1|0|||||||||||||||||||||||||||||||||};
+{ring_mikhail|items_jewelry:0|Кольцо Михаила|ring|||15|1|||||10|||||||||||||||||||||||||||};
+{neck_irogotu|items_jewelry:7|Ожерелье Ирогота|neck|3|1|30|1||||||||||5|1|||||||||||||||||||||};
+{ring_gandir|items_jewelry:0|Кольцо Гандира|other|1|1|0|||||||||||||||||||||||||||||||||};
+{dagger_venom|items_weapons:17|Отравленный кинжал|dagger|3||15|1||||4|10|5|2|1|2|||||||||||||||||||||||};
+{key_luthor|items_misc:21|Ключ Лютора|other|1|1|0|||||||||||||||||||||||||||||||||};
+{calomyran_secrets|items_books:0|Секреты Каломирана|other|1|1|0|||||||||||||||||||||||||||||||||};
+{heartstone|items_misc:6|Камень-сердце|gem|1|1|0|||||||||||||||||||||||||||||||||};
+{vacor_spell|items_books:7|Часть заклинания Вакора|other|1|1|0|||||||||||||||||||||||||||||||||};
+{ring_unzel|items_jewelry:0|Кольцо Унзела|other|1|1|0|||||||||||||||||||||||||||||||||};
+{ring_vacor|items_jewelry:0|Кольцо Вакора|other|1|1|0|||||||||||||||||||||||||||||||||};
+{boots_unzel|items_armours:29|Сапоги обороны Унзела|feet_lthr|3||185|1||||||||||8||||||||||||||||||||||};
+{boots_vacor|items_armours:29|Сапоги атаки Вакора|feet_lthr|3||185|1|||||9|||||2||||||||||||||||||||||};
+{necklace_flagstone|items_jewelry:6|Ожерелье надзирателя Флагстоуна|other|1|1|0|||||||||||||||||||||||||||||||||};
+{packhide|items_armours:15|Куртка из шкур|bdy_hide|3|1|121|1|||||-15|||||2|1|||||||||||||||||||||};
+{sword_flagstone|items_weapons:7|Сокровище Флагстоуна|lsword|3||169|1||||4|21|10|2|1|6|||||||||||||||||||||||};
 	</string>
 	
 	<string name="itemlist_v068">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{armor_chain1|items_armours:17|Ржавая кольчуга|3|||3629|1|||||-9|||||20||||||||||||||||||||||};
-{armor_chain2|items_armours:17|Простая кольчуга|3|||4191|1|||||-10|||||22||||||||||||||||||||||};
-{hat_leather1|items_armours:24|Простая шапка из кожи|2|||261|1|||||-2|||||7||||||||||||||||||||||};
-{sleepingmead|items_consumables:51|Медовуха со снотворным|31|1|1|0|||||||||||||||||||||||||||||||||};
-{ffguard_qitem|items_jewelry:0|Кольцо патруля Фейгарда|31|1|1|0|||||||||||||||||||||||||||||||||};
-{shield6|items_armours:3|Деревянный пехотный щит|1|||952|1|||||-6|||||12||||||||||||||||||||||};
-{shield7|items_armours:3|Крепкий деревянный пехотный щит|1|||1538|1|||||-6|||||14||||||||||||||||||||||};
-{club_wood1|items_weapons:44|Тяжелая палица|0|||950|1||||8|15|5|3|2|11|||||||||||||||||||||||};
-{club_wood2|items_weapons:44|Сбалансированная тяжелая палица|0|||2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
-{gloves_grip|items_armours:35|Перчатки лучшей хватки|4|||471|1|||||9|||||1||||||||||||||||||||||};
-{gloves_fancy|items_armours:35|Необычные перчатки|4|||78|1|||||5|||||||||||||||||||||||||||};
-{ring_crit1|items_jewelry:0|Кольцо удара|7|4||2921|1||||||5||||||||||||||||||||||||||};
-{ring_crit2|items_jewelry:0|Кольцо подлого удара|7|4||3455|1|||||-3|7||||||||||||||||||||||||||};
-{armor_stone|items_armours:17|Кираса из камня|3|3||52|1||||2||||||22|1|||||||||||||||||||||};
-{ring_shadow0|items_jewelry:2|Кольцо меньшей Тени|7|2|1|0|1|||||25|6||4|7|5||{{regen|1|}}||||||||||||||||||||};
+{armor_chain1|items_armours:17|Ржавая кольчуга|chmail|||3629|1|||||-9|||||20||||||||||||||||||||||};
+{armor_chain2|items_armours:17|Простая кольчуга|chmail|||4191|1|||||-10|||||22||||||||||||||||||||||};
+{hat_leather1|items_armours:24|Простая шапка из кожи|hd_lthr|||261|1|||||-2|||||7||||||||||||||||||||||};
+{sleepingmead|items_consumables:51|Медовуха со снотворным|other|1|1|0|||||||||||||||||||||||||||||||||};
+{ffguard_qitem|items_jewelry:0|Кольцо патруля Фейгарда|other|1|1|0|||||||||||||||||||||||||||||||||};
+{shield6|items_armours:3|Деревянный пехотный щит|shld_twr|||952|1|||||-6|||||12||||||||||||||||||||||};
+{shield7|items_armours:3|Крепкий деревянный пехотный щит|shld_twr|||1538|1|||||-6|||||14||||||||||||||||||||||};
+{club_wood1|items_weapons:44|Тяжелая палица|mace|||950|1||||8|15|5|3|2|11|||||||||||||||||||||||};
+{club_wood2|items_weapons:44|Сбалансированная тяжелая палица|mace|||2194|1||||7|10|10|3|2|11|||||||||||||||||||||||};
+{gloves_grip|items_armours:35|Перчатки лучшей хватки|hnd_lthr|||471|1|||||9|||||1||||||||||||||||||||||};
+{gloves_fancy|items_armours:35|Необычные перчатки|hnd_cloth|||78|1|||||5|||||||||||||||||||||||||||};
+{ring_crit1|items_jewelry:0|Кольцо удара|ring|4||2921|1||||||5||||||||||||||||||||||||||};
+{ring_crit2|items_jewelry:0|Кольцо подлого удара|ring|4||3455|1|||||-3|7||||||||||||||||||||||||||};
+{armor_stone|items_armours:17|Кираса из камня|bdy_hv|3||52|1||||2||||||22|1|||||||||||||||||||||};
+{ring_shadow0|items_jewelry:2|Кольцо меньшей Тени|ring|2|1|0|1|||||25|6||4|7|5||{{regen|1|}}||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v069">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rapier_lifesteal|items_weapons:71|Рапира-душегуб|0|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
-{dagger_barbed|items_weapons:17|Кинжал с зазубринами|0|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
-{elytharan_redeemer|items_weapons:70|Элитаран-Спаситель|0|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
-{clouded_rage|items_weapons:71|Меч ярости Тени|0|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
-{shadow_slayer|items_weapons:60|Тень убийцы|0|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
+{rapier_lifesteal|items_weapons:71|Рапира-душегуб|rapier|2|1|0|1|5|||5|21|||1|6||||||||||1|0|3|||||1|3|3||||};
+{dagger_barbed|items_weapons:17|Кинжал с зазубринами|dagger|3|1|0|1||||4|15|||0|0|5|||||||||1||||||{{bleeding_wound|1|5|50|}}|||||||};
+{elytharan_redeemer|items_weapons:70|Элитаран-Спаситель|2hsword|2|1|0|1||2||5|25|||3|8|5||{{bless|1|}}|0|||||||||||||||||||};
+{clouded_rage|items_weapons:71|Меч ярости Тени|rapier|3|1|0|1||||5|21|||3|6|5|||0|||||||||||||1|||||{{rage_minor|1|1|50|}}|};
+{shadow_slayer|items_weapons:60|Тень убийцы|axe2h|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
 
-{ring_shadow_embrace|items_jewelry:0|Кольцо объятия Тени|7|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
+{ring_shadow_embrace|items_jewelry:0|Кольцо объятия Тени|ring|3|1|0|1|20||||10|||2|2|||||||||||||||||||||||};
 
-{bwm_dagger|items_weapons:19|Блеквотский кинжал|0|4|1|539|1||||3|40|||1|1|5||{{blackwater_misery|1|}}||||||||||||||||||||};
-{bwm_dagger_venom|items_weapons:19|Блеквотский отравленный кинжал|0|4|1|1552|1||||3|45|||1|1|||{{blackwater_misery|1|}}|||||||1||||||{{poison_weak|1|5|50|}}|||||||};
-{bwm_ironsword|items_weapons:0|Блеквотский железный меч|0|4|1|1224|1||||4|50|||3|7|5||{{blackwater_misery|1|}}||||||||||||||||||||};
-{bwm_leather_armour|items_armours:15|Блеквотская кожаная броня|3|4|1|2551|1||||||||||25|1|{{blackwater_misery|1|}}||||||||||||||||||||};
-{bwm_leather_cap|items_armours:24|Блеквотская шапка из кожи|2|4|1|722|1|5|||||||||21||{{blackwater_misery|1|}}||||||||||||||||||||};
-{bwm_combat_ring|items_jewelry:2|Блеквотское боевое кольцо|7|4|1|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
-{bwm_brew|items_consumables:51|Блеквотский напиток|20||1|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
-{woodcutter_hatchet|items_weapons:57|Топор дровосека|0|||0|1||||6|9|||6|12|||||||||||||||||||||||};
-{woodcutter_boots|items_armours:30|Сапоги дровосека|5|||873|1|1||||3|||||8||||||||||||||||||||||};
-{heavy_club|items_weapons:44|Тяжелая булава|0|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
+{bwm_dagger|items_weapons:19|Блеквотский кинжал|dagger|4|1|539|1||||3|40|||1|1|5||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_dagger_venom|items_weapons:19|Блеквотский отравленный кинжал|dagger|4|1|1552|1||||3|45|||1|1|||{{blackwater_misery|1|}}|||||||1||||||{{poison_weak|1|5|50|}}|||||||};
+{bwm_ironsword|items_weapons:0|Блеквотский железный меч|lsword|4|1|1224|1||||4|50|||3|7|5||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_leather_armour|items_armours:15|Блеквотская кожаная броня|bdy_lthr|4|1|2551|1||||||||||25|1|{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_leather_cap|items_armours:24|Блеквотская шапка из кожи|hd_lthr|4|1|722|1|5|||||||||21||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_combat_ring|items_jewelry:2|Блеквотское боевое кольцо|ring|4|1|595|1|||||5|||0|7|||{{blackwater_misery|1|}}||||||||||||||||||||};
+{bwm_brew|items_consumables:51|Блеквотский напиток|pot||1|57||||||||||||||1|15|15|||{{intoxicated|1|10|100|}}||||||||||||||};
+{woodcutter_hatchet|items_weapons:57|Топор дровосека|axe|||0|1||||6|9|||6|12|||||||||||||||||||||||};
+{woodcutter_boots|items_armours:30|Сапоги дровосека|feet_lthr|||873|1|1||||3|||||8||||||||||||||||||||||};
+{heavy_club|items_weapons:44|Тяжелая булава|mace|||1229|1||||7|15|5|3|2|15|||||||||||||||||||||||};
 
-{pot_speed_1|items_consumables:41|Малое зелье скорости|20||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
-{pot_poison_weak|items_consumables:40|Слабый яд|20||1|125||||||||||||||1|||||{{poison_weak|1|5|100|}}||||||||||||||};
-{pot_poison_weak_antidote|items_consumables:54|Противоядие от слабого яда|20||1|337||||||||||||||1|||||{{poison_weak|-99||100|}}||||||||||||||};
-{pot_bleeding_ointment|items_consumables:35|Мазь от кровотечения|20||1|310||||||||||||||1|||||{{bleeding_wound|-99||100|}}||||||||||||||};
-{pot_fatigue_restore|items_consumables:41|Зелье от усталости|20||1|210||||||||||||||1|||||{{fatigue_minor|-99||100|}}||||||||||||||};
+{pot_speed_1|items_consumables:41|Малое зелье скорости|pot||1|261||||||||||||||1|||||{{speed_minor|1|5|100|}}||||||||||||||};
+{pot_poison_weak|items_consumables:40|Слабый яд|pot||1|125||||||||||||||1|||||{{poison_weak|1|5|100|}}||||||||||||||};
+{pot_poison_weak_antidote|items_consumables:54|Противоядие от слабого яда|pot||1|337||||||||||||||1|||||{{poison_weak|-99||100|}}||||||||||||||};
+{pot_bleeding_ointment|items_consumables:35|Мазь от кровотечения|pot||1|310||||||||||||||1|||||{{bleeding_wound|-99||100|}}||||||||||||||};
+{pot_fatigue_restore|items_consumables:41|Зелье от усталости|pot||1|210||||||||||||||1|||||{{fatigue_minor|-99||100|}}||||||||||||||};
 
-{pot_blind_rage|items_consumables:63|Зелье слепой ярости|20||1|495||||||||||||||1|||||{{rage_minor|1|5|100|}}|0|||||||0||||||};
+{pot_blind_rage|items_consumables:63|Зелье слепой ярости|pot||1|495||||||||||||||1|||||{{rage_minor|1|5|100|}}|0|||||||0||||||};
 	</string>
 
 	<string name="itemlist_v069_2">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{rusted_iron_sword|items_weapons:0|Ржавый железный меч|0|||52|1||||5|10|||1|2|||||||||||||||||||||||};
-{broken_buckler|items_armours:0|Разбитый деревянный круглый щит|1|||120|1|||||-5|||||1||||||||||||||||||||||};
-{used_gloves|items_armours:35|Окровавленные перчатки|4|||56|1||||||||||1||||||||||||||||||||||};
+{rusted_iron_sword|items_weapons:0|Ржавый железный меч|lsword|||52|1||||5|10|||1|2|||||||||||||||||||||||};
+{broken_buckler|items_armours:0|Разбитый деревянный круглый щит|buckler|||120|1|||||-5|||||1||||||||||||||||||||||};
+{used_gloves|items_armours:35|Окровавленные перчатки|hnd_lthr|||56|1||||||||||1||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v069_questitems">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{bwm_claws|items_misc:47|Коготь белой змеи|31||1|35|||||||||||||||||||||||||||||||||};
-{bwm_permit|items_books:8|Поддельные бумаги для Блеквота|31|1|1|0|||||||||||||||||||||||||||||||||};
-{bjorgur_dagger|items_weapons:14|Фамильный кинжал Бьоргура|0|1|1|0|1||||5||||||||||||||||||||||||||||};
-{q_kazaul_vial|items_consumables:57|Пузырек очищенного духа|31|1|1|0|||||||||||||||||||||||||||||||||};
-{guthbered_id|items_jewelry:0|Кольцо Гатбереда|31|1|1|0|||||||||||||||||||||||||||||||||};
-{harlenn_id|items_jewelry:0|Кольцо Харленна|31|1|1|0|||||||||||||||||||||||||||||||||};
+{bwm_claws|items_misc:47|Коготь белой змеи|animal||1|35|||||||||||||||||||||||||||||||||};
+{bwm_permit|items_books:8|Поддельные бумаги для Блеквота|other|1|1|0|||||||||||||||||||||||||||||||||};
+{bjorgur_dagger|items_weapons:14|Фамильный кинжал Бьоргура|dagger|1|1|0|1||||5||||||||||||||||||||||||||||};
+{q_kazaul_vial|items_consumables:57|Пузырек очищенного духа|other|1|1|0|||||||||||||||||||||||||||||||||};
+{guthbered_id|items_jewelry:0|Кольцо Гатбереда|other|1|1|0|||||||||||||||||||||||||||||||||};
+{harlenn_id|items_jewelry:0|Кольцо Харленна|other|1|1|0|||||||||||||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v0610_1">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{dagger_shadow_priests|items_weapons:17|Кинжал священников Тени|0|3|1|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
-{sword_hard_iron|items_weapons:0|Закаленный железный меч|0||0|369|1||||5|15|||2|4|||||||||||||||||||||||};
-{club_fine_wooden|items_weapons:42|Первоклассная дубинка|0||0|245|1||||5|12|||0|7|||||||||||||||||||||||};
-{axe_fine_iron|items_weapons:56|Первоклассный железный топор|0||0|365|1||||6|9|||4|6|||||||||||||||||||||||};
-{longsword_hard_iron|items_weapons:1|Закаленный железный полуторный меч|0||0|362|1||||5|14|||2|6|||||||||||||||||||||||};
-{broadsword_fine_iron|items_weapons:5|Первоклассный железный палаш|0||0|422|1||||7|5|||4|10|||||||||||||||||||||||};
-{dagger_sharp_steel|items_weapons:14|Острый стальной кинжал|0||0|1428|1||||4|24|||2|4|||||||||||||||||||||||};
-{sword_balanced_steel|items_weapons:7|Сбалансированный стальной меч|0||0|2797|1||||4|32|||3|7|||||||||||||||||||||||};
-{broadsword_fine_steel|items_weapons:6|Первоклассный стальной палаш|0||0|1206|1||||6|20|||4|11|||||||||||||||||||||||};
-{sword_defenders|items_weapons:2|Клинок защитника|0||0|1711|1||||5|26|||3|7|3||||||||||||||||||||||};
-{sword_villains|items_weapons:16|Клинок злодея|0||0|1665|1||||4|20|5|3|1|2|||||||||||||||||||||||};
-{sword_challengers|items_weapons:1|Железный меч для поединков|0||0|785|1||||5|20|||2|6|||||||||||||||||||||||};
-{sword_fencing|items_weapons:13|Фехтовальный клинок|0||0|922|1||||4|14|||2|5|5||||||||||||||||||||||};
-{club_brutal|items_weapons:44|Брутальная булава|0||0|2522|1||||7|20|5|3|2|21|||||||||||||||||||||||};
-{axe_gutsplitter|items_weapons:58|Потрошитель|0||0|2733|1||||6|21|||7|17|||||||||||||||||||||||};
-{hammer_skullcrusher|items_weapons:45|Сокрушитель черепов|0||0|3142|1||||7|20|5|3|0|26|||||||||||||||||||||||};
-{shield_crude_wooden|items_armours:0|Скверный круглый щит|1||0|31|1||||||||||1||||||||||||||||||||||};
-{shield_cracked_wooden|items_armours:0|Треснувший круглый щит|1||0|34|1|||||-2|||||2||||||||||||||||||||||};
-{shield_wooden_buckler|items_armours:0|Подержанный круглый щит|1||0|92|1|||||-2|||||3||||||||||||||||||||||};
-{shield_wooden|items_armours:2|Деревянный щит|1||0|514|1|||||-4|||||8||||||||||||||||||||||};
-{shield_wooden_defender|items_armours:2|Деревянный защитник|1||0|1996|1|||||-8|-5||||14|1|||||||||||||||||||||};
-{hat_hard_leather|items_armours:24|Шапка из грубой кожи|2||0|648|1|||||-3|-1||||8||||||||||||||||||||||};
-{hat_fine_leather|items_armours:24|Первоклассная кожаная шапка|2||0|846|1|||||-3|-2||||9||||||||||||||||||||||};
-{hat_leather_vision|items_armours:24|Шапка из кожи с плохим обзором|2||0|971|1|||||-3|-4||||10||||||||||||||||||||||};
-{helm_crude_iron|items_armours:25|Скверный железный шлем|2||0|1120|1|||||-3|-5||||11||||||||||||||||||||||};
-{shirt_torn|items_armours:14|Разорванная рубаха|3||0|92|1|||||-2|||||3||||||||||||||||||||||};
-{shirt_weathered|items_armours:14|Изношенная рубаха|3||0|125|1|||||-1|||||3||||||||||||||||||||||};
-{shirt_patched_cloth|items_armours:14|Залатанная рубаха|3||0|208|1||||||||||4||||||||||||||||||||||};
-{armour_crude_leather|items_armours:16|Скверная кожаная броня|3||0|514|1|||||-4|||||8||||||||||||||||||||||};
-{armour_firm_leather|items_armours:16|Крепкая кожаная броня|3||0|417|1|||1|||||||8||||||||||||||||||||||};
-{armour_rigid_leather|items_armours:16|Негнущаяся кожаная броня|3||0|625|1|||1||-1|||||9||||||||||||||||||||||};
-{armour_rigid_chain|items_armours:17|Негнущаяся кольчуга|3||0|4667|1||||1|-5|||||23||||||||||||||||||||||};
-{armour_superior_chain|items_armours:17|Превосходная кольчуга|3||0|5992|1|||||-9|||||23||||||||||||||||||||||};
-{armour_chain_champ|items_armours:17|Кольчуга чемпиона|3||0|6808|1|2||||-9|-5||||24||||||||||||||||||||||};
-{armour_leather_villain|items_armours:16|Кожаная броня злодея|3||0|3700|1|||-1||-4|3||||15||||||||||||||||||||||};
-{armour_misfortune|items_armours:15|Кожаная рубаха неудач|3||0|2459|1|||||-5|||-1|-1|15||||||||||||||||||||||};
-{gloves_barbrawler|items_armours:35|Перчатки дебошира|4||0|95|1|||||5|||||2||||||||||||||||||||||};
-{gloves_fumbling|items_armours:35|Перчатки неуклюжести|4||0|-432|1|||||-5|||||1||||||||||||||||||||||};
-{gloves_crude_cloth|items_armours:35|Скверные хлопковые перчатки|4||0|31|1||||||||||1||||||||||||||||||||||};
-{gloves_crude_leather|items_armours:35|Скверные кожаные перчатки|4||0|180|1|||||-4|||||6||||||||||||||||||||||};
-{gloves_troublemaker|items_armours:36|Перчатки бузотера|4||0|501|1|1||||7|4||||4||||||||||||||||||||||};
-{gloves_guards|items_armours:37|Перчатки охранника|4||0|636|1|3||||3|||||5||||||||||||||||||||||};
-{gloves_leather_attack|items_armours:35|Кожаные перчатки атаки|4||0|510|1|3||||13|||||-2||||||||||||||||||||||};
-{gloves_woodcutter|items_armours:35|Перчатки дровосека|4||0|426|1|3||||8|||||1||||||||||||||||||||||};
-{boots_crude_leather|items_armours:28|Скверные кожаные сапоги|5||0|31|1||||||||||1||||||||||||||||||||||};
-{boots_sewn|items_armours:28|Войлочная обувь|5||0|73|1||||||||||2||||||||||||||||||||||};
-{boots_coward|items_armours:28|Сапоги труса|5||0|933|1|||-1|||||||2||||||||||||||||||||||};
-{boots_hard_leather|items_armours:30|Сапоги из грубой кожи|5||0|626|1|||1||-4|||||10||||||||||||||||||||||};
-{boots_defender|items_armours:30|Сапоги защитника|5||0|1190|1|2|||||||||9||||||||||||||||||||||};
-{necklace_shield_0|items_jewelry:7|Малое ожерелье защиты|6||0|131|1||||||||||3||||||||||||||||||||||};
-{necklace_strike|items_jewelry:6|Ожерелье удара|6||0|832|1|5|||||5||||||||||||||||||||||||||};
-{necklace_defender_stone|items_jewelry:7|Камень защитника|6|4|0|1325|1|||||||||||1|||||||||||||||||||||};
-{necklace_protector|items_jewelry:7|Ожерелье покровителя|6|4|0|3207|1|5||||||||||2|||||||||||||||||||||};
-{ring_crude_combat|items_jewelry:0|Скверное боевое кольцо|7||0|44|1|||||5|||0|1|||||||||||||||||||||||};
-{ring_crude_surehit|items_jewelry:0|Скверное кольцо атаки|7||0|52|1|||||7|||||||||||||||||||||||||||};
-{ring_crude_block|items_jewelry:0|Скверное кольцо защиты|7||0|73|1||||||||||2||||||||||||||||||||||};
-{ring_rough_life|items_jewelry:0|Скверное кольцо жизненной силы|7||0|100|1|1|||||||||||||||||||||||||||||||};
-{ring_fumbling|items_jewelry:0|Кольцо неуклюжести|7||0|-463|1|||||-5|||||||||||||||||||||||||||};
-{ring_rough_damage|items_jewelry:0|Скверное кольцо урона|7||0|56|1||||||||0|2|||||||||||||||||||||||};
-{ring_barbrawler|items_jewelry:0|Кольцо дебошира|7||0|222|1|||||12|||0|1|||||||||||||||||||||||};
-{ring_dmg_3|items_jewelry:0|Кольцо урона +3|7||0|624|1||||||||3|3|||||||||||||||||||||||};
-{ring_life|items_jewelry:0|Кольцо жизненной силы|7||0|557|1|5|||||||||||||||||||||||||||||||};
-{ring_taverbrawler|items_jewelry:0|Кольцо драчуна|7||0|314|1|||||12|||0|3|||||||||||||||||||||||};
-{ring_defender|items_jewelry:0|Кольцо защитника|7||0|755|1|||||-6|||||11||||||||||||||||||||||};
-{ring_challenger|items_jewelry:0|Кольцо поединков|7||0|408|1|||||12|||||4||||||||||||||||||||||};
-{ring_dmg_4|items_jewelry:2|Кольцо урона +4|7||0|1168|1||||||||4|4|||||||||||||||||||||||};
-{ring_troublemaker|items_jewelry:2|Кольцо бузотера|7||0|797|1|||||15|||2|4|||||||||||||||||||||||};
-{ring_guardian|items_jewelry:2|Кольцо стражника|7|4|0|1489|1|||||19|||3|5|||||||||||||||||||||||};
-{ring_block|items_jewelry:2|Кольцо защиты|7|4|0|2192|1||||||||||13||||||||||||||||||||||};
-{ring_backstab|items_jewelry:2|Кольцо удара в спину|7||0|1363|1|||||17|7||||3||||||||||||||||||||||};
-{ring_polished_combat|items_jewelry:2|Блестящее боевое кольцо|7|4|0|1346|1|5||||15|||1|5|||||||||||||||||||||||};
-{ring_villain|items_jewelry:2|Кольцо злодея|7|4|0|2750|1|4||||25|||3|6|||||||||||||||||||||||};
-{ring_polished_backstab|items_jewelry:2|Блестящее кольцо удара в спину|7|4|0|2731|1|||||21|7||4|4|||||||||||||||||||||||};
-{ring_protector|items_jewelry:4|Кольцо покровителя|7|4|0|3744|1|3||||20|||0|3|14||||||||||||||||||||||};
+{dagger_shadow_priests|items_weapons:17|Кинжал священников Тени|dagger|3|1|15|1||||4|20|20|3|1|2|||||||||||||||||||||||};
+{sword_hard_iron|items_weapons:0|Закаленный железный меч|lsword||0|369|1||||5|15|||2|4|||||||||||||||||||||||};
+{club_fine_wooden|items_weapons:42|Первоклассная дубинка|club||0|245|1||||5|12|||0|7|||||||||||||||||||||||};
+{axe_fine_iron|items_weapons:56|Первоклассный железный топор|axe||0|365|1||||6|9|||4|6|||||||||||||||||||||||};
+{longsword_hard_iron|items_weapons:1|Закаленный железный полуторный меч|lsword||0|362|1||||5|14|||2|6|||||||||||||||||||||||};
+{broadsword_fine_iron|items_weapons:5|Первоклассный железный палаш|bsword||0|422|1||||7|5|||4|10|||||||||||||||||||||||};
+{dagger_sharp_steel|items_weapons:14|Острый стальной кинжал|dagger||0|1428|1||||4|24|||2|4|||||||||||||||||||||||};
+{sword_balanced_steel|items_weapons:7|Сбалансированный стальной меч|lsword||0|2797|1||||4|32|||3|7|||||||||||||||||||||||};
+{broadsword_fine_steel|items_weapons:6|Первоклассный стальной палаш|bsword||0|1206|1||||6|20|||4|11|||||||||||||||||||||||};
+{sword_defenders|items_weapons:2|Клинок защитника|lsword||0|1711|1||||5|26|||3|7|3||||||||||||||||||||||};
+{sword_villains|items_weapons:16|Клинок злодея|ssword||0|1665|1||||4|20|5|3|1|2|||||||||||||||||||||||};
+{sword_challengers|items_weapons:1|Железный меч для поединков|lsword||0|785|1||||5|20|||2|6|||||||||||||||||||||||};
+{sword_fencing|items_weapons:13|Фехтовальный клинок|rapier||0|922|1||||4|14|||2|5|5||||||||||||||||||||||};
+{club_brutal|items_weapons:44|Брутальная булава|mace||0|2522|1||||7|20|5|3|2|21|||||||||||||||||||||||};
+{axe_gutsplitter|items_weapons:58|Потрошитель|axe2h||0|2733|1||||6|21|||7|17|||||||||||||||||||||||};
+{hammer_skullcrusher|items_weapons:45|Сокрушитель черепов|hammer2h||0|3142|1||||7|20|5|3|0|26|||||||||||||||||||||||};
+{shield_crude_wooden|items_armours:0|Скверный круглый щит|buckler||0|31|1||||||||||1||||||||||||||||||||||};
+{shield_cracked_wooden|items_armours:0|Треснувший круглый щит|buckler||0|34|1|||||-2|||||2||||||||||||||||||||||};
+{shield_wooden_buckler|items_armours:0|Подержанный круглый щит|buckler||0|92|1|||||-2|||||3||||||||||||||||||||||};
+{shield_wooden|items_armours:2|Деревянный щит|shld_wd_li||0|514|1|||||-4|||||8||||||||||||||||||||||};
+{shield_wooden_defender|items_armours:2|Деревянный защитник|shld_wd_li||0|1996|1|||||-8|-5||||14|1|||||||||||||||||||||};
+{hat_hard_leather|items_armours:24|Шапка из грубой кожи|hd_lthr||0|648|1|||||-3|-1||||8||||||||||||||||||||||};
+{hat_fine_leather|items_armours:24|Первоклассная кожаная шапка|hd_lthr||0|846|1|||||-3|-2||||9||||||||||||||||||||||};
+{hat_leather_vision|items_armours:24|Шапка из кожи с плохим обзором|hd_lthr||0|971|1|||||-3|-4||||10||||||||||||||||||||||};
+{helm_crude_iron|items_armours:25|Скверный железный шлем|hd_mtl_hv||0|1120|1|||||-3|-5||||11||||||||||||||||||||||};
+{shirt_torn|items_armours:14|Разорванная рубаха|bdy_clth||0|92|1|||||-2|||||3||||||||||||||||||||||};
+{shirt_weathered|items_armours:14|Изношенная рубаха|bdy_clth||0|125|1|||||-1|||||3||||||||||||||||||||||};
+{shirt_patched_cloth|items_armours:14|Залатанная рубаха|bdy_clth||0|208|1||||||||||4||||||||||||||||||||||};
+{armour_crude_leather|items_armours:16|Скверная кожаная броня|bdy_lthr||0|514|1|||||-4|||||8||||||||||||||||||||||};
+{armour_firm_leather|items_armours:16|Крепкая кожаная броня|bdy_lthr||0|417|1|||1|||||||8||||||||||||||||||||||};
+{armour_rigid_leather|items_armours:16|Негнущаяся кожаная броня|bdy_lthr||0|625|1|||1||-1|||||9||||||||||||||||||||||};
+{armour_rigid_chain|items_armours:17|Негнущаяся кольчуга|chmail||0|4667|1||||1|-5|||||23||||||||||||||||||||||};
+{armour_superior_chain|items_armours:17|Превосходная кольчуга|chmail||0|5992|1|||||-9|||||23||||||||||||||||||||||};
+{armour_chain_champ|items_armours:17|Кольчуга чемпиона|chmail||0|6808|1|2||||-9|-5||||24||||||||||||||||||||||};
+{armour_leather_villain|items_armours:16|Кожаная броня злодея|bdy_lthr||0|3700|1|||-1||-4|3||||15||||||||||||||||||||||};
+{armour_misfortune|items_armours:15|Кожаная рубаха неудач|bdy_lthr||0|2459|1|||||-5|||-1|-1|15||||||||||||||||||||||};
+{gloves_barbrawler|items_armours:35|Перчатки дебошира|hnd_lthr||0|95|1|||||5|||||2||||||||||||||||||||||};
+{gloves_fumbling|items_armours:35|Перчатки неуклюжести|hnd_lthr||0|-432|1|||||-5|||||1||||||||||||||||||||||};
+{gloves_crude_cloth|items_armours:35|Скверные хлопковые перчатки|hnd_cloth||0|31|1||||||||||1||||||||||||||||||||||};
+{gloves_crude_leather|items_armours:35|Скверные кожаные перчатки|hnd_lthr||0|180|1|||||-4|||||6||||||||||||||||||||||};
+{gloves_troublemaker|items_armours:36|Перчатки бузотера|hnd_lthr||0|501|1|1||||7|4||||4||||||||||||||||||||||};
+{gloves_guards|items_armours:37|Перчатки охранника|hnd_mtl_li||0|636|1|3||||3|||||5||||||||||||||||||||||};
+{gloves_leather_attack|items_armours:35|Кожаные перчатки атаки|hnd_lthr||0|510|1|3||||13|||||-2||||||||||||||||||||||};
+{gloves_woodcutter|items_armours:35|Перчатки дровосека|hnd_lthr||0|426|1|3||||8|||||1||||||||||||||||||||||};
+{boots_crude_leather|items_armours:28|Скверные кожаные сапоги|feet_lthr||0|31|1||||||||||1||||||||||||||||||||||};
+{boots_sewn|items_armours:28|Войлочная обувь|feet_clth||0|73|1||||||||||2||||||||||||||||||||||};
+{boots_coward|items_armours:28|Сапоги труса|feet_lthr||0|933|1|||-1|||||||2||||||||||||||||||||||};
+{boots_hard_leather|items_armours:30|Сапоги из грубой кожи|feet_lthr||0|626|1|||1||-4|||||10||||||||||||||||||||||};
+{boots_defender|items_armours:30|Сапоги защитника|feet_mtl_li||0|1190|1|2|||||||||9||||||||||||||||||||||};
+{necklace_shield_0|items_jewelry:7|Малое ожерелье защиты|neck||0|131|1||||||||||3||||||||||||||||||||||};
+{necklace_strike|items_jewelry:6|Ожерелье удара|neck||0|832|1|5|||||5||||||||||||||||||||||||||};
+{necklace_defender_stone|items_jewelry:7|Камень защитника|neck|4|0|1325|1|||||||||||1|||||||||||||||||||||};
+{necklace_protector|items_jewelry:7|Ожерелье покровителя|neck|4|0|3207|1|5||||||||||2|||||||||||||||||||||};
+{ring_crude_combat|items_jewelry:0|Скверное боевое кольцо|ring||0|44|1|||||5|||0|1|||||||||||||||||||||||};
+{ring_crude_surehit|items_jewelry:0|Скверное кольцо атаки|ring||0|52|1|||||7|||||||||||||||||||||||||||};
+{ring_crude_block|items_jewelry:0|Скверное кольцо защиты|ring||0|73|1||||||||||2||||||||||||||||||||||};
+{ring_rough_life|items_jewelry:0|Скверное кольцо жизненной силы|ring||0|100|1|1|||||||||||||||||||||||||||||||};
+{ring_fumbling|items_jewelry:0|Кольцо неуклюжести|ring||0|-463|1|||||-5|||||||||||||||||||||||||||};
+{ring_rough_damage|items_jewelry:0|Скверное кольцо урона|ring||0|56|1||||||||0|2|||||||||||||||||||||||};
+{ring_barbrawler|items_jewelry:0|Кольцо дебошира|ring||0|222|1|||||12|||0|1|||||||||||||||||||||||};
+{ring_dmg_3|items_jewelry:0|Кольцо урона +3|ring||0|624|1||||||||3|3|||||||||||||||||||||||};
+{ring_life|items_jewelry:0|Кольцо жизненной силы|ring||0|557|1|5|||||||||||||||||||||||||||||||};
+{ring_taverbrawler|items_jewelry:0|Кольцо драчуна|ring||0|314|1|||||12|||0|3|||||||||||||||||||||||};
+{ring_defender|items_jewelry:0|Кольцо защитника|ring||0|755|1|||||-6|||||11||||||||||||||||||||||};
+{ring_challenger|items_jewelry:0|Кольцо поединков|ring||0|408|1|||||12|||||4||||||||||||||||||||||};
+{ring_dmg_4|items_jewelry:2|Кольцо урона +4|ring||0|1168|1||||||||4|4|||||||||||||||||||||||};
+{ring_troublemaker|items_jewelry:2|Кольцо бузотера|ring||0|797|1|||||15|||2|4|||||||||||||||||||||||};
+{ring_guardian|items_jewelry:2|Кольцо стражника|ring|4|0|1489|1|||||19|||3|5|||||||||||||||||||||||};
+{ring_block|items_jewelry:2|Кольцо защиты|ring|4|0|2192|1||||||||||13||||||||||||||||||||||};
+{ring_backstab|items_jewelry:2|Кольцо удара в спину|ring||0|1363|1|||||17|7||||3||||||||||||||||||||||};
+{ring_polished_combat|items_jewelry:2|Блестящее боевое кольцо|ring|4|0|1346|1|5||||15|||1|5|||||||||||||||||||||||};
+{ring_villain|items_jewelry:2|Кольцо злодея|ring|4|0|2750|1|4||||25|||3|6|||||||||||||||||||||||};
+{ring_polished_backstab|items_jewelry:2|Блестящее кольцо удара в спину|ring|4|0|2731|1|||||21|7||4|4|||||||||||||||||||||||};
+{ring_protector|items_jewelry:4|Кольцо покровителя|ring|4|0|3744|1|3||||20|||0|3|14||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v0610_2">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{erinith_book|items_books:0|Книга Эринита|31|1|1|0|||||||||||||||||||||||||||||||||};
-{hadracor_waspwing|items_misc:52|Крыло гигантской осы|31|1|1|0|||||||||||||||||||||||||||||||||};
-{tinlyn_bells|items_necklaces_1:10|Колокольчик овечки Тинлина|31|1|1|0|||||||||||||||||||||||||||||||||};
-{tinlyn_sheep_meat|items_consumables:25|Мясо овечки Тинлина|31|1|1|0|||||||||||||||||||||||||||||||||};
-{rogorn_qitem|items_books:7|Кусок рисунка|31|1|1|0|||||||||||||||||||||||||||||||||};
-{fg_ironsword|items_weapons:0|Фейгардский железный меч|0|1|1|0|1||||5|10|||1|5|||||||||||||||||||||||};
-{fg_ironsword_d|items_weapons:0|Испорченный фейгардский железный меч|0|1|1|0|1||||5|-50|||0|0|||||||||||||||||||||||};
-{buceth_vial|items_consumables:47|Склянка Буцета с зеленой жидкостью|31|1|1|0|||||||||||||||||||||||||||||||||};
-{chaosreaper|items_weapons:49|Жнец хаоса|0|3|1|339|1||||4|-30|||0|2||||0||||||1||||||{{chaotic_grip|5|3|50|}}|||||||};
-{izthiel_claw|items_misc:47|Коготь Изтиля|21||1|1||||||||||||||1|1|6|||||||||||||||||};
-{iqhan_pendant|items_necklaces_1:2|Кулон Икана|6||1|10|1|||||6|||||||||||||||||||||||||||};
-{shadowfang|items_weapons_3:41|Клык Тени|0|3|1|512|1|-20|||4|40|||2|5||||0||||||1|||||{{fatigue_minor|1|3|20|}}||||||||};
-{gloves_life|items_armours_2:1|Перчатки жизненной силы|4|3|1|390|1|9||||5|||||3||||||||||||||||||||||};
+{erinith_book|items_books:0|Книга Эринита|other|1|1|0|||||||||||||||||||||||||||||||||};
+{hadracor_waspwing|items_misc:52|Крыло гигантской осы|animal|1|1|0|||||||||||||||||||||||||||||||||};
+{tinlyn_bells|items_necklaces_1:10|Колокольчик овечки Тинлина|other|1|1|0|||||||||||||||||||||||||||||||||};
+{tinlyn_sheep_meat|items_consumables:25|Мясо овечки Тинлина|animal|1|1|0|||||||||||||||||||||||||||||||||};
+{rogorn_qitem|items_books:7|Кусок рисунка|other|1|1|0|||||||||||||||||||||||||||||||||};
+{fg_ironsword|items_weapons:0|Фейгардский железный меч|lsword|1|1|0|1||||5|10|||1|5|||||||||||||||||||||||};
+{fg_ironsword_d|items_weapons:0|Испорченный фейгардский железный меч|lsword|1|1|0|1||||5|-50|||0|0|||||||||||||||||||||||};
+{buceth_vial|items_consumables:47|Склянка Буцета с зеленой жидкостью|other|1|1|0|||||||||||||||||||||||||||||||||};
+{chaosreaper|items_weapons:49|Жнец хаоса|scepter|3|1|339|1||||4|-30|||0|2||||0||||||1||||||{{chaotic_grip|5|3|50|}}|||||||};
+{izthiel_claw|items_misc:47|Коготь Изтиля|animal_e||1|1||||||||||||||1|1|6|||||||||||||||||};
+{iqhan_pendant|items_necklaces_1:2|Кулон Икана|neck||1|10|1|||||6|||||||||||||||||||||||||||};
+{shadowfang|items_weapons_3:41|Клык Тени|ssword|3|1|512|1|-20|||4|40|||2|5||||0||||||1|||||{{fatigue_minor|1|3|20|}}||||||||};
+{gloves_life|items_armours_2:1|Перчатки жизненной силы|hnd_lthr|3|1|390|1|9||||5|||||3||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v0611_1">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{pot_focus_dmg|items_consumables:39|Зелье концентрации на уроне|20||1|272||||||||||||||1|||||{{focus_dmg|1|4|100|}}||||||||||||||};
-{pot_focus_dmg2|items_consumables:39|Сильное зелье концентрации на уроне|20||1|630||||||||||||||1|||||{{focus_dmg|2|4|100|}}||||||||||||||};
-{pot_focus_ac|items_consumables:37|Зелье концентрации на точности|20||1|210||||||||||||||1|||||{{focus_ac|1|4|100|}}||||||||||||||};
-{pot_focus_ac2|items_consumables:37|Сильное зелье концентрации на точности|20||1|618||||||||||||||1|||||{{focus_ac|2|4|100|}}||||||||||||||};
-{pot_scaradon|items_consumables:48|Экстракт Скарадона|20||0|28||||||||||||||1|5|10|||||||||||||||||};
+{pot_focus_dmg|items_consumables:39|Зелье концентрации на уроне|pot||1|272||||||||||||||1|||||{{focus_dmg|1|4|100|}}||||||||||||||};
+{pot_focus_dmg2|items_consumables:39|Сильное зелье концентрации на уроне|pot||1|630||||||||||||||1|||||{{focus_dmg|2|4|100|}}||||||||||||||};
+{pot_focus_ac|items_consumables:37|Зелье концентрации на точности|pot||1|210||||||||||||||1|||||{{focus_ac|1|4|100|}}||||||||||||||};
+{pot_focus_ac2|items_consumables:37|Сильное зелье концентрации на точности|pot||1|618||||||||||||||1|||||{{focus_ac|2|4|100|}}||||||||||||||};
+{pot_scaradon|items_consumables:48|Экстракт Скарадона|pot||0|28||||||||||||||1|5|10|||||||||||||||||};
 
-{remgard_shield_1|items_armours_3:24|Ремгардский щит|1||0|2189|1|||||-3|||||9|1|||||||||||||||||||||};
-{remgard_shield_2|items_armours_3:24|Ремгардский боевой щит|1||0|2720|1|||||-3|||||11|1|||||||||||||||||||||};
+{remgard_shield_1|items_armours_3:24|Ремгардский щит|shld_mtl_li||0|2189|1|||||-3|||||9|1|||||||||||||||||||||};
+{remgard_shield_2|items_armours_3:24|Ремгардский боевой щит|shld_mtl_li||0|2720|1|||||-3|||||11|1|||||||||||||||||||||};
 
-{helm_combat1|items_armours:25|Боевой шлем|2||0|455|1|||||5|||||6||||||||||||||||||||||};
-{helm_combat2|items_armours:25|Улучшенный боевой шлем|2||0|485|1|||||7|||||6||||||||||||||||||||||};
-{helm_combat3|items_armours:26|Ремгардский боевой шлем|2||0|1540|1|1||||-3|-5||||12||||||||||||||||||||||};
-{helm_redeye1|items_armours:24|Шапка красных глаз|2||0|1|1|-5|||||||||8||||||||||||||||||||||};
-{helm_redeye2|items_armours:24|Шапка кровавых глаз|2||0|1|1|-5|||||||0|1|8||||||||||||||||||||||};
-{helm_defend1|items_armours_3:31|Шлем защитника|2||0|1975|1|||||-3|||||8|1|||||||||||||||||||||};
-{helm_protector0|items_armours_3:31|Странно выглядящий шлем|2|1|1|0|1|-9|||||||0|1|5||||||||||||||||||||||};
-{helm_protector|items_armours_3:31|Темный покровитель|2|3|0|3119|1|-6|||||||0|1|13|1|||||||||||||||||||||};
+{helm_combat1|items_armours:25|Боевой шлем|hd_mtl_li||0|455|1|||||5|||||6||||||||||||||||||||||};
+{helm_combat2|items_armours:25|Улучшенный боевой шлем|hd_mtl_li||0|485|1|||||7|||||6||||||||||||||||||||||};
+{helm_combat3|items_armours:26|Ремгардский боевой шлем|hd_mtl_hv||0|1540|1|1||||-3|-5||||12||||||||||||||||||||||};
+{helm_redeye1|items_armours:24|Шапка красных глаз|hd_lthr||0|1|1|-5|||||||||8||||||||||||||||||||||};
+{helm_redeye2|items_armours:24|Шапка кровавых глаз|hd_lthr||0|1|1|-5|||||||0|1|8||||||||||||||||||||||};
+{helm_defend1|items_armours_3:31|Шлем защитника|hd_mtl_hv||0|1975|1|||||-3|||||8|1|||||||||||||||||||||};
+{helm_protector0|items_armours_3:31|Странно выглядящий шлем|hd_mtl_li|1|1|0|1|-9|||||||0|1|5||||||||||||||||||||||};
+{helm_protector|items_armours_3:31|Темный покровитель|hd_mtl_li|3|0|3119|1|-6|||||||0|1|13|1|||||||||||||||||||||};
 
-{armour_chain_remg|items_armours_3:13|Ремгардская кольчуга|3||0|8927|1|||||-7|||||25||||||||||||||||||||||};
-{armour_cvest1|items_armours_3:5|Бронежилет|3||0|1116|1|||||15|||||8||||||||||||||||||||||};
-{armour_cvest2|items_armours_3:5|Ремгардский бронежилет|3||0|1244|1|||||17|||||8||||||||||||||||||||||};
+{armour_chain_remg|items_armours_3:13|Ремгардская кольчуга|chmail||0|8927|1|||||-7|||||25||||||||||||||||||||||};
+{armour_cvest1|items_armours_3:5|Бронежилет|bdy_lt||0|1116|1|||||15|||||8||||||||||||||||||||||};
+{armour_cvest2|items_armours_3:5|Ремгардский бронежилет|bdy_lt||0|1244|1|||||17|||||8||||||||||||||||||||||};
 
-{gloves_leather1|items_armours:38|Перчатки из грубой кожи|4||0|757|1|3||||2|||||6||||||||||||||||||||||};
-{gloves_arulir|items_armours_2:1|Перчатки из кожи Арулира|4||0|1793|1|||||-3|||||7|1|||||||||||||||||||||};
-{gloves_combat1|items_armours:36|Боевые перчатки|4||0|956|1|4||||-5|||||9||||||||||||||||||||||};
-{gloves_combat2|items_armours:36|Улучшенные боевые перчатки|4||0|1204|1|4||||-5|||||10||||||||||||||||||||||};
-{gloves_remgard1|items_armours:37|Ремгардские боевые перчатки|4||0|1205|1|4|||||||||8||||||||||||||||||||||};
-{gloves_remgard2|items_armours:37|Заколдованные ремгардские перчатки|4||0|1326|1|5||||2|||||8||||||||||||||||||||||};
-{gloves_guard1|items_armours:38|Перчатки стражника|4||1|601|1|||||-9|-5||||14||||||||||||||||||||||};
+{gloves_leather1|items_armours:38|Перчатки из грубой кожи|hnd_lthr||0|757|1|3||||2|||||6||||||||||||||||||||||};
+{gloves_arulir|items_armours_2:1|Перчатки из кожи Арулира|hnd_lthr||0|1793|1|||||-3|||||7|1|||||||||||||||||||||};
+{gloves_combat1|items_armours:36|Боевые перчатки|hnd_lthr||0|956|1|4||||-5|||||9||||||||||||||||||||||};
+{gloves_combat2|items_armours:36|Улучшенные боевые перчатки|hnd_lthr||0|1204|1|4||||-5|||||10||||||||||||||||||||||};
+{gloves_remgard1|items_armours:37|Ремгардские боевые перчатки|hnd_mtl_li||0|1205|1|4|||||||||8||||||||||||||||||||||};
+{gloves_remgard2|items_armours:37|Заколдованные ремгардские перчатки|hnd_mtl_li||0|1326|1|5||||2|||||8||||||||||||||||||||||};
+{gloves_guard1|items_armours:38|Перчатки стражника|hnd_lthr||1|601|1|||||-9|-5||||14||||||||||||||||||||||};
 
-{boots_combat1|items_armours:30|Боевые сапоги|5||0|0|1|||||7|||||7||||||||||||||||||||||};
-{boots_combat2|items_armours:30|Улучшенные боевые сапоги|5||0|0|1|||||7|||||11||||||||||||||||||||||};
-{boots_remgard1|items_armours:31|Ремгардские сапоги|5||0|0|1|4|||||||||12||||||||||||||||||||||};
-{boots_guard1|items_armours:31|Сапоги стражника|5||0|0|1||||||||||7|1|||||||||||||||||||||};
-{boots_brawler|items_armours_3:38|Сапоги дебошира|5||0|0|1|2|||||4||||7||||||||||||||||||||||};
+{boots_combat1|items_armours:30|Боевые сапоги|feet_mtl_li||0|0|1|||||7|||||7||||||||||||||||||||||};
+{boots_combat2|items_armours:30|Улучшенные боевые сапоги|feet_mtl_li||0|0|1|||||7|||||11||||||||||||||||||||||};
+{boots_remgard1|items_armours:31|Ремгардские сапоги|feet_mtl_hv||0|0|1|4|||||||||12||||||||||||||||||||||};
+{boots_guard1|items_armours:31|Сапоги стражника|feet_mtl_hv||0|0|1||||||||||7|1|||||||||||||||||||||};
+{boots_brawler|items_armours_3:38|Сапоги дебошира|feet_lthr||0|0|1|2|||||4||||7||||||||||||||||||||||};
 
-{marrowtaint|items_necklaces_1:9|Желегрязь|6|3|0|4760|1|5|||-1|9|||||9||||||||||||||||||||||};
-{valugha_gown|items_armours_3:2|Шелковый халат Валуга|3|3|0|3109|1|5||-1||30|||||-10|||||||||0|||||||||||||};
-{valugha_hat|items_armours_3:1|Мерцающая шляпа Валуга|2|3|1|648|1|3||-1||15|||-2|-2|-5||||||||||||||||||||||};
-{hat_crit|items_armours_3:0|Шапка дровосека с пером|2|3|0|1|1||||||4||||-5||||||||||||||||||||||};
+{marrowtaint|items_necklaces_1:9|Желегрязь|neck|3|0|4760|1|5|||-1|9|||||9||||||||||||||||||||||};
+{valugha_gown|items_armours_3:2|Шелковый халат Валуга|bdy_clth|3|0|3109|1|5||-1||30|||||-10|||||||||0|||||||||||||};
+{valugha_hat|items_armours_3:1|Мерцающая шляпа Валуга|hd_cloth|3|1|648|1|3||-1||15|||-2|-2|-5||||||||||||||||||||||};
+{hat_crit|items_armours_3:0|Шапка дровосека с пером|hd_cloth|3|0|1|1||||||4||||-5||||||||||||||||||||||};
 	</string>
 
 	<string name="itemlist_v0611_2">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{thorin_bone|items_misc:44|Обгрызанная кость|31|1|1|0|||||||||||||||||||||||||||||||||};
-{spider|items_misc:40|Мертвый паук|31||1|1|||||||||||||||||||||||||||||||||};
-{irdegh|items_misc:49|Ядовитая железа Ирдега|31||1|5|||||||||||||||||||||||||||||||||};
-{arulir_skin|items_misc:39|Кожа Арулира|31||1|4|||||||||||||||||||||||||||||||||};
-{algangror_rat|items_misc:38|Странно выглядящий хвост крысы|31|1|1|0|||||||||||||||||||||||||||||||||};
-{oegyth|items_misc:35|Кристалл Oegyth|31|1|1|0|||||||||||||||||||||||||||||||||};
-{toszylae_heart|items_misc:6|Сердце лича|31|1|1|0|||||||||||||||||||||||||||||||||};
-{potion_rotworm|items_consumables:63|Kazaul rotworm|31|1|1|0|||||||||||||||||||||||||||||||||};
+{thorin_bone|items_misc:44|Обгрызанная кость|animal|1|1|0|||||||||||||||||||||||||||||||||};
+{spider|items_misc:40|Мертвый паук|animal||1|1|||||||||||||||||||||||||||||||||};
+{irdegh|items_misc:49|Ядовитая железа Ирдега|animal||1|5|||||||||||||||||||||||||||||||||};
+{arulir_skin|items_misc:39|Кожа Арулира|animal||1|4|||||||||||||||||||||||||||||||||};
+{algangror_rat|items_misc:38|Странно выглядящий хвост крысы|animal|1|1|0|||||||||||||||||||||||||||||||||};
+{oegyth|items_misc:35|Кристалл Oegyth|gem|1|1|0|||||||||||||||||||||||||||||||||};
+{toszylae_heart|items_misc:6|Сердце лича|other|1|1|0|||||||||||||||||||||||||||||||||};
+{potion_rotworm|items_consumables:63|Kazaul rotworm|other|1|1|0|||||||||||||||||||||||||||||||||};
 	</string>
 
 </resources>

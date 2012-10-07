@@ -63,10 +63,13 @@ function createItemEditor(obj) {
 	
 	
 	var itemCostDependsOn = [];
-	var v = function(s) { 
+	var sv = function(s) { 
 		var field = $( s, div );
 		itemCostDependsOn.push(field);
-		var val = field.val();
+		return field.val();
+	}
+	var v = function(s) { 
+		var val = sv(s);
 		if (!val) return 0;
 		return parseInt(val);
 	}
@@ -81,7 +84,7 @@ function createItemEditor(obj) {
 		var costBoostHP = Math.round(0.1*sgn(averageHPBoost)*Math.pow(Math.abs(averageHPBoost), 2) + 3*averageHPBoost);
 		var itemUsageCost = costBoostHP;
 		
-		var isWeapon = v("#category") == 0;
+		var isWeapon = model.itemCategories.findById(sv("#category")).inventorySlot == 0;
 		
 		var equip_blockChance = v("#equip_blockChance");
 		var equip_attackChance = v("#equip_attackChance");
