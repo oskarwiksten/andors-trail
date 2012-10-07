@@ -46,23 +46,26 @@ public final class ItemEffectsView extends LinearLayout {
 			ItemTraits_OnEquip effects_equip, 
 			Collection<ItemTraits_OnUse> effects_use,
 			Collection<ItemTraits_OnUse> effects_hit,
-			Collection<ItemTraits_OnUse> effects_kill
+			Collection<ItemTraits_OnUse> effects_kill,
+			boolean isWeapon
 			) {
 		
+		itemeffect_onequip_title.setVisibility(View.GONE);
+		itemeffect_onequip_abilitymodifierinfo.setVisibility(View.GONE);
+		itemeffect_onequip_conditions.update(null);
 		if (effects_equip != null) {
 			itemeffect_onequip_title.setVisibility(View.VISIBLE);
-		} else {
-			itemeffect_onequip_title.setVisibility(View.GONE);
+			
+			if (effects_equip.stats != null) {
+				itemeffect_onequip_abilitymodifierinfo.update(effects_equip.stats, isWeapon);
+				itemeffect_onequip_abilitymodifierinfo.setVisibility(View.VISIBLE);
+			}
+
+			if (effects_equip.addedConditions != null) {
+				itemeffect_onequip_conditions.update(Arrays.asList(effects_equip.addedConditions));
+			}
 		}
 
-		itemeffect_onequip_abilitymodifierinfo.update(effects_equip);
-
-		if (effects_equip != null && effects_equip.addedConditions != null) {
-			itemeffect_onequip_conditions.update(Arrays.asList(effects_equip.addedConditions));
-		} else {
-			itemeffect_onequip_conditions.update(null);
-		}
-		
 		itemeffect_onuse.update(effects_use);
 		if (effects_use != null) {
 			itemeffect_onuse_title.setVisibility(View.VISIBLE);

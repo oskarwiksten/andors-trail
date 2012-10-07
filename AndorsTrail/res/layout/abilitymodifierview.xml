@@ -5,12 +5,48 @@
 	android:layout_height="wrap_content"
 	>
 
-	<com.gpl.rpg.AndorsTrail.view.TraitsInfoView
-		android:id="@+id/abilitymodifierinfo_traits"
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_attack_cost" 
+		android:id="@+id/abilitymodifierinfo_change_attack_cost" 
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
-
+    	<TextView 
+		android:text="@string/iteminfo_effect_increase_attack_chance" 
+		android:id="@+id/abilitymodifierinfo_change_attack_chance" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_attack_damage" 
+		android:id="@+id/abilitymodifierinfo_change_attack_damage" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_critical_skill" 
+		android:id="@+id/abilitymodifierinfo_change_critical_skill" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="@string/iteminfo_effect_critical_multiplier" 
+		android:id="@+id/abilitymodifierinfo_change_critical_multiplier" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_block_chance" 
+		android:id="@+id/abilitymodifierinfo_change_block_chance" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_damage_resistance" 
+		android:id="@+id/abilitymodifierinfo_change_damage_resistance" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
 	<TextView 
 		android:text="@string/iteminfo_effect_increase_max_hp" 
 		android:id="@+id/abilitymodifierinfo_change_maxhp" 
@@ -29,5 +65,17 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
-
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_use_cost" 
+		android:id="@+id/abilitymodifierinfo_change_use_cost" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	<TextView 
+		android:text="@string/iteminfo_effect_increase_reequip_cost" 
+		android:id="@+id/abilitymodifierinfo_change_reequip_cost" 
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+	
 </merge>

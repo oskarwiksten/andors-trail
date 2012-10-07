@@ -2,7 +2,6 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
-import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 
@@ -60,7 +59,6 @@ public class TraitsInfoView extends TableLayout {
 
 	public void update(Actor actor) { update(actor.combatTraits, true); }
 	public void update(ActorTraits actorTraits) { update(actorTraits.baseCombatTraits, true); }
-	public void update(AbilityModifierTraits traits) { update(traits.combatProficiency, false); }
 	private void update(CombatTraits traits, boolean showEffectiveCriticalChance) {
 		if (traits != null && traits.attackCost != 0) {
 			traitsinfo_attack_row1.setVisibility(View.VISIBLE);

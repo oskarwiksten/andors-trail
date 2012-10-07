@@ -57,7 +57,8 @@ public class ActorConditionInfoActivity extends Activity {
         final String categoryName = res.getStringArray(R.array.actorcondition_categories)[conditionType.conditionCategory];
         tv.setText(res.getString(R.string.actorconditioninfo_category, categoryName));
         
-        ((AbilityModifierInfoView) findViewById(R.id.actorconditioninfo_constant_effect_abilitymodifierinfo)).update(conditionType.abilityEffect);
+        ((AbilityModifierInfoView) findViewById(R.id.actorconditioninfo_constant_effect_abilitymodifierinfo)).update(conditionType.abilityEffect, false);
+                
         tv = (TextView) findViewById(R.id.actorconditioninfo_constant_effect_title);
         if (conditionType.abilityEffect != null) {
         	tv.setVisibility(View.VISIBLE);

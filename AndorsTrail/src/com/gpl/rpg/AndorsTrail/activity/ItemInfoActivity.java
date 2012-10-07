@@ -57,7 +57,8 @@ public final class ItemInfoActivity extends Activity {
         		itemType.effects_equip,
         		itemType.effects_use == null ? null : Arrays.asList(itemType.effects_use),
 				itemType.effects_hit == null ? null : Arrays.asList(itemType.effects_hit),
-				itemType.effects_kill == null ? null : Arrays.asList(itemType.effects_kill)
+				itemType.effects_kill == null ? null : Arrays.asList(itemType.effects_kill),
+				itemType.isWeapon()
     		);
         
         Button b = (Button) findViewById(R.id.iteminfo_close);

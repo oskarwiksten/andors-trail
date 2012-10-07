@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
@@ -36,7 +37,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		}
 		
 		tileManager.setImageViewTile((ImageView) result.findViewById(R.id.inv_image), item.itemType, tileCollection);
-		((TextView) result.findViewById(R.id.inv_text)).setText(item.itemType.describeWearEffect(item.quantity));
+		((TextView) result.findViewById(R.id.inv_text)).setText(ItemController.describeItemForListView(item));
 		return result;
 	}
 	

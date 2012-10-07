@@ -90,7 +90,8 @@ public final class MonsterInfoActivity extends Activity {
         		null, 
         		null, 
         		monster.actorTraits.onHitEffects == null ? null : Arrays.asList(monster.actorTraits.onHitEffects), 
-        		null);
+        		null,
+        		false);
         hp.update(monster.health);
         monsterinfo_immune_criticals.setVisibility(monster.isImmuneToCriticalHits ? View.VISIBLE : View.GONE);
     }

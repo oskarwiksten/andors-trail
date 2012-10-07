@@ -8,12 +8,14 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
+import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class ItemController {
@@ -101,7 +103,7 @@ public final class ItemController {
 		ItemType weapon = getMainWeapon(player);
 		if (weapon != null) {
 			player.combatTraits.attackCost = 0;
-			player.combatTraits.criticalMultiplier = weapon.effects_equip.combatProficiency.criticalMultiplier;
+			player.combatTraits.criticalMultiplier = weapon.effects_equip.stats.setCriticalMultiplier;
 		}
 		
 		applyInventoryEffects(player, Inventory.WEARSLOT_WEAPON);
@@ -133,7 +135,8 @@ public final class ItemController {
 			// The stats for off-hand weapons will be added later in SkillController.applySkillEffectsFromFightingStyles
 			if (SkillController.isDualWielding(mainHandItem, type)) return;
 		}
-		ActorStatsController.applyAbilityEffects(player, type.effects_equip, 1);
+		if (type.effects_equip != null && type.effects_equip.stats != null)
+		ActorStatsController.applyAbilityEffects(player, type.effects_equip.stats, 1);
 	}
 	
 	public static void recalculateHitEffectsFromWornItems(Player player) {
@@ -237,6 +240,79 @@ public final class ItemController {
 			player.inventory.gold -= price;
 			player.inventory.addItem(itemType, quantity);
 			model.statistics.addGoldSpent(price);
+		}
+	}
+	
+
+	public static String describeItemForListView(ItemEntry item) {
+		StringBuilder sb = new StringBuilder(item.itemType.name);
+		if (item.quantity > 1) {
+			sb.append(" (");
+			sb.append(item.quantity);
+			sb.append(')'); 
+		}
+		if (item.itemType.effects_equip != null) {
+			AbilityModifierTraits t = item.itemType.effects_equip.stats;
+			if (t != null) {
+				if (t.increaseAttackChance != 0
+					|| t.increaseMinDamage != 0
+					|| t.increaseMaxDamage != 0
+					|| t.increaseCriticalSkill != 0
+					|| t.setCriticalMultiplier != 0) {
+					sb.append(" [");
+					describeAttackEffect(t.increaseAttackChance, t.increaseMinDamage, t.increaseMaxDamage, t.increaseCriticalSkill, t.setCriticalMultiplier, sb);
+					sb.append(']');
+				}
+				if (t.increaseBlockChance != 0
+					|| t.increaseDamageResistance != 0) {
+					sb.append(" [");
+					describeBlockEffect(t.increaseBlockChance, t.increaseDamageResistance, sb);
+					sb.append(']');
+				}
+			}
+		}
+		return sb.toString();
+	}
+
+	public static void describeAttackEffect(int attackChance, int minDamage, int maxDamage, int criticalSkill, float criticalMultiplier, StringBuilder sb) {
+		boolean addSpace = false;
+		if (attackChance != 0) {
+			sb.append(attackChance);
+			sb.append('%');
+			addSpace = true;
+		}
+		if (minDamage != 0 || maxDamage != 0) {
+			if (addSpace) sb.append(' ');
+			sb.append(minDamage);
+			if (minDamage != maxDamage) {
+				sb.append('-');
+				sb.append(maxDamage);
+			}
+			addSpace = true;
+		}
+		if (criticalSkill != 0) {
+			if (addSpace) sb.append(' ');
+			if (criticalSkill >= 0) {
+				sb.append('+');
+			}
+			sb.append(criticalSkill);
+			addSpace = true;
+		}
+		if (criticalMultiplier != 0 && criticalMultiplier != 1) {
+			sb.append('x');
+			sb.append(criticalMultiplier);
+			addSpace = true;
+		}
+	}
+	
+	public static void describeBlockEffect(int blockChance, int damageResistance, StringBuilder sb) {
+		if (blockChance != 0) {
+			sb.append(blockChance);
+			sb.append('%');
+		}
+		if (damageResistance != 0) {
+			sb.append('/');
+			sb.append(damageResistance);	
 		}
 	}
 

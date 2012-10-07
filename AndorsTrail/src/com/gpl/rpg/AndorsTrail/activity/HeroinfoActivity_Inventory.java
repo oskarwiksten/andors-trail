@@ -5,6 +5,8 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.ItemController;
+import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
@@ -162,8 +164,15 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
 	private void updateTraits() {
         heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.inventory.gold));
-        heroinfo_stats_attack.setText(ItemType.describeAttackEffect(player.combatTraits));
-        heroinfo_stats_defense.setText(ItemType.describeBlockEffect(player.combatTraits));
+        CombatTraits c = player.combatTraits;
+        
+        StringBuilder sb = new StringBuilder();
+        ItemController.describeAttackEffect(c.attackChance, c.damagePotential.current, c.damagePotential.max, c.criticalSkill, c.criticalMultiplier, sb);
+        heroinfo_stats_attack.setText(sb.toString());
+        
+        sb = new StringBuilder();
+        ItemController.describeBlockEffect(c.blockChance, c.damageResistance, sb);
+        heroinfo_stats_defense.setText(sb.toString());
     }
 
     private void updateWorn() {

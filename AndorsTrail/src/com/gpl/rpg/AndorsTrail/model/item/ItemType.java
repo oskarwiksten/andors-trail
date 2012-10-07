@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemType {
@@ -25,7 +24,18 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
-	public ItemType(String id, int iconID, String name, ItemCategory category, int displayType, boolean hasManualPrice, int fixedBaseMarketCost, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	public ItemType(
+			String id, 
+			int iconID, 
+			String name, 
+			ItemCategory category, 
+			int displayType, 
+			boolean hasManualPrice, 
+			int fixedBaseMarketCost, 
+			ItemTraits_OnEquip effects_equip, 
+			ItemTraits_OnUse effects_use, 
+			ItemTraits_OnUse effects_hit, 
+			ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
@@ -53,76 +63,6 @@ public final class ItemType {
 		if (isQuestItem()) return false;
 		if (baseMarketCost == 0) return false;
 		return true;
-	}
-	
-	
-	public String describeWearEffect(int quantity) {
-		StringBuilder sb = new StringBuilder(name);
-		if (quantity > 1) {
-			sb.append(" (");
-			sb.append(quantity);
-			sb.append(')'); 
-		}
-		if (effects_equip != null) {
-			if (effects_equip.combatProficiency != null) {
-				if (effects_equip.combatProficiency.hasAttackChanceEffect() || effects_equip.combatProficiency.hasAttackDamageEffect()) {
-					sb.append(" [");
-					describeAttackEffect(effects_equip.combatProficiency, sb);
-					sb.append(']');
-				}
-				if (effects_equip.combatProficiency.hasBlockEffect()) {
-					sb.append(" [");
-					describeBlockEffect(effects_equip.combatProficiency, sb);
-					sb.append(']');
-				}
-			}
-		}
-		return sb.toString();
-	}
-	
-	public static void describeAttackEffect(CombatTraits attackEffect, StringBuilder sb) {
-		boolean addSpace = false;
-		if (attackEffect.hasAttackChanceEffect()) {
-			sb.append(attackEffect.attackChance);
-			sb.append('%');
-			addSpace = true;
-		}
-		if (attackEffect.hasAttackDamageEffect()) {
-			if (addSpace) sb.append(' ');
-			sb.append(attackEffect.damagePotential.toMinMaxString());
-			addSpace = true;
-		}
-		if (attackEffect.hasCriticalSkillEffect()) {
-			if (addSpace) sb.append(' ');
-			if (attackEffect.criticalSkill >= 0) {
-				sb.append('+');
-			}
-			sb.append(attackEffect.criticalSkill);
-			sb.append("x");
-			if (attackEffect.hasCriticalMultiplierEffect()) {
-				sb.append(attackEffect.criticalMultiplier);				
-			}
-			addSpace = true;
-		}
-	}
-	public static String describeAttackEffect(CombatTraits attackEffect) {
-		StringBuilder sb = new StringBuilder();
-		describeAttackEffect(attackEffect, sb);
-		return sb.toString();
-	}
-	
-	public static void describeBlockEffect(CombatTraits defenseEffect, StringBuilder sb) {
-		sb.append(defenseEffect.blockChance);
-		sb.append('%');
-		if (defenseEffect.damageResistance != 0) {
-			sb.append('/');
-			sb.append(defenseEffect.damageResistance);	
-		}
-	}
-	public static String describeBlockEffect(CombatTraits defenseEffect) {
-		StringBuilder sb = new StringBuilder();
-		describeBlockEffect(defenseEffect, sb);
-		return sb.toString();
 	}
 	
 	public int getOverlayTileID() {
