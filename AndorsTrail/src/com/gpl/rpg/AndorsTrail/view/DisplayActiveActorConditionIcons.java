@@ -14,6 +14,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.RelativeLayout.LayoutParams;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
@@ -23,12 +24,18 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public class DisplayActiveActorConditionIcons implements ActorConditionListener {
 	
+	private final AndorsTrailPreferences preferences;
 	private final TileManager tileManager;
 	private final RelativeLayout activeConditions;
 	private final ArrayList<ActiveConditionIcon> currentConditionIcons = new ArrayList<ActiveConditionIcon>();
 	private final WeakReference<Context> androidContext;
 	
-	public DisplayActiveActorConditionIcons(final TileManager tileManager, Context androidContext, RelativeLayout activeConditions) {
+	public DisplayActiveActorConditionIcons(
+			final AndorsTrailPreferences preferences, 
+			final TileManager tileManager, 
+			Context androidContext, 
+			RelativeLayout activeConditions) {
+		this.preferences = preferences;
 		this.tileManager = tileManager;
 		this.androidContext = new WeakReference<Context>(androidContext);
 		this.activeConditions = activeConditions;
@@ -123,7 +130,11 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 		
 		public void hide(boolean useAnimation) {
 			if (useAnimation) {
-				image.startAnimation(onRemovedIconAnimation);
+				if (preferences.enableUiAnimations) {
+					image.startAnimation(onRemovedIconAnimation);
+				} else {
+					onAnimationEnd(onRemovedIconAnimation);
+				}
 			} else {
 				image.setVisibility(View.GONE);
 				condition = null;
@@ -131,11 +142,13 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 			text.setVisibility(View.GONE);
 		}
 		public void show() {
+			if (!preferences.enableUiAnimations) return;
 			image.startAnimation(onNewIconAnimation);
 			if (text.getVisibility() == View.VISIBLE) text.startAnimation(onNewIconAnimation);
 		}
 		
 		public void pulseAnimate() {
+			if (!preferences.enableUiAnimations) return;
 			image.startAnimation(onAppliedEffectAnimation);
 		}
 		

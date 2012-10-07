@@ -72,4 +72,12 @@
 			android:summary="@string/preferences_movement_dpad_minimizeable"
 			android:key="dpadMinimizeable" />
 	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/preferences_ui_category">
+		<CheckBoxPreference
+			android:title="@string/preferences_ui_enable_animations_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_ui_enable_animations"
+			android:key="enableUiAnimations" />
+	</PreferenceCategory>
 </PreferenceScreen>

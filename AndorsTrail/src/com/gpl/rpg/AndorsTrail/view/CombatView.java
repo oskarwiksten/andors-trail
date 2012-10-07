@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
@@ -36,17 +37,20 @@ public final class CombatView extends RelativeLayout {
 	private final WorldContext world;
 	private final ViewContext view;
 	private final Resources res;
+	private final AndorsTrailPreferences preferences;
 	private final Player player;
 	private final Animation displayAnimation;
 	private final Animation hideAnimation;
 
 	private Monster currentMonster;
+	
 	public CombatView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.world;
         this.player = world.model.player;
         this.view = app.currentView.get();
+        this.preferences = app.preferences;
         this.res = getResources();
 
         setFocusable(false);
@@ -154,11 +158,16 @@ public final class CombatView extends RelativeLayout {
 	public void show() {
 		setVisibility(View.VISIBLE);
     	bringToFront();
-    	startAnimation(displayAnimation);
+    	if (preferences.enableUiAnimations) {
+    		startAnimation(displayAnimation);
+    	}
 	}
 
 	public void hide() {
-		startAnimation(hideAnimation);
-		//setVisibility(View.GONE);
+		if (preferences.enableUiAnimations) {
+			startAnimation(hideAnimation);
+		} else {
+			setVisibility(View.GONE);
+		}
 	}
 }

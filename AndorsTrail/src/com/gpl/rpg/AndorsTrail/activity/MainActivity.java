@@ -85,7 +85,7 @@ public final class MainActivity extends Activity {
         statusview = (StatusView) findViewById(R.id.main_statusview);
         combatview = (CombatView) findViewById(R.id.main_combatview);
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
-        activeConditions = new DisplayActiveActorConditionIcons(world.tileManager, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
+        activeConditions = new DisplayActiveActorConditionIcons(app.preferences, world.tileManager, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);

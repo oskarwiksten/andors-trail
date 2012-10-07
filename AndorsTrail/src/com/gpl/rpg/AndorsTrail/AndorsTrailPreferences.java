@@ -34,6 +34,7 @@ public class AndorsTrailPreferences {
 	public int dpadPosition;
 	public boolean dpadMinimizeable = true;
 	public boolean optimizedDrawing = false;
+	public boolean enableUiAnimations = true;
 	
 	public static void read(final Context androidContext, AndorsTrailPreferences dest) {
 		try {
@@ -48,6 +49,7 @@ public class AndorsTrailPreferences {
 			dest.dpadPosition = Integer.parseInt(prefs.getString("dpadposition", Integer.toString(DPAD_POSITION_DISABLED)));
 			dest.dpadMinimizeable = prefs.getBoolean("dpadMinimizeable", true);
 			dest.optimizedDrawing = prefs.getBoolean("optimized_drawing", false);
+			dest.enableUiAnimations = prefs.getBoolean("enableUiAnimations", true);
 			
 			// This might be implemented as a skill in the future.
 			//dest.movementAggressiveness = Integer.parseInt(prefs.getString("movementaggressiveness", Integer.toString(MOVEMENTAGGRESSIVENESS_NORMAL)));
@@ -63,6 +65,7 @@ public class AndorsTrailPreferences {
 			dest.dpadPosition = DPAD_POSITION_DISABLED;
 			dest.dpadMinimizeable = true;
 			dest.optimizedDrawing = false;
+			dest.enableUiAnimations = true;
 		}
 	}
 	
