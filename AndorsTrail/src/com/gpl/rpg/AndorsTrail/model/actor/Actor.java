@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListeners;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
@@ -20,6 +21,7 @@ public class Actor {
 	public final Coord position;
 	public final CoordRect rectPosition;
 	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
+	public final ActorConditionListeners conditionListener = new ActorConditionListeners();
 	public final boolean isPlayer;
 	public final boolean isImmuneToCriticalHits;
 	

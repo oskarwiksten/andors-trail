@@ -6,7 +6,6 @@ import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
@@ -17,8 +16,6 @@ import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ImageButton;
 
@@ -97,58 +94,12 @@ public final class StatusView extends RelativeLayout {
 			world.tileManager.setImageViewTile(heroImage, player);			
 		}
 	}
-
-	public void updateActiveConditions(Context androidContext, LinearLayout activeConditions) {
-		GreedyImageViewAppender t = new GreedyImageViewAppender(androidContext, activeConditions);
-		for (ActorCondition condition : player.conditions) {
-			ImageView iv = t.getNextImage();
-			world.tileManager.setImageViewTile(iv, condition.conditionType);
-		}
-		t.removeOtherImages();
-	}
 	
 	public void updateQuickItemImage(boolean visible){
 		if(visible){
 			world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxopened);
 		} else {
 			world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxclosed);
-		}
-	}
-	
-	private static class GreedyImageViewAppender {
-		private final LinearLayout container;
-		private final Context context;
-		private int currentChildIndex = 0;
-		private final int previousChildCount;
-		private final LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		
-		public GreedyImageViewAppender(Context context, LinearLayout container) {
-			this.container = container;
-			this.context = context;
-			this.previousChildCount = container.getChildCount();
-		}
-		public ImageView getNextImage() {
-			// Since this is called a lot, we do not want to recreate the view objects every time.
-			// Therefore, we reuse existing ImageView:s if they are present, but just change the image on them.
-			ImageView iv;
-			if (currentChildIndex < previousChildCount) {
-				// There already is a create dimage on this position, reuse it.
-				iv = (ImageView) container.getChildAt(currentChildIndex);
-				iv.setVisibility(View.VISIBLE);
-			} else {
-				// The player has never had this many conditions, create a new ImageView to hold the condition image.
-				iv = new ImageView(context);
-				container.addView(iv, layoutParams);
-			}
-			++currentChildIndex;
-			return iv;
-		}
-		public void removeOtherImages() {
-			for(int i = previousChildCount - 1; i >= currentChildIndex; --i) {
-				//container.removeViewAt(i);
-				// Don't actually remove them, just hide them (so we won't have to recreate them next time the player get a condition)
-				container.getChildAt(i).setVisibility(View.GONE);
-			}
 		}
 	}
 }

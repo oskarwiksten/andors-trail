@@ -241,16 +241,12 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!world.model.currentMap.isWalkable(world.model.player.position)) {
 			// If the player somehow spawned on an unwalkable tile, we move the player to the first mapchange area.
 			// This could happen if we change some tile to non-walkable in a future version.
-			MapObject dest = null;
 			for (MapObject o : model.currentMap.eventObjects) {
 	    		if (o.type == MapObject.MAPEVENT_NEWMAP) {
-		    		dest = o;
+	    			model.player.position.set(o.position.topLeft);
 		    		break;
 	    		}
 	    	}
-			if (dest != null) {
-				model.player.position.set(dest.position.topLeft);
-			}
 		}
 		
 		// If any monsters somehow spawned on an unwalkable tile, we move the monster to a new position on the spawnarea

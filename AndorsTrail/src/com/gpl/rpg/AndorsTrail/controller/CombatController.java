@@ -6,7 +6,6 @@ import android.content.res.Resources;
 import android.os.Handler;
 import android.os.Message;
 import android.util.FloatMath;
-import android.view.View;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -49,8 +48,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	public static final int BEGIN_TURN_CONTINUE = 2;
 	
 	public void enterCombat(int beginTurnAs) {
-    	context.mainActivity.combatview.setVisibility(View.VISIBLE);
-    	context.mainActivity.combatview.bringToFront();
+    	context.mainActivity.combatview.show();
     	model.uiSelections.isInCombat = true;
     	killedMonsterBags.clear();
     	context.mainActivity.clearMessages();
@@ -61,7 +59,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
     }
     public void exitCombat(boolean pickupLootBags) {
     	setCombatSelection(null, null);
-		context.mainActivity.combatview.setVisibility(View.GONE);
+		context.mainActivity.combatview.hide();
 		model.uiSelections.isInCombat = false;
     	context.mainActivity.clearMessages();
     	currentActiveMonster = null;
