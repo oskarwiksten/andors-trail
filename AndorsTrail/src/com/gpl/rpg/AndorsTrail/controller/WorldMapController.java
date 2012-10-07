@@ -74,15 +74,15 @@ public final class WorldMapController {
 	}
 
 	private static void updateCachedBitmap(PredefinedMap map, MapRenderer renderer) throws IOException {
-
+		ensureWorldmapDirectoryExists();
+    	
 		File file = getFileForMap(map);
     	if (file.exists()) {
     		if (map.lastVisitVersion == AndorsTrailApplication.CURRENT_VERSION) return;
     	}
 		
 		Bitmap image = renderer.drawMap();
-		ensureWorldmapDirectoryExists();
-    	FileOutputStream fos = new FileOutputStream(file);
+		FileOutputStream fos = new FileOutputStream(file);
     	image.compress(Bitmap.CompressFormat.PNG, 70, fos);
         fos.flush();
         fos.close();
@@ -136,12 +136,15 @@ public final class WorldMapController {
 	    }
 	}
 	
-    private static void ensureWorldmapDirectoryExists() {
+    private static void ensureWorldmapDirectoryExists() throws IOException {
     	File root = Environment.getExternalStorageDirectory();
 		File dir = new File(root, Constants.FILENAME_SAVEGAME_DIRECTORY);
 		if (!dir.exists()) dir.mkdir();
 		dir = new File(dir, Constants.FILENAME_WORLDMAP_DIRECTORY);
 		if (!dir.exists()) dir.mkdir();
+		
+		File noMediaFile = new File(dir, ".nomedia");
+		if (!noMediaFile.exists()) noMediaFile.createNewFile();
     }
     public static File getFileForMap(PredefinedMap map) { return getFileForMap(map.name); }
     public static File getFileForMap(String mapName) {
