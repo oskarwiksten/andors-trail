@@ -11,6 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
@@ -18,6 +19,7 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public class ToolboxView extends LinearLayout implements OnClickListener {
 	private final WorldContext world;
+	private final AndorsTrailPreferences preferences;
 	private final Animation showAnimation;
 	private final Animation hideAnimation;
 	private final ImageButton toolbox_quickitems;
@@ -29,6 +31,7 @@ public class ToolboxView extends LinearLayout implements OnClickListener {
 		super(context, attrs);
 	    AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
 	    this.world = app.world;
+	    this.preferences = app.preferences;
 
         inflate(context, R.layout.toolboxview, this);
 		
@@ -74,11 +77,17 @@ public class ToolboxView extends LinearLayout implements OnClickListener {
 
 	public void toggleVisibility() {
 		if (getVisibility() == View.VISIBLE) {
-			startAnimation(hideAnimation);
+			if (preferences.enableUiAnimations) {
+				startAnimation(hideAnimation);
+			} else {
+				setVisibility(View.GONE);
+			}
 			setToolboxIcon(false);
 		} else {
 			setVisibility(View.VISIBLE);
-			startAnimation(showAnimation);
+			if (preferences.enableUiAnimations) {
+				startAnimation(showAnimation);
+			}
 			setToolboxIcon(true);
 		}
 	}
