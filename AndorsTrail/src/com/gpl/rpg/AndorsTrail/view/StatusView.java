@@ -2,9 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
@@ -23,21 +21,20 @@ public final class StatusView extends RelativeLayout {
 	
 	private final WorldContext world;
 	private final Player player;
-	private final ViewContext view;
 	
 	private final RangeBar healthBar;
 	private final RangeBar expBar;
 	private final ImageButton heroImage;
-	private final ImageButton quickToggle;
+	private final ImageButton toggleToolbox;
 	private boolean showingLevelup;
 	private final Drawable levelupDrawable;
+	private ToolboxView toolbox;
 	
 	public StatusView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.world;
         this.player = app.world.model.player;
-        this.view = app.currentView.get();
         
         setFocusable(false);
         inflate(context, R.layout.statusview, this);
@@ -49,8 +46,7 @@ public final class StatusView extends RelativeLayout {
         heroImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Intent intent = new Intent(context, HeroinfoActivity.class);
-				AndorsTrailApplication.getActivityFromActivityContext(context).startActivityForResult(intent, MainActivity.INTENTREQUEST_HEROINFO);
+				context.startActivity(new Intent(context, HeroinfoActivity.class));
 			}
 		});
 		healthBar = (RangeBar) findViewById(R.id.statusview_health);
@@ -64,18 +60,24 @@ public final class StatusView extends RelativeLayout {
 				,new BitmapDrawable(world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
 		});
 		
-		quickToggle = (ImageButton) findViewById(R.id.quickitem_toggle);
-		world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxclosed);
-		quickToggle.setOnClickListener(new OnClickListener() {
+		toggleToolbox = (ImageButton) findViewById(R.id.toolbox_toggle);
+		world.tileManager.setImageViewTileForUIIcon(toggleToolbox, TileManager.iconID_boxclosed);
+		toggleToolbox.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				view.itemController.toggleQuickItemView();
+				toolbox.toggleVisibility();
 			}
 		});
 		
 		updateStatus();
         updateIcon(player.canLevelup());
     }
+	
+	public void registerToolboxViews(ToolboxView toolbox, QuickitemView quickitemView) {
+		this.toolbox = toolbox;
+		toolbox.registerToolboxViews(toggleToolbox, quickitemView);
+		toolbox.updateIcons();
+	}
 
 	public void updateStatus() {
 		healthBar.update(player.health);
@@ -92,14 +94,6 @@ public final class StatusView extends RelativeLayout {
 			heroImage.setImageDrawable(levelupDrawable);
 		} else {
 			world.tileManager.setImageViewTile(heroImage, player);			
-		}
-	}
-	
-	public void updateQuickItemImage(boolean visible){
-		if(visible){
-			world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxopened);
-		} else {
-			world.tileManager.setImageViewTileForUIIcon(quickToggle, TileManager.iconID_boxclosed);
 		}
 	}
 }

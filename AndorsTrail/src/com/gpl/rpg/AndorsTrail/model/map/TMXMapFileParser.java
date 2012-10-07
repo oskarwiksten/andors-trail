@@ -10,6 +10,7 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import com.gpl.rpg.AndorsTrail.util.Base64;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.XmlResourceParserUtils;
 
 import android.content.res.Resources;
 import android.content.res.XmlResourceParser;
@@ -41,7 +42,7 @@ public final class TMXMapFileParser {
 						map.height = xrp.getAttributeIntValue(null, "height", -1);
 						map.tilewidth = xrp.getAttributeIntValue(null, "tilewidth", -1);
 						map.tileheight = xrp.getAttributeIntValue(null, "tileheight", -1);
-						readCurrentTagUntilEnd(xrp, new TagHandler() {
+						XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 							public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 								if (tagName.equals("tileset")) {
 									tileSets.add(readTMXTileSet(xrp));
@@ -49,6 +50,8 @@ public final class TMXMapFileParser {
 									map.objectGroups.add(readTMXObjectGroup(xrp));
 								} else if (tagName.equals("layer")) {
 									layers.add(readTMXMapLayer(xrp));
+								} else if (tagName.equals("property")) {
+									map.properties.add(readTMXProperty(xrp));
 								}
 							}
 						});
@@ -79,7 +82,7 @@ public final class TMXMapFileParser {
 					if (s.equals("map")) {
 						map.width = xrp.getAttributeIntValue(null, "width", -1);
 						map.height = xrp.getAttributeIntValue(null, "height", -1);
-						readCurrentTagUntilEnd(xrp, new TagHandler() {
+						XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 							public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 								if (tagName.equals("tileset")) {
 									tileSets.add(readTMXTileSet(xrp));
@@ -109,7 +112,7 @@ public final class TMXMapFileParser {
 		ts.name = xrp.getAttributeValue(null, "name");
 		ts.tilewidth = xrp.getAttributeIntValue(null, "tilewidth", -1);
 		ts.tileheight = xrp.getAttributeIntValue(null, "tileheight", -1);
-		readCurrentTagUntilEnd(xrp, new TagHandler() {
+		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 			public void handleTag(XmlResourceParser xrp, String tagName) {
 				if (tagName.equals("image")) {
 					ts.imageSource = xrp.getAttributeValue(null, "source");
@@ -128,7 +131,7 @@ public final class TMXMapFileParser {
 		group.name = xrp.getAttributeValue(null, "name");
 		group.width = xrp.getAttributeIntValue(null, "width", 1);
 		group.height = xrp.getAttributeIntValue(null, "height", 1);
-		readCurrentTagUntilEnd(xrp, new TagHandler() {
+		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("object")) {
 					group.objects.add(readTMXObject(xrp));
@@ -146,13 +149,10 @@ public final class TMXMapFileParser {
 		object.y = xrp.getAttributeIntValue(null, "y", -1);
 		object.width = xrp.getAttributeIntValue(null, "width", -1);
 		object.height = xrp.getAttributeIntValue(null, "height", -1);
-		readCurrentTagUntilEnd(xrp, new TagHandler() {
-			public void handleTag(XmlResourceParser xrp, String tagName) {
+		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
+			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("property")) {
-					final TMXProperty property = new TMXProperty();
-					object.properties.add(property);
-					property.name = xrp.getAttributeValue(null, "name");
-					property.value = xrp.getAttributeValue(null, "value");
+					object.properties.add(readTMXProperty(xrp));
 				}
 			}
 		});
@@ -165,7 +165,7 @@ public final class TMXMapFileParser {
 		layer.width = xrp.getAttributeIntValue(null, "width", 1);
 		layer.height = xrp.getAttributeIntValue(null, "height", 1);
 		layer.gids = new int[layer.width][layer.height];
-		readCurrentTagUntilEnd(xrp, new TagHandler() {
+		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("data")) {
 					readTMXMapLayerData(xrp, layer);
@@ -209,6 +209,13 @@ public final class TMXMapFileParser {
 		}
 	}
 	
+	private static TMXProperty readTMXProperty(XmlResourceParser xrp) throws XmlPullParserException, IOException {
+		final TMXProperty property = new TMXProperty();
+		property.name = xrp.getAttributeValue(null, "name");
+		property.value = xrp.getAttributeValue(null, "value");
+		return property;
+	}
+	
 	private static void copyStreamToBuffer(InflaterInputStream zi, byte[] buffer, int len) throws IOException {
 		int offset = 0;
 		int bytesToRead = len;
@@ -220,23 +227,6 @@ public final class TMXMapFileParser {
 		}
 	}
 	
-	private interface TagHandler {
-		void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException;
-	}
-	private static void readCurrentTagUntilEnd(XmlResourceParser xrp, TagHandler handler) throws XmlPullParserException, IOException {
-		String outerTagName = xrp.getName();
-		String tagName;
-		int eventType;
-		while ((eventType = xrp.next()) != XmlResourceParser.END_DOCUMENT) {
-			if (eventType == XmlResourceParser.START_TAG) {
-				tagName = xrp.getName();
-				handler.handleTag(xrp, tagName);
-			} else if (eventType == XmlResourceParser.END_TAG) {
-				tagName = xrp.getName();
-				if (tagName.equals(outerTagName)) return;
-			}
-		}
-	}
 	/*
 	private static String getHexString(byte v) {
 		String result = Integer.toHexString(v & 0xff);
@@ -270,6 +260,7 @@ public final class TMXMapFileParser {
 		public int height;
 		public TMXTileSet[] tileSets;
 		public TMXLayer[] layers;
+		public final ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
 	}
 	public static final class TMXTileSet {
 		public int firstgid;
@@ -289,7 +280,7 @@ public final class TMXMapFileParser {
 		public String name;
 		public int width;
 		public int height;
-		public ArrayList<TMXObject> objects = new ArrayList<TMXObject>();
+		public final ArrayList<TMXObject> objects = new ArrayList<TMXObject>();
 	}
 	public static final class TMXObject {
 		public String name;
@@ -298,7 +289,7 @@ public final class TMXMapFileParser {
 		public int y;
 		public int width;
 		public int height;
-		public ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
+		public final ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
 	}
 	public static final class TMXProperty {
 		public String name;

@@ -18,6 +18,7 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.DisplayActiveActorConditionIcons;
 import com.gpl.rpg.AndorsTrail.view.MainView;
+import com.gpl.rpg.AndorsTrail.view.ToolboxView;
 import com.gpl.rpg.AndorsTrail.view.VirtualDpadView;
 import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
 import com.gpl.rpg.AndorsTrail.view.QuickitemView;
@@ -40,7 +41,6 @@ import android.widget.Toast;
 
 public final class MainActivity extends Activity {
 
-    public static final int INTENTREQUEST_HEROINFO = 1;
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
     public static final int INTENTREQUEST_ITEMINFO = 3;
     public static final int INTENTREQUEST_CONVERSATION = 4;
@@ -61,6 +61,7 @@ public final class MainActivity extends Activity {
     public CombatView combatview;
     public QuickitemView quickitemview;
     private DisplayActiveActorConditionIcons activeConditions;
+    private ToolboxView toolboxview;
     private VirtualDpadView dpad;
 	
 	private static final int NUM_MESSAGES = 3;
@@ -87,6 +88,8 @@ public final class MainActivity extends Activity {
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
         activeConditions = new DisplayActiveActorConditionIcons(app.preferences, world.tileManager, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
+        toolboxview = (ToolboxView) findViewById(R.id.main_toolboxview);
+        statusview.registerToolboxViews(toolboxview, quickitemview);
         
 		statusText = (TextView) findViewById(R.id.statusview_statustext);
 		statusText.setOnClickListener(new OnClickListener() {
@@ -97,22 +100,25 @@ public final class MainActivity extends Activity {
 		});
 		clearMessages();
 		
-        if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) new DebugInterface(view).addDebugButtons();
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) new DebugInterface(view).addDebugButtons();
         
 		quickitemview.setVisibility(View.GONE);
         quickitemview.registerForContextMenu(this);
-    	quickitemview.refreshQuickitems();
     	
     	dpad.updateVisibility(app.preferences);
+    	
+    	// Define which views are in front of each other.
+    	dpad.bringToFront();
+    	quickitemview.bringToFront();
+    	toolboxview.bringToFront();
+    	combatview.bringToFront();
+    	statusview.bringToFront();
     }
     	
     @Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
-		case INTENTREQUEST_HEROINFO:
-			updateStatus();
-			break;
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
 				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
@@ -264,6 +270,7 @@ public final class MainActivity extends Activity {
 		statusview.updateStatus();
 		quickitemview.refreshQuickitems();
 		combatview.updateStatus();
+		toolboxview.updateIcons();
 	}
 	
 	public void redrawAll(int why) {
@@ -306,5 +313,4 @@ public final class MainActivity extends Activity {
 		}
 		t.show();
 	}
-
 }

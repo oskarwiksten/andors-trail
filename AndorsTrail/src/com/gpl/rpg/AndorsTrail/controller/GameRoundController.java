@@ -3,7 +3,6 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
-import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 import com.gpl.rpg.AndorsTrail.view.MainView;
 

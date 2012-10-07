@@ -27,6 +27,15 @@
 		android:layout_alignParentTop="true"
 		android:visibility="gone"
 		/>
+	
+	<com.gpl.rpg.AndorsTrail.view.ToolboxView
+		android:id="@+id/main_toolboxview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/main_statusview"
+		android:layout_alignParentRight="true"
+		android:visibility="gone"
+		/>
 
 	<com.gpl.rpg.AndorsTrail.view.MainView
 		android:id="@+id/main_mainview"
@@ -51,7 +60,7 @@
 		android:shadowDx="1"
 		android:shadowDy="1"
 		android:shadowRadius="1"
-		android:shadowColor="#000"	
+		android:shadowColor="#000"
 		/>
 	
 	<RelativeLayout 

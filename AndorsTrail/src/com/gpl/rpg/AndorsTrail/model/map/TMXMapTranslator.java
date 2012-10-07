@@ -52,6 +52,12 @@ public final class TMXMapTranslator {
 			assert(m.width > 0);
 			assert(m.height > 0);
 			
+			boolean isOutdoors = false;
+			for (TMXProperty p : m.properties) {
+				if(p.name.equalsIgnoreCase("outside")) isOutdoors = (Integer.parseInt(p.value) != 0);
+				else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + " has unrecognized property \"" + p.name + "\".");
+			}
+			
 			boolean[][] isWalkable = new boolean[m.width][m.height];
 			for (int y = 0; y < m.height; ++y) {
 				for (int x = 0; x < m.width; ++x) {
@@ -186,7 +192,7 @@ public final class TMXMapTranslator {
 			MonsterSpawnArea[] _spawnAreas = new MonsterSpawnArea[spawnAreas.size()];
 			_spawnAreas = spawnAreas.toArray(_spawnAreas);
 
-			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, isWalkable, _eventObjects, _spawnAreas, false));
+			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, isWalkable, _eventObjects, _spawnAreas, false, isOutdoors));
 		}
 		
 		return result;
