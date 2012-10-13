@@ -100,14 +100,6 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	private boolean requiresConfirmation(int slot) {
 		if (isLoading) return false;
 		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) return false;					// if we're creating a new slot
-		
-		final String currentPlayerName = model.player.actorTraits.name;
-		final FileHeader header = Savegames.quickload(this, slot);
-		if (header == null) return false;
-		
-		final String savedPlayerName = header.playerName;
-		if (currentPlayerName.equals(savedPlayerName)) return false;			// if the names match
-		
 		return true;
 	}
 	
