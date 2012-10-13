@@ -63,10 +63,10 @@
  </layer>
  <layer name="Above" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzNVlEOwiAMxSjxKOzbeAJnvIgH2ren9AgaYppUQvsY7cheQhhj5fG60hKCL64Hff4C5nvt7mD+1snba0f4HG32Pf5KMYQp2ni5brTWw8jF0RsfVqD/bPWppMsaHwiSrq15+fr82RqXa3jfG2vkGMG1xF+TxtI7hNf5vy/heb69sJc9afXOO5fx9bR6Z61Zvet555RW/3nfObLeuSG+vO8cNf8hbTWs1ct5STfSVgPSSzzU55zZ4mcELe7yHOXmxL57nnx4J4G73FN5f9B0o3Ok1VCpDrX4WbJNA3Mt+WkkJwKquzTOjfw8x3a7PeELiNYuZQ==
+   eJzNVtsNwjAMDIKIBdgh/UZMQBGLdCC+mZIRQBGyZKLYl8Ym6klVH6lzvatjJwRfXHb6+BmM98bdwPi1k7c3jvDe2+J7/EoxhCnaeLluNNfdyMXRmx9WoP9s9VTSpeXHycFXSZc1LxH4/PzampdreF9/1sgxgusRv4d0Lz1DeB5/zyU817cXtvJNWr/zrmV8Pq3fWXtW73zeNaXVP+89R9Y7N+SX956j5h/SVsNavZyXdCNtNSC9xEPnXDNbfEbQ8i6PUW1O7L3l4MM7CdzlN5X7B003WkdaD5X6UIvPUmwaWGvJp5GcCKjv0n0+yOc5tsdtCR+ONC5+
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30">
+ <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJztk0sOwCAIROcK3v+y3RoyIj/RRUlITUp5DkwHgPFnOHGJCfTxrdHFHuJ5kt3tI22eTH9WSyRe52rfgdSw2c7nqE9ZT09NtVeBuvtGQs7fs5cKrvbeyvLuycKt8PXpvMFlejv4uzjJ7dgz69uhU/aVrAxz7rHSpu151c/jFY/eLNe6R1bLzru77ryyCm99BTPLqvB59b/Txf0AnoYoDA==
   </data>
@@ -120,8 +120,17 @@
     <property name="place" value="north"/>
    </properties>
   </object>
+  <object name="sign_fallhaven_ne_grave1" type="sign" x="544" y="256" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave5" type="sign" x="544" y="352" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave6" type="sign" x="672" y="352" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave2" type="sign" x="672" y="256" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave3" type="sign" x="768" y="256" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave4" type="sign" x="864" y="256" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave7" type="sign" x="864" y="352" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave9" type="sign" x="832" y="448" width="32" height="32"/>
+  <object name="sign_fallhaven_ne_grave8" type="sign" x="736" y="448" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Citizens" width="30" height="30">
+ <objectgroup name="Citizens" width="30" height="30" visible="0">
   <object name="fallhaven_citizen3" type="spawn" x="672" y="224" width="256" height="288"/>
   <object name="fallhaven_citizen6" type="spawn" x="32" y="736" width="608" height="160"/>
   <object name="fallhaven_citizen5" type="spawn" x="352" y="448" width="160" height="448"/>

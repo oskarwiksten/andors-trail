@@ -68,13 +68,20 @@
    eJy9k0sOACEIQ7mC97/sbM0EaSmfJm5U+gDxmNlZWLc2eH/uJnOb6ym6G8V58RkxuXUzPW7Go5Orxmbue1zPI3p7xFXnUJ3Z6vx3cxnPKe7rXOlXN5fxeEnp4aS2uNmZmpA6LxvMbr7C7eJX2Nm/MV0j+vtszVF8lE/UA8RFuSEpb4Jiq1zvnGG+uCge5ZXJ2Zx95M3Ugepj+s7UynhU/x7rMbk+u8AjEQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" width="30" height="30">
   <object name="north" type="mapchange" x="832" y="0" width="96" height="32">
    <properties>
     <property name="map" value="pwcave3"/>
     <property name="place" value="south"/>
    </properties>
   </object>
+  <object name="sign_pwcave4_grave1" type="sign" x="864" y="768" width="32" height="32"/>
+  <object name="sign_pwcave4_grave2" type="sign" x="800" y="864" width="32" height="32"/>
+  <object name="sign_pwcave4_grave5" type="sign" x="544" y="832" width="32" height="32"/>
+  <object name="sign_pwcave4_grave3" type="sign" x="608" y="736" width="32" height="32"/>
+  <object name="sign_pwcave4_grave4" type="sign" x="544" y="704" width="32" height="32"/>
+  <object name="sign_pwcave4_grave6" type="sign" x="384" y="736" width="32" height="32"/>
+  <object name="sign_pwcave4_grave7" type="sign" x="128" y="832" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn boss" width="30" height="30" visible="0">
   <object name="iqhan_boss" type="spawn" x="64" y="128" width="384" height="160">

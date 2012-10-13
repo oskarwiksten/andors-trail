@@ -58,7 +58,7 @@
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJydVEsSgjAMpQreg51bXQjjuIYb4LhXT+BnrStXLDwLCw7ifbSRZggxKcKb6dCS5PWlSZtHQbC1Ixe+qR2ZCb5I3P951M4BVdisU7fWuNAf+eKoG0fnFKgjUfStzW+MhJjoQySMayh2JIdb2M2jtuuFwMn9Od/KNOP0Z14aP/Jx7E27hzS0fUunecw5+fbk2rV6aP0BgNqWzsZjfXEUWj0wVrJzDRz0niAfxzns+vdpHdurkh7aq5gfvatF1OgrPPv1aab1vLN6P0b0uJT/bGC9qQ/1XU6INri/dn1RuKQzwR6o3Zm9p61tY+evsOHV4DtnQGbtT9PVBO/xlaw1Dtq/4ANc+D3YcRTeMik3QEXsHxwhNUI=
+   eJydVL0SgjAMplp8DzZXHcTznGFxxnNXn8CfWScnBp+FgQfxfbS1zZHGBITvLkdL0q9fmrR5HEVbYznzXRrLVPRF6v9P42ZsUWk3X/q5xAXxwJfE4To8xgAdqaBvpX7XcEiQPkBKuPpih3K46TCP2sxnDCeNp3wL5ez0Z14SP/BR7FWzB2fSvqXXPOSc2vak2qV6SP1hYWtbeh9d27YOQ6oHrOX8VAMFvifAR3HWYXyX1qG9yunBvQr54btaxE5f0bJfl2Zczzup92NAj3P5T3rWG8fg2PkIabP318wvAhd3JtADtT+z97jxrc34pR3vtQcnRmb8TxVqsu/xBp2jxIH718ZYLvgejB2Zt4zLzaJC/g9oLDWP
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
@@ -66,9 +66,9 @@
    eJxjYCAfaLDSVj2tACnuUGelrbtpbT41ze5HMwvmdmx+INZf1PQ/uvtIBaS6hVj15PoP3Xx1LOYgq3FDoylxD63S5H9mCIYBYsIQlxqQOe/RzMMFCIUJSB5mznsizCPGzEmMxNlLij1hBNIDvQEAL0ARHA==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20" visible="0">
+ <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJytVDESACAI8gv+/7NNLV4Cody1lKKimRGR4Fwob51dtUd+nY3KyYBqcriQFsiH5eaiarqFiU5OjBpH1fW3H0o+Ll65TONt1sN0VubI6cvWn0M7R+Ho+JQc0f1khhkf41Rr39qpB7PoCOc=
+   eJytVDESACAI8gv+/7NNLV4Codw1VIaKZkZEgnWh3HV21R6962xUTgaUk8OFtEBvWGwuqqZbmOjk+Kh+VF1/66HE4+IVy9TfZj5MZ6WPnLps/Tk0cxSOjk+JEZ2zHv7hZLmxvcI3mYMHuTgI5w==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="20">
@@ -97,6 +97,7 @@
     <property name="place" value="up"/>
    </properties>
   </object>
+  <object name="sign_wild3_grave" type="sign" x="288" y="576" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="Jan" type="spawn" x="192" y="416" width="32" height="32"/>

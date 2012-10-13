@@ -68,7 +68,7 @@
    eJwTZGBgEETCDGh8bHg4q8GnDh0QowZdHTnyhNQMhnCjNGypGcakqCNVnlpmkGMXPkBtNxOKOwBnYQug
   </data>
  </layer>
- <objectgroup name="Mapevents" width="9" height="30" visible="0">
+ <objectgroup name="Mapevents" width="9" height="30">
   <object name="north" type="mapchange" x="128" y="0" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain44"/>
@@ -81,6 +81,15 @@
     <property name="place" value="north"/>
    </properties>
   </object>
+  <object name="sign_bwm52_grave1" type="sign" x="32" y="832" width="32" height="32"/>
+  <object name="sign_bwm52_grave2" type="sign" x="32" y="768" width="32" height="32"/>
+  <object name="sign_bwm52_grave3" type="sign" x="224" y="832" width="32" height="32"/>
+  <object name="sign_bwm52_grave4" type="sign" x="224" y="640" width="32" height="32"/>
+  <object name="sign_bwm52_grave5" type="sign" x="192" y="608" width="32" height="32"/>
+  <object name="sign_bwm52_grave7" type="sign" x="192" y="256" width="32" height="32"/>
+  <object name="sign_bwm52_grave6" type="sign" x="224" y="288" width="32" height="32"/>
+  <object name="sign_bwm52_papers1" type="sign" x="192" y="320" width="32" height="32"/>
+  <object name="sign_bwm52_papers2" type="sign" x="96" y="864" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="9" height="30" visible="0">
   <object name="restless_dead_1" type="spawn" x="32" y="736" width="224" height="160"/>
