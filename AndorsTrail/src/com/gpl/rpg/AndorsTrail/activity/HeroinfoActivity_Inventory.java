@@ -71,7 +71,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		});
         container = player.inventory;
         wornTiles = world.tileManager.loadTilesFor(player.inventory, getResources());
-        inventoryListAdapter = new ItemContainerAdapter(this, world.tileManager, container, wornTiles);
+        inventoryListAdapter = new ItemContainerAdapter(this, world.tileManager, container, player, wornTiles);
         inventoryList.setAdapter(inventoryListAdapter);
         
         heroinfo_stats_gold = (TextView) findViewById(R.id.heroinfo_stats_gold);

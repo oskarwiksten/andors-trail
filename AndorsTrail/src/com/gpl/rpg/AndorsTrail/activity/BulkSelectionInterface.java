@@ -103,7 +103,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 
 		// change image and name of the item
 		final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
-        itemName.setText(itemType.name);
+        itemName.setText(itemType.getName(world.model.player));
         world.tileManager.setImageViewTileForSingleItemType(itemName, itemType, getResources());
         
         int actionTextResourceID = 0;
@@ -190,7 +190,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 	 		public void onClick(View v) {
 				if (requiresConfirmation(itemType)) {
 					final String displayType = ItemInfoActivity.getDisplayTypeString(res, itemType).toLowerCase();
-					final String message = res.getString(R.string.bulkselection_sell_confirmation, itemType.name, displayType);
+					final String message = res.getString(R.string.bulkselection_sell_confirmation, itemType.getName(world.model.player), displayType);
 					
 					new AlertDialog.Builder(v.getContext())
 				        .setIcon(android.R.drawable.ic_dialog_info)

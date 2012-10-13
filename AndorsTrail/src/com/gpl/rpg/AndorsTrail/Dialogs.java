@@ -184,7 +184,7 @@ public final class Dialogs {
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
-		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileManager, combinedLoot.items));
+		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileManager, combinedLoot.items, context.model.player));
 		
 		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
         .setTitle(title)

@@ -239,7 +239,7 @@ public final class MainActivity extends Activity {
 		for(int i=0; i<world.model.player.inventory.items.size(); ++i){
 			ItemEntry itemEntry = world.model.player.inventory.items.get(i);
 			if(itemEntry.itemType.isUsable())
-				assignMenu.add(R.id.quick_menu_assign_group, i, Menu.NONE, itemEntry.itemType.name);
+				assignMenu.add(R.id.quick_menu_assign_group, i, Menu.NONE, itemEntry.itemType.getName(world.model.player));
 		}
 	}
 	

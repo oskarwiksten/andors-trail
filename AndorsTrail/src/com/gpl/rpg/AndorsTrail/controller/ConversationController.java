@@ -99,6 +99,6 @@ public final class ConversationController {
 	public static String getDisplayMessage(Phrase phrase, Player player) { return replacePlayerName(phrase.message, player); }
 	public static String getDisplayMessage(Reply reply, Player player) { return replacePlayerName(reply.text, player); }
 	public static String replacePlayerName(String s, Player player) {
-		return s.replace("$playername", player.actorTraits.name);
+		return s.replace(Constants.PLACEHOLDER_PLAYERNAME, player.actorTraits.name);
 	}
 }

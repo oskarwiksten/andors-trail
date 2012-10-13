@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
+import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemType {
@@ -12,7 +14,8 @@ public final class ItemType {
 	
 	public final String id;
 	public final int iconID;
-	public final String name;
+	private final String name;
+	private final boolean hasPersonalizedName;
 	public final ItemCategory category;
 	public final boolean hasManualPrice;
 	public final int baseMarketCost;
@@ -48,6 +51,7 @@ public final class ItemType {
 		this.effects_use = effects_use;
 		this.effects_hit = effects_hit;
 		this.effects_kill = effects_kill;
+		this.hasPersonalizedName = name.contains(Constants.PLACEHOLDER_PLAYERNAME);
 	}
 	
 	public boolean isEquippable() { return category.isEquippable(); }
@@ -63,6 +67,11 @@ public final class ItemType {
 		if (isQuestItem()) return false;
 		if (baseMarketCost == 0) return false;
 		return true;
+	}
+	
+	public String getName(Player p) {
+		if (!hasPersonalizedName) return name;
+		else return name.replace(Constants.PLACEHOLDER_PLAYERNAME, p.actorTraits.name);		
 	}
 	
 	public int getOverlayTileID() {

@@ -244,8 +244,8 @@ public final class ItemController {
 	}
 	
 
-	public static String describeItemForListView(ItemEntry item) {
-		StringBuilder sb = new StringBuilder(item.itemType.name);
+	public static String describeItemForListView(ItemEntry item, Player player) {
+		StringBuilder sb = new StringBuilder(item.itemType.getName(player));
 		if (item.quantity > 1) {
 			sb.append(" (");
 			sb.append(item.quantity);

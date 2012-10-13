@@ -39,7 +39,7 @@ public final class Constants {
 	public static final String FILENAME_WORLDMAP_HTMLFILE_PREFIX = "worldmap_";
 	public static final String FILENAME_WORLDMAP_HTMLFILE_SUFFIX = ".html";
 	public static final String FILENAME_SAVEGAME_FILENAME_PREFIX = "savegame";
-	
+	public static final String PLACEHOLDER_PLAYERNAME = "$playername";
 	
 	public static final Random rnd = new Random();
 	public static int rollValue(final ConstRange r) { return rollValue(r.max, r.current); }
