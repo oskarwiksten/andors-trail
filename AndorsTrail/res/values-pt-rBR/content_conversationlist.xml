@@ -10,9 +10,9 @@
 {mikhail_visited|Não consigo encontrar seu irmão Andor em lugar algum. Ele não voltou desde ontem.|{{0|andor|1|}}|{{N|mikhail3|||||}}|};
 {mikhail3|Não ligue. Ele provavelmente voltará logo.||{{N|mikhail_default|||||}}|};
 {mikhail_default|Posso ajudar você com alguma coisa?||{{Você tem algumas tarefas para mim?|mikhail_tasks|||||}{Existe algo mais que você possa me dizer sobre Andor?|mikhail_andor1|||||}}|};
-{mikhail_tasks|Oh sim, tenho preciso de pão e é necessário exterminar ratazanas. Qual dessas tarefas você quer falar primeiro?\n||{{Você disse que quer pão?|mikhail_bread_select|||||}{Qual o problema com as ratazanas?|mikhail_rats_select|||||}{Não importa. Vamos falar sobre outras coisas.|mikhail_default|||||}}|};
-{mikhail_andor1|Como disse, Andor saiu ontem e ainda não retornou. Começo a ficar preocupado com ele.\nPor favor, procure seu irmão: ele disse que não demoraria a retornar.||{{N|mikhail_andor2|||||}}|};
-{mikhail_andor2|Talvez ele tenha ido na caverna de suprimentos e ficou enrolado por lá. Ou Talvez ele esteja no porão da Leta, treinando com aquela espada de madeira de novo. Por favor, procure por ele na cidade.||{{N|mikhail_default|||||}}|};
+{mikhail_tasks|Oh sim, preciso de pão e é necessário exterminar ratazanas. Qual dessas tarefas você quer falar primeiro?\n||{{Você disse que quer pão?|mikhail_bread_select|||||}{Qual o problema com as ratazanas?|mikhail_rats_select|||||}{Não importa. Vamos falar sobre outras coisas.|mikhail_default|||||}}|};
+{mikhail_andor1|Como disse, Andor saiu ontem e ainda não retornou. Estou começando a ficar preocupado com ele.\nPor favor, procure seu irmão: ele disse que não demoraria a retornar.||{{N|mikhail_andor2|||||}}|};
+{mikhail_andor2|Talvez ele tenha ido na caverna de suprimentos e ficou enrolado por lá. Ou talvez ele esteja no porão da Leta, treinando com aquela espada de madeira de novo. Por favor, procure por ele na cidade.||{{N|mikhail_default|||||}}|};
 {mikhail_bread_select|||{{|mikhail_bread_complete2|mikhail_bread:100||||}{|mikhail_bread_continue|mikhail_bread:10||||}{|mikhail_bread_start|||||}}|};
 {mikhail_bread_start|Ah, quase esqueci. Se você tiver algum tempo, por favor vá até a Mara, na prefeitura da cidade, e compre-me pão.|{{0|mikhail_bread|10|}}|{{N|mikhail_default|||||}}|};
 {mikhail_bread_continue|Você já trouxe-me o pão fornecido pela Mara?\n||{{Sim, aqui está.|mikhail_bread_complete||bread|1|0|}{Ainda não.|mikhail_default|||||}}|};
@@ -105,8 +105,8 @@
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {odair1|Ah, é você. Você é como seu irmão. Sempre causando problemas.||{{N|odair_select|||||}}|};
 {odair_select|||{{|odair_complete2|odair:100||||}{|odair_continue|odair:10||||}{|odair2|||||}}|};
-{odair2|Hmm, talvez você possa ser de utilidade para mim. Você acha que você poderia me ajudar com uma pequena tarefa?||{{Conte-me mais sobre esta tarefa.|odair3|||||}{Claro, se existe algo que eu possa ganhar com isso.|odair3|||||}}|};
-{odair3|Recentemente, eu fui para a caverna lá *apontando para o oeste*, para verificar nossos suprimentos. Mas, aparentemente, a caverna tem sido infestada de ratazanas.||{{N|odair4|||||}}|};
+{odair2|Hmm, talvez você possa ser útil para mim. Você acha que você poderia me ajudar com uma pequena tarefa?||{{Conte-me mais sobre esta tarefa.|odair3|||||}{Claro, se existe algo que eu possa ganhar com isso.|odair3|||||}}|};
+{odair3|Recentemente, eu fui para a caverna lá *apontando para o oeste*, para verificar nossos suprimentos. Mas, aparentemente, a caverna foi infestada por ratazanas.||{{N|odair4|||||}}|};
 {odair4|Em particular, eu vi uma ratazana que era maior do que as outras. Você acha tem o que é preciso para ajudar a eliminá-los?||{{Claro, eu vou ajudá-lo para que Crossglen pode usar a caverna de suprimentos novamente.|odair5|||||}{Claro, eu vou ajudá-lo. Mas só porque pode haver algum ganho para mim nesta tarefa.|odair5|||||}{Não, obrigado.|odair_cowards|||||}}|};
 {odair5|Eu preciso de você para entrar nessa caverna e matar a ratazana gigante. Dessa forma, talvez possamos parar com a infestação de ratos na caverna e começar a usá-la como nossa boa e velha caverna de suprimentos novamente.|{{0|odair|10|}}|{{Ok|X|||||}{Pensando bem, eu acho que não vou ajudá-lo apesar de tudo.|odair_cowards|||||}}|};
 {odair_cowards|Bem que eu achava que você não o faria. Você e seu irmão sempre foram covardes.||{{Bye|X|||||}}|};
@@ -2705,6 +2705,420 @@
 {ailshara_deliver_2|Bom. Você também deve tentar convencer Gandoren a pensar que você o ajudou.|||};
 {ailshara_deliver_3|Excelente! Você realmente andar com a Sombra, meu amigo. Estou feliz em saber que existem pelo menos algumas pessoas decentes ainda por aí.|{{0|feygard_shipment|82|}}|{{N|ailshara_delivered_1|||||}}|};
 {ailshara_delivered_1|Sua ajuda será muito apreciada pelo povo de Nor City, e você será bem-vindo entre nós.|||};
+	</string>
+
+
+	<string name="conversationlist_vilegard_v0610">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{vilegard_smith_fg_1|Oh, isso é muito inesperado, mas muito bem-vindo. Não vou questionar como você adquiriu esses itens, mas, ao invés, vez expressar a minha gratidão por trazê-los para mim.|{{0|feygard_shipment|55|}}|{{N|vilegard_smith_fg_2|||||}}|};
+{vilegard_smith_fg_2|Obrigado por me trazer esses itens, eles serão mais úteis para nós aqui nas terras do sul, e, em particular, em Vilegard. Raramente chegam a nossas mãos esses itens de Feygard, de forma que eles são realmente bem-vindos.||{
+	{Eu fui enviado para entregar esses itens para uma patrulha de Feygard acampada na taberna Foaming Flask.|vilegard_smith_fg_3|||||}
+	}|};
+{vilegard_smith_fg_3|Em vez disso, você trouxe para mim. Você tem meu agradecimento.||{{N|vilegard_smith_fg_4|||||}}|};
+{vilegard_smith_fg_4|Ah, isso significa que temos mais uma oportunidade aqui. E se você entregasse alguns outros itens, ao invés desses, para a patrulha de Feygard? Hah, isso vai realmente fazer o meu dia.||{{N|vilegard_smith_fg_5|||||}}|};
+{vilegard_smith_fg_5|Eu poderia ter algo que lhe vai cair muito bem .. Deixe-me apenas encontrá-los.||{{N|vilegard_smith_fg_6|||||}}|};
+{vilegard_smith_fg_6|Aqui estão eles. Ha ha, isto irá fazer muito bem para os esnobes enganadores de Feygard.||{{N|vilegard_smith_fg_7|||||}}|};
+{vilegard_smith_fg_7|Tome esses itens e entregue-os onde você deveria entregar os itens originais que você me deu.|{{0|feygard_shipment|56|}{1|vg_smith_fg_items||}}||};
+
+{ff_captain_vg_items_1||{{0|feygard_shipment|60|}}|{{|ff_captain_items_1|||||}}|};
+{ff_captain_fg_items_1||{{0|feygard_shipment|50|}}|{{|ff_captain_items_1|||||}}|};
+{ff_captain_items_1|Excelente, eu tenho esperado por esses. Obrigado por trazê-los para mim.|||};
+	</string>
+
+	<string name="conversationlist_crossroads_2">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{gallain|Bem-vindo à guarita Crossroads. Sou Gallain, o proprietário do lugar.||{{N|gallain_1|||||}}|};
+{gallain_1|Como posso ajudá-lo?||{
+	{Você tem algo para comer por aqui?|gallain_trade_1|||||}
+	{Existe algum lugar que eu possa descansar aqui?|gallain_rest_1|||||}
+	{Que lugar é esse?|gallain_cr_1|||||}
+	}|};
+{gallain_cr_1|Como eu disse, esta é a guarita Crossroads. Os guardas de Feygard usam esse lugar como um lugar para descansar e preparar-se.||{{N|gallain_cr_2|||||}}|};
+{gallain_cr_2|Por isso, é também um refúgio seguro para os comerciantes que viajam por aqui. Nós atendemos uma grande quantidade de pessoas.||{{N|gallain_1|||||}}|};
+{gallain_trade_1|Aqui, dê uma olhada.||{{Trade|S|||||}}|};
+{gallain_rest_1|Os guardas colocaram algumas camas no andar inferior. Verifique com eles.||{{N|gallain_1|||||}}|};
+
+{celdar|E quem é você? Você veio vender-me algumas dessas bugigangas que vocês trazem, né?||{{N|celdar_1|||||}}|};
+{celdar_1|Não, deixe-me adivinhar - você quer saber se eu tenho algo para negociar?||{{N|celdar_2|||||}}|};
+{celdar_2|Deixe-me dizer-lhe uma coisa filho. Eu não quero comprar nada de você, nem quero te vender nada. Eu só quero ser deixadp em paz aqui, agora que eu fiz todo o caminho a este porto seguro.||{{N|celdar_3|||||}}|};
+{celdar_3|Tenho viajado por todo o caminho desde minha cidade natal, Sullengard, e dirigindo-me para Brimhaven, eu parei nesse lugar para começar uma ruptura com todos os plebeus, que sempre me incomodam com suas bugigangas e miudezas.||{{N|celdar_4|||||}}|};
+{celdar_4|Então, você vai me desculpar, mas eu realmente preciso do meu merecido descanso aqui. Sem você me incomodando.||{
+	{Ok, eu vou embora.|X|||||}
+	{Uau, você é do tipo amigável, não é?|celdar_5|||||}
+	{Eu deveria colocar minha espada através de você por falar assim.|celdar_5|||||}
+	}|};
+{celdar_5|Você ainda está aí? Será que você não ouvir o que eu disse?|||};
+
+{crossroads_guest|Você ouviu sobre o que aconteceu em Loneford? Os guardas parecem um bando de abelhas furiosas zanzando por lá.|||};
+
+	</string>
+
+	<string name="conversationlist_crossroads_3">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{crossroads_sleepguard|||{
+	{|crossroads_sleepguard_2|nondisplay:17||||}
+	{|crossroads_sleepguard_1|||||}
+	}|};
+{crossroads_sleepguard_1|Olá. Posso ajudá-lo?||{
+	{Não. Adeus.|X|||||}
+	{Se importa se eu usar uma das camas por aqui?|crossroads_sleepguard_3|||||}
+	}|};
+{crossroads_sleepguard_2|Olá novamente. Espero que a cama esteja confortável o suficiente. Use-a tanto quanto quiser.|||};
+{crossroads_sleepguard_3|||{
+	{|crossroads_sleepguard_5|farrik:90||||}
+	{|crossroads_sleepguard_4|||||}
+	}|};
+{crossroads_sleepguard_4|Não, sinto muito. Estas camas são apenas para guardas e aliados de Feygard.|||};
+{crossroads_sleepguard_5|Diga, você não é aquele garoto que ajudou os guardas no Fallhaven? Com os ladrões que estavam planejando uma fuga?||{{Sim, eu ajudei os guardas da prisão descobrir sobre alguns planos que os ladrões tinham.|crossroads_sleepguard_6|||||}}|};
+{crossroads_sleepguard_6|Eu sabia que eu tinha ouvido falar de você em algum lugar. Será sempre bem-vindo para nós, guardas. Você pode usar essa segunda cama lá para a esquerda, se precisar descansar.|{{0|nondisplay|17|}}||};
+
+{crossroads_backguard|Uh, Olá.||{{Olá. O que tem aí?|crossroads_backguard_1|||||}}|};
+{crossroads_backguard_1|Lá? Oh, nada.||{{Ok, deixa prá lá.|X|||||}{Mas há um buraco na parede lá. Onde leva?|crossroads_backguard_2|||||}}|};
+{crossroads_backguard_2|Levar? Oh não. Não leva a lugar algum.||{{Ok, deixa pra lá.|X|||||}{Existe algo que você não está me contando.|crossroads_backguard_3|||||}}|};
+{crossroads_backguard_3|Ah, não, não. Nada de interessante aqui. Agora, caia fora.||{{Ok, deixa prá lá.|X|||||}{Que tal eu te pagar 100 moedas de ouro para sair do caminho?|crossroads_backguard_4|||||}}|};
+{crossroads_backguard_4|Você faria isso? Hum, deixe-me pensar.||{{N|crossroads_backguard_5|||||}}|};
+{crossroads_backguard_5|No.||{{Ok, deixa prá lá.|X|||||}{200 moedas de ouro, então?|crossroads_backguard_6|||||}}|};
+{crossroads_backguard_6|No.||{{Ok, deixa prá lá.|X|||||}{400 moedas de ouro, então?|crossroads_backguard_7|||||}}|};
+{crossroads_backguard_7|Olha, você não está chegando a lugar algum, e não há nada para ver lá.||{{Ok, deixa prá lá.|X|||||}{Oferta final: 800 moedas de ouro. Isso é uma fortuna.|crossroads_backguard_8|||||}}|};
+{crossroads_backguard_8|Hum, 800 ouro que você diz? Bem, por que não disse desde o início? Com certeza, isso poderia funcionar.||{{N|crossroads_backguard_9|||||}}|};
+{crossroads_backguard_9|Devo dizer-lhe no entanto, que há algo lá que nós não ousaríamos chegar perto. Eu só estou de guarda aqui para certificar de que aquilo não saia, e que ninguém entre||{{N|crossroads_backguard_10|||||}}|};
+{crossroads_backguard_10|Alguns outros guardas foram lá antes, e voltaram aos berros. Entre por sua conta e risco, mas não diga que eu não o avisei.||{{Não importa, eu só estava brincando.|X|||||}{Aqui está o ouro, agora saia do caminho.|R||gold|800|0|}}|};
+
+{keknazar|* hssss * n (Você ouve um sibilado conforme a criatura começa a se mover em direção a você)||{{Pela a sombra!|F|||||}{Você não vai sobreviver a isso, criatura patética.|F|||||}{Uma luta! Eu estava ansioso para isso!|F|||||}}|};
+	</string>
+
+	<string name="conversationlist_fields_1">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{feygard_bridgeguard|Desculpe, o caminho para Feygard está fechado até nova ordem.|||};
+{sign_crossroadshouse|Guarita de Crossroads, hospedagem para aliados de Feygard.|||};
+{sign_crossroads_s|Sudeste: Nor City\nNoroeste: Feygard\nLeste: Loneford\nSul: Fallhaven|||};
+{sign_crossroads_n|Noroeste: Feygard\nLeste: Loneford.|||};
+{sign_fields1|Noroeste: Feygard\nLeste: Loneford.|||};
+{sign_fields6|Noroeste: Feygard\nSul: Nor City.|||};
+{crossroads_sleep|O guarda grita com você: Hei! Você não pode dormir aqui!|||};
+{sign_loneford2|Bem-vindo à pacífica Loneford.\n(A placa também contém um desenho de fardo de feno com o que se parece com um agricultor sentado em cima.)|||};
+	</string>
+
+	<string name="conversationlist_loneford_1">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{loneford_farmer0|O que fizemos para merecer isso?||{{O que há de errado?|loneford_farmer0_1|||||}}|};
+{loneford_farmer0_1|Você não ouviu sobre a doença?||{{Que doença?|loneford_farmer_il_1|||||}}|};
+
+{loneford_farmer_il_1|Tudo começou há alguns dias. Selgan encontrou Hesor desmaiado em sua lavoura antiga, com o rosto completamente branco e tremendo.||{{N|loneford_farmer_il_2|||||}}|};
+{loneford_farmer_il_2|Poucos dias depois, Selgan começou a mostrar os mesmos sintomas que Hesor, com dores de estômago. Eu também comecei a sentir as dores e tem arrepios.||{{N|loneford_farmer_il_3|||||}}|};
+{loneford_farmer_il_3|Em seguida, todas as pessoas apresentaram os sintomas de uma forma ou de outra.||{{N|loneford_farmer_il_4|||||}}|};
+{loneford_farmer_il_4|Pobre Selgan e Hesor: aparentemente pegaram a forma mais forte disso. âmbos morreram anteontem.||{{N|loneford_farmer_il_5|||||}}|};
+{loneford_farmer_il_5|Maldita doença, por que tinha que ser Selgan e Hesor? Eu quero saber quem é o próximo.||{{N|loneford_farmer_il_6|||||}}|};
+{loneford_farmer_il_6|Nós todos começamos a investigar o que poderia ser a causa. Ainda não descobrimos a causa, mas temos as nossas suspeitas.|{{0|loneford|10|}}|{{N|loneford_farmer_il_7|||||}}|};
+{loneford_farmer_il_7|Felizmente, agora Feygard enviou patrulhas aqui para ajudar a proteger a vila, pelo menos. Nós ainda estamos sofrendo, porém, e tememos quem será o próximo a ser tomado pela doença.|{{0|loneford|11|}}||};
+
+{loneford_wellguard|Por favor, informar qualquer comportamento suspeito que você puder descobrir a Kuldan.|||};
+
+{rolwynn|O que fizemos para merecer isso? Por favor, você pode nos ajudar?||{
+	{O que você acha que é a causa da doença?|rolwynn_1|loneford:11||||}
+	{O que há de errado?|loneford_farmer0_1|||||}
+	}|};
+{rolwynn_1|Meu palpite é que isso deve ter sido algo feito por essas pessoas arrogantes de Feygard.||{{N|rolwynn_2|||||}}|};
+{rolwynn_2|Eles estão sempre procurando maneiras de tornar nossa vida um pouco mais difícil.||{{N|rolwynn_3|||||}}|};
+{rolwynn_3|Tentamos cultivar nossas terras para nos alimentar, mas eles exigem que eles recebam uma parcela de tudo o que obtemos das vendas||{{N|rolwynn_4|||||}}|};
+{rolwynn_4|Ultimamente, as culturas não têm sido tão boas como costumavam ser, e os guardas, aparentemente, acho que estão embolsando com uma parcela do que está sendo pago.||{{N|rolwynn_5|||||}}|};
+{rolwynn_5|Estou certo de que eles tenham feito algo conosco, como punição por não seguirmos suas regras *. Eles estão sempre falando sobre como as leis e as regras são tão preciosas para eles.|{{0|loneford|22|}}|{{N|loneford_ill_c_1|||||}}|};
+
+{loneford_ill_c_1|||{{|loneford_ill_c_2|loneford:21||||}{|loneford_ill_c_n|||||}}|};
+{loneford_ill_c_2|||{{|loneford_ill_c_3|loneford:22||||}{|loneford_ill_c_n|||||}}|};
+{loneford_ill_c_3|||{{|loneford_ill_c_4|loneford:23||||}{|loneford_ill_c_n|||||}}|};
+{loneford_ill_c_4|||{{|loneford_ill_c_5|loneford:24||||}{|loneford_ill_c_n|||||}}|};
+{loneford_ill_c_n|Isso é o que eu acho, que de qualquer maneira.|||};
+{loneford_ill_c_5|Há algo mais, também. Eu conversei com aquele bêbado, Landa, na taberna, mais cedo hoje. Ele disse que viu alguma coisa, mas não se atreveu a dizer-me o que era.|{{0|loneford|25|}}|{
+	{Obrigado, eu vou falar com ele.|X|||||}
+	{Grande, devo falar com mais um bêbado.|X|||||}
+	}|};
+	</string>
+
+	<string name="conversationlist_loneford_2">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{loneford_guard0|Nós mantemos a ordem por aqui. Eu me pergunto o que as pessoas de Loneford fariam sem nós, guardas de Feygard. Coitados.|||};
+{loneford_villager0|*tosse* Por favor, ajude-nos, em breve não haverá mais muitos de nós!||{{What\'s wrong?|loneford_farmer0_1|||||}}|};
+{loneford_villager1|Não consigo sentir meu rosto mais, por favor, ajude-nos!||{{O que há de errado?|loneford_farmer0_1|||||}}|};
+{loneford_villager2|Não mexa comigo, eu preciso terminar de cortar a madeira. Vá incomodar outra pessoa.|||};
+{loneford_villager3|Eu temo pela nossa sobrevivência. Parece que estamos piorando a cada dia que passa. É uma coisa boa que Feygard nos ajude, pelo menos.||{{O que há de errado?|loneford_farmer0_1|||||}}|};
+{loneford_villager4|Não te conheço de algum lugar? Você parece-me familiar de alguma forma.|||};
+
+{landa|||{
+	{|landa_already_1|loneford:35||||}
+	{|landa_1|||||}
+	}|};
+{landa_1|Wha? Você? Não, fica longe de mim!||{{Ouvi dizer que você viu alguma coisa que você não vai falar.|landa_2|loneford:25||||}}|};
+{landa_2|(Landa dá-lhe um olhar aterrorizado)||{{N|landa_3|||||}}|};
+{landa_3|Você estava lá! Eu v-v-vi você!||{{N|landa_4|||||}}|};
+{landa_4|Não foi você? Não, parecia com você, e eu tenho uma boa memória! * Morde o lábio *||{{Calma.|landa_5|||||}}|};
+{landa_5|Fique longe de mim, o que quer que você tenha feito por lá, é problema seu e eu não quero me intrometer!||{{Você deve ter me confundido com outra pessoa.|landa_6|||||}}|};
+{landa_6|Please don\'t hurt me!||{{Landa, você deve ter me confundido com outra pessoa! O que foi que você viu?|landa_7|||||}}|};
+{landa_7|Não, é menor do que ele.||{{Você vai me dizer o que foi que você viu?|landa_8|||||}}|};
+{landa_8|O rapaz. Ele estava fazendo algo. Eu tentei a esgueirar-se por perto para ver o que foi que ele estava fazendo, o que eu fiz. Mas ele fugiu antes que eu pudesse ver.||{{N|landa_9|||||}}|};
+{landa_9|Ele fez algo no poço de Loneford.||{{Quando foi isso?|landa_10|||||}}|};
+{landa_10|Foi no meio da noite, no dia antes de tudo começar. No dia seguinte, eu estava dormindo durante o dia. Assim, não percebi toda a agitação quando eles trouxeram Hesor volta.||{{N|landa_11|||||}}|};
+{landa_11|Quase toda a aldeia queria ver o que tinha acontecido com Hesor. Guardei isso para mim e não se atrevi a falar com ninguém.|{{0|loneford|30|}}|{{N|landa_12|||||}}|};
+{landa_12|No mesmo dia, outros começaram a ficar pálidos também. Eu podia ver isso em seus rostos.||{{N|landa_13|||||}}|};
+{landa_13|Na noite seguinte, eu estava me preparando para ir para ir para o poço e procurar todos os vestígios do que o rapaz tinha feito.||{{N|landa_14|||||}}|};
+{landa_14|Olhei pela janela para ver se havia alguém que pudesse me ver. Em vez disso, eu vi alguém se escondendo em torno do poço, enchendo vários frascos misturando imundice com a água do próprio poço.||{{N|landa_15|||||}}|};
+{landa_15|Tenho certeza que foi Buceth, da capela. Eu tenho um bom olho para as pessoas, e uma boa memória. Sim, tenho a certeza que foi Buceth.||{{N|landa_16|||||}}|};
+{landa_16|Além disso, não é estranho que Buceth não tenha ficado doente, enquanto todos os outros na aldeia ficaram doentes?|{{0|loneford|31|}}|{{N|landa_17|||||}}|};
+{landa_17|Ele deve estar tramando algo. Ele e aquele rapaz que parecia você. Tem certeza de que não foi você?|{{0|loneford|35|}}|{{N|landa_18|||||}}|};
+{landa_18|Não importa. Por favor, não diga a ninguém que eu lhe disse tudo isso.||{{N|landa_19|||||}}|};
+{landa_19|Agora, sai daqui garoto, antes que alguém o veja falar comigo. *Olha em volta ansiosamente*||{
+	{Obrigado Landa. Seu segredo está seguro comigo.|X|||||}
+	{Obrigado Landa. Eu vou considerar isso.|X|||||}
+	{Você terminou? Ufa, pensei que nunca ia parar de falar.|X|||||}
+	}|};
+{landa_already_1|Você de novo? Eu já disse a você. Saia daqui antes que alguém o veja falar comigo.|||};
+	</string>
+
+	<string name="conversationlist_buceth">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{buceth|||{
+	{|buceth_complete_1|loneford:60||||}
+	{|buceth_fight_1|loneford:50||||}
+	{|buceth_story_3|loneford:45||||}
+	{|buceth_follow_1|loneford:42||||}
+	{|buceth_bribed_1|loneford:41||||}
+	{|buceth_1|||||}
+	}|};
+{buceth_bribed_1|Você de novo. Obrigado pelo ouro antes.||{{N|buceth_story_1|||||}}|};
+{buceth_follow_1|Bem-vindo de volta meu amigo. Caminhe com a Sombra.||{{N|buceth_story_1|||||}}|};
+{buceth_1|A Sombra esteja com você.||{
+	{Eu sei do seu negócio no poço à noite posterior à eclosão da doença.|buceth_2|loneford:35||||}
+	{Você pode me dizer mais sobre a Sombra?|priest_shadow_1|||||}
+	}|};
+{buceth_2|Ah, eu tenho certeza que você sabe. Mas o que prova que você tem, hein? Alguma coisa que os guardas acreditariam?||{{N|buceth_3|||||}}|};
+{buceth_3|Deixe-me perguntar uma coisa primeiro, e podemos falar depois disso.||{
+	{Ok, o que?|buceth_4|||||}
+	{Que tal um pouco de ouro, ajudaria a fazê-lo falar?|buceth_gold_1|||||}
+	}|};
+{buceth_4|Deixe-me começar por contar-lhe uma história.||{
+	{Vá em frente|buceth_5|||||}
+	{Deixe-me adivinhar, esta história vai demorar uma eternidade para ouvir. Que tal eu dar-lhe um pouco de ouro, em vez disso, e podemor ir direto ao que você estava fazendo no poço.|buceth_gold_1|||||}
+	}|};
+{buceth_gold_1|Hm, isso pode ser uma proposta interessante. Quanto ouro está sugerindo?||{
+	{Aqui tem 10 moedas de ouro, pegue.|buceth_gold_no||gold|10|0|}
+	{Aqui está a 100 moedas de ouro, pegue.|buceth_gold_no||gold|100|0|}
+	{Aqui está a 250 moedas de ouro, pegue.|buceth_gold_no||gold|250|0|}
+	{Aqui está a 500 moedas de ouro, pegue.|buceth_gold_no||gold|500|0|}
+	{Here\'s 1000 gold, take it.|buceth_gold_yes||gold|1000|0|}
+	{Aqui, 2000 moedas de ouro, pegue.|buceth_gold_yes||gold|2000|0|}
+	}|};
+{buceth_gold_no|Hrmpf. Obrigado pelo ouro, mas eu não estou interessado em falar com você. Agora, por favor, deixe.|||};
+{buceth_gold_yes|Você parece perceber o verdadeiro valor da Sombra. Sim, isso vai fazer muito bem, obrigado.|{{0|loneford|41|}}|{{N|buceth_story_1|||||}}|};
+{buceth_5|Vamos supor que você vive em uma aldeia que, em sua maior parte, é auto-suficiente. Sua aldeia é auto-sustentável e as colheitas foram boas durante alguns anos.||{{N|buceth_6|||||}}|};
+{buceth_6|Com as poucas exceções de algumas lutas aqui e ali entre os moradores por causa de mal-entendidos, em geral, a sua aldeia é uma aldeia simpática e serena.||{{N|buceth_7|||||}}|};
+{buceth_7|Você trabalha na mesma profissão que seus pais, que por sua vez trabalhavam nas mesmas profissões dos pais deles.||{{N|buceth_8|||||}}|};
+{buceth_8|Vamos supor também que a forma como você conduz seus negócios é a mesma maneira que as pessoas da vila conduziam seus negócios em gerações passadas.||{{N|buceth_9|||||}}|};
+{buceth_9|Todos respeitam um ao outro na vila, e seu líder eleito faz um bom trabalho em manter os interesses de todos satisfeitos, e, ao mesmo tempo, seja razoavelmente justo.||{{N|buceth_10|||||}}|};
+{buceth_10|Então, um dia, um grupo de homens vêm andando para a vila. Armaduras brilhantes, dentes brancos, cabelos penteados, barbas aparadas.||{{N|buceth_11|||||}}|};
+{buceth_11|Os homens afirmam que o senhor deles é dono desta terra, incluindo a sua aldeia.||{{N|buceth_12|||||}}|};
+{buceth_12|Eles alegam que mantêm a terra livre de malfeitores e criaturas do mal.||{{N|buceth_13|||||}}|};
+{buceth_13|Por sua ajuda na proteção de sua aldeia, eles pedem para a aldeia compensá-los com uma parte da colheita.||{{N|buceth_14|||||}}|};
+{buceth_14|Agora, me diga. Você apoiaria esses homens por concordar com seus termos?||{
+	{Yes|buceth_15|||||}
+	{No|buceth_15|||||}
+	{Eu não sei|buceth_dontknow|||||}
+	}|};
+{buceth_dontknow|Lamento ouvir isso. Você deve limpar a sua mente de preconceitos e depois tornar a mim. Então, talvez possa ser capaz de falar mais.||{
+	{Ok, adeus.|X|||||}
+	{Que tal eu dar-lhe um pouco de ouro em vez disso?|buceth_gold_1|||||}
+	}|};
+{buceth_15|Proposta interessante.||{{N|buceth_16|||||}}|};
+{buceth_16|Deixe-me continuar a história do nosso caso hipotético.||{{N|buceth_17|||||}}|};
+{buceth_17|Um pouco mais tarde, os homens retornam. Explicam que alguns dos métodos que são utilizados na aldeia já foram proibidos em todo o reino.||{{N|buceth_18|||||}}|};
+{buceth_18|Sem entrar em detalhes, vamos dizer que estes são os métodos que têm sido utilizados pelas gerações passadas de sua aldeia.||{{N|buceth_19|||||}}|};
+{buceth_19|Mudar a forma como as coisas são feitas sem esses métodos vai exigir um grande esforço. Um monte de pessoas na aldeia estão chateadas por causa dessas notícias trazidas por esses homens.||{{N|buceth_20|||||}}|};
+{buceth_20|Agora, me diga. Você iria, em segredo, continuar usando os velhos métodos que suas gerações passadas usaram, ou você iria, ao invés, trocar para a nova forma que esses homens estão defendendo?||{
+	{gostaria de continuar usando as velhas formas em segredo|buceth_21_1|||||}
+	{gostaria de continuar usando as velhas, e lutar contra a decisão que proibiu-as em primeiro lugar|buceth_21_2|||||}
+	{Eu só iria usar os métodos que são permitidos|buceth_22|||||}
+	{Gostaria de seguir a lei|buceth_22|||||}
+	{Eu não posso decidir sem conhecer mais detalhes|buceth_dontknow|||||}
+	}|};
+{buceth_21_1|Interessante.||{{N|buceth_25|||||}}|};
+{buceth_21_2|Fico feliz em saber que existem pessoas por aí que estejão dispostas a defender o que é certo.||{{N|buceth_25|||||}}|};
+{buceth_22|Interessante. Você tem uma visão diferente do mundo do que eu e os sacerdotes de Nor city temos.||{{N|buceth_23|||||}}|};
+{buceth_23|Você, é claro, tem direito à sua opinião, mas você deve saber que sua opinião pode entrar em conflito com a Sombra.||{{N|buceth_24|||||}}|};
+{buceth_24|Você queria saber sobre algum assunto que você me acusa. Como você não tem nenhuma prova, eu vou declarar inocência. Eu sei que a minha consciência está limpa.||{
+	{Ok, adeus.|X|||||}
+	{Bom. Que tal eu dar-lhe um pouco de ouro em vez disso, isso faria você falar?|buceth_gold_1|||||}
+	}|};
+{buceth_25|As suas opiniões coincidem com aqueles que eu e os outros sacerdotes de Nor City acreditamos. Diga-me, você estaria interessado em seguir o brilho da sombra?||{
+	{Eu estou pronto para seguir a Sombra.|buceth_27|||||}
+	{Como posso concordar com algo sem saber o que isso implica?|buceth_26|||||}
+	{Não, eu vou seguir o meu caminho.|buceth_decline|||||}
+	{Não, eu vou seguir o meu caminho. Sua estúpida Sombra é apenas blá-blá-blá e palavras bonitas.|buceth_decline|||||}
+	}|};
+{buceth_26|Se as respostas que deu anteriormente eram de fato os seus pontos de vista, então eu posso garantir-vos que o seu caminho que é guiado pela Sombra é o caminho certo.||{
+	{Eu estou pronto para seguir o Sombra.|buceth_27|||||}
+	{Não, eu vou seguir o meu caminho.|buceth_decline|||||}
+	{Não, eu vou seguir o meu caminho. Sua estúpida Sombra é apenas blá-blá-blá e palavras bonitas.|buceth_decline|||||}
+	}|};
+{buceth_decline|Lamento ouvir isso. Eu acho que nós não compartilham pontos de vista, depois de tudo.||{{N|buceth_24|||||}}|};
+{buceth_27|Eu estou contente de ouvir isso. Mas então, eu tinha a sensação de o tempo todo que você diria isso desde o início.|{{0|loneford|42|}}|{{N|buceth_story_1|||||}}|};
+
+{buceth_story_1|Você queria me perguntar alguma coisa?||{{O que você estava fazendo no poço durante a noite?|buceth_story_2|||||}}|};
+{buceth_story_2|Deixe-me dizer-lhe primeiro o meu plano.||{
+	{Ótimo. Outra história sem fim.|buceth_story_3|||||}
+	{Por favor, vá em frente.|buceth_story_3|||||}
+	}|};
+{buceth_story_3|Fui designado por sacerdotes de Nor City para ajudar a guiar o povo de Loneford para a Sombra. Nossa missão é fazer com que a Sombra lance seu brilho sobre Loneford, bem como outras aldeias por aqui.||{{N|buceth_story_4|||||}}|};
+{buceth_story_4|Boa parte das pessoas nestas partes do norte parecem demasiado ocupadas com obediência à vontade de Feygard e Lorde Geomyr. Queremos ajudar as pessoas enchergar os absurdos defendidos por Feygard, e apontar os erros em seus caminhos.||{{N|buceth_story_5|||||}}|};
+{buceth_story_5|Essa é a minha missão aqui. Para ver que a Sombra lança seu brilho sobre Loneford.||{{Como isso se relaciona com o que você estava fazendo no poço?|buceth_story_6|||||}}|};
+{buceth_story_6|Nor City enviou-me uma mensagem dizendo-me que algo estava para acontecer aqui em Loneford. Algo que poderia ajudar a nossa causa.||{{N|buceth_story_7|||||}}|};
+{buceth_story_7|Eles estavam enviando um menino para fazer alguns negócios aqui, e fui designado para ter certeza de que a missão seria bem sucedida.|{{0|andor|61|}}|{{N|buceth_story_8|||||}}|};
+{buceth_story_8|Eu tinha a tarefa de recolher amostras de água do poço e da terra em torno do poço. Além disso, me foi dado alguns frascos cujo conteúdo deveria ser vertido no poço.||{{N|buceth_story_9|||||}}|};
+{buceth_story_9|Aparentemente, o menino que enviou foi bem sucedido em sua missão. A tarefa que eu fiz foi também bem sucedida, se me permite assim o dizer.|{{0|loneford|45|}}|{{N|buceth_story_10|||||}}|};
+{buceth_story_10|É onde estamos agora: a ação é realizada, e a Sombra vai olhar favoravelmente sobre nós.||{
+	{Então, o poço foi envenenado, isso é horrível. Como você pôde?|buceth_story_11|||||}
+	{Obrigado por me dizer.|buceth_story_12|||||}
+	}|};
+{buceth_story_11|Horrível!? O que é horrível? O que essas pessoas de Feygard estavam fazendo - isso é o que é horrível!||{{N|buceth_story_12|||||}}|};
+{buceth_story_12|Agora, peço-lhe para manter esta história só entre nós dois. Você entende que, certo?||{
+	{Absolutamente. Caminhe com a Sombra.|buceth_story_14|||||}
+	{Eu prometo não contar a ninguém.|buceth_story_14|||||}
+	{Não, vou te denunciar ao guarda.|buceth_story_13|||||}
+	}|};
+{buceth_story_13|Peço-lhe para repensar o seu raciocínio. O caminho da sombra é a maneira justa.||{
+	{Muito bem. Eu prometo não contar a ninguém.|buceth_story_14|||||}
+	{Não. O crime será punido!|buceth_fight_1|||||}
+	}|};
+{buceth_fight_1|Infiel, você não vai me derrotar! Pela a sombra!|{{0|loneford|50|}}|{{Fight!|F|||||}}|};
+{buceth_story_14|Obrigado, meu amigo.|{{0|loneford|60|}}|{{N|buceth_story_15|||||}}|};
+{buceth_story_15|Se você quiser saber mais sobre o Sombra, visite o guardião capela Nor City. Diga a ele que eu o enviei, e ele certamente irá estender a sua gratidão para com você.|{{0|loneford|60|}}||};
+{buceth_complete_1|Bem-vindo de volta meu amigo. Que você possa aquecer-se no brilho da Sombra.||{{N|buceth_story_15|||||}}|};
+
+	</string>
+
+	<string name="conversationlist_talion">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{talion|||{
+	{|talion_0|maggots:51||||}
+	{|talion_cured_1|maggots:50||||}
+	{|talion_cure_5|maggots:45||||}
+	{|talion_infect_30|maggots:30||||}
+	{|talion_infect_1|maggots:10||||}
+	{|talion_0|||||}
+	}|};
+{talion_0|A Sombra esteja com você.||{
+	{Você sabe alguma coisa sobre a doença aqui em Loneford?|talion_1|loneford:11||||}
+	{Você tem alguma coisa para negociar?|S|||||}
+	{Que bênçãos você pode oferecer?|talion_bless_1|maggots:51||||}
+	}|};
+{talion_1|O povo de Loneford está muito interessado ​​em seguir a vontade de Feygard, seja ela qual for.||{{N|talion_2|||||}}|};
+{talion_2|Normalmente, isso não seria um problema. Mas Lorde Geomyr parece ter algo contra a Sombra. Ele vai fazer o que puder para se opor a todas as ações que, de alguma forma, estenderem o alcance da Sombra.||{{N|talion_3|||||}}|};
+{talion_3|Devido a isso, o povo de Loneford está agora ativamente abolindo o pensamento que a Sombra orienta suas vidas.||{{N|talion_4|||||}}|};
+{talion_4|As pessoas daqui preferem seguir a lei de Feygard a seguir os velhos caminhos.||{{N|talion_5|||||}}|};
+{talion_5|Meu sentimento é que esta doença é causada pela sombra, como castigo para todos nós aqui em Loneford.|{{0|loneford|23|}}|{{N|loneford_ill_c_1|||||}}|};
+
+	</string>
+
+	<string name="conversationlist_taevinn">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{taevinn|Por favor, você tem que nos ajudar!||{
+	{Você sabe alguma coisa sobre a doença?|taevinn_1|loneford:11||||}
+	{O que há de errado?|loneford_farmer0_1|||||}
+	}|};
+{taevinn_1|Eu vou te dizer o que eu sei. Tentamos seguir a lei por aqui. Sem regras e leis, como nós seríamos diferentes dos selvagens que vagueiam as terras do sul?||{{N|taevinn_2|||||}}|};
+{taevinn_2|Mas mesmo se nós aqui em Loneford mantivermo-nos tão calmo quanto possível, há sempre alguém que tem desejo de causar dano.||{{N|taevinn_3|||||}}|};
+{taevinn_3|Você já viu? Que Sienn tolo. Ele e seu \'animal de estimação\' estão sempre tentando causar algum problema. Nós não podemos ter isso aqui na nossa amigável aldeia. Especialmente em tempos como estes, quando estamos tentando mostrar o nosso lado bom para os guardas magníficos de Feygard que estão aqui.||{{N|taevinn_4|||||}}|};
+{taevinn_4|Você sabe que eu tentei falar com ele várias vezes sobre seu chamado \'bichinho\'? Eu realmente não consegui entender o que ele estava tentando me dizer, mas essa coisa sua quase tentou me matar, ele o fez!||{{N|taevinn_5|||||}}|};
+{taevinn_5|Eu digo a você, existe um mal em torno dele e daquilo que ele mantém em torno de si. Tenho certeza de que eles estão aprontando alguma coisa. Eles provavelmente causaram essa doença, de alguma forma. Talvez possa-se pegar algo contagiante daquela coisa de que ele mantém seu redor.|{{0|loneford|24|}}|{{N|loneford_ill_c_1|||||}}|};
+	</string>
+
+	<string name="conversationlist_loneford_kuldan">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{kuldan|||{
+	{|kuldan_c_1|loneford:55||||}
+	{|kuldan_bc_1|loneford:54||||}
+	{|kuldan_1|||||}
+	}|};
+{kuldan_1|Por favor, informe qualquer comportamento suspeito que você pode ver.||{
+	{Eu sei qual é a causa da doença. Dê uma olhada neste frasco que Buceth tinha com ele.|kuldan_bc_1|loneford:50|buceth_vial|1|0|}
+	{Quem é você?|kuldan_2|||||}
+	}|};
+{kuldan_2|Eu sou Kuldan, capitão do destacamento de guardas aqui em Loneford. Agora, se me der licença, tenho trabalho a fazer.|||};
+{kuldan_c_1|Feygard é grata por sua ajuda para resolver o mistério da doença aqui em Loneford.||{{N|kuldan_c_2|||||}}|};
+{kuldan_c_2|Estamos tentando ajudar as últimas pessoas que ainda estão mal aqui. Loneford pode necessitar de nossa assistência de Feygard por mais algum tempo.|||};
+{kuldan_bc_1|O que é isso? Isso cheira a veneno Narwood. Você diz que tomou isso de Buceth?|{{0|loneford|54|}}|{{Buceth era parte de um plano de sacerdotes de Nor City para envenenar a água bem aqui em Loneford.|kuldan_bc_2|||||}}|};
+{kuldan_bc_2|Mas isso significa .. É pela água que as pessoas estão a ficar doente? Isso explica um monte de coisas.||{{N|kuldan_bc_3|||||}}|};
+{kuldan_bc_3|Você meu amigo fez a Loneford um grande serviço ao encontrar isto, e, por extensão, a Feygard também. Devemos ir pegar Buceth e o responsabilizar pelo que ele tem feito.||{{Ele já está morto|kuldan_bc_4|||||}}|};
+{kuldan_bc_4|Morto, você diz? Hum, não é a forma como fazemos as coisas em Feygard, mas acho que este é um caso excepcional.||{{N|kuldan_bc_5|||||}}|};
+{kuldan_bc_5|Eu sempre suspeitei que esses selvagens de Nor City estavam atrás de tudo isso.||{{N|kuldan_bc_6|||||}}|};
+{kuldan_bc_6|É bom saber que agora, pelo menos, tenhamos alguma evidência para apoiar nossas reivindicações.||{{N|kuldan_bc_7|||||}}|};
+{kuldan_bc_7|Quanto a Loneford, acho que vamos ter que começar a trazer água de Feygard para ajudar as pessoas aqui. Que bom que eles nos tenham por perto. O que eles fariam, caso contrário?||{{N|kuldan_bc_8|||||}}|};
+{kuldan_bc_8|E você, meu amigo - você deve, naturalmente, ser suficientemente recompensado por sua ajuda neste assunto. Você deve viajar para a gloriosa cidade de Feygard para o noroeste e reportar-se ao taifeiro do castelo, para mais instruções.||{{N|kuldan_bc_9|||||}}|};
+{kuldan_bc_9|Acontece que eu conheço pessoalmente o taifeiro do castelo, e eu vou mandar avisá-lo sobre sua ajuda aqui.||{{N|kuldan_bc_10|||||}}|};
+{kuldan_bc_10|Pela a glória de Feygard, o povo de Loneford pôde sobreviver graças à sua ajuda.|{{0|loneford|55|}}||};
+
+{kuldan_guard|O quê? Fale com o chefe.|||};
+	</string>
+
+	<string name="conversationlist_loneford_3">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{sienn|Ha! Você parece engraçado. Você pequeno.||{
+	{Quem é você?|sienn_who_1|||||}
+	{O que é essa a coisa que você está mantendo junto de si?|sienn_pet_1|||||}
+	}|};
+{sienn_who_1|Me, Sienn. Eu forte!||{
+	{O que é essa a coisa que você está mantendo junto de si?|sienn_pet_1|||||}
+	}|};
+{sienn_pet_1|Bichinho, bonito!\n(Sienn faz sonzinhos fofos enquanto coça o animal no queixo dele)||{
+	{Quem é você?|sienn_who_1|||||}
+	{Você sabia que Taevinn acha que você causou a doença aqui em Loneford?|sienn_pet_2|loneford:24||||}
+	}|};
+{sienn_pet_2|Sienn não doente! Sienn forte!|||};
+{sienn_pet|*Guinchando!*\n (A criatura olha para você, mostrando todos os seus dentes, ao fazer um som agudo estridente.)||{
+	{Aqui, aqui. Fácil agora.|X|||||}
+	{*lentamente afastado*|X|||||}
+	}|};
+
+{siola|Olá. Você veio para ver a minha seleção de itens?||{
+	{Yes, let\'s trade.|S|||||}
+	{Qual é o negócio de Sienn ali com seu animal de estimação?|siola_sienn_1|||||}
+	}|};
+{siola_sienn_1|Eu não sei onde ele o pegou. De qualquer forma, não prejudica ninguém, então eu estou bem com eles aqui. Eu percebi que alguém deve ajudá-los a ter algum lugar para ficar, e ninguém mais queria ajudá-los, assim eu os deixei ficar aqui.||{{N|siola_sienn_2|||||}}|};
+{siola_sienn_2|Sienn pode ser um pouco grosso, mas ele com certeza pode ser engraçado quando você começa a conhecê-lo e ele confia em você. Ele pode fazer um monte dessas expressões faciais hilárias.|||};
+	</string>
+
+	<string name="conversationlist_loneford_4">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{grimion|Olá e bem-vindo ao Loneford. Por favor, sente, eu irei logo aí.||{
+	{Você tem algo para comer por aqui?|grimion_trade_1|||||}
+	{Existe um lugar onde eu possa descansar um pouco por aqui?|grimion_rest_1|||||}
+	}|};
+{grimion_trade_1|Claro, dê uma olhada.||{{N|S|||||}}|};
+{grimion_rest_1|Claro, os guardas colocaram algumas camas no sótão. Vá falar com Arngyr lá, ele pode ser capaz de ajudá-lo.|||};
+
+{loneford_tavern_room|Arngyr o agarra pelo ombro e puxa você de volta\nSe você quiser descansar aí, você precisa falar comigo primeiro.|||};
+{arngyr|||{
+	{|arngyr_back_1|nondisplay:19||||}
+	{|arngyr_1|||||}
+	}|};
+{arngyr_1|Sim, eu posso ajudá-lo?||{{Se importa se eu usar uma das camas aqui?|arngyr_2|||||}}|};
+{arngyr_2|||{
+	{|arngyr_3|loneford:55||||}
+	{|arngyr_4|||||}
+	}|};
+{arngyr_3|Ah, não, de forma alguma. Vá em frente. Depois de tudo o que você tem feito por nós aqui em Loneford, seria um privilégio ser capaz de dar-lhe algo em retribuição a você.|{{0|nondisplay|19|}}|{{N|arngyr_6|||||}}|};
+{arngyr_4|Estas camas são mais utilizadas por nós, guardas. Mas eu acho que eu poderia fazer uma exceção já que você é apenas um garoto. Digamos, 600 moedas de ouro e você poderia usá-las?||{{Claro, aqui está o ouro.|arngyr_5||gold|600|0|}{O quê? Isso é um pouco demais, não acha?|arngyr_7|||||}}|};
+{arngyr_5|Obrigado.|{{0|nondisplay|19|}}|{{N|arngyr_6|||||}}|};
+{arngyr_6|Use a cama que melhor lhe aprouver.||{{Thanks|X|||||}}|};
+{arngyr_7|Olhar, garoto. Eu faço as regras por aqui. Se esse é o meu preço, então esse é o meu preço. É pegar ou largar.||{{Bem, aqui está o ouro|arngyr_5||gold|600|0|}{Não importa. Não estou tão cansado.|X|||||}}|};
+{arngyr_back_1|Olá novamente. Espero que a cama esteja suficientemente confortável.|||};
+
+{loneford_chapelguard|Caminhe com a Sombra, criança.|||};
+
+{wallach|Ah, Selgan pobre velho. Por que tinha que ser ele? Eu quero saber quem é o próximo, e eu temo pelo pior.|||};
+{mienn|Não consigo ver como poderíamos fazer isso sem a ajuda dos guardas agradáveis de Feygard por aqui. Temos realmente sorte de ter a sua ajuda.|||};
+{conren|Temos a sorte de ter Feygard aqui nos ajudando.|||};
+{telund|Quem é você? Você viu meu pai Selgan? Todos me dizem que ele vai estar de volta em breve, mas todos eles estão mentindo! Eu sei, eu sei! Ele não estava em casa ontem, e ele não está em casa hoje.|||};
+
+{loneford_tavern_patron|Este não é lugar para um garoto como você. Eu acho melhor você ir embora agora.|||};
 	</string>
 
 </resources>
