@@ -57,6 +57,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	private LayeredTileMap currentTileMap;
 	private TileCollection tiles;
 	private final Coord playerPosition = new Coord();
+	private Size surfaceSize;
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -101,17 +102,13 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 
 		this.scale = world.tileManager.scale;
 		this.scaledTileSize = world.tileManager.viewTileSize;
+		this.surfaceSize = new Size(w, h);
 		
 		screenSizeTileCount = new Size(
 				(int) Math.floor(w / scaledTileSize)
 				,(int) Math.floor(h / scaledTileSize)
 			);
-
-    	screenOffset.set(
-				(w - (scaledTileSize * screenSizeTileCount.width)) / 2
-				,(h - (scaledTileSize * screenSizeTileCount.height)) / 2
-			);
-	    	
+		
     	if (model.currentMap != null) {
     		notifyMapChanged(model);
     	}
@@ -340,14 +337,18 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		synchronized (holder) {
 			currentMap = model.currentMap;
 			currentTileMap = model.currentTileMap;
-			Size mapViewSize = new Size(
-    			Math.min(screenSizeTileCount.width, currentMap.size.width)
-    			,Math.min(screenSizeTileCount.height, currentMap.size.height)
-			);
-		
-			mapViewArea = new CoordRect(mapTopLeft, mapViewSize);
-			
 			tiles = world.tileManager.currentMapTiles;
+			
+			Size visibleNumberOfTiles = new Size(
+					Math.min(screenSizeTileCount.width, currentMap.size.width)
+					,Math.min(screenSizeTileCount.height, currentMap.size.height)
+				);
+			mapViewArea = new CoordRect(mapTopLeft, visibleNumberOfTiles);
+
+			screenOffset.set(
+					(surfaceSize.width - scaledTileSize * visibleNumberOfTiles.width) / 2
+					,(surfaceSize.height - scaledTileSize * visibleNumberOfTiles.height) / 2
+				);
 		}
 		
 		clearCanvas();
