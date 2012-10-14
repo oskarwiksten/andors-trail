@@ -176,6 +176,8 @@ public final class WorldMapController {
 			offsetWorldmapTo.y = Math.min(offsetWorldmapTo.y, map.worldPosition.y);
 		}
 		
+		Coord bottomRight = new Coord(0, 0);
+		
 		StringBuffer mapsAsHtml = new StringBuffer();
 		for (WorldMapSegmentMap segmentMap : segment.maps.values()) {
 			File f = WorldMapController.getFileForMap(segmentMap.mapName);
@@ -197,7 +199,14 @@ public final class WorldMapController {
 				.append((segmentMap.worldPosition.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
 				.append("px;\" />");
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) mapsAsHtml.append("\n");
+			
+			bottomRight.x = Math.max(bottomRight.x, segmentMap.worldPosition.x + size.width);
+			bottomRight.y = Math.max(bottomRight.y, segmentMap.worldPosition.y + size.height);
 		}
+		Size worldmapSegmentSize = new Size(
+				(bottomRight.x - offsetWorldmapTo.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE
+				,(bottomRight.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE
+			);
 		
 		StringBuffer namedAreasAsHtml = new StringBuffer();
 		for (NamedWorldMapArea area : segment.namedAreas.values()) {
@@ -223,6 +232,8 @@ public final class WorldMapController {
 		return res.getString(R.string.worldmap_template)
 				.replace("{{maps}}", mapsAsHtml.toString())
 				.replace("{{areas}}", namedAreasAsHtml.toString())
+				.replace("{{sizex}}", Integer.toString(worldmapSegmentSize.width))
+				.replace("{{sizey}}", Integer.toString(worldmapSegmentSize.height))
 				.replace("{{offsetx}}", Integer.toString(offsetWorldmapTo.x * WorldMapController.WORLDMAP_DISPLAY_TILESIZE))
 				.replace("{{offsety}}", Integer.toString(offsetWorldmapTo.y * WorldMapController.WORLDMAP_DISPLAY_TILESIZE));
 	}
