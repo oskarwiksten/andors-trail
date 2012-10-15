@@ -43,11 +43,4 @@ public class TileCutter {
 	public void recycle() {
 		if (recycle) tilesetImage.recycle();
 	}
-	
-	public static int measureBitmapWidth(Resources r, int resourceID) {
-		Bitmap b = BitmapFactory.decodeResource(r, resourceID);
-		int width = b.getWidth();
-		b.recycle();
-		return width;
-	}
 }

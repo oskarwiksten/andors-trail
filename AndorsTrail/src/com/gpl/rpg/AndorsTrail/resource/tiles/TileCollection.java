@@ -5,10 +5,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 
 public class TileCollection {
-	public final Bitmap[] bitmaps;
+	private final Bitmap[] bitmaps;
+	public final int maxTileID;
 	
 	public TileCollection(int maxTileID) {
-		bitmaps = new Bitmap[maxTileID+1];
+		this.bitmaps = new Bitmap[maxTileID+1];
+		this.maxTileID = maxTileID;
 	}
 
 	public Bitmap getBitmap(int tileID) { 

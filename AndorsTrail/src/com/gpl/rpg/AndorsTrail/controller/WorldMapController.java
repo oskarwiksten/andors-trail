@@ -111,10 +111,11 @@ public final class WorldMapController {
 			Canvas canvas = new Canvas(image);
 			canvas.scale(scale, scale);
 
-			drawMapLayer(canvas, mapTiles.layers[LayeredTileMap.LAYER_GROUND]);
-	        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_OBJECTS);
-	        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_ABOVE);
-	        
+			synchronized (cachedTiles) {
+				drawMapLayer(canvas, mapTiles.layers[LayeredTileMap.LAYER_GROUND]);
+		        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_OBJECTS);
+		        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_ABOVE);
+			}
 	        return image;
 		}
 		
@@ -128,9 +129,8 @@ public final class WorldMapController {
 	        	int px = 0;
 	        	for (int x = 0; x < map.size.width; ++x, px += tileSize) {
 	        		final int tile = layer.tiles[x][y];
-	        		if (tile != 0) {
-	        			canvas.drawBitmap(cachedTiles.bitmaps[tile], px, py, mPaint);
-	        		}
+	        		if (tile == 0) continue;
+	        		cachedTiles.drawTile(canvas, tile, px, py, mPaint);
 	            }
 	        }
 	    }

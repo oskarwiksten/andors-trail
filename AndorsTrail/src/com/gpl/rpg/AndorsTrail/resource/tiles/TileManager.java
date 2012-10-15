@@ -187,7 +187,7 @@ public final class TileManager {
 	public void loadPreloadedTiles(Resources r) {
 		int maxTileID = tileCache.getMaxTileID();
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			if (maxTileID >= preloadedTiles.bitmaps.length) {
+			if (maxTileID > preloadedTiles.maxTileID) {
 				L.log("ERROR: TileManager.preloadedTiles needs to be initialized with at least " + maxTileID + " slots. Application will crash now.");
 			}
 		}

@@ -101,10 +101,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		if (w <= 0 || h <= 0) return;
 
 		this.scale = world.tileManager.scale;
+		this.mPaint.setFilterBitmap(scale != 1);
 		this.scaledTileSize = world.tileManager.viewTileSize;
 		this.surfaceSize = new Size(w, h);
-		
-		screenSizeTileCount = new Size(
+		this.screenSizeTileCount = new Size(
 				(int) Math.floor(w / scaledTileSize)
 				,(int) Math.floor(h / scaledTileSize)
 			);
@@ -178,11 +178,11 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		Canvas c = null;
 		try {
 	        c = holder.lockCanvas(redrawRect);
-	        synchronized (holder) {
+	        synchronized (holder) { synchronized (tiles) {
 	        	c.translate(screenOffset.x, screenOffset.y);
 	        	c.scale(scale, scale);
 	        	doDrawRect(c, area);
-	        }
+	        } }
 	    } finally {
 	        // do this in a finally so that if an exception is thrown
 	        // during the above, we don't leave the Surface in an
@@ -210,7 +210,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		Canvas c = null;
 		try {
 	        c = holder.lockCanvas(redrawRect);
-	        synchronized (holder) {
+	        synchronized (holder) { synchronized (tiles) {
 	        	c.translate(screenOffset.x, screenOffset.y);
 	        	c.scale(scale, scale);
 	        	doDrawRect(c, area);
@@ -218,7 +218,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     			if (effect.displayText != null) {
     				drawEffectText(c, area, effect, textYOffset, textPaint);
     			}
-	        }
+	        } }
 	    } finally {
 	        // do this in a finally so that if an exception is thrown
 	        // during the above, we don't leave the Surface in an
@@ -303,9 +303,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         	int px = px0;
         	for (int x = 0; x < area.size.width; ++x, ++mx, px += tileSize) {
         		final int tile = layer.tiles[mx][my];
-        		if (tile != 0) {
-        			tiles.drawTile(canvas, tile, px, py, mPaint);
-        		}
+        		if (tile == 0) continue;
+    			tiles.drawTile(canvas, tile, px, py, mPaint);
             }
         }
     }
