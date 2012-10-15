@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import java.util.Random;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
@@ -18,7 +19,7 @@ public final class Constants {
 	public static final int EXP_FACTOR_DAMAGERESISTANCE = 9;
 	public static final float EXP_FACTOR_SCALING = 0.7f;
 	public static final int FLEE_FAIL_CHANCE_PERCENT = 20;
-	public static final long MINIMUM_INPUT_INTERVAL = 200;
+	public static final long MINIMUM_INPUT_INTERVAL = AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS ? 50 : 200;
 
 	public static final int MONSTER_MOVEMENT_TURN_DURATION_MS = 1200;
 	public static final int ATTACK_ANIMATION_FPS = 10;
