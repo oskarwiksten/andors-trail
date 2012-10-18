@@ -107,12 +107,10 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 	public void onClick(View view) {
 		final int slot = (Integer) view.getTag();
 		if (requiresConfirmation(slot)) {
-			final String playerName = model.player.actorTraits.name;
-			
 			new AlertDialog.Builder(this)
 		        .setIcon(android.R.drawable.ic_dialog_alert)
 		        .setTitle(R.string.loadsave_save_overwrite_confirmation_title)
-		        .setMessage(getString(R.string.loadsave_save_overwrite_confirmation, Savegames.quickload(this, slot).playerName, playerName))
+		        .setMessage(getString(R.string.loadsave_save_overwrite_confirmation_all))
 		        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 		            @Override
 		            public void onClick(DialogInterface dialog, int which) {
