@@ -171,7 +171,7 @@ public class ActorStatsController {
 		
 		actor.health.addToMax(effects.increaseMaxHP * multiplier);
 		actor.ap.addToMax(effects.increaseMaxAP * multiplier);
-		actor.actorTraits.moveCost += effects.increaseMoveCost * multiplier;
+		actor.baseTraits.moveCost += effects.increaseMoveCost * multiplier;
 		
 		actorCombatTraits.attackCost += effects.increaseAttackCost * multiplier;
 		//criticalMultiplier should not be increased. It is always defined by the weapon in use.
@@ -184,7 +184,7 @@ public class ActorStatsController {
 		
 		if (actorCombatTraits.attackCost <= 0) actorCombatTraits.attackCost = 1;
 		if (actorCombatTraits.attackChance < 0) actorCombatTraits.attackChance = 0;
-		if (actor.actorTraits.moveCost <= 0) actor.actorTraits.moveCost = 1;
+		if (actor.baseTraits.moveCost <= 0) actor.baseTraits.moveCost = 1;
 		if (actorCombatTraits.damagePotential.max < 0) actorCombatTraits.damagePotential.set(0, 0);
 	}
 	

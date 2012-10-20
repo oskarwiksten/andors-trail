@@ -71,7 +71,7 @@ public final class ItemType {
 	
 	public String getName(Player p) {
 		if (!hasPersonalizedName) return name;
-		else return name.replace(Constants.PLACEHOLDER_PLAYERNAME, p.actorTraits.name);		
+		else return name.replace(Constants.PLACEHOLDER_PLAYERNAME, p.getName());		
 	}
 	
 	public int getOverlayTileID() {

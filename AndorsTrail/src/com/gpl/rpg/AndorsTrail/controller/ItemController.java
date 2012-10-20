@@ -154,9 +154,9 @@ public final class ItemController {
 		if (effects != null) {
 			ItemTraits_OnUse[] effects_ = new ItemTraits_OnUse[effects.size()];
 			effects_ = effects.toArray(effects_);
-			player.actorTraits.onHitEffects = effects_;
+			player.baseTraits.onHitEffects = effects_;
 		} else {
-			player.actorTraits.onHitEffects = null;
+			player.baseTraits.onHitEffects = null;
 		}
 	}
 	

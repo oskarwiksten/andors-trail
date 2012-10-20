@@ -343,8 +343,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	ConversationStatement s = new ConversationStatement();
     	if (displayActors) {
     		assert(actor != null);
-	    	s.iconID = actor.actorTraits.iconID;
-	    	s.actorName = actor.actorTraits.name;
+	    	s.iconID = actor.baseTraits.iconID;
+	    	s.actorName = actor.getName();
     	} else {
     		s.iconID = ConversationStatement.NO_ICON;
     	}

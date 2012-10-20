@@ -127,8 +127,8 @@ public final class DebugInterface {
 			,new DebugButton("hp", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			world.model.player.actorTraits.maxHP = 200;
-	    			world.model.player.health.max = world.model.player.actorTraits.maxHP;
+	    			world.model.player.baseTraits.maxHP = 200;
+	    			world.model.player.health.max = world.model.player.baseTraits.maxHP;
 	    			world.model.player.health.setMax();
 	    			world.model.player.conditions.clear();
 	    			mainActivity.updateStatus();

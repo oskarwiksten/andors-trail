@@ -30,7 +30,7 @@ public final class MonsterTypeCollection {
 	
 	public MonsterType guessMonsterTypeFromName(String name) {
 		for (MonsterType t : monsterTypesById.values()) {
-			if (t.name.equalsIgnoreCase(name)) return t;
+			if (t.baseTraits.name.equalsIgnoreCase(name)) return t;
 		}
 		return null;
 	}

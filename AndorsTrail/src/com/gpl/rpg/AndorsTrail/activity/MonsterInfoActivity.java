@@ -79,7 +79,7 @@ public final class MonsterInfoActivity extends Activity {
     }
 
 	private void updateTitle(Monster monster) {
-		monsterinfo_title.setText(monster.actorTraits.name);
+		monsterinfo_title.setText(monster.getName());
 		world.tileManager.setImageViewTile(monsterinfo_title, monster);
         monsterinfo_difficulty.setText(getMonsterDifficultyResource(world, monster));
 	}
@@ -89,7 +89,7 @@ public final class MonsterInfoActivity extends Activity {
 		monsterinfo_onhiteffects.update(
         		null, 
         		null, 
-        		monster.actorTraits.onHitEffects == null ? null : Arrays.asList(monster.actorTraits.onHitEffects), 
+        		monster.baseTraits.onHitEffects == null ? null : Arrays.asList(monster.baseTraits.onHitEffects), 
         		null,
         		false);
         hp.update(monster.health);

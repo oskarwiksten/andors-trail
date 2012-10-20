@@ -53,7 +53,7 @@ public final class HeroinfoActivity_Stats extends Activity {
         setContentView(R.layout.heroinfo_stats);
         
         TextView tv = (TextView) findViewById(R.id.heroinfo_title);
-        tv.setText(player.actorTraits.name);
+        tv.setText(player.getName());
         world.tileManager.setImageViewTile(tv, player);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
         heroinfo_movecost = (TextView) findViewById(R.id.heroinfo_movecost);
@@ -110,7 +110,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 		heroinfo_level.setText(Integer.toString(player.level));
 		heroinfo_totalexperience.setText(Integer.toString(player.totalExperience));
 		heroinfo_ap.setText(player.ap.toString());
-        heroinfo_movecost.setText(Integer.toString(player.actorTraits.moveCost));
+        heroinfo_movecost.setText(Integer.toString(player.baseTraits.moveCost));
         rangebar_hp.update(player.health);
         rangebar_exp.update(player.levelExperience);
         
@@ -126,7 +126,7 @@ public final class HeroinfoActivity_Stats extends Activity {
 		if (effects_hit.isEmpty()) effects_hit = null;
 		if (effects_kill.isEmpty()) effects_kill = null;
 		heroinfo_itemeffects.update(null, null, effects_hit, effects_kill, false);
-		heroinfo_basetraits.update(player.actorTraits);
+		heroinfo_basetraits.update(player.baseTraits);
     }
 
 	private void updateConditions() {

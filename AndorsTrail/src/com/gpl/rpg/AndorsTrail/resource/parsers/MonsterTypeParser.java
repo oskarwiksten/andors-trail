@@ -5,6 +5,7 @@ import android.util.FloatMath;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
+import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
@@ -30,28 +31,30 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 	@Override
 	public Pair<String, MonsterType> parseRow(String[] parts) {
 		final String monsterTypeId = parts[0];
-		final int maxHP = ResourceParserUtils.parseInt(parts[8], 1);
-		final int maxAP = ResourceParserUtils.parseInt(parts[9], 10);
 		final CombatTraits combatTraits = ResourceParserUtils.parseCombatTraits(parts, 11);
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 21, true);
-		final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, maxHP, maxAP);
+		final ActorTraits baseTraits = new ActorTraits(
+				ResourceParserUtils.parseImageID(tileLoader, parts[1])
+				, ResourceParserUtils.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
+				, combatTraits
+				, ResourceParserUtils.parseInt(parts[10], 10)	// MoveCost
+				, hitEffect == null ? null : new ItemTraits_OnUse[] { hitEffect }
+				);
+		baseTraits.name = parts[2];
+		baseTraits.maxHP = ResourceParserUtils.parseInt(parts[8], 1);
+		baseTraits.maxAP = ResourceParserUtils.parseInt(parts[9], 10);
+		
+		final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, baseTraits.maxHP, baseTraits.maxAP);
 		return new Pair<String, MonsterType>(monsterTypeId, new MonsterType(
 			monsterTypeId
-			, parts[2]										// Name
 			, parts[3] 										// Tags
-			, ResourceParserUtils.parseImageID(tileLoader, parts[1])
-			, ResourceParserUtils.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
-			, maxHP 										// HP
-			, maxAP											// AP
-			, ResourceParserUtils.parseInt(parts[10], 10)	// MoveCost
-			, combatTraits
-	        , hitEffect
 			, exp 											// Exp
 			, droplists.getDropList(parts[19]) 				// Droplist
 			, ResourceParserUtils.parseNullableString(parts[20]) 	// PhraseID
 			, ResourceParserUtils.parseBoolean(parts[6], false)		// isUnique
 			, ResourceParserUtils.parseNullableString(parts[7])		// Faction
 			, ResourceParserUtils.parseInt(parts[5], MonsterType.MONSTERCLASS_HUMANOID) // MonsterClass
+			, baseTraits
 		));
 	}
 	

@@ -115,7 +115,7 @@ public final class CombatView extends RelativeLayout {
 		if (currentActiveMonster != null) {
 			actionBar.setVisibility(View.INVISIBLE);
 			monsterActionText.setVisibility(View.VISIBLE);
-			monsterActionText.setText(res.getString(R.string.combat_monsteraction, currentActiveMonster.actorTraits.name));
+			monsterActionText.setText(res.getString(R.string.combat_monsteraction, currentActiveMonster.getName()));
 		} else {
 			actionBar.setVisibility(View.VISIBLE);
 			monsterActionText.setVisibility(View.GONE);
@@ -141,7 +141,7 @@ public final class CombatView extends RelativeLayout {
 			updateMonsterHealth(selectedMonster.health);
 	        currentMonster = selectedMonster;
 		} else if (selectedMovePosition != null) {
-			attackMoveButton.setText(res.getString(R.string.combat_move, player.actorTraits.moveCost));
+			attackMoveButton.setText(res.getString(R.string.combat_move, player.baseTraits.moveCost));
 		} else {
 			attackMoveButton.setText(res.getString(R.string.combat_attack, player.combatTraits.attackCost));
 		}

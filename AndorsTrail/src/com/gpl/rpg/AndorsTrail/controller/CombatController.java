@@ -179,7 +179,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (attack.isHit) {
 			String msg;
 			
-			final String monsterName = target.actorTraits.name;
+			final String monsterName = target.getName();
 			if (attack.isCriticalHit) {
 				msg = r.getString(R.string.combat_result_herohitcritical, monsterName, attack.damage);
 			} else {
@@ -250,7 +250,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		final Player player = model.player;
 		if (player.hasAPs(player.useItemCost)) return true;
 		if (player.hasAPs(player.combatTraits.attackCost)) return true;
-		if (player.hasAPs(player.actorTraits.moveCost)) return true;
+		if (player.hasAPs(player.baseTraits.moveCost)) return true;
 		return false;
 	}
 	private void playerActionCompleted() {
@@ -266,7 +266,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void executeCombatMove(final Coord dest) {
 		if (model.uiSelections.selectedMonster != null) return;
 		if (dest == null) return;
-		if (!useAPs(model.player.actorTraits.moveCost)) return;
+		if (!useAPs(model.player.baseTraits.moveCost)) return;
 
 		int fleeChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
 		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
@@ -339,7 +339,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		AttackResult attack = monsterAttacks(model, currentActiveMonster);
 		this.lastAttackResult = attack;
 		
-		String monsterName = currentActiveMonster.actorTraits.name;
+		String monsterName = currentActiveMonster.getName();
 		if (attack.isHit) {
 			if (attack.isCriticalHit) {
 				message(r.getString(R.string.combat_result_monsterhitcritical, monsterName, attack.damage));
@@ -431,7 +431,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);
 		if (averageDamagePerTurn <= 0) return 100;
-		return (int) FloatMath.ceil(target.actorTraits.maxHP / averageDamagePerTurn);
+		return (int) FloatMath.ceil(target.health.max / averageDamagePerTurn);
 	}
 	public static int getMonsterDifficulty(WorldContext world, Monster monster) {
 		// returns [0..100) . 100 == easy.
@@ -488,9 +488,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void applyAttackHitStatusEffects(Actor attacker, Actor target) {
-		if (attacker.actorTraits.onHitEffects == null) return;
+		if (attacker.baseTraits.onHitEffects == null) return;
 		
-		for (ItemTraits_OnUse e : attacker.actorTraits.onHitEffects) {
+		for (ItemTraits_OnUse e : attacker.baseTraits.onHitEffects) {
 			context.actorStatsController.applyUseEffect(attacker, target, e);
 		}
 	}

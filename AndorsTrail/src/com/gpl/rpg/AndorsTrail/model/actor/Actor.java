@@ -14,7 +14,7 @@ import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class Actor {
-	public final ActorTraits actorTraits;
+	public final ActorTraits baseTraits;
 	public final CombatTraits combatTraits;
 	public final Range ap;
 	public final Range health;
@@ -25,18 +25,18 @@ public class Actor {
 	public final boolean isPlayer;
 	public final boolean isImmuneToCriticalHits;
 	
-	public Actor(ActorTraits actorTraits, boolean isPlayer, boolean isImmuneToCriticalHits) {
-		this.combatTraits = new CombatTraits(actorTraits.baseCombatTraits);
-		this.actorTraits = actorTraits;
-		this.ap = new Range(actorTraits.maxAP, actorTraits.maxAP);
-		this.health = new Range(actorTraits.maxHP, actorTraits.maxHP);
+	public Actor(ActorTraits baseTraits, boolean isPlayer, boolean isImmuneToCriticalHits) {
+		this.combatTraits = new CombatTraits(baseTraits.baseCombatTraits);
+		this.baseTraits = baseTraits;
+		this.ap = new Range(baseTraits.maxAP, baseTraits.maxAP);
+		this.health = new Range(baseTraits.maxHP, baseTraits.maxHP);
 		this.position = new Coord();
-		this.rectPosition = new CoordRect(position, actorTraits.tileSize);
+		this.rectPosition = new CoordRect(position, baseTraits.tileSize);
 		this.isPlayer = isPlayer;
 		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 	}
 	
-	public int getAttacksPerTurn() { return combatTraits.getAttacksPerTurn(actorTraits.maxAP); }
+	public int getAttacksPerTurn() { return combatTraits.getAttacksPerTurn(baseTraits.maxAP); }
 	
 	public boolean isDead() {
 		return health.current <= 0;
@@ -47,6 +47,7 @@ public class Actor {
 	public void setMaxHP() {
 		health.setMax();
 	}
+	public String getName() { return baseTraits.name; }
 	
 	public boolean useAPs(int cost) {
 		if (ap.current < cost) return false;
@@ -65,17 +66,17 @@ public class Actor {
 	}
 	
 	public void resetStatsToBaseTraits() {
-		combatTraits.set(actorTraits.baseCombatTraits);
-		health.set(actorTraits.maxHP, health.current);
-		ap.set(actorTraits.maxAP, ap.current);
-		actorTraits.moveCost = actorTraits.baseMoveCost;
+		combatTraits.set(baseTraits.baseCombatTraits);
+		health.set(baseTraits.maxHP, health.current);
+		ap.set(baseTraits.maxAP, ap.current);
+		baseTraits.moveCost = baseTraits.baseMoveCost;
 	}
 
 
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, boolean isImmuneToCriticalHits, ActorTraits actorTraits) throws IOException {
+	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, boolean isImmuneToCriticalHits, ActorTraits baseTraits) throws IOException {
 		this.isPlayer = isPlayer;
 		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 		
@@ -84,14 +85,14 @@ public class Actor {
 		if (fileversion >= 25) readCombatTraits = src.readBoolean();
 		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
 		
-		this.actorTraits = isPlayer ? new ActorTraits(src, world, fileversion) : actorTraits;
-		if (!readCombatTraits) combatTraits = new CombatTraits(this.actorTraits.baseCombatTraits);
+		this.baseTraits = isPlayer ? new ActorTraits(src, world, fileversion) : baseTraits;
+		if (!readCombatTraits) combatTraits = new CombatTraits(this.baseTraits.baseCombatTraits);
 		this.combatTraits = combatTraits;
-		
+
 		this.ap = new Range(src, fileversion);
 		this.health = new Range(src, fileversion);
 		this.position = new Coord(src, fileversion);
-		this.rectPosition = new CoordRect(position, this.actorTraits.tileSize);
+		this.rectPosition = new CoordRect(position, this.baseTraits.tileSize);
 		if (fileversion <= 16) return;
 		final int n = src.readInt();
 		for(int i = 0; i < n ; ++i) {
@@ -100,13 +101,13 @@ public class Actor {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		if (this.combatTraits.equals(actorTraits.baseCombatTraits)) {
+		if (this.combatTraits.equals(baseTraits.baseCombatTraits)) {
 			dest.writeBoolean(false);
 		} else {
 			dest.writeBoolean(true);
 			combatTraits.writeToParcel(dest, flags);
 		}
-		if (isPlayer) actorTraits.writeToParcel(dest, flags);
+		if (isPlayer) baseTraits.writeToParcel(dest, flags);
 		ap.writeToParcel(dest, flags);
 		health.writeToParcel(dest, flags);
 		position.writeToParcel(dest, flags);

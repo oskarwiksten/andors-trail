@@ -62,13 +62,13 @@ public final class Player extends Actor {
 		combat.blockChance = 0;
 		combat.damageResistance = 0;
 
-		actorTraits.baseCombatTraits.set(combat);
+		baseTraits.baseCombatTraits.set(combat);
 		
-		actorTraits.maxAP = 10;
-		actorTraits.maxHP = 25;
+		baseTraits.maxAP = 10;
+		baseTraits.maxHP = 25;
 		
-		actorTraits.name = name;
-		actorTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
+		baseTraits.name = name;
+		baseTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
 		useItemCost = 5;
 		reequipCost = 5;
 
@@ -247,7 +247,7 @@ public final class Player extends Actor {
 			useItemCost = 5;
 			health.max += 5;
 			health.current += 5;
-			actorTraits.maxHP += 5;
+			baseTraits.maxHP += 5;
 		}
 
 		if (fileversion <= 13) return;
@@ -292,7 +292,7 @@ public final class Player extends Actor {
 		}
 		
 		if (fileversion <= 30) {
-			this.actorTraits.baseCombatTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
+			this.baseTraits.baseCombatTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
 		}
 	}
 	
