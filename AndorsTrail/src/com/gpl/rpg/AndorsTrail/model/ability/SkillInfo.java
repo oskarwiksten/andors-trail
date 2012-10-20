@@ -82,7 +82,7 @@ public class SkillInfo {
 			switch (requirementType) {
 			case REQUIREMENT_TYPE_SKILL_LEVEL: return player.getSkillLevel(skillOrStatID);
 			case REQUIREMENT_TYPE_EXPERIENCE_LEVEL: return player.level;
-			case REQUIREMENT_TYPE_COMBAT_STAT: return player.baseTraits.baseCombatTraits.getCombatStats(skillOrStatID);
+			case REQUIREMENT_TYPE_COMBAT_STAT: return player.baseTraits.getCombatStats(skillOrStatID);
 			case REQUIREMENT_TYPE_ACTOR_STAT: return player.baseTraits.getActorStats(skillOrStatID);
 			default: return 0;
 			}

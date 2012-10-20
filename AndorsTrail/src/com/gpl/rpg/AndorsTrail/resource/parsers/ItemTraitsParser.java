@@ -49,8 +49,8 @@ public final class ItemTraitsParser {
 		boolean hasEffect = ResourceParserUtils.parseBoolean(parts[startIndex], false);
 		if (!hasEffect) return null;
 		
-		ConstRange boostCurrentHP = ResourceParserUtils.parseRange(parts[startIndex + 1], parts[startIndex + 2]);
-		ConstRange boostCurrentAP = ResourceParserUtils.parseRange(parts[startIndex + 3], parts[startIndex + 4]);
+		ConstRange boostCurrentHP = ResourceParserUtils.parseConstRange(parts[startIndex + 1], parts[startIndex + 2]);
+		ConstRange boostCurrentAP = ResourceParserUtils.parseConstRange(parts[startIndex + 3], parts[startIndex + 4]);
 		final ArrayList<ActorConditionEffect> addedConditions_source = new ArrayList<ActorConditionEffect>();
 		final ArrayList<ActorConditionEffect> addedConditions_target = new ArrayList<ActorConditionEffect>();
 		tokenize4Fields.tokenizeArray(parts[startIndex + 5], addedConditions_source, actorConditionEffectParser_withDuration);

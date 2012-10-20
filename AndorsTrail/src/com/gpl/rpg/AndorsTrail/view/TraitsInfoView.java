@@ -57,9 +57,8 @@ public class TraitsInfoView extends TableLayout {
         traitsinfo_defense_damageresist = (TextView) findViewById(R.id.traitsinfo_defense_damageresist);
     }
 
-	public void update(Actor actor) { update(actor.combatTraits, true); }
-	public void update(ActorTraits actorTraits) { update(actorTraits.baseCombatTraits, true); }
-	private void update(CombatTraits traits, boolean showEffectiveCriticalChance) {
+	public void update(Actor actor) { update(actor.combatTraits); }
+	private void update(CombatTraits traits) {
 		if (traits != null && traits.attackCost != 0) {
 			traitsinfo_attack_row1.setVisibility(View.VISIBLE);
 			traitsinfo_attack_cost.setText(Integer.toString(traits.attackCost));
@@ -90,7 +89,58 @@ public class TraitsInfoView extends TableLayout {
 		} else {
 			traitsinfo_critical_row2.setVisibility(View.GONE);
 		}
-		if (showEffectiveCriticalChance && traits != null && traits.hasCriticalAttacks()) {
+		if (traits != null && traits.hasCriticalAttacks()) {
+			traitsinfo_critical_row3.setVisibility(View.VISIBLE);
+			traitsinfo_criticalhit_effectivechance.setText(Integer.toString(traits.getEffectiveCriticalChance()) + "%");
+		} else {
+			traitsinfo_critical_row3.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasBlockEffect()) {
+			traitsinfo_defense_row1.setVisibility(View.VISIBLE);
+			traitsinfo_defense_chance.setText(Integer.toString(traits.blockChance) + "%");
+		} else {
+			traitsinfo_defense_row1.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.damageResistance != 0) {
+			traitsinfo_defense_row2.setVisibility(View.VISIBLE);
+			traitsinfo_defense_damageresist.setText(Integer.toString(traits.damageResistance));
+		} else {
+			traitsinfo_defense_row2.setVisibility(View.GONE);
+		}
+	}
+	
+	public void update(ActorTraits traits) {
+		if (traits != null && traits.attackCost != 0) {
+			traitsinfo_attack_row1.setVisibility(View.VISIBLE);
+			traitsinfo_attack_cost.setText(Integer.toString(traits.attackCost));
+		} else {
+			traitsinfo_attack_row1.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasAttackChanceEffect()) {
+			traitsinfo_attack_row2.setVisibility(View.VISIBLE);
+			traitsinfo_attack_chance.setText(Integer.toString(traits.attackChance) + "%");
+		} else {
+			traitsinfo_attack_row2.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasAttackDamageEffect()) {
+			traitsinfo_attack_row3.setVisibility(View.VISIBLE);
+			traitsinfo_attack_damage.setText(traits.damagePotential.toMinMaxString());
+		} else {
+			traitsinfo_attack_row3.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasCriticalSkillEffect()) {
+			traitsinfo_critical_row1.setVisibility(View.VISIBLE);
+			traitsinfo_criticalhit_skill.setText(Integer.toString(traits.criticalSkill));
+		} else {
+			traitsinfo_critical_row1.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasCriticalMultiplierEffect()) {
+			traitsinfo_critical_row2.setVisibility(View.VISIBLE);
+			traitsinfo_criticalhit_multiplier.setText(Float.toString(traits.criticalMultiplier));
+		} else {
+			traitsinfo_critical_row2.setVisibility(View.GONE);
+		}
+		if (traits != null && traits.hasCriticalAttacks()) {
 			traitsinfo_critical_row3.setVisibility(View.VISIBLE);
 			traitsinfo_criticalhit_effectivechance.setText(Integer.toString(traits.getEffectiveCriticalChance()) + "%");
 		} else {

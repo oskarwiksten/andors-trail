@@ -7,6 +7,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class ResourceParserUtils {
@@ -15,7 +16,27 @@ public final class ResourceParserUtils {
 	   	String[] parts = s.split(":");
 	   	return tileLoader.prepareTileID(parts[0], Integer.parseInt(parts[1]));
 	}
-	public static ConstRange parseRange(String min, String max) {
+	public static Range parseRange(String min, String max) {
+		if (   (max == null || max.length() <= 0) 
+			&& (min == null || min.length() <= 0) ) {
+			return null;
+		}
+		if (max == null || max.length() <= 0) {
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				L.log("OPTIMIZE: Unable to parse range with min=" + min + " because max was empty.");
+			}
+			return null;
+		}
+		if (min == null || min.length() <= 0) {
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				L.log("OPTIMIZE: Unable to parse range with max=" + max + " because min was empty.");
+			}
+			return null;
+		}
+		
+		return new Range(Integer.parseInt(max), Integer.parseInt(min));
+	}
+	public static ConstRange parseConstRange(String min, String max) {
 		if (   (max == null || max.length() <= 0) 
 			&& (min == null || min.length() <= 0) ) {
 			return null;
@@ -50,7 +71,7 @@ public final class ResourceParserUtils {
 		String attackChance = parts[startIndex + 1];
 		String criticalSkill = parts[startIndex + 2];
 		String criticalMultiplier = parts[startIndex + 3];
-		ConstRange attackDamage = parseRange(parts[startIndex + 4], parts[startIndex + 5]);
+		ConstRange attackDamage = parseConstRange(parts[startIndex + 4], parts[startIndex + 5]);
 		String blockChance = parts[startIndex + 6];
 		String damageResistance = parts[startIndex + 7];
 		if (       attackCost.length() <= 0 
@@ -102,8 +123,8 @@ public final class ResourceParserUtils {
 		if (!hasEffect) return null;
 		
 		String visualEffectID = parts[startIndex + 1];
-		ConstRange boostCurrentHP = parseRange(parts[startIndex + 2], parts[startIndex + 3]);
-		ConstRange boostCurrentAP = parseRange(parts[startIndex + 4], parts[startIndex + 5]);
+		ConstRange boostCurrentHP = parseConstRange(parts[startIndex + 2], parts[startIndex + 3]);
+		ConstRange boostCurrentAP = parseConstRange(parts[startIndex + 4], parts[startIndex + 5]);
 		if (       boostCurrentHP == null 
 				&& boostCurrentAP == null
 			) {
@@ -174,7 +195,7 @@ public final class ResourceParserUtils {
 		else if (min.equals("1") && max.equals("1")) return one;
 		else if (min.equals("5") && max.equals("5")) return five;
 		else if (min.equals("10") && max.equals("10")) return ten;
-		return parseRange(min, max);
+		return parseConstRange(min, max);
 	}
 	
 	public static final ConstRange always = one;

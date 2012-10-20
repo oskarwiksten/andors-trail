@@ -26,7 +26,7 @@ public class Actor {
 	public final boolean isImmuneToCriticalHits;
 	
 	public Actor(ActorTraits baseTraits, boolean isPlayer, boolean isImmuneToCriticalHits) {
-		this.combatTraits = new CombatTraits(baseTraits.baseCombatTraits);
+		this.combatTraits = new CombatTraits(baseTraits);
 		this.baseTraits = baseTraits;
 		this.ap = new Range(baseTraits.maxAP, baseTraits.maxAP);
 		this.health = new Range(baseTraits.maxHP, baseTraits.maxHP);
@@ -66,7 +66,7 @@ public class Actor {
 	}
 	
 	public void resetStatsToBaseTraits() {
-		combatTraits.set(baseTraits.baseCombatTraits);
+		combatTraits.set(baseTraits);
 		health.set(baseTraits.maxHP, health.current);
 		ap.set(baseTraits.maxAP, ap.current);
 		baseTraits.moveCost = baseTraits.baseMoveCost;
@@ -86,7 +86,7 @@ public class Actor {
 		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
 		
 		this.baseTraits = isPlayer ? new ActorTraits(src, world, fileversion) : baseTraits;
-		if (!readCombatTraits) combatTraits = new CombatTraits(this.baseTraits.baseCombatTraits);
+		if (!readCombatTraits) combatTraits = new CombatTraits(this.baseTraits);
 		this.combatTraits = combatTraits;
 
 		this.ap = new Range(src, fileversion);
@@ -101,7 +101,7 @@ public class Actor {
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		if (this.combatTraits.equals(baseTraits.baseCombatTraits)) {
+		if (this.combatTraits.isSameValuesAs(baseTraits)) {
 			dest.writeBoolean(false);
 		} else {
 			dest.writeBoolean(true);

@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import android.util.FloatMath;
 
+import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class CombatTraits {
@@ -31,11 +32,11 @@ public class CombatTraits {
 	public CombatTraits() {
 		this.damagePotential = new Range();
 	}
-	public CombatTraits(CombatTraits copy) {
+	public CombatTraits(ActorTraits copy) {
 		this();
 		set(copy);
 	}
-	public void set(CombatTraits copy) {
+	public void set(ActorTraits copy) {
 		if (copy == null) return;
 		this.attackCost = copy.attackCost;
 		this.attackChance = copy.attackChance;
@@ -46,7 +47,7 @@ public class CombatTraits {
 		this.damageResistance = copy.damageResistance;
 	}
 	
-	public boolean equals(CombatTraits other) {
+	public boolean isSameValuesAs(ActorTraits other) {
 		if (other == null) return isZero();
 		return 
 			this.attackCost == other.attackCost

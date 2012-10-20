@@ -118,14 +118,14 @@ public final class LevelUpActivity extends Activity {
     		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
     		break;
     	case SELECT_ATK_CH:
-    		player.baseTraits.baseCombatTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
+    		player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
     		break;
     	case SELECT_ATK_DMG:
-    		player.baseTraits.baseCombatTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		player.baseTraits.baseCombatTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
+    		player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
+    		player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
     		break;
     	case SELECT_DEF_CH:
-    		player.baseTraits.baseCombatTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
+    		player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
     		break;
     	}
     	if (player.nextLevelAddsNewSkillpoint()) {

@@ -4,9 +4,12 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+import android.util.FloatMath;
+
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
+import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public class ActorTraits {
@@ -24,24 +27,54 @@ public class ActorTraits {
 	public int moveCost;
 	public final int baseMoveCost;
 
-	public final CombatTraits baseCombatTraits;
+	public int attackCost;
+	public int attackChance;
+	public int criticalSkill;
+	public float criticalMultiplier;
+	public final Range damagePotential;
+	public int blockChance;
+	public int damageResistance;
+	
 	public ItemTraits_OnUse[] onHitEffects;
 	
 	public ActorTraits(
 			int iconID
 			, Size tileSize
-			, CombatTraits baseCombatTraits
+			, int attackCost
+			, int attackChance
+			, int criticalSkill
+			, float criticalMultiplier
+			, Range damagePotential
+			, int blockChance
+			, int damageResistance
 			, int standardMoveCost
 			, ItemTraits_OnUse[] onHitEffects
 			) {
 		this.iconID = iconID;
 		this.tileSize = tileSize;
-		this.baseCombatTraits = baseCombatTraits;
+		this.attackCost = attackCost;
+		this.attackChance = attackChance;
+		this.criticalSkill = criticalSkill;
+		this.criticalMultiplier = criticalMultiplier;
+		this.damagePotential = damagePotential;
+		this.blockChance = blockChance;
+		this.damageResistance = damageResistance;
 		this.baseMoveCost = standardMoveCost;
 		this.onHitEffects = onHitEffects;
 	}
-	public int getMovesPerTurn() {
-		return (int) Math.floor(maxAP / moveCost);
+	
+	public int getMovesPerTurn() { return (int) Math.floor(maxAP / moveCost); }
+	public boolean hasAttackChanceEffect() { return attackChance != 0; }
+	public boolean hasAttackDamageEffect() { return damagePotential.max != 0; }
+	public boolean hasBlockEffect() { return blockChance != 0; }
+	public boolean hasCriticalSkillEffect() { return criticalSkill != 0; }
+	public boolean hasCriticalMultiplierEffect() { return criticalMultiplier != 0 && criticalMultiplier != 1; }
+	public boolean hasCriticalAttacks() { return hasCriticalSkillEffect() && hasCriticalMultiplierEffect(); }
+	public int getEffectiveCriticalChance() {
+		if (criticalSkill <= 0) return 0;
+		int v = (int) (-5 + 2 * FloatMath.sqrt(5*criticalSkill));
+		if (v < 0) return 0;
+		return v;
 	}
 	
 	public int getActorStats(int statID) {
@@ -52,7 +85,19 @@ public class ActorTraits {
 		}
 		return 0;
 	}
-	
+	public int getCombatStats(int statID) {
+		switch (statID) {
+		case CombatTraits.STAT_COMBAT_ATTACK_COST: return attackCost;
+		case CombatTraits.STAT_COMBAT_ATTACK_CHANCE: return attackChance;
+		case CombatTraits.STAT_COMBAT_CRITICAL_SKILL: return criticalSkill;
+		case CombatTraits.STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) FloatMath.floor(criticalMultiplier);
+		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return damagePotential.current;
+		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return damagePotential.max;
+		case CombatTraits.STAT_COMBAT_BLOCK_CHANCE: return blockChance;
+		case CombatTraits.STAT_COMBAT_DAMAGE_RESISTANCE: return damageResistance;
+		}
+		return 0;
+	}
 	
 	// ====== PARCELABLE ===================================================================
 
@@ -63,7 +108,19 @@ public class ActorTraits {
 		this.maxHP = src.readInt();
 		this.name = src.readUTF();
 		this.moveCost = src.readInt();
-		this.baseCombatTraits = new CombatTraits(src, fileversion);
+		
+		this.attackCost = src.readInt();
+		this.attackChance = src.readInt();
+		this.criticalSkill = src.readInt();
+		if (fileversion <= 20) {
+			this.criticalMultiplier = src.readInt();
+		} else {
+			this.criticalMultiplier = src.readFloat();
+		}
+		this.damagePotential = new Range(src, fileversion);
+		this.blockChance = src.readInt();
+		this.damageResistance = src.readInt();
+		
 		if (fileversion <= 16) {
 			this.baseMoveCost = this.moveCost;
 		} else {
@@ -78,7 +135,15 @@ public class ActorTraits {
 		dest.writeInt(maxHP);
 		dest.writeUTF(name);
 		dest.writeInt(moveCost);
-		baseCombatTraits.writeToParcel(dest, flags);
+
+		dest.writeInt(attackCost);
+		dest.writeInt(attackChance);
+		dest.writeInt(criticalSkill);
+		dest.writeFloat(criticalMultiplier);
+		damagePotential.writeToParcel(dest, flags);
+		dest.writeInt(blockChance);
+		dest.writeInt(damageResistance);
+		
 		dest.writeInt(baseMoveCost);
 	}
 }

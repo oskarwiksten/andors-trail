@@ -15,7 +15,6 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
@@ -45,7 +44,22 @@ public final class Player extends Actor {
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 	
 	public Player() {
-		super(new ActorTraits(TileManager.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null), true, false);
+		super(
+				new ActorTraits(
+						TileManager.CHAR_HERO
+						, new Size(1, 1)
+						, 0  // attackCost
+						, 0  // attackChance
+						, 0  // criticalSkill
+						, 0  // criticalMultiplier
+						, new Range() // damagePotential
+						, 0  // blockChance
+						, 0  // damageResistance
+						, DEFAULT_PLAYER_MOVECOST
+						, null)
+				, true // isPlayer
+				, false // isImmuneToCriticalHits
+			);
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();
@@ -53,20 +67,15 @@ public final class Player extends Actor {
 	}
 	
 	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
-		CombatTraits combat = new CombatTraits();
-		combat.attackCost = DEFAULT_PLAYER_ATTACKCOST;
-		combat.attackChance = 60;
-		combat.criticalSkill = 0;
-		combat.criticalMultiplier = 1;
-		combat.damagePotential.set(1, 1);
-		combat.blockChance = 0;
-		combat.damageResistance = 0;
-
-		baseTraits.baseCombatTraits.set(combat);
-		
+		baseTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
+		baseTraits.attackChance = 60;
+		baseTraits.criticalSkill = 0;
+		baseTraits.criticalMultiplier = 1;
+		baseTraits.damagePotential.set(1, 1);
+		baseTraits.blockChance = 0;
+		baseTraits.damageResistance = 0;
 		baseTraits.maxAP = 10;
 		baseTraits.maxHP = 25;
-		
 		baseTraits.name = name;
 		baseTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
 		useItemCost = 5;
@@ -292,7 +301,7 @@ public final class Player extends Actor {
 		}
 		
 		if (fileversion <= 30) {
-			this.baseTraits.baseCombatTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
+			this.baseTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
 		}
 	}
 	
