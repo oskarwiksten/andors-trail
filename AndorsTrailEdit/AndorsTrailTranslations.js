@@ -54,6 +54,14 @@ var translations = [
 		'content_actorconditions.xml', 
 		'content_monsterlist.xml', 
 		'strings.xml'
+	]},
+	{ name: 'Brazilian Portugese', id: 'values-pt-rBR', files: [
+		'content_actorconditions.xml',
+		'content_conversationlist.xml',
+		'content_itemlist.xml',
+		'content_monsterlist.xml',
+		'content_questlist.xml',
+		'strings.xml'
 	]}
 ];
 
