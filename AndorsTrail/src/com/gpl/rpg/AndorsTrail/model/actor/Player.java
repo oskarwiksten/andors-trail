@@ -45,21 +45,21 @@ public final class Player extends Actor {
 	
 	public Player() {
 		super(
-				new ActorTraits(
-						TileManager.CHAR_HERO
-						, new Size(1, 1)
-						, 0  // attackCost
-						, 0  // attackChance
-						, 0  // criticalSkill
-						, 0  // criticalMultiplier
-						, new Range() // damagePotential
-						, 0  // blockChance
-						, 0  // damageResistance
-						, DEFAULT_PLAYER_MOVECOST
-						, null)
-				, true // isPlayer
-				, false // isImmuneToCriticalHits
-			);
+			new ActorTraits(
+				TileManager.CHAR_HERO
+				, new Size(1, 1)
+				, 0  // attackCost
+				, 0  // attackChance
+				, 0  // criticalSkill
+				, 0  // criticalMultiplier
+				, new Range() // damagePotential
+				, 0  // blockChance
+				, 0  // damageResistance
+				, DEFAULT_PLAYER_MOVECOST
+				, null)
+			, true // isPlayer
+			, false // isImmuneToCriticalHits
+		);
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();

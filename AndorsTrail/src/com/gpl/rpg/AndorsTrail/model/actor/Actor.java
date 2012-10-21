@@ -12,10 +12,13 @@ import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListeners;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
+import com.gpl.rpg.AndorsTrail.util.Size;
 
 public class Actor {
 	public final ActorTraits baseTraits;
 	public final CombatTraits combatTraits;
+	public final int iconID;
+	public final Size tileSize;
 	public final Range ap;
 	public final Range health;
 	public final Coord position;
@@ -28,6 +31,8 @@ public class Actor {
 	public Actor(ActorTraits baseTraits, boolean isPlayer, boolean isImmuneToCriticalHits) {
 		this.combatTraits = new CombatTraits(baseTraits);
 		this.baseTraits = baseTraits;
+		this.iconID = baseTraits.iconID;
+		this.tileSize = baseTraits.tileSize;
 		this.ap = new Range(baseTraits.maxAP, baseTraits.maxAP);
 		this.health = new Range(baseTraits.maxHP, baseTraits.maxHP);
 		this.position = new Coord();
@@ -86,6 +91,9 @@ public class Actor {
 		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
 		
 		this.baseTraits = isPlayer ? new ActorTraits(src, world, fileversion) : baseTraits;
+		this.iconID = baseTraits.iconID;
+		this.tileSize = baseTraits.tileSize;
+		
 		if (!readCombatTraits) combatTraits = new CombatTraits(this.baseTraits);
 		this.combatTraits = combatTraits;
 

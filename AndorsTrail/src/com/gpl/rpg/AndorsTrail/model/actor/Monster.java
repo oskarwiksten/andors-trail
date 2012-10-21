@@ -34,7 +34,7 @@ public final class Monster extends Actor {
 		this.monsterTypeID = monsterType.id;
 		this.position.set(position);
 		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.baseTraits.getMovesPerTurn();
-		this.nextPosition = new CoordRect(new Coord(), baseTraits.tileSize);
+		this.nextPosition = new CoordRect(new Coord(), monsterType.baseTraits.tileSize);
 		this.phraseID = monsterType.phraseID;
 		this.exp = monsterType.exp;
 		this.dropList = monsterType.dropList;

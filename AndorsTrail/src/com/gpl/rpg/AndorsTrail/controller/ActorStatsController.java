@@ -311,8 +311,10 @@ public class ActorStatsController {
 				}
 			}
 		}
-		VisualEffect effectToStart = applyStatsModifierEffect(source, effect, 1, null);
-		startVisualEffect(source, effectToStart);
+		if (effect.changedStats != null) {
+			VisualEffect effectToStart = applyStatsModifierEffect(source, effect.changedStats, 1, null);
+			startVisualEffect(source, effectToStart);
+		}
 	}
 
 	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {

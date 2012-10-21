@@ -7,6 +7,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
+import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
@@ -68,9 +69,11 @@ public final class ItemTraitsParser {
 			return null;
 		} else {
 			return new ItemTraits_OnUse(
-					ItemTraits_OnUse.VISUAL_EFFECT_NONE
-					,boostCurrentHP
-					,boostCurrentAP
+					new StatsModifierTraits(
+							StatsModifierTraits.VISUAL_EFFECT_NONE
+						,boostCurrentHP
+						,boostCurrentAP
+					)
 					,listToArray(addedConditions_source)
 					,listToArray(addedConditions_target)
 					);

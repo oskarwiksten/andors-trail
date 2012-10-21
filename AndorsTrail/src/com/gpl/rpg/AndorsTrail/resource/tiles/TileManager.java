@@ -125,8 +125,8 @@ public final class TileManager {
 	
 	
 	
-	public void setImageViewTile(TextView textView, Monster monster) { setImageViewTileForMonster(textView, monster.baseTraits.iconID); }
-	public void setImageViewTile(TextView textView, Player player) { setImageViewTileForPlayer(textView, player.baseTraits.iconID); }
+	public void setImageViewTile(TextView textView, Monster monster) { setImageViewTileForMonster(textView, monster.iconID); }
+	public void setImageViewTile(TextView textView, Player player) { setImageViewTileForPlayer(textView, player.iconID); }
 	public void setImageViewTileForMonster(TextView textView, int iconID) { setImageViewTile(textView, currentMapTiles.getBitmap(iconID)); }
 	public void setImageViewTileForPlayer(TextView textView, int iconID) { setImageViewTile(textView, preloadedTiles.getBitmap(iconID)); }
 	public void setImageViewTile(TextView textView, ActorConditionType conditionType) { setImageViewTile(textView, preloadedTiles.getBitmap(conditionType.iconID)); }
@@ -155,8 +155,8 @@ public final class TileManager {
 		}
 	}
 	
-	public void setImageViewTile(ImageView imageView, Monster monster) { setImageViewTileForMonster(imageView, monster.baseTraits.iconID); }
-	public void setImageViewTile(ImageView imageView, Player player) { setImageViewTileForPlayer(imageView, player.baseTraits.iconID); }
+	public void setImageViewTile(ImageView imageView, Monster monster) { setImageViewTileForMonster(imageView, monster.iconID); }
+	public void setImageViewTile(ImageView imageView, Player player) { setImageViewTileForPlayer(imageView, player.iconID); }
 	public void setImageViewTileForMonster(ImageView imageView, int iconID) { imageView.setImageBitmap(currentMapTiles.getBitmap(iconID)); }
 	public void setImageViewTileForPlayer(ImageView imageView, int iconID) { imageView.setImageBitmap(preloadedTiles.getBitmap(iconID)); }
 	public void setImageViewTile(ImageView imageView, ActorConditionType conditionType) { imageView.setImageBitmap(preloadedTiles.getBitmap(conditionType.iconID)); }
