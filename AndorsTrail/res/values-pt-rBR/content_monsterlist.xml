@@ -19,7 +19,7 @@
 {cave_snake|monsters_snakes:3|Cobra-das-cavernas|cavesnake1||7|||12|||5|110|20|2|2|2|15||snake|||||||||};
 {venomous_cave_snake|monsters_snakes:3|Cobra-das-cavernas venenosa|cavesnake2||7|||15|10||5|110|40|2|2|2|10||snake||1||||||{{poison_weak|1|1|10|}}|};
 {tough_cave_snake|monsters_snakes:3|Cobra-das-cavernas resistente|cavesnake2||7|||21|||5|110|20|2|2|2|15||snake|||||||||};
-{basilisk|monsters_rats:4|Basilisk|cavesnake2_boss||7|||40|||7|40|||3|9|50|2|cavecritter|||||||||};
+{basilisk|monsters_rats:4|Basilisco|cavesnake2_boss||7|||40|||7|40|||3|9|50|2|cavecritter|||||||||};
 {snake_servant|monsters_liches:0|Cobra servo|cavesnake3||6|||35|||5|80|40|3|2|3|10|1|lich1|||||||||};
 {snake_master|monsters_liches:1|Cobra mestre|cavesnake3_boss||6|1||55|||5|60|200|3|1|4|10|4|snakemaster|snakemaster||||||||};
 {rabid_boar|monsters_dogs:6|Javali raivoso|forestboar||4|||20|||5|110|||3|3|30||canineboss|||||||||};
@@ -488,14 +488,14 @@
 [id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
 {ulirfendor|monsters_rltiles1:84|Ulirfendor|ulirfendor||0|1||288|10|5|3|70|30|2|1|16|60|6|ulirfendor|ulirfendor||||||||};
 {gylew|monsters_mage2:0|Gylew|gylew||0|||||||||||||||gylew||||||||};
-{gylew_henchman|monsters_men:8|Gylew\'s henchman|gylew_henchman||0|||||||||||||||gylew_henchman||||||||};
+{gylew_henchman|monsters_men:8|Escudeiro de Gylew|gylew_henchman||0|||||||||||||||gylew_henchman||||||||};
 {toszylae|monsters_liches:1|Toszylae|toszylae||6|1||207|8|5|2|80|40|2|2|7|120|4|toszylae|toszylae|1|6|6||||{{feebleness_minor|3|3|20|}}|};
-{toszylae_guard|monsters_rltiles1:20|Radiant guardian|toszylae_guard||2|1||320|10|5|3|80|40|2|2|7|120|4|toszylae_guard|toszylae_guard|1|5|5||||{{feebleness_minor|2|3|20|}}|};
+{toszylae_guard|monsters_rltiles1:20|Guardião radiante|toszylae_guard||2|1||320|10|5|3|80|40|2|2|7|120|4|toszylae_guard|toszylae_guard|1|5|5||||{{feebleness_minor|2|3|20|}}|};
 {thorin|monsters_rltiles1:66|Thorin|thorin||0||||||||||||||shop_thorin|thorin||||||||};
 
-{lonelyhouse_sp|monsters_rats:1|Basement rat|lonelyhouse_sp||4|1||79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};
+{lonelyhouse_sp|monsters_rats:1|Ratazana de porão|lonelyhouse_sp||4|1||79|10|5|3|125|||2|9|180|4|lonelyhouse_sp|||||||||};
 {algangror|monsters_rltiles1:68|Algangror|algangror||0|1||241|10|5|3|80|200|2|3|9|120|4|algangror|algangror||||||||};
-{remgard_bridge|monsters_men2:4|Bridge lookout|remgard_bridge||0|1||||||||||||||remgard_bridge||||||||};
+{remgard_bridge|monsters_men2:4|Vigia da ponte|remgard_bridge||0|1||||||||||||||remgard_bridge||||||||};
 	</string>
 
 	<string name="monsterlist_v0611_npcs2">
