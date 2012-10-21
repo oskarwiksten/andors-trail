@@ -6,7 +6,6 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -324,23 +323,5 @@ public final class ItemController {
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
 		model.player.inventory.quickitem[quickSlotId] = itemType;
 		view.mainActivity.updateStatus();
-	}
-
-	public static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, String itemTypeIDWithCondition) {
-		if (!player.hasCondition(conditionTypeID)) return;
-		boolean hasItemWithCondition = false;
-		for (ItemType t : player.inventory.wear) {
-			if (t == null) continue;
-			if (t.effects_equip == null) continue;
-			if (t.effects_equip.addedConditions == null) continue;
-			for(ActorConditionEffect e : t.effects_equip.addedConditions) {
-				if (!e.conditionType.conditionTypeID.equals(conditionTypeID)) continue;
-				hasItemWithCondition = true;
-				break;
-			}
-		}
-		if (hasItemWithCondition) return;
-		
-		ActorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
 	}
 }

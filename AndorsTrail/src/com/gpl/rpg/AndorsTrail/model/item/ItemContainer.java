@@ -5,9 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.util.L;
 
 public class ItemContainer {
 	public final ArrayList<ItemEntry> items = new ArrayList<ItemEntry>();
@@ -131,30 +129,6 @@ public class ItemContainer {
 		dest.writeInt(items.size());
 		for (ItemEntry e : items) {
 			e.writeToParcel(dest, flags);
-		}
-	}
-
-	public static class SavegameUpdate {
-		public static int refundUpgradedItems(ItemContainer container) {
-			int removedCost = 0;
-			for (ItemEntry e : container.items) {
-				if (e.quantity >= 2 && isRefundableItem(e.itemType)) {
-					if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-						L.log("INFO: Refunding " + (e.quantity-1) + " items of type \"" + e.itemType.id + "\" for a total of " + ((e.quantity-1) * e.itemType.fixedBaseMarketCost) + "gc.");
-					}
-					removedCost += (e.quantity-1) * e.itemType.fixedBaseMarketCost;
-					e.quantity = 1;
-				}
-			}
-			return removedCost;
-		}
-
-		private static boolean isRefundableItem(ItemType itemType) {
-			if (itemType.hasManualPrice) return false;
-			if (itemType.isQuestItem()) return false;
-			if (itemType.displayType == ItemType.DISPLAYTYPE_EXTRAORDINARY) return false;
-			if (itemType.displayType == ItemType.DISPLAYTYPE_LEGENDARY) return false;
-			return itemType.baseMarketCost > itemType.fixedBaseMarketCost;
 		}
 	}
 }

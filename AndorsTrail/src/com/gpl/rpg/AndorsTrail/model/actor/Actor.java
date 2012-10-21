@@ -9,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListeners;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer.LegacySavegameData_Actor;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
@@ -86,8 +87,7 @@ public class Actor {
 		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 		
 		CombatTraits combatTraits = null;
-		boolean readCombatTraits = true;
-		if (fileversion >= 25) readCombatTraits = src.readBoolean();
+		boolean readCombatTraits = src.readBoolean();
 		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
 		
 		this.baseTraits = isPlayer ? new ActorTraits(src, world, fileversion) : baseTraits;
@@ -101,11 +101,24 @@ public class Actor {
 		this.health = new Range(src, fileversion);
 		this.position = new Coord(src, fileversion);
 		this.rectPosition = new CoordRect(position, this.baseTraits.tileSize);
-		if (fileversion <= 16) return;
-		final int n = src.readInt();
-		for(int i = 0; i < n ; ++i) {
+		final int numConditions = src.readInt();
+		for(int i = 0; i < numConditions; ++i) {
 			conditions.add(new ActorCondition(src, world, fileversion));
 		}
+	}
+	
+	public Actor(LegacySavegameData_Actor savegameData, boolean isPlayer) {
+		this.isPlayer = isPlayer;
+		this.isImmuneToCriticalHits = savegameData.isImmuneToCriticalHits;
+		this.baseTraits = new ActorTraits(savegameData);
+		this.iconID = savegameData.iconID;
+		this.tileSize = savegameData.tileSize;
+		this.combatTraits = new CombatTraits(savegameData);
+		this.ap = savegameData.ap;
+		this.health = savegameData.health;
+		this.position = savegameData.position;
+		this.rectPosition = savegameData.rectPosition;
+		this.conditions.addAll(savegameData.conditions);
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

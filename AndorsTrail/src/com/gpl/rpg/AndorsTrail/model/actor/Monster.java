@@ -10,6 +10,8 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForMonster;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForMonster.LegacySavegameData_Monster;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
@@ -74,7 +76,8 @@ public final class Monster extends Actor {
 		}
 		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
 		
-		if (fileversion < 25) return readFromParcel_pre_v0610(src, fileversion, monsterType);
+		if (fileversion < 25) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v25(src, fileversion, monsterType);
+		if (fileversion < 33) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v33(src, world, fileversion, monsterType);
 		
 		return new Monster(src, world, fileversion, monsterType);
 	}
@@ -90,22 +93,23 @@ public final class Monster extends Actor {
 		this.forceAggressive = src.readBoolean();
 		this.faction = monsterType.faction;
 		this.monsterClass = monsterType.monsterClass;
-		if (fileversion >= 31) {
-			if (src.readBoolean()) {
-				this.shopItems = new ItemContainer(src, world, fileversion);
-			}
+		if (src.readBoolean()) {
+			this.shopItems = new ItemContainer(src, world, fileversion);
 		}
 	}
 
-	private static Monster readFromParcel_pre_v0610(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
-		Coord position = new Coord(src, fileversion);
-		Monster m = new Monster(monsterType, position);
-		m.ap.current = src.readInt();
-		m.health.current = src.readInt();
-		if (fileversion >= 12) {
-			m.forceAggressive = src.readBoolean();
-		}
-		return m;
+	public Monster(LegacySavegameData_Monster savegameData, MonsterType monsterType) {
+		super(savegameData, false);
+		this.monsterTypeID = monsterType.id;
+		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.baseTraits.getMovesPerTurn();
+		this.nextPosition = new CoordRect(new Coord(), monsterType.baseTraits.tileSize);
+		this.phraseID = monsterType.phraseID;
+		this.exp = monsterType.exp;
+		this.dropList = monsterType.dropList;
+		this.forceAggressive = savegameData.forceAggressive;
+		this.faction = monsterType.faction;
+		this.monsterClass = monsterType.monsterClass;
+		this.shopItems = savegameData.shopItems;
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

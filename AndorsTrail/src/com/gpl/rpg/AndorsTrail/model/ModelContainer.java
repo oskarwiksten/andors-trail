@@ -26,7 +26,7 @@ public final class ModelContainer {
 	// ====== PARCELABLE ===================================================================
 
 	public ModelContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		this.player = new Player(src, world, fileversion);
+		this.player = Player.readFromParcel(src, world, fileversion);
 		this.currentMap = world.maps.findPredefinedMap(src.readUTF());
 		this.uiSelections = new InterfaceData(src, world, fileversion);
 		if (uiSelections.selectedPosition != null) {

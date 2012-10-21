@@ -9,6 +9,7 @@ import android.util.FloatMath;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer.LegacySavegameData_Actor;
 import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
@@ -108,24 +109,31 @@ public class ActorTraits {
 		this.maxHP = src.readInt();
 		this.name = src.readUTF();
 		this.moveCost = src.readInt();
-		
 		this.attackCost = src.readInt();
 		this.attackChance = src.readInt();
 		this.criticalSkill = src.readInt();
-		if (fileversion <= 20) {
-			this.criticalMultiplier = src.readInt();
-		} else {
-			this.criticalMultiplier = src.readFloat();
-		}
+		this.criticalMultiplier = src.readFloat();
 		this.damagePotential = new Range(src, fileversion);
 		this.blockChance = src.readInt();
 		this.damageResistance = src.readInt();
-		
-		if (fileversion <= 16) {
-			this.baseMoveCost = this.moveCost;
-		} else {
-			this.baseMoveCost = src.readInt();
-		}
+		this.baseMoveCost = src.readInt();
+	}
+	
+	public ActorTraits(LegacySavegameData_Actor savegameData) {
+		this.iconID = savegameData.iconID;
+		this.tileSize = savegameData.tileSize;
+		this.maxAP = savegameData.maxAP;
+		this.maxHP = savegameData.maxHP;
+		this.name = savegameData.name;
+		this.moveCost = savegameData.moveCost;
+		this.attackCost = savegameData.baseAttackCost;
+		this.attackChance = savegameData.baseAttackChance;
+		this.criticalSkill = savegameData.baseCriticalSkill;
+		this.criticalMultiplier = savegameData.baseCriticalMultiplier;
+		this.damagePotential = savegameData.baseDamagePotential;
+		this.blockChance = savegameData.baseBlockChance;
+		this.damageResistance = savegameData.baseDamageResistance;
+		this.baseMoveCost = savegameData.baseMoveCost;
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -135,7 +143,6 @@ public class ActorTraits {
 		dest.writeInt(maxHP);
 		dest.writeUTF(name);
 		dest.writeInt(moveCost);
-
 		dest.writeInt(attackCost);
 		dest.writeInt(attackChance);
 		dest.writeInt(criticalSkill);
@@ -143,7 +150,6 @@ public class ActorTraits {
 		damagePotential.writeToParcel(dest, flags);
 		dest.writeInt(blockChance);
 		dest.writeInt(damageResistance);
-		
 		dest.writeInt(baseMoveCost);
 	}
 }

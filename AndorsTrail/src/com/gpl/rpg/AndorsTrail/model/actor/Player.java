@@ -7,20 +7,20 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
 
-import android.util.FloatMath;
 import android.util.SparseIntArray;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer.LegacySavegameData_Player;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
@@ -161,11 +161,6 @@ public final class Player extends Actor {
 	public static boolean thisLevelAddsNewSkillpoint(int level) {
     	return ((level - Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL) % Constants.NEW_SKILL_POINT_EVERY_N_LEVELS == 0);
 	}
-	public static int getExpectedNumberOfSkillpointsForLevel(int level) {
-		level -= Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL;
-		if (level < 0) return 0;
-		return 1 + (int) FloatMath.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
-	}
 	public boolean hasAvailableSkillpoints() {
 		return availableSkillIncreases > 0;
 	}
@@ -184,6 +179,16 @@ public final class Player extends Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
+	public static Player readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		Player player;
+		if (fileversion < 33) player = LegacySavegameFormatReaderForPlayer.readFromParcel_pre_v33(src, world, fileversion);
+		else player = new Player(src, world, fileversion);
+
+		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, fileversion);
+		
+		return player;
+	}
+	
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		super(src, world, fileversion, true, false, null);
 		this.lastPosition = new Coord(src, fileversion);
@@ -193,74 +198,16 @@ public final class Player extends Actor {
 		this.levelExperience = new Range();
 		this.recalculateLevelExperience();
 		this.inventory = new Inventory(src, world, fileversion);
-		
-		if (fileversion <= 13) {
-			final int size1 = src.readInt();
-			for(int i = 0; i < size1; ++i) {
-				String keyName = src.readUTF();
-				if ("mikhail_visited".equals(keyName)) addQuestProgress(new QuestProgress("andor", 1));
-				else if ("qmikhail_bread_complete".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_bread", 100));
-				else if ("qmikhail_bread".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_bread", 10));
-				else if ("qmikhail_rats_complete".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_rats", 100));
-				else if ("qmikhail_rats".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_rats", 10));
-				else if ("oromir".equals(keyName)) addQuestProgress(new QuestProgress("leta", 20));
-				else if ("qleta_complete".equals(keyName)) addQuestProgress(new QuestProgress("leta", 100));
-				else if ("qodair".equals(keyName)) addQuestProgress(new QuestProgress("odair", 10));
-				else if ("qodair_complete".equals(keyName)) addQuestProgress(new QuestProgress("odair", 100));
-				else if ("qleonid_bonemeal".equals(keyName)) {
-					addQuestProgress(new QuestProgress("bonemeal", 10));
-					addQuestProgress(new QuestProgress("bonemeal", 20));
-				}
-				else if ("qtharal_complete".equals(keyName)) addQuestProgress(new QuestProgress("bonemeal", 30));
-				else if ("qthoronir_complete".equals(keyName)) addQuestProgress(new QuestProgress("bonemeal", 100));
-				else if ("qleonid_andor".equals(keyName)) addQuestProgress(new QuestProgress("andor", 10));
-				else if ("qgruil_andor".equals(keyName)) addQuestProgress(new QuestProgress("andor", 20));
-				else if ("qgruil_andor_complete".equals(keyName)) addQuestProgress(new QuestProgress("andor", 30));
-				else if ("qleonid_crossglen".equals(keyName)) addQuestProgress(new QuestProgress("crossglen", 1));
-				else if ("qjan".equals(keyName)) addQuestProgress(new QuestProgress("jan", 10));
-				else if ("qjan_complete".equals(keyName)) addQuestProgress(new QuestProgress("jan", 100));
-				else if ("qbucus_thieves".equals(keyName)) addQuestProgress(new QuestProgress("andor", 40));
-				else if ("qfallhaven_derelict".equals(keyName)) addQuestProgress(new QuestProgress("andor", 50));
-				else if ("qfallhaven_drunk".equals(keyName)) addQuestProgress(new QuestProgress("fallhavendrunk", 10));
-				else if ("qfallhaven_drunk_complete".equals(keyName)) addQuestProgress(new QuestProgress("fallhavendrunk", 100));
-				else if ("qnocmar_unnmir".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 10));
-				else if ("qnocmar".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 20));
-				else if ("qnocmar_complete".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 200));
-				else if ("qfallhaven_tavern_room2".equals(keyName)) addQuestProgress(new QuestProgress("fallhaventavern", 10));
-				else if ("qarcir".equals(keyName)) addQuestProgress(new QuestProgress("arcir", 10));
-				else if ("qfallhaven_oldman".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 10));
-				else if ("qcalomyran_tornpage".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 20));
-				else if ("qfallhaven_oldman_complete".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 100));
-				else if ("qbucus".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 10));
-				else if ("qthoronir_catacombs".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 20));
-				else if ("qathamyr_complete".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 40));
-				else if ("qfallhaven_church".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 50));
-				else if ("qbucus_complete".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 100));
-			}
-		}
 		this.useItemCost = src.readInt();
 		this.reequipCost = src.readInt();
-		final int size2 = src.readInt();
-		for(int i = 0; i < size2; ++i) {
-			if (fileversion <= 21) {
-				this.skillLevels.put(i, src.readInt());
-			} else {
-				final int skillID = src.readInt();
-				this.skillLevels.put(skillID, src.readInt());
-			}
+		final int numSkills = src.readInt();
+		for(int i = 0; i < numSkills; ++i) {
+			final int skillID = src.readInt();
+			this.skillLevels.put(skillID, src.readInt());
 		}
 		this.spawnMap = src.readUTF();
 		this.spawnPlace = src.readUTF();
-		
-		if (fileversion <= 12) {
-			useItemCost = 5;
-			health.max += 5;
-			health.current += 5;
-			baseTraits.maxHP += 5;
-		}
 
-		if (fileversion <= 13) return;
-		
 		final int numquests = src.readInt();
 		for(int i = 0; i < numquests; ++i) {
 			final String questID = src.readUTF();
@@ -272,37 +219,35 @@ public final class Player extends Actor {
 			}
 		}
 		
-		if (fileversion <= 21) {
-			int assignedSkillpoints = 0;
-			for (int i = 0; i < skillLevels.size(); ++i) assignedSkillpoints += skillLevels.valueAt(i);
-			this.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(this.level) - assignedSkillpoints;
-		} else {
-			this.availableSkillIncreases = src.readInt();
-		}
+		this.availableSkillIncreases = src.readInt();
 		
-		if (fileversion <= 21) {
-			if (hasExactQuestProgress("prim_hunt", 240)) addQuestProgress(new QuestProgress("bwm_agent", 250));
-			if (hasExactQuestProgress("bwm_agent", 240)) addQuestProgress(new QuestProgress("prim_hunt", 250));
+		final int numAlignments = src.readInt();
+		for(int i = 0; i < numAlignments; ++i) {
+			final String faction = src.readUTF();
+			final int alignment = src.readInt();
+			alignments.put(faction, alignment);
 		}
-		
-		if (fileversion >= 26) {
-			final int size3 = src.readInt();
-			for(int i = 0; i < size3; ++i) {
-				final String faction = src.readUTF();
-				final int alignment = src.readInt();
-				alignments.put(faction, alignment);
-			}
+	}
+	
+	public Player(LegacySavegameData_Player savegameData) {
+		super(savegameData, true);
+		this.lastPosition = savegameData.lastPosition;
+		this.nextPosition = savegameData.nextPosition;
+		this.level = savegameData.level;
+		this.totalExperience = savegameData.totalExperience;
+		this.levelExperience = new Range();
+		this.recalculateLevelExperience();
+		this.inventory = savegameData.inventory;
+		this.useItemCost = savegameData.useItemCost;
+		this.reequipCost = savegameData.reequipCost;
+		for(int i = 0; i < savegameData.skillLevels.size(); ++i) {
+			this.skillLevels.put(savegameData.skillLevels.keyAt(i), savegameData.skillLevels.valueAt(i));
 		}
-		
-		if (fileversion <= 27) {
-			ItemController.correctActorConditionsFromItemsPre0611b1(this, "bless", world, "elytharan_redeemer");
-			ItemController.correctActorConditionsFromItemsPre0611b1(this, "blackwater_misery", world, "bwm_dagger");
-			ItemController.correctActorConditionsFromItemsPre0611b1(this, "regen", world, "ring_shadow0");
-		}
-		
-		if (fileversion <= 30) {
-			this.baseTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
-		}
+		this.spawnMap = savegameData.spawnMap;
+		this.spawnPlace = savegameData.spawnPlace;
+		this.questProgress.putAll(savegameData.questProgress);
+		this.availableSkillIncreases = savegameData.availableSkillIncreases;
+		this.alignments.putAll(savegameData.alignments);
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

@@ -7,6 +7,7 @@ import java.io.IOException;
 import android.util.FloatMath;
 
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer.LegacySavegameData_Actor;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class CombatTraits {
@@ -111,14 +112,20 @@ public class CombatTraits {
 		this.attackCost = src.readInt();
 		this.attackChance = src.readInt();
 		this.criticalSkill = src.readInt();
-		if (fileversion <= 20) {
-			this.criticalMultiplier = src.readInt();
-		} else {
-			this.criticalMultiplier = src.readFloat();
-		}
+		this.criticalMultiplier = src.readFloat();
 		this.damagePotential = new Range(src, fileversion);
 		this.blockChance = src.readInt();
 		this.damageResistance = src.readInt();
+	}
+	
+	public CombatTraits(LegacySavegameData_Actor savegameData) {
+		this.attackCost = savegameData.attackCost;
+		this.attackChance = savegameData.attackChance;
+		this.criticalSkill = savegameData.criticalSkill;
+		this.criticalMultiplier = savegameData.criticalMultiplier;
+		this.damagePotential = savegameData.damagePotential;
+		this.blockChance = savegameData.blockChance;
+		this.damageResistance = savegameData.damageResistance;
 	}
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {

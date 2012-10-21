@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContainer;
 
 public final class Inventory extends ItemContainer {
 
@@ -58,7 +59,7 @@ public final class Inventory extends ItemContainer {
 		super(src, world, fileversion);
 		gold = src.readInt();
 		
-		if (fileversion < 23) this.gold += ItemContainer.SavegameUpdate.refundUpgradedItems(this);
+		if (fileversion < 23) LegacySavegameFormatReaderForItemContainer.refundUpgradedItems(this);
 		
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
@@ -68,13 +69,14 @@ public final class Inventory extends ItemContainer {
 				wear[i] = null;
 			}
 		}
-		if (fileversion < 19) return;
-		final int quickSlots = src.readInt();
-		for(int i = 0; i < quickSlots; ++i) {
-			if (src.readBoolean()) {
-				quickitem[i] = world.itemTypes.getItemType(src.readUTF());
-			} else {
-				quickitem[i] = null;
+		if (fileversion >= 19) {
+			final int quickSlots = src.readInt();
+			for(int i = 0; i < quickSlots; ++i) {
+				if (src.readBoolean()) {
+					quickitem[i] = world.itemTypes.getItemType(src.readUTF());
+				} else {
+					quickitem[i] = null;
+				}
 			}
 		}
 	}
