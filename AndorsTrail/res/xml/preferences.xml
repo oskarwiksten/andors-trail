@@ -39,6 +39,13 @@
 			android:defaultValue="0"
 			android:entries="@array/preferences_display_loot"
 			android:entryValues="@array/preferences_display_loot_values" />
+		<ListPreference
+			android:title="@string/preferences_dialog_overwrite_savegame_title"
+			android:summary="@string/preferences_dialog_overwrite_savegame"
+			android:key="display_overwrite_savegame"
+			android:defaultValue="0"
+			android:entries="@array/preferences_display_overwrite_savegame_entries"
+			android:entryValues="@array/preferences_display_overwrite_savegame_values" />
 	</PreferenceCategory>
 	<PreferenceCategory
 		android:title="@string/preferences_combat_category">

@@ -22,6 +22,9 @@ public class AndorsTrailPreferences {
 	public static final int DPAD_POSITION_UPPER_LEFT = 6;
 	public static final int DPAD_POSITION_UPPER_RIGHT = 7;
 	public static final int DPAD_POSITION_UPPER_CENTER = 8;
+	public static final int CONFIRM_OVERWRITE_SAVEGAME_ALWAYS = 0;
+	public static final int CONFIRM_OVERWRITE_SAVEGAME_WHEN_PLAYERNAME_DIFFERS = 1;
+	public static final int CONFIRM_OVERWRITE_SAVEGAME_NEVER = 2;
 	
 	public boolean confirmRest = true;
 	public boolean confirmAttack = true;
@@ -35,6 +38,7 @@ public class AndorsTrailPreferences {
 	public boolean dpadMinimizeable = true;
 	public boolean optimizedDrawing = false;
 	public boolean enableUiAnimations = true;
+	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 	
 	public static void read(final Context androidContext, AndorsTrailPreferences dest) {
 		try {
@@ -50,6 +54,7 @@ public class AndorsTrailPreferences {
 			dest.dpadMinimizeable = prefs.getBoolean("dpadMinimizeable", true);
 			dest.optimizedDrawing = prefs.getBoolean("optimized_drawing", false);
 			dest.enableUiAnimations = prefs.getBoolean("enableUiAnimations", true);
+			dest.displayOverwriteSavegame = Integer.parseInt(prefs.getString("display_overwrite_savegame", Integer.toString(CONFIRM_OVERWRITE_SAVEGAME_ALWAYS)));
 			
 			// This might be implemented as a skill in the future.
 			//dest.movementAggressiveness = Integer.parseInt(prefs.getString("movementaggressiveness", Integer.toString(MOVEMENTAGGRESSIVENESS_NORMAL)));
@@ -66,6 +71,7 @@ public class AndorsTrailPreferences {
 			dest.dpadMinimizeable = true;
 			dest.optimizedDrawing = false;
 			dest.enableUiAnimations = true;
+			dest.displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 		}
 	}
 	
