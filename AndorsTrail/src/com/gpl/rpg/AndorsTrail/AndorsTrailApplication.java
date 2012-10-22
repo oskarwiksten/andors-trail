@@ -21,7 +21,7 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = false;
 	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES;
 	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 32;
-	public static final String CURRENT_VERSION_DISPLAY = "0.6.12b1";
+	public static final String CURRENT_VERSION_DISPLAY = "0.6.12b2";
 	
 	public final WorldContext world = new WorldContext();
 	public final WorldSetup setup = new WorldSetup(world, this);
