@@ -22,7 +22,7 @@
 {basilisk|monsters_rats:4|Basilisk|cavesnake2_boss||7|||40|||7|40|||3|9|50|2|cavecritter|||||||||};
 {snake_servant|monsters_liches:0|Schlangendiener|cavesnake3||6|||35|||5|80|40|3|2|3|10|1|lich1|||||||||};
 {snake_master|monsters_liches:1|Schlangenmeister|cavesnake3_boss||6|1||55|||5|60|200|3|1|4|10|4|snakemaster|snakemaster||||||||};
-{rabid_boar|monsters_dogs:6|Tollwütiger Bär|forestboar||4|||20|||5|110|||3|3|30||canineboss|||||||||};
+{rabid_boar|monsters_dogs:6|Tollwütiger Eber|forestboar||4|||20|||5|110|||3|3|30||canineboss|||||||||};
 {rabid_fox|monsters_dogs:3|Tollwütiger Fuchs|fox1||4|||25|||5|100|||3|3|50||canine|||||||||};
 {yellow_cave_ant|monsters_insects:2|Gelbe Höhlenameise|pitcave1||1|||20|||3|30|||1|1|80||insect|||||||||};
 {young_teeth_critter|monsters_misc:0|Junges gefräßiges Kriechtier|pitcave2||7|||15|||2|50|||1|1|70||cavecritter|||||||||};
@@ -114,12 +114,12 @@
 [id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
 {wild_fox|monsters_dogs:3|Wilder Fuchs|fox2||4|||25|||5|100|||4|5|40||canine|||||||||};
 {stinging_wasp|monsters_insects:1|Stechende Wespen|forestwasp2||1|||15|||10|150|||1|2|60||wasp|||||||||};
-{wild_boar|monsters_dogs:6|Wilder Bär|forestboar2||4|||20|||5|110|||3|3|30||canineboss|||||||||};
+{wild_boar|monsters_dogs:6|Wilder Eber|forestboar2||4|||20|||5|110|||3|3|30||canineboss|||||||||};
 {forest_beetle|monsters_insects:4|Waldkäfer|forestbeetle||1|||14|||10|150|||2|4|60|2|insect|||||||||};
 {wolf|monsters_dogs:4|Wolf|forestwolf1||4|||30|10|3|5|110|||3|6|30||canine|||||||||};
 {forest_serpent|monsters_snakes:4|Waldschlange|forestserpent1||7|||20|10|5|3|150|30|2|2|3|60||snake2|||||||||};
 {vicious_forest_serpent|monsters_snakes:4|Tückische Waldschlange|forestserpent2||7|||27|10|5|3|150|30|2|3|4|50||snake2|||||||||};
-{anklebiter|monsters_dogs:6|Wildhund|forestboar3||4|||31|||5|150|||3|9|60|3|canine2|||||||||};
+{anklebiter|monsters_dogs:6|Keiler|forestboar3||4|||31|||5|150|||3|9|60|3|canine2|||||||||};
 {flagstone_sentry|monsters_men:3|Flagstone Wachposten|flagstone_sentry||0|||||||||||||||flagstone_sentry||||||||};
 {escaped_prisoner|monsters_men:0|Entflohener Gefangener|prisoner1||0|1||15|||10|50|||3|7|20||prisoner|prisoner1||||||||};
 {starving_prisoner|monsters_misc:11|Verhungernder Gefangener|prisoner2||0|1||10|||3|60|||3|5|60||prisoner|prisoner2||||||||};
@@ -175,7 +175,7 @@
 {wrye|monsters_men:6|Wrye|wrye||0|||||||||||||||wrye_select_1||||||||};
 {oluag|monsters_men:8|Oluag|oluag||0|||||||||||||||oluag_1||||||||};
 
-{cave_dwelling_boar|monsters_dogs:6|Höhlenbär|caveboar1||4|||35|||5|70|||3|8|60|3|canine2|||||||||};
+{cave_dwelling_boar|monsters_dogs:6|Höhleneber|caveboar1||4|||35|||5|70|||3|8|60|3|canine2|||||||||};
 {hardshell_beetle|monsters_insects:4|Hartschalenkäfer|beetle2||1|||25|||5|50|||0|5|40|9|beetle2|||||||||};
 {young_shadow_gargoyle|monsters_misc:1|Junger Schattengargoyle|shadowgarg1||3|||35|||5|65|8|3|3|9|75|3|shadowgarg1|||||||||};
 {fledgling_shadow_gargoyle|monsters_misc:1|Halbwüchsiger Schattengargoyle|shadowgarg1||3|||36|||5|65|8|3|3|9|75|3|shadowgarg1|||||||||};

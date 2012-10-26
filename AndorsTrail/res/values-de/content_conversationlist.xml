@@ -84,7 +84,7 @@
 
 	<string name="conversationlist_crossglen_leonid">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{leonid1|Hallo Kleiner. Du bist Mikhail\'s Sohn, stimmt\'s? Und du hast noch einen Bruder.\n\nIch bin Leonid, der Vogt von Crossglen.||{{Hast du meinen Bruder Andor gesehen?|leonid_andor|||||}{Was kannst du mir über Crossglen berichten?|leonid_crossglen|||||}{Na dann, bis später.|leonid_bye|||||}}|};
+{leonid1|Hallo Junge. Du bist Mikhail\'s Sohn, stimmt\'s? Und du hast noch einen Bruder.\n\nIch bin Leonid, der Vogt von Crossglen.||{{Hast du meinen Bruder Andor gesehen?|leonid_andor|||||}{Was kannst du mir über Crossglen berichten?|leonid_crossglen|||||}{Na dann, bis später.|leonid_bye|||||}}|};
 {leonid_andor|Deinen Bruder? Nein, heute habe ich ihn noch nicht gesehen. Ich denke, dass ich ihn gestern mit Gruil zusammen gesehen habe. Vielleicht weiß er mehr?|{{0|andor|10|}}|{{Danke, ich werde mit Gruil reden. Vorher möchte ich jedoch noch etwas anderes wissen.|leonid_continue|||||}{Danke, ich werde dann mal mit Gruil reden.|leonid_bye|||||}}|};
 {leonid_continue|Kann ich dir noch bei etwas anderem helfen?||{{Hast du meinen Bruder Andor gesehen?|leonid_andor|||||}{Was kannst du mir über Crossglen berichten?|leonid_crossglen|||||}{Na dann, bis später.|leonid_bye|||||}}|};
 {leonid_crossglen|Wie du weißt, ist das hier das Dorf Crossglen. Vor allem sind wir eine Bauerngemeinde.||{{N|leonid_crossglen1|||||}}|};
@@ -118,7 +118,7 @@
 	<string name="conversationlist_jan">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {jan_start_select|||{{|jan_complete2|jan:100||||}{|jan_return|jan:10||||}{|jan_default|||||}}|};
-{jan_default|Hallo, Junge. Lass mich bitte allein mit meiner Trauer.||{{Was ist das Problem?|jan_default2|||||}{Möchtest du darüber reden?|jan_default2|||||}{Alles klar, Wiedersehen.|X|||||}}|};
+{jan_default|Hallo Junge. Lass mich bitte allein mit meiner Trauer.||{{Was ist das Problem?|jan_default2|||||}{Möchtest du darüber reden?|jan_default2|||||}{Alles klar, Wiedersehen.|X|||||}}|};
 {jan_default2|Oh, es ist so traurig. Ich möchte wirklich nicht darüber reden.||{{Bitte, erzähl es mir.|jan_default3|||||}{Okay, Wiedersehen.|X|||||}}|};
 {jan_default3|Nun, ich denke es ist in Ordnung wenn ich es dir erzähle. Du scheinst ein freundlicher Junge zu sein.||{{N|jan_default4|||||}}|};
 {jan_default4|Mein Freund Gandir, sein Freund Irogotu und ich gingen hinunter in dieses Loch um zu graben. Wir hatten gehört, dass es hier einen verborgenen Schatz gibt.||{{N|jan_default5|||||}}|};
@@ -207,7 +207,7 @@
 {fallhaven_drunk_6|Oder war es doch ein Haus? Ich kann mich nicht erinnern.||{{N|fallhaven_drunk_7|||||}}|};
 {fallhaven_drunk_7|Nein nein, es war draussen! Jetzt erinnere ich mich.||{{N|fallhaven_drunk_7_select|||||}}|};
 {fallhaven_drunk_7_select|||{{|fallhaven_drunk_11|fallhavendrunk:100||||}{|fallhaven_drunk_8|||||}}|};
-{fallhaven_drunk_8|Das war als wir..\n\nHey, wo ist mein Met hin? Hast du es mir weggenommen? ||{{Yes|fallhaven_drunk_9_1|||||}{No|fallhaven_drunk_9_2|||||}}|};
+{fallhaven_drunk_8|Das war als wir..\n\nHey, wo ist mein Met hin? Hast du es mir weggenommen? ||{{Ja|fallhaven_drunk_9_1|||||}{Nein|fallhaven_drunk_9_2|||||}}|};
 {fallhaven_drunk_9_1|Also dann gib es mir zurück! Oder kauf mir ein anderes Met.|{{0|fallhavendrunk|10|}}|{{Hier, nimm etwas Met.|fallhaven_drunk_10||mead|1|0|}{Okay, ich gehe dir etwas Met kaufen.|X|||||}{Nein. Ich denke nicht, dass ich dir helfen sollte. Auf Wiedersehen.|X|||||}}|};
 {fallhaven_drunk_9_2|Ich muss es wohl getrunken haben. Könntest du mir ein neues Met besorgen? |{{0|fallhavendrunk|10|}}|{{Hier, nimm etwas Met.|fallhaven_drunk_10||mead|1|0|}{Okay, Ich gehe dir etwas Met kaufen.|X|||||}{Nein. Ich denke nicht, dass ich dir helfen sollte. Auf Wiedersehen.|X|||||}}|};
 {fallhaven_drunk_10|Oh, süßer Trank der Freude. Möge der SSSSchatten mir dir sein mein Junge. *macht große Augen*||{{N|fallhaven_drunk_11|||||}}|};
@@ -225,7 +225,7 @@
 {fallhaven_oldman_5|Würdest du bitte nach meinem Buch suchen? Es heißt \'Calomyranische Geheimnisse\'.||{{N|fallhaven_oldman_6|||||}}|};
 {fallhaven_oldman_6|Ich habe keine Ahnung, wo es sein könnte. Kannst du Arcir fragen, er scheint sehr verliebt in seine Bücher zu sein. *zeigt zum Haus im Süden*|{{0|calomyran|10|}}|{{Okay, ich werde Arcir fragen. Auf Wiedersehen.|X|||||}}|};
 {fallhaven_oldman_continue|Wie geht die Suche nach meinem Buch vorwärts? Es heißt \'Calomyranische Geheimnisse\'. Hast du mein Buch gefunden?||{{Ja, ich habe es.|fallhaven_oldman_complete||calomyran_secrets|1|0|}{Nein, ich habe es noch nicht gefunden.|fallhaven_oldman_6|||||}{Kannst du mir bitte die Geschichte nochmal erzählen?|fallhaven_oldman_2|||||}}|};
-{fallhaven_oldman_complete|Mein Buch! Danke, vielen Dank! Wo war es? Nein, sag es nicht. Hier, nimm ein paar Münzen für deine Bemühungen.|{{0|calomyran|100|}{1|gold51||}}|{{Danke. Auf Wiedersehen.|X|||||}{Letztendlich etwas Gold. Tschüss.|X|||||}}|};
+{fallhaven_oldman_complete|Mein Buch! Danke, vielen Dank! Wo war es? Nein, sag es nicht. Hier, nimm ein paar Münzen für deine Bemühungen.|{{0|calomyran|100|}{1|gold51||}}|{{Danke. Auf Wiedersehen.|X|||||}{Letztendlich ein paar Goldmünzen. Tschüss.|X|||||}}|};
 {fallhaven_oldman_complete_2|Vielen vielen Dank, dass du mein Buch gefunden hast!|||};
 	</string>
 
@@ -284,7 +284,7 @@
 
 	<string name="conversationlist_fallhaven_church">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{chapelgoer|Shadow, embrace me.|||};
+{chapelgoer|Schatten, umgebe mich.|||};
 {thoronir_default|Wärm dich beim Schatten, mein Junge.||{{Kannst du mir mehr über den Schatten erzählen?|thoronir_shadow_1|||||}{Kannst du mir mehr über die Kirche erzählen?|thoronir_church_1|||||}{Sind die Knochenmehltränke schon fertig?|thoronir_trade_bonemeal|bonemeal:100||||}}|};
 {thoronir_shadow_1|Der Schatten beschützt uns vor den Gefahren der Nacht. Er hält uns unbeschadet und behütet uns, wenn wir schlafen.||{{Tharal schickt mich und wies mich an dir das Passwort \'Leuchten des Schattens\' zu sagen.|thoronir_tharal_select|bonemeal:30||||}{Der Schatten sei mit dir.|thoronir_default|||||}{Hört sich für mich unsinnig an.|thoronir_default|||||}}|};
 {thoronir_church_1|Das ist unsere Kapelle der Verehrung in Fallhaven. Unsere Gemeinde wendet sich an uns um Unterstützung zu erhalten.||{{N|thoronir_church_2|||||}}|};
@@ -340,7 +340,7 @@
 {unnmir_2|Die selbe alte Geschichte. Vor ein paar Jahren pflegten wir miteinander zu Reisen.||{{N|unnmir_3|||||}}|};
 {unnmir_3|Echte Abenteuer du weißt schon, mit Schwertern und Zaubersprüchen.||{{N|unnmir_4|||||}}|};
 {unnmir_4|Aber dann hörten wir auf. Ich kann nicht einmal sagen warum, ich vermute wir wurden des Vagabundenlebens müde. Wir ließen uns hier in Fallhaven nieder.||{{N|unnmir_5|||||}}|};
-{unnmir_5|Nette kleine Stadt hier. Obwohl viele Diebe umher streifen, aber die kümmern mich nicht.||{{N|unnmir_6|||||}}|};
+{unnmir_5|Nette kleine Stadt hier. Viele Diebe streifen umher, aber die kümmern mich nicht.||{{N|unnmir_6|||||}}|};
 {unnmir_6|Also wie ist deine Geschichte, Junge? Wie bist du nach Fallhaven gekommen?||{{Ich suche nach meinem Bruder.|unnmir_7|||||}}|};
 {unnmir_7|Ja ja, ich verstehe. Dein Bruder ist wahrscheinlich abgehauen um in irgendeiner Höhle ein Abenteuer zu erleben. *rollt mit seinen Augen*||{{N|unnmir_8|||||}}|};
 {unnmir_8|Oder vielleicht ist er in eine der größeren Städte im Norden gegangen.||{{N|unnmir_9|||||}}|};
@@ -430,7 +430,7 @@
 {unzel_2|Ja, das ist mein Lager. Herrlicher Platz, nicht wahr?||{{Tschüss|X|||||}}|};
 {unzel_3|Vacor hat dich geschickt huh? Ich fürchte ich hätte wissen müssen, dass er früher oder später jemand schicken wird.||{{N|unzel_4|||||}}|};
 {unzel_4|Nun gut. Töte mich oder erlaube mir dir meine Seite der Geschichte zu erzählen.||{{Hah, ich werde dich mit Vergnügen töten!|unzel_fight|||||}{Okay, ich werde mir deine Geschichte anhören.|unzel_5|||||}}|};
-{unzel_fight|Nun denn, lass uns kämpfen.|{{0|vacor|53|}}|{{A fight it is!|F|||||}}|};
+{unzel_fight|Nun denn, lass uns kämpfen.|{{0|vacor|53|}}|{{Auf in den Kampf!|F|||||}}|};
 {unzel_5|Vielen Dank fürs zuhören.||{{N|unzel_10|||||}}|};
 {unzel_10|Vacor und ich reisten gewöhnlich miteinander. Aber er begann von der Zauberei besessen zu werden.||{{N|unzel_11|||||}}|};
 {unzel_11|Er stellte sogar den Schatten in Frage. Ich wusste ich musste etwas tun, um ihn aufzuhalten!||{{N|unzel_12|||||}}|};
@@ -460,6 +460,231 @@
 {bandit1_2|Wie viel ist dir dein Leben wert? Gib mir 100 Goldmünzen und ich lasse dich gehen.||{{Okay okay. Hier sind die Goldmünzen. Bitte verletze mich nicht!|bandit1_3||gold|100|0|}{Wie wäre es, wenn wir darum kämpfen?|bandit1_4|||||}{Wie wertvoll ist dir dein Leben?|bandit1_4|||||}}|};
 {bandit1_3|Wird langsam Zeit. Du kannst gehen wohin du willst.|||};
 {bandit1_4|Nun gut, dein Leben also. Lass uns kämpfen. Ich habe schon auf einen guten Kampf gewartet!||{{Lass uns anfangen!|F|||||}}|};
+	</string>
+
+	<string name="conversationlist_flagstone">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{zombie1|Frischfleisch!||{{Beim Schatten, ich werde dich erschlagen.|F|||||}{Bah, was bist du? Und was ist das für ein Geruch?|F|||||}}|};
+{prisoner1|Neiiin, ich werde nicht wieder gefangen sein!||{{Aber ich bin nicht...|F|||||}}|};
+{prisoner2|Aaaa! Wer ist da? Ich werde nie wieder unterjocht!||{{Beruhige dich, ich wollte nur...|F|||||}}|};
+
+{flagstone_guard0|Ah, ein anderer Sterblicher. Bereite dich darauf vor, Teil meiner Armee von Untoten zu werden!|{{0|flagstone|31|}}|{{Der Schatten soll dich nehmen.|F|||||}{Mach dich bereit, ein weiteres Mal zu sterben.|F|||||}}|};
+{flagstone_guard1|Stirb, Sterblicher!||{{Der Schatten soll dich nehmen.|F|||||}{Bereite dich vor, meine Klinge zu spüren.|F|||||}}|};
+{flagstone_guard2|Was? Ein Sterblicher, den ich noch nicht umgebracht habe?|{{0|flagstone|50|}}|{{N|flagstone_guard2_2|||||}}|};
+{flagstone_guard2_2|Du scheinst schmackhaft und weich zu sein, willst du Teil des Festessens sein?||{{N|flagstone_guard2_3|||||}}|};
+{flagstone_guard2_3|Ja, ich denke, du wirst. Meine Untotenhorde wird sich weit über Flagstone hinaus ausbreiten, wenn ich mit dir fertig bin.||{{Beim Schatten, du musst aufgehalten werden!|F|||||}{Nein! Dieses Land muss vor den Untoten beschützt werden!|F|||||}}|};
+{flagstone_sentry|||{{|flagstone_sentry_return4|flagstone:60||||}{|flagstone_sentry_return3|flagstone:40||||}{|flagstone_sentry_select0|||||}}|};
+{flagstone_sentry_select0|||{{|flagstone_sentry_return2|flagstone:30||||}{|flagstone_sentry_return1|flagstone:10||||}{|flagstone_sentry_1|||||}}|};
+{flagstone_sentry_1|Halt! Wer ist da? Niemandem ist es erlaubt, sich Flagstone zu nähern.||{{N|flagstone_sentry_2|||||}}|};
+{flagstone_sentry_2|Du solltest umkehren, solange du noch kannst.||{{N|flagstone_sentry_3|||||}}|};
+{flagstone_sentry_3|Flagstone wurde von den Untoten überrannt, und ich stehe hier Wache, um sicherzustellen, dass kein Untoter entfliehen kann.||{{Kannst du mir die Geschichte von Flagstone erzählen?|flagstone_sentry_4|||||}}|};
+{flagstone_sentry_4|Flagstone war als Gefängnislager für weggelaufene Arbeiter gedacht, während im Mount Galmore gegraben wurde.||{{N|flagstone_sentry_5|||||}}|};
+{flagstone_sentry_5|Aber als dort der Abbau aufhörte, verlor es seinen Zweck.||{{N|flagstone_sentry_6|||||}}|};
+{flagstone_sentry_6|Der Lord zu dieser Zeit sorgte sich nicht besonders viel um die Häftlinge, die schon in Flagstone waren und so ließ er sie dort.||{{N|flagstone_sentry_7|||||}}|};
+{flagstone_sentry_7|Andererseits nahm der Leiter des Lagers seine Pflicht sehr genau und ließ Flagstone genauso weiterlaufen, wie es war, als im Mount Galmore noch gegraben wurde.||{{N|flagstone_sentry_8|||||}}|};
+{flagstone_sentry_8|Viele Jahre lang achtete niemand auf Flagstone, abgesehen von gelegentlichen Berichten Reisender über grausame Schreie aus der Nähe des Lagers.||{{N|flagstone_sentry_9|||||}}|};
+{flagstone_sentry_9|Kürzlich änderte sich das und nun tauchen die Untoten in großen Zahlen auf.||{{N|flagstone_sentry_10|||||}}|};
+{flagstone_sentry_10|So weit die Geschichte. Ich muss die Straße vor den Untoten beschützen, so dass sie sich nicht über die Grenzen Flagstones hinaus ausbreiten können.||{{N|flagstone_sentry_11|||||}}|};
+{flagstone_sentry_11|So, ich würde dir raten du gehst, wenn du nicht von ihnen überrannt werden willst.||{{Kann ich mir die Ruinen von Flagstone einmal ansehen?|flagstone_sentry_12|||||}{Ja, ich sollte verschwinden.|X|||||}}|};
+{flagstone_sentry_12|Bist du wirklich sicher, hinein gehen zu wollen? Gut, in Ordnung, von mir aus.||{{N|flagstone_sentry_13|||||}}|};
+{flagstone_sentry_13|Ich werde dich nicht aufhalten und ich werde dich nicht beklagen, falls du niemals zurückkehrst.||{{N|flagstone_sentry_14|||||}}|};
+{flagstone_sentry_14|Geh nur. Lass mich wissen, falls ich dir etwas sagen kann, was dir weiterhelfen könnte.||{{N|flagstone_sentry_15|||||}}|};
+{flagstone_sentry_15|Kehre hierher zurück, wenn du meinen Rat brauchst.|{{0|flagstone|10|}}|{{In Ordnung. Ich werde zu dir zurückkehren, falls es etwas gibt, bei dem ich Hilfe brauche.|X|||||}}|};
+{flagstone_sentry_return1|Hallo nochmal. Hast du Flagstone betreten? Ich bin überrascht, dass du es wirklich geschafft hast, zurückzukehren.||{{Kannst du die Geschichte wiederholen?|flagstone_sentry_4|||||}{Es gibt da einen Wächter in den tieferen Ebenen Flagstones, dem man sich nicht nähern kann.|flagstone_sentry_20|flagstone:20||||}}|};
+{flagstone_sentry_20|Ein Wächter, sagst du? Das sind beunruhigende Nachrichten und bedeutet, dass es hinter alldem eine größere Kraft gibt, die dafür verantwortlich ist.||{{N|flagstone_sentry_21|||||}}|};
+{flagstone_sentry_21|Hast du den ehemaligen Leiter von Flagstone gefunden? Er hatte für gewöhnlich immer eine Halskette bei sich.||{{N|flagstone_sentry_22|||||}}|};
+{flagstone_sentry_22|Denn er war durch sie geschützt. Vielleicht war die Kette eine Art Schlüssel?||{{N|flagstone_sentry_23|||||}}|};
+{flagstone_sentry_23|Wenn du den Leiter gefunden und die Kette ausfindig gemacht hast, kehre bitte hierher zurück und ich werde, falls darauf eine Nachricht vorhanden ist, diese entziffern.|{{0|flagstone|30|}}|{{Ich habe sie gefunden, hier.|flagstone_sentry_40||necklace_flagstone|1|0|}{Was war nochmal mit diesem Wächter?|flagstone_sentry_20|||||}{Ok, ich werde nach dem ehemaligen Leiter suchen.|X|||||}}|};
+{flagstone_sentry_return2|Hallo nochmal. Hast du den ehemaligen Leiter Flagstones schon gefunden?||{{Über den ehemaligen Leiter...|flagstone_sentry_23|||||}{Kannst du die Geschichte noch einmal wiederholen?|flagstone_sentry_3|||||}}|};
+{flagstone_sentry_40|Du hast die Kette gefunden? Gut. Hier, gib sie mir.|{{0|flagstone|40|}}|{{N|flagstone_sentry_41|||||}}|};
+{flagstone_sentry_41|Nun, lass uns sehen. Ah ja, es ist wie ich es mir gedacht habe. Die Halskette enthält ein Passwort.||{{N|flagstone_sentry_42|||||}}|};
+{flagstone_sentry_42|\'Licht und Schatten\'. Das muss es sein. Du solltest versuchen, dich dem Wächter mit diesem Passwort zu nähern.||{{Danke, auf Wiedersehen.|X|||||}}|};
+{flagstone_sentry_return3|Hallo nochmal. Wie geht es mit deiner Untersuchung der Untoten in Flagstone voran?||{{Es gibt noch keine Fortschritte.|flagstone_sentry_43|||||}}|};
+{flagstone_sentry_43|Gut, bleib wachsam. Komm zu mir, wenn du meinen Rat brauchst.|||};
+{flagstone_sentry_return4|Hallo nochmal. Es scheint, dass etwas in Flagstone geschehen ist, das die Untoten geschwächt hat. Ich bin sicher, wir müssen dir dafür danken.|||};
+
+{narael|Vielen Dank, dass du mich von dem Ungeheuer befreit hast.||{{N|narael_select|||||}}|};
+{narael_select|||{{|narael_9|flagstone:60||||}{|narael_1|||||}}|};
+{narael_1|Mir kommt es so vor, als wäre ich hier eine Ewigkeit gefangen gewesen.||{{N|narael_2|||||}}|};
+{narael_2|Oh, all die Dinge, die sie mir antaten. Vielen vielen Dank, dass du mich gerettet hast.||{{N|narael_3|||||}}|};
+{narael_3|Ich war einmal ein Bürger Nor Citys und arbeitete beim Abbau im Mount Galmore.||{{N|narael_4|||||}}|};
+{narael_4|Aber eines Tages wollte ich meinen Posten verlassen und zu meiner Frau zurückkehren.||{{N|narael_5|||||}}|};
+{narael_5|Der verantwortliche Offizier wollte mich nicht gehen lassen und ich wurde als Gefangener nach Flagstone geschickt, weil ich den Gehorsam verweigert hatte.||{{N|narael_6|||||}}|};
+{narael_6|Wenn ich meine Frau nur noch einmal sehen könnte. Aber da ich kaum noch Leben in mir habe, habe ich nicht einmal genug Kraft, diesen Ort zu verlassen.||{{N|narael_7|||||}}|};
+{narael_7|Ich schätze, es ist mein Schicksal, hier zu sterben. Aber nun wenigstens als freier Mann.||{{N|narael_8|||||}}|};
+{narael_8|Jetzt überlass mich meinem Schicksal. Ich habe nicht genug Kraft, diesen Ort zu verlassen.|{{0|flagstone|60|}}|{{N|narael_9|||||}}|};
+{narael_9|Wenn du meine Frau Taurum in Nor City findest, erzähle ihr bitte, dass ich am Leben bin und dass ich sie nicht vergessen habe.||{{Werde ich. Auf Wiedersehen.|X|||||}{Werde ich. Der Schatten sei mit dir.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_fallhaven_south">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{fallhaven_lumberjack|Hallo, ich bin Jakrar.||{{Bist du ein Holzfäller?|fallhaven_lumberjack_2|||||}}|};
+{fallhaven_lumberjack_2|Ja, Ich bin Fallhaven\'s Holzfäller. Brauchst du irgend etwas aus feinstem Holz? Wahrscheinlich habe ich es.|||};
+{alaun|Hallo. Ich bin Alaun. Wie kann ich dir helfen?||{{Hast du meinen Bruder Andor gesehen? Er sieht mir ähnlich.|alaun_2|||||}}|};
+{alaun_2|Du suchst nach deinem Bruder, sagst du? Sieht aus wie du? Hm.||{{N|alaun_3|||||}}|};
+{alaun_3|Nein, ich kann mich nicht daran erinnern, jemanden nach dieser Beschreibung gesehen zu haben. Vielleicht solltest du es im Dorf Crossglen westlich von hier probieren.|||};
+{fallhaven_farmer1|Hallo. Bitte störe mich nicht, ich habe viel zu tun.|||};
+{fallhaven_farmer2|Hallo. Könntest du mir bitte aus dem Weg gehen? Ich versuche zu arbeiten.|||};
+{khorand|Hey du, denk nicht mal dran, eine von den Kisten auch nur anzufassen. Ich beobachte dich!|||};
+	</string>
+
+	<string name="conversationlist_signs_pre067">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{keyarea_andor1|Du solltest als erstes mit Mikhail reden.|||};
+{note_lodars|Auf dem Boden findest du ein Stück Papier mit lauter merkwürdigen Zeichen. Du kannst gerade so die Worte \'treffe mich bei Lodars Versteck\' entziffern, aber du weißt nicht, was das bedeuten soll.|||};
+{keyarea_crossglen_smith|Audir ruft: Hey du, verschwinde! Du hast da hinten nichts zu suchen.|||};
+{sign_crossglen_cave|Das Schild an der Wand ist an mehreren Stellen gesprungen. Du kannst aus der Schrift nichts verständliches herauslesen.|||};
+{sign_wild1|westlich: Crossglen\nsüdlich: Fallhaven\nnördlich: Feygard|||};
+{sign_notdone|Diese Karte ist noch nicht fertig. Bitte komm in einer späteren Version des Spiels zurück.|||};
+{sign_wild3|westlich: Crossglen\nöstlich: Fallhaven\nnördlich: Feygard|||};
+{sign_pitcave2|Gandir liegt hier begraben, ermordet von der Hand seines früheren Freundes Irogotu.|||};
+{sign_fallhaven1|Willkommen in Fallhaven. Achte auf Taschendiebe!|||};
+{key_fallhavenchurch|Es ist nicht erlaubt, die Katakomben der Kirche von Fallhaven ohne Genehmigung zu betreten.|||};
+{arcir_basement_tornpage|Du siehst eine ausgerissene Seite eines Buches mit dem Namen \'Calomyranische Geheimnisse\'. Blut befleckt seine Ränder und jemand hat das Wort \'Larcal\' mit Blut darauf geschrieben.|{{0|calomyran|20|}}||};
+{arcir_basement_statue|Elythara, Mutter des Lichts. Beschütze uns vor dem Fluch des Schattens.|{{0|arcir|10|}}||};
+{fallhaven_tavern_room|Dir ist der Zutritt zu dem Raum nicht erlaubt, solange du ihn nicht gemietet hast.|||};
+{fallhaven_derelict1|Bucus ruft: Hey du, geh dort weg!|||};
+{sign_wild6|nördlich: Crossglen\nöstlich: Fallhaven\nsüdlich: Stoutford|||};
+{sign_wild7|westlich: Stoutford\nnördlich: Fallhaven|||};
+{sign_wild10|nördlich: Fallhaven\nwestlich: Stoutford|||};
+{flagstone_key_demon|Der Dämon strahlt eine Kraft aus, die dich zurückdrückt, was es dir unmöglich macht, den Dämon zu erreichen.|||};
+{flagstone_brokensteps|Du bemerkst, dass dieser Tunnel scheinbar unterhalb von Flagstone ausgegraben wurde. Vermutlich die Arbeit eines früheren Häftlings von Flagstone.|{{0|flagstone|20|}}||};
+{sign_wild12|nördlich: Fallhaven\nöstlich: Vilegard\nöstlich: Nor City|||};
+	</string>
+
+
+	<string name="conversationlist_thievesguild_1">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{thievesguild_thief_1|Hallo Junge.||{{Hallo. Weißt du, wo ich Umar finden kann?|thievesguild_thief_4|||||}{Was ist das für ein Ort?|thievesguild_thief_2|||||}}|};
+{thievesguild_thief_2|Das ist unsere Gildenhalle. Hier sind wir vor den Wachen von Fallhaven sicher.||{{N|thievesguild_thief_3|||||}}|};
+{thievesguild_thief_3|Wir können hier so ziemlich alles machen, was wir wollen. Solange Umar es erlaubt, versteht sich.||{{Weißt du, wo ich Umar finden kann?|thievesguild_thief_4|||||}{Wer ist Umar?|thievesguild_thief_5|||||}}|};
+{thievesguild_thief_4|Er ist wahrscheinlich in seinem Raum, dort drüben. *zeigt darauf*||{{Danke.|X|||||}}|};
+{thievesguild_thief_5|Umar ist unser Gildenoberhaupt. Er macht unsere Regeln und entscheidet für uns bei moralischen Fragen.||{{Wo kann ich ihn finden?|thievesguild_thief_4|||||}}|};
+
+{thievesguild_cook_1|Hallo, möchtest du etwas?||{{Du siehst aus, als wärst du hier der Koch|thievesguild_cook_2|||||}{Darf ich sehen, welches Essen du verkaufst?|S|||||}{Farrik sagte, du kannst mir einen speziellen Met zubereiten|thievesguild_select_1|farrik:20||||}}|};
+{thievesguild_cook_2|Das ist richtig. Jemand muss dafür sorgen, dass diese Raufbolde satt werden.||{{Das riecht auf jeden Fall sehr gut|thievesguild_cook_3|||||}{Dieser Eintopf sieht ekelhaft aus|thievesguild_cook_4|||||}{Na dann, bis später|X|||||}}|};
+{thievesguild_cook_3|Danke. Mit diesem Eintopf geht es gut voran.||{{Ich bin daran interessiert, etwas davon zu kaufen|S|||||}}|};
+{thievesguild_cook_4|Ja, ich weiß. Mit diesen schlechten Zutaten kann man nicht viel machen? Immerhin macht es uns satt.||{{Darf ich sehen, was du zu verkaufen hast?|S|||||}}|};
+{thievesguild_cook_5|Oh sicher. Du hast vor, jemand ins Reich der Träume zu schicken, oder?||{{N|thievesguild_cook_6|||||}}|};
+{thievesguild_cook_6|Keine Angst, ich werde es niemandem erzählen. So etwas zuzubereiten gehört zu meinen Spezialitäten.||{{N|thievesguild_cook_7|||||}}|};
+{thievesguild_cook_7|Gib mir eine Minute, um ihn für dich zusammenzumischen.||{{N|thievesguild_cook_8|||||}}|};
+{thievesguild_select_1|||{{|thievesguild_cook_10|farrik:25||||}{|thievesguild_cook_5|||||}}|};
+{thievesguild_cook_8|Hier. Das sollte genügen. Bitte schön.|{{0|farrik|25|}{1|sleepingmead||}}|{{N|thievesguild_cook_9|||||}}|};
+{thievesguild_cook_10|Ja, ich hab dir vorhin einen speziellen Trank gegeben.||{{N|thievesguild_cook_9|||||}}|};
+{thievesguild_cook_9|Sei vorsichtig, damit du nicht etwas von dem Zeug an die Finger bekommst, es ist wirklich sehr stark.||{{Vielen Dank.|X|||||}}|};
+
+{thievesguild_pickpocket_1|Hallo.||{{Wer bist du?|thievesguild_pickpocket_2|||||}{Was ist das für ein Ort?|thievesguild_thief_2|||||}}|};
+{thievesguild_pickpocket_2|Mein richtiger Name ist unwichtig. Die Leute nennen mich meistens Flinke Hände.||{{Warum das?|thievesguild_pickpocket_3|||||}}|};
+{thievesguild_pickpocket_3|Nun, ich habe eine Tendenz zu .. wie soll ich es sagen .. gewisse Dinge einfach anzueignen.||{{N|thievesguild_pickpocket_4|||||}}|};
+{thievesguild_pickpocket_4|Dinge, die früher anderen Besitzern gehörten.||{{Meinst du stehlen?|thievesguild_pickpocket_5|||||}}|};
+{thievesguild_pickpocket_5|Nein nein. ich würde es nicht stehlen nennen. Es ist mehr ein Eigentumstransfer. Für mich ist es das.||{{Das hört sich für mich aber sehr nach stehlen an|thievesguild_pickpocket_6|||||}{Das hört sich für mich wie eine gute Rechtfertigung an|thievesguild_pickpocket_6|||||}}|};
+{thievesguild_pickpocket_6|Naja, wir sind die Diebesgilde. Was hast du erwartet?|||};
+
+{thievesguild_troublemaker_1|Hallo. Kenne ich dich nicht irgendwoher?||{{Nein, ich bin sicher, wir sind uns noch nie begegnet.|thievesguild_troublemaker_3|||||}{Was machst du hier?|thievesguild_troublemaker_2|||||}{Kann ich einen Blick auf deine Vorräte werfen?|S|||||}}|};
+{thievesguild_troublemaker_2|Ich habe ein Auge auf unsere Vorräte für die Gilde.||{{Kann ich einen Blick auf deine Vorräte werfen?|S|||||}}|};
+{thievesguild_troublemaker_3|Nein, ich erkenne dich wirklich.||{{Du musst mich mit jemand anderem verwechselt haben.|thievesguild_troublemaker_4|||||}{Vielleicht hast du mich mit meinem Bruder Andor verwechselt.|thievesguild_troublemaker_5|||||}}|};
+{thievesguild_troublemaker_4|Ja, das könnte sein.||{{Hast du meinen Bruder hier gesehen? Er sieht mir ähnlich.|thievesguild_troublemaker_5|||||}}|};
+{thievesguild_troublemaker_5|Oh ja, jetzt wo du es sagst. Da war dieser Junge, der hier umher rannte und eine Menge Fragen stellte.||{{Weißt du, was er gesucht oder gemacht hat?|thievesguild_troublemaker_6|||||}}|};
+{thievesguild_troublemaker_6|Nein. Ich weiß es nicht. Ich kümmere mich bloß um die Vorräte.||{{Ok, vielen Dank jedenfalls. Auf Wiedersehen.|X|||||}{Bah, du bist nutzlos. Auf Wiedersehen.|X|||||}}|};
+	</string>
+	
+	<string name="conversationlist_farrik">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{farrik_1|Hallo. I habe gehört, dass du den Schlüssel von Luthor für uns gefunden hast. Gute Arbeit, er wird uns wirklich nützlich sein.||{{Wer bist du?|farrik_2|||||}{Was kannst du mir über die Diebesgilde erzählen?|farrik_4|||||}}|};
+{farrik_2|Ich bin Farrik, Umars Bruder.||{{Was machst du hier?|farrik_3|||||}{Was kannst du mir über die Diebesgilde erzählen?|farrik_4|||||}}|};
+{farrik_3|Ich bin vor allem für den Handel mit anderen Gilden zuständig und habe ein Auge darauf, was die Diebe brauchen, um so effektiv wie möglich zu sein.||{{Was kannst du mir über die Diebesgilde erzählen?|farrik_4|||||}}|};
+{farrik_4|Wir versuchen so stark wie möglich zueinander zu halten und helfen unseren Kameraden so gut es nur geht.||{{Gibt es irgendwelche Neuigkeiten?|farrik_5|||||}}|};
+{farrik_5|Nun, da gab es etwas vor ein paar Wochen. Eines unserer Gildenmitglieder wurde wegen einem Einbruch inhaftiert.||{{N|farrik_6|||||}}|};
+{farrik_6|Die Wache von Fallhaven nimmt seit kurzem großen Anstoß an uns. Wahrscheinlich, weil wir auf unseren jüngsten Missionen sehr erfolgreich waren.||{{N|farrik_7|||||}}|};
+{farrik_7|Die Wachen haben ihre Sicherheitsmaßnahmen in letzter Zeit verschärft, was zur Verhaftung eines unserer Mitglieder führte.||{{N|farrik_8|||||}}|};
+{farrik_8|Er wird zur Zeit im Gefängnis von Fallhaven festgehalten und wartet auf seine bevorstehende Verlegung nach Feygard.||{{Was hat er gemacht?|farrik_9|||||}}|};
+{farrik_9|Oh, nichts schlimmes. Er versuchte in die Katakomben der Kirche von Fallhaven einzubrechen.||{{N|farrik_10|||||}}|};
+{farrik_10|Aber nun, da du uns bei dieser Mission geholfen hast, schätze ich, dass wir dort nicht mehr hingehen müssen.||{{N|farrik_11|||||}}|};
+{farrik_11|Ich vermute, ich kann dir ein Geheimnis anvertrauen. Wir planen eine Mission in dieser Nacht, um ihn aus dem Gefängnis zu befreien.|{{0|farrik|10|}}|{{Diese Wachen scheinen wirklich lästig zu sein.|farrik_13|||||}{Naja, wenn es ihm nicht erlaubt war dort hinunter zu gehen, dann hatten die Wachen doch Recht damit, ihn zu verhaften.|farrik_12|||||}}|};
+{farrik_12|Ja, vermutlich. Aber der Gilde wegen hätten wir unseren Freund lieber frei als gefangen.||{{Vielleicht sollte ich den Wachen erzählen, dass ihr vorhabt, ihn zu befreien?|farrik_15|||||}{Keine Sorge, euer geheimer Plan, ihn zu befreien, ist bei mir sicher.|farrik_14|||||}{[Lüge] Keine Sorge, euer geheimer Plan, ihn zu befreien, ist bei mir sicher.|farrik_14|||||}}|};
+{farrik_13|Oh ja, das sind sie. Die Allgemeinheit kann sie auch nicht leiden, das empfinden nicht nur wir in der Diebesgilde so.||{{Gibt es etwas, womit ich euch gegen diese lästigen Wachen helfen kann?|farrik_16|||||}}|};
+{farrik_14|Vielen Dank. Nun geh bitte.|||};
+{farrik_15|Wie du meinst, sie würden dir sowieso nicht glauben.|{{0|farrik|30|}}||};
+{farrik_16|Bist du sicher, dass du die Wachen verärgern möchtest? Fall sie bemerken, dass du daran beteiligt bist, könntest du in große Schwierigkeiten geraten.||{{Kein Problem, ich kann auf mich aufpassen!|farrik_18|||||}{Dafür könnte es später eine Belohnung geben. Ich bin dabei.|farrik_18|||||}{Wenn ich es mir recht überlege, sollte ich mich aus der Sache raushalten.|farrik_17|||||}}|};
+{farrik_17|Sicher, es liegt an dir.||{{Viel Glück auf deiner Mission.|farrik_14|||||}{Vielleicht sollte ich der Wache erzählen, dass ihr vorhabt, ihn zu befreien?|farrik_15|||||}}|};
+{farrik_18|Gut.||{{N|farrik_19|||||}}|};
+{farrik_19|Ok, hier ist der Plan. Der Kommandant der Wache hat ein kleines Alkoholproblem.||{{N|farrik_20|||||}}|};
+{farrik_20|Falls wir ihm den Met, den wir vorbereitet haben, in die Hände spielen würden, dann könnten wir in der Lage sein, unseren Freund in der Nacht, während der Kommandant seinen Rausch ausschläft, zu befreien.||{{N|farrik_20a|||||}}|};
+{farrik_20a|Unser Koch kann dir ein speziell zubereiteten Met herstellen, das ihn außer Gefecht setzen wird.||{{N|farrik_21|||||}}|};
+{farrik_21|Es wird wahrscheinlich nötig sein, ihn zu überzeugen, bei der Pflicht zu trinken. Falls das nicht klappt, könnte er vielleicht stattdessen bestochen werden.||{{N|farrik_22|||||}}|};
+{farrik_22|Wie klingt das für dich? Denkst du, du schaffst das?||{{Sicher, klingt leicht!|farrik_23|||||}{Klingt ein bisschen gefährlich, aber ich denke, ich werde es versuchen.|farrik_23|||||}{Nein, das hört sich mittlerweile wirklich langsam nach einer schlechten Idee an.|farrik_17|||||}}|};
+{farrik_23|Gut. Erstatte mir Bericht, sobald du es geschafft hast, dem Kommandanten den speziellen Met zu verabreichen.|{{0|farrik|20|}}|{{Werde ich tun|farrik_14|||||}}|};
+{farrik_return_1|Sei gegrüßt, mein Freund. Wie lief deine Mission, den Kommandanten betrunken zu machen?||{{Ich bin noch nicht fertig, aber ich arbeite dran.|farrik_23|||||}{[Lüge] Es ist geschafft. Er sollte heute Nacht kein Problem sein.|farrik_26|farrik:50||||}{Es ist geschafft. Er sollte heute Nacht kein Problem sein.|farrik_24|farrik:60||||}}|};
+{farrik_select_1|||{{|farrik_return_2|farrik:70||||}{|farrik_return_2|farrik:80||||}{|farrik_select_2|||||}}|};
+{farrik_select_2|||{{|farrik_return_1|farrik:20||||}{|farrik_1|||||}}|};
+{farrik_24|Das sind gute Nachrichten! Nun sollte es uns möglich sein, unseren Freund heute Nacht aus dem Gefängnis zu befreien.|{{0|farrik|70|}}|{{N|farrik_25|||||}}|};
+{farrik_25|Ich danke dir für deine Hilfe, mein Freund. Nimm diese Münzen als Zeichen unserer Anerkennung.|{{1|gold200||}}|{{Danke sehr. Tschüss.|X|||||}{Endlich ein paar Goldmünzen.|X|||||}}|};
+{farrik_return_2|Danke für deine Hilfe mit dem Kommandanten der Wache neulich.|||};
+{farrik_26|Oh, du hast es geschafft? Gut gemacht. Du hast meinen Dank, mein Freund.|{{0|farrik|80|}}||};
+	</string>
+
+	<string name="conversationlist_fallhaven_warden">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{fallhaven_warden|Erkläre dein Vorhaben.||{{Wer ist dieser Gefangene?|warden_prisoner_1|||||}{Ich hörte, dass du Met magst|fallhaven_warden_1|farrik:20||||}{Die Diebe planen, ihren Freund zu befreien.|fallhaven_warden_20|farrik:30||||}}|};
+{warden_prisoner_1|Dieser Dieb? Er wurde auf frischer Tat ertappt. Einbrechen wollte er. Er versuchte hinunter in die Katakomben der Kirche von Fallhaven zu gelangen.||{{N|warden_prisoner_2|||||}}|};
+{warden_prisoner_2|Glücklicherweise konnten wir ihn festnehmen, bevor er nach unten gelangen konnte. Nun wird er für alle anderen Diebe als Exempel dienen.||{{N|warden_prisoner_3|||||}}|};
+{warden_prisoner_3|Verdammte Diebe. Es muss hier irgendwo ein Nest von ihnen geben. Wenn ich nur herausfinden könnte, wo sie sich verstecken.|||};
+{fallhaven_warden_1|Met? Oh.. nein, Ich mach das nicht mehr. Wer hat dir das erzählt?||{{N|fallhaven_warden_2|||||}}|};
+{fallhaven_warden_2|Ich habe vor Jahren damit aufgehört.||{{Klingt nach einem guten Vorsatz. Viel Glück dabei, damit weiterzumachen.|X|||||}{Nicht mal ein kleines bisschen?|fallhaven_warden_3|||||}}|};
+{fallhaven_warden_3|Hm. *räuspert sich* Ich sollte wirklich nicht.||{{Ich habe welchen dabei, wenn du ein Schlückchen willst.|fallhaven_warden_4|farrik:25|sleepingmead|1|0|}{Ok, auf Wiedersehen|X|||||}}|};
+{fallhaven_warden_4|Oh, süßes Getränk der Freude. Aber ich sollte das wirklich nicht trinken, während ich Dienst habe.|{{0|farrik|32|}}|{{N|fallhaven_warden_5|||||}}|};
+{fallhaven_warden_5|Ich könnte für das Trinken im Dienst bestraft werden. Ich denke nicht, dass ich es im Augenblick wagen sollte.||{{N|fallhaven_warden_6|||||}}|};
+{fallhaven_warden_6|Danke aber für das Getränk, ich werde es später genießen, wenn ich morgen nach Hause gekommen bin.||{{Du bist willkommen. Tschüss.|X|||||}{Was wäre, wenn jemand dir die Strafe bezahlen würde?|fallhaven_warden_7|||||}}|};
+{fallhaven_warden_7|Oh, das klingt ein bisschen fragwürdig. Ich bezweifle stark, dass jemand hier die 450 Goldmünzen aufbringen könnte. Außerdem würde ich ein bisschen mehr als das brauchen, um dies zu riskieren.||{{Ich habe gerade 500 Goldmünzen dabei, die kannst du haben.|fallhaven_warden_9||gold|500|0|}{Aber du weißt, du willst den Met, richtig?|fallhaven_warden_8|||||}{Ja, ich stimme dir zu. Das fängt wirklich an, sich sehr fragwürdig anzuhören. Tschüss.|X|||||}}|};
+{fallhaven_warden_8|Oh sicher. Jetzt da du es sagst. Es würde sicher gut sein.||{{Was wäre, wenn ich dir, sagen wir, 400 Goldmünzen zahle. Würde das deiner Beunruhigung, den Trunk jetzt zu genießen, genug entgegenwirken?|fallhaven_warden_9||gold|400|0|}{Das fängt an, für mich zu fragwürdig zu klingen. Ich überlasse dich deiner Pflicht, tschüss.|X|||||}{Ich mache mich auf, die Goldmünzen für dich aufzutreiben. Tschüss.|X|||||}}|};
+{fallhaven_warden_9|Wow, so viele Goldmünzen? Ich bin sicher, ich könnte sogar damit davonkommen, ohne bestraft zu werden. Dann könnte ich die Goldmünzen UND einen schönen Met gleichzeitig haben.|{{0|farrik|60|}}|{{N|fallhaven_warden_10|||||}}|};
+{fallhaven_warden_10|Ich danke dir, Junge, du bist wirklich nett. Nun geh, damit ich mein Getränk genießen kann.|||};
+{fallhaven_warden_select_1|||{{|fallhaven_warden_11|farrik:60||||}{|fallhaven_warden_35|farrik:90||||}{|fallhaven_warden_select_2|||||}}|};
+{fallhaven_warden_select_2|||{{|fallhaven_warden_30|farrik:50||||}{|fallhaven_warden_12|farrik:32||||}{|fallhaven_warden|||||}}|};
+{fallhaven_warden_11|Hallo nochmal, Junge. Danke für das Getränk vorhin. Ich habe alles auf einmal getrunken. Ich bin mir sicher, es hat anders als vorher geschmeckt, aber ich vermute, es liegt daran, dass ich daran schon nicht mehr gewöhnt bin.||{{Wer ist dieser Gefangene?|warden_prisoner_1|||||}}|};
+{fallhaven_warden_12|Hallo nochmal, Junge. Danke für das Getränk vorhin. Ich habe es noch immer nicht getrunken.||{{N|fallhaven_warden_5|||||}}|};
+{fallhaven_warden_20|Wirklich, sie würden es wagen, gegen die Wache in Fallhaven vorzugehen? Hast du irgendwelche Details ihres Plans?||{{Ich hörte, sie planen seine Flucht heute Nacht|fallhaven_warden_21|||||}{Nein, ich habe mir bloß einen Scherz erlaubt. Mach dir nichts daraus.|X|||||}{Wenn ich es recht bedenke, sollte ich die Diebesgilde besser nicht enttäuschen. Vergiss, dass ich etwas gesagt habe.|X|||||}}|};
+{fallhaven_warden_21|Heute Nacht? Danke für diese Information. Wir werden sicherstellen, dass die Sicherheit heute Nacht erhöht wird, aber auf eine Art, dass sie davon nichts mitbekommen werden.|{{0|farrik|40|}}|{{N|fallhaven_warden_22|||||}}|};
+{fallhaven_warden_22|Sobald sie sich dafür entscheiden, ihn zu befreien, werden wir vorbereitet sein. Vielleicht können wir mehr von diesen schmutzigen Dieben verhaften.||{{N|fallhaven_warden_23|||||}}|};
+{fallhaven_warden_23|Danke nochmal für die Benachrichtigung. Auch wenn ich nicht genau weiß, wie du das herausbekommen konntest, bin ich sehr froh, dass du es mir gesagt hast.||{{N|fallhaven_warden_24|||||}}|};
+{fallhaven_warden_24|Ich möchte dass du noch einen draufsetzt und ihnen sagst, dass die Zelle heute Nacht nur schwach bewacht wird. Aber stattdessen werden wir die Sicherheit erhöhen. Auf diese Art können wir wirklich auf sie gefasst sein.||{{Sicher kann ich das tun.|fallhaven_warden_25|||||}}|};
+{fallhaven_warden_25|Gut. Sag mir Bescheid, sobald du es ihnen gesagt hast.|{{0|farrik|50|}}|{{Werde ich machen.|X|||||}}|};
+{fallhaven_warden_30|Hallo nochmal, mein Freund. Hast du diesen Dieben erzählt, dass wir heute Nacht die Sicherheit verringern?||{{Ja, sie sind auf nichts gefasst.|fallhaven_warden_31|||||}{Nein, noch nicht. Ich arbeite daran.|fallhaven_warden_25|||||}}|};
+{fallhaven_warden_31|Großartig. Danke für deine Hilfe. Hier, nimm diese Münzen als ein Zeichen unserer Anerkennung.|{{0|farrik|90|}{1|gold200||}}|{{N|fallhaven_warden_36|||||}}|};
+{fallhaven_warden_35|Hallo nochmal, mein Freund. Danke für deine Hilfe mit diesen Dieben neulich.||{{N|fallhaven_warden_36|||||}}|};
+{fallhaven_warden_36|Ich werde dafür sorgen, dass man den anderen Wachen erzählt, wie du uns hier in Fallhaven geholfen hast.||{{Ich danke dir. Auf Wiedersehen.|X|||||}}|};
+	</string>
+
+	<string name="conversationlist_umar">
+[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
+{umar_select_1|||{{|umar_return_1|andor:51||||}{|umar_novisit_1|||||}}|};
+{umar_return_1|Hallo nochmal, mein Freund.||{{Hallo.|umar_return_2|||||}{Schön dich gesehen zu haben. Tschüss.|X|||||}}|};
+{umar_return_2|Irgendetwas anderes, womit ich dir helfen kann?||{{Könntest du wiederholen, was du über Andor gesagt hast?|umar_5|||||}{Schön dich gesehen zu haben. Tschüss.|X|||||}}|};
+{umar_novisit_1|Hallo. Wie lief deine Suche?||{{Welche Suche?|umar_2|||||}}|};
+{umar_2|Als wir uns das letzte Mal unterhielten, fragtest du nach dem Weg zu Lodars Zufluchtsort. Hast du ihn gefunden?||{{Wir haben uns noch nie getroffen.|umar_3|||||}{Du musst mich mit meinem Bruder Andor verwechselt haben. Wir sehen uns sehr ähnlich.|umar_4|||||}}|};
+{umar_3|Oh. Ich muss dich mit jemand anderem verwechselt haben.||{{Mein Bruder Andor und ich sehen uns sehr ähnlich.|umar_4|||||}}|};
+{umar_4|Wirklich? Dann vergiss, was ich gesagt habe.|{{0|andor|51|}}|{{Ich schätze das heißt, dass Andor hier war. Was hat er gemacht?|umar_5|||||}}|};
+{umar_5|Er kam vor einer Weile hierher und stellte eine Menge Fragen darüber, welches Verhältnis die Diebesgilde zum Schatten und zur königlichen Garde in Feygard hat.||{{N|umar_6|||||}}|};
+{umar_6|Wir in der Diebesgilde kümmern uns weder so richtig um den Schatten noch kümmern wir uns um die königliche Garde.||{{N|umar_7|||||}}|};
+{umar_7|Wir versuchen, über ihren Zänkereien und Streitigkeiten zu stehen. Sie können so viel kämpfen, wie sie wollen, aber die Diebesgilde wird sie alle überdauern.||{{Was für einen Konflikt meinst du?|umar_conflict_1|||||}{Erzähl mir mehr von dem, wonach Andor gefragt hat|umar_andor_1|||||}}|};
+{umar_conflict_1|Wo warst du die letzten paar Jahre? Weißt du nichts von dem brodelndem Konflikt?||{{N|umar_conflict_2|||||}}|};
+{umar_conflict_2|Die königliche Garde, unter der Führung von Lord Geomyr in Feygard, versucht den jüngsten Anstieg von illegalen Aktivitäten Einhalt zu gebieten und erlässt aus dem Grund immer mehr Regeln, was erlaubt ist und was nicht.||{{N|umar_conflict_3|||||}}|};
+{umar_conflict_3|Die Priester des Schattens, die hauptsächlich in Nor City leben, sind Gegner der neuen Verbote und sagen, dass sie die Art und Weise einschränken, auf die sie den Schatten erfreuen können.||{{N|umar_conflict_4|||||}}|};
+{umar_conflict_4|Im Gegenzug planen die Priester des Schattens Lord Geomyr und seine Truppen zu stürzen.||{{N|umar_conflict_5|||||}}|};
+{umar_conflict_5|Außerdem munkelt man, dass die Priester weiterhin ihre Rituale ausüben, obwohl die meisten dieser Rituale verboten worden sind.||{{N|umar_conflict_6|||||}}|};
+{umar_conflict_6|Lord Geomyr und seine königliche Garde auf der anderen Seite, versuchen weiterhin ihr Bestes, auf eine Weise zu regieren, die sie als gerecht empfinden.||{{N|umar_conflict_7|||||}}|};
+{umar_conflict_7|Wir in der Diebesgilde versuchen, nicht in diesen Konflikt verwickelt zu werden. Unsere Aktivitäten wurden bislang noch nicht von dem Konflikt beeinträchtigt.||{{Danke, dass du mir das alles erzählt hast.|umar_return_2|||||}{Was auch immer, das ist nicht meine Angelegenheit.|umar_return_2|||||}}|};
+{umar_andor_1|Er fragte nach meiner Unterstützung und fragte, wie man Lodar finden kann.||{{Wer ist Lodar?|umar_andor_2|||||}}|};
+{umar_andor_2|Lodar? Er ist einer von unseren berühmten Alchemisten in der Diebesgilde. Er kann alle Sorten von starken Schlafmitteln, Heiltränken und Heilmitteln herstellen.||{{N|umar_andor_3|||||}}|};
+{umar_andor_3|Aber seine Spezialität sind natürlich seine Gifte. Seine Gifte können sogar den größten Monstern schaden.||{{Was würde Andor von ihm wollen?|umar_andor_4|||||}}|};
+{umar_andor_4|Ich weiß es nicht. Vielleicht hat er nach einem Trank gesucht.|{{0|andor|55|}}|{{So, wo kann ich diesen Lodar finden?|umar_lodar_1|||||}}|};
+{umar_lodar_1|Das sollte ich dir wirklich nicht sagen. Wie man ihn findet ist ein streng gehütetes Geheimnis in der Gilde. Sein Zufluchtsort ist nur von unseren Mitgliedern erreichbar.||{{N|umar_lodar_2|||||}}|};
+{umar_lodar_2|Andererseits, ich habe gehört, dass du uns geholfen hast, den Schlüssel von Luthor zu finden. Er ist etwas, das wir schon seit langer Zeit haben wollten.||{{N|umar_lodar_3|||||}}|};
+{umar_lodar_3|Ok, ich werde dir sagen, wie man zu Lodars Zufluchtsort kommt. Aber du musst versprechen, es geheimzuhalten. Erzähle es niemandem. Nicht einmal denen, die Mitglieder der Diebesgilde zu sein scheinen.||{{Ok, ich verspreche, es niemandem zu sagen.|umar_lodar_4|||||}{Ich kann dir keine Garantie geben, aber ich werde es versuchen.|umar_lodar_4|||||}}|};
+{umar_lodar_4|Gut. Das Ding ist, dass du nicht nur den Ort selbst finden musst, sondern du außerdem auch die richtigen Worte nennen musst, damit dir der Wächter Zutritt gewährt.||{{N|umar_lodar_5|||||}}|};
+{umar_lodar_5|Der einzige, der die Sprache des Wächters versteht, ist der alte Mann Ogam in Vilegard.|{{0|lodar|10|}}|{{N|umar_lodar_6|||||}}|};
+{umar_lodar_6|Du solltest in die Stadt Vilegard reisen und Ogam aufsuchen. Er kann dir helfen, die richtigen Worte zu bekommen, um Lodars Zufluchtsort betreten zu können.|{{0|lodar|15|}}|{{Wie komme ich nach Vilegard?|umar_vilegard_1|||||}{Danke sehr. Da war noch etwas anderes, über das ich reden wollte.|umar_return_2|||||}{Danke vielmals, auf Wiedersehen.|X|||||}}|};
+{umar_vilegard_1|Du reist von Fallhaven in Richtung Südosten. Wenn du die Hauptstraße und die Taverne \'Schäumende Flasche\' erreichst, reise nach Süden. Es liegt nicht weit von hier im Südosten.||{{N|umar_return_2|||||}}|};
 	</string>
 
 </resources>
