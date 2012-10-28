@@ -58,10 +58,10 @@
 
 	<string name="conversationlist_crossglen_tharal">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{tharal1|Walk in the glow of the Shadow, my child.||{{Do you have anything to trade?|S|||||}{What can you tell me about bonemeal?|tharal_bonemeal_select|bonemeal:10||||}}|};
+{tharal1|Walk in the glow of the Shadow, my child.||{{Do you have anything to trade?|S|||||}{What can you tell me about Bonemeal?|tharal_bonemeal_select|bonemeal:10||||}}|};
 {tharal_bonemeal_select|||{{|tharal_bonemeal4|bonemeal:30||||}{|tharal_bonemeal1|||||}}|};
 {tharal_bonemeal1|Bonemeal? We shouldn\'t talk about that. Lord Geomyr issued a decree. It\'s not allowed anymore.||{{Please?|tharal_bonemeal2_1|||||}}|};
-{tharal_bonemeal2_1|No, we really shouldn\'t talk about that.||{{Oh come on|tharal_bonemeal2|||||}}|};
+{tharal_bonemeal2_1|No, we really shouldn\'t talk about that.||{{Oh come on.|tharal_bonemeal2|||||}}|};
 {tharal_bonemeal2|Well if you really are that persistent. Bring me 5 insect wings that I can use for making potions and maybe we can talk more.|{{0|bonemeal|20|}}|{{Here, I have the insect wings.|tharal_bonemeal3||insectwing|5|0|}{Ok, I\'ll bring them.|X|||||}}|};
 {tharal_bonemeal3|Thanks kid. I knew I could count on you.|{{0|bonemeal|30|}}|{{N|tharal_bonemeal4|||||}}|};
 {tharal_bonemeal4|Oh yes, bonemeal. Mixed with the right components it can be one of the most effective healing agents around.||{{N|tharal_bonemeal5|||||}}|};
@@ -78,7 +78,7 @@
 {gruil_complete|Thanks a lot kid. This will do just fine.|{{0|andor|30|}}|{{N|gruil_andor1|||||}}|};
 {gruil_return|Look kid, I already told you.||{{N|gruil_andor1|||||}}|};
 {gruil_andor1|I talked to him yesterday. He asked if I knew someone called Umar or something like that. I have no idea who he was talking about.||{{N|gruil_andor2|||||}}|};
-{gruil_andor2|He seemed really upset about something and left in a hurry. Something about the Thieves Guild in Fallhaven.||{{N|gruil_andor3|||||}}|};
+{gruil_andor2|He seemed really upset about something and left in a hurry. Something about the Thieves\' Guild in Fallhaven.||{{N|gruil_andor3|||||}}|};
 {gruil_andor3|That\'s all I know. Maybe you should ask around in Fallhaven. Look for my friend Gaela, he probably knows more.||{{Thanks, bye.|X|||||}}|};
 	</string>
 
@@ -176,7 +176,7 @@
 
 	<string name="conversationlist_fallhaven_bucus">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{bucus_welcome|Hi again, welcome back to the .. Oh wait, I thought you were someone else.||{{Have you seen my brother Andor?|bucus_andor_select|||||}{What do you know about the thieves guild?|bucus_thieves_select|||||}}|};
+{bucus_welcome|Hi again, welcome back to the .. Oh wait, I thought you were someone else.||{{Have you seen my brother Andor?|bucus_andor_select|||||}{What do you know about the Thieves\' Guild?|bucus_thieves_select|||||}}|};
 {bucus_andor_select|||{{|bucus_umar_1|bucus:100||||}{|bucus_andor_no_1|||||}}|};
 {bucus_andor_no_1|How interesting that you should ask. What if I had seen him? Why would I tell you?||{{N|bucus_andor_no_2|||||}}|};
 {bucus_andor_no_2|No, I can\'t tell you. Now please leave.|||};
@@ -186,8 +186,8 @@
 {bucus_umar_1|Ok kid. You\'ve proven yourself to me. Yes, I saw some other kid by that description running around here a few days ago.||{{N|bucus_umar_2|||||}}|};
 {bucus_umar_2|I don\'t know what he was up to though. He kept asking a lot of questions. Kind of like you do. *snicker*||{{N|bucus_umar_3|||||}}|};
 {bucus_umar_3|Anyway, that\'s all I know. You should go talk to Umar, he probably knows more. Down that hatch over there.|{{0|andor|50|}}|{{Ok, bye|X|||||}}|};
-{bucus_thieves_1|Who told you that? Argh.\n\nOk so you found us. Now what?||{{Can I join the thieves guild?|bucus_thieves_2|||||}}|};
-{bucus_thieves_2|Hah! Join the thieves guild?! You?!\n\nYou\'re one funny kid.||{{I\'m serious.|bucus_thieves_3|||||}{Yeah, pretty funny eh?|bucus_thieves_3|||||}}|};
+{bucus_thieves_1|Who told you that? Argh.\n\nOk so you found us. Now what?||{{Can I join the Thieves\' Guild?|bucus_thieves_2|||||}}|};
+{bucus_thieves_2|Hah! Join the Thieves\' Guild?! You?!\n\nYou\'re one funny kid.||{{I\'m serious.|bucus_thieves_3|||||}{Yeah, pretty funny eh?|bucus_thieves_3|||||}}|};
 {bucus_thieves_3|Ok, tell you what kid. Do a task for me and maybe I\'ll consider giving you more info.||{{What kind of task are we talking about?|bucus_thieves_4|||||}{As long as this leads to some treasure, I\'m in!|bucus_thieves_4|||||}}|};
 {bucus_thieves_4|Bring me the key of Luthor and we can talk more. I don\'t know anything about the key itself, but rumor has it that it is located somewhere in the catacombs beneath Fallhaven Church.|{{0|bucus|10|}}|{{Ok, sounds easy enough.|X|||||}}|};
 {bucus_thieves_continue|How is the search for the key of Luthor going?||{{What was I supposed to do again?|bucus_thieves_4|||||}{Here, I have it. The key of Luthor.|bucus_thieves_complete_1||key_luthor|1|0|}{I\'m still looking for it. Bye.|X|||||}}|};
@@ -262,8 +262,8 @@
 {bela_room_2|Thanks. Take the last room down at the end of the hall.|{{0|fallhaventavern|10|}}|{{Thank you. There was something else I wanted to talk about.|bela|||||}{Thanks, bye.|X|||||}}|};
 {bela_room_3|I hope the room suits your needs. It\'s the last room down at the end of the hall.||{{Thank you. There was something else I wanted to talk about.|bela|||||}{Thanks, bye.|X|||||}}|};
 {bela_room_select|||{{|bela_room_3|fallhaventavern:10||||}{|bela_room_1|||||}}|};
-{ganos|You seem familiar somehow.||{{Do you have anything to trade?|S|||||}{Do you know anything about the thieves guild?|ganos_1|andor:30||||}}|};
-{ganos_1|Thieves guild? How would I know? Do I look like a thief to you?! Hrmpf.|||};
+{ganos|You seem familiar somehow.||{{Do you have anything to trade?|S|||||}{Do you know anything about the Thieves\' Guild?|ganos_1|andor:30||||}}|};
+{ganos_1|Thieves\' Guild? How would I know? Do I look like a thief to you?! Hrmpf.|||};
 	</string>
 
 	<string name="conversationlist_fallhaven_arcir">
@@ -339,7 +339,7 @@
 {unnmir_1|That old drunk over at the tavern told you his story did he?||{{N|unnmir_2|||||}}|};
 {unnmir_2|Same old story. We used to travel together a few years back.||{{N|unnmir_3|||||}}|};
 {unnmir_3|Real adventuring you know, swords and spells.||{{N|unnmir_4|||||}}|};
-{unnmir_4|But then we stopped. I can\'t really say why, I guess we got tired of life on the road. We settled down here in Fallhaven.||{{N|unnmir_5|||||}}|};
+{unnmir_4|Then, after a while, we stopped. I can\'t really say why, I guess we got tired of life on the road. We settled down here in Fallhaven.||{{N|unnmir_5|||||}}|};
 {unnmir_5|Nice little town here. A lot of thieves around, but they don\'t bother me.||{{N|unnmir_6|||||}}|};
 {unnmir_6|So what\'s your story, kid? How did you end up here in Fallhaven?||{{I\'m looking for my brother.|unnmir_7|||||}}|};
 {unnmir_7|Yeah yeah, I get it. Your brother has probably run off to some dungeon, trying to go adventuring. *rolls eyes*||{{N|unnmir_8|||||}}|};
@@ -362,7 +362,7 @@
 {gaela_1|Yes, we thieves have a strong presence here.||{{Anything more?|gaela_2|andor:30||||}}|};
 {gaela_2|I heard that you helped Gruil, a fellow thief in Crossglen village.||{{N|gaela_3|||||}}|};
 {gaela_3|Word has also reached me that you are looking for someone. I might be able to help you.||{{N|gaela_4|||||}}|};
-{gaela_4|You should go talk to Bucus in the derelict house a bit southwest of here. Tell him you want to know more about the Thieves guild.|{{0|andor|40|}}|{{Thanks, I\'ll go talk to him.|gaela_5|||||}}|};
+{gaela_4|You should go talk to Bucus in the derelict house a bit southwest of here. Tell him you want to know more about the Thieves\' Guild.|{{0|andor|40|}}|{{Thanks, I\'ll go talk to him.|gaela_5|||||}}|};
 {gaela_5|Consider it a favor done in return for helping Gruil.|||};
 	</string>
 
@@ -419,7 +419,7 @@
 	{|vacor_return_complete|||||}
 	}|};
 {vacor_return_complete|Hello again, my assassin friend. I will soon have my rift spell ready.|||};
-{vacor_70|What? He told you his story? And you actually believed it?||{{N|vacor_71|||||}}|};
+{vacor_70|What? He told you his story? You actually believed it?||{{N|vacor_71|||||}}|};
 {vacor_71|I will give you one more chance. Either kill Unzel for me, and I will reward you handsomely, or you will have to fight me.||{{No. You must be stopped.|vacor_72|||||}{Ok, I\'ll think about it once more.|X|||||}}|};
 {vacor_72|Bah, lowly creature. I knew I shouldn\'t have trusted you. Now you will die along with your precious Shadow.|{{0|vacor|54|}}|{{For the Shadow!|F|||||}{You must be stopped.|F|||||}}|};
 	</string>
@@ -432,17 +432,17 @@
 {unzel_4|Very well then. Kill me if you must, or allow me to tell you my side of the story.||{{Hah, I will enjoy killing you!|unzel_fight|||||}{I will listen to your story.|unzel_5|||||}}|};
 {unzel_fight|Very well, let\'s fight then.|{{0|vacor|53|}}|{{A fight it is!|F|||||}}|};
 {unzel_5|Thank you for listening.||{{N|unzel_10|||||}}|};
-{unzel_10|Vacor and I used to travel together. But he started to get obsessed with his spell making.||{{N|unzel_11|||||}}|};
+{unzel_10|Vacor and I used to travel together, but he started to get obsessed with his spell making.||{{N|unzel_11|||||}}|};
 {unzel_11|He even started to question the Shadow. I knew I had to do something to stop him!||{{N|unzel_12|||||}}|};
 {unzel_12|I started questioning him about what he was up to, but he just wanted to keep on going.||{{N|unzel_13|||||}}|};
 {unzel_13|After a while, he became obsessed with the thought of a rift spell. He said it would grant him unlimited powers against the Shadow.||{{N|unzel_14|||||}}|};
 {unzel_14|So, there was only one thing I could do. I left him and needed to stop him from trying to create the rift spell.||{{N|unzel_15|||||}}|};
 {unzel_15|I sent some friends to take the spell from him.||{{N|unzel_16_select|||||}}|};
 {unzel_16_select|||{{|unzel_16_2|vacor:50||||}{|unzel_16_1|||||}}|};
-{unzel_16_1|And here we are.||{{I killed the four bandits you sent after Vacor.|unzel_17|||||}}|};
-{unzel_16_2|And here we are.||{{N|unzel_19|||||}}|};
+{unzel_16_1|So, here we are.||{{I killed the four bandits you sent after Vacor.|unzel_17|||||}}|};
+{unzel_16_2|So, here we are.||{{N|unzel_19|||||}}|};
 {unzel_17|What? You killed my four friends? Argh, I feel the rage coming.||{{N|unzel_18|||||}}|};
-{unzel_18|But I also realize that all this is the making of Vacor. I\'ll give you a choice now. Choose wisely.||{{N|unzel_19|||||}}|};
+{unzel_18|However, I also realize that all this is the making of Vacor. I\'ll give you a choice now. Choose wisely.||{{N|unzel_19|||||}}|};
 {unzel_19|Either you side with Vacor and his rift spell, or side with the Shadow, and help me get rid of him. Who will you help?|{{0|vacor|50|}}|{{I will side with you. The Shadow must not be disturbed.|unzel_20|||||}{I will side with Vacor.|unzel_fight|||||}}|};
 {unzel_20|Thank you my friend. We will keep the Shadow safe from Vacor.|{{0|vacor|51|}}|{{N|unzel_21|||||}}|};
 {unzel_21|You should go talk to him about the Shadow.|||};
@@ -484,7 +484,7 @@
 {flagstone_sentry_7|The warden that ran Flagstone on the other hand took his duty very seriously, and kept on running the prison just like it was when Mount Galmore was being dug out.||{{N|flagstone_sentry_8|||||}}|};
 {flagstone_sentry_8|For years, no one took notice of Flagstone. Except for the occasional reports from travelers of terrible screams coming from the camp.||{{N|flagstone_sentry_9|||||}}|};
 {flagstone_sentry_9|There was a change recently, now the undead pour out in great numbers.||{{N|flagstone_sentry_10|||||}}|};
-{flagstone_sentry_10|And here we are. I have to guard the road from undead, so that they do not spread farther than Flagstone.||{{N|flagstone_sentry_11|||||}}|};
+{flagstone_sentry_10|So, here we are. I have to guard the road from undead, so that they do not spread farther than Flagstone.||{{N|flagstone_sentry_11|||||}}|};
 {flagstone_sentry_11|So, I would advise you to leave unless you want to be overrun by undead.||{{Can I investigate the Flagstone ruins?|flagstone_sentry_12|||||}{Yes, I should leave.|X|||||}}|};
 {flagstone_sentry_12|Are you really sure you want to head in there? Well, ok, fine by me.||{{N|flagstone_sentry_13|||||}}|};
 {flagstone_sentry_13|I won\'t stop you, and I won\'t mourn you if you never return.||{{N|flagstone_sentry_14|||||}}|};
@@ -508,10 +508,10 @@
 {narael_1|I have been a captive here for what seems to be an eternity.||{{N|narael_2|||||}}|};
 {narael_2|Oh, the things they did to me. Thank you so much for freeing me.||{{N|narael_3|||||}}|};
 {narael_3|I was once a citizen in Nor City, and worked on the excavation of Mount Galmore.||{{N|narael_4|||||}}|};
-{narael_4|But one day I wanted to quit the assignment and return to my wife.||{{N|narael_5|||||}}|};
+{narael_4|After a while, the day came when I wanted to quit the assignment and return to my wife.||{{N|narael_5|||||}}|};
 {narael_5|The officer in charge would not let me, and I was sent to Flagstone as a prisoner for disobeying orders.||{{N|narael_6|||||}}|};
-{narael_6|If only I could see my wife once more. But I have hardly any life left in me, I don\'t even have enough strength to leave this place.||{{N|narael_7|||||}}|};
-{narael_7|I guess my fate is to perish here. But now as a free man at least.||{{N|narael_8|||||}}|};
+{narael_6|If only I could see my wife once more. I have hardly any life left in me, and I don\'t even have enough strength to leave this place.||{{N|narael_7|||||}}|};
+{narael_7|I guess my fate is to perish here, but now as a free man at least.||{{N|narael_8|||||}}|};
 {narael_8|Now leave me to my fate. I do not have the strength to leave this place.|{{0|flagstone|60|}}|{{N|narael_9|||||}}|};
 {narael_9|If you find my wife Taurum in Nor City, please tell her I\'m alive and that I haven\'t forgotten about her.||{{I will. Goodbye.|X|||||}{I will. Shadow be with you.|X|||||}}|};
 	</string>
@@ -541,7 +541,7 @@
 {sign_fallhaven1|Welcome to Fallhaven. Watch out for pickpockets!|||};
 {key_fallhavenchurch|You are not allowed to enter the catacombs of Fallhaven Church without permission.|||};
 {arcir_basement_tornpage|You see a torn page from a book titled \'Calomyran Secrets\'. Blood stains its edges, and someone has scribbled the words \'Larcal\' with the blood.|{{0|calomyran|20|}}||};
-{arcir_basement_statue|Elythara, mother of the light. Protect us from the curse of the shadow.|{{0|arcir|10|}}||};
+{arcir_basement_statue|Elythara, mother of the light. Protect us from the curse of the Shadow.|{{0|arcir|10|}}||};
 {fallhaven_tavern_room|You are not allowed into the room unless you have rented it.|||};
 {fallhaven_derelict1|Bucus shouts: Hey you, get away from there!|||};
 {sign_wild6|North: Crossglen\nEast: Fallhaven\nSouth: Stoutford|||};
@@ -561,9 +561,9 @@
 {thievesguild_thief_4|He is probably in his room over there. *points*||{{Thanks.|X|||||}}|};
 {thievesguild_thief_5|Umar is our guild leader. He decides our rules and guides us in moral decisions.||{{Where can I find him?|thievesguild_thief_4|||||}}|};
 
-{thievesguild_cook_1|Hello, did you want something?||{{You look like the cook around here|thievesguild_cook_2|||||}{Can I see what food you have for sale?|S|||||}{Farrik said you can prepare me a round of special mead|thievesguild_select_1|farrik:20||||}}|};
+{thievesguild_cook_1|Hello, did you want something?||{{You look like the cook around here.|thievesguild_cook_2|||||}{Can I see what food you have for sale?|S|||||}{Farrik said you can prepare me a round of special mead.|thievesguild_select_1|farrik:20||||}}|};
 {thievesguild_cook_2|That\'s right. Someone has to keep these ruffians fed.||{{That sure smells good|thievesguild_cook_3|||||}{That stew looks disgusting|thievesguild_cook_4|||||}{Never mind, bye|X|||||}}|};
-{thievesguild_cook_3|Thanks. This stew is coming along nicely.||{{I\'m interested in buying some of that|S|||||}}|};
+{thievesguild_cook_3|Thanks. This stew is coming along nicely.||{{I\'m interested in buying some of that.|S|||||}}|};
 {thievesguild_cook_4|Yeah, I know. With ingredients this bad, what can you do? Anyway, it keeps us fed.||{{Can I see what food you have for sale?|S|||||}}|};
 {thievesguild_cook_5|Oh sure. Planning to get someone a bit sleepy eh?||{{N|thievesguild_cook_6|||||}}|};
 {thievesguild_cook_6|Don\'t worry, I won\'t tell anyone. Making sleepy food is one of my specialties.||{{N|thievesguild_cook_7|||||}}|};
@@ -577,8 +577,8 @@
 {thievesguild_pickpocket_2|My real name is unimportant. People mostly call me Quickfingers.||{{Why is that?|thievesguild_pickpocket_3|||||}}|};
 {thievesguild_pickpocket_3|Well, I have a tendency to .. how shall I put this .. acquire certain things easily.||{{N|thievesguild_pickpocket_4|||||}}|};
 {thievesguild_pickpocket_4|Things previously in the possession of other people.||{{Do you mean like stealing?|thievesguild_pickpocket_5|||||}}|};
-{thievesguild_pickpocket_5|No no. I wouldn\'t call it stealing. It\'s more of a transfer of ownership. To me, that is.||{{That sounds a lot like stealing to me|thievesguild_pickpocket_6|||||}{That sounds like a good justification|thievesguild_pickpocket_6|||||}}|};
-{thievesguild_pickpocket_6|After all, we are the Thieves Guild. What did you expect?|||};
+{thievesguild_pickpocket_5|No no. I wouldn\'t call it stealing. It\'s more of a transfer of ownership. To me, that is.||{{That sounds a lot like stealing to me.|thievesguild_pickpocket_6|||||}{That sounds like a good justification.|thievesguild_pickpocket_6|||||}}|};
+{thievesguild_pickpocket_6|After all, we are the Thieves\' Guild. What did you expect?|||};
 
 {thievesguild_troublemaker_1|Hello. Don\'t I recognize you from somewhere?||{{No, I\'m sure we have never met.|thievesguild_troublemaker_3|||||}{What do you do around here?|thievesguild_troublemaker_2|||||}{Can I take a look at what supplies you have available?|S|||||}}|};
 {thievesguild_troublemaker_2|I keep an eye on our supplies for the guild.||{{Can I take a look at what you have available?|S|||||}}|};
@@ -590,9 +590,9 @@
 	
 	<string name="conversationlist_farrik">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{farrik_1|Hello. I heard that you helped us find the key of Luthor. Good work, it will really come in handy.||{{Who are you?|farrik_2|||||}{What can you tell me about the thieves guild?|farrik_4|||||}}|};
-{farrik_2|I\'m Farrik, Umar\'s brother.||{{What do you do around here?|farrik_3|||||}{What can you tell me about the thieves guild?|farrik_4|||||}}|};
-{farrik_3|I mostly manage our trading with other guilds and keep an eye on what the thieves need to be as effective as they can be.||{{What can you tell me about the thieves guild?|farrik_4|||||}}|};
+{farrik_1|Hello. I heard that you helped us find the key of Luthor. Good work, it will really come in handy.||{{Who are you?|farrik_2|||||}{What can you tell me about the Thieves\' Guild?|farrik_4|||||}}|};
+{farrik_2|I\'m Farrik, Umar\'s brother.||{{What do you do around here?|farrik_3|||||}{What can you tell me about the Thieves\' Guild?|farrik_4|||||}}|};
+{farrik_3|I mostly manage our trading with other guilds and keep an eye on what the thieves need to be as effective as they can be.||{{What can you tell me about the Thieves\' Guild?|farrik_4|||||}}|};
 {farrik_4|We try to keep to ourselves as much as possible, and help our fellow thieves as much as possible.||{{Any recent events happening?|farrik_5|||||}}|};
 {farrik_5|Well, there was one thing a few weeks ago. One of our guild members got arrested for trespassing.||{{N|farrik_6|||||}}|};
 {farrik_6|The Fallhaven guard has started to get really annoyed at us lately. Probably because we have been very successful in our recent missions.||{{N|farrik_7|||||}}|};
@@ -600,9 +600,9 @@
 {farrik_8|He is currently held in the jail here in Fallhaven, pending transfer to Feygard.||{{What did he do?|farrik_9|||||}}|};
 {farrik_9|Oh, nothing serious. He was trying to get into the catacombs of Fallhaven church.||{{N|farrik_10|||||}}|};
 {farrik_10|But now that you have helped us with that mission, I guess we don\'t need to go there anymore.||{{N|farrik_11|||||}}|};
-{farrik_11|I guess I can trust you with this secret. We are planning a mission tonight to help him out of the prison.|{{0|farrik|10|}}|{{Those guards really seem annoying.|farrik_13|||||}{After all, if he wasn\'t allowed down there, then the guards are right to arrest him.|farrik_12|||||}}|};
+{farrik_11|I guess I can trust you with this secret. We are planning a mission tonight to help him out of jail.|{{0|farrik|10|}}|{{Those guards really seem annoying.|farrik_13|||||}{After all, if he wasn\'t allowed down there, then the guards are right to arrest him.|farrik_12|||||}}|};
 {farrik_12|Yeah, I guess so. But for the guild\'s sake, we would rather have our friend freed than imprisoned.||{{Maybe I should tell the guards that you are planning to get him out?|farrik_15|||||}{Don\'t worry, your secret plan to free him is safe with me.|farrik_14|||||}{[Lie] Don\'t worry, your secret plan to free him is safe with me.|farrik_14|||||}}|};
-{farrik_13|Oh yes, they are. The people also dislike them in general, it\'s not just us in the thieves guild.||{{Is there anything I can do to help you with those annoying guards?|farrik_16|||||}}|};
+{farrik_13|Oh yes, they are. The people also dislike them in general, it\'s not just us in the Thieves\' Guild.||{{Is there anything I can do to help you with those annoying guards?|farrik_16|||||}}|};
 {farrik_14|Thank you. Now please leave me.|||};
 {farrik_15|Whatever, they wouldn\'t believe you anyway.|{{0|farrik|30|}}||};
 {farrik_16|Are you sure you want to annoy the guards? If they catch word of you being involved, you could get into a lot of trouble.||{{No problem, I can handle myself!|farrik_18|||||}{There might be a reward for this later on. I\'m in.|farrik_18|||||}{On second thought, maybe I should keep out of this.|farrik_17|||||}}|};
@@ -617,7 +617,7 @@
 {farrik_return_1|Hello again my friend. How goes your mission to get the guard captain drunk?||{{I am not done yet, but I am working on it.|farrik_23|||||}{[Lie] It is done. He should be no problem during the night.|farrik_26|farrik:50||||}{It is done. He should be no problem during the night.|farrik_24|farrik:60||||}}|};
 {farrik_select_1|||{{|farrik_return_2|farrik:70||||}{|farrik_return_2|farrik:80||||}{|farrik_select_2|||||}}|};
 {farrik_select_2|||{{|farrik_return_1|farrik:20||||}{|farrik_1|||||}}|};
-{farrik_24|That is good news! Now we should be able to get our friend out from the prison tonight.|{{0|farrik|70|}}|{{N|farrik_25|||||}}|};
+{farrik_24|That is good news! Now we should be able to get our friend out from jail tonight.|{{0|farrik|70|}}|{{N|farrik_25|||||}}|};
 {farrik_25|Thank you for your help my friend. Take these coins as a token of our appreciation.|{{1|gold200||}}|{{Thank you. Goodbye.|X|||||}{Finally, some gold.|X|||||}}|};
 {farrik_return_2|Thank you for your help with the guard captain earlier.|||};
 {farrik_26|Oh you did? Well done. You have my thanks, friend.|{{0|farrik|80|}}||};
@@ -625,17 +625,17 @@
 
 	<string name="conversationlist_fallhaven_warden">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{fallhaven_warden|State your business.||{{Who is that prisoner?|warden_prisoner_1|||||}{I heard that you are fond of mead|fallhaven_warden_1|farrik:20||||}{The thieves are planning an escape for their friend.|fallhaven_warden_20|farrik:30||||}}|};
+{fallhaven_warden|State your business.||{{Who is that prisoner?|warden_prisoner_1|||||}{I heard that you are fond of mead.|fallhaven_warden_1|farrik:20||||}{The thieves are planning an escape for their friend.|fallhaven_warden_20|farrik:30||||}}|};
 {warden_prisoner_1|That thief? He was caught in the act. Trespassing he was. Trying to get down into the catacombs of Fallhaven church.||{{N|warden_prisoner_2|||||}}|};
 {warden_prisoner_2|Luckily, we caught him before he could get down there. Now he\'ll serve as an example to all other thieves.||{{N|warden_prisoner_3|||||}}|};
 {warden_prisoner_3|Damn thieves. There must be a nest of them around here somewhere. If only I could find where they hide.|||};
 {fallhaven_warden_1|Mead? Oh.. no, I don\'t do that anymore. Who told you that?||{{N|fallhaven_warden_2|||||}}|};
 {fallhaven_warden_2|I\'ve stopped doing that years ago.||{{Sounds like a good approach. Good luck with keeping away from it.|X|||||}{Not just even a little bit?|fallhaven_warden_3|||||}}|};
 {fallhaven_warden_3|Um. *clears throat* I really shouldn\'t.||{{I brought some with me if you would like to have a sip.|fallhaven_warden_4|farrik:25|sleepingmead|1|0|}{Ok, goodbye|X|||||}}|};
-{fallhaven_warden_4|Oh sweet drinks of joy. But I really shouldn\'t have this while on duty.|{{0|farrik|32|}}|{{N|fallhaven_warden_5|||||}}|};
+{fallhaven_warden_4|Oh sweet drinks of joy. I really shouldn\'t have this while on duty though.|{{0|farrik|32|}}|{{N|fallhaven_warden_5|||||}}|};
 {fallhaven_warden_5|I could get fined for drinking on duty. I don\'t think I would dare try it right now.||{{N|fallhaven_warden_6|||||}}|};
 {fallhaven_warden_6|Thank you for the drink though, I will enjoy it when I get home later tomorrow.||{{You are welcome. Goodbye.|X|||||}{What if someone would pay you the amount of the fine?|fallhaven_warden_7|||||}}|};
-{fallhaven_warden_7|Oh, that sounds a bit shady. I doubt anyone could afford the 450 gold around here. Anyway, I would need a bit more than that just to risk it.||{{I have 500 gold right here that you could have.|fallhaven_warden_9||gold|500|0|}{But you know you want the mead right?|fallhaven_warden_8|||||}{Yes, I agree. This is starting to sound too shady. Goodbye.|X|||||}}|};
+{fallhaven_warden_7|Oh, that sounds a bit shady. I doubt anyone could afford the 450 gold around here. Anyway, I would need a bit more than that just to risk it.||{{I have 500 gold right here that you could have.|fallhaven_warden_9||gold|500|0|}{You know you want the mead right?|fallhaven_warden_8|||||}{Yes, I agree. This is starting to sound too shady. Goodbye.|X|||||}}|};
 {fallhaven_warden_8|Oh sure. Now that you mention it. It sure would be good.||{{So what if I pay you, say, 400 gold. Would that cover enough of your anxiety to enjoy the drink now?|fallhaven_warden_9||gold|400|0|}{This is starting to sound too shady for me. I\'ll leave you to your duty, goodbye.|X|||||}{I\'ll go get that gold for you. Goodbye.|X|||||}}|};
 {fallhaven_warden_9|Wow, that much gold? I\'m sure I could even get away with this without being fined. Then I could have the gold AND a nice drink of mead at the same time.|{{0|farrik|60|}}|{{N|fallhaven_warden_10|||||}}|};
 {fallhaven_warden_10|Thank you kid, you really are nice. Now leave me to enjoy my drink.|||};
@@ -643,7 +643,7 @@
 {fallhaven_warden_select_2|||{{|fallhaven_warden_30|farrik:50||||}{|fallhaven_warden_12|farrik:32||||}{|fallhaven_warden|||||}}|};
 {fallhaven_warden_11|Hello again, kid. Thanks for the drink earlier. I had it all in one go. It sure tasted a bit different than before, but I guess that is just because I\'m not used to it anymore.||{{Who is that prisoner?|warden_prisoner_1|||||}}|};
 {fallhaven_warden_12|Hello again, kid. Thanks for the drink earlier. I still haven\'t had it.||{{N|fallhaven_warden_5|||||}}|};
-{fallhaven_warden_20|Really, they would dare go up against the guard in Fallhaven? Do you have any details on their plan?||{{I heard they are planning his escape tonight|fallhaven_warden_21|||||}{No, I was just kidding with you. Never mind.|X|||||}{On second thought, I better not upset the thieves guild. Never mind I said anything.|X|||||}}|};
+{fallhaven_warden_20|Really, they would dare go up against the guard in Fallhaven? Do you have any details on their plan?||{{I heard they are planning his escape tonight|fallhaven_warden_21|||||}{No, I was just kidding with you. Never mind.|X|||||}{On second thought, I better not upset the Thieves\' Guild. Never mind I said anything.|X|||||}}|};
 {fallhaven_warden_21|Tonight? Thank you for this information. We will make sure to increase the security tonight then, but in such a way that they won\'t notice.|{{0|farrik|40|}}|{{N|fallhaven_warden_22|||||}}|};
 {fallhaven_warden_22|When they do decide to break him free, we will be prepared. Maybe we can arrest more of those filthy thieves.||{{N|fallhaven_warden_23|||||}}|};
 {fallhaven_warden_23|Thank you again for the information. While I\'m not sure how you may know this, I really appreciate you telling me.||{{N|fallhaven_warden_24|||||}}|};
@@ -664,23 +664,23 @@
 {umar_2|Last time we talked, you asked for the way to Lodar\'s Hideaway. Did you find it?||{{We have never met.|umar_3|||||}{You must have me confused with my brother Andor. We look very much alike.|umar_4|||||}}|};
 {umar_3|Oh. I must have you mixed up with someone else.||{{My brother Andor and I look very much alike.|umar_4|||||}}|};
 {umar_4|Really? Never mind I said anything then.|{{0|andor|51|}}|{{I guess that means that Andor was here. What was he doing?|umar_5|||||}}|};
-{umar_5|He came here a while ago, asking a lot of questions about what relation the Thieves Guild has to the Shadow and to the royal guard in Feygard.||{{N|umar_6|||||}}|};
-{umar_6|We in the Thieves Guild really don\'t care much for the Shadow. Nor do we care for the royal guard.||{{N|umar_7|||||}}|};
-{umar_7|We try to be above their bickering and differences. They may fight as much as they want, but the Thieves Guild will outlive them all.||{{What conflict?|umar_conflict_1|||||}{Tell me more about what Andor asked for|umar_andor_1|||||}}|};
+{umar_5|He came here a while ago, asking a lot of questions about what relation the Thieves\' Guild has to the Shadow and to the royal guard in Feygard.||{{N|umar_6|||||}}|};
+{umar_6|We in the Thieves\' Guild really don\'t care much for the Shadow. Nor do we care for the royal guard.||{{N|umar_7|||||}}|};
+{umar_7|We try to be above their bickering and differences. They may fight as much as they want, but the Thieves\' Guild will outlive them all.||{{What conflict?|umar_conflict_1|||||}{Tell me more about what Andor asked for|umar_andor_1|||||}}|};
 {umar_conflict_1|Where have you been the last couple of years? Don\'t you know of the brewing conflict?||{{N|umar_conflict_2|||||}}|};
 {umar_conflict_2|The royal guard, led by Lord Geomyr in Feygard, are trying to ward off the recent increase in illegal activities, and are therefore imposing more restrictions on what is allowed and not.||{{N|umar_conflict_3|||||}}|};
 {umar_conflict_3|The priests of the Shadow, mostly seated in Nor City, are opponents to the new restrictions, saying that they limit the ways that they can please the Shadow.||{{N|umar_conflict_4|||||}}|};
 {umar_conflict_4|In turn, the rumor is that the priests of the Shadow are planning to overthrow Lord Geomyr and his forces.||{{N|umar_conflict_5|||||}}|};
 {umar_conflict_5|Also, the rumor is that the priests of the Shadow are still doing their rituals, despite the fact that most of the rituals have been banned.||{{N|umar_conflict_6|||||}}|};
 {umar_conflict_6|Lord Geomyr and his royal guard on the other hand, are still trying their best to rule in a way that they feel is fair.||{{N|umar_conflict_7|||||}}|};
-{umar_conflict_7|We in the Thieves Guild try not to get involved in the conflict. Our business is so far unaffected by all of this.||{{Thank you for telling me.|umar_return_2|||||}{Whatever, that doesn\'t concern me.|umar_return_2|||||}}|};
+{umar_conflict_7|We in the Thieves\' Guild try not to get involved in the conflict. Our business is so far unaffected by all of this.||{{Thank you for telling me.|umar_return_2|||||}{Whatever, that doesn\'t concern me.|umar_return_2|||||}}|};
 {umar_andor_1|He asked me for my support, and asked of how to find Lodar.||{{Who is Lodar?|umar_andor_2|||||}}|};
-{umar_andor_2|Lodar? He is one of our famous potion makers in the Thieves Guild. He can make all sorts of strong sleeping potions, healing potions and cures.||{{N|umar_andor_3|||||}}|};
+{umar_andor_2|Lodar? He is one of our famous potion makers in the Thieves\' Guild. He can make all sorts of strong sleeping potions, healing potions and cures.||{{N|umar_andor_3|||||}}|};
 {umar_andor_3|But his specialty is, of course, his poisons. His poison can harm even the largest of monsters.||{{What would Andor want with him?|umar_andor_4|||||}}|};
 {umar_andor_4|I don\'t know. Maybe he was looking for a potion.|{{0|andor|55|}}|{{So, where can I find this Lodar?|umar_lodar_1|||||}}|};
 {umar_lodar_1|I really shouldn\'t tell you. How to get to him is one of our closely guarded secrets in the guild. His hideaway is only reachable by our members.||{{N|umar_lodar_2|||||}}|};
 {umar_lodar_2|However, I heard that you helped us find the key of Luthor. This is something we have been trying to get to for a long time.||{{N|umar_lodar_3|||||}}|};
-{umar_lodar_3|Ok, I\'ll tell you how to get to Lodar\'s Hideaway. But you have to promise to keep it a secret. Do not tell anyone. Not even those that appear to be members of the Thieves Guild.||{{Ok, I\'ll promise to keep it a secret.|umar_lodar_4|||||}{I can\'t give any guarantees, but I will try.|umar_lodar_4|||||}}|};
+{umar_lodar_3|Ok, I\'ll tell you how to get to Lodar\'s Hideaway. But you have to promise to keep it a secret. Do not tell anyone. Not even those that appear to be members of the Thieves\' Guild.||{{Ok, I\'ll promise to keep it a secret.|umar_lodar_4|||||}{I can\'t give any guarantees, but I will try.|umar_lodar_4|||||}}|};
 {umar_lodar_4|Good. The thing is, you not only need to find the place itself, but you also need to utter the correct words to be allowed entry by the guardian.||{{N|umar_lodar_5|||||}}|};
 {umar_lodar_5|The only one that understands the language of the guardian is the old man Ogam in Vilegard.|{{0|lodar|10|}}|{{N|umar_lodar_6|||||}}|};
 {umar_lodar_6|You should travel to the town of Vilegard and find Ogam. He can help you get the right words to enter Lodar\'s Hideaway.|{{0|lodar|15|}}|{{How do I get to Vilegard?|umar_vilegard_1|||||}{Thank you. There was something else I wanted to talk about.|umar_return_2|||||}{Thank you, goodbye.|X|||||}}|};
@@ -827,7 +827,7 @@
 	<string name="conversationlist_ogam">
 [id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
 {ogam_1|Belief. Power. Struggle.||{{What?|ogam_2|||||}{I was told to see you.|ogam_2|lodar:15||||}}|};
-{ogam_2|Backwards is the burden high and low.||{{What?|ogam_3|||||}{Please go on|ogam_3|||||}{Hello? Umar in the Fallhaven thieves guild sent me to see you.|ogam_3|lodar:15||||}}|};
+{ogam_2|Backwards is the burden high and low.||{{What?|ogam_3|||||}{Please go on|ogam_3|||||}{Hello? Umar in the Fallhaven Thieves\' Guild sent me to see you.|ogam_3|lodar:15||||}}|};
 {ogam_3|Hiding in the Shadow.||{{N|ogam_4|||||}}|};
 {ogam_4|Two alike in body and mind.||{{Are you going to make any sense?|ogam_5|||||}{What do you mean?|ogam_5|||||}}|};
 {ogam_5|The lawful and the chaotic.||{{Hello? Do you know how I can reach Lodar\'s hideaway?|ogam_lodar_1|lodar:15||||}{I don\'t understand.|ogam_6|||||}}|};
@@ -835,7 +835,7 @@
 {ogam_6|Yes. The true form. Behold.||{{N|ogam_7|||||}}|};
 {ogam_7|Hiding in the Shadow.||{{The Shadow?|ogam_4|||||}{Are you even listening to what I say?|ogam_4|||||}{Hello? Do you know how I can reach Lodar\'s hideaway?|ogam_lodar_2|lodar:15||||}}|};
 {ogam_lodar_2|Lodar, halfway between the Shadow and the light. Rocky formations.||{{Ok, halfway between two places. Some rocks?|ogam_lodar_3|||||}{Uh. Could you repeat that?|ogam_lodar_3|||||}}|};
-{ogam_lodar_3|Guardian. Glow of the Shadow.|{{0|lodar|20|}}|{{Glow of the Shadow? Are those the words the guardian needs to hear?|ogam_lodar_4|||||}{\'Glow of the shadow\'? I recognize that from somewhere.|ogam_lodar_4|bonemeal:30||||}}|};
+{ogam_lodar_3|Guardian. Glow of the Shadow.|{{0|lodar|20|}}|{{Glow of the Shadow? Are those the words the guardian needs to hear?|ogam_lodar_4|||||}{\'Glow of the Shadow\'? I recognize that from somewhere.|ogam_lodar_4|bonemeal:30||||}}|};
 {ogam_lodar_4|Turning. Twisting. Clear form.||{{What does that mean?|ogam_1|||||}}|};
 	</string>
 
@@ -909,7 +909,7 @@
 {ff_outsideguard_trouble_1|Really, I cannot talk to you. I could get into trouble.||{{Ok. I won\'t bother you anymore. Shadow be with you.|ff_outsideguard_shadow_1|||||}{Ok. I won\'t bother you anymore. Goodbye.|X|||||}{What trouble?|ff_outsideguard_trouble_2|||||}}|};
 {ff_outsideguard_trouble_2|No really, the captain might see me. I must be aware on my post at all times. *sigh*||{{Ok. I won\'t bother you anymore. Shadow be with you.|ff_outsideguard_shadow_1|||||}{Ok. I won\'t bother you anymore. Goodbye.|X|||||}{Do you like your job here?|ff_outsideguard_trouble_3|||||}}|};
 {ff_outsideguard_trouble_3|My job? I guess the royal guard is ok. I mean, Feygard is a really nice place to live in.||{{N|ff_outsideguard_trouble_4|||||}}|};
-{ff_outsideguard_trouble_4|But standing guard on duty out here in the middle of nowhere is not really what I signed up for.||{{I bet. This place is really boring.|ff_outsideguard_trouble_5|||||}{You must get tired of just standing here also.|ff_outsideguard_trouble_5|||||}}|};
+{ff_outsideguard_trouble_4|Standing guard on duty out here in the middle of nowhere is not really what I signed up for.||{{I bet. This place is really boring.|ff_outsideguard_trouble_5|||||}{You must get tired of just standing here also.|ff_outsideguard_trouble_5|||||}}|};
 {ff_outsideguard_trouble_5|Yeah I know. I would rather be inside in the tavern drinking like the senior officers and the captain. How come I have to stand out here?||{{At least the Shadow watches over you.|ff_outsideguard_shadow_1|||||}{Why not just leave if it\'s not what you want to do?|ff_outsideguard_trouble_7|||||}{The greater cause of the royal guard, to keep the peace, is worth it in the long run.|ff_outsideguard_trouble_6|||||}}|};
 {ff_outsideguard_trouble_6|Yes, you are right of course. Our duty is to Feygard and to keep the peace from all that want to disrupt it.||{{Yes. The Shadow will not look favorably upon those that disrupt the peace.|ff_outsideguard_shadow_1|||||}{Yes. The troublemakers should be punished.|ff_outsideguard_trouble_8|||||}}|};
 {ff_outsideguard_trouble_7|No, my loyalty is to Feygard. If I would leave, I would also leave my loyalty behind.||{{What does that mean if you are not satisfied with what you do?|ff_outsideguard_trouble_9|||||}{Yes, that sounds right. Feygard sounds like a nice place from what I have heard.|ff_outsideguard_trouble_6|||||}}|};
@@ -2193,14 +2193,14 @@
 	}|};
 {tinlyn_story_1|Hello there. You wouldn\'t happen to want to help an old shepherd do you?||{{What\'s the problem?|tinlyn_story_2|||||}}|};
 {tinlyn_story_2|You see, I tend my flock of sheep here. These fields are excellent pastures for them.||{{N|tinlyn_story_3|||||}}|};
-{tinlyn_story_3|But the thing is, I have lost four of them. Now I won\'t dare leave the ones I still have in my sight to go look for the lost ones.|{{0|tinlyn|10|}}|{{N|tinlyn_story_3_1|||||}}|};
+{tinlyn_story_3|The thing is, I have lost four of them. Now I won\'t dare leave the ones I still have in my sight to go look for the lost ones.|{{0|tinlyn|10|}}|{{N|tinlyn_story_3_1|||||}}|};
 {tinlyn_story_3_1|||{
 	{|tinlyn_story_6|tinlyn:15||||}
 	{|tinlyn_story_4|||||}
 	}|};
 {tinlyn_story_4|Would you be willing to help me find them?||{
 	{This doesn\'t sound like there will be any fighting involved. I only do things where there\'s fighting involved.|tinlyn_decline_1|||||}
-	{Absolutely, I would love to help an old man.|tinlyn_story_5|||||}
+	{Absolutely, it would be my honor to assist you in locating your missing sheep.|tinlyn_story_5|||||}
 	{What would I gain from this?|tinlyn_story_4_1|||||}
 	}|};
 {tinlyn_decline_1|Oh well, it didn\'t hurt to ask.|||};
@@ -2234,19 +2234,19 @@
 {tinlyn_lostsheep3|||{{|tinlyn_lostsheep_y|tinlyn:22||||}{|tinlyn_lostsheep3_n|||||}}|};
 {tinlyn_lostsheep4|||{{|tinlyn_lostsheep_y|tinlyn:23||||}{|tinlyn_lostsheep4_n|||||}}|};
 {tinlyn_lostsheep1_n|Baah!||{
-	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep1_place||tinlyn_bells|1|0|}
+	{Place Tinlyn\'s bell around the neck of the sheep.|tinlyn_lostsheep1_place||tinlyn_bells|1|0|}
 	{Attack|tinlyn_lostsheep_atk|benbyr:20||||}
 	}|};
 {tinlyn_lostsheep2_n|Baah!||{
-	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep2_place||tinlyn_bells|1|0|}
+	{Place Tinlyn\'s bell around the neck of the sheep.|tinlyn_lostsheep2_place||tinlyn_bells|1|0|}
 	{Attack|tinlyn_lostsheep_atk|benbyr:20||||}
 	}|};
 {tinlyn_lostsheep3_n|Baah!||{
-	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep3_place||tinlyn_bells|1|0|}
+	{Place Tinlyn\'s bell around the neck of the sheep.|tinlyn_lostsheep3_place||tinlyn_bells|1|0|}
 	{Attack|tinlyn_lostsheep_atk|benbyr:20||||}
 	}|};
 {tinlyn_lostsheep4_n|Baah!||{
-	{Place Tinlyn\'s bells around the neck of the sheep|tinlyn_lostsheep4_place||tinlyn_bells|1|0|}
+	{Place Tinlyn\'s bell around the neck of the sheep.|tinlyn_lostsheep4_place||tinlyn_bells|1|0|}
 	{Attack|tinlyn_lostsheep_atk|benbyr:20||||}
 	}|};
 {tinlyn_lostsheep_y|Baah!||{{Attack|tinlyn_lostsheep_atk|benbyr:20||||}}|};
@@ -2259,7 +2259,7 @@
 {tinlyn_lostsheep_check_3|||{{|tinlyn_lostsheep_check_4|tinlyn:22||||}{|tinlyn_lostsheep_placed_2|||||}}|};
 {tinlyn_lostsheep_check_4|||{{|tinlyn_lostsheep_placed_1|tinlyn:23||||}{|tinlyn_lostsheep_placed_2|||||}}|};
 {tinlyn_lostsheep_placed_1||{{0|tinlyn|25|}}|{{|tinlyn_lostsheep_placed_2|||||}}|};
-{tinlyn_lostsheep_placed_2|(You place the bells around the neck of the sheep.)|||};
+{tinlyn_lostsheep_placed_2|(You place one of the bells around the neck of the sheep.)|||};
 {tinlyn_lostsheep_atk|||{{|tinlyn_lostsheep_atk1|tinlyn:10||||}{|tinlyn_sheep_atk|||||}}|};
 {tinlyn_lostsheep_atk1||{{0|tinlyn|60|}}|{{|tinlyn_sheep_atk|||||}}|};
 {tinlyn_sheep|Baah!||{{Attack|tinlyn_lostsheep_atk|benbyr:20||||}}|};
@@ -2290,7 +2290,7 @@
 {benbyr_story_3_4|Then I will surely disappoint you. Return to me once you are ready for my task.|||};
 {benbyr_story_3_3|The noble adventurer. He he, I like that. Yes, you will do fine.||{{N|benbyr_story_4|||||}}|};
 {benbyr_story_4|A while ago, I did some business with a certain man called Tinlyn, over here at this Crossroads guardhouse.||{{N|benbyr_story_5|||||}}|};
-{benbyr_story_5|As to the nature of our business, I can\'t really tell you. Let\'s just say that our business was of the kind that it was be beneficial for us both that the guards did not know about it.||{{N|benbyr_story_6|||||}}|};
+{benbyr_story_5|As to the nature of our business, I can\'t really tell you. Let\'s just say that our business was of the kind that it was mutually beneficial that the guards did not know about it.||{{N|benbyr_story_6|||||}}|};
 {benbyr_story_6|We were ready to finish the big deal, me and Tinlyn. That\'s when he decided to turn on me.||{{N|benbyr_story_7|||||}}|};
 {benbyr_story_7|He reported me to the guards, and made me take the whole blame for our business.||{{N|benbyr_story_8|||||}}|};
 {benbyr_story_8|I was sent to Feygard prison, while he himself was set free for reporting me.||{{N|benbyr_story_8_1|||||}}|};
@@ -2354,7 +2354,7 @@
 {cr_loneford_st_3|A few days later, the same symptoms started to show on a lot more people.||{{N|cr_loneford_st_4|||||}}|};
 {cr_loneford_st_4|Then, all people showed the symptoms in one way or another.||{{N|cr_loneford_st_5|||||}}|};
 {cr_loneford_st_5|Some old people even died.||{{N|cr_loneford_st_6|||||}}|};
-{cr_loneford_st_6|Everyone started investigating what could be the cause. But to date, the cause is still unknown.|{{0|loneford|10|}}|{{N|cr_loneford_st_7|||||}}|};
+{cr_loneford_st_6|Everyone started investigating what could be the cause. Currently, the cause is still unknown.|{{0|loneford|10|}}|{{N|cr_loneford_st_7|||||}}|};
 {cr_loneford_st_7|Luckily, now Feygard has sent patrols up there to help guard the village at least. The people are still suffering though.|{{0|loneford|11|}}|{{N|cr_loneford_st_8|||||}}|};
 {cr_loneford_st_8|Me, I am certain that this is the work of those savages from Nor City somehow. They probably sabotaged something up there.||{{N|cr_loneford_st_9|||||}}|};
 {cr_loneford_st_9|What do they call it, the \'Shadow\'? They are willing to do almost anything to upset the law and order around here.||{{N|cr_loneford_st_10|||||}}|};
@@ -2377,7 +2377,7 @@
 	{What do you do up here?|minarra_first_5|||||}
 	{You must have a good view of the surroundings up here. Have you seen anything interesting lately?|minarra_first_2|||||}
 	}|};
-{minarra_trade_rej|I might. But you would have to clear it with Gandoren downstairs. We don\'t trade with just anyone.|||};
+{minarra_trade_rej|I might, but you would have to clear it with Gandoren downstairs. We don\'t trade with just anyone.|||};
 {minarra_return_1|You return. Was there something else you wanted?||{
 	{Can you tell me again about those men you saw?|minarra_story_1|||||}
 	{Do you have anything to trade?|minarra_trade_rej|||||}
@@ -2414,8 +2414,8 @@
 {minarra_story_2|But these men matched the description of some people that are wanted by the Feygard patrol.||{{N|minarra_story_3|||||}}|};
 {minarra_story_3|If I saw correctly, these men were the band of rogues led by a man called Rogorn, that we are looking to apprehend for several ruthless cases of murder and theft.||{{N|minarra_story_4|||||}}|};
 {minarra_story_4|Their leader, Rogorn, is a particularly savage man according to the reports from Feygard that I have read.||{{N|minarra_story_5|||||}}|};
-{minarra_story_5|Now, usually, we would go out searching for them, to verify that the men I saw were indeed these men. But now with the trouble up in Loneford, we cannot afford to spare any guards other than to guarding Loneford.||{{N|minarra_story_6|||||}}|};
-{minarra_story_6|But I am sure that those are the men. If we were to catch and kill them, the people of Feygard would be much safer.|{{0|rogorn|10|}}|{
+{minarra_story_5|Now, usually, we would go out searching for them, to verify that the men I saw were indeed these men. However, now with the trouble up in Loneford, we cannot afford to spare any guards other than to guarding Loneford.||{{N|minarra_story_6|||||}}|};
+{minarra_story_6|I am sure that those were the men. If we were to catch and kill them, the people of Feygard would be much safer.|{{0|rogorn|10|}}|{
 	{I could go look for them if you want.|minarra_story_8|||||}
 	{Well, good luck with that.|minarra_story_7|||||}
 	}|};
@@ -2427,7 +2427,7 @@
 {minarra_story_12|In particular, their leader, Rogorn, is a well known villain by Feygard. Nothing he says should be trusted.||{{N|minarra_story_13|||||}}|};
 {minarra_story_13|I urge you not to listen to their lies. Their crimes must be punished in order to uphold the law.|{{0|rogorn|21|}}|{{I will return once the task is done.|X|||||}}|};
 {minarra_look_1|You return. Did you find those men that we talked about?||{
-	{I am still looking for them|minarra_look_2|||||}
+	{I am still looking for them.|minarra_look_2|||||}
 	{Yes, I killed them and recovered the three pieces of the painting.|minarra_look_3|rogorn:40|rogorn_qitem|3|0|}
 	{I travelled west and found a travelling group of men, but they did not match the men you described.|minarra_look_5|rogorn:45||||}
 	}|};
@@ -2524,9 +2524,9 @@
 {rogorn_story_r_1|Me and my boys here travelled from our home in Nor City to these northern lands a few days ago.||{{N|rogorn_story_r_2|||||}}|};
 {rogorn_story_r_2|We had never been here ourselves. We had only heard stories about how tough the guards from Feygard were, and how they held their precious law above all.||{{N|rogorn_story_r_3|||||}}|};
 {rogorn_story_r_3|Anyway, we got wind of a certain business opportunity here up north. One where we would be on the receiving end of a very profitable deal.||{{N|rogorn_story_r_4|||||}}|};
-{rogorn_story_r_4|So we went here to conduct our business. But I guess the guards from Feygard must have been tipped off about us, since we noticed that we were being followed by the guards after a while.||{{N|rogorn_story_r_5|||||}}|};
+{rogorn_story_r_4|So we went here to conduct our business. Shortly thereafter, I guess the guards from Feygard must have been tipped off about us, since we noticed that we were being followed by the guards after a while.||{{N|rogorn_story_r_5|||||}}|};
 {rogorn_story_r_5|Not willing to risk anything, considering the rumors we had heard about the guards from there, we did the only reasonable thing we could do - we abandoned the plan right away and left, before we could conduct the business we had planned.||{{N|rogorn_story_r_6|||||}}|};
-{rogorn_story_r_6|But something must have upset the guards there anyway. Now we hear that we are accused of murder and theft in Feygard, without even being there ourselves.|{{0|rogorn|35|}}|{
+{rogorn_story_r_6|However, something must have upset the guards there anyway. Now we hear that we are accused of murder and theft in Feygard, without even being there ourselves.|{{0|rogorn|35|}}|{
 	{What was your business there?|rogorn_story_r_7|||||}
 	{I will not listen to your lies! For Feygard!|rogorn_attack_1|||||}
 	{Your story does not add up.|rogorn_story_r_8|||||}
@@ -2930,11 +2930,11 @@
 {buceth_18|Without going into specifics, let\'s say that these are methods that have been used for past generations in your village.||{{N|buceth_19|||||}}|};
 {buceth_19|Changing the way things are done without these methods will require quite an effort. A lot of people in the village are upset because of this news from the men.||{{N|buceth_20|||||}}|};
 {buceth_20|Now, tell me. Would you in secret continue using the old methods your past generations have used, or would you instead convert to the way that the men are advocating?||{
-	{I would continue using the old ways in secret|buceth_21_1|||||}
-	{I would continue using the old ways, and fight the ruling that prohibited them in the first place|buceth_21_2|||||}
-	{I would only use the methods that are allowed|buceth_22|||||}
-	{I would follow the law|buceth_22|||||}
-	{I can\'t decide without knowing the specifics|buceth_dontknow|||||}
+	{I would continue using the old ways in secret.|buceth_21_1|||||}
+	{I would continue using the old ways, and fight the ruling that prohibited them in the first place.|buceth_21_2|||||}
+	{I would only use the methods that are allowed.|buceth_22|||||}
+	{I would follow the law.|buceth_22|||||}
+	{I can\'t decide without knowing the specifics.|buceth_dontknow|||||}
 	}|};
 {buceth_21_1|How interesting.||{{N|buceth_25|||||}}|};
 {buceth_21_2|I am glad to hear that there are people still around that are willing to stand up for what is right.||{{N|buceth_25|||||}}|};
@@ -2956,7 +2956,7 @@
 	{No, I will go my own way. Your stupid Shadow is nothing but talk and fancy words.|buceth_decline|||||}
 	}|};
 {buceth_decline|I am sorry to hear that. I guess we do not share views after all.||{{N|buceth_24|||||}}|};
-{buceth_27|I am glad to hear that. But then, I had a feeling all along that you would say that.|{{0|loneford|42|}}|{{N|buceth_story_1|||||}}|};
+{buceth_27|I am glad to hear that, but then again, I had a feeling all along that you would say that.|{{0|loneford|42|}}|{{N|buceth_story_1|||||}}|};
 
 {buceth_story_1|You wanted to ask me something?||{{What were you doing at the well during the night?|buceth_story_2|||||}}|};
 {buceth_story_2|Let me first tell you my background.||{
@@ -2970,8 +2970,8 @@
 {buceth_story_7|They were sending a boy to do some business here, and I was assigned to make sure that the mission was successful.|{{0|andor|61|}}|{{N|buceth_story_8|||||}}|};
 {buceth_story_8|I was tasked with gathering samples from the water in the well and from the ground around the well. Also, I was given some vials whose contents should be poured into the well.||{{N|buceth_story_9|||||}}|};
 {buceth_story_9|Apparently, the boy they sent was successful in his mission. The task that I did was also successful, if I may say so myself.|{{0|loneford|45|}}|{{N|buceth_story_10|||||}}|};
-{buceth_story_10|And that\'s where we stand now. The deed is done, and the Shadow will look favorably upon us.||{
-	{So the well was poisoned, that\'s horrible. How could you?|buceth_story_11|||||}
+{buceth_story_10|So, currently, that\'s where we stand now. The deed is done, and the Shadow will look favorably upon us.||{
+	{So, the well was poisoned, that\'s horrible. How could you?|buceth_story_11|||||}
 	{Thank you for telling me.|buceth_story_12|||||}
 	}|};
 {buceth_story_11|Horrible!? What is horrible? What those people from Feygard are doing - that\'s what\'s horrible!||{{N|buceth_story_12|||||}}|};
@@ -3133,7 +3133,7 @@
 	{I have some Izthiel claws to sell you.|gauward_sell_1|nondisplay:20||||}
 	}|};
 {gauward_1|This place used to be a safe house for travellers between Loneford and Brimhaven, before they had finished the road between the villages.||{{N|gauward_2|||||}}|};
-{gauward_2|But nowadays, hardly anyone comes here - because of those cursed creatures from the river.||{{N|gauward_3|||||}}|};
+{gauward_2|However, nowadays, hardly anyone comes here - because of those cursed creatures from the river.||{{N|gauward_3|||||}}|};
 {gauward_3|Izthiel, they call them.||{{N|gauward_4|||||}}|};
 {gauward_4|Ack, if it wasn\'t for those things out there, I am sure a lot of people would come by here more often.||{
 	{Would you like me to kill the creatures for you?|gauward_5|||||}
@@ -3609,9 +3609,9 @@
 {ulirfendor_findparts_5|Excellent work my friend! Now I just need to translate it.|{{0|toszylae|30|}}|{{N|ulirfendor_findparts_6|||||}}|};
 {ulirfendor_findparts_6|I wonder what this whole piece means. \'Kulauil hamar urum Kazaul\'te. Kazaul hamat urul\' - that\'s the part you heard the creature speak.||{{N|ulirfendor_findparts_7|||||}}|};
 {ulirfendor_findparts_7|The next part is \'Klatam ur turum Kazaul\'te\', and I am not sure what that means. Something about handing over some item?||{{N|ulirfendor_findparts_8|||||}}|};
-{ulirfendor_findparts_8|Maybe the creature you encountered responds to that phrase if you speak to it? If you want to help, you could go try speak that phrase to it.||{
-	{Sure, I will go speak the words to the creature.|ulirfendor_findparts_9|||||}
-	{Whatever, I\'ll do it. But I hope this is the last time that I have to run back and forth!|ulirfendor_findparts_9|||||}
+{ulirfendor_findparts_8|Maybe the creature you encountered responds to that phrase if you speak to it? If you want to help, you could go and try speaking that phrase to it.||{
+	{Sure, I will go speak those words to the creature.|ulirfendor_findparts_9|||||}
+	{Whatever, I\'ll do it, but I hope this is the last time that I have to run back and forth!|ulirfendor_findparts_9|||||}
 	{No way, I have helped you enough now.|ulirfendor_decline|||||}
 	{I had better not get involved in this.|ulirfendor_decline|||||}
 	}|};
@@ -3637,7 +3637,7 @@
 {ulirfendor_infected_4|Nooo! What have I done?||{{N|ulirfendor_infected_5|||||}}|};
 {ulirfendor_infected_5|You see, while you were away, I managed to translate the words that we spoke about before.||{{N|ulirfendor_infected_6|||||}}|};
 {ulirfendor_infected_6|The part that the creature spoke basically means \'No offering is worthy for Kazaul\'.||{{N|ulirfendor_infected_7|||||}}|};
-{ulirfendor_infected_7|And, the last part, that I made you speak to the creature, \'Klatam ur turum Kazaul\'te\', means \'My body for Kazaul\'.||{{N|ulirfendor_infected_8|||||}}|};
+{ulirfendor_infected_7|Furthermore, the last part, that I made you speak to the creature, \'Klatam ur turum Kazaul\'te\', means \'My body for Kazaul\'.||{{N|ulirfendor_infected_8|||||}}|};
 {ulirfendor_infected_8|Oh, what have I done? I made you say it, and now you are touched by its vile essence.|{{0|toszylae|60|}}|{
 	{It\'s not that bad. I have had worse.|ulirfendor_infected_9|||||}
 	{What can I do to get rid of this affliction?|ulirfendor_infected_9|||||}
@@ -3812,9 +3812,9 @@
 {toszylae_1|(The lich looks at you with its burning eyes, and glances at the remains of the guardian you defeated.)||{{N|toszylae_2|||||}}|};
 {toszylae_2|Kazaul\'te vaarmun iktel urul. Klatam ku turum Kazaul\'te?||{{N|toszylae_3|||||}}|};
 {toszylae_3|(The lich raises its hands towards the ceiling, chanting something you cannot understand.)||{{N|toszylae_4|||||}}|};
-{toszylae_4|(While chanting, it slowly lowers its hands towards you, until they finally point towards you.)||{{N|toszylae_5|||||}}|};
+{toszylae_4|(While chanting, it slowly lowers its hands forward, until pointing directly at you.)||{{N|toszylae_5|||||}}|};
 {toszylae_5|Klatam ku turum Kazaul\'te.||{{N|toszylae_6|||||}}|};
-{toszylae_6|(As if having swallowed a thousand needles, you suddenly feel a sharp pain in your stomach)|{{3|rotworm|999|}{0|maggots|10|}{0|toszylae|50|}}|{{N|toszylae_7|||||}}|};
+{toszylae_6|(As if having swallowed a thousand needles, you are suddenly stricken with a cascading series of spikes of pain throughout your stomach.)|{{3|rotworm|999|}{0|maggots|10|}{0|toszylae|50|}}|{{N|toszylae_7|||||}}|};
 {toszylae_7|(You start to feel nauseous, and your stomach turns and twists - as if it has a life of its own.)||{{N|toszylae_8|||||}}|};
 {toszylae_8|(The pain increases slightly, and you start to realize that something is moving inside of you.)||{{N|toszylae_9|||||}}|};
 {toszylae_9|(The lich must have infected you with something.)||{{What is happening to me!?|toszylae_10|||||}}|};
@@ -3868,7 +3868,7 @@
 	{A man called Ulirfendor told me he thought I might be infected with Kazaul rotworms.|talion_infect_2|||||}
 	{I was told to find you, and that you might be able to help me.|talion_infect_4|||||}
 	}|};
-{talion_infect_2|Ah, my old friend Ulirfendor. It\'s good to hear that he is still alive. But what was that, Rotworms you say, eh? ||{{N|talion_infect_3|||||}}|};
+{talion_infect_2|Ah, my old friend Ulirfendor. It\'s good to hear that he is still alive. Wait! What was that? Rotworms you say, eh? ||{{N|talion_infect_3|||||}}|};
 {talion_infect_3|Nasty things, they are. I have seen people going mad from the stomach pains, and I have seen people being eaten alive from the inside.||{
 	{Are you able to help me?|talion_infect_4|||||}
 	{It\'s not that bad. I have had worse.|talion_infect_4|||||}
@@ -3881,7 +3881,7 @@
 	}|};
 {talion_demon_2|Good. Then I am able to help you.||{{N|talion_infect_6|||||}}|};
 {talion_demon_3|Then you better go take care of that first!||{{Ok, I will be back once the lich is defeated.|X|||||}}|};
-{talion_infect_6|But there is a slight problem. You see, normally my supply of potions and ingredients would be fully stocked. However with this trouble that we have here in Loneford, my supplies are lower than they have ever been before.||{{N|talion_infect_7|||||}}|};
+{talion_infect_6|However, there is a slight problem. You see, normally my supply of potions and ingredients would be fully stocked. However with this trouble that we have here in Loneford, my supplies are lower than they have ever been before.||{{N|talion_infect_7|||||}}|};
 {talion_infect_7|I am not even able to go out and gather new supplies, what with the illness and all.||{
 	{Then what can you do?|talion_infect_8|||||}
 	{Is there anything I can do to help?|talion_infect_8|||||}
@@ -3897,8 +3897,8 @@
 	{Bah! Then you are useless to me. Guess you should have prepared better before then.|talion_infect_9|||||}
 	}|};
 {talion_infect_11|For this particular cure to work, I would need help with gathering four items.||{{N|talion_infect_12|||||}}|};
-{talion_infect_12|Or .. well .. actually, eight items in total but four different types. Eh .. well, you get the idea.||{{N|talion_infect_13|||||}}|};
-{talion_infect_13|Anyway, what you need to bring me is first and foremost some more fresh bones. Five bones will do I think. Make sure they are fresh. Any old skeleton will do, but I\'d rather take some fresh bones of some nasty animal.||{{N|talion_infect_14|||||}}|};
+{talion_infect_12|Or .. well .. actually, eight items in total, but four different types. Eh .. well, you get the idea.||{{N|talion_infect_13|||||}}|};
+{talion_infect_13|Anyway, what you need to bring me is, first and foremost, some more fresh bones. Five bones will do I think. Make sure they are fresh. Any old skeleton will do, but I\'d rather take some fresh bones of some nasty animal.||{{N|talion_infect_14|||||}}|};
 {talion_infect_14|Secondly, I will need some animal fur to go with that. Two pieces of animal hair will surely do. I\'m sure any old animal fur from the wilderness outside town will do.||{{N|talion_infect_15|||||}}|};
 {talion_infect_15|Third, I will need a gland of poison from a creature called the Irdegh.||{{N|talion_infect_16|||||}}|};
 {talion_infect_16|Now, I have not seen an Irdegh myself, but I hear they are particularly nasty creatures. Venomous like nothing I\'ve heard of.||{
@@ -3952,7 +3952,7 @@
 {talion_cure_3|Give me a minute.||{{N|talion_cure_4|||||}}|};
 {talion_cure_4|(Talion mixes the ground up ingredients together in the vial you brought, with some leaves and berries that he kept with him.)||{{N|talion_cure_5|||||}}|};
 {talion_cure_5|(He gives the potion a thorough shake for quite a while.)||{{N|talion_cure_6|||||}}|};
-{talion_cure_6|There. Drink this. This should do it.||{{Drink the potion|talion_cure_7|||||}}|};
+{talion_cure_6|There. Drink this. This should do it.||{{Drink the potion.|talion_cure_7|||||}}|};
 {talion_cure_7|(The potion smells rancid, but you manage to drink it all down. The pain from the stomach decreases, and you feel one of the rotworms crawling up into your mouth. You quickly spit the worm out into the now empty vial.)|{{0|maggots|50|}{1|potion_rotworm|0|}{3|rotworm|-99|}}|{{N|talion_cured_1|||||}}|};
 {talion_cured_1|Ah, that seems to have worked. Frankly, I was a little worried that it might not have worked, but seeing you spit out that worm really confirms it. Ha ha.||{
 	{Yuck! Those things were inside of me?|talion_cured_2|||||}
@@ -5117,7 +5117,7 @@
 {sign_bwm52_grave6|(The cross reads: Here lies the remains of Antagnart, loved by none but remembered by everyone.)|||};
 {sign_bwm52_papers1|(On the floor is what looks like some torn out pages from a book)|||};
 {sign_bwm52_papers2|(You find a crude drawing of one of the white wyrms, but you decide not to keep it since it must belong to someone.)|||};
-{sign_pwcave1_grave|(The cross shows lots of small indentations, as if someone hit it repeatedly with a sharp object. You can barely make out the words: Rest with the shadow, my friend. I will avenge those beasts.)|||};
+{sign_pwcave1_grave|(The cross shows lots of small indentations, as if someone hit it repeatedly with a sharp object. You can barely make out the words: Rest with the Shadow, my friend. I will avenge those beasts.)|||};
 {sign_pwcave2a_grave|(The cross contains symbols that you cannot understand.)|||};
 {sign_pwcave4_grave1|(The cross contains symbols that you cannot understand. It looks like someone started digging up this grave recently, but stopped halfway.)|||};
 {sign_pwcave4_grave2|(The cross contains symbols that you cannot understand, in addition to a crude drawing of what you think should resemble an Izthiel beast.)|||};
