@@ -28,6 +28,7 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 public final class Player extends Actor {
 	public static final int DEFAULT_PLAYER_MOVECOST = 6;
 	public static final int DEFAULT_PLAYER_ATTACKCOST = 4;
+	public static final Size DEFAULT_PLAYER_SIZE = new Size(1, 1);
 	public final Coord lastPosition;
 	public final Coord nextPosition;
 	public int level;
@@ -47,7 +48,6 @@ public final class Player extends Actor {
 		super(
 			new ActorTraits(
 				TileManager.CHAR_HERO
-				, new Size(1, 1)
 				, 0  // attackCost
 				, 0  // attackChance
 				, 0  // criticalSkill
@@ -57,6 +57,7 @@ public final class Player extends Actor {
 				, 0  // damageResistance
 				, DEFAULT_PLAYER_MOVECOST
 				, null)
+			, DEFAULT_PLAYER_SIZE
 			, true // isPlayer
 			, false // isImmuneToCriticalHits
 		);
@@ -76,7 +77,7 @@ public final class Player extends Actor {
 		baseTraits.damageResistance = 0;
 		baseTraits.maxAP = 10;
 		baseTraits.maxHP = 25;
-		baseTraits.name = name;
+		this.name = name;
 		baseTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
 		useItemCost = 5;
 		reequipCost = 5;
@@ -181,7 +182,7 @@ public final class Player extends Actor {
 
 	public static Player readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		Player player;
-		if (fileversion < 33) player = LegacySavegameFormatReaderForPlayer.readFromParcel_pre_v33(src, world, fileversion);
+		if (fileversion < 34) player = LegacySavegameFormatReaderForPlayer.readFromParcel_pre_v34(src, world, fileversion);
 		else player = new Player(src, world, fileversion);
 
 		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, fileversion);
@@ -190,7 +191,7 @@ public final class Player extends Actor {
 	}
 	
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion, true, false, null);
+		super(src, world, fileversion, true, false, DEFAULT_PLAYER_SIZE, null);
 		this.lastPosition = new Coord(src, fileversion);
 		this.nextPosition = new Coord(src, fileversion);
 		this.level = src.readInt();

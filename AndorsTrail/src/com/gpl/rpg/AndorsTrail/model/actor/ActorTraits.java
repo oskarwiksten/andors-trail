@@ -19,12 +19,10 @@ public class ActorTraits {
 	public static final int STAT_ACTOR_MOVECOST = 2;
 
 	public final int iconID;
-	public final Size tileSize;
 	
 	public int maxAP;
 	public int maxHP;
 
-	public String name;
 	public int moveCost;
 	public final int baseMoveCost;
 
@@ -40,7 +38,6 @@ public class ActorTraits {
 	
 	public ActorTraits(
 			int iconID
-			, Size tileSize
 			, int attackCost
 			, int attackChance
 			, int criticalSkill
@@ -52,7 +49,6 @@ public class ActorTraits {
 			, ItemTraits_OnUse[] onHitEffects
 			) {
 		this.iconID = iconID;
-		this.tileSize = tileSize;
 		this.attackCost = attackCost;
 		this.attackChance = attackChance;
 		this.criticalSkill = criticalSkill;
@@ -104,10 +100,8 @@ public class ActorTraits {
 
 	public ActorTraits(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this.iconID = src.readInt();
-		this.tileSize = new Size(src, fileversion);
 		this.maxAP = src.readInt();
 		this.maxHP = src.readInt();
-		this.name = src.readUTF();
 		this.moveCost = src.readInt();
 		this.attackCost = src.readInt();
 		this.attackChance = src.readInt();
@@ -121,10 +115,8 @@ public class ActorTraits {
 	
 	public ActorTraits(LegacySavegameData_Actor savegameData) {
 		this.iconID = savegameData.iconID;
-		this.tileSize = savegameData.tileSize;
 		this.maxAP = savegameData.maxAP;
 		this.maxHP = savegameData.maxHP;
-		this.name = savegameData.name;
 		this.moveCost = savegameData.moveCost;
 		this.attackCost = savegameData.baseAttackCost;
 		this.attackChance = savegameData.baseAttackChance;
@@ -138,10 +130,8 @@ public class ActorTraits {
 	
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(iconID);
-		tileSize.writeToParcel(dest, flags);
 		dest.writeInt(maxAP);
 		dest.writeInt(maxHP);
-		dest.writeUTF(name);
 		dest.writeInt(moveCost);
 		dest.writeInt(attackCost);
 		dest.writeInt(attackChance);

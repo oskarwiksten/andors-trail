@@ -35,7 +35,6 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 21, true);
 		final ActorTraits baseTraits = new ActorTraits(
 				ResourceParserUtils.parseImageID(tileLoader, parts[1]) // IconID
-				, ResourceParserUtils.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
 				, ResourceParserUtils.parseInt(parts[11], 10)	// AttackCost
 				, ResourceParserUtils.parseInt(parts[12], 0)    //AttackChance
 				, ResourceParserUtils.parseInt(parts[13], 0)    //CriticalSkill
@@ -46,13 +45,13 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 				, ResourceParserUtils.parseInt(parts[10], 10)	// MoveCost
 				, hitEffect == null ? null : new ItemTraits_OnUse[] { hitEffect }
 				);
-		baseTraits.name = parts[2];
 		baseTraits.maxHP = ResourceParserUtils.parseInt(parts[8], 1);
 		baseTraits.maxAP = ResourceParserUtils.parseInt(parts[9], 10);
 		
 		final int exp = getExpectedMonsterExperience(combatTraits, hitEffect, baseTraits.maxHP, baseTraits.maxAP);
 		return new Pair<String, MonsterType>(monsterTypeId, new MonsterType(
 			monsterTypeId
+			, parts[2]										// Name
 			, parts[3] 										// Tags
 			, exp 											// Exp
 			, droplists.getDropList(parts[19]) 				// Droplist
@@ -60,6 +59,7 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 			, ResourceParserUtils.parseBoolean(parts[6], false)		// isUnique
 			, ResourceParserUtils.parseNullableString(parts[7])		// Faction
 			, ResourceParserUtils.parseInt(parts[5], MonsterType.MONSTERCLASS_HUMANOID) // MonsterClass
+			, ResourceParserUtils.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
 			, baseTraits
 		));
 	}

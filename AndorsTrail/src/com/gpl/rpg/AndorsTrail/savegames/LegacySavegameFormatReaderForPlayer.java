@@ -25,12 +25,12 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LegacySavegameFormatReaderForPlayer {
-	public static Player readFromParcel_pre_v33(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		LegacySavegameData_Player savegameData = readPlayerDataPreV33(src, world, fileversion);
+	public static Player readFromParcel_pre_v34(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		LegacySavegameData_Player savegameData = readPlayerDataPreV34(src, world, fileversion);
 		return new Player(savegameData);
 	}
 	
-	private static LegacySavegameData_Player readPlayerDataPreV33(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	private static LegacySavegameData_Player readPlayerDataPreV34(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		LegacySavegameData_Player result = new LegacySavegameData_Player();
 		result.isImmuneToCriticalHits = false;
 		

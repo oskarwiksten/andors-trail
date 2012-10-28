@@ -19,6 +19,7 @@ public class Actor {
 	public final ActorTraits baseTraits;
 	public final CombatTraits combatTraits;
 	public final int iconID;
+	public String name;
 	public final Size tileSize;
 	public final Range ap;
 	public final Range health;
@@ -29,15 +30,15 @@ public class Actor {
 	public final boolean isPlayer;
 	public final boolean isImmuneToCriticalHits;
 	
-	public Actor(ActorTraits baseTraits, boolean isPlayer, boolean isImmuneToCriticalHits) {
+	public Actor(ActorTraits baseTraits, Size tileSize, boolean isPlayer, boolean isImmuneToCriticalHits) {
 		this.combatTraits = new CombatTraits(baseTraits);
 		this.baseTraits = baseTraits;
 		this.iconID = baseTraits.iconID;
-		this.tileSize = baseTraits.tileSize;
+		this.tileSize = tileSize;
 		this.ap = new Range(baseTraits.maxAP, baseTraits.maxAP);
 		this.health = new Range(baseTraits.maxHP, baseTraits.maxHP);
 		this.position = new Coord();
-		this.rectPosition = new CoordRect(position, baseTraits.tileSize);
+		this.rectPosition = new CoordRect(position, tileSize);
 		this.isPlayer = isPlayer;
 		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 	}
@@ -53,7 +54,7 @@ public class Actor {
 	public void setMaxHP() {
 		health.setMax();
 	}
-	public String getName() { return baseTraits.name; }
+	public String getName() { return name; }
 	
 	public boolean useAPs(int cost) {
 		if (ap.current < cost) return false;
@@ -82,7 +83,7 @@ public class Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, boolean isImmuneToCriticalHits, ActorTraits baseTraits) throws IOException {
+	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, boolean isImmuneToCriticalHits, Size tileSize, ActorTraits baseTraits) throws IOException {
 		this.isPlayer = isPlayer;
 		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 		
@@ -91,8 +92,9 @@ public class Actor {
 		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
 		
 		this.baseTraits = isPlayer ? new ActorTraits(src, world, fileversion) : baseTraits;
+		this.name = src.readUTF();
 		this.iconID = baseTraits.iconID;
-		this.tileSize = baseTraits.tileSize;
+		this.tileSize = tileSize;
 		
 		if (!readCombatTraits) combatTraits = new CombatTraits(this.baseTraits);
 		this.combatTraits = combatTraits;
@@ -100,7 +102,7 @@ public class Actor {
 		this.ap = new Range(src, fileversion);
 		this.health = new Range(src, fileversion);
 		this.position = new Coord(src, fileversion);
-		this.rectPosition = new CoordRect(position, this.baseTraits.tileSize);
+		this.rectPosition = new CoordRect(position, this.tileSize);
 		final int numConditions = src.readInt();
 		for(int i = 0; i < numConditions; ++i) {
 			conditions.add(new ActorCondition(src, world, fileversion));
@@ -111,6 +113,7 @@ public class Actor {
 		this.isPlayer = isPlayer;
 		this.isImmuneToCriticalHits = savegameData.isImmuneToCriticalHits;
 		this.baseTraits = new ActorTraits(savegameData);
+		this.name = savegameData.name;
 		this.iconID = savegameData.iconID;
 		this.tileSize = savegameData.tileSize;
 		this.combatTraits = new CombatTraits(savegameData);
@@ -128,6 +131,7 @@ public class Actor {
 			dest.writeBoolean(true);
 			combatTraits.writeToParcel(dest, flags);
 		}
+		dest.writeUTF(name);
 		if (isPlayer) baseTraits.writeToParcel(dest, flags);
 		ap.writeToParcel(dest, flags);
 		health.writeToParcel(dest, flags);

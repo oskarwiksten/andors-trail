@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
+import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType {
 	public static final int MONSTERCLASS_HUMANOID = 0;
@@ -14,6 +15,7 @@ public final class MonsterType {
 	public static final int MONSTERCLASS_GHOST = 8;
 	
 	public final String id;
+	public final String name;
 	public final String spawnGroup;
 	public final int exp;
 	public final DropList dropList;
@@ -22,9 +24,11 @@ public final class MonsterType {
 	public final String faction;
 	public final int monsterClass;
 	public final ActorTraits baseTraits;
+	public final Size tileSize;
 
 	public MonsterType(
 			String id, 
+			String name,
 			String spawnGroup, 
 			int exp, 
 			DropList dropList, 
@@ -32,8 +36,10 @@ public final class MonsterType {
 			boolean isUnique,
 			String faction,
 			int monsterClass,
+			Size tileSize,
 			ActorTraits baseTraits) {
 		this.id = id;
+		this.name = name;
 		this.spawnGroup = spawnGroup;
 		this.exp = exp;
 		this.dropList = dropList;
@@ -41,6 +47,7 @@ public final class MonsterType {
 		this.faction = faction;
 		this.isUnique = isUnique;
 		this.monsterClass = monsterClass;
+		this.tileSize = tileSize;
 		this.baseTraits = baseTraits;
 	}
 

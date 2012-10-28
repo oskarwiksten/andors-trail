@@ -51,10 +51,10 @@ public class LegacySavegameFormatReaderForMonster {
 		}
 		
 		result.iconID = monsterType.baseTraits.iconID;
-		result.tileSize = monsterType.baseTraits.tileSize;
+		result.tileSize = monsterType.tileSize;
 		result.maxAP = monsterType.baseTraits.maxAP;
 		result.maxHP = monsterType.baseTraits.maxHP;
-		result.name = monsterType.baseTraits.name;
+		result.name = monsterType.name;
 		result.moveCost = monsterType.baseTraits.moveCost;
 		
 		result.baseAttackCost = monsterType.baseTraits.attackCost;

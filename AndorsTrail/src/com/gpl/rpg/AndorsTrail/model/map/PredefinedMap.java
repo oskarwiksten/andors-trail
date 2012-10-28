@@ -126,7 +126,7 @@ public final class PredefinedMap {
 	}
 	public boolean TEST_spawnInArea(MonsterSpawnArea a, MonsterType type) { return spawnInArea(a, type, null); }
 	private boolean spawnInArea(MonsterSpawnArea a, MonsterType type, Coord playerPosition) {
-		Coord p = getRandomFreePosition(a.area, type.baseTraits.tileSize, playerPosition);
+		Coord p = getRandomFreePosition(a.area, type.tileSize, playerPosition);
 		if (p == null) return false;
 		a.spawn(p, type);
 		return true;
