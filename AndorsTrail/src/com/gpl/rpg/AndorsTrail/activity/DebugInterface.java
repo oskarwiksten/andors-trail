@@ -34,9 +34,9 @@ public final class DebugInterface {
 			new DebugButton("dmg", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			world.model.player.combatTraits.damagePotential.set(99, 99);
-	    			world.model.player.combatTraits.attackChance = 200;
-	    			world.model.player.combatTraits.attackCost = 1;
+	    			world.model.player.damagePotential.set(99, 99);
+	    			world.model.player.attackChance = 200;
+	    			world.model.player.attackCost = 1;
 	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT);
 				}
@@ -129,7 +129,7 @@ public final class DebugInterface {
 				public void onClick(View arg0) {
 	    			world.model.player.baseTraits.maxHP = 200;
 	    			world.model.player.health.max = world.model.player.baseTraits.maxHP;
-	    			world.model.player.health.setMax();
+	    			world.model.player.setMaxHP();
 	    			world.model.player.conditions.clear();
 	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);

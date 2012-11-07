@@ -25,6 +25,7 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LegacySavegameFormatReaderForPlayer {
+	/*
 	public static Player readFromParcel_pre_v34(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		LegacySavegameData_Player savegameData = readPlayerDataPreV34(src, world, fileversion);
 		return new Player(savegameData);
@@ -164,6 +165,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		public String spawnPlace;
 		public int availableSkillIncreases = 0;
 	}
+	*/
 	
 	public static class LegacySavegameData_Actor {
 		// from Actor
@@ -200,7 +202,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		public int damageResistance;
 	}
 	
-	private static void readQuestProgressPreV13(LegacySavegameData_Player player, DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	public static void readQuestProgressPreV13(Player player, DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		final int size1 = src.readInt();
 		for(int i = 0; i < size1; ++i) {
 			String keyName = src.readUTF();
@@ -245,10 +247,11 @@ public final class LegacySavegameFormatReaderForPlayer {
 		}
 	}
 
-	private static void addQuestProgress(LegacySavegameData_Player player, String questID, int progress) {
-		if (!player.questProgress.containsKey(questID)) player.questProgress.put(questID, new HashSet<Integer>());
+	private static void addQuestProgress(Player player, String questID, int progress) {
+		player.addQuestProgress(new QuestProgress(questID, progress));
+		/*if (!player.questProgress.containsKey(questID)) player.questProgress.put(questID, new HashSet<Integer>());
 		else if (player.questProgress.get(questID).contains(progress)) return;
-		player.questProgress.get(questID).add(progress);
+		player.questProgress.get(questID).add(progress);*/
 	}
 	
 	public static void upgradeSavegame(Player player, WorldContext world, int fileversion) {
@@ -265,7 +268,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 			for(SkillInfo skill : world.skills.getAllSkills()) {
 				assignedSkillpoints += player.getSkillLevel(skill.id);
 			}
-			player.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(player.level) - assignedSkillpoints;
+			player.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(player.getLevel()) - assignedSkillpoints;
 		}
 		
 		if (fileversion <= 21) {
@@ -306,5 +309,22 @@ public final class LegacySavegameFormatReaderForPlayer {
 		if (hasItemWithCondition) return;
 		
 		ActorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
+	}
+
+	public static void readCombatTraitsPreV034(DataInputStream src, int fileversion) throws IOException {
+		if (fileversion < 25) return;
+		if (!src.readBoolean()) return;
+		
+		/*attackCost = */src.readInt();
+		/*attackChance = */src.readInt();
+		/*criticalSkill = */src.readInt();
+		if (fileversion <= 20) {
+			/*criticalMultiplier = */src.readInt();
+		} else {
+			/*criticalMultiplier = */src.readFloat();
+		}
+		/*damagePotential = */new Range(src, fileversion);
+		/*blockChance = */src.readInt();
+		/*damageResistance = */src.readInt();
 	}
 }

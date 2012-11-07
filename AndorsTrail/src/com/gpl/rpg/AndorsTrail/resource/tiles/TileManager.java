@@ -106,7 +106,7 @@ public final class TileManager {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 		for(MonsterSpawnArea a : map.spawnAreas) {
 			for(String monsterTypeID : a.monsterTypeIDs) {
-				iconIDs.add(world.monsterTypes.getMonsterType(monsterTypeID).baseTraits.iconID);
+				iconIDs.add(world.monsterTypes.getMonsterType(monsterTypeID).iconID);
 			}
 		}
 		iconIDs.addAll(tileMap.usedTileIDs);

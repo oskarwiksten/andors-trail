@@ -1,6 +1,8 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
+import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType {
@@ -23,9 +25,20 @@ public final class MonsterType {
 	public final boolean isUnique; // Unique monsters are not respawned.
 	public final String faction;
 	public final int monsterClass;
-	public final ActorTraits baseTraits;
 	public final Size tileSize;
-
+	public final int iconID;
+	public final int maxAP;
+	public final int maxHP;
+	public final int moveCost;
+	public final int attackCost;
+	public final int attackChance;
+	public final int criticalSkill;
+	public final float criticalMultiplier;
+	public final ConstRange damagePotential;
+	public final int blockChance;
+	public final int damageResistance;
+	public final ItemTraits_OnUse[] onHitEffects;
+	
 	public MonsterType(
 			String id, 
 			String name,
@@ -37,7 +50,18 @@ public final class MonsterType {
 			String faction,
 			int monsterClass,
 			Size tileSize,
-			ActorTraits baseTraits) {
+			int iconID,
+			int maxAP,
+			int maxHP,
+			int moveCost,
+			int attackCost,
+			int attackChance,
+			int criticalSkill,
+			float criticalMultiplier,
+			ConstRange damagePotential,
+			int blockChance,
+			int damageResistance,
+			ItemTraits_OnUse[] onHitEffects) {
 		this.id = id;
 		this.name = name;
 		this.spawnGroup = spawnGroup;
@@ -48,13 +72,36 @@ public final class MonsterType {
 		this.isUnique = isUnique;
 		this.monsterClass = monsterClass;
 		this.tileSize = tileSize;
-		this.baseTraits = baseTraits;
+		this.iconID = iconID;
+		this.maxAP = maxAP;
+		this.maxHP = maxHP;
+		this.moveCost = moveCost;
+		this.attackCost = attackCost;
+		this.attackChance = attackChance;
+		this.criticalSkill = criticalSkill;
+		this.criticalMultiplier = criticalMultiplier;
+		this.damagePotential = damagePotential;
+		this.blockChance = blockChance;
+		this.damageResistance = damageResistance;
+		this.onHitEffects = onHitEffects;
 	}
 
 	public boolean isImmuneToCriticalHits() {
 		if (monsterClass == MONSTERCLASS_GHOST) return true;
 		else if (monsterClass == MONSTERCLASS_UNDEAD) return true;
 		else if (monsterClass == MONSTERCLASS_DEMON) return true;
+		return false;
+	}
+	
+	public boolean hasCombatStats() {
+		if (attackCost != 10) return true; 
+		if (attackChance != 0) return true;
+		if (criticalSkill != 0) return true;
+		if (criticalMultiplier != 0) return true;
+		if (damagePotential.current != 0) return true;
+		if (damagePotential.max != 0) return true;
+		if (blockChance != 0) return true;
+		if (damageResistance != 0) return true;
 		return false;
 	}
 }

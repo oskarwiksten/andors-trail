@@ -54,7 +54,7 @@ public final class Controller {
 				Dialogs.showMonsterEncounter(view.mainActivity, view, m);
 			}
 		} else {
-			Dialogs.showConversation(view.mainActivity, view, m.phraseID, m);
+			Dialogs.showConversation(view.mainActivity, view, m.getPhraseID(), m);
 		}
 	}
 
@@ -82,8 +82,7 @@ public final class Controller {
 		player.setMaxAP();
 		player.setMaxHP();
 		if (area != null) {
-			player.spawnPlace = area.id;
-			player.spawnMap = world.model.currentMap.name;
+			player.setSpawnPlace(world.model.currentMap.name, area.id);
 		}
 		for (PredefinedMap m : world.maps.predefinedMaps) {
 			m.resetTemporaryData();

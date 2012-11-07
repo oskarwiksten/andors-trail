@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
-import java.util.Arrays;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
@@ -89,11 +87,11 @@ public final class MonsterInfoActivity extends Activity {
 		monsterinfo_onhiteffects.update(
         		null, 
         		null, 
-        		monster.baseTraits.onHitEffects == null ? null : Arrays.asList(monster.baseTraits.onHitEffects), 
+        		monster.getOnHitEffectsAsList(), 
         		null,
         		false);
         hp.update(monster.health);
-        monsterinfo_immune_criticals.setVisibility(monster.isImmuneToCriticalHits ? View.VISIBLE : View.GONE);
+        monsterinfo_immune_criticals.setVisibility(monster.isImmuneToCriticalHits() ? View.VISIBLE : View.GONE);
     }
 
 	public static int getMonsterDifficultyResource(WorldContext world, Monster monster) {

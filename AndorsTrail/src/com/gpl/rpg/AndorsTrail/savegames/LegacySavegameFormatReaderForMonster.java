@@ -15,16 +15,17 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class LegacySavegameFormatReaderForMonster {
 	public static Monster readFromParcel_pre_v25(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
-		Coord position = new Coord(src, fileversion);
-		Monster m = new Monster(monsterType, position);
+		Monster m = new Monster(monsterType);
+		m.position.set(new Coord(src, fileversion));
 		m.ap.current = src.readInt();
 		m.health.current = src.readInt();
 		if (fileversion >= 12) {
-			m.forceAggressive = src.readBoolean();
+			if (src.readBoolean()) m.forceAggressive();
 		}
 		return m;
 	}
 	
+	/*
 	public static Monster readFromParcel_pre_v33(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
 		LegacySavegameData_Monster savegameData = readMonsterDataPreV33(src, world, fileversion, monsterType);
 		return new Monster(savegameData, monsterType);
@@ -50,21 +51,21 @@ public class LegacySavegameFormatReaderForMonster {
 			result.damageResistance = src.readInt();
 		}
 		
-		result.iconID = monsterType.baseTraits.iconID;
+		result.iconID = monsterType.iconID;
 		result.tileSize = monsterType.tileSize;
-		result.maxAP = monsterType.baseTraits.maxAP;
-		result.maxHP = monsterType.baseTraits.maxHP;
+		result.maxAP = monsterType.maxAP;
+		result.maxHP = monsterType.maxHP;
 		result.name = monsterType.name;
-		result.moveCost = monsterType.baseTraits.moveCost;
+		result.moveCost = monsterType.moveCost;
 		
-		result.baseAttackCost = monsterType.baseTraits.attackCost;
-		result.baseAttackChance = monsterType.baseTraits.attackChance;
-		result.baseCriticalSkill = monsterType.baseTraits.criticalSkill;
-		result.baseCriticalMultiplier = monsterType.baseTraits.criticalMultiplier;
-		result.baseDamagePotential = monsterType.baseTraits.damagePotential;
-		result.baseBlockChance = monsterType.baseTraits.blockChance;
-		result.baseDamageResistance = monsterType.baseTraits.damageResistance;
-		result.baseMoveCost = monsterType.baseTraits.baseMoveCost;
+		result.baseAttackCost = monsterType.attackCost;
+		result.baseAttackChance = monsterType.attackChance;
+		result.baseCriticalSkill = monsterType.criticalSkill;
+		result.baseCriticalMultiplier = monsterType.criticalMultiplier;
+		result.baseDamagePotential = new Range(monsterType.damagePotential);
+		result.baseBlockChance = monsterType.blockChance;
+		result.baseDamageResistance = monsterType.damageResistance;
+		result.baseMoveCost = monsterType.moveCost;
 		
 		if (!readCombatTraits) {
 			result.attackCost = result.baseAttackCost;
@@ -101,5 +102,5 @@ public class LegacySavegameFormatReaderForMonster {
 		// from Monster
 		public boolean forceAggressive;
 		public ItemContainer shopItems;
-	}
+	}*/
 }

@@ -118,6 +118,11 @@ public class ItemContainer {
 	// ====== PARCELABLE ===================================================================
 
 	public ItemContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		readFromParcel(src, world, fileversion);
+	}
+	
+	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		items.clear();
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
 			ItemEntry entry = new ItemEntry(src, world, fileversion);

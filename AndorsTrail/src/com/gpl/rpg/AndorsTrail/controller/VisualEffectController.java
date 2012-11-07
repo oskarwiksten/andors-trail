@@ -141,7 +141,7 @@ public final class VisualEffectController {
 	}
 	
 	public static void addSplatter(PredefinedMap map, Monster m) {
-		int iconID = getSplatterIconFromMonsterClass(m.monsterClass);
+		int iconID = getSplatterIconFromMonsterClass(m.getMonsterClass());
 		if (iconID > 0) map.splatters.add(new BloodSplatter(iconID, m.position));
 	}
 	

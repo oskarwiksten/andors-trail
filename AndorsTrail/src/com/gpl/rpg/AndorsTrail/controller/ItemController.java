@@ -39,7 +39,7 @@ public final class ItemController {
 		if (!type.isEquippable()) return;
 		final Player player = model.player;
     	if (model.uiSelections.isInCombat) {
-    		if (!player.useAPs(player.reequipCost)) return;
+    		if (!player.useAPs(player.getReequipCost())) return;
     	}
 		
 		if (!player.inventory.removeItem(type.id, 1)) return;
@@ -62,7 +62,7 @@ public final class ItemController {
 		if (player.inventory.isEmptySlot(slot)) return;
     	
 		if (model.uiSelections.isInCombat) {
-    		if (!player.useAPs(player.reequipCost)) return;
+    		if (!player.useAPs(player.getReequipCost())) return;
     	}
     	
 		unequipSlot(player, slot);
@@ -81,7 +81,7 @@ public final class ItemController {
     	if (!type.isUsable()) return;
     	final Player player = model.player;
     	if (model.uiSelections.isInCombat) {
-    		if (!player.useAPs(player.useItemCost)) return;
+    		if (!player.useAPs(player.getUseItemCost())) return;
     	}
     	
     	if (!player.inventory.removeItem(type.id, 1)) return;
@@ -101,8 +101,8 @@ public final class ItemController {
 	public static void applyInventoryEffects(Player player) {
 		ItemType weapon = getMainWeapon(player);
 		if (weapon != null) {
-			player.combatTraits.attackCost = 0;
-			player.combatTraits.criticalMultiplier = weapon.effects_equip.stats.setCriticalMultiplier;
+			player.attackCost = 0;
+			player.criticalMultiplier = weapon.effects_equip.stats.setCriticalMultiplier;
 		}
 		
 		applyInventoryEffects(player, Inventory.WEARSLOT_WEAPON);
@@ -153,9 +153,9 @@ public final class ItemController {
 		if (effects != null) {
 			ItemTraits_OnUse[] effects_ = new ItemTraits_OnUse[effects.size()];
 			effects_ = effects.toArray(effects_);
-			player.baseTraits.onHitEffects = effects_;
+			player.onHitEffects = effects_;
 		} else {
-			player.baseTraits.onHitEffects = null;
+			player.onHitEffects = null;
 		}
 	}
 	

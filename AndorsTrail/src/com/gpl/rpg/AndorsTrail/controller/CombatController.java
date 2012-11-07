@@ -15,7 +15,6 @@ import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectCompletedCallback;
 import com.gpl.rpg.AndorsTrail.model.AttackResult;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -134,7 +133,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	public boolean canExitCombat() { return getAdjacentMonster() == null; }
 	private Monster getAdjacentMonster() { 
-		return MovementController.getAdjacentAggressiveMonster(model.currentMap, model.player.position); 
+		return MovementController.getAdjacentAggressiveMonster(model.currentMap, model.player); 
 	}
 
 	public void executeMoveAttack(int dx, int dy) {
@@ -168,7 +167,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private AttackResult lastAttackResult;
 	private void executePlayerAttack() {
 		if (context.effectController.isRunningVisualEffect()) return;
-		if (!useAPs(model.player.combatTraits.attackCost)) return;
+		if (!useAPs(model.player.getAttackCost())) return;
 		final Monster target = model.uiSelections.selectedMonster;
 		this.currentlyAttackedMonster = target;
 		
@@ -228,7 +227,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		player.ap.add(player.getSkillLevel(SkillCollection.SKILL_CLEAVE) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP, false);
 		player.health.add(player.getSkillLevel(SkillCollection.SKILL_EATER) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH, false);
 		
-		model.statistics.addMonsterKill(killedMonster.monsterTypeID);
+		model.statistics.addMonsterKill(killedMonster.getMonsterTypeID());
 		model.player.addExperience(loot.exp);
 		totalExpThisFight += loot.exp;
 		loot.exp = 0;
@@ -248,9 +247,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private boolean playerHasApLeft() {
 		final Player player = model.player;
-		if (player.hasAPs(player.useItemCost)) return true;
-		if (player.hasAPs(player.combatTraits.attackCost)) return true;
-		if (player.hasAPs(player.baseTraits.moveCost)) return true;
+		if (player.hasAPs(player.getUseItemCost())) return true;
+		if (player.hasAPs(player.getAttackCost())) return true;
+		if (player.hasAPs(player.getMoveCost())) return true;
 		return false;
 	}
 	private void playerActionCompleted() {
@@ -266,7 +265,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void executeCombatMove(final Coord dest) {
 		if (model.uiSelections.selectedMonster != null) return;
 		if (dest == null) return;
-		if (!useAPs(model.player.baseTraits.moveCost)) return;
+		if (!useAPs(model.player.getMoveCost())) return;
 
 		int fleeChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
 		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
@@ -309,15 +308,15 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	private Monster determineNextMonster(Monster previousMonster) {
 		if (previousMonster != null) {
-			if (previousMonster.hasAPs(previousMonster.combatTraits.attackCost)) return previousMonster;
+			if (previousMonster.hasAPs(previousMonster.getAttackCost())) return previousMonster;
 		}
 		
 		for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				if (!m.isAgressive()) continue;
 				
-				if (m.rectPosition.isAdjacentTo(model.player.position)) {
-					if (m.hasAPs(m.combatTraits.attackCost)) return m;
+				if (m.isAdjacentTo(model.player)) {
+					if (m.hasAPs(m.getAttackCost())) return m;
 				}
 			}
 		}
@@ -332,7 +331,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			endMonsterTurn();
 			return;
 		}
-		currentActiveMonster.useAPs(currentActiveMonster.combatTraits.attackCost);
+		currentActiveMonster.useAPs(currentActiveMonster.getAttackCost());
 		
 		context.mainActivity.combatview.updateTurnInfo(currentActiveMonster);
 		Resources r = context.mainActivity.getResources();
@@ -407,16 +406,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	private static boolean hasCriticalAttack(Actor attacker, Actor target) {
-		if (!attacker.combatTraits.hasCriticalAttacks()) return false;
-		if (target.isImmuneToCriticalHits) return false;
+		if (!attacker.hasCriticalAttacks()) return false;
+		if (target.isImmuneToCriticalHits()) return false;
 		return true;
 	}
 	private static float getAverageDamagePerHit(Actor attacker, Actor target) {
-		float result = (float) (getAttackHitChance(attacker.combatTraits, target.combatTraits)) * attacker.combatTraits.damagePotential.average() / 100;
+		float result = (float) (getAttackHitChance(attacker, target)) * attacker.getDamagePotential().average() / 100;
 		if (hasCriticalAttack(attacker, target)) {
-			result += (float) attacker.combatTraits.getEffectiveCriticalChance() * result * attacker.combatTraits.criticalMultiplier / 100;
+			result += (float) attacker.getEffectiveCriticalChance() * result * attacker.getCriticalMultiplier() / 100;
 		}
-		result -= target.combatTraits.damageResistance;
+		result -= target.getDamageResistance();
 		return result;
 	}
 	private static float getAverageDamagePerTurn(Actor attacker, Actor target) {
@@ -424,14 +423,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	private static int getTurnsToKillTarget(Actor attacker, Actor target) {
 		if (hasCriticalAttack(attacker, target)) {
-			if (attacker.combatTraits.damagePotential.max * attacker.combatTraits.criticalMultiplier <= target.combatTraits.damageResistance) return 999;
+			if (attacker.getDamagePotential().max * attacker.getCriticalMultiplier() <= target.getDamageResistance()) return 999;
 		} else {
-			if (attacker.combatTraits.damagePotential.max <= target.combatTraits.damageResistance) return 999;
+			if (attacker.getDamagePotential().max <= target.getDamageResistance()) return 999;
 		}
 		
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);
 		if (averageDamagePerTurn <= 0) return 100;
-		return (int) FloatMath.ceil(target.health.max / averageDamagePerTurn);
+		return (int) FloatMath.ceil(target.getMaxHP() / averageDamagePerTurn);
 	}
 	public static int getMonsterDifficulty(WorldContext world, Monster monster) {
 		// returns [0..100) . 100 == easy.
@@ -460,25 +459,25 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private static final int n = 50;
 	private static final int F = 40;
 	private static final float two_divided_by_PI = (float) (2f / Math.PI);
-	private static int getAttackHitChance(final CombatTraits attacker, final CombatTraits target) {
-		final int c = attacker.attackChance - target.blockChance;
+	private static int getAttackHitChance(final Actor attacker, final Actor target) {
+		final int c = attacker.getAttackChance() - target.getBlockChance();
 		// (2/pi)*atan(..) will vary from -1 to +1 .
 		return (int) (50 * (1 + two_divided_by_PI * (float)Math.atan((float)(c-n) / F)));
 	}
 	
 	private AttackResult attack(final Actor attacker, final Actor target) {
-		int hitChance = getAttackHitChance(attacker.combatTraits, target.combatTraits);
+		int hitChance = getAttackHitChance(attacker, target);
 		if (!Constants.roll100(hitChance)) return AttackResult.MISS;
 		
-		int damage = Constants.rollValue(attacker.combatTraits.damagePotential);
+		int damage = Constants.rollValue(attacker.getDamagePotential());
 		boolean isCriticalHit = false;
 		if (hasCriticalAttack(attacker, target)) {
-			isCriticalHit = Constants.roll100(attacker.combatTraits.getEffectiveCriticalChance());
+			isCriticalHit = Constants.roll100(attacker.getEffectiveCriticalChance());
 			if (isCriticalHit) {
-				damage *= attacker.combatTraits.criticalMultiplier;
+				damage *= attacker.getCriticalMultiplier();
 			}
 		}
-		damage -= target.combatTraits.damageResistance;
+		damage -= target.getDamageResistance();
 		if (damage < 0) damage = 0;
 		target.health.subtract(damage, false);
 		
@@ -488,9 +487,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	private void applyAttackHitStatusEffects(Actor attacker, Actor target) {
-		if (attacker.baseTraits.onHitEffects == null) return;
+		ItemTraits_OnUse[] onHitEffects = attacker.getOnHitEffects();
+		if (onHitEffects == null) return;
 		
-		for (ItemTraits_OnUse e : attacker.baseTraits.onHitEffects) {
+		for (ItemTraits_OnUse e : onHitEffects) {
 			context.actorStatsController.applyUseEffect(attacker, target, e);
 		}
 	}

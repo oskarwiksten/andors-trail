@@ -62,7 +62,9 @@ public final class MonsterSpawnArea {
 		spawn(p, context.monsterTypes.getMonsterType(monsterTypeID));
 	}
 	public void spawn(Coord p, MonsterType type) {
-		monsters.add(new Monster(type, p));
+		Monster m = new Monster(type);
+		m.position.set(p);
+		monsters.add(m);
 		quantity.current++;
 	}
 	

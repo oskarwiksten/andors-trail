@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.view;
 
-import java.util.Collection;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
@@ -31,7 +29,7 @@ public final class ActorConditionList extends LinearLayout {
         this.world = app.world;
     }
 
-	public void update(Collection<ActorCondition> conditions) {
+	public void update(Iterable<ActorCondition> conditions) {
 		removeAllViews();
 		if (conditions == null) return;
 		

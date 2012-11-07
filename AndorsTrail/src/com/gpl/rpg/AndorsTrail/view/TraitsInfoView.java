@@ -1,9 +1,9 @@
 package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
+import com.gpl.rpg.AndorsTrail.util.Range;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -57,58 +57,77 @@ public class TraitsInfoView extends TableLayout {
         traitsinfo_defense_damageresist = (TextView) findViewById(R.id.traitsinfo_defense_damageresist);
     }
 
-	public void update(Actor actor) { update(actor.combatTraits); }
-	private void update(CombatTraits traits) {
-		if (traits != null && traits.attackCost != 0) {
+	public void update(Actor actor) {
+		update(
+			actor.getAttackCost()
+			,actor.getAttackChance()
+			,actor.getDamagePotential()
+			,actor.getCriticalSkill()
+			,actor.getCriticalMultiplier()
+			,actor.getBlockChance()
+			,actor.getDamageResistance());
+	}
+	
+	public void update(
+			int attackCost
+			,int attackChance
+			,Range damagePotential
+			,int criticalSkill
+			,float criticalMultiplier
+			,int blockChance
+			,int damageResistance
+		) { 
+		if (attackCost != 0) {
 			traitsinfo_attack_row1.setVisibility(View.VISIBLE);
-			traitsinfo_attack_cost.setText(Integer.toString(traits.attackCost));
+			traitsinfo_attack_cost.setText(Integer.toString(attackCost));
 		} else {
 			traitsinfo_attack_row1.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasAttackChanceEffect()) {
+		if (attackChance != 0) {
 			traitsinfo_attack_row2.setVisibility(View.VISIBLE);
-			traitsinfo_attack_chance.setText(Integer.toString(traits.attackChance) + "%");
+			traitsinfo_attack_chance.setText(Integer.toString(attackChance) + "%");
 		} else {
 			traitsinfo_attack_row2.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasAttackDamageEffect()) {
+		if (damagePotential.max != 0) {
 			traitsinfo_attack_row3.setVisibility(View.VISIBLE);
-			traitsinfo_attack_damage.setText(traits.damagePotential.toMinMaxString());
+			traitsinfo_attack_damage.setText(damagePotential.toMinMaxString());
 		} else {
 			traitsinfo_attack_row3.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasCriticalSkillEffect()) {
+		if (criticalSkill != 0) {
 			traitsinfo_critical_row1.setVisibility(View.VISIBLE);
-			traitsinfo_criticalhit_skill.setText(Integer.toString(traits.criticalSkill));
+			traitsinfo_criticalhit_skill.setText(Integer.toString(criticalSkill));
 		} else {
 			traitsinfo_critical_row1.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasCriticalMultiplierEffect()) {
+		if (criticalMultiplier != 0 && criticalMultiplier != 1) {
 			traitsinfo_critical_row2.setVisibility(View.VISIBLE);
-			traitsinfo_criticalhit_multiplier.setText(Float.toString(traits.criticalMultiplier));
+			traitsinfo_criticalhit_multiplier.setText(Float.toString(criticalMultiplier));
 		} else {
 			traitsinfo_critical_row2.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasCriticalAttacks()) {
+		if (criticalSkill != 0 && criticalMultiplier != 0 && criticalMultiplier != 1) {
 			traitsinfo_critical_row3.setVisibility(View.VISIBLE);
-			traitsinfo_criticalhit_effectivechance.setText(Integer.toString(traits.getEffectiveCriticalChance()) + "%");
+			traitsinfo_criticalhit_effectivechance.setText(Integer.toString(Actor.getEffectiveCriticalChance(criticalSkill)) + "%");
 		} else {
 			traitsinfo_critical_row3.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.hasBlockEffect()) {
+		if (blockChance != 0) {
 			traitsinfo_defense_row1.setVisibility(View.VISIBLE);
-			traitsinfo_defense_chance.setText(Integer.toString(traits.blockChance) + "%");
+			traitsinfo_defense_chance.setText(Integer.toString(blockChance) + "%");
 		} else {
 			traitsinfo_defense_row1.setVisibility(View.GONE);
 		}
-		if (traits != null && traits.damageResistance != 0) {
+		if (damageResistance != 0) {
 			traitsinfo_defense_row2.setVisibility(View.VISIBLE);
-			traitsinfo_defense_damageresist.setText(Integer.toString(traits.damageResistance));
+			traitsinfo_defense_damageresist.setText(Integer.toString(damageResistance));
 		} else {
 			traitsinfo_defense_row2.setVisibility(View.GONE);
 		}
 	}
 	
+	/*
 	public void update(ActorTraits traits) {
 		if (traits != null && traits.attackCost != 0) {
 			traitsinfo_attack_row1.setVisibility(View.VISIBLE);
@@ -159,4 +178,5 @@ public class TraitsInfoView extends TableLayout {
 			traitsinfo_defense_row2.setVisibility(View.GONE);
 		}
 	}
+	*/
 }

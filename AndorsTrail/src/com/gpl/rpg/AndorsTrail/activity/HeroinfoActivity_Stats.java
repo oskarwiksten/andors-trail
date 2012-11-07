@@ -107,10 +107,10 @@ public final class HeroinfoActivity_Stats extends Activity {
     }
 
 	private void updateTraits() {
-		heroinfo_level.setText(Integer.toString(player.level));
-		heroinfo_totalexperience.setText(Integer.toString(player.totalExperience));
+		heroinfo_level.setText(Integer.toString(player.getLevel()));
+		heroinfo_totalexperience.setText(Integer.toString(player.getTotalExperience()));
 		heroinfo_ap.setText(player.ap.toString());
-        heroinfo_movecost.setText(Integer.toString(player.baseTraits.moveCost));
+        heroinfo_movecost.setText(Integer.toString(player.getMoveCost()));
         rangebar_hp.update(player.health);
         rangebar_exp.update(player.levelExperience);
         

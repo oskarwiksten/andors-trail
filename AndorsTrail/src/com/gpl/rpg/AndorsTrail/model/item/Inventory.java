@@ -27,6 +27,13 @@ public final class Inventory extends ItemContainer {
 	
 	public Inventory() { }
 
+	public void clear() {
+		for(int i = 0; i < NUM_WORN_SLOTS; ++i) wear[i] = null;
+		for(int i = 0; i < NUM_QUICK_SLOTS; ++i) quickitem[i] = null;
+		gold = 0;
+		items.clear();
+	}
+	
 	public void add(final Loot loot) {
 		this.gold += loot.gold;
 		this.add(loot.items);
@@ -56,26 +63,31 @@ public final class Inventory extends ItemContainer {
 	// ====== PARCELABLE ===================================================================
 
 	public Inventory(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion);
+		this.readFromParcel(src, world, fileversion);
+	}
+	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		super.readFromParcel(src, world, fileversion);
 		gold = src.readInt();
 		
 		if (fileversion < 23) LegacySavegameFormatReaderForItemContainer.refundUpgradedItems(this);
 		
-		final int size = src.readInt();
-		for(int i = 0; i < size; ++i) {
+		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
+			wear[i] = null;
+		}
+		final int numWornSlots = src.readInt();
+		for(int i = 0; i < numWornSlots; ++i) {
 			if (src.readBoolean()) {
 				wear[i] = world.itemTypes.getItemType(src.readUTF());
-			} else {
-				wear[i] = null;
 			}
+		}
+		for(int i = 0; i < NUM_QUICK_SLOTS; ++i) {
+			quickitem[i] = null;
 		}
 		if (fileversion >= 19) {
 			final int quickSlots = src.readInt();
 			for(int i = 0; i < quickSlots; ++i) {
 				if (src.readBoolean()) {
 					quickitem[i] = world.itemTypes.getItemType(src.readUTF());
-				} else {
-					quickitem[i] = null;
 				}
 			}
 		}
