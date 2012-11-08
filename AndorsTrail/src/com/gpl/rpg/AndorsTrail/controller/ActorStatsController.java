@@ -185,8 +185,9 @@ public class ActorStatsController {
 		if (actor.damagePotential.max < 0) actor.damagePotential.set(0, 0);
 	}
 	
-	public static void recalculatePlayerCombatTraits(Player player) { 
+	public static void recalculatePlayerStats(Player player) { 
 		player.resetStatsToBaseTraits();
+		player.recalculateLevelExperience();
 		ItemController.applyInventoryEffects(player);
 		SkillController.applySkillEffects(player);
 		applyEffectsFromCurrentConditions(player);
@@ -201,7 +202,7 @@ public class ActorStatsController {
 		monster.ap.capAtMax(); 
 	}
 	private static void recalculateActorCombatTraits(Actor actor) {
-		if (actor.isPlayer) recalculatePlayerCombatTraits((Player) actor);
+		if (actor.isPlayer) recalculatePlayerStats((Player) actor);
 		else recalculateMonsterCombatTraits((Monster) actor);
 	}
 
@@ -232,7 +233,7 @@ public class ActorStatsController {
 					player.conditions.remove(i);
 					player.conditionListener.onActorConditionRemoved(player, c);
 				}
-				recalculatePlayerCombatTraits(player);
+				recalculatePlayerStats(player);
 			}
 		}
 	}

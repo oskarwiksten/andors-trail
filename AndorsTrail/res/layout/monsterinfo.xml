@@ -16,6 +16,7 @@
 			android:layout_height="wrap_content"
 			android:orientation="vertical"
 			android:padding="@dimen/dialog_margin"
+			android:id="@+id/monsterinfo_container"
 			>
 			
 			<TextView
@@ -54,19 +55,20 @@
 				android:layout_marginBottom="@dimen/section_margin"
 				/>
 			
-			<com.gpl.rpg.AndorsTrail.view.TraitsInfoView
-				android:id="@+id/monsterinfo_currenttraits"
+			<TableLayout
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				/>
-			<TextView
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				android:text="@string/actorinfo_immune_criticals"
-				android:id="@+id/monsterinfo_immune_criticals"
-				/>
+				android:id="@+id/actorinfo_stats_table"
+				>
+                <TableRow>
+					<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_base_max_ap" />
+					<TextView android:id="@+id/monsterinfo_max_ap" />
+				</TableRow>
+				<include layout="@layout/traitsinfoview" />
+			</TableLayout>
+			
 			<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
-				android:id="@+id/monsterinfo_onhiteffects"
+				android:id="@+id/actorinfo_onhiteffects"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>
@@ -75,11 +77,11 @@
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				android:text="@string/actorinfo_currentconditions"
-				android:id="@+id/monsterinfo_currentconditions_title"
+				android:id="@+id/actorinfo_currentconditions_title"
 				android:layout_marginTop="@dimen/section_margin"
 				/>
 			<com.gpl.rpg.AndorsTrail.view.ActorConditionList
-				android:id="@+id/monsterinfo_currentconditions"
+				android:id="@+id/actorinfo_currentconditions"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
 				/>

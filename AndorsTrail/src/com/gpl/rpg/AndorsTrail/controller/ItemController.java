@@ -53,7 +53,7 @@ public final class ItemController {
 			
 		player.inventory.wear[slot] = type;
 		ActorStatsController.addConditionsFromEquippedItem(player, type);
-		ActorStatsController.recalculatePlayerCombatTraits(player);
+		ActorStatsController.recalculatePlayerStats(player);
     }
 
    	public void unequipSlot(ItemType type, int slot) {
@@ -66,7 +66,7 @@ public final class ItemController {
     	}
     	
 		unequipSlot(player, slot);
-		ActorStatsController.recalculatePlayerCombatTraits(player);
+		ActorStatsController.recalculatePlayerStats(player);
     }
 
    	private static void unequipSlot(Player player, int slot) {

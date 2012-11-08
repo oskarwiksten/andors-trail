@@ -78,7 +78,7 @@ public final class Controller {
 	public static void playerRested(final WorldContext world, MapObject area) {
 		final Player player = world.model.player;
 		ActorStatsController.removeAllTemporaryConditions(player);
-		ActorStatsController.recalculatePlayerCombatTraits(player);
+		ActorStatsController.recalculatePlayerStats(player);
 		player.setMaxAP();
 		player.setMaxHP();
 		if (area != null) {

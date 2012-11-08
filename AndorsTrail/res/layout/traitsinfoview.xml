@@ -1,56 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-	android:layout_width="match_parent"
-	android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 	>
-
-	<TableRow
-		android:id="@+id/traitsinfo_attack_row1"
-		>
-		<TextView android:text="@string/traitsinfo_attack_cost" android:layout_marginRight="10sp" />
+	<TableRow>
+		<TextView style="@style/traitsinfo_label" android:text="@string/actorinfo_movecost" />
+		<TextView android:id="@+id/traitsinfo_move_cost" />
+	</TableRow>
+	<TableRow>
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_attack_cost" />
 		<TextView android:id="@+id/traitsinfo_attack_cost" />
 	</TableRow>
-	<TableRow
-		android:id="@+id/traitsinfo_attack_row2"
-		>
-		<TextView android:text="@string/traitsinfo_attack_chance" android:layout_marginRight="10sp" />
+	<TableRow android:id="@+id/traitsinfo_attack_chance_row">
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_attack_chance" />
 		<TextView android:id="@+id/traitsinfo_attack_chance" />
 	</TableRow>
-	<TableRow
-		android:id="@+id/traitsinfo_attack_row3"
-		>
-		<TextView android:text="@string/traitsinfo_attack_damage" android:layout_marginRight="10sp" />
+	<TableRow android:id="@+id/traitsinfo_attack_damage_row" >
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_attack_damage" />
 		<TextView android:id="@+id/traitsinfo_attack_damage" />
 	</TableRow>
-	<TableRow
-		android:id="@+id/traitsinfo_critical_row1"
-		>
-		<TextView android:text="@string/traitsinfo_criticalhit_skill" android:layout_marginRight="10sp" />
+	<TableRow android:id="@+id/traitsinfo_criticalhit_skill_row">
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_criticalhit_skill" />
 		<TextView android:id="@+id/traitsinfo_criticalhit_skill" />
 	</TableRow>
-	<TableRow
-		android:id="@+id/traitsinfo_critical_row2"
-		>
-		<TextView android:text="@string/traitsinfo_criticalhit_multiplier" android:layout_marginRight="10sp" />
+	<TableRow android:id="@+id/traitsinfo_criticalhit_multiplier_row">
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_criticalhit_multiplier" />
 		<TextView android:id="@+id/traitsinfo_criticalhit_multiplier" />
 	</TableRow>
-	<TableRow
-		android:id="@+id/traitsinfo_critical_row3"
-		>
-		<TextView android:text="@string/traitsinfo_criticalhit_effectivechance" android:layout_marginRight="10sp" />
+	<TableRow android:id="@+id/traitsinfo_criticalhit_effectivechance_row">
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_criticalhit_effectivechance" />
 		<TextView android:id="@+id/traitsinfo_criticalhit_effectivechance" />
 	</TableRow>
-		<TableRow
-		android:id="@+id/traitsinfo_defense_row1"
-		>
-		<TextView android:text="@string/traitsinfo_defense_chance" android:layout_marginRight="10sp" />
-		<TextView android:id="@+id/traitsinfo_defense_chance" />
+	<TableRow android:id="@+id/traitsinfo_block_chance_row">
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_defense_chance" />
+		<TextView android:id="@+id/traitsinfo_block_chance" />
 	</TableRow>
-	<TableRow
-		android:id="@+id/traitsinfo_defense_row2"
-		>
-		<TextView android:text="@string/traitsinfo_defense_damageresist" android:layout_marginRight="10sp" />
-		<TextView android:id="@+id/traitsinfo_defense_damageresist" />
+	<TableRow android:id="@+id/traitsinfo_damageresist_row">
+		<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_defense_damageresist" />
+		<TextView android:id="@+id/traitsinfo_damageresist" />
+	</TableRow>
+	<TableRow android:id="@+id/traitsinfo_is_immune_to_critical_hits_row">
+		<TextView android:text="@string/actorinfo_immune_criticals" android:layout_span="2" />
 	</TableRow>
 </merge>

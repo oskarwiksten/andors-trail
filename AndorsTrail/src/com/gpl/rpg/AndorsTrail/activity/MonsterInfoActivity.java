@@ -6,7 +6,6 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.view.ActorConditionList;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
@@ -14,6 +13,7 @@ import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -21,16 +21,16 @@ import android.widget.TextView;
 
 public final class MonsterInfoActivity extends Activity {
 	
-	private TextView monsterinfo_title;
-	private TextView monsterinfo_difficulty;
-	private TraitsInfoView monsterinfo_currenttraits;
-	private ItemEffectsView monsterinfo_onhiteffects;
-    private TextView monsterinfo_currentconditions_title;
-    private TextView monsterinfo_immune_criticals;
-    private ActorConditionList monsterinfo_currentconditions;
-	private RangeBar hp;
 	private WorldContext world;
 	
+	private TextView monsterinfo_title;
+	private TextView monsterinfo_difficulty;
+	private ItemEffectsView monsterinfo_onhiteffects;
+    private RangeBar hp;
+    private ViewGroup monsterinfo_container;
+    private TextView monsterinfo_max_ap;
+	
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,7 @@ public final class MonsterInfoActivity extends Activity {
 
         monsterinfo_title = (TextView) findViewById(R.id.monsterinfo_title);
         monsterinfo_difficulty = (TextView) findViewById(R.id.monsterinfo_difficulty);
-        monsterinfo_immune_criticals = (TextView) findViewById(R.id.monsterinfo_immune_criticals);
+        monsterinfo_max_ap = (TextView) findViewById(R.id.monsterinfo_max_ap);
         
         Button b = (Button) findViewById(R.id.monsterinfo_close);
         b.setOnClickListener(new OnClickListener() {
@@ -53,12 +53,10 @@ public final class MonsterInfoActivity extends Activity {
 			}
 		});
 
-        monsterinfo_currenttraits = (TraitsInfoView) findViewById(R.id.monsterinfo_currenttraits);
-        monsterinfo_onhiteffects = (ItemEffectsView) findViewById(R.id.monsterinfo_onhiteffects);
-        monsterinfo_currentconditions_title = (TextView) findViewById(R.id.monsterinfo_currentconditions_title);
-        monsterinfo_currentconditions = (ActorConditionList) findViewById(R.id.monsterinfo_currentconditions);
+        monsterinfo_onhiteffects = (ItemEffectsView) findViewById(R.id.actorinfo_onhiteffects);
         hp = (RangeBar) findViewById(R.id.monsterinfo_healthbar);
         hp.init(R.drawable.ui_progress_health, R.string.status_hp);
+        monsterinfo_container = (ViewGroup) findViewById(R.id.monsterinfo_container);
     }
 
     @Override
@@ -73,7 +71,6 @@ public final class MonsterInfoActivity extends Activity {
         
         updateTitle(monster);
     	updateTraits(monster);
-        updateConditions(monster);
     }
 
 	private void updateTitle(Monster monster) {
@@ -83,7 +80,7 @@ public final class MonsterInfoActivity extends Activity {
 	}
 
 	private void updateTraits(Monster monster) {
-		monsterinfo_currenttraits.update(monster);
+		TraitsInfoView.update(monsterinfo_container, monster);
 		monsterinfo_onhiteffects.update(
         		null, 
         		null, 
@@ -91,7 +88,7 @@ public final class MonsterInfoActivity extends Activity {
         		null,
         		false);
         hp.update(monster.health);
-        monsterinfo_immune_criticals.setVisibility(monster.isImmuneToCriticalHits() ? View.VISIBLE : View.GONE);
+        monsterinfo_max_ap.setText(Integer.toString(monster.ap.max));
     }
 
 	public static int getMonsterDifficultyResource(WorldContext world, Monster monster) {
@@ -102,16 +99,5 @@ public final class MonsterInfoActivity extends Activity {
 		else if (difficulty >= 20) return R.string.monster_difficulty_hard;
 		else if (difficulty == 0) return R.string.monster_difficulty_impossible;
 		else return R.string.monster_difficulty_veryhard;
-	}
-
-	private void updateConditions(Monster monster) {
-		if (monster.conditions.isEmpty()) {
-			monsterinfo_currentconditions_title.setVisibility(View.GONE);
-			monsterinfo_currentconditions.setVisibility(View.GONE);
-		} else {
-			monsterinfo_currentconditions_title.setVisibility(View.VISIBLE);
-			monsterinfo_currentconditions.setVisibility(View.VISIBLE);
-			monsterinfo_currentconditions.update(monster.conditions);
-		}
 	}
 }

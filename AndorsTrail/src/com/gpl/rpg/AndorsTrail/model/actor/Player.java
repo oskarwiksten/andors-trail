@@ -126,7 +126,6 @@ public final class Player extends Actor {
 		this.skillLevels.clear();
 		this.availableSkillIncreases = 0;
 		this.alignments.clear();
-		recalculateLevelExperience();
 		
 		Loot startItems = new Loot();
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
@@ -140,7 +139,7 @@ public final class Player extends Actor {
 			this.spawnPlace = "rest";
 		}
 		
-		ActorStatsController.recalculatePlayerCombatTraits(this);
+		ActorStatsController.recalculatePlayerStats(this);
 	}
 	
 	public boolean hasExactQuestProgress(QuestProgress progress) { return hasExactQuestProgress(progress.questID, progress.progress); }
@@ -193,7 +192,7 @@ public final class Player extends Actor {
 	}
 	public void addSkillLevel(int skillID) {
 		skillLevels.put(skillID, skillLevels.get(skillID) + 1);
-		ActorStatsController.recalculatePlayerCombatTraits(this);
+		ActorStatsController.recalculatePlayerStats(this);
 	}
 	public boolean nextLevelAddsNewSkillpoint() {
     	return thisLevelAddsNewSkillpoint(level + 1);

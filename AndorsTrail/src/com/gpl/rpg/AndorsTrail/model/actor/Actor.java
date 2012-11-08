@@ -60,9 +60,6 @@ public class Actor {
 	public ItemTraits_OnUse[] getOnHitEffects() { return onHitEffects; }
 	public List<ItemTraits_OnUse> getOnHitEffectsAsList() { return onHitEffects == null ? null : Arrays.asList(onHitEffects); }
 	
-	public boolean hasAttackChanceEffect_() { return getAttackChance() != 0; }
-	public boolean hasAttackDamageEffect_() { return getDamagePotential().max != 0; }
-	public boolean hasBlockEffect_() { return getBlockChance() != 0; }
 	public boolean hasCriticalSkillEffect() { return getCriticalSkill() != 0; }
 	public boolean hasCriticalMultiplierEffect() { float m = getCriticalMultiplier(); return m != 0 && m != 1; }
 	public boolean hasCriticalAttacks() { return hasCriticalSkillEffect() && hasCriticalMultiplierEffect(); }
@@ -75,7 +72,6 @@ public class Actor {
 		if (v < 0) return 0;
 		return v;
 	}
-
 	
 	public boolean isDead() {
 		return health.current <= 0;

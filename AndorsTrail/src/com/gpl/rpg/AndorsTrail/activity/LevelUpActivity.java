@@ -138,7 +138,6 @@ public final class LevelUpActivity extends Activity {
 		player.baseTraits.maxHP += hpIncrease;
 		player.health.current += hpIncrease;
     	
-    	player.recalculateLevelExperience();
-    	ActorStatsController.recalculatePlayerCombatTraits(player);
+    	ActorStatsController.recalculatePlayerStats(player);
     }
 }
