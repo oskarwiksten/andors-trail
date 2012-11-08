@@ -6,9 +6,8 @@ import java.util.Collection;
 import android.util.SparseArray;
 
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo.SkillLevelRequirement;
-import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public final class SkillCollection {
 	public static final int SKILL_WEAPON_CHANCE = 0;
@@ -91,7 +90,7 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
 		initializeSkill(new SkillInfo(SKILL_BARKSKIN, MAX_LEVEL_BARKSKIN, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
 			SkillLevelRequirement.requireExperienceLevels(10, 0) 
-			,SkillLevelRequirement.requireCombatStats(CombatTraits.STAT_COMBAT_BLOCK_CHANCE, 15, 0) 
+			,SkillLevelRequirement.requireCombatStats(Player.STAT_COMBAT_BLOCK_CHANCE, 15, 0) 
 		}));
 		initializeSkill(new SkillInfo(SKILL_MORE_CRITICALS, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
 		initializeSkill(new SkillInfo(SKILL_BETTER_CRITICALS, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
@@ -107,14 +106,14 @@ public final class SkillCollection {
 			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 1)
 		}));
 		initializeSkill(new SkillInfo(SKILL_EATER, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 20, 20)
+			SkillLevelRequirement.requireActorStats(Player.STAT_ACTOR_MAX_HP, 20, 20)
 		}));
 		initializeSkill(new SkillInfo(SKILL_FORTITUDE, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
 			SkillLevelRequirement.requireExperienceLevels(15, -10)
 		}));
 		initializeSkill(new SkillInfo(SKILL_EVASION, MAX_LEVEL_EVASION, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
 		initializeSkill(new SkillInfo(SKILL_REGENERATION, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireActorStats(ActorTraits.STAT_ACTOR_MAX_HP, 30, 0)
+			SkillLevelRequirement.requireActorStats(Player.STAT_ACTOR_MAX_HP, 30, 0)
 			,SkillLevelRequirement.requireOtherSkill(SKILL_FORTITUDE, 1)
 		}));
 		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, MAX_LEVEL_LOWER_EXPLOSS, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));

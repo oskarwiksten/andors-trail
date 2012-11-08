@@ -1,7 +1,6 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
@@ -66,35 +65,6 @@ public final class ResourceParserUtils {
 	   	return new Size(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 	}
 	
-	public static CombatTraits parseCombatTraits(String[] parts, int startIndex) {
-		String attackCost = parts[startIndex];
-		String attackChance = parts[startIndex + 1];
-		String criticalSkill = parts[startIndex + 2];
-		String criticalMultiplier = parts[startIndex + 3];
-		ConstRange attackDamage = parseConstRange(parts[startIndex + 4], parts[startIndex + 5]);
-		String blockChance = parts[startIndex + 6];
-		String damageResistance = parts[startIndex + 7];
-		if (       attackCost.length() <= 0 
-				&& attackChance.length() <= 0
-				&& criticalSkill.length() <= 0
-				&& criticalMultiplier.length() <= 0
-				&& attackDamage == null
-				&& blockChance.length() <= 0
-				&& damageResistance.length() <= 0
-			) {
-			return null;
-		} else {
-			CombatTraits result = new CombatTraits();
-			result.attackCost = parseInt(attackCost, 0);
-			result.attackChance = parseInt(attackChance, 0);
-			result.criticalSkill = parseInt(criticalSkill, 0);
-			result.criticalMultiplier = parseFloat(criticalMultiplier, 0);
-			if (attackDamage != null) result.damagePotential.set(attackDamage);
-			result.blockChance = parseInt(blockChance, 0);
-			result.damageResistance = parseInt(damageResistance, 0);
-			return result;
-		}
-	}
 	public static String parseNullableString(String s) {
 		if (s == null || s.length() <= 0) return null;
 		return s;

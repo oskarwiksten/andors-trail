@@ -14,7 +14,6 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -28,6 +27,18 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class Player extends Actor {
+	public static final int STAT_ACTOR_MAX_HP = 0;
+	public static final int STAT_ACTOR_MAX_AP = 1;
+	public static final int STAT_ACTOR_MOVECOST = 2;
+	public static final int STAT_COMBAT_ATTACK_COST = 0;
+	public static final int STAT_COMBAT_ATTACK_CHANCE = 1;
+	public static final int STAT_COMBAT_CRITICAL_SKILL = 2;
+	public static final int STAT_COMBAT_CRITICAL_MULTIPLIER = 3;
+	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MIN = 4;
+	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MAX = 5;
+	public static final int STAT_COMBAT_BLOCK_CHANCE = 6;
+	public static final int STAT_COMBAT_DAMAGE_RESISTANCE = 7;
+	
 	public static final int DEFAULT_PLAYER_ATTACKCOST = 4;
 	public final Coord lastPosition;
 	public final Coord nextPosition;
@@ -225,23 +236,23 @@ public final class Player extends Actor {
 
 	public int getActorStats(int statID) {
 		switch (statID) {
-		case ActorTraits.STAT_ACTOR_MAX_HP: return baseTraits.maxHP;
-		case ActorTraits.STAT_ACTOR_MAX_AP: return baseTraits.maxAP;
-		case ActorTraits.STAT_ACTOR_MOVECOST: return baseTraits.moveCost;
+		case Player.STAT_ACTOR_MAX_HP: return baseTraits.maxHP;
+		case Player.STAT_ACTOR_MAX_AP: return baseTraits.maxAP;
+		case Player.STAT_ACTOR_MOVECOST: return baseTraits.moveCost;
 		}
 		return 0;
 	}
 	
 	public int getCombatStats(int statID) {
 		switch (statID) {
-		case CombatTraits.STAT_COMBAT_ATTACK_COST: return baseTraits.attackCost;
-		case CombatTraits.STAT_COMBAT_ATTACK_CHANCE: return baseTraits.attackChance;
-		case CombatTraits.STAT_COMBAT_CRITICAL_SKILL: return baseTraits.criticalSkill;
-		case CombatTraits.STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) FloatMath.floor(baseTraits.criticalMultiplier);
-		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return baseTraits.damagePotential.current;
-		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return baseTraits.damagePotential.max;
-		case CombatTraits.STAT_COMBAT_BLOCK_CHANCE: return baseTraits.blockChance;
-		case CombatTraits.STAT_COMBAT_DAMAGE_RESISTANCE: return baseTraits.damageResistance;
+		case Player.STAT_COMBAT_ATTACK_COST: return baseTraits.attackCost;
+		case Player.STAT_COMBAT_ATTACK_CHANCE: return baseTraits.attackChance;
+		case Player.STAT_COMBAT_CRITICAL_SKILL: return baseTraits.criticalSkill;
+		case Player.STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) FloatMath.floor(baseTraits.criticalMultiplier);
+		case Player.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return baseTraits.damagePotential.current;
+		case Player.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return baseTraits.damagePotential.max;
+		case Player.STAT_COMBAT_BLOCK_CHANCE: return baseTraits.blockChance;
+		case Player.STAT_COMBAT_DAMAGE_RESISTANCE: return baseTraits.damageResistance;
 		}
 		return 0;
 	}
