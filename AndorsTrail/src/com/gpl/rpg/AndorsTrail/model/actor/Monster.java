@@ -27,8 +27,9 @@ public final class Monster extends Actor {
 	private final MonsterType monsterType;
 	
 	public Monster(MonsterType monsterType) {
-		super(monsterType.iconID, monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
+		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
 		this.monsterType = monsterType;
+		this.iconID = monsterType.iconID;
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
 	}
@@ -98,7 +99,6 @@ public final class Monster extends Actor {
 		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
 		
 		if (fileversion < 25) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v25(src, fileversion, monsterType);
-		//if (fileversion < 33) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v33(src, world, fileversion, monsterType);
 		
 		return new Monster(src, world, fileversion, monsterType);
 	}
@@ -112,14 +112,16 @@ public final class Monster extends Actor {
 			this.attackCost = src.readInt();
 			this.attackChance = src.readInt();
 			this.criticalSkill = src.readInt();
-			this.criticalMultiplier = src.readFloat();
+			if (fileversion <= 20) {
+				this.criticalMultiplier = src.readInt();
+			} else {
+				this.criticalMultiplier = src.readFloat();
+			}
 			this.damagePotential.set(new Range(src, fileversion));
 			this.blockChance = src.readInt();
 			this.damageResistance = src.readInt();
 		}
 		
-		/*this.name = src.readUTF();*/
-
 		this.ap.readFromParcel(src, fileversion);
 		this.health.readFromParcel(src, fileversion);
 		this.position.readFromParcel(src, fileversion);
@@ -129,10 +131,11 @@ public final class Monster extends Actor {
 				conditions.add(new ActorCondition(src, world, fileversion));
 			}
 		}
-
+		
 		if (fileversion >= 34) {
 			this.moveCost = src.readInt();
 		}
+
 		this.forceAggressive = src.readBoolean();
 		if (fileversion >= 31) {
 			if (src.readBoolean()) {
@@ -140,31 +143,6 @@ public final class Monster extends Actor {
 			}
 		}
 	}
-
-	/*
-	public Monster(LegacySavegameData_Monster savegameData, MonsterType monsterType) {
-		this(monsterType, savegameData.position);
-		this.isPlayer = isPlayer;
-		this.isImmuneToCriticalHits = savegameData.isImmuneToCriticalHits;
-		this.baseTraits = new ActorTraits(savegameData);
-		this.name = savegameData.name;
-		this.iconID = savegameData.iconID;
-		this.tileSize = savegameData.tileSize;
-		this.combatTraits = new CombatTraits(savegameData);
-		this.ap = savegameData.ap;
-		this.health = savegameData.health;
-		this.position = savegameData.position;
-		this.rectPosition = savegameData.rectPosition;
-		this.conditions.addAll(savegameData.conditions);
-		
-		
-		this.monsterTypeID = monsterType.id;
-		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.baseTraits.getMovesPerTurn();
-		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
-		this.forceAggressive = savegameData.forceAggressive;
-		this.shopItems = savegameData.shopItems;
-	}
-	*/
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeUTF(getMonsterTypeID());

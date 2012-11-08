@@ -1,27 +1,21 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 import android.util.FloatMath;
 
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListeners;
-import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer.LegacySavegameData_Actor;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public class Actor {
-	public final int iconID;
+	public int iconID;
 	public final Size tileSize;
 	public final Coord position = new Coord();
 	public final CoordRect rectPosition;
@@ -44,8 +38,7 @@ public class Actor {
 	public int damageResistance;
 	public ItemTraits_OnUse[] onHitEffects;
 	
-	public Actor(int iconID, Size tileSize, boolean isPlayer, boolean isImmuneToCriticalHits) {
-		this.iconID = iconID;
+	public Actor(Size tileSize, boolean isPlayer, boolean isImmuneToCriticalHits) {
 		this.tileSize = tileSize;
 		this.rectPosition = new CoordRect(this.position, this.tileSize);
 		this.isPlayer = isPlayer;
@@ -109,67 +102,4 @@ public class Actor {
 		}
 		return false;
 	}
-
-	
-	// ====== PARCELABLE ===================================================================
-
-	/*
-	public Actor(DataInputStream src, WorldContext world, int fileversion, boolean isPlayer, boolean isImmuneToCriticalHits, Size tileSize, ActorTraits baseTraits) throws IOException {
-		this.isPlayer = isPlayer;
-		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
-		
-		CombatTraits combatTraits = null;
-		boolean readCombatTraits = src.readBoolean();
-		if (readCombatTraits) combatTraits = new CombatTraits(src, fileversion);
-		
-		this.baseTraits = isPlayer ? new ActorTraits(src, world, fileversion) : baseTraits;
-		this.name = src.readUTF();
-		this.iconID = baseTraits.iconID;
-		this.tileSize = tileSize;
-		
-		if (!readCombatTraits) combatTraits = new CombatTraits(this.baseTraits);
-		this.combatTraits = combatTraits;
-
-		this.ap = new Range(src, fileversion);
-		this.health = new Range(src, fileversion);
-		this.position = new Coord(src, fileversion);
-		this.rectPosition = new CoordRect(position, this.tileSize);
-		final int numConditions = src.readInt();
-		for(int i = 0; i < numConditions; ++i) {
-			conditions.add(new ActorCondition(src, world, fileversion));
-		}
-	}
-	
-	public Actor(LegacySavegameData_Actor savegameData, boolean isPlayer) {
-		this.isPlayer = isPlayer;
-		this.isImmuneToCriticalHits = savegameData.isImmuneToCriticalHits;
-		this.baseTraits = new ActorTraits(savegameData);
-		this.name = savegameData.name;
-		this.iconID = savegameData.iconID;
-		this.tileSize = savegameData.tileSize;
-		this.combatTraits = new CombatTraits(savegameData);
-		this.ap = savegameData.ap;
-		this.health = savegameData.health;
-		this.position = savegameData.position;
-		this.rectPosition = savegameData.rectPosition;
-		this.conditions.addAll(savegameData.conditions);
-	}
-	
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		if (this.combatTraits.isSameValuesAs(baseTraits)) {
-			dest.writeBoolean(false);
-		} else {
-			dest.writeBoolean(true);
-			combatTraits.writeToParcel(dest, flags);
-		}
-		dest.writeUTF(name);
-		if (isPlayer) baseTraits.writeToParcel(dest, flags);
-		ap.writeToParcel(dest, flags);
-		health.writeToParcel(dest, flags);
-		position.writeToParcel(dest, flags);
-		dest.writeInt(conditions.size());
-		for (ActorCondition c : conditions) {
-			c.writeToParcel(dest, flags);
-		}
-	}*/
 }

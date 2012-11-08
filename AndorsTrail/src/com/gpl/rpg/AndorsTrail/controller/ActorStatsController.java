@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;

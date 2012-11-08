@@ -3,8 +3,6 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map.Entry;
@@ -20,7 +18,6 @@ import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
-import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
@@ -31,9 +28,7 @@ import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class Player extends Actor {
-	public static final int DEFAULT_PLAYER_MOVECOST = 6;
 	public static final int DEFAULT_PLAYER_ATTACKCOST = 4;
-	public static final Size DEFAULT_PLAYER_SIZE = new Size(1, 1);
 	public final Coord lastPosition;
 	public final Coord nextPosition;
 	
@@ -53,7 +48,9 @@ public final class Player extends Actor {
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 	
+	// Unequipped stats
 	public class PlayerBaseTraits {
+		public int iconID;
 		public int maxAP;
 		public int maxHP;
 		public int moveCost;
@@ -69,6 +66,7 @@ public final class Player extends Actor {
 	}
 
 	public void resetStatsToBaseTraits() {
+		this.iconID = this.baseTraits.iconID;
 		this.ap.max = this.baseTraits.maxAP;
 		this.health.max = this.baseTraits.maxHP;
 		this.moveCost = this.baseTraits.moveCost;
@@ -85,8 +83,7 @@ public final class Player extends Actor {
 	
 	public Player() {
 		super(
-			TileManager.CHAR_HERO
-			, DEFAULT_PLAYER_SIZE
+			new Size(1, 1)
 			, true // isPlayer
 			, false // isImmuneToCriticalHits
 		);
@@ -97,9 +94,10 @@ public final class Player extends Actor {
 	}
 	
 	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
+		baseTraits.iconID = TileManager.CHAR_HERO;
 		baseTraits.maxAP = 10;
 		baseTraits.maxHP = 25;
-		baseTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
+		baseTraits.moveCost = 6;
 		baseTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
 		baseTraits.attackChance = 60;
 		baseTraits.criticalSkill = 0;
@@ -233,6 +231,7 @@ public final class Player extends Actor {
 		}
 		return 0;
 	}
+	
 	public int getCombatStats(int statID) {
 		switch (statID) {
 		case CombatTraits.STAT_COMBAT_ATTACK_COST: return baseTraits.attackCost;
@@ -250,73 +249,21 @@ public final class Player extends Actor {
 	// ====== PARCELABLE ===================================================================
 
 	public static Player readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		/*	Player player;
-		if (fileversion < 34) player = LegacySavegameFormatReaderForPlayer.readFromParcel_pre_v34(src, world, fileversion);
-		else player = new Player(src, world, fileversion);
-		*/
 		Player player = new Player(src, world, fileversion);
-
 		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, fileversion);
-		
 		return player;
 	}
-	
-	/*
-	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion, true, false, DEFAULT_PLAYER_SIZE, null);
-		this.lastPosition = new Coord(src, fileversion);
-		this.nextPosition = new Coord(src, fileversion);
-		this.level = src.readInt();
-		this.totalExperience = src.readInt();
-		this.levelExperience = new Range();
-		this.recalculateLevelExperience();
-		this.inventory = new Inventory(src, world, fileversion);
-		this.useItemCost = src.readInt();
-		this.reequipCost = src.readInt();
-		final int numSkills = src.readInt();
-		for(int i = 0; i < numSkills; ++i) {
-			final int skillID = src.readInt();
-			this.skillLevels.put(skillID, src.readInt());
-		}
-		this.spawnMap = src.readUTF();
-		this.spawnPlace = src.readUTF();
-
-		final int numquests = src.readInt();
-		for(int i = 0; i < numquests; ++i) {
-			final String questID = src.readUTF();
-			questProgress.put(questID, new HashSet<Integer>());
-			final int numprogress = src.readInt();
-			for(int j = 0; j < numprogress; ++j) {
-				int progress = src.readInt();
-				questProgress.get(questID).add(progress);
-			}
-		}
-		
-		this.availableSkillIncreases = src.readInt();
-		
-		final int numAlignments = src.readInt();
-		for(int i = 0; i < numAlignments; ++i) {
-			final String faction = src.readUTF();
-			final int alignment = src.readInt();
-			alignments.put(faction, alignment);
-		}
-	}
-	*/
 	
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this();
 		
-		this.name = src.readUTF();
-		this.iconID = src.readInt();
+		if (fileversion <= 33) LegacySavegameFormatReaderForPlayer.readCombatTraitsPreV034(src, fileversion);
 		
-		if (fileversion <= 33) {
-			LegacySavegameFormatReaderForPlayer.readCombatTraitsPreV034(src, fileversion);
-			/*this.iconID = */src.readInt();
-			/*this.tileSize = */new Size(src, fileversion);
-		}
-		
+		this.baseTraits.iconID = src.readInt();
+		if (fileversion <= 33) /*this.tileSize = */new Size(src, fileversion);
 		this.baseTraits.maxAP = src.readInt();
 		this.baseTraits.maxHP = src.readInt();
+		this.name = src.readUTF();
 		this.moveCost = src.readInt();
 		
 		this.baseTraits.attackCost = src.readInt();
@@ -341,8 +288,8 @@ public final class Player extends Actor {
 		this.health.set(new Range(src, fileversion));
 		this.position.set(new Coord(src, fileversion));
 		if (fileversion > 16) {
-			final int n = src.readInt();
-			for(int i = 0; i < n ; ++i) {
+			final int numConditions = src.readInt();
+			for(int i = 0; i < numConditions; ++i) {
 				this.conditions.add(new ActorCondition(src, world, fileversion));
 			}
 		}
@@ -355,10 +302,10 @@ public final class Player extends Actor {
 		
 		if (fileversion <= 13) LegacySavegameFormatReaderForPlayer.readQuestProgressPreV13(this, src, world, fileversion);
 
-		this.useItemCost = src.readInt();
-		this.reequipCost = src.readInt();
-		final int size2 = src.readInt();
-		for(int i = 0; i < size2; ++i) {
+		this.baseTraits.useItemCost = src.readInt();
+		this.baseTraits.reequipCost = src.readInt();
+		final int numSkills = src.readInt();
+		for(int i = 0; i < numSkills; ++i) {
 			if (fileversion <= 21) {
 				this.skillLevels.put(i, src.readInt());
 			} else {
@@ -370,12 +317,12 @@ public final class Player extends Actor {
 		this.spawnPlace = src.readUTF();
 
 		if (fileversion > 13) {
-			final int numquests = src.readInt();
-			for(int i = 0; i < numquests; ++i) {
+			final int numQuests = src.readInt();
+			for(int i = 0; i < numQuests; ++i) {
 				final String questID = src.readUTF();
 				this.questProgress.put(questID, new HashSet<Integer>());
-				final int numprogress = src.readInt();
-				for(int j = 0; j < numprogress; ++j) {
+				final int numProgress = src.readInt();
+				for(int j = 0; j < numProgress; ++j) {
 					int progress = src.readInt();
 					this.questProgress.get(questID).add(progress);
 				}
@@ -388,43 +335,21 @@ public final class Player extends Actor {
 		}
 		
 		if (fileversion >= 26) {
-			final int size3 = src.readInt();
-			for(int i = 0; i < size3; ++i) {
+			final int numAlignments = src.readInt();
+			for(int i = 0; i < numAlignments; ++i) {
 				final String faction = src.readUTF();
 				final int alignment = src.readInt();
 				this.alignments.put(faction, alignment);
 			}
 		}
 	}
-	
-	/*
-	public Player(LegacySavegameData_Player savegameData) {
-		super(savegameData, true);
-		this.lastPosition = savegameData.lastPosition;
-		this.nextPosition = savegameData.nextPosition;
-		this.level = savegameData.level;
-		this.totalExperience = savegameData.totalExperience;
-		this.levelExperience = new Range();
-		this.recalculateLevelExperience();
-		this.inventory = savegameData.inventory;
-		this.useItemCost = savegameData.useItemCost;
-		this.reequipCost = savegameData.reequipCost;
-		for(int i = 0; i < savegameData.skillLevels.size(); ++i) {
-			this.skillLevels.put(savegameData.skillLevels.keyAt(i), savegameData.skillLevels.valueAt(i));
-		}
-		this.spawnMap = savegameData.spawnMap;
-		this.spawnPlace = savegameData.spawnPlace;
-		this.questProgress.putAll(savegameData.questProgress);
-		this.availableSkillIncreases = savegameData.availableSkillIncreases;
-		this.alignments.putAll(savegameData.alignments);
-	}
-	*/
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeUTF(name);
-		dest.writeInt(iconID);
+		dest.writeInt(baseTraits.iconID);
 		dest.writeInt(baseTraits.maxAP);
 		dest.writeInt(baseTraits.maxHP);
-		dest.writeInt(moveCost);
+		dest.writeUTF(name);
+		dest.writeInt(moveCost); // TODO: Should we really write this?
 		dest.writeInt(baseTraits.attackCost);
 		dest.writeInt(baseTraits.attackChance);
 		dest.writeInt(baseTraits.criticalSkill);
@@ -446,8 +371,8 @@ public final class Player extends Actor {
 		dest.writeInt(level);
 		dest.writeInt(totalExperience);
 		inventory.writeToParcel(dest, flags);
-		dest.writeInt(useItemCost);
-		dest.writeInt(reequipCost);
+		dest.writeInt(baseTraits.useItemCost);
+		dest.writeInt(baseTraits.reequipCost);
 		dest.writeInt(skillLevels.size());
 		for (int i = 0; i < skillLevels.size(); ++i) {
 			dest.writeInt(skillLevels.keyAt(i));

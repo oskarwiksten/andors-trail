@@ -1,13 +1,8 @@
 package com.gpl.rpg.AndorsTrail.model;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-
 import android.util.FloatMath;
 
 import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
-import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer.LegacySavegameData_Actor;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public class CombatTraits {
@@ -102,39 +97,5 @@ public class CombatTraits {
 		case STAT_COMBAT_DAMAGE_RESISTANCE: return damageResistance;
 		}
 		return 0;
-	}
-	
-
-	
-	// ====== PARCELABLE ===================================================================
-
-	public CombatTraits(DataInputStream src, int fileversion) throws IOException {
-		this.attackCost = src.readInt();
-		this.attackChance = src.readInt();
-		this.criticalSkill = src.readInt();
-		this.criticalMultiplier = src.readFloat();
-		this.damagePotential = new Range(src, fileversion);
-		this.blockChance = src.readInt();
-		this.damageResistance = src.readInt();
-	}
-	
-	public CombatTraits(LegacySavegameData_Actor savegameData) {
-		this.attackCost = savegameData.attackCost;
-		this.attackChance = savegameData.attackChance;
-		this.criticalSkill = savegameData.criticalSkill;
-		this.criticalMultiplier = savegameData.criticalMultiplier;
-		this.damagePotential = savegameData.damagePotential;
-		this.blockChance = savegameData.blockChance;
-		this.damageResistance = savegameData.damageResistance;
-	}
-	
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeInt(attackCost);
-		dest.writeInt(attackChance);
-		dest.writeInt(criticalSkill);
-		dest.writeFloat(criticalMultiplier);
-		damagePotential.writeToParcel(dest, flags);
-		dest.writeInt(blockChance);
-		dest.writeInt(damageResistance);
 	}
 }

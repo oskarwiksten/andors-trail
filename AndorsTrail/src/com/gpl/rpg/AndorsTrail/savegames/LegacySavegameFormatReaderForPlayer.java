@@ -2,205 +2,20 @@ package com.gpl.rpg.AndorsTrail.savegames;
 
 import java.io.DataInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 
 import android.util.FloatMath;
-import android.util.SparseIntArray;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
-import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
-import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LegacySavegameFormatReaderForPlayer {
-	/*
-	public static Player readFromParcel_pre_v34(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		LegacySavegameData_Player savegameData = readPlayerDataPreV34(src, world, fileversion);
-		return new Player(savegameData);
-	}
-	
-	private static LegacySavegameData_Player readPlayerDataPreV34(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		LegacySavegameData_Player result = new LegacySavegameData_Player();
-		result.isImmuneToCriticalHits = false;
-		
-		boolean readCombatTraits = true;
-		if (fileversion >= 25) readCombatTraits = src.readBoolean();
-		if (readCombatTraits) {
-			result.attackCost = src.readInt();
-			result.attackChance = src.readInt();
-			result.criticalSkill = src.readInt();
-			if (fileversion <= 20) {
-				result.criticalMultiplier = src.readInt();
-			} else {
-				result.criticalMultiplier = src.readFloat();
-			}
-			result.damagePotential = new Range(src, fileversion);
-			result.blockChance = src.readInt();
-			result.damageResistance = src.readInt();
-		}
-		
-		result.iconID = src.readInt();
-		result.tileSize = new Size(src, fileversion);
-		result.maxAP = src.readInt();
-		result.maxHP = src.readInt();
-		result.name = src.readUTF();
-		result.moveCost = src.readInt();
-		
-		result.baseAttackCost = src.readInt();
-		result.baseAttackChance = src.readInt();
-		result.baseCriticalSkill = src.readInt();
-		if (fileversion <= 20) {
-			result.baseCriticalMultiplier = src.readInt();
-		} else {
-			result.baseCriticalMultiplier = src.readFloat();
-		}
-		result.baseDamagePotential = new Range(src, fileversion);
-		result.baseBlockChance = src.readInt();
-		result.baseDamageResistance = src.readInt();
-		
-		if (fileversion <= 16) {
-			result.baseMoveCost = result.moveCost;
-		} else {
-			result.baseMoveCost = src.readInt();
-		}
-				
-		if (!readCombatTraits) {
-			result.attackCost = result.baseAttackCost;
-			result.attackChance = result.baseAttackChance;
-			result.criticalSkill = result.baseCriticalSkill;
-			result.criticalMultiplier = result.baseCriticalMultiplier;
-			result.damagePotential = result.baseDamagePotential;
-			result.blockChance = result.baseBlockChance;
-			result.damageResistance = result.baseDamageResistance;
-		}
-
-		result.ap = new Range(src, fileversion);
-		result.health = new Range(src, fileversion);
-		result.position = new Coord(src, fileversion);
-		result.rectPosition = new CoordRect(result.position, result.tileSize);
-		if (fileversion > 16) {
-			final int n = src.readInt();
-			for(int i = 0; i < n ; ++i) {
-				result.conditions.add(new ActorCondition(src, world, fileversion));
-			}
-		}
-		
-		result.lastPosition = new Coord(src, fileversion);
-		result.nextPosition = new Coord(src, fileversion);
-		result.level = src.readInt();
-		result.totalExperience = src.readInt();
-		result.inventory = new Inventory(src, world, fileversion);
-		
-		if (fileversion <= 13) readQuestProgressPreV13(result, src, world, fileversion);
-
-		result.useItemCost = src.readInt();
-		result.reequipCost = src.readInt();
-		final int size2 = src.readInt();
-		for(int i = 0; i < size2; ++i) {
-			if (fileversion <= 21) {
-				result.skillLevels.put(i, src.readInt());
-			} else {
-				final int skillID = src.readInt();
-				result.skillLevels.put(skillID, src.readInt());
-			}
-		}
-		result.spawnMap = src.readUTF();
-		result.spawnPlace = src.readUTF();
-
-		if (fileversion > 13) {
-			final int numquests = src.readInt();
-			for(int i = 0; i < numquests; ++i) {
-				final String questID = src.readUTF();
-				result.questProgress.put(questID, new HashSet<Integer>());
-				final int numprogress = src.readInt();
-				for(int j = 0; j < numprogress; ++j) {
-					int progress = src.readInt();
-					result.questProgress.get(questID).add(progress);
-				}
-			}
-		}
-		
-		result.availableSkillIncreases = 0;
-		if (fileversion > 21) {
-			result.availableSkillIncreases = src.readInt();
-		}
-		
-		if (fileversion >= 26) {
-			final int size3 = src.readInt();
-			for(int i = 0; i < size3; ++i) {
-				final String faction = src.readUTF();
-				final int alignment = src.readInt();
-				result.alignments.put(faction, alignment);
-			}
-		}
-		
-		return result;
-	}
-	
-	public static final class LegacySavegameData_Player extends LegacySavegameData_Actor {
-		// from Player
-		public Coord lastPosition;
-		public Coord nextPosition;
-		public int level;
-		public int totalExperience;
-		public Inventory inventory;
-		public final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
-		public final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
-		public int useItemCost;
-		public int reequipCost;
-		public final SparseIntArray skillLevels = new SparseIntArray();
-		public String spawnMap;
-		public String spawnPlace;
-		public int availableSkillIncreases = 0;
-	}
-	*/
-	
-	public static class LegacySavegameData_Actor {
-		// from Actor
-		public boolean isImmuneToCriticalHits;
-		public int iconID;
-		public Size tileSize;
-		public Range ap;
-		public Range health;
-		public Coord position;
-		public CoordRect rectPosition;
-		public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
-		
-		// from ActorTraits
-		public int maxAP;
-		public int maxHP;
-		public String name;
-		public int moveCost;
-		public int baseMoveCost;
-		public int baseAttackCost;
-		public int baseAttackChance;
-		public int baseCriticalSkill;
-		public float baseCriticalMultiplier;
-		public Range baseDamagePotential;
-		public int baseBlockChance;
-		public int baseDamageResistance;
-		
-		// from CombatTraits
-		public int attackCost;
-		public int attackChance;
-		public int criticalSkill;
-		public float criticalMultiplier;
-		public Range damagePotential;
-		public int blockChance;
-		public int damageResistance;
-	}
 	
 	public static void readQuestProgressPreV13(Player player, DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		final int size1 = src.readInt();
@@ -249,9 +64,6 @@ public final class LegacySavegameFormatReaderForPlayer {
 
 	private static void addQuestProgress(Player player, String questID, int progress) {
 		player.addQuestProgress(new QuestProgress(questID, progress));
-		/*if (!player.questProgress.containsKey(questID)) player.questProgress.put(questID, new HashSet<Integer>());
-		else if (player.questProgress.get(questID).contains(progress)) return;
-		player.questProgress.get(questID).add(progress);*/
 	}
 	
 	public static void upgradeSavegame(Player player, WorldContext world, int fileversion) {
@@ -312,8 +124,9 @@ public final class LegacySavegameFormatReaderForPlayer {
 	}
 
 	public static void readCombatTraitsPreV034(DataInputStream src, int fileversion) throws IOException {
-		if (fileversion < 25) return;
-		if (!src.readBoolean()) return;
+		if (fileversion >= 25) {
+			if (!src.readBoolean()) return;
+		}
 		
 		/*attackCost = */src.readInt();
 		/*attackChance = */src.readInt();

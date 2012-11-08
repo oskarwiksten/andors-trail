@@ -98,8 +98,7 @@ public final class MonsterType {
 		if (attackChance != 0) return true;
 		if (criticalSkill != 0) return true;
 		if (criticalMultiplier != 0) return true;
-		if (damagePotential.current != 0) return true;
-		if (damagePotential.max != 0) return true;
+		if (damagePotential != null) return true;
 		if (blockChance != 0) return true;
 		if (damageResistance != 0) return true;
 		return false;
