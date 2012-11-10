@@ -4,14 +4,18 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public class SkillInfo {
 	public static final int MAXLEVEL_NONE = -1;
+	public static final int LEVELUP_TYPE_ALWAYS_SHOWN = 0; 
+	public static final int LEVELUP_TYPE_ONLY_BY_QUESTS = 1;
+	public static final int LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST = 2;
+	
 	public final int id;
 	public final int maxLevel;
-	public final boolean isQuestSkill;
+	public final int levelupVisibility;
 	public final SkillLevelRequirement[] levelupRequirements;
-	public SkillInfo(int id, int maxLevel, boolean isQuestSkill, SkillLevelRequirement[] levelupRequirements) {
+	public SkillInfo(int id, int maxLevel, int levelupVisibility, SkillLevelRequirement[] levelupRequirements) {
 		this.id = id;
 		this.maxLevel = maxLevel;
-		this.isQuestSkill = isQuestSkill;
+		this.levelupVisibility = levelupVisibility;
 		this.levelupRequirements = levelupRequirements;
 	}
 	

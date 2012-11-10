@@ -72,15 +72,31 @@ public final class SkillController {
 	}
 	
 	
-	public static boolean canLevelupSkill(Player player, SkillInfo skill) {
-		if (player.availableSkillIncreases <= 0) return false;
-		if (skill.isQuestSkill) return false;
+	public static boolean canLevelupSkillWithQuest(Player player, SkillInfo skill) {
 		final int playerSkillLevel = player.getSkillLevel(skill.id);
 		if (skill.hasMaxLevel()) {
 			if (playerSkillLevel >= skill.maxLevel) return false;
 		}
 		if (!skill.canLevelUpSkillTo(player, playerSkillLevel + 1)) return false;
 		return true;
+	}
+	public static boolean canLevelupSkillManually(Player player, SkillInfo skill) {
+		if (!player.hasAvailableSkillpoints()) return false;
+		if (!canLevelupSkillWithQuest(player, skill)) return false;
+		if (skill.levelupVisibility == SkillInfo.LEVELUP_TYPE_ONLY_BY_QUESTS) return false;
+		if (skill.levelupVisibility == SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST) {
+			if (!player.hasSkill(skill.id)) return false;
+		}
+		return true;
+	}
+	public static void levelUpSkillManually(Player player, SkillInfo skill) {
+		if (!canLevelupSkillManually(player, skill)) return;
+		player.availableSkillIncreases -= 1;
+		player.addSkillLevel(skill.id);
+	}
+	public static void levelUpSkillByQuest(Player player, SkillInfo skill) {
+		if (!canLevelupSkillWithQuest(player, skill)) return;
+		player.addSkillLevel(skill.id);
 	}
 	
 	public static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player) {

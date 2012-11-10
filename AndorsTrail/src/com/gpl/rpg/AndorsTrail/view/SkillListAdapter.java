@@ -47,8 +47,8 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 
 	private static boolean shouldDisplaySkill(SkillInfo skill, Player player) {
 		if (player.hasSkill(skill.id)) return true;
-		if (skill.isQuestSkill) return false;
-		return true;
+		if (skill.levelupVisibility == SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN) return true;
+		return false;
 	}
 
 	@Override
@@ -75,7 +75,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		
 		boolean enabled = true;
 		if (player.hasAvailableSkillpoints()) {
-			enabled = SkillController.canLevelupSkill(player, skill);
+			enabled = SkillController.canLevelupSkillManually(player, skill);
 		} else {
 			enabled = player.hasSkill(skillID);
 		}

@@ -142,11 +142,7 @@ public final class Player extends Actor {
 	public boolean hasSkill(int skillID) {
 		return getSkillLevel(skillID) > 0;
 	}
-	public void addSkillLevel(int skillID, boolean requireAvailableSkillpoint) {
-		if (requireAvailableSkillpoint) {
-			if (!hasAvailableSkillpoints()) return;
-			--availableSkillIncreases;
-		}
+	public void addSkillLevel(int skillID) {
 		skillLevels.put(skillID, skillLevels.get(skillID) + 1);
 		ActorStatsController.recalculatePlayerCombatTraits(this);
 	}

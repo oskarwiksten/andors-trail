@@ -4,6 +4,7 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.SkillController;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.view.SkillListAdapter;
 
@@ -58,7 +59,7 @@ public final class HeroinfoActivity_Skills extends Activity {
 			if (resultCode != RESULT_OK) break;
 			
 			int skillID = data.getExtras().getInt("skillID");
-			player.addSkillLevel(skillID, true);
+			SkillController.levelUpSkillManually(player, world.skills.getSkill(skillID));
 			break;
 		}
 	}

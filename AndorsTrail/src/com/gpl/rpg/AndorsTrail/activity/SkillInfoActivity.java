@@ -99,7 +99,7 @@ public final class SkillInfoActivity extends Activity {
 				SkillInfoActivity.this.finish();
 			}
 		});
-        b.setEnabled(SkillController.canLevelupSkill(player, skill));
+        b.setEnabled(SkillController.canLevelupSkillManually(player, skill));
     }
 	
 	private static boolean shouldShowSkillRequirements(SkillInfo skill, int playerSkillLevel) {

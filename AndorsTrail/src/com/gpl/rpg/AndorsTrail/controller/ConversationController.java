@@ -35,7 +35,8 @@ public final class ConversationController {
 				ActorStatsController.applyActorCondition(player, e);
 				break;
 			case Reward.REWARD_TYPE_SKILL_INCREASE:
-				player.addSkillLevel(Integer.parseInt(reward.rewardID), false);
+				int skillID = Integer.parseInt(reward.rewardID);
+				SkillController.levelUpSkillByQuest(player, world.skills.getSkill(skillID));
 				break;
 			case Reward.REWARD_TYPE_DROPLIST:
 				world.dropLists.getDropList(reward.rewardID).createRandomLoot(loot, player);
