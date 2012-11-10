@@ -81,7 +81,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent msg) {
-    	if (!model.uiSelections.isMainActivityVisible) return true;
+    	if (!canAcceptInput()) return true;
 
 		if (inputController.onKeyboardAction(keyCode)) return true;
 		else return super.onKeyDown(keyCode, msg);
@@ -89,7 +89,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
     
     @Override
     public boolean onKeyUp(int keyCode, KeyEvent msg) {
-		if (!model.uiSelections.isMainActivityVisible) return true;
+		if (!canAcceptInput()) return true;
 		
 		inputController.onKeyboardCancel();
 		
@@ -128,7 +128,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-		if (!model.uiSelections.isMainActivityVisible) return true;
+        if (!canAcceptInput()) return true;
 		
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
@@ -146,6 +146,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		return super.onTouchEvent(event);
 	}
     
+	private boolean canAcceptInput() {
+		if (!model.uiSelections.isMainActivityVisible) return false;
+		if (!hasSurface) return false;
+		return true;
+	}
+
     public static final int REDRAW_ALL_SURFACE_CHANGED = 1;
     public static final int REDRAW_ALL_MAP_CHANGED = 2;
     public static final int REDRAW_ALL_PLAYER_MOVED = 3;
