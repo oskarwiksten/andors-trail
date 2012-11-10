@@ -32,12 +32,14 @@ public final class Monster extends Actor {
 		this.iconID = monsterType.iconID;
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
+		setMaxAP();
+		setMaxHP();
 	}
 
 	public void resetStatsToBaseTraits() {
 		this.name = monsterType.name;
-		this.ap.set(monsterType.maxAP, monsterType.maxAP);
-		this.health.set(monsterType.maxHP, monsterType.maxHP);
+		this.ap.max = monsterType.maxAP;
+		this.health.max = monsterType.maxHP;
 		this.position.set(position);
 		this.moveCost = monsterType.moveCost;
 		this.attackCost = monsterType.attackCost;

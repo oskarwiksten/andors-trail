@@ -126,6 +126,9 @@ public final class Player extends Actor {
 		this.skillLevels.clear();
 		this.availableSkillIncreases = 0;
 		this.alignments.clear();
+		this.ap.set(baseTraits.maxAP, baseTraits.maxAP);
+		this.health.set(baseTraits.maxHP, baseTraits.maxHP);
+		this.conditions.clear();
 		
 		Loot startItems = new Loot();
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
