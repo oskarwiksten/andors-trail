@@ -36,7 +36,7 @@ public final class TMXMapTranslator {
 	
 	public static LayeredTileMap readLayeredTileMap(Resources res, TileCache tileCache, PredefinedMap map) {
 		TMXLayerMap resultMap = TMXMapFileParser.readLayeredTileMap(res, map.xmlResourceId, map.name);
-		return transformMap(resultMap, tileCache);
+		return transformMap(resultMap, tileCache, map.name);
 	}
 
 	public ArrayList<PredefinedMap> transformMaps(DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
@@ -199,7 +199,7 @@ public final class TMXMapTranslator {
 	}
 	
 
-	private static LayeredTileMap transformMap(TMXLayerMap map, TileCache tileCache) {
+	private static LayeredTileMap transformMap(TMXLayerMap map, TileCache tileCache, String mapName) {
 		final Size mapSize = new Size(map.width, map.height);
 		final MapLayer[] layers = new MapLayer[] {
 			new MapLayer(mapSize)
@@ -207,6 +207,10 @@ public final class TMXMapTranslator {
 			,new MapLayer(mapSize)
 		};
 		Tile tile = new Tile();
+		String colorFilter = null;
+		for (TMXProperty prop : map.properties) {
+			if (prop.name.equalsIgnoreCase("colorfilter")) colorFilter = prop.value;
+		}
 		HashSet<Integer> usedTileIDs = new HashSet<Integer>();
 		for (TMXLayer layer : map.layers) {
 			int ixMapLayer = -2;
@@ -237,7 +241,7 @@ public final class TMXMapTranslator {
 				}
 			}
 		}
-		return new LayeredTileMap(mapSize, layers, usedTileIDs);
+		return new LayeredTileMap(mapSize, layers, usedTileIDs, colorFilter);
 	}
 	
 	private static boolean getTile(final TMXLayerMap map, final int gid, final Tile dest) {

@@ -348,6 +348,8 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 					(surfaceSize.width - scaledTileSize * visibleNumberOfTiles.width) / 2
 					,(surfaceSize.height - scaledTileSize * visibleNumberOfTiles.height) / 2
 				);
+
+			currentTileMap.setColorFilter(this.mPaint);
 		}
 		
 		clearCanvas();
@@ -355,7 +357,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		recalculateMapTopLeft(model.player.position);
 		redrawAll(REDRAW_ALL_MAP_CHANGED);
 	}
-	
+
 	private void recalculateMapTopLeft(Coord playerPosition) {
 		synchronized (holder) {	
 			this.playerPosition.set(playerPosition);

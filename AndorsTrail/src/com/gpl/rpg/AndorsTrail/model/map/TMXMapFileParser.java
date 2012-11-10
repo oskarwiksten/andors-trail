@@ -71,7 +71,7 @@ public final class TMXMapFileParser {
 	
 
 	private static TMXLayerMap readLayerMap(XmlResourceParser xrp, final String name) {
-		TMXLayerMap map = new TMXLayerMap();
+		final TMXLayerMap map = new TMXLayerMap();
 		try {
 			int eventType;
 			final ArrayList<TMXLayer> layers = new ArrayList<TMXLayer>();
@@ -88,6 +88,8 @@ public final class TMXMapFileParser {
 									tileSets.add(readTMXTileSet(xrp));
 								} else if (tagName.equals("layer")) {
 									layers.add(readTMXMapLayer(xrp));
+								} else if (tagName.equals("property")) {
+									map.properties.add(readTMXProperty(xrp));
 								}
 							}
 						});
