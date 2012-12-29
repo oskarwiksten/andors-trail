@@ -268,9 +268,9 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.map_border_1, "map_border_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_bridge_1, "map_bridge_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_broken_1, "map_broken_1.png", src_mapTileSize, defaultTileSize);
-        loader.prepareTileset(R.drawable.map_cavewall_1, "map_cavewall_1.png", src_mapTileSize, defaultTileSize);
-        loader.prepareTileset(R.drawable.map_cavewall_2, "map_cavewall_2.png", src_mapTileSize, defaultTileSize);
-        loader.prepareTileset(R.drawable.map_cavewall_3, "map_cavewall_3.png", src_mapTileSize, defaultTileSize);
+        loader.prepareTileset(R.drawable.map_cavewall_1, "map_cavewall_1.png", new Size(18, 6), defaultTileSize);
+        loader.prepareTileset(R.drawable.map_cavewall_2, "map_cavewall_2.png", new Size(18, 6), defaultTileSize);
+        loader.prepareTileset(R.drawable.map_cavewall_3, "map_cavewall_3.png", new Size(18, 6), defaultTileSize);
         loader.prepareTileset(R.drawable.map_chair_table_1, "map_chair_table_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_crate_1, "map_crate_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_cupboard_1, "map_cupboard_1.png", src_mapTileSize, defaultTileSize);
