@@ -147,11 +147,12 @@ public final class WorldSetup {
 	}
 	
 	private void createNewWorld() {
+		Context ctx = androidContext.get();
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
 		
 		view.actorStatsController.recalculatePlayerStats(world.model.player);
-		view.movementController.respawnPlayer();
+		view.movementController.respawnPlayer(ctx.getResources());
 		view.controller.lotsOfTimePassed();
 	}
 

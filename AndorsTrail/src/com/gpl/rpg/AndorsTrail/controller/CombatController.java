@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 
 import android.os.Handler;
 import android.os.Message;
@@ -34,7 +34,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
     public final CombatTurnListeners combatTurnListeners = new CombatTurnListeners();
     
 	private Monster currentActiveMonster = null;
-    private final HashSet<Loot> killedMonsterBags = new HashSet<Loot>();
+    private final ArrayList<Loot> killedMonsterBags = new ArrayList<Loot>();
     private int totalExpThisFight = 0;
     
 	public CombatController(ViewContext view, WorldContext world) {
@@ -442,7 +442,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 		damage -= target.getDamageResistance();
 		if (damage < 0) damage = 0;
-		view.actorStatsController.removeActorHealth(world.model.player, damage);
+		view.actorStatsController.removeActorHealth(target, damage);
 		
 		applyAttackHitStatusEffects(attacker, target);
 

@@ -31,7 +31,7 @@ public final class Controller {
 			if (o.map == null || o.place == null) return;
 			int offset_x = position.x - o.position.topLeft.x;
 			int offset_y = position.y - o.position.topLeft.y;
-			view.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, o.map, o.place, offset_x, offset_y);
+			view.movementController.placePlayerAsyncAt(MapObject.MAPEVENT_NEWMAP, o.map, o.place, offset_x, offset_y);
 			break;
 		case MapObject.MAPEVENT_REST:
 			steppedOnRestArea(o);
@@ -69,7 +69,7 @@ public final class Controller {
 		if (lostExp < 0) lostExp = 0;
 		view.actorStatsController.addExperience(-lostExp);
 		world.model.statistics.addPlayerDeath(lostExp);
-		view.movementController.respawnPlayer();
+		view.movementController.respawnPlayerAsync();
 		lotsOfTimePassed();
 		worldEventListeners.onPlayerDied(lostExp);
 	}

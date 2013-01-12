@@ -170,7 +170,6 @@ public final class MainView extends SurfaceView
 	private static final int REDRAW_ALL_PLAYER_MOVED = 3;
     private static final int REDRAW_AREA_MONSTER_MOVED = 4;
     private static final int REDRAW_AREA_MONSTER_KILLED = 10;
-    private static final int REDRAW_AREA_EFFECT_STARTING = 5;
     private static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
     private static final int REDRAW_AREA_MONSTER_SPAWNED = 11;
     private static final int REDRAW_TILE_SELECTION_REMOVED = 7;
@@ -178,14 +177,14 @@ public final class MainView extends SurfaceView
     private static final int REDRAW_TILE_BAG = 9;
     private static final int REDRAW_TILE_SPLATTER = 12;
     
-	public void redrawAll(int why) {
+    private void redrawAll(int why) {
 		redrawArea_(mapViewArea);
 	}
-	public void redrawTile(final Coord p, int why) {
+	private void redrawTile(final Coord p, int why) {
 		p1x1.topLeft.set(p);
 		redrawArea_(p1x1);
 	}
-	public void redrawArea(final CoordRect area, int why) {
+	private void redrawArea(final CoordRect area, int why) {
 		redrawArea_(area);
 	}
 	private void redrawArea_(CoordRect area) {
@@ -220,7 +219,7 @@ public final class MainView extends SurfaceView
 		return true;
 	}
 	private final Rect redrawRect = new Rect();
-	public void redrawAreaWithEffect(final VisualEffectAnimation effect, int tileID, int textYOffset) {
+	private void redrawAreaWithEffect(final VisualEffectAnimation effect, int tileID, int textYOffset) {
 		CoordRect area = effect.area;
 		if (!hasSurface) return;
 		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;

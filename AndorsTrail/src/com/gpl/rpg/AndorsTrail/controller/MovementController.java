@@ -33,7 +33,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     	this.movementHandler = new TimedMessageTask(this, Constants.MINIMUM_INPUT_INTERVAL, false);
     }
 	
-	public void placePlayerAt(final int objectType, final String mapName, final String placeName, final int offset_x, final int offset_y) {
+	public void placePlayerAsyncAt(final int objectType, final String mapName, final String placeName, final int offset_x, final int offset_y) {
 		
 		AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>()  {
 			@Override
@@ -48,7 +48,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 			@Override
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
-				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
 				stopMovement();
 				view.gameRoundController.resume();
 			}
@@ -85,6 +84,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		
 		refreshMonsterAggressiveness(newMap, model.player);
 		view.effectController.updateSplatters(newMap);
+		
+		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
 	}
     
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
@@ -231,8 +232,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
     }
 
-	public void respawnPlayer() {
-		placePlayerAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
+	public void respawnPlayer(Resources res) {
+		placePlayerAt(res, MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
+	}
+	public void respawnPlayerAsync() {
+		placePlayerAsyncAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 	}
 
 	public static void moveBlockedActors(final WorldContext world) {
