@@ -25,7 +25,7 @@ public class ActorConditionInfoActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
-        final WorldContext world = app.world;
+        final WorldContext world = app.getWorld();
         
         String conditionTypeID = getIntent().getData().getLastPathSegment().toString();
         ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(conditionTypeID);

@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListeners;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -23,13 +24,12 @@ import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 public final class MovementController implements TimedMessageTask.Callback {
 	private final ViewContext view;
     private final WorldContext world;
-    private final ModelContainer model;
     private final TimedMessageTask movementHandler;
+    public final PlayerMovementListeners playerMovementListeners = new PlayerMovementListeners(); 
 
-	public MovementController(ViewContext context) {
+	public MovementController(ViewContext context, WorldContext world) {
     	this.view = context;
-    	this.world = context;
-    	this.model = world.model;
+    	this.world = world;
     	this.movementHandler = new TimedMessageTask(this, Constants.MINIMUM_INPUT_INTERVAL, false);
     }
 	
@@ -40,7 +40,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			protected Void doInBackground(Void... arg0) {
 				stopMovement();
 				
-				placePlayerAt(view.mainActivity.getResources(), world, objectType, mapName, placeName, offset_x, offset_y); 
+				placePlayerAt(view.getResources(), objectType, mapName, placeName, offset_x, offset_y); 
 				
 				return null;
 			}
@@ -48,8 +48,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			@Override
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
-				view.mainActivity.clearMessages();
-				view.mainActivity.mainview.notifyMapChanged(model);
+				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
 				stopMovement();
 				view.gameRoundController.resume();
 			}
@@ -59,7 +58,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		task.execute();
     }
 	
-	public static void placePlayerAt(final Resources res, final WorldContext world, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
+	public void placePlayerAt(final Resources res, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
     	if (mapName == null || placeName == null) return;
 		PredefinedMap newMap = world.maps.findPredefinedMap(mapName);
 		if (newMap == null) {
@@ -81,26 +80,26 @@ public final class MovementController implements TimedMessageTask.Callback {
 		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
 		model.player.lastPosition.set(model.player.position);
 		
-		if (!newMap.visited) playerVisitsMapFirstTime(world, newMap);
-		else playerVisitsMap(world, newMap);
+		if (!newMap.visited) playerVisitsMapFirstTime(newMap);
+		else playerVisitsMap(newMap);
 		
 		refreshMonsterAggressiveness(newMap, model.player);
-		VisualEffectController.updateSplatters(newMap);
+		view.effectController.updateSplatters(newMap);
 	}
     
-	private static void playerVisitsMapFirstTime(final WorldContext world, PredefinedMap m) {
+	private void playerVisitsMapFirstTime(PredefinedMap m) {
 		m.reset();
-		m.spawnAll(world);
+		view.monsterSpawnController.spawnAll(m);
 		m.createAllContainerLoot();
 		m.visited = true;
 	}
-	private static void playerVisitsMap(final WorldContext world, PredefinedMap m) {
+	private void playerVisitsMap(PredefinedMap m) {
 		// Respawn everything if a certain time has elapsed.
-		if (!m.isRecentlyVisited()) m.spawnAll(world);
+		if (!m.isRecentlyVisited()) view.monsterSpawnController.spawnAll(m);
 	}
 	
 	public boolean mayMovePlayer() {
-		return !model.uiSelections.isInCombat;
+		return !world.model.uiSelections.isInCombat;
 	}
 
     private void movePlayer(int dx, int dy) {
@@ -109,9 +108,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 
     	if (!findWalkablePosition(dx, dy)) return;
     	
-    	Monster m = model.currentMap.getMonsterAt(model.player.nextPosition);
+    	Monster m = world.model.currentMap.getMonsterAt(world.model.player.nextPosition);
 		if (m != null) {
-			view.controller.steppedOnMonster(m, model.player.nextPosition);
+			view.controller.steppedOnMonster(m, world.model.player.nextPosition);
 			return;
 		}
 
@@ -168,20 +167,20 @@ public final class MovementController implements TimedMessageTask.Callback {
     }
     
     private boolean tryWalkablePosition(int dx, int dy, int aggressiveness) {
-    	final Player player = model.player;
+    	final Player player = world.model.player;
     	player.nextPosition.set(
 				player.position.x + dx
     			,player.position.y + dy
 			);
 
-    	if (!model.currentMap.isWalkable(player.nextPosition)) return false;
+    	if (!world.model.currentMap.isWalkable(player.nextPosition)) return false;
     	
 		// allow player to enter every field when he is NORMAL
 		// prevent player from entering "non-monster-fields" when he is AGGRESSIVE
 		// prevent player from entering "monster-fields" when he is DEFENSIVE
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return true;
 		
-		Monster m = model.currentMap.getMonsterAt(player.nextPosition);
+		Monster m = world.model.currentMap.getMonsterAt(player.nextPosition);
 		if (m != null && !m.isAgressive()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
 		
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_AGGRESSIVE && m == null) return false;
@@ -202,14 +201,14 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
     
     public void moveToNextIfPossible(boolean handleEvents) {
-    	final Player player = model.player;
-    	final PredefinedMap currentMap = model.currentMap;
+    	final Player player = world.model.player;
+    	final PredefinedMap currentMap = world.model.currentMap;
     	final Coord newPosition = player.nextPosition;
     	
     	for (MapObject o : currentMap.eventObjects) {
     		if (o.type == MapObject.MAPEVENT_KEYAREA) {
 	    		if (o.position.contains(newPosition)) {
-	    			if (!view.controller.handleKeyArea(o)) return;
+	    			if (!view.controller.canEnterKeyArea(o)) return;
 	    		}
     		}
     	}
@@ -217,7 +216,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     	player.lastPosition.set(player.position);
     	player.position.set(newPosition);
     	view.combatController.setCombatSelection(null, null);
-		view.mainActivity.mainview.notifyPlayerMoved(newPosition);
+    	playerMovementListeners.onPlayerMoved(newPosition, player.lastPosition);
 		
 		if (handleEvents) {
 			MapObject o = currentMap.getEventObjectAt(newPosition);
@@ -228,12 +227,12 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 	    	
 	    	Loot loot = currentMap.getBagAt(newPosition);
-	    	if (loot != null) view.itemController.handleLootBag(loot);
+	    	if (loot != null) view.itemController.playerSteppedOnLootBag(loot);
 		}
     }
 
-	public static void respawnPlayer(final Resources res, final WorldContext world) {
-		placePlayerAt(res, world, MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
+	public void respawnPlayer() {
+		placePlayerAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 	}
 
 	public static void moveBlockedActors(final WorldContext world) {
@@ -257,7 +256,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			for (MonsterSpawnArea a : map.spawnAreas) {
 				for (Monster m : a.monsters) {
 					if (!map.isWalkable(m.rectPosition)) {
-						Coord p = map.getRandomFreePosition(a.area, m.tileSize, playerPosition);
+						Coord p = MonsterSpawningController.getRandomFreePosition(map, a.area, m.tileSize, playerPosition);
 						if (p == null) continue;
 						m.position.set(p);
 					}
@@ -280,7 +279,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	private int movementDx;
 	private int movementDy;
 	public void startMovement(int dx, int dy, Coord destination) {
-		if (model.uiSelections.isInCombat) return;
+		if (world.model.uiSelections.isInCombat) return;
 		if (dx == 0 && dy == 0) return;
 		
 		movementDx = dx;
@@ -293,8 +292,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
 	
 	public boolean onTick(TimedMessageTask task) {
-		if (!model.uiSelections.isMainActivityVisible) return false;
-    	if (model.uiSelections.isInCombat) return false;
+		if (!world.model.uiSelections.isMainActivityVisible) return false;
+    	if (world.model.uiSelections.isInCombat) return false;
     	
     	movePlayer(movementDx, movementDy);
 		

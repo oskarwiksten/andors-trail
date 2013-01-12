@@ -53,8 +53,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
-        this.view = app.currentView.get();
+        this.world = app.getWorld();
+        this.view = app.getViewContext();
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_inventory);

@@ -16,6 +16,7 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -26,23 +27,28 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 	
 	private final AndorsTrailPreferences preferences;
 	private final TileManager tileManager;
+	private final ViewContext view;
+	private final WorldContext world;
 	private final RelativeLayout activeConditions;
 	private final ArrayList<ActiveConditionIcon> currentConditionIcons = new ArrayList<ActiveConditionIcon>();
 	private final WeakReference<Context> androidContext;
 	
 	public DisplayActiveActorConditionIcons(
-			final AndorsTrailPreferences preferences, 
-			final TileManager tileManager, 
+			final ViewContext view, 
+			final WorldContext world, 
 			Context androidContext, 
 			RelativeLayout activeConditions) {
-		this.preferences = preferences;
-		this.tileManager = tileManager;
+		this.view = view;
+		this.world = world;
+		this.preferences = view.preferences;
+		this.tileManager = world.tileManager;
 		this.androidContext = new WeakReference<Context>(androidContext);
 		this.activeConditions = activeConditions;
 	}
 
 	@Override
 	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
+		if (actor != world.model.player) return;
 		ActiveConditionIcon icon = getFirstFreeIcon();
 		icon.setActiveCondition(condition);
 		icon.show();
@@ -50,6 +56,7 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 
 	@Override
 	public void onActorConditionRemoved(Actor actor, ActorCondition condition) {
+		if (actor != world.model.player) return;
 		ActiveConditionIcon icon = getIconFor(condition);
 		if (icon == null) return;
 		icon.hide(true);
@@ -61,6 +68,7 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 
 	@Override
 	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition) {
+		if (actor != world.model.player) return;
 		ActiveConditionIcon icon = getIconFor(condition);
 		if (icon == null) return;
 		icon.setIconText();
@@ -68,22 +76,23 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 
 	@Override
 	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition) {
+		if (actor != world.model.player) return;
 		ActiveConditionIcon icon = getIconFor(condition);
 		if (icon == null) return;
 		icon.pulseAnimate();
 	}
 
-	public void unsubscribe(final WorldContext world) {
-		world.model.player.conditionListener.remove(this);
+	public void unsubscribe() {
+		view.actorStatsController.actorConditionListeners.remove(this);
 		for (ActiveConditionIcon icon : currentConditionIcons) icon.condition = null;
 	}
 
-	public void subscribe(final WorldContext world) {
+	public void subscribe() {
 		for (ActiveConditionIcon icon : currentConditionIcons) icon.hide(false);
 		for (ActorCondition condition : world.model.player.conditions) {
 			getFirstFreeIcon().setActiveCondition(condition);
 		}
-		world.model.player.conditionListener.add(this);
+		view.actorStatsController.actorConditionListeners.add(this);
 	}
 
 	private final class ActiveConditionIcon implements AnimationListener {

@@ -34,9 +34,9 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
         super.onCreate(savedInstanceState);
         
         final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
-        this.model = app.world.model;
-        this.preferences = app.preferences;
+        app.setWindowParameters(this);
+        this.model = app.getWorld().model;
+        this.preferences = app.getPreferences();
         
         String loadsave = getIntent().getData().getLastPathSegment().toString();
         isLoading = (loadsave.equalsIgnoreCase("load"));

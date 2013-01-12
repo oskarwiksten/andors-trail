@@ -7,7 +7,9 @@ import android.os.Handler;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection.VisualEffect;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.VisualEffectFrameListeners;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
@@ -15,19 +17,25 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
-import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class VisualEffectController {
 	private int effectCount = 0;
 
+	private final ViewContext view;
+	private final WorldContext world;
 	private final VisualEffectCollection effectTypes;
-	public VisualEffectController(WorldContext world) {
+	
+	public final VisualEffectFrameListeners visualEffectFrameListeners = new VisualEffectFrameListeners();
+	
+	public VisualEffectController(ViewContext view, WorldContext world) {
+		this.view = view;
+		this.world = world;
 		this.effectTypes = world.visualEffectTypes;
 	}
 
-	public void startEffect(MainView mainview, Coord position, int effectID, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
+	public void startEffect(Coord position, int effectID, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
 		++effectCount;
-		(new VisualEffectAnimation(effectTypes.effects[effectID], position, mainview, displayValue, callback, callbackValue))
+		(new VisualEffectAnimation(effectTypes.effects[effectID], position, displayValue, callback, callbackValue))
 		.start();
 	}
 	
@@ -53,12 +61,12 @@ public final class VisualEffectController {
 				this.textPaint.setAlpha(255 * (effect.lastFrame - frame) / (effect.lastFrame - beginFadeAtFrame)); 
 			}
 			area.topLeft.y = position.y - 1;
-			view.redrawAreaWithEffect(this, tileID, textYOffset, this.textPaint);
+			visualEffectFrameListeners.onNewAnimationFrame(this, tileID, textYOffset);
 		}
 
 		protected void onCompleted() {
     		--effectCount;
-			view.redrawArea(area, MainView.REDRAW_AREA_EFFECT_COMPLETED);
+    		visualEffectFrameListeners.onAnimationCompleted(this);
 			if (callback != null) callback.onVisualEffectCompleted(callbackValue);
 		}
 		
@@ -69,17 +77,16 @@ public final class VisualEffectController {
 		private int currentFrame = 0;
 		
 		private final VisualEffect effect;
-		private final MainView view;
 		
 		public final Coord position;
 		public final String displayText;
 		public final CoordRect area;
-		private final Paint textPaint = new Paint();
+		public final Paint textPaint = new Paint();
 		private final int beginFadeAtFrame;
 		private final VisualEffectCompletedCallback callback;
 		private final int callbackValue;
 		
-		public VisualEffectAnimation(VisualEffect effect, Coord position, MainView view, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
+		public VisualEffectAnimation(VisualEffect effect, Coord position, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
 			this.position = position;
 			this.callback = callback;
 			this.callbackValue = callbackValue;
@@ -88,10 +95,9 @@ public final class VisualEffectController {
 			this.displayText = (displayValue == 0) ? null : String.valueOf(displayValue);
 			this.textPaint.setColor(effect.textColor);
 			this.textPaint.setShadowLayer(2, 1, 1, Color.DKGRAY);
-			this.textPaint.setTextSize(view.scaledTileSize * 0.5f); // 32dp.
+			this.textPaint.setTextSize(world.tileManager.viewTileSize * 0.5f); // 32dp.
 			this.textPaint.setAlpha(255);
 			this.textPaint.setTextAlign(Align.CENTER);
-			this.view = view;
 			this.beginFadeAtFrame = effect.lastFrame / 2;
 		}
 	}
@@ -123,26 +129,27 @@ public final class VisualEffectController {
 		}
 	}
 	
-	public static boolean updateSplatters(PredefinedMap map) {
+	public void updateSplatters(PredefinedMap map) {
 		long now = System.currentTimeMillis();
-		boolean hasChanges = false;
 		for (int i = map.splatters.size() - 1; i >= 0; --i) {
 			BloodSplatter b = map.splatters.get(i);
 			if (b.removeAfter <= now) {
 				map.splatters.remove(i);
-				hasChanges = true;
+				view.monsterSpawnController.monsterSpawnListeners.onSplatterRemoved(b.position);
 			} else if (!b.reducedIcon && b.reduceIconAfter <= now) {
 				b.reducedIcon = true;
 				b.iconID++;
-				hasChanges = true;
+				view.monsterSpawnController.monsterSpawnListeners.onSplatterChanged(b.position);
 			}
 		}
-		return hasChanges;
 	}
 	
-	public static void addSplatter(PredefinedMap map, Monster m) {
+	public void addSplatter(PredefinedMap map, Monster m) {
 		int iconID = getSplatterIconFromMonsterClass(m.getMonsterClass());
-		if (iconID > 0) map.splatters.add(new BloodSplatter(iconID, m.position));
+		if (iconID > 0) {
+			map.splatters.add(new BloodSplatter(iconID, m.position));
+			view.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(m.position);
+		}
 	}
 	
 	private static int getSplatterIconFromMonsterClass(int monsterClass) {

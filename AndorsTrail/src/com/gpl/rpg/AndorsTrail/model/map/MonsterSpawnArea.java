@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
@@ -44,12 +43,6 @@ public final class MonsterSpawnArea {
 		return null;
 	}
 
-	public void healAllMonsters() {
-		for (Monster m : monsters) {
-			ActorStatsController.removeAllTemporaryConditions(m);
-			m.setMaxHP();
-		}
-	}
 	public void spawn(Coord p, WorldContext context) {
 		final String monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
 		spawn(p, monsterTypeID, context);
@@ -61,11 +54,12 @@ public final class MonsterSpawnArea {
 	public void spawn(Coord p, String monsterTypeID, WorldContext context) {
 		spawn(p, context.monsterTypes.getMonsterType(monsterTypeID));
 	}
-	public void spawn(Coord p, MonsterType type) {
+	public Monster spawn(Coord p, MonsterType type) {
 		Monster m = new Monster(type);
 		m.position.set(p);
 		monsters.add(m);
 		quantity.current++;
+		return m;
 	}
 	
 	public void remove(Monster m) {

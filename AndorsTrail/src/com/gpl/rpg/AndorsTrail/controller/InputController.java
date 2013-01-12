@@ -7,23 +7,20 @@ import android.view.View.OnLongClickListener;
 
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class InputController implements OnClickListener, OnLongClickListener{
 	private final ViewContext view;
     private final WorldContext world;
-    private final ModelContainer model;
 
 	private final Coord lastTouchPosition_tileCoords = new Coord();
     private int lastTouchPosition_dx = 0;
     private int lastTouchPosition_dy = 0;
     private long lastTouchEventTime = 0;
 
-	public InputController(ViewContext context) {
-    	this.view = context;
-    	this.world = context;
-    	this.model = world.model;
+	public InputController(ViewContext view, WorldContext world) {
+    	this.view = view;
+    	this.world = world;
     }
 
 	public boolean onKeyboardAction(int keyCode) {
@@ -54,7 +51,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 	}
 	public void onRelativeMovement(int dx, int dy) {
 		if (!allowInputInterval()) return;
-    	if (model.uiSelections.isInCombat) {
+    	if (world.model.uiSelections.isInCombat) {
 			view.combatController.executeMoveAttack(dx, dy);
 		} else {
 			view.movementController.startMovement(dx, dy, null);
@@ -67,13 +64,13 @@ public final class InputController implements OnClickListener, OnLongClickListen
 	
 	@Override
 	public void onClick(View arg0) {
-		if (!model.uiSelections.isInCombat) return;
+		if (!world.model.uiSelections.isInCombat) return;
 		onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
     }
     
 	@Override
 	public boolean onLongClick(View arg0) {
-		if (model.uiSelections.isInCombat) {
+		if (world.model.uiSelections.isInCombat) {
 			//TODO: Should be able to mark positions far away (mapwalk / ranged combat)
 			if (lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) return false;
 			if (Math.abs(lastTouchPosition_dx) > 1) return false;
@@ -98,10 +95,10 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 	public boolean onTouchedTile(int tile_x, int tile_y) {
 		lastTouchPosition_tileCoords.set(tile_x, tile_y);
-		lastTouchPosition_dx = tile_x - model.player.position.x;
-		lastTouchPosition_dy = tile_y - model.player.position.y;
+		lastTouchPosition_dx = tile_x - world.model.player.position.x;
+		lastTouchPosition_dy = tile_y - world.model.player.position.y;
 		
-		if (model.uiSelections.isInCombat) return false;
+		if (world.model.uiSelections.isInCombat) return false;
 			
 		view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
 		return true;

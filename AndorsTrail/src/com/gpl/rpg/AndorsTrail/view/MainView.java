@@ -7,6 +7,12 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
+import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.LootBagListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterSpawnListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.VisualEffectFrameListener;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -31,7 +37,14 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public final class MainView extends SurfaceView implements SurfaceHolder.Callback {
+public final class MainView extends SurfaceView 
+	implements SurfaceHolder.Callback, 
+		PlayerMovementListener, 
+		CombatSelectionListener, 
+		MonsterSpawnListener, 
+		MonsterMovementListener,
+		LootBagListener,
+		VisualEffectFrameListener {
 
 	private final int tileSize;
     private float scale;
@@ -64,12 +77,12 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		this.holder = getHolder();
 		
 		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.view = app.currentView.get();
-        this.model = app.world.model;
-    	this.world = app.world;
+        this.view = app.getViewContext();
+        this.world = app.getWorld();
+    	this.model = world.model;
     	this.tileSize = world.tileManager.tileSize;
     	this.inputController = view.inputController;
-    	this.preferences = app.preferences;
+    	this.preferences = app.getPreferences();
 
     	holder.addCallback(this);
     	
@@ -110,10 +123,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 			);
 		
     	if (model.currentMap != null) {
-    		notifyMapChanged(model);
+    		onPlayerEnteredNewMap(model.currentMap, model.player.position);
+    	} else {
+    		redrawAll(REDRAW_ALL_SURFACE_CHANGED);
     	}
-    	
-    	redrawAll(REDRAW_ALL_SURFACE_CHANGED);
 	}
 
 	@Override
@@ -152,16 +165,18 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		return true;
 	}
 
-    public static final int REDRAW_ALL_SURFACE_CHANGED = 1;
-    public static final int REDRAW_ALL_MAP_CHANGED = 2;
-    public static final int REDRAW_ALL_PLAYER_MOVED = 3;
-    public static final int REDRAW_ALL_MONSTER_MOVED = 4;
-    public static final int REDRAW_ALL_MONSTER_KILLED = 10;
-    public static final int REDRAW_AREA_EFFECT_STARTING = 5;
-    public static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
-    public static final int REDRAW_TILE_SELECTION_REMOVED = 7;
-    public static final int REDRAW_TILE_SELECTION_ADDED = 8;
-    public static final int REDRAW_TILE_BAG = 9;
+	private static final int REDRAW_ALL_SURFACE_CHANGED = 1;
+	private static final int REDRAW_ALL_MAP_CHANGED = 2;
+	private static final int REDRAW_ALL_PLAYER_MOVED = 3;
+    private static final int REDRAW_AREA_MONSTER_MOVED = 4;
+    private static final int REDRAW_AREA_MONSTER_KILLED = 10;
+    private static final int REDRAW_AREA_EFFECT_STARTING = 5;
+    private static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
+    private static final int REDRAW_AREA_MONSTER_SPAWNED = 11;
+    private static final int REDRAW_TILE_SELECTION_REMOVED = 7;
+    private static final int REDRAW_TILE_SELECTION_ADDED = 8;
+    private static final int REDRAW_TILE_BAG = 9;
+    private static final int REDRAW_TILE_SPLATTER = 12;
     
 	public void redrawAll(int why) {
 		redrawArea_(mapViewArea);
@@ -205,7 +220,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		return true;
 	}
 	private final Rect redrawRect = new Rect();
-	public void redrawAreaWithEffect(final VisualEffectAnimation effect, int tileID, int textYOffset, Paint textPaint) {
+	public void redrawAreaWithEffect(final VisualEffectAnimation effect, int tileID, int textYOffset) {
 		CoordRect area = effect.area;
 		if (!hasSurface) return;
 		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;
@@ -222,7 +237,7 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	        	doDrawRect(c, area);
 	        	drawFromMapPosition(c, area, effect.position, tileID);
     			if (effect.displayText != null) {
-    				drawEffectText(c, area, effect, textYOffset, textPaint);
+    				drawEffectText(c, area, effect, textYOffset, effect.textPaint);
     			}
 	        } }
 	    } finally {
@@ -338,9 +353,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 		canvas.drawText(e.displayText, x, y, textPaint);
     }
     
-	public void notifyMapChanged(ModelContainer model) {
+	@Override
+	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) {
 		synchronized (holder) {
-			currentMap = model.currentMap;
+			currentMap = map;
 			currentTileMap = model.currentTileMap;
 			tiles = world.tileManager.currentMapTiles;
 			
@@ -379,9 +395,99 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
 	    	}
 		}
 	}
-	
-	public void notifyPlayerMoved(Coord newPosition) {
+
+	@Override
+	public void onPlayerMoved(Coord newPosition, Coord previousPosition) {
 		recalculateMapTopLeft(newPosition);
 		redrawAll(REDRAW_ALL_PLAYER_MOVED);
+	}
+
+	public void subscribe() {
+		view.effectController.visualEffectFrameListeners.add(this);
+		view.itemController.lootBagListeners.add(this);
+		view.movementController.playerMovementListeners.add(this);
+		view.combatController.combatSelectionListeners.add(this);
+		view.monsterSpawnController.monsterSpawnListeners.add(this);
+		view.monsterMovementController.monsterMovementListeners.add(this);
+	}
+	public void unsubscribe() {
+		view.monsterMovementController.monsterMovementListeners.remove(this);
+		view.monsterSpawnController.monsterSpawnListeners.remove(this);
+		view.combatController.combatSelectionListeners.remove(this);
+		view.movementController.playerMovementListeners.remove(this);
+		view.itemController.lootBagListeners.remove(this);
+		view.effectController.visualEffectFrameListeners.remove(this);
+	}
+
+	@Override
+	public void onMonsterSelected(Monster m, Coord selectedPosition, Coord previousSelection) {
+		if (previousSelection != null) redrawTile(previousSelection, REDRAW_TILE_SELECTION_REMOVED);
+		redrawTile(selectedPosition, REDRAW_TILE_SELECTION_ADDED);
+	}
+
+	@Override
+	public void onMovementDestinationSelected(Coord selectedPosition, Coord previousSelection) {
+		if (previousSelection != null) redrawTile(previousSelection, REDRAW_TILE_SELECTION_REMOVED);
+		redrawTile(selectedPosition, REDRAW_TILE_SELECTION_ADDED);
+	}
+
+	@Override
+	public void onCombatSelectionCleared(Coord previousSelection) {
+		redrawTile(previousSelection, REDRAW_TILE_SELECTION_REMOVED);
+	}
+
+	@Override
+	public void onMonsterSpawned(Monster m) {
+		redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_SPAWNED);
+	}
+
+	@Override
+	public void onMonsterRemoved(Monster m, CoordRect previousPosition) {
+		redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
+	}
+
+	@Override
+	public void onMonsterSteppedOnPlayer(Monster m) {
+	}
+
+	@Override
+	public void onMonsterMoved(Monster m, CoordRect previousPosition) {
+		redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
+		redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_MOVED);
+	}
+
+	@Override
+	public void onSplatterAdded(Coord p) {
+		redrawTile(p, REDRAW_TILE_SPLATTER);
+	}
+
+	@Override
+	public void onSplatterChanged(Coord p) {
+		redrawTile(p, REDRAW_TILE_SPLATTER);
+	}
+
+	@Override
+	public void onSplatterRemoved(Coord p) {
+		redrawTile(p, REDRAW_TILE_SPLATTER);
+	}
+
+	@Override
+	public void onLootBagCreated(Coord p) {
+		redrawTile(p, REDRAW_TILE_BAG);
+	}
+
+	@Override
+	public void onLootBagRemoved(Coord p) {
+		redrawTile(p, REDRAW_TILE_BAG);
+	}
+
+	@Override
+	public void onNewAnimationFrame(VisualEffectAnimation animation, int tileID, int textYOffset) {
+		redrawAreaWithEffect(animation, tileID, textYOffset);
+	}
+
+	@Override
+	public void onAnimationCompleted(VisualEffectAnimation animation) {
+		redrawArea(animation.area, REDRAW_AREA_EFFECT_COMPLETED);
 	}
 }

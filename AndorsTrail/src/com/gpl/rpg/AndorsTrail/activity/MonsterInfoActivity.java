@@ -36,7 +36,7 @@ public final class MonsterInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         setContentView(R.layout.monsterinfo);
@@ -87,8 +87,8 @@ public final class MonsterInfoActivity extends Activity {
         		monster.getOnHitEffectsAsList(), 
         		null,
         		false);
-        hp.update(monster.health);
-        monsterinfo_max_ap.setText(Integer.toString(monster.ap.max));
+        hp.update(monster.getMaxHP(), monster.getCurrentHP());
+        monsterinfo_max_ap.setText(Integer.toString(monster.getMaxAP()));
     }
 
 	public static int getMonsterDifficultyResource(WorldContext world, Monster monster) {

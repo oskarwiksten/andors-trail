@@ -3,8 +3,12 @@ package com.gpl.rpg.AndorsTrail.view;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerStatsListener;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.listeners.ActorStatsListener;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 import android.content.Context;
@@ -17,8 +21,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.ImageButton;
 
-public final class StatusView extends RelativeLayout {
+public final class StatusView extends RelativeLayout implements PlayerStatsListener, ActorStatsListener {
 	
+	private final ViewContext view;
 	private final WorldContext world;
 	private final Player player;
 	
@@ -33,8 +38,9 @@ public final class StatusView extends RelativeLayout {
 	public StatusView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.world;
-        this.player = app.world.model.player;
+        this.view = app.getViewContext();
+        this.world = app.getWorld();
+        this.player = world.model.player;
         
         setFocusable(false);
         inflate(context, R.layout.statusview, this);
@@ -80,8 +86,24 @@ public final class StatusView extends RelativeLayout {
 	}
 
 	public void updateStatus() {
-		healthBar.update(player.health);
-		expBar.update(player.levelExperience);
+		updateHealth();
+		updateExperience();
+	}
+	
+	public void subscribe() {
+		view.actorStatsController.actorStatsListeners.add(this);
+		view.actorStatsController.playerStatsListeners.add(this);
+	}
+	public void unsubscribe() {
+		view.actorStatsController.playerStatsListeners.remove(this);
+		view.actorStatsController.actorStatsListeners.remove(this);
+	}
+	
+	private void updateHealth() {
+		healthBar.update(player.getMaxHP(), player.getCurrentHP());
+	}
+	private void updateExperience() {
+		expBar.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
 		boolean canLevelUp = player.canLevelup();
 		if (showingLevelup != canLevelUp) {
 			updateIcon(canLevelUp);
@@ -95,5 +117,24 @@ public final class StatusView extends RelativeLayout {
 		} else {
 			world.tileManager.setImageViewTile(heroImage, player);			
 		}
+	}
+
+	@Override
+	public void onActorHealthChanged(Actor actor) {
+		if (actor == player) updateHealth();
+	}
+
+	@Override
+	public void onActorAPChanged(Actor actor) { }
+
+	@Override
+	public void onActorAttackCostChanged(Actor actor, int newAttackCost) { }
+
+	@Override
+	public void onActorMoveCostChanged(Actor actor, int newMoveCost) { }
+
+	@Override
+	public void onPlayerExperienceChanged(Player p) {
+		updateExperience();
 	}
 }

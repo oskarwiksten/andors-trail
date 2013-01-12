@@ -31,9 +31,9 @@ public class DisplayWorldMapActivity extends Activity {
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         setContentView(R.layout.displayworldmap);
         

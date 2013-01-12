@@ -21,8 +21,8 @@ import java.util.regex.Pattern;
 import android.content.Context;
 import android.os.Environment;
 
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.Controller;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
@@ -117,17 +117,18 @@ public final class Savegames {
     	final FileHeader header = new FileHeader(src);
     	if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
     	
-    	world.maps.readFromParcel(src, world, header.fileversion);
-    	world.model = new ModelContainer(src, world, header.fileversion);
+    	ViewContext view = new ViewContext(null, world);
+    	world.maps.readFromParcel(src, world, view, header.fileversion);
+    	world.model = new ModelContainer(src, world, view, header.fileversion);
     	src.close();
     	
-    	onWorldLoaded(world);
+    	onWorldLoaded(world, view);
     	
     	return LOAD_RESULT_SUCCESS;
     }
     
-	private static void onWorldLoaded(WorldContext world) {
-		ActorStatsController.recalculatePlayerStats(world.model.player);
+	private static void onWorldLoaded(WorldContext world, ViewContext view) {
+		view.actorStatsController.recalculatePlayerStats(world.model.player);
 		Controller.resetMapsNotRecentlyVisited(world);
 		MovementController.moveBlockedActors(world);
 	}

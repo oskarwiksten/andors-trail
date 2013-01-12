@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.Savegames;
 import com.gpl.rpg.AndorsTrail.WorldSetup;
 import com.gpl.rpg.AndorsTrail.Savegames.FileHeader;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -39,9 +40,10 @@ public final class StartScreenActivity extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        AndorsTrailPreferences.read(this, app.preferences);
-		AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+        final AndorsTrailPreferences preferences = app.getPreferences();
+        AndorsTrailPreferences.read(this, preferences);
+		app.setWindowParameters(this);
 		
         setContentView(R.layout.startscreen);
 
@@ -103,9 +105,10 @@ public final class StartScreenActivity extends Activity {
         }
         
         final Resources res = getResources();
-        app.world.tileManager.setDensity(res);
-        app.world.tileManager.updatePreferences(app.preferences);
-        app.setup.startResourceLoader(res, app.preferences);
+        TileManager tileManager = app.getWorld().tileManager;
+        tileManager.setDensity(res);
+        tileManager.updatePreferences(preferences);
+        app.getWorldSetup().startResourceLoader(res, preferences);
         
         if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
         	if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
@@ -187,7 +190,7 @@ public final class StartScreenActivity extends Activity {
 	}
 
 	private void continueGame(boolean createNewCharacter, int loadFromSlot, String name) {
-		final WorldSetup setup = AndorsTrailApplication.getApplicationFromActivity(this).setup;
+		final WorldSetup setup = AndorsTrailApplication.getApplicationFromActivity(this).getWorldSetup();
 		setup.createNewCharacter = createNewCharacter;
 		setup.loadFromSlot = loadFromSlot;
 		setup.newHeroName = name;

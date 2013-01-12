@@ -33,9 +33,9 @@ public final class ItemInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();

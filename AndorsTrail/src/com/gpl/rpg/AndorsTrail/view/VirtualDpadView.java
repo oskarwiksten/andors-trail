@@ -35,8 +35,8 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 	public VirtualDpadView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.world;
-        this.view = app.currentView.get();
+        this.world = app.getWorld();
+        this.view = app.getViewContext();
         this.inputController = this.view.inputController;
 
         setImageResource(R.drawable.ui_dpad);

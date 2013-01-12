@@ -4,6 +4,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
@@ -25,8 +26,8 @@ public final class ModelContainer {
 
 	// ====== PARCELABLE ===================================================================
 
-	public ModelContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		this.player = Player.readFromParcel(src, world, fileversion);
+	public ModelContainer(DataInputStream src, WorldContext world, ViewContext view, int fileversion) throws IOException {
+		this.player = Player.readFromParcel(src, world, view, fileversion);
 		this.currentMap = world.maps.findPredefinedMap(src.readUTF());
 		this.uiSelections = new InterfaceData(src, world, fileversion);
 		if (uiSelections.selectedPosition != null) {

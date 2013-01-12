@@ -73,8 +73,8 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        this.world = app.getWorld();
+        app.setWindowParameters(this);
         
         final Resources res = getResources();
         

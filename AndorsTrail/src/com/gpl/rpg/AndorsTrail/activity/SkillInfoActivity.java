@@ -29,10 +29,10 @@ public final class SkillInfoActivity extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         this.player = world.model.player;
         
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         setContentView(R.layout.skill_info_view);
 

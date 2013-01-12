@@ -38,8 +38,12 @@ public final class Range {
 		if (!mayOverflow) capAtMax();
 		return (this.current != valueBefore);
 	}
-	public void capAtMax() {
-		if (current > max) current = max;
+	public boolean capAtMax() {
+		if (current > max) {
+			current = max;
+			return true;
+		}
+		return false;
 	}
 	public void addToMax(int value) {
 		this.max += value;

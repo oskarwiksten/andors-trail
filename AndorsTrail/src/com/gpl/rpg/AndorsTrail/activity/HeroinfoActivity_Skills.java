@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.activity;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.SkillController;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -19,6 +20,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public final class HeroinfoActivity_Skills extends Activity {
 	private WorldContext world;
+	private ViewContext view;
 
 	private Player player;
 
@@ -29,7 +31,8 @@ public final class HeroinfoActivity_Skills extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
+        this.view = app.getViewContext();
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_skill_list);
@@ -59,7 +62,7 @@ public final class HeroinfoActivity_Skills extends Activity {
 			if (resultCode != RESULT_OK) break;
 			
 			int skillID = data.getExtras().getInt("skillID");
-			SkillController.levelUpSkillManually(player, world.skills.getSkill(skillID));
+			view.skillController.levelUpSkillManually(player, skillID);
 			break;
 		}
 	}

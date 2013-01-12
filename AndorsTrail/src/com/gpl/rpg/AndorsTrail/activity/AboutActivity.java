@@ -23,7 +23,7 @@ public final class AboutActivity extends Activity implements ImageGetter {
         super.onCreate(savedInstanceState);
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         setContentView(R.layout.about);
     	final Resources res = getResources();

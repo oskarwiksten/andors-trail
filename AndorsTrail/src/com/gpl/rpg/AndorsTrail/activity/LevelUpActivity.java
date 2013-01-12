@@ -11,26 +11,27 @@ import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public final class LevelUpActivity extends Activity {
 	private WorldContext world;
+	private ViewContext view;
 	private Player player;
 	private TextView levelup_description;
 	private TextView levelup_title;
 	private View levelup_adds_new_skillpoint;
 	
-    /** Called when the activity is first created. */
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
+        this.view = app.getViewContext();
         this.player = world.model.player;
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -47,7 +48,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(SELECT_HEALTH);
+				levelup(ActorStatsController.LEVELUP_HEALTH);
 			}
 		});
         b.setText(getString(R.string.levelup_add_health, Constants.LEVELUP_EFFECT_HEALTH));
@@ -56,7 +57,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(SELECT_ATK_CH);
+				levelup(ActorStatsController.LEVELUP_ATTACK_CHANCE);
 			}
 		});
         b.setText(getString(R.string.levelup_add_attackchance, Constants.LEVELUP_EFFECT_ATK_CH));
@@ -65,7 +66,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(SELECT_ATK_DMG);
+				levelup(ActorStatsController.LEVELUP_ATTACK_DAMAGE);
 			}
 		});
         b.setText(getString(R.string.levelup_add_attackdamage, Constants.LEVELUP_EFFECT_ATK_DMG));
@@ -74,7 +75,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(SELECT_DEF_CH);
+				levelup(ActorStatsController.LEVELUP_BLOCK_CHANCE);
 			}
 		});
         b.setText(getString(R.string.levelup_add_blockchance, Constants.LEVELUP_EFFECT_DEF_CH));
@@ -99,45 +100,10 @@ public final class LevelUpActivity extends Activity {
         }
     }
 
-    private static final int SELECT_HEALTH = 0;
-    private static final int SELECT_ATK_CH = 1;
-    private static final int SELECT_ATK_DMG = 2;
-    private static final int SELECT_DEF_CH = 3;
-    
     public void levelup(int selectionID) {
     	if (LevelUpActivity.this.isFinishing()) return;
     	
-    	addLevelupEffect(player, selectionID);
-    	LevelUpActivity.this.finish();
-    }
-    
-    public static void addLevelupEffect(Player player, int selectionID) {
-    	int hpIncrease = 0;
-    	switch (selectionID) {
-    	case SELECT_HEALTH:
-    		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
-    		break;
-    	case SELECT_ATK_CH:
-    		player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
-    		break;
-    	case SELECT_ATK_DMG:
-    		player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		break;
-    	case SELECT_DEF_CH:
-    		player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
-    		break;
-    	}
-    	if (player.nextLevelAddsNewSkillpoint()) {
-    		player.availableSkillIncreases++;
-    	}
-    	player.level++;
-    	
-    	hpIncrease += player.getSkillLevel(SkillCollection.SKILL_FORTITUDE) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
-		player.health.max += hpIncrease;
-		player.baseTraits.maxHP += hpIncrease;
-		player.health.current += hpIncrease;
-    	
-    	ActorStatsController.recalculatePlayerStats(player);
+    	view.actorStatsController.addLevelupEffect(player, selectionID);
+    	finish();
     }
 }

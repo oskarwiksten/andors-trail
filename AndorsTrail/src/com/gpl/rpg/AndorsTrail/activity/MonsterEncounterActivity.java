@@ -22,7 +22,7 @@ public final class MonsterEncounterActivity extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         

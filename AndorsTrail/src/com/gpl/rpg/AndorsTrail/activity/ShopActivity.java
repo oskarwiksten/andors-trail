@@ -43,10 +43,10 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         this.player = world.model.player;
         
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         final Monster npc = Dialogs.getMonsterFromIntent(getIntent(), world);
         final Player player = world.model.player;

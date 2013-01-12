@@ -2,29 +2,25 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
-import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class GameRoundController implements TimedMessageTask.Callback {
     
     private final ViewContext view;
     private final WorldContext world;
-    private final ModelContainer model;
     private final TimedMessageTask roundTimer;
 	
-	public GameRoundController(ViewContext context) {
+	public GameRoundController(ViewContext context, WorldContext world) {
     	this.view = context;
-    	this.world = context;
-    	this.model = world.model;
+    	this.world = world;
     	this.roundTimer = new TimedMessageTask(this, Constants.TICK_DELAY, true);
     }
 	
     private int ticksUntilNextRound = Constants.TICKS_PER_ROUND;
     private int ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
     public boolean onTick(TimedMessageTask task) {
-		if (!model.uiSelections.isMainActivityVisible) return false;
-    	if (model.uiSelections.isInCombat) return false;
+		if (!world.model.uiSelections.isMainActivityVisible) return false;
+    	if (world.model.uiSelections.isInCombat) return false;
     	
     	onNewTick();
     	
@@ -44,8 +40,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     }
     
     public void resume() {
-    	view.mainActivity.updateStatus();
-		model.uiSelections.isMainActivityVisible = true;
+    	world.model.uiSelections.isMainActivityVisible = true;
 		restartWaitForNextRound();
 		restartWaitForNextFullRound();
 		roundTimer.start();
@@ -61,13 +56,13 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 
 	public void pause() {
     	roundTimer.stop();
-    	model.uiSelections.isMainActivityVisible = false;
+    	world.model.uiSelections.isMainActivityVisible = false;
     }
 	
     public void onNewFullRound() {
 		Controller.resetMapsNotRecentlyVisited(world);
-		view.actorStatsController.applyConditionsToMonsters(model.currentMap, true);
-    	view.actorStatsController.applyConditionsToPlayer(model.player, true);
+		view.actorStatsController.applyConditionsToMonsters(world.model.currentMap, true);
+    	view.actorStatsController.applyConditionsToPlayer(world.model.player, true);
     }
     
     public void onNewRound() {
@@ -75,19 +70,17 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	onNewPlayerRound();
     }
     public void onNewPlayerRound() {
-    	view.actorStatsController.applyConditionsToPlayer(model.player, false);
-    	view.actorStatsController.applySkillEffectsForNewRound(model.player, model.currentMap);
+    	view.actorStatsController.applyConditionsToPlayer(world.model.player, false);
+    	view.actorStatsController.applySkillEffectsForNewRound(world.model.player, world.model.currentMap);
     }
     public void onNewMonsterRound() {
-    	view.actorStatsController.applyConditionsToMonsters(model.currentMap, false);
+    	view.actorStatsController.applyConditionsToMonsters(world.model.currentMap, false);
     }
     
 	private void onNewTick() {
-		boolean hasChanged = false;
-		if (view.controller.moveAndSpawnMonsters()) hasChanged = true;
+    	view.monsterMovementController.moveMonsters();
+    	view.monsterSpawnController.maybeSpawn(world.model.currentMap);
 		view.monsterMovementController.attackWithAgressiveMonsters();
-		if (VisualEffectController.updateSplatters(model.currentMap)) hasChanged = true;
-		
-    	if (hasChanged) view.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED); //TODO: should only redraw spawned tiles
+		view.effectController.updateSplatters(world.model.currentMap);
 	}
 }
