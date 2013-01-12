@@ -139,7 +139,7 @@ public final class WorldSetup {
 	
 	private int continueWorld() {
 		Context ctx = androidContext.get();
-		int result = Savegames.loadWorld(world, ctx, loadFromSlot);
+		int result = Savegames.loadWorld(world, view, ctx, loadFromSlot);
     	if (result == Savegames.LOAD_RESULT_SUCCESS) {
 			MovementController.cacheCurrentMapData(ctx.getResources(), world, world.model.currentMap);
 		}

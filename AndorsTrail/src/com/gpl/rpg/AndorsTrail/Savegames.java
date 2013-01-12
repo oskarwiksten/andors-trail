@@ -55,10 +55,10 @@ public final class Savegames {
     		return false;
     	}
     }
-    public static int loadWorld(WorldContext world, Context androidContext, int slot) {
+    public static int loadWorld(WorldContext world, ViewContext view, Context androidContext, int slot) {
     	try {
 	    	FileInputStream fos = getInputFile(androidContext, slot);
-	    	int result = loadWorld(world, fos);
+	    	int result = loadWorld(world, view, fos);
 	    	fos.close();
 	    	return result;
     	} catch (IOException e) {
@@ -112,12 +112,11 @@ public final class Savegames {
     	dest.close();
     }
 	
-	public static int loadWorld(WorldContext world, InputStream inState) throws IOException {
+	public static int loadWorld(WorldContext world, ViewContext view, InputStream inState) throws IOException {
     	DataInputStream src = new DataInputStream(inState);
     	final FileHeader header = new FileHeader(src);
     	if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
     	
-    	ViewContext view = new ViewContext(null, world);
     	world.maps.readFromParcel(src, world, view, header.fileversion);
     	world.model = new ModelContainer(src, world, view, header.fileversion);
     	src.close();

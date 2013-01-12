@@ -91,7 +91,7 @@ public final class MonsterMovementController {
 				monsterMovementListeners.onMonsterSteppedOnPlayer(m);
 				view.combatController.monsterSteppedOnPlayer(m);
 			} else {
-				CoordRect previousPosition = new CoordRect(m.position, m.rectPosition.size);
+				CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
 				m.position.set(m.nextPosition.topLeft);
 				monsterMovementListeners.onMonsterMoved(m, previousPosition);
 			}
