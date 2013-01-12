@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.context;
 
+import java.lang.ref.WeakReference;
+
 import android.content.res.Resources;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -33,10 +35,10 @@ public class ViewContext {
 	public final SkillController skillController;
 	
 	public final AndorsTrailPreferences preferences;
-	public final AndorsTrailApplication app;
+	public final WeakReference<AndorsTrailApplication> app;
 	
 	public ViewContext(AndorsTrailApplication app, WorldContext world) {
-		this.app = app;
+		this.app = new WeakReference<AndorsTrailApplication>(app);
 		this.preferences = app.getPreferences();
 
 		this.controller = new Controller(this, world);
@@ -54,6 +56,6 @@ public class ViewContext {
 	}
 	
 	public Resources getResources() {
-		return app.getResources();
+		return app.get().getResources();
 	}
 }
