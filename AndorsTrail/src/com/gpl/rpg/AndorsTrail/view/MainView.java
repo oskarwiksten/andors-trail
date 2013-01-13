@@ -7,12 +7,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
-import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
-import com.gpl.rpg.AndorsTrail.controller.listeners.LootBagListener;
-import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListener;
-import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterSpawnListener;
-import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
-import com.gpl.rpg.AndorsTrail.controller.listeners.VisualEffectFrameListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.*;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -44,7 +39,8 @@ public final class MainView extends SurfaceView
 		MonsterSpawnListener, 
 		MonsterMovementListener,
 		LootBagListener,
-		VisualEffectFrameListener {
+		VisualEffectFrameListener,
+		GameRoundListener {
 
 	private final int tileSize;
     private float scale;
@@ -71,6 +67,7 @@ public final class MainView extends SurfaceView
 	private TileCollection tiles;
 	private final Coord playerPosition = new Coord();
 	private Size surfaceSize;
+	private boolean redrawNextTick = false;
 
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
@@ -176,8 +173,8 @@ public final class MainView extends SurfaceView
     private static final int REDRAW_TILE_SELECTION_ADDED = 8;
     private static final int REDRAW_TILE_BAG = 9;
     private static final int REDRAW_TILE_SPLATTER = 12;
-    
-    private void redrawAll(int why) {
+
+	private void redrawAll(int why) {
 		redrawArea_(mapViewArea);
 	}
 	private void redrawTile(final Coord p, int why) {
@@ -402,6 +399,7 @@ public final class MainView extends SurfaceView
 	}
 
 	public void subscribe() {
+		view.gameRoundController.gameRoundListeners.add(this);
 		view.effectController.visualEffectFrameListeners.add(this);
 		view.itemController.lootBagListeners.add(this);
 		view.movementController.playerMovementListeners.add(this);
@@ -416,6 +414,7 @@ public final class MainView extends SurfaceView
 		view.movementController.playerMovementListeners.remove(this);
 		view.itemController.lootBagListeners.remove(this);
 		view.effectController.visualEffectFrameListeners.remove(this);
+		view.gameRoundController.gameRoundListeners.remove(this);
 	}
 
 	@Override
@@ -438,12 +437,14 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterSpawned(PredefinedMap map, Monster m) {
         if (map != currentMap) return;
-		redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_SPAWNED);
+		if (!mapViewArea.intersects(m.rectPosition)) return;
+		redrawNextTick = true;
 	}
 
 	@Override
 	public void onMonsterRemoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
         if (map != currentMap) return;
+		if (!mapViewArea.intersects(m.rectPosition)) return;
         redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
 	}
 
@@ -454,37 +455,42 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterMoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
         if (map != currentMap) return;
-        redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
-		redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_MOVED);
+		if (!mapViewArea.intersects(m.rectPosition)) return;
+		redrawNextTick = true;
 	}
 
 	@Override
 	public void onSplatterAdded(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
-        redrawTile(p, REDRAW_TILE_SPLATTER);
+		if (!mapViewArea.contains(p)) return;
+		redrawNextTick = true;
 	}
 
 	@Override
 	public void onSplatterChanged(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
-        redrawTile(p, REDRAW_TILE_SPLATTER);
+		if (!mapViewArea.contains(p)) return;
+		redrawNextTick = true;
 	}
 
 	@Override
 	public void onSplatterRemoved(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
-        redrawTile(p, REDRAW_TILE_SPLATTER);
+		if (!mapViewArea.contains(p)) return;
+		redrawNextTick = true;
 	}
 
 	@Override
 	public void onLootBagCreated(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
+		if (!mapViewArea.contains(p)) return;
         redrawTile(p, REDRAW_TILE_BAG);
 	}
 
 	@Override
 	public void onLootBagRemoved(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
+		if (!mapViewArea.contains(p)) return;
         redrawTile(p, REDRAW_TILE_BAG);
 	}
 
@@ -497,4 +503,19 @@ public final class MainView extends SurfaceView
 	public void onAnimationCompleted(VisualEffectAnimation animation) {
 		redrawArea(animation.area, REDRAW_AREA_EFFECT_COMPLETED);
 	}
+
+	@Override
+	public void onNewTick() {
+		if (!redrawNextTick) return;
+
+		redrawAll(REDRAW_ALL_PLAYER_MOVED);
+
+		redrawNextTick = false;
+	}
+
+	@Override
+	public void onNewRound() { }
+
+	@Override
+	public void onNewFullRound() { }
 }

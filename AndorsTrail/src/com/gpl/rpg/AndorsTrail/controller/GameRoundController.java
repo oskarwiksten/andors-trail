@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.GameRoundListeners;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
 public final class GameRoundController implements TimedMessageTask.Callback {
@@ -9,6 +10,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     private final ViewContext view;
     private final WorldContext world;
     private final TimedMessageTask roundTimer;
+	public final GameRoundListeners gameRoundListeners = new GameRoundListeners();
 	
 	public GameRoundController(ViewContext context, WorldContext world) {
     	this.view = context;
@@ -63,11 +65,13 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		Controller.resetMapsNotRecentlyVisited(world);
 		view.actorStatsController.applyConditionsToMonsters(world.model.currentMap, true);
     	view.actorStatsController.applyConditionsToPlayer(world.model.player, true);
+		gameRoundListeners.onNewFullRound();
     }
     
     public void onNewRound() {
 		onNewMonsterRound();
     	onNewPlayerRound();
+		gameRoundListeners.onNewRound();
     }
     public void onNewPlayerRound() {
     	view.actorStatsController.applyConditionsToPlayer(world.model.player, false);
@@ -82,5 +86,6 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	view.monsterSpawnController.maybeSpawn(world.model.currentMap);
 		view.monsterMovementController.attackWithAgressiveMonsters();
 		view.effectController.updateSplatters(world.model.currentMap);
+		gameRoundListeners.onNewTick();
 	}
 }
