@@ -5,6 +5,8 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 
+import java.util.Collection;
+
 public final class WorldEventListeners extends ListOfListeners<WorldEventListener> implements WorldEventListener {
 	
 	private final Function2<WorldEventListener, Monster, String> onPlayerStartedConversation = new Function2<WorldEventListener, Monster, String>() {
@@ -35,12 +37,12 @@ public final class WorldEventListeners extends ListOfListeners<WorldEventListene
 		@Override public void call(WorldEventListener listener, Loot loot) { listener.onPlayerPickedUpGroundLoot(loot); }
 	};
 	
-	private final Function2<WorldEventListener, Iterable<Loot>, Integer> onPlayerFoundMonsterLoot = new Function2<WorldEventListener, Iterable<Loot>, Integer>() {
-		@Override public void call(WorldEventListener listener, Iterable<Loot> loot, Integer exp) { listener.onPlayerFoundMonsterLoot(loot, exp); }
+	private final Function2<WorldEventListener, Collection<Loot>, Integer> onPlayerFoundMonsterLoot = new Function2<WorldEventListener, Collection<Loot>, Integer>() {
+		@Override public void call(WorldEventListener listener, Collection<Loot> loot, Integer exp) { listener.onPlayerFoundMonsterLoot(loot, exp); }
 	};
 
-	private final Function2<WorldEventListener, Iterable<Loot>, Integer> onPlayerPickedUpMonsterLoot = new Function2<WorldEventListener, Iterable<Loot>, Integer>() {
-		@Override public void call(WorldEventListener listener, Iterable<Loot> loot, Integer exp) { listener.onPlayerPickedUpMonsterLoot(loot, exp); }
+	private final Function2<WorldEventListener, Collection<Loot>, Integer> onPlayerPickedUpMonsterLoot = new Function2<WorldEventListener, Collection<Loot>, Integer>() {
+		@Override public void call(WorldEventListener listener, Collection<Loot> loot, Integer exp) { listener.onPlayerPickedUpMonsterLoot(loot, exp); }
 	};
 
 	private final Function<WorldEventListener> onPlayerRested = new Function<WorldEventListener>() {
@@ -87,12 +89,12 @@ public final class WorldEventListeners extends ListOfListeners<WorldEventListene
 	}
 
 	@Override
-	public void onPlayerFoundMonsterLoot(Iterable<Loot> loot, int exp) {
+	public void onPlayerFoundMonsterLoot(Collection<Loot> loot, int exp) {
 		callAllListeners(this.onPlayerFoundMonsterLoot, loot, exp);
 	}
 
 	@Override
-	public void onPlayerPickedUpMonsterLoot(Iterable<Loot> loot, int exp) {
+	public void onPlayerPickedUpMonsterLoot(Collection<Loot> loot, int exp) {
 		callAllListeners(this.onPlayerPickedUpMonsterLoot, loot, exp);
 	}
 

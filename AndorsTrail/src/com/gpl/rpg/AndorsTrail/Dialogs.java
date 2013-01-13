@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 import android.app.Activity;
@@ -152,8 +154,11 @@ public final class Dialogs {
 		}
 	}
 	
-	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Iterable<Loot> lootBags, final Loot combinedLoot, final String msg) {
-		showLoot(mainActivity, view, world, combinedLoot, lootBags, R.string.dialog_monsterloot_title, msg);
+	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Collection<Loot> lootBags, final Loot combinedLoot, final String msg) {
+		// CombatController will do killedMonsterBags.clear() after this method has been called,
+		// so we need to keep the list of objects. Therefore, we create a shallow copy of the list of bags.
+		ArrayList<Loot> bags = new ArrayList<Loot>(lootBags);
+		showLoot(mainActivity, view, world, combinedLoot, bags, R.string.dialog_monsterloot_title, msg);
 	}
 
 	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot loot, final String msg) {

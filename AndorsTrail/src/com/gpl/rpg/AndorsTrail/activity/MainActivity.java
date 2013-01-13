@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
 import java.lang.ref.WeakReference;
+import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -443,14 +444,14 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	}
 
 	@Override
-	public void onPlayerFoundMonsterLoot(Iterable<Loot> loot, int exp) {
+	public void onPlayerFoundMonsterLoot(Collection<Loot> loot, int exp) {
 		final Loot combinedLoot = Loot.combine(loot);
 		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
 		Dialogs.showMonsterLoot(this, view, world, loot, combinedLoot, msg);
 	}
 
 	@Override
-	public void onPlayerPickedUpMonsterLoot(Iterable<Loot> loot, int exp) {
+	public void onPlayerPickedUpMonsterLoot(Collection<Loot> loot, int exp) {
 		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
 		
 		final Loot combinedLoot = Loot.combine(loot);

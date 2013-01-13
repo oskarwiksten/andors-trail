@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
@@ -98,7 +99,7 @@ public final class ItemController {
     }
     
 	public void playerSteppedOnLootBag(Loot loot) {
-		if (pickupLootBagWithoutConfirmation(loot.isContainer())) {
+		if (loot.isVisible && pickupLootBagWithoutConfirmation()) {
 			view.controller.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
 			pickupAll(loot);
 			removeLootBagIfEmpty(loot);
@@ -108,8 +109,8 @@ public final class ItemController {
 		}
 	}
 	
-	public void lootMonsterBags(Iterable<Loot> killedMonsterBags, int totalExpThisFight) {
-		if (pickupLootBagWithoutConfirmation(false)) {
+	public void lootMonsterBags(Collection<Loot> killedMonsterBags, int totalExpThisFight) {
+		if (pickupLootBagWithoutConfirmation()) {
 			view.controller.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
 			pickupAll(killedMonsterBags);
 			removeLootBagIfEmpty(killedMonsterBags);
@@ -120,8 +121,7 @@ public final class ItemController {
 		}
 	}
 
-	private boolean pickupLootBagWithoutConfirmation(boolean isContainer) {
-		if (isContainer) return false;
+	private boolean pickupLootBagWithoutConfirmation() {
 		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_DIALOG) return false;
 		return true;
 	}
