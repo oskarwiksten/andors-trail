@@ -1,7 +1,7 @@
-package com.gpl.rpg.AndorsTrail.controller.listeners;
+package com.gpl.rpg.AndorsTrail.model.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 
 public final class PlayerStatsListeners extends ListOfListeners<PlayerStatsListener> implements PlayerStatsListener {
 	

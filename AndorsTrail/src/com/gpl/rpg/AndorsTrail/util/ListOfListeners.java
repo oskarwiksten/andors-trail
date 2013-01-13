@@ -1,4 +1,4 @@
-package com.gpl.rpg.AndorsTrail.model.listeners;
+package com.gpl.rpg.AndorsTrail.util;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

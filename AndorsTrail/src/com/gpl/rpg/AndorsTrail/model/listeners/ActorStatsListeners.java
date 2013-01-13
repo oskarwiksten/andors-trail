@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
-import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 
 public final class ActorStatsListeners extends ListOfListeners<ActorStatsListener> implements ActorStatsListener {
 

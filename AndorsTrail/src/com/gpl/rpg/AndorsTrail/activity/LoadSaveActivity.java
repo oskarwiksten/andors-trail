@@ -18,8 +18,8 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.Savegames;
-import com.gpl.rpg.AndorsTrail.Savegames.FileHeader;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames.FileHeader;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 
 public final class LoadSaveActivity extends Activity implements OnClickListener {

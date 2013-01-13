@@ -1,4 +1,4 @@
-package com.gpl.rpg.AndorsTrail.controller.listeners;
+package com.gpl.rpg.AndorsTrail.model.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 

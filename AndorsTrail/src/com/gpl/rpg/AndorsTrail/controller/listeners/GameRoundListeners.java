@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller.listeners;
 
-import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 
 public final class GameRoundListeners extends ListOfListeners<GameRoundListener> implements GameRoundListener {
 	

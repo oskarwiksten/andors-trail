@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class CombatSelectionListeners extends ListOfListeners<CombatSelectionListener> implements CombatSelectionListener {

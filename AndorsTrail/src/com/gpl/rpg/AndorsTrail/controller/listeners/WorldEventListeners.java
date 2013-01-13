@@ -2,7 +2,7 @@ package com.gpl.rpg.AndorsTrail.controller.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 
 import java.util.Collection;

@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 
 public final class ActorConditionListeners extends ListOfListeners<ActorConditionListener> implements ActorConditionListener {
 
