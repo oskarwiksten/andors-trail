@@ -262,12 +262,12 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		if(quickitemview.isQuickButtonId(v.getId())){
-			createQuickButtonMenu(menu, v, menuInfo);
+			createQuickButtonMenu(menu);
 		}
 		lastSelectedMenu = null;
 	}
 
-	private void createQuickButtonMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo){
+	private void createQuickButtonMenu(ContextMenu menu){
 		menu.add(Menu.NONE, R.id.quick_menu_unassign, Menu.NONE, R.string.inventory_unassign);
 		SubMenu assignMenu = menu.addSubMenu(Menu.NONE, R.id.quick_menu_assign, Menu.NONE, R.string.inventory_assign);
 		for(int i=0; i<world.model.player.inventory.items.size(); ++i){
@@ -308,7 +308,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	}
 	
 	private void message(String msg) {
-		StringBuilder sb = new StringBuilder();
+		StringBuilder sb = new StringBuilder(100);
 		for(int i = 0; i < NUM_MESSAGES-1; ++i) {
 			messages[i] = messages[i + 1];
 			if (messages[i].length() > 0) {
@@ -374,7 +374,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 			msg = getString(R.string.combat_result_herohit, monsterName, attackResult.damage);
 		}
 		if (attackResult.targetDied) {
-			msg += " " + getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage);
+			msg += ' ' + getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage);
 		}
 		message(msg);
 	}

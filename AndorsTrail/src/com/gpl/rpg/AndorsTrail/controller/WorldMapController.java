@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Collection;
 import java.util.HashSet;
 
 import android.content.Context;
@@ -167,7 +168,7 @@ public final class WorldMapController {
 	private static String getWorldMapSegmentAsHtml(Resources res, WorldContext world, String segmentName) throws IOException {
 		WorldMapSegment segment = world.maps.worldMapSegments.get(segmentName);
 		
-		HashSet<String> displayedMapNames = new HashSet<String>();
+		Collection<String> displayedMapNames = new HashSet<String>();
 		Coord offsetWorldmapTo = new Coord(999999, 999999);
 		for (WorldMapSegmentMap map : segment.maps.values()) {
 			if (!shouldDisplayMapOnWorldmap(map.mapName)) continue;
@@ -178,8 +179,8 @@ public final class WorldMapController {
 		}
 		
 		Coord bottomRight = new Coord(0, 0);
-		
-		StringBuffer mapsAsHtml = new StringBuffer();
+
+		StringBuilder mapsAsHtml = new StringBuilder(1000);
 		for (WorldMapSegmentMap segmentMap : segment.maps.values()) {
 			File f = WorldMapController.getFileForMap(segmentMap.mapName);
 			if (!f.exists()) continue;
@@ -199,7 +200,7 @@ public final class WorldMapController {
 				.append("px; top:")
 				.append((segmentMap.worldPosition.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE)
 				.append("px;\" />");
-			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) mapsAsHtml.append("\n");
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) mapsAsHtml.append('\n');
 			
 			bottomRight.x = Math.max(bottomRight.x, segmentMap.worldPosition.x + size.width);
 			bottomRight.y = Math.max(bottomRight.y, segmentMap.worldPosition.y + size.height);
@@ -208,8 +209,8 @@ public final class WorldMapController {
 				(bottomRight.x - offsetWorldmapTo.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE
 				,(bottomRight.y - offsetWorldmapTo.y) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE
 			);
-		
-		StringBuffer namedAreasAsHtml = new StringBuffer();
+
+		StringBuilder namedAreasAsHtml = new StringBuilder(500);
 		for (NamedWorldMapArea area : segment.namedAreas.values()) {
 			CoordRect r = determineNamedAreaBoundary(area, segment, world, displayedMapNames);
 			if (r == null) continue;
@@ -227,7 +228,7 @@ public final class WorldMapController {
 				.append("px;\"><span>")
 				.append(area.name)
 				.append("</span></div>");
-			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) namedAreasAsHtml.append("\n");
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) namedAreasAsHtml.append('\n');
 		}
 		
 		return res.getString(R.string.worldmap_template)
@@ -243,7 +244,7 @@ public final class WorldMapController {
 		return world.maps.findPredefinedMap(map.mapName).size;
 	}
 	
-	private static CoordRect determineNamedAreaBoundary(NamedWorldMapArea area, WorldMapSegment segment, WorldContext world, HashSet<String> displayedMapNames) {
+	private static CoordRect determineNamedAreaBoundary(NamedWorldMapArea area, WorldMapSegment segment, WorldContext world, Collection<String> displayedMapNames) {
 		Coord topLeft = null;
 		Coord bottomRight = null;
 		

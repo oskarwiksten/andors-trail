@@ -6,7 +6,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
-public class ActorConditionTypeCollection {
+public final class ActorConditionTypeCollection {
 	private final HashMap<String, ActorConditionType> conditionTypes = new HashMap<String, ActorConditionType>();
 	
 	public ActorConditionType getActorConditionType(String conditionTypeID) {

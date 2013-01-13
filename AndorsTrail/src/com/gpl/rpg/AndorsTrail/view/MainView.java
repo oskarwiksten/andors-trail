@@ -107,7 +107,7 @@ public final class MainView extends SurfaceView
     }
 
 	@Override
-	public void surfaceChanged(SurfaceHolder holder, int format, int w, int h) {
+	public void surfaceChanged(SurfaceHolder sh, int format, int w, int h) {
 		if (w <= 0 || h <= 0) return;
 
 		this.scale = world.tileManager.scale;
@@ -127,12 +127,12 @@ public final class MainView extends SurfaceView
 	}
 
 	@Override
-	public void surfaceCreated(SurfaceHolder holder) {
+	public void surfaceCreated(SurfaceHolder sh) {
 		hasSurface = true;
 	}
 
 	@Override
-	public void surfaceDestroyed(SurfaceHolder holder) {
+	public void surfaceDestroyed(SurfaceHolder sh) {
 		hasSurface = false;
 	}
 
@@ -277,7 +277,7 @@ public final class MainView extends SurfaceView
 	private void doDrawRect(Canvas canvas, CoordRect area) {
 		
     	drawMapLayer(canvas, area, currentTileMap.layers[LayeredTileMap.LAYER_GROUND]);
-        tryDrawMapLayer(canvas, area, currentTileMap, LayeredTileMap.LAYER_OBJECTS);
+        tryDrawMapLayer(canvas, area, LayeredTileMap.LAYER_OBJECTS);
         
         for (BloodSplatter splatter : currentMap.splatters) {
     		drawFromMapPosition(canvas, area, splatter.position, splatter.iconID);
@@ -296,7 +296,7 @@ public final class MainView extends SurfaceView
 			}
 		}
 		
-		tryDrawMapLayer(canvas, area, currentTileMap, LayeredTileMap.LAYER_ABOVE);
+		tryDrawMapLayer(canvas, area, LayeredTileMap.LAYER_ABOVE);
         
 		if (model.uiSelections.selectedPosition != null) {
 			if (model.uiSelections.selectedMonster != null) {
@@ -307,7 +307,7 @@ public final class MainView extends SurfaceView
 		}
     }
     
-	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final LayeredTileMap currentTileMap, final int layerIndex) {
+	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final int layerIndex) {
     	if (currentTileMap.layers.length > layerIndex) drawMapLayer(canvas, area, currentTileMap.layers[layerIndex]);        
     }
     

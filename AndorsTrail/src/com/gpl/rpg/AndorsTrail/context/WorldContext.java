@@ -13,7 +13,7 @@ import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public class WorldContext {
+public final class WorldContext {
 	//Objectcollections
 	public final ConversationLoader conversationLoader;
 	public final ItemTypeCollection itemTypes;

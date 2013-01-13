@@ -15,7 +15,6 @@ import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListeners;
 import com.gpl.rpg.AndorsTrail.model.AttackResult;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -61,13 +60,13 @@ public final class CombatController implements VisualEffectCompletedCallback {
     	currentActiveMonster = null;
     	world.model.uiSelections.selectedPosition = null;
     	world.model.uiSelections.selectedMonster = null;
-    	if (!killedMonsterBags.isEmpty()) {
+    	if (killedMonsterBags.isEmpty()) {
+			view.gameRoundController.resume();
+		} else {
     		if (pickupLootBags) {
     			view.itemController.lootMonsterBags(killedMonsterBags, totalExpThisFight);
     		}
     		killedMonsterBags.clear();
-    	} else {
-    		view.gameRoundController.resume();
     	}
     	totalExpThisFight = 0;
     }
@@ -130,9 +129,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public void executeMoveAttack(int dx, int dy) {
-		if (isMonsterTurn()) {
-			return;
-		} else if (world.model.uiSelections.selectedMonster != null) {
+		if (isMonsterTurn()) return;
+
+		if (world.model.uiSelections.selectedMonster != null) {
 			executePlayerAttack();
 		} else if (world.model.uiSelections.selectedPosition != null) {
 			executeCombatMove(world.model.uiSelections.selectedPosition);
@@ -155,23 +154,21 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (m != null) return;
 		executeCombatMove(world.model.player.nextPosition);
 	}
-	
-	private Monster currentlyAttackedMonster;
+
 	private AttackResult lastAttackResult;
 	private void executePlayerAttack() {
 		if (view.effectController.isRunningVisualEffect()) return;
 		if (!useAPs(world.model.player.getAttackCost())) return;
 		final Monster target = world.model.uiSelections.selectedMonster;
-		this.currentlyAttackedMonster = target;
-		
-		final AttackResult attack = playerAttacks(world, target);
+
+		final AttackResult attack = playerAttacks(target);
 		this.lastAttackResult = attack;
 		
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 			
 			if (lastAttackResult.targetDied) {
-				playerKilledMonster(currentlyAttackedMonster);
+				playerKilledMonster(target);
 			}
 			
 			startAttackEffect(attack, world.model.uiSelections.selectedPosition, this, CALLBACK_PLAYERATTACK);
@@ -264,6 +261,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	private final Handler monsterTurnHandler = new Handler() {
+		@Override
         public void handleMessage(Message msg) {
         	monsterTurnHandler.removeMessages(0);
             CombatController.this.handleNextMonsterAction();
@@ -310,7 +308,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		view.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getAttackCost());
 		
 		combatTurnListeners.onMonsterIsAttacking(currentActiveMonster);
-		AttackResult attack = monsterAttacks(world.model, currentActiveMonster);
+		AttackResult attack = monsterAttacks(currentActiveMonster);
 		this.lastAttackResult = attack;
 		
 		if (attack.isHit) {
@@ -395,26 +393,26 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (averageDamagePerTurn <= 0) return 100;
 		return (int) FloatMath.ceil(target.getMaxHP() / averageDamagePerTurn);
 	}
-	public static int getMonsterDifficulty(WorldContext world, Monster monster) {
+	public int getMonsterDifficulty(Monster monster) {
 		// returns [0..100) . 100 == easy.
 		int turnsToKillMonster = getTurnsToKillTarget(world.model.player, monster);
 		if (turnsToKillMonster >= 999) return 0;
 		int turnsToKillPlayer = getTurnsToKillTarget(monster, world.model.player);
 		int result = 50 + (turnsToKillPlayer - turnsToKillMonster) * 2;
 		if (result <= 1) return 1;
-		else if (result > 100) return 100;
+		if (result > 100) return 100;
 		return result;
 	}
 	
-	private AttackResult playerAttacks(WorldContext world, Monster currentMonster) {
+	private AttackResult playerAttacks(Monster currentMonster) {
     	AttackResult result = attack(world.model.player, currentMonster);
-    	view.skillController.applySkillEffectsFromPlayerAttack(result, world, currentMonster);
+    	view.skillController.applySkillEffectsFromPlayerAttack(result, currentMonster);
     	return result;
 	}
 	
-	private AttackResult monsterAttacks(ModelContainer model, Monster currentMonster) {
-		AttackResult result = attack(currentMonster, model.player);
-		view.skillController.applySkillEffectsFromMonsterAttack(result, world, currentMonster);
+	private AttackResult monsterAttacks(Monster currentMonster) {
+		AttackResult result = attack(currentMonster, world.model.player);
+		view.skillController.applySkillEffectsFromMonsterAttack(result, currentMonster);
 		return result;
 	}
 	

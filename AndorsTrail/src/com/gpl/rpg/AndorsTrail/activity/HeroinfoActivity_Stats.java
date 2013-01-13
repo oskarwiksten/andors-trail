@@ -25,8 +25,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 public final class HeroinfoActivity_Stats extends Activity {
-	private WorldContext world;
-	
+
 	private Player player;
 	
 	private Button levelUpButton;
@@ -50,7 +49,7 @@ public final class HeroinfoActivity_Stats extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.getWorld();
+		final WorldContext world = app.getWorld();
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_stats);

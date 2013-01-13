@@ -24,7 +24,7 @@ import com.gpl.rpg.AndorsTrail.model.listeners.ActorStatsListeners;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 
-public class ActorStatsController {
+public final class ActorStatsController {
 	private final ViewContext view;
 	private final WorldContext world;
 	public final ActorConditionListeners actorConditionListeners = new ActorConditionListeners();
@@ -133,7 +133,7 @@ public class ActorStatsController {
 			ActorCondition c = actor.conditions.get(i);
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
 			if (c.magnitude > e.magnitude) return;
-			else if (c.magnitude == e.magnitude) {
+			if (c.magnitude == e.magnitude) {
 				if (c.duration >= duration) return;
 			}
 			// If the actor already has this condition, but of a lower magnitude, we remove the old one and add this higher magnitude.

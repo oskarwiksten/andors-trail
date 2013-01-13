@@ -4,7 +4,7 @@ import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 
-public class CombatActionListeners extends ListOfListeners<CombatActionListener> implements CombatActionListener {
+public final class CombatActionListeners extends ListOfListeners<CombatActionListener> implements CombatActionListener {
 
 	private final Function2<CombatActionListener, Monster, AttackResult> onPlayerAttackMissed = new Function2<CombatActionListener, Monster, AttackResult>() {
 		@Override public void call(CombatActionListener listener, Monster target, AttackResult attackResult) { listener.onPlayerAttackMissed(target, attackResult); }

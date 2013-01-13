@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller.listeners;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectAnimation;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 
-public class VisualEffectFrameListeners extends ListOfListeners<VisualEffectFrameListener> implements VisualEffectFrameListener {
+public final class VisualEffectFrameListeners extends ListOfListeners<VisualEffectFrameListener> implements VisualEffectFrameListener {
 
 	private final Function3<VisualEffectFrameListener, VisualEffectAnimation, Integer, Integer> onNewAnimationFrame = new Function3<VisualEffectFrameListener, VisualEffectAnimation, Integer, Integer>() {
 		@Override public void call(VisualEffectFrameListener listener, VisualEffectAnimation animation, Integer tileID, Integer textYOffset) { listener.onNewAnimationFrame(animation, tileID, textYOffset); }

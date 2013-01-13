@@ -4,7 +4,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
-public class CombatSelectionListeners extends ListOfListeners<CombatSelectionListener> implements CombatSelectionListener {
+public final class CombatSelectionListeners extends ListOfListeners<CombatSelectionListener> implements CombatSelectionListener {
 
 	private final Function3<CombatSelectionListener, Monster, Coord, Coord> onMonsterSelected = new Function3<CombatSelectionListener, Monster, Coord, Coord>() {
 		@Override public void call(CombatSelectionListener listener, Monster monster, Coord selectedPosition, Coord previousSelection) { listener.onMonsterSelected(monster, selectedPosition, previousSelection); }

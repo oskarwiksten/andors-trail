@@ -1,27 +1,27 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.Button;
+import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.TextView;
-
 public final class MonsterInfoActivity extends Activity {
 	
 	private WorldContext world;
+	private ViewContext view;
 	
 	private TextView monsterinfo_title;
 	private TextView monsterinfo_difficulty;
@@ -37,6 +37,7 @@ public final class MonsterInfoActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.getWorld();
+		this.view = app.getViewContext();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         setContentView(R.layout.monsterinfo);
@@ -76,7 +77,7 @@ public final class MonsterInfoActivity extends Activity {
 	private void updateTitle(Monster monster) {
 		monsterinfo_title.setText(monster.getName());
 		world.tileManager.setImageViewTile(monsterinfo_title, monster);
-        monsterinfo_difficulty.setText(getMonsterDifficultyResource(world, monster));
+        monsterinfo_difficulty.setText(getMonsterDifficultyResource(view, monster));
 	}
 
 	private void updateTraits(Monster monster) {
@@ -91,13 +92,13 @@ public final class MonsterInfoActivity extends Activity {
         monsterinfo_max_ap.setText(Integer.toString(monster.getMaxAP()));
     }
 
-	public static int getMonsterDifficultyResource(WorldContext world, Monster monster) {
-		final int difficulty = CombatController.getMonsterDifficulty(world, monster);
+	public static int getMonsterDifficultyResource(ViewContext viewContext, Monster monster) {
+		final int difficulty = viewContext.combatController.getMonsterDifficulty(monster);
 		if (difficulty >= 80) return R.string.monster_difficulty_veryeasy;
-		else if (difficulty >= 60) return R.string.monster_difficulty_easy;
-		else if (difficulty >= 40) return R.string.monster_difficulty_normal;
-		else if (difficulty >= 20) return R.string.monster_difficulty_hard;
-		else if (difficulty == 0) return R.string.monster_difficulty_impossible;
-		else return R.string.monster_difficulty_veryhard;
+		if (difficulty >= 60) return R.string.monster_difficulty_easy;
+		if (difficulty >= 40) return R.string.monster_difficulty_normal;
+		if (difficulty >= 20) return R.string.monster_difficulty_hard;
+		if (difficulty ==  0) return R.string.monster_difficulty_impossible;
+		return R.string.monster_difficulty_veryhard;
 	}
 }

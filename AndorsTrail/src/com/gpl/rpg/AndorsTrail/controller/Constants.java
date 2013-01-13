@@ -29,6 +29,7 @@ public final class Constants {
 	public static final int FULLROUND_DURATION = 25000;
 	public static final int TICKS_PER_ROUND = ROUND_DURATION / TICK_DELAY;
 	public static final int TICKS_PER_FULLROUND = FULLROUND_DURATION / TICK_DELAY;
+	public static final int SPLATTER_DURATION_MS = 20000;
 	
 	public static final ConstRange monsterWaitTurns = new ConstRange(30,4);
 	public static final long MAP_UNVISITED_RESPAWN_DURATION_MS = 3 * 60 * 1000; // 3 min in milliseconds

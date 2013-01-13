@@ -128,7 +128,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	private void updateMonsterHealth(Monster m) {
 	    monsterHealth.update(m.getMaxHP(), m.getCurrentHP());
 	}
-	private void updatePlayerAP(Player player) {
+	private void updatePlayerAP() {
 		statusTextView.setText(res.getString(R.string.combat_status_ap, player.getCurrentAP()));
 	}
 	private void updateSelectedMonster(Monster selectedMonster) {
@@ -156,7 +156,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	}
 
 	public void updateStatus() {
-		updatePlayerAP(player);
+		updatePlayerAP();
 		updateSelectedMonster(world.model.uiSelections.selectedMonster);
 		updateAttackMoveButtonText();
 	}
@@ -232,7 +232,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 
 	@Override
 	public void onActorAPChanged(Actor actor) {
-		if (actor == player) updatePlayerAP(player);
+		if (actor == player) updatePlayerAP();
 	}
 
 	@Override

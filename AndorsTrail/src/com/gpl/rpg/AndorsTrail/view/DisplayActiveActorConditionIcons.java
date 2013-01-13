@@ -23,7 +23,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public class DisplayActiveActorConditionIcons implements ActorConditionListener {
+public final class DisplayActiveActorConditionIcons implements ActorConditionListener {
 	
 	private final AndorsTrailPreferences preferences;
 	private final TileManager tileManager;
@@ -177,7 +177,7 @@ public class DisplayActiveActorConditionIcons implements ActorConditionListener 
 		@Override public void onAnimationStart(Animation animation) { }
 	}
 	
-	protected void rearrangeIconsLeftOf(ActiveConditionIcon icon) {
+	private void rearrangeIconsLeftOf(ActiveConditionIcon icon) {
 		int i = currentConditionIcons.indexOf(icon);
 		currentConditionIcons.remove(i);
 		currentConditionIcons.add(icon);

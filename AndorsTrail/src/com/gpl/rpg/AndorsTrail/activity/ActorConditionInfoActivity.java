@@ -17,7 +17,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.view.AbilityModifierInfoView;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView_OnUse;
 
-public class ActorConditionInfoActivity extends Activity {
+public final class ActorConditionInfoActivity extends Activity {
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class ActorConditionInfoActivity extends Activity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         final WorldContext world = app.getWorld();
         
-        String conditionTypeID = getIntent().getData().getLastPathSegment().toString();
+        String conditionTypeID = getIntent().getData().getLastPathSegment();
         ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(conditionTypeID);
         
         setContentView(R.layout.actorconditioninfo);

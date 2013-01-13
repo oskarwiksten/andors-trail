@@ -40,20 +40,20 @@ public final class Controller {
 	}
     
     private void steppedOnRestArea(MapObject area) {
-    	if (!view.preferences.confirmRest) {
-			rest(area);
-		} else {
+    	if (view.preferences.confirmRest) {
 			worldEventListeners.onPlayerSteppedOnRestArea(area);
+		} else {
+			rest(area);
 		}
     }
 
 	public void steppedOnMonster(Monster m, Coord p) {
 		if (m.isAgressive()) {
 			view.combatController.setCombatSelection(m, p);
-			if (!view.preferences.confirmAttack) {
-				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
-			} else {
+			if (view.preferences.confirmAttack) {
 				worldEventListeners.onPlayerSteppedOnMonster(m);
+			} else {
+				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 			}
 		} else {
 			worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());
@@ -98,7 +98,7 @@ public final class Controller {
 		return false;
 	}
 
-	public static void resetMapsNotRecentlyVisited(final WorldContext world) {
+	public void resetMapsNotRecentlyVisited() {
 		for (PredefinedMap m : world.maps.predefinedMaps) {
 			if (m == world.model.currentMap) continue;
 			if (m.isRecentlyVisited()) continue;

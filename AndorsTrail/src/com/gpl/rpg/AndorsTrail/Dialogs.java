@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -18,7 +18,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.BulkSelectionInterface;
 import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
@@ -32,7 +31,6 @@ import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.Preferences;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Quests;
 import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
@@ -117,36 +115,41 @@ public final class Dialogs {
 	}
 	
 	public static String getGroundLootMessage(final Context ctx, final Loot loot) {
-		String msg = "";
-		if (!loot.items.isEmpty()) msg = ctx.getString(R.string.dialog_groundloot_message);
-		
-		if (loot.gold > 0) {
-			msg += ctx.getString(R.string.dialog_loot_foundgold, loot.gold);
+		StringBuilder sb = new StringBuilder(60);
+		if (!loot.items.isEmpty()) {
+			sb.append(ctx.getString(R.string.dialog_groundloot_message));
 		}
-		msg += getLootMessage(ctx, loot);
-		return msg;
+		if (loot.gold > 0) {
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_foundgold, loot.gold));
+		}
+		appendLootMessage(ctx, loot, sb);
+		return sb.toString();
 	}
 	public static String getMonsterLootMessage(final Context ctx, final Loot combinedLoot, final int exp) {
-		String msg = ctx.getString(R.string.dialog_monsterloot_message);
+		StringBuilder sb = new StringBuilder(60);
+		sb.append(ctx.getString(R.string.dialog_monsterloot_message));
 		
 		if (exp > 0) {
-			msg += ctx.getString(R.string.dialog_monsterloot_gainedexp, exp);
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_monsterloot_gainedexp, exp));
 		}
-		msg += getLootMessage(ctx, combinedLoot);
-		return msg;
+		appendLootMessage(ctx, combinedLoot, sb);
+		return sb.toString();
 	}
-	private static String getLootMessage(final Context ctx, final Loot loot) {
-		String msg = "";
+	private static void appendLootMessage(final Context ctx, final Loot loot, final StringBuilder sb) {
 		if (loot.gold > 0) {
-			msg += ctx.getString(R.string.dialog_loot_foundgold, loot.gold);
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_foundgold, loot.gold));
 		}
 		int numItems = loot.items.countItems();
 		if (numItems == 1) {
-			msg += ctx.getString(R.string.dialog_loot_pickedupitem);
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_pickedupitem));
 		} else if (numItems > 1){
-			msg += ctx.getString(R.string.dialog_loot_pickedupitems, numItems);
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_pickedupitems, numItems));
 		}
-		return msg;
 	}
 	
 	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Iterable<Loot> lootBags, final Loot combinedLoot, final String msg) {
@@ -154,7 +157,7 @@ public final class Dialogs {
 	}
 
 	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot loot, final String msg) {
-		showLoot(mainActivity, view, world, loot, Arrays.asList(loot), R.string.dialog_monsterloot_title, msg);
+		showLoot(mainActivity, view, world, loot, Collections.singletonList(loot), R.string.dialog_monsterloot_title, msg);
  	}
 	
 	private static void showLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot combinedLoot, final Iterable<Loot> lootBags, final int title, final String msg) {
@@ -275,11 +278,6 @@ public final class Dialogs {
 		Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/load"));
 		currentActivity.startActivityForResult(intent, StartScreenActivity.INTENTREQUEST_LOADGAME);
-	}
-	
-	public static void showQuestLog(final Activity currentActivity) {
-		Intent intent = new Intent(currentActivity, HeroinfoActivity_Quests.class);
-		currentActivity.startActivity(intent);
 	}
 	
 	public static void showActorConditionInfo(final Context context, ActorConditionType conditionType) {

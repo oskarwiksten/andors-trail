@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 
-public class TileCollection {
+public final class TileCollection {
 	private final Bitmap[] bitmaps;
 	public final int maxTileID;
 	

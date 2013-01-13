@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.model.listeners;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 
-public class ActorConditionListeners extends ListOfListeners<ActorConditionListener> implements ActorConditionListener {
+public final class ActorConditionListeners extends ListOfListeners<ActorConditionListener> implements ActorConditionListener {
 
 	private final Function2<ActorConditionListener, Actor, ActorCondition> onActorConditionAdded = new Function2<ActorConditionListener, Actor, ActorCondition>() {
 		@Override public void call(ActorConditionListener listener, Actor actor, ActorCondition condition) { listener.onActorConditionAdded(actor, condition); }

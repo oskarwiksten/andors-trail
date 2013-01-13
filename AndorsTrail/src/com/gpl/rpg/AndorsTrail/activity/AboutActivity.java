@@ -67,7 +67,7 @@ public final class AboutActivity extends Activity implements ImageGetter {
         tv.setMovementMethod(LinkMovementMethod.getInstance());
         
         TextView t = (TextView) findViewById(R.id.about_version);
-        t.setText("v" + AndorsTrailApplication.CURRENT_VERSION_DISPLAY);
+        t.setText('v' + AndorsTrailApplication.CURRENT_VERSION_DISPLAY);
     }
 
 	@Override
@@ -78,12 +78,13 @@ public final class AboutActivity extends Activity implements ImageGetter {
 			Drawable r = res.getDrawable(R.drawable.ui_quickslots);
 			r.setBounds(0, 0, r.getIntrinsicWidth(), r.getIntrinsicHeight());
 			return r;
-		} else if (s.equals("char_hero.png")) {
+		}
+		if (s.equals("char_hero.png")) {
 			Drawable r = res.getDrawable(R.drawable.char_hero);
 			r.setBounds(0, 0, r.getIntrinsicWidth(), r.getIntrinsicHeight()*4/5);
 			return r;
 		} 
-		else if (s.equals("monster.png")) d = res.getDrawable(R.drawable.monsters_eye4);
+		if (s.equals("monster.png")) d = res.getDrawable(R.drawable.monsters_eye4);
 		else if (s.equals("flee_example.png")) d = res.getDrawable(R.drawable.ui_flee_example);
 		else if (s.equals("doubleattackexample.png")) d = res.getDrawable(R.drawable.ui_doubleattackexample);
 		else return null;

@@ -151,35 +151,35 @@ public final class SkillController {
 		if (skillLevel <= 0) return false;
 		return Constants.roll100(chancePerSkillLevel * skillLevel);
 	}
-	private void addConditionToActor(Actor target, WorldContext world, String conditionName, int magnitude, int duration) {
+	private void addConditionToActor(Actor target, String conditionName, int magnitude, int duration) {
 		ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(conditionName);
 		ActorConditionEffect effect = new ActorConditionEffect(conditionType, magnitude, duration, null);
 		view.actorStatsController.applyActorCondition(target, effect);
 	}
 			
-	public void applySkillEffectsFromPlayerAttack(AttackResult result, WorldContext world, Monster monster) {
+	public void applySkillEffectsFromPlayerAttack(AttackResult result, Monster monster) {
 		if (!result.isHit) return;
 		
 		Player player = world.model.player;
 		
 		if (player.getAttackChance() - monster.getBlockChance() > SkillCollection.CONCUSSION_THRESHOLD) {
 			if (rollForSkillChance(player, SkillCollection.SKILL_CONCUSSION, SkillCollection.PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE)) {
-				addConditionToActor(monster, world, "concussion", 1, 5);
+				addConditionToActor(monster, "concussion", 1, 5);
 			}
 		}
 		
 		if (result.isCriticalHit) {
 			if (rollForSkillChance(player, SkillCollection.SKILL_CRIT2, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2_CHANCE)) {
-				addConditionToActor(monster, world, "crit2", 1, 5);
+				addConditionToActor(monster, "crit2", 1, 5);
 			}
 			
 			if (rollForSkillChance(player, SkillCollection.SKILL_CRIT1, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1_CHANCE)) {
-				addConditionToActor(monster, world, "crit1", 1, 5);
+				addConditionToActor(monster, "crit1", 1, 5);
 			}
 		}
 	}
 	
-	public void applySkillEffectsFromMonsterAttack(AttackResult result, WorldContext world, Monster monster) {
+	public void applySkillEffectsFromMonsterAttack(AttackResult result, Monster monster) {
 		if (!result.isHit) {
 			if (rollForSkillChance(world.model.player, SkillCollection.SKILL_TAUNT, SkillCollection.PER_SKILLPOINT_INCREASE_TAUNT_CHANCE)) {
 				view.actorStatsController.changeActorAP(monster, -SkillCollection.TAUNT_AP_LOSS, false, false);

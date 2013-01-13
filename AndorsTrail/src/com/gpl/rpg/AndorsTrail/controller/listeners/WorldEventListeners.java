@@ -5,7 +5,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 
-public class WorldEventListeners extends ListOfListeners<WorldEventListener> implements WorldEventListener {
+public final class WorldEventListeners extends ListOfListeners<WorldEventListener> implements WorldEventListener {
 	
 	private final Function2<WorldEventListener, Monster, String> onPlayerStartedConversation = new Function2<WorldEventListener, Monster, String>() {
 		@Override public void call(WorldEventListener listener, Monster m, String phraseID) { listener.onPlayerStartedConversation(m, phraseID); }

@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
 
-public class TileCutter {
+public final class TileCutter {
 	private final ResourceFileTileset sourceFile;
 	private final Bitmap tilesetImage;
 	private boolean recycle = true;

@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller.listeners;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 
-public class CombatTurnListeners extends ListOfListeners<CombatTurnListener> implements CombatTurnListener {
+public final class CombatTurnListeners extends ListOfListeners<CombatTurnListener> implements CombatTurnListener {
 	
 	private final Function<CombatTurnListener> onCombatStarted = new Function<CombatTurnListener>() {
 		@Override public void call(CombatTurnListener listener) { listener.onCombatStarted(); }

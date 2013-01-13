@@ -4,7 +4,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 
 import android.util.Log;
 
-public class L {
+public final class L {
 	private static final String TAG = "AndorsTrail";
 	
 	public static void log(String s) {

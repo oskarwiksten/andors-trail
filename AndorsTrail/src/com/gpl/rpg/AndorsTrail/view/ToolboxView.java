@@ -17,7 +17,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public class ToolboxView extends LinearLayout implements OnClickListener {
+public final class ToolboxView extends LinearLayout implements OnClickListener {
 	private final WorldContext world;
 	private final AndorsTrailPreferences preferences;
 	private final Animation showAnimation;

@@ -28,32 +28,33 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
  * @author ejwessel
  * Creates the BulkSelectionInterface dialog that allows for buy/drop/selling
  */
-public class BulkSelectionInterface extends Activity implements TextWatcher {
+public final class BulkSelectionInterface extends Activity implements TextWatcher {
 	
 	// class variables
-	final public static int BULK_INTERFACE_BUY = 0;
-	final public static int BULK_INTERFACE_SELL = 1;  
-	final public static int BULK_INTERFACE_DROP = 2;
+	public static final int BULK_INTERFACE_BUY = 0;
+	public static final int BULK_INTERFACE_SELL = 1;
+	public static final int BULK_INTERFACE_DROP = 2;
 
-	final private static int BUTTON_REPEAT_FIRST_TIME = 300;		// Delay after the touch before the counting starts
-	final private static int BUTTON_REPEAT_FURTHER_TIMES = 50;		// Delay between two count events
-	final private static int BUTTON_REPEAT_DOUBLE_AFTER = 10;       // after how many count events the countValue doubles?
+	private static final int BUTTON_REPEAT_FIRST_TIME = 300;		// Delay after the touch before the counting starts
+	private static final int BUTTON_REPEAT_FURTHER_TIMES = 50;		// Delay between two count events
+	private static final int BUTTON_REPEAT_DOUBLE_AFTER = 10;       // after how many count events the countValue doubles?
 		
 	private WorldContext world;
 	private int interfaceType; 					    				// the type of interface either: BULK_INTERFACE_BUY, BULK_INTERFACE_SELL or BULK_INTERFACE_DROP
 	private ItemType itemType;
 	private int totalAvailableAmount;
 	private int pricePerUnit;
-	
-	private TextView bulkselection_amount_available;
+
 	private TextView bulkselection_summary_totalgold;
 	private EditText bulkselection_amount_taken;					// the amount we're going to take from the totalAmount
 	private SeekBar bulkselection_slider;
 	private Button okButton;
 	
 	private final Handler timedEventHandler = new Handler();		// variables to count up or down on long presses on the buttons
-	private int countValue, countTime;
+	private int countValue;
+	private int countTime;
 	private final Runnable countEvent = new Runnable() {
+		@Override
 		public void run() {
 			incrementValueAndRepeat(BUTTON_REPEAT_FURTHER_TIMES);
 		 }
@@ -92,7 +93,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		// initialize UI variables
         TextView bulkselection_action_type = (TextView)findViewById(R.id.bulkselection_action_type);
 		bulkselection_amount_taken = (EditText)findViewById(R.id.bulkselection_amount_taken);
-		bulkselection_amount_available = (TextView)findViewById(R.id.bulkselection_amount_available);
+		TextView bulkselection_amount_available = (TextView) findViewById(R.id.bulkselection_amount_available);
 		bulkselection_slider = (SeekBar)findViewById(R.id.bulkselection_slider);
 		bulkselection_summary_totalgold = (TextView)findViewById(R.id.bulkselection_summary_totalgold);
 		okButton = (Button)findViewById(R.id.bulkselection_finalize_button);
@@ -122,7 +123,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		
 		// initialize the visual components visuals
 		okButton.setText(actionText);
-		bulkselection_action_type.setText(actionText + " ");
+		bulkselection_action_type.setText(actionText + ' ');
 		bulkselection_amount_available.setText(Integer.toString(totalAvailableAmount));
 		bulkselection_slider.setMax(totalAvailableAmount - 1);
 		
@@ -188,7 +189,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		okButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 	 		public void onClick(View v) {
-				if (requiresConfirmation(itemType)) {
+				if (requiresConfirmation()) {
 					final String displayType = ItemInfoActivity.getDisplayTypeString(res, itemType).toLowerCase();
 					final String message = res.getString(R.string.bulkselection_sell_confirmation, itemType.getName(world.model.player), displayType);
 					
@@ -201,7 +202,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 				            public void onClick(DialogInterface dialog, int which) {
 				            	itemsResult(intent);
 							}
-				        })
+							        })
 				        .setNegativeButton(android.R.string.no, null)
 				        .show();
 				} else {
@@ -209,7 +210,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 				}
 	 		}
 
-			private boolean requiresConfirmation(ItemType itemType) {
+			private boolean requiresConfirmation() {
 				if (interfaceType != BULK_INTERFACE_SELL) return false;
 				if (itemType.isOrdinaryItem()) return false;
 				return true;

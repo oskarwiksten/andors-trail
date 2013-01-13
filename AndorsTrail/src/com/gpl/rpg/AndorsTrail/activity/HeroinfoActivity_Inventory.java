@@ -35,11 +35,9 @@ public final class HeroinfoActivity_Inventory extends Activity {
 	private TileCollection wornTiles;
 
 	private Player player;
-	private ItemContainer container;
 	private ItemContainerAdapter inventoryListAdapter;
 
-	private ListView inventoryList;
-    private TextView heroinfo_stats_gold;
+	private TextView heroinfo_stats_gold;
     private TextView heroinfo_stats_attack;
     private TextView heroinfo_stats_defense;
     
@@ -58,17 +56,17 @@ public final class HeroinfoActivity_Inventory extends Activity {
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_inventory);
-        
-        inventoryList = (ListView) findViewById(R.id.inventorylist_root);
+
+		ListView inventoryList = (ListView) findViewById(R.id.inventorylist_root);
         registerForContextMenu(inventoryList);
         inventoryList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				ItemType itemType = inventoryListAdapter.getItem(position).itemType;
 				showInventoryItemInfo(itemType.id);
 			}
 		});
-        container = player.inventory;
+		ItemContainer container = player.inventory;
         wornTiles = world.tileManager.loadTilesFor(player.inventory, getResources());
         inventoryListAdapter = new ItemContainerAdapter(this, world.tileManager, container, player, wornTiles);
         inventoryList.setAdapter(inventoryListAdapter);
@@ -95,17 +93,17 @@ public final class HeroinfoActivity_Inventory extends Activity {
     }
 
 	private void setWearSlot(final int inventorySlot, int viewId, int resourceId) {
-    	final ImageView view = (ImageView) findViewById(viewId);
-    	wornItemImage[inventorySlot] = view;
+    	final ImageView imageView = (ImageView) findViewById(viewId);
+    	wornItemImage[inventorySlot] = imageView;
     	defaultWornItemImageResourceIDs[inventorySlot] = resourceId;
-    	view.setOnClickListener(new OnClickListener() {
+    	imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (player.inventory.isEmptySlot(inventorySlot)) return;
-				view.setClickable(false); // Will be enabled again on update()
+				imageView.setClickable(false); // Will be enabled again on update()
 				showEquippedItemInfo(player.inventory.wear[inventorySlot], inventorySlot);
 			}
-    	});
+		});
 	}
     
     @Override
@@ -120,7 +118,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
 	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_EQUIP) {
-	    		int slot = suggestInventorySlot(itemType, player);
+	    		int slot = suggestInventorySlot(itemType);
 	        	view.itemController.equipItem(itemType, slot);
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_USE) {
 				view.itemController.useItem(itemType);	
@@ -136,13 +134,12 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		}
 	}
 
-	private static int suggestInventorySlot(ItemType itemType, Player player) {
+	private int suggestInventorySlot(ItemType itemType) {
 		int slot = itemType.category.inventorySlot;
 		if (player.inventory.isEmptySlot(slot)) return slot;
 		
-		if (slot == Inventory.WEARSLOT_LEFTRING) {
-			return Inventory.WEARSLOT_RIGHTRING;
-		} else if (itemType.isOffhandCapableWeapon()) {
+		if (slot == Inventory.WEARSLOT_LEFTRING) return Inventory.WEARSLOT_RIGHTRING;
+		if (itemType.isOffhandCapableWeapon()) {
 			ItemType mainWeapon = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
 			if (mainWeapon != null && mainWeapon.isTwohandWeapon()) return slot;
 			else if (player.inventory.isEmptySlot(Inventory.WEARSLOT_SHIELD)) return Inventory.WEARSLOT_SHIELD;
@@ -164,7 +161,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 	private void updateTraits() {
         heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.inventory.gold));
         
-        StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder(10);
         ItemController.describeAttackEffect(
         		player.getAttackChance(), 
         		player.getDamagePotential().current, 
@@ -174,7 +171,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
         		sb);
         heroinfo_stats_attack.setText(sb.toString());
         
-        sb = new StringBuilder();
+        sb = new StringBuilder(10);
         ItemController.describeBlockEffect(player.getBlockChance(), player.getDamageResistance(), sb);
         heroinfo_stats_defense.setText(sb.toString());
     }
@@ -185,13 +182,13 @@ public final class HeroinfoActivity_Inventory extends Activity {
     	}
     }
 
-    private void updateWornImage(ImageView view, int resourceIDEmptyImage, ItemType type) {
+    private void updateWornImage(ImageView imageView, int resourceIDEmptyImage, ItemType type) {
 		if (type != null) {
-			world.tileManager.setImageViewTile(view, type, wornTiles);
+			world.tileManager.setImageViewTile(imageView, type, wornTiles);
 		} else {
-			view.setImageResource(resourceIDEmptyImage);
+			imageView.setImageResource(resourceIDEmptyImage);
 		}
-		view.setClickable(true);
+		imageView.setClickable(true);
 	}
 
 	private void updateItemList() {

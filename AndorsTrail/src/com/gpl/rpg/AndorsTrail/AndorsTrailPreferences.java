@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class AndorsTrailPreferences {
+public final class AndorsTrailPreferences {
 	public static final int DISPLAYLOOT_DIALOG = 0;
 	public static final int DISPLAYLOOT_TOAST = 1;
 	public static final int DISPLAYLOOT_NONE = 2;

@@ -42,7 +42,7 @@ public final class HeroinfoActivity_Skills extends Activity {
         skillList.setAdapter(skillListAdapter);
         skillList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				Dialogs.showSkillInfo(HeroinfoActivity_Skills.this, (int) id);
 			}
 		});

@@ -210,13 +210,11 @@ public final class ItemController {
 		}
 	}
 	public boolean removeLootBagIfEmpty(final Loot loot) {
-		if (!loot.hasItems()) {
-			world.model.currentMap.removeGroundLoot(loot);
-			lootBagListeners.onLootBagRemoved(world.model.currentMap, loot.position);
-			return true; // The bag was removed.
-		} else {
-			return false;
-		}
+		if (loot.hasItems()) return false;
+
+		world.model.currentMap.removeGroundLoot(loot);
+		lootBagListeners.onLootBagRemoved(world.model.currentMap, loot.position);
+		return true; // The bag was removed.
 	}
 	
 	public boolean removeLootBagIfEmpty(final Iterable<Loot> lootBags) {

@@ -48,7 +48,7 @@ public final class StartScreenActivity extends Activity {
         setContentView(R.layout.startscreen);
 
         TextView tv = (TextView) findViewById(R.id.startscreen_version);
-        tv.setText("v" + AndorsTrailApplication.CURRENT_VERSION_DISPLAY);
+        tv.setText('v' + AndorsTrailApplication.CURRENT_VERSION_DISPLAY);
         
         startscreen_currenthero = (TextView) findViewById(R.id.startscreen_currenthero);
         startscreen_enterheroname = (EditText) findViewById(R.id.startscreen_enterheroname);
@@ -108,7 +108,7 @@ public final class StartScreenActivity extends Activity {
         TileManager tileManager = app.getWorld().tileManager;
         tileManager.setDensity(res);
         tileManager.updatePreferences(preferences);
-        app.getWorldSetup().startResourceLoader(res, preferences);
+        app.getWorldSetup().startResourceLoader(res);
         
         if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
         	if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
@@ -126,7 +126,7 @@ public final class StartScreenActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 		
-		String playerName = null;
+		String playerName;
 		String displayInfo = null;
 		
 		FileHeader header = Savegames.quickload(this, Savegames.SLOT_QUICKSAVE);

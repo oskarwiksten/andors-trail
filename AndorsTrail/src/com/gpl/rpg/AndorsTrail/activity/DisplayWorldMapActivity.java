@@ -19,7 +19,7 @@ import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.WorldMapSegmentMap;
 import com.gpl.rpg.AndorsTrail.util.L;
 
-public class DisplayWorldMapActivity extends Activity {
+public final class DisplayWorldMapActivity extends Activity {
 	private WorldContext world;
 	
 	private WebView displayworldmap_webview;
@@ -76,9 +76,9 @@ public class DisplayWorldMapActivity extends Activity {
 		WorldMapSegmentMap map = segment.maps.get(world.model.currentMap.name);
 		if (map == null) this.finish();
 
-		String url = "file://" + worldmap.getAbsolutePath() + "?"
+		String url = "file://" + worldmap.getAbsolutePath() + '?'
 				+ (world.model.player.position.x + map.worldPosition.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE 
-				+ "," 
+				+ ','
 				+ (world.model.player.position.y + map.worldPosition.y-1) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE;
 		L.log("Showing " + url);
 		displayworldmap_webview.loadUrl(url);

@@ -8,7 +8,6 @@ import android.os.AsyncTask;
 
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
 
@@ -46,7 +45,7 @@ public final class WorldSetup {
 		}
 	}
 	
-	public void startResourceLoader(final Resources r, final AndorsTrailPreferences preferences) {
+	public void startResourceLoader(final Resources r) {
 		if (isResourcesInitialized) return;
 		
 		synchronized (this) {
@@ -141,7 +140,7 @@ public final class WorldSetup {
 		Context ctx = androidContext.get();
 		int result = Savegames.loadWorld(world, view, ctx, loadFromSlot);
     	if (result == Savegames.LOAD_RESULT_SUCCESS) {
-			MovementController.cacheCurrentMapData(ctx.getResources(), world, world.model.currentMap);
+			view.movementController.cacheCurrentMapData(ctx.getResources(), world.model.currentMap);
 		}
 		return result;
 	}

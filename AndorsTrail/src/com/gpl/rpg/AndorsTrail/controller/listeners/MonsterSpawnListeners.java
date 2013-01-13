@@ -6,7 +6,7 @@ import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
-public class MonsterSpawnListeners extends ListOfListeners<MonsterSpawnListener> implements MonsterSpawnListener {
+public final class MonsterSpawnListeners extends ListOfListeners<MonsterSpawnListener> implements MonsterSpawnListener {
 
 	private final Function2<MonsterSpawnListener, PredefinedMap, Monster> onMonsterSpawned = new Function2<MonsterSpawnListener, PredefinedMap, Monster>() {
 		@Override public void call(MonsterSpawnListener listener, PredefinedMap map, Monster monster) { listener.onMonsterSpawned(map, monster); }

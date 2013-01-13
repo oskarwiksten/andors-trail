@@ -64,7 +64,7 @@ public final class VisualEffectController {
 			visualEffectFrameListeners.onNewAnimationFrame(this, tileID, textYOffset);
 		}
 
-		protected void onCompleted() {
+		private void onCompleted() {
     		--effectCount;
     		visualEffectFrameListeners.onAnimationCompleted(this);
 			if (callback != null) callback.onVisualEffectCompleted(callbackValue);
@@ -120,9 +120,9 @@ public final class VisualEffectController {
 		public BloodSplatter(int iconID, Coord position) {
 			this.iconID = iconID;
 			this.position = position;
-			long now = System.currentTimeMillis();
-			removeAfter = now + 20000;
-			reduceIconAfter = now + 10000;
+			final long now = System.currentTimeMillis();
+			removeAfter = now + Constants.SPLATTER_DURATION_MS;
+			reduceIconAfter = now + Constants.SPLATTER_DURATION_MS / 2;
 		}
 	}
 	

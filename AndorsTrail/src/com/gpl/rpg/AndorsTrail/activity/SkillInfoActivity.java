@@ -21,16 +21,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public final class SkillInfoActivity extends Activity {
-	private WorldContext world;
-	private Player player;
-	
+
 	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.getWorld();
-        this.player = world.model.player;
+		final WorldContext world = app.getWorld();
+		final Player player = world.model.player;
         
         app.setWindowParameters(this);
         

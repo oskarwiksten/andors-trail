@@ -20,7 +20,9 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 	
     private int ticksUntilNextRound = Constants.TICKS_PER_ROUND;
     private int ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;
-    public boolean onTick(TimedMessageTask task) {
+
+	@Override
+	public boolean onTick(TimedMessageTask task) {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
     	if (world.model.uiSelections.isInCombat) return false;
     	
@@ -62,7 +64,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     }
 	
     public void onNewFullRound() {
-		Controller.resetMapsNotRecentlyVisited(world);
+		view.controller.resetMapsNotRecentlyVisited();
 		view.actorStatsController.applyConditionsToMonsters(world.model.currentMap, true);
     	view.actorStatsController.applyConditionsToPlayer(world.model.player, true);
 		gameRoundListeners.onNewFullRound();

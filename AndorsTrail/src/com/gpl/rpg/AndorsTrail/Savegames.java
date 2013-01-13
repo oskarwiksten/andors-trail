@@ -128,8 +128,8 @@ public final class Savegames {
     
 	private static void onWorldLoaded(WorldContext world, ViewContext view) {
 		view.actorStatsController.recalculatePlayerStats(world.model.player);
-		Controller.resetMapsNotRecentlyVisited(world);
-		MovementController.moveBlockedActors(world);
+		view.controller.resetMapsNotRecentlyVisited();
+		view.movementController.moveBlockedActors();
 	}
 	
 	public static FileHeader quickload(Context androidContext, int slot) {

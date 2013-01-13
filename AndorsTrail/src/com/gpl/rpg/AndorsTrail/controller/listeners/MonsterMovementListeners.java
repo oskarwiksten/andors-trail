@@ -5,7 +5,7 @@ import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
-public class MonsterMovementListeners extends ListOfListeners<MonsterMovementListener> implements MonsterMovementListener {
+public final class MonsterMovementListeners extends ListOfListeners<MonsterMovementListener> implements MonsterMovementListener {
 
 	private final Function1<MonsterMovementListener, Monster> onMonsterSteppedOnPlayer = new Function1<MonsterMovementListener, Monster>() {
 		@Override public void call(MonsterMovementListener listener, Monster monster) { listener.onMonsterSteppedOnPlayer(monster); }

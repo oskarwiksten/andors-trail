@@ -4,7 +4,7 @@ import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
-public class LootBagListeners extends ListOfListeners<LootBagListener> implements LootBagListener {
+public final class LootBagListeners extends ListOfListeners<LootBagListener> implements LootBagListener {
 
 	private final Function2<LootBagListener, PredefinedMap, Coord> onLootBagCreated = new Function2<LootBagListener, PredefinedMap, Coord>() {
 		@Override public void call(LootBagListener listener, PredefinedMap map, Coord p) { listener.onLootBagCreated(map, p); }

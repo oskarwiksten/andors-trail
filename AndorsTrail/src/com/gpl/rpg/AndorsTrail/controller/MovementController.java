@@ -73,15 +73,15 @@ public final class MovementController implements TimedMessageTask.Callback {
 		final ModelContainer model = world.model;
 		
 		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
-		cacheCurrentMapData(res, world, newMap);
+		cacheCurrentMapData(res, newMap);
 		model.currentMap = newMap;
 		model.player.position.set(place.position.topLeft);
 		model.player.position.x += Math.min(offset_x, place.position.size.width-1);
 		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
 		model.player.lastPosition.set(model.player.position);
 		
-		if (!newMap.visited) playerVisitsMapFirstTime(newMap);
-		else playerVisitsMap(newMap);
+		if (newMap.visited) playerVisitsMap(newMap);
+		else playerVisitsMapFirstTime(newMap);
 		
 		refreshMonsterAggressiveness(newMap, model.player);
 		view.effectController.updateSplatters(newMap);
@@ -185,7 +185,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (m != null && !m.isAgressive()) return true; // avoid MOVEMENTAGGRESSIVENESS settings for NPCs
 		
 		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_AGGRESSIVE && m == null) return false;
-		else if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE && m != null) return false;
+		if (aggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_DEFENSIVE && m != null) return false;
 		
 		return true;
     }
@@ -240,7 +240,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		placePlayerAsyncAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 	}
 
-	public static void moveBlockedActors(final WorldContext world) {
+	public void moveBlockedActors() {
 		final ModelContainer model = world.model;
 		if (!world.model.currentMap.isWalkable(world.model.player.position)) {
 			// If the player somehow spawned on an unwalkable tile, we move the player to the first mapchange area.
@@ -270,7 +270,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 	}
 
-	public static void cacheCurrentMapData(final Resources res, final WorldContext world, final PredefinedMap nextMap) {
+	public void cacheCurrentMapData(final Resources res, final PredefinedMap nextMap) {
 		LayeredTileMap mapTiles = TMXMapTranslator.readLayeredTileMap(res, world.tileManager.tileCache, nextMap);
 		TileCollection cachedTiles = world.tileManager.loadTilesFor(nextMap, mapTiles, world, res);
 		world.model.currentTileMap = mapTiles;
@@ -284,7 +284,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	private int movementDx;
 	private int movementDy;
 	public void startMovement(int dx, int dy, Coord destination) {
-		if (world.model.uiSelections.isInCombat) return;
+		if (!mayMovePlayer()) return;
 		if (dx == 0 && dy == 0) return;
 		
 		movementDx = dx;
@@ -295,7 +295,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public void stopMovement() {
 		movementHandler.stop();
 	}
-	
+
+	@Override
 	public boolean onTick(TimedMessageTask task) {
 		if (!world.model.uiSelections.isMainActivityVisible) return false;
     	if (world.model.uiSelections.isInCombat) return false;

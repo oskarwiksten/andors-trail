@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.model.listeners;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 
-public class ActorStatsListeners extends ListOfListeners<ActorStatsListener> implements ActorStatsListener {
+public final class ActorStatsListeners extends ListOfListeners<ActorStatsListener> implements ActorStatsListener {
 
 	private final Function1<ActorStatsListener, Actor> onActorHealthChanged = new Function1<ActorStatsListener, Actor>() {
 		@Override public void call(ActorStatsListener listener, Actor actor) { listener.onActorHealthChanged(actor); }

@@ -21,7 +21,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 
-public class QuickitemView extends LinearLayout implements OnClickListener, QuickSlotListener {
+public final class QuickitemView extends LinearLayout implements OnClickListener, QuickSlotListener {
 	private static final int NUM_QUICK_SLOTS = Inventory.NUM_QUICK_SLOTS;
 
 	private final WorldContext world;

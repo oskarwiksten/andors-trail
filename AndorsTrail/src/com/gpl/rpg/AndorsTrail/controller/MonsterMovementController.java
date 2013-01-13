@@ -27,7 +27,7 @@ public final class MonsterMovementController {
     	for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 	    	for (Monster m : a.monsters) {
 	    		if (m.nextActionTime <= currentTime) {
-	    			moveMonster(m, a, currentTime);
+	    			moveMonster(m, a);
 	    		}
 	    	}
     	}
@@ -59,7 +59,7 @@ public final class MonsterMovementController {
     	return true;
 	}
     
-	private void moveMonster(final Monster m, final MonsterSpawnArea area, long currentTime) {
+	private void moveMonster(final Monster m, final MonsterSpawnArea area) {
         PredefinedMap map = world.model.currentMap;
     	m.nextActionTime += getMillisecondsPerMove(m);
     	if (m.movementDestination == null) {
@@ -99,7 +99,7 @@ public final class MonsterMovementController {
     	}
 	}
     
-    private void cancelCurrentMonsterMovement(final Monster m) {
+    private static void cancelCurrentMonsterMovement(final Monster m) {
     	m.movementDestination = null;
 		m.nextActionTime += getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns);
     }
@@ -110,7 +110,7 @@ public final class MonsterMovementController {
 
 	private static int sgn(int i) {
 		if (i <= -1) return -1;
-		else if (i >= 1) return 1;
+		if (i >= 1) return 1;
 		return 0;
 	}
 }

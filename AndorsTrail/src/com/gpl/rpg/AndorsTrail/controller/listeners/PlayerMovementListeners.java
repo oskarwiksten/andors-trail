@@ -4,7 +4,7 @@ import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
-public class PlayerMovementListeners extends ListOfListeners<PlayerMovementListener> implements PlayerMovementListener {
+public final class PlayerMovementListeners extends ListOfListeners<PlayerMovementListener> implements PlayerMovementListener {
 
 	private final Function2<PlayerMovementListener, Coord, Coord> onPlayerMoved = new Function2<PlayerMovementListener, Coord, Coord>() {
 		@Override public void call(PlayerMovementListener listener, Coord newPosition, Coord previousPosition) { listener.onPlayerMoved(newPosition, previousPosition); }

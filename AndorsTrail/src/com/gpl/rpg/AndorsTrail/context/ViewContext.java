@@ -19,7 +19,7 @@ import com.gpl.rpg.AndorsTrail.controller.MonsterMovementController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 
-public class ViewContext {
+public final class ViewContext {
 	//Controllers
 	public final Controller controller;
 	public final GameRoundController gameRoundController;

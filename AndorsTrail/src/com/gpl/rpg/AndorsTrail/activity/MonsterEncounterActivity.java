@@ -11,18 +11,19 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 
 public final class MonsterEncounterActivity extends Activity {
-	private WorldContext world;
-	
-    @Override
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.getWorld();
+		final WorldContext world = app.getWorld();
+		final ViewContext view = app.getViewContext();
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
@@ -34,7 +35,7 @@ public final class MonsterEncounterActivity extends Activity {
         
         setContentView(R.layout.monsterencounter);
 
-        CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(world, monster));
+        CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(view, monster));
 
         TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
         tv.setText(monster.getName());
@@ -50,7 +51,7 @@ public final class MonsterEncounterActivity extends Activity {
 				setResult(RESULT_OK);
 				MonsterEncounterActivity.this.finish();
 			}
-        });
+		     });
         b = (Button) findViewById(R.id.monsterencounter_cancel);
         b.setOnClickListener(new OnClickListener() {
 			@Override
@@ -58,13 +59,13 @@ public final class MonsterEncounterActivity extends Activity {
 				setResult(RESULT_CANCELED);
 				MonsterEncounterActivity.this.finish();
 			}
-        });
+		});
         b = (Button) findViewById(R.id.monsterencounter_info);
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				Dialogs.showMonsterInfo(MonsterEncounterActivity.this, monster);
 			}
-        });
+		});
     }
 }

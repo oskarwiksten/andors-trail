@@ -38,7 +38,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
         this.model = app.getWorld().model;
         this.preferences = app.getPreferences();
         
-        String loadsave = getIntent().getData().getLastPathSegment().toString();
+        String loadsave = getIntent().getData().getLastPathSegment();
         isLoading = (loadsave.equalsIgnoreCase("load"));
                 
         setContentView(R.layout.loadsave);
@@ -105,7 +105,8 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		
 		if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_ALWAYS) { 
 			return getString(R.string.loadsave_save_overwrite_confirmation_all);
-		} else if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_NEVER) { 
+		}
+		if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_NEVER) {
 			return null;
 		}
 		
@@ -126,7 +127,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		
 		if (message != null) {
 			final String title = 
-				getString(R.string.loadsave_save_overwrite_confirmation_title) + " " 
+				getString(R.string.loadsave_save_overwrite_confirmation_title) + ' '
 				+ getString(R.string.loadsave_save_overwrite_confirmation_slot, slot);
 			new AlertDialog.Builder(this)
 		        .setIcon(android.R.drawable.ic_dialog_alert)
