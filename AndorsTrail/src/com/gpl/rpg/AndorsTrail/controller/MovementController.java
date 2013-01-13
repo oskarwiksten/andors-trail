@@ -49,6 +49,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
 				stopMovement();
+				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
 				view.gameRoundController.resume();
 			}
 			
@@ -57,7 +58,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		task.execute();
     }
 	
-	public void placePlayerAt(final Resources res, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
+	private void placePlayerAt(final Resources res, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
     	if (mapName == null || placeName == null) return;
 		PredefinedMap newMap = world.maps.findPredefinedMap(mapName);
 		if (newMap == null) {
@@ -84,8 +85,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		
 		refreshMonsterAggressiveness(newMap, model.player);
 		view.effectController.updateSplatters(newMap);
-		
-		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
+
 	}
     
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
@@ -99,7 +99,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		if (!m.isRecentlyVisited()) view.monsterSpawnController.spawnAll(m);
 	}
 	
-	public boolean mayMovePlayer() {
+	private boolean mayMovePlayer() {
 		return !world.model.uiSelections.isInCombat;
 	}
 
@@ -118,7 +118,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		moveToNextIfPossible(true);
     }
     
-    public boolean findWalkablePosition(int dx, int dy) {
+    private boolean findWalkablePosition(int dx, int dy) {
     	// try to move with movementAggresiveness, if that fails fall back to MOVEMENTAGGRESSIVENESS_NORMAL
     	if (findWalkablePosition(dx, dy, view.preferences.movementAggressiveness)) return true;
     	
@@ -127,21 +127,21 @@ public final class MovementController implements TimedMessageTask.Callback {
     	return findWalkablePosition(dx, dy, AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL);
     }
 
-    public boolean findWalkablePosition(int dx, int dy, int aggressiveness) {
+	public boolean findWalkablePosition(int dx, int dy, int aggressiveness) {
     	if (view.preferences.movementMethod == AndorsTrailPreferences.MOVEMENTMETHOD_STRAIGHT) {
     		return findWalkablePosition_straight(dx, dy, aggressiveness);
     	} else  {
     		return findWalkablePosition_directional(dx, dy, aggressiveness);
     	}
     }
-    public boolean findWalkablePosition_straight(int dx, int dy, int aggressiveness) {
+	private boolean findWalkablePosition_straight(int dx, int dy, int aggressiveness) {
     	if (tryWalkablePosition(sgn(dx), sgn(dy), aggressiveness)) return true;                 // try moving into the direction player is pointing at
     	if (dx == 0 || dy == 0) return false;                                                   // if moving purely east, west, north or south failed - do nothing  
 		if (abs(dx) == abs(dy) && tryWalkablePosition(sgn(dx), 0, aggressiveness)) return true; // try moving horizontally or vertically otherwise (prefer the direction where he is pointing more) 
     	if (abs(dx) > abs(dy)) return tryWalkablePosition(sgn(dx), 0, aggressiveness);
     	return tryWalkablePosition(0, sgn(dy), aggressiveness);
     }
-    public boolean findWalkablePosition_directional(int dx, int dy, int aggressiveness) {
+	private boolean findWalkablePosition_directional(int dx, int dy, int aggressiveness) {
         if (tryWalkablePosition(sgn(dx), sgn(dy), aggressiveness)) return true; // try moving into the direction player is pointing at
 
         if (dx == 0) { // player wants to move north or south but there is an obstacle
@@ -166,8 +166,8 @@ public final class MovementController implements TimedMessageTask.Callback {
             return false;
         }
     }
-    
-    private boolean tryWalkablePosition(int dx, int dy, int aggressiveness) {
+
+	private boolean tryWalkablePosition(int dx, int dy, int aggressiveness) {
     	final Player player = world.model.player;
     	player.nextPosition.set(
 				player.position.x + dx
@@ -234,6 +234,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	public void respawnPlayer(Resources res) {
 		placePlayerAt(res, MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
+		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
 	}
 	public void respawnPlayerAsync() {
 		placePlayerAsyncAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);

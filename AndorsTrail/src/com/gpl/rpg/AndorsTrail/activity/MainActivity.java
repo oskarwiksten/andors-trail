@@ -347,9 +347,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	public void onPlayerMoved(Coord newPosition, Coord previousPosition) { }
 	
 	@Override
-	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) {
-		clearMessages();
-	}
+	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) { }
 
 	@Override
 	public void onCombatStarted() {
