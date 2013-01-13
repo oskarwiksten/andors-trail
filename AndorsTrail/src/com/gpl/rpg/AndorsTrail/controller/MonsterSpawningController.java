@@ -53,7 +53,7 @@ public final class MonsterSpawningController {
 		Coord p = getRandomFreePosition(map, a.area, type.tileSize, playerPosition);
 		if (p == null) return false;
 		Monster m = a.spawn(p, type);
-		monsterSpawnListeners.onMonsterSpawned(m);
+		monsterSpawnListeners.onMonsterSpawned(map, m);
 		return true;
 	}
 	
@@ -74,7 +74,7 @@ public final class MonsterSpawningController {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			a.remove(m);
 		}
-		monsterSpawnListeners.onMonsterRemoved(m, m.rectPosition);
+		monsterSpawnListeners.onMonsterRemoved(map, m, m.rectPosition);
 	}
 
 }

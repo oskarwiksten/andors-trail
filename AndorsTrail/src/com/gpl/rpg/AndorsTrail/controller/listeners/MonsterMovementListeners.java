@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.controller.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public class MonsterMovementListeners extends ListOfListeners<MonsterMovementListener> implements MonsterMovementListener {
@@ -10,8 +11,8 @@ public class MonsterMovementListeners extends ListOfListeners<MonsterMovementLis
 		@Override public void call(MonsterMovementListener listener, Monster monster) { listener.onMonsterSteppedOnPlayer(monster); }
 	};
 	
-	private final Function2<MonsterMovementListener, Monster, CoordRect> onMonsterMoved = new Function2<MonsterMovementListener, Monster, CoordRect>() {
-		@Override public void call(MonsterMovementListener listener, Monster monster, CoordRect previousPosition) { listener.onMonsterMoved(monster, previousPosition); }
+	private final Function3<MonsterMovementListener, PredefinedMap, Monster, CoordRect> onMonsterMoved = new Function3<MonsterMovementListener, PredefinedMap, Monster, CoordRect>() {
+		@Override public void call(MonsterMovementListener listener, PredefinedMap map, Monster monster, CoordRect previousPosition) { listener.onMonsterMoved(map, monster, previousPosition); }
 	};
 	
 	@Override
@@ -20,7 +21,7 @@ public class MonsterMovementListeners extends ListOfListeners<MonsterMovementLis
 	}
 	
 	@Override
-	public void onMonsterMoved(Monster m, CoordRect previousPosition) {
-		callAllListeners(this.onMonsterMoved, m, previousPosition);
+	public void onMonsterMoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
+		callAllListeners(this.onMonsterMoved, map, m, previousPosition);
 	}
 }

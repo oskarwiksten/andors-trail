@@ -2,53 +2,54 @@ package com.gpl.rpg.AndorsTrail.controller.listeners;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.listeners.ListOfListeners;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public class MonsterSpawnListeners extends ListOfListeners<MonsterSpawnListener> implements MonsterSpawnListener {
 
-	private final Function1<MonsterSpawnListener, Monster> onMonsterSpawned = new Function1<MonsterSpawnListener, Monster>() {
-		@Override public void call(MonsterSpawnListener listener, Monster monster) { listener.onMonsterSpawned(monster); }
+	private final Function2<MonsterSpawnListener, PredefinedMap, Monster> onMonsterSpawned = new Function2<MonsterSpawnListener, PredefinedMap, Monster>() {
+		@Override public void call(MonsterSpawnListener listener, PredefinedMap map, Monster monster) { listener.onMonsterSpawned(map, monster); }
 	};
 	
-	private final Function2<MonsterSpawnListener, Monster, CoordRect> onMonsterRemoved = new Function2<MonsterSpawnListener, Monster, CoordRect>() {
-		@Override public void call(MonsterSpawnListener listener, Monster monster, CoordRect previousPosition) { listener.onMonsterRemoved(monster, previousPosition); }
+	private final Function3<MonsterSpawnListener, PredefinedMap, Monster, CoordRect> onMonsterRemoved = new Function3<MonsterSpawnListener, PredefinedMap, Monster, CoordRect>() {
+		@Override public void call(MonsterSpawnListener listener, PredefinedMap map, Monster monster, CoordRect previousPosition) { listener.onMonsterRemoved(map, monster, previousPosition); }
 	};
 	
-	private final Function1<MonsterSpawnListener, Coord> onSplatterAdded = new Function1<MonsterSpawnListener, Coord>() {
-		@Override public void call(MonsterSpawnListener listener, Coord p) { listener.onSplatterAdded(p); }
+	private final Function2<MonsterSpawnListener, PredefinedMap, Coord> onSplatterAdded = new Function2<MonsterSpawnListener, PredefinedMap, Coord>() {
+		@Override public void call(MonsterSpawnListener listener, PredefinedMap map, Coord p) { listener.onSplatterAdded(map, p); }
 	};
 	
-	private final Function1<MonsterSpawnListener, Coord> onSplatterChanged = new Function1<MonsterSpawnListener, Coord>() {
-		@Override public void call(MonsterSpawnListener listener, Coord p) { listener.onSplatterChanged(p); }
+	private final Function2<MonsterSpawnListener, PredefinedMap, Coord> onSplatterChanged = new Function2<MonsterSpawnListener, PredefinedMap, Coord>() {
+		@Override public void call(MonsterSpawnListener listener, PredefinedMap map, Coord p) { listener.onSplatterChanged(map, p); }
 	};
 	
-	private final Function1<MonsterSpawnListener, Coord> onSplatterRemoved = new Function1<MonsterSpawnListener, Coord>() {
-		@Override public void call(MonsterSpawnListener listener, Coord p) { listener.onSplatterRemoved(p); }
+	private final Function2<MonsterSpawnListener, PredefinedMap, Coord> onSplatterRemoved = new Function2<MonsterSpawnListener, PredefinedMap, Coord>() {
+		@Override public void call(MonsterSpawnListener listener, PredefinedMap map, Coord p) { listener.onSplatterRemoved(map, p); }
 	};
 	
 	@Override
-	public void onMonsterSpawned(Monster m) {
-		callAllListeners(this.onMonsterSpawned, m);
+	public void onMonsterSpawned(PredefinedMap map, Monster m) {
+		callAllListeners(this.onMonsterSpawned, map, m);
 	}
 
 	@Override
-	public void onMonsterRemoved(Monster m, CoordRect previousPosition) {
-		callAllListeners(this.onMonsterRemoved, m, previousPosition);
+	public void onMonsterRemoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
+		callAllListeners(this.onMonsterRemoved, map, m, previousPosition);
 	}
 
 	@Override
-	public void onSplatterAdded(Coord p) {
-		callAllListeners(this.onSplatterAdded, p);
+	public void onSplatterAdded(PredefinedMap map, Coord p) {
+		callAllListeners(this.onSplatterAdded, map, p);
 	}
 
 	@Override
-	public void onSplatterChanged(Coord p) {
-		callAllListeners(this.onSplatterChanged, p);
+	public void onSplatterChanged(PredefinedMap map, Coord p) {
+		callAllListeners(this.onSplatterChanged, map, p);
 	}
 
 	@Override
-	public void onSplatterRemoved(Coord p) {
-		callAllListeners(this.onSplatterRemoved, p);
+	public void onSplatterRemoved(PredefinedMap map, Coord p) {
+		callAllListeners(this.onSplatterRemoved, map, p);
 	}
 }

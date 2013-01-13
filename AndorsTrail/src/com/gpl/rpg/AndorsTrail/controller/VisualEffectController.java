@@ -112,9 +112,6 @@ public final class VisualEffectController {
 	
 
 	public static final class BloodSplatter {
-		public static final int TYPE_RED = 0;
-		public static final int TYPE_BROWN = 2;
-		public static final int TYPE_WHITE = 3;
 		public final long removeAfter;
 		public final long reduceIconAfter;
 		public final Coord position;
@@ -135,11 +132,11 @@ public final class VisualEffectController {
 			BloodSplatter b = map.splatters.get(i);
 			if (b.removeAfter <= now) {
 				map.splatters.remove(i);
-				view.monsterSpawnController.monsterSpawnListeners.onSplatterRemoved(b.position);
+				view.monsterSpawnController.monsterSpawnListeners.onSplatterRemoved(map, b.position);
 			} else if (!b.reducedIcon && b.reduceIconAfter <= now) {
 				b.reducedIcon = true;
 				b.iconID++;
-				view.monsterSpawnController.monsterSpawnListeners.onSplatterChanged(b.position);
+				view.monsterSpawnController.monsterSpawnListeners.onSplatterChanged(map, b.position);
 			}
 		}
 	}
@@ -148,7 +145,7 @@ public final class VisualEffectController {
 		int iconID = getSplatterIconFromMonsterClass(m.getMonsterClass());
 		if (iconID > 0) {
 			map.splatters.add(new BloodSplatter(iconID, m.position));
-			view.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(m.position);
+			view.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(map, m.position);
 		}
 	}
 	

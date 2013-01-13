@@ -60,6 +60,7 @@ public final class MonsterMovementController {
 	}
     
 	private void moveMonster(final Monster m, final MonsterSpawnArea area, long currentTime) {
+        PredefinedMap map = world.model.currentMap;
     	m.nextActionTime += getMillisecondsPerMove(m);
     	if (m.movementDestination == null) {
     		// Monster has waited and should start to move again.
@@ -79,7 +80,7 @@ public final class MonsterMovementController {
 					,m.position.y + sgn(m.movementDestination.y - m.position.y)
 				);
     		
-    		if (!monsterCanMoveTo(world.model.currentMap, m.nextPosition)) {
+    		if (!monsterCanMoveTo(map, m.nextPosition)) {
     			cancelCurrentMonsterMovement(m);
     			return;
     		}
@@ -93,7 +94,7 @@ public final class MonsterMovementController {
 			} else {
 				CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
 				m.position.set(m.nextPosition.topLeft);
-				monsterMovementListeners.onMonsterMoved(m, previousPosition);
+				monsterMovementListeners.onMonsterMoved(map, m, previousPosition);
 			}
     	}
 	}

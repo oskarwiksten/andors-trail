@@ -436,13 +436,15 @@ public final class MainView extends SurfaceView
 	}
 
 	@Override
-	public void onMonsterSpawned(Monster m) {
+	public void onMonsterSpawned(PredefinedMap map, Monster m) {
+        if (map != currentMap) return;
 		redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_SPAWNED);
 	}
 
 	@Override
-	public void onMonsterRemoved(Monster m, CoordRect previousPosition) {
-		redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
+	public void onMonsterRemoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
+        if (map != currentMap) return;
+        redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
 	}
 
 	@Override
@@ -450,34 +452,40 @@ public final class MainView extends SurfaceView
 	}
 
 	@Override
-	public void onMonsterMoved(Monster m, CoordRect previousPosition) {
-		redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
+	public void onMonsterMoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
+        if (map != currentMap) return;
+        redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
 		redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_MOVED);
 	}
 
 	@Override
-	public void onSplatterAdded(Coord p) {
-		redrawTile(p, REDRAW_TILE_SPLATTER);
+	public void onSplatterAdded(PredefinedMap map, Coord p) {
+        if (map != currentMap) return;
+        redrawTile(p, REDRAW_TILE_SPLATTER);
 	}
 
 	@Override
-	public void onSplatterChanged(Coord p) {
-		redrawTile(p, REDRAW_TILE_SPLATTER);
+	public void onSplatterChanged(PredefinedMap map, Coord p) {
+        if (map != currentMap) return;
+        redrawTile(p, REDRAW_TILE_SPLATTER);
 	}
 
 	@Override
-	public void onSplatterRemoved(Coord p) {
-		redrawTile(p, REDRAW_TILE_SPLATTER);
+	public void onSplatterRemoved(PredefinedMap map, Coord p) {
+        if (map != currentMap) return;
+        redrawTile(p, REDRAW_TILE_SPLATTER);
 	}
 
 	@Override
-	public void onLootBagCreated(Coord p) {
-		redrawTile(p, REDRAW_TILE_BAG);
+	public void onLootBagCreated(PredefinedMap map, Coord p) {
+        if (map != currentMap) return;
+        redrawTile(p, REDRAW_TILE_BAG);
 	}
 
 	@Override
-	public void onLootBagRemoved(Coord p) {
-		redrawTile(p, REDRAW_TILE_BAG);
+	public void onLootBagRemoved(PredefinedMap map, Coord p) {
+        if (map != currentMap) return;
+        redrawTile(p, REDRAW_TILE_BAG);
 	}
 
 	@Override
