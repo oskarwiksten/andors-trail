@@ -4,10 +4,13 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
-import com.gpl.rpg.AndorsTrail.util.L;
-import com.gpl.rpg.AndorsTrail.util.Range;
-import com.gpl.rpg.AndorsTrail.util.Size;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
+import com.gpl.rpg.AndorsTrail.util.*;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public final class ResourceParserUtils {
 	
@@ -155,6 +158,7 @@ public final class ResourceParserUtils {
 				);
 		}
 	}
+
 	
 	private static final ConstRange zero_or_one = new ConstRange(1, 0);
 	private static final ConstRange one = new ConstRange(1, 1);
@@ -162,9 +166,9 @@ public final class ResourceParserUtils {
 	private static final ConstRange ten = new ConstRange(10, 10);
 	public static ConstRange parseQuantity(String min, String max) {
 		if (min.equals("0") && max.equals("1")) return zero_or_one;
-		else if (min.equals("1") && max.equals("1")) return one;
-		else if (min.equals("5") && max.equals("5")) return five;
-		else if (min.equals("10") && max.equals("10")) return ten;
+		if (min.equals("1") && max.equals("1")) return one;
+		if (min.equals("5") && max.equals("5")) return five;
+		if (min.equals("10") && max.equals("10")) return ten;
 		return parseConstRange(min, max);
 	}
 	
@@ -196,5 +200,65 @@ public final class ResourceParserUtils {
 			return new ConstRange(b, a);
 		}
 		else return new ConstRange(100, parseInt(v, 10));
+	}
+
+
+
+
+
+	public static ConstRange parseConstRange(JSONObject o) throws JSONException {
+		if (o == null) return null;
+
+		return new ConstRange(o.getInt(JsonFieldNames.Range.max), o.getInt(JsonFieldNames.Range.min));
+	}
+
+	public static StatsModifierTraits parseStatsModifierTraits(JSONObject o) throws JSONException {
+		if (o == null) return null;
+
+		ConstRange boostCurrentHP = parseConstRange(o.getJSONObject(JsonFieldNames.StatsModifierTraits.increaseCurrentHP));
+		ConstRange boostCurrentAP = parseConstRange(o.getJSONObject(JsonFieldNames.StatsModifierTraits.increaseCurrentAP));
+		if (boostCurrentHP == null && boostCurrentAP == null) {
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				L.log("OPTIMIZE: Tried to parseStatsModifierTraits , where hasEffect=" + o.toString() + ", but all data was empty.");
+			}
+			return null;
+		} else {
+			return new StatsModifierTraits(
+					o.optInt(JsonFieldNames.StatsModifierTraits.visualEffectID, StatsModifierTraits.VISUAL_EFFECT_NONE)
+					,boostCurrentHP
+					,boostCurrentAP
+			);
+		}
+	}
+
+	public static AbilityModifierTraits parseAbilityModifierTraits(JSONObject o) throws JSONException {
+		if (o == null) return null;
+
+		ConstRange increaseAttackDamage = parseConstRange(o.optJSONObject(JsonFieldNames.AbilityModifierTraits.increaseAttackDamage));
+		return new AbilityModifierTraits(
+				o.optInt(JsonFieldNames.AbilityModifierTraits.increaseMaxHP, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseMaxAP, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseMoveCost, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseUseItemCost, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseReequipCost, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseAttackCost, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseAttackChance, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseBlockChance, 0)
+				,increaseAttackDamage.current
+				,increaseAttackDamage.max
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseCriticalSkill, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.setCriticalMultiplier, 0)
+				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseDamageResistance, 0)
+		);
+	}
+
+	public static ConstRange parseQuantity(JSONObject obj) throws JSONException {
+		final int min = obj.getInt(JsonFieldNames.Range.min);
+		final int max = obj.getInt(JsonFieldNames.Range.max);
+		if (min == 0 && max == 1) return zero_or_one;
+		if (min == 1 && max == 1) return one;
+		if (min == 5 && max == 5) return five;
+		if (min == 10 && max == 10) return ten;
+		return parseConstRange(obj);
 	}
 }
