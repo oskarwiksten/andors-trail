@@ -50,12 +50,12 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 				, o.getString(JsonFieldNames.Monster.name)
 				, o.getString(JsonFieldNames.Monster.spawnGroup)
 				, exp
-				, droplists.getDropList(o.optString(JsonFieldNames.Monster.droplistID))
-				, o.optString(JsonFieldNames.Monster.phraseID)
+				, droplists.getDropList(o.optString(JsonFieldNames.Monster.droplistID, null))
+				, o.optString(JsonFieldNames.Monster.phraseID, null)
 				, o.optInt(JsonFieldNames.Monster.unique, 0) > 0
-				, o.optString(JsonFieldNames.Monster.faction)
+				, o.optString(JsonFieldNames.Monster.faction, null)
 				, o.optInt(JsonFieldNames.Monster.monsterClass, MonsterType.MONSTERCLASS_HUMANOID)
-				, ResourceParserUtils.parseSize(o.optString(JsonFieldNames.Monster.size), size1x1) //TODO: This could be loaded from the tileset size instead.
+				, ResourceParserUtils.parseSize(o.optString(JsonFieldNames.Monster.size, null), size1x1) //TODO: This could be loaded from the tileset size instead.
 				, ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.Monster.iconID))
 				, maxAP
 				, maxHP

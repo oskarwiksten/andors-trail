@@ -24,8 +24,8 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 			int requiresItemQuantity = 0;
 			int itemRequirementType = Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE;
 			if (requires != null) {
-				requiresProgress = requires.optString(JsonFieldNames.ReplyRequires.progress);
-				JSONObject requiresItem = o.optJSONObject(JsonFieldNames.ReplyRequires.item);
+				requiresProgress = requires.optString(JsonFieldNames.ReplyRequires.progress, null);
+				JSONObject requiresItem = requires.optJSONObject(JsonFieldNames.ReplyRequires.item);
 				if (requiresItem != null) {
 					requiresItemTypeID = requiresItem.getString(JsonFieldNames.ReplyRequiresItem.itemID);
 					requiresItemQuantity = requiresItem.getInt(JsonFieldNames.ReplyRequiresItem.quantity);
@@ -33,8 +33,8 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 				}
 			}
 			return new Reply(
-					o.optString(JsonFieldNames.Reply.text)
-					,o.optString(JsonFieldNames.Reply.nextPhraseID)
+					o.optString(JsonFieldNames.Reply.text, "")
+					,o.getString(JsonFieldNames.Reply.nextPhraseID)
 					,QuestProgress.parseQuestProgress(requiresProgress)
 					,requiresItemTypeID
 					,requiresItemQuantity
@@ -49,7 +49,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 			return new Reward(
 					o.getInt(JsonFieldNames.PhraseReward.rewardType)
 					,o.getString(JsonFieldNames.PhraseReward.rewardID)
-					,o.getInt(JsonFieldNames.PhraseReward.value)
+					,o.optInt(JsonFieldNames.PhraseReward.value, 0)
 			);
 		}
 	};
@@ -68,7 +68,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		if (_rewards.length == 0) _rewards = null;
 
 		return new Pair<String, Phrase>(id, new Phrase(
-				o.optString(JsonFieldNames.Phrase.message)
+				o.optString(JsonFieldNames.Phrase.message, null)
 				, _replies
 				, _rewards
 		));

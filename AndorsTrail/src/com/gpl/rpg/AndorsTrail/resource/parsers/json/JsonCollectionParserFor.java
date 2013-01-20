@@ -6,6 +6,8 @@ import com.gpl.rpg.AndorsTrail.util.Pair;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,7 +21,16 @@ public abstract class JsonCollectionParserFor<T> extends JsonParserFor<Pair<Stri
 		try {
 			parseRows(new JSONArray(input), objects);
 		} catch (JSONException e) {
-			L.log("ERROR loading resource data: " + e.toString());
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+				L.log("ERROR loading resource data: " + e.toString());
+				StringWriter sw = new StringWriter();
+				PrintWriter pw = new PrintWriter(sw);
+				e.printStackTrace(pw);
+				pw.close();
+				sw.flush();
+				L.log(sw.toString());
+				L.log("Failing data: " + input);
+			}
 		}
 
 		for (Pair<String, T> o : objects) {

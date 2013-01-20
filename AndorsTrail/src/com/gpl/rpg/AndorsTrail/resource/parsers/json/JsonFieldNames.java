@@ -1,8 +1,5 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers.json;
 
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
-import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
-
 public final class JsonFieldNames {
 	public static final class ActorCondition {
 		public static final String conditionTypeID = "id";

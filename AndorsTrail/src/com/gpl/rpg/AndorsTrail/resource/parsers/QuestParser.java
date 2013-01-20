@@ -21,7 +21,7 @@ public final class QuestParser extends JsonCollectionParserFor<Quest> {
 		protected QuestLogEntry parseObject(JSONObject o) throws JSONException {
 			return new QuestLogEntry(
 					o.getInt(JsonFieldNames.QuestLogEntry.progress)
-					,o.getString(JsonFieldNames.QuestLogEntry.logText)
+					,o.optString(JsonFieldNames.QuestLogEntry.logText, null)
 					,o.optInt(JsonFieldNames.QuestLogEntry.rewardExperience, 0)
 					,o.optInt(JsonFieldNames.QuestLogEntry.finishesQuest, 0) > 0
 			);

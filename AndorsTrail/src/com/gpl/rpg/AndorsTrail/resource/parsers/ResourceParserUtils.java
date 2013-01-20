@@ -75,8 +75,8 @@ public final class ResourceParserUtils {
 	public static StatsModifierTraits parseStatsModifierTraits(JSONObject o) throws JSONException {
 		if (o == null) return null;
 
-		ConstRange boostCurrentHP = parseConstRange(o.getJSONObject(JsonFieldNames.StatsModifierTraits.increaseCurrentHP));
-		ConstRange boostCurrentAP = parseConstRange(o.getJSONObject(JsonFieldNames.StatsModifierTraits.increaseCurrentAP));
+		ConstRange boostCurrentHP = parseConstRange(o.optJSONObject(JsonFieldNames.StatsModifierTraits.increaseCurrentHP));
+		ConstRange boostCurrentAP = parseConstRange(o.optJSONObject(JsonFieldNames.StatsModifierTraits.increaseCurrentAP));
 		if (boostCurrentHP == null && boostCurrentAP == null) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 				L.log("OPTIMIZE: Tried to parseStatsModifierTraits , where hasEffect=" + o.toString() + ", but all data was empty.");
