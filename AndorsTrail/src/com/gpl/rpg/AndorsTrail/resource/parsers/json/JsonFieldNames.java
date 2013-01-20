@@ -1,5 +1,8 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers.json;
 
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
+
 public final class JsonFieldNames {
 	public static final class ActorCondition {
 		public static final String conditionTypeID = "id";
@@ -87,4 +90,76 @@ public final class JsonFieldNames {
 		public static final String rewardID = "rewardID";
 		public static final String value = "value";
 	}
+
+	public static final class Quest {
+		public static final String questID = "id";
+		public static final String name = "name";
+		public static final String showInLog = "showInLog";
+		public static final String stages = "stages";
+	}
+
+	public static final class QuestLogEntry {
+		public static final String progress = "progress";
+		public static final String logText = "logText";
+		public static final String rewardExperience = "rewardExperience";
+		public static final String finishesQuest = "finishesQuest";
+	}
+
+	public static final class Monster {
+		public static final String monsterTypeID = "id";
+		public static final String iconID = "iconID";
+		public static final String name = "name";
+		public static final String spawnGroup = "spawnGroup";
+		public static final String size = "size";
+		public static final String monsterClass = "monsterClass";
+		public static final String unique = "unique";
+		public static final String faction = "faction";
+		public static final String maxHP = "maxHP";
+		public static final String maxAP = "maxAP";
+		public static final String moveCost = "moveCost";
+		public static final String attackCost = "attackCost";
+		public static final String attackChance = "attackChance";
+		public static final String criticalSkill = "criticalSkill";
+		public static final String criticalMultiplier = "criticalMultiplier";
+		public static final String attackDamage = "attackDamage";
+		public static final String blockChance = "blockChance";
+		public static final String damageResistance = "damageResistance";
+		public static final String droplistID = "droplistID";
+		public static final String phraseID = "phraseID";
+		public static final String hitEffect = "hitEffect";
+	}
+
+	public static final class ItemTraits_OnUse {
+		public static final String increaseCurrentHP = "increaseCurrentHP";
+		public static final String increaseCurrentAP = "increaseCurrentAP";
+		public static final String conditionsSource = "conditionsSource";
+		public static final String conditionsTarget = "conditionsTarget";
+	}
+
+	public static final class ActorConditionEffect {
+		public static final String condition = "condition";
+		public static final String magnitude = "magnitude";
+		public static final String duration = "duration";
+		public static final String chance = "chance";
+	}
+
+	public static final class ItemTraits_OnEquip {
+		public static final String addedConditions = "addedConditions";
+	}
+
+	public static final class ItemType {
+		public static final String itemTypeID = "id";
+		public static final String iconID = "iconID";
+		public static final String name = "name";
+		public static final String category = "category";
+		public static final String displaytype = "displaytype";
+		public static final String hasManualPrice = "hasManualPrice";
+		public static final String baseMarketCost = "baseMarketCost";
+		public static final String equipEffect = "equipEffect";
+		public static final String useEffect = "useEffect";
+		public static final String hitEffect = "hitEffect";
+		public static final String killEffect = "killEffect";
+	}
+
+
 }

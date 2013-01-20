@@ -1,19 +1,21 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import android.util.FloatMath;
-
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Pair;
 import com.gpl.rpg.AndorsTrail.util.Size;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
+public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType> {
 
 	private final Size size1x1 = new Size(1, 1);
 	private final DropListCollection droplists;
@@ -21,51 +23,51 @@ public final class MonsterTypeParser extends ResourceParserFor<MonsterType> {
 	private final DynamicTileLoader tileLoader;
 	
 	public MonsterTypeParser(final DropListCollection droplists, final ActorConditionTypeCollection actorConditionTypes, final DynamicTileLoader tileLoader) {
-		super(28);
 		this.itemTraitsParser = new ItemTraitsParser(actorConditionTypes);
 		this.droplists = droplists;
 		this.tileLoader = tileLoader;
 	}
-	
+
 	@Override
-	public Pair<String, MonsterType> parseRow(String[] parts) {
-		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 21, true);
-		int maxHP = ResourceParserUtils.parseInt(parts[8], 1);
-		int maxAP = ResourceParserUtils.parseInt(parts[9], 10);
-		int attackCost = ResourceParserUtils.parseInt(parts[11], 10);
-		int attackChance = ResourceParserUtils.parseInt(parts[12], 0);
-		ConstRange damagePotential = ResourceParserUtils.parseConstRange(parts[15], parts[16]);
-		int criticalSkill = ResourceParserUtils.parseInt(parts[13], 0);
-		float criticalMultiplier = ResourceParserUtils.parseFloat(parts[14], 0);
-		int blockChance = ResourceParserUtils.parseInt(parts[17], 0);
-		int damageResistance = ResourceParserUtils.parseInt(parts[18], 0);
-		
+	protected Pair<String, MonsterType> parseObject(JSONObject o) throws JSONException {
+		final String monsterTypeID = o.getString(JsonFieldNames.Monster.monsterTypeID);
+
+		int maxHP = o.optInt(JsonFieldNames.Monster.maxHP, 1);
+		int maxAP = o.optInt(JsonFieldNames.Monster.maxAP, 10);
+		int attackCost = o.optInt(JsonFieldNames.Monster.attackCost, 10);
+		int attackChance = o.optInt(JsonFieldNames.Monster.attackChance, 0);
+		ConstRange damagePotential = ResourceParserUtils.parseConstRange(o.optJSONObject(JsonFieldNames.Monster.attackDamage));
+		int criticalSkill = o.optInt(JsonFieldNames.Monster.criticalSkill, 0);
+		float criticalMultiplier = (float) o.optDouble(JsonFieldNames.Monster.criticalMultiplier, 0);
+		int blockChance = o.optInt(JsonFieldNames.Monster.blockChance, 0);
+		int damageResistance = o.optInt(JsonFieldNames.Monster.damageResistance, 0);
+		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.Monster.hitEffect));
+
 		final int exp = getExpectedMonsterExperience(attackCost, attackChance, damagePotential, criticalSkill, criticalMultiplier, blockChance, damageResistance, hitEffect, maxHP, maxAP);
-		
-		final String monsterTypeId = parts[0];
-		return new Pair<String, MonsterType>(monsterTypeId, new MonsterType(
-			monsterTypeId
-			, parts[2]										// Name
-			, parts[3] 										// SpawnGroup
-			, exp 											// Exp
-			, droplists.getDropList(parts[19]) 				// Droplist
-			, ResourceParserUtils.parseNullableString(parts[20]) 	// PhraseID
-			, ResourceParserUtils.parseBoolean(parts[6], false)		// isUnique
-			, ResourceParserUtils.parseNullableString(parts[7])		// Faction
-			, ResourceParserUtils.parseInt(parts[5], MonsterType.MONSTERCLASS_HUMANOID) // MonsterClass
-			, ResourceParserUtils.parseSize(parts[4], size1x1) //TODO: This could be loaded from the tileset size instead.
-			, ResourceParserUtils.parseImageID(tileLoader, parts[1]) // IconID
-			, maxAP
-			, maxHP
-			, ResourceParserUtils.parseInt(parts[10], 10)	// MoveCost
-			, attackCost
-			, attackChance
-			, criticalSkill
-			, criticalMultiplier
-			, damagePotential
-			, blockChance
-			, damageResistance
-			, hitEffect == null ? null : new ItemTraits_OnUse[] { hitEffect }
+
+		return new Pair<String, MonsterType>(monsterTypeID, new MonsterType(
+				monsterTypeID
+				, o.getString(JsonFieldNames.Monster.name)
+				, o.getString(JsonFieldNames.Monster.spawnGroup)
+				, exp
+				, droplists.getDropList(o.optString(JsonFieldNames.Monster.droplistID))
+				, o.optString(JsonFieldNames.Monster.phraseID)
+				, o.optInt(JsonFieldNames.Monster.unique, 0) > 0
+				, o.optString(JsonFieldNames.Monster.faction)
+				, o.optInt(JsonFieldNames.Monster.monsterClass, MonsterType.MONSTERCLASS_HUMANOID)
+				, ResourceParserUtils.parseSize(o.optString(JsonFieldNames.Monster.size), size1x1) //TODO: This could be loaded from the tileset size instead.
+				, ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.Monster.iconID))
+				, maxAP
+				, maxHP
+				, o.optInt(JsonFieldNames.Monster.moveCost, 10)
+				, attackCost
+				, attackChance
+				, criticalSkill
+				, criticalMultiplier
+				, damagePotential
+				, blockChance
+				, damageResistance
+				, hitEffect == null ? null : new ItemTraits_OnUse[] { hitEffect }
 		));
 	}
 	

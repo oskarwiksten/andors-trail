@@ -1,28 +1,30 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
+import com.gpl.rpg.AndorsTrail.model.quest.Quest;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonParserFor;
+import com.gpl.rpg.AndorsTrail.util.Pair;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 
-import com.gpl.rpg.AndorsTrail.model.quest.Quest;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
-import com.gpl.rpg.AndorsTrail.util.Pair;
-
-public final class QuestParser extends ResourceParserFor<Quest> {
+public final class QuestParser extends JsonCollectionParserFor<Quest> {
 	private int sortOrder = 0;
 	
-	private final ResourceFileTokenizer questStageResourceTokenizer = new ResourceFileTokenizer(4);
-	private final ResourceObjectParser<QuestLogEntry> questLogEntryParser = new ResourceObjectParser<QuestLogEntry>() {
+	private final JsonParserFor<QuestLogEntry> questLogEntryParser = new JsonParserFor<QuestLogEntry>() {
 		@Override
-		public QuestLogEntry parseRow(String[] parts) {
+		protected QuestLogEntry parseObject(JSONObject o) throws JSONException {
 			return new QuestLogEntry(
-					Integer.parseInt(parts[0]) 							// Progress
-					, parts[1] 											// Logtext
-					, ResourceParserUtils.parseInt(parts[2], 0) 			// RewardExperience
-					, ResourceParserUtils.parseBoolean(parts[3], false) 	// FinishesQuest
-				);
+					o.getInt(JsonFieldNames.QuestLogEntry.progress)
+					,o.getString(JsonFieldNames.QuestLogEntry.logText)
+					,o.optInt(JsonFieldNames.QuestLogEntry.rewardExperience, 0)
+					,o.optInt(JsonFieldNames.QuestLogEntry.finishesQuest, 0) > 0
+			);
 		}
 	};
 	private final Comparator<QuestLogEntry> sortByQuestProgress = new Comparator<QuestLogEntry>() {
@@ -31,29 +33,24 @@ public final class QuestParser extends ResourceParserFor<Quest> {
 			return a.progress - b.progress;
 		}
 	};
-	
-	public QuestParser() {
-		super(4);
-	}
-	
+
 	@Override
-	public Pair<String, Quest> parseRow(String[] parts) {
-		// [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-		
+	protected Pair<String, Quest> parseObject(JSONObject o) throws JSONException {
+		final String id = o.getString(JsonFieldNames.Quest.questID);
+
 		final ArrayList<QuestLogEntry> stages = new ArrayList<QuestLogEntry>();
-		questStageResourceTokenizer.tokenizeArray(parts[3], stages, questLogEntryParser);
-		Collections.sort(stages, sortByQuestProgress);				
+		questLogEntryParser.parseRows(o.getJSONArray(JsonFieldNames.Quest.stages), stages);
+		Collections.sort(stages, sortByQuestProgress);
 		final QuestLogEntry[] stages_ = stages.toArray(new QuestLogEntry[stages.size()]);
-		
+
 		++sortOrder;
-		
-		final String questID = parts[0];
-		return new Pair<String, Quest>(questID, new Quest(
-				questID 	// questID
-				, parts[1] 	// name
+
+		return new Pair<String, Quest>(id, new Quest(
+				id
+				, o.getString(JsonFieldNames.Quest.name)
 				, stages_
-				, ResourceParserUtils.parseBoolean(parts[2], false) // showInLog
+				, o.optInt(JsonFieldNames.Quest.showInLog, 0) > 0
 				, sortOrder
-			));
+		));
 	}
 }

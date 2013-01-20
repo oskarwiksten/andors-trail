@@ -6,41 +6,43 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.util.Pair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class ItemTypeParser extends ResourceParserFor<ItemType> {
+public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 
 	private final DynamicTileLoader tileLoader;
 	private final ItemTraitsParser itemTraitsParser;
 	private final ItemCategoryCollection itemCategories;
 	
 	public ItemTypeParser(DynamicTileLoader tileLoader, ActorConditionTypeCollection actorConditionsTypes, ItemCategoryCollection itemCategories) {
-		super(39);
 		this.tileLoader = tileLoader;
 		this.itemTraitsParser = new ItemTraitsParser(actorConditionsTypes);
 		this.itemCategories = itemCategories;
 	}
 
 	@Override
-	public Pair<String, ItemType> parseRow(String[] parts) {
-		final String itemTypeName = parts[2];
-		String id = parts[0];
-		final ItemTraits_OnEquip equipEffect = itemTraitsParser.parseItemTraits_OnEquip(parts, 7);
-		final ItemTraits_OnUse useEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 20, false);
-		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 26, true);
-		final ItemTraits_OnUse killEffect = itemTraitsParser.parseItemTraits_OnUse(parts, 33, false);
+	public Pair<String, ItemType> parseObject(JSONObject o) throws JSONException {
+		final String id = o.getString(JsonFieldNames.ItemType.itemTypeID);
+		final String itemTypeName = o.getString(JsonFieldNames.ItemType.name);
+		final ItemTraits_OnEquip equipEffect = itemTraitsParser.parseItemTraits_OnEquip(o.optJSONObject(JsonFieldNames.ItemType.equipEffect));
+		final ItemTraits_OnUse useEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.useEffect));
+		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.hitEffect));
+		final ItemTraits_OnUse killEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.killEffect));
 		
-		final int baseMarketCost = Integer.parseInt(parts[6]);
-		final boolean hasManualPrice = ResourceParserUtils.parseBoolean(parts[5], false);
+		final int baseMarketCost = o.getInt(JsonFieldNames.ItemType.baseMarketCost);
+		final boolean hasManualPrice = o.optInt(JsonFieldNames.ItemType.hasManualPrice, 0) > 0;
 		final ItemType itemType = new ItemType(
 				id
-    			, ResourceParserUtils.parseImageID(tileLoader, parts[1])
+    			, ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.ItemType.iconID))
     			, itemTypeName
-	        	, itemCategories.getItemCategory(parts[3])									// category
-    			, ResourceParserUtils.parseInt(parts[4], ItemType.DISPLAYTYPE_ORDINARY) 	// Displaytype
-    			, hasManualPrice								 							// hasManualPrice
-    			, baseMarketCost 															// Base market cost
+	        	, itemCategories.getItemCategory(o.getString(JsonFieldNames.ItemType.category))
+    			, o.optInt(JsonFieldNames.ItemType.displaytype, ItemType.DISPLAYTYPE_ORDINARY)
+    			, hasManualPrice
+    			, baseMarketCost
     			, equipEffect
     			, useEffect
     			, hitEffect
