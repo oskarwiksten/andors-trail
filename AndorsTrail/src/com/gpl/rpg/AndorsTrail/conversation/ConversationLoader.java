@@ -21,7 +21,7 @@ public final class ConversationLoader {
 		
 		ConversationListParser conversationListParser = new ConversationListParser();
 		int resourceID = resourceIDsPerPhraseID.get(phraseID);
-		conversationCollection.initialize(conversationListParser, ResourceLoader.readStringFromRawResource(r, resourceID));
+		conversationCollection.initialize(conversationListParser, ResourceLoader.readStringFromRaw(r, resourceID));
 		
 		return conversationCollection.getPhrase(phraseID);
 	}
