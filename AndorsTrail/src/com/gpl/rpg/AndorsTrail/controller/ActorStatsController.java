@@ -248,9 +248,11 @@ public class ActorStatsController {
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
-	    	for (Monster m : a.monsters) {
-	    		applyConditionsToMonster(m, isFullRound);
-	    	}
+			// Iterate the array backwards, since monsters may get removed from the array inside applyConditionsToMonster.
+			for (int i = a.monsters.size()-1; i >= 0; --i) {
+				final Monster m = a.monsters.get(i);
+				applyConditionsToMonster(m, isFullRound);
+			}
 		}
 	}
 
