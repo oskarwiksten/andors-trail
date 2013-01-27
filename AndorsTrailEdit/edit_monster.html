@@ -1,0 +1,198 @@
+<h3>Monster / NPC</h3>
+<fieldset class="fieldSet">
+	<legend>General</legend>
+	<div class="fieldWithLabel">
+		<div id="monsterimage" class="field"><input type="hidden" ng-model="obj.iconID" /></div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="id" class="label">Internal id:</label>
+		<input class="field" type="text" size="30" id="id" ng-model="obj.id" class="fieldInput"/>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="name" class="label">Display name:</label>
+		<input class="field" type="text" size="30" id="name" ng-model="obj.name" class="fieldInput"/>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="spawnGroup" class="label">Spawngroup:</label>
+		<input class="field" type="text" size="30" id="spawnGroup" ng-model="obj.spawnGroup" class="fieldInput" title="This is a grouping of monster types. Use these tags on spawn areas to spawn random monsters with the same tag. Several monsters may have the same tag." />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="size" class="label">Size:</label>
+		<select class="field" id="size" ng-model="obj.size">
+			<option value="">1x1</option>
+			<option value="1x2">1x2</option>
+			<option value="1x3">1x3</option>
+			<option value="2x1">2x1</option>
+			<option value="2x2">2x2</option>
+			<option value="2x3">2x3</option>
+			<option value="3x1">3x1</option>
+			<option value="3x2">3x2</option>
+			<option value="3x3">3x3</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="faction" class="label">Faction:</label>
+		<input class="field" type="text" size="30" id="faction" ng-model="obj.faction" class="fieldInput"/>
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="unique" ng-model="obj.isUnique" />Is unique (will not respawn)</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="monsterClass" class="label">Monster class:</label>
+		<select class="field" id="monsterClass" ng-model="obj.monsterClass">
+			<option value="0">Humanoid</option>
+			<option value="1">Insect</option>
+			<option value="2">Demon</option>
+			<option value="3">Construct</option>
+			<option value="4">Animal</option>
+			<option value="5">Giant</option>
+			<option value="6">Undead</option>
+			<option value="7">Reptile</option>
+			<option value="8">Ghost</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="hasConversation" ng-model="obj.hasConversation" />Has conversation</div>
+	</div>
+	<div class="fieldWithLabel" id="hasConversationDisplay" ng-ds-fade="obj.hasConversation">
+		<label for="phraseID" class="label">Conversation phrase ID:</label>
+		<input class="field" type="text" size="30" id="phraseID" ng-model="obj.phraseID" class="fieldInput" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="droplistID" class="label">Droplist ID (combat or shop):</label>
+		<input class="field" type="text" size="30" id="droplistID" ng-model="obj.droplistID" class="fieldInput"/>
+	</div>
+</fieldset>
+<fieldset class="fieldSet">
+	<legend>Stats</legend>
+	<div class="fieldWithLabel">
+		<label for="maxAP" class="label">Total AP:</label>
+		<input class="field" type="text" size="5" id="maxAP" ng-model="obj.maxAP" class="fieldInput integer" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="moveCost" class="label">Movement cost (AP):</label>
+		<input class="field" type="text" size="5" id="moveCost" ng-model="obj.moveCost" class="fieldInput integer" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="maxHP" class="label">Max HP:</label>
+		<input class="field" type="text" size="5" id="maxHP" ng-model="obj.maxHP" class="fieldInput integer" />
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="hasCombat" ng-model="obj.hasCombatTraits" />Has combat traits</div>
+	</div>
+</fieldset>
+<fieldset class="fieldSet" id="hasCombatDisplay" ng-ds-fade="obj.hasCombatTraits">
+	<legend>Combat</legend>
+	<div class="fieldWithLabel">
+		<label for="experience" class="label">Experience:</label>
+		<input class="field" type="text" size="7" id="experience" ng-model="experience" class="fieldInput integer" readonly="readonly" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="attackCost" class="label">Attack cost (AP):</label>
+		<input class="field" type="text" size="5" id="attackCost" ng-model="obj.attackCost" class="fieldInput integer" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="attackChance" class="label">Attack chance:</label>
+		<div class="field"><input type="text" size="5" id="attackChance" ng-model="obj.attackChance" class="fieldInput integer" />%</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="attackDamage" class="label">Attack damage (range):</label>
+		<div class="field">
+			<input type="text" size="3" id="attackDamage_Min" ng-model="obj.attackDamage.min" class="fieldInput integer" /> 
+			- 
+			<input type="text" size="3" id="attackDamage_Max" ng-model="obj.attackDamage.max" class="fieldInput integer" />
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="hasCritical" ng-model="obj.hasCritical" />Has critical chance</div>
+	</div>
+	<div id="hasCriticalDisplay" ng-ds-fade="obj.hasCritical">
+		<div class="fieldWithLabel">
+			<label for="criticalSkill" class="label">Critical skill:</label>
+			<input class="field" type="text" size="5" id="criticalSkill" ng-model="obj.criticalSkill" class="fieldInput integer" />
+		</div>
+		<div class="fieldWithLabel">
+			<label for="criticalMultiplier" class="label">Critical multiplier:</label>
+			<input class="field" type="text" size="5" id="criticalMultiplier" ng-model="obj.criticalMultiplier" class="fieldInput integer" />
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="blockChance" class="label">Block chance:</label>
+		<div class="field"><input type="text" size="5" id="blockChance" ng-model="obj.blockChance" class="fieldInput integer" />%</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="damageResistance" class="label">Damage resistance:</label>
+		<input class="field" type="text" size="5" id="damageResistance" ng-model="obj.damageResistance" class="fieldInput integer" />
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="hasHitEffect" ng-model="obj.hasHitEffect" />Has effect on each hit</div>
+	</div>
+</fieldset>
+<fieldset class="fieldSet" id="hasHitEffectDisplay" ng-ds-fade="obj.hasHitEffect">
+	<legend>On every successful attack hit</legend>
+	<div class="fieldWithLabel">
+		<label for="onHit_boostHP" class="label">Boost current HP (range):</label>
+		<div class="field">
+			<input type="text" size="3" id="onHit_boostHP_Min" ng-model="obj.hitEffect.increaseCurrentHP.min" class="fieldInput integer" />
+			-
+			<input type="text" size="3" id="onHit_boostHP_Max" ng-model="obj.hitEffect.increaseCurrentHP.max" class="fieldInput integer" />
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="onHit_boostAP" class="label">Boost current AP (range):</label>
+		<div class="field">
+			<input type="text" size="3" id="onHit_boostAP_Min" ng-model="obj.hitEffect.increaseCurrentAP.min" class="fieldInput integer" />
+			-
+			<input type="text" size="3" id="onHit_boostAP_Max" ng-model="obj.hitEffect.increaseCurrentAP.max" class="fieldInput integer" />
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="onHit_conditionsSource" class="label">Conditions added to source</label>
+		<table class="field" id="onHit_conditionsSource">
+			<thead>
+				<tr>
+					<th>Condition</th>
+					<th>Magnitude</th>
+					<th>Duration</th>
+					<th>Chance</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="condition in obj.hitEffect.conditionsSource">
+					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
+					<td><input type="text" size="3" ng-model="condition.duration" class="fieldInput integer" /></td>
+					<td><input type="text" size="3" ng-model="condition.chance" class="fieldInput" /></td>
+					<td><a ng-click="removeCondition(obj.hitEffect.conditionsSource, condition)">X</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="addCondition(obj.hitEffect.conditionsSource)">Add</button>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="onHit_conditionsTarget" class="label">Conditions added to target</label>
+		<table class="field" id="onHit_conditionsTarget">
+			<thead>
+				<tr>
+					<th>Condition</th>
+					<th>Magnitude</th>
+					<th>Duration</th>
+					<th>Chance</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="condition in obj.hitEffect.conditionsTarget">
+					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
+					<td><input type="text" size="3" ng-model="condition.duration" class="fieldInput integer" /></td>
+					<td><input type="text" size="3" ng-model="condition.chance" class="fieldInput" /></td>
+					<td><a ng-click="removeCondition(obj.hitEffect.conditionsTarget, condition)">X</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="obj.hitEffect.conditionsTarget.push({magnitude:1, duration:1, chance:100})">Add</button>
+	</div>
+</fieldset>
+<div class="endSets"> </div>

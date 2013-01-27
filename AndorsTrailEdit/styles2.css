@@ -3,10 +3,11 @@ html,body 					{ margin:0; padding:0; height: 100%; font-size: 0.9em; }
 #screen #top 				{ height: 50px; color: #eeeeee; }
 #screen #top #title 		{ font-size: 2em; float: left; text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px; }
 #screen #top #version 		{ font-size: 10pt; margin-left: 3ex; }
-.andorsTrailLogo 			{ background-image: url(logo.png); background-repeat: no-repeat; background-position: 3px 3px; padding:10px 0px 15px 50px; }
+.andorsTrailLogo 			{ background-repeat: no-repeat; background-position: 3px 3px; padding:10px 0px 15px 50px; }
 #screen #top #buttons 		{ float: right; font-size: 1.2em; margin: 10px; }
 #screen .workarea 			{ margin: 5px; border: 1px #c0d0ff solid; background-color: #eeeeee; position: absolute; top: 50px; bottom: 0; }
-#screen #left 				{ width: 250px; padding: 0px; font-size: 1em; }
+#screen #left 				{ width: 250px; padding: 0px; font-size: 1em; background-color: white; }
+#screen #left .accordion-group { background-color: #ddd; }
 #screen #center 			{ left: 256px; right: 0; }
 #screen #center #tabs 		{ border: 0px; padding: 0px; }
 #screen #centerwide 		{ left: 0px; right: 0; }

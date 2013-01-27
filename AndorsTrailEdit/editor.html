@@ -1,23 +1,18 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" ng-app="ateditor">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<link rel="shortcut icon" href="http://andorstrail.com/favicon.ico"/>	
-	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="styles2.css" />
-	<link rel="stylesheet" type="text/css" href="inc/ui.dynatree.css" />
-	<script type="text/javascript" src="AndorsTrailEditor.js"></script>
-	<title>Andor's Trail Content Editor</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles2.css" />
+	<link rel="stylesheet" href="inc/ui.dynatree.css" />
+	<link rel="stylesheet" href="inc/bootstrap/css/bootstrap.min.css" />
+	<title>ee</title>
 </head>
 <body>
 
 <div id="screen">
 <div id="top">
 	<div class="andorsTrailLogo" id="title">
-		Andor's Trail Content Editor
+		ee
 		<span id="version">
 			v0.7.0dev
 		</span>
@@ -28,83 +23,60 @@
 	</div>
 </div>
 
-<script type="text/template" id="listitem">
-	<li><img />{{name}}</li>
-</script>
-
 <div id="left" class="workarea">
-	<div id="tools">
-		<h3><a href="#">Actor conditions</a></h3>
-		<div id="actorconditionlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
+	<div id="tools" ng-controller="controllers.NavigationController" ng-init="$('.collapse').collapse()">
+		<div class="accordion" id="accordion2">
+			<div class="accordion-group" ng-show="previousItems.length > 0">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" href="#collapse-previous">Recently opened</a>
+				</div>
+				<div id="collapse-previous" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<ul class="itemlist">
+							<li ng-repeat="p in previousItems" ng-click="editObj(p.section, p.obj)" fadey>
+								<img />{{getName(p.section, p.obj)}}
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Quests</a></h3>
-		<div id="questlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
+			<div class="accordion-group" ng-repeat="section in sections">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" ng-href="#collapse-{{section.objectTypename}}">
+						{{section.name}}
+					</a>
+				</div>
+				<div id="collapse-{{section.objectTypename}}" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<div class="tools-buttons">
+							<button ng-click="addObj(section)">Add</button>
+							<button ng-click="clear(section)">Clear</button>
+						</div>
+						<ul class="itemlist">
+							<li ng-repeat="obj in section.items" ng-click="editObj(section, obj)" fadey>
+								<div style="float: left;">
+									<img style="float: left;"/>
+									{{getName(section, obj)}}
+								</div>
+								<div style="float: right;">
+									<a ng-click="dupObj(section, obj)">D</a>
+									<a ng-click="delObj(section, obj)">X</a>
+								</div>
+								<div style="clear: both;"> </div>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Items</a></h3>
-		<div id="itemlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Droplists</a></h3>
-		<div id="droplist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Dialogue</a></h3>
-		<div id="conversationlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Monsters &amp; NPCs</a></h3>
-		<div id="monsterlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
 		</div>
 	</div>
 </div>
 
-<div id="center" class="workarea">
-	<div id="tabs">
-		<ul>
-			<li><a href="#tabs-1">Start</a></li>
-		</ul>
-		<div id="tabs-1">
-			<h3>Welcome to the content editor for Andor's Trail.</h3>
-			Start by importing some content from the game by pressing the top right "Import" button.<br />
-			Or you could start by creating new content by selecting something from the left list.<br />
-			<br />
-		</div>
-	</div>
-</div>
+<div id="center" class="workarea" ng-view></div>
 
 </div>
+
+
 
 
 <div class="hidden" id="templates">
@@ -113,162 +85,7 @@
 	<!--   Monster editor                                          -->
 	
 	<div id="editMonster">
-		<h3>Monster / NPC</h3>
-		<fieldset class="fieldSet">
-			<legend>General</legend>
-			<div class="fieldWithLabel">
-				<div id="monsterimage" class="field"><input type="hidden" id="iconID" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Internal id:</label>
-				<input class="field" type="text" size="30" id="id" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="name" class="label">Display name:</label>
-				<input class="field" type="text" size="30" id="name" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="tags" class="label">Spawngroup:</label>
-				<input class="field" type="text" size="30" id="tags" class="fieldInput" title="This is a grouping of monster types. Use these tags on spawn areas to spawn random monsters with the same tag. Several monsters may have the same tag." />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="size" class="label">Size:</label>
-				<input class="field" type="text" size="5" id="size" class="fieldInput" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="faction" class="label">Faction:</label>
-				<input class="field" type="text" size="30" id="faction" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="unique" />Is unique (will not respawn)</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="monsterClass" class="label">Monster class:</label>
-				<select class="field" id="monsterClass">
-					<option value="0">Humanoid</option>
-					<option value="1">Insect</option>
-					<option value="2">Demon</option>
-					<option value="3">Construct</option>
-					<option value="4">Animal</option>
-					<option value="5">Giant</option>
-					<option value="6">Undead</option>
-					<option value="7">Reptile</option>
-					<option value="8">Ghost</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasConversation" />Has conversation</div>
-			</div>
-			<div class="fieldWithLabel" id="hasConversationDisplay">
-				<label for="phraseID" class="label">Conversation phrase ID:</label>
-				<input class="field" type="text" size="30" id="phraseID" class="fieldInput" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="droplistID" class="label">Droplist ID (combat or shop):</label>
-				<input class="field" type="text" size="30" id="droplistID" class="fieldInput"/>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet">
-			<legend>Stats</legend>
-			<div class="fieldWithLabel">
-				<label for="maxAP" class="label">Total AP:</label>
-				<input class="field" type="text" size="5" id="maxAP" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="moveCost" class="label">Movement cost (AP):</label>
-				<input class="field" type="text" size="5" id="moveCost" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="maxHP" class="label">Max HP:</label>
-				<input class="field" type="text" size="5" id="maxHP" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasCombat" />Has combat traits</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasCombatDisplay">
-			<legend>Combat</legend>
-			<div class="fieldWithLabel">
-				<label for="experience" class="label">Experience:</label>
-				<input class="field" type="text" size="7" id="experience" class="fieldInput integer" readonly="readonly" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackCost" class="label">Attack cost (AP):</label>
-				<input class="field" type="text" size="5" id="attackCost" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackChance" class="label">Attack chance:</label>
-				<div class="field"><input type="text" size="5" id="attackChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackDamage" class="label">Attack damage (range):</label>
-				<div class="field"><input type="text" size="3" id="attackDamage_Min" class="fieldInput integer" /> - <input type="text" size="3" id="attackDamage_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasCritical" />Has critical chance</div>
-			</div>
-			<div id="hasCriticalDisplay">
-				<div class="fieldWithLabel">
-					<label for="criticalChance" class="label">Critical skill:</label>
-					<div class="field"><input type="text" size="5" id="criticalChance" class="fieldInput integer" />%</div>
-				</div>
-				<div class="fieldWithLabel">
-					<label for="criticalMultiplier" class="label">Critical multiplier:</label>
-					<input class="field" type="text" size="5" id="criticalMultiplier" class="fieldInput integer" />
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="blockChance" class="label">Block chance:</label>
-				<div class="field"><input type="text" size="5" id="blockChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="damageResistance" class="label">Damage resistance:</label>
-				<input class="field" type="text" size="5" id="damageResistance" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasHitEffect" />Has effect on each hit</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasHitEffectDisplay">
-			<legend>On every successful attack hit</legend>
-			<div class="fieldWithLabel">
-				<label for="onHit_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="onHit_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="onHit_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="onHit_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="onHit_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="onHit_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="onHit_conditionsSource" class="label">Conditions added to source</label>
-				<table class="field" id="onHit_conditionsSource">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="onHit_conditionsTarget" class="label">Conditions added to target</label>
-				<table class="field" id="onHit_conditionsTarget">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<div class="endSets"> </div>
+		
 	</div>
 	
 	<div id="dialog-onHitConditions">
@@ -1006,9 +823,16 @@
 
 </div>
 
-<script type="text/javascript">
-$(document).ready(startEditor);
-</script>
+<script src="inc/jquery.min.js"></script>
+<script src="inc/underscore-min.js"></script>
+<script src="inc/angular.min.js"></script>
+<script src="inc/bootstrap/js/bootstrap.min.js"></script>
+<script src="FieldList.js"></script>
+<script src="DataStore.js"></script>
+<script src="model.js"></script>
+<script src="controllers.js"></script>
+<script src="app.js"></script>
+<script src="directives.js"></script>
 
 </body>
 </html>
