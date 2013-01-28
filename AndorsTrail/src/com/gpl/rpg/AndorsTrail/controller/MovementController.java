@@ -58,7 +58,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		task.execute();
     }
 	
-	private void placePlayerAt(final Resources res, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
+	public void placePlayerAt(final Resources res, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
     	if (mapName == null || placeName == null) return;
 		PredefinedMap newMap = world.maps.findPredefinedMap(mapName);
 		if (newMap == null) {

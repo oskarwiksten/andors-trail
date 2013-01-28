@@ -23,16 +23,6 @@ public final class SkillController {
 		this.view = view;
 		this.world = world;
 	}
-	
-	public void addSkillLevel(int skillID, boolean requireAvailableSkillpoint) {
-		Player player = world.model.player;
-		if (requireAvailableSkillpoint) {
-			if (!player.hasAvailableSkillpoints()) return;
-			--player.availableSkillIncreases;
-		}
-		player.skillLevels.put(skillID, player.skillLevels.get(skillID) + 1);
-		view.actorStatsController.recalculatePlayerStats(player);
-	}
 
 	public void applySkillEffects(Player player) {
 		player.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE * player.getSkillLevel(SkillCollection.SKILL_WEAPON_CHANCE);
@@ -106,14 +96,20 @@ public final class SkillController {
 		}
 		return true;
 	}
-	public static void levelUpSkillManually(Player player, SkillInfo skill) {
+	public void levelUpSkillManually(Player player, SkillInfo skill) {
 		if (!canLevelupSkillManually(player, skill)) return;
 		player.availableSkillIncreases -= 1;
-		player.addSkillLevel(skill.id);
+		addSkillLevel(skill.id);
 	}
-	public static void levelUpSkillByQuest(Player player, SkillInfo skill) {
+	public void levelUpSkillByQuest(Player player, SkillInfo skill) {
 		if (!canLevelupSkillWithQuest(player, skill)) return;
-		player.addSkillLevel(skill.id);
+		addSkillLevel(skill.id);
+	}
+
+	private void addSkillLevel(int skillID) {
+		Player player = world.model.player;
+		player.skillLevels.put(skillID, player.skillLevels.get(skillID) + 1);
+		view.actorStatsController.recalculatePlayerStats(player);
 	}
 	
 	public static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player) {
