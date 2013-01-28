@@ -20,11 +20,11 @@ public final class DebugInterface {
 	private final Resources res;
 	private final WorldContext world;
 	
-	public DebugInterface(ViewContext viewContext) {
-		this.viewContext = viewContext;
-		this.mainActivity = viewContext.mainActivity;
-		this.world = viewContext;
+	public DebugInterface(ViewContext view, WorldContext world, MainActivity mainActivity) {
+		this.viewContext = view;
+		this.world = world;
 		this.res = mainActivity.getResources();
+		this.mainActivity = mainActivity;
 	}
 
 	public void addDebugButtons() {
@@ -37,7 +37,6 @@ public final class DebugInterface {
 	    			world.model.player.damagePotential.set(99, 99);
 	    			world.model.player.attackChance = 200;
 	    			world.model.player.attackCost = 1;
-	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT);
 				}
 			})
@@ -129,9 +128,8 @@ public final class DebugInterface {
 				public void onClick(View arg0) {
 	    			world.model.player.baseTraits.maxHP = 200;
 	    			world.model.player.health.max = world.model.player.baseTraits.maxHP;
-	    			world.model.player.setMaxHP();
+	    			viewContext.actorStatsController.setActorMaxHealth(world.model.player);
 	    			world.model.player.conditions.clear();
-	    			mainActivity.updateStatus();
 	    			mainActivity.showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
 			})

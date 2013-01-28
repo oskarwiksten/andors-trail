@@ -11,8 +11,8 @@ import android.util.FloatMath;
 import android.util.SparseIntArray;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
@@ -48,13 +48,13 @@ public final class Player extends Actor {
 	public final PlayerBaseTraits baseTraits = new PlayerBaseTraits();
 	public final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
 	public final Inventory inventory;
+	public final SparseIntArray skillLevels = new SparseIntArray();
 	public int availableSkillIncreases = 0;
 	public int useItemCost;
 	public int reequipCost;
+	public int totalExperience;
 	
-	private int totalExperience;
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
-	private final SparseIntArray skillLevels = new SparseIntArray();
 	private String spawnMap;
 	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
@@ -141,8 +141,6 @@ public final class Player extends Actor {
 			this.spawnMap = "home";
 			this.spawnPlace = "rest";
 		}
-		
-		ActorStatsController.recalculatePlayerStats(this);
 	}
 	
 	public boolean hasExactQuestProgress(QuestProgress progress) { return hasExactQuestProgress(progress.questID, progress.progress); }
@@ -163,10 +161,6 @@ public final class Player extends Actor {
 	public void recalculateLevelExperience() {
 		int experienceRequiredToReachThisLevel = getRequiredExperience(level);
 		levelExperience.set(getRequiredExperienceForNextLevel(level), totalExperience - experienceRequiredToReachThisLevel);
-	}
-	public void addExperience(int v) {
-		totalExperience += v;
-		levelExperience.add(v, true);
 	}
 	
 	private static int getRequiredExperience(int currentLevel) {
@@ -192,10 +186,6 @@ public final class Player extends Actor {
 	}
 	public boolean hasSkill(int skillID) {
 		return getSkillLevel(skillID) > 0;
-	}
-	public void addSkillLevel(int skillID) {
-		skillLevels.put(skillID, skillLevels.get(skillID) + 1);
-		ActorStatsController.recalculatePlayerStats(this);
 	}
 	public boolean nextLevelAddsNewSkillpoint() {
     	return thisLevelAddsNewSkillpoint(level + 1);
@@ -231,6 +221,8 @@ public final class Player extends Actor {
 	public int getAvailableSkillIncreases() { return availableSkillIncreases; }
 	public int getLevel() { return level; }
 	public int getTotalExperience() { return totalExperience; }
+	public int getCurrentLevelExperience() { return levelExperience.current; }
+	public int getMaxLevelExperience() { return levelExperience.max; }
 	public int getGold() { return inventory.gold; }
 	public String getSpawnMap() { return spawnMap; }
 	public String getSpawnPlace() { return spawnPlace; }
@@ -261,9 +253,9 @@ public final class Player extends Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public static Player readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	public static Player readFromParcel(DataInputStream src, WorldContext world, ViewContext view, int fileversion) throws IOException {
 		Player player = new Player(src, world, fileversion);
-		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, fileversion);
+		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, view, fileversion);
 		return player;
 	}
 	

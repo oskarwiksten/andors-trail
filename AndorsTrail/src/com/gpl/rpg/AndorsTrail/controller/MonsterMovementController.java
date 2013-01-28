@@ -2,54 +2,65 @@ package com.gpl.rpg.AndorsTrail.controller;
 
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MonsterMovementController {
 	private final ViewContext view;
     private final WorldContext world;
-    private final ModelContainer model;
+    public final MonsterMovementListeners monsterMovementListeners = new MonsterMovementListeners();
 
-	public MonsterMovementController(ViewContext context) {
-    	this.view = context;
-    	this.world = context;
-    	this.model = world.model;
+	public MonsterMovementController(ViewContext context, WorldContext world) {
+		this.view = context;
+    	this.world = world;
     }
 	
-	public boolean moveMonsters() {
-    	boolean atLeastOneMonsterMoved = false;
+	public void moveMonsters() {
     	long currentTime = System.currentTimeMillis();
     	
-    	for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
+    	for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 	    	for (Monster m : a.monsters) {
 	    		if (m.nextActionTime <= currentTime) {
-	    			if (moveMonster(m, a, currentTime)) atLeastOneMonsterMoved = true;
+	    			moveMonster(m, a);
 	    		}
 	    	}
     	}
-    	
-    	return atLeastOneMonsterMoved;
     }
 	
 	public void attackWithAgressiveMonsters() {
-    	for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
+    	for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 	    	for (Monster m : a.monsters) {
 	    		if (!m.isAgressive()) continue;
-	    		if (!m.isAdjacentTo(model.player)) continue;
+	    		if (!m.isAdjacentTo(world.model.player)) continue;
 	    		
-	    		int aggressionChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
+	    		int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
 	    		if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
+	    			monsterMovementListeners.onMonsterSteppedOnPlayer(m);
 	    			view.combatController.monsterSteppedOnPlayer(m);
 	    			return;
 	    		}
 	    	}
     	}
     }
+	
+	public static boolean monsterCanMoveTo(final PredefinedMap map, final CoordRect p) {
+		if (!map.isWalkable(p)) return false;
+		if (map.getMonsterAt(p) != null) return false;
+		MapObject m = map.getEventObjectAt(p.topLeft);
+		if (m != null) {
+			if (m.type == MapObject.MAPEVENT_NEWMAP) return false;
+		}
+    	return true;
+	}
     
-	private boolean moveMonster(final Monster m, final MonsterSpawnArea area, long currentTime) {
+	private void moveMonster(final Monster m, final MonsterSpawnArea area) {
+        PredefinedMap map = world.model.currentMap;
     	m.nextActionTime += getMillisecondsPerMove(m);
     	if (m.movementDestination == null) {
     		// Monster has waited and should start to move again.
@@ -69,25 +80,26 @@ public final class MonsterMovementController {
 					,m.position.y + sgn(m.movementDestination.y - m.position.y)
 				);
     		
-    		if (!model.currentMap.monsterCanMoveTo(m.nextPosition)) {
+    		if (!monsterCanMoveTo(map, m.nextPosition)) {
     			cancelCurrentMonsterMovement(m);
-    			return false;
+    			return;
     		}
-			if (m.nextPosition.contains(model.player.position)) {
+			if (m.nextPosition.contains(world.model.player.position)) {
 				if (!m.isAgressive()) {
 					cancelCurrentMonsterMovement(m);
-					return false;
+					return;
 				}
+				monsterMovementListeners.onMonsterSteppedOnPlayer(m);
 				view.combatController.monsterSteppedOnPlayer(m);
 			} else {
+				CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
 				m.position.set(m.nextPosition.topLeft);
+				monsterMovementListeners.onMonsterMoved(map, m, previousPosition);
 			}
-			return true;
     	}
-    	return false;
 	}
     
-    private void cancelCurrentMonsterMovement(final Monster m) {
+    private static void cancelCurrentMonsterMovement(final Monster m) {
     	m.movementDestination = null;
 		m.nextActionTime += getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns);
     }
@@ -98,7 +110,7 @@ public final class MonsterMovementController {
 
 	private static int sgn(int i) {
 		if (i <= -1) return -1;
-		else if (i >= 1) return 1;
+		if (i >= 1) return 1;
 		return 0;
 	}
 }

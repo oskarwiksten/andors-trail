@@ -2,7 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.ability;
 
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
-public class SkillInfo {
+public final class SkillInfo {
 	public static final int MAXLEVEL_NONE = -1;
 	public static final int LEVELUP_TYPE_ALWAYS_SHOWN = 0; 
 	public static final int LEVELUP_TYPE_ONLY_BY_QUESTS = 1;

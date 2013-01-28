@@ -1,8 +1,6 @@
 package com.gpl.rpg.AndorsTrail;
 
 import android.graphics.Color;
-
-import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
@@ -30,7 +28,7 @@ public final class VisualEffectCollection {
 		return new VisualEffect(frameIconIDs, duration, textColor);
 	}
 
-	public final static class VisualEffect {
+	public static final class VisualEffect {
 		public final int[] frameIconIDs;
 		public final int duration; // milliseconds
 		public final int textColor;

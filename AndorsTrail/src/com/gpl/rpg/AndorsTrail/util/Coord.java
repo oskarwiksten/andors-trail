@@ -11,7 +11,7 @@ public final class Coord {
 	public Coord(int x, int y) { this.x = x; this.y = y; }
 	public Coord(Coord p) { this.x = p.x; this.y = p.y; }
 	
-	public String toString() { return "(" + x + "," + y + ")"; }
+	public String toString() { return "(" + x + ',' + y + ')'; }
 	public void set(int x, int y) { this.x = x; this.y = y; }
 	public void set(Coord r) {
 		this.x = r.x;
@@ -26,8 +26,8 @@ public final class Coord {
 		final int dx = x - p.x;
 		final int dy = y - p.y;
 		if (dx == 0 && dy == 0) return false;
-		else if (Math.abs(dx) > 1) return false;
-		else if (Math.abs(dy) > 1) return false;
+		if (Math.abs(dx) > 1) return false;
+		if (Math.abs(dy) > 1) return false;
 		return true;
 	}
 	

@@ -6,15 +6,16 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.Controller;
-import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 
 public final class WorldSetup {
 	
 	private final WorldContext world;
+	private final ViewContext view;
 	private final WeakReference<Context> androidContext;
 	private boolean isResourcesInitialized = false;
 	private boolean isInitializingResources = false;
@@ -28,8 +29,9 @@ public final class WorldSetup {
 	public String newHeroName;
 	private int loadResult;
 	
-	public WorldSetup(WorldContext world, Context androidContext) {
+	public WorldSetup(WorldContext world, ViewContext view, Context androidContext) {
 		this.world = world;
+		this.view = view;
 		this.androidContext = new WeakReference<Context>(androidContext);
 	}
 
@@ -44,7 +46,7 @@ public final class WorldSetup {
 		}
 	}
 	
-	public void startResourceLoader(final Resources r, final AndorsTrailPreferences preferences) {
+	public void startResourceLoader(final Resources r) {
 		if (isResourcesInitialized) return;
 		
 		synchronized (this) {
@@ -137,9 +139,9 @@ public final class WorldSetup {
 	
 	private int continueWorld() {
 		Context ctx = androidContext.get();
-		int result = Savegames.loadWorld(world, ctx, loadFromSlot);
+		int result = Savegames.loadWorld(world, view, ctx, loadFromSlot);
     	if (result == Savegames.LOAD_RESULT_SUCCESS) {
-			MovementController.cacheCurrentMapData(ctx.getResources(), world, world.model.currentMap);
+			view.movementController.cacheCurrentMapData(ctx.getResources(), world.model.currentMap);
 		}
 		return result;
 	}
@@ -148,8 +150,10 @@ public final class WorldSetup {
 		Context ctx = androidContext.get();
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
-		MovementController.respawnPlayer(ctx.getResources(), world);
-		Controller.playerRested(world, null);
+		
+		view.actorStatsController.recalculatePlayerStats(world.model.player);
+		view.movementController.respawnPlayer(ctx.getResources());
+		view.controller.lotsOfTimePassed();
 	}
 
 

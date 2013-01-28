@@ -17,17 +17,17 @@ public final class CoordRect {
 	}
 	public boolean contains(Coord p) {
 		if (p.x < topLeft.x) return false;
-		else if (p.y < topLeft.y) return false;
-		else if (p.x - topLeft.x >= size.width) return false;
-		else if (p.y - topLeft.y >= size.height) return false;
-		else return true;
+		if (p.y < topLeft.y) return false;
+		if (p.x - topLeft.x >= size.width) return false;
+		if (p.y - topLeft.y >= size.height) return false;
+		return true;
 	}
 	public boolean contains(final int x, final int y) {
 		if (x < topLeft.x) return false;
-		else if (y < topLeft.y) return false;
-		else if (x - topLeft.x >= size.width) return false;
-		else if (y - topLeft.y >= size.height) return false;
-		else return true;
+		if (y < topLeft.y) return false;
+		if (x - topLeft.x >= size.width) return false;
+		if (y - topLeft.y >= size.height) return false;
+		return true;
 	}
 	
 	/*
@@ -51,9 +51,9 @@ public final class CoordRect {
 		final int dx = p.x - topLeft.x;
 		final int dy = p.y - topLeft.y;
 		if (dx < -1) return false;
-		else if (dy < -1) return false;
-		else if (dx > size.width) return false;
-		else if (dy > size.height) return false;
+		if (dy < -1) return false;
+		if (dx > size.width) return false;
+		if (dy > size.height) return false;
 		return true;
 	}
 	public Coord findPositionAdjacentTo(Coord p) {
@@ -69,6 +69,6 @@ public final class CoordRect {
 	}
 	
 	public String toString() {
-		return "{" + topLeft.toString() + ", " + size.toString() + "}";
+		return '{' + topLeft.toString() + ", " + size.toString() + '}';
 	}
 }

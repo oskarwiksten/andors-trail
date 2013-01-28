@@ -26,7 +26,7 @@ public final class ActorConditionList extends LinearLayout {
         setFocusable(false);
         setOrientation(LinearLayout.VERTICAL);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.world;
+        this.world = app.getWorld();
     }
 
 	public void update(Iterable<ActorCondition> conditions) {

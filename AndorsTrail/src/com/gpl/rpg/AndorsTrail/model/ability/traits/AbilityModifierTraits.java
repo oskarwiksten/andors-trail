@@ -46,12 +46,6 @@ public final class AbilityModifierTraits {
 		this.increaseDamageResistance = increaseDamageResistance;
 	}
 	
-	public boolean hasAttackChanceEffect() { return increaseAttackChance != 0; }
-	public boolean hasAttackDamageEffect() { return increaseMinDamage != 0 || increaseMaxDamage != 0; }
-	public boolean hasBlockEffect() { return increaseBlockChance != 0; }
-	public boolean hasCriticalSkillEffect() { return increaseCriticalSkill != 0; }
-	public boolean hasCriticalMultiplierEffect() { return setCriticalMultiplier != 0 && setCriticalMultiplier != 1; }
-		
 	public int calculateCost(boolean isWeapon) {
 		final int costBC = (int) (3*Math.pow(Math.max(0, increaseBlockChance), 2.5) + 28*increaseBlockChance);
 		final int costAC = (int) (0.4*Math.pow(Math.max(0,increaseAttackChance), 2.5) - 6*Math.pow(Math.abs(Math.min(0,increaseAttackChance)),2.7));

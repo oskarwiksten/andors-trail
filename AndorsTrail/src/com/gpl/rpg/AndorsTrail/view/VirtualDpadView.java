@@ -18,7 +18,6 @@ import com.gpl.rpg.AndorsTrail.controller.InputController;
 
 public final class VirtualDpadView extends ImageView implements OnClickListener {
 	private final WorldContext world;
-	private final ViewContext view;
 	private final InputController inputController;
 	
 	private int one_third_width;
@@ -35,9 +34,9 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 	public VirtualDpadView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.world;
-        this.view = app.currentView.get();
-        this.inputController = this.view.inputController;
+        this.world = app.getWorld();
+		final ViewContext view = app.getViewContext();
+        this.inputController = view.inputController;
 
         setImageResource(R.drawable.ui_dpad);
         setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
@@ -106,30 +105,39 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 		isMinimizeable = preferences.dpadMinimizeable;
 		
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-		if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_LOWER_RIGHT) {
-			params.addRule(RelativeLayout.ALIGN_RIGHT, R.id.main_mainview);
-			params.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.main_mainview);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_LOWER_LEFT) {
-			params.addRule(RelativeLayout.ALIGN_LEFT, R.id.main_mainview);
-			params.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.main_mainview);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_LOWER_CENTER) {
-			params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-			params.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.main_mainview);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_UPPER_RIGHT) {
-			params.addRule(RelativeLayout.ALIGN_RIGHT, R.id.main_mainview);
-			params.addRule(RelativeLayout.ALIGN_TOP, R.id.main_mainview);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_UPPER_LEFT) {
-			params.addRule(RelativeLayout.ALIGN_LEFT, R.id.main_mainview);
-			params.addRule(RelativeLayout.ALIGN_TOP, R.id.main_mainview);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_UPPER_CENTER) {
-			params.addRule(RelativeLayout.CENTER_HORIZONTAL);
-			params.addRule(RelativeLayout.ALIGN_TOP, R.id.main_mainview);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_CENTER_LEFT) {
-			params.addRule(RelativeLayout.ALIGN_LEFT, R.id.main_mainview);
-			params.addRule(RelativeLayout.CENTER_VERTICAL);
-		} else if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_CENTER_RIGHT) {
-			params.addRule(RelativeLayout.ALIGN_RIGHT, R.id.main_mainview);
-			params.addRule(RelativeLayout.CENTER_VERTICAL);
+		switch (dpadPosition) {
+			case AndorsTrailPreferences.DPAD_POSITION_LOWER_RIGHT:
+				params.addRule(RelativeLayout.ALIGN_RIGHT, R.id.main_mainview);
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.main_mainview);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_LOWER_LEFT:
+				params.addRule(RelativeLayout.ALIGN_LEFT, R.id.main_mainview);
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.main_mainview);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_LOWER_CENTER:
+				params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, R.id.main_mainview);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_UPPER_RIGHT:
+				params.addRule(RelativeLayout.ALIGN_RIGHT, R.id.main_mainview);
+				params.addRule(RelativeLayout.ALIGN_TOP, R.id.main_mainview);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_UPPER_LEFT:
+				params.addRule(RelativeLayout.ALIGN_LEFT, R.id.main_mainview);
+				params.addRule(RelativeLayout.ALIGN_TOP, R.id.main_mainview);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_UPPER_CENTER:
+				params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+				params.addRule(RelativeLayout.ALIGN_TOP, R.id.main_mainview);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_CENTER_LEFT:
+				params.addRule(RelativeLayout.ALIGN_LEFT, R.id.main_mainview);
+				params.addRule(RelativeLayout.CENTER_VERTICAL);
+				break;
+			case AndorsTrailPreferences.DPAD_POSITION_CENTER_RIGHT:
+				params.addRule(RelativeLayout.ALIGN_RIGHT, R.id.main_mainview);
+				params.addRule(RelativeLayout.CENTER_VERTICAL);
+				break;
 		}
 		
 		setLayoutParams(params);

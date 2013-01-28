@@ -13,7 +13,7 @@ import android.util.AttributeSet;
 import android.view.ContextMenu;
 import android.widget.Button;
 
-public class QuickButton extends Button {
+public final class QuickButton extends Button {
 	private final ColorFilter grayScaleFilter = new ColorMatrixColorFilter(
 			new float[] { 0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
                           0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
@@ -21,7 +21,7 @@ public class QuickButton extends Button {
                           0.00f, 0.00f, 0.00f, 1.0f, 0.0f
 			});
 	private boolean empty;
-	private QuickButtonContextMenuInfo menuInfo;
+	private final QuickButtonContextMenuInfo menuInfo;
 	private final int textPadding;
 	
 	public QuickButton(Context context, AttributeSet attrs) {

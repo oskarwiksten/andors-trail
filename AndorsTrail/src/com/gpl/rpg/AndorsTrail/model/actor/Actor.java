@@ -8,7 +8,6 @@ import android.util.FloatMath;
 
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
-import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListeners;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
@@ -27,7 +26,6 @@ public class Actor {
 	public final Range ap = new Range();
 	public final Range health = new Range();
 	public final ArrayList<ActorCondition> conditions = new ArrayList<ActorCondition>();
-	public final ActorConditionListeners conditionListener = new ActorConditionListeners();
 	public int moveCost;
 	public int attackCost;
 	public int attackChance;
@@ -47,7 +45,9 @@ public class Actor {
 	
 	public boolean isImmuneToCriticalHits() { return isImmuneToCriticalHits; }
 	public String getName() { return name; }
+	public int getCurrentAP() { return ap.current; }
 	public int getMaxAP() { return ap.max; }
+	public int getCurrentHP() { return health.current; }
 	public int getMaxHP() { return health.max; }
 	public int getMoveCost() { return moveCost; }
 	public int getAttackCost() { return attackCost; }
@@ -76,18 +76,7 @@ public class Actor {
 	public boolean isDead() {
 		return health.current <= 0;
 	}
-	public void setMaxAP() {
-		ap.setMax();
-	}
-	public void setMaxHP() {
-		health.setMax();
-	}
 	
-	public boolean useAPs(int cost) {
-		if (ap.current < cost) return false;
-		ap.subtract(cost, false);
-		return true;
-	}
 	public boolean hasAPs(int cost) {
 		return ap.current >= cost;
 	}

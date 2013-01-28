@@ -17,6 +17,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.quest.Quest;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
@@ -39,9 +40,10 @@ public final class HeroinfoActivity_Quests extends Activity {
         
         final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
-        this.questCollection = app.world.quests;
-        this.player = app.world.model.player;
+        app.setWindowParameters(this);
+        final WorldContext world = app.getWorld();
+        this.questCollection = world.quests;
+        this.player = world.model.player;
         
         setContentView(R.layout.questlog);
     	
@@ -52,14 +54,14 @@ public final class HeroinfoActivity_Quests extends Activity {
         questlog_includecompleted.setOnItemSelectedListener(new OnItemSelectedListener() {
 			@Override
 			public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-				app.world.model.uiSelections.selectedQuestFilter = questlog_includecompleted.getSelectedItemPosition();
+				world.model.uiSelections.selectedQuestFilter = questlog_includecompleted.getSelectedItemPosition();
 				reloadQuests();
 			}
 
 			@Override
 			public void onNothingSelected(AdapterView<?> arg0) {}
 		});
-    	questlog_includecompleted.setSelection(app.world.model.uiSelections.selectedQuestFilter);
+    	questlog_includecompleted.setSelection(world.model.uiSelections.selectedQuestFilter);
     	
     	ExpandableListView questlog_contents = (ExpandableListView) findViewById(R.id.questlog_contents);
     	questlog_contents_adapter = new SimpleExpandableListAdapter(

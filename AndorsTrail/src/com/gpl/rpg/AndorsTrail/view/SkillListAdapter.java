@@ -41,7 +41,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 			public int compare(SkillInfo a, SkillInfo b) {
 				return a.id - b.id;
 			}
-        });
+		});
 		return result;
 	}
 
@@ -68,7 +68,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		String skillTitle = r.getString(SkillInfoActivity.getSkillTitleResourceID(skillID));
 		final int skillLevel = player.getSkillLevel(skillID);
 		if (skillLevel > 0) {
-			skillTitle += " (" + skillLevel + ")"; 
+			skillTitle += " (" + skillLevel + ')';
 		}
 		title.setText(skillTitle);
 		description.setText(getSkillShortDescriptionResourceID(skillID));

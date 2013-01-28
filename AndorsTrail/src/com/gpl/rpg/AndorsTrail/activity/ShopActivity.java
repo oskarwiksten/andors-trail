@@ -29,8 +29,6 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	private WorldContext world;
 	private Player player;
 
-	private ListView shoplist_buy;
-	private ListView shoplist_sell;
 	private ItemContainer container_buy;
 	private TextView shop_buy_gc;
 	private TextView shop_sell_gc;
@@ -43,14 +41,13 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+        this.world = app.getWorld();
         this.player = world.model.player;
         
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         final Monster npc = Dialogs.getMonsterFromIntent(getIntent(), world);
-        final Player player = world.model.player;
-        
+
         setContentView(R.layout.shop);
         
         final Resources res = getResources();
@@ -65,9 +62,9 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
         h.setup();
         shop_buy_gc = (TextView) h.findViewById(R.id.shop_buy_gc);
         shop_sell_gc = (TextView) h.findViewById(R.id.shop_sell_gc);
-        
-        shoplist_buy = (ListView) h.findViewById(R.id.shop_buy_list);
-        shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
+
+		ListView shoplist_buy = (ListView) h.findViewById(R.id.shop_buy_list);
+		ListView shoplist_sell = (ListView) h.findViewById(R.id.shop_sell_list);
         
         container_buy = npc.getShopItems(player);
         
@@ -95,7 +92,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	public void onItemInfoClicked(int position, ItemType itemType, boolean isSelling) {
 		int price;
 		int resid;
-		boolean enableButton = true;
+		boolean enableButton;
 		int action;
 		if (isSelling) {
 			resid = R.string.shop_sellitem;

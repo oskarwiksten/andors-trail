@@ -37,7 +37,18 @@ public final class Loot {
 	}
 	public boolean hasItems() {
 		return gold != 0 || !items.isEmpty();
+	}	
+	public boolean isContainer() {
+		return !isVisible;
 	}
+	public static Loot combine(Iterable<Loot> loot) {
+		Loot result = new Loot();
+		for (Loot l : loot) {
+			result.add(l);
+		}
+		return result;
+	}
+
 
 	public void clear() {
 		exp = 0;

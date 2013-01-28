@@ -18,8 +18,8 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.Savegames;
-import com.gpl.rpg.AndorsTrail.Savegames.FileHeader;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames.FileHeader;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 
 public final class LoadSaveActivity extends Activity implements OnClickListener {
@@ -34,11 +34,11 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
         super.onCreate(savedInstanceState);
         
         final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
-        this.model = app.world.model;
-        this.preferences = app.preferences;
+        app.setWindowParameters(this);
+        this.model = app.getWorld().model;
+        this.preferences = app.getPreferences();
         
-        String loadsave = getIntent().getData().getLastPathSegment().toString();
+        String loadsave = getIntent().getData().getLastPathSegment();
         isLoading = (loadsave.equalsIgnoreCase("load"));
                 
         setContentView(R.layout.loadsave);
@@ -105,7 +105,8 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		
 		if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_ALWAYS) { 
 			return getString(R.string.loadsave_save_overwrite_confirmation_all);
-		} else if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_NEVER) { 
+		}
+		if (preferences.displayOverwriteSavegame == AndorsTrailPreferences.CONFIRM_OVERWRITE_SAVEGAME_NEVER) {
 			return null;
 		}
 		
@@ -126,7 +127,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		
 		if (message != null) {
 			final String title = 
-				getString(R.string.loadsave_save_overwrite_confirmation_title) + " " 
+				getString(R.string.loadsave_save_overwrite_confirmation_title) + ' '
 				+ getString(R.string.loadsave_save_overwrite_confirmation_slot, slot);
 			new AlertDialog.Builder(this)
 		        .setIcon(android.R.drawable.ic_dialog_alert)

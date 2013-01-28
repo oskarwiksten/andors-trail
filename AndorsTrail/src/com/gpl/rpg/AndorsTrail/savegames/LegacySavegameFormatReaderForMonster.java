@@ -7,7 +7,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
-public class LegacySavegameFormatReaderForMonster {
+public final class LegacySavegameFormatReaderForMonster {
 	public static Monster readFromParcel_pre_v25(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
 		Monster m = new Monster(monsterType);
 		m.position.set(new Coord(src, fileversion));

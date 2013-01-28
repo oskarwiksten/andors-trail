@@ -1,7 +1,8 @@
 package com.gpl.rpg.AndorsTrail;
 
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -19,7 +20,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
-import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.BulkSelectionInterface;
 import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
@@ -33,14 +33,11 @@ import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.Preferences;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Quests;
 import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.Controller;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
@@ -112,84 +109,89 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_MONSTERENCOUNTER);
 	}
 
-	public static void showMonsterInfo(final Activity currentActivity, final Monster monster) {
-		Intent intent = new Intent(currentActivity, MonsterInfoActivity.class);
+	public static void showMonsterInfo(final Context context, final Monster monster) {
+		Intent intent = new Intent(context, MonsterInfoActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterinfo"));
 		addMonsterIdentifiers(intent, monster);
-		currentActivity.startActivity(intent);
+		context.startActivity(intent);
 	}
 	
-	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext context, final HashSet<Loot> lootBags, int totalExpThisFight) {
-		// The real object of lootBags will get clear():ed by the caller after we have reached this function.
-		// Therefore, we make a shallow copy of it to remember the Loot objects that should be modified.
-		HashSet<Loot> copy = new HashSet<Loot>(lootBags);
-		
-		String msg = mainActivity.getString(R.string.dialog_monsterloot_message);
-		showLoot(mainActivity, context, copy, totalExpThisFight, R.string.dialog_monsterloot_title, msg, false);
-	}
-
-	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext context, final Loot loot) {
-		String msg = "";
-		if (!loot.items.isEmpty()) msg = mainActivity.getString(R.string.dialog_groundloot_message);
-		showLoot(mainActivity, context, Arrays.asList(loot), 0, R.string.dialog_groundloot_title, msg, !loot.isVisible);
-	}
-	
-	private static void showLoot(final MainActivity mainActivity, final ViewContext context, final Iterable<Loot> lootBags, final int exp, final int title, String msg, boolean isContainer) {
-		//if (ItemController.updateLootVisibility(context, lootBags)) return;
-		
-		final Loot combinedLoot = new Loot();
-		for (Loot l : lootBags) {
-			combinedLoot.add(l);
+	public static String getGroundLootMessage(final Context ctx, final Loot loot) {
+		StringBuilder sb = new StringBuilder(60);
+		if (!loot.items.isEmpty()) {
+			sb.append(ctx.getString(R.string.dialog_groundloot_message));
 		}
+		if (loot.gold > 0) {
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_foundgold, loot.gold));
+		}
+		appendLootMessage(ctx, loot, sb);
+		return sb.toString();
+	}
+	public static String getMonsterLootMessage(final Context ctx, final Loot combinedLoot, final int exp) {
+		StringBuilder sb = new StringBuilder(60);
+		sb.append(ctx.getString(R.string.dialog_monsterloot_message));
 		
 		if (exp > 0) {
-			msg += mainActivity.getString(R.string.dialog_monsterloot_gainedexp, exp);
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_monsterloot_gainedexp, exp));
 		}
-		if (combinedLoot.gold > 0) {
-			msg += mainActivity.getString(R.string.dialog_loot_foundgold, combinedLoot.gold);
+		appendLootMessage(ctx, combinedLoot, sb);
+		return sb.toString();
+	}
+	private static void appendLootMessage(final Context ctx, final Loot loot, final StringBuilder sb) {
+		if (loot.gold > 0) {
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_foundgold, loot.gold));
 		}
-		
-		if (!isContainer) {
-			if (context.preferences.displayLoot != AndorsTrailPreferences.DISPLAYLOOT_DIALOG) {
-				if (context.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_TOAST) {
-					int numItems = combinedLoot.items.countItems();
-					if (numItems == 1) {
-						msg += mainActivity.getString(R.string.dialog_loot_pickedupitem);
-					} else if (numItems > 1){
-						msg += mainActivity.getString(R.string.dialog_loot_pickedupitems, numItems);
-					}
-					mainActivity.showToast(msg, Toast.LENGTH_LONG);
-				}
-				ItemController.pickupAll(lootBags, context.model);
-	        	ItemController.updateLootVisibility(context, lootBags);
-	        	context.gameRoundController.resume();
-				return;
-			}
+		int numItems = loot.items.countItems();
+		if (numItems == 1) {
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_pickedupitem));
+		} else if (numItems > 1){
+			sb.append(' ');
+			sb.append(ctx.getString(R.string.dialog_loot_pickedupitems, numItems));
 		}
-		
+	}
+	
+	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Collection<Loot> lootBags, final Loot combinedLoot, final String msg) {
+		// CombatController will do killedMonsterBags.clear() after this method has been called,
+		// so we need to keep the list of objects. Therefore, we create a shallow copy of the list of bags.
+		ArrayList<Loot> bags = new ArrayList<Loot>(lootBags);
+		showLoot(mainActivity, view, world, combinedLoot, bags, R.string.dialog_monsterloot_title, msg);
+	}
+
+	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot loot, final String msg) {
+		showLoot(mainActivity, view, world, loot, Collections.singletonList(loot), R.string.dialog_monsterloot_title, msg);
+ 	}
+	
+	private static void showLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot combinedLoot, final Iterable<Loot> lootBags, final int title, final String msg) {
 		final ListView itemList = new ListView(mainActivity);
 		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
 		itemList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				
 				final String itemTypeID = ((ItemContainerAdapter) parent.getAdapter()).getItem(position).itemType.id;
-				combinedLoot.items.removeItem(itemTypeID);
 				for (Loot l : lootBags) {
-					if (l.items.removeItem(itemTypeID)) break;
+					if (l.items.removeItem(itemTypeID)) {
+						view.itemController.removeLootBagIfEmpty(l);
+						break;
+					}
 				}
-				ItemType type = context.itemTypes.getItemType(itemTypeID);
-				context.model.player.inventory.addItem(type);
+				combinedLoot.items.removeItem(itemTypeID);
+				ItemType type = world.itemTypes.getItemType(itemTypeID);
+				world.model.player.inventory.addItem(type);
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
-		itemList.setAdapter(new ItemContainerAdapter(mainActivity, context.tileManager, combinedLoot.items, context.model.player));
+		itemList.setAdapter(new ItemContainerAdapter(mainActivity, world.tileManager, combinedLoot.items, world.model.player));
 		
 		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
         .setTitle(title)
         .setMessage(msg)
-        .setIcon(new BitmapDrawable(context.tileManager.preloadedTiles.getBitmap(TileManager.iconID_groundbag)))
+        .setIcon(new BitmapDrawable(world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_groundbag)))
         .setNegativeButton(R.string.dialog_close, null)
         .setView(itemList);
 		
@@ -197,17 +199,17 @@ public final class Dialogs {
 			db.setPositiveButton(R.string.dialog_loot_pickall, new DialogInterface.OnClickListener() {
 	            @Override
 	            public void onClick(DialogInterface dialog, int which) {
-	            	ItemController.pickupAll(lootBags, context.model);
+	            	view.itemController.pickupAll(lootBags);
 	            }
 	        });
 		}
 		
 		final Dialog d = db.create();
 		
-		showDialogAndPause(d, context, new OnDismissListener() {
+		showDialogAndPause(d, view, new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
-				ItemController.updateLootVisibility(context, lootBags);
+				view.itemController.removeLootBagIfEmpty(lootBags);
 			}
 		});
 	}
@@ -228,18 +230,14 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_LEVELUP);
 	}
 
-	public static void showRest(final Activity currentActivity, final ViewContext viewContext, final MapObject area) {
-		if (!viewContext.preferences.confirmRest) {
-			Controller.ui_playerRested(currentActivity, viewContext, area);
-			return;
-		}
+	public static void showConfirmRest(final Activity currentActivity, final ViewContext viewContext, final MapObject area) {
 		Dialog d = new AlertDialog.Builder(currentActivity)
         .setTitle(R.string.dialog_rest_title)
         .setMessage(R.string.dialog_rest_confirm_message)
         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-        		Controller.ui_playerRested(currentActivity, viewContext, area);
+            	viewContext.controller.rest(area);
             }
         })
         .setNegativeButton(android.R.string.no, null)
@@ -270,8 +268,8 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_PREFERENCES);
 	}
 	
-	public static void showSave(final MainActivity mainActivity, final ViewContext viewContext) {
-		if (viewContext.model.uiSelections.isInCombat) {
+	public static void showSave(final MainActivity mainActivity, final ViewContext viewContext, final WorldContext world) {
+		if (world.model.uiSelections.isInCombat) {
 			mainActivity.showToast(mainActivity.getResources().getString(R.string.menu_save_saving_not_allowed_in_combat), Toast.LENGTH_SHORT);
 			return;
 		}
@@ -285,11 +283,6 @@ public final class Dialogs {
 		Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/load"));
 		currentActivity.startActivityForResult(intent, StartScreenActivity.INTENTREQUEST_LOADGAME);
-	}
-	
-	public static void showQuestLog(final Activity currentActivity) {
-		Intent intent = new Intent(currentActivity, HeroinfoActivity_Quests.class);
-		currentActivity.startActivity(intent);
 	}
 	
 	public static void showActorConditionInfo(final Context context, ActorConditionType conditionType) {

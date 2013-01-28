@@ -25,8 +25,7 @@ import android.widget.TableLayout;
 import android.widget.TextView;
 
 public final class HeroinfoActivity_Stats extends Activity {
-	private WorldContext world;
-	
+
 	private Player player;
 	
 	private Button levelUpButton;
@@ -50,7 +49,7 @@ public final class HeroinfoActivity_Stats extends Activity {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+		final WorldContext world = app.getWorld();
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_stats);
@@ -114,15 +113,15 @@ public final class HeroinfoActivity_Stats extends Activity {
 	private void updateTraits() {
 		heroinfo_level.setText(Integer.toString(player.getLevel()));
 		heroinfo_totalexperience.setText(Integer.toString(player.getTotalExperience()));
-		heroinfo_ap.setText(player.ap.toString());
+		heroinfo_ap.setText(player.getMaxAP() + "/" + player.getCurrentAP());
 		heroinfo_reequip_cost.setText(Integer.toString(player.getReequipCost()));
 		heroinfo_useitem_cost.setText(Integer.toString(player.getUseItemCost()));
 		basetraitsinfo_max_hp.setText(Integer.toString(player.baseTraits.maxHP));
 		basetraitsinfo_max_ap.setText(Integer.toString(player.baseTraits.maxAP));
 		heroinfo_base_reequip_cost.setText(Integer.toString(player.baseTraits.reequipCost));
 		heroinfo_base_useitem_cost.setText(Integer.toString(player.baseTraits.useItemCost));
-        rangebar_hp.update(player.health);
-        rangebar_exp.update(player.levelExperience);
+        rangebar_hp.update(player.getMaxHP(), player.getCurrentHP());
+        rangebar_exp.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
         
         TraitsInfoView.update(heroinfo_container, player);
         TraitsInfoView.updateTraitsTable(

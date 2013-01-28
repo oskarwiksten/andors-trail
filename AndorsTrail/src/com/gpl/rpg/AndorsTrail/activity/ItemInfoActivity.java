@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
-import java.util.Arrays;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -10,12 +8,13 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
+
+import java.util.Collections;
 
 public final class ItemInfoActivity extends Activity {
 	
@@ -25,17 +24,15 @@ public final class ItemInfoActivity extends Activity {
 	public static int ITEMACTION_UNEQUIP = 4;
 	public static int ITEMACTION_BUY = 5;
 	public static int ITEMACTION_SELL = 6;
-	
-	private WorldContext world;
-	
-    @Override
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
+		final WorldContext world = app.getWorld();
         
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        app.setWindowParameters(this);
         
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();
@@ -55,9 +52,9 @@ public final class ItemInfoActivity extends Activity {
         
         ((ItemEffectsView) findViewById(R.id.iteminfo_effects)).update(
         		itemType.effects_equip,
-        		itemType.effects_use == null ? null : Arrays.asList(itemType.effects_use),
-				itemType.effects_hit == null ? null : Arrays.asList(itemType.effects_hit),
-				itemType.effects_kill == null ? null : Arrays.asList(itemType.effects_kill),
+        		itemType.effects_use == null ? null : Collections.singletonList(itemType.effects_use),
+				itemType.effects_hit == null ? null : Collections.singletonList(itemType.effects_hit),
+				itemType.effects_kill == null ? null : Collections.singletonList(itemType.effects_kill),
 				itemType.isWeapon()
     		);
         

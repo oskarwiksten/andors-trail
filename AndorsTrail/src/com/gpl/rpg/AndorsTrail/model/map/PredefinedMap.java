@@ -6,11 +6,11 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -121,69 +121,6 @@ public final class PredefinedMap {
 		return null;
 	}
 	
-	private boolean spawnInArea(MonsterSpawnArea a, WorldContext context, Coord playerPosition) {
-		return spawnInArea(a, a.getRandomMonsterType(context), playerPosition);
-	}
-	public boolean TEST_spawnInArea(MonsterSpawnArea a, MonsterType type) { return spawnInArea(a, type, null); }
-	private boolean spawnInArea(MonsterSpawnArea a, MonsterType type, Coord playerPosition) {
-		Coord p = getRandomFreePosition(a.area, type.tileSize, playerPosition);
-		if (p == null) return false;
-		a.spawn(p, type);
-		return true;
-	}
-	
-	public Coord getRandomFreePosition(CoordRect area, Size requiredSize, Coord playerPosition) {
-		CoordRect p = new CoordRect(requiredSize);
-		for(int i = 0; i < 100; ++i) {
-			p.topLeft.set(
-					area.topLeft.x + Constants.rnd.nextInt(area.size.width)
-					,area.topLeft.y + Constants.rnd.nextInt(area.size.height));
-			if (!monsterCanMoveTo(p)) continue;
-			if (playerPosition != null && p.contains(playerPosition)) continue;
-			return p.topLeft;
-		} 
-		return null; // Couldn't find a free spot.
-	}
-	
-	public boolean monsterCanMoveTo(final CoordRect p) {
-		if (!isWalkable(p)) return false;
-		if (getMonsterAt(p) != null) return false;
-		MapObject m = getEventObjectAt(p.topLeft);
-		if (m != null) {
-			if (m.type == MapObject.MAPEVENT_NEWMAP) return false;
-		}
-    	return true;
-	}
-	
-	public void spawnAll(WorldContext world) {
-		boolean respawnUniqueMonsters = false;
-		if (!visited) respawnUniqueMonsters = true;
-		for (MonsterSpawnArea a : spawnAreas) {
-			spawnAllInArea(world, a, respawnUniqueMonsters);
-		}
-	}
-	private void spawnAllInArea(WorldContext world, MonsterSpawnArea area, boolean respawnUniqueMonsters) {
-		while (area.isSpawnable(respawnUniqueMonsters)) {
-			final boolean wasAbleToSpawn = spawnInArea(area, world, null);
-			if (!wasAbleToSpawn) break;
-		}
-		area.healAllMonsters();
-	}
-	public boolean maybeSpawn(WorldContext world) {
-		boolean hasSpawned = false;
-		for (MonsterSpawnArea a : spawnAreas) {
-			if (!a.isSpawnable(false)) continue;
-			if (!a.rollShouldSpawn()) continue;
-			if (spawnInArea(a, world, world.model.player.position)) hasSpawned = true;
-		}
-		return hasSpawned;
-	}
-	
-	public void remove(Monster m) {
-		for (MonsterSpawnArea a : spawnAreas) {
-			a.remove(m);
-		}
-	}
 	public Loot getBagAt(final Coord p) {
 		for (Loot l : groundBags) {
 			if (l.position.equals(p)) return l;
@@ -255,7 +192,7 @@ public final class PredefinedMap {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	public void readFromParcel(DataInputStream src, WorldContext world, ViewContext view, int fileversion) throws IOException {
 		final int loadedSpawnAreas = src.readInt();
 		for(int i = 0; i < loadedSpawnAreas; ++i) {
 			this.spawnAreas[i].readFromParcel(src, world, fileversion);
@@ -289,7 +226,7 @@ public final class PredefinedMap {
 		
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
-			if (area.isUnique && visited) spawnAllInArea(world, area, true);
+			if (area.isUnique && visited) view.monsterSpawnController.spawnAllInArea(this, area, true);
 			else area.reset();
 		}
 	}

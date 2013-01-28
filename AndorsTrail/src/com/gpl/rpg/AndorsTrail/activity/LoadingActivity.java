@@ -11,7 +11,7 @@ import android.os.Bundle;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.Savegames;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.WorldSetup;
 import com.gpl.rpg.AndorsTrail.WorldSetup.OnResourcesLoadedListener;
 import com.gpl.rpg.AndorsTrail.WorldSetup.OnSceneLoadedListener;
@@ -27,8 +27,8 @@ public final class LoadingActivity extends Activity implements OnResourcesLoaded
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        AndorsTrailApplication.setWindowParameters(this, app.preferences);
-        this.setup = app.setup;
+        app.setWindowParameters(this);
+        this.setup = app.getWorldSetup();
     }
 	
 	@Override

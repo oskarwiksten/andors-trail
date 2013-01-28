@@ -5,8 +5,8 @@ import java.io.IOException;
 
 import android.util.FloatMath;
 
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
@@ -66,7 +66,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		player.addQuestProgress(new QuestProgress(questID, progress));
 	}
 	
-	public static void upgradeSavegame(Player player, WorldContext world, int fileversion) {
+	public static void upgradeSavegame(Player player, WorldContext world, ViewContext view, int fileversion) {
 		
 		if (fileversion <= 12) {
 			player.useItemCost = 5;
@@ -89,9 +89,9 @@ public final class LegacySavegameFormatReaderForPlayer {
 		}
 		
 		if (fileversion <= 27) {
-			correctActorConditionsFromItemsPre0611b1(player, "bless", world, "elytharan_redeemer");
-			correctActorConditionsFromItemsPre0611b1(player, "blackwater_misery", world, "bwm_dagger");
-			correctActorConditionsFromItemsPre0611b1(player, "regen", world, "ring_shadow0");
+			correctActorConditionsFromItemsPre0611b1(player, "bless", world, view, "elytharan_redeemer");
+			correctActorConditionsFromItemsPre0611b1(player, "blackwater_misery", world, view, "bwm_dagger");
+			correctActorConditionsFromItemsPre0611b1(player, "regen", world, view, "ring_shadow0");
 		}
 		
 		if (fileversion <= 30) {
@@ -105,7 +105,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		return 1 + (int) FloatMath.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
 	}
 
-	private static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, String itemTypeIDWithCondition) {
+	private static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, ViewContext view, String itemTypeIDWithCondition) {
 		if (!player.hasCondition(conditionTypeID)) return;
 		boolean hasItemWithCondition = false;
 		for (ItemType t : player.inventory.wear) {
@@ -120,7 +120,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		}
 		if (hasItemWithCondition) return;
 		
-		ActorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
+		view.actorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
 	}
 
 	public static void readCombatTraitsPreV034(DataInputStream src, int fileversion) throws IOException {

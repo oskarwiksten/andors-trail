@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
@@ -16,9 +17,17 @@ import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class ConversationController {
 
+	private final ViewContext view;
+	private final WorldContext world;
+
+	public ConversationController(ViewContext view, WorldContext world) {
+		this.view = view;
+		this.world = world;
+	}
+	
 	private static final ConstRange always = new ConstRange(1, 1);
 	
-	public static Loot applyPhraseRewards(final Player player, final Phrase phrase, final WorldContext world) {
+	public Loot applyPhraseRewards(final Player player, final Phrase phrase) {
 		if (phrase.rewards == null || phrase.rewards.length == 0) return null;
 		
 		final Loot loot = new Loot();
@@ -32,11 +41,11 @@ public final class ConversationController {
 				
 				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(reward.rewardID);
 				ActorConditionEffect e = new ActorConditionEffect(conditionType, magnitude, duration, always);
-				ActorStatsController.applyActorCondition(player, e);
+				view.actorStatsController.applyActorCondition(player, e);
 				break;
 			case Reward.REWARD_TYPE_SKILL_INCREASE:
 				int skillID = Integer.parseInt(reward.rewardID);
-				SkillController.levelUpSkillByQuest(player, world.skills.getSkill(skillID));
+				view.skillController.levelUpSkillByQuest(player, world.skills.getSkill(skillID));
 				break;
 			case Reward.REWARD_TYPE_DROPLIST:
 				world.dropLists.getDropList(reward.rewardID).createRandomLoot(loot, player);
@@ -58,7 +67,7 @@ public final class ConversationController {
 		}
 		
 		player.inventory.add(loot);
-		player.addExperience(loot.exp);
+		view.actorStatsController.addExperience(loot.exp);
 		return loot;
 	}
 	

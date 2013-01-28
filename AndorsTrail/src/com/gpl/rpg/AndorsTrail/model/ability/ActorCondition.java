@@ -6,7 +6,7 @@ import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
-public class ActorCondition {
+public final class ActorCondition {
 	public static final int MAGNITUDE_REMOVE_ALL = -99;
 	public static final int DURATION_FOREVER = 999;
 	

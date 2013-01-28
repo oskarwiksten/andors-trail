@@ -16,11 +16,12 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListener;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 
-public class QuickitemView extends LinearLayout implements OnClickListener {
+public final class QuickitemView extends LinearLayout implements OnClickListener, QuickSlotListener {
 	private static final int NUM_QUICK_SLOTS = Inventory.NUM_QUICK_SLOTS;
 
 	private final WorldContext world;
@@ -32,8 +33,8 @@ public class QuickitemView extends LinearLayout implements OnClickListener {
 	public QuickitemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
 	    AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-	    this.world = app.world;
-        this.view = app.currentView.get();
+	    this.world = app.getWorld();
+        this.view = app.getViewContext();
         setFocusable(false);
         setOrientation(LinearLayout.HORIZONTAL);
 
@@ -109,5 +110,22 @@ public class QuickitemView extends LinearLayout implements OnClickListener {
 	public void registerForContextMenu(MainActivity mainActivity) {
 		for(QuickButton item: buttons)
 			mainActivity.registerForContextMenu(item);
+	}
+
+	@Override
+	public void onQuickSlotChanged(int slotId) {
+		refreshQuickitems();
+	}
+
+	@Override
+	public void onQuickSlotUsed(int slotId) {
+		refreshQuickitems();
+	}
+
+	public void subscribe() {
+		view.itemController.quickSlotListeners.add(this);
+	}
+	public void unsubscribe() {
+		view.itemController.quickSlotListeners.remove(this);
 	}
 }

@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail;
 
-import java.lang.ref.WeakReference;
-
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
@@ -23,10 +21,14 @@ public final class AndorsTrailApplication extends Application {
 	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 34;
 	public static final String CURRENT_VERSION_DISPLAY = "0.7.0dev";
 	
-	public final WorldContext world = new WorldContext();
-	public final WorldSetup setup = new WorldSetup(world, this);
-	public WeakReference<ViewContext> currentView;
-	public final AndorsTrailPreferences preferences = new AndorsTrailPreferences();
+	private final AndorsTrailPreferences preferences = new AndorsTrailPreferences();
+	private final WorldContext world = new WorldContext();
+	private final ViewContext view = new ViewContext(this, world);
+	private final WorldSetup setup = new WorldSetup(world, view, this);
+	public WorldContext getWorld() { return world; }
+	public WorldSetup getWorldSetup() { return setup; }
+	public AndorsTrailPreferences getPreferences() { return preferences; }
+	public ViewContext getViewContext() { return view; }
 	
 	public static AndorsTrailApplication getApplicationFromActivity(Activity activity) {
 		return ((AndorsTrailApplication) activity.getApplication());
@@ -40,7 +42,7 @@ public final class AndorsTrailApplication extends Application {
 	
 	public boolean isInitialized() { return world.model != null; }
 	
-	public static void setWindowParameters(Activity activity, final AndorsTrailPreferences preferences) {
+	public void setWindowParameters(Activity activity) { 
 		activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		if (preferences.fullscreen) {
 			activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

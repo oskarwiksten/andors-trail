@@ -16,9 +16,9 @@ public class ResourceFileTokenizer {
 	private static final String columnSeparator = "\\|";
 	private static final String fieldPattern = "([^\\|]*?|\\{\\s*\\{.*?\\}\\s*\\})" + columnSeparator;
 	private static String repeat(String s, int count) {
-		String result = s;
-		for(int i = 1; i < count; ++i) result += s;
-		return result;
+		StringBuilder result = new StringBuilder(s);
+		for(int i = 1; i < count; ++i) result.append(s);
+		return result.toString();
 	}
 
 	
@@ -28,7 +28,7 @@ public class ResourceFileTokenizer {
 	
 	public ResourceFileTokenizer(int columns) {
 		this.columns = columns;
-		this.pattern = Pattern.compile("^" + repeat(fieldPattern, columns) + "$", Pattern.MULTILINE | Pattern.DOTALL);
+		this.pattern = Pattern.compile('^' + repeat(fieldPattern, columns) + '$', Pattern.MULTILINE | Pattern.DOTALL);
 		this.parts = new String[columns];
 	}
 	
@@ -39,7 +39,7 @@ public class ResourceFileTokenizer {
     	}
 	}
 	
-	public <T> Collection<String> tokenizeRows(String input, HashMap<String, T> dest, ResourceObjectParser<Pair<String, T>> parser) {
+	public final <T> Collection<String> tokenizeRows(String input, HashMap<String, T> dest, ResourceObjectParser<Pair<String, T>> parser) {
 		HashSet<String> ids = new HashSet<String>();
 		ArrayList<Pair<String, T>> objects = new ArrayList<Pair<String, T>>();
 		tokenizeRows(input, objects, parser);
@@ -74,7 +74,7 @@ public class ResourceFileTokenizer {
 	private static final Pattern outerPattern = Pattern.compile("^\\{(.*)\\}$", Pattern.MULTILINE | Pattern.DOTALL);
 	private static final Pattern innerPattern = Pattern.compile("\\{(.*?)\\}", Pattern.MULTILINE | Pattern.DOTALL);
 	
-	public <T> void tokenizeArray(String input, ArrayList<T> dest, ResourceObjectParser<T> parser) {
+	public final <T> void tokenizeArray(String input, ArrayList<T> dest, ResourceObjectParser<T> parser) {
 		Matcher matcher = outerPattern.matcher(input);
     	if (!matcher.find()) return;
     	
@@ -88,8 +88,8 @@ public class ResourceFileTokenizer {
 		T parseRow(String[] parts);
 	}
 	
-	public static abstract class ResourceParserFor<T> extends ResourceFileTokenizer implements ResourceObjectParser<Pair<String, T>> {
-		public ResourceParserFor(int columns) {
+	public abstract static class ResourceParserFor<T> extends ResourceFileTokenizer implements ResourceObjectParser<Pair<String, T>> {
+		protected ResourceParserFor(int columns) {
 			super(columns);
 		}
 

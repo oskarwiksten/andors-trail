@@ -61,12 +61,12 @@ public final class TraitsInfoView {
 		tv.setText(Integer.toString(attackCost));
 
 		row = (TableRow) group.findViewById(R.id.traitsinfo_attack_chance_row);
-		if (attackChance != 0) {
+		if (attackChance == 0) {
+			row.setVisibility(View.GONE);
+		} else {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_attack_chance);
-			tv.setText(Integer.toString(attackChance) + "%");
-		} else {
-			row.setVisibility(View.GONE);
+			tv.setText(Integer.toString(attackChance) + '%');
 		}
 		
 		row = (TableRow) group.findViewById(R.id.traitsinfo_attack_damage_row);
@@ -79,12 +79,12 @@ public final class TraitsInfoView {
 		}
 		
 		row = (TableRow) group.findViewById(R.id.traitsinfo_criticalhit_skill_row);
-		if (criticalSkill != 0) {
+		if (criticalSkill == 0) {
+			row.setVisibility(View.GONE);
+		} else {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_criticalhit_skill);
 			tv.setText(Integer.toString(criticalSkill));
-		} else {
-			row.setVisibility(View.GONE);
 		}
 		
 		row = (TableRow) group.findViewById(R.id.traitsinfo_criticalhit_multiplier_row);
@@ -100,27 +100,27 @@ public final class TraitsInfoView {
 		if (criticalSkill != 0 && criticalMultiplier != 0 && criticalMultiplier != 1) {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_criticalhit_effectivechance);
-			tv.setText(Integer.toString(Actor.getEffectiveCriticalChance(criticalSkill)) + "%");
+			tv.setText(Integer.toString(Actor.getEffectiveCriticalChance(criticalSkill)) + '%');
 		} else {
 			row.setVisibility(View.GONE);
 		}
 		
 		row = (TableRow) group.findViewById(R.id.traitsinfo_block_chance_row);
-		if (blockChance != 0) {
+		if (blockChance == 0) {
+			row.setVisibility(View.GONE);
+		} else {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_block_chance);
-			tv.setText(Integer.toString(blockChance) + "%");
-		} else {
-			row.setVisibility(View.GONE);
+			tv.setText(Integer.toString(blockChance) + '%');
 		}
 		
 		row = (TableRow) group.findViewById(R.id.traitsinfo_damageresist_row);
-		if (damageResistance != 0) {
+		if (damageResistance == 0) {
+			row.setVisibility(View.GONE);
+		} else {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_damageresist);
 			tv.setText(Integer.toString(damageResistance));
-		} else {
-			row.setVisibility(View.GONE);
 		}
 		
 		row = (TableRow) group.findViewById(R.id.traitsinfo_is_immune_to_critical_hits_row);

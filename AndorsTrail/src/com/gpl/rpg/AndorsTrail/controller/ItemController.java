@@ -1,10 +1,13 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
-import com.gpl.rpg.AndorsTrail.Dialogs;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.LootBagListeners;
+import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListeners;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
@@ -15,31 +18,31 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
-import com.gpl.rpg.AndorsTrail.view.MainView;
 
 public final class ItemController {
 	
 	private final ViewContext view;
     private final WorldContext world;
-    private final ModelContainer model;
+    public final QuickSlotListeners quickSlotListeners = new QuickSlotListeners(); 
+    public final LootBagListeners lootBagListeners = new LootBagListeners();
 
-	public ItemController(ViewContext context) {
+	public ItemController(ViewContext context, WorldContext world) {
     	this.view = context;
-    	this.world = context;
-    	this.model = world.model;
+    	this.world = world;
     }
 	
 	public void dropItem(ItemType type, int quantity) {
-		if (model.player.inventory.getItemQuantity(type.id) < quantity) return;
-    	model.player.inventory.removeItem(type.id, quantity);
-    	model.currentMap.itemDropped(type, quantity, model.player.position);
+		if (world.model.player.inventory.getItemQuantity(type.id) < quantity) return;
+		world.model.player.inventory.removeItem(type.id, quantity);
+		world.model.currentMap.itemDropped(type, quantity, world.model.player.position);
     }
 
 	public void equipItem(ItemType type, int slot) {
 		if (!type.isEquippable()) return;
-		final Player player = model.player;
-    	if (model.uiSelections.isInCombat) {
-    		if (!player.useAPs(player.getReequipCost())) return;
+		final Player player = world.model.player;
+    	if (world.model.uiSelections.isInCombat) {
+    		boolean changed = view.actorStatsController.useAPs(player, player.getReequipCost());
+    		if (!changed) return;
     	}
 		
 		if (!player.inventory.removeItem(type.id, 1)) return;
@@ -52,53 +55,78 @@ public final class ItemController {
 		}
 			
 		player.inventory.wear[slot] = type;
-		ActorStatsController.addConditionsFromEquippedItem(player, type);
-		ActorStatsController.recalculatePlayerStats(player);
+		view.actorStatsController.addConditionsFromEquippedItem(player, type);
+		view.actorStatsController.recalculatePlayerStats(player);
     }
 
    	public void unequipSlot(ItemType type, int slot) {
 		if (!type.isEquippable()) return;
-		final Player player = model.player;
+		final Player player = world.model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
     	
-		if (model.uiSelections.isInCombat) {
-    		if (!player.useAPs(player.getReequipCost())) return;
+		if (world.model.uiSelections.isInCombat) {
+			boolean changed = view.actorStatsController.useAPs(player, player.getReequipCost());
+    		if (!changed) return;
     	}
     	
 		unequipSlot(player, slot);
-		ActorStatsController.recalculatePlayerStats(player);
+		view.actorStatsController.recalculatePlayerStats(player);
     }
 
-   	private static void unequipSlot(Player player, int slot) {
+   	private void unequipSlot(Player player, int slot) {
    		ItemType removedItemType = player.inventory.wear[slot];
    		if (removedItemType == null) return;
 		player.inventory.addItem(removedItemType);
 		player.inventory.wear[slot] = null;
-		ActorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
+		view.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
     }
     
     public void useItem(ItemType type) {
     	if (!type.isUsable()) return;
-    	final Player player = model.player;
-    	if (model.uiSelections.isInCombat) {
-    		if (!player.useAPs(player.getUseItemCost())) return;
+    	final Player player = world.model.player;
+    	if (world.model.uiSelections.isInCombat) {
+    		boolean changed = view.actorStatsController.useAPs(player, player.getUseItemCost());
+    		if (!changed) return;
     	}
     	
     	if (!player.inventory.removeItem(type.id, 1)) return;
     	
     	view.actorStatsController.applyUseEffect(player, null, type.effects_use);
-    	model.statistics.addItemUsage(type);
+    	world.model.statistics.addItemUsage(type);
 		
     	//TODO: provide feedback that the item has been used.
     	//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
     }
     
-	public void handleLootBag(Loot loot) {
-    	Dialogs.showGroundLoot(view.mainActivity, view, loot);
-    	consumeNonItemLoot(loot, model);
+	public void playerSteppedOnLootBag(Loot loot) {
+		if (loot.isVisible && pickupLootBagWithoutConfirmation()) {
+			view.controller.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
+			pickupAll(loot);
+			removeLootBagIfEmpty(loot);
+		} else {
+			view.controller.worldEventListeners.onPlayerSteppedOnGroundLoot(loot);
+			consumeNonItemLoot(loot);
+		}
 	}
 	
-	public static void applyInventoryEffects(Player player) {
+	public void lootMonsterBags(Collection<Loot> killedMonsterBags, int totalExpThisFight) {
+		if (pickupLootBagWithoutConfirmation()) {
+			view.controller.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
+			pickupAll(killedMonsterBags);
+			removeLootBagIfEmpty(killedMonsterBags);
+			view.gameRoundController.resume();
+		} else {
+			view.controller.worldEventListeners.onPlayerFoundMonsterLoot(killedMonsterBags, totalExpThisFight);
+			consumeNonItemLoot(killedMonsterBags);
+		}
+	}
+
+	private boolean pickupLootBagWithoutConfirmation() {
+		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_DIALOG) return false;
+		return true;
+	}
+
+	public void applyInventoryEffects(Player player) {
 		ItemType weapon = getMainWeapon(player);
 		if (weapon != null) {
 			player.attackCost = 0;
@@ -126,7 +154,7 @@ public final class ItemController {
 		return null;
 	}
 
-	private static void applyInventoryEffects(Player player, int slot) {
+	private void applyInventoryEffects(Player player, int slot) {
 		ItemType type = player.inventory.wear[slot];
 		if (type == null) return;
 		if (slot == Inventory.WEARSLOT_SHIELD) {
@@ -135,7 +163,7 @@ public final class ItemController {
 			if (SkillController.isDualWielding(mainHandItem, type)) return;
 		}
 		if (type.effects_equip != null && type.effects_equip.stats != null)
-		ActorStatsController.applyAbilityEffects(player, type.effects_equip.stats, 1);
+		view.actorStatsController.applyAbilityEffects(player, type.effects_equip.stats, 1);
 	}
 	
 	public static void recalculateHitEffectsFromWornItems(Player player) {
@@ -159,49 +187,42 @@ public final class ItemController {
 		}
 	}
 	
-	public static void consumeNonItemLoot(Loot loot, ModelContainer model) {
+	public void consumeNonItemLoot(Loot loot) {
 		// Experience will be given as soon as the monster is killed.
-		model.player.inventory.gold += loot.gold;
+		world.model.player.inventory.gold += loot.gold;
 		loot.gold = 0;
-		removeEmptyLoot(loot, model);
+		removeLootBagIfEmpty(loot);
 	}
-	public static void consumeNonItemLoot(Iterable<Loot> lootBags, ModelContainer model) {
+	public void consumeNonItemLoot(Iterable<Loot> lootBags) {
 		for(Loot l : lootBags) {
-			consumeNonItemLoot(l, model);
+			consumeNonItemLoot(l);
 		}
 	}
 
-	public static void pickupAll(Loot loot, ModelContainer model) {
-		model.player.inventory.add(loot.items);
-		consumeNonItemLoot(loot, model);
+	public void pickupAll(Loot loot) {
+		world.model.player.inventory.add(loot.items);
+		consumeNonItemLoot(loot);
     	loot.clear();
 	}
-	public static void pickupAll(Iterable<Loot> lootBags, ModelContainer model) {
+	public void pickupAll(Iterable<Loot> lootBags) {
 		for(Loot l : lootBags) {
-			pickupAll(l, model);
+			pickupAll(l);
 		}
 	}
-	public static boolean removeEmptyLoot(Loot loot, ModelContainer model) {
-		if (!loot.hasItems()) {
-			model.currentMap.removeGroundLoot(loot);
-			return true; // The bag was removed.
-		} else {
-			return false;
-		}
+	public boolean removeLootBagIfEmpty(final Loot loot) {
+		if (loot.hasItems()) return false;
+
+		world.model.currentMap.removeGroundLoot(loot);
+		lootBagListeners.onLootBagRemoved(world.model.currentMap, loot.position);
+		return true; // The bag was removed.
 	}
 	
-	public static boolean updateLootVisibility(final ViewContext context, final Iterable<Loot> lootBags) {
+	public boolean removeLootBagIfEmpty(final Iterable<Loot> lootBags) {
 		boolean isEmpty = true;
 		for (Loot l : lootBags) {
-			if (!updateLootVisibility(context, l)) isEmpty = false;
+			if (!removeLootBagIfEmpty(l)) isEmpty = false;
 		}
 		return isEmpty;
-	}
-	
-	public static boolean updateLootVisibility(final ViewContext context, final Loot loot) {
-		final boolean isBagRemoved = removeEmptyLoot(loot, context.model);
-		context.mainActivity.redrawTile(loot.position, MainView.REDRAW_TILE_BAG);
-		return isBagRemoved;
 	}
 	
 	private static int getMarketPriceFactor(Player player) {
@@ -316,12 +337,12 @@ public final class ItemController {
 	}
 
 	public void quickitemUse(int quickSlotId) {
-		useItem(model.player.inventory.quickitem[quickSlotId]);
-		view.mainActivity.updateStatus();
+		useItem(world.model.player.inventory.quickitem[quickSlotId]);
+		quickSlotListeners.onQuickSlotUsed(quickSlotId);
 	}
 
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
-		model.player.inventory.quickitem[quickSlotId] = itemType;
-		view.mainActivity.updateStatus();
+		world.model.player.inventory.quickitem[quickSlotId] = itemType;
+		quickSlotListeners.onQuickSlotChanged(quickSlotId);
 	}
 }

@@ -1,19 +1,28 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
 import java.lang.ref.WeakReference;
+import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.Savegames;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
+import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListener;
+import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
+import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.CombatView;
 import com.gpl.rpg.AndorsTrail.view.DisplayActiveActorConditionIcons;
@@ -39,7 +48,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public final class MainActivity extends Activity {
+public final class MainActivity extends Activity implements PlayerMovementListener, CombatActionListener, CombatTurnListener, WorldEventListener {
 
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
     public static final int INTENTREQUEST_ITEMINFO = 3;
@@ -76,17 +85,17 @@ public final class MainActivity extends Activity {
         
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
-        this.world = app.world;
-        this.view = new ViewContext(app, this);
-    	app.currentView = new WeakReference<ViewContext>(this.view);
-    	AndorsTrailApplication.setWindowParameters(this, app.preferences);
+        AndorsTrailPreferences preferences = app.getPreferences();
+        this.world = app.getWorld();
+        this.view = app.getViewContext();
+    	app.setWindowParameters(this);
         
         setContentView(R.layout.main);
         mainview = (MainView) findViewById(R.id.main_mainview);
         statusview = (StatusView) findViewById(R.id.main_statusview);
         combatview = (CombatView) findViewById(R.id.main_combatview);
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
-        activeConditions = new DisplayActiveActorConditionIcons(app.preferences, world.tileManager, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
+        activeConditions = new DisplayActiveActorConditionIcons(view, world, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         toolboxview = (ToolboxView) findViewById(R.id.main_toolboxview);
         statusview.registerToolboxViews(toolboxview, quickitemview);
@@ -100,12 +109,13 @@ public final class MainActivity extends Activity {
 		});
 		clearMessages();
 		
-		if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) new DebugInterface(view).addDebugButtons();
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) 
+			new DebugInterface(view, world, this).addDebugButtons();
         
 		quickitemview.setVisibility(View.GONE);
         quickitemview.registerForContextMenu(this);
     	
-    	dpad.updateVisibility(app.preferences);
+    	dpad.updateVisibility(preferences);
     	
     	// Define which views are in front of each other.
     	dpad.bringToFront();
@@ -139,15 +149,15 @@ public final class MainActivity extends Activity {
 				final Coord p = world.model.player.nextPosition;
 				Monster m = world.model.currentMap.getMonsterAt(p);
 				if (m == null) return;
-				world.model.currentMap.remove(m);
-				redrawAll(MainView.REDRAW_ALL_MONSTER_KILLED);
+				view.monsterSpawnController.remove(world.model.currentMap, m);
 			}
 			break;
 		case INTENTREQUEST_PREFERENCES:
 			AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-	        AndorsTrailPreferences.read(this, app.preferences);
-	        world.tileManager.updatePreferences(app.preferences);
-	        dpad.updateVisibility(app.preferences);
+			AndorsTrailPreferences preferences = app.getPreferences();
+	        AndorsTrailPreferences.read(this, preferences);
+	        world.tileManager.updatePreferences(preferences);
+	        dpad.updateVisibility(preferences);
 			break;
 		case INTENTREQUEST_SAVEGAME:
 			if (resultCode != Activity.RESULT_OK) break;
@@ -172,17 +182,17 @@ public final class MainActivity extends Activity {
         view.gameRoundController.pause();
         view.movementController.stopMovement();
         
-        activeConditions.unsubscribe(world);
+        unsubscribeFromModel();
         
         save(Savegames.SLOT_QUICKSAVE);
     }
     
-    @Override
+	@Override
     protected void onResume() {
         super.onResume();
-        if (!AndorsTrailApplication.getApplicationFromActivity(this).setup.isSceneReady) return;
+        if (!AndorsTrailApplication.getApplicationFromActivity(this).getWorldSetup().isSceneReady) return;
 
-        activeConditions.subscribe(world);
+        subscribeToModelChanges();
         
         view.gameRoundController.resume();
         
@@ -190,7 +200,32 @@ public final class MainActivity extends Activity {
 			view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
 			view.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
 		}
+		updateStatus();
     }
+
+    private void unsubscribeFromModel() {
+        activeConditions.unsubscribe();
+        combatview.unsubscribe();
+        mainview.unsubscribe();
+        quickitemview.unsubscribe();
+        statusview.unsubscribe();
+        view.movementController.playerMovementListeners.remove(this);
+        view.combatController.combatActionListeners.remove(this);
+        view.combatController.combatTurnListeners.remove(this);
+        view.controller.worldEventListeners.remove(this);
+	}
+
+	private void subscribeToModelChanges() {
+		view.controller.worldEventListeners.add(this);
+        view.combatController.combatTurnListeners.add(this);
+        view.combatController.combatActionListeners.add(this);
+		view.movementController.playerMovementListeners.add(this);
+		statusview.subscribe();
+		quickitemview.subscribe();
+		mainview.subscribe();
+		combatview.subscribe();
+        activeConditions.subscribe();
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -208,7 +243,7 @@ public final class MainActivity extends Activity {
 		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem arg0) {
-				Dialogs.showSave(MainActivity.this, view);
+				Dialogs.showSave(MainActivity.this, view, world);
 				return true;
 			}
 		});
@@ -228,12 +263,12 @@ public final class MainActivity extends Activity {
 	public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
 		if(quickitemview.isQuickButtonId(v.getId())){
-			createQuickButtonMenu(menu, v, menuInfo);
+			createQuickButtonMenu(menu);
 		}
 		lastSelectedMenu = null;
 	}
 
-	private void createQuickButtonMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo){
+	private void createQuickButtonMenu(ContextMenu menu){
 		menu.add(Menu.NONE, R.id.quick_menu_unassign, Menu.NONE, R.string.inventory_unassign);
 		SubMenu assignMenu = menu.addSubMenu(Menu.NONE, R.id.quick_menu_assign, Menu.NONE, R.string.inventory_assign);
 		for(int i=0; i<world.model.player.inventory.items.size(); ++i){
@@ -266,21 +301,15 @@ public final class MainActivity extends Activity {
 		return true;
 	}
 	
-	public void updateStatus() {
+	private void updateStatus() {
 		statusview.updateStatus();
 		quickitemview.refreshQuickitems();
 		combatview.updateStatus();
 		toolboxview.updateIcons();
 	}
 	
-	public void redrawAll(int why) {
-		this.mainview.redrawAll(why);
-	}
-	public void redrawTile(final Coord pos, int why) {
-		this.mainview.redrawTile(pos, why);
-	}
-	public void message(String msg) {
-		StringBuilder sb = new StringBuilder();
+	private void message(String msg) {
+		StringBuilder sb = new StringBuilder(100);
 		for(int i = 0; i < NUM_MESSAGES-1; ++i) {
 			messages[i] = messages[i + 1];
 			if (messages[i].length() > 0) {
@@ -294,7 +323,7 @@ public final class MainActivity extends Activity {
 		statusText.setVisibility(View.VISIBLE);
 	}
 	
-	public void clearMessages() {
+	private void clearMessages() {
 		for(int i = 0; i < NUM_MESSAGES; ++i) {
 			messages[i] = "";
 		}
@@ -312,5 +341,146 @@ public final class MainActivity extends Activity {
 			t.setDuration(duration);
 		}
 		t.show();
+	}
+
+	
+	@Override 
+	public void onPlayerMoved(Coord newPosition, Coord previousPosition) { }
+	
+	@Override
+	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) { }
+
+	@Override
+	public void onCombatStarted() {
+		clearMessages();
+	}
+
+	@Override
+	public void onCombatEnded() {
+		clearMessages();
+	}
+
+	@Override
+	public void onPlayerAttackMissed(Monster target, AttackResult attackResult) {
+		message(getString(R.string.combat_result_heromiss));
+	}
+
+	@Override
+	public void onPlayerAttackSuccess(Monster target, AttackResult attackResult) {
+		String msg;
+		final String monsterName = target.getName();
+		if (attackResult.isCriticalHit) {
+			msg = getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage);
+		} else {
+			msg = getString(R.string.combat_result_herohit, monsterName, attackResult.damage);
+		}
+		if (attackResult.targetDied) {
+			msg += ' ' + getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage);
+		}
+		message(msg);
+	}
+
+	@Override
+	public void onMonsterAttackMissed(Monster attacker, AttackResult attackResult) {
+		message(getString(R.string.combat_result_monstermiss, attacker.getName()));
+	}
+
+	@Override
+	public void onMonsterAttackSuccess(Monster attacker, AttackResult attackResult) {
+		final String monsterName = attacker.getName();
+		if (attackResult.isCriticalHit) {
+			message(getString(R.string.combat_result_monsterhitcritical, monsterName, attackResult.damage));
+		} else {
+			message(getString(R.string.combat_result_monsterhit, monsterName, attackResult.damage));
+		}
+	}
+
+	@Override
+	public void onPlayerKilledMonster(Monster target) { }
+
+	@Override
+	public void onNewPlayerTurn() { }
+
+	@Override
+	public void onMonsterIsAttacking(Monster m) { }
+
+	@Override
+	public void onPlayerStartedConversation(Monster m, String phraseID) {
+		Dialogs.showConversation(this, view, phraseID, m);
+	}
+
+	@Override
+	public void onPlayerSteppedOnMonster(Monster m) {
+		Dialogs.showMonsterEncounter(this, view, m);
+	}
+
+	@Override
+	public void onPlayerSteppedOnMapSignArea(MapObject area) {
+		Dialogs.showMapSign(this, view, area.id);
+	}
+
+	@Override
+	public void onPlayerSteppedOnKeyArea(MapObject area) {
+		Dialogs.showKeyArea(this, view, area.id);
+	}
+
+	@Override
+	public void onPlayerSteppedOnRestArea(MapObject area) {
+		Dialogs.showConfirmRest(this, view, area);
+	}
+
+	@Override
+	public void onPlayerSteppedOnGroundLoot(Loot loot) {
+		final String msg = Dialogs.getGroundLootMessage(this, loot);
+		Dialogs.showGroundLoot(this, view, world, loot, msg);
+	}
+
+	@Override
+	public void onPlayerPickedUpGroundLoot(Loot loot) {
+		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
+		
+		final String msg = Dialogs.getGroundLootMessage(this, loot);
+		showToast(msg, Toast.LENGTH_LONG);
+	}
+
+	@Override
+	public void onPlayerFoundMonsterLoot(Collection<Loot> loot, int exp) {
+		final Loot combinedLoot = Loot.combine(loot);
+		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
+		Dialogs.showMonsterLoot(this, view, world, loot, combinedLoot, msg);
+	}
+
+	@Override
+	public void onPlayerPickedUpMonsterLoot(Collection<Loot> loot, int exp) {
+		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
+		
+		final Loot combinedLoot = Loot.combine(loot);
+		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
+		showToast(msg, Toast.LENGTH_LONG);
+	}
+
+	@Override
+	public void onPlayerRested() {
+		Dialogs.showRested(this, view);
+	}
+
+	@Override
+	public void onPlayerDied(int lostExp) {
+		message(getString(R.string.combat_hero_dies, lostExp));
+	}
+
+	@Override
+	public void onPlayerStartedFleeing() {
+		message(getString(R.string.combat_begin_flee));
+	}
+
+	@Override
+	public void onPlayerFailedFleeing() {
+		message(getString(R.string.combat_flee_failed));
+	}
+
+	@Override
+	public void onPlayerDoesNotHaveEnoughAP() {
+		message(getString(R.string.combat_not_enough_ap));
 	}
 }

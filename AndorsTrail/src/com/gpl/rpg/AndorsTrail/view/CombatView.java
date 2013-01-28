@@ -20,12 +20,15 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
+import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.listeners.ActorStatsListener;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.Range;
 
-public final class CombatView extends RelativeLayout {
+public final class CombatView extends RelativeLayout implements CombatSelectionListener, CombatTurnListener, ActorStatsListener {
 	private final TextView statusTextView;
 	private final Button attackMoveButton;
 	private final ImageButton monsterInfo;
@@ -47,10 +50,10 @@ public final class CombatView extends RelativeLayout {
 	public CombatView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.world;
+        this.world = app.getWorld();
         this.player = world.model.player;
-        this.view = app.currentView.get();
-        this.preferences = app.preferences;
+        this.view = app.getViewContext();
+        this.preferences = app.getPreferences();
         this.res = getResources();
 
         setFocusable(false);
@@ -87,7 +90,7 @@ public final class CombatView extends RelativeLayout {
         monsterInfo.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Dialogs.showMonsterInfo(view.mainActivity, currentMonster);
+				Dialogs.showMonsterInfo(context, currentMonster);
 			}
 		});
         
@@ -111,7 +114,7 @@ public final class CombatView extends RelativeLayout {
 		});
     }
 	
-	public void updateTurnInfo(Monster currentActiveMonster) {
+	private void updateTurnInfo(Monster currentActiveMonster) {
 		if (currentActiveMonster != null) {
 			actionBar.setVisibility(View.INVISIBLE);
 			monsterActionText.setVisibility(View.VISIBLE);
@@ -122,25 +125,30 @@ public final class CombatView extends RelativeLayout {
 		}
 	}
 
-	private void updateMonsterHealth(Range range) {
-	    monsterHealth.update(range);
+	private void updateMonsterHealth(Monster m) {
+	    monsterHealth.update(m.getMaxHP(), m.getCurrentHP());
 	}
-	private void updatePlayerAP(Range range) {
-		statusTextView.setText(res.getString(R.string.combat_status_ap, range.current));
+	private void updatePlayerAP() {
+		statusTextView.setText(res.getString(R.string.combat_status_ap, player.getCurrentAP()));
 	}
-	public void updateCombatSelection(Monster selectedMonster, Coord selectedMovePosition) {
+	private void updateSelectedMonster(Monster selectedMonster) {
 		if (currentMonster != null && currentMonster == selectedMonster) return;
 		
 		attackMoveButton.setEnabled(true);
 		monsterBar.setVisibility(View.INVISIBLE);
 		currentMonster = null;
 		if (selectedMonster != null) {
-			attackMoveButton.setText(res.getString(R.string.combat_attack, player.getAttackCost()));
 			monsterBar.setVisibility(View.VISIBLE);
 			world.tileManager.setImageViewTile(monsterInfo, selectedMonster);
-			updateMonsterHealth(selectedMonster.health);
+			updateMonsterHealth(selectedMonster);
 	        currentMonster = selectedMonster;
-		} else if (selectedMovePosition != null) {
+		}
+	}
+	
+	private void updateAttackMoveButtonText() {
+		if (world.model.uiSelections.selectedMonster != null) {
+			attackMoveButton.setText(res.getString(R.string.combat_attack, player.getAttackCost()));
+		} else if (world.model.uiSelections.selectedPosition != null) {
 			attackMoveButton.setText(res.getString(R.string.combat_move, player.getMoveCost()));
 		} else {
 			attackMoveButton.setText(res.getString(R.string.combat_attack, player.getAttackCost()));
@@ -148,14 +156,13 @@ public final class CombatView extends RelativeLayout {
 	}
 
 	public void updateStatus() {
-		updatePlayerAP(player.ap);
-		if (world.model.uiSelections.selectedMonster != null) {
-			updateMonsterHealth(world.model.uiSelections.selectedMonster.health);
-		}
-		updateCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
+		updatePlayerAP();
+		updateSelectedMonster(world.model.uiSelections.selectedMonster);
+		updateAttackMoveButtonText();
 	}
 
 	public void show() {
+		updateStatus();
 		setVisibility(View.VISIBLE);
     	bringToFront();
     	if (preferences.enableUiAnimations) {
@@ -169,5 +176,72 @@ public final class CombatView extends RelativeLayout {
 		} else {
 			setVisibility(View.GONE);
 		}
+	}
+
+	public void subscribe() {
+		view.combatController.combatSelectionListeners.add(this);
+		view.combatController.combatTurnListeners.add(this);
+		view.actorStatsController.actorStatsListeners.add(this);
+	}
+	public void unsubscribe() {
+		view.actorStatsController.actorStatsListeners.remove(this);
+		view.combatController.combatTurnListeners.remove(this);
+		view.combatController.combatSelectionListeners.remove(this);
+	}
+
+	@Override
+	public void onMonsterSelected(Monster m, Coord selectedPosition, Coord previousSelection) {
+		updateSelectedMonster(m);
+	}
+
+	@Override
+	public void onMovementDestinationSelected(Coord selectedPosition, Coord previousSelection) {
+		updateSelectedMonster(null);
+	}
+
+	@Override
+	public void onCombatSelectionCleared(Coord previousSelection) {
+		updateSelectedMonster(null);
+	}
+
+	@Override
+	public void onCombatStarted() {
+		show();
+		updateTurnInfo(null);
+	}
+
+	@Override
+	public void onCombatEnded() {
+		hide();
+	}
+
+	@Override
+	public void onNewPlayerTurn() {
+		updateTurnInfo(null);
+	}
+
+	@Override
+	public void onMonsterIsAttacking(Monster m) {
+		updateTurnInfo(m);
+	}
+
+	@Override
+	public void onActorHealthChanged(Actor actor) {
+		if (actor == currentMonster) updateMonsterHealth(currentMonster);
+	}
+
+	@Override
+	public void onActorAPChanged(Actor actor) {
+		if (actor == player) updatePlayerAP();
+	}
+
+	@Override
+	public void onActorAttackCostChanged(Actor actor, int newAttackCost) {
+		if (actor == player) updateAttackMoveButtonText();
+	}
+
+	@Override
+	public void onActorMoveCostChanged(Actor actor, int newMoveCost) {
+		if (actor == player) updateAttackMoveButtonText();
 	}
 }

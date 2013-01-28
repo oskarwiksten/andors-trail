@@ -17,7 +17,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.WorldMapController;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
-public class ToolboxView extends LinearLayout implements OnClickListener {
+public final class ToolboxView extends LinearLayout implements OnClickListener {
 	private final WorldContext world;
 	private final AndorsTrailPreferences preferences;
 	private final Animation showAnimation;
@@ -30,8 +30,8 @@ public class ToolboxView extends LinearLayout implements OnClickListener {
 	public ToolboxView(final Context context, AttributeSet attrs) {
 		super(context, attrs);
 	    AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-	    this.world = app.world;
-	    this.preferences = app.preferences;
+	    this.world = app.getWorld();
+	    this.preferences = app.getPreferences();
 
         inflate(context, R.layout.toolboxview, this);
 		
