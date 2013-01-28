@@ -85,15 +85,15 @@ var ATEditor = (function(ATEditor) {
 		}
 	];
 
-	var deserialize = function(str, dataStore) {
+	var deserialize = function(str) {
 		var header = findHeader(str);
 		if (!header) {
-			alert("Could not find header row, cannot deserialize");
 			return;
 		}
-		dataStore.legacyFieldList = header;
-		dataStore.items = deserializeObjectList(header, str);
-		return dataStore.items;
+		return {
+			header: header
+			,items: deserializeObjectList(header, str)
+		};
 	}
 	var serialize = function(dataStore) {
 		return serializeObjectList(dataStore.fieldList, dataStore.items);

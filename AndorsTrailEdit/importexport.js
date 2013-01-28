@@ -1,28 +1,58 @@
 var ATEditor = (function(ATEditor, _) {
 
 	var prep = {};
+	prep.actorcondition = function(o) {
+	};
+	prep.quest = function(o) {
+	};
 	prep.item = function(o) {
 	};
+	prep.droplist = function(o) {
+	};
+	prep.dialogue = function(o) {
+	};
 	prep.monster = function(o) {
-		ATEditor.defaults.addDefaults('monster', o);
 		o.hasConversation = o.phraseID;
 		o.hasHitEffect = o.hitEffect.increaseCurrentHP.min || o.hitEffect.increaseCurrentAP.min || _.some(o.hitEffect.conditionsSource) || _.some(o.hitEffect.conditionsTarget);
 		o.hasCombatTraits = o.attackChance || o.attackDamage.min || o.criticalSkill || o.criticalMultiplier || o.blockChance || o.damageResistance || o.hasHitEffect;
 	};
-	var unprep = {};
-	unprep.monster = function(o) {
-		o = ATEditor.defaults.removeDefaults('monster', o);
-		delete o.hasConversation;
-		delete o.hasCombatTraits;
-		delete o.hasHitEffect;
-		return o;
+	prep.itemcategory = function(o) {
 	};
 	
 	function prepareObjectsForEditor(section, objs) {
 		var p = prep[section.id];
-		if (p) {
-			_.each(objs, p);
-		}
+		_.each(objs, function(o) {
+			ATEditor.defaults.addDefaults(section.id, o);
+			if (p) { p(o); }
+		});
+	}
+	
+	var unprep = {};
+	unprep.actorcondition = function(o) {
+	};
+	unprep.quest = function(o) {
+	};
+	unprep.item = function(o) {
+	};
+	unprep.droplist = function(o) {
+	};
+	unprep.dialogue = function(o) {
+	};
+	unprep.monster = function(o) {
+		delete o.hasConversation;
+		delete o.hasCombatTraits;
+		delete o.hasHitEffect;
+	};
+	unprep.itemcategory = function(o) {
+	};
+	
+	function prepareObjectsForExport(section, objs) {
+		var p = unprep[section.id];
+		return _.map(objs, function(o) {
+			o = ATEditor.defaults.removeDefaults(section.id, o);
+			if (p) { p(o); }
+			return o;
+		});
 	}
 	
 	function importDataObjects(section, data, success, error) {
@@ -53,38 +83,27 @@ var ATEditor = (function(ATEditor, _) {
 	};
 	
 	function importData(section, content, success, error) {
-		if (ATEditor.legacy.findHeader(content)) {
-			var data = ATEditor.legacy.deserialize(content, section);
+		var data = ATEditor.legacy.deserialize(content);
+		if (data) {
+			data = data.items;
 			var convert = ATEditor.legacy.convertFromLegacyFormat[section.id];
 			if (convert) {
-				_.each(data, convert);
+				data = _.map(data, convert);
 			}
-			
-			prepareObjectsForEditor(section, data);
-			success();
-			return;
-		}
-		
-		var data;
-		try {
-			data = JSON.parse(content);
-		} catch(e) {
-			error("Unable to parse data as JSON.");
-			return;
+		} else {
+			try {
+				data = JSON.parse(content);
+			} catch(e) {
+				error("Unable to parse data as JSON.");
+				return;
+			}
 		}
 		
 		importDataObjects(section, data, success, error);
 	};
 	function exportData(section) {
-		var resultObjs = [];
 		var objs = section.items;
-		var p = unprep[section.id];
-		if (p) {
-			resultObjs = _.map(objs, p);
-		} else {
-			resultObjs = objs;
-		}
-		
+		var resultObjs = prepareObjectsForExport(section, objs);
 		return JSON.stringify(resultObjs, undefined, 2);
 	};
 	
