@@ -46,9 +46,10 @@ var ATEditor = (function(ATEditor, _) {
 	
 	ATEditor.defaults = {
 		addDefaults: function(type, o) {
-			if (defaults[type]) {
-				var copyOfDefaults = ATEditor.utils.deepClone(defaults[type]);
-				_.defaults(o, copyOfDefaults);
+			var def = defaults[type];
+			if (def) {
+				var copyOfDefaults = ATEditor.utils.deepClone(def);
+				ATEditor.utils.copyDefaults(o, copyOfDefaults);
 			}
 		},
 		removeDefaults: function(type, o) {

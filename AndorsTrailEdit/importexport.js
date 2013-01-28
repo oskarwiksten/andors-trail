@@ -10,6 +10,11 @@ var ATEditor = (function(ATEditor, _) {
 	prep.quest = function(o) {
 	};
 	prep.item = function(o) {
+		o.hasEquipEffect = ATEditor.utils.hasValues(o.equipEffect);
+		o.equipEffect.hasCritical = o.equipEffect.increaseCriticalSkill || o.equipEffect.setCriticalMultiplier;
+		o.hasUseEffect = ATEditor.utils.hasValues(o.useEffect);
+		o.hasHitEffect = ATEditor.utils.hasValues(o.hitEffect);
+		o.hasKillEffect = ATEditor.utils.hasValues(o.killEffect);
 	};
 	prep.droplist = function(o) {
 	};
@@ -39,18 +44,45 @@ var ATEditor = (function(ATEditor, _) {
 		if (!o.hasAbilityEffect) { delete o.abilityEffect; }
 		delete o.hasRoundEffect;
 		delete o.hasFullRoundEffect;
-		if (o.abilityEffect) { delete o.abilityEffect.hasCritical; }
+		if (o.abilityEffect) { 
+			if (!o.abilityEffect.hasCritical) { 
+				delete o.abilityEffect.increaseCriticalSkill; 
+				delete o.abilityEffect.setCriticalMultiplier; 
+			}
+			delete o.abilityEffect.hasCritical; 
+		}
 		delete o.hasAbilityEffect;
 	};
 	unprep.quest = function(o) {
 	};
 	unprep.item = function(o) {
+		if (!o.hasEquipEffect) { delete o.equipEffect; }
+		if (o.equipEffect) { 
+			if (!o.equipEffect.hasCritical) { 
+				delete o.equipEffect.increaseCriticalSkill; 
+				delete o.equipEffect.setCriticalMultiplier; 
+			}
+			delete o.equipEffect.hasCritical; 
+		}
+		if (_.isObject(o.category)) { o.category = o.category.id; }
+		if (!o.hasUseEffect) { delete o.useEffect; }
+		if (!o.hasHitEffect) { delete o.hitEffect; }
+		if (!o.hasKillEffect) { delete o.killEffect; }
+		delete o.hasEquipEffect;
+		delete o.hasUseEffect;
+		delete o.hasHitEffect;
+		delete o.hasKillEffect;
 	};
 	unprep.droplist = function(o) {
 	};
 	unprep.dialogue = function(o) {
 	};
 	unprep.monster = function(o) {
+		if (!o.hasCritical) { 
+			delete o.criticalSkill; 
+			delete o.criticalMultiplier; 
+		}
+		delete o.hasCritical; 
 		delete o.hasConversation;
 		delete o.hasCombatTraits;
 		delete o.hasHitEffect;

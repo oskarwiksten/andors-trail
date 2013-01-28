@@ -1,5 +1,44 @@
-<div>
-<p>id: {{obj.id}}</p>
-<input type="text" ng-model="obj.id"><br />
-<input type="text" ng-model="obj.name"><br />
-</div>
+<h3>Item Category</h3>
+<fieldset class="fieldSet">
+	<legend>General</legend>
+	<div class="fieldWithLabel">
+		<label for="id" class="label">Internal id:</label>
+		<input class="field" type="text" size="30" id="id" ng-model="obj.id" class="fieldInput"/>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="name" class="label">Display name:</label>
+		<input class="field" type="text" size="30" id="name" ng-model="obj.name" class="fieldInput"/>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="actionType" class="label">Action type:</label>
+		<select class="field" id="actionType" ng-model="obj.actionType">
+			<option value="0">Non-usable</option>
+			<option value="1">Usable</option>
+			<option value="2">Equippable</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.actionType == 2">
+		<label for="inventorySlot" class="label">Equippable inventory slot:</label>
+		<select class="field" id="inventorySlot" ng-model="obj.inventorySlot">
+			<option value="-1">None</option>
+			<option value="0">Weapon</option>
+			<option value="1">Shield</option>
+			<option value="2">Head</option>
+			<option value="3">Body</option>
+			<option value="4">Hand</option>
+			<option value="5">Feet</option>
+			<option value="6">Neck</option>
+			<option value="7">Ring</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="size" class="label">Size:</label>
+		<select class="field" id="size" ng-model="obj.size">
+			<option value="0">None</option>
+			<option value="1">Light</option>
+			<option value="2">Standard</option>
+			<option value="3">Large</option>
+		</select>
+	</div>
+</fieldset>
+<div class="endSets"> </div>

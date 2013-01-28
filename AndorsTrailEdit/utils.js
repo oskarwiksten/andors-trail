@@ -12,6 +12,19 @@ var ATEditor = (function(ATEditor, _) {
 			}
 		}
 	}
+		
+	function copyDefaults(o, defaults) {
+		var key;
+		for (key in defaults) {
+			var v = defaults[key];
+			if (!o[key]) {
+				o[key] = v;
+			} else if (_.isObject(v)) {
+				copyDefaults(o[key], v);
+			}
+		}
+	}
+	
 	function removeAngularFields(o) {
 		var key;
 		for (key in o) {
@@ -92,6 +105,7 @@ var ATEditor = (function(ATEditor, _) {
 	ATEditor.utils = {
 		deepClone: deepClone
 		,removeDefaults: removeDefaults
+		,copyDefaults: copyDefaults
 		,removeAngularFields: removeAngularFields
 		,compact: compact
 		,hasValues: hasValues
