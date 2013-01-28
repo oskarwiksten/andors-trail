@@ -106,7 +106,7 @@ public final class SkillController {
 		addSkillLevel(skill.id);
 	}
 
-	private void addSkillLevel(int skillID) {
+	public void addSkillLevel(int skillID) {
 		Player player = world.model.player;
 		player.skillLevels.put(skillID, player.skillLevels.get(skillID) + 1);
 		view.actorStatsController.recalculatePlayerStats(player);
