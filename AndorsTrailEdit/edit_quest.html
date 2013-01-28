@@ -1,5 +1,40 @@
-<div>
-<p>id: {{obj.id}}</p>
-<input type="text" ng-model="obj.id"><br />
-<input type="text" ng-model="obj.name"><br />
-</div>
+<h3>Quest</h3>
+<fieldset class="fieldSet">
+	<legend>General</legend>
+	<div class="fieldWithLabel">
+		<label for="id" class="label">Internal ID:</label>
+		<input type="text" size="30" id="id" class="field fieldInput" ng-model="obj.id" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="name" class="label">Display name:</label>
+		<input type="text" size="30" id="name" class="field fieldInput" ng-model="obj.name" />
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="showInLog" ng-model="obj.showInLog" ng-true-value="1" ng-false-value="0" />Show in quest log</div>
+	</div>
+</fieldset>
+<fieldset class="fieldSet">
+	<legend>Stages</legend>
+	<div class="fieldWithLabel">
+		<label for="stages" class="label">Stages shown in quest log</label>
+		<table class="field" id="stages">
+			<thead><tr>
+				<th id="progress">Progress</th>
+				<th id="logText">Logtext</th>
+				<th id="rewardExperience">Experience</th>
+				<th id="finishesQuest">Finishes quest</th>
+			</tr></thead>
+			<tbody>
+				<tr ng-repeat="stage in obj.stages">
+					<td><input type="text" size="3" ng-model="stage.progress" class="fieldInput integer" /></td>
+					<td><input type="text" ng-model="stage.logText" class="fieldInput" /></td>
+					<td><input type="text" size="7" ng-model="stage.rewardExperience" class="fieldInput integer" /></td>
+					<td><input type="checkbox" ng-model="stage.finishesQuest" ng-true-value="1" ng-false-value="0" /></td>
+					<td><a ng-click="removeQuestStage(stage)">X</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="addQuestStage()">Add</button>
+	</div>
+</fieldset>
+<div class="endSets"> </div>

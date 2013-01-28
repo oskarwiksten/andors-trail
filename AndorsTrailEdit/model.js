@@ -60,21 +60,21 @@ var ATEditor = (function(ATEditor, DataStore, FieldList, _) {
 		};
 		
 		_import(model.actorConditions, [
-			{id: "bless", name: "Bless", isPositive: true, iconID: "actorconditions_1:38", category: 0, hasAbilityEffect: 1, attackChance: 15, blockChance: 5}
-			,{id: "poison_weak", name: "Weak Poison", iconID: "actorconditions_1:60", category: 3, hasRoundEffect: 1, round_visualEffectID: 2, round_boostHP_Min: -1, round_boostHP_Max: -1}
+			{id: "bless", name: "Bless", isPositive: 1, iconID: "actorconditions_1:38", category: 0, abilityEffect: { increaseAttackChance: 15, increaseBlockChance: 5} }
+			,{id: "poison_weak", name: "Weak Poison", iconID: "actorconditions_1:60", category: 3, roundEffect: { visualEffectID: 2, increaseCurrentHP: { min: -1, max: -1} } }
 			]);
 
 		_import(model.quests, [
-			{id: "testQuest", name: "Test quest", stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] }
+			{id: "testQuest", name: "Test quest", showInLog: 1, stages: [ { progress: 10, logText: "Stage 10"} , { progress: 20, logText: "Stage 20", finishesQuest: 1 } ] }
 			]);
 
 		_import(model.items, [
-			{id: "item0", iconID: "items_weapons:0", name: "Longsword", category: 'lsword', baseMarketCost: 51, hasEquipEffect: 1, equip_attackChance: 10, equip_attackDamage_Min: 2, equip_attackDamage_Max: 4, equip_attackCost: 4}
-			,{id: "dmg_ring1", iconID: "items_jewelry:0", name: "Ring of damage +1", category: 'ring', baseMarketCost: 62, hasEquipEffect: 1, equip_attackDamage_Min: 1, equip_attackDamage_Max: 1}
+			{id: "item0", iconID: "items_weapons:0", name: "Longsword", category: 'lsword', baseMarketCost: 51, equipEffect: { increaseAttackChance: 10, increaseAttackDamage: { min: 2, max: 4 }, increaseAttackCost: 4 } }
+			,{id: "dmg_ring1", iconID: "items_jewelry:0", name: "Ring of damage +1", category: 'ring', baseMarketCost: 62, equipEffect: { increaseAttackDamage: { min: 1, max: 1 } } }
 			]);
 
 		_import(model.droplists, [
-			{id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity_Min: 4, quantity_Max: 5, chance: 100 } , { itemID: 'item0', quantity_Min: 1, quantity_Max: 1, chance: 100 } ] }
+			{id: "merchant1", items: [ { itemID: 'dmg_ring1', quantity: { min: 4, max: 5 }, chance: 100 } , { itemID: 'item0', quantity: { min: 1, max: 1 }, chance: 100 } ] }
 			]);
 
 		_import(model.dialogue, [
@@ -91,6 +91,6 @@ var ATEditor = (function(ATEditor, DataStore, FieldList, _) {
 	}
 	addExampleModelItems(model);
 	
-	ATEditor.model = model;
+	ATEditor.model = ATEditor.model || model;
 	return ATEditor;	
 })(ATEditor, ATEditor.DataStore, ATEditor.FieldList, _);

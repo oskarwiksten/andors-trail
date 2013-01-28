@@ -47,6 +47,13 @@ var ATEditor = (function(ATEditor, model, importExport) {
 	controllers.QuestController = function($scope, $routeParams) {
 		$scope.datasource = model.quests;
 		$scope.obj = $scope.datasource.findById($routeParams.id);
+		$scope.addQuestStage = function() {
+			$scope.obj.stages.push({});
+		};
+		$scope.removeQuestStage = function(stage) {
+			var idx = $scope.obj.stages.indexOf(stage);
+			$scope.obj.stages.splice(idx, 1);
+		};
 	};
 	controllers.ItemController = function($scope, $routeParams) {
 		$scope.datasource = model.items;

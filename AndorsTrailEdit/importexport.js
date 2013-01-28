@@ -2,6 +2,10 @@ var ATEditor = (function(ATEditor, _) {
 
 	var prep = {};
 	prep.actorcondition = function(o) {
+		o.hasRoundEffect = ATEditor.utils.hasValues(_.omit(o.roundEffect, 'visualEffectID'));
+		o.hasFullRoundEffect = ATEditor.utils.hasValues(_.omit(o.fullRoundEffect, 'visualEffectID'));
+		o.abilityEffect.hasCritical = o.abilityEffect.increaseCriticalSkill || o.abilityEffect.setCriticalMultiplier;
+		o.hasAbilityEffect = ATEditor.utils.hasValues(o.abilityEffect);
 	};
 	prep.quest = function(o) {
 	};
@@ -24,11 +28,19 @@ var ATEditor = (function(ATEditor, _) {
 		_.each(objs, function(o) {
 			ATEditor.defaults.addDefaults(section.id, o);
 			if (p) { p(o); }
+			ATEditor.utils.convertIntegersToStrings(o);
 		});
 	}
 	
 	var unprep = {};
 	unprep.actorcondition = function(o) {
+		if (!o.hasRoundEffect) { delete o.roundEffect; }
+		if (!o.hasFullRoundEffect) { delete o.fullRoundEffect; }
+		if (!o.hasAbilityEffect) { delete o.abilityEffect; }
+		delete o.hasRoundEffect;
+		delete o.hasFullRoundEffect;
+		if (o.abilityEffect) { delete o.abilityEffect.hasCritical; }
+		delete o.hasAbilityEffect;
 	};
 	unprep.quest = function(o) {
 	};
@@ -49,8 +61,12 @@ var ATEditor = (function(ATEditor, _) {
 	function prepareObjectsForExport(section, objs) {
 		var p = unprep[section.id];
 		return _.map(objs, function(o) {
-			o = ATEditor.defaults.removeDefaults(section.id, o);
+			o = ATEditor.utils.deepClone(o);
+			ATEditor.utils.removeAngularFields(o);
 			if (p) { p(o); }
+			ATEditor.utils.convertStringsToIntegers(o);
+			ATEditor.defaults.removeDefaults(section.id, o);
+			ATEditor.utils.compact(o);
 			return o;
 		});
 	}
