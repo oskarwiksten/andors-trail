@@ -4,14 +4,14 @@ var ATEditor = (function(ATEditor, _) {
 	prep.actorcondition = function(o) {
 		o.hasRoundEffect = ATEditor.utils.hasValues(_.omit(o.roundEffect, 'visualEffectID'));
 		o.hasFullRoundEffect = ATEditor.utils.hasValues(_.omit(o.fullRoundEffect, 'visualEffectID'));
-		o.abilityEffect.hasCritical = o.abilityEffect.increaseCriticalSkill || o.abilityEffect.setCriticalMultiplier;
+		o.abilityEffect.hasCritical = _.toBool(o.abilityEffect.increaseCriticalSkill || o.abilityEffect.setCriticalMultiplier);
 		o.hasAbilityEffect = ATEditor.utils.hasValues(o.abilityEffect);
 	};
 	prep.quest = function(o) {
 	};
 	prep.item = function(o) {
 		o.hasEquipEffect = ATEditor.utils.hasValues(o.equipEffect);
-		o.equipEffect.hasCritical = o.equipEffect.increaseCriticalSkill || o.equipEffect.setCriticalMultiplier;
+		o.equipEffect.hasCritical = _.toBool(o.equipEffect.increaseCriticalSkill || o.equipEffect.setCriticalMultiplier);
 		o.hasUseEffect = ATEditor.utils.hasValues(o.useEffect);
 		o.hasHitEffect = ATEditor.utils.hasValues(o.hitEffect);
 		o.hasKillEffect = ATEditor.utils.hasValues(o.killEffect);
@@ -21,9 +21,10 @@ var ATEditor = (function(ATEditor, _) {
 	prep.dialogue = function(o) {
 	};
 	prep.monster = function(o) {
-		o.hasConversation = o.phraseID;
-		o.hasHitEffect = o.hitEffect.increaseCurrentHP.min || o.hitEffect.increaseCurrentAP.min || _.some(o.hitEffect.conditionsSource) || _.some(o.hitEffect.conditionsTarget);
-		o.hasCombatTraits = o.attackChance || o.attackDamage.min || o.criticalSkill || o.criticalMultiplier || o.blockChance || o.damageResistance || o.hasHitEffect;
+		o.hasConversation = _.toBool(o.phraseID);
+		o.hasHitEffect = _.toBool(o.hitEffect.increaseCurrentHP.min || o.hitEffect.increaseCurrentAP.min || _.some(o.hitEffect.conditionsSource) || _.some(o.hitEffect.conditionsTarget));
+		o.hasCritical = _.toBool(o.criticalSkill || o.criticalMultiplier);
+		o.hasCombatTraits = _.toBool(o.attackChance || o.attackDamage.min || o.hasCritical || o.blockChance || o.damageResistance || o.hasHitEffect);
 	};
 	prep.itemcategory = function(o) {
 	};
@@ -105,7 +106,7 @@ var ATEditor = (function(ATEditor, _) {
 	
 	function importDataObjects(section, data, success, error) {
 		if (!data || _.isEmpty(data)) {
-			error("No data?");
+			if (error) { error("No data?"); }
 			return;
 		}
 		
@@ -115,22 +116,22 @@ var ATEditor = (function(ATEditor, _) {
 		} else if (_.isObject(data)) {
 			data = [ data ];
 		} else {
-			error("Malformed data? Expected array or object.");
+			if (error) { error("Malformed data? Expected array or object."); }
 			return;
 		}
 		
 		if (!section.getId(first)) {
-			error("Malformed data? Expected to find at least an id field, but no such field was found.");
+			if (error) { error("Malformed data? Expected to find at least an id field, but no such field was found."); }
 			return;
 		}
 		
 		prepareObjectsForEditor(section, data);
 		
 		_.each(data, section.add);
-		success();
+		if (success) { success(); }
 	};
 	
-	function importData(section, content, success, error) {
+	function importText(section, content, success, error) {
 		var data = ATEditor.legacy.deserialize(content);
 		if (data) {
 			data = data.items;
@@ -142,7 +143,7 @@ var ATEditor = (function(ATEditor, _) {
 			try {
 				data = JSON.parse(content);
 			} catch(e) {
-				error("Unable to parse data as JSON.");
+				if (error) { error("Unable to parse data as JSON."); }
 				return;
 			}
 		}
@@ -156,7 +157,7 @@ var ATEditor = (function(ATEditor, _) {
 	};
 	
 	ATEditor.importExport = {
-		importData: importData
+		importText: importText
 		,importDataObjects: importDataObjects
 		,exportData: exportData
 	};

@@ -17,7 +17,7 @@ var ATEditor = (function(ATEditor, _) {
 		var key;
 		for (key in defaults) {
 			var v = defaults[key];
-			if (!o[key]) {
+			if ((!o[key]) && (o[key] !== 0)) {
 				o[key] = v;
 			} else if (_.isObject(v)) {
 				copyDefaults(o[key], v);
@@ -101,6 +101,10 @@ var ATEditor = (function(ATEditor, _) {
 			}
 		}
 	}
+	
+	_.toBool = function(b) {
+		return b ? true : false;
+	};
 	
 	ATEditor.utils = {
 		deepClone: deepClone

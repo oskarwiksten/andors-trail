@@ -1,8 +1,8 @@
-var ATEditor = (function(ATEditor, model, importExport) {
+var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 
 	var controllers = {};
 	
-	controllers.NavigationController = function($scope, $routeParams) {
+	controllers.NavigationController = function($scope, $routeParams, $http) {
 		$scope.sections = model.sections;
 		$scope.previousItems = [];
 		
@@ -38,6 +38,7 @@ var ATEditor = (function(ATEditor, model, importExport) {
 			$scope.editObj(section, item);
 		};
 		
+		exampleData.init($http);
 	};
 
 	controllers.ActorConditionController = function($scope, $routeParams) {
@@ -233,8 +234,6 @@ var ATEditor = (function(ATEditor, model, importExport) {
 		$scope.obj = $scope.datasource.findById($routeParams.id);
 	};
 	
-	String.prototype.trim = String.prototype.trim || (function(){return this.replace(/^\s+|\s+$/g, '');});
-	
 	controllers.ImportController = function($scope) {
 		$scope.sections = model.sections;
 		$scope.content = "";
@@ -253,7 +252,7 @@ var ATEditor = (function(ATEditor, model, importExport) {
 			function error(msg) {
 				$scope.errorMsg = "Error importing data: " + msg;
 			}
-			importExport.importData(section, $scope.content, success, error);
+			importExport.importText(section, $scope.content, success, error);
 		};
 	};
 	controllers.ExportController = function($scope) {
@@ -267,4 +266,4 @@ var ATEditor = (function(ATEditor, model, importExport) {
 	
 	ATEditor.controllers = controllers;
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATEditor.importExport);
+})(ATEditor, ATEditor.model, ATEditor.importExport, ATEditor.exampleData);
