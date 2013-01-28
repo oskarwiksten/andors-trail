@@ -1,5 +1,5 @@
 
-var FieldList = (function() {
+var ATEditor = (function(ATEditor) {
 	var FieldList_Header_fieldName = '[^\\[\\]\\|]*';
 	var FieldList_Header_arrayField = FieldList_Header_fieldName + '\\[(' + FieldList_Header_fieldName + '\\|)*\\]';
 	var FieldList_Header_arrayFieldName = new RegExp(FieldList_Header_fieldName);
@@ -53,7 +53,7 @@ var FieldList = (function() {
 		this.getHeaderLine = function() {
 			return this.getHeader() + ";";
 		}
-	}
+	};
 
 	function findHeader(str) {
 		var match = str.match(FieldList_Header_linePattern);
@@ -93,6 +93,7 @@ var FieldList = (function() {
 		}
 		dataStore.legacyFieldList = header;
 		dataStore.items = deserializeObjectList(header, str);
+		return dataStore.items;
 	}
 	var serialize = function(dataStore) {
 		return serializeObjectList(dataStore.fieldList, dataStore.items);
@@ -193,9 +194,12 @@ var FieldList = (function() {
 		return result;
 	}
 
-	return {
-		FieldList: FieldList
-		,deserialize: deserialize
-		,serialize: serialize
-	};
-})();
+	ATEditor.FieldList = FieldList;
+	
+	ATEditor.legacy = ATEditor.legacy || {};
+	ATEditor.legacy.deserialize = deserialize;
+	ATEditor.legacy.serialize = serialize;
+	ATEditor.legacy.findHeader = findHeader;
+	
+	return ATEditor;
+})(ATEditor || {});

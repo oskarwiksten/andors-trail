@@ -1,0 +1,10 @@
+<div id="dialog-export">
+	<div id="description" class="importexport-description">This data corresponds to the files named res/values/content_*.xml in the source code.</div>
+	Export
+	<select ng-model="selectedSection" ng-options="s.name for s in sections">
+	</select>
+	
+	<button ng-click="exportData()">Export</button>
+	
+	<div ng-ds-fade="content"><textarea id="value" rows="9" cols="80" ng-model="content"></textarea></div>
+</div>

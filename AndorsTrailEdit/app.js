@@ -1,5 +1,5 @@
-var app = (function(controllers) {
-	return angular
+var ATEditor = (function(ATEditor, controllers) {
+	ATEditor.app = angular
 		.module('ateditor', [])
 		.config(['$routeProvider', function($routeProvider) {
 			$routeProvider
@@ -9,6 +9,9 @@ var app = (function(controllers) {
 				.when('/droplist/edit/:id', {templateUrl: 'edit_droplist.html', controller: controllers.DropListController})
 				.when('/dialogue/edit/:id', {templateUrl: 'edit_dialogue.html', controller: controllers.DialogueController})
 				.when('/monster/edit/:id', {templateUrl: 'edit_monster.html', controller: controllers.MonsterController})
-				.when('/itemcategory/edit/:id', {templateUrl: 'edit_itemcategory.html', controller: controllers.ItemCategoryController});
+				.when('/itemcategory/edit/:id', {templateUrl: 'edit_itemcategory.html', controller: controllers.ItemCategoryController})
+				.when('/import', {templateUrl: 'import.html', controller: controllers.ImportController})
+				.when('/export', {templateUrl: 'export.html', controller: controllers.ExportController});
 		}]);
-})(controllers);
+	return ATEditor;
+})(ATEditor, ATEditor.controllers);

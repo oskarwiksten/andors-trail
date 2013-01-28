@@ -18,19 +18,19 @@
 		</span>
 	</div>
 	<div id="buttons">
-		<div id="import">Import</div>
-		<div id="export">Export</div>
+		<a href="#import">Import</a>
+		<a href="#export">Export</a>
 	</div>
 </div>
 
 <div id="left" class="workarea">
-	<div id="tools" ng-controller="controllers.NavigationController" ng-init="$('.collapse').collapse()">
-		<div class="accordion" id="accordion2">
+	<div id="tools" ng-controller="ATEditor.controllers.NavigationController" ng-init="$('.collapse').collapse()">
+		<div class="accordion" id="accordion-nav">
 			<div class="accordion-group" ng-show="previousItems.length > 0">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" href="#collapse-previous">Recently opened</a>
+					<a class="accordion-toggle" data-toggle="collapse" href="#collapse-nav-previous">Recently opened</a>
 				</div>
-				<div id="collapse-previous" class="accordion-body collapse">
+				<div id="collapse-nav-previous" class="accordion-body collapse">
 					<div class="accordion-inner">
 						<ul class="itemlist">
 							<li ng-repeat="p in previousItems" ng-click="editObj(p.section, p.obj)" fadey>
@@ -42,11 +42,11 @@
 			</div>
 			<div class="accordion-group" ng-repeat="section in sections">
 				<div class="accordion-heading">
-					<a class="accordion-toggle" data-toggle="collapse" ng-href="#collapse-{{section.objectTypename}}">
+					<a class="accordion-toggle" data-toggle="collapse" ng-href="#collapse-nav-{{section.id}}">
 						{{section.name}}
 					</a>
 				</div>
-				<div id="collapse-{{section.objectTypename}}" class="accordion-body collapse">
+				<div id="collapse-nav-{{section.id}}" class="accordion-body collapse">
 					<div class="accordion-inner">
 						<div class="tools-buttons">
 							<button ng-click="addObj(section)">Add</button>
@@ -827,12 +827,16 @@
 <script src="inc/underscore-min.js"></script>
 <script src="inc/angular.min.js"></script>
 <script src="inc/bootstrap/js/bootstrap.min.js"></script>
-<script src="FieldList.js"></script>
-<script src="DataStore.js"></script>
+<script src="utils.js"></script>
+<script src="fieldlist.js"></script>
+<script src="datastore.js"></script>
+<script src="defaults.js"></script>
+<script src="importexport.js"></script>
 <script src="model.js"></script>
 <script src="controllers.js"></script>
 <script src="app.js"></script>
 <script src="directives.js"></script>
+<script src="legacyimport.js"></script>
 
 </body>
 </html>

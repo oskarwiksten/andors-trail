@@ -1,6 +1,8 @@
-var controllers = (function(model) {
+var ATEditor = (function(ATEditor, model, importExport) {
 
-	function NavigationController($scope, $routeParams) {
+	var controllers = {};
+	
+	controllers.NavigationController = function($scope, $routeParams) {
 		$scope.sections = model.sections;
 		$scope.previousItems = [];
 		
@@ -12,7 +14,7 @@ var controllers = (function(model) {
 			if ($scope.previousItems.length > 5) {
 				$scope.previousItems.pop();
 			}
-			window.location = "#/" + section.objectTypename + "/edit/" + obj.id;
+			window.location = "#/" + section.id + "/edit/" + obj.id;
 		};
 		$scope.addObj = function(section) {
 			var item = section.addNew();
@@ -36,44 +38,33 @@ var controllers = (function(model) {
 			$scope.editObj(section, item);
 		};
 		
-	}
+	};
 
-	function ActorConditionController($scope, $routeParams) {
+	controllers.ActorConditionController = function($scope, $routeParams) {
 		$scope.datasource = model.actorConditions;
-		$scope.obj = model.actorConditions.findById($routeParams.id);
-	}
-	function QuestController($scope, $routeParams) {
+		$scope.obj = $scope.datasource.findById($routeParams.id);
+	};
+	controllers.QuestController = function($scope, $routeParams) {
 		$scope.datasource = model.quests;
-		$scope.obj = model.quests.findById($routeParams.id);
-	}
-	function ItemController($scope, $routeParams) {
+		$scope.obj = $scope.datasource.findById($routeParams.id);
+	};
+	controllers.ItemController = function($scope, $routeParams) {
 		$scope.datasource = model.items;
-		$scope.obj = model.items.findById($routeParams.id);
-	}
-	function DropListController($scope, $routeParams) {
+		$scope.obj = $scope.datasource.findById($routeParams.id);
+	};
+	controllers.DropListController = function($scope, $routeParams) {
 		$scope.datasource = model.droplists;
-		$scope.obj = model.droplists.findById($routeParams.id);
-	}
-	function DialogueController($scope, $routeParams) {
+		$scope.obj = $scope.datasource.findById($routeParams.id);
+	};
+	controllers.DialogueController = function($scope, $routeParams) {
 		$scope.datasource = model.dialogue;
-		$scope.obj = model.dialogue.findById($routeParams.id);
-	}
-	function MonsterController($scope, $routeParams) {
+		$scope.obj = $scope.datasource.findById($routeParams.id);
+	};
+	controllers.MonsterController = function($scope, $routeParams) {
 		$scope.datasource = model.monsters;
-		var m = model.monsters.findById($routeParams.id) || {};
-		m.attackDamage = m.attackDamage || {};
-		m.hasConversation = m.phraseID;
-		m.hasCombatTraits = m.attackChance || m.attackDamage.min || m.criticalSkill || m.criticalMultiplier || m.blockChance || m.damageResistance || m.hitEffect;
-		m.hasHitEffect = m.hitEffect;
-		m.hitEffect = m.hitEffect || { conditionsSource: [], conditionsTarget: [] };
+		var m = $scope.datasource.findById($routeParams.id) || {};
 		$scope.obj = m;
 		$scope.getExperience = function(obj) {
-			/*
-			final float avgAttackHP  = t.getAttacksPerTurn(maxAP) * div100(t.attackChance) * t.damagePotential.averagef() * (1 + div100(t.criticalChance) * t.criticalMultiplier);
-			final float avgDefenseHP = maxHP * (1 + div100(t.blockChance)) + Constants.EXP_FACTOR_DAMAGERESISTANCE * t.damageResistance;
-			return (int) Math.ceil((avgAttackHP * 3 + avgDefenseHP) * Constants.EXP_FACTOR_SCALING);
-			*/
-			
 			var EXP_FACTOR_DAMAGERESISTANCE = 9;
 			var EXP_FACTOR_SCALING = 0.7;
 			
@@ -81,10 +72,15 @@ var controllers = (function(model) {
 			var v = function(i) { return i ? i : 0; }
 			
 			var attacksPerTurn = Math.floor(v(obj.maxAP) / v(obj.attackCost));
-			var avgDamagePotential = (v(obj.attackDamage.min) + v(obj.attackDamage.max)) / 2;
+			var avgDamagePotential = 0;
+			if (obj.attackDamage) { avgDamagePotential = (v(obj.attackDamage.min) + v(obj.attackDamage.max)) / 2; }
 			var avgAttackHP  = attacksPerTurn * div100(v(obj.attackChance)) * avgDamagePotential * (1 + div100(v(obj.criticalSkill)) * v(obj.criticalMultiplier));
 			var avgDefenseHP = v(obj.maxHP) * (1 + div100(v(obj.blockChance))) + EXP_FACTOR_DAMAGERESISTANCE * v(obj.damageResistance);
-			var experience = (avgAttackHP * 3 + avgDefenseHP) * EXP_FACTOR_SCALING;
+			var attackConditionBonus = 0;
+			if (obj.hitEffect && obj.hitEffect.conditionsTarget && v(obj.hitEffect.conditionsTarget.length) > 0) {
+				attackConditionBonus = 50;
+			}
+			var experience = (avgAttackHP * 3 + avgDefenseHP) * EXP_FACTOR_SCALING + attackConditionBonus;
 			
 			return Math.ceil(experience);
 		};
@@ -92,6 +88,17 @@ var controllers = (function(model) {
 			$scope.experience = $scope.getExperience($scope.obj);
 		};
 		$scope.recalculateExperience();
+		$scope.$watch('obj.maxAP', $scope.recalculateExperience);
+		$scope.$watch('obj.attackCost', $scope.recalculateExperience);
+		$scope.$watch('obj.attackDamage.min', $scope.recalculateExperience);
+		$scope.$watch('obj.attackDamage.max', $scope.recalculateExperience);
+		$scope.$watch('obj.attackChance', $scope.recalculateExperience);
+		$scope.$watch('obj.criticalSkill', $scope.recalculateExperience);
+		$scope.$watch('obj.criticalMultiplier', $scope.recalculateExperience);
+		$scope.$watch('obj.maxHP', $scope.recalculateExperience);
+		$scope.$watch('obj.blockChance', $scope.recalculateExperience);
+		$scope.$watch('obj.damageResistance', $scope.recalculateExperience);
+		$scope.$watch('obj.hitEffect.conditionsTarget.length', $scope.recalculateExperience);
 		$scope.addCondition = function(list) {
 			list.push({magnitude:1, duration:1, chance:100});
 		};
@@ -99,20 +106,44 @@ var controllers = (function(model) {
 			var idx = list.indexOf(cond);
 			list.splice(idx, 1);
 		};
-	}
-	function ItemCategoryController($scope, $routeParams) {
-		$scope.datasource = model.itemCategories;
-		$scope.obj = model.itemCategories.findById($routeParams.id);
-	}
-	
-	return {
-		NavigationController: NavigationController
-		,ActorConditionController: ActorConditionController
-		,QuestController: QuestController
-		,ItemController: ItemController
-		,DropListController: DropListController
-		,DialogueController: DialogueController
-		,MonsterController: MonsterController
-		,ItemCategoryController: ItemCategoryController
 	};
-})(model);
+	controllers.ItemCategoryController = function($scope, $routeParams) {
+		$scope.datasource = model.itemCategories;
+		$scope.obj = $scope.datasource.findById($routeParams.id);
+	};
+	
+	String.prototype.trim = String.prototype.trim || (function(){return this.replace(/^\s+|\s+$/g, '');});
+	
+	controllers.ImportController = function($scope) {
+		$scope.sections = model.sections;
+		$scope.content = "";
+		$scope.selectedSection = $scope.selectedSection || model.items;
+		
+		$scope.importData = function() {
+			$scope.errorMsg = "";
+			$scope.importedMsg = "";
+			
+			var section = $scope.selectedSection;
+			var countBefore = section.items.length;
+			function success() {
+				var countAfter = section.items.length;
+				$scope.importedMsg = "Imported " + (countAfter - countBefore) + " " + section.name;
+			}
+			function error(msg) {
+				$scope.errorMsg = "Error importing data: " + msg;
+			}
+			importExport.importData(section, $scope.content, success, error);
+		};
+	};
+	controllers.ExportController = function($scope) {
+		$scope.sections = model.sections;
+		$scope.content = "";
+		$scope.selectedSection = $scope.selectedSection || model.items;
+		$scope.exportData = function() {
+			$scope.content = importExport.exportData($scope.selectedSection);
+		};
+	};
+	
+	ATEditor.controllers = controllers;
+	return ATEditor;
+})(ATEditor, ATEditor.model, ATEditor.importExport);

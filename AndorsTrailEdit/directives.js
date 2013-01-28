@@ -1,4 +1,4 @@
-(function(app, $) {
+var ATEditor = (function(ATEditor, app, $) {
 	
 	// Copied from http://jsfiddle.net/p69aT/
 	//  -> originally from https://groups.google.com/forum/?fromgroups=#!topic/angular/7XVOebG6z6E
@@ -52,4 +52,5 @@
 		};
 	});
 	
-})(app, jQuery);
+	return ATEditor;
+})(ATEditor, ATEditor.app, jQuery);

@@ -1,19 +1,19 @@
-
-var DataStore = (function(_) {
-	function DataStore(options) {
+var ATEditor = (function(ATEditor, _) {
+	
+	ATEditor.DataStore = function(options) {
 		var defaultOptions = {
 			nameField: 'name'
 			,idField: 'id'
 			,iconIDField: 'iconID'
 			,newItemTemplate: function() { return {}; }
 		};
-		options = _.extend(defaultOptions, options);
+		_.defaults(options, defaultOptions);
 
-		this.items = [];
+		var items = [];
+		this.items = items;
 
 		this.name = options.name;
-		this.objectTypename = options.objectTypename;
-		this.legacyFieldList = options.legacyFieldList;
+		this.id = options.id;
 		
 		this.findById = function(id) { 
 			return _.find(this.items, function(obj) { return obj[options.idField] === id; });
@@ -30,37 +30,49 @@ var DataStore = (function(_) {
 		this.addNew = function() {
 			var obj = options.newItemTemplate();
 			this.ensureUniqueId(obj);
-			this.items.push(obj);
+			items.push(obj);
 			return obj;
 		};
 		this.add = function(o) { 
-			this.items.push(o);
+			items.push(o);
 		};
 		this.clone = function(o) { 
-			var obj = _.extend({}, o);
+			var obj = ATEditor.utils.deepClone(o);
 			this.ensureUniqueId(obj);
-			this.items.push(obj);
+			items.push(obj);
 			return obj;
 		};
 		this.remove = function(o) { 
-			this.items = _.without(this.items, o);
+			items = _.without(items, o);
 		};
 		
-
 		this.findFirstFreeId = function(id) {
-			var i = 0;
-			var result = id;
+			if(!this.hasObjectWithId(id)) {
+				return id;
+			}
+			
+			var prefix;
+			var n = 1;
+			
+			var match = (/^(.*\D)(\d+)$/g).exec(id);
+			if (match) {
+				prefix = match[1];
+				n = parseInt(match[2]) + 1;
+			} else {
+				prefix = id + "_";
+			}
+			
+			var result = prefix + n;
 			while(this.hasObjectWithId(result)) {
-				i = i + 1;
-				result = id + i;
+				n = n + 1;
+				result = prefix + n;
 			}
 			return result;
 		};
 		this.ensureUniqueId = function(obj) {
 			obj[options.idField] = this.findFirstFreeId(obj[options.idField]);
 		};
-	}
+	};
 
-
-	return DataStore;
-})(_);
+	return ATEditor;
+})(ATEditor || {}, _);
