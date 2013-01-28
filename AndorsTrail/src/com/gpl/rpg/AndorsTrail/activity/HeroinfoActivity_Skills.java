@@ -67,7 +67,7 @@ public final class HeroinfoActivity_Skills extends Activity {
 	private void updateSkillList() {
 		TextView listskills_number_of_increases = (TextView) findViewById(R.id.heroinfo_listskills_number_of_increases);
         
-        int numberOfSkillIncreases = player.availableSkillIncreases;
+        int numberOfSkillIncreases = player.getAvailableSkillIncreases();
 		if (numberOfSkillIncreases > 0) {
 			if (numberOfSkillIncreases == 1) {
 				listskills_number_of_increases.setText(R.string.skill_number_of_increases_one);

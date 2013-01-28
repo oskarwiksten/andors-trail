@@ -5,63 +5,89 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.Constants;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForMonster;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
+import com.gpl.rpg.AndorsTrail.util.Range;
 
 public final class Monster extends Actor {
-	public final String monsterTypeID;
 	
-	public final int millisecondsPerMove;
 	public Coord movementDestination = null;
 	public long nextActionTime = 0;
-	public boolean forceAggressive = false;
 	public final CoordRect nextPosition;
 	
-	public final String phraseID;
-	public final int exp;
-	public final DropList dropList;
-	public final String faction;
+	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
-	public final int monsterClass;
 	
-	public Monster(MonsterType monsterType, Coord position) {
-		super(monsterType, false, monsterType.isImmuneToCriticalHits());
-		this.monsterTypeID = monsterType.id;
-		this.position.set(position);
-		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
-		this.nextPosition = new CoordRect(new Coord(), actorTraits.tileSize);
-		this.phraseID = monsterType.phraseID;
-		this.exp = monsterType.exp;
-		this.dropList = monsterType.dropList;
-		this.faction = monsterType.faction;
-		this.monsterClass = monsterType.monsterClass;
+	private final MonsterType monsterType;
+	
+	public Monster(MonsterType monsterType) {
+		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
+		this.monsterType = monsterType;
+		this.iconID = monsterType.iconID;
+		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
+		resetStatsToBaseTraits();
+		setMaxAP();
+		setMaxHP();
 	}
 
+	public void resetStatsToBaseTraits() {
+		this.name = monsterType.name;
+		this.ap.max = monsterType.maxAP;
+		this.health.max = monsterType.maxHP;
+		this.position.set(position);
+		this.moveCost = monsterType.moveCost;
+		this.attackCost = monsterType.attackCost;
+		this.attackChance = monsterType.attackChance;
+		this.criticalSkill = monsterType.criticalSkill;
+		this.criticalMultiplier = monsterType.criticalMultiplier;
+		if (monsterType.damagePotential != null) this.damagePotential.set(monsterType.damagePotential);
+		else this.damagePotential.set(0, 0);
+		this.blockChance = monsterType.blockChance;
+		this.damageResistance = monsterType.damageResistance;
+		this.onHitEffects = monsterType.onHitEffects;
+	}
+
+	public DropList getDropList() { return monsterType.dropList; }
+	public int getExp() { return monsterType.exp; }
+	public String getPhraseID() { return monsterType.phraseID; }
+	public String getMonsterTypeID() { return monsterType.id; }
+	public String getFaction() { return monsterType.faction; }
+	public int getMonsterClass() { return monsterType.monsterClass; }
+	
 	public void createLoot(Loot container, Player player) {
-		int exp = this.exp;
+		int exp = this.getExp();
 		exp += exp * player.getSkillLevel(SkillCollection.SKILL_MORE_EXP) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
 		container.exp += exp;
-		if (this.dropList == null) return;
-		this.dropList.createRandomLoot(container, player);
+		DropList dropList = getDropList();
+		if (dropList == null) return;
+		dropList.createRandomLoot(container, player);
 	}
 	public ItemContainer getShopItems(Player player) {
 		if (shopItems != null) return shopItems;
 		Loot loot = new Loot();
 		shopItems = loot.items;
-		this.dropList.createRandomLoot(loot, player);
+		getDropList().createRandomLoot(loot, player);
 		return shopItems;
 	}
 	public void resetShopItems() {
 		this.shopItems = null;
 	}
+	public boolean isAdjacentTo(Player p) {
+		return this.rectPosition.isAdjacentTo(p.position);
+	}
 	
 	public boolean isAgressive() {
-		return phraseID == null || forceAggressive;
+		return getPhraseID() == null || forceAggressive;
+	}
+
+	public void forceAggressive() {
+		forceAggressive = true;
 	}
 	
 	
@@ -74,22 +100,45 @@ public final class Monster extends Actor {
 		}
 		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
 		
-		if (fileversion < 25) return readFromParcel_pre_v0610(src, fileversion, monsterType);
+		if (fileversion < 25) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v25(src, fileversion, monsterType);
 		
 		return new Monster(src, world, fileversion, monsterType);
 	}
 
 	public Monster(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
-		super(src, world, fileversion, false, monsterType.isImmuneToCriticalHits(), monsterType);
-		this.monsterTypeID = monsterType.id;
-		this.millisecondsPerMove = Constants.MONSTER_MOVEMENT_TURN_DURATION_MS / monsterType.getMovesPerTurn();
-		this.nextPosition = new CoordRect(new Coord(), actorTraits.tileSize);
-		this.phraseID = monsterType.phraseID;
-		this.exp = monsterType.exp;
-		this.dropList = monsterType.dropList;
+		this(monsterType);
+		
+		boolean readCombatTraits = true;
+		if (fileversion >= 25) readCombatTraits = src.readBoolean();
+		if (readCombatTraits) {
+			this.attackCost = src.readInt();
+			this.attackChance = src.readInt();
+			this.criticalSkill = src.readInt();
+			if (fileversion <= 20) {
+				this.criticalMultiplier = src.readInt();
+			} else {
+				this.criticalMultiplier = src.readFloat();
+			}
+			this.damagePotential.set(new Range(src, fileversion));
+			this.blockChance = src.readInt();
+			this.damageResistance = src.readInt();
+		}
+		
+		this.ap.readFromParcel(src, fileversion);
+		this.health.readFromParcel(src, fileversion);
+		this.position.readFromParcel(src, fileversion);
+		if (fileversion > 16) {
+			final int numConditions = src.readInt();
+			for(int i = 0; i < numConditions; ++i) {
+				conditions.add(new ActorCondition(src, world, fileversion));
+			}
+		}
+		
+		if (fileversion >= 34) {
+			this.moveCost = src.readInt();
+		}
+
 		this.forceAggressive = src.readBoolean();
-		this.faction = monsterType.faction;
-		this.monsterClass = monsterType.monsterClass;
 		if (fileversion >= 31) {
 			if (src.readBoolean()) {
 				this.shopItems = new ItemContainer(src, world, fileversion);
@@ -97,20 +146,36 @@ public final class Monster extends Actor {
 		}
 	}
 
-	private static Monster readFromParcel_pre_v0610(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
-		Coord position = new Coord(src, fileversion);
-		Monster m = new Monster(monsterType, position);
-		m.ap.current = src.readInt();
-		m.health.current = src.readInt();
-		if (fileversion >= 12) {
-			m.forceAggressive = src.readBoolean();
-		}
-		return m;
-	}
-
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeUTF(monsterTypeID);
-		super.writeToParcel(dest, flags);
+		dest.writeUTF(getMonsterTypeID());
+		if (attackCost == monsterType.attackCost
+				&& attackChance == monsterType.attackChance
+				&& criticalSkill == monsterType.criticalSkill
+				&& criticalMultiplier == monsterType.criticalMultiplier
+				&& damagePotential.equals(monsterType.damagePotential)
+				&& blockChance == monsterType.blockChance
+				&& damageResistance == monsterType.damageResistance
+				) {
+			dest.writeBoolean(false);
+		} else {
+			dest.writeBoolean(true);
+			dest.writeInt(attackCost);
+			dest.writeInt(attackChance);
+			dest.writeInt(criticalSkill);
+			dest.writeFloat(criticalMultiplier);
+			damagePotential.writeToParcel(dest, flags);
+			dest.writeInt(blockChance);
+			dest.writeInt(damageResistance);
+		}
+		ap.writeToParcel(dest, flags);
+		health.writeToParcel(dest, flags);
+		position.writeToParcel(dest, flags);
+		dest.writeInt(conditions.size());
+		for (ActorCondition c : conditions) {
+			c.writeToParcel(dest, flags);
+		}
+		dest.writeInt(moveCost);
+		
 		dest.writeBoolean(forceAggressive);
 		if (shopItems != null) {
 			dest.writeBoolean(true);

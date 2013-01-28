@@ -132,7 +132,7 @@ public final class MainActivity extends Activity {
 				final Coord p = world.model.player.nextPosition;
 				Monster m = world.model.currentMap.getMonsterAt(p);
 				if (m == null) return; //Shouldn't happen.
-				m.forceAggressive = true;
+				m.forceAggressive();
 				view.combatController.setCombatSelection(m, p);
 				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 			} else if (resultCode == ConversationActivity.ACTIVITYRESULT_REMOVE) {
@@ -163,7 +163,7 @@ public final class MainActivity extends Activity {
     
 	private boolean save(int slot) {
     	final Player player = world.model.player;
-    	return Savegames.saveWorld(world, this, slot, getString(R.string.savegame_currenthero_displayinfo, player.level, player.totalExperience, player.inventory.gold));
+    	return Savegames.saveWorld(world, this, slot, getString(R.string.savegame_currenthero_displayinfo, player.getLevel(), player.getTotalExperience(), player.getGold()));
 	}
     
 	@Override

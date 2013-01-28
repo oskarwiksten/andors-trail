@@ -91,7 +91,7 @@ public final class LevelUpActivity extends Activity {
     	}
     	
     	world.tileManager.setImageViewTile(levelup_title, player);
-        levelup_description.setText(res.getString(R.string.levelup_description, player.level+1));
+        levelup_description.setText(res.getString(R.string.levelup_description, player.getLevel() + 1));
         if (player.nextLevelAddsNewSkillpoint()) {
         	levelup_adds_new_skillpoint.setVisibility(View.VISIBLE);
         } else {
@@ -118,14 +118,14 @@ public final class LevelUpActivity extends Activity {
     		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
     		break;
     	case SELECT_ATK_CH:
-    		player.actorTraits.baseCombatTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
+    		player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
     		break;
     	case SELECT_ATK_DMG:
-    		player.actorTraits.baseCombatTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		player.actorTraits.baseCombatTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
+    		player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
+    		player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
     		break;
     	case SELECT_DEF_CH:
-    		player.actorTraits.baseCombatTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
+    		player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
     		break;
     	}
     	if (player.nextLevelAddsNewSkillpoint()) {
@@ -135,10 +135,9 @@ public final class LevelUpActivity extends Activity {
     	
     	hpIncrease += player.getSkillLevel(SkillCollection.SKILL_FORTITUDE) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
 		player.health.max += hpIncrease;
-		player.actorTraits.maxHP += hpIncrease;
+		player.baseTraits.maxHP += hpIncrease;
 		player.health.current += hpIncrease;
     	
-    	player.recalculateLevelExperience();
-    	ActorStatsController.recalculatePlayerCombatTraits(player);
+    	ActorStatsController.recalculatePlayerStats(player);
     }
 }

@@ -38,7 +38,7 @@ public final class MonsterMovementController {
     	for (MonsterSpawnArea a : model.currentMap.spawnAreas) {
 	    	for (Monster m : a.monsters) {
 	    		if (!m.isAgressive()) continue;
-	    		if (!m.rectPosition.isAdjacentTo(model.player.position)) continue;
+	    		if (!m.isAdjacentTo(model.player)) continue;
 	    		
 	    		int aggressionChanceBias = model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
 	    		if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
@@ -50,7 +50,7 @@ public final class MonsterMovementController {
     }
     
 	private boolean moveMonster(final Monster m, final MonsterSpawnArea area, long currentTime) {
-    	m.nextActionTime += m.millisecondsPerMove;
+    	m.nextActionTime += getMillisecondsPerMove(m);
     	if (m.movementDestination == null) {
     		// Monster has waited and should start to move again.
     		m.movementDestination = new Coord(m.position);
@@ -89,7 +89,11 @@ public final class MonsterMovementController {
     
     private void cancelCurrentMonsterMovement(final Monster m) {
     	m.movementDestination = null;
-		m.nextActionTime += m.millisecondsPerMove * Constants.rollValue(Constants.monsterWaitTurns);
+		m.nextActionTime += getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns);
+    }
+    
+    private static int getMillisecondsPerMove(Monster m) {
+    	return Constants.MONSTER_MOVEMENT_TURN_DURATION_MS * m.getMoveCost() / m.getMaxAP();
     }
 
 	private static int sgn(int i) {

@@ -6,7 +6,6 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
@@ -164,14 +163,19 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
 	private void updateTraits() {
         heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.inventory.gold));
-        CombatTraits c = player.combatTraits;
         
         StringBuilder sb = new StringBuilder();
-        ItemController.describeAttackEffect(c.attackChance, c.damagePotential.current, c.damagePotential.max, c.criticalSkill, c.criticalMultiplier, sb);
+        ItemController.describeAttackEffect(
+        		player.getAttackChance(), 
+        		player.getDamagePotential().current, 
+        		player.getDamagePotential().max, 
+        		player.getCriticalSkill(), 
+        		player.getCriticalMultiplier(), 
+        		sb);
         heroinfo_stats_attack.setText(sb.toString());
         
         sb = new StringBuilder();
-        ItemController.describeBlockEffect(c.blockChance, c.damageResistance, sb);
+        ItemController.describeBlockEffect(player.getBlockChance(), player.getDamageResistance(), sb);
         heroinfo_stats_defense.setText(sb.toString());
     }
 
@@ -281,12 +285,10 @@ public final class HeroinfoActivity_Inventory extends Activity {
     	boolean enabled = true;
     	
     	if (world.model.uiSelections.isInCombat) {
-    		int ap = world.model.player.reequipCost;
+    		int ap = world.model.player.getReequipCost();
     		text = getResources().getString(R.string.iteminfo_action_unequip_ap, ap);
     		if (ap > 0) {
-    			if (world.model.player.ap.current < ap) {
-        			enabled = false;
-        		}
+    			enabled = world.model.player.hasAPs(ap);
     		}
     	} else {
     		text = getResources().getString(R.string.iteminfo_action_unequip);
@@ -304,7 +306,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
         final boolean isInCombat = world.model.uiSelections.isInCombat;
     	if (itemType.isEquippable()) {
     		if (isInCombat) {
-    			ap = world.model.player.reequipCost;
+    			ap = world.model.player.getReequipCost();
         		text = getResources().getString(R.string.iteminfo_action_equip_ap, ap);
         	} else {
         		text = getResources().getString(R.string.iteminfo_action_equip);
@@ -312,7 +314,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
     		action = ItemInfoActivity.ITEMACTION_EQUIP;
         } else if (itemType.isUsable()) {
         	if (isInCombat) {
-        		ap = world.model.player.useItemCost;
+        		ap = world.model.player.getUseItemCost();
         		text = getResources().getString(R.string.iteminfo_action_use_ap, ap);
         	} else {
         		text = getResources().getString(R.string.iteminfo_action_use);
@@ -320,9 +322,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
     		action = ItemInfoActivity.ITEMACTION_USE;
         }
     	if (isInCombat && ap > 0) {
-    		if (world.model.player.ap.current < ap) {
-    			enabled = false;
-    		}
+    		enabled = world.model.player.hasAPs(ap);
     	}
     	
     	Dialogs.showItemInfo(HeroinfoActivity_Inventory.this, itemType.id, action, text, enabled, -1);

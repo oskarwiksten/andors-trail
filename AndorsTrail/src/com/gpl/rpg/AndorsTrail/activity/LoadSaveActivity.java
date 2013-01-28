@@ -109,7 +109,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 			return null;
 		}
 		
-		final String currentPlayerName = model.player.actorTraits.name;
+		final String currentPlayerName = model.player.getName();
 		final FileHeader header = Savegames.quickload(this, slot);
 		if (header == null) return null;
 

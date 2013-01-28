@@ -37,7 +37,7 @@ public final class MonsterEncounterActivity extends Activity {
         CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(world, monster));
 
         TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
-        tv.setText(monster.actorTraits.name);
+        tv.setText(monster.getName());
         world.tileManager.setImageViewTile(tv, monster);
         
         tv = (TextView) findViewById(R.id.monsterencounter_description);

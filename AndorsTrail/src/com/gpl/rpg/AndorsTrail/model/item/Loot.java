@@ -5,6 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContainer;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class Loot {
@@ -51,7 +52,7 @@ public final class Loot {
 		this.exp = src.readInt();
 		this.gold = src.readInt();
 		this.items = new ItemContainer(src, world, fileversion);
-		if (fileversion < 23) this.gold += ItemContainer.SavegameUpdate.refundUpgradedItems(this.items);
+		if (fileversion < 23) LegacySavegameFormatReaderForItemContainer.refundUpgradedItems(this);
 		
 		this.position = new Coord(src, fileversion);
 		if (fileversion <= 15) {

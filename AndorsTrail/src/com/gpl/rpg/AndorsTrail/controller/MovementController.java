@@ -233,7 +233,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     }
 
 	public static void respawnPlayer(final Resources res, final WorldContext world) {
-		placePlayerAt(res, world, MapObject.MAPEVENT_REST, world.model.player.spawnMap, world.model.player.spawnPlace, 0, 0);
+		placePlayerAt(res, world, MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 	}
 
 	public static void moveBlockedActors(final WorldContext world) {
@@ -257,7 +257,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			for (MonsterSpawnArea a : map.spawnAreas) {
 				for (Monster m : a.monsters) {
 					if (!map.isWalkable(m.rectPosition)) {
-						Coord p = map.getRandomFreePosition(a.area, m.actorTraits.tileSize, playerPosition);
+						Coord p = map.getRandomFreePosition(a.area, m.tileSize, playerPosition);
 						if (p == null) continue;
 						m.position.set(p);
 					}
@@ -304,20 +304,21 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public static void refreshMonsterAggressiveness(final PredefinedMap map, final Player player) {
 		for(MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (m.faction == null) continue;
-				if (player.getAlignment(m.faction) < 0) m.forceAggressive = true;
+				String faction = m.getFaction();
+				if (faction == null) continue;
+				if (player.getAlignment(faction) < 0) m.forceAggressive();
 			}
 		}
 	}
 	
-	public static boolean hasAdjacentAggressiveMonster(PredefinedMap map, Coord position) {
-		return getAdjacentAggressiveMonster(map, position) != null;
+	public static boolean hasAdjacentAggressiveMonster(PredefinedMap map, Player player) {
+		return getAdjacentAggressiveMonster(map, player) != null;
 	}
-	public static Monster getAdjacentAggressiveMonster(PredefinedMap map, Coord position) {
+	public static Monster getAdjacentAggressiveMonster(PredefinedMap map, Player player) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
 				if (!m.isAgressive()) continue;
-				if (m.rectPosition.isAdjacentTo(position)) return m;
+				if (m.isAdjacentTo(player)) return m;
 			}
 		}
 		return null;

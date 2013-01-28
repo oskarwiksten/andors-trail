@@ -10,8 +10,6 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.view.ActorConditionList;
-import com.gpl.rpg.AndorsTrail.view.BaseTraitsInfoView;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
@@ -21,7 +19,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 public final class HeroinfoActivity_Stats extends Activity {
@@ -31,16 +31,19 @@ public final class HeroinfoActivity_Stats extends Activity {
 	
 	private Button levelUpButton;
     private TextView heroinfo_ap;
-    private TextView heroinfo_movecost;
-    private TraitsInfoView heroinfo_currenttraits;
-    private ItemEffectsView heroinfo_itemeffects;
-    private TextView heroinfo_currentconditions_title;
-    private ActorConditionList heroinfo_currentconditions;
+    private TextView heroinfo_reequip_cost;
+    private TextView heroinfo_useitem_cost;
     private TextView heroinfo_level;
     private TextView heroinfo_totalexperience;
+    private TextView basetraitsinfo_max_hp;
+    private TextView basetraitsinfo_max_ap;
+    private TextView heroinfo_base_reequip_cost;
+    private TextView heroinfo_base_useitem_cost;
     private RangeBar rangebar_hp;
     private RangeBar rangebar_exp;
-    private BaseTraitsInfoView heroinfo_basetraits;
+    private ItemEffectsView actorinfo_onhiteffects;
+    private TableLayout heroinfo_basestats_table;
+    private ViewGroup heroinfo_container;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,17 +56,22 @@ public final class HeroinfoActivity_Stats extends Activity {
         setContentView(R.layout.heroinfo_stats);
         
         TextView tv = (TextView) findViewById(R.id.heroinfo_title);
-        tv.setText(player.actorTraits.name);
+        tv.setText(player.getName());
         world.tileManager.setImageViewTile(tv, player);
+        
+        heroinfo_container = (ViewGroup) findViewById(R.id.heroinfo_container);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
-        heroinfo_movecost = (TextView) findViewById(R.id.heroinfo_movecost);
-        heroinfo_currenttraits = (TraitsInfoView) findViewById(R.id.heroinfo_currenttraits);
-        heroinfo_itemeffects = (ItemEffectsView) findViewById(R.id.heroinfo_itemeffects);
-        heroinfo_currentconditions_title = (TextView) findViewById(R.id.heroinfo_currentconditions_title);
-        heroinfo_currentconditions = (ActorConditionList) findViewById(R.id.heroinfo_currentconditions);
+        heroinfo_reequip_cost = (TextView) findViewById(R.id.heroinfo_reequip_cost);
+        heroinfo_useitem_cost = (TextView) findViewById(R.id.heroinfo_useitem_cost);
+        basetraitsinfo_max_hp = (TextView) findViewById(R.id.basetraitsinfo_max_hp);
+        basetraitsinfo_max_ap = (TextView) findViewById(R.id.basetraitsinfo_max_ap);
+        heroinfo_base_reequip_cost = (TextView) findViewById(R.id.heroinfo_base_reequip_cost);
+        heroinfo_base_useitem_cost = (TextView) findViewById(R.id.heroinfo_base_useitem_cost);
         heroinfo_level = (TextView) findViewById(R.id.heroinfo_level);
         heroinfo_totalexperience = (TextView) findViewById(R.id.heroinfo_totalexperience);
-                
+		actorinfo_onhiteffects = (ItemEffectsView) findViewById(R.id.actorinfo_onhiteffects);
+		heroinfo_basestats_table = (TableLayout) findViewById(R.id.heroinfo_basestats_table);
+
         rangebar_hp = (RangeBar) findViewById(R.id.heroinfo_healthbar);
         rangebar_hp.init(R.drawable.ui_progress_health, R.string.status_hp);
         rangebar_exp = (RangeBar) findViewById(R.id.heroinfo_expbar);
@@ -81,8 +89,6 @@ public final class HeroinfoActivity_Stats extends Activity {
 				levelUpButton.setEnabled(false);
 			}
 		});
-        
-        heroinfo_basetraits = (BaseTraitsInfoView) findViewById(R.id.heroinfo_basetraits);
     }
 
     @Override
@@ -90,7 +96,6 @@ public final class HeroinfoActivity_Stats extends Activity {
     	super.onResume();
     	updateTraits();
         updateLevelup();
-        updateConditions();
     }
     
     @Override
@@ -105,17 +110,35 @@ public final class HeroinfoActivity_Stats extends Activity {
 	private void updateLevelup() {
 		levelUpButton.setEnabled(player.canLevelup());
     }
-
+    
 	private void updateTraits() {
-		heroinfo_level.setText(Integer.toString(player.level));
-		heroinfo_totalexperience.setText(Integer.toString(player.totalExperience));
+		heroinfo_level.setText(Integer.toString(player.getLevel()));
+		heroinfo_totalexperience.setText(Integer.toString(player.getTotalExperience()));
 		heroinfo_ap.setText(player.ap.toString());
-        heroinfo_movecost.setText(Integer.toString(player.actorTraits.moveCost));
+		heroinfo_reequip_cost.setText(Integer.toString(player.getReequipCost()));
+		heroinfo_useitem_cost.setText(Integer.toString(player.getUseItemCost()));
+		basetraitsinfo_max_hp.setText(Integer.toString(player.baseTraits.maxHP));
+		basetraitsinfo_max_ap.setText(Integer.toString(player.baseTraits.maxAP));
+		heroinfo_base_reequip_cost.setText(Integer.toString(player.baseTraits.reequipCost));
+		heroinfo_base_useitem_cost.setText(Integer.toString(player.baseTraits.useItemCost));
         rangebar_hp.update(player.health);
         rangebar_exp.update(player.levelExperience);
         
-        heroinfo_currenttraits.update(player);
-		ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
+        TraitsInfoView.update(heroinfo_container, player);
+        TraitsInfoView.updateTraitsTable(
+    		heroinfo_basestats_table
+    		, player.baseTraits.moveCost
+    		, player.baseTraits.attackCost
+    		, player.baseTraits.attackChance
+    		, player.baseTraits.damagePotential
+    		, player.baseTraits.criticalSkill
+    		, player.baseTraits.criticalMultiplier
+    		, player.baseTraits.blockChance
+    		, player.baseTraits.damageResistance
+			, false
+		);
+        
+        ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
 		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
 		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
 			ItemType type = player.inventory.wear[i];
@@ -125,18 +148,6 @@ public final class HeroinfoActivity_Stats extends Activity {
 		}
 		if (effects_hit.isEmpty()) effects_hit = null;
 		if (effects_kill.isEmpty()) effects_kill = null;
-		heroinfo_itemeffects.update(null, null, effects_hit, effects_kill, false);
-		heroinfo_basetraits.update(player.actorTraits);
+		actorinfo_onhiteffects.update(null, null, effects_hit, effects_kill, false);
     }
-
-	private void updateConditions() {
-		if (player.conditions.isEmpty()) {
-			heroinfo_currentconditions_title.setVisibility(View.GONE);
-			heroinfo_currentconditions.setVisibility(View.GONE);
-		} else {
-			heroinfo_currentconditions_title.setVisibility(View.VISIBLE);
-			heroinfo_currentconditions.setVisibility(View.VISIBLE);
-			heroinfo_currentconditions.update(player.conditions);
-		}
-	}
 }

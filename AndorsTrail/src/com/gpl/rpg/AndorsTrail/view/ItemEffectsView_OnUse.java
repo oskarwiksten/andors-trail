@@ -48,7 +48,7 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 				if (t.addedConditions_source != null) sourceEffects.addAll(Arrays.asList(t.addedConditions_source));
 				if (t.addedConditions_target != null) targetEffects.addAll(Arrays.asList(t.addedConditions_target));
 				
-				describeStatsModifierTraits(t, context, res, itemeffect_onuse_list);
+				describeStatsModifierTraits(t.changedStats, context, res, itemeffect_onuse_list);
 			}
 		}
 		itemeffect_onuse_conditions_source.update(sourceEffects);

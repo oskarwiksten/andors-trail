@@ -215,7 +215,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     		return;
     	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_SHOP)) {
     		assert(npc != null);
-    		assert(npc.dropList != null);
+    		assert(npc.getDropList() != null);
     		Intent intent = new Intent(this, ShopActivity.class);
     		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/shop"));
     		Dialogs.addMonsterIdentifiers(intent, npc);
@@ -343,14 +343,14 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	ConversationStatement s = new ConversationStatement();
     	if (displayActors) {
     		assert(actor != null);
-	    	s.iconID = actor.actorTraits.iconID;
-	    	s.actorName = actor.actorTraits.name;
+	    	s.iconID = actor.iconID;
+	    	s.actorName = actor.getName();
     	} else {
     		s.iconID = ConversationStatement.NO_ICON;
     	}
     	s.text = text;
     	s.color = color;
-    	s.isPlayerActor = actor != null ? actor.isPlayer : false;
+    	s.isPlayerActor = actor != null ? actor == player : false;
     	conversationHistory.add(s);
     	statementList.clearFocus();
 		listAdapter.notifyDataSetChanged();

@@ -4,11 +4,9 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.SkillController;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo.SkillLevelRequirement;
-import com.gpl.rpg.AndorsTrail.model.actor.ActorTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 import android.app.Activity;
@@ -194,9 +192,9 @@ public final class SkillInfoActivity extends Activity {
 	
 	private static int getRequirementActorStatsResourceID(int statID) {
 		switch (statID) {
-		case ActorTraits.STAT_ACTOR_MAX_HP: return R.string.actorinfo_health;
-		case ActorTraits.STAT_ACTOR_MAX_AP: return R.string.heroinfo_actionpoints;
-		case ActorTraits.STAT_ACTOR_MOVECOST: return R.string.actorinfo_movecost;
+		case Player.STAT_ACTOR_MAX_HP: return R.string.actorinfo_health;
+		case Player.STAT_ACTOR_MAX_AP: return R.string.heroinfo_actionpoints;
+		case Player.STAT_ACTOR_MOVECOST: return R.string.actorinfo_movecost;
 		default:
 			return -1;
 		}
@@ -204,14 +202,14 @@ public final class SkillInfoActivity extends Activity {
 	
 	private static int getRequirementCombatStatsResourceID(int statID) {
 		switch (statID) {
-		case CombatTraits.STAT_COMBAT_ATTACK_COST: return R.string.traitsinfo_attack_cost;
-		case CombatTraits.STAT_COMBAT_ATTACK_CHANCE: return R.string.traitsinfo_attack_chance;
-		case CombatTraits.STAT_COMBAT_CRITICAL_SKILL: return R.string.traitsinfo_criticalhit_skill;
-		case CombatTraits.STAT_COMBAT_CRITICAL_MULTIPLIER: return R.string.traitsinfo_criticalhit_multiplier;
-		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return R.string.traitsinfo_attack_damage;
-		case CombatTraits.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return R.string.traitsinfo_attack_damage;
-		case CombatTraits.STAT_COMBAT_BLOCK_CHANCE: return R.string.traitsinfo_defense_chance;
-		case CombatTraits.STAT_COMBAT_DAMAGE_RESISTANCE: return R.string.traitsinfo_defense_damageresist;
+		case Player.STAT_COMBAT_ATTACK_COST: return R.string.traitsinfo_attack_cost;
+		case Player.STAT_COMBAT_ATTACK_CHANCE: return R.string.traitsinfo_attack_chance;
+		case Player.STAT_COMBAT_CRITICAL_SKILL: return R.string.traitsinfo_criticalhit_skill;
+		case Player.STAT_COMBAT_CRITICAL_MULTIPLIER: return R.string.traitsinfo_criticalhit_multiplier;
+		case Player.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return R.string.traitsinfo_attack_damage;
+		case Player.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return R.string.traitsinfo_attack_damage;
+		case Player.STAT_COMBAT_BLOCK_CHANCE: return R.string.traitsinfo_defense_chance;
+		case Player.STAT_COMBAT_DAMAGE_RESISTANCE: return R.string.traitsinfo_defense_damageresist;
 		default:
 			return -1;
 		}

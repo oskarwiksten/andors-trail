@@ -190,7 +190,7 @@ public final class ShopActivity extends TabActivity implements OnContainerItemCl
 	}
 
 	private void updateGc() {
-		String gc = getResources().getString(R.string.shop_yourgold, player.inventory.gold);
+		String gc = getResources().getString(R.string.shop_yourgold, player.getGold());
 		shop_buy_gc.setText(gc);
 		shop_sell_gc.setText(gc);		
 	}

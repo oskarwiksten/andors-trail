@@ -36,6 +36,9 @@ public final class Coord {
 	// ====== PARCELABLE ===================================================================
 
 	public Coord(DataInputStream src, int fileversion) throws IOException {
+		this.readFromParcel(src, fileversion);
+	}
+	public void readFromParcel(DataInputStream src, int fileversion) throws IOException {
 		this.x = src.readInt();
 		this.y = src.readInt();
 	}

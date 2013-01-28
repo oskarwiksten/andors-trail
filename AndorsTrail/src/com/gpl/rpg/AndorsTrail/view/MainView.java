@@ -278,10 +278,10 @@ public final class MainView extends SurfaceView implements SurfaceHolder.Callbac
         	}
 		}
         
-		drawFromMapPosition(canvas, area, playerPosition, model.player.actorTraits.iconID);
+		drawFromMapPosition(canvas, area, playerPosition, model.player.iconID);
 		for (MonsterSpawnArea a : currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				drawFromMapPosition(canvas, area, m.rectPosition, m.actorTraits.iconID);
+				drawFromMapPosition(canvas, area, m.rectPosition, m.iconID);
 			}
 		}
 		

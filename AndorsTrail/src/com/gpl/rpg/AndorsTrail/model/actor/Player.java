@@ -14,38 +14,90 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
-import com.gpl.rpg.AndorsTrail.controller.ItemController;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForPlayer;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class Player extends Actor {
-	public static final int DEFAULT_PLAYER_MOVECOST = 6;
+	public static final int STAT_ACTOR_MAX_HP = 0;
+	public static final int STAT_ACTOR_MAX_AP = 1;
+	public static final int STAT_ACTOR_MOVECOST = 2;
+	public static final int STAT_COMBAT_ATTACK_COST = 0;
+	public static final int STAT_COMBAT_ATTACK_CHANCE = 1;
+	public static final int STAT_COMBAT_CRITICAL_SKILL = 2;
+	public static final int STAT_COMBAT_CRITICAL_MULTIPLIER = 3;
+	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MIN = 4;
+	public static final int STAT_COMBAT_DAMAGE_POTENTIAL_MAX = 5;
+	public static final int STAT_COMBAT_BLOCK_CHANCE = 6;
+	public static final int STAT_COMBAT_DAMAGE_RESISTANCE = 7;
+	
 	public static final int DEFAULT_PLAYER_ATTACKCOST = 4;
 	public final Coord lastPosition;
 	public final Coord nextPosition;
+	
+	// TODO: Should be privates
 	public int level;
-	public int totalExperience;
+	public final PlayerBaseTraits baseTraits = new PlayerBaseTraits();
 	public final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
 	public final Inventory inventory;
-	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
+	public int availableSkillIncreases = 0;
 	public int useItemCost;
 	public int reequipCost;
+	
+	private int totalExperience;
+	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	private final SparseIntArray skillLevels = new SparseIntArray();
-	public String spawnMap;
-	public String spawnPlace;
-	public int availableSkillIncreases = 0;
+	private String spawnMap;
+	private String spawnPlace;
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 	
+	// Unequipped stats
+	public class PlayerBaseTraits {
+		public int iconID;
+		public int maxAP;
+		public int maxHP;
+		public int moveCost;
+		public int attackCost;
+		public int attackChance;
+		public int criticalSkill;
+		public float criticalMultiplier;
+		public final Range damagePotential = new Range();
+		public int blockChance;
+		public int damageResistance;
+		public int useItemCost;
+		public int reequipCost;
+	}
+
+	public void resetStatsToBaseTraits() {
+		this.iconID = this.baseTraits.iconID;
+		this.ap.max = this.baseTraits.maxAP;
+		this.health.max = this.baseTraits.maxHP;
+		this.moveCost = this.baseTraits.moveCost;
+		this.attackCost = this.baseTraits.attackCost;
+		this.attackChance = this.baseTraits.attackChance;
+		this.criticalSkill = this.baseTraits.criticalSkill;
+		this.criticalMultiplier = this.baseTraits.criticalMultiplier;
+		this.damagePotential.set(this.baseTraits.damagePotential);
+		this.blockChance = this.baseTraits.blockChance;
+		this.damageResistance = this.baseTraits.damageResistance;
+		this.useItemCost = this.baseTraits.useItemCost;
+		this.reequipCost = this.baseTraits.reequipCost;
+	}
+	
 	public Player() {
-		super(new ActorTraits(TileManager.CHAR_HERO, new Size(1, 1), new CombatTraits(), DEFAULT_PLAYER_MOVECOST, null), true, false);
+		super(
+			new Size(1, 1)
+			, true // isPlayer
+			, false // isImmuneToCriticalHits
+		);
 		this.lastPosition = new Coord();
 		this.nextPosition = new Coord();
 		this.levelExperience = new Range();
@@ -53,45 +105,44 @@ public final class Player extends Actor {
 	}
 	
 	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
-		CombatTraits combat = new CombatTraits();
-		combat.attackCost = DEFAULT_PLAYER_ATTACKCOST;
-		combat.attackChance = 60;
-		combat.criticalSkill = 0;
-		combat.criticalMultiplier = 1;
-		combat.damagePotential.set(1, 1);
-		combat.blockChance = 0;
-		combat.damageResistance = 0;
-
-		actorTraits.baseCombatTraits.set(combat);
-		
-		actorTraits.maxAP = 10;
-		actorTraits.maxHP = 25;
-		
-		actorTraits.name = name;
-		actorTraits.moveCost = DEFAULT_PLAYER_MOVECOST;
-		useItemCost = 5;
-		reequipCost = 5;
-
-		level = 1;
-		totalExperience = 1;
-		availableSkillIncreases = 0;
-		skillLevels.clear();
-		alignments.clear();
-		recalculateLevelExperience();
+		baseTraits.iconID = TileManager.CHAR_HERO;
+		baseTraits.maxAP = 10;
+		baseTraits.maxHP = 25;
+		baseTraits.moveCost = 6;
+		baseTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
+		baseTraits.attackChance = 60;
+		baseTraits.criticalSkill = 0;
+		baseTraits.criticalMultiplier = 1;
+		baseTraits.damagePotential.set(1, 1);
+		baseTraits.blockChance = 0;
+		baseTraits.damageResistance = 0;
+		baseTraits.useItemCost = 5;
+		baseTraits.reequipCost = 5;
+		this.name = name;
+		this.level = 1;
+		this.totalExperience = 1;
+		this.inventory.clear();
+		this.questProgress.clear();
+		this.skillLevels.clear();
+		this.availableSkillIncreases = 0;
+		this.alignments.clear();
+		this.ap.set(baseTraits.maxAP, baseTraits.maxAP);
+		this.health.set(baseTraits.maxHP, baseTraits.maxHP);
+		this.conditions.clear();
 		
 		Loot startItems = new Loot();
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
 		inventory.add(startItems);
 		
 		if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
-			spawnMap = "debugmap";
-			spawnPlace = "start";
+			this.spawnMap = "debugmap";
+			this.spawnPlace = "start";
 		} else {
-			spawnMap = "home";
-			spawnPlace = "rest";
+			this.spawnMap = "home";
+			this.spawnPlace = "rest";
 		}
 		
-		ActorStatsController.recalculatePlayerCombatTraits(this);
+		ActorStatsController.recalculatePlayerStats(this);
 	}
 	
 	public boolean hasExactQuestProgress(QuestProgress progress) { return hasExactQuestProgress(progress.questID, progress.progress); }
@@ -144,18 +195,13 @@ public final class Player extends Actor {
 	}
 	public void addSkillLevel(int skillID) {
 		skillLevels.put(skillID, skillLevels.get(skillID) + 1);
-		ActorStatsController.recalculatePlayerCombatTraits(this);
+		ActorStatsController.recalculatePlayerStats(this);
 	}
 	public boolean nextLevelAddsNewSkillpoint() {
     	return thisLevelAddsNewSkillpoint(level + 1);
 	}
 	public static boolean thisLevelAddsNewSkillpoint(int level) {
     	return ((level - Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL) % Constants.NEW_SKILL_POINT_EVERY_N_LEVELS == 0);
-	}
-	public static int getExpectedNumberOfSkillpointsForLevel(int level) {
-		level -= Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL;
-		if (level < 0) return 0;
-		return 1 + (int) FloatMath.floor((float) level / Constants.NEW_SKILL_POINT_EVERY_N_LEVELS);
 	}
 	public boolean hasAvailableSkillpoints() {
 		return availableSkillIncreases > 0;
@@ -171,68 +217,108 @@ public final class Player extends Actor {
 		alignments.put(faction, newValue);
 	}
 
+	public void setSpawnPlace(String spawnMap, String spawnPlace) {
+		this.spawnPlace = spawnPlace;
+		this.spawnMap = spawnMap;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	
+	public int getReequipCost() { return reequipCost; }
+	public int getUseItemCost() { return useItemCost; }
+	public int getAvailableSkillIncreases() { return availableSkillIncreases; }
+	public int getLevel() { return level; }
+	public int getTotalExperience() { return totalExperience; }
+	public int getGold() { return inventory.gold; }
+	public String getSpawnMap() { return spawnMap; }
+	public String getSpawnPlace() { return spawnPlace; }
+	
+
+	public int getActorStats(int statID) {
+		switch (statID) {
+		case Player.STAT_ACTOR_MAX_HP: return baseTraits.maxHP;
+		case Player.STAT_ACTOR_MAX_AP: return baseTraits.maxAP;
+		case Player.STAT_ACTOR_MOVECOST: return baseTraits.moveCost;
+		}
+		return 0;
+	}
+	
+	public int getCombatStats(int statID) {
+		switch (statID) {
+		case Player.STAT_COMBAT_ATTACK_COST: return baseTraits.attackCost;
+		case Player.STAT_COMBAT_ATTACK_CHANCE: return baseTraits.attackChance;
+		case Player.STAT_COMBAT_CRITICAL_SKILL: return baseTraits.criticalSkill;
+		case Player.STAT_COMBAT_CRITICAL_MULTIPLIER: return (int) FloatMath.floor(baseTraits.criticalMultiplier);
+		case Player.STAT_COMBAT_DAMAGE_POTENTIAL_MIN: return baseTraits.damagePotential.current;
+		case Player.STAT_COMBAT_DAMAGE_POTENTIAL_MAX: return baseTraits.damagePotential.max;
+		case Player.STAT_COMBAT_BLOCK_CHANCE: return baseTraits.blockChance;
+		case Player.STAT_COMBAT_DAMAGE_RESISTANCE: return baseTraits.damageResistance;
+		}
+		return 0;
+	}
 	
 	// ====== PARCELABLE ===================================================================
 
+	public static Player readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		Player player = new Player(src, world, fileversion);
+		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, fileversion);
+		return player;
+	}
+	
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		super(src, world, fileversion, true, false, null);
-		this.lastPosition = new Coord(src, fileversion);
-		this.nextPosition = new Coord(src, fileversion);
-		this.level = src.readInt();
-		this.totalExperience = src.readInt();
-		this.levelExperience = new Range();
-		this.recalculateLevelExperience();
-		this.inventory = new Inventory(src, world, fileversion);
+		this();
 		
-		if (fileversion <= 13) {
-			final int size1 = src.readInt();
-			for(int i = 0; i < size1; ++i) {
-				String keyName = src.readUTF();
-				if ("mikhail_visited".equals(keyName)) addQuestProgress(new QuestProgress("andor", 1));
-				else if ("qmikhail_bread_complete".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_bread", 100));
-				else if ("qmikhail_bread".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_bread", 10));
-				else if ("qmikhail_rats_complete".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_rats", 100));
-				else if ("qmikhail_rats".equals(keyName)) addQuestProgress(new QuestProgress("mikhail_rats", 10));
-				else if ("oromir".equals(keyName)) addQuestProgress(new QuestProgress("leta", 20));
-				else if ("qleta_complete".equals(keyName)) addQuestProgress(new QuestProgress("leta", 100));
-				else if ("qodair".equals(keyName)) addQuestProgress(new QuestProgress("odair", 10));
-				else if ("qodair_complete".equals(keyName)) addQuestProgress(new QuestProgress("odair", 100));
-				else if ("qleonid_bonemeal".equals(keyName)) {
-					addQuestProgress(new QuestProgress("bonemeal", 10));
-					addQuestProgress(new QuestProgress("bonemeal", 20));
-				}
-				else if ("qtharal_complete".equals(keyName)) addQuestProgress(new QuestProgress("bonemeal", 30));
-				else if ("qthoronir_complete".equals(keyName)) addQuestProgress(new QuestProgress("bonemeal", 100));
-				else if ("qleonid_andor".equals(keyName)) addQuestProgress(new QuestProgress("andor", 10));
-				else if ("qgruil_andor".equals(keyName)) addQuestProgress(new QuestProgress("andor", 20));
-				else if ("qgruil_andor_complete".equals(keyName)) addQuestProgress(new QuestProgress("andor", 30));
-				else if ("qleonid_crossglen".equals(keyName)) addQuestProgress(new QuestProgress("crossglen", 1));
-				else if ("qjan".equals(keyName)) addQuestProgress(new QuestProgress("jan", 10));
-				else if ("qjan_complete".equals(keyName)) addQuestProgress(new QuestProgress("jan", 100));
-				else if ("qbucus_thieves".equals(keyName)) addQuestProgress(new QuestProgress("andor", 40));
-				else if ("qfallhaven_derelict".equals(keyName)) addQuestProgress(new QuestProgress("andor", 50));
-				else if ("qfallhaven_drunk".equals(keyName)) addQuestProgress(new QuestProgress("fallhavendrunk", 10));
-				else if ("qfallhaven_drunk_complete".equals(keyName)) addQuestProgress(new QuestProgress("fallhavendrunk", 100));
-				else if ("qnocmar_unnmir".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 10));
-				else if ("qnocmar".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 20));
-				else if ("qnocmar_complete".equals(keyName)) addQuestProgress(new QuestProgress("nocmar", 200));
-				else if ("qfallhaven_tavern_room2".equals(keyName)) addQuestProgress(new QuestProgress("fallhaventavern", 10));
-				else if ("qarcir".equals(keyName)) addQuestProgress(new QuestProgress("arcir", 10));
-				else if ("qfallhaven_oldman".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 10));
-				else if ("qcalomyran_tornpage".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 20));
-				else if ("qfallhaven_oldman_complete".equals(keyName)) addQuestProgress(new QuestProgress("calomyran", 100));
-				else if ("qbucus".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 10));
-				else if ("qthoronir_catacombs".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 20));
-				else if ("qathamyr_complete".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 40));
-				else if ("qfallhaven_church".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 50));
-				else if ("qbucus_complete".equals(keyName)) addQuestProgress(new QuestProgress("bucus", 100));
+		if (fileversion <= 33) LegacySavegameFormatReaderForPlayer.readCombatTraitsPreV034(src, fileversion);
+		
+		this.baseTraits.iconID = src.readInt();
+		if (fileversion <= 33) /*this.tileSize = */new Size(src, fileversion);
+		this.baseTraits.maxAP = src.readInt();
+		this.baseTraits.maxHP = src.readInt();
+		this.name = src.readUTF();
+		this.moveCost = src.readInt();
+		
+		this.baseTraits.attackCost = src.readInt();
+		this.baseTraits.attackChance = src.readInt();
+		this.baseTraits.criticalSkill = src.readInt();
+		if (fileversion <= 20) {
+			this.baseTraits.criticalMultiplier = src.readInt();
+		} else {
+			this.baseTraits.criticalMultiplier = src.readFloat();
+		}
+		this.baseTraits.damagePotential.readFromParcel(src, fileversion);
+		this.baseTraits.blockChance = src.readInt();
+		this.baseTraits.damageResistance = src.readInt();
+		
+		if (fileversion <= 16) {
+			this.baseTraits.moveCost = this.moveCost;
+		} else {
+			this.baseTraits.moveCost = src.readInt();
+		}
+				
+		this.ap.set(new Range(src, fileversion));
+		this.health.set(new Range(src, fileversion));
+		this.position.set(new Coord(src, fileversion));
+		if (fileversion > 16) {
+			final int numConditions = src.readInt();
+			for(int i = 0; i < numConditions; ++i) {
+				this.conditions.add(new ActorCondition(src, world, fileversion));
 			}
 		}
-		this.useItemCost = src.readInt();
-		this.reequipCost = src.readInt();
-		final int size2 = src.readInt();
-		for(int i = 0; i < size2; ++i) {
+		
+		this.lastPosition.readFromParcel(src, fileversion);
+		this.nextPosition.readFromParcel(src, fileversion);
+		this.level = src.readInt();
+		this.totalExperience = src.readInt();
+		this.inventory.readFromParcel(src, world, fileversion);
+		
+		if (fileversion <= 13) LegacySavegameFormatReaderForPlayer.readQuestProgressPreV13(this, src, world, fileversion);
+
+		this.baseTraits.useItemCost = src.readInt();
+		this.baseTraits.reequipCost = src.readInt();
+		final int numSkills = src.readInt();
+		for(int i = 0; i < numSkills; ++i) {
 			if (fileversion <= 21) {
 				this.skillLevels.put(i, src.readInt());
 			} else {
@@ -242,69 +328,64 @@ public final class Player extends Actor {
 		}
 		this.spawnMap = src.readUTF();
 		this.spawnPlace = src.readUTF();
-		
-		if (fileversion <= 12) {
-			useItemCost = 5;
-			health.max += 5;
-			health.current += 5;
-			actorTraits.maxHP += 5;
-		}
 
-		if (fileversion <= 13) return;
-		
-		final int numquests = src.readInt();
-		for(int i = 0; i < numquests; ++i) {
-			final String questID = src.readUTF();
-			questProgress.put(questID, new HashSet<Integer>());
-			final int numprogress = src.readInt();
-			for(int j = 0; j < numprogress; ++j) {
-				int progress = src.readInt();
-				questProgress.get(questID).add(progress);
+		if (fileversion > 13) {
+			final int numQuests = src.readInt();
+			for(int i = 0; i < numQuests; ++i) {
+				final String questID = src.readUTF();
+				this.questProgress.put(questID, new HashSet<Integer>());
+				final int numProgress = src.readInt();
+				for(int j = 0; j < numProgress; ++j) {
+					int progress = src.readInt();
+					this.questProgress.get(questID).add(progress);
+				}
 			}
 		}
 		
-		if (fileversion <= 21) {
-			int assignedSkillpoints = 0;
-			for (int i = 0; i < skillLevels.size(); ++i) assignedSkillpoints += skillLevels.valueAt(i);
-			this.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(this.level) - assignedSkillpoints;
-		} else {
+		this.availableSkillIncreases = 0;
+		if (fileversion > 21) {
 			this.availableSkillIncreases = src.readInt();
 		}
 		
-		if (fileversion <= 21) {
-			if (hasExactQuestProgress("prim_hunt", 240)) addQuestProgress(new QuestProgress("bwm_agent", 250));
-			if (hasExactQuestProgress("bwm_agent", 240)) addQuestProgress(new QuestProgress("prim_hunt", 250));
-		}
-		
 		if (fileversion >= 26) {
-			final int size3 = src.readInt();
-			for(int i = 0; i < size3; ++i) {
+			final int numAlignments = src.readInt();
+			for(int i = 0; i < numAlignments; ++i) {
 				final String faction = src.readUTF();
 				final int alignment = src.readInt();
-				alignments.put(faction, alignment);
+				this.alignments.put(faction, alignment);
 			}
 		}
-		
-		if (fileversion <= 27) {
-			ItemController.correctActorConditionsFromItemsPre0611b1(this, "bless", world, "elytharan_redeemer");
-			ItemController.correctActorConditionsFromItemsPre0611b1(this, "blackwater_misery", world, "bwm_dagger");
-			ItemController.correctActorConditionsFromItemsPre0611b1(this, "regen", world, "ring_shadow0");
-		}
-		
-		if (fileversion <= 30) {
-			this.actorTraits.baseCombatTraits.attackCost = DEFAULT_PLAYER_ATTACKCOST;
-		}
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		super.writeToParcel(dest, flags);
+		dest.writeInt(baseTraits.iconID);
+		dest.writeInt(baseTraits.maxAP);
+		dest.writeInt(baseTraits.maxHP);
+		dest.writeUTF(name);
+		dest.writeInt(moveCost); // TODO: Should we really write this?
+		dest.writeInt(baseTraits.attackCost);
+		dest.writeInt(baseTraits.attackChance);
+		dest.writeInt(baseTraits.criticalSkill);
+		dest.writeFloat(baseTraits.criticalMultiplier);
+		baseTraits.damagePotential.writeToParcel(dest, flags);
+		dest.writeInt(baseTraits.blockChance);
+		dest.writeInt(baseTraits.damageResistance);
+		dest.writeInt(baseTraits.moveCost);
+		
+		ap.writeToParcel(dest, flags);
+		health.writeToParcel(dest, flags);
+		position.writeToParcel(dest, flags);
+		dest.writeInt(conditions.size());
+		for (ActorCondition c : conditions) {
+			c.writeToParcel(dest, flags);
+		}
 		lastPosition.writeToParcel(dest, flags);
 		nextPosition.writeToParcel(dest, flags);
 		dest.writeInt(level);
 		dest.writeInt(totalExperience);
 		inventory.writeToParcel(dest, flags);
-		dest.writeInt(useItemCost);
-		dest.writeInt(reequipCost);
+		dest.writeInt(baseTraits.useItemCost);
+		dest.writeInt(baseTraits.reequipCost);
 		dest.writeInt(skillLevels.size());
 		for (int i = 0; i < skillLevels.size(); ++i) {
 			dest.writeInt(skillLevels.keyAt(i));

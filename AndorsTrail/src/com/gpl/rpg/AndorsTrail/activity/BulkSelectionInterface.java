@@ -255,7 +255,7 @@ public class BulkSelectionInterface extends Activity implements TextWatcher {
 		if (amount > totalAvailableAmount) return false;
 		
 		if (interfaceType == BULK_INTERFACE_BUY) {
-			if (amount * pricePerUnit > world.model.player.inventory.gold) return false;
+			if (amount * pricePerUnit > world.model.player.getGold()) return false;
 		}
 		
 		return true;

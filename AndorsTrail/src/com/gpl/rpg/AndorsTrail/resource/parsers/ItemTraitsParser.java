@@ -7,6 +7,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
+import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
@@ -49,8 +50,8 @@ public final class ItemTraitsParser {
 		boolean hasEffect = ResourceParserUtils.parseBoolean(parts[startIndex], false);
 		if (!hasEffect) return null;
 		
-		ConstRange boostCurrentHP = ResourceParserUtils.parseRange(parts[startIndex + 1], parts[startIndex + 2]);
-		ConstRange boostCurrentAP = ResourceParserUtils.parseRange(parts[startIndex + 3], parts[startIndex + 4]);
+		ConstRange boostCurrentHP = ResourceParserUtils.parseConstRange(parts[startIndex + 1], parts[startIndex + 2]);
+		ConstRange boostCurrentAP = ResourceParserUtils.parseConstRange(parts[startIndex + 3], parts[startIndex + 4]);
 		final ArrayList<ActorConditionEffect> addedConditions_source = new ArrayList<ActorConditionEffect>();
 		final ArrayList<ActorConditionEffect> addedConditions_target = new ArrayList<ActorConditionEffect>();
 		tokenize4Fields.tokenizeArray(parts[startIndex + 5], addedConditions_source, actorConditionEffectParser_withDuration);
@@ -68,9 +69,11 @@ public final class ItemTraitsParser {
 			return null;
 		} else {
 			return new ItemTraits_OnUse(
-					ItemTraits_OnUse.VISUAL_EFFECT_NONE
-					,boostCurrentHP
-					,boostCurrentAP
+					new StatsModifierTraits(
+							StatsModifierTraits.VISUAL_EFFECT_NONE
+						,boostCurrentHP
+						,boostCurrentAP
+					)
 					,listToArray(addedConditions_source)
 					,listToArray(addedConditions_target)
 					);

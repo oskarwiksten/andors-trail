@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ViewContext;
-import com.gpl.rpg.AndorsTrail.model.CombatTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -167,37 +166,44 @@ public class ActorStatsController {
 	public static void applyAbilityEffects(Actor actor, AbilityModifierTraits effects, int multiplier) {
 		if (effects == null) return;
 		
-		CombatTraits actorCombatTraits = actor.combatTraits;
-		
 		actor.health.addToMax(effects.increaseMaxHP * multiplier);
 		actor.ap.addToMax(effects.increaseMaxAP * multiplier);
-		actor.actorTraits.moveCost += effects.increaseMoveCost * multiplier;
+		actor.moveCost += effects.increaseMoveCost * multiplier;
 		
-		actorCombatTraits.attackCost += effects.increaseAttackCost * multiplier;
+		actor.attackCost += effects.increaseAttackCost * multiplier;
 		//criticalMultiplier should not be increased. It is always defined by the weapon in use.
-		actorCombatTraits.attackChance += effects.increaseAttackChance * multiplier;
-		actorCombatTraits.criticalSkill += effects.increaseCriticalSkill * multiplier;
-		actorCombatTraits.damagePotential.add(effects.increaseMinDamage * multiplier, true);
-		actorCombatTraits.damagePotential.addToMax(effects.increaseMaxDamage * multiplier);
-		actorCombatTraits.blockChance += effects.increaseBlockChance * multiplier;
-		actorCombatTraits.damageResistance += effects.increaseDamageResistance * multiplier;
+		actor.attackChance += effects.increaseAttackChance * multiplier;
+		actor.criticalSkill += effects.increaseCriticalSkill * multiplier;
+		actor.damagePotential.add(effects.increaseMinDamage * multiplier, true);
+		actor.damagePotential.addToMax(effects.increaseMaxDamage * multiplier);
+		actor.blockChance += effects.increaseBlockChance * multiplier;
+		actor.damageResistance += effects.increaseDamageResistance * multiplier;
 		
-		if (actorCombatTraits.attackCost <= 0) actorCombatTraits.attackCost = 1;
-		if (actorCombatTraits.attackChance < 0) actorCombatTraits.attackChance = 0;
-		if (actor.actorTraits.moveCost <= 0) actor.actorTraits.moveCost = 1;
-		if (actorCombatTraits.damagePotential.max < 0) actorCombatTraits.damagePotential.set(0, 0);
+		if (actor.attackCost <= 0) actor.attackCost = 1;
+		if (actor.attackChance < 0) actor.attackChance = 0;
+		if (actor.moveCost <= 0) actor.moveCost = 1;
+		if (actor.damagePotential.max < 0) actor.damagePotential.set(0, 0);
 	}
 	
-	public static void recalculatePlayerCombatTraits(Player player) { recalculateActorCombatTraits(player); }
-	public static void recalculateMonsterCombatTraits(Monster monster) { recalculateActorCombatTraits(monster); }
+	public static void recalculatePlayerStats(Player player) { 
+		player.resetStatsToBaseTraits();
+		player.recalculateLevelExperience();
+		ItemController.applyInventoryEffects(player);
+		SkillController.applySkillEffects(player);
+		applyEffectsFromCurrentConditions(player);
+		ItemController.recalculateHitEffectsFromWornItems(player);
+		player.health.capAtMax();
+		player.ap.capAtMax(); 
+	}
+	public static void recalculateMonsterCombatTraits(Monster monster) { 
+		monster.resetStatsToBaseTraits();
+		applyEffectsFromCurrentConditions(monster);
+		monster.health.capAtMax();
+		monster.ap.capAtMax(); 
+	}
 	private static void recalculateActorCombatTraits(Actor actor) {
-		actor.resetStatsToBaseTraits();
-		if (actor.isPlayer) ItemController.applyInventoryEffects((Player) actor);
-		if (actor.isPlayer) SkillController.applySkillEffects((Player) actor);
-		applyEffectsFromCurrentConditions(actor);
-		if (actor.isPlayer) ItemController.recalculateHitEffectsFromWornItems((Player) actor);
-		actor.health.capAtMax();
-		actor.ap.capAtMax();
+		if (actor.isPlayer) recalculatePlayerStats((Player) actor);
+		else recalculateMonsterCombatTraits((Monster) actor);
 	}
 
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
@@ -227,7 +233,7 @@ public class ActorStatsController {
 					player.conditions.remove(i);
 					player.conditionListener.onActorConditionRemoved(player, c);
 				}
-				recalculateActorCombatTraits(player);
+				recalculatePlayerStats(player);
 			}
 		}
 	}
@@ -311,8 +317,10 @@ public class ActorStatsController {
 				}
 			}
 		}
-		VisualEffect effectToStart = applyStatsModifierEffect(source, effect, 1, null);
-		startVisualEffect(source, effectToStart);
+		if (effect.changedStats != null) {
+			VisualEffect effectToStart = applyStatsModifierEffect(source, effect.changedStats, 1, null);
+			startVisualEffect(source, effectToStart);
+		}
 	}
 
 	private static void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
@@ -396,7 +404,7 @@ public class ActorStatsController {
 	public void applySkillEffectsForNewRound(Player player, PredefinedMap currentMap) {
 		int level = player.getSkillLevel(SkillCollection.SKILL_REGENERATION);
 		if (level > 0) {
-			boolean hasAdjacentMonster = MovementController.hasAdjacentAggressiveMonster(currentMap, player.position);
+			boolean hasAdjacentMonster = MovementController.hasAdjacentAggressiveMonster(currentMap, player);
 			if (!hasAdjacentMonster) {
 				boolean changed = player.health.add(level * SkillCollection.PER_SKILLPOINT_INCREASE_REGENERATION, false);
 				if (changed) view.mainActivity.updateStatus();
