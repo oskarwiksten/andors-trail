@@ -1,5 +1,30 @@
-<div>
-<p>id: {{obj.id}}</p>
-<input type="text" ng-model="obj.id"><br />
-<input type="text" ng-model="obj.name"><br />
-</div>
+<h3>Droplist</h3>
+<fieldset class="fieldSet">
+	<legend>General</legend>
+	<div class="fieldWithLabel">
+		<label for="id" class="label">Droplist internal ID:</label>
+		<input type="text" size="30" id="id" class="field fieldInput" ng-model="obj.id" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="stages" class="label">Items dropped</label>
+		<table class="field" id="items">
+			<thead><tr>
+				<th id="itemID">Item (id)</th>
+				<th id="quantity_Min">Min quantity</th>
+				<th id="quantity_Max">Max quantity</th>
+				<th id="chance">Chance</th>
+			</tr></thead>
+			<tbody>
+				<tr ng-repeat="dropItem in obj.items">
+					<td><input type="text" ng-model="dropItem.itemID" class="fieldInput" /></td>
+					<td><input type="text" size="3" ng-model="dropItem.quantity.min" class="fieldInput integer" /></td>
+					<td><input type="text" size="3" ng-model="dropItem.quantity.max" class="fieldInput integer" /></td>
+					<td><input type="text" size="3" ng-model="dropItem.chance" class="fieldInput" /></td>
+					<td><a ng-click="removeDropItem(dropItem)">X</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="addDropItem()">Add</button>
+	</div>
+</fieldset>
+<div class="endSets"> </div>

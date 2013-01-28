@@ -62,6 +62,13 @@ var ATEditor = (function(ATEditor, model, importExport) {
 	controllers.DropListController = function($scope, $routeParams) {
 		$scope.datasource = model.droplists;
 		$scope.obj = $scope.datasource.findById($routeParams.id);
+		$scope.addDropItem = function() {
+			$scope.obj.items.push({quantity: {}});
+		};
+		$scope.removeDropItem = function(dropItem) {
+			var idx = $scope.obj.items.indexOf(dropItem);
+			$scope.obj.items.splice(idx, 1);
+		};
 	};
 	controllers.DialogueController = function($scope, $routeParams) {
 		$scope.datasource = model.dialogue;

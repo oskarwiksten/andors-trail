@@ -21,7 +21,7 @@ var ATEditor = (function(ATEditor, _) {
 			,killEffect: { increaseCurrentHP: {}, increaseCurrentAP: {}, conditionsSource: [], conditionsTarget: [] }
 		}
 		,droplist: {
-			quantity: {}
+			items: []
 		}
 		,dialogue: {
 			rewards: []
