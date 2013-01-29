@@ -64,9 +64,6 @@ var ATEditor = (function(ATEditor, model, utils, _, $) {
 		loadUrlFromGit("AndorsTrail/res/raw/monsterlist_crossglen_animals.json", function(data) {
 			ATEditor.importExport.importDataObjects(model.monsters, data);
 		});
-		loadUrlFromGit("AndorsTrail/res/raw/monsterlist_crossglen_animals.json", function(data) {
-			ATEditor.importExport.importDataObjects(model.monsters, data);
-		});
 		loadUrlFromGit("AndorsTrail/res/raw/itemlist_v069_2.json", function(data) {
 			ATEditor.importExport.importDataObjects(model.items, data);
 		});

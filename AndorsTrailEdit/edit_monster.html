@@ -21,7 +21,7 @@
 		<input type="text" size="30" id="spawnGroup" class="field at-input-id" ng-model="obj.spawnGroup" title="This is a grouping of monster types. Use these tags on spawn areas to spawn random monsters with the same tag. Several monsters may have the same tag." />
 	</div>
 	<div class="fieldWithLabel">
-		<label class="checkbox"><input type="checkbox" id="unique" ng-model="obj.isUnique" />Is unique (will not respawn)</label>
+		<label class="checkbox"><input type="checkbox" id="unique" ng-model="obj.unique" ng-true-value="1" ng-false-value="0" />Is unique (will not respawn)</label>
 	</div>
 	<div class="fieldWithLabel">
 		<label for="monsterClass">Monster class:</label>
