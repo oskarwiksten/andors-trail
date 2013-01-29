@@ -35,7 +35,8 @@
 					<div class="accordion-inner">
 						<ul class="itemlist">
 							<li ng-repeat="p in previousItems" ng-click="editObj(p.section, p.obj)" fadey>
-								<img />{{getName(p.section, p.obj)}}
+								<img ng-tile-image="p.obj.iconID" ng-tile-image-scale="0.7" ng-show="p.section.hasIcon()" />
+								{{getName(p.section, p.obj)}}
 							</li>
 						</ul>
 					</div>
@@ -56,7 +57,7 @@
 						<ul class="itemlist">
 							<li ng-repeat="obj in section.items" ng-click="editObj(section, obj)" fadey>
 								<div style="float: left;">
-									<img style="float: left;"/>
+									<img ng-tile-image="obj.iconID" ng-tile-image-scale="0.7" ng-show="section.hasIcon()" />
 									{{getName(section, obj)}}
 								</div>
 								<div style="float: right;">
@@ -241,6 +242,7 @@
 <script src="inc/angular.min.js"></script>
 <script src="inc/bootstrap/js/bootstrap.min.js"></script>
 <script src="utils.js"></script>
+<script src="tilesets.js"></script>
 <script src="fieldlist.js"></script>
 <script src="datastore.js"></script>
 <script src="defaults.js"></script>
@@ -250,6 +252,7 @@
 <script src="controllers.js"></script>
 <script src="app.js"></script>
 <script src="directives.js"></script>
+<script src="iconselector.js"></script>
 <script src="legacyimport.js"></script>
 
 </body>

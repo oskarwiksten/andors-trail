@@ -4,7 +4,6 @@ var ATEditor = (function(ATEditor, _) {
 		var defaultOptions = {
 			nameField: 'name'
 			,idField: 'id'
-			,iconIDField: 'iconID'
 		};
 		_.defaults(options, defaultOptions);
 
@@ -20,7 +19,7 @@ var ATEditor = (function(ATEditor, _) {
 		this.hasObjectWithId = function(id) { 
 			return _.some(this.items, function(obj) { return obj[options.idField] === id; });
 		};
-		this.hasIcon = function() { return iconIDField; };
+		this.hasIcon = function() { return _.toBool(options.iconIDField); };
 		this.getIcon = function(obj) { return obj[options.iconIDField]; };
 		this.getId = function(obj) { return obj[options.idField]; };
 		this.getName = function(obj) { 

@@ -1,8 +1,12 @@
-<h3>Actor condition</h3>
+<h3>Actor condition - {{obj.name}}</h3>
 <fieldset>
 	<legend>General</legend>
 	<div class="fieldWithLabel">
-		<div id="actorconditionimage" class="field"><input type="hidden" id="iconID" ng-model="obj.iconID" /></div>
+		<label for="iconID">Icon:</label>
+		<span class="field">
+			<div ng-tile-image="obj.iconID" class="at-input-icon"></div>
+			<input type="text" id="iconID" class="at-input-iconID" ng-model="obj.iconID" />
+		</span>
 	</div>
 	<div class="fieldWithLabel">
 		<label for="id">Internal ID:</label>

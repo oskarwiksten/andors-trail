@@ -106,6 +106,18 @@ var ATEditor = (function(ATEditor, _) {
 		return b ? true : false;
 	};
 	
+	function getUrlRelativeToBaseSrcDir(relativeUrl) {
+		var url = document.location.href;
+		var idx = url.lastIndexOf('#');
+		if (idx > 0) {
+			url = url.substring(0, idx);
+		}
+		url = url.substring(0, url.lastIndexOf('/'));
+		url = url.substring(0, url.lastIndexOf('/'));
+		url = url + "/" + relativeUrl;
+		return url;
+	}
+	
 	ATEditor.utils = {
 		deepClone: deepClone
 		,removeDefaults: removeDefaults
@@ -115,6 +127,7 @@ var ATEditor = (function(ATEditor, _) {
 		,hasValues: hasValues
 		,convertStringsToIntegers: convertStringsToIntegers
 		,convertIntegersToStrings: convertIntegersToStrings
+		,getUrlRelativeToBaseSrcDir: getUrlRelativeToBaseSrcDir
 	};
 	
 	return ATEditor;

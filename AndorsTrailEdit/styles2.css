@@ -10,11 +10,13 @@ html, body 					{ margin:0; padding:0; }
 
 .hidden 					{ display: none; }
 
-.at-input-id, .at-input-name	
+.at-input-id, .at-input-name
 							{ width: 200px; }
 .at-input-stat, .at-input-stat-minmax, .at-input-quantity, .at-input-chance, .at-input-magnitude, .at-input-duration
 							{ width: 50px; }
 .at-input-gold				{ width: 80px; }
+.at-input-iconID			{ width: 120px; }
+.at-input-icon				{ display: inline-block; vertical-align: top; }
 
 .workarea h3 				{ font-size: 18px; margin: 0 0 0 5px; }
 .workarea legend 			{ font-size: 16px; margin: 0 0 5px 0; }
@@ -27,6 +29,7 @@ html, body 					{ margin:0; padding:0; }
 .itemlist li img			{ float: left; margin-right: 0.5ex; }
 .itemlist li:nth-child(odd)	{ background-color: #eee; }
 .itemlist li:hover			{ background-color: #d7d7ff; cursor: pointer; }
+.itemlist li img			{ float: left; }
 
 .fieldWithLabel label 		{ margin-top: 1.1ex; }
 .fieldWithLabel table		{ border-collapse: collapse; margin-bottom: 1ex; }	

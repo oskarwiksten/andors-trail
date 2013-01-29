@@ -1,17 +1,10 @@
-var ATEditor = (function(ATEditor, model, _, $) {
+var ATEditor = (function(ATEditor, model, utils, _, $) {
 	
 	var http;
 	var resources = {};
 	
 	function loadUrlFromGit(relativeUrl, successCallback, errorCallback) {
-		var url = document.location.href;
-		var idx = url.lastIndexOf('#');
-		if (idx > 0) {
-			url = url.substring(0, idx);
-		}
-		url = url.substring(0, url.lastIndexOf('/'));
-		url = url.substring(0, url.lastIndexOf('/'));
-		url = url + "/" + relativeUrl;
+		var url = utils.getUrlRelativeToBaseSrcDir(relativeUrl);
 		http.get(url)
 		.success(function(data, status, headers, config) {
 			successCallback(data);
@@ -87,4 +80,4 @@ var ATEditor = (function(ATEditor, model, _, $) {
 	};
 	
 	return ATEditor;
-})(ATEditor, ATEditor.model, _, jQuery);
+})(ATEditor, ATEditor.model, ATEditor.utils, _, jQuery);

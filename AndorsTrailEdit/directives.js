@@ -1,4 +1,4 @@
-var ATEditor = (function(ATEditor, app, $) {
+var ATEditor = (function(ATEditor, app, tilesets, $) {
 	
 	// Copied from http://jsfiddle.net/p69aT/
 	//  -> originally from https://groups.google.com/forum/?fromgroups=#!topic/angular/7XVOebG6z6E
@@ -41,16 +41,30 @@ var ATEditor = (function(ATEditor, app, $) {
 
 	app.directive('ngTileImage', function () {
 		return function(scope, element, attrs) {
-			element.css('display', 'none');
+			var scale = attrs.ngTileImageScale;
+			if (!scale) scale = 1;
+			
 			scope.$watch(attrs.ngTileImage, function(value) {
-				if (value) {
-					element.fadeIn(400);
-				} else {
-					element.fadeOut(300);
+				var img = tilesets.parseImageID(value);
+				var tileset = tilesets.getTileset(img.tilesetName);
+				var c = tileset.localIDToCoords(img.localID);
+				element.css({
+					"background-image": "url(" +img.path + img.tilesetName + ".png)", 
+					"background-position": (-c.x)*scale+"px " + (-c.y)*scale+"px",
+					"width": tileset._tileSize.x * scale + "px",
+					"height": tileset._tileSize.y * scale + "px",
+					"cursor": "pointer"
+				});
+				if (scale && (scale != 1)) {
+					element.css({
+						"background-size": 
+							tileset._tileSize.x * tileset._numTiles.x * scale + "px "
+							+ tileset._tileSize.y * tileset._numTiles.y * scale + "px "
+					});
 				}
 			});
 		};
 	});
 	
 	return ATEditor;
-})(ATEditor, ATEditor.app, jQuery);
+})(ATEditor, ATEditor.app, ATEditor.tilesets, jQuery);
