@@ -29,11 +29,11 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="baseMarketCost" class="label">Base market cost (gold):</label>
-		<input class="field" type="text" size="7" id="baseMarketCost" ng-readonly="obj.hasManualPrice == 0" class="fieldInput integer" ng-model="obj.baseMarketCost" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+		<div class="label"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" />Item has manually specified store price</div>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" />Item has manually specified store price</div>
+		<label for="baseMarketCost" class="label">Base market cost (gold):</label>
+		<input class="field" type="text" size="7" id="baseMarketCost" ng-readonly="obj.hasManualPrice == 0" class="fieldInput integer" ng-model="obj.baseMarketCost" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
 	</div>
 	<div class="fieldWithLabel">
 		<label for="marketCost_Sell" class="label">Actual price (gold):</label>
@@ -58,35 +58,42 @@
 <fieldset class="fieldSet" id="hasEquipEffectDisplay" ng-ds-fade="obj.hasEquipEffect">
 	<legend>When equipped</legend>
 	<div class="fieldWithLabel">
-		<label for="equip_boostMaxHP" class="label">Boost max HP:</label>
+		<label for="equip_boostMaxHP" class="label">Increase max HP:</label>
 		<input type="text" size="5" id="equip_boostMaxHP" class="field fieldInput integer" ng-model="obj.equipEffect.increaseMaxHP" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_boostMaxAP" class="label">Boost max AP:</label>
+		<div class="label"><input type="checkbox" id="hasEquipEffect" ng-model="obj.hasEquipAPEffect" />Has AP effect</div>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
+		<label for="equip_boostMaxAP" class="label">Increase max AP:</label>
 		<input type="text" size="5" id="equip_boostMaxAP" class="field fieldInput integer" ng-model="obj.equipEffect.increaseMaxAP" />
 	</div>
-	<div class="fieldWithLabel">
-		<label for="equip_moveCostPenalty" class="label">Move cost penalty (AP):</label>
+	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
+		<label for="equip_moveCostPenalty" class="label">Increase move cost (AP):</label>
 		<input type="text" size="5" id="equip_moveCostPenalty" class="field fieldInput integer" ng-model="obj.equipEffect.increaseMoveCost" />
 	</div>
-	<div class="fieldWithLabel">
+	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
 		<label for="equip_increaseUseItemCost" class="label">Increase use item cost (AP):</label>
 		<input class="field" type="text" size="5" id="equip_increaseUseItemCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseUseItemCost" />
 	</div>
-	<div class="fieldWithLabel">
+	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
 		<label for="equip_increaseReequipCost" class="label">Increase re-equip cost (AP):</label>
 		<input class="field" type="text" size="5" id="equip_increaseReequipCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseReequipCost" />
 	</div>
-	<div class="fieldWithLabel">
+	<div class="fieldWithLabel" ng-ds-fade="!isWeapon">
+		<label for="equip_attackCost" class="label">Increase attack cost (AP):</label>
+		<input class="field" type="text" size="5" id="equip_attackCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackCost" />
+	</div>
+	<div class="fieldWithLabel" ng-show="isWeapon">
 		<label for="equip_attackCost" class="label">Attack cost (AP):</label>
 		<input class="field" type="text" size="5" id="equip_attackCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackCost" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_attackChance" class="label">Attack chance:</label>
+		<label for="equip_attackChance" class="label">Increase attack chance:</label>
 		<div class="field"><input type="text" size="5" id="equip_attackChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackChance" />%</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_attackDamage" class="label">Attack damage (range):</label>
+		<label for="equip_attackDamage" class="label">Increase attack damage (range):</label>
 		<div class="field">
 			<input type="text" size="3" id="equip_attackDamage_Min" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackDamage.min" />
 			-
@@ -94,24 +101,19 @@
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="equip_hasCritical" ng-model="obj.equipEffect.hasCritical" />Has critical chance</div>
+		<label for="equip_criticalChance" class="label">Increase critical skill:</label>
+		<div class="field"><input type="text" size="5" id="equip_criticalChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseCriticalSkill" /></div>
 	</div>
-	<div id="equip_hasCriticalDisplay" ng-ds-fade="obj.equipEffect.hasCritical">
-		<div class="fieldWithLabel">
-			<label for="equip_criticalChance" class="label">Critical skill:</label>
-			<div class="field"><input type="text" size="5" id="equip_criticalChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseCriticalSkill" />%</div>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="equip_criticalMultiplier" class="label">Critical multiplier:</label>
-			<input class="field" type="text" size="5" id="equip_criticalMultiplier" class="fieldInput integer" ng-model="obj.equipEffect.setCriticalMultiplier" />
-		</div>
+	<div class="fieldWithLabel" ng-show="isWeapon">
+		<label for="equip_criticalMultiplier" class="label">Critical multiplier:</label>
+		<input class="field" type="text" size="5" id="equip_criticalMultiplier" class="fieldInput integer" ng-model="obj.equipEffect.setCriticalMultiplier" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_blockChance" class="label">Block chance:</label>
+		<label for="equip_blockChance" class="label">Increase block chance:</label>
 		<div class="field"><input type="text" size="5" id="equip_blockChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseBlockChance" />%</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_damageResistance" class="label">Damage resistance:</label>
+		<label for="equip_damageResistance" class="label">Increase damage resistance:</label>
 		<input class="field" type="text" size="5" id="equip_damageResistance" class="fieldInput integer" ng-model="obj.equipEffect.increaseDamageResistance" />
 	</div>
 	<div class="fieldWithLabel">

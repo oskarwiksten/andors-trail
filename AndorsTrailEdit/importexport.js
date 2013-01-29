@@ -4,14 +4,12 @@ var ATEditor = (function(ATEditor, _) {
 	prep.actorcondition = function(o) {
 		o.hasRoundEffect = ATEditor.utils.hasValues(_.omit(o.roundEffect, 'visualEffectID'));
 		o.hasFullRoundEffect = ATEditor.utils.hasValues(_.omit(o.fullRoundEffect, 'visualEffectID'));
-		o.abilityEffect.hasCritical = _.toBool(o.abilityEffect.increaseCriticalSkill || o.abilityEffect.setCriticalMultiplier);
 		o.hasAbilityEffect = ATEditor.utils.hasValues(o.abilityEffect);
 	};
 	prep.quest = function(o) {
 	};
 	prep.item = function(o) {
 		o.hasEquipEffect = ATEditor.utils.hasValues(o.equipEffect);
-		o.equipEffect.hasCritical = _.toBool(o.equipEffect.increaseCriticalSkill || o.equipEffect.setCriticalMultiplier);
 		o.hasUseEffect = ATEditor.utils.hasValues(o.useEffect);
 		o.hasHitEffect = ATEditor.utils.hasValues(o.hitEffect);
 		o.hasKillEffect = ATEditor.utils.hasValues(o.killEffect);
@@ -46,26 +44,20 @@ var ATEditor = (function(ATEditor, _) {
 		if (!o.hasAbilityEffect) { delete o.abilityEffect; }
 		delete o.hasRoundEffect;
 		delete o.hasFullRoundEffect;
-		if (o.abilityEffect) { 
-			if (!o.abilityEffect.hasCritical) { 
-				delete o.abilityEffect.increaseCriticalSkill; 
-				delete o.abilityEffect.setCriticalMultiplier; 
-			}
-			delete o.abilityEffect.hasCritical; 
-		}
 		delete o.hasAbilityEffect;
 	};
 	unprep.quest = function(o) {
 	};
 	unprep.item = function(o) {
-		if (!o.hasEquipEffect) { delete o.equipEffect; }
-		if (o.equipEffect) { 
-			if (!o.equipEffect.hasCritical) { 
-				delete o.equipEffect.increaseCriticalSkill; 
-				delete o.equipEffect.setCriticalMultiplier; 
-			}
-			delete o.equipEffect.hasCritical; 
+		if (!o.hasEquipAPEffect) { 
+			var e = o.equipEffect;
+			delete e.increaseMaxAP;
+			delete e.increaseMoveCost;
+			delete e.increaseUseItemCost;
+			delete e.increaseReequipCost; 
 		}
+		delete o.hasEquipAPEffect;
+		if (!o.hasEquipEffect) { delete o.equipEffect; }
 		if (_.isObject(o.category)) { o.category = o.category.id; }
 		if (!o.hasUseEffect) { delete o.useEffect; }
 		if (!o.hasHitEffect) { delete o.hitEffect; }
@@ -74,7 +66,6 @@ var ATEditor = (function(ATEditor, _) {
 		delete o.hasUseEffect;
 		delete o.hasHitEffect;
 		delete o.hasKillEffect;
-		delete o.showAdvanced;
 	};
 	unprep.droplist = function(o) {
 	};
@@ -85,6 +76,11 @@ var ATEditor = (function(ATEditor, _) {
 			delete o.criticalSkill; 
 			delete o.criticalMultiplier; 
 		}
+		if (!o.showAdvanced) { 
+			delete o.faction; 
+			delete o.size; 
+		}
+		delete o.showAdvanced;
 		delete o.hasCritical; 
 		delete o.hasConversation;
 		delete o.hasCombatTraits;

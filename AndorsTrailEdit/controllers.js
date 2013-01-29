@@ -66,6 +66,10 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 		}
 		$scope.itemCategories = model.itemCategories.items;
 		
+		$scope.$watch('obj.category', function(val) {
+			$scope.isWeapon = _.toBool(val && val.actionType == 2 && val.inventorySlot == 0);
+		});
+		
 		function calculateItemCost(o) {
 			var v = function(i) { return i ? i : 0; }
 			var sgn = function(v) {
@@ -79,10 +83,7 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 			var itemUsageCost = costBoostHP;
 			
 			
-			var isWeapon = false;
-			if ($scope.obj.category) {
-				isWeapon = $scope.obj.category.inventorySlot == 0;
-			}
+			var isWeapon = $scope.isWeapon;
 			
 			var equip_blockChance = v(obj.equipEffect.increaseBlockChance);
 			var equip_attackChance = v(obj.equipEffect.increaseAttackChance);
@@ -106,10 +107,6 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 					:Math.round(2*Math.pow(equip_attackDamage_Max, 3) + equip_attackDamage_Max*20);
 			var costCC = Math.round(2.2*Math.pow(equip_criticalChance, 3));
 			var costCM = Math.round(50*Math.pow(Math.max(0, equip_criticalMultiplier), 2));
-			if (!obj.equipEffect.hasCritical) {
-				costCC = 0;
-				costCM = 0;
-			}
 			var costCombat = costBC + costAC + costAP + costDR + costDMG_Min + costDMG_Max + costCC + costCM;
 			
 			var equip_boostMaxHP = v(obj.equipEffect.increaseMaxHP);
@@ -146,7 +143,6 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 		$scope.$watch('obj.equipEffect.increaseAttackDamage.min', $scope.recalculateStorePrice);
 		$scope.$watch('obj.equipEffect.increaseCriticalSkill', $scope.recalculateStorePrice);
 		$scope.$watch('obj.equipEffect.setCriticalMultiplier', $scope.recalculateStorePrice);
-		$scope.$watch('obj.equipEffect.hasCritical', $scope.recalculateStorePrice);
 		$scope.$watch('obj.equipEffect.increaseMaxHP', $scope.recalculateStorePrice);
 		$scope.$watch('obj.equipEffect.increaseMaxAP', $scope.recalculateStorePrice);
 		$scope.$watch('obj.equipEffect.increaseMoveCost', $scope.recalculateStorePrice);
