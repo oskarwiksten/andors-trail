@@ -76,10 +76,26 @@
 
 <form class="form-inline">
 <div id="center" class="workarea" ng-view></div>
-
+	
 </div>
 </form>
 
+<div id="selectIconModal" class="modal hide fade" role="dialog" ng-controller="ATEditor.controllers.SelectIconController">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>Select icon</h3>
+	</div>
+	<div class="modal-body">
+		<div ng-repeat="section in sections">
+			<div ng-show="section.id == selectedSection">
+				<div ng-repeat="imageID in section.imageIDs" ng-tile-image="imageID" ng-click="imageSelected(imageID)" class="at-input-icon"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal">Cancel</button>
+	</div>
+</div>
 
 
 <div class="hidden" id="templates">

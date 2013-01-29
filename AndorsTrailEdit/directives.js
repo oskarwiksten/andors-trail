@@ -66,5 +66,24 @@ var ATEditor = (function(ATEditor, app, tilesets, $) {
 		};
 	});
 	
+	app.directive('ngSelectImage', function () {
+		return {
+			link : function(scope, element, attrs) {
+				function openDialog() {
+					var element = angular.element('#selectIconModal');
+					var ctrl = element.controller();
+					ctrl.startSelecting(attrs.ngSelectImage, function(iconID) {
+						element.modal('hide');
+						var s = attrs.ngSelectImageDest || 'iconID';
+						eval("scope." + s + "='" + iconID + "'");
+						//scope.$apply();
+					});
+					element.modal('show');
+				}
+				element.bind('click', openDialog);
+			}
+		}
+	});
+	
 	return ATEditor;
 })(ATEditor, ATEditor.app, ATEditor.tilesets, jQuery);
