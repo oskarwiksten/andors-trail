@@ -17,24 +17,6 @@
 		<input class="field" type="text" size="30" id="spawnGroup" ng-model="obj.spawnGroup" class="fieldInput" title="This is a grouping of monster types. Use these tags on spawn areas to spawn random monsters with the same tag. Several monsters may have the same tag." />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="size" class="label">Size:</label>
-		<select class="field" id="size" ng-model="obj.size">
-			<option value="1x1">1x1</option>
-			<option value="1x2">1x2</option>
-			<option value="1x3">1x3</option>
-			<option value="2x1">2x1</option>
-			<option value="2x2">2x2</option>
-			<option value="2x3">2x3</option>
-			<option value="3x1">3x1</option>
-			<option value="3x2">3x2</option>
-			<option value="3x3">3x3</option>
-		</select>
-	</div>
-	<div class="fieldWithLabel">
-		<label for="faction" class="label">Faction:</label>
-		<input class="field" type="text" size="30" id="faction" ng-model="obj.faction" class="fieldInput"/>
-	</div>
-	<div class="fieldWithLabel">
 		<div class="label"><input type="checkbox" id="unique" ng-model="obj.isUnique" />Is unique (will not respawn)</div>
 	</div>
 	<div class="fieldWithLabel">
@@ -50,6 +32,27 @@
 			<option value="7">Reptile</option>
 			<option value="8">Ghost</option>
 		</select>
+	</div>
+	<div class="fieldWithLabel">
+		<div class="label"><input type="checkbox" id="showAdvanced" ng-model="obj.showAdvanced" />Show advanced properties</div>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.showAdvanced">
+		<label for="size" class="label">Size:</label>
+		<select class="field" id="size" ng-model="obj.size">
+			<option value="1x1">1x1</option>
+			<option value="1x2">1x2</option>
+			<option value="1x3">1x3</option>
+			<option value="2x1">2x1</option>
+			<option value="2x2">2x2</option>
+			<option value="2x3">2x3</option>
+			<option value="3x1">3x1</option>
+			<option value="3x2">3x2</option>
+			<option value="3x3">3x3</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.showAdvanced">
+		<label for="faction" class="label">Faction:</label>
+		<input class="field" type="text" size="30" id="faction" ng-model="obj.faction" class="fieldInput"/>
 	</div>
 	<div class="fieldWithLabel">
 		<div class="label"><input type="checkbox" id="hasConversation" ng-model="obj.hasConversation" />Has conversation</div>
@@ -106,15 +109,13 @@
 	<div class="fieldWithLabel">
 		<div class="label"><input type="checkbox" id="hasCritical" ng-model="obj.hasCritical" />Has critical chance</div>
 	</div>
-	<div id="hasCriticalDisplay" ng-ds-fade="obj.hasCritical">
-		<div class="fieldWithLabel">
-			<label for="criticalSkill" class="label">Critical skill:</label>
-			<input class="field" type="text" size="5" id="criticalSkill" ng-model="obj.criticalSkill" class="fieldInput integer" />
-		</div>
-		<div class="fieldWithLabel">
-			<label for="criticalMultiplier" class="label">Critical multiplier:</label>
-			<input class="field" type="text" size="5" id="criticalMultiplier" ng-model="obj.criticalMultiplier" class="fieldInput integer" />
-		</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.hasCritical">
+		<label for="criticalSkill" class="label">Critical skill:</label>
+		<input class="field" type="text" size="5" id="criticalSkill" ng-model="obj.criticalSkill" class="fieldInput integer" />
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.hasCritical">
+		<label for="criticalMultiplier" class="label">Critical multiplier:</label>
+		<input class="field" type="text" size="5" id="criticalMultiplier" ng-model="obj.criticalMultiplier" class="fieldInput integer" />
 	</div>
 	<div class="fieldWithLabel">
 		<label for="blockChance" class="label">Block chance:</label>
@@ -192,7 +193,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<button ng-click="obj.hitEffect.conditionsTarget.push({magnitude:1, duration:1, chance:100})">Add</button>
+		<button ng-click="addCondition(obj.hitEffect.conditionsTarget)">Add</button>
 	</div>
 </fieldset>
 <div class="endSets"> </div>

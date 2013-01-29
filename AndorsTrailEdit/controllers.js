@@ -18,6 +18,7 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 		};
 		$scope.addObj = function(section) {
 			var item = section.addNew();
+			ATEditor.importExport.prepareObjectsForEditor(section, [ item ]);
 			$scope.editObj(section, item);
 		};
 		$scope.clear = function(section) {

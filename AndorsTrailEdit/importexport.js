@@ -25,6 +25,7 @@ var ATEditor = (function(ATEditor, _) {
 		o.hasHitEffect = _.toBool(o.hitEffect.increaseCurrentHP.min || o.hitEffect.increaseCurrentAP.min || _.some(o.hitEffect.conditionsSource) || _.some(o.hitEffect.conditionsTarget));
 		o.hasCritical = _.toBool(o.criticalSkill || o.criticalMultiplier);
 		o.hasCombatTraits = _.toBool(o.attackChance || o.attackDamage.min || o.hasCritical || o.blockChance || o.damageResistance || o.hasHitEffect);
+		o.showAdvanced = _.toBool(o.faction || (o.size != '1x1'));
 	};
 	prep.itemcategory = function(o) {
 	};
@@ -73,6 +74,7 @@ var ATEditor = (function(ATEditor, _) {
 		delete o.hasUseEffect;
 		delete o.hasHitEffect;
 		delete o.hasKillEffect;
+		delete o.showAdvanced;
 	};
 	unprep.droplist = function(o) {
 	};
@@ -160,6 +162,7 @@ var ATEditor = (function(ATEditor, _) {
 		importText: importText
 		,importDataObjects: importDataObjects
 		,exportData: exportData
+		,prepareObjectsForEditor: prepareObjectsForEditor
 	};
 	return ATEditor;
 })(ATEditor || {}, _);

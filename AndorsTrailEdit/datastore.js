@@ -5,7 +5,6 @@ var ATEditor = (function(ATEditor, _) {
 			nameField: 'name'
 			,idField: 'id'
 			,iconIDField: 'iconID'
-			,newItemTemplate: function() { return {}; }
 		};
 		_.defaults(options, defaultOptions);
 
@@ -28,7 +27,9 @@ var ATEditor = (function(ATEditor, _) {
 			return obj[options.nameField]; 
 		};
 		this.addNew = function() {
-			var obj = options.newItemTemplate();
+			var obj = { };
+			obj[options.idField] = 'new_' + options.id;
+			obj[options.nameField] = 'New ' + options.id;
 			this.ensureUniqueId(obj);
 			items.push(obj);
 			return obj;

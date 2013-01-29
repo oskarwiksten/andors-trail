@@ -42,7 +42,7 @@ var ATEditor = (function(ATEditor, app, $) {
 	app.directive('ngTileImage', function () {
 		return function(scope, element, attrs) {
 			element.css('display', 'none');
-			scope.$watch(attrs.ngDsFade, function(value) {
+			scope.$watch(attrs.ngTileImage, function(value) {
 				if (value) {
 					element.fadeIn(400);
 				} else {
