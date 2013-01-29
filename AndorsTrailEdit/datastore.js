@@ -44,7 +44,9 @@ var ATEditor = (function(ATEditor, _) {
 		};
 		this.remove = function(o) {
 			var idx = items.indexOf(o);
-			items.splice(idx, 1);
+			if (idx >= 0) {
+				items.splice(idx, 1);
+			}
 		};
 		
 		this.findFirstFreeId = function(id) {

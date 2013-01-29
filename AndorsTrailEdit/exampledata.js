@@ -44,6 +44,7 @@ var ATEditor = (function(ATEditor, model, utils, _, $) {
 			parseListOfResourceFiles("loadresource_droplists", model.droplists);
 			parseListOfResourceFiles("loadresource_quests", model.quests);
 			parseListOfResourceFiles("loadresource_conversationlists", model.dialogue);
+			parseListOfResourceFiles("loadresource_monsters", model.monsters);
 			
 			_.each(resources['itemcategory'], function(file) {
 				loadUrlFromGit("AndorsTrail/res/raw/" + file, function(data) {
@@ -74,6 +75,7 @@ var ATEditor = (function(ATEditor, model, utils, _, $) {
 	ATEditor.exampleData = {
 		init: init
 		,resources: resources
+		,loadUrlFromGit: loadUrlFromGit
 	};
 	
 	return ATEditor;

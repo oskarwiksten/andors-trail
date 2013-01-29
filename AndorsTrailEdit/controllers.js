@@ -236,21 +236,33 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 		$scope.sections = model.sections;
 		$scope.content = "";
 		$scope.selectedSection = $scope.selectedSection || model.items;
+		$scope.importType = $scope.importType || 'paste';
+		$scope.availableFiles = ATEditor.exampleData.resources;
 		
-		$scope.importData = function() {
+		var countBefore = 0;
+		function success() {
+			var section = $scope.selectedSection;
+			var countAfter = section.items.length;
+			$scope.importedMsg = "Imported " + (countAfter - countBefore) + " " + section.name;
+		}
+		function error(msg) {
+			$scope.errorMsg = "Error importing data: " + msg;
+		}
+		$scope.importPastedData = function() {
 			$scope.errorMsg = "";
 			$scope.importedMsg = "";
-			
 			var section = $scope.selectedSection;
-			var countBefore = section.items.length;
-			function success() {
-				var countAfter = section.items.length;
-				$scope.importedMsg = "Imported " + (countAfter - countBefore) + " " + section.name;
-			}
-			function error(msg) {
-				$scope.errorMsg = "Error importing data: " + msg;
-			}
+			countBefore = section.items.length;
 			importExport.importText(section, $scope.content, success, error);
+		};
+		$scope.importExistingData = function() {
+			$scope.errorMsg = "";
+			$scope.importedMsg = "";
+			var section = $scope.selectedSection;
+			countBefore = section.items.length;
+			ATEditor.exampleData.loadUrlFromGit("AndorsTrail/res/raw/" + $scope.selectedFile, function(data) {
+				importExport.importDataObjects(section, data, success, error);
+			});
 		};
 	};
 	controllers.ExportController = function($scope) {
