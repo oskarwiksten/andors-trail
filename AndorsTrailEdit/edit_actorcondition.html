@@ -1,5 +1,5 @@
 <h3>Actor condition</h3>
-<fieldset class="fieldSet">
+<fieldset>
 	<legend>General</legend>
 	<div class="fieldWithLabel">
 		<div id="actorconditionimage" class="field"><input type="hidden" id="iconID" ng-model="obj.iconID" /></div>
@@ -37,7 +37,7 @@
 		<label class="checkbox"><input type="checkbox" id="hasAbilityEffect" ng-model="obj.hasAbilityEffect" />Has constant ability effect</label>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasRoundEffectDisplay" ng-ds-fade="obj.hasRoundEffect">
+<fieldset id="hasRoundEffectDisplay" ng-ds-fade="obj.hasRoundEffect">
 	<legend>Every round (6s)</legend>
 	<div class="fieldWithLabel">
 		<label for="round_visualEffectID">Visual effect:</label>
@@ -65,7 +65,7 @@
 		</div>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasFullRoundEffectDisplay" ng-ds-fade="obj.hasFullRoundEffect">
+<fieldset id="hasFullRoundEffectDisplay" ng-ds-fade="obj.hasFullRoundEffect">
 	<legend>Every full round (25s)</legend>
 	<div class="fieldWithLabel">
 		<label for="fullround_visualEffectID">Visual effect:</label>
@@ -93,7 +93,7 @@
 		</div>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasAbilityEffectDisplay" ng-ds-fade="obj.hasAbilityEffect">
+<fieldset id="hasAbilityEffectDisplay" ng-ds-fade="obj.hasAbilityEffect">
 	<legend>Constant ability effect</legend>
 	<div class="fieldWithLabel">
 		<label for="boostMaxHP">Boost max HP:</label>

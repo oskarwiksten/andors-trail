@@ -1,5 +1,5 @@
 <h3>Item</h3>
-<fieldset class="fieldSet">
+<fieldset>
 	<legend>General</legend>
 	<div class="fieldWithLabel">
 		<div id="itemimage" class="field"><input type="hidden" id="iconID" ng-model="obj.iconID" /></div>
@@ -40,7 +40,7 @@
 		<label class="checkbox"><input type="checkbox" id="hasKillEffect" ng-model="obj.hasKillEffect" />Has effect on every kill</label>
 	</div>
 </fieldset>
-<fieldset class="fieldSet">
+<fieldset>
 	<legend>Price</legend>
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" />Item has manually specified store price</label>
@@ -57,7 +57,7 @@
 		</div>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasEquipEffectDisplay" ng-ds-fade="obj.hasEquipEffect">
+<fieldset id="hasEquipEffectDisplay" ng-ds-fade="obj.hasEquipEffect">
 	<legend>When equipped</legend>
 	<div class="fieldWithLabel">
 		<label for="equip_boostMaxHP">Increase max HP:</label>
@@ -137,7 +137,7 @@
 		<button ng-click="addCondition(obj.equipEffect.addedConditions)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasUseEffectDisplay" ng-ds-fade="obj.hasUseEffect">
+<fieldset id="hasUseEffectDisplay" ng-ds-fade="obj.hasUseEffect">
 	<legend>When used</legend>
 	<div class="fieldWithLabel">
 		<label for="use_boostHP">Boost current HP (range):</label>
@@ -178,7 +178,7 @@
 		<button ng-click="addCondition(obj.useEffect.conditionsSource)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasHitEffectDisplay" ng-ds-fade="obj.hasHitEffect">
+<fieldset id="hasHitEffectDisplay" ng-ds-fade="obj.hasHitEffect">
 	<legend>When making a successful hit</legend>
 	<div class="fieldWithLabel">
 		<label for="hit_boostHP">Boost current HP (range):</label>
@@ -241,7 +241,7 @@
 		<button ng-click="addCondition(obj.hitEffect.conditionsTarget)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasKillEffectDisplay" ng-ds-fade="obj.hasKillEffect">
+<fieldset id="hasKillEffectDisplay" ng-ds-fade="obj.hasKillEffect">
 	<legend>On every kill</legend>
 	<div class="fieldWithLabel">
 		<label for="kill_boostHP">Boost current HP (range):</label>

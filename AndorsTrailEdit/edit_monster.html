@@ -1,5 +1,5 @@
 <h3>Monster / NPC</h3>
-<fieldset class="fieldSet">
+<fieldset>
 	<legend>General</legend>
 	<div class="fieldWithLabel">
 		<div id="monsterimage" class="field"><input type="hidden" ng-model="obj.iconID" /></div>
@@ -66,7 +66,7 @@
 		<input type="text" size="30" id="droplistID" ng-model="obj.droplistID" class="field at-input-id"/>
 	</div>
 </fieldset>
-<fieldset class="fieldSet">
+<fieldset>
 	<legend>Stats</legend>
 	<div class="fieldWithLabel">
 		<label for="maxAP">Total AP:</label>
@@ -84,7 +84,7 @@
 		<label class="checkbox"><input type="checkbox" id="hasCombat" ng-model="obj.hasCombatTraits" />Has combat traits</label>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasCombatDisplay" ng-ds-fade="obj.hasCombatTraits">
+<fieldset id="hasCombatDisplay" ng-ds-fade="obj.hasCombatTraits">
 	<legend>Combat</legend>
 	<div class="fieldWithLabel">
 		<label for="experience">Experience:</label>
@@ -129,7 +129,7 @@
 		<label class="checkbox"><input type="checkbox" id="hasHitEffect" ng-model="obj.hasHitEffect" />Has effect on each hit</label>
 	</div>
 </fieldset>
-<fieldset class="fieldSet" id="hasHitEffectDisplay" ng-ds-fade="obj.hasHitEffect && obj.hasCombatTraits">
+<fieldset id="hasHitEffectDisplay" ng-ds-fade="obj.hasHitEffect && obj.hasCombatTraits">
 	<legend>On every successful attack hit</legend>
 	<div class="fieldWithLabel">
 		<label for="onHit_boostHP">Boost current HP (range):</label>
