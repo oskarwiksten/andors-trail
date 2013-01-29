@@ -90,7 +90,7 @@
 		<label for="equip_attackCost">Increase attack cost (AP):</label>
 		<input type="text" size="5" id="equip_attackCost" class="field at-input-stat" ng-model="obj.equipEffect.increaseAttackCost" />
 	</div>
-	<div class="fieldWithLabel" ng-show="isWeapon">
+	<div class="fieldWithLabel" ng-ds-fade="isWeapon">
 		<label for="equip_attackCost">Attack cost (AP):</label>
 		<input type="text" size="5" id="equip_attackCost" class="field at-input-stat" ng-model="obj.equipEffect.increaseAttackCost" />
 	</div>
@@ -110,7 +110,7 @@
 		<label for="equip_criticalChance">Increase critical skill:</label>
 		<input type="text" size="5" id="equip_criticalChance" class="field at-input-stat" ng-model="obj.equipEffect.increaseCriticalSkill" />
 	</div>
-	<div class="fieldWithLabel" ng-show="isWeapon">
+	<div class="fieldWithLabel" ng-ds-fade="isWeapon">
 		<label for="equip_criticalMultiplier">Critical multiplier:</label>
 		<input type="text" size="5" id="equip_criticalMultiplier" class="field at-input-stat" ng-model="obj.equipEffect.setCriticalMultiplier" />
 	</div>

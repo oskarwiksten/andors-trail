@@ -28,7 +28,9 @@ var ATEditor = (function(ATEditor, _) {
 		this.addNew = function() {
 			var obj = { };
 			obj[options.idField] = 'new_' + options.id;
-			obj[options.nameField] = 'New ' + options.id;
+			if (options.idField != options.nameField) {
+				obj[options.nameField] = 'New ' + options.id;
+			}
 			this.ensureUniqueId(obj);
 			items.push(obj);
 			return obj;
@@ -47,6 +49,10 @@ var ATEditor = (function(ATEditor, _) {
 			if (idx >= 0) {
 				items.splice(idx, 1);
 			}
+		};
+		this.clear = function() {
+			items = [];
+			this.items = items;
 		};
 		
 		this.findFirstFreeId = function(id) {

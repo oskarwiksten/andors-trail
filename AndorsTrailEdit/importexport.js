@@ -17,6 +17,20 @@ var ATEditor = (function(ATEditor, _) {
 	prep.droplist = function(o) {
 	};
 	prep.dialogue = function(o) {
+		o.hasRewards = ATEditor.utils.hasValues(o.rewards);
+		if (o.replies.length === 1 && o.replies[0].text === "N") {
+			o.nextPhraseID = o.replies[0].nextPhraseID;
+			o.hasOnlyNextReply = true;
+		} else {
+			o.nextPhraseID = "";
+			o.hasOnlyNextReply = false;
+		}
+		_.each(o.replies, function(reply) {
+			ATEditor.defaults.addDefaults('reply', reply);
+			if (reply.nextPhraseID && reply.nextPhraseID.length === 1) { reply.replyLeadsTo = reply.nextPhraseID; }
+			reply.requiresItems = ATEditor.utils.hasValues(reply.requires.item);
+			reply.requiresQuest = _.toBool(reply.requires.progress);
+		});
 	};
 	prep.monster = function(o) {
 		o.hasConversation = _.toBool(o.phraseID);
@@ -70,6 +84,22 @@ var ATEditor = (function(ATEditor, _) {
 	unprep.droplist = function(o) {
 	};
 	unprep.dialogue = function(o) {
+		if (!o.hasRewards) { delete o.rewards; }
+		delete o.hasRewards;
+		_.each(o.replies, function(reply) {
+			if (reply.replyLeadsTo) { reply.text = reply.replyLeadsTo; }
+			delete reply.replyLeadsTo;
+			var requires = reply.requires;
+			if (!reply.requiresItems) { delete requires.item; }
+			delete reply.requiresItems;
+			if (!reply.requiresQuest) { delete requires.progress; }
+			delete reply.requiresQuest;
+		});
+		if (o.hasOnlyNextReply) {
+			o.replies = [ { text: "N", nextPhraseID: o.nextPhraseID } ];
+		}
+		delete o.nextPhraseID;
+		delete o.hasOnlyNextReply;
 	};
 	unprep.monster = function(o) {
 		if (!o.hasCritical) { 

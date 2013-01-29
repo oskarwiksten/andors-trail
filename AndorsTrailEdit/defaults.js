@@ -43,6 +43,9 @@ var ATEditor = (function(ATEditor, _) {
 			,inventorySlot: -1
 			,size: 0
 		}
+		,reply: {
+			requires: { item: { requireType: 0 } }
+		}
 	};
 	
 	ATEditor.defaults = {

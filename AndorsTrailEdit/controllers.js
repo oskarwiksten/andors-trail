@@ -23,7 +23,7 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 		};
 		$scope.clear = function(section) {
 			if(!confirm("Are you sure you want to clear all " + section.name + " ?")) return;
-			section.items = [];
+			section.clear();
 		};
 		$scope.getName = function(section, obj) {
 			return section.getName(obj);
@@ -173,7 +173,33 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 	};
 	controllers.DialogueController = function($scope, $routeParams) {
 		$scope.datasource = model.dialogue;
-		$scope.obj = $scope.datasource.findById($routeParams.id);
+		$scope.rootPhrase = $scope.datasource.findById($routeParams.id);
+		
+		$scope.phrase = $scope.rootPhrase;
+		$scope.reply = null;
+		$scope.removeReward = function(phrase, reward) {
+			var idx = phrase.rewards.indexOf(reward);
+			phrase.rewards.splice(idx, 1);
+		};
+		$scope.addReward = function(phrase) {
+			phrase.rewards.push({});
+		};
+		$scope.followNextReply = function(nextPhraseID) {
+		};
+		$scope.selectReply = function(reply) {
+			$scope.reply = reply;
+		};
+		$scope.removeReply = function(phrase, reply) {
+			var idx = phrase.replies.indexOf(reply);
+			phrase.replies.splice(idx, 1);
+			if ($scope.reply === reply) { $scope.reply = null; }
+		};
+		$scope.addReply = function(phrase) {
+			var reply = {};
+			ATEditor.defaults.addDefaults('reply', reply);
+			phrase.replies.push(reply);
+			$scope.reply = reply;
+		};
 	};
 	controllers.MonsterController = function($scope, $routeParams) {
 		$scope.datasource = model.monsters;

@@ -1,5 +1,142 @@
-<div>
-<p>id: {{obj.id}}</p>
-<input type="text" ng-model="obj.id"><br />
-<input type="text" ng-model="obj.name"><br />
-</div>
+<h3>Dialogue</h3>
+<fieldset>
+	<legend>Conversation flow</legend>
+	<div id="dialogueTree"> </div>
+	<!-- http://acidjs.wemakesites.net/css3-treevew-no-javascript.html -->
+</fieldset>
+
+<fieldset id="dialoguePhrase">
+	<legend>NPC phrase</legend>
+	<div class="fieldWithLabel">
+		<label for="id">Phrase ID:</label>
+		<input type="text" size="30" id="id" class="field at-input-id" ng-model="phrase.id" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="message">NPC says:</label>
+		<textarea rows="4" cols="40" id="message" ng-model="phrase.message"></textarea>
+		<p ng-ds-fade="!phrase.message && phrase.replies.length > 0" style="color: #633">
+			Since this phrase does not have any displayed<br />
+			text, it will not be shown to the player.<br />
+			Instead, the first reply that matches all<br />
+			requirements will be automatically followed.
+		</p>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasRewards" ng-model="phrase.hasRewards" />Reaching this phrase gives rewards</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="phrase.hasRewards">
+		<label for="rewards">Rewards</label>
+		<table class="field" id="rewards">
+			<thead><tr>
+				<th>Type</th>
+				<th>ID</th>
+				<th>Value</th>
+				<th></th>
+			</tr></thead>
+			<tbody>
+				<tr ng-repeat="reward in phrase.rewards">
+					<td>
+						<select class="field" id="rewardType" ng-model="reward.rewardType">
+							<option value="0">Quest progress</option>
+							<option value="1">Droplist</option>
+							<option value="2">Skill increase</option>
+							<option value="3">Actor condition</option>
+							<option value="4">Alignment/faction change</option>
+						</select>
+					</td>
+					<td><input type="text" size="30" ng-model="reward.rewardID" id="rewardID" class="at-input-id"/></td>
+					<td><input type="text" size="3" ng-model="reward.value" class="at-input-quantity" /></td>
+					<td><a ng-click="removeReward(phrase, reward)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="addReward(phrase)" class="btn" title="Add reward"><i class="icon-plus-sign"></i> Add reward</button>
+	</div>
+</fieldset>
+
+<fieldset id="dialoguePhraseReplies">
+	<legend>Replies</legend>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasOnlyNextReply" ng-model="phrase.hasOnlyNextReply" />Phrase leads directly to another<br />phrase without replies</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="phrase.hasOnlyNextReply">
+		<label for="nextPhraseID">Phrase ID:</label>
+		<div class="field">
+			<input type="text" size="30" id="nextPhraseID" class="at-input-id" ng-model="phrase.nextPhraseID" placeholder="leave empty to generate id" />
+			<a ng-click="followNextReply(phrase.nextPhraseID)" class="btn" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used.">
+				<i class="icon-forward"></i> Go
+			</a>
+		</div>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="!phrase.hasOnlyNextReply">
+		<label for="replies">Replies</label>
+		<table class="field" id="replies">
+			<thead><tr>
+				<th>Reply</th>
+				<th></th>
+			</tr></thead>
+			<tbody>
+				<tr ng-repeat="reply in phrase.replies">
+					<td ng-click="selectReply(reply)" class="clickToEdit">{{reply.text.substring(0, 40)}}</td>
+					<td><a ng-click="removeReply(phrase, reply)" class="btn btn-mini" title="Remove reply"><i class="icon-trash"></i></a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="addReply(phrase)" class="btn" title="Add reply"><i class="icon-plus-sign"></i> Add reply</button>
+	</div>
+</fieldset>
+
+<fieldset id="dialogueReply" ng-show="reply">
+	<legend>Player reply</legend>
+	<div class="fieldWithLabel">
+		<label for="text">Player says:</label>
+		<textarea rows="4" cols="40" id="text" ng-model="reply.text"></textarea>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="replyLeadsTo">Reply leads to:</label>
+		<select class="field" id="replyLeadsTo" ng-model="reply.replyLeadsTo">
+			<option value="">Another phrase</option>
+			<option value="S">Trading screen</option>
+			<option value="F">Combat</option>
+			<option value="X">Conversation ends</option>
+			<option value="R">NPC is removed from map</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="!reply.replyLeadsTo">
+		<label for="nextPhraseID">Next phrase ID:</label>
+		<div class="field">
+			<input type="text" size="30" id="nextPhraseID" class="at-input-id" ng-model="reply.nextPhraseID" placeholder="leave empty to generate id" />
+			<a ng-click="followNextReply(reply.nextPhraseID)" class="btn" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used.">
+				<i class="icon-forward"></i> Go
+			</a>
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="requiresItems" ng-model="reply.requiresItems" />Player must have item(s) to select this reply</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="reply.requiresItems">
+		<label for="requires_itemID">Required item ID</label>
+		<input type="text" size="30" id="requires_itemID" class="field at-input-id" ng-model="reply.requires.item.itemID" />
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="reply.requiresItems">
+		<label for="requires_Quantity">Required item quantity</label>
+		<input type="text" size="5" id="requires_Quantity" class="field at-input-quantity" ng-model="reply.requires.item.quantity" />
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="reply.requiresItems">
+		<label for="requires_Type">Player should have item in:</label>
+		<select class="field" id="requires_Type" ng-model="reply.requires.item.requireType">
+			<option value="0">Inventory &amp; item will be removed</option>
+			<option value="1">Inventory</option>
+			<option value="2">Worn equipment</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="requiresQuest" ng-model="reply.requiresQuest" />Player must have progressed quest to select this reply</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="reply.requiresQuest">
+		<label for="requires_Progress">Quest stage required:</label>
+		<input type="text" size="30" id="requires_Progress" class="field at-input-id" ng-model="reply.requires.progress" placeholder="questname:stage" title="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20."/>
+	</div>
+	
+</fieldset>
+<div class="endSets"> </div>
