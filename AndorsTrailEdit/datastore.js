@@ -42,8 +42,9 @@ var ATEditor = (function(ATEditor, _) {
 			items.push(obj);
 			return obj;
 		};
-		this.remove = function(o) { 
-			items = _.without(items, o);
+		this.remove = function(o) {
+			var idx = items.indexOf(o);
+			items.splice(idx, 1);
 		};
 		
 		this.findFirstFreeId = function(id) {
