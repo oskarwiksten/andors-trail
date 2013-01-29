@@ -127,6 +127,7 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 			var val = parseInt(obj.baseMarketCost);
 			if (obj.hasManualPrice === "0") {
 				val = calculateItemCost(obj);
+				if (val <= 0) { val = 1; }
 				obj.baseMarketCost = val;
 			}
 			$scope.marketCost_Sell = Math.round(val * (100 + 15) / 100);

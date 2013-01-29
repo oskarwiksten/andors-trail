@@ -6,7 +6,6 @@ html, body 					{ margin:0; padding:0; }
 #top #buttons 				{ float: right; font-size: 1.2em; margin: 10px; }
 .workarea 					{ margin: 5px; position: absolute; top: 54px; }
 #left 						{ width: 250px; padding: 0px; font-size: 1em; }
-#left .accordion-group 		{ background-color: #e0e0e0; border: 1px solid #bbb; margin-bottom: 6px; -moz-box-shadow: 4px 4px 5px #bbb; -webkit-box-shadow: 4px 4px 5px #bbb; box-shadow: 4px 4px 5px #bbb; }
 #center 					{ left: 265px; right: 0; border-left: 2px #c0d0ff solid; padding-left: 5px; }
 
 .hidden 					{ display: none; }
@@ -20,29 +19,28 @@ html, body 					{ margin:0; padding:0; }
 .workarea h3 				{ font-size: 18px; margin: 0 0 0 5px; }
 .workarea legend 			{ font-size: 16px; margin: 0 0 5px 0; }
 .workarea fieldset 			{ float:left; margin: 1ex; border-right: 1px solid #ddd; padding-right: 5px; }
+.workarea .endSets			{ clear: both; }
 
-.fieldWithLabel 			{ font-size: 0.9em; }
-.fieldWithLabel label 		{ margin-top: 1.1ex; }
-.endSets					{ clear: both; }
-
+#left .accordion-group 		{ background-color: #e0e0e0; border: 1px solid #bbb; margin-bottom: 6px; -moz-box-shadow: 4px 4px 5px #bbb; -webkit-box-shadow: 4px 4px 5px #bbb; box-shadow: 4px 4px 5px #bbb; }
 .itemlist					{ list-style: none; padding: 0px; margin: 0px; border: 1px solid #bbb; }
 .itemlist li				{ padding: 2px 5px 2px 5px; }
 .itemlist li img			{ float: left; margin-right: 0.5ex; }
 .itemlist li:nth-child(odd)	{ background-color: #eee; }
 .itemlist li:hover			{ background-color: #d7d7ff; cursor: pointer; }
-.importexport-header		{ font-weight: bold; padding-top: 1ex; }
-#dialog-importexport #value	{ font-family: monospace; font-size: 7pt; }
+
+.fieldWithLabel label 		{ margin-top: 1.1ex; }
 .fieldWithLabel table		{ border-collapse: collapse; margin-bottom: 1ex; }	
 .fieldWithLabel table th	{ border: 1px #ccc solid; padding: 0.5ex; }
 .fieldWithLabel table td	{ border: 1px #ccc solid; padding: 0.5ex; }
 .fieldWithLabel table tbody tr:nth-child(even)	{ background-color: #eee }
 .fieldWithLabel table tbody tr:hover	{ background-color: #d7d7ff; }
+
 #dialogueTreeContainer		{ }
 #dialogueTree				{ width: 400px; }
 #dialogueData				{ }
 .imageButton				{ padding: 5px; }
-.importexport-description	{ padding: 15px; text-align: right; }
 .tools-buttons				{ padding-bottom: 10px; }
+#importExportTextArea		{ width: 500px; }
 
 .validateStep				{ border: 1px #d7d7ff solid; background-color: white; padding: 1em; margin: 2em; float: left; }
 .validateStep h1			{ font-size: 1.1em; }

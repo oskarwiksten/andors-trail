@@ -1,11 +1,14 @@
-<div id="dialog-import">
-	<div id="description" class="importexport-description">This data corresponds to the files named res/values/content_*.xml in the source code.</div>
+<h3>Import</h3>
+<fieldset>
+	<p>Data to import can be found in the files named <a href="http://code.google.com/p/andors-trail/source/browse/#git%2FAndorsTrail%2Fres">res/raw/*.json</a> in the source code.</p>
 	Import as
 	<select ng-model="selectedSection" ng-options="s.name for s in sections">
 	</select>
 	
-	<div><textarea id="value" rows="9" cols="80" ng-model="content"></textarea></div>
-	<button ng-click="importData()">Import</button>
+	<p>
+		<textarea id="importExportTextArea" rows="9" cols="80" ng-model="content" placeholder="paste json data here"></textarea>
+	</p>
+	<button ng-click="importData()" class="btn btn-primary pull-right"><i class="icon-upload"></i> Import</button>
 	
 	<div style="color: red;" ng-ds-fade="errorMsg">{{errorMsg}}</div>
 	<div style="color: green;" ng-ds-fade="importedMsg">{{importedMsg}}</div>
