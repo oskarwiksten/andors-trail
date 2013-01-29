@@ -1,4 +1,3 @@
-<div id="editItem">
 <h3>Item</h3>
 <fieldset class="fieldSet">
 	<legend>General</legend>
@@ -6,20 +5,20 @@
 		<div id="itemimage" class="field"><input type="hidden" id="iconID" ng-model="obj.iconID" /></div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="name" class="label">Display name:</label>
-		<input class="field" type="text" size="30" id="name" class="fieldInput" ng-model="obj.name" />
+		<label for="name">Display name:</label>
+		<input type="text" size="30" id="name" class="field at-input-name" ng-model="obj.name" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="id" class="label">Internal ID:</label>
-		<input class="field" type="text" size="30" id="id" class="fieldInput" ng-model="obj.id" />
+		<label for="id">Internal ID:</label>
+		<input type="text" size="30" id="id" class="field at-input-id" ng-model="obj.id" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="category" class="label">Category:</label>
+		<label for="category">Category:</label>
 		<select class="field" id="category" ng-model="obj.category" ng-options="s.name for s in itemCategories">
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="displaytype" class="label">Display as:</label>
+		<label for="displaytype">Display as:</label>
 		<select class="field" id="displaytype" ng-model="obj.displaytype">
 			<option value="0">Ordinary item</option>
 			<option value="1">Quest item (yellow)</option>
@@ -29,255 +28,258 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" />Item has manually specified store price</div>
+		<label class="checkbox"><input type="checkbox" id="hasEquipEffect" ng-model="obj.hasEquipEffect" />Has equip effect</label>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="baseMarketCost" class="label">Base market cost (gold):</label>
-		<input class="field" type="text" size="7" id="baseMarketCost" ng-readonly="obj.hasManualPrice == 0" class="fieldInput integer" ng-model="obj.baseMarketCost" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+		<label class="checkbox"><input type="checkbox" id="hasUseEffect" ng-model="obj.hasUseEffect" />Has use effect</label>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="marketCost_Sell" class="label">Actual price (gold):</label>
+		<label class="checkbox"><input type="checkbox" id="hasHitEffect" ng-model="obj.hasHitEffect" />Has effect on every hit</label>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasKillEffect" ng-model="obj.hasKillEffect" />Has effect on every kill</label>
+	</div>
+</fieldset>
+<fieldset class="fieldSet">
+	<legend>Price</legend>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" />Item has manually specified store price</label>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="baseMarketCost">Base market cost (gold):</label>
+		<input type="text" size="7" id="baseMarketCost" ng-readonly="obj.hasManualPrice == 0" class="field at-input-gold" ng-model="obj.baseMarketCost" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="marketCost_Sell">Actual price (gold):</label>
 		<div class="field">
-			<span>Sell: <input type="text" size="7" id="marketCost_Sell" class="fieldInput integer" ng-model="marketCost_Sell" readonly="readonly" /></span>
-			<span>Buy: <input type="text" size="7" id="marketCost_Buy" class="fieldInput integer" ng-model="marketCost_Buy" readonly="readonly" /></span>
+			<span>Sell: <input type="text" size="7" id="marketCost_Sell" class="at-input-gold" ng-model="marketCost_Sell" readonly="readonly" /></span>
+			<span>Buy: <input type="text" size="7" id="marketCost_Buy" class="at-input-gold" ng-model="marketCost_Buy" readonly="readonly" /></span>
 		</div>
-	</div>
-	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasEquipEffect" ng-model="obj.hasEquipEffect" />Has equip effect</div>
-	</div>
-	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasUseEffect" ng-model="obj.hasUseEffect" />Has use effect</div>
-	</div>
-	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasHitEffect" ng-model="obj.hasHitEffect" />Has effect on every hit</div>
-	</div>
-	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasKillEffect" ng-model="obj.hasKillEffect" />Has effect on every kill</div>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasEquipEffectDisplay" ng-ds-fade="obj.hasEquipEffect">
 	<legend>When equipped</legend>
 	<div class="fieldWithLabel">
-		<label for="equip_boostMaxHP" class="label">Increase max HP:</label>
-		<input type="text" size="5" id="equip_boostMaxHP" class="field fieldInput integer" ng-model="obj.equipEffect.increaseMaxHP" />
+		<label for="equip_boostMaxHP">Increase max HP:</label>
+		<input type="text" size="5" id="equip_boostMaxHP" class="field at-input-stat" ng-model="obj.equipEffect.increaseMaxHP" />
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasEquipEffect" ng-model="obj.hasEquipAPEffect" />Has AP effect</div>
+		<label class="checkbox"><input type="checkbox" id="hasEquipEffect" ng-model="obj.hasEquipAPEffect" />Has AP effect</label>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
-		<label for="equip_boostMaxAP" class="label">Increase max AP:</label>
-		<input type="text" size="5" id="equip_boostMaxAP" class="field fieldInput integer" ng-model="obj.equipEffect.increaseMaxAP" />
+		<label for="equip_boostMaxAP">Increase max AP:</label>
+		<input type="text" size="5" id="equip_boostMaxAP" class="field at-input-stat" ng-model="obj.equipEffect.increaseMaxAP" />
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
-		<label for="equip_moveCostPenalty" class="label">Increase move cost (AP):</label>
-		<input type="text" size="5" id="equip_moveCostPenalty" class="field fieldInput integer" ng-model="obj.equipEffect.increaseMoveCost" />
+		<label for="equip_moveCostPenalty">Increase move cost (AP):</label>
+		<input type="text" size="5" id="equip_moveCostPenalty" class="field at-input-stat" ng-model="obj.equipEffect.increaseMoveCost" />
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
-		<label for="equip_increaseUseItemCost" class="label">Increase use item cost (AP):</label>
-		<input class="field" type="text" size="5" id="equip_increaseUseItemCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseUseItemCost" />
+		<label for="equip_increaseUseItemCost">Increase use item cost (AP):</label>
+		<input type="text" size="5" id="equip_increaseUseItemCost" class="field at-input-stat" ng-model="obj.equipEffect.increaseUseItemCost" />
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.hasEquipAPEffect">
-		<label for="equip_increaseReequipCost" class="label">Increase re-equip cost (AP):</label>
-		<input class="field" type="text" size="5" id="equip_increaseReequipCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseReequipCost" />
+		<label for="equip_increaseReequipCost">Increase re-equip cost (AP):</label>
+		<input type="text" size="5" id="equip_increaseReequipCost" class="field at-input-stat" ng-model="obj.equipEffect.increaseReequipCost" />
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="!isWeapon">
-		<label for="equip_attackCost" class="label">Increase attack cost (AP):</label>
-		<input class="field" type="text" size="5" id="equip_attackCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackCost" />
+		<label for="equip_attackCost">Increase attack cost (AP):</label>
+		<input type="text" size="5" id="equip_attackCost" class="field at-input-stat" ng-model="obj.equipEffect.increaseAttackCost" />
 	</div>
 	<div class="fieldWithLabel" ng-show="isWeapon">
-		<label for="equip_attackCost" class="label">Attack cost (AP):</label>
-		<input class="field" type="text" size="5" id="equip_attackCost" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackCost" />
+		<label for="equip_attackCost">Attack cost (AP):</label>
+		<input type="text" size="5" id="equip_attackCost" class="field at-input-stat" ng-model="obj.equipEffect.increaseAttackCost" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_attackChance" class="label">Increase attack chance:</label>
-		<div class="field"><input type="text" size="5" id="equip_attackChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackChance" />%</div>
+		<label for="equip_attackChance">Increase attack chance:</label>
+		<input type="text" size="5" id="equip_attackChance" class="field at-input-stat" ng-model="obj.equipEffect.increaseAttackChance" />%
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_attackDamage" class="label">Increase attack damage (range):</label>
+		<label for="equip_attackDamage">Increase attack damage (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="equip_attackDamage_Min" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackDamage.min" />
+			<input type="text" size="3" id="equip_attackDamage_Min" class="at-input-stat-minmax" ng-model="obj.equipEffect.increaseAttackDamage.min" />
 			-
-			<input type="text" size="3" id="equip_attackDamage_Max" class="fieldInput integer" ng-model="obj.equipEffect.increaseAttackDamage.max" />
+			<input type="text" size="3" id="equip_attackDamage_Max" class="at-input-stat-minmax" ng-model="obj.equipEffect.increaseAttackDamage.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_criticalChance" class="label">Increase critical skill:</label>
-		<div class="field"><input type="text" size="5" id="equip_criticalChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseCriticalSkill" /></div>
+		<label for="equip_criticalChance">Increase critical skill:</label>
+		<input type="text" size="5" id="equip_criticalChance" class="field at-input-stat" ng-model="obj.equipEffect.increaseCriticalSkill" />
 	</div>
 	<div class="fieldWithLabel" ng-show="isWeapon">
-		<label for="equip_criticalMultiplier" class="label">Critical multiplier:</label>
-		<input class="field" type="text" size="5" id="equip_criticalMultiplier" class="fieldInput integer" ng-model="obj.equipEffect.setCriticalMultiplier" />
+		<label for="equip_criticalMultiplier">Critical multiplier:</label>
+		<input type="text" size="5" id="equip_criticalMultiplier" class="field at-input-stat" ng-model="obj.equipEffect.setCriticalMultiplier" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_blockChance" class="label">Increase block chance:</label>
-		<div class="field"><input type="text" size="5" id="equip_blockChance" class="fieldInput integer" ng-model="obj.equipEffect.increaseBlockChance" />%</div>
+		<label for="equip_blockChance">Increase block chance:</label>
+		<input type="text" size="5" id="equip_blockChance" class="field at-input-stat" ng-model="obj.equipEffect.increaseBlockChance" />%
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_damageResistance" class="label">Increase damage resistance:</label>
-		<input class="field" type="text" size="5" id="equip_damageResistance" class="fieldInput integer" ng-model="obj.equipEffect.increaseDamageResistance" />
+		<label for="equip_damageResistance">Increase damage resistance:</label>
+		<input type="text" size="5" id="equip_damageResistance" class="field at-input-stat" ng-model="obj.equipEffect.increaseDamageResistance" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="equip_conditions" class="label">Apply actor condition</label>
+		<label for="equip_conditions">Apply actor condition</label>
 		<table class="field" id="equip_conditions">
 			<thead><tr>
-				<th id="condition">Condition</th>
-				<th id="magnitude">Magnitude</th>
+				<th>Condition</th>
+				<th>Magnitude</th>
 				<th></th>
 			</tr></thead>
 			<tbody>
 				<tr ng-repeat="condition in obj.equipEffect.addedConditions">
-					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
-					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
-					<td><a ng-click="removeCondition(obj.equipEffect.addedConditions, condition)">X</a></td>
+					<td><input type="text" ng-model="condition.condition" class="at-input-id" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="at-input-magnitude" /></td>
+					<td><a ng-click="removeCondition(obj.equipEffect.addedConditions, condition)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
-		<button ng-click="addCondition(obj.equipEffect.addedConditions)">Add</button>
+		<button ng-click="addCondition(obj.equipEffect.addedConditions)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasUseEffectDisplay" ng-ds-fade="obj.hasUseEffect">
 	<legend>When used</legend>
 	<div class="fieldWithLabel">
-		<label for="use_boostHP" class="label">Boost current HP (range):</label>
+		<label for="use_boostHP">Boost current HP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="use_boostHP_Min" class="fieldInput integer" ng-model="obj.useEffect.increaseCurrentHP.min" />
+			<input type="text" size="3" id="use_boostHP_Min" class="at-input-stat-minmax" ng-model="obj.useEffect.increaseCurrentHP.min" />
 			-
-			<input type="text" size="3" id="use_boostHP_Max" class="fieldInput integer" ng-model="obj.useEffect.increaseCurrentHP.max" />
+			<input type="text" size="3" id="use_boostHP_Max" class="at-input-stat-minmax" ng-model="obj.useEffect.increaseCurrentHP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="use_boostAP" class="label">Boost current AP (range):</label>
+		<label for="use_boostAP">Boost current AP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="use_boostAP_Min" class="fieldInput integer" ng-model="obj.useEffect.increaseCurrentAP.min" />
+			<input type="text" size="3" id="use_boostAP_Min" class="at-input-stat-minmax" ng-model="obj.useEffect.increaseCurrentAP.min" />
 			-
-			<input type="text" size="3" id="use_boostAP_Max" class="fieldInput integer" ng-model="obj.useEffect.increaseCurrentAP.max" />
+			<input type="text" size="3" id="use_boostAP_Max" class="at-input-stat-minmax" ng-model="obj.useEffect.increaseCurrentAP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="use_conditionsSource" class="label">Apply actor condition</label>
+		<label for="use_conditionsSource">Apply actor condition</label>
 		<table class="field" id="use_conditionsSource">
 			<thead><tr>
-				<th id="condition">Condition</th>
-				<th id="magnitude">Magnitude</th>
-				<th id="duration">Duration</th>
-				<th id="chance">Chance</th>
+				<th>Condition</th>
+				<th>Magnitude</th>
+				<th>Duration</th>
+				<th>Chance</th>
 				<th></th>
 			</tr></thead>
 			<tbody>
 				<tr ng-repeat="condition in obj.useEffect.conditionsSource">
-					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
-					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.duration" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.chance" class="fieldInput" /></td>
-					<td><a ng-click="removeCondition(obj.useEffect.conditionsSource, condition)">X</a></td>
+					<td><input type="text" ng-model="condition.condition" class="at-input-id" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="at-input-magnitude" /></td>
+					<td><input type="text" size="3" ng-model="condition.duration" class="at-input-duration" /></td>
+					<td><input type="text" size="3" ng-model="condition.chance" class="at-input-chance" /></td>
+					<td><a ng-click="removeCondition(obj.useEffect.conditionsSource, condition)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
-		<button ng-click="addCondition(obj.useEffect.conditionsSource)">Add</button>
+		<button ng-click="addCondition(obj.useEffect.conditionsSource)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasHitEffectDisplay" ng-ds-fade="obj.hasHitEffect">
 	<legend>When making a successful hit</legend>
 	<div class="fieldWithLabel">
-		<label for="hit_boostHP" class="label">Boost current HP (range):</label>
+		<label for="hit_boostHP">Boost current HP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="hit_boostHP_Min" class="fieldInput integer" ng-model="obj.hitEffect.increaseCurrentHP.min" />
+			<input type="text" size="3" id="hit_boostHP_Min" class="at-input-stat-minmax" ng-model="obj.hitEffect.increaseCurrentHP.min" />
 			-
-			<input type="text" size="3" id="hit_boostHP_Max" class="fieldInput integer" ng-model="obj.hitEffect.increaseCurrentHP.max" />
+			<input type="text" size="3" id="hit_boostHP_Max" class="at-input-stat-minmax" ng-model="obj.hitEffect.increaseCurrentHP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="hit_boostAP" class="label">Boost current AP (range):</label>
+		<label for="hit_boostAP">Boost current AP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="hit_boostAP_Min" class="fieldInput integer" ng-model="obj.hitEffect.increaseCurrentAP.min" />
+			<input type="text" size="3" id="hit_boostAP_Min" class="at-input-stat-minmax" ng-model="obj.hitEffect.increaseCurrentAP.min" />
 			-
-			<input type="text" size="3" id="hit_boostAP_Max" class="fieldInput integer" ng-model="obj.hitEffect.increaseCurrentAP.max" />
+			<input type="text" size="3" id="hit_boostAP_Max" class="at-input-stat-minmax" ng-model="obj.hitEffect.increaseCurrentAP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="hit_conditionsSource" class="label">Apply actor condition to source</label>
+		<label for="hit_conditionsSource">Apply actor condition to source</label>
 		<table class="field" id="hit_conditionsSource">
 			<thead><tr>
-				<th id="condition">Condition</th>
-				<th id="magnitude">Magnitude</th>
-				<th id="duration">Duration</th>
-				<th id="chance">Chance</th>
+				<th>Condition</th>
+				<th>Magnitude</th>
+				<th>Duration</th>
+				<th>Chance</th>
 				<th></th>
 			</tr></thead>
 			<tbody>
 				<tr ng-repeat="condition in obj.hitEffect.conditionsSource">
-					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
-					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.duration" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.chance" class="fieldInput" /></td>
-					<td><a ng-click="removeCondition(obj.hitEffect.conditionsSource, condition)">X</a></td>
+					<td><input type="text" ng-model="condition.condition" class="at-input-id" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="at-input-magnitude" /></td>
+					<td><input type="text" size="3" ng-model="condition.duration" class="at-input-duration" /></td>
+					<td><input type="text" size="3" ng-model="condition.chance" class="at-input-chance" /></td>
+					<td><a ng-click="removeCondition(obj.hitEffect.conditionsSource, condition)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
-		<button ng-click="addCondition(obj.hitEffect.conditionsSource)">Add</button>
+		<button ng-click="addCondition(obj.hitEffect.conditionsSource)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="hit_conditionsTarget" class="label">Apply actor condition to target</label>
+		<label for="hit_conditionsTarget">Apply actor condition to target</label>
 		<table class="field" id="hit_conditionsTarget">
 			<thead><tr>
-				<th id="condition">Condition</th>
-				<th id="magnitude">Magnitude</th>
-				<th id="duration">Duration</th>
-				<th id="chance">Chance</th>
+				<th>Condition</th>
+				<th>Magnitude</th>
+				<th>Duration</th>
+				<th>Chance</th>
 				<th></th>
 			</tr></thead>
 			<tbody>
 				<tr ng-repeat="condition in obj.hitEffect.conditionsTarget">
-					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
-					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.duration" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.chance" class="fieldInput" /></td>
-					<td><a ng-click="removeCondition(obj.hitEffect.conditionsTarget, condition)">X</a></td>
+					<td><input type="text" ng-model="condition.condition" class="at-input-id" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="at-input-magnitude" /></td>
+					<td><input type="text" size="3" ng-model="condition.duration" class="at-input-duration" /></td>
+					<td><input type="text" size="3" ng-model="condition.chance" class="at-input-chance" /></td>
+					<td><a ng-click="removeCondition(obj.hitEffect.conditionsTarget, condition)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
-		<button ng-click="addCondition(obj.hitEffect.conditionsTarget)">Add</button>
+		<button ng-click="addCondition(obj.hitEffect.conditionsTarget)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasKillEffectDisplay" ng-ds-fade="obj.hasKillEffect">
 	<legend>On every kill</legend>
 	<div class="fieldWithLabel">
-		<label for="kill_boostHP" class="label">Boost current HP (range):</label>
+		<label for="kill_boostHP">Boost current HP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="kill_boostHP_Min" class="fieldInput integer" ng-model="obj.killEffect.increaseCurrentHP.min" />
+			<input type="text" size="3" id="kill_boostHP_Min" class="at-input-stat-minmax" ng-model="obj.killEffect.increaseCurrentHP.min" />
 			-
-			<input type="text" size="3" id="kill_boostHP_Max" class="fieldInput integer" ng-model="obj.killEffect.increaseCurrentHP.max" />
+			<input type="text" size="3" id="kill_boostHP_Max" class="at-input-stat-minmax" ng-model="obj.killEffect.increaseCurrentHP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="kill_boostAP" class="label">Boost current AP (range):</label>
+		<label for="kill_boostAP">Boost current AP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="kill_boostAP_Min" class="fieldInput integer" ng-model="obj.killEffect.increaseCurrentAP.min" />
+			<input type="text" size="3" id="kill_boostAP_Min" class="at-input-stat-minmax" ng-model="obj.killEffect.increaseCurrentAP.min" />
 			-
-			<input type="text" size="3" id="kill_boostAP_Max" class="fieldInput integer" ng-model="obj.killEffect.increaseCurrentAP.max" />
+			<input type="text" size="3" id="kill_boostAP_Max" class="at-input-stat-minmax" ng-model="obj.killEffect.increaseCurrentAP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="kill_conditionsSource" class="label">Apply actor condition</label>
+		<label for="kill_conditionsSource">Apply actor condition</label>
 		<table class="field" id="kill_conditionsSource">
 			<thead><tr>
-				<th id="condition">Condition</th>
-				<th id="magnitude">Magnitude</th>
-				<th id="duration">Duration</th>
-				<th id="chance">Chance</th>
+				<th>Condition</th>
+				<th>Magnitude</th>
+				<th>Duration</th>
+				<th>Chance</th>
 				<th></th>
 			</tr></thead>
 			<tbody>
 				<tr ng-repeat="condition in obj.killEffect.conditionsSource">
-					<td><input type="text" ng-model="condition.condition" class="fieldInput" /></td>
-					<td><input type="text" size="3" ng-model="condition.magnitude" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.duration" class="fieldInput integer" /></td>
-					<td><input type="text" size="3" ng-model="condition.chance" class="fieldInput" /></td>
-					<td><a ng-click="removeCondition(obj.killEffect.conditionsSource, condition)">X</a></td>
+					<td><input type="text" ng-model="condition.condition" class="at-input-id" /></td>
+					<td><input type="text" size="3" ng-model="condition.magnitude" class="at-input-magnitude" /></td>
+					<td><input type="text" size="3" ng-model="condition.duration" class="at-input-duration" /></td>
+					<td><input type="text" size="3" ng-model="condition.chance" class="at-input-chance" /></td>
+					<td><a ng-click="removeCondition(obj.killEffect.conditionsSource, condition)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
 				</tr>
 			</tbody>
 		</table>
-		<button ng-click="addCondition(obj.killEffect.conditionsSource)">Add</button>
+		<button ng-click="addCondition(obj.killEffect.conditionsSource)" class="btn" title="Add row"><i class="icon-plus-sign"></i> Add</button>
 	</div>
 </fieldset>
 <div class="endSets"> </div>

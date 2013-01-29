@@ -2,9 +2,9 @@
 <html lang="en" ng-app="ateditor">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="styles2.css" />
 	<link rel="stylesheet" href="inc/ui.dynatree.css" />
 	<link rel="stylesheet" href="inc/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="styles2.css" />
 	<title>Andor's Trail Content Editor</title>
 </head>
 <body>
@@ -18,9 +18,10 @@
 		</span>
 	</div>
 	<div id="buttons">
-		<a href="#import">Import</a>
-		<a href="#export">Export</a>
+		<a href="#import" class="btn"><i class="icon-upload"></i> Import</a>
+		<a href="#export" class="btn"><i class="icon-download"></i> Export</a>
 	</div>
+	<div class="clearfix"></div>
 </div>
 
 <div id="left" class="workarea">
@@ -49,8 +50,8 @@
 				<div id="collapse-nav-{{section.id}}" class="accordion-body collapse">
 					<div class="accordion-inner">
 						<div class="tools-buttons">
-							<button ng-click="addObj(section)">Add</button>
-							<button ng-click="clear(section)">Clear</button>
+							<button ng-click="addObj(section)" class="btn"><i class="icon-plus-sign"></i> Add</button>
+							<button ng-click="clear(section)" class="btn"><i class="icon-trash"></i> Clear</button>
 						</div>
 						<ul class="itemlist">
 							<li ng-repeat="obj in section.items" ng-click="editObj(section, obj)" fadey>
@@ -59,8 +60,8 @@
 									{{getName(section, obj)}}
 								</div>
 								<div style="float: right;">
-									<a ng-click="dupObj(section, obj)">D</a>
-									<a ng-click="delObj(section, obj)">X</a>
+									<a ng-click="dupObj(section, obj)" class="btn btn-mini" title="Duplicate"><i class="icon-plus"></i></a>
+									<a ng-click="delObj(section, obj)" class="btn btn-mini" title="Remove"><i class="icon-trash"></i></a>
 								</div>
 								<div style="clear: both;"> </div>
 							</li>
@@ -72,10 +73,11 @@
 	</div>
 </div>
 
+<form class="form-inline">
 <div id="center" class="workarea" ng-view></div>
 
 </div>
-
+</form>
 
 
 
@@ -94,23 +96,24 @@
 		<fieldset class="fieldSet" id="dialoguePhrase">
 			<legend>NPC phrase</legend>
 			<div class="fieldWithLabel">
-				<label for="id" class="label">Phrase ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput"/>
+				<label for="id">Phrase ID:</label>
+				<input type="text" size="30" id="id" class="field at-input-id"/>
 			</div>
 			<div class="fieldWithLabel">
-				<label for="message" class="label">NPC says:</label>
+				<label for="message">NPC says:</label>
 				<textarea rows="4" cols="40" id="message"></textarea>
 			</div>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasRewards" />Reaching this phrase gives rewards</div>
+				<div><input type="checkbox" id="hasRewards" />Reaching this phrase gives rewards</div>
 			</div>
 			<div class="fieldWithLabel" id="hasRewardsDisplay">
-				<label for="rewards" class="label">Rewards</label>
+				<label for="rewards">Rewards</label>
 				<table class="field" id="rewards">
 					<thead><tr>
-						<th id="rewardType">Type</th>
-						<th id="rewardID">ID</th>
-						<th id="value">Value</th>
+						<th>Type</th>
+						<th>ID</th>
+						<th>Value</th>
+						<th></th>
 					</tr></thead>
 					<tbody>
 						
@@ -122,20 +125,20 @@
 		<fieldset class="fieldSet" id="dialoguePhraseReplies">
 			<legend>Replies</legend>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasOnlyNextReply" />Phrase leads directly to another phrase without replies</div>
+				<div><input type="checkbox" id="hasOnlyNextReply" />Phrase leads directly to another phrase without replies</div>
 			</div>
 			<div class="fieldWithLabel" id="hasOnlyNextReplyDisplay">
-				<label for="nextPhraseID" class="label">Phrase ID:</label>
+				<label for="nextPhraseID">Phrase ID:</label>
 				<div class="field">
-					<input type="text" size="30" id="nextPhraseID" class="fieldInput" />
+					<input type="text" size="30" id="nextPhraseID" class="at-input-id" />
 					<img src="imgarrowright.png" alt="Follow" id="followNextReply" class="imageButton" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used." />
 				</div>
 			</div>
 			<div class="fieldWithLabel" id="hasRepliesDisplay">
-				<label for="replies" class="label">Replies</label>
+				<label for="replies">Replies</label>
 				<table class="field" id="replies">
 					<thead><tr>
-						<th id="text">Reply</th>
+						<th>Reply</th>
 					</tr></thead>
 					<tbody>
 						
@@ -147,16 +150,16 @@
 		<fieldset class="fieldSet" id="dialogueReply">
 			<legend>Player reply</legend>
 			<div class="fieldWithLabel">
-				<label for="id" class="label">Phrase ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput" readonly="readonly" />
+				<label for="id">Phrase ID:</label>
+				<input type="text" size="30" id="id" class="field at-input-id" readonly="readonly" />
 			</div>
 			<div class="fieldWithLabel">
-				<label for="text" class="label">Player says:</label>
+				<label for="text">Player says:</label>
 				<textarea rows="4" cols="40" id="text"></textarea>
 			</div>
 			<div class="fieldWithLabel">
-				<label for="replyLeadsTo" class="label">Reply leads to:</label>
-				<select class="field fieldInput" id="replyLeadsTo">
+				<label for="replyLeadsTo">Reply leads to:</label>
+				<select class="field" id="replyLeadsTo">
 					<option value="">NPC phrase</option>
 					<option value="S">Trading screen</option>
 					<option value="F">Combat</option>
@@ -165,27 +168,27 @@
 				</select>
 			</div>
 			<div class="fieldWithLabel" id="nextPhraseIDDisplay">
-				<label for="nextPhraseID" class="label">Next phrase ID:</label>
+				<label for="nextPhraseID">Next phrase ID:</label>
 				<div class="field">
-					<input type="text" size="30" id="nextPhraseID" class="fieldInput"/>
+					<input type="text" size="30" id="nextPhraseID" class="at-input-id"/>
 					<img src="imgarrowright.png" alt="Follow" id="followReply" class="imageButton" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used." />
 				</div>
 			</div>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="requiresItems" />Player must have item(s) to select this reply</div>
+				<div><input type="checkbox" id="requiresItems" />Player must have item(s) to select this reply</div>
 			</div>
 			<div id="requiresItemsDisplay">
 				<div class="fieldWithLabel">
-					<label for="requires_itemID" class="label">Required item ID (will be removed from inventory)</label>
-					<input type="text" size="30" id="requires_itemID" class="field fieldInput"/>
+					<label for="requires_itemID">Required item ID (will be removed from inventory)</label>
+					<input type="text" size="30" id="requires_itemID" class="field at-input-id"/>
 				</div>
 				<div class="fieldWithLabel">
-					<label for="requires_Quantity" class="label">Required item quantity</label>
-					<input type="text" size="5" id="requires_Quantity" class="field fieldInput integer"/>
+					<label for="requires_Quantity">Required item quantity</label>
+					<input type="text" size="5" id="requires_Quantity" class="field at-input-quantity"/>
 				</div>
 				<div class="fieldWithLabel">
-					<label for="requires_Type" class="label">Player should have item in:</label>
-					<select class="field fieldInput" id="requires_Type">
+					<label for="requires_Type">Player should have item in:</label>
+					<select class="field" id="requires_Type">
 						<option value="0">Inventory & item will be removed</option>
 						<option value="1">Inventory</option>
 						<option value="2">Worn equipment</option>
@@ -193,11 +196,11 @@
 				</div>
 			</div>
 			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="requiresQuest" />Player must have progressed quest to select this reply</div>
+				<div><input type="checkbox" id="requiresQuest" />Player must have progressed quest to select this reply</div>
 			</div>
 			<div class="fieldWithLabel" id="requiresQuestDisplay">
-				<label for="requires_Progress" class="label">Quest stage required: (questname:stage)</label>
-				<input type="text" size="30" id="requires_Progress" class="field fieldInput" title="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20."/>
+				<label for="requires_Progress">Quest stage required: (questname:stage)</label>
+				<input type="text" size="30" id="requires_Progress" class="field at-input-id" title="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20."/>
 			</div>
 			
 		</fieldset>
@@ -206,8 +209,8 @@
 	
 	<div id="dialog-phrasereward">
 		<div class="fieldWithLabel">
-			<label for="rewardType" class="label">Type:</label>
-			<select class="field fieldInput" id="rewardType">
+			<label for="rewardType">Type:</label>
+			<select class="field" id="rewardType">
 				<option value="0">Quest progress</option>
 				<option value="1">Droplist</option>
 				<option value="2">Skill increase</option>
@@ -216,12 +219,12 @@
 			</select>
 		</div>
 		<div class="fieldWithLabel">
-			<label for="rewardID" class="label">ID:</label>
-			<input type="text" size="30" id="rewardID" class="field fieldInput"/>
+			<label for="rewardID">ID:</label>
+			<input type="text" size="30" id="rewardID" class="field at-input-id"/>
 		</div>
 		<div class="fieldWithLabel">
-			<label for="value" class="label">Value:</label>
-			<input type="text" size="5" id="value" class="field fieldInput integer"/>
+			<label for="value">Value:</label>
+			<input type="text" size="5" id="value" class="field at-input-quantity"/>
 		</div>
 	</div>
 	

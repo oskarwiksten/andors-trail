@@ -5,16 +5,16 @@
 		<div id="actorconditionimage" class="field"><input type="hidden" id="iconID" ng-model="obj.iconID" /></div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="id" class="label">Internal ID:</label>
-		<input type="text" size="30" id="id" class="field fieldInput" ng-model="obj.id"/>
+		<label for="id">Internal ID:</label>
+		<input type="text" id="id" class="field at-input-id" ng-model="obj.id" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="name" class="label">Display name:</label>
-		<input type="text" size="30" id="name" class="field fieldInput" ng-model="obj.name" />
+		<label for="name">Display name:</label>
+		<input type="text" id="name" class="field at-input-name" ng-model="obj.name" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="category" class="label">Category:</label>
-		<select class="field fieldInput" id="category" ng-model="obj.category">
+		<label for="category">Category:</label>
+		<select class="field" id="category" ng-model="obj.category">
 			<option value="0">Spiritual</option>
 			<option value="1">Mental</option>
 			<option value="2">Physical Capacity</option>
@@ -22,26 +22,26 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="isPositive" ng-model="obj.isPositive" ng-true-value="1" ng-false-value="0" />Positive effect</div>
+		<label class="checkbox"><input type="checkbox" id="isPositive" ng-model="obj.isPositive" ng-true-value="1" ng-false-value="0" />Positive effect</label>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="isStacking" ng-model="obj.isStacking" ng-true-value="1" ng-false-value="0" />Allow stacked effects</div>
+		<label class="checkbox"><input type="checkbox" id="isStacking" ng-model="obj.isStacking" ng-true-value="1" ng-false-value="0" />Allow stacked effects</label>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasRoundEffect" ng-model="obj.hasRoundEffect" />Has effect every round (every 6s)</div>
+		<label class="checkbox"><input type="checkbox" id="hasRoundEffect" ng-model="obj.hasRoundEffect" />Has effect every round (every 6s)</label>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasFullRoundEffect" ng-model="obj.hasFullRoundEffect" />Has effect every full round (every 25:th s)</div>
+		<label class="checkbox"><input type="checkbox" id="hasFullRoundEffect" ng-model="obj.hasFullRoundEffect" />Has effect every full round (every 25:th s)</label>
 	</div>
 	<div class="fieldWithLabel">
-		<div class="label"><input type="checkbox" id="hasAbilityEffect" ng-model="obj.hasAbilityEffect" />Has constant ability effect</div>
+		<label class="checkbox"><input type="checkbox" id="hasAbilityEffect" ng-model="obj.hasAbilityEffect" />Has constant ability effect</label>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasRoundEffectDisplay" ng-ds-fade="obj.hasRoundEffect">
 	<legend>Every round (6s)</legend>
 	<div class="fieldWithLabel">
-		<label for="round_visualEffectID" class="label">Visual effect:</label>
-		<select class="field fieldInput" id="round_visualEffectID" ng-model="obj.roundEffect.visualEffectID">
+		<label for="round_visualEffectID">Visual effect:</label>
+		<select class="field" id="round_visualEffectID" ng-model="obj.roundEffect.visualEffectID">
 			<option value="-1">None</option>
 			<option value="0">Red splatter</option>
 			<option value="1">Blue swirl</option>
@@ -49,27 +49,27 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="round_boostHP" class="label">Boost current HP (range):</label>
+		<label for="round_boostHP">Boost current HP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="round_boostHP_Min" class="fieldInput integer" ng-model="obj.roundEffect.increaseCurrentHP.min" />
+			<input type="text" size="3" id="round_boostHP_Min" class="at-input-stat-minmax" ng-model="obj.roundEffect.increaseCurrentHP.min" />
 			-
-			<input type="text" size="3" id="round_boostHP_Max" class="fieldInput integer" ng-model="obj.roundEffect.increaseCurrentHP.max" />
+			<input type="text" size="3" id="round_boostHP_Max" class="at-input-stat-minmax" ng-model="obj.roundEffect.increaseCurrentHP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="round_boostAP" class="label">Boost current AP (range):</label>
+		<label for="round_boostAP">Boost current AP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="round_boostAP_Min" class="fieldInput integer" ng-model="obj.roundEffect.increaseCurrentAP.min" />
+			<input type="text" size="3" id="round_boostAP_Min" class="at-input-stat-minmax" ng-model="obj.roundEffect.increaseCurrentAP.min" />
 			-
-			<input type="text" size="3" id="round_boostAP_Max" class="fieldInput integer" ng-model="obj.roundEffect.increaseCurrentAP.max" />
+			<input type="text" size="3" id="round_boostAP_Max" class="at-input-stat-minmax" ng-model="obj.roundEffect.increaseCurrentAP.max" />
 		</div>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasFullRoundEffectDisplay" ng-ds-fade="obj.hasFullRoundEffect">
 	<legend>Every full round (25s)</legend>
 	<div class="fieldWithLabel">
-		<label for="fullround_visualEffectID" class="label">Visual effect:</label>
-		<select class="field fieldInput" id="fullround_visualEffectID" ng-model="obj.fullRoundEffect.visualEffectID">
+		<label for="fullround_visualEffectID">Visual effect:</label>
+		<select class="field" id="fullround_visualEffectID" ng-model="obj.fullRoundEffect.visualEffectID">
 			<option value="-1">None</option>
 			<option value="0">Red splatter</option>
 			<option value="1">Blue swirl</option>
@@ -77,71 +77,71 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="fullround_boostHP" class="label">Boost current HP (range):</label>
+		<label for="fullround_boostHP">Boost current HP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="fullround_boostHP_Min" class="fieldInput integer" ng-model="obj.fullRoundEffect.increaseCurrentHP.min" />
+			<input type="text" size="3" id="fullround_boostHP_Min" class="at-input-stat-minmax" ng-model="obj.fullRoundEffect.increaseCurrentHP.min" />
 			-
-			<input type="text" size="3" id="fullround_boostHP_Max" class="fieldInput integer" ng-model="obj.fullRoundEffect.increaseCurrentHP.max" />
+			<input type="text" size="3" id="fullround_boostHP_Max" class="at-input-stat-minmax" ng-model="obj.fullRoundEffect.increaseCurrentHP.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="fullround_boostAP" class="label">Boost current AP (range):</label>
+		<label for="fullround_boostAP">Boost current AP (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="fullround_boostAP_Min" class="fieldInput integer" ng-model="obj.fullRoundEffect.increaseCurrentAP.min" />
+			<input type="text" size="3" id="fullround_boostAP_Min" class="at-input-stat-minmax" ng-model="obj.fullRoundEffect.increaseCurrentAP.min" />
 			-
-			<input type="text" size="3" id="fullround_boostAP_Max" class="fieldInput integer" ng-model="obj.fullRoundEffect.increaseCurrentAP.max" />
+			<input type="text" size="3" id="fullround_boostAP_Max" class="at-input-stat-minmax" ng-model="obj.fullRoundEffect.increaseCurrentAP.max" />
 		</div>
 	</div>
 </fieldset>
 <fieldset class="fieldSet" id="hasAbilityEffectDisplay" ng-ds-fade="obj.hasAbilityEffect">
 	<legend>Constant ability effect</legend>
 	<div class="fieldWithLabel">
-		<label for="boostMaxHP" class="label">Boost max HP:</label>
-		<input type="text" size="5" id="boostMaxHP" class="field fieldInput integer" ng-model="obj.abilityEffect.increaseMaxHP" />
+		<label for="boostMaxHP">Boost max HP:</label>
+		<input type="text" size="5" id="boostMaxHP" class="field at-input-stat" ng-model="obj.abilityEffect.increaseMaxHP" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="boostMaxAP" class="label">Boost max AP:</label>
-		<input type="text" size="5" id="boostMaxAP" class="field fieldInput integer" ng-model="obj.abilityEffect.increaseMaxAP" />
+		<label for="boostMaxAP">Boost max AP:</label>
+		<input type="text" size="5" id="boostMaxAP" class="field at-input-stat" ng-model="obj.abilityEffect.increaseMaxAP" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="moveCostPenalty" class="label">Increase move cost (AP):</label>
-		<input type="text" size="5" id="moveCostPenalty" class="field fieldInput integer" ng-model="obj.abilityEffect.increaseMoveCost" />
+		<label for="moveCostPenalty">Increase move cost (AP):</label>
+		<input type="text" size="5" id="moveCostPenalty" class="field at-input-stat" ng-model="obj.abilityEffect.increaseMoveCost" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="increaseUseItemCost" class="label">Increase use cost (AP):</label>
-		<input class="field" type="text" size="5" id="increaseUseItemCost" class="fieldInput integer" ng-model="obj.abilityEffect.increaseUseItemCost" />
+		<label for="increaseUseItemCost">Increase use cost (AP):</label>
+		<input type="text" size="5" id="increaseUseItemCost" class="field at-input-stat" ng-model="obj.abilityEffect.increaseUseItemCost" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="increaseReequipCost" class="label">Increase re-equip cost (AP):</label>
-		<input class="field" type="text" size="5" id="increaseReequipCost" class="fieldInput integer" ng-model="obj.abilityEffect.increaseReequipCost" />
+		<label for="increaseReequipCost">Increase re-equip cost (AP):</label>
+		<input type="text" size="5" id="increaseReequipCost" class="field at-input-stat" ng-model="obj.abilityEffect.increaseReequipCost" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="attackCost" class="label">Increase attack cost (AP):</label>
-		<input class="field" type="text" size="5" id="attackCost" class="fieldInput integer" ng-model="obj.abilityEffect.increaseAttackCost" />
+		<label for="attackCost">Increase attack cost (AP):</label>
+		<input type="text" size="5" id="attackCost" class="field at-input-stat" ng-model="obj.abilityEffect.increaseAttackCost" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="attackChance" class="label">Increase attack chance:</label>
-		<div class="field"><input type="text" size="5" id="attackChance" class="fieldInput integer" ng-model="obj.abilityEffect.increaseAttackChance" />%</div>
+		<label for="attackChance">Increase attack chance:</label>
+		<input type="text" size="5" id="attackChance" class="field at-input-stat" ng-model="obj.abilityEffect.increaseAttackChance" />%
 	</div>
 	<div class="fieldWithLabel">
-		<label for="attackDamage" class="label">Increase attack damage (range):</label>
+		<label for="attackDamage">Increase attack damage (range):</label>
 		<div class="field">
-			<input type="text" size="3" id="attackDamage_Min" class="fieldInput integer" ng-model="obj.abilityEffect.increaseAttackDamage.min" />
+			<input type="text" size="3" id="attackDamage_Min" class="at-input-stat-minmax" ng-model="obj.abilityEffect.increaseAttackDamage.min" />
 			-
-			<input type="text" size="3" id="attackDamage_Max" class="fieldInput integer" ng-model="obj.abilityEffect.increaseAttackDamage.max" />
+			<input type="text" size="3" id="attackDamage_Max" class="at-input-stat-minmax" ng-model="obj.abilityEffect.increaseAttackDamage.max" />
 		</div>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="criticalChance" class="label">Increase critical skill:</label>
-		<div class="field"><input type="text" size="5" id="criticalChance" class="fieldInput integer" ng-model="obj.abilityEffect.increaseCriticalSkill" />%</div>
+		<label for="criticalChance">Increase critical skill:</label>
+		<input type="text" size="5" id="criticalChance" class="field at-input-stat" ng-model="obj.abilityEffect.increaseCriticalSkill" />%
 	</div>
 	<div class="fieldWithLabel">
-		<label for="blockChance" class="label">Increase block chance:</label>
-		<div class="field"><input type="text" size="5" id="blockChance" class="fieldInput integer" ng-model="obj.abilityEffect.increaseBlockChance" />%</div>
+		<label for="blockChance">Increase block chance:</label>
+		<input type="text" size="5" id="blockChance" class="field at-input-stat" ng-model="obj.abilityEffect.increaseBlockChance" />%
 	</div>
 	<div class="fieldWithLabel">
-		<label for="damageResistance" class="label">Increase damage resistance:</label>
-		<input class="field" type="text" size="5" id="damageResistance" class="fieldInput integer" ng-model="obj.abilityEffect.increaseDamageResistance" />
+		<label for="damageResistance">Increase damage resistance:</label>
+		<input type="text" size="5" id="damageResistance" class="field at-input-stat" ng-model="obj.abilityEffect.increaseDamageResistance" />
 	</div>
 </fieldset>
 <div class="endSets"> </div>

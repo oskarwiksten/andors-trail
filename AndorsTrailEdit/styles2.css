@@ -1,45 +1,47 @@
-html,body 					{ margin:0; padding:0; height: 100%; font-size: 0.9em; } 
-#screen 					{ height: 100%; background-color: #a0c0ff; color: black; position: relative; font-family: sans-serif; }
-#screen #top 				{ height: 50px; color: #eeeeee; }
-#screen #top #title 		{ font-size: 2em; float: left; text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px; }
-#screen #top #version 		{ font-size: 10pt; margin-left: 3ex; }
-.andorsTrailLogo 			{ background-image: url(logo.png); background-repeat: no-repeat; background-position: 3px 3px; padding:10px 0px 15px 50px; }
-#screen #top #buttons 		{ float: right; font-size: 1.2em; margin: 10px; }
-#screen .workarea 			{ margin: 5px; border: 1px #c0d0ff solid; background-color: #eeeeee; position: absolute; top: 50px; bottom: 0; }
-#screen #left 				{ width: 250px; padding: 0px; font-size: 1em; background-color: white; }
-#screen #left .accordion-group { background-color: #ddd; }
-#screen #center 			{ left: 256px; right: 0; }
-#screen #center #tabs 		{ border: 0px; padding: 0px; }
-#screen #centerwide 		{ left: 0px; right: 0; }
+html, body 					{ margin:0; padding:0; } 
+#top 						{ background-color: #a0c0ff; color: #eeeeee; }
+#top #title 				{ font-size: 2em; float: left; text-shadow: rgba(0, 0, 0, 0.5) 2px 2px 1px; vertical-align: middle; }
+#top #version 				{ font-size: 10pt; margin-left: 3ex; }
+.andorsTrailLogo 			{ background-image: url(logo.png); background-repeat: no-repeat; background-position: 3px 3px; padding:20px 0px 15px 50px; }
+#top #buttons 				{ float: right; font-size: 1.2em; margin: 10px; }
+.workarea 					{ margin: 5px; background-color: #eeeeee; position: absolute; top: 54px; }
+#left 						{ width: 250px; padding: 0px; font-size: 1em; background-color: white; }
+#left .accordion-group 		{ background-color: #e0e0e0; border: 1px solid #bbb; margin-bottom: 6px; -moz-box-shadow: 4px 4px 5px #bbb; -webkit-box-shadow: 4px 4px 5px #bbb; box-shadow: 4px 4px 5px #bbb; }
+#center 					{ left: 265px; right: 0; border-left: 2px #c0d0ff solid; padding-left: 5px; }
 
-.ui-icon-close 				{ float: left; margin: 0.4em 0.2em 0 0; cursor: pointer; }
 .hidden 					{ display: none; }
 
+.at-input-id, .at-input-name	
+							{ width: 200px; }
+.at-input-stat, .at-input-stat-minmax, .at-input-quantity, .at-input-chance, .at-input-magnitude, .at-input-duration
+							{ width: 50px; }
+.at-input-gold				{ width: 80px; }
+
+.workarea h3 				{ font-size: 18px; margin: 0 0 0 5px; }
+.workarea legend 			{ font-size: 16px; margin: 0 0 5px 0; }
+.workarea fieldset 			{ border-right: 1px solid #ddd; padding-right: 5px; }
+
 .fieldWithLabel 			{ font-size: 0.9em; }
-.fieldWithLabel .label 		{ display: block; margin-top: 1ex; }
-.fieldWithLabel .field 		{ display: block; }
-.fieldWithLabel .hint 		{ }
-.fieldWithLabel .fieldInput	{ vertical-align: top; }
+.fieldWithLabel label 		{ margin-top: 1.1ex; }
 .fieldSet					{ float: left; margin: 1ex; background-color: #f7f7ff; }
 .endSets					{ clear: both; }
 
-#screen #left div			{ }
-.itemlist					{ border: 1px #bbb solid; list-style: none; padding: 0px; margin: 0px; line-height: 1.3; margin-bottom: 2ex; }
-.itemlist li				{ cursor: pointer; padding: 0.5ex 1ex 0.5ex 1ex; }
+.itemlist					{ list-style: none; padding: 0px; margin: 0px; border: 1px solid #bbb; }
+.itemlist li				{ padding: 2px 5px 2px 5px; }
 .itemlist li img			{ float: left; margin-right: 0.5ex; }
-.itemlist li:nth-child(odd)	{ background-color: #eee; border-top: 1px #ddd solid; border-bottom: 1px #ddd solid; }
-.itemlist li:hover			{ background-color: #d7d7ff; }
+.itemlist li:nth-child(odd)	{ background-color: #eee; }
+.itemlist li:hover			{ background-color: #d7d7ff; cursor: pointer; }
 .importexport-header		{ font-weight: bold; padding-top: 1ex; }
 #dialog-importexport #value	{ font-family: monospace; font-size: 7pt; }
 .fieldWithLabel table		{ border-collapse: collapse; margin-bottom: 1ex; }	
 .fieldWithLabel table th	{ border: 1px #ccc solid; padding: 0.5ex; }
-.fieldWithLabel table td	{ border: 1px #ccc solid; padding: 0.5ex; cursor: pointer; }
+.fieldWithLabel table td	{ border: 1px #ccc solid; padding: 0.5ex; }
 .fieldWithLabel table tbody tr:nth-child(even)	{ background-color: #eee }
 .fieldWithLabel table tbody tr:hover	{ background-color: #d7d7ff; }
 #dialogueTreeContainer		{ }
 #dialogueTree				{ width: 400px; }
 #dialogueData				{ }
-input[readonly]				{ color: #888; }
+input[readonly="readonly"]	{ background-color: #d8d8d8; color: #555; }
 .imageButton				{ padding: 5px; }
 .importexport-description	{ padding: 15px; text-align: right; }
 .tools-buttons				{ padding-bottom: 10px; }
@@ -61,7 +63,7 @@ input[readonly]				{ color: #888; }
 .clickToEdit			{ cursor: pointer; }
 .clickToEdit:hover		{ background-color: #d7d7ff; }
 
-#validateResultContent	{ width: 400px; float: left;d }
+#validateResultContent	{ width: 400px; float: left; }
 #editorForms 			{ width: 670px; float: right;}
 #editorForms #translation_edit_list 			{ table-layout: fixed; }
 #editorForms #translation_edit_list tr:nth-child(1)	{ width: 17em }

@@ -2,15 +2,15 @@
 <fieldset class="fieldSet">
 	<legend>General</legend>
 	<div class="fieldWithLabel">
-		<label for="id" class="label">Internal id:</label>
-		<input class="field" type="text" size="30" id="id" ng-model="obj.id" class="fieldInput"/>
+		<label for="id">Internal id:</label>
+		<input type="text" size="30" id="id" ng-model="obj.id" class="field at-input-id"/>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="name" class="label">Display name:</label>
-		<input class="field" type="text" size="30" id="name" ng-model="obj.name" class="fieldInput"/>
+		<label for="name">Display name:</label>
+		<input type="text" size="30" id="name" ng-model="obj.name" class="field at-input-name"/>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="actionType" class="label">Action type:</label>
+		<label for="actionType">Action type:</label>
 		<select class="field" id="actionType" ng-model="obj.actionType">
 			<option value="0">Non-usable</option>
 			<option value="1">Usable</option>
@@ -18,7 +18,7 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.actionType == 2">
-		<label for="inventorySlot" class="label">Equippable inventory slot:</label>
+		<label for="inventorySlot">Equippable inventory slot:</label>
 		<select class="field" id="inventorySlot" ng-model="obj.inventorySlot">
 			<option value="-1">None</option>
 			<option value="0">Weapon</option>
@@ -32,7 +32,7 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="size" class="label">Size:</label>
+		<label for="size">Size:</label>
 		<select class="field" id="size" ng-model="obj.size">
 			<option value="0">None</option>
 			<option value="1">Light</option>
