@@ -9,6 +9,7 @@ var ATEditor = (function(ATEditor, controllers) {
 				.when('/actorcondition/edit/:id', {templateUrl: htmldir+'edit_actorcondition.html', controller: controllers.ActorConditionController})
 				.when('/quest/edit/:id', {templateUrl: htmldir+'edit_quest.html', controller: controllers.QuestController})
 				.when('/item/edit/:id', {templateUrl: htmldir+'edit_item.html', controller: controllers.ItemController})
+				.when('/item/table', {templateUrl: htmldir+'table_item.html', controller: controllers.ItemTableController})
 				.when('/droplist/edit/:id', {templateUrl: htmldir+'edit_droplist.html', controller: controllers.DropListController})
 				.when('/dialogue/edit/:id', {templateUrl: htmldir+'edit_dialogue.html', controller: controllers.DialogueController})
 				.when('/monster/edit/:id', {templateUrl: htmldir+'edit_monster.html', controller: controllers.MonsterController})

@@ -1,9 +1,10 @@
-<h3>Monster / NPC</h3>
+<h3>Monsters / NPCs</h3>
 
 <label class="checkbox"><input type="checkbox" ng-model="iconID" />Icon</label>
 <label class="checkbox"><input type="checkbox" ng-model="id" />Id</label>
 <label class="checkbox"><input type="checkbox" ng-model="name" />Name</label>
 <label class="checkbox"><input type="checkbox" ng-model="spawnGroup" />Spawngroup</label>
+<label class="checkbox"><input type="checkbox" ng-model="unique" />Unique</label>
 <label class="checkbox"><input type="checkbox" ng-model="monsterClass" />Class</label>
 <label class="checkbox"><input type="checkbox" ng-model="phraseID" />Phrase</label>
 <label class="checkbox"><input type="checkbox" ng-model="droplistID" />Droplist</label>
@@ -27,6 +28,7 @@
 			<th ng-ds-fade="id">Id</th>
 			<th ng-ds-fade="name">Name</th>
 			<th ng-ds-fade="spawnGroup">Spawngroup</th>
+			<th ng-ds-fade="unique">Unique</th>
 			<th ng-ds-fade="monsterClass">Class</th>
 			<th ng-ds-fade="phraseID">Phrase</th>
 			<th ng-ds-fade="droplistID">Droplist</th>
@@ -51,8 +53,9 @@
 			<td ng-ds-fade="id"><input type="text" ng-model="monster.id" class="at-input-id" /></td>
 			<td ng-ds-fade="name"><input type="text" ng-model="monster.name" class="at-input-name" /></td>
 			<td ng-ds-fade="spawnGroup"><input type="text" ng-model="monster.spawnGroup" class="at-input-id" /></td>
+			<td ng-ds-fade="unique"><input type="checkbox" ng-model="monster.unique" ng-true-value="1" ng-false-value="0" /></td>
 			<td ng-ds-fade="monsterClass">
-				<select class="field" id="monsterClass" ng-model="monster.monsterClass">
+				<select ng-model="monster.monsterClass">
 					<option value="0">Humanoid</option>
 					<option value="1">Insect</option>
 					<option value="2">Demon</option>

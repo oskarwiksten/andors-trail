@@ -38,6 +38,7 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 		};
 		$scope.supportsTableEdit = function(section) {
 			if (section.id == ATEditor.model.monsters.id) { return true; }
+			if (section.id == ATEditor.model.items.id) { return true; }
 			return false;
 		};
 		$scope.editAsTable = function(section) {

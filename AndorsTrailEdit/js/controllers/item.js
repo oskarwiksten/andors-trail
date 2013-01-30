@@ -73,13 +73,16 @@ var ATEditor = (function(ATEditor, model) {
 		return result;
 	}
 	
+	function setCategoryToObject(item, itemCategories) {
+		if (_.isString(item.category)) {
+			item.category = itemCategories.findById(item.category);
+		}
+	}
 	
 	function ItemController($scope, $routeParams) {
 		$scope.obj = model.items.findById($routeParams.id) || {};
-		if (_.isString($scope.obj.category)) {
-			$scope.obj.category = model.itemCategories.findById($scope.obj.category);
-		}
 		$scope.itemCategories = model.itemCategories.items;
+		setCategoryToObject($scope.obj, model.itemCategories);
 		
 		$scope.$watch('obj.category', function(val) {
 			$scope.isWeapon = isWeaponCategory(val);
@@ -108,8 +111,28 @@ var ATEditor = (function(ATEditor, model) {
 		};
 	}
 	
+	function ItemTableController($scope, $routeParams) {
+		$scope.items = model.items.items;
+		$scope.itemCategories = model.itemCategories.items;
+		_.each($scope.items, function(item) {
+			setCategoryToObject(item, model.itemCategories);
+		});
+		$scope.getItemCost = getItemCost;
+		$scope.edit = function(item) {
+			window.location = "#/" + model.items.id + "/edit/" + item.id;
+		};
+		$scope.updateCost = function(item) {
+			item.baseMarketCost = item.hasManualPrice ? calculateItemCost(item) : 0;
+		};
+		
+		$scope.iconID = true;
+		$scope.id = true;
+		$scope.cost = true;
+	}
+	
 	ATEditor.controllers = ATEditor.controllers || {};
 	ATEditor.controllers.ItemController = ItemController;
+	ATEditor.controllers.ItemTableController = ItemTableController;
 
 	return ATEditor;
 })(ATEditor, ATEditor.model);
