@@ -36,6 +36,14 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 			var item = section.clone(obj);
 			$scope.editObj(section, item);
 		};
+		$scope.supportsTableEdit = function(section) {
+			if (section.id == ATEditor.model.monsters.id) { return true; }
+			return false;
+		};
+		$scope.editAsTable = function(section) {
+			window.location = "#/" + section.id + "/table";
+		};
+		
 		
 		exampleData.init($http);
 	};

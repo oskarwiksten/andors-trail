@@ -38,8 +38,21 @@ var ATEditor = (function(ATEditor, model) {
 		};
 	}
 	
+	function MonsterTableController($scope, $routeParams) {
+		$scope.monsters = model.monsters.items;
+		$scope.getExperience = getExperience;
+		$scope.edit = function(monster) {
+			window.location = "#/" + model.monsters.id + "/edit/" + monster.id;
+		};
+		
+		$scope.iconID = true;
+		$scope.id = true;
+		$scope.experience = true;
+	}
+	
 	ATEditor.controllers = ATEditor.controllers || {};
 	ATEditor.controllers.MonsterController = MonsterController;
-	
+	ATEditor.controllers.MonsterTableController = MonsterTableController;
+
 	return ATEditor;
 })(ATEditor, ATEditor.model);

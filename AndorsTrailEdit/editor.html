@@ -51,6 +51,7 @@
 					<div class="accordion-inner">
 						<div class="tools-buttons">
 							<button ng-click="addObj(section)" class="btn"><i class="icon-plus-sign"></i> Add</button>
+							<button ng-click="editAsTable(section)" class="btn" ng-show="supportsTableEdit(section)"><i class="icon-list"></i> Table</button>
 							<button ng-click="clear(section)" class="btn"><i class="icon-trash"></i> Clear</button>
 						</div>
 						<ul class="itemlist">

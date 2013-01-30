@@ -1,0 +1,90 @@
+<h3>Monster / NPC</h3>
+
+<label class="checkbox"><input type="checkbox" ng-model="iconID" />Icon</label>
+<label class="checkbox"><input type="checkbox" ng-model="id" />Id</label>
+<label class="checkbox"><input type="checkbox" ng-model="name" />Name</label>
+<label class="checkbox"><input type="checkbox" ng-model="spawnGroup" />Spawngroup</label>
+<label class="checkbox"><input type="checkbox" ng-model="monsterClass" />Class</label>
+<label class="checkbox"><input type="checkbox" ng-model="phraseID" />Phrase</label>
+<label class="checkbox"><input type="checkbox" ng-model="droplistID" />Droplist</label>
+<label class="checkbox"><input type="checkbox" ng-model="experience" />Experience</label>
+<label class="checkbox"><input type="checkbox" ng-model="maxAP" />Max AP</label>
+<label class="checkbox"><input type="checkbox" ng-model="moveCost" />Move cost</label>
+<label class="checkbox"><input type="checkbox" ng-model="maxHP" />Max health</label>
+<label class="checkbox"><input type="checkbox" ng-model="attackCost" />Attack cost</label>
+<label class="checkbox"><input type="checkbox" ng-model="attackChance" />Attack chance</label>
+<label class="checkbox"><input type="checkbox" ng-model="attackDamage" />Attack damage</label>
+<label class="checkbox"><input type="checkbox" ng-model="hasCritical" />Has critical hits</label>
+<label class="checkbox"><input type="checkbox" ng-model="criticalSkill" />Critical skill</label>
+<label class="checkbox"><input type="checkbox" ng-model="criticalMultiplier" />Critical multiplier</label>
+<label class="checkbox"><input type="checkbox" ng-model="blockChance" />Clock chance</label>
+<label class="checkbox"><input type="checkbox" ng-model="damageResistance" />Damage resistance</label>
+
+<table>
+	<thead>
+		<tr>
+			<th ng-ds-fade="iconID">Icon</th>
+			<th ng-ds-fade="id">Id</th>
+			<th ng-ds-fade="name">Name</th>
+			<th ng-ds-fade="spawnGroup">Spawngroup</th>
+			<th ng-ds-fade="monsterClass">Class</th>
+			<th ng-ds-fade="phraseID">Phrase</th>
+			<th ng-ds-fade="droplistID">Droplist</th>
+			<th ng-ds-fade="experience">Exp</th>
+			<th ng-ds-fade="maxAP">AP</th>
+			<th ng-ds-fade="moveCost">MoveCost</th>
+			<th ng-ds-fade="maxHP">HP</th>
+			<th ng-ds-fade="attackCost">AttackCost</th>
+			<th ng-ds-fade="attackChance">AC</th>
+			<th ng-ds-fade="attackDamage">AD</th>
+			<th ng-ds-fade="hasCritical">Crit?</th>
+			<th ng-ds-fade="criticalSkill">CS</th>
+			<th ng-ds-fade="criticalMultiplier">CM</th>
+			<th ng-ds-fade="blockChance">BC</th>
+			<th ng-ds-fade="damageResistance">DR</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="monster in monsters">
+			<td ng-ds-fade="iconID"><div ng-tile-image="monster.iconID" class="at-input-icon" ng-select-image="monster" ng-select-image-dest="monster.iconID"></div></td>
+			<td ng-ds-fade="id"><input type="text" ng-model="monster.id" class="at-input-id" /></td>
+			<td ng-ds-fade="name"><input type="text" ng-model="monster.name" class="at-input-name" /></td>
+			<td ng-ds-fade="spawnGroup"><input type="text" ng-model="monster.spawnGroup" class="at-input-id" /></td>
+			<td ng-ds-fade="monsterClass">
+				<select class="field" id="monsterClass" ng-model="monster.monsterClass">
+					<option value="0">Humanoid</option>
+					<option value="1">Insect</option>
+					<option value="2">Demon</option>
+					<option value="3">Construct</option>
+					<option value="4">Animal</option>
+					<option value="5">Giant</option>
+					<option value="6">Undead</option>
+					<option value="7">Reptile</option>
+					<option value="8">Ghost</option>
+				</select>
+			</td>
+			<td ng-ds-fade="phraseID"><input type="text" ng-model="monster.phraseID" class="at-input-id" /></td>
+			<td ng-ds-fade="droplistID"><input type="text" ng-model="monster.droplistID" class="at-input-id" /></td>
+			<td ng-ds-fade="experience"><input type="text" value="{{getExperience(monster)}}" class="at-input-stat" readonly="readonly" /></td>
+			<td ng-ds-fade="maxAP"><input type="text" ng-model="monster.maxAP" class="at-input-stat" /></td>
+			<td ng-ds-fade="moveCost"><input type="text" ng-model="monster.moveCost" class="at-input-stat" /></td>
+			<td ng-ds-fade="maxHP"><input type="text" ng-model="monster.maxHP" class="at-input-stat" /></td>
+			<td ng-ds-fade="attackCost"><input type="text" ng-model="monster.attackCost" class="at-input-stat" /></td>
+			<td ng-ds-fade="attackChance"><input type="text" ng-model="monster.attackChance" class="at-input-stat" /></td>
+			<td ng-ds-fade="attackDamage">
+				<input type="text" ng-model="monster.attackDamage.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="monster.attackDamage.max" class="at-input-stat-minmax" />
+			</td>
+			<td ng-ds-fade="hasCritical"><input type="checkbox" ng-model="monster.hasCritical" /></td>
+			<td ng-ds-fade="criticalSkill"><input type="text" ng-model="monster.criticalSkill" class="at-input-stat" /></td>
+			<td ng-ds-fade="criticalMultiplier"><input type="text" ng-model="monster.criticalMultiplier" class="at-input-stat" /></td>
+			<td ng-ds-fade="blockChance"><input type="text" ng-model="monster.blockChance" class="at-input-stat" /></td>
+			<td ng-ds-fade="damageResistance"><input type="text" ng-model="monster.damageResistance" class="at-input-stat" /></td>
+			<td><a ng-click="edit(monster)" class="btn"><i class="icon-forward"></i> Edit</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="endSets"> </div>
