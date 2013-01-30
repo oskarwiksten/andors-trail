@@ -51,13 +51,14 @@
 	</div>
 	<div class="fieldWithLabel">
 		<label for="baseMarketCost">Base market cost (gold):</label>
-		<input type="text" size="7" id="baseMarketCost" ng-readonly="obj.hasManualPrice == 0" class="field at-input-gold" ng-model="obj.baseMarketCost" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
+		<input type="text" size="7" id="baseMarketCost" ng-show="obj.hasManualPrice == 0" class="field at-input-gold" readonly="readonly" value="{{getItemCost(obj)}}" />
+		<input type="text" size="7" id="baseMarketCost" ng-show="obj.hasManualPrice == 1" class="field at-input-gold" ng-model="obj.baseMarketCost" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
 	</div>
 	<div class="fieldWithLabel">
 		<label for="marketCost_Sell">Actual price (gold):</label>
 		<div class="field">
-			<span>Sell: <input type="text" size="7" id="marketCost_Sell" class="at-input-gold" ng-model="marketCost_Sell" readonly="readonly" /></span>
-			<span>Buy: <input type="text" size="7" id="marketCost_Buy" class="at-input-gold" ng-model="marketCost_Buy" readonly="readonly" /></span>
+			<span>Sell: <input type="text" size="7" id="marketCost_Sell" class="at-input-gold" value="{{getItemSellingCost(obj)}}" readonly="readonly" /></span>
+			<span>Buy: <input type="text" size="7" id="marketCost_Buy" class="at-input-gold" value="{{getItemBuyingCost(obj)}}" readonly="readonly" /></span>
 		</div>
 	</div>
 </fieldset>
