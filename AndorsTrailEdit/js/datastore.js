@@ -25,9 +25,10 @@ var ATEditor = (function(ATEditor, _) {
 		this.getName = function(obj) { 
 			return obj[options.nameField]; 
 		};
-		this.addNew = function() {
+		this.addNew = function(suggestedId) {
 			var obj = { };
-			obj[options.idField] = 'new_' + options.id;
+			if (!suggestedId) { suggestedId = 'new_' + options.id; }
+			obj[options.idField] = suggestedId;
 			if (options.idField != options.nameField) {
 				obj[options.nameField] = 'New ' + options.id;
 			}

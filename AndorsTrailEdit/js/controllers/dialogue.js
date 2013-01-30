@@ -1,96 +1,10 @@
-var ATEditor = (function(ATEditor, model, defaults, _) {
+var ATEditor = (function(ATEditor, model, defaults, importExport, _) {
 
 	function DialogueController($scope, $routeParams) {
 		$scope.datasource = model.dialogue;
 		$scope.rootPhrase = $scope.datasource.findById($routeParams.id);
 		$scope.phrase = $scope.rootPhrase;
 		$scope.reply = null;
-		
-		function rebuildTree(rootPhrase) {
-			console.log("rebuilding tree for " + rootPhrase.id);
-			rootPhrase.tree = rootPhrase.tree || {};
-			rootPhrase.tree.dirty = true;	
-			rebuildPhraseTree(rootPhrase, {});
-		}
-		
-		function rebuildPhraseTree(phrase, visitedPhraseIDs) {
-			if (visitedPhraseIDs[phrase.id]) { 
-				var phraseNode = {};
-				phraseNode.image = 'imgphrase.png';
-				phraseNode.text = "(conversation loop)";
-				phraseNode.phrase = phrase;
-				phraseNode.reply = null;
-				phraseNode.children = [];
-				return phraseNode; 
-			}
-			visitedPhraseIDs[phrase.id] = true;
-			if (_.keys(visitedPhraseIDs).length > 1000) { return {}; }
-			
-			if (phrase.tree && !phrase.tree.dirty) { return phrase.tree; }
-			console.log("Constructing " + phrase.id);
-			var phraseNode = {};
-			phraseNode.dirty = false;
-			phraseNode.image = 'imgphrase.png';
-			phraseNode.text = phrase.message || '(no text)';
-			phraseNode.phrase = phrase;
-			phraseNode.reply = null;
-			phraseNode.children = [];
-			phrase.tree = phraseNode;
-			
-			if (phrase.hasOnlyNextReply) {
-				var nextPhrase = model.dialogue.findById(phrase.nextPhraseID);
-				if (nextPhrase) {
-					var childNode = rebuildPhraseTree(nextPhrase, visitedPhraseIDs);
-					phraseNode.children = [ childNode ];
-				}
-			} else {
-				_.each(phrase.replies, function(reply) {
-					var replyNode = {}
-					replyNode.image = 'imgreply.png';
-					replyNode.text = reply.text || '(no text)';
-					replyNode.phrase = phrase;
-					replyNode.reply = reply;
-					replyNode.children = [];
-					phraseNode.children.push(replyNode);
-					if (reply.nextPhraseID) {
-						var nextPhrase = model.dialogue.findById(reply.nextPhraseID);
-						if (nextPhrase) {
-							var childNode = rebuildPhraseTree(nextPhrase, visitedPhraseIDs);
-							replyNode.children.push(childNode);
-						}
-					}
-				});
-			}
-			return phraseNode;
-		}
-		
-		$scope.onclick = function(node) {
-			$scope.phrase = node.phrase;
-			$scope.reply = node.reply;
-		};
-		
-		$scope.$watch('phrase.message'
-						+' + phrase.nextPhraseID'
-						+' + phrase.hasOnlyNextReply'
-						+' + reply.text'
-						+' + reply.nextPhraseID'
-			, function() { 
-				rebuildTree($scope.phrase);
-				$scope.node = $scope.rootPhrase.tree;
-			});
-		
-		$scope.refreshTree = function() {
-			function setDirty(node) {
-				if (node) {
-					node.dirty = true;
-					_.each(node.children, function(c) {
-						setDirty(c);
-					});
-				}
-			}
-			setDirty($scope.rootPhrase.tree);
-			rebuildTree($scope.rootPhrase);
-		};
 		
 		$scope.removeReward = function(phrase, reward) {
 			var idx = phrase.rewards.indexOf(reward);
@@ -99,7 +13,25 @@ var ATEditor = (function(ATEditor, model, defaults, _) {
 		$scope.addReward = function(phrase) {
 			phrase.rewards.push({});
 		};
-		$scope.followNextReply = function(nextPhraseID) {
+		$scope.proceedToPhrase = function(obj, prop) {
+			var phraseId = obj[prop];
+			if (phraseId) { 
+				var nextPhrase = model.dialogue.findById(phraseId);
+				if (nextPhrase) {
+					window.location = "#/" + model.dialogue.id + "/edit/" + phraseId;
+					return;
+				}
+			} else {
+				phraseId = $scope.phrase.id; 
+			}
+			var newPhrase = model.dialogue.addNew(phraseId);
+			importExport.prepareObjectsForEditor(model.dialogue, [ newPhrase ]);
+			newPhrase.hasOnlyNextReply = true;
+			
+			phraseId = newPhrase.id;
+			obj[prop] = phraseId;
+			
+			window.location = "#/" + model.dialogue.id + "/edit/" + phraseId;
 		};
 		$scope.selectReply = function(reply) {
 			$scope.reply = reply;
@@ -121,4 +53,4 @@ var ATEditor = (function(ATEditor, model, defaults, _) {
 	ATEditor.controllers.DialogueController = DialogueController;
 
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATEditor.defaults, _);
+})(ATEditor, ATEditor.model, ATEditor.defaults, ATEditor.importExport, _);
