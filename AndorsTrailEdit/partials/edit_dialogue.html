@@ -1,7 +1,21 @@
 <h3>Dialogue</h3>
+
 <fieldset>
 	<legend>Conversation flow</legend>
-	<div id="dialogueTree"> </div>
+	<div id="dialogueTree">
+		<div>
+			<a ng-click="refreshTree()" class="btn"><i class="icon-refresh"></i> Refresh</a>
+		</div>
+		<treenode node="node" onclick="onclick"><div>
+			<a ng-click="onclick(node)">
+				<img ng-src="{{node.image}}" alt="" />
+				{{node.text}}
+			</a><br />
+			<ul>
+				<li ng-repeat="child in node.children"><treenode node="child" onclick="onclick"></treenode></li>
+			</ul>
+		</div></treenode>
+	</div>
 	<!-- http://acidjs.wemakesites.net/css3-treevew-no-javascript.html -->
 </fieldset>
 

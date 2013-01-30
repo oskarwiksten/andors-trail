@@ -100,6 +100,7 @@ var ATEditor = (function(ATEditor, _) {
 		}
 		delete o.nextPhraseID;
 		delete o.hasOnlyNextReply;
+		delete o.tree;
 	};
 	unprep.monster = function(o) {
 		if (!o.hasCritical) { 

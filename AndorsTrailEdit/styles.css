@@ -39,10 +39,11 @@ html, body 					{ margin:0; padding:0; }
 .fieldWithLabel table tbody tr:nth-child(even)	{ background-color: #eee }
 .fieldWithLabel table tbody tr:hover	{ background-color: #d7d7ff; }
 
-#dialogueTreeContainer		{ }
 #dialogueTree				{ width: 400px; }
-#dialogueData				{ }
-.imageButton				{ padding: 5px; }
+#dialogueTree ul			{ list-style: none; margin-left: 10px; }
+#dialogueTree li			{  }
+#dialogueTree .selected		{ background-color: #d7d7ff; }
+
 .tools-buttons				{ padding-bottom: 10px; }
 #importExportTextArea		{ width: 500px; }
 

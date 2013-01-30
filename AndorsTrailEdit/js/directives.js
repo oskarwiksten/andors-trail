@@ -76,7 +76,6 @@ var ATEditor = (function(ATEditor, app, tilesets, $) {
 						element.modal('hide');
 						var s = attrs.ngSelectImageDest || 'iconID';
 						eval("scope." + s + "='" + iconID + "'");
-						//scope.$apply();
 					});
 					element.modal('show');
 				}
@@ -85,5 +84,22 @@ var ATEditor = (function(ATEditor, app, tilesets, $) {
 		}
 	});
 	
+	// http://jsfiddle.net/ag5zC/22/
+	app.directive('treenode', function ($compile) {
+		var link;
+		return {
+			restrict: 'E',
+			terminal: true,
+			scope: { node: '=', onclick: '=' },
+			link: function (scope, element, attrs) {
+				if(!link) {
+					link = $compile(element.html());
+				}
+				element.replaceWith(link(scope.$new(), function(clone) { }));
+			}
+		}
+	});
+	
+		  
 	return ATEditor;
 })(ATEditor, ATEditor.app, ATEditor.tilesets, jQuery);
