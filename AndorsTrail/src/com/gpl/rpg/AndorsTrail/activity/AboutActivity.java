@@ -52,7 +52,7 @@ public final class AboutActivity extends Activity implements ImageGetter {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				tv.setText(Html.fromHtml(res.getString(R.string.about_contents3)));
+				tv.setText(Html.fromHtml(res.getString(R.string.about_copyright) + res.getString(R.string.about_contents3)));
 			}
 		});
         
