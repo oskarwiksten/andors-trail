@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="33" height="16" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="32" height="16" tilewidth="32" tileheight="32">
  <properties>
   <property name="outside" value="1"/>
  </properties>
@@ -51,28 +51,28 @@
  <tileset firstgid="1905" name="tiles_2_8" tilewidth="32" tileheight="32">
   <image source="../drawable/map_tiles_2_8.png" width="512" height="224"/>
  </tileset>
- <layer name="Ground" width="33" height="16">
+ <layer name="Ground" width="32" height="16">
   <data encoding="base64" compression="zlib">
-   eJy7xMDAcAkH1sQjRw7WxIEJ6RkubngIxfR2w0Mi7KaWGx7iwITsxeYGXObgsoMcu3Bhapo1ikcxNfDFQeCGS1B3kIOp6QZyMbXcRs06CZvbCNnvzkobN+ALK3Q3hAPdAAD9Be1+
+   eJy7xMDAcAkH1sQjRyrWxIEJ6Rnq9j+EYnra/5AIe6ll/0MsmJCd2OzHZQ42cXLtwoapZc4oHsXk4IsDbP8lqBvIwdSyn1xMDTdRq37B5iZCdruzUt9+fOGDbn840H4AipvlmA==
   </data>
  </layer>
- <layer name="Objects" width="33" height="16">
+ <layer name="Objects" width="32" height="16">
   <data encoding="base64" compression="zlib">
-   eJyllUFuwkAMRRNpcpbegCBWXVEW7KuyZkPX7aLdFXKSnIITVOwb4DrYSix+XHuGAUtfJGZkf78x4lwVxdnRvCyKv3BVF8bvMe2NHNd7o7o1aUp6Ir0Yfdvw30Ob0dtTBx4aeuZgL69V75f7dSHNwZoth89s8IBhcYh5QJ2q2xls6Oxq0Pfg4SdcOVi9hU3OPiCj1ul7oPwujDnUCQ6zCAdrxpXR14qt8iG74NVKiXvpmthHPuW3gCFMUrXk7nRophJHJx+LSenro+zPrG/M4/fsca3OL8tx78/Qzycc3oETzn1UTCXwXc57bBrIW6zZ54L0dec+sPeDUbfJuJNfqvEcuY+YYt6Fq8yNbHE/mR17QLVGzpPnXXvDe5bA3U316TI8Wd4sP43an3t6aO0jPLUf/X+BHKw6j9yTpbnyUA/PF7br/YE=
+   eJydVDsOgkAQhWQ5izcQY2WFFvZGaxqttdBO5SScwhMYekGv40xgwjDOLrtO8iK7LvM+s+GTRNHHgiyOopfpUZvh2oaHsoe9ttAzBcwAE8BS4SzNL3/pyWtDzfgLeMZCHZuk1YpctRn3r/nyzWXe8fPS/Lv4Od6Jn/c9nNt1uHT8V9P713gpk5D5UzalhbOC/bsZ+k9H/M8d/jV/klOrm9BAs9f6+AC5ZE9a0y/deV6UhasP1VXZl1liNZb3XTWN7TjG7Zncc5/+Q225OLuOh7wn0/oi/weWD/fbiCyp+JrOa5kUbE/LFzWuAOc/54+6K9G3CJjDE95fOGbggk03ZUl+eZ78LmJeyM9RKns2aLqlJj5XKn5PxzjqAD1Sk6alEHcltL+Gh+hBGUot8vvP/cseGkJmI5EJ/rR7/gL5r/XB
   </data>
  </layer>
- <layer name="Above" width="33" height="16">
+ <layer name="Above" width="32" height="16">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFlIBNrJSboY7FDFLMPUQFN9DT3MECQOGuMcz9OAqGLhgu6ZMaZSSlgJplGaXlNS3sBwF6lNfoaRIAOaQHiA==
+   eJxjYBgF5IBNrJTpV8einxQzD1FoP73MHAwAFNYaw9Rvo2BogeGQFikt+ygF1CqnKC2DqW03CNC6DEZPfwBg8QeI
   </data>
  </layer>
- <layer name="Walkable" width="33" height="16">
+ <layer name="Walkable" width="32" height="16">
   <data encoding="base64" compression="zlib">
-   eJwTZGBgEByBGAYGgxsG0h0DZT8uMFD20sIdpNhDyA0jGQyGcKBn2qOlG8jNj/RwA7FhRS834HPPQLthIOzHlg4AmJ4Xxw==
+   eJwTZGBgEBxBGAYG2v6BcsNA2I0LDISdtHADsXYQsn8kgoH2Pz3TGq3sJyfP0dp+YsOHHvbjc8tA2k9vu7HFOwB3gBcM
   </data>
  </layer>
- <objectgroup name="Mapevents" width="33" height="16">
-  <object name="east" type="mapchange" x="1024" y="160" width="32" height="288">
+ <objectgroup name="Mapevents" width="32" height="16">
+  <object name="east" type="mapchange" x="992" y="160" width="32" height="288">
    <properties>
     <property name="map" value="waytobrimhaven1"/>
     <property name="place" value="west"/>
@@ -85,17 +85,17 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="33" height="16">
-  <object name="fieldcritter_0" type="spawn" x="320" y="192" width="352" height="160">
+ <objectgroup name="Spawn" width="32" height="16">
+  <object name="fieldcritter_0" type="spawn" x="288" y="192" width="352" height="160">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="fieldcritter_1" type="spawn" x="672" y="32" width="320" height="416">
+  <object name="fieldcritter_1" type="spawn" x="640" y="32" width="320" height="416">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="33" height="16"/>
+ <objectgroup name="Keys" width="32" height="16"/>
 </map>
