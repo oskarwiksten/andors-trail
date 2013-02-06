@@ -79,17 +79,17 @@
 	
 <string name="itemlist_food">
 [id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{apple_green|items_consumables:2|Green apple|food|||9||||||||||||||1|4|4|||||||||||||||||};
-{apple_red|items_consumables:3|Red apple|food|||15||||||||||||||1|6|6|||||||||||||||||};
-{meat|items_consumables:25|Meat|animal_e||1|29||||||||||||||1|12|12|||||||||||||||||};
-{meat_cooked|items_consumables:27|Cooked meat|food||1|78||||||||||||||1|21|21|||||||||||||||||};
-{strawberry|items_consumables:8|Strawberry|food|||1||||||||||||||1|1|1|||||||||||||||||};
-{carrot|items_consumables:15|Carrot|food|||9||||||||||||||1|4|4|||||||||||||||||};
-{bread|items_consumables:21|Bread|food||1|6||||||||||||||1|5|5|||||||||||||||||};
-{mushroom|items_consumables:19|Mushroom|food|||1||||||||||||||1|1|1|||||||||||||||||};
-{pear|items_consumables:9|Pear|food|||9||||||||||||||1|4|4|||||||||||||||||};
-{eggs|items_consumables:20|Eggs|food|||8||||||||||||||1|3|3|||||||||||||||||};
-{radish|items_consumables:14|Radish|food|||5||||||||||||||1|2|2|||||||||||||||||};
+{apple_green|items_consumables:2|Green apple|food||1|14||||||||||||||1|||||{{food|1|8|100|}}||||||||||||||};
+{apple_red|items_consumables:3|Red apple|food||1|22||||||||||||||1|||||{{food|1|12|100|}}||||||||||||||};
+{meat|items_consumables:25|Meat|animal_e||1|29||||||||||||||1|||||{{food|2|12|100|}{foodp|3|10|10|}}||||||||||||||};
+{meat_cooked|items_consumables:27|Cooked meat|food||1|78||||||||||||||1|||||{{food|3|11|100|}}||||||||||||||};
+{strawberry|items_consumables:8|Strawberry|food||1|3||||||||||||||1|||||{{food|1|2|100|}}||||||||||||||};
+{carrot|items_consumables:15|Carrot|food||1|14||||||||||||||1|||||{{food|1|8|100|}}||||||||||||||};
+{bread|items_consumables:21|Bread|food||1|6||||||||||||||1|||||{{food|1|10|100|}}||||||||||||||};
+{mushroom|items_consumables:19|Mushroom|food||1|3||||||||||||||1|||||{{food|1|2|100|}}||||||||||||||};
+{pear|items_consumables:9|Pear|food||1|14||||||||||||||1|||||{{food|1|8|100|}}||||||||||||||};
+{eggs|items_consumables:20|Eggs|food||1|10||||||||||||||1|||||{{food|1|6|100|}}||||||||||||||};
+{radish|items_consumables:14|Radish|food||1|6||||||||||||||1|||||{{food|1|4|100|}}||||||||||||||};
 	</string>
 
 	<string name="itemlist_potions">
@@ -318,7 +318,7 @@
 {fg_ironsword_d|items_weapons:0|Degraded Feygard iron sword|lsword|1|1|0|1||||5|-50|||0|0|||||||||||||||||||||||};
 {buceth_vial|items_consumables:47|Buceth\'s vial of green liquid|other|1|1|0|||||||||||||||||||||||||||||||||};
 {chaosreaper|items_weapons:49|Chaosreaper|scepter|3|1|339|1||||4|-30|||0|2||||0||||||1||||||{{chaotic_grip|5|3|50|}}|||||||};
-{izthiel_claw|items_misc:47|Izthiel claw|animal_e||1|1||||||||||||||1|1|6|||||||||||||||||};
+{izthiel_claw|items_misc:47|Izthiel claw|animal_e||1|1||||||||||||||1|||||{{food|3|6|100|}{foodp|3|10|20|}}||||||||||||||};
 {iqhan_pendant|items_necklaces_1:2|Iqhan pendant|neck||1|10|1|||||6|||||||||||||||||||||||||||};
 {shadowfang|items_weapons_3:41|Shadowfang|ssword|3|1|512|1|-20|||4|40|||2|5||||0||||||1|||||{{fatigue_minor|1|3|20|}}||||||||};
 {gloves_life|items_armours_2:1|Gloves of life force|hnd_lthr|3|1|390|1|9||||5|||||3||||||||||||||||||||||};
