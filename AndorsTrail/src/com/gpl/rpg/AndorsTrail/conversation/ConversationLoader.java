@@ -6,6 +6,7 @@ import java.util.HashMap;
 import android.content.res.Resources;
 
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
+import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 
 public final class ConversationLoader {
@@ -19,11 +20,13 @@ public final class ConversationLoader {
 		if (conversationCollection.hasPhrase(phraseID)) {
 			return conversationCollection.getPhrase(phraseID);
 		}
-		
-		ConversationListParser conversationListParser = new ConversationListParser();
+
+        TranslationLoader translationLoader = new TranslationLoader(r.getAssets());
+        ConversationListParser conversationListParser = new ConversationListParser(translationLoader);
 		int resourceID = resourceIDsPerPhraseID.get(phraseID);
 		conversationCollection.initialize(conversationListParser, ResourceLoader.readStringFromRaw(r, resourceID));
-		
+        translationLoader.close();
+
 		return conversationCollection.getPhrase(phraseID);
 	}
 }

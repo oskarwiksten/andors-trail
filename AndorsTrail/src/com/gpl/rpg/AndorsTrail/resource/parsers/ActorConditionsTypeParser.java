@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
+import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.util.Pair;
@@ -11,17 +12,19 @@ import org.json.JSONObject;
 public final class ActorConditionsTypeParser extends JsonCollectionParserFor<ActorConditionType> {
 	
 	private final DynamicTileLoader tileLoader;
-		
-	public ActorConditionsTypeParser(final DynamicTileLoader tileLoader) {
+    private final TranslationLoader translationLoader;
+
+    public ActorConditionsTypeParser(final DynamicTileLoader tileLoader, TranslationLoader translationLoader) {
 		this.tileLoader = tileLoader;
-	}
+        this.translationLoader = translationLoader;
+    }
 
 	@Override
 	protected Pair<String, ActorConditionType> parseObject(JSONObject o) throws JSONException {
 		final String conditionTypeID = o.getString(JsonFieldNames.ActorCondition.conditionTypeID);
 		ActorConditionType result = new ActorConditionType(
 				conditionTypeID
-				,o.getString(JsonFieldNames.ActorCondition.name)
+				,translationLoader.translateActorConditionName(o.getString(JsonFieldNames.ActorCondition.name))
 				,ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.ActorCondition.iconID))
 				,o.getInt(JsonFieldNames.ActorCondition.category)
 				,o.optInt(JsonFieldNames.ActorCondition.isStacking) > 0
