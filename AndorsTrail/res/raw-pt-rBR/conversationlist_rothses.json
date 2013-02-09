@@ -1,0 +1,564 @@
+[
+    {
+        "id": "rothses",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_c1",
+                "requires": {
+                    "progress": "remgard2:45"
+                }
+            },
+            {
+                "nextPhraseID": "rothses_1"
+            }
+        ]
+    },
+    {
+        "id": "rothses_c1",
+        "message": "O nosso herói entra em minha loja. Sinto-me honrado. Como posso ajudá-lo? Um novo conjunto de botas talvez, ou algumas luvas novas?",
+        "replies": [
+            {
+                "text": "Deixe-me ver o que você tem para venda.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Jhaeld me disse que você poderia me ajudar a melhorar meu equipamento.",
+                "nextPhraseID": "rothses_c2",
+                "requires": {
+                    "progress": "remgard2:45"
+                }
+            }
+        ]
+    },
+    {
+        "id": "rothses_c2",
+        "message": "Ah, sim, eu posso fazer modificações na maioria dos nossos equipamentos de defesa que eu vendo. Quer deixar-me olhar aquilo que você carrega para ver se há alguma coisa que eu possa melhorar para você?",
+        "replies": [
+            {
+                "text": "Claro, vá em frente.",
+                "nextPhraseID": "rothses_imp_s0"
+            },
+            {
+                "text": "Não, eu não quero que você mecha nas minhas coisas.",
+                "nextPhraseID": "rothses_c3"
+            },
+            {
+                "text": "Talvez algum outro momento.",
+                "nextPhraseID": "rothses_c3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_c3",
+        "message": "Claro. Eu ficaria honrado em tê-lo de volta, se você mudar de ideia."
+    },
+    {
+        "id": "rothses_1",
+        "message": "Oi. Como posso ajudá-lo? Um novo conjunto de botas talvez, ou algumas luvas novas?",
+        "replies": [
+            {
+                "text": "Deixe-me ver o que você tem para venda.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Jhaeld enviou-me para perguntar-lhe sobre as pessoas que desapareceram.",
+                "nextPhraseID": "rothses_3s",
+                "requires": {
+                    "progress": "remgard:52"
+                }
+            },
+            {
+                "text": "Como é está o seu negócio?",
+                "nextPhraseID": "rothses_2"
+            }
+        ]
+    },
+    {
+        "id": "rothses_2",
+        "message": "Está tudo bem, eu acho. Não tão bom como eu gostaria que fosse, agora que as portas para a cidade estão fechadas. Mas as pessoas aqui ainda parecem precisar de novas peças de couro de vez em quando.",
+        "replies": [
+            {
+                "text": "Deixe-me ver o que você tem para venda.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Jhaeld enviou-me a perguntar-lhe sobre as pessoas que desapareceram.",
+                "nextPhraseID": "rothses_3s",
+                "requires": {
+                    "progress": "remgard:52"
+                }
+            }
+        ]
+    },
+    {
+        "id": "rothses_3s",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_19",
+                "requires": {
+                    "progress": "remgard:64"
+                }
+            },
+            {
+                "nextPhraseID": "rothses_3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_3",
+        "message": "Ah, eu não sei muito sobre isso. Engraçado você perguntar. (Rothses dá-lhe um olhar desconfiado)",
+        "replies": [
+            {
+                "text": "Você tem certeza? Qualquer coisa que você saiba ou possa ter visto pode ser interessante.",
+                "nextPhraseID": "rothses_4"
+            }
+        ]
+    },
+    {
+        "id": "rothses_4",
+        "message": "Bem, você talvez pense que eu vejo a maioria do que acontece por aqui, considerando a minha loja é esta perto de ponte que dá acesso a Remgard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rothses_5"
+            }
+        ]
+    },
+    {
+        "id": "rothses_5",
+        "message": "No entanto, eu não sei nada sobre isso. *Tosse*",
+        "replies": [
+            {
+                "text": "Existe algo que você não está me dizendo?",
+                "nextPhraseID": "rothses_7"
+            },
+            {
+                "text": "Será que os guardas lhe perguntaram sobre o que você sabe?",
+                "nextPhraseID": "rothses_6"
+            }
+        ]
+    },
+    {
+        "id": "rothses_6",
+        "message": "Ah, sim, eles têm andado por aí perguntando isso a todos. Eu já disse a a eles sobre tudo o que sei.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rothses_7"
+            }
+        ]
+    },
+    {
+        "id": "rothses_7",
+        "message": "Eu vi Bethir na noite antes dela desaparecer. Ela tinha alguns equipamentos para a venda. Nada fora do comum, no entanto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rothses_8"
+            }
+        ]
+    },
+    {
+        "id": "rothses_8",
+        "message": "Não vi onde ela foi depois disso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rothses_9"
+            }
+        ]
+    },
+    {
+        "id": "rothses_9",
+        "message": "Olha, eu disse tudo isso para os guardas antes. Você está insinuando alguma coisa?",
+        "replies": [
+            {
+                "text": "Vou ficar de olho em você.",
+                "nextPhraseID": "rothses_jhaeld_s_1"
+            },
+            {
+                "text": "Obrigado por sua cooperação.",
+                "nextPhraseID": "rothses_jhaeld_s_1"
+            }
+        ]
+    },
+    {
+        "id": "rothses_jhaeld_s_1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 64
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "rothses_jhaeld_s_2",
+                "requires": {
+                    "progress": "remgard:61"
+                }
+            },
+            {
+                "nextPhraseID": "rothses_20"
+            }
+        ]
+    },
+    {
+        "id": "rothses_jhaeld_s_2",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_jhaeld_s_3",
+                "requires": {
+                    "progress": "remgard:62"
+                }
+            },
+            {
+                "nextPhraseID": "rothses_20"
+            }
+        ]
+    },
+    {
+        "id": "rothses_jhaeld_s_3",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_jhaeld_s_4",
+                "requires": {
+                    "progress": "remgard:63"
+                }
+            },
+            {
+                "nextPhraseID": "rothses_20"
+            }
+        ]
+    },
+    {
+        "id": "rothses_jhaeld_s_4",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 70
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "rothses_20"
+            }
+        ]
+    },
+    {
+        "id": "rothses_19",
+        "message": "Olha, eu já lhe disse antes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rothses_20"
+            }
+        ]
+    },
+    {
+        "id": "rothses_20",
+        "message": "Agora, se você me der licença, tenho coisas para fazer."
+    },
+    {
+        "id": "rothses_imp_s0",
+        "message": "Hum, deixe-me ver.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rothses_imp_s"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_s",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_shield",
+                "requires": {
+                    "item": {
+                        "itemID": "remgard_shield_1",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_shield_w",
+                "requires": {
+                    "item": {
+                        "itemID": "remgard_shield_1",
+                        "quantity": 1,
+                        "requireType": 2
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_s3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_s3",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_gloves",
+                "requires": {
+                    "item": {
+                        "itemID": "gloves_combat1",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_gloves_w",
+                "requires": {
+                    "item": {
+                        "itemID": "gloves_combat1",
+                        "quantity": 1,
+                        "requireType": 2
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_s4"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_s4",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_armour",
+                "requires": {
+                    "item": {
+                        "itemID": "armour_superior_chain",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_armour_w",
+                "requires": {
+                    "item": {
+                        "itemID": "armour_superior_chain",
+                        "quantity": 1,
+                        "requireType": 2
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_s5"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_s5",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_n"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_n",
+        "message": "Não, você não parece ter nada que eu possa melhorar. Volte mais tarde e eu poderia ser capaz de ajudá-lo."
+    },
+    {
+        "id": "rothses_imp_shield",
+        "message": "Você tem aí um escudo de Remgard que parece em bom estado. Por 700 moedas de ouro, eu sou capaz de melhorá-lo para que ele bloqueie golpes um pouco melhor.",
+        "replies": [
+            {
+                "text": "Claro, aqui está o ouro.",
+                "nextPhraseID": "rothses_imp_shield_1",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 700,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Talvez mais tarde. Eu tenho alguma coisa que você pode melhorar?",
+                "nextPhraseID": "rothses_imp_s3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_shield_1",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_shield_2",
+                "requires": {
+                    "item": {
+                        "itemID": "remgard_shield_1",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_s3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_shield_2",
+        "message": "Aqui está. Um escudo de Remgard melhorado.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "remgard_shield_2"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Não tenho qualquer outra coisa que você pode melhorar?",
+                "nextPhraseID": "rothses_imp_s3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_shield_w",
+        "message": "Você está equipado com um bom escudo de Remgard. Remova-o de suas mãos e eu poderia ser capaz de ajudá-lo a melhorar, se quiser.",
+        "replies": [
+            {
+                "text": "Mais alguma coisa?",
+                "nextPhraseID": "rothses_imp_s3"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_gloves",
+        "message": "Essas parecem ser são algumas boas luvas de combate que você tem aí. Por 300 moedas de ouro, eu sou capaz de melhorá-las para que elas bloqueiem golpes um pouco melhor.",
+        "replies": [
+            {
+                "text": "Claro, aqui está o ouro.",
+                "nextPhraseID": "rothses_imp_gloves_1",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 300,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Talvez mais tarde. Eu tenho alguma coisa que você pode melhorar?",
+                "nextPhraseID": "rothses_imp_s4"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_gloves_1",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_gloves_2",
+                "requires": {
+                    "item": {
+                        "itemID": "gloves_combat1",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_s4"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_gloves_2",
+        "message": "Aqui está. Um par de luvas de combate melhoradas.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gloves_combat2"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Não tem qualquer outra coisa que você possa melhorar?",
+                "nextPhraseID": "rothses_imp_s4"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_gloves_w",
+        "message": "Essas são algumas boas luvas de combate que você está usando. Rema-as de suas mãos e eu poderia ser capaz de ajudá-la a melhorá-la, se quiser.",
+        "replies": [
+            {
+                "text": "Mais alguma coisa?",
+                "nextPhraseID": "rothses_imp_s4"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_armour",
+        "message": "Agora, tem essa malha fina de boa aparência. Por 3000 moedas de ouro, eu sou capaz de melhorá-la para que não apenas bloquear melhor ataques, mas também dificultar menos seus ataques.",
+        "replies": [
+            {
+                "text": "Claro, aqui está o ouro.",
+                "nextPhraseID": "rothses_imp_armour_1",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 3000,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Talvez mais tarde. Eu tenho mais alguma coisa que você pode melhorar?",
+                "nextPhraseID": "rothses_imp_s5"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_armour_1",
+        "replies": [
+            {
+                "nextPhraseID": "rothses_imp_armour_2",
+                "requires": {
+                    "item": {
+                        "itemID": "armour_superior_chain",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "rothses_imp_s5"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_armour_2",
+        "message": "Aqui está. Uma cota de malha melhorada.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "armour_chain_remg"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Não tenho qualquer outra coisa que você pode melhorar?",
+                "nextPhraseID": "rothses_imp_s5"
+            }
+        ]
+    },
+    {
+        "id": "rothses_imp_armour_w",
+        "message": "Agora, tem essa malha fina de boa aparência. Tire-a de seu peito para que eu possa ser capaz de ajudá-lo a melhorar, se quiser.",
+        "replies": [
+            {
+                "text": "Mais alguma coisa?",
+                "nextPhraseID": "rothses_imp_s5"
+            }
+        ]
+    }
+]

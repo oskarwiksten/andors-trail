@@ -1,0 +1,290 @@
+[
+    {
+        "id": "mazeg",
+        "replies": [
+            {
+                "nextPhraseID": "mazeg_1",
+                "requires": {
+                    "progress": "bwm_agent:240"
+                }
+            },
+            {
+                "nextPhraseID": "mazeg_2"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_1",
+        "message": "Amigo, bem-vindo! Gostaria de olhar minha seleção de multa poções e pomadas?",
+        "replies": [
+            {
+                "text": "Claro. Mostre-me o que você tem.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Eu estou procurando algum extrato de medula de Lyson, paraHjaldar em Remgard.",
+                "nextPhraseID": "mazeg_e_1",
+                "requires": {
+                    "progress": "sisterfight:45"
+                }
+            }
+        ]
+    },
+    {
+        "id": "mazeg_2",
+        "message": "Viajante, bem-vindo. Você veio para pedir minha ajuda e a de minhas poções?",
+        "replies": [
+            {
+                "text": "Sim. Por favor, mostre-me o que você tem.",
+                "nextPhraseID": "blackwater_notrust"
+            },
+            {
+                "text": "Eu estou procurando algum extrato de medula de Lyson, para Hjaldar em Remgard.",
+                "nextPhraseID": "mazeg_e_1",
+                "requires": {
+                    "progress": "sisterfight:45"
+                }
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_1",
+        "replies": [
+            {
+                "nextPhraseID": "mazeg_d",
+                "requires": {
+                    "progress": "sisterfight:55"
+                }
+            },
+            {
+                "nextPhraseID": "mazeg_e_5b",
+                "requires": {
+                    "progress": "sisterfight:51"
+                }
+            },
+            {
+                "nextPhraseID": "mazeg_e_5b",
+                "requires": {
+                    "progress": "sisterfight:50"
+                }
+            },
+            {
+                "nextPhraseID": "mazeg_e_2"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_d",
+        "message": "Eu já lhe vendi um pouco antes. Será que você perdeu? Por favor, diga a meu velho amigo Hjaldar velho amigo que eu disse: Olá."
+    },
+    {
+        "id": "mazeg_e_2",
+        "message": "Hjaldar, meu velho amigo! Diga-me, como ele está, nestes dias?",
+        "replies": [
+            {
+                "text": "Ele me pediu para retransmitir suas saudações para você, e para lhe dizer que ele está bem.",
+                "nextPhraseID": "mazeg_e_3"
+            },
+            {
+                "text": "Ele está doente, e piora a cada dia.",
+                "nextPhraseID": "mazeg_e_4"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_3",
+        "message": "Oh, estou tão feliz em ouvir isso! Temos certeza que tivemos bons momentos ​enquanto trabalhávamos juntos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mazeg_e_5"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_4",
+        "message": "Sinto muito por ouvir isso. Ele sempre me pareceu um velho resistente para mim.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mazeg_e_5"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_5",
+        "message": "Você pediu algum extrato de medula de Lyson.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mazeg_e_5b"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_5b",
+        "message": "Claro, eu tenho isso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mazeg_e_6"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_6",
+        "replies": [
+            {
+                "nextPhraseID": "mazeg_e_7a",
+                "requires": {
+                    "progress": "bwm_agent:240"
+                }
+            },
+            {
+                "nextPhraseID": "mazeg_e_7b"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_7a",
+        "message": "Como você nos ajudou até aqui no assentamento Montanha das Águas Negras antes, eu estou disposto a dar-lhe um desconto sobre o preço de algum extrato de medula de Lyson. Por 400 moedas de ouro, eu estou disposto a vender alguns deles para o meu velhoa amigo Hjaldar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Aqui está 400 moedas de ouro.",
+                "nextPhraseID": "mazeg_e_9",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 400,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ai, está caro! Há algo que você possa fazer para baixar o preço?",
+                "nextPhraseID": "mazeg_e_8a"
+            },
+            {
+                "text": "Eu vou voltar quando eu tiver o ouro para ele.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_8a",
+        "message": "Não, custa 400 moedas de ouro. Esse é um preço muito bom, considerando o quão difícil isso é encontrar essa coisa. Além disso, se não fosse por Hjaldar, eu não iria mesmo estar vendendo isso para você.",
+        "replies": [
+            {
+                "text": "Aqui está 400 moedas de ouro.",
+                "nextPhraseID": "mazeg_e_9",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 400,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Eu vou voltar quando eu tiver ouro suficiente para comprar.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_7b",
+        "message": "Por 800 moedas de ouro, eu estou disposto a vender alguns deles para o meu velho amigo Hjaldar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 51
+            }
+        ],
+        "replies": [
+            {
+                "text": "Aqui está 800 moedas de ouro.",
+                "nextPhraseID": "mazeg_e_9",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 800,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ai, está caro! Há algo que você pode fazer para baixar o preço?",
+                "nextPhraseID": "mazeg_e_8b"
+            },
+            {
+                "text": "Eu vou voltar quando eu tiver ouro suficiente para comprar.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_8b",
+        "message": "Não, 800 moedas de ouro é o preço. Esse é um preço muito bom, considerando o quão difícil isso é encontrar essa coisa. Além disso, se não fosse por Hjaldar, eu não iria mesmo estar vendendo isso para você.",
+        "replies": [
+            {
+                "text": "Aqui está 800 moedas de ouro.",
+                "nextPhraseID": "mazeg_e_9",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 800,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Eu vou voltar quando eu tiver ouro suficiente para comprar.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_9",
+        "message": "Obrigado. Aqui está um pouco de extrato de medula de Lyson.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 55
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "lyson_marrow",
+                "value": 0
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mazeg_e_10"
+            }
+        ]
+    },
+    {
+        "id": "mazeg_e_10",
+        "message": "Por favor, dê os meus mais calorosos cumprimentos ao meu bom amigo Hjaldar. Diga-lhe que estou bem.",
+        "replies": [
+            {
+                "text": "Vou fazer. Obrigado e adeus.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Que seja. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

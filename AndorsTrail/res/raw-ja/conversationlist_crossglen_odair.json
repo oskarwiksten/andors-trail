@@ -1,0 +1,161 @@
+[
+    {
+        "id": "odair1",
+        "message": "お前か、 お前ら兄弟はまた面倒ばかり起こしてるな。",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair_select"
+            }
+        ]
+    },
+    {
+        "id": "odair_select",
+        "replies": [
+            {
+                "nextPhraseID": "odair_complete2",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "odair_continue",
+                "requires": {
+                    "progress": "odair:10"
+                }
+            },
+            {
+                "nextPhraseID": "odair2"
+            }
+        ]
+    },
+    {
+        "id": "odair2",
+        "message": "いや待てよ、お前も役に立つかも。 ちょっとした仕事があるんだが手伝わねぇか？",
+        "replies": [
+            {
+                "text": "どんな仕事なの？",
+                "nextPhraseID": "odair3"
+            },
+            {
+                "text": "もちろんやる。 それで儲けがあるなら、だけど。",
+                "nextPhraseID": "odair3"
+            }
+        ]
+    },
+    {
+        "id": "odair3",
+        "message": "最近、村の蓄えがどれだけ残っているか調べに、あの洞窟に入ったんだがよ。（西のほうを指差す）\n俺が見たところ、ネズミがはびこって居やがる。",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair4"
+            }
+        ]
+    },
+    {
+        "id": "odair4",
+        "message": "特に言うとだな、他のネズミよりデカい奴がいた。 お前、あれを倒してこれそうか？",
+        "replies": [
+            {
+                "text": "当然、みんなが貯蔵の洞穴を使えるように、手伝うに決まっている。",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "やるさ。 まあ、単にこれで稼げそうだから、なんだけど。",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "悪いけどできません。",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair5",
+        "message": "あの洞穴に入って、大きいネズミを殺してきてくれ。 そうすればネズミの繁殖も止められて、洞穴をまた使うことができる。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "了解。",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "やっぱりこの仕事はしないことにする。",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_cowards",
+        "message": "予想はしてたよ。おまえら兄弟は、あんまり勇敢じゃないから。",
+        "replies": [
+            {
+                "text": "じゃあね。",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_continue",
+        "message": "西の洞窟にいる大きいネズミは殺してきたか？",
+        "replies": [
+            {
+                "text": "うん、やって来た。",
+                "nextPhraseID": "odair_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_caverat",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "何をすればいいんだっけ？",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "まだやってない。",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete",
+        "message": "いいね、やるじゃん！ おまえら兄弟は、思ってたほど意気地無しじゃあないんだな。 \n手伝いのお礼だ、取っとけ。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "ありがと。",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete2",
+        "message": "この前のことは感謝してるよ。 おかげでまた俺たちは貯蔵の洞穴を使えるようになったからな。",
+        "replies": [
+            {
+                "text": "じゃあね。",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

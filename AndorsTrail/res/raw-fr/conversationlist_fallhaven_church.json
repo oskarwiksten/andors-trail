@@ -1,0 +1,265 @@
+[
+    {
+        "id": "chapelgoer",
+        "message": "Ombre, étreins-moi."
+    },
+    {
+        "id": "thoronir_default",
+        "message": "Trouve la paix dans l'Ombre, mon enfant.",
+        "replies": [
+            {
+                "text": "Que pouvez-vous me dire au sujet de l'Ombre ?",
+                "nextPhraseID": "thoronir_shadow_1"
+            },
+            {
+                "text": "Pouvez-vous me parler un peu plus de l'église ?",
+                "nextPhraseID": "thoronir_church_1"
+            },
+            {
+                "text": "Les potions d'os sont-elles prêtes ?",
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_shadow_1",
+        "message": "L'Ombre nous protège des dangers de la nuit. Elle nous garde à l'abri et nous réconforte lorsque nous dormons.",
+        "replies": [
+            {
+                "text": "Tharal m'a envoyé et m'a dit de vous donner le mot de passe « lueur de l'Ombre ».",
+                "nextPhraseID": "thoronir_tharal_select",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "text": "Que l'Ombre soit avec vous.",
+                "nextPhraseID": "thoronir_default"
+            },
+            {
+                "text": "Cela ne veut rien dire pour moi.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_1",
+        "message": "C'est notre chapelle de piété à Fallhaven. Notre communauté compte sur nous pour les aider.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_2",
+        "message": "Cette église se dresse depuis des centaines d'années ; elle nous a protégé des pilleurs de tombes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_select",
+        "replies": [
+            {
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            },
+            {
+                "nextPhraseID": "thoronir_tharal_1"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_1",
+        "message": "Lueur de l'Ombre, mon enfant. Ainsi c'est mon vieil ami Tharal du village de Crossglen qui t'a envoyé ?",
+        "replies": [
+            {
+                "text": "Que pouvez-vous m'apprendre sur la potion d'os ?",
+                "nextPhraseID": "thoronir_tharal_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_3",
+        "message": "Les catacombes sous l'église sont le lieu où se trouvent les restes de nos anciens seigneurs. On dit que notre grand roi Luthor serait enseveli ici.",
+        "replies": [
+            {
+                "text": "Quelqu'un est-il déjà entré dans ces catacombes ?",
+                "nextPhraseID": "thoronir_church_4",
+                "requires": {
+                    "progress": "bucus:10"
+                }
+            },
+            {
+                "text": "Je voulais vous dire autre chose.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_4",
+        "message": "Personne n'a le droit de descendre dans les catacombes hormis Athamyr, mon apprenti. Il est le seul à s'y être rendu depuis des années.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "D'accord, je vais aller le voir.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_2",
+        "message": "Chut, il ne faut pas parler aussi fort de la potion d'os. Comme tu le sais, le seigneur Geomyr à interdit tout usage de la potion d'os.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_3",
+        "message": "Quand l'interdiction a été prononcée, je n'ai pas osé en garder et j'ai jeté tout ce que j'avais. Lorsque j'y repense, je crois que c'était un geste inconsidéré.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_4"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_4",
+        "message": "Penses-tu pouvoir me trouver 5 os de squelettes que je pourrais utiliser pour concocter à nouveau de la potion d'os ? La potion d'os est très efficace pour soigner les vieilles blessures.",
+        "replies": [
+            {
+                "text": "Bien sûr, je devrais pouvoir faire cela.",
+                "nextPhraseID": "thoronir_tharal_5"
+            },
+            {
+                "text": "J'ai ramené ces os pour vous.",
+                "nextPhraseID": "thoronir_tharal_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bone",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_5",
+        "message": "Merci, reviens bientôt. J'ai entendu dire qu'il y avait quelques morts-vivants du côté d'une vieille maison abandonnée au Nord de Fallhaven. Peut-être pourrais-tu trouver des os par là bas ?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "D'accord, je vais aller cherchez de ce côté.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_complete",
+        "message": "Merci, ces os seront parfaits. Je peux maintenant concocter à nouveau de la potion d'os pour te soigner.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_complete_2",
+        "message": "Laisse-moi un peu de temps pour concocter des potions d'os. Ce sont des potions de soins très efficaces. Reviens dans quelques temps."
+    },
+    {
+        "id": "thoronir_trade_bonemeal",
+        "message": "Oui, les potions d'os sont prêtes. Utilises-les avec précaution, et ne te fais pas prendre par les gardes. Nous n'avons plus le droit de les utiliser.",
+        "replies": [
+            {
+                "text": "Montrez-moi les potions que vous avez déjà faites.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Je voulais vous parler d'autre chose.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard",
+        "message": "Retourne sur tes pas tant que tu le peux encore, mortel. Cet endroit n'est pas pour toi. Seule la mort t'attend ici.",
+        "replies": [
+            {
+                "text": "Très bien. Je repars.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Poussez-vous, je dois descendre plus bas dans les catacombes.",
+                "nextPhraseID": "catacombguard1"
+            },
+            {
+                "text": "Par l'Ombre, tu ne m'arrêteras pas.",
+                "nextPhraseID": "catacombguard1"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard1",
+        "message": "Nooooonn, tu ne passeras pas !",
+        "replies": [
+            {
+                "text": "Très bien, en garde.",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "luthor",
+        "message": "*hissss* Quel mortel trouble mon repos ?",
+        "replies": [
+            {
+                "text": "Par l'Ombre, qu'êtes-vous ?",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Enfin un combat qui en vaut la peine ! Je l'attendais.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Qu'importe, finissons cette tâche.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

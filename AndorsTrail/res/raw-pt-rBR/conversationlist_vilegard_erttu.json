@@ -1,0 +1,97 @@
+[
+    {
+        "id": "erttu_1",
+        "message": "Olá estrangeiro. Em geral, não gostamos de estranhos aqui em Vilegard, mas há algo em você que me parece familiar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_default"
+            }
+        ]
+    },
+    {
+        "id": "erttu_default",
+        "message": "O que você quer falar?",
+        "replies": [
+            {
+                "text": "Porque é que todos na Vilegard são tão desconfiados de estranhos?",
+                "nextPhraseID": "erttu_distrust_1",
+                "requires": {
+                    "progress": "vilegard:10"
+                }
+            },
+            {
+                "text": "O que você pode me dizer sobre Vilegard?",
+                "nextPhraseID": "erttu_vilegard_1"
+            }
+        ]
+    },
+    {
+        "id": "erttu_distrust_1",
+        "message": "A maioria de nós que vivemos aqui em Vilegard têm uma história de confiar muito nas pessoas. No finall, essas pessoas nos feriram muito.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_distrust_2"
+            }
+        ]
+    },
+    {
+        "id": "erttu_distrust_2",
+        "message": "Agora tendemos a suspeitar de todos,solicitando aos estrangeiros que vêm aqui que ganhem nossa confiança, ajudando-nos em primeiro lugar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_distrust_3"
+            }
+        ]
+    },
+    {
+        "id": "erttu_distrust_3",
+        "message": "Além disso, outras pessoas geralmente olham atravessado para nós aqui em Vilegard por algum motivo. Especialmente aqueles esnobes de Feygard e das cidades do norte.",
+        "replies": [
+            {
+                "text": "O que mais pode me dizer sobre Vilegard?",
+                "nextPhraseID": "erttu_vilegard_1"
+            }
+        ]
+    },
+    {
+        "id": "erttu_vilegard_1",
+        "message": "Temos quase tudo o que precisamos aqui no Vilegard. Nosso centro da vila é a capela.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_vilegard_2"
+            }
+        ]
+    },
+    {
+        "id": "erttu_vilegard_2",
+        "message": "A capela serve como nosso lugar de culto para a Sombra, e também como o nosso lugar para se reunir ao discutir questões maiores em nossa aldeia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_vilegard_3"
+            }
+        ]
+    },
+    {
+        "id": "erttu_vilegard_3",
+        "message": "Além da capela, temos uma taberna, um ferreiro e um armeiro.",
+        "replies": [
+            {
+                "text": "Obrigado pela informação. Gostaria de lhe falar sobre outro assunto.",
+                "nextPhraseID": "erttu_default"
+            },
+            {
+                "text": "Obrigado pela informação. Tchau.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Uau, nada mais? Eu me pergunto o que estou fazendo em uma aldeia insignificante como esta.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

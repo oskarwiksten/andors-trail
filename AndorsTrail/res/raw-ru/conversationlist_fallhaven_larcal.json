@@ -1,0 +1,85 @@
+[
+    {
+        "id": "larcal",
+        "message": "У меня нет на тебя времени ,парень. Исчезни.",
+        "replies": [
+            {
+                "text": "Секреты Каломирана",
+                "nextPhraseID": "larcal_1",
+                "requires": {
+                    "progress": "calomyran:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "larcal_1",
+        "message": "Ну и ну, что тут у нас? Ты намекаешь, что я был в подвале Арсира?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_2"
+            }
+        ]
+    },
+    {
+        "id": "larcal_2",
+        "message": "Что же, может и был. Но книга все равно моя.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_3"
+            }
+        ]
+    },
+    {
+        "id": "larcal_3",
+        "message": "Послушай, давай решим все мирно. Ты уходишь и забываешь об этой книге, и тогда ты еще поживешь.",
+        "replies": [
+            {
+                "text": "Уйти",
+                "nextPhraseID": "larcal_4"
+            },
+            {
+                "text": "Нет",
+                "nextPhraseID": "larcal_5"
+            }
+        ]
+    },
+    {
+        "id": "larcal_4",
+        "message": "Хороший мальчик. А теперь проваливай."
+    },
+    {
+        "id": "larcal_5",
+        "message": "Слушай, ты начинаешь раздражать меня пацан. Проваливай пока это еще возможно.",
+        "replies": [
+            {
+                "text": "Уйти",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Только с книгой",
+                "nextPhraseID": "larcal_6"
+            }
+        ]
+    },
+    {
+        "id": "larcal_6",
+        "message": "Ты все еще здесь? Хорошо, если тебе так нужна эта книга, то попробуй забрать ее у меня!",
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Уйти",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": " Очень хорошо. Я уйду.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

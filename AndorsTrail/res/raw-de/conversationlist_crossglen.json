@@ -1,0 +1,140 @@
+[
+    {
+        "id": "audir1",
+        "message": "Willkommen in meinem Laden!\n\nBitte schaue dir meine erlesenen Waren nur näher an.",
+        "replies": [
+            {
+                "text": "Bitte zeige mir dein Angebot.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "arambold1",
+        "message": "Oh Mann, ob ich wohl jemals ein wenig schlafen kann, wenn diese Saufköpfe so weitersingen?\n\nJemand sollte etwas dagegen tun.",
+        "replies": [
+            {
+                "text": "Kann ich mich hier ausruhen?",
+                "nextPhraseID": "arambold2"
+            },
+            {
+                "text": "Hast du etwas zu verkaufen?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "arambold2",
+        "message": "Na klar Junge, du kannst dich hier ausruhen.\n\nNimm' dir einfach ein Bett.",
+        "replies": [
+            {
+                "text": "Wiedersehen, und danke!",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "drunk1",
+        "message": "Trink, trink, trink - trink noch ein wenig mehr.\nTrink, trink, trink - dann wird der Becher leer.\n\nHey Junge, willst du bei unserem Trinkspiel mitmachen?",
+        "replies": [
+            {
+                "text": "Nein danke.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Vielleicht ein andermal.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mara_default",
+        "message": "Achte nicht auf die besoffenen Typen, die machen immer Ärger.\n\nDarf es was zu essen sein?",
+        "replies": [
+            {
+                "text": "Hast du etwas zu verkaufen?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "mara1",
+        "replies": [
+            {
+                "nextPhraseID": "mara_thanks",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "mara_default"
+            }
+        ]
+    },
+    {
+        "id": "mara_thanks",
+        "message": "Ich habe gehört, dass du Odair bei der Säuberung der alten Vorratshöhle geholfen hast. Vielen Dank, wir werden sie bald wieder benutzen können.",
+        "replies": [
+            {
+                "text": "Es war mir ein Vergnügen.",
+                "nextPhraseID": "mara_default"
+            }
+        ]
+    },
+    {
+        "id": "farm1",
+        "message": "Bitte stör' mich nicht, ich habe zu arbeiten.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor gesehen?",
+                "nextPhraseID": "farm_andor"
+            }
+        ]
+    },
+    {
+        "id": "farm2",
+        "message": "Was? Kannst du nicht sehen, dass ich beschäftigt bin. Belästige jemand anderen.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor gesehen?",
+                "nextPhraseID": "farm_andor"
+            }
+        ]
+    },
+    {
+        "id": "farm_andor",
+        "message": "Andor? Nein, den hab' ich in letzter Zeit nicht mehr gesehen."
+    },
+    {
+        "id": "snakemaster",
+        "message": "Ah, wen haben wir den hier? Einen Besucher, wie nett. Ich bin beeindruckt, dass du es an meinen Leuten vorbei bis hierher geschafft hast.\n\nNun stirb, jämmerliche Kreatur.",
+        "replies": [
+            {
+                "text": "Wunderbar, ich habe mich auf einen Kampf gefreut!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Wir werden sehen, wer hier stirbt.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Bitte tut mir nichts!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "haunt",
+        "message": "Oh Sterblicher, befreit mich aus dieser verfluchten Welt!",
+        "replies": [
+            {
+                "text": "Oh, ich werde dich befreien.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Du meinst, ich soll dich töten?",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

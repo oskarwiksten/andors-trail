@@ -1,0 +1,118 @@
+[
+    {
+        "id": "vilegard_smith_fg_1",
+        "message": "Oh, isso é muito inesperado, mas muito bem-vindo. Não vou questionar como você adquiriu esses itens, mas, ao invés, vez expressar a minha gratidão por trazê-los para mim.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 55
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_fg_2"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_fg_2",
+        "message": "Obrigado por me trazer esses itens, eles serão mais úteis para nós aqui nas terras do sul, e, em particular, em Vilegard. Raramente chegam a nossas mãos esses itens de Feygard, de forma que eles são realmente bem-vindos.",
+        "replies": [
+            {
+                "text": "Eu fui enviado para entregar esses itens para uma patrulha de Feygard acampada na taberna Foaming Flask.",
+                "nextPhraseID": "vilegard_smith_fg_3"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_fg_3",
+        "message": "Em vez disso, você trouxe para mim. Você tem meu agradecimento.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_fg_4"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_fg_4",
+        "message": "Ah, isso significa que temos mais uma oportunidade aqui. E se você entregasse alguns outros itens, ao invés desses, para a patrulha de Feygard? Hah, isso vai realmente fazer o meu dia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_fg_5"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_fg_5",
+        "message": "Eu poderia ter algo que lhe vai cair muito bem .. Deixe-me apenas encontrá-los.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_fg_6"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_fg_6",
+        "message": "Aqui estão eles. Ha ha, isto irá fazer muito bem para os esnobes enganadores de Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_fg_7"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_fg_7",
+        "message": "Tome esses itens e entregue-os onde você deveria entregar os itens originais que você me deu.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 56
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "vg_smith_fg_items"
+            }
+        ]
+    },
+    {
+        "id": "ff_captain_vg_items_1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "ff_captain_items_1"
+            }
+        ]
+    },
+    {
+        "id": "ff_captain_fg_items_1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "ff_captain_items_1"
+            }
+        ]
+    },
+    {
+        "id": "ff_captain_items_1",
+        "message": "Excelente, eu tenho esperado por esses. Obrigado por trazê-los para mim."
+    }
+]

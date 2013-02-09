@@ -1,0 +1,265 @@
+[
+    {
+        "id": "chapelgoer",
+        "message": "Schatten, umgebe mich."
+    },
+    {
+        "id": "thoronir_default",
+        "message": "Wärm dich beim Schatten, mein Junge.",
+        "replies": [
+            {
+                "text": "Kannst du mir mehr über den Schatten erzählen?",
+                "nextPhraseID": "thoronir_shadow_1"
+            },
+            {
+                "text": "Kannst du mir mehr über die Kirche erzählen?",
+                "nextPhraseID": "thoronir_church_1"
+            },
+            {
+                "text": "Sind die Knochenmehltränke schon fertig?",
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_shadow_1",
+        "message": "Der Schatten beschützt uns vor den Gefahren der Nacht. Er hält uns unbeschadet und behütet uns, wenn wir schlafen.",
+        "replies": [
+            {
+                "text": "Tharal schickt mich und wies mich an dir das Passwort 'Leuchten des Schattens' zu sagen.",
+                "nextPhraseID": "thoronir_tharal_select",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "text": "Der Schatten sei mit dir.",
+                "nextPhraseID": "thoronir_default"
+            },
+            {
+                "text": "Hört sich für mich unsinnig an.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_1",
+        "message": "Das ist unsere Kapelle der Verehrung in Fallhaven. Unsere Gemeinde wendet sich an uns um Unterstützung zu erhalten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_2",
+        "message": "Diese Kirche hat hunderten von Jahren standgehalten und wurde vor Grabjägern bewahrt.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_select",
+        "replies": [
+            {
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            },
+            {
+                "nextPhraseID": "thoronir_tharal_1"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_1",
+        "message": "'Leuchten des Schattens' wirklich mein Junge. Also mein alter Freund Tharal im Dorf Crossglen schickt dich?",
+        "replies": [
+            {
+                "text": "Was kannst du mir über Knochenmehl erzählen?",
+                "nextPhraseID": "thoronir_tharal_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_3",
+        "message": "Die Katakomben unter dem Kirchenschiff gehören zu den Überbleibseln vergangener Anführer. Unser großer König Luthor ist Gerüchten zufolge dort begraben.",
+        "replies": [
+            {
+                "text": "War schon jemand in den Katakomben?",
+                "nextPhraseID": "thoronir_church_4",
+                "requires": {
+                    "progress": "bucus:10"
+                }
+            },
+            {
+                "text": "Da war noch etwas, über das ich reden wollte.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_4",
+        "message": "Niemand ist es erlaubt in die Katakomben zu gehen, abgesehen von Athamyr, meinem Lehrling. Seit Jahren ist er der einzige, der jemals dort unten war.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Okay, vielleicht besuche ich ihn.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_2",
+        "message": "Shhh, wir sollten nicht laut über die Verwendung von Knochenmehl reden. Wie du weißt, erliess Lord Geomyr ein Verbot auf jegliche Verwendung von Knochenmehl.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_3",
+        "message": "Als das Verbot kam, riskierte ich nicht welches zu behalten, darum habe ich alle meine Vorräte weggeworfen. Wenn ich es jetzt bedenke, war das ziemlich töricht.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_4"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_4",
+        "message": "Könntest du mir 5 Skelettknochen finden, die ich zum Anmischen von Knochenmehl verwenden kann? Das Knochenmehl ist sehr gut geeignet alte Wunden zu heilen.",
+        "replies": [
+            {
+                "text": "Sicher, ich schaff das schon.",
+                "nextPhraseID": "thoronir_tharal_5"
+            },
+            {
+                "text": "Ich habe die Knochen für dich.",
+                "nextPhraseID": "thoronir_tharal_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bone",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_5",
+        "message": "Vielen dank, bitte komm bald zurück. Ich hörte da wären einige Untote bei einem verlassenen Haus ein wenig nördlich von Fallhaven. Vielleicht kannst du dort Knochen finden?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Okay, ich werde es überprüfen.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_complete",
+        "message": "Vielen dank, diese Knochen werden genügen. Jetzt kann ich anfangen, einige Knochenmehl Heiltränke für dich zu mischen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_complete_2",
+        "message": "Gib mir zum Herstellen der Knochenmehltränke etwas Zeit. Es ist ein sehr starker Heiltrank. Komm in kürze wieder her."
+    },
+    {
+        "id": "thoronir_trade_bonemeal",
+        "message": "Ja, die Knochenmehltränke sind fertig. Bitte verwende sie mit Bedacht und lass es die Wachen nicht sehen. Wir dürften es eigentlich nicht mehr verwenden.",
+        "replies": [
+            {
+                "text": "Lass mich sehen, welche Tränke du schon gemacht hast.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Da war noch etwas anderes, über das ich reden wollte.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard",
+        "message": "Kehr um solange du noch kannst, Sterblicher. Das ist kein Ort für dich. Nur der Tod erwartet dich hier.",
+        "replies": [
+            {
+                "text": "Schön, ich kehr um.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Geh zur Seite, ich muss tiefer in die Katakomben hinein kommen.",
+                "nextPhraseID": "catacombguard1"
+            },
+            {
+                "text": "Beim Schatten, du wirst mich nicht aufhalten.",
+                "nextPhraseID": "catacombguard1"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard1",
+        "message": "Neinnn, du kannst nicht vorbei!",
+        "replies": [
+            {
+                "text": "Okay. Lass uns kämpfen.",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "luthor",
+        "message": "*zischen* Welcher Sterbliche stört meinen Schlaf?",
+        "replies": [
+            {
+                "text": "Beim Schatten, was bist du?",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Immerhin, ein würdiger Kampf! Darauf habe ich gewartet.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Na los, bringen wir es hinter uns.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

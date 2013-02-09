@@ -1,0 +1,326 @@
+[
+    {
+        "id": "unzel_1",
+        "message": "Olá. Eu sou Unzel.",
+        "replies": [
+            {
+                "text": "É este acampamento é seu?",
+                "nextPhraseID": "unzel_2"
+            },
+            {
+                "text": "Fui enviado por Vacor para te matar.",
+                "nextPhraseID": "unzel_3",
+                "requires": {
+                    "progress": "vacor:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "unzel_2",
+        "message": "Sim, este é o meu acampamento. Belo lugar, não é?",
+        "replies": [
+            {
+                "text": "Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "unzel_3",
+        "message": "Vacor enviou hein? Acho que eu deveria ter percebido que ele iria enviar alguém, mais cedo ou mais tarde.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_4"
+            }
+        ]
+    },
+    {
+        "id": "unzel_4",
+        "message": "Muito bem, então. Mate-me se você quiser, mas permita-me antes dizer-lhe o meu lado da história.",
+        "replies": [
+            {
+                "text": "Ah, eu vou gostar de matar você!",
+                "nextPhraseID": "unzel_fight"
+            },
+            {
+                "text": "Eu vou ouvir a sua história.",
+                "nextPhraseID": "unzel_5"
+            }
+        ]
+    },
+    {
+        "id": "unzel_fight",
+        "message": "Muito bem, vamos lutar então.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 53
+            }
+        ],
+        "replies": [
+            {
+                "text": "Enfim uma luta!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "unzel_5",
+        "message": "Obrigado pela atenção.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_10"
+            }
+        ]
+    },
+    {
+        "id": "unzel_10",
+        "message": "Vacor e eu costumávamos viajar juntos. Mas ele começou a ficar obcecado para fazer o seu feitiço.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_11"
+            }
+        ]
+    },
+    {
+        "id": "unzel_11",
+        "message": "Ele mesmo começou a questionar a Sombra. Eu sabia que tinha que fazer algo para detê-lo!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_12"
+            }
+        ]
+    },
+    {
+        "id": "unzel_12",
+        "message": "Eu comecei a interrogá-lo sobre o que ele estava fazendo, mas ele só queria seguir em frente.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_13"
+            }
+        ]
+    },
+    {
+        "id": "unzel_13",
+        "message": "Depois de um tempo, ele ficou obcecado com a ideia de um feitiço de ruptura. Ele disse que iria conceder-lhe poderes ilimitados contra a Sombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_14"
+            }
+        ]
+    },
+    {
+        "id": "unzel_14",
+        "message": "Então, só havia uma coisa que eu poderia fazer. Deixei-o e fiz o necessário para impedi-lo de tentar criar o feitiço de ruptura.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_15"
+            }
+        ]
+    },
+    {
+        "id": "unzel_15",
+        "message": "Eu mandei alguns amigos para tomar o feitiço dele.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_16_select"
+            }
+        ]
+    },
+    {
+        "id": "unzel_16_select",
+        "replies": [
+            {
+                "nextPhraseID": "unzel_16_2",
+                "requires": {
+                    "progress": "vacor:50"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_16_1"
+            }
+        ]
+    },
+    {
+        "id": "unzel_16_1",
+        "message": "E aqui estamos nós.",
+        "replies": [
+            {
+                "text": "Eu matei os quatro bandidos que enviou após Vacor.",
+                "nextPhraseID": "unzel_17"
+            }
+        ]
+    },
+    {
+        "id": "unzel_16_2",
+        "message": "E aqui estamos nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_19"
+            }
+        ]
+    },
+    {
+        "id": "unzel_17",
+        "message": "O quê? Você matou meus quatro amigos? Argh, eu sinto a raiva em meu sangue.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_18"
+            }
+        ]
+    },
+    {
+        "id": "unzel_18",
+        "message": "Mas também percebo que tudo isso é obra de Vacor. Eu vou dar-lhe uma escolha agora. Escolha com cuidado.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_19"
+            }
+        ]
+    },
+    {
+        "id": "unzel_19",
+        "message": "Ou você fica ao lado com Vacor e seu feitiço de ruptura, enfrentando a Sombra, ou ajuda-me a livrar-se dele. Quem é que vai ajudar?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Vou ficar ao seu lado. A Sombra não deve ser perturbada.",
+                "nextPhraseID": "unzel_20"
+            },
+            {
+                "text": "Eu do lado de Vacor.",
+                "nextPhraseID": "unzel_fight"
+            }
+        ]
+    },
+    {
+        "id": "unzel_20",
+        "message": "Obrigado meu amigo. Vamos manter a Sombra seguro de Vacor.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 51
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_21"
+            }
+        ]
+    },
+    {
+        "id": "unzel_21",
+        "message": "Você deveria ir falar com ele sobre a Sombra."
+    },
+    {
+        "id": "unzel_return_1",
+        "message": "Bem-vindo de volta. Você falou com Vacor?",
+        "replies": [
+            {
+                "text": "Sim, eu falei com ele.",
+                "nextPhraseID": "unzel_30",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_vacor",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não, ainda não.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "unzel_30",
+        "message": "Você o matou? Você tem a minha amizade, obrigado. Agora estamos a salvo de feitiço de ruptura de Vacor. Aqui, tome estas moedas por sua ajuda.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 61
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "A Sombra esteja com você.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Obrigado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "unzel_40",
+        "message": "Obrigado por sua ajuda. Agora estamos a salvo de feitiço de ruptura de Vacor.",
+        "replies": [
+            {
+                "text": "Eu tenho uma mensagem para você de Kaverin em Remgard.",
+                "nextPhraseID": "unzel_msg1",
+                "requires": {
+                    "progress": "kaverin:25",
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "unzel",
+        "replies": [
+            {
+                "nextPhraseID": "unzel_msg_r0",
+                "requires": {
+                    "progress": "kaverin:30"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_40",
+                "requires": {
+                    "progress": "vacor:61"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_return_1",
+                "requires": {
+                    "progress": "vacor:51"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_1"
+            }
+        ]
+    }
+]

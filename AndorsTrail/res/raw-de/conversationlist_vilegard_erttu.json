@@ -1,0 +1,97 @@
+[
+    {
+        "id": "erttu_1",
+        "message": "Hallo Fremder. Normalerweise können wir hier in Vilegard Fremde nicht ausstehen, aber du hast etwas an dir, das mir vertraut vorkommt.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_default"
+            }
+        ]
+    },
+    {
+        "id": "erttu_default",
+        "message": "Worüber möchtest du reden?",
+        "replies": [
+            {
+                "text": "Warum ist hier in Vilegard jeder so misstrauisch gegenüber Fremden?",
+                "nextPhraseID": "erttu_distrust_1",
+                "requires": {
+                    "progress": "vilegard:10"
+                }
+            },
+            {
+                "text": "Was kannst du mir über Vilegard erzählen?",
+                "nextPhraseID": "erttu_vilegard_1"
+            }
+        ]
+    },
+    {
+        "id": "erttu_distrust_1",
+        "message": "Die meisten von uns hier in Vilegard haben in ihrer Vorgeschichte Leuten zu sehr vertraut. Leuten, die uns am Ende verletzt haben.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_distrust_2"
+            }
+        ]
+    },
+    {
+        "id": "erttu_distrust_2",
+        "message": "Nun beginnen wir damit, erst einmal misstrauisch zu sein und fragen Fremde, die hierher kommen, erst einmal ob sie unser Vertrauen gewinnen wollen, indem sie uns helfen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_distrust_3"
+            }
+        ]
+    },
+    {
+        "id": "erttu_distrust_3",
+        "message": "Außerdem blicken andere Leute gewöhnlicherweise aus irgendeinem Grund auf uns hier in Vilegard herab. Besonders diese Wichtigtuer aus Feygard und den nördlichen Städten.",
+        "replies": [
+            {
+                "text": "Was kannst du mir noch über Vilegard erzählen?",
+                "nextPhraseID": "erttu_vilegard_1"
+            }
+        ]
+    },
+    {
+        "id": "erttu_vilegard_1",
+        "message": "Wir haben hier in Vilegard fast alles was wir brauchen. Das Zentrum unseres Dorfes ist die Kapelle.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_vilegard_2"
+            }
+        ]
+    },
+    {
+        "id": "erttu_vilegard_2",
+        "message": "Die Kapelle dient als unser Platz zur Verehrung des Schattens und außerdem als unser Versammlungsort wenn wir in unserem Dorf größere Belange besprechen müssen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erttu_vilegard_3"
+            }
+        ]
+    },
+    {
+        "id": "erttu_vilegard_3",
+        "message": "Abgesehen von der Kapelle haben wir eine Taverne, einen Schmied und einen Waffenschmied.",
+        "replies": [
+            {
+                "text": "Danke für die Information. Da war noch etwas anderes, über das ich reden wollte.",
+                "nextPhraseID": "erttu_default"
+            },
+            {
+                "text": "Danke für die Information. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Wow, nicht noch mehr? Ich frage mich, was ich in einem mickrigen Dörflein wie diesem hier mache.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

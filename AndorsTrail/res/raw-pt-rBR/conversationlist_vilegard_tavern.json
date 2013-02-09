@@ -1,0 +1,68 @@
+[
+    {
+        "id": "dunla_default",
+        "message": "Você parece um cara inteligente. Precisa de algum suprimento?",
+        "replies": [
+            {
+                "text": "Claro, deixe-me ver o que você tem disponível.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "O que você pode me dizer sobre si mesmo?",
+                "nextPhraseID": "dunla_1"
+            }
+        ]
+    },
+    {
+        "id": "dunla_1",
+        "message": "Eu? Eu não sou ninguém. Você nem sequer me vê. Você certamente não falou comigo."
+    },
+    {
+        "id": "tharwyn_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharwyn_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_1",
+        "message": "Olá lá. Ouvi dizer que você ajudou Jolnor na capela. Você tem o meu agradecimento, amigo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharwyn_2"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_2",
+        "message": "Sente-se em qualquer lugar. O que eu posso fazer por você?",
+        "replies": [
+            {
+                "text": "Mostre-me os alimentos que você possui.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_tavern_drunk_1",
+        "message": "Olhe! Um garoto perdido. Aqui, tome algum hidromel, garoto.",
+        "replies": [
+            {
+                "text": "Não, obrigado.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Cuidado com a língua, bêbado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

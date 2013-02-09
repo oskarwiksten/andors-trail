@@ -1,0 +1,746 @@
+[
+    {
+        "id": "buceth",
+        "replies": [
+            {
+                "nextPhraseID": "buceth_complete_1",
+                "requires": {
+                    "progress": "loneford:60"
+                }
+            },
+            {
+                "nextPhraseID": "buceth_fight_1",
+                "requires": {
+                    "progress": "loneford:50"
+                }
+            },
+            {
+                "nextPhraseID": "buceth_story_3",
+                "requires": {
+                    "progress": "loneford:45"
+                }
+            },
+            {
+                "nextPhraseID": "buceth_follow_1",
+                "requires": {
+                    "progress": "loneford:42"
+                }
+            },
+            {
+                "nextPhraseID": "buceth_bribed_1",
+                "requires": {
+                    "progress": "loneford:41"
+                }
+            },
+            {
+                "nextPhraseID": "buceth_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_bribed_1",
+        "message": "Você de novo. Obrigado pelo ouro antes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_follow_1",
+        "message": "Bem-vindo de volta meu amigo. Caminhe com a Sombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_1",
+        "message": "A Sombra esteja com você.",
+        "replies": [
+            {
+                "text": "Eu sei do seu negócio no poço à noite posterior à eclosão da doença.",
+                "nextPhraseID": "buceth_2",
+                "requires": {
+                    "progress": "loneford:35"
+                }
+            },
+            {
+                "text": "Você pode me dizer mais sobre a Sombra?",
+                "nextPhraseID": "priest_shadow_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_2",
+        "message": "Ah, eu tenho certeza que você sabe. Mas o que prova que você tem, hein? Alguma coisa que os guardas acreditariam?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_3"
+            }
+        ]
+    },
+    {
+        "id": "buceth_3",
+        "message": "Deixe-me perguntar uma coisa primeiro, e podemos falar depois disso.",
+        "replies": [
+            {
+                "text": "Ok, o que?",
+                "nextPhraseID": "buceth_4"
+            },
+            {
+                "text": "Que tal um pouco de ouro, ajudaria a fazê-lo falar?",
+                "nextPhraseID": "buceth_gold_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_4",
+        "message": "Deixe-me começar por contar-lhe uma história.",
+        "replies": [
+            {
+                "text": "Vá em frente",
+                "nextPhraseID": "buceth_5"
+            },
+            {
+                "text": "Deixe-me adivinhar, esta história vai demorar uma eternidade para ouvir. Que tal eu dar-lhe um pouco de ouro, em vez disso, e podemor ir direto ao que você estava fazendo no poço.",
+                "nextPhraseID": "buceth_gold_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_gold_1",
+        "message": "Hm, isso pode ser uma proposta interessante. Quanto ouro está sugerindo?",
+        "replies": [
+            {
+                "text": "Aqui tem 10 moedas de ouro, pegue.",
+                "nextPhraseID": "buceth_gold_no",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui está 100 moedas de ouro, pegue.",
+                "nextPhraseID": "buceth_gold_no",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 100,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui está 250 moedas de ouro, pegue.",
+                "nextPhraseID": "buceth_gold_no",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 250,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui está 500 moedas de ouro, pegue.",
+                "nextPhraseID": "buceth_gold_no",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 500,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui está 1000 moedas de ouro, pegue.",
+                "nextPhraseID": "buceth_gold_yes",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 1000,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui está 2000 moedas de ouro, pegue.",
+                "nextPhraseID": "buceth_gold_yes",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 2000,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "buceth_gold_no",
+        "message": "Hrmpf. Obrigado pelo ouro, mas eu não estou interessado em falar com você. Agora, por favor, deixe."
+    },
+    {
+        "id": "buceth_gold_yes",
+        "message": "Você parece perceber o verdadeiro valor da Sombra. Sim, isso vai fazer muito bem, obrigado.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 41
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_5",
+        "message": "Vamos supor que você vive em uma aldeia que, em sua maior parte, é auto-suficiente. Sua aldeia é auto-sustentável e as colheitas foram boas durante alguns anos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_6"
+            }
+        ]
+    },
+    {
+        "id": "buceth_6",
+        "message": "Com as poucas exceções de algumas lutas aqui e ali entre os moradores por causa de mal-entendidos, em geral, a sua aldeia é uma aldeia simpática e serena.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_7"
+            }
+        ]
+    },
+    {
+        "id": "buceth_7",
+        "message": "Você trabalha na mesma profissão que seus pais, que por sua vez trabalhavam nas mesmas profissões dos pais deles.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_8"
+            }
+        ]
+    },
+    {
+        "id": "buceth_8",
+        "message": "Vamos supor também que a forma como você conduz seus negócios é a mesma maneira que as pessoas da vila conduziam seus negócios em gerações passadas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_9"
+            }
+        ]
+    },
+    {
+        "id": "buceth_9",
+        "message": "Todos respeitam um ao outro na vila, e seu líder eleito faz um bom trabalho em manter os interesses de todos satisfeitos, e, ao mesmo tempo, seja razoavelmente justo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_10"
+            }
+        ]
+    },
+    {
+        "id": "buceth_10",
+        "message": "Então, um dia, um grupo de homens vêm andando para a vila. Armaduras brilhantes, dentes brancos, cabelos penteados, barbas aparadas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_11"
+            }
+        ]
+    },
+    {
+        "id": "buceth_11",
+        "message": "Os homens afirmam que o senhor deles é dono desta terra, incluindo a sua aldeia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_12"
+            }
+        ]
+    },
+    {
+        "id": "buceth_12",
+        "message": "Eles alegam que mantêm a terra livre de malfeitores e criaturas do mal.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_13"
+            }
+        ]
+    },
+    {
+        "id": "buceth_13",
+        "message": "Por sua ajuda na proteção de sua aldeia, eles pedem para a aldeia compensá-los com uma parte da colheita.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_14"
+            }
+        ]
+    },
+    {
+        "id": "buceth_14",
+        "message": "Agora, me diga. Você apoiaria esses homens por concordar com seus termos?",
+        "replies": [
+            {
+                "text": "Sim.",
+                "nextPhraseID": "buceth_15"
+            },
+            {
+                "text": "Não.",
+                "nextPhraseID": "buceth_15"
+            },
+            {
+                "text": "Eu não sei.",
+                "nextPhraseID": "buceth_dontknow"
+            }
+        ]
+    },
+    {
+        "id": "buceth_dontknow",
+        "message": "Lamento ouvir isso. Você deve limpar a sua mente de preconceitos e depois tornar a mim. Então, talvez possa ser capaz de falar mais.",
+        "replies": [
+            {
+                "text": "Ok, adeus.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Que tal eu dar-lhe um pouco de ouro em vez disso?",
+                "nextPhraseID": "buceth_gold_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_15",
+        "message": "Proposta interessante.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_16"
+            }
+        ]
+    },
+    {
+        "id": "buceth_16",
+        "message": "Deixe-me continuar a história do nosso caso hipotético.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_17"
+            }
+        ]
+    },
+    {
+        "id": "buceth_17",
+        "message": "Um pouco mais tarde, os homens retornam. Explicam que alguns dos métodos que são utilizados na aldeia já foram proibidos em todo o reino.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_18"
+            }
+        ]
+    },
+    {
+        "id": "buceth_18",
+        "message": "Sem entrar em detalhes, vamos dizer que estes são os métodos que têm sido utilizados pelas gerações passadas de sua aldeia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_19"
+            }
+        ]
+    },
+    {
+        "id": "buceth_19",
+        "message": "Mudar a forma como as coisas são feitas sem esses métodos vai exigir um grande esforço. Um monte de pessoas na aldeia estão chateadas por causa dessas notícias trazidas por esses homens.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_20"
+            }
+        ]
+    },
+    {
+        "id": "buceth_20",
+        "message": "Agora, me diga. Você iria, em segredo, continuar usando os velhos métodos que suas gerações passadas usaram, ou você iria, ao invés, trocar para a nova forma que esses homens estão defendendo?",
+        "replies": [
+            {
+                "text": "gostaria de continuar usando as velhas formas em segredo",
+                "nextPhraseID": "buceth_21_1"
+            },
+            {
+                "text": "gostaria de continuar usando as velhas, e lutar contra a decisão que proibiu-as em primeiro lugar",
+                "nextPhraseID": "buceth_21_2"
+            },
+            {
+                "text": "Eu só iria usar os métodos que são permitidos",
+                "nextPhraseID": "buceth_22"
+            },
+            {
+                "text": "Gostaria de seguir a lei",
+                "nextPhraseID": "buceth_22"
+            },
+            {
+                "text": "Eu não posso decidir sem conhecer mais detalhes",
+                "nextPhraseID": "buceth_dontknow"
+            }
+        ]
+    },
+    {
+        "id": "buceth_21_1",
+        "message": "Interessante.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_25"
+            }
+        ]
+    },
+    {
+        "id": "buceth_21_2",
+        "message": "Fico feliz em saber que existem pessoas por aí que estejão dispostas a defender o que é certo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_25"
+            }
+        ]
+    },
+    {
+        "id": "buceth_22",
+        "message": "Interessante. Você tem uma visão diferente do mundo do que eu e os sacerdotes de Nor city temos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_23"
+            }
+        ]
+    },
+    {
+        "id": "buceth_23",
+        "message": "Você, é claro, tem direito à sua opinião, mas você deve saber que sua opinião pode entrar em conflito com a Sombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_24"
+            }
+        ]
+    },
+    {
+        "id": "buceth_24",
+        "message": "Você queria saber sobre algum assunto que você me acusa. Como você não tem nenhuma prova, eu vou declarar inocência. Eu sei que a minha consciência está limpa.",
+        "replies": [
+            {
+                "text": "Ok, adeus.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Bom. Que tal eu dar-lhe um pouco de ouro em vez disso, isso faria você falar?",
+                "nextPhraseID": "buceth_gold_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_25",
+        "message": "As suas opiniões coincidem com aqueles que eu e os outros sacerdotes de Nor City acreditamos. Diga-me, você estaria interessado em seguir o brilho da sombra?",
+        "replies": [
+            {
+                "text": "Eu estou pronto para seguir a Sombra.",
+                "nextPhraseID": "buceth_27"
+            },
+            {
+                "text": "Como posso concordar com algo sem saber o que isso implica?",
+                "nextPhraseID": "buceth_26"
+            },
+            {
+                "text": "Não, eu vou seguir o meu caminho.",
+                "nextPhraseID": "buceth_decline"
+            },
+            {
+                "text": "Não, eu vou seguir o meu caminho. Sua estúpida Sombra é apenas blá-blá-blá e palavras bonitas.",
+                "nextPhraseID": "buceth_decline"
+            }
+        ]
+    },
+    {
+        "id": "buceth_26",
+        "message": "Se as respostas que deu anteriormente eram de fato os seus pontos de vista, então eu posso garantir-vos que o seu caminho que é guiado pela Sombra é o caminho certo.",
+        "replies": [
+            {
+                "text": "Eu estou pronto para seguir o Sombra.",
+                "nextPhraseID": "buceth_27"
+            },
+            {
+                "text": "Não, eu vou seguir o meu caminho.",
+                "nextPhraseID": "buceth_decline"
+            },
+            {
+                "text": "Não, eu vou seguir o meu caminho. Sua estúpida Sombra é apenas blá-blá-blá e palavras bonitas.",
+                "nextPhraseID": "buceth_decline"
+            }
+        ]
+    },
+    {
+        "id": "buceth_decline",
+        "message": "Lamento ouvir isso. Eu acho que nós não compartilham pontos de vista, depois de tudo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_24"
+            }
+        ]
+    },
+    {
+        "id": "buceth_27",
+        "message": "Eu estou contente de ouvir isso. Mas então, eu tinha a sensação de o tempo todo que você diria isso desde o início.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 42
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_1",
+        "message": "Você queria me perguntar alguma coisa?",
+        "replies": [
+            {
+                "text": "O que você estava fazendo no poço durante a noite?",
+                "nextPhraseID": "buceth_story_2"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_2",
+        "message": "Deixe-me dizer-lhe primeiro o meu plano.",
+        "replies": [
+            {
+                "text": "Ótimo. Outra história sem fim.",
+                "nextPhraseID": "buceth_story_3"
+            },
+            {
+                "text": "Por favor, vá em frente.",
+                "nextPhraseID": "buceth_story_3"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_3",
+        "message": "Fui designado por sacerdotes de Nor City para ajudar a guiar o povo de Loneford para a Sombra. Nossa missão é fazer com que a Sombra lance seu brilho sobre Loneford, bem como outras aldeias por aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_4"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_4",
+        "message": "Boa parte das pessoas nestas partes do norte parecem demasiado ocupadas com obediência à vontade de Feygard e Lorde Geomyr. Queremos ajudar as pessoas enchergar os absurdos defendidos por Feygard, e apontar os erros em seus caminhos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_5"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_5",
+        "message": "Essa é a minha missão aqui. Para ver que a Sombra lança seu brilho sobre Loneford.",
+        "replies": [
+            {
+                "text": "Como isso se relaciona com o que você estava fazendo no poço?",
+                "nextPhraseID": "buceth_story_6"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_6",
+        "message": "Nor City enviou-me uma mensagem dizendo-me que algo estava para acontecer aqui em Loneford. Algo que poderia ajudar a nossa causa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_7"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_7",
+        "message": "Eles estavam enviando um menino para fazer alguns negócios aqui, e fui designado para ter certeza de que a missão seria bem sucedida.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 61
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_8"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_8",
+        "message": "Eu tinha a tarefa de recolher amostras de água do poço e da terra em torno do poço. Além disso, me foi dado alguns frascos cujo conteúdo deveria ser vertido no poço.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_9"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_9",
+        "message": "Aparentemente, o menino que enviou foi bem sucedido em sua missão. A tarefa que eu fiz foi também bem sucedida, se me permite assim o dizer.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 45
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_10"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_10",
+        "message": "É onde estamos agora: a ação é realizada, e a Sombra vai olhar favoravelmente sobre nós.",
+        "replies": [
+            {
+                "text": "Então, o poço foi envenenado, isso é horrível. Como você pôde?",
+                "nextPhraseID": "buceth_story_11"
+            },
+            {
+                "text": "Obrigado por me dizer.",
+                "nextPhraseID": "buceth_story_12"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_11",
+        "message": "Horrível!? O que é horrível? O que essas pessoas de Feygard estavam fazendo - isso é o que é horrível!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_12"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_12",
+        "message": "Agora, peço-lhe para manter esta história só entre nós dois. Você entende que, certo?",
+        "replies": [
+            {
+                "text": "Absolutamente. Caminhe com a Sombra.",
+                "nextPhraseID": "buceth_story_14"
+            },
+            {
+                "text": "Eu prometo não contar a ninguém.",
+                "nextPhraseID": "buceth_story_14"
+            },
+            {
+                "text": "Não, vou te denunciar ao guarda.",
+                "nextPhraseID": "buceth_story_13"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_13",
+        "message": "Peço-lhe para repensar o seu raciocínio. O caminho da sombra é a maneira justa.",
+        "replies": [
+            {
+                "text": "Muito bem. Eu prometo não contar a ninguém.",
+                "nextPhraseID": "buceth_story_14"
+            },
+            {
+                "text": "Não. O crime será punido!",
+                "nextPhraseID": "buceth_fight_1"
+            }
+        ]
+    },
+    {
+        "id": "buceth_fight_1",
+        "message": "Infiel, você não vai me derrotar! Pela a sombra!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Lute!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_14",
+        "message": "Obrigado, meu amigo.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_15"
+            }
+        ]
+    },
+    {
+        "id": "buceth_story_15",
+        "message": "Se você quiser saber mais sobre o Sombra, visite o guardião capela Nor City. Diga a ele que eu o enviei, e ele certamente irá estender a sua gratidão para com você.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 60
+            }
+        ]
+    },
+    {
+        "id": "buceth_complete_1",
+        "message": "Bem-vindo de volta meu amigo. Que você possa aquecer-se no brilho da Sombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "buceth_story_15"
+            }
+        ]
+    }
+]

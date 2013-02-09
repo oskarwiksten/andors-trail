@@ -1,91 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="loadresource_items_debug">
-        <item>@string/itemlist_money</item>
-        <item>@string/itemlist_weapons</item>
-        <item>@string/itemlist_armour</item>
-    	<item>@string/itemlist_debug</item>
+        <item>@raw/itemlist_money</item>
+        <item>@raw/itemlist_weapons</item>
+        <item>@raw/itemlist_armour</item>
+    	<item>@raw/itemlist_debug</item>
     </array>
     
-	<string name="itemlist_debug">
-[id|iconID|name|category|displaytype|hasManualPrice|baseMarketCost|hasEquipEffect|equip_boostMaxHP|equip_boostMaxAP|equip_moveCostPenalty|equip_attackCost|equip_attackChance|equip_criticalChance|equip_criticalMultiplier|equip_attackDamage_Min|equip_attackDamage_Max|equip_blockChance|equip_damageResistance|equip_conditions[condition|magnitude|]|hasUseEffect|use_boostHP_Min|use_boostHP_Max|use_boostAP_Min|use_boostAP_Max|use_conditionsSource[condition|magnitude|duration|chance|]|hasHitEffect|hit_boostHP_Min|hit_boostHP_Max|hit_boostAP_Min|hit_boostAP_Max|hit_conditionsSource[condition|magnitude|duration|chance|]|hit_conditionsTarget[condition|magnitude|duration|chance|]|hasKillEffect|kill_boostHP_Min|kill_boostHP_Max|kill_boostAP_Min|kill_boostAP_Max|kill_conditionsSource[condition|magnitude|duration|chance|]|];
-{debug_dagger1|items_weapons:20|Black heart dagger|0|3|1|6|1||||2|100|30|3|5|10|||||||||||||||||||||||};
-{debug_ring1|items_jewelry:4|Black heart ring|7|1|1|3|1|||||50|||10|10|||||||||||||||||||||||};
-{shadow_slayer|items_weapons:60|Shadow of the slayer|0|3|1|0|1||2||7|25|10|2|5|9|||||||||||||||||1|1|1||||};
-	</string>
-
-
-
     <array name="loadresource_droplists_debug">
-    	<item>@string/droplists_debug</item>
+    	<item>@raw/droplists_debug</item>
     </array>
     
-    <string name="droplists_debug">
-[id|items[itemID|quantity_Min|quantity_Max|chance|]|];
-{debugshop1|{{club1|10|10|100|}{club3|5|5|100|}{hammer0|5|5|100|}{hammer1|5|5|100|}{shirt1|5|5|100|}{shirt2|5|5|100|}{dagger0|5|5|100|}}|};
-{debuglist1|{{gold|3|3|100|}{dagger0|1|1|100|}{shirt1|1|1|100|}{club3|1|1|100|}}|};
-{debuglist2||};
-
-{startitems|{
-	{gold|12|12|100|}
-	{club1|1|1|100|}
-	{shirt1|5|5|100|}
-	{dagger0|1|1|100|}
-	{debug_dagger1|1|1|100|}
-	{debug_ring1|1|1|100|}
-	{shadow_slayer|1|1|100|}
-	}|};
-	</string>
-
-
-
     <array name="loadresource_quests_debug">
-    	<item>@string/questlist_debug</item>
+    	<item>@raw/questlist_debug</item>
     </array>
     
-	<string name="questlist_debug">
-[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{debugquest|Debug Quest|1|{{10|I have talked to the NPC||0|}{20|I have asked the NPC for more info.|20|0|}{100|I have given the items to the NPC|40|1|}}|};
-	</string>
-
-
-
     <array name="loadresource_conversationlists_debug">
-    	<item>@string/conversationlist_debug</item>
+    	<item>@raw/conversationlist_debug</item>
     </array>
     
-	<string name="conversationlist_debug">
-[id|message|rewards[rewardType|rewardID|value|]|replies[text|nextPhraseID|requires_Progress|requires_itemID|requires_Quantity|requires_Type|]|];
-{debugshop|Welcome adventurer!||{{Trade items very very long text|S|||||}{Bye|X|||||}{Fight|F|||||}}|};
-{debugquest|Debug quest start\nTest.|{{0|debugquest|10|}}|{{Iron sword*2|debugquest2||dagger0|1|0|}{Progress+=10|debugquest4|||||}{Progress=100|debugquest1|debugquest:100||||}}|};
-{debugquest1|Yes, you have already completed this quest.|{{1|debuglist1||}}|{{Next|debugquest3|||||}}|};
-{debugquest2|Thank you for the items.|{{0|debugquest|100|}}|{{Next|debugquest3|||||}}|};
-{debugquest3|Quest is now completed.||{{Bye|X|||||}}|};
-{debugquest4|More info. Quest progress should now be updated to 20.|{{0|debugquest|20|}}|{{Back|debugquest|||||}}|};
-{debugsign|This should be a signpost.|||};
-{debugrequireskey|This tile requires a questprogress.|||};
-	</string>
-
-
-
     <array name="loadresource_monsters_debug">
-    	<item>@string/monsterlist_debug</item>
+    	<item>@raw/monsterlist_debug</item>
     </array>
     
-   	<string name="monsterlist_debug">
-[id|iconID|name|tags|size|monsterClass|unique|faction|maxHP|maxAP|moveCost|attackCost|attackChance|criticalChance|criticalMultiplier|attackDamage_Min|attackDamage_Max|blockChance|damageResistance|droplistID|phraseID|hasHitEffect|onHit_boostHP_Min|onHit_boostHP_Max|onHit_boostAP_Min|onHit_boostAP_Max|onHit_conditionsSource[condition|magnitude|duration|chance|]|onHit_conditionsTarget[condition|magnitude|duration|chance|]|];
-{traveller1|monsters_man1:0|Traveller1|debugNPC1||0|1||10|10|10|10|50|||1|2|||debugshop1|debugshop||||||||};
-{traveller2|monsters_man1:0|Traveller2|debugNPC2||0|1||10|10|10|10|50|||1|2|||debugshop1|debugquest||||||||};
-{black_ant|monsters_insects:0|Ant|insect||1|||10|10|10|10|50|||1|2|||debuglist1|||||||||};
-{small_wasp|monsters_insects:1|Pitiful debug bug with long name|insect||1|||10|10|10|10|50|||1|2|||debuglist1|||||||||};
-{winged_demon|monsters_demon1:0|Winged demon|demon|2x2|2|||10|10|10|10|50|||10|20|||debuglist1|||||||||};
-{troll|monsters_misc:5|Troll|troll||5|||10|10|10|2|50|||1|2|||debuglist2|||||||||};
-	</string>
-
-
-
     <array name="loadresource_maps_debug">
     	<item>@xml/debugmap</item>
     </array>
-    
 </resources>

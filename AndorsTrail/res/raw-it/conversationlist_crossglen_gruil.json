@@ -1,0 +1,118 @@
+[
+    {
+        "id": "gruil1",
+        "message": "Psst, hey,\n\nvuoi comprare?",
+        "replies": [
+            {
+                "text": "Compra",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Fratello",
+                "nextPhraseID": "gruil_select",
+                "requires": {
+                    "progress": "andor:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gruil_select",
+        "replies": [
+            {
+                "nextPhraseID": "gruil_return",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            },
+            {
+                "nextPhraseID": "gruil2"
+            }
+        ]
+    },
+    {
+        "id": "gruil2",
+        "message": "Tuo fratello? Oh intendi Andor? Potrei sapere qualcosa, ma questa informazione ti costerà qualcosa. Portami una ghiandola del veleno di uno di quei serpenti velenosi là fuori e forse potrei raccontarti di tuo fratello. ",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ecco, ho la ghiandola del veleno per te.",
+                "nextPhraseID": "gruil_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "gland",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, te ne porterò una.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "gruil_complete",
+        "message": "Grazie molte ragazzo. Questo andrà bene.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor1"
+            }
+        ]
+    },
+    {
+        "id": "gruil_return",
+        "message": "Guarda ragazzo, te l'ho già detto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor1"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor1",
+        "message": "Ho parlato con lui ieri. Mi ha chiesto se conoscevo qualcuno di nome Umar o qualcosa di simile. Non ho idea di chi stesse parlando.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor2"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor2",
+        "message": "Sembrava molto arrabbiato per qualcosa e se n'é andato in fretta. Qualcosa riguardo la Gilda dei Ladri a Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor3"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor3",
+        "message": "Questo è tutto quello che so. Forse dovresti chiedere in giro a Fallhaven. Se vuoi, il mio amico Gaela sa sicuramente qualcosa.",
+        "replies": [
+            {
+                "text": "Ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

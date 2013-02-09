@@ -1,0 +1,209 @@
+[
+    {
+        "id": "bjorgur_start",
+        "replies": [
+            {
+                "nextPhraseID": "bjorgur_return_1",
+                "requires": {
+                    "progress": "bjorgur_grave:50"
+                }
+            },
+            {
+                "nextPhraseID": "bjorgur_return_2",
+                "requires": {
+                    "progress": "bjorgur_grave:15"
+                }
+            },
+            {
+                "nextPhraseID": "bjorgur_1"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_return_1",
+        "message": "Olá de novo, amigo. Obrigado por sua ajuda anteriormente, junto ao túmulo da minha família."
+    },
+    {
+        "id": "bjorgur_return_2",
+        "message": "Olá novamente. Você já investigou se alguma coisa aconteceu com meu túmulo da família?",
+        "replies": [
+            {
+                "text": "Não, ainda não.",
+                "nextPhraseID": "bjorgur_9"
+            },
+            {
+                "text": "(Mentira) eu fui para verificar o túmulo. Tudo parece estar normal. Você deve estar imaginando coisas.",
+                "nextPhraseID": "bjorgur_return_3",
+                "requires": {
+                    "progress": "bjorgur_grave:60"
+                }
+            },
+            {
+                "text": "Conte-me novamente o que devo fazer.",
+                "nextPhraseID": "bjorgur_3"
+            },
+            {
+                "text": "Sim. Eu matei o intruso e restaurei o punhal para o seu lugar original.",
+                "nextPhraseID": "bjorgur_complete_1",
+                "requires": {
+                    "progress": "bjorgur_grave:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_1",
+        "message": "Olá lá. Você teria como me contar alguma coisa sobre um túmulo a sudoeste de Prim?",
+        "replies": [
+            {
+                "text": "Eu estive lá. Eu conheci alguém em um dos níveis mais baixos.",
+                "nextPhraseID": "bjorgur_2",
+                "requires": {
+                    "progress": "bjorgur_grave:30"
+                }
+            },
+            {
+                "text": "O que tem?",
+                "nextPhraseID": "bjorgur_3"
+            },
+            {
+                "text": "Não, sinto muito.",
+                "nextPhraseID": "bjorgur_3"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_2",
+        "message": "Você esteve lá?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_3"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_3",
+        "message": "Minha sepultura familiar está localizada no túmulo a sudoeste de Prim, fora da mina Elm. Tenho medo de que alguma coisa tenha perturbado a paz por lá.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_4"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_4",
+        "message": "Veja você, o meu avô gostava muito de uma adaga especial valiosa que nossa família costumava possuir. Ele a usava sempre com ele.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_5"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_5",
+        "message": "A adaga deveria, evidentemente, atrair caçadores de tesouros, mas, até agora, parece ter sido poupada disso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_6"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_6",
+        "message": "Agora, eu temo algo aconteceu com o túmulo. Eu não tenho dormido bem nas últimas duas noites, e tenho certeza que isso deve ser a causa.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_7"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_7",
+        "message": "Você não poderia ir ver o túmulo e verificar o que está acontecendo por lá?",
+        "replies": [
+            {
+                "text": "Claro. Vou verificar em seu túmulo de ceus ancestais.",
+                "nextPhraseID": "bjorgur_8"
+            },
+            {
+                "text": "Um tesouro que você diz? Eu estou interessado.",
+                "nextPhraseID": "bjorgur_8"
+            },
+            {
+                "text": "Eu realmente já estive lá e restaurei o punhal para o seu lugar original.",
+                "nextPhraseID": "bjorgur_complete_2",
+                "requires": {
+                    "progress": "bjorgur_grave:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_8",
+        "message": "Obrigado. Por favor, veja se alguma coisa aconteceu com a sepultura, e que poderia ser a causa da minha ansiedade noturna.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 15
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_9"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_return_3",
+        "message": "Você dissq que não houve nada? Mas eu tenho certeza de que algo deve ter acontecido por lá. De qualquer maneira, obrigado por verificar isso para mim."
+    },
+    {
+        "id": "bjorgur_9",
+        "message": "Por favor, apresse-se, e volte aqui para me contar sobre o seu progresso quando você descobrir alguma coisa."
+    },
+    {
+        "id": "bjorgur_complete_1",
+        "message": "Um intruso? Oh, obrigado para lidar com este assunto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_complete_2",
+        "message": "Você diz que o punhal foi restaurado a seu lugar original? Obrigado. Agora eu poderei ser capaz de descansar durante as noites.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bjorgur_complete_3"
+            }
+        ]
+    },
+    {
+        "id": "bjorgur_complete_3",
+        "message": "Mais uma vez obrigado. Eu receio que eu não possa dar-lhe qualquer coisa, salvo a minha gratidão. Você deve ir ver os meus parentes em Feygard se você tiver a chance de viajar até lá.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 50
+            }
+        ]
+    }
+]

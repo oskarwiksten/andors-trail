@@ -1,0 +1,236 @@
+[
+    {
+        "id": "bucus_welcome",
+        "message": "Hallo nochmal, willkommen zurück zu .. Oh wart mal, Ich dachte, du wärst jemand anders.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor gesehen?",
+                "nextPhraseID": "bucus_andor_select"
+            },
+            {
+                "text": "Was weisst du über die Diebesgilde?",
+                "nextPhraseID": "bucus_thieves_select"
+            }
+        ]
+    },
+    {
+        "id": "bucus_andor_select",
+        "replies": [
+            {
+                "nextPhraseID": "bucus_umar_1",
+                "requires": {
+                    "progress": "bucus:100"
+                }
+            },
+            {
+                "nextPhraseID": "bucus_andor_no_1"
+            }
+        ]
+    },
+    {
+        "id": "bucus_andor_no_1",
+        "message": "Wie interessant, dass du fragst. Was wenn ich ihn gesehen hätte? Warum sollte ich es dir erzählen?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bucus_andor_no_2"
+            }
+        ]
+    },
+    {
+        "id": "bucus_andor_no_2",
+        "message": "Nein, das kann ich dir nicht sagen. Jetzt geh bitte."
+    },
+    {
+        "id": "bucus_thieves_select",
+        "replies": [
+            {
+                "nextPhraseID": "bucus_thieves_complete_3",
+                "requires": {
+                    "progress": "bucus:100"
+                }
+            },
+            {
+                "nextPhraseID": "bucus_thieves_continue",
+                "requires": {
+                    "progress": "bucus:10"
+                }
+            },
+            {
+                "nextPhraseID": "bucus_thieves_select2"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_select2",
+        "replies": [
+            {
+                "nextPhraseID": "bucus_thieves_1",
+                "requires": {
+                    "progress": "andor:40"
+                }
+            },
+            {
+                "nextPhraseID": "bucus_thieves_no"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_no",
+        "message": "Wa, was? Nein, ich weiss nichts darüber."
+    },
+    {
+        "id": "bucus_umar_1",
+        "message": "Okay Junge. Du hast dich als nützlich erwiesen. Ja, ich sah vor ein paar Tagen einen Junge nach deiner Beschreibung hier herumlaufen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bucus_umar_2"
+            }
+        ]
+    },
+    {
+        "id": "bucus_umar_2",
+        "message": "Ich weiss nicht genau, was er wollte. Er stellte andauernd irgendwelche Fragen. Ganz ähnlich wie du. *kicher*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bucus_umar_3"
+            }
+        ]
+    },
+    {
+        "id": "bucus_umar_3",
+        "message": "Jedenfalls ist das alles, was ich weiss. Du solltest mit Umar sprechen, er weiss wahrscheinlich mehr. Durch die Bodenluke dort hinten.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Okay, tschüss",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_1",
+        "message": "Wer hat dir das gesagt? Argh.\n\nOkay du hast uns gefunden. Und jetzt?",
+        "replies": [
+            {
+                "text": "Kann ich mich der Diebesgilde anschliessen?",
+                "nextPhraseID": "bucus_thieves_2"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_2",
+        "message": "Hah! Der Diebesgilde beitreten?! Du?!\n\nDu bist ein spaßiger Junge.",
+        "replies": [
+            {
+                "text": "Es ist mir ernst.",
+                "nextPhraseID": "bucus_thieves_3"
+            },
+            {
+                "text": "Ja ja, sehr lustig, hä?",
+                "nextPhraseID": "bucus_thieves_3"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_3",
+        "message": "Okay, ich sag dir was Junge. Erfülle eine Aufgabe für mich und vielleicht ziehe ich es dann in betracht dir mehr Informationen zu geben.",
+        "replies": [
+            {
+                "text": "Über was für eine Aufgabe sprechen wir?",
+                "nextPhraseID": "bucus_thieves_4"
+            },
+            {
+                "text": "Solange etwas für mich dabei herausspringt, bin ich dabei!",
+                "nextPhraseID": "bucus_thieves_4"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_4",
+        "message": "Bring mir den Schlüssel von Luthor und wir sprechen weiter. Ich weiß nichts über den Schlüssel selbst, aber Gerüchte sagen er ist irgendwo in den Katakomben unter der Fallhaven Kirche versteckt.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Okay, hört sich leicht genug an.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_continue",
+        "message": "Wie geht die Suche nach dem Schlüssel von Luthor vorwärts?",
+        "replies": [
+            {
+                "text": "Was sollte ich nochmal tun?",
+                "nextPhraseID": "bucus_thieves_4"
+            },
+            {
+                "text": "Hier, ich habe ihn. Den Schlüssel von Luthor.",
+                "nextPhraseID": "bucus_thieves_complete_1",
+                "requires": {
+                    "item": {
+                        "itemID": "key_luthor",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ich bin immer noch am suchen. Tschüss.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_complete_1",
+        "message": "Wow, du hast den Schlüssel von Luthor wirklich bekommen? Ich denke, ich würde es dort nicht mehr heraus schaffen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bucus_thieves_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_complete_2",
+        "message": "Gut gemacht, Junge.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bucus_thieves_complete_3"
+            }
+        ]
+    },
+    {
+        "id": "bucus_thieves_complete_3",
+        "message": "Also lass uns reden. Was wolltest du wissen?",
+        "replies": [
+            {
+                "text": "Was weißt du über meinen Bruder Andor?",
+                "nextPhraseID": "bucus_umar_1"
+            }
+        ]
+    }
+]

@@ -1,0 +1,99 @@
+[
+    {
+        "id": "vilegard_armorer_select",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_armorer_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_armorer_1",
+        "message": "Buongiorno, vuoi dare un'occhiata alle mie armature?.",
+        "replies": [
+            {
+                "text": "OK, fammi vedere i tuoi articoli.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_select",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_smith_1",
+                "requires": {
+                    "progress": "feygard_shipment:56"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_smith_fg_2",
+                "requires": {
+                    "progress": "feygard_shipment:55"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_smith_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_1",
+        "message": "Ciao ragazzo, ho sentito dire che ci hai dato una bella mano qui a Vilegard. Come posso aiutarti?",
+        "replies": [
+            {
+                "text": "Posso vedere quali oggetti hai in vendita?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "I have a shipment of Feygard items for you.",
+                "nextPhraseID": "vilegard_smith_fg_1",
+                "requires": {
+                    "progress": "feygard_shipment:35",
+                    "item": {
+                        "itemID": "fg_ironsword",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "vilegard_shop_notrust",
+        "message": "Mmmm, sei un forestiero... non ci piacciono i forestieri, sei pregato di andartene.",
+        "replies": [
+            {
+                "text": "Perché a Vilegard siete tutti così sospettosi verso i forestieri?",
+                "nextPhraseID": "vilegard_shop_notrust_2"
+            },
+            {
+                "text": "Posso vedere gli oggetti che hai in vendita?",
+                "nextPhraseID": "vilegard_shop_notrust_2"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_shop_notrust_2",
+        "message": "Non mi fido di te, dovresti andare prima a parlare con Jolnor nella cappella, se vuoi ottenere la nostra fiducia!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 10
+            }
+        ]
+    }
+]

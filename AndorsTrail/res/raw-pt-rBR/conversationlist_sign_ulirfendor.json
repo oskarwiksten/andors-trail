@@ -1,0 +1,244 @@
+[
+    {
+        "id": "sign_brimcave4",
+        "replies": [
+            {
+                "nextPhraseID": "sign_ulirfendor_r",
+                "requires": {
+                    "progress": "darkprotector:70"
+                }
+            },
+            {
+                "nextPhraseID": "sign_ulirfendor_8",
+                "requires": {
+                    "progress": "darkprotector:66"
+                }
+            },
+            {
+                "nextPhraseID": "sign_ulirfendor_6",
+                "requires": {
+                    "progress": "darkprotector:65"
+                }
+            },
+            {
+                "nextPhraseID": "sign_ulirfendor_1"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_1",
+        "message": "Na frente do santuário, você encontra um livro deitado na areia. 'Reflexões sobre rituais Kazaul'.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_2"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_2",
+        "message": "Você passa rapidamente os olhos pelo livro, e encontra vários cânticos e rituais de Kazaul.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_3"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_3",
+        "message": "Existe um rito em particular que sobressai: o que fala de artefatos antigos imbuídos pelo poder de Kazaul.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_4"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_4",
+        "message": "O ritual em si exige o coração de um lich e, à partir do texto sobre o ritual no livro, seria possível restaurar o capacete à sua antiga glória.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "darkprotector",
+                "value": 55
+            }
+        ],
+        "replies": [
+            {
+                "text": "Começou o ritual.",
+                "nextPhraseID": "sign_ulirfendor_5"
+            },
+            {
+                "text": "Deixou o santuário sozinho.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_5",
+        "message": "Você coloca-se na frente do santuário, ajoelhado como os desenhos do livro mostram.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "darkprotector",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "Você coloca o capacete na frente do santuário",
+                "nextPhraseID": "sign_ulirfendor_6",
+                "requires": {
+                    "item": {
+                        "itemID": "helm_protector0",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_6",
+        "message": "Você coloca o capacete no chão na frente de você, inclinando-o ligeiramente contra o santuário.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "darkprotector",
+                "value": 65
+            }
+        ],
+        "replies": [
+            {
+                "text": "Coloque o coração do lich em frente ao santuário",
+                "nextPhraseID": "sign_ulirfendor_7",
+                "requires": {
+                    "item": {
+                        "itemID": "toszylae_heart",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_7",
+        "message": "Você coloca o coração do lich ao lado do capacete na frente do santuário.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "darkprotector",
+                "value": 66
+            }
+        ],
+        "replies": [
+            {
+                "text": "Você fala as palavras do ritual do livro",
+                "nextPhraseID": "sign_ulirfendor_8"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_8",
+        "message": "Você começa a recitar as palavras da língua Kazaul do livro, tomando muito cuidado para dizer as palavras exatamente como o livro as descreve.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_9"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_9",
+        "message": "Conforme você recita as palavras, você percebe um brilho fraco vindo do santuário, e você tem a sensação estranha de que a areia no chão quase se movimenta por si só.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_10"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_10",
+        "message": "Os movimentos começam a ficar mais visíveis, quase como se houvesse algo rastejando sob a areia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_11"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_11",
+        "message": "Conforme se aproxima o fim do ritual, o capacete cai para a frente, de bruços na areia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_12"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_12",
+        "message": "Uma vez que você fala as palavras finais do ritual, o chão afunda um pouco na frente do santuário, enterrando parcialmente o capacete na areia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_13"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_13",
+        "message": "Quando você o levanta e retira o pó da areia, você nota uma mudança na textura da peça que estava submersa na areia.",
+        "replies": [
+            {
+                "text": "Você pega capacete",
+                "nextPhraseID": "sign_ulirfendor_14"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_14",
+        "message": "Você tira o capacete, e examiná-o mais de perto.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "darkprotector",
+                "value": 70
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "sign_ulirfendor",
+                "value": 0
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_15"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_15",
+        "message": "Ao seu lado, você percebe alguns ornamentos que não estavam lá antes. O capacete também passa um leve formigamento às mãos conforme você o segura.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_ulirfendor_16"
+            }
+        ]
+    },
+    {
+        "id": "sign_ulirfendor_16",
+        "message": "Completar o ritual deve ter restaurado o capacete à sua antiga glória."
+    },
+    {
+        "id": "sign_ulirfendor_r",
+        "message": "Você vê o santuário de Kazaul, onde realizou o ritual Kazaul."
+    }
+]

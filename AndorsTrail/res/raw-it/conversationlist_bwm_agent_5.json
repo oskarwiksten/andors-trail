@@ -1,0 +1,83 @@
+[
+    {
+        "id": "bwm_agent_5_start",
+        "replies": [
+            {
+                "nextPhraseID": "bwm_agent_5_6",
+                "requires": {
+                    "progress": "bwm_agent:50"
+                }
+            },
+            {
+                "nextPhraseID": "bwm_agent_5_1"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_1",
+        "message": "E' un piacere rivedervi. Bel lavoro con quei mostri.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_2"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_2",
+        "message": "Siamo quasi arrivati, manca ancora un poco.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_3"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_3",
+        "message": "Dovremmo affrettarci in questo ultimo pezzo di strada, l'insediamento è vicino.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_4",
+        "message": "Spero che riusciate a sopportare il freddo della montagna.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_5"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_5",
+        "message": "Inoltre vi consiglio di stare alla larga dai dragoni, il loro morso può essere veramente pericoloso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_6"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_6",
+        "message": "Affrettiamoci, ci siamo quasi. Seguite il sentiero innevato a nord e dovreste riuscire a raggiungere l'insediamento in un batter d'occhio.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, in cima alla montagna seguirò il percorso a nord.",
+                "nextPhraseID": "R"
+            }
+        ]
+    }
+]

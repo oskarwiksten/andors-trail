@@ -1,0 +1,161 @@
+[
+    {
+        "id": "bwm_agent_2_start",
+        "replies": [
+            {
+                "nextPhraseID": "bwm_agent_2_7",
+                "requires": {
+                    "progress": "bwm_agent:20"
+                }
+            },
+            {
+                "nextPhraseID": "bwm_agent_2_1"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_1",
+        "message": "Ciao, sei riuscito ad attraversarla vivo, ben fatto!",
+        "replies": [
+            {
+                "text": "Questi mostri, cosa sono?",
+                "nextPhraseID": "bwm_agent_2_2"
+            },
+            {
+                "text": "Non mi avevi detto che sarebbe stato buio pesto laggiù, sono stato quasi ucciso.",
+                "nextPhraseID": "bwm_agent_2_12"
+            },
+            {
+                "text": "Sì, è stato un gioco da ragazzi.",
+                "nextPhraseID": "bwm_agent_2_5"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_2",
+        "message": "I Gornaud? Non ho idea da dove vengano, un giorno sono apparsi qui nei pressi della montagna.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_2_3"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_3",
+        "message": "Bestie schifose quelle.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_2_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_4",
+        "message": "Comunque ora andiamo, siamo vicini all'accampamento della montagna Blackwater.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_2_5"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_5",
+        "message": "Dovremmo muoverci ora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_2_6"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_6",
+        "message": "Una volta che sarete uscito da questa miniera, è molto importante che vi dirigiate verso est. Non andate in direzioni diverse da est!",
+        "replies": [
+            {
+                "text": "Ok, Vado verso est una volta uscito dalla miniera. Ho capito.",
+                "nextPhraseID": "bwm_agent_2_7"
+            },
+            {
+                "text": "Perché est? Che altro c'è qui?",
+                "nextPhraseID": "bwm_agent_2_8"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_7",
+        "message": "Aspetterò che abbiate passato il valico, ci vediamo lì!\n\nRicordate di andare ad est una volta uscito!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, ci vediamo lì!",
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_8",
+        "message": "Oh, niente. Ci sono posti pericolosi qui. E meglio non pensarci nemmeno ad andare in una direzione diversa da est.",
+        "replies": [
+            {
+                "text": "Certo, punterò verso est.",
+                "nextPhraseID": "bwm_agent_2_7"
+            },
+            {
+                "text": "Pericoloso? Mmh, il mio posto ideale.",
+                "nextPhraseID": "bwm_agent_2_10"
+            },
+            {
+                "text": "Mi stai nascondendo qualcosa?",
+                "nextPhraseID": "bwm_agent_2_11"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_10",
+        "message": "Sarebbe morte sicura, non dite poi che non vi avevo avvertito. La via più sicura è quella ad EST.",
+        "replies": [
+            {
+                "text": "Certo, andrò verso est.",
+                "nextPhraseID": "bwm_agent_2_7"
+            },
+            {
+                "text": "Mi stai nascondendo qualcosa?",
+                "nextPhraseID": "bwm_agent_2_11"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_11",
+        "message": "No no, voi pensate solo ad andare verso EST, vi spiegherò tutto una volta arrivati all'accampamento. ",
+        "replies": [
+            {
+                "text": "Ok, prometto di andare verso est appena uscito dalla miniera.",
+                "nextPhraseID": "bwm_agent_2_7"
+            },
+            {
+                "text": "(Menzogna) Ok, prometto di andare verso est appena uscito dalla miniera.",
+                "nextPhraseID": "bwm_agent_2_7"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_2_12",
+        "message": "In realtà vi avevo avvertito che sarebbe stato buio pesto laggiù. Bel lavoro ad esservi districato là sotto!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_2_4"
+            }
+        ]
+    }
+]

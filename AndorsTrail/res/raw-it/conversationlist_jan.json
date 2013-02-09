@@ -1,0 +1,350 @@
+[
+    {
+        "id": "jan_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "jan_complete2",
+                "requires": {
+                    "progress": "jan:100"
+                }
+            },
+            {
+                "nextPhraseID": "jan_return",
+                "requires": {
+                    "progress": "jan:10"
+                }
+            },
+            {
+                "nextPhraseID": "jan_default"
+            }
+        ]
+    },
+    {
+        "id": "jan_default",
+        "message": "Ciao ragazzo, ti prego di lasciarmi al mio lutto.",
+        "replies": [
+            {
+                "text": "Che problema c'è?",
+                "nextPhraseID": "jan_default2"
+            },
+            {
+                "text": "Te la senti di parlarne?",
+                "nextPhraseID": "jan_default2"
+            },
+            {
+                "text": "Ok, ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default2",
+        "message": "Oh, è una cosa triste. Io davvero non voglio parlarne.",
+        "replies": [
+            {
+                "text": "Per favore",
+                "nextPhraseID": "jan_default3"
+            },
+            {
+                "text": "Ok, Ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default3",
+        "message": "Beh, forse posso parlartene. Mi sembri un bravo ragazzo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default4"
+            }
+        ]
+    },
+    {
+        "id": "jan_default4",
+        "message": "Io, il mio amico Gandir e il suo amico Irogotu eravamo qui a scavare un buco. Avevamo sentito che c'era un tesoro nascosto quaggiù¹.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default5"
+            }
+        ]
+    },
+    {
+        "id": "jan_default5",
+        "message": "Abbiamo iniziato a scavare, fino a raggiungere tutto il sistema di grotte sottostante. Solo allora abbiamo scoperto tutte quelle creature ed insetti.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default6"
+            }
+        ]
+    },
+    {
+        "id": "jan_default6",
+        "message": "Oh, quelle creature, maledette. Mi hanno quasi ucciso.\n\nAbbiamo deciso di interrompere gli scavi mentre eravamo ancora in tempo",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default7"
+            }
+        ]
+    },
+    {
+        "id": "jan_default7",
+        "message": "Ma Irogotu ha voluto continuare a scavare. Lui e Gandir dopo una discussione hanno cominciato a combattere.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default8"
+            }
+        ]
+    },
+    {
+        "id": "jan_default8",
+        "message": "Questo è quanto è successo.\n\n*sob*\n\nOh, ma cosa abbiamo fatto???",
+        "replies": [
+            {
+                "text": "Ti prego vai avanti",
+                "nextPhraseID": "jan_default9"
+            }
+        ]
+    },
+    {
+        "id": "jan_default9",
+        "message": "Irogotu ha ucciso Gandir a mani nude. Si poteva vedere il fuoco nei suoi occhi. Sembrava quasi godere.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default10"
+            }
+        ]
+    },
+    {
+        "id": "jan_default10",
+        "message": "Sono fuggito e non ho più osato andare laggiù¹ a causa di quelle creature e di Irogotu stesso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default11"
+            }
+        ]
+    },
+    {
+        "id": "jan_default11",
+        "message": "Oh maledetto Irogotu. Se solo potessi arrivare a lui. Mi piacerebbe fargliela pagare.",
+        "replies": [
+            {
+                "text": "Pensi che ti possa aiutare in qualche modo?",
+                "nextPhraseID": "jan_default11_1"
+            }
+        ]
+    },
+    {
+        "id": "jan_default11_1",
+        "message": "Pensi di potermi aiutare?",
+        "replies": [
+            {
+                "text": "Ok, potrei guadagnarci qualcosa",
+                "nextPhraseID": "jan_default12"
+            },
+            {
+                "text": "Si, Irogotu deve pagare per ciò che ha fatto",
+                "nextPhraseID": "jan_default12"
+            },
+            {
+                "text": "No grazie, preferirei non essere coinvolto in questa faccenda. Suona pericolosa.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default12",
+        "message": "Davvero? Pensi di potermi aiutare? Hm, forse si potresti. Fai attenzione però, questi animali sono veramente tosti.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jan",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default13"
+            }
+        ]
+    },
+    {
+        "id": "jan_default13",
+        "message": "Se mi vuoi veramente aiutare, vai a cercare Irogotu giù nella grotta e fammi riavere l'anello di Gandir.",
+        "replies": [
+            {
+                "text": "Certo",
+                "nextPhraseID": "jan_default14"
+            },
+            {
+                "text": "Ripeti",
+                "nextPhraseID": "jan_background"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default14",
+        "message": "Ritorna da me quando hai fatto. Portami l'anello di Gandir.",
+        "replies": [
+            {
+                "text": "Ok, ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_return",
+        "message": "Ciao ragazzo. Hai già trovato Irogotu nella grotta?",
+        "replies": [
+            {
+                "text": "Non ancora",
+                "nextPhraseID": "jan_default14"
+            },
+            {
+                "text": "Ripeti",
+                "nextPhraseID": "jan_background"
+            },
+            {
+                "text": "Si",
+                "nextPhraseID": "jan_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_gandir",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "jan_background",
+        "message": "Non hai ascoltato la prima volta che ti ho raccontato la storia? Devo veramente ripeterla dall'inizio?",
+        "replies": [
+            {
+                "text": "Si",
+                "nextPhraseID": "jan_default3"
+            },
+            {
+                "text": "No",
+                "nextPhraseID": "jan_default4"
+            },
+            {
+                "text": "No, non importa, ora la ricordo.",
+                "nextPhraseID": "jan_default14"
+            }
+        ]
+    },
+    {
+        "id": "jan_complete2",
+        "message": "Grazie per aver affrontato Irogotu! Ti sarò sempre riconoscente.",
+        "replies": [
+            {
+                "text": "Ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_complete",
+        "message": "A-a-aspetta...cooosa? Sei andato là sotto e sei tornato vivo? Come ci sei riuscito? Wow, sono quasi morto scendendo laggiù.\n\nOh ti ringrazio tanto per avermi riportato l'anello di Gandir! Ora ho qualcosa per ricordarmi di lui.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jan",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "Felice di averti aiutato, addio.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "L'Ombra sia con te, addio.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Sì sì certo, l'ho fatto solo per la ricompensa.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "irogotu",
+        "message": "Ecco un altro avventuriero. Questa è la mia caverna, il tesoro sarà mio!",
+        "replies": [
+            {
+                "text": "Hai ucciso tu Gandir?",
+                "nextPhraseID": "irogotu1",
+                "requires": {
+                    "progress": "jan:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "irogotu1",
+        "message": "Quel marmoccchio di Gandir? Si è messo sulla mia strada. L'ho semplicemente usato per scavare più a fondo nella grotta.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "irogotu2"
+            }
+        ]
+    },
+    {
+        "id": "irogotu2",
+        "message": "Inoltre, non mi era mai piaciuto.",
+        "replies": [
+            {
+                "text": "Anello",
+                "nextPhraseID": "irogotu3"
+            },
+            {
+                "text": "Jan ha detto qualcosa riguardo ad un anello?",
+                "nextPhraseID": "irogotu3"
+            }
+        ]
+    },
+    {
+        "id": "irogotu3",
+        "message": "No, non puoi averlo. E' mio!! E chi sei, ragazzo, per scendere quaggiù a disturbarmi?!",
+        "replies": [
+            {
+                "text": "Non sono più un ragazzo! Dammi quell'anello.",
+                "nextPhraseID": "irogotu4"
+            },
+            {
+                "text": "Dammi quell'anello e potremo uscire di qui entrambi vivi.",
+                "nextPhraseID": "irogotu4"
+            }
+        ]
+    },
+    {
+        "id": "irogotu4",
+        "message": "No, se lo vuoi devi prenderlo con la forza. E devo dirti che i miei poteri sono grandi. Inoltre, probabilmente non avresti osato combattere contro di me.",
+        "replies": [
+            {
+                "text": "Molto bene, ora vedremo chi ci lascerà la pelle!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Per l'Ombra! Gandir sarà vendicato.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

@@ -1,0 +1,115 @@
+[
+    {
+        "id": "athamyr",
+        "message": "Caminhe com a Sombra.",
+        "replies": [
+            {
+                "text": "Você esteve nas catacumbas?",
+                "nextPhraseID": "athamyr_select",
+                "requires": {
+                    "progress": "bucus:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "athamyr_1",
+        "message": "Sim, eu estives nas catacumbas da igreja de Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_2"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_2",
+        "message": "Mas eu sou o único que tanto tem a permissão e coragem para ir até lá.",
+        "replies": [
+            {
+                "text": "Como posso obter permissão para ir para lá?",
+                "nextPhraseID": "athamyr_3"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_3",
+        "message": "Você quer ir para baixo nas catacumbas? Hum, talvez possamos fazer um acordo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_4"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_4",
+        "message": "Traga-me alguma carne cozida da taverna e eu lhe darei a minha permissão para entrar nas catacumbas da igreja de Fallhaven.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Aqui, está a carne cozida para você.",
+                "nextPhraseID": "athamyr_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "meat_cooked",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, eu vou lhe dar algo.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_complete_2",
+        "message": "Você tem minha permissão entrar nas catacumbas da igreja de Fallhaven.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 50
+            }
+        ]
+    },
+    {
+        "id": "athamyr_select",
+        "replies": [
+            {
+                "nextPhraseID": "athamyr_complete_2",
+                "requires": {
+                    "progress": "bucus:40"
+                }
+            },
+            {
+                "nextPhraseID": "athamyr_1"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_complete",
+        "message": "Obrigado, isso vai fazer muito bem.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_complete_2"
+            }
+        ]
+    }
+]

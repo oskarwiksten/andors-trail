@@ -1,0 +1,483 @@
+[
+    {
+        "id": "minarra",
+        "replies": [
+            {
+                "nextPhraseID": "minarra_completed_1",
+                "requires": {
+                    "progress": "rogorn:60"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_completing_1",
+                "requires": {
+                    "progress": "rogorn:55"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_completing_1",
+                "requires": {
+                    "progress": "rogorn:50"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_look_1",
+                "requires": {
+                    "progress": "rogorn:20"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_return_1",
+                "requires": {
+                    "progress": "rogorn:10"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_first_1"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_1",
+        "message": "Olá. Posso ajudá-lo?",
+        "replies": [
+            {
+                "text": "Você parece ter um equipamentos por aqui. Você tem alguma coisa para o vender?",
+                "nextPhraseID": "minarra_trade_rej"
+            },
+            {
+                "text": "O que você faz aqui?",
+                "nextPhraseID": "minarra_first_5"
+            },
+            {
+                "text": "Você deve ter uma boa visão dos arredores até aqui. Você já viu alguma coisa interessante ultimamente?",
+                "nextPhraseID": "minarra_first_2"
+            }
+        ]
+    },
+    {
+        "id": "minarra_trade_rej",
+        "message": "Talvez. Mas você teria que verificar lá em baixo com Gandoren. Não negociamos com qualquer um."
+    },
+    {
+        "id": "minarra_return_1",
+        "message": "Você voltou. Você quer algo mais?",
+        "replies": [
+            {
+                "text": "Você pode me dizer de novo sobre aqueles homens que você viu?",
+                "nextPhraseID": "minarra_story_1"
+            },
+            {
+                "text": "Você tem alguma coisa para vender?",
+                "nextPhraseID": "minarra_trade_rej"
+            },
+            {
+                "text": "O que você faz aqui?",
+                "nextPhraseID": "minarra_first_5"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_2",
+        "message": "Principalmente, eu vejo os viajantes na estrada Duleian de e para Feygard daqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_first_3"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_3",
+        "message": "Recentemente, no entanto, tem havido uma série de movimentos de e para Loneford. Eu acho que é por causa dos problemas que têm havido por lá.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_first_4_s"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_4_s",
+        "replies": [
+            {
+                "nextPhraseID": "minarra_first_4_1",
+                "requires": {
+                    "progress": "rogorn:60"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_first_4"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_4",
+        "message": "Entretanto, eu vi algo muito interessante ontem.",
+        "replies": [
+            {
+                "text": "O que foi?",
+                "nextPhraseID": "minarra_story_1"
+            },
+            {
+                "text": "Você mencionou a estrada Duleian, o que é isso?",
+                "nextPhraseID": "minarra_first_6"
+            },
+            {
+                "text": "Você mencionou alguns problemas em Loneford, quais os problemas a quais você está se referindo?",
+                "nextPhraseID": "cr_loneford_st_1"
+            },
+            {
+                "text": "Não importa, eu queria perguntar-lhe quais são as suas tarefas aqui.",
+                "nextPhraseID": "minarra_first_5"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_4_1",
+        "message": "Alguns animais de fazenda hoje também.",
+        "replies": [
+            {
+                "text": "Você mencionou a estrada Duleian, o que é isso?",
+                "nextPhraseID": "minarra_first_6_1"
+            },
+            {
+                "text": "Você mencionou alguns problemas em Loneford, quais os problemas a quais você está se referindo?",
+                "nextPhraseID": "cr_loneford_st_1"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_5",
+        "message": "Eu lido com o armazenamento de nossos equipamentos aqui na guarda da guarita Crossroads, e eu mantenho a vigilância dos arredores.",
+        "replies": [
+            {
+                "text": "Você tem alguma coisa para vender?",
+                "nextPhraseID": "minarra_trade_rej"
+            },
+            {
+                "text": "Você viu alguma coisa interessante, ultimamente?",
+                "nextPhraseID": "minarra_first_2"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_6",
+        "message": "Vê esta larga estrada que vai para fora esta guarita? Essa é a estrada Duleian. Vai direto da gloriosa cidade de Feygard, a noroeste, até Nor City, ao sudeste.",
+        "replies": [
+            {
+                "text": "Você mencionou alguns problemas em Loneford, que problemas são esses?",
+                "nextPhraseID": "cr_loneford_st_1"
+            },
+            {
+                "text": "Eu queria perguntar-lhe quais são as suas tarefas aqui?",
+                "nextPhraseID": "minarra_first_5"
+            }
+        ]
+    },
+    {
+        "id": "minarra_first_6_1",
+        "message": "Veja este larga estrada que vai para fora esta guarita? Essa é a estrada Duleian. Vai direto da gloriosa cidade de Feygard, a noroeste, até Nor City, ao sudeste.",
+        "replies": [
+            {
+                "text": "Você mencionou alguns problemas em Loneford, que problemas são esses?",
+                "nextPhraseID": "cr_loneford_st_1"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_1",
+        "message": "Eu vi um bando de homens mal trajados vindo da estrada Duleian. Normalmente, um grupo de homens mal trajados não é algo que valha a pena reparar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_2"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_2",
+        "message": "Mas esses homens combinam com a descrição de algumas pessoas que são procuradas pela patrulha de Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_3"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_3",
+        "message": "Se eu os observei corretamente, estes homens são um bando de trapaceiros liderados por um homem chamado Rogorn, que estamos procurando prender por conta de vários casos cruéis de homicídio e roubo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_4"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_4",
+        "message": "Seu líder, Rogorn, é um homem particularmente selvagem, de acordo com os relatórios de Feygard que eu li.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_5"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_5",
+        "message": "Agora, usualmente, sairíamos à procura deles, a fim de verificar que os homens que eu vi eram de fato estes homens. Mas agora, com o problema em Loneford, não podemos dar ao luxo de enviar nenhum guarda, a não ser os que estão guardando Loneford.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_6"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_6",
+        "message": "Mas tenho certeza de que são esses os homens. Se pudéssemos pegá-los e matá-los, o povo de Feygard estaria muito mais seguro.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "rogorn",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Eu poderia ir procurá-los, se quiser.",
+                "nextPhraseID": "minarra_story_8"
+            },
+            {
+                "text": "Bem, boa sorte com isso.",
+                "nextPhraseID": "minarra_story_7"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_7",
+        "message": "Obrigado. Boa sorte mesmo. Agora, se me dá licença, eu preciso manter os olhos atentos na estrada."
+    },
+    {
+        "id": "minarra_story_8",
+        "message": "Ei, isso é uma ótima ideia. Tem certeza de que você está preparado para isso? O povo de Feygard realmente seria muito grato se você fosse procurá-los.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_9"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_9",
+        "message": "De qualquer forma, eu vi eles viajando na estrada a oeste daqui. Você sabe aquela estrada que leva à Carn Tower? Essa é a última vez que eu os vi. Você pode querer seguir esse caminho e ver se é possível identificá-los.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_10"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_10",
+        "message": "Eles roubaram três pedaços de uma pintura muito valiosa de Feygard, conforme o relatório que eu li. Por seus crimes e da selvageria de seus atos, eles são procurados vivos ou mortos pela patrulha Feygard.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "rogorn",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Eu estarei de volta, uma vez que eles estejão mortos. Mais alguma coisa?",
+                "nextPhraseID": "minarra_story_11"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_11",
+        "message": "Sim, eu deveria também dizer que eles provavelmente vão tentar convencê-lo a acreditar em sua história.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_12"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_12",
+        "message": "Em particular, o seu líder, Rogorn, é um vilão bem conhecido por Feygard. Nada do que ele diz é confiável.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_story_13"
+            }
+        ]
+    },
+    {
+        "id": "minarra_story_13",
+        "message": "Exorto-o a não ouvir suas mentiras. Seus crimes devem ser punidos, a fim de cumprir a lei.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "rogorn",
+                "value": 21
+            }
+        ],
+        "replies": [
+            {
+                "text": "Vou voltar uma vez que cumprir minha tarefa.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "minarra_look_1",
+        "message": "Você voltou. Você encontrou os homens aos quais falamos?",
+        "replies": [
+            {
+                "text": "Eu ainda estou procurando por eles.",
+                "nextPhraseID": "minarra_look_2"
+            },
+            {
+                "text": "Sim, eu os matei e recuperei as três partes da pintura.",
+                "nextPhraseID": "minarra_look_3",
+                "requires": {
+                    "progress": "rogorn:40",
+                    "item": {
+                        "itemID": "rogorn_qitem",
+                        "quantity": 3,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Eu viajei para o oeste e encontrei um grupo de homens em viagem, mas, entre eles, não foram encontrados os homens aos quais você descreveu.",
+                "nextPhraseID": "minarra_look_5",
+                "requires": {
+                    "progress": "rogorn:45"
+                }
+            }
+        ]
+    },
+    {
+        "id": "minarra_look_2",
+        "message": "Bom. Volte para mim, assim que você tem algo a relatar. Nós realmente gostariamos de recuperar esses três pedaços da pintura que eles roubaram."
+    },
+    {
+        "id": "minarra_look_3",
+        "message": "Isso é uma excelente notícia, de fato! Eu sabia que podia confiar em você.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "rogorn",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_look_4"
+            }
+        ]
+    },
+    {
+        "id": "minarra_look_4",
+        "message": "Seus serviços para Feygard serão muito apreciados.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_completing_1"
+            }
+        ]
+    },
+    {
+        "id": "minarra_look_5",
+        "message": "Você tem certeza de que não eram eles? Eu tenho uma visão aguçada, é por isso que estou aqui. Eu tinha certeza que eles combinavam com a descrição dos procurados.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_look_6"
+            }
+        ]
+    },
+    {
+        "id": "minarra_look_6",
+        "message": "Eu acho que vou ter que acreditar em sua palavra.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "rogorn",
+                "value": 55
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "minarra_completing_1"
+            }
+        ]
+    },
+    {
+        "id": "minarra_completing_1",
+        "message": "Obrigado por me ajudar a investigar o assunto.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "rogorn",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "Você tem alguma coisa para vender?",
+                "nextPhraseID": "minarra_trade_1"
+            },
+            {
+                "text": "Você deve ter uma boa visão dos arredores até aqui. Você já viu alguma coisa interessante ultimamente?",
+                "nextPhraseID": "minarra_first_2"
+            }
+        ]
+    },
+    {
+        "id": "minarra_completed_1",
+        "message": "Obrigado por me ajudar a investigar os homens, anteriormente.",
+        "replies": [
+            {
+                "text": "Você tem alguma coisa para vender?",
+                "nextPhraseID": "minarra_trade_1"
+            },
+            {
+                "text": "Você deve ter uma boa visão dos arredores até aqui. Você já viu alguma coisa interessante ultimamente?",
+                "nextPhraseID": "minarra_first_2"
+            }
+        ]
+    },
+    {
+        "id": "minarra_trade_1",
+        "replies": [
+            {
+                "nextPhraseID": "minarra_trade_2",
+                "requires": {
+                    "progress": "nondisplay:18"
+                }
+            },
+            {
+                "nextPhraseID": "minarra_trade_rej"
+            }
+        ]
+    },
+    {
+        "id": "minarra_trade_2",
+        "message": "Claro, dê uma olhada.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "S"
+            }
+        ]
+    }
+]

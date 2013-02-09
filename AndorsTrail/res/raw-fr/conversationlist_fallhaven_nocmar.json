@@ -1,0 +1,258 @@
+[
+    {
+        "id": "nocmar",
+        "message": "Bonjour, je suis Nocmar.",
+        "replies": [
+            {
+                "text": "Cet endroit ressemble à une forge. Avez-vous quelque chose à vendre ?",
+                "nextPhraseID": "nocmar_trade_select"
+            },
+            {
+                "text": "Unnmir m'envoie.",
+                "nextPhraseID": "nocmar_quest_select",
+                "requires": {
+                    "progress": "nocmar:10"
+                }
+            },
+            {
+                "text": "Au revoir.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_select",
+        "replies": [
+            {
+                "nextPhraseID": "nocmar_complete_5",
+                "requires": {
+                    "progress": "nocmar:200"
+                }
+            },
+            {
+                "nextPhraseID": "nocmar_continue",
+                "requires": {
+                    "progress": "nocmar:20"
+                }
+            },
+            {
+                "nextPhraseID": "nocmar_quest"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_select",
+        "replies": [
+            {
+                "nextPhraseID": "S",
+                "requires": {
+                    "progress": "nocmar:200"
+                }
+            },
+            {
+                "nextPhraseID": "nocmar_trade_1"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_1",
+        "message": "Je n'ai rien à vendre. J'avais beaucoup de choses avant, mais je n'ai plus le droit de vendre quoi que ce soit désormais.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_2",
+        "message": "À une époque, j'étais le plus grand forgeron de Fallhaven. C'est alors que ce batard de seigneur Geomyr m'a interdit l'usage de l'acier-cœur.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_3"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_3",
+        "message": "Par décret du seigneur Geomyr, personne à Fallhaven n'est autorisé ne serait-ce qu'à utiliser des armes en acier-cœur. Ne parlons même pas d'en faire commerce.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_4"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_4",
+        "message": "Maintenant, je dois cacher les quelques armes qui me restent. Et je n'oserais pas les vendre à qui que ce soit.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_4_1"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_4_1",
+        "message": "Maintenant que le seigneur Geomyr l'a banni, je n'ai plus vu l'acier-cœur luire depuis plusieurs années.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_5"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_5",
+        "message": "Je ne peux donc malheureusement vous vendre aucune de mes armes."
+    },
+    {
+        "id": "nocmar_quest",
+        "message": "Unnmir vous a envoyé dites-vous ? Je suppose que ce doit être important alors.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nocmar",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_1"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_1",
+        "message": "Bon, ces vieilles armes ont perdu leur lueur interne à force de ne plus être utilisées depuis aussi longtemps.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_2",
+        "message": "Pour faire luire à nouveau l'acier-cœur, il me faudrait une pierre-cœur.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_3"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_3",
+        "message": "Il y a des années, nous combattions les liches d'Undertell. Je ne sais pas si elles hantent toujours cet endroit.",
+        "replies": [
+            {
+                "text": "Undertell ? Qu'est-ce que c'est ?",
+                "nextPhraseID": "nocmar_quest_4"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_4",
+        "message": "Undertell ; le puits des âmes perdues. Allez vers le Sud et pénétrez dans les grottes des nains. Suivez l'odeur épouvantable à partir de là.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_5"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_5",
+        "message": "Méfiez-vous des liches d'Undertell si elles sont toujours là. Ces choses peuvent vous tuer rien qu'avec leur regard."
+    },
+    {
+        "id": "nocmar_continue",
+        "message": "Alors, avez-vous trouvé la pierre-cœur ?",
+        "replies": [
+            {
+                "text": "Oui, je l'ai enfin trouvée.",
+                "nextPhraseID": "nocmar_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "heartstone",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Pourriez-vous me raconter votre histoire une nouvelle fois ?",
+                "nextPhraseID": "nocmar_quest_1"
+            },
+            {
+                "text": "Non, pas encore.",
+                "nextPhraseID": "nocmar_continue_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_continue_2",
+        "message": "Continuez à cherchez s'il vous plaît. Unnmir a probablement prévu de vous faire faire quelque chose d'important."
+    },
+    {
+        "id": "nocmar_complete",
+        "message": "Par l'Ombre. Vous avez vraiment trouvé une pierre-cœur. Je n'aurais jamais pensé en revoir une de mon vivant.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nocmar",
+                "value": 200
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_2",
+        "message": "Voyez-vous cette lueur ? Regardez ses pulsations.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_3"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_3",
+        "message": "Vite. Faisons luire à nouveau ces vieilles armes en acier-cœur.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_4"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_4",
+        "message": "*Nocmar met la pierre-cœur au milieu des armes d'acier-cœur*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_5"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_5",
+        "message": "Vous le sentez ? L'acier-cœur luit à nouveau.",
+        "replies": [
+            {
+                "text": "Montrez-moi les articles que vous avez.",
+                "nextPhraseID": "S"
+            }
+        ]
+    }
+]

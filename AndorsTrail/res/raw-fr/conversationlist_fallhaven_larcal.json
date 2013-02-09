@@ -1,0 +1,85 @@
+[
+    {
+        "id": "larcal",
+        "message": "Je n'ai pas de temps à perdre avec toi, gamin. Vas-t-en.",
+        "replies": [
+            {
+                "text": "J'ai trouvé une note portant votre nom alors que je cherchais le livre « les secrets de Calomyran ».",
+                "nextPhraseID": "larcal_1",
+                "requires": {
+                    "progress": "calomyran:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "larcal_1",
+        "message": "Voyez-vous ça ? Insinuerais-tu que je sois descendu dans la cave d'Arcir ?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_2"
+            }
+        ]
+    },
+    {
+        "id": "larcal_2",
+        "message": "Après-tout, c'est bien possible. De toute façon, ce livre est à moi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_3"
+            }
+        ]
+    },
+    {
+        "id": "larcal_3",
+        "message": "Écoute, ne nous énervons pas. Tu t'en vas, tu oublies ce livre et peut-être que je te laisserais vivre.",
+        "replies": [
+            {
+                "text": "Très bien, gardez vore livre.",
+                "nextPhraseID": "larcal_4"
+            },
+            {
+                "text": "Non, vous allez me donner ce livre.",
+                "nextPhraseID": "larcal_5"
+            }
+        ]
+    },
+    {
+        "id": "larcal_4",
+        "message": "Tu es un bon garçon. Maintenant, file."
+    },
+    {
+        "id": "larcal_5",
+        "message": "Là, tu commences à m'ennuyer gamin. Vas-t-en tant que tu es encore capable de le faire.",
+        "replies": [
+            {
+                "text": "Très bien, je m'en vais.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Non, ce livre n'est pas à vous !",
+                "nextPhraseID": "larcal_6"
+            }
+        ]
+    },
+    {
+        "id": "larcal_6",
+        "message": "Tu es encore là ? Et bien si tu veux tellement avoir ce livre, il va falloir que tu me le prennes !",
+        "replies": [
+            {
+                "text": "Enfin un bagarre. Je l'attendais !",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "J'aurais préféré que cela n'en arrive pas là..",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Très bien, je m'en vais.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

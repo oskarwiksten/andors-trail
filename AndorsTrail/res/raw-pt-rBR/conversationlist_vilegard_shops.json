@@ -1,0 +1,99 @@
+[
+    {
+        "id": "vilegard_armorer_select",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_armorer_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_armorer_1",
+        "message": "Olá. Por favor, veja minha selecção de armaduras finas e escudos.",
+        "replies": [
+            {
+                "text": "Deixe-me ver a sua lista de mercadorias",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_select",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_smith_1",
+                "requires": {
+                    "progress": "feygard_shipment:56"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_smith_fg_2",
+                "requires": {
+                    "progress": "feygard_shipment:55"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_smith_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_smith_1",
+        "message": "Olá lá. Ouvi dizer que você nos ajudou aqui em Vilegard. Em que posso ajudá-lo?",
+        "replies": [
+            {
+                "text": "Posso ver os itens que você tem para venda?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Eu tenho um carregamento de itens de Feygard para você.",
+                "nextPhraseID": "vilegard_smith_fg_1",
+                "requires": {
+                    "progress": "feygard_shipment:35",
+                    "item": {
+                        "itemID": "fg_ironsword",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "vilegard_shop_notrust",
+        "message": "Você é um estrangeiro. Nós não gostamos de estrangeiros aqui em Vilegard. Por favor, deixe.",
+        "replies": [
+            {
+                "text": "Porque é que todos em Vilegard são tão desconfiados de estranhos?",
+                "nextPhraseID": "vilegard_shop_notrust_2"
+            },
+            {
+                "text": "Posso ver os itens que você tem para venda?",
+                "nextPhraseID": "vilegard_shop_notrust_2"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_shop_notrust_2",
+        "message": "Eu não confio em você. Você deve ir ver Jolnor na capela se você quer alguma simpatia.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 10
+            }
+        ]
+    }
+]

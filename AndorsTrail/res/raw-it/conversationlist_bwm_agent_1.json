@@ -1,0 +1,187 @@
+[
+    {
+        "id": "bwm_agent_1_start",
+        "message": "Oh, finalmente un forestiero! Per favore signore, dovete aiutarci!",
+        "replies": [
+            {
+                "text": "Qual è il problema?",
+                "nextPhraseID": "bwm_agent_1_2"
+            },
+            {
+                "text": "'Aiutarci'? Vedo solamente te qui.",
+                "nextPhraseID": "bwm_agent_1_3"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_2",
+        "message": "Abbiamo urgente bisogno di aiuto da qualcuno di fuori!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_3",
+        "message": "Molto divertente. Sono stato mandato dal mio insediamento per chiedere un aiuto esterno.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_4",
+        "message": "La gente del mio insediamento, la montagna Blackwater, viene lentamente decimata da mostri e banditi.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_5"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_5",
+        "message": "I mostri si stanno accanendo su di noi, abbiamo un disperato bisogno di guerrieri in grado di sconfiggerli.",
+        "replies": [
+            {
+                "text": "Credo di potervi aiutare, ho ucciso qualche mostro qua e là.",
+                "nextPhraseID": "bwm_agent_1_7"
+            },
+            {
+                "text": "Un combattimento, grandioso! Contate su di me!",
+                "nextPhraseID": "bwm_agent_1_7"
+            },
+            {
+                "text": "Ci sarà una ricompensa?",
+                "nextPhraseID": "bwm_agent_1_6"
+            },
+            {
+                "text": "Hm, no. Meglio non farsi coinvolgere.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_6",
+        "message": "Ricompensa? Hm, speravo che ci aiutaste per nobili intenzioni. Ma credo che il mio padrone saprà ricompensarvi adeguatamente.",
+        "replies": [
+            {
+                "text": "Ok, lo farò.",
+                "nextPhraseID": "bwm_agent_1_7"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_7",
+        "message": "Eccellente. L'insediamento Blackwater è un po' distante, francamente mi stupisco di essere arrivato fin qui vivo.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 5
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_8"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_8",
+        "message": "Devo avvertirvi, ci sono dei mostri veramente pericolosi sulla strada!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_9"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_9",
+        "message": "Ma credo che siate abbastanza forte.",
+        "replies": [
+            {
+                "text": "Si, me la so cavare.",
+                "nextPhraseID": "bwm_agent_1_10"
+            },
+            {
+                "text": "Nessun problema.",
+                "nextPhraseID": "bwm_agent_1_10"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_10",
+        "message": "Bene, prima però dobbiamo attraversare la miniera fino al lato opposto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_11"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_11",
+        "message": "*indica* Il pozzo della miniera laggiù è crollato, quindi non credo che riuscirete a passare.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_12"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_12",
+        "message": "Dovrete passare attraverso la miniera abbandonata, è nera come la pece, non avrete nessuna illuminazione per attraversarla.",
+        "replies": [
+            {
+                "text": "E tu?",
+                "nextPhraseID": "bwm_agent_1_13"
+            },
+            {
+                "text": "Ok, Attraverserò la miniera al buio.",
+                "nextPhraseID": "bwm_agent_1_14"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_13",
+        "message": "Io proverò a strisciare indietro per il pozzo che ho utilizzato per arrivare fino a qui!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_1_14"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_1_14",
+        "message": "Ci vediamo dall'altra parte della miniera.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, tu striscia pure dal pozzo, io scenderò in profondità. Ci vediamo dall'altra parte.",
+                "nextPhraseID": "R"
+            }
+        ]
+    }
+]

@@ -1,0 +1,302 @@
+[
+    {
+        "id": "ailshara",
+        "replies": [
+            {
+                "nextPhraseID": "ailshara_completed_y_1",
+                "requires": {
+                    "progress": "feygard_shipment:82"
+                }
+            },
+            {
+                "nextPhraseID": "ailshara_completed_n_1",
+                "requires": {
+                    "progress": "feygard_shipment:80"
+                }
+            },
+            {
+                "nextPhraseID": "ailshara_deliver_1",
+                "requires": {
+                    "progress": "feygard_shipment:35"
+                }
+            },
+            {
+                "nextPhraseID": "ailshara_interested_1",
+                "requires": {
+                    "progress": "feygard_shipment:25"
+                }
+            },
+            {
+                "nextPhraseID": "ailshara_1"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_completed_y_1",
+        "message": "Olá novamente meu amigo na Sombra. Como posso ajudá-lo?",
+        "replies": [
+            {
+                "text": "Deixe-me ver o que você tem para negociar.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_completed_n_1",
+        "message": "Ugh, é você. O que você quer?",
+        "replies": [
+            {
+                "text": "Deixe-me ver o que você tem para negociar.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_1",
+        "message": "Psst, hey. Interessado em fazer alguma negociação? Estou sempre à procura de adquirir ... bem, itens alheios ...",
+        "replies": [
+            {
+                "text": "Claro, deixe-me ver o que você tem.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Os itens alheios?",
+                "nextPhraseID": "ailshara_2"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_2",
+        "message": "Ah, sim. Veja você, esses guardas de patrulha Feygard levam algumas coisas realmente interessantes. Eles  parecem não se importar muito se alguns de seus embarques .. bem, desaparecem.",
+        "replies": [
+            {
+                "text": "Ok, deixe-me ver o que você tem.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Eu realmente não deve se envolver nisso. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_1",
+        "message": "Psst, ei! Eu vi você falando com Gandoren, e aconteceu de eu perceber que você trocou alguns itens. Algo interessante?",
+        "replies": [
+            {
+                "text": "Não importa que, deixe-me ver o que você tem que trocar.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "É melhor eu não falar sobre isso.",
+                "nextPhraseID": "ailshara_interested_2"
+            },
+            {
+                "text": "Gandoren especificamente me pediu para não falar com você sobre isso.",
+                "nextPhraseID": "ailshara_interested_2"
+            },
+            {
+                "text": "Sim, Gandoren quer-me para entregar alguns equipamentos para Feygard. Você quer uma parte do negócio?",
+                "nextPhraseID": "ailshara_interested_4"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_2",
+        "message": "Ah, claro. Gandoren não gostaria que eu tivesse oportunidade para atrapalhar seu negócio. Presumo que o está ajudando a entregar os itens em algum lugar. Diga-me isso, o que ele prometer-lhe em troca? Ouro? Honra? Não?",
+        "replies": [
+            {
+                "text": "Agora que você mencionou, ele não chegou a dizer que haveria uma recompensa.",
+                "nextPhraseID": "ailshara_interested_3"
+            },
+            {
+                "text": "Eu estou fazendo isso para a glória de Feygard.",
+                "nextPhraseID": "ailshara_fg_1"
+            },
+            {
+                "text": "Auxiliar Feygard parece ser a coisa certa a fazer.",
+                "nextPhraseID": "ailshara_fg_1"
+            },
+            {
+                "text": "O que você propõe, ao invés?",
+                "nextPhraseID": "ailshara_interested_4"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_3",
+        "message": "Como de costume, Feygard mantém todas as suas riquezas para si. E se eu lhe dissesse que haveria uma maneira para que você ganhar com tudo isso também?",
+        "replies": [
+            {
+                "text": "Parece interessante, por favor, continue.",
+                "nextPhraseID": "ailshara_interested_4"
+            },
+            {
+                "text": "Eu não tenho nenhum problema em ajudar Feygard sem pensar em nenhum ganho pessoal.",
+                "nextPhraseID": "ailshara_fg_1"
+            },
+            {
+                "text": "É melhor eu não me envolver nisso, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_fg_1",
+        "message": "Pela Sombra, você soa como um daqueles esnobes enganosos de Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ailshara_fg_2"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_fg_2",
+        "message": "a Sombra o ajude, filho. Você deve questionar-se se você realmente está fazendo a escolha certa aqui."
+    },
+    {
+        "id": "ailshara_interested_4",
+        "message": "Deixe-me dizer-lhe o meu plano. Como você deve saber, todo mundo acredita que vai haver algum conflito entre os esnobes enganosos de Feygard e as pessoas gloriosas da Cidade Nor.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ailshara_interested_5"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_5",
+        "message": "Qualquer ajuda que pode trazer para a Nor City neste assunto é bem-vinda. Esses itens que Gandoren lhe deu  seriam útil para o nosso povo nas terras do sul.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ailshara_interested_6"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_6",
+        "message": "Se você entregar esses itens aos nossos aliados em Vilegard, a Sombra certamente estaria mais favorável a você.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ailshara_interested_7"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_7",
+        "message": "Dessa forma, as pessoas poderiam recuperar um pouco das riquezas que Feygard roubou de todos nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ailshara_interested_8"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_8",
+        "message": "Se você realmente está andando na Sombra, então entregue esses itens para o ferreiro em Vilegard. Ele será capaz de fazer um bom uso delas. Ele também pode ter alguma outra tarefa para você.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 35
+            }
+        ],
+        "replies": [
+            {
+                "text": "Vou ver o que posso fazer.",
+                "nextPhraseID": "ailshara_interested_9"
+            },
+            {
+                "text": "Não. Eu vou ajudar Feygard ao invés.",
+                "nextPhraseID": "ailshara_fg_1"
+            },
+            {
+                "text": "Que seja, eu escolho o meu próprio caminho.",
+                "nextPhraseID": "ailshara_interested_9"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_interested_9",
+        "message": "A Sombra esteja com você. Que a Sombra o oriente sobre os caminhos nebulosos que você anda."
+    },
+    {
+        "id": "ailshara_deliver_1",
+        "message": "Olá novamente. Será que você entregou esses itens para o ferreiro em Vilegard?",
+        "replies": [
+            {
+                "text": "Sim, está feito.",
+                "nextPhraseID": "ailshara_deliver_2_s",
+                "requires": {
+                    "progress": "feygard_shipment:55"
+                }
+            },
+            {
+                "text": "Não importa, deixe-me ver o que você tem que trocar.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Não. Eu vou ajudar Feygard ao invés.",
+                "nextPhraseID": "ailshara_fg_1"
+            },
+            {
+                "text": "Você pode me dizer novamente o que eu deveria fazer?",
+                "nextPhraseID": "ailshara_interested_4"
+            },
+            {
+                "text": "Ainda não.",
+                "nextPhraseID": "ailshara_interested_9"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_deliver_2_s",
+        "replies": [
+            {
+                "nextPhraseID": "ailshara_deliver_3",
+                "requires": {
+                    "progress": "feygard_shipment:81"
+                }
+            },
+            {
+                "nextPhraseID": "ailshara_deliver_2"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_deliver_2",
+        "message": "Bom. Você também deve tentar convencer Gandoren a pensar que você o ajudou."
+    },
+    {
+        "id": "ailshara_deliver_3",
+        "message": "Excelente! Você realmente andar com a Sombra, meu amigo. Estou feliz em saber que existem pelo menos algumas pessoas decentes ainda por aí.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "feygard_shipment",
+                "value": 82
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ailshara_delivered_1"
+            }
+        ]
+    },
+    {
+        "id": "ailshara_delivered_1",
+        "message": "Sua ajuda será muito apreciada pelo povo de Nor City, e você será bem-vindo entre nós."
+    }
+]

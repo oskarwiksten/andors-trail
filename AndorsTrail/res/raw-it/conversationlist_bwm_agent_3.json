@@ -1,0 +1,112 @@
+[
+    {
+        "id": "bwm_agent_3_start",
+        "replies": [
+            {
+                "nextPhraseID": "bwm_agent_3_4",
+                "requires": {
+                    "progress": "bwm_agent:30"
+                }
+            },
+            {
+                "nextPhraseID": "bwm_agent_3_1"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_1",
+        "message": "Salve, siete arrivato fin qui, bene.",
+        "replies": [
+            {
+                "text": "Ho parlato con alcune persone nel villaggio di Prim. Mi hanno detto cose interessanti sulla montagna di Blackwater.",
+                "nextPhraseID": "bwm_agent_3_5",
+                "requires": {
+                    "progress": "bwm_agent:25"
+                }
+            },
+            {
+                "text": "Sono andato ad est, come hai detto.",
+                "nextPhraseID": "bwm_agent_3_2"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_2",
+        "message": "Bene, Ora saliamo questa montagna, ci incontreremo a metà strada lassù.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_3_3"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_3",
+        "message": "Questo sentiero porta all'insediamento della montagna Blackwater, seguitelo e discuteremo più tardi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_3_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_4",
+        "message": "Fate attenzione ai mostri, possono essere veramente pericolosi.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, seguirò il sentiero su per la montagna.",
+                "nextPhraseID": "R"
+            },
+            {
+                "text": "Grande, mostri pericolosi. Proprio quello di cui avevo bisogno.",
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_5",
+        "message": "Non ascoltate le loro parole, avvelenano i vostri pensieri e non esiterebbero a pugnalarvi alle spalle se ne avessero l'occasione.",
+        "replies": [
+            {
+                "text": "Cosa hanno fatto?",
+                "nextPhraseID": "bwm_agent_3_6"
+            },
+            {
+                "text": "Si, mi sono sembrati un poco loschi effettivamente.",
+                "nextPhraseID": "bwm_agent_3_7"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_6",
+        "message": "Non parlerò di loro adesso. Seguitemi fino all'insediamento , parleremo meglio lì.",
+        "replies": [
+            {
+                "text": "Certo.",
+                "nextPhraseID": "bwm_agent_3_2"
+            },
+            {
+                "text": "Terrò gli occhi su di te, per adesso accetto le tue condizioni.",
+                "nextPhraseID": "bwm_agent_3_2"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_7",
+        "message": "Appunto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_3_6"
+            }
+        ]
+    }
+]

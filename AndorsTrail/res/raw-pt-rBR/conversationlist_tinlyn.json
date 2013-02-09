@@ -1,0 +1,280 @@
+[
+    {
+        "id": "tinlyn",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_killedsheep_0",
+                "requires": {
+                    "progress": "benbyr:21"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_killedsheep_0",
+                "requires": {
+                    "progress": "tinlyn:60"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_complete_1",
+                "requires": {
+                    "progress": "tinlyn:31"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_complete_1",
+                "requires": {
+                    "progress": "tinlyn:30"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_look_1",
+                "requires": {
+                    "progress": "tinlyn:15"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_story_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_killedsheep_0",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_killedsheep_0_1",
+                "requires": {
+                    "progress": "tinlyn:10"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_killedsheep_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_killedsheep_0_1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_killedsheep_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_killedsheep_1",
+        "message": "Você atacou minhas ovelhas! Fique longe de mim, assassino imundo!"
+    },
+    {
+        "id": "tinlyn_complete_1",
+        "message": "Olá novamente. Obrigado por me ajudar a encontrar a minha ovelha perdida.",
+        "replies": [
+            {
+                "text": "Eu conversei com Benbyr e ouvi a história sobre vocês dois.",
+                "nextPhraseID": "tinlyn_benbyr_1",
+                "requires": {
+                    "progress": "benbyr:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_1",
+        "message": "Olá. Você não gostaria de ajudar um velho pastor?",
+        "replies": [
+            {
+                "text": "Qual é o problema?",
+                "nextPhraseID": "tinlyn_story_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_2",
+        "message": "Veja você, eu estou com o meu rebanho de ovelhas aqui. Estes campos são excelentes pastagens para elas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tinlyn_story_3"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_3",
+        "message": "Mas o problema é que perdi quatro delas. Agora eu não ousaria deixar as que eu ainda tenho na minha visão para ir buscar as perdidas.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tinlyn_story_3_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_3_1",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_story_6",
+                "requires": {
+                    "progress": "tinlyn:15"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_story_4"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_4",
+        "message": "Você estaria disposto a me ajudar a encontrá-las?",
+        "replies": [
+            {
+                "text": "Não parece que exista alguma luta envolvida. Eu só faço coisas onde eu possa lutar com alguém.",
+                "nextPhraseID": "tinlyn_decline_1"
+            },
+            {
+                "text": "Certamente, seria um prazer ajudar a um senhor de idade.",
+                "nextPhraseID": "tinlyn_story_5"
+            },
+            {
+                "text": "O que eu ganho com isso?",
+                "nextPhraseID": "tinlyn_story_4_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_decline_1",
+        "message": "Oh, bem, não custa perguntar."
+    },
+    {
+        "id": "tinlyn_story_4_1",
+        "message": "Ganho? Meu agradecimento é claro.",
+        "replies": [
+            {
+                "text": "Não parece que exista alguma luta envolvida. Eu só faço coisas onde eu possa lutar com alguém.",
+                "nextPhraseID": "tinlyn_decline_1"
+            },
+            {
+                "text": "Claro, vou ajudá-lo a encontrar o seu rebanho.",
+                "nextPhraseID": "tinlyn_story_5"
+            },
+            {
+                "text": "Não, obrigado, é melhor eu não me envolver nisso.",
+                "nextPhraseID": "tinlyn_decline_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_5",
+        "message": "Bom, obrigado. Por favor, coloque esses sinos em torno de seus pescoços para que eu possa ouvi-las. Volte para mim depois de ter colocado os sinos ao redor do pescoço de cada uma das quatro ovelhas  desaparecidas.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 15
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "tinlyn_bells"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tinlyn_story_6"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_story_6",
+        "message": "Volte para mim depois de ter colocado os sinos ao redor do pescoço de cada uma das quatro ovelhas  desaparecidas."
+    },
+    {
+        "id": "tinlyn_look_1",
+        "message": "Olá novamente. Você encontrou todas os quatro das minhas ovelhas faltantes?",
+        "replies": [
+            {
+                "text": "Sim, encontrei todas eles.",
+                "nextPhraseID": "tinlyn_found_1",
+                "requires": {
+                    "progress": "tinlyn:25"
+                }
+            },
+            {
+                "text": "Ainda não. Eu ainda estou procurando.",
+                "nextPhraseID": "tinlyn_story_6"
+            },
+            {
+                "text": "O que eu devo fazer mesmo?",
+                "nextPhraseID": "tinlyn_story_2"
+            },
+            {
+                "text": "Eu conversei com Benbyr e ouvi a história sobre vocês dois.",
+                "nextPhraseID": "tinlyn_benbyr_1",
+                "requires": {
+                    "progress": "benbyr:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_found_1",
+        "message": "Sim, eu posso ouvir sons distantes dos sinos dos campos ao sul. Tenho certeza de que elas irão retornar aqui, agora que elas trazem os sinos.",
+        "replies": [
+            {
+                "text": "Fico feliz em ajudar.",
+                "nextPhraseID": "tinlyn_found_3"
+            },
+            {
+                "text": "Esse foi um trabalho duro. Que tal uma recompensa?",
+                "nextPhraseID": "tinlyn_found_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_found_2",
+        "message": "Sinto muito, mas eu sou um simples pastor. Eu não tenho nenhuma riqueza ou bugigangas mágicas para lhe dar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 31
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_found_3",
+        "message": "Obrigado por me ajudar",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 30
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_benbyr_1",
+        "message": "Ele ainda está aí? Eu pensei que os guardas haviam pego esse arruaceiro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tinlyn_benbyr_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_benbyr_2",
+        "message": "Enfim, eu não quero falar sobre isso. Eu deixei esse tipo de vida atrás de mim. Pastorear ovelhas é o que eu faço agora."
+    }
+]

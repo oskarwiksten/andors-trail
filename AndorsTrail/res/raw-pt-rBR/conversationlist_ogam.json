@@ -1,0 +1,170 @@
+[
+    {
+        "id": "ogam_1",
+        "message": "Crença. Poder. Lutar.",
+        "replies": [
+            {
+                "text": "O quê?",
+                "nextPhraseID": "ogam_2"
+            },
+            {
+                "text": "Disseram-me para vê-lo.",
+                "nextPhraseID": "ogam_2",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_2",
+        "message": "Nas costas estão uma carga alta e baixa.",
+        "replies": [
+            {
+                "text": "O quê?",
+                "nextPhraseID": "ogam_3"
+            },
+            {
+                "text": "Por favor, continue.",
+                "nextPhraseID": "ogam_3"
+            },
+            {
+                "text": "Olá? Umar da Corja dos Ladrões de Fallhaven enviou-me para vê-lo.",
+                "nextPhraseID": "ogam_3",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_3",
+        "message": "Escondendo-se à Sombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ogam_4"
+            }
+        ]
+    },
+    {
+        "id": "ogam_4",
+        "message": "Dois iguais em corpo e mente.",
+        "replies": [
+            {
+                "text": "Você vai dizer algo que faça sentido?",
+                "nextPhraseID": "ogam_5"
+            },
+            {
+                "text": "O que quer dizer?",
+                "nextPhraseID": "ogam_5"
+            }
+        ]
+    },
+    {
+        "id": "ogam_5",
+        "message": "O legal é o caótico.",
+        "replies": [
+            {
+                "text": "Olá? Você sabe como eu posso alcançar refúgio de Lodar?",
+                "nextPhraseID": "ogam_lodar_1",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            },
+            {
+                "text": "Eu não entendo.",
+                "nextPhraseID": "ogam_6"
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_1",
+        "message": "Lodar? Comichão, claro, machucado.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ogam_6"
+            }
+        ]
+    },
+    {
+        "id": "ogam_6",
+        "message": "Sim. A verdadeira forma. Contemple.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ogam_7"
+            }
+        ]
+    },
+    {
+        "id": "ogam_7",
+        "message": "Escondendo na Sombra.",
+        "replies": [
+            {
+                "text": "A Sombra?",
+                "nextPhraseID": "ogam_4"
+            },
+            {
+                "text": "Você está ouvindo o que eu digo?",
+                "nextPhraseID": "ogam_4"
+            },
+            {
+                "text": "Olá? Você sabe como eu posso alcançar refúgio de Lodar?",
+                "nextPhraseID": "ogam_lodar_2",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_2",
+        "message": "Lodar, a meio caminho entre a sombra e a luz. Formações rochosas.",
+        "replies": [
+            {
+                "text": "Ok, a meio caminho entre dois lugares. Algumas rochas?",
+                "nextPhraseID": "ogam_lodar_3"
+            },
+            {
+                "text": "Uh. Pode repetir?",
+                "nextPhraseID": "ogam_lodar_3"
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_3",
+        "message": "Guardião. Brilho da Sombra.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "lodar",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Brilho da Sombra? São essas as palavras que o guardião precisa ouvir?",
+                "nextPhraseID": "ogam_lodar_4"
+            },
+            {
+                "text": "'Brilho da Sombra'? Eu reconheço isso de algum lugar.",
+                "nextPhraseID": "ogam_lodar_4",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_4",
+        "message": "Torneamento. Torção. Forma clara.",
+        "replies": [
+            {
+                "text": "O que significa isso?",
+                "nextPhraseID": "ogam_1"
+            }
+        ]
+    }
+]

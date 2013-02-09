@@ -1,0 +1,140 @@
+[
+    {
+        "id": "audir1",
+        "message": "Witaj w moim skromnym sklepie!\n\nNie krępuj się, wybierz sobie coś.",
+        "replies": [
+            {
+                "text": "Pokaż mi swoje towary.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "arambold1",
+        "message": "Ojej czy ja kiedykolwiek usnę, gdy ci pijani ludzie będą tak drzeć papę?\n\nKtoś powinien coś z nimi zrobić.",
+        "replies": [
+            {
+                "text": "Mogę tu odpocząć?",
+                "nextPhraseID": "arambold2"
+            },
+            {
+                "text": "Masz coś na wymianę?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "arambold2",
+        "message": "Jasne dzieciaku możesz tu odpoczywać.\n\nWybierz sobie jakieś łóżko.",
+        "replies": [
+            {
+                "text": "Dzięki, narazie",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "drunk1",
+        "message": "Pij,kur.hmpf,pić, i pić jeszcze więcej.\nWkrocz, że rychło w nasze skromne progi wypijem pare piwek nie wstaniem z podłogi.\n\nEj dzieciaku to nie żadna mara rogość się ja na ten czas roztworze browara",
+        "replies": [
+            {
+                "text": "Nie, dzięki.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Może kiedy indziej.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mara_default",
+        "message": "Nie zwracaj uwagi na tych pijaków, zawsze stwarzają problemy.\n\nChcesz coś na ząb?",
+        "replies": [
+            {
+                "text": "Masz coś na sprzedaż?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "mara1",
+        "replies": [
+            {
+                "nextPhraseID": "mara_thanks",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "mara_default"
+            }
+        ]
+    },
+    {
+        "id": "mara_thanks",
+        "message": "Słyszałem, że pomogłeś Odirowi oczyszczając tą jaskinie. Wielkie dzięki znów możemy jej używać.",
+        "replies": [
+            {
+                "text": "Przyjemność po mojej stronie.",
+                "nextPhraseID": "mara_default"
+            }
+        ]
+    },
+    {
+        "id": "farm1",
+        "message": "Nie przeszkadzaj mi, jestem zajęty.",
+        "replies": [
+            {
+                "text": "Widziałeś może mojego brata Andora?",
+                "nextPhraseID": "farm_andor"
+            }
+        ]
+    },
+    {
+        "id": "farm2",
+        "message": "Co, nie widzisz, że jestem zajęty? Idź zawracaj głowę komuś innemu.",
+        "replies": [
+            {
+                "text": "Widziałeś może mojego brata Andora?",
+                "nextPhraseID": "farm_andor"
+            }
+        ]
+    },
+    {
+        "id": "farm_andor",
+        "message": "Andor? Nie widziałem go już dosyć dawno."
+    },
+    {
+        "id": "snakemaster",
+        "message": "No, no co my tu mamy? Przybysz, jak miło. Jestem pod wrażeniem tego, że tutaj dotarłeś.\n\nPrzygotuj się na śmierć mały człowieczku.",
+        "replies": [
+            {
+                "text": "Świetnie, długo czekałem na jakąś walkę!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Zobaczymy kto tutaj dziś umrze.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Proszę nie rób mi krzywdy!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "haunt",
+        "message": "Śmiertelniku, uwolnij mnie z tego przeklętego świata!",
+        "replies": [
+            {
+                "text": "Oczywiście, że cie uwolnie.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Masz na myśli poprzez zabicie cie?",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

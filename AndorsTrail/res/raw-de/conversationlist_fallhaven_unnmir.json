@@ -1,0 +1,174 @@
+[
+    {
+        "id": "unnmir",
+        "replies": [
+            {
+                "nextPhraseID": "unnmir_r",
+                "requires": {
+                    "progress": "nocmar:10"
+                }
+            },
+            {
+                "nextPhraseID": "unnmir_0"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_r",
+        "message": "Hallo nochmal. Du solltest mit Nocmar reden.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_13"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_0",
+        "message": "Hallo.",
+        "replies": [
+            {
+                "text": "Da war ein Betrunkener draußen vor der Schenke, der mir eine Geschichte über euch beide erzählt hat.",
+                "nextPhraseID": "unnmir_1",
+                "requires": {
+                    "progress": "fallhavendrunk:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "unnmir_1",
+        "message": "Dieser betrunkene alte Mann bei der Schenke hat dir seine Geschichte erzählt, nicht wahr?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_2"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_2",
+        "message": "Die selbe alte Geschichte. Vor ein paar Jahren pflegten wir miteinander zu Reisen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_3"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_3",
+        "message": "Echte Abenteuer du weißt schon, mit Schwertern und Zaubersprüchen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_4"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_4",
+        "message": "Aber dann, nach einer Weile, hörten wir auf. Ich kann nicht einmal sagen warum, ich vermute wir wurden des Vagabundenlebens müde. Wir ließen uns hier in Fallhaven nieder.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_5"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_5",
+        "message": "Nette kleine Stadt hier. Viele Diebe streifen umher, aber die kümmern mich nicht.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_6"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_6",
+        "message": "Also wie ist deine Geschichte, Junge? Wie bist du nach Fallhaven gekommen?",
+        "replies": [
+            {
+                "text": "Ich suche nach meinem Bruder.",
+                "nextPhraseID": "unnmir_7"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_7",
+        "message": "Ja ja, ich verstehe. Dein Bruder ist wahrscheinlich abgehauen um in irgendeiner Höhle ein Abenteuer zu erleben. *rollt mit seinen Augen*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_8"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_8",
+        "message": "Oder vielleicht ist er in eine der größeren Städte im Norden gegangen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_9"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_9",
+        "message": "Ich kann es ihm nicht verübeln, dass er die Welt sehen will.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_10"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_10",
+        "message": "He, so nebenbei, versuchst du ein Abenteurer zu sein?",
+        "replies": [
+            {
+                "text": "Ja",
+                "nextPhraseID": "unnmir_11"
+            },
+            {
+                "text": "Nein, nicht wirklich.",
+                "nextPhraseID": "unnmir_12"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_11",
+        "message": "Gut, ich gebe dir einen Tipp, Junge. *kichert*. Geh zu Nocmar drüben auf der Westseite der Stadt. Sag ihm ich schicke dich.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nocmar",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_13"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_12",
+        "message": "Gute Einstellung. Abenteuer führen zu vielen Narben, wenn du verstehst was ich meine."
+    },
+    {
+        "id": "unnmir_13",
+        "message": "Sein Haus ist etwas südwestlich der Schenke.",
+        "replies": [
+            {
+                "text": "Danke, ich werde zu ihm gehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

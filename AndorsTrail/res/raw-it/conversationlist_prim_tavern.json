@@ -1,0 +1,177 @@
+[
+    {
+        "id": "birgil_1",
+        "message": "Benvenuto nella mia taverna. Prego, prendi un posto dove preferisci.",
+        "replies": [
+            {
+                "text": "Cosa si beve da queste parti?",
+                "nextPhraseID": "birgil_2"
+            }
+        ]
+    },
+    {
+        "id": "birgil_2",
+        "message": "Purtroppo poco, con il crollo del tunnel della miniera non possiamo commerciare molto con i paesi esterni.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "birgil_3"
+            }
+        ]
+    },
+    {
+        "id": "birgil_3",
+        "message": "Tuttavia ho una marea di idromele che conservo da prima che il tunnel crollasse.",
+        "replies": [
+            {
+                "text": "Idromele? Puah, troppo dolce per i miei gusti.",
+                "nextPhraseID": "birgil_4"
+            },
+            {
+                "text": "Va bene! Proprio adatto al mio palato. Vediamo cosa hai da vendere",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Va bene, me lo farò piacere. Credo abbia delle proprietà rigeneranti. Vediamo.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "birgil_4",
+        "message": "Accomodati, queste sono le uniche cose che ho.",
+        "replies": [
+            {
+                "text": "Ok, facciamo questo scambio.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Non importa, ciao.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1",
+        "message": "Oh, qualcuno di nuovo!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest1_1"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1_1",
+        "message": "Benvenuto ragazzo, sei qui per affogare nell'alcol i tuoi dolori come noi?",
+        "replies": [
+            {
+                "text": "Non proprio, cosa si fa da queste parti di solito?",
+                "nextPhraseID": "prim_tavern_guest1_3"
+            },
+            {
+                "text": "Sì, dammi un po' di quello che stai bevendo.",
+                "nextPhraseID": "prim_tavern_guest1_4"
+            },
+            {
+                "text": "Smettila di urtarmi mentre cammino.",
+                "nextPhraseID": "prim_tavern_guest1_2"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1_2",
+        "message": "Oh oh, qualcuno di grintoso, Ok, mi sposterò dalla tua strada."
+    },
+    {
+        "id": "prim_tavern_guest1_3",
+        "message": "Si beve, ovviamente!",
+        "replies": [
+            {
+                "text": "Avrei dovuto aspettarmelo. Ciao.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1_4",
+        "message": "Hey, questo è mio. Comprati un boccale di idromele da Birgil, è proprio lì.",
+        "replies": [
+            {
+                "text": "Certo, come vuoi.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Ok.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest2",
+        "message": "*hic* Ciaaao ragazzo. Vuoi offrire un altro giro di idromele ad un vecchio come me?",
+        "replies": [
+            {
+                "text": "Buon uomo, ma cosa le prende? Stia lontano da me!",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Assolutamente no. E smettila di bloccarmi la strada.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Certo, eccolo.",
+                "nextPhraseID": "prim_tavern_guest2_1",
+                "requires": {
+                    "item": {
+                        "itemID": "mead",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest2_1",
+        "message": "Hey hey, Grazie, sei un bravo ragazzo! *hic*"
+    },
+    {
+        "id": "prim_tavern_guest3",
+        "message": "*Brontola*"
+    },
+    {
+        "id": "prim_tavern_guest4",
+        "message": "Artigli. Graffi",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest4_1"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest4_1",
+        "message": "Hanno fatto fare una brutta fine a Kirg.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest4_2"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest4_2",
+        "message": "Dannate bestie.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest4_3"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest4_3",
+        "message": "Ed è tutta colpa mia. *sob*"
+    }
+]

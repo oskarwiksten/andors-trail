@@ -1,0 +1,84 @@
+[
+    {
+        "id": "gaela",
+        "replies": [
+            {
+                "nextPhraseID": "gaela_r",
+                "requires": {
+                    "progress": "andor:40"
+                }
+            },
+            {
+                "nextPhraseID": "gaela_0"
+            }
+        ]
+    },
+    {
+        "id": "gaela_r",
+        "message": "Hallo nochmal. I hoffe du findest was du suchst."
+    },
+    {
+        "id": "gaela_0",
+        "message": "Flink ist meine Klinge. Giftig meine Zunge. Oder war es anders herum?",
+        "replies": [
+            {
+                "text": "Es gibt hier in Fallhaven scheinbar eine Menge Diebe.",
+                "nextPhraseID": "gaela_1"
+            }
+        ]
+    },
+    {
+        "id": "gaela_1",
+        "message": "Ja, wir Diebe sind hier stark Präsent.",
+        "replies": [
+            {
+                "text": "Sonst noch was?",
+                "nextPhraseID": "gaela_2",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gaela_2",
+        "message": "Ich hörte du hast Gruil, einem Diebesgenossen im Dorf Crossglen, geholfen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gaela_3"
+            }
+        ]
+    },
+    {
+        "id": "gaela_3",
+        "message": "Es hat mich auch die Nachricht erreicht, dass du jemand suchst. Ich kann dir vielleicht helfen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gaela_4"
+            }
+        ]
+    },
+    {
+        "id": "gaela_4",
+        "message": "Du solltest mit Bucus, im heruntergekommenen Haus etwas südwestlich von hier, reden. Sag ihm, du möchtest mehr über die Diebesgilde wissen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Danke, ich werde mit ihm reden.",
+                "nextPhraseID": "gaela_5"
+            }
+        ]
+    },
+    {
+        "id": "gaela_5",
+        "message": "Betrachte diesen Gefallen als Gegenleistung für deine Hilfe Gruil gegenüber."
+    }
+]

@@ -1,0 +1,112 @@
+[
+    {
+        "id": "bwm_agent_3_start",
+        "replies": [
+            {
+                "nextPhraseID": "bwm_agent_3_4",
+                "requires": {
+                    "progress": "bwm_agent:30"
+                }
+            },
+            {
+                "nextPhraseID": "bwm_agent_3_1"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_1",
+        "message": "Olá. Você chegou até aqui, bom.",
+        "replies": [
+            {
+                "text": "Eu conversei com algumas pessoas na aldeia de Prim. Elas contaram-me algumas coisas interessantes sobre a Montanha das Águas Negras.",
+                "nextPhraseID": "bwm_agent_3_5",
+                "requires": {
+                    "progress": "bwm_agent:25"
+                }
+            },
+            {
+                "text": "Fui para leste, como você disse.",
+                "nextPhraseID": "bwm_agent_3_2"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_2",
+        "message": "Bom. Agora vamos subir esta montanha. Vou encontrá-lo a meio caminho para o topo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_3_3"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_3",
+        "message": "Este caminho leva até a assentamento da Montanha das Águas Negras. Siga este caminho e vamos conversar mais tarde.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_3_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_4",
+        "message": "Cuidado com os monstros desagradáveis, eles podem realmente causar algum dano!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, vou seguir este caminho até a montanha.",
+                "nextPhraseID": "R"
+            },
+            {
+                "text": "Grande, mais monstros. Era só o que eu precisava.",
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_5",
+        "message": "Não vou ouvir suas mentiras. Eles envenenaram os seus pensamentos e eu não hesitaria em apunhalá-lo pelas costas, uma vez que tiver chance.",
+        "replies": [
+            {
+                "text": "O que eles fizeram?",
+                "nextPhraseID": "bwm_agent_3_6"
+            },
+            {
+                "text": "Sim, eles parecem serem um pouco sombrios.",
+                "nextPhraseID": "bwm_agent_3_7"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_6",
+        "message": "Eu não vou falar deles agora. Siga-me até a assentamento da Montanha das Águas Negras e vamos conversar mais lá.",
+        "replies": [
+            {
+                "text": "Certamente.",
+                "nextPhraseID": "bwm_agent_3_2"
+            },
+            {
+                "text": "Estou de olho em você. Mas eu concordo com seus termos por enquanto.",
+                "nextPhraseID": "bwm_agent_3_2"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_3_7",
+        "message": "Sim, eles são.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_3_6"
+            }
+        ]
+    }
+]

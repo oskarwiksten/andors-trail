@@ -1,0 +1,604 @@
+[
+    {
+        "id": "vacor",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_return_complete0",
+                "requires": {
+                    "progress": "vacor:60"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_return2",
+                "requires": {
+                    "progress": "vacor:40"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_42",
+                "requires": {
+                    "progress": "vacor:30"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_select1"
+            }
+        ]
+    },
+    {
+        "id": "vacor_select1",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_return1",
+                "requires": {
+                    "progress": "vacor:20"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_begin"
+            }
+        ]
+    },
+    {
+        "id": "vacor_begin",
+        "message": "Ciao.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_2"
+            }
+        ]
+    },
+    {
+        "id": "vacor_2",
+        "message": "Cosa sei, una specie di avventuriero? Hm. Forse puoi essermi utile.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_3"
+            }
+        ]
+    },
+    {
+        "id": "vacor_3",
+        "message": "Sei disposto ad aiutarmi?",
+        "replies": [
+            {
+                "text": "Certo",
+                "nextPhraseID": "vacor_4"
+            },
+            {
+                "text": "No",
+                "nextPhraseID": "vacor_bah"
+            }
+        ]
+    },
+    {
+        "id": "vacor_bah",
+        "message": "Bah, umile creatura. Sapevo che non dovevo chiedere a te. Ora vattene."
+    },
+    {
+        "id": "vacor_4",
+        "message": "Qualche tempo fa, stavo lavorando su un incantesimo di apertura che avevo letto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_5"
+            }
+        ]
+    },
+    {
+        "id": "vacor_5",
+        "message": "L'incantesimo ha lo scopo, diciamo, di aprire nuove possibilità, ecco.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_6"
+            }
+        ]
+    },
+    {
+        "id": "vacor_6",
+        "message": "Ehm, si, quando l'incantesimo di apertura sarà pronto le cose andranno meglio. Ahem.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_7"
+            }
+        ]
+    },
+    {
+        "id": "vacor_7",
+        "message": "Ho lavorato duramente per mettere insieme tutti gli ingredienti.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_8"
+            }
+        ]
+    },
+    {
+        "id": "vacor_8",
+        "message": "Poi una banda di teppisti è venuta e ha combinato un disastro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_9"
+            }
+        ]
+    },
+    {
+        "id": "vacor_9",
+        "message": "Hanno dichiarato di essere messaggeri dell'Ombra e insistito sul fatto che io dovessi lasciar perdere il mio incantesimo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_10"
+            }
+        ]
+    },
+    {
+        "id": "vacor_10",
+        "message": "Assurdo, non è vero? Ero così vicino ad avere il potere!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_11"
+            }
+        ]
+    },
+    {
+        "id": "vacor_11",
+        "message": "Oh, il potere che avrebbe potuto avere il mio incantesimo...",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_12"
+            }
+        ]
+    },
+    {
+        "id": "vacor_12",
+        "message": "Comunque, stavo per completare l'ultimo passaggio... quando i banditi sono arrivati e mi hanno derubato.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_13"
+            }
+        ]
+    },
+    {
+        "id": "vacor_13",
+        "message": "I banditi hanno preso i fogli con l'incantesimo e sono scappati prima che arrivassero le guardie.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_14"
+            }
+        ]
+    },
+    {
+        "id": "vacor_14",
+        "message": "Ora non riesco a ricordare gli ultimi passaggi per completarlo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_15"
+            }
+        ]
+    },
+    {
+        "id": "vacor_15",
+        "message": "Pensi che potresti aiutarmi a ritrovarlo? Poi potrò avere il potere...finalmente!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_16"
+            }
+        ]
+    },
+    {
+        "id": "vacor_16",
+        "message": "Naturalmente verrai lautamente ricompensato.",
+        "replies": [
+            {
+                "text": "Una ricompensa? Ci sto!",
+                "nextPhraseID": "vacor_17"
+            },
+            {
+                "text": "Molto bene, ti aiuterò.",
+                "nextPhraseID": "vacor_17"
+            },
+            {
+                "text": "No grazie, preferirei non essere coinvolto in questa faccenda.",
+                "nextPhraseID": "vacor_bah"
+            }
+        ]
+    },
+    {
+        "id": "vacor_17",
+        "message": "Sapevo che non potevo fidarmi...Aspetta, cosa? Hai veramente detto di sì? Ah beh, bene allora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_18"
+            }
+        ]
+    },
+    {
+        "id": "vacor_18",
+        "message": "Ok, trova le 4 parti del mio incantesimo che i banditi hanno rubato, poi portamele!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_19"
+            }
+        ]
+    },
+    {
+        "id": "vacor_19",
+        "message": "I banditi erano quattro, dopo avermi attaccato si sono diretti a sud di Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_20"
+            }
+        ]
+    },
+    {
+        "id": "vacor_20",
+        "message": "Dovresti cercare nella parte meridionale di Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_21"
+            }
+        ]
+    },
+    {
+        "id": "vacor_21",
+        "message": "Per favore, fai in fretta! Sono così ansioso di aprire il varco...Ehm, voglio dire... di finire l'incantesimo."
+    },
+    {
+        "id": "vacor_return1",
+        "message": "Bentornato, come va la ricerca dei fogli per il mio incantesimo?",
+        "replies": [
+            {
+                "text": "Fatto, ho tutti i quattro pezzi.",
+                "nextPhraseID": "vacor_40",
+                "requires": {
+                    "item": {
+                        "itemID": "vacor_spell",
+                        "quantity": 4,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Cosa dovevo fare?",
+                "nextPhraseID": "vacor_18"
+            },
+            {
+                "text": "Mi ripeteresti l'intera storia?",
+                "nextPhraseID": "vacor_4"
+            }
+        ]
+    },
+    {
+        "id": "vacor_40",
+        "message": "Oh, hai trovato i 4 pezzi?? sbrigati, dalli a me!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_41"
+            }
+        ]
+    },
+    {
+        "id": "vacor_41",
+        "message": "Si, questi sono i fogli che i banditi hanno rubato.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_42"
+            }
+        ]
+    },
+    {
+        "id": "vacor_42",
+        "message": "Ora dovrei essere in grado di aprire il varco dell'Ombra... ehm intendo aprire nuove possibilità. Si, è questo che intendevo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_43"
+            }
+        ]
+    },
+    {
+        "id": "vacor_43",
+        "message": "L'ultimo ostacolo rimasto, per completare l'incantesimo di apertura è quello stupido di Unzel.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_44"
+            }
+        ]
+    },
+    {
+        "id": "vacor_44",
+        "message": "Unzel era il mio apprendista qualche tempo fa. Poi ha cominciato a darmi fastidio con le sue domande e i sui discorsi sulla moralità .",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_45"
+            }
+        ]
+    },
+    {
+        "id": "vacor_45",
+        "message": "Sostiene che la mia magia interromperà il volere dell'Ombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_46"
+            }
+        ]
+    },
+    {
+        "id": "vacor_46",
+        "message": "Bah, l'Ombra. Cosa ha mai fatto l'Ombra per ME?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_47"
+            }
+        ]
+    },
+    {
+        "id": "vacor_47",
+        "message": "Un giorno riuscirò a scagliare il mio incantesimo di apertura e allora ci libereremo dell'Ombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_48"
+            }
+        ]
+    },
+    {
+        "id": "vacor_48",
+        "message": "Ad ogni modo, sono convinto che Unzel abbia mandato quei banditi da me. E se non lo fermo, li rimanderà.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_49"
+            }
+        ]
+    },
+    {
+        "id": "vacor_49",
+        "message": "Ho bisogno che tu scovi Unzel e lo uccida. Lo puoi probabilmente trovare da qualche parte a sud-est di Fallhaven.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_50"
+            }
+        ]
+    },
+    {
+        "id": "vacor_50",
+        "message": "Portami il suo anello con sigillo come prova della sua morte.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_51"
+            }
+        ]
+    },
+    {
+        "id": "vacor_51",
+        "message": "Ora sbrigati! Non posso aspettare ancora a lungo...! Il potere sarà mio!"
+    },
+    {
+        "id": "vacor_return2",
+        "message": "Bentornato, qualche progresso?",
+        "replies": [
+            {
+                "text": "Riguardo Unzel...",
+                "nextPhraseID": "vacor_return2_2"
+            },
+            {
+                "text": "Mi ripeti cosa dovrei fare?",
+                "nextPhraseID": "vacor_43"
+            }
+        ]
+    },
+    {
+        "id": "vacor_return2_2",
+        "message": "Hai ucciso Unzel per me? Portami il suo anello con sigillo quando l'avrai ucciso.",
+        "replies": [
+            {
+                "text": "Ho sistemato la faccenda. Eccoti l'anello.",
+                "nextPhraseID": "vacor_60",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_unzel",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ho ascoltato la storia di Unzel e ho deciso di schierarmi con lui. L'Ombra deve essere protetta.",
+                "nextPhraseID": "vacor_70",
+                "requires": {
+                    "progress": "vacor:51"
+                }
+            }
+        ]
+    },
+    {
+        "id": "vacor_60",
+        "message": "Haha, Unzel è morto! Quella creatura patetica se n'é andata!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_61"
+            }
+        ]
+    },
+    {
+        "id": "vacor_61",
+        "message": "Riesco a vedere il suo sangue sui tuoi stivali. E sono persino riuscito a farti uccidere i suoi servi in anticipo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_62"
+            }
+        ]
+    },
+    {
+        "id": "vacor_62",
+        "message": "Oggi è un grande giorno. Avrò presto il potere!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_63"
+            }
+        ]
+    },
+    {
+        "id": "vacor_63",
+        "message": "Ecco, queste monete sono per il tuo aiuto.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_64"
+            }
+        ]
+    },
+    {
+        "id": "vacor_64",
+        "message": "Ora lasciami, ho del lavoro da fare prima di poter lanciare l'incantesimo."
+    },
+    {
+        "id": "vacor_return_complete0",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_msg_16",
+                "requires": {
+                    "progress": "kaverin:90"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_msg_9",
+                "requires": {
+                    "progress": "kaverin:75"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_msg1",
+                "requires": {
+                    "progress": "kaverin:60",
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "vacor_return_complete"
+            }
+        ]
+    },
+    {
+        "id": "vacor_return_complete",
+        "message": "Bentornato, mio amico assassino. Presto avremo l'incantesimo per il varco."
+    },
+    {
+        "id": "vacor_70",
+        "message": "Cosa? Ti ha raccontato la sua storia? E tu ci hai creduto?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_71"
+            }
+        ]
+    },
+    {
+        "id": "vacor_71",
+        "message": "Ti darò un'altra possibilità. O ucciderai Unzel per me e io ti ricompenserò generosamente, oppure dovrai combattere contro di me.",
+        "replies": [
+            {
+                "text": "No, devi essere fermato.",
+                "nextPhraseID": "vacor_72"
+            },
+            {
+                "text": "Bene, ci penserò ancora un po' su.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "vacor_72",
+        "message": "Bah, piccola creatura. Sapevo che non dovevo darti fiducia. Ora morirai con la tua preziosa Ombra.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 54
+            }
+        ],
+        "replies": [
+            {
+                "text": "Per l'Ombra!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Devi essere fermato.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

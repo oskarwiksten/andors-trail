@@ -1,0 +1,115 @@
+[
+    {
+        "id": "athamyr",
+        "message": "Geh mit dem Schatten.",
+        "replies": [
+            {
+                "text": "Warst du unten in den Katakomben?",
+                "nextPhraseID": "athamyr_select",
+                "requires": {
+                    "progress": "bucus:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "athamyr_1",
+        "message": "Ja, ich war in den Katakomben unter der Fallhaven Kirche.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_2"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_2",
+        "message": "Aber ich bin der einzige, der sowohl die Erlaubnis als auch die Tapferkeit hat dort hinunter zu gehen.",
+        "replies": [
+            {
+                "text": "Wie kann ich die Erlaubnis bekommen hinunter zu gehen?",
+                "nextPhraseID": "athamyr_3"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_3",
+        "message": "Du willst hinunter in die Katakomben? Hm, vielleicht können wir einen Handel machen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_4"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_4",
+        "message": "Bring mir etwas von diesem köstlich zubereiteten Braten aus der Schenke und ich gebe dir die Erlaubnis zum Betreten der Katakomben der Fallhaven Kirche.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Hier, ich habe einen Braten für dich.",
+                "nextPhraseID": "athamyr_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "meat_cooked",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Okay, ich gehe etwas holen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_complete_2",
+        "message": "Du hast die Erlaubnis zum Betreten der Katakomben der Fallhaven Kirche.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 50
+            }
+        ]
+    },
+    {
+        "id": "athamyr_select",
+        "replies": [
+            {
+                "nextPhraseID": "athamyr_complete_2",
+                "requires": {
+                    "progress": "bucus:40"
+                }
+            },
+            {
+                "nextPhraseID": "athamyr_1"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_complete",
+        "message": "Danke, den werde ich genießen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_complete_2"
+            }
+        ]
+    }
+]

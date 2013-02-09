@@ -1,0 +1,265 @@
+[
+    {
+        "id": "chapelgoer",
+        "message": "Ombra, abbracciami."
+    },
+    {
+        "id": "thoronir_default",
+        "message": "Crogiolati nell'Ombra, figlo mio.",
+        "replies": [
+            {
+                "text": "Parlami dell'Ombra.",
+                "nextPhraseID": "thoronir_shadow_1"
+            },
+            {
+                "text": "Cosa sai dirmi di questa chiesa?",
+                "nextPhraseID": "thoronir_church_1"
+            },
+            {
+                "text": "Compra",
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_shadow_1",
+        "message": "L'Ombra ci protegge dai pericoli della notte. Ci tiene al sicuro e ci consola mentre dormiamo.",
+        "replies": [
+            {
+                "text": "Bagliore dell'Ombra",
+                "nextPhraseID": "thoronir_tharal_select",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "text": "Indietro",
+                "nextPhraseID": "thoronir_default"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_1",
+        "message": "Questa è la nostra cappella di culto a Fallhaven. La nostra comunità si rivolge a noi per il sostegno.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_2",
+        "message": "Questa chiesa ha resistito per centinaia di anni ed è stata tenuta al sicuro dai tombaroli.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_select",
+        "replies": [
+            {
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            },
+            {
+                "nextPhraseID": "thoronir_tharal_1"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_1",
+        "message": "Bagliore dell'Ombra figlio mio. Quindi il mio vecchio amico Tharal ti ha inviato dal villaggio di Crossglen?",
+        "replies": [
+            {
+                "text": "Potrebbe raccontarmi qualcosa riguardo la farina d'ossa?",
+                "nextPhraseID": "thoronir_tharal_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_3",
+        "message": "Le catacombe sotto la chiesa ospitano i grandi capi del passato. Si dice che anche il grande Luthor sia sepolto là .",
+        "replies": [
+            {
+                "text": "Nessuno è mai entrato là sotto?",
+                "nextPhraseID": "thoronir_church_4",
+                "requires": {
+                    "progress": "bucus:10"
+                }
+            },
+            {
+                "text": "Indietro",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_4",
+        "message": "A nessuno è permesso scendere, fatta eccezione per Athamyr, il mio apprendista. E' l'unico che è sceso laggiù in questi anni.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Indietro",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_2",
+        "message": "Shhh, non si dovrebbe parlare dell'utilizzo di farina d'ossa. Come sapete, Lord Geomyr ha emesso un divieto su tutti gli usi della farina d'ossa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_3",
+        "message": "Quando il divieto è arrivato, non ho osato tenerne, cosi ho buttato via la mia intera fornitura. Molto sciocco da parte mia...",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_4"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_4",
+        "message": "Pensi di potermi trovare 5 ossa di scheletro che possa utilizzare per preparare una pozione d'ossa? La farina d'ossa è molto potente nella guarigione delle ferite.",
+        "replies": [
+            {
+                "text": "Certo, non dovrebbe essere un problema.",
+                "nextPhraseID": "thoronir_tharal_5"
+            },
+            {
+                "text": "Ho le ossa che mi hai chiesto.",
+                "nextPhraseID": "thoronir_tharal_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bone",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_5",
+        "message": "Grazie, fai in fretta. Ho sentito che c'erano dei non-morti vicino ad una vecchia casa a nord di Fallhaven. Forse puoi provare a vedere là?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, darò un'occhiata.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_complete",
+        "message": "Grazie, queste ossa vanno bene. Ora posso iniziare a creare una pozione di guarigione per te.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_complete_2",
+        "message": "Dammi il tempo di preparare la pozione di farina d'ossa. Si tratta di una pozione di guarigione molto potente."
+    },
+    {
+        "id": "thoronir_trade_bonemeal",
+        "message": "La pozione d'ossa è pronta, utilizzala con cura e non farti vedere dalle guardie. Non siamo autorizzati ad usarla!.",
+        "replies": [
+            {
+                "text": "Compra",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Indietro",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard",
+        "message": "Torna indietro finché sei in tempo, mortale! Questo posto non è per te. Solo la morte ti aspetta qui.",
+        "replies": [
+            {
+                "text": "Va bene, tornerò indietro.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Spostati, devo procedere la mia discesa nelle catacombe!",
+                "nextPhraseID": "catacombguard1"
+            },
+            {
+                "text": "Per l'Ombra, non mi fermerai.",
+                "nextPhraseID": "catacombguard1"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard1",
+        "message": "Nooo, non passerai!",
+        "replies": [
+            {
+                "text": "Combatti!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "luthor",
+        "message": "*hissss* Un mortale osa disturbare il mio sonno?",
+        "replies": [
+            {
+                "text": "Per l'Ombra! Chi sei tu?",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Finalmente, un degno combattimento! Ho aspettato a lungo per questo.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Come vuoi, facciamola finita.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

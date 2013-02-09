@@ -1,0 +1,350 @@
+[
+    {
+        "id": "mikhail_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select2",
+                "requires": {
+                    "progress": "mikhail_bread:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": {
+                    "progress": "mikhail_bread:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_start_select2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select2",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select_default",
+                "requires": {
+                    "progress": "mikhail_rats:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": {
+                    "progress": "mikhail_rats:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_start_select_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select_default",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_visited",
+                "requires": {
+                    "progress": "andor:1"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_gamestart"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_gamestart",
+        "message": "Oh que bom, você acordou.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_visited"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_visited",
+        "message": "Não consigo encontrar seu irmão Andor em lugar algum. Ele não voltou desde ontem.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail3",
+        "message": "Não ligue. Ele provavelmente voltará logo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_default",
+        "message": "Posso ajudar você com alguma coisa?",
+        "replies": [
+            {
+                "text": "Você tem algumas tarefas para mim?",
+                "nextPhraseID": "mikhail_tasks"
+            },
+            {
+                "text": "Existe algo mais que você possa me dizer sobre Andor?",
+                "nextPhraseID": "mikhail_andor1"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_tasks",
+        "message": "Oh sim, preciso de pão e é necessário exterminar ratazanas. Qual dessas tarefas você quer falar primeiro?\n",
+        "replies": [
+            {
+                "text": "Você disse que quer pão?",
+                "nextPhraseID": "mikhail_bread_select"
+            },
+            {
+                "text": "Qual o problema com as ratazanas?",
+                "nextPhraseID": "mikhail_rats_select"
+            },
+            {
+                "text": "Não importa. Vamos falar sobre outras coisas.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor1",
+        "message": "Como disse, Andor saiu ontem e ainda não retornou. Estou começando a ficar preocupado com ele.\nPor favor, procure seu irmão: ele disse que não demoraria a retornar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_andor2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor2",
+        "message": "Talvez ele tenha ido na caverna de suprimentos e ficou enrolado por lá. Ou talvez ele esteja no porão da Leta, treinando com aquela espada de madeira de novo. Por favor, procure por ele na cidade.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_bread_complete2",
+                "requires": {
+                    "progress": "mikhail_bread:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": {
+                    "progress": "mikhail_bread:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_start",
+        "message": "Ah, quase esqueci. Se você tiver algum tempo, por favor vá até a Mara, na prefeitura da cidade, e compre-me pão.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_bread",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_continue",
+        "message": "Você já trouxe-me o pão fornecido pela Mara?\n",
+        "replies": [
+            {
+                "text": "Sim, aqui está.",
+                "nextPhraseID": "mikhail_bread_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bread",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ainda não.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete",
+        "message": "Muito obrigado! Já posso fazer meu café da manhã. Fique com essas moedas pelo seu auxílio.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_bread",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete2",
+        "message": "Obrigado pelo pão que você me trouxe.",
+        "replies": [
+            {
+                "text": "De nada.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_rats_complete2",
+                "requires": {
+                    "progress": "mikhail_rats:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": {
+                    "progress": "mikhail_rats:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start",
+        "message": "Vi algumas ratazanas nos fundos do nosso jardim mais cedo. Você poderia matar quaisquer ratazanas que veja por lá.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_rats",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Já exterminei as ratazanas.\n",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_trainingrat",
+                        "quantity": 2,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, vou checar isto no nosso jardim.",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start2",
+        "message": "Se você se ferir, use a cama para descansar e \nrecuperar a sua saúde.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_rats_start3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start3",
+        "message": "Ah, não se esqueça de checar seu inventário. Você provavelmente ainda possui aquele anel velho que lhe dei. Tenha certeza de usá-lo.",
+        "replies": [
+            {
+                "text": "Entendido: se me ferir, posso descansar aqui na cama; devo checar meu inventário por itens úteis.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_continue",
+        "message": "Você matou aquelas duas ratazanas no nosso jardim?",
+        "replies": [
+            {
+                "text": "Sim, eu matei as ratazanas.\n",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_trainingrat",
+                        "quantity": 2,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ainda não.",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete",
+        "message": "Oh, você as matou? Wow, muito obrigado pela sua ajuda!\n\nSe você se feriu, use a cama para descansar e \nrecuperar a sua saúde.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_rats",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete2",
+        "message": "Obrigado pela ajuda que você fez com as ratazanas.\n\nSe você se feriu, use a cama para descansar e recuperar a sua saúde.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    }
+]

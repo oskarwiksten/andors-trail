@@ -1,0 +1,177 @@
+[
+    {
+        "id": "birgil_1",
+        "message": "Bem-vindo ao meu botequim. Por favor, sente-se onde quiser.",
+        "replies": [
+            {
+                "text": "O que você tem para beber por aqui?",
+                "nextPhraseID": "birgil_2"
+            }
+        ]
+    },
+    {
+        "id": "birgil_2",
+        "message": "Bem, infelizmente, com o túnel da mina ruiu, não podemos negociar muito com as aldeias de fora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "birgil_3"
+            }
+        ]
+    },
+    {
+        "id": "birgil_3",
+        "message": "No entanto, eu tenho uma enorme oferta de hidromel que eu estoquei antes que a mina ruisse.",
+        "replies": [
+            {
+                "text": "Hidromel? Argh! Demasiado doce para o meu gosto.",
+                "nextPhraseID": "birgil_4"
+            },
+            {
+                "text": "Tudo bem! Apenas é o meu tipo preferido de bebida. Vamos ver o que você tem que trocar.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Muito bem, ela terá que servir. Eu acho que tem algum potencial de cura. Vamos negociar.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "birgil_4",
+        "message": "Como quiser. Isso é o que eu tenho de qualquer maneira.",
+        "replies": [
+            {
+                "text": "Ok, vamos negociar de qualquer maneira.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Não importa, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1",
+        "message": "Ah, alguém novo por aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest1_1"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1_1",
+        "message": "Garoto, seja bem-vindo. Você está aqui para afogar suas tristezas, como o resto de nós?",
+        "replies": [
+            {
+                "text": "Na verdade não. O que há para fazer por aqui?",
+                "nextPhraseID": "prim_tavern_guest1_3"
+            },
+            {
+                "text": "Sim, dá-me um pouco do que você tiver.",
+                "nextPhraseID": "prim_tavern_guest1_4"
+            },
+            {
+                "text": "Pare de topar comigo enquanto eu estou tento andar.",
+                "nextPhraseID": "prim_tavern_guest1_2"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1_2",
+        "message": "Oh meu, um mal-humorado. Muito bem, vou sair do seu caminho."
+    },
+    {
+        "id": "prim_tavern_guest1_3",
+        "message": "Beber, é claro!",
+        "replies": [
+            {
+                "text": "Eu deveria ter percebido que isso viria. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest1_4",
+        "message": "Ei, isso é meu. Compre o seu próprio hidromel de Birgil lá.",
+        "replies": [
+            {
+                "text": "Claro, qualquer coisa.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Certo.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest2",
+        "message": "*hic* Ei garoto aiii. Você vai comprar um veterano como eu com uma nova rodada de hidromel?",
+        "replies": [
+            {
+                "text": "Caramba, o que aconteceu com você? Fique longe de mim.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "De jeito algum, e pare de bloquear meu caminho.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Claro. Aqui está.",
+                "nextPhraseID": "prim_tavern_guest2_1",
+                "requires": {
+                    "item": {
+                        "itemID": "mead",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest2_1",
+        "message": "Hey hey, Muito obrigado, garoto! *Hic*"
+    },
+    {
+        "id": "prim_tavern_guest3",
+        "message": "*grunhido*"
+    },
+    {
+        "id": "prim_tavern_guest4",
+        "message": "Garras. Coceira.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest4_1"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest4_1",
+        "message": "Tem um porão de pobres Kirg que eles fizeram.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest4_2"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest4_2",
+        "message": "Esses animais malditos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_tavern_guest4_3"
+            }
+        ]
+    },
+    {
+        "id": "prim_tavern_guest4_3",
+        "message": "E é tudo culpa minha. *Gulp*"
+    }
+]

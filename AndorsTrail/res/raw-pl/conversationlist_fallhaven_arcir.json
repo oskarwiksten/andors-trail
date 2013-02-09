@@ -1,0 +1,153 @@
+[
+    {
+        "id": "arcir_start",
+        "message": "Witaj. Jestem Arcir.",
+        "replies": [
+            {
+                "text": "Zauważyem że masz posążek Elythara na dole.",
+                "nextPhraseID": "arcir_elythara_1",
+                "requires": {
+                    "progress": "arcir:10"
+                }
+            },
+            {
+                "text": "Chyba lubisz swoje książki.",
+                "nextPhraseID": "arcir_books_1"
+            }
+        ]
+    },
+    {
+        "id": "arcir_anythingelse",
+        "message": "Coś jeszcze, o co chciałeś zapytać?",
+        "replies": [
+            {
+                "text": "Zauważyem że masz posążek Elythara na dole.",
+                "nextPhraseID": "arcir_elythara_1",
+                "requires": {
+                    "progress": "arcir:10"
+                }
+            },
+            {
+                "text": "Chyba lubisz swoje książki.",
+                "nextPhraseID": "arcir_books_1"
+            }
+        ]
+    },
+    {
+        "id": "arcir_elythara_1",
+        "message": "O znalazłeś ten posąg Elythary?\n\nTak, Elythatra jest moją opoką.",
+        "replies": [
+            {
+                "text": "Okej.",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_books_1",
+        "message": "Przyjemnie się je czyta. Zawierają więdze poprzednich pokoleń.",
+        "replies": [
+            {
+                "text": "Masz może książkę 'Sekrety Calomyrana'?",
+                "nextPhraseID": "arcir_calomyran_select",
+                "requires": {
+                    "progress": "calomyran:10"
+                }
+            },
+            {
+                "text": "Okay.",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_1",
+        "message": "'Sekrety Calomyrana'? Hm, tak chyba mam ją gdzieś w piwnicy.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_2"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_2",
+        "message": "Staruszek Benradas był tu w tamtym tygodniu, chciał mi ją sprzedać. To nie jest książka w moim stylu, więc odmówiłem.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_3"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_3",
+        "message": "Wydawał się zdenerwowany, że nie chciałem kupić jego książki więc wyszedł jak burza i rzucił nią we mnie.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_4"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_4",
+        "message": "Biedny staruszek Benradas, najprawdopodobniej zapomniał, że ją tu zostawił. Ma skłonności do zapominania.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_5",
+        "message": "Byłeś na dole, ale jej nie znalazłeś? tylko notatka? Chyba musi być ich więcej w moim domu.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_6"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_select",
+        "replies": [
+            {
+                "nextPhraseID": "arcir_calomyran_complete",
+                "requires": {
+                    "progress": "calomyran:100"
+                }
+            },
+            {
+                "nextPhraseID": "arcir_calomyran_5",
+                "requires": {
+                    "progress": "calomyran:20"
+                }
+            },
+            {
+                "nextPhraseID": "arcir_calomyran_1"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_complete",
+        "message": "Słyszałem, że ją znalazłeś i oddałeś Benradasowi. Dzięki. Ma skłonności do zapominania.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_6",
+        "message": "Co pisze na tej notatce?\n\nLarcal.. Znam go. Zawsze stwarza problemy. Zazwyczaj jest w stodole na wschód stąd.",
+        "replies": [
+            {
+                "text": "Dzięki, Żegnaj",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

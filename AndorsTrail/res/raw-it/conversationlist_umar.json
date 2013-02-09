@@ -1,0 +1,346 @@
+[
+    {
+        "id": "umar_select_1",
+        "replies": [
+            {
+                "nextPhraseID": "umar_return_1",
+                "requires": {
+                    "progress": "andor:51"
+                }
+            },
+            {
+                "nextPhraseID": "umar_novisit_1"
+            }
+        ]
+    },
+    {
+        "id": "umar_return_1",
+        "message": "Ben tornato amico mio.",
+        "replies": [
+            {
+                "text": "Ciao.",
+                "nextPhraseID": "umar_return_2"
+            },
+            {
+                "text": "E' stato un piacere conoscerti. Addio.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "umar_return_2",
+        "message": "C'è nient'altro che possa fare per te?",
+        "replies": [
+            {
+                "text": "Puoi ripetere quello che mi hai detto su Andor? ",
+                "nextPhraseID": "umar_5"
+            },
+            {
+                "text": "E' stato un piacere conoscerti. Addio.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "umar_novisit_1",
+        "message": "Ciao, come va la tua ricerca?",
+        "replies": [
+            {
+                "text": "Quale ricerca?",
+                "nextPhraseID": "umar_2"
+            }
+        ]
+    },
+    {
+        "id": "umar_2",
+        "message": "L'ultima volta che abbiamo parlato mi hai chiesto del nascondiglio di Lodar. L'hai trovato?",
+        "replies": [
+            {
+                "text": "Non ci siamo mai incontrati.",
+                "nextPhraseID": "umar_3"
+            },
+            {
+                "text": "Devi avermi confuso con mio fratello Andor, ci assomigliamo molto.",
+                "nextPhraseID": "umar_4"
+            }
+        ]
+    },
+    {
+        "id": "umar_3",
+        "message": "Oh, devo averti confuso con qualcun altro.",
+        "replies": [
+            {
+                "text": "Mio fratello Andor, ci assomigliamo molto.",
+                "nextPhraseID": "umar_4"
+            }
+        ]
+    },
+    {
+        "id": "umar_4",
+        "message": "Davvero? Non importa, fai pure come se non avessi parlato.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 51
+            }
+        ],
+        "replies": [
+            {
+                "text": "Questo mi fa pensare che Andor è stato qui. Che cosa stava facendo?",
+                "nextPhraseID": "umar_5"
+            }
+        ]
+    },
+    {
+        "id": "umar_5",
+        "message": "E' venuto qui qualche tempo fa, facendo un sacco di domande su ciò che riguarda la gilda dei ladri, l'Ombra e la guardia reale di Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_6"
+            }
+        ]
+    },
+    {
+        "id": "umar_6",
+        "message": "Noi della gilda dei ladri non ci interessiamo per nulla all'Ombra, nè tanto meno ci preoccupiamo della guardia reale.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_7"
+            }
+        ]
+    },
+    {
+        "id": "umar_7",
+        "message": "Cerchiamo di stare al di sopra dei loro battibecchi e delle loro differenze. Possono combattere quanto vogliono, ma la gilda dei ladri sopravviverà ad entrambe le fazioni.",
+        "replies": [
+            {
+                "text": "Quali battibecchi?",
+                "nextPhraseID": "umar_conflict_1"
+            },
+            {
+                "text": "Dimmi di più su ciò che ti ha chiesto Andor.",
+                "nextPhraseID": "umar_andor_1"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_1",
+        "message": "Dove sei stato nell'ultimo paio d'anni? Non sai nulla del conflitto sulla pozione d'ossa?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_conflict_2"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_2",
+        "message": "La guardia reale, guidata da Lord Geomyr di Feygard, sta cercando di combattere il recente aumento di attività illegali e quindi impone delle restrizioni maggiori su ciò che è permesso e ciò che non lo è.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_conflict_3"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_3",
+        "message": "I sacerdoti dell'Ombra, per lo più situati a Nor City, si oppongono alle nuove restrizioni, dicendo che limitano le strade che portano all'Ombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_conflict_4"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_4",
+        "message": "Gira voce che i sacerdoti dell'Ombra stiano progettando di rovesciare Lord Geomyr e le sue forze.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_conflict_5"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_5",
+        "message": "Si dice anche che i sacerdoti dell'Ombra stiano ancora facendo i loro rituali, nonostante il divieto imposto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_conflict_6"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_6",
+        "message": "Lord Geomyr e la sua guardia reale, dall'altro, stanno ancora facendo del loro meglio per governare nel modo che ritengono più giusto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_conflict_7"
+            }
+        ]
+    },
+    {
+        "id": "umar_conflict_7",
+        "message": "Noi della gilda dei ladri cerchiamo di non farci coinvolgere da tutto questo. I nostri affari finora non ne hanno risentito.",
+        "replies": [
+            {
+                "text": "Grazie per avermi informato.",
+                "nextPhraseID": "umar_return_2"
+            },
+            {
+                "text": "Qualunque cosa sia, non mi riguarda.",
+                "nextPhraseID": "umar_return_2"
+            }
+        ]
+    },
+    {
+        "id": "umar_andor_1",
+        "message": "Ha domandato il mio aiuto e mi ha chiesto come trovare Lodar.",
+        "replies": [
+            {
+                "text": "Chi è Lodar?",
+                "nextPhraseID": "umar_andor_2"
+            }
+        ]
+    },
+    {
+        "id": "umar_andor_2",
+        "message": "Lodar? E' uno dei nostri preparatori di pozioni. Può preparare ogni sorta di potenti sonniferi, pozioni di guarigione e cure.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_andor_3"
+            }
+        ]
+    },
+    {
+        "id": "umar_andor_3",
+        "message": "Ma la sua specialità sono i veleni. Il suo veleno può uccidere anche il più grande dei mostri.",
+        "replies": [
+            {
+                "text": "E cosa voleva andor da lui ?",
+                "nextPhraseID": "umar_andor_4"
+            }
+        ]
+    },
+    {
+        "id": "umar_andor_4",
+        "message": "Io non lo so. Forse era in cerca di qualche pozione.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 55
+            }
+        ],
+        "replies": [
+            {
+                "text": "Quindi, dove posso trovare questo Lodar?",
+                "nextPhraseID": "umar_lodar_1"
+            }
+        ]
+    },
+    {
+        "id": "umar_lodar_1",
+        "message": "Non dovrei dirtelo. Come arrivare a lui è uno dei segreti della gilda. Il suo rifugio è raggiungibile solo dai nostri membri.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_lodar_2"
+            }
+        ]
+    },
+    {
+        "id": "umar_lodar_2",
+        "message": "Tuttavia, ho sentito che ci hai aiutati a trovare la chiave di Luthor. L'abbiamo cercata per molto tempo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_lodar_3"
+            }
+        ]
+    },
+    {
+        "id": "umar_lodar_3",
+        "message": "Ok, ti dirò come arrivare al nascondiglio di Lodar. Ma devi promettere di mantenere il segreto. Non dirlo a nessuno. Neppure a quelli che sembrano essere membri della gilda.",
+        "replies": [
+            {
+                "text": "Ok, prometto di mantenere il segreto.",
+                "nextPhraseID": "umar_lodar_4"
+            },
+            {
+                "text": "Non posso darti alcuna garanzia, ma ci proverò.",
+                "nextPhraseID": "umar_lodar_4"
+            }
+        ]
+    },
+    {
+        "id": "umar_lodar_4",
+        "message": "Bene. Non solo hai bisogno di trovare il luogo in sé, ma devi anche pronunciare le parole giuste per essere ammesso dal guardiano.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_lodar_5"
+            }
+        ]
+    },
+    {
+        "id": "umar_lodar_5",
+        "message": "L'unico che capisce la lingua del custode è il vecchio Ogam a Vilegard.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "lodar",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_lodar_6"
+            }
+        ]
+    },
+    {
+        "id": "umar_lodar_6",
+        "message": "Dovresti andare alla città di Vilegard per trovare Ogam. Lui può aiutati ad ottenere la parola d'ordine per entrare nel nascondiglio di Lodar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "lodar",
+                "value": 15
+            }
+        ],
+        "replies": [
+            {
+                "text": "Come arrivo a Vilegard?",
+                "nextPhraseID": "umar_vilegard_1"
+            },
+            {
+                "text": "Grazie, volevo chiederti un'altra cosa.",
+                "nextPhraseID": "umar_return_2"
+            },
+            {
+                "text": "Grazie mille, ciao.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "umar_vilegard_1",
+        "message": "Recati a sud-est di Fallhaven. Quando raggiungi la strada principale e la taverna fiasco schiumoso vai a sud. Non è molto lontano a sud-est di qui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "umar_return_2"
+            }
+        ]
+    }
+]

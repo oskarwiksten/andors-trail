@@ -1,0 +1,161 @@
+[
+    {
+        "id": "odair1",
+        "message": "Oh, du bist es. Du und dein Bruder, immer für etwas Ärger gut.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair_select"
+            }
+        ]
+    },
+    {
+        "id": "odair_select",
+        "replies": [
+            {
+                "nextPhraseID": "odair_complete2",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "odair_continue",
+                "requires": {
+                    "progress": "odair:10"
+                }
+            },
+            {
+                "nextPhraseID": "odair2"
+            }
+        ]
+    },
+    {
+        "id": "odair2",
+        "message": "Hmm, vielleicht könntest du mir nützlich sein. Meinst du, dass du eine kleine Aufgabe für mich erledigen kannst?",
+        "replies": [
+            {
+                "text": "Erzähle mir mehr über die Aufgabe.",
+                "nextPhraseID": "odair3"
+            },
+            {
+                "text": "Sicher, wenn dabei etwas für mich herausspringt.",
+                "nextPhraseID": "odair3"
+            }
+        ]
+    },
+    {
+        "id": "odair3",
+        "message": "Ich war kürzlich in der Höhle dort *er deutet nach Westen*, um unsere Vorräte zu prüfen. Aber offensichtlich wurde die Höhle von Ratten heimgesucht.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair4"
+            }
+        ]
+    },
+    {
+        "id": "odair4",
+        "message": "Inbesonders ist mir eine Ratte aufgefallen, die größer als alle anderen war. Denkst du, dass du das Zeug dazu hast, die Ratten zu entfernen?",
+        "replies": [
+            {
+                "text": "Sicher helfe ich, damit Crossglen die Vorratshöhle wieder benutzen kann.",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Sicher helfe ich, aber nur, weil dabei etwas für mich herausspringen könnte.",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Nein danke.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair5",
+        "message": "Du musst in diese Höhle und die große Ratte töten. Damit sollten wir die Rattenplage in der Höhle stoppen können. Dann endlich können wir unsere Vorratshöhle wieder benutzen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Okay.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Wenn ich so darüber nachdenke, denke ich, dass ich dir doch nicht helfen kann.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_cowards",
+        "message": "Ich habe mich nicht getäuscht. Du und dein Bruder wart schon immer Feiglinge.",
+        "replies": [
+            {
+                "text": "Tschüss.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_continue",
+        "message": "Hast du die große Ratte in der Höhle westlich von hier schon getötet?",
+        "replies": [
+            {
+                "text": "Ja, ich habe die große Ratte getötet.",
+                "nextPhraseID": "odair_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_caverat",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Was sollte ich nochmal tun?",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Nein, noch nicht.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete",
+        "message": "Vielen Dank für deine Hilfe, Junge! Vielleicht bis du und dein Bruder doch nicht so feige wie ich dachte. Hier, nimm diese Münzen als Belohnung.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Danke",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete2",
+        "message": "Nochmals vielen Dank für deine Hilfe. Nun können wir die Höhle endlich wieder als Vorratsraum verwenden.",
+        "replies": [
+            {
+                "text": "Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

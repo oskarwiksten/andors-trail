@@ -1,0 +1,265 @@
+[
+    {
+        "id": "chapelgoer",
+        "message": "Тень, обними меня."
+    },
+    {
+        "id": "thoronir_default",
+        "message": "Грейся в Тени, сын мой.",
+        "replies": [
+            {
+                "text": "Тень",
+                "nextPhraseID": "thoronir_shadow_1"
+            },
+            {
+                "text": "Церковь",
+                "nextPhraseID": "thoronir_church_1"
+            },
+            {
+                "text": "Торговать",
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_shadow_1",
+        "message": "Тень оберегает нас от опасностей ночи. Она бережет наш покой, пока мы спим.",
+        "replies": [
+            {
+                "text": "Сияние Тени",
+                "nextPhraseID": "thoronir_tharal_select",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "text": "Назад",
+                "nextPhraseID": "thoronir_default"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_1",
+        "message": "Это наша часовня богослужения в Фоллхейвене. Все общины обращаются к нам за поддержкой.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_2",
+        "message": "Эта церковь стоит уже сотни лет, и была сохранена в безопасности от расхитителей могил.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_select",
+        "replies": [
+            {
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            },
+            {
+                "nextPhraseID": "thoronir_tharal_1"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_1",
+        "message": "Сияние Тени с нами, сын мой. Это мой старый друг Фарал из Кроссглена тебя послал?",
+        "replies": [
+            {
+                "text": "Далее",
+                "nextPhraseID": "thoronir_tharal_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_3",
+        "message": "Катакомбы под церковью это последнее пристанище великих лидеров прошлого. Наш великий Лютор, по слухам, тоже там похоронен.",
+        "replies": [
+            {
+                "text": "Войти",
+                "nextPhraseID": "thoronir_church_4",
+                "requires": {
+                    "progress": "bucus:10"
+                }
+            },
+            {
+                "text": "Назад",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_4",
+        "message": "Никому не дозволено входить в катакомбы, за исключением Афамира, моего ученика. Он единственный, кто был там за последние годы.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Назад",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_2",
+        "message": "Шшшшш, мы не должны говорить громко о Костной муке. Как ты знаешь, Лорд Геомир наложил запрет на ее использование.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_3",
+        "message": "Когда запрет пришел, я не посмел сохранить ни чего, так что я выбросил все. Довольно глупый поступок, когда я оглядываюсь на него.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_4"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_4",
+        "message": "Как думаешь, смог бы ты найти мне 5 костей скелета, которые я смогу использовать для смешивания зелья из Костной муки? Костная мука является очень мощным средством в исцелении старых ран.",
+        "replies": [
+            {
+                "text": "Конечно",
+                "nextPhraseID": "thoronir_tharal_5"
+            },
+            {
+                "text": "Готово!",
+                "nextPhraseID": "thoronir_tharal_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bone",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_5",
+        "message": "Спасибо тебе, возвращайся скорее. Я слышал, что некоторая нежить водится возле старого заброшенного дома, к северу от Фоллхейвена. Может быть, ты сможешь найти кости там?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Назад",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_complete",
+        "message": "Спасибо тебе, эти кости великолепны. Теперь я могу приступить к изготовлению зелья для тебя.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_complete_2",
+        "message": "Дай мне некоторое время на приготовление. Это очень мощное лечебное зелье."
+    },
+    {
+        "id": "thoronir_trade_bonemeal",
+        "message": "Зелье из Костной муки готово. Пожалуйста, используйте его с осторожностью, и не позволяйте охранникам заметить вас. Нам, на самом деле, не разрешено использовать его.",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Назад",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard",
+        "message": "Возвратись, пока еще можешь, смертный. Это не место для тебя. Здесь тебя ждет только смерть.",
+        "replies": [
+            {
+                "text": "Уйти",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Продолжить",
+                "nextPhraseID": "catacombguard1"
+            },
+            {
+                "text": " С Тенью, ты не остановишь меня.",
+                "nextPhraseID": "catacombguard1"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard1",
+        "message": "Нееет, ты не сможешь пройти!",
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "luthor",
+        "message": "*хисссс* Что за смертный осмелился потревожить мой сон?",
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Наконец, достойный бой! Я ждал этого.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Что ж, давай покончим с этим.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

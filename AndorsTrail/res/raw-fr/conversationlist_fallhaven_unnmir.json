@@ -1,0 +1,174 @@
+[
+    {
+        "id": "unnmir",
+        "replies": [
+            {
+                "nextPhraseID": "unnmir_r",
+                "requires": {
+                    "progress": "nocmar:10"
+                }
+            },
+            {
+                "nextPhraseID": "unnmir_0"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_r",
+        "message": "Hello again. You should go talk to Nocmar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_13"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_0",
+        "message": "Bonjour.",
+        "replies": [
+            {
+                "text": "J'ai croisé un ivrogne devant la taverne qui m'a raconté une histoire à propos de vous deux.",
+                "nextPhraseID": "unnmir_1",
+                "requires": {
+                    "progress": "fallhavendrunk:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "unnmir_1",
+        "message": "Ce vieux radoteur de la taverne t'a raconté notre histoire ?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_2"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_2",
+        "message": "C'est toujours la même vieille histoire. Nous voyagions ensemble il y a de cela quelques années.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_3"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_3",
+        "message": "La grande aventure, tu vois, avec les épées et les sorts.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_4"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_4",
+        "message": "Et puis nous nous sommes arrêtés. Je ne sais pas très bien pour quelle raison, je suppose que nous étions fatigués de cette vie errante. Nous nous sommes installés ici à Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_5"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_5",
+        "message": "C'est une jolie petite ville. Il y a bien tous ces voleurs, mais ils ne m'embêtent pas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_6"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_6",
+        "message": "Alors quelle est ton histoire, gamin ? Comment es-tu arrivé ici à Fallhaven ?",
+        "replies": [
+            {
+                "text": "Je suis à la recherche de mon frère.",
+                "nextPhraseID": "unnmir_7"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_7",
+        "message": "Ah, oui, je comprends. Ton frère est probablement parti en quête de quelque donjon, à l'aventure. *roule des yeux*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_8"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_8",
+        "message": "Ou alors il est parti dans l'une des grandes villes au Nord.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_9"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_9",
+        "message": "Je ne peux guère le blâmer d'avoir envie de voir du pays.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_10"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_10",
+        "message": "Au fait, est-ce que toi non plus tu n'aurais pas envie de devenir aventurier ?",
+        "replies": [
+            {
+                "text": "Si",
+                "nextPhraseID": "unnmir_11"
+            },
+            {
+                "text": "Non, pas vraiment.",
+                "nextPhraseID": "unnmir_12"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_11",
+        "message": "C'est bien. Je vais te donner un conseil, gamin. *ricane*. Vas voir Nocmar à l'Ouest de la ville. Dis-lui que je t'ai envoyé.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nocmar",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unnmir_13"
+            }
+        ]
+    },
+    {
+        "id": "unnmir_12",
+        "message": "Sage décision. L'aventure est cause de bien des cicatrices. Si tu vois ce que je veux dire."
+    },
+    {
+        "id": "unnmir_13",
+        "message": "Sa maison est juste au Sud-Ouest de la taverne.",
+        "replies": [
+            {
+                "text": "Merci, je vais aller le voir.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

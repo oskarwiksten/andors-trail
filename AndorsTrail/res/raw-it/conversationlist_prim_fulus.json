@@ -1,0 +1,296 @@
+[
+    {
+        "id": "bjorgur_bandit",
+        "message": "Hey tu! Non dovresti essere qui, questo pugnale è mio, vattene!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, me ne vado.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Hei, quel pugnale è veramente bello.",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "sign_bwm35",
+        "replies": [
+            {
+                "nextPhraseID": "sign_bwm35_1",
+                "requires": {
+                    "progress": "bjorgur_grave:40"
+                }
+            },
+            {
+                "nextPhraseID": "sign_bwm35_2"
+            }
+        ]
+    },
+    {
+        "id": "sign_bwm35_1",
+        "message": "Si vedono i resti di un equipaggiamento arrugginito e del cuoio marcio."
+    },
+    {
+        "id": "sign_bwm35_2",
+        "message": "Si vedono i resti di un equipaggiamento arrugginito e del cuoio marcio. Qualcosa sembra essere stato recentemente rimosso da qui dato che da una parte manca completamente la polvere.\n\nLa mancanza di polvere ha generato l'esatta forma di un pugnale. Ci deve essere stato un pugnale qui prima che qualcuno lo togliesse.",
+        "replies": [
+            {
+                "text": "Rimetti il pugnale nel suo posto originale.",
+                "nextPhraseID": "sign_bwm35_3",
+                "requires": {
+                    "item": {
+                        "itemID": "bjorgur_dagger",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "sign_bwm35_3",
+        "message": "Rimetti il pugnale tra l'equipaggiamento, dove sembrava essere prima.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 40
+            }
+        ]
+    },
+    {
+        "id": "fulus_start",
+        "replies": [
+            {
+                "nextPhraseID": "fulus_return_1",
+                "requires": {
+                    "progress": "bjorgur_grave:60"
+                }
+            },
+            {
+                "nextPhraseID": "fulus_return_3",
+                "requires": {
+                    "progress": "bjorgur_grave:51"
+                }
+            },
+            {
+                "nextPhraseID": "fulus_return_2",
+                "requires": {
+                    "progress": "bjorgur_grave:20"
+                }
+            },
+            {
+                "nextPhraseID": "fulus_1"
+            }
+        ]
+    },
+    {
+        "id": "fulus_return_1",
+        "message": "Ciao, grazie ancora per avermi fatto ottenere quel pugnale prima."
+    },
+    {
+        "id": "fulus_return_2",
+        "message": "Ciao, sei riuscito a recuperare il pugnale dalla tomba della famiglia di Bjorgur?",
+        "replies": [
+            {
+                "text": "No, non ancora.",
+                "nextPhraseID": "fulus_9"
+            },
+            {
+                "text": "Ho deciso di aiutare Bjorgur.",
+                "nextPhraseID": "fulus_return_3",
+                "requires": {
+                    "progress": "bjorgur_grave:40"
+                }
+            },
+            {
+                "text": "Cosa dovrei fare di nuovo?",
+                "nextPhraseID": "fulus_3"
+            },
+            {
+                "text": "Si, ce l'ho.",
+                "nextPhraseID": "fulus_complete_1",
+                "requires": {
+                    "item": {
+                        "itemID": "bjorgur_dagger",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "fulus_return_3",
+        "message": "Cosa?! Sigh. Stupido ragazzino, quel pugnale vale una fortuna, saremmo potuti diventare ricchi ti dico!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 51
+            }
+        ]
+    },
+    {
+        "id": "fulus_1",
+        "message": "Ciao, sembri proprio il tipo giusto per me.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fulus_2"
+            }
+        ]
+    },
+    {
+        "id": "fulus_complete_1",
+        "message": "Oh wow, sei già riuscito a prendere il pugnale? Grazie ragazzo, vale molto, prendi queste monete come ricompensa!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 60
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "fulus_reward"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fulus_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "fulus_complete_2",
+        "message": "Grazie ancora. Ora, vediamo...a quanto riusciamo a vendere questo pugnale..."
+    },
+    {
+        "id": "fulus_2",
+        "message": "Saresti interessato a una proposta di lavoro?",
+        "replies": [
+            {
+                "text": "Certo, quale proposta?",
+                "nextPhraseID": "fulus_3"
+            },
+            {
+                "text": "Se mi porta qualche guadagno, certo che mi interessa.",
+                "nextPhraseID": "fulus_3"
+            },
+            {
+                "text": "Non credo che tu possa avere qualcosa di buono da offrirmi, comunque sentiamo...",
+                "nextPhraseID": "fulus_3"
+            }
+        ]
+    },
+    {
+        "id": "fulus_3",
+        "message": "Qualche tempo fa, ho sentito di un certo pugnale che una famiglia era solita possedere qui a Prim.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fulus_4"
+            }
+        ]
+    },
+    {
+        "id": "fulus_9",
+        "message": "Ora sbrigati. Ho bisogno di quel pugnale al più presto."
+    },
+    {
+        "id": "fulus_4",
+        "message": "Questo pugnale è estremamente importante per me, per motivi personali.",
+        "replies": [
+            {
+                "text": "Non mi piace questa storia, non voglio essere coinvolto nei tuoi loschi affari.",
+                "nextPhraseID": "fulus_5"
+            },
+            {
+                "text": "Mi piace quello che sto sentendo, continua.",
+                "nextPhraseID": "fulus_6"
+            },
+            {
+                "text": "Raccontami dell'altro.",
+                "nextPhraseID": "fulus_6"
+            },
+            {
+                "text": "I have already helped Bjorgur return the dagger to its original place.",
+                "nextPhraseID": "fulus_return_3",
+                "requires": {
+                    "progress": "bjorgur_grave:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fulus_5",
+        "message": "Bene. Fai come ti pare, Signor Perfettino."
+    },
+    {
+        "id": "fulus_6",
+        "message": "La famiglia in questione è la famiglia di Bjorgur.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fulus_7"
+            }
+        ]
+    },
+    {
+        "id": "fulus_7",
+        "message": "Ora, ho saputo che questo pugnale si trova nella loro tomba di famiglia, che è già stata aperta da altri...poco tempo fa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fulus_8"
+            }
+        ]
+    },
+    {
+        "id": "fulus_8",
+        "message": "Quello che chiedo è semplice, devi trovare il pugnale e portarmelo, e io ti ricompenserò.",
+        "replies": [
+            {
+                "text": "Sembra abbastanza facile, ok, lo farò.",
+                "nextPhraseID": "fulus_10"
+            },
+            {
+                "text": "No, ho di meglio da fare che rimanere coinvolto nei tuoi loschi tramacci.",
+                "nextPhraseID": "fulus_5"
+            },
+            {
+                "text": "I have already helped Bjorgur return the dagger to its original place.",
+                "nextPhraseID": "fulus_return_3",
+                "requires": {
+                    "progress": "bjorgur_grave:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fulus_10",
+        "message": "Bene, ritorna da me con il pugnale. Forse potresti anche parlare con Bjorgur per farti dare indicazioni su come raggiungere la tomba. La sua casa è proprio qui fuori a Prim. Solo ricorda di non dirgli nulla del nostro piano!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bjorgur_grave",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fulus_9"
+            }
+        ]
+    }
+]

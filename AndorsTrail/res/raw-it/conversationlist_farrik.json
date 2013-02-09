@@ -1,0 +1,401 @@
+[
+    {
+        "id": "farrik_1",
+        "message": "Ciao. Ho sentito che ci hai aiutati a trovare la chiave di Luthor. Ottimo lavoro, è stato veramente utile.",
+        "replies": [
+            {
+                "text": "Chi sei tu?",
+                "nextPhraseID": "farrik_2"
+            },
+            {
+                "text": "Cosa mi puoi dire della gilda dei ladri?",
+                "nextPhraseID": "farrik_4"
+            }
+        ]
+    },
+    {
+        "id": "farrik_2",
+        "message": "Sono Farrik, il fratello di Umar.",
+        "replies": [
+            {
+                "text": "Cosa ci fai qua in giro?",
+                "nextPhraseID": "farrik_3"
+            },
+            {
+                "text": "Cosa mi puoi dire della gilda dei ladri?",
+                "nextPhraseID": "farrik_4"
+            }
+        ]
+    },
+    {
+        "id": "farrik_3",
+        "message": "Principalmente mi occupo degli scambi con altre gilde e tengo in ordine quello che serve ai ladri per essere cosi efficienti.",
+        "replies": [
+            {
+                "text": "Cosa mi puoi dire della gilda dei ladri?",
+                "nextPhraseID": "farrik_4"
+            }
+        ]
+    },
+    {
+        "id": "farrik_4",
+        "message": "Cerchiamo di stare per conto nostro il più possibile e aiutiamo gli altri compagni ladri più che possiamo.",
+        "replies": [
+            {
+                "text": "E' successo qualcosa recentemente?",
+                "nextPhraseID": "farrik_5"
+            }
+        ]
+    },
+    {
+        "id": "farrik_5",
+        "message": "A dire il vero c'è stato qualcosa poche settimane fa. Uno dei membri della gilda è stato arrestato per violazione della proprietà.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_6"
+            }
+        ]
+    },
+    {
+        "id": "farrik_6",
+        "message": "La guardia di pattuglia di Fallhaven ha iniziato ad essere veramente arrabbiata con noi ultimamente. Probabilmente perché siamo stati molto efficaci nelle nostre ultime missioni.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_7"
+            }
+        ]
+    },
+    {
+        "id": "farrik_7",
+        "message": "La guardia di pattuglia quindi ha incrementato la sicurezza ultimamente arrivando ad arrestare uno dei nostri membri.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_8"
+            }
+        ]
+    },
+    {
+        "id": "farrik_8",
+        "message": "E' attualmente rinchiuso nella prigione qui a Fallhaven, in attesa del trasferimento a Feygard.",
+        "replies": [
+            {
+                "text": "Che cosa ha fatto?",
+                "nextPhraseID": "farrik_9"
+            }
+        ]
+    },
+    {
+        "id": "farrik_9",
+        "message": "Oh, niente di grave. Stava cercando di entrare nelle catacombe al di sotto della chiesa di Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_10"
+            }
+        ]
+    },
+    {
+        "id": "farrik_10",
+        "message": "Ma ora che ci hai aiutato con questa missione, suppongo che non avremo più la necessità di andare là sotto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_11"
+            }
+        ]
+    },
+    {
+        "id": "farrik_11",
+        "message": "Penso di potermi fidare di te su questo segreto. Stiamo organizzando una missione stanotte per farlo evadere dalla prigione.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "farrik",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Quelle guardie sembrano veramente irritanti.",
+                "nextPhraseID": "farrik_13"
+            },
+            {
+                "text": "Dopo tutto, se lui non aveva il permesso di scendere là sotto, le guardie erano nel giusto ad arrestarlo.",
+                "nextPhraseID": "farrik_12"
+            }
+        ]
+    },
+    {
+        "id": "farrik_12",
+        "message": "Certo, lo immagino. Ma per l'interesse della gilda, noi vorremmo avere un nostro amico libero piuttosto che imprigionato.",
+        "replies": [
+            {
+                "text": "Forse potrei raccontare alle guardie che state organizzando l'evasione?",
+                "nextPhraseID": "farrik_15"
+            },
+            {
+                "text": "Non preoccuparti, il tuo segreto per la sua liberazione è al sicuro.",
+                "nextPhraseID": "farrik_14"
+            },
+            {
+                "text": "[Bugia] Non preoccuparti, il tuo segreto per la sua liberazione è al sicuro.",
+                "nextPhraseID": "farrik_14"
+            }
+        ]
+    },
+    {
+        "id": "farrik_13",
+        "message": "Oh si, lo sono. Alla gente di solito non piacciono, non solo a noi della gilda.",
+        "replies": [
+            {
+                "text": "C'è qualcosa che posso fare per aiutarti con le guardie?",
+                "nextPhraseID": "farrik_16"
+            }
+        ]
+    },
+    {
+        "id": "farrik_14",
+        "message": "Grazie. Adesso per favore lasciami da solo."
+    },
+    {
+        "id": "farrik_15",
+        "message": "Fai come vuoi, non ti crederebbero comunque.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "farrik",
+                "value": 30
+            }
+        ]
+    },
+    {
+        "id": "farrik_16",
+        "message": "Sei sicuro di voler importunare le guardie? Se arriva loro la voce che sei coinvolto, potresti passare un sacco di guai.",
+        "replies": [
+            {
+                "text": "Nessun problema, so badare a me stesso!",
+                "nextPhraseID": "farrik_18"
+            },
+            {
+                "text": "Potrebbe esserci una ricompensa per questo in futuro. Ci sto.",
+                "nextPhraseID": "farrik_18"
+            },
+            {
+                "text": "Mah, ripensandoci, forse dovrei rimanere fuori da questa faccenda.",
+                "nextPhraseID": "farrik_17"
+            }
+        ]
+    },
+    {
+        "id": "farrik_17",
+        "message": "Certo, sta a te decidere.",
+        "replies": [
+            {
+                "text": "Buona fortuna con la vostra missione.",
+                "nextPhraseID": "farrik_14"
+            },
+            {
+                "text": "Forse potrei raccontare alle guardie che state organizzando l'evasione?",
+                "nextPhraseID": "farrik_15"
+            }
+        ]
+    },
+    {
+        "id": "farrik_18",
+        "message": "Bene.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_19"
+            }
+        ]
+    },
+    {
+        "id": "farrik_19",
+        "message": "Ok, questo è il piano. Il capitano delle guardie ha un piccolo problema col bere.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_20"
+            }
+        ]
+    },
+    {
+        "id": "farrik_20",
+        "message": "Se noi riuscissimo a fornirgli un po' dell'idromele che prepariamo, dovremmo essere in grado di far uscire di nascosto il nostro amico di notte, quando il capitano sarà collassato per la sbronza.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_20a"
+            }
+        ]
+    },
+    {
+        "id": "farrik_20a",
+        "message": "Il nostro cuoco ci aiuterà a preparare un'idromele speciale che lo metterà fuori uso per un po'.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_21"
+            }
+        ]
+    },
+    {
+        "id": "farrik_21",
+        "message": "Probabilmente avrà bisogno di un'incoraggiamento a bere durante il servizio. Se questo dovesse fallire, potremmo provare a corromperlo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_22"
+            }
+        ]
+    },
+    {
+        "id": "farrik_22",
+        "message": "Come ti sembra l'idea? Pensi di potercela fare?",
+        "replies": [
+            {
+                "text": "Sicuro, sembra facile!",
+                "nextPhraseID": "farrik_23"
+            },
+            {
+                "text": "Suona un po' pericoloso, penso di poter provare.",
+                "nextPhraseID": "farrik_23"
+            },
+            {
+                "text": "No, mi sembra proprio una pessima idea, siete pazzi.",
+                "nextPhraseID": "farrik_17"
+            }
+        ]
+    },
+    {
+        "id": "farrik_23",
+        "message": "Bene. Riferiscimi quando sarai riuscito a far bere al capitano l'idromele speciale preparato dal nostro cuoco.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "farrik",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Lo farò",
+                "nextPhraseID": "farrik_14"
+            }
+        ]
+    },
+    {
+        "id": "farrik_return_1",
+        "message": "Sono contento di rivederti amico mio. Come procede la tua missione per ubriacare il capitano delle guardie?",
+        "replies": [
+            {
+                "text": "Non l'ho ancora fatto, ma ci sto lavorando.",
+                "nextPhraseID": "farrik_23"
+            },
+            {
+                "text": "[Bugia] E' fatto. Non dovrebbero esserci problemi per tutta la notte.",
+                "nextPhraseID": "farrik_26",
+                "requires": {
+                    "progress": "farrik:50"
+                }
+            },
+            {
+                "text": "E' fatto. Non dovrebbero esserci problemi per tutta la notte.",
+                "nextPhraseID": "farrik_24",
+                "requires": {
+                    "progress": "farrik:60"
+                }
+            }
+        ]
+    },
+    {
+        "id": "farrik_select_1",
+        "replies": [
+            {
+                "nextPhraseID": "farrik_return_2",
+                "requires": {
+                    "progress": "farrik:70"
+                }
+            },
+            {
+                "nextPhraseID": "farrik_return_2",
+                "requires": {
+                    "progress": "farrik:80"
+                }
+            },
+            {
+                "nextPhraseID": "farrik_select_2"
+            }
+        ]
+    },
+    {
+        "id": "farrik_select_2",
+        "replies": [
+            {
+                "nextPhraseID": "farrik_return_1",
+                "requires": {
+                    "progress": "farrik:20"
+                }
+            },
+            {
+                "nextPhraseID": "farrik_1"
+            }
+        ]
+    },
+    {
+        "id": "farrik_24",
+        "message": "Queste sono buone notizie! Ora dovremo essere in grado di far evadere il nostro amico dalla prigione stanotte. ",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "farrik",
+                "value": 70
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "farrik_25"
+            }
+        ]
+    },
+    {
+        "id": "farrik_25",
+        "message": "Grazie molte per il tuo aiuto amico. Prendi queste monete come segno di riconoscimento.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Grazie. Arrivederci.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Finalmente un po' d'oro.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "farrik_return_2",
+        "message": "Grazie per il tuo aiuto con il capitano delle guardie."
+    },
+    {
+        "id": "farrik_26",
+        "message": "Come ci sei riuscito? Ben fatto. Hai tutta la mia riconoscenza, amico.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "farrik",
+                "value": 80
+            }
+        ]
+    }
+]

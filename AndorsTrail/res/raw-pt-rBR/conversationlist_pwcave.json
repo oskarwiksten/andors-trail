@@ -1,0 +1,242 @@
+[
+    {
+        "id": "iqhan_greeter",
+        "message": "Vá embora! Não! Volte, enquanto você ainda pode!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "iqhan_greeter_1"
+            }
+        ]
+    },
+    {
+        "id": "iqhan_greeter_1",
+        "message": "Você não sabe o que eles vão fazer com você!",
+        "replies": [
+            {
+                "text": "Que lugar é esse?",
+                "nextPhraseID": "iqhan_greeter_2"
+            }
+        ]
+    },
+    {
+        "id": "iqhan_greeter_2",
+        "message": "O quê? Não, não, não. Você deve sair daqui!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "iqhan_boss",
+        "message": "*Ofegante*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "iqhan_boss_1"
+            }
+        ]
+    },
+    {
+        "id": "iqhan_boss_1",
+        "message": "(A figura aponta o dedo para você, no que parece ser uma ordem para os escravos proximos atacá-lo.)",
+        "replies": [
+            {
+                "text": "Lute!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "sign_waterway1",
+        "message": "Sul: Loneford\nLeste: Brimhaven.\n(Você também vê algo escrito em uma seta apontando para o oeste, mas você não consegue entender as palavras)"
+    },
+    {
+        "id": "sign_waterway3",
+        "message": "(A placa está escrita em um idioma que você não pode entender)"
+    },
+    {
+        "id": "gauward",
+        "message": "O que .. Ah, um visitante!",
+        "replies": [
+            {
+                "text": "Que lugar é esse?",
+                "nextPhraseID": "gauward_1"
+            },
+            {
+                "text": "Tenho algumas garras Izthiel para vender você.",
+                "nextPhraseID": "gauward_sell_1",
+                "requires": {
+                    "progress": "nondisplay:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gauward_1",
+        "message": "Este lugar costumava ser uma parada segura para os viajantes entre Loneford e Brimhaven, antes de terem atravessado toda a estrada entre as aldeias.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gauward_2"
+            }
+        ]
+    },
+    {
+        "id": "gauward_2",
+        "message": "Mas hoje em dia, quase ninguém vem aqui - por causa dessas criaturas amaldiçoadas do rio.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gauward_3"
+            }
+        ]
+    },
+    {
+        "id": "gauward_3",
+        "message": "Izthiel, eles as chamam.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gauward_4"
+            }
+        ]
+    },
+    {
+        "id": "gauward_4",
+        "message": "Argh, se não fosse por essas coisas lá fora, tenho certeza que um monte de gente ia passar por aqui mais vezes.",
+        "replies": [
+            {
+                "text": "Gostaria que eu mate essas criaturas para você?",
+                "nextPhraseID": "gauward_5"
+            }
+        ]
+    },
+    {
+        "id": "gauward_5",
+        "message": "Ah, claro. Eu tentei isso. Mas elas continuam voltando.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gauward_6"
+            }
+        ]
+    },
+    {
+        "id": "gauward_6",
+        "message": "Quer saber: traga-me as garras deles, e eu vou comprá-los por um bom preço.",
+        "replies": [
+            {
+                "text": "Ok, vou voltar com algumas de suas garras.",
+                "nextPhraseID": "gauward_7"
+            }
+        ]
+    },
+    {
+        "id": "gauward_7",
+        "message": "Bom. Por favor, faça. Eu gosto de saber que seus números sejão reduzidos, pelo menos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nondisplay",
+                "value": 20
+            }
+        ]
+    },
+    {
+        "id": "gauward_sell_1",
+        "message": "Ótimo. Quantas você gostaria de vender?",
+        "replies": [
+            {
+                "text": "Aqui está um.",
+                "nextPhraseID": "gauward_sold_1",
+                "requires": {
+                    "item": {
+                        "itemID": "izthiel_claw",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui estão cinco.",
+                "nextPhraseID": "gauward_sold_5",
+                "requires": {
+                    "item": {
+                        "itemID": "izthiel_claw",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui estão 10.",
+                "nextPhraseID": "gauward_sold_10",
+                "requires": {
+                    "item": {
+                        "itemID": "izthiel_claw",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui estão 20.",
+                "nextPhraseID": "gauward_sold_20",
+                "requires": {
+                    "item": {
+                        "itemID": "izthiel_claw",
+                        "quantity": 20,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não importa. Eu estarei de volta com mais garras Izthiel para vender você.",
+                "nextPhraseID": "gauward_7"
+            }
+        ]
+    },
+    {
+        "id": "gauward_sold_1",
+        "message": "Bom, obrigado. Aqui está um pouco de ouro para seus problemas.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold5"
+            }
+        ]
+    },
+    {
+        "id": "gauward_sold_5",
+        "message": "Excelente, muito obrigado! Aqui está um pouco de ouro para seus problemas.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold25"
+            }
+        ]
+    },
+    {
+        "id": "gauward_sold_10",
+        "message": "Excelente, muito obrigado! Aqui está um pouco de ouro para seus problemas.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold50"
+            }
+        ]
+    },
+    {
+        "id": "gauward_sold_20",
+        "message": "Oh, uau, você conseguiu obter 20 dessas garras? Isso é excelente, muito obrigado! Aqui está um pouco de ouro e algum extra em poções de saúde para seus problemas.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gauward_sold_20"
+            }
+        ]
+    }
+]

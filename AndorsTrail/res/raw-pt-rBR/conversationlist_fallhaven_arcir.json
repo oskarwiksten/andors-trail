@@ -1,0 +1,153 @@
+[
+    {
+        "id": "arcir_start",
+        "message": "Olá. Sou Arcir.",
+        "replies": [
+            {
+                "text": "Notei a estátua de Elythara no porão.",
+                "nextPhraseID": "arcir_elythara_1",
+                "requires": {
+                    "progress": "arcir:10"
+                }
+            },
+            {
+                "text": "Você realmente parece gostar de seus livros.",
+                "nextPhraseID": "arcir_books_1"
+            }
+        ]
+    },
+    {
+        "id": "arcir_anythingelse",
+        "message": "Tem algo mais que você queria perguntar?",
+        "replies": [
+            {
+                "text": "Notei a estátua de Elythara no porão.",
+                "nextPhraseID": "arcir_elythara_1",
+                "requires": {
+                    "progress": "arcir:10"
+                }
+            },
+            {
+                "text": "Você realmente parece gostar de seus livros.",
+                "nextPhraseID": "arcir_books_1"
+            }
+        ]
+    },
+    {
+        "id": "arcir_elythara_1",
+        "message": "Oh, você encontrou minha estátua no porão?\n\nSim, Elythara é minha protetora.",
+        "replies": [
+            {
+                "text": "Certo.",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_books_1",
+        "message": "Acho um grande prazer em meus livros. Eles contêm o conhecimento acumulado de gerações passadas.",
+        "replies": [
+            {
+                "text": "Você tem um livro chamado 'Segredos de Calomyran'?",
+                "nextPhraseID": "arcir_calomyran_select",
+                "requires": {
+                    "progress": "calomyran:10"
+                }
+            },
+            {
+                "text": "Certo.",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_1",
+        "message": "'Segredos de Calomyran'? Hm, sim, eu acho que eu tenho um desses no meu porão.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_2"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_2",
+        "message": "O velho Benradas veio aqui na semana passada, queria vender-me esse livro. Como não é realmente o meu tipo de livro, eu não aceitei.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_3"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_3",
+        "message": "Ele parecia chateado por eu dizer que gostava de seu livro, e jogou-o em mim enquanto saiu atormentado da minha casa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_4"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_4",
+        "message": "Pobre velho Benradas, ele provavelmente se esqueceu de que ele o deixou aqui. Ele tende a esquecer as coisas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_5",
+        "message": "Você olhou no porão, e não o encontrou? Uma nota que você disse? Eu acho que alguém deve ter entrado em minha casa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_calomyran_6"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_select",
+        "replies": [
+            {
+                "nextPhraseID": "arcir_calomyran_complete",
+                "requires": {
+                    "progress": "calomyran:100"
+                }
+            },
+            {
+                "nextPhraseID": "arcir_calomyran_5",
+                "requires": {
+                    "progress": "calomyran:20"
+                }
+            },
+            {
+                "nextPhraseID": "arcir_calomyran_1"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_complete",
+        "message": "Eu ouvi que você encontrou e devolveu-o ao velho Benradas. Obrigado. Ele tende a esquecer as coisas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arcir_anythingelse"
+            }
+        ]
+    },
+    {
+        "id": "arcir_calomyran_6",
+        "message": "O que a nota diz?\n\nLarcal .. Eu sei dele. Sempre causando problemas. Ele é está geralmente no celeiro a leste daqui.",
+        "replies": [
+            {
+                "text": "Obrigado, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

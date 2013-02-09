@@ -1,0 +1,161 @@
+[
+    {
+        "id": "odair1",
+        "message": "Ah, é você. Você é como seu irmão. Sempre causando problemas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair_select"
+            }
+        ]
+    },
+    {
+        "id": "odair_select",
+        "replies": [
+            {
+                "nextPhraseID": "odair_complete2",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "odair_continue",
+                "requires": {
+                    "progress": "odair:10"
+                }
+            },
+            {
+                "nextPhraseID": "odair2"
+            }
+        ]
+    },
+    {
+        "id": "odair2",
+        "message": "Hmm, talvez você possa ser útil para mim. Você acha que você poderia me ajudar com uma pequena tarefa?",
+        "replies": [
+            {
+                "text": "Conte-me mais sobre esta tarefa.",
+                "nextPhraseID": "odair3"
+            },
+            {
+                "text": "Claro, se existe algo que eu possa ganhar com isso.",
+                "nextPhraseID": "odair3"
+            }
+        ]
+    },
+    {
+        "id": "odair3",
+        "message": "Recentemente, eu fui para a caverna lá *apontando para o oeste*, para verificar nossos suprimentos. Mas, aparentemente, a caverna foi infestada por ratazanas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair4"
+            }
+        ]
+    },
+    {
+        "id": "odair4",
+        "message": "Em particular, eu vi uma ratazana que era maior do que as outras. Você acha tem o que é preciso para ajudar a eliminá-los?",
+        "replies": [
+            {
+                "text": "Claro, eu vou ajudá-lo para que Crossglen pode usar a caverna de suprimentos novamente.",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Claro, eu vou ajudá-lo. Mas só porque pode haver algum ganho para mim nesta tarefa.",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Não, obrigado.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair5",
+        "message": "Eu preciso de você para entrar nessa caverna e matar a ratazana gigante. Dessa forma, talvez possamos parar com a infestação de ratos na caverna e começar a usá-la como nossa boa e velha caverna de suprimentos novamente.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Certo.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Pensando bem, eu acho que não vou ajudá-lo apesar de tudo.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_cowards",
+        "message": "Bem que eu achava que você não o faria. Você e seu irmão sempre foram covardes.",
+        "replies": [
+            {
+                "text": "Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_continue",
+        "message": "Você matou aquela ratazana gigante da caverna ao oeste daqui?",
+        "replies": [
+            {
+                "text": "Sim, eu matei a ratazana gigante.",
+                "nextPhraseID": "odair_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_caverat",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Pode repetir o que preciso fazer?",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Não, ainda não.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete",
+        "message": "Muito obrigado pela ajuda garoto! Talvez você e que teu irmão não sejão tão covardes como eu pensava. Aqui, tome estas moedas por sua ajuda.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Obrigado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete2",
+        "message": "Muito obrigado pela sua ajuda anterior. Agora podemos começar a usar a nossa boa e felha caverna de suprimentos novamente.",
+        "replies": [
+            {
+                "text": "Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

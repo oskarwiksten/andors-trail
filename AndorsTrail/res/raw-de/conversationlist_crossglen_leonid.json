@@ -1,0 +1,201 @@
+[
+    {
+        "id": "leonid1",
+        "message": "Hallo Junge. Du bist Mikhail's Sohn, stimmt's? Und du hast noch einen Bruder.\n\nIch bin Leonid, der Vogt von Crossglen.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor gesehen?",
+                "nextPhraseID": "leonid_andor"
+            },
+            {
+                "text": "Was kannst du mir über Crossglen berichten?",
+                "nextPhraseID": "leonid_crossglen"
+            },
+            {
+                "text": "Na dann, bis später.",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_andor",
+        "message": "Deinen Bruder? Nein, heute habe ich ihn noch nicht gesehen. Ich denke, dass ich ihn gestern mit Gruil zusammen gesehen habe. Vielleicht weiß er mehr?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Danke, ich werde mit Gruil reden. Vorher möchte ich jedoch noch etwas anderes wissen.",
+                "nextPhraseID": "leonid_continue"
+            },
+            {
+                "text": "Danke, ich werde dann mal mit Gruil reden.",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_continue",
+        "message": "Kann ich dir noch bei etwas anderem helfen?",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor gesehen?",
+                "nextPhraseID": "leonid_andor"
+            },
+            {
+                "text": "Was kannst du mir über Crossglen berichten?",
+                "nextPhraseID": "leonid_crossglen"
+            },
+            {
+                "text": "Na dann, bis später.",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen",
+        "message": "Wie du weißt, ist das hier das Dorf Crossglen. Vor allem sind wir eine Bauerngemeinde.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen1"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen1",
+        "message": "Wir haben Audir mit seiner Schmiede im Südwesten, die Hütte von Leta und ihrem Mann im Westen, dieses Gemeindehaus und natürlich die Hütte deines Vaters im Nordwesten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen2"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen2",
+        "message": "Das war es dann auch schon. Wir versuchen, ein friedliches Leben zu leben.",
+        "replies": [
+            {
+                "text": "Ist im Dorf kürzlich etwas Besonderes geschehen?",
+                "nextPhraseID": "leonid_crossglen3"
+            },
+            {
+                "text": "In Ordnung, zurück zu den Themen von vorhin.",
+                "nextPhraseID": "leonid_continue"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen3",
+        "message": "Es gab ein paar kleinere Unruhen vor einigen Wochen - wie du vielleicht bemerkt hast. Einige Dörfler stritten sich über den neuen Erlass von Lord Geomyr.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen4"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen4",
+        "message": "Lord Geomyr ließ eine Anordnung betreffend der illegalen Verwendung von Knochenmehl als Heilsubstanz verkünden. Einige Dorfbewohner meinten, dass wir uns Lord Geomyr's Wort entgegenstellen und es dennoch weiter verwenden sollten.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen4_1"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen4_1",
+        "message": "Tharal, unser Geistlicher, war besonders aufgeregt und schlug vor, dass wir etwas gegen Lord Geomyr unternehmen sollten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen5"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen5",
+        "message": "Andere Dörfler meinten, dass wir Lord Geomyr's Erlass befolgen sollten.\n\nIch persönlich habe mich noch nicht entschieden.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen6"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen6",
+        "message": "Einerseits gewährt Lord Geomyr Crossglen seinen Schutz. *er zeigt auf die Soldaten im Gemeindehaus*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen7"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen7",
+        "message": "Andererseits fordern die Steuern und die jüngsten Bestimmungen, was erlaubt ist und was nicht, hohen Tribut von Crossglen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen8"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen8",
+        "message": "Jemand sollte zur Burg Geomyr gehen und mit dem Verwalter dort über unsere Situation hier in Crossglen sprechen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "crossglen",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen9"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen9",
+        "message": "In der Zwischenzeit, haben wir jegliche Verwendung von Knochenmehl als Heilsubstanz untersagt.",
+        "replies": [
+            {
+                "text": "Danke für die Information. Ich möchte noch etwas anderes fragen.",
+                "nextPhraseID": "leonid_continue"
+            },
+            {
+                "text": "Danke für die Information. Wiedersehen.",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_bye",
+        "message": "Der Schatten sei mit dir.",
+        "replies": [
+            {
+                "text": "Der Schatten sei auch mit dir.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

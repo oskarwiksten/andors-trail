@@ -1,0 +1,171 @@
+[
+    {
+        "id": "vilegard_villager_1",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_1_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_1_0",
+        "message": "Olá. Quem é você? Você não é bem-vindo aqui em Vilegard.",
+        "replies": [
+            {
+                "text": "Você viu meu irmão, Andor, por aqui?",
+                "nextPhraseID": "vilegard_villager_1_2"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_1_2",
+        "message": "Não, eu não tenho certeza. Mesmo se eu tivesse, por que eu iria lhe dizer?"
+    },
+    {
+        "id": "vilegard_villager_2",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_2_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_2_0",
+        "message": "pela Sombra, você é um estranho. Nós não gostamos de estrangeiros aqui.",
+        "replies": [
+            {
+                "text": "Porque é que todos na Vilegard tanto medo de estranhos?",
+                "nextPhraseID": "vilegard_villager_5_1"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_3",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_3_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_3_0",
+        "message": "Esta é Vilegard. Você não vai encontrar conforto aqui, estranho."
+    },
+    {
+        "id": "vilegard_villager_4",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_4_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_4_0",
+        "message": "Você parece que outro garoto que correu por aqui. Provavelmente causando problemas, como sempre, estrangeiros.",
+        "replies": [
+            {
+                "text": "Você viu meu irmão Andor?",
+                "nextPhraseID": "vilegard_villager_1_2"
+            },
+            {
+                "text": "Eu não estou aqui para causar problemas.",
+                "nextPhraseID": "vilegard_villager_4_2"
+            },
+            {
+                "text": "Ah, sim, eu também estou aqui para causar problemas.",
+                "nextPhraseID": "vilegard_villager_4_3"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_4_2",
+        "message": "Não, eu tenho certeza que você é arruaceiro. Todo estrangeiro é igual."
+    },
+    {
+        "id": "vilegard_villager_4_3",
+        "message": "Sim, eu sei. É por isso que nós não queremos o seu tipo por aqui. Você deve deixar Vilegard enquanto ainda pode."
+    },
+    {
+        "id": "vilegard_villager_5",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_5_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_5_0",
+        "message": "Olá estrangeiro. Você parece perdido, isso é bom. Agora deixe Vilegard enquanto pode.",
+        "replies": [
+            {
+                "text": "Porque é que todos em Vilegard tanto medo de estranhos?",
+                "nextPhraseID": "vilegard_villager_5_1"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_5_1",
+        "message": "Eu não confio em você. Você deve procurar o Jolnor na capela se quer alguma simpatia.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_friend",
+        "message": "Olá. Ouvi dizer que você nos ajudou-nos, gente simples, aqui em Vilegard. Por favor, fique por quanto tempo você quiser amigo.",
+        "replies": [
+            {
+                "text": "Obrigado. Você viu meu irmão Andor por aqui?",
+                "nextPhraseID": "vilegard_villager_friend_1"
+            },
+            {
+                "text": "Obrigado. Vejo você mais tarde.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_friend_1",
+        "message": "Seu irmão? Não, eu não vi ninguém que se parece com você. Mas, novamente, eu nunca presto muita atenção em estranhos.",
+        "replies": [
+            {
+                "text": "Obrigado, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

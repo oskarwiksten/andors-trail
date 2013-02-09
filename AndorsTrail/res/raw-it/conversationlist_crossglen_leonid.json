@@ -1,0 +1,201 @@
+[
+    {
+        "id": "leonid1",
+        "message": "Ciao ragazzo. Tu sei figlio di Mikhail non è vero? E tuo fratello?\n\nIo sono Leonid, amministratore del villaggio Crossglen.",
+        "replies": [
+            {
+                "text": "Fratello",
+                "nextPhraseID": "leonid_andor"
+            },
+            {
+                "text": "Crossglen",
+                "nextPhraseID": "leonid_crossglen"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_andor",
+        "message": "Tuo fratello? No, non l'ho visto oggi. Credo che ieri stesse parlando con Gruil. Forse lui ne sa di più",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Grazie",
+                "nextPhraseID": "leonid_continue"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_continue",
+        "message": "Posso aiutarti in qualche altro modo?",
+        "replies": [
+            {
+                "text": "fratello",
+                "nextPhraseID": "leonid_andor"
+            },
+            {
+                "text": "Crossglen",
+                "nextPhraseID": "leonid_crossglen"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen",
+        "message": "Come sai, questo è il villaggio di Crossglen. Per lo più una comunità agricola. ",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen1"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen1",
+        "message": " Abbiamo la fucina di Audir a sud-ovest, Leta e la casa del marito a ovest, il palazzo municipale e la casa di tuo padre, a nord-ovest.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen2"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen2",
+        "message": "Questo è tutto, cerchiamo di vivere una vita pacifica",
+        "replies": [
+            {
+                "text": "Recent activity",
+                "nextPhraseID": "leonid_crossglen3"
+            },
+            {
+                "text": "Indietro",
+                "nextPhraseID": "leonid_continue"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen3",
+        "message": "Avrai sentito di alcuni disordini successi qualche settimana fa. Alcuni abitanti del villaggio hanno esposto delle lamentele sul nuovo decreto di Lord Geomyr.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen4"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen4",
+        "message": "Lord Geomyr ha rilasciato una dichiarazione riguardo l'uso illecito di farina d'ossa come sostanza di guarigione. Alcuni abitanti sostengono che dovremmo opporci a Lord Geomyr e continuare ad usare la polvere d'ossa",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen4_1"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen4_1",
+        "message": "Tharal, il nostro sacerdote, è rimasto particolarmente turbato e ci ha suggerito di fare qualcosa riguardo Lord Geomyr.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen5"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen5",
+        "message": "Altri abitanti del villaggio vogliono seguire Lord Geomyr.\n\nPersonalmente non ho ancora deciso cosa fare.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen6"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen6",
+        "message": "Da un lato Lord Geomyr supporta Crossglen con molta protezione. *indica i soldati in sala*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen7"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen7",
+        "message": "D'altra parte le tasse e le regole su ciò che non è permesso sono molto severe a Crossglen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen8"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen8",
+        "message": "Qualcuno dovrebbe andare nel castello di Geomyr e parlare con l'amministratore della nostra situazione qui a Crossglen.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "crossglen",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen9"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen9",
+        "message": "Nel frattempo ci ha vietato l'uso di qualsiasi farina d'ossa come sostanza di guarigione.",
+        "replies": [
+            {
+                "text": "Indietro",
+                "nextPhraseID": "leonid_continue"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_bye",
+        "message": "Che l'Ombra sia con te",
+        "replies": [
+            {
+                "text": "Exit",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

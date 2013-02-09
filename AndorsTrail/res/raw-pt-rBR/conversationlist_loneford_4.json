@@ -1,0 +1,186 @@
+[
+    {
+        "id": "grimion",
+        "message": "Olá e bem-vindo ao Loneford. Por favor, sente, eu irei logo aí.",
+        "replies": [
+            {
+                "text": "Você tem algo para comer por aqui?",
+                "nextPhraseID": "grimion_trade_1"
+            },
+            {
+                "text": "Existe um lugar onde eu possa descansar um pouco por aqui?",
+                "nextPhraseID": "grimion_rest_1"
+            }
+        ]
+    },
+    {
+        "id": "grimion_trade_1",
+        "message": "Claro, dê uma olhada.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "grimion_rest_1",
+        "message": "Claro, os guardas colocaram algumas camas no sótão. Vá falar com Arngyr lá, ele pode ser capaz de ajudá-lo."
+    },
+    {
+        "id": "loneford_tavern_room",
+        "message": "Arngyr o agarra pelo ombro e puxa você de volta\nSe você quiser descansar aí, você precisa falar comigo primeiro."
+    },
+    {
+        "id": "arngyr",
+        "replies": [
+            {
+                "nextPhraseID": "arngyr_back_1",
+                "requires": {
+                    "progress": "nondisplay:19"
+                }
+            },
+            {
+                "nextPhraseID": "arngyr_1"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_1",
+        "message": "Sim, eu posso ajudá-lo?",
+        "replies": [
+            {
+                "text": "Se importa se eu usar uma das camas aqui?",
+                "nextPhraseID": "arngyr_2"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_2",
+        "replies": [
+            {
+                "nextPhraseID": "arngyr_3",
+                "requires": {
+                    "progress": "loneford:55"
+                }
+            },
+            {
+                "nextPhraseID": "arngyr_4"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_3",
+        "message": "Ah, não, de forma alguma. Vá em frente. Depois de tudo o que você tem feito por nós aqui em Loneford, seria um privilégio ser capaz de dar-lhe algo em retribuição a você.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nondisplay",
+                "value": 19
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arngyr_6"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_4",
+        "message": "Estas camas são mais utilizadas por nós, guardas. Mas eu acho que eu poderia fazer uma exceção já que você é apenas um garoto. Digamos, 600 moedas de ouro e você poderia usá-las?",
+        "replies": [
+            {
+                "text": "Claro, aqui está o ouro.",
+                "nextPhraseID": "arngyr_5",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 600,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "O quê? Isso é um pouco demais, não acha?",
+                "nextPhraseID": "arngyr_7"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_5",
+        "message": "Obrigado.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nondisplay",
+                "value": 19
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "arngyr_6"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_6",
+        "message": "Use a cama que melhor lhe aprouver.",
+        "replies": [
+            {
+                "text": "Obrigado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_7",
+        "message": "Olhar, garoto. Eu faço as regras por aqui. Se esse é o meu preço, então esse é o meu preço. É pegar ou largar.",
+        "replies": [
+            {
+                "text": "Bem, aqui está o ouro",
+                "nextPhraseID": "arngyr_5",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 600,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não importa. Não estou tão cansado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "arngyr_back_1",
+        "message": "Olá novamente. Espero que a cama esteja suficientemente confortável."
+    },
+    {
+        "id": "loneford_chapelguard",
+        "message": "Caminhe com a Sombra, criança."
+    },
+    {
+        "id": "wallach",
+        "message": "Ah, Selgan pobre velho. Por que tinha que ser ele? Eu quero saber quem é o próximo, e eu temo pelo pior."
+    },
+    {
+        "id": "mienn",
+        "message": "Não consigo ver como poderíamos fazer isso sem a ajuda dos guardas agradáveis de Feygard por aqui. Temos realmente sorte de ter a sua ajuda."
+    },
+    {
+        "id": "conren",
+        "message": "Temos a sorte de ter Feygard aqui nos ajudando."
+    },
+    {
+        "id": "telund",
+        "message": "Quem é você? Você viu meu pai Selgan? Todos me dizem que ele vai estar de volta em breve, mas todos eles estão mentindo! Eu sei, eu sei! Ele não estava em casa ontem, e ele não está em casa hoje."
+    },
+    {
+        "id": "loneford_tavern_patron",
+        "message": "Este não é lugar para um garoto como você. Eu acho melhor você ir embora agora."
+    }
+]

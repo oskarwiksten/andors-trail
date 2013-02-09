@@ -1,0 +1,110 @@
+[
+    {
+        "id": "leta1",
+        "message": "Эй, это мой дом, проваливай от сюда!",
+        "replies": [
+            {
+                "text": "Но я просто...",
+                "nextPhraseID": "leta2"
+            },
+            {
+                "text": "Оромир",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta2",
+        "message": "Давай парень, проваливай из моего дома!",
+        "replies": [
+            {
+                "text": "Оромир",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_select",
+        "replies": [
+            {
+                "nextPhraseID": "leta_oromir_complete2",
+                "requires": {
+                    "progress": "leta:100"
+                }
+            },
+            {
+                "nextPhraseID": "leta_oromir1"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir1",
+        "message": "Слышал что-нибудь о моем муже? Он должен был помогать на ферме сегодня, но он отлынивает, как обычно.\nВздох.",
+        "replies": [
+            {
+                "text": "Нет, не слышал",
+                "nextPhraseID": "leta_oromir2"
+            },
+            {
+                "text": "Найти его",
+                "nextPhraseID": "leta_oromir_complete",
+                "requires": {
+                    "progress": "leta:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir2",
+        "message": "Если увидишь его, скажи ему что бы поторапливался обратно и помог мне с работой по дому.\nА теперь проваливай!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete",
+        "message": "Он прячется? Он выбрал неправильный путь. Пойду покажу ему, кто в доме хозяин.\nСпасибо что дал знать.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 100
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete2",
+        "message": "Спасибо за помощь с Оромиром. Я отправлюсь за ним через минуту."
+    },
+    {
+        "id": "oromir1",
+        "message": "Ой ты меня напугал.\nПривет.",
+        "replies": [
+            {
+                "text": "Привет",
+                "nextPhraseID": "oromir2"
+            }
+        ]
+    },
+    {
+        "id": "oromir2",
+        "message": "Я скрываюсь от своей жены Леты. Она вечно ворчит на меня за то, что не помогаю на ферме. Пожалуйста, не говори ей где я.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Конечно",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

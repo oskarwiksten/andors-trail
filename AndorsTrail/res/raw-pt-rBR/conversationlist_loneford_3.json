@@ -1,0 +1,89 @@
+[
+    {
+        "id": "sienn",
+        "message": "Ha! Você parece engraçado. Você pequeno.",
+        "replies": [
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "sienn_who_1"
+            },
+            {
+                "text": "O que é essa a coisa que você está mantendo junto de si?",
+                "nextPhraseID": "sienn_pet_1"
+            }
+        ]
+    },
+    {
+        "id": "sienn_who_1",
+        "message": "Me, Sienn. Eu forte!",
+        "replies": [
+            {
+                "text": "O que é essa a coisa que você está mantendo junto de si?",
+                "nextPhraseID": "sienn_pet_1"
+            }
+        ]
+    },
+    {
+        "id": "sienn_pet_1",
+        "message": "Bichinho, bonito!\n(Sienn faz sonzinhos fofos enquanto coça o animal no queixo dele)",
+        "replies": [
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "sienn_who_1"
+            },
+            {
+                "text": "Você sabia que Taevinn acha que você causou a doença aqui em Loneford?",
+                "nextPhraseID": "sienn_pet_2",
+                "requires": {
+                    "progress": "loneford:24"
+                }
+            }
+        ]
+    },
+    {
+        "id": "sienn_pet_2",
+        "message": "Sienn não doente! Sienn forte!"
+    },
+    {
+        "id": "sienn_pet",
+        "message": "*Guinchando!*\n (A criatura olha para você, mostrando todos os seus dentes, ao fazer um som agudo estridente.)",
+        "replies": [
+            {
+                "text": "Aqui, aqui. Fácil agora.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "*lentamente afastado*",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "siola",
+        "message": "Olá. Você veio para ver a minha seleção de itens?",
+        "replies": [
+            {
+                "text": "Sim, vamos negociar..",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Qual é o negócio de Sienn ali com seu animal de estimação?",
+                "nextPhraseID": "siola_sienn_1"
+            }
+        ]
+    },
+    {
+        "id": "siola_sienn_1",
+        "message": "Eu não sei onde ele o pegou. De qualquer forma, não prejudica ninguém, então eu estou bem com eles aqui. Eu percebi que alguém deve ajudá-los a ter algum lugar para ficar, e ninguém mais queria ajudá-los, assim eu os deixei ficar aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "siola_sienn_2"
+            }
+        ]
+    },
+    {
+        "id": "siola_sienn_2",
+        "message": "Sienn pode ser um pouco grosso, mas ele com certeza pode ser engraçado quando você começa a conhecê-lo e ele confia em você. Ele pode fazer um monte dessas expressões faciais hilárias."
+    }
+]

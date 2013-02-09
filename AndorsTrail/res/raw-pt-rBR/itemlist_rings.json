@@ -1,0 +1,124 @@
+[
+    {
+        "id": "ring_dmg1",
+        "iconID": "items_jewelry:0",
+        "name": "Anel de dano +1",
+        "category": "ring",
+        "baseMarketCost": 215,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "ring_dmg2",
+        "iconID": "items_jewelry:1",
+        "name": "Anel de dano +2",
+        "category": "ring",
+        "baseMarketCost": 398,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 2
+            }
+        }
+    },
+    {
+        "id": "ring_dmg5",
+        "iconID": "items_jewelry:2",
+        "name": "Anel de dano +5",
+        "category": "ring",
+        "displaytype": 4,
+        "baseMarketCost": 2014,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 5
+            }
+        }
+    },
+    {
+        "id": "ring_dmg6",
+        "iconID": "items_jewelry:3",
+        "name": "Anel de dano +6",
+        "category": "ring",
+        "displaytype": 4,
+        "baseMarketCost": 3186,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 6,
+                "max": 6
+            }
+        }
+    },
+    {
+        "id": "ring_block1",
+        "iconID": "items_jewelry:0",
+        "name": "Anel de bloqueio leve",
+        "category": "ring",
+        "displaytype": 4,
+        "baseMarketCost": 1239,
+        "equipEffect": {
+            "increaseBlockChance": 10
+        }
+    },
+    {
+        "id": "ring_block2",
+        "iconID": "items_jewelry:0",
+        "name": "Anel de bloqueio polido",
+        "category": "ring",
+        "displaytype": 4,
+        "baseMarketCost": 3866,
+        "equipEffect": {
+            "increaseBlockChance": 15
+        }
+    },
+    {
+        "id": "ring_atkch1",
+        "iconID": "items_jewelry:0",
+        "name": "Anel do golpe certeiro",
+        "category": "ring",
+        "baseMarketCost": 215,
+        "equipEffect": {
+            "increaseAttackChance": 15
+        }
+    },
+    {
+        "id": "ring1",
+        "iconID": "items_jewelry:0",
+        "name": "Anel mundano",
+        "category": "ring",
+        "hasManualPrice": 1,
+        "baseMarketCost": 13,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "ring2",
+        "iconID": "items_jewelry:0",
+        "name": "Anel polido",
+        "category": "ring",
+        "hasManualPrice": 1,
+        "baseMarketCost": 21,
+        "equipEffect": {
+            "increaseBlockChance": 1
+        }
+    },
+    {
+        "id": "ring_jinxed1",
+        "iconID": "items_jewelry:2",
+        "name": "Anel de resistência a dano amaldiçoado",
+        "category": "ring",
+        "baseMarketCost": 229,
+        "equipEffect": {
+            "increaseBlockChance": -9,
+            "increaseDamageResistance": 1
+        }
+    }
+]

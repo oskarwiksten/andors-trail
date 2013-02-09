@@ -1,0 +1,598 @@
+[
+    {
+        "id": "jolnor_select_1",
+        "replies": [
+            {
+                "nextPhraseID": "jolnor_default_3",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_default_2",
+                "requires": {
+                    "progress": "vilegard:20"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_default"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_default",
+        "message": "Caminhe com a Sombra, meu filho.",
+        "replies": [
+            {
+                "text": "Que lugar é esse?",
+                "nextPhraseID": "jolnor_chapel_1"
+            },
+            {
+                "text": "Disseram-me para falar com você sobre o porquê todos em Vilegard suspeitam de estranhos.",
+                "nextPhraseID": "jolnor_suspicious_1",
+                "requires": {
+                    "progress": "vilegard:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jolnor_default_2",
+        "message": "Caminhe com a Sombra, meu filho.",
+        "replies": [
+            {
+                "text": "Você pode me dizer mais uma vez que lugar é este?",
+                "nextPhraseID": "jolnor_chapel_1"
+            },
+            {
+                "text": "Vamos falar sobre essas missões para ganhar a confiança de que você falou anteriormente.",
+                "nextPhraseID": "jolnor_quests_1"
+            },
+            {
+                "text": "Eu preciso de cura. Posso ver os itens que você tem disponíveis?",
+                "nextPhraseID": "jolnor_shop_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_default_3",
+        "message": "Caminhe com a Sombra, meu amigo.",
+        "replies": [
+            {
+                "text": "Você pode me dizer mais uma vez que lugar é este?",
+                "nextPhraseID": "jolnor_chapel_1"
+            },
+            {
+                "text": "Eu preciso de cura. Posso ver os itens que você tem disponíveis?",
+                "nextPhraseID": "jolnor_shop_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_chapel_1",
+        "message": "Este é o lugar  de adoração em Vilegard para a Sombra. Louvamos a Sombra em todo o seu poder e glória.",
+        "replies": [
+            {
+                "text": "Você pode me dizer mais sobre a Sombra?",
+                "nextPhraseID": "jolnor_shadow_1"
+            },
+            {
+                "text": "Eu preciso de cura. Posso ver os itens que você tem disponíveis?",
+                "nextPhraseID": "jolnor_shop_1"
+            },
+            {
+                "text": "Que seja. Apenas mostre-me os seus bens.",
+                "nextPhraseID": "jolnor_shop_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_shadow_1",
+        "message": "A Sombra nos protege dos perigos da noite. Ele nos mantém seguros e nos conforta quando dormimos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_shop_1",
+        "replies": [
+            {
+                "nextPhraseID": "S",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_shop_2"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_shop_2",
+        "message": "Eu não confio em você o suficiente para se sentir confortável com você na negociação.",
+        "replies": [
+            {
+                "text": "Por que você é tão desconfiado?",
+                "nextPhraseID": "jolnor_suspicious_1"
+            },
+            {
+                "text": "Muito bem.",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_suspicious_1",
+        "message": "Desconfiado? Não, eu não chamaria isso de desconfiança. Eu prefiro chamá-lo de que somos cuidadosos hoje em dia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_suspicious_2"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_suspicious_2",
+        "message": "A fim de ganhar a confiança da aldeia, um estranho deve provar que não está aqui para causar problemas.",
+        "replies": [
+            {
+                "text": "Parece uma boa ideia. Há um monte de pessoas egoístas lá fora.",
+                "nextPhraseID": "jolnor_suspicious_3"
+            },
+            {
+                "text": "Isso soa realmente desnecessário. Por que não confiar nas pessoas em primeiro lugar?",
+                "nextPhraseID": "jolnor_suspicious_4"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_suspicious_3",
+        "message": "Sim, certo. Você parece entender-nos bem, eu gosto disso.",
+        "replies": [
+            {
+                "text": "Há algo que eu possa fazer para ganhar a sua confiança?",
+                "nextPhraseID": "jolnor_gaintrust_select"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_suspicious_4",
+        "message": "Nós aprendemos com o passado que não devemos confiar em estranhos, e você é um estrangeiro. Por que nós deveriamos confiar em você?",
+        "replies": [
+            {
+                "text": "O que posso fazer para ganhar a sua confiança?",
+                "nextPhraseID": "jolnor_gaintrust_select"
+            },
+            {
+                "text": "Você está certo. Você provavelmente não deve confiar em mim.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_select",
+        "replies": [
+            {
+                "nextPhraseID": "jolnor_gaintrust_return_2",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_gaintrust_return",
+                "requires": {
+                    "progress": "vilegard:20"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_gaintrust_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_return_2",
+        "message": "Com a sua ajuda anterior, você já ganhou a nossa confiança.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_default_3"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_return",
+        "message": "Como eu disse antes, você tem que ajudar algumas pessoas aqui em Vilegard para ganhar nossa confiança.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_quests_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_1",
+        "message": "Se você fizer-nos alguns favores, podemos considerar a confiar em você. Há três pessoas que eu posso pensar que são influentes aqui em Vilegard, que você deve tentar ajudar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_gaintrust_2"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_2",
+        "message": "Primeiro, há Kaori. Ela vive na parte norte de Vilegard. Pergunte a ela se ela precisa de alguma ajuda.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kaori",
+                "value": 5
+            }
+        ],
+        "replies": [
+            {
+                "text": "OK. Falar com Kaori. Entendi.",
+                "nextPhraseID": "jolnor_gaintrust_3"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_3",
+        "message": "Depois, há Wrye. Wrye também vive-se na parte norte da Vilegard. Muitas pessoas aqui em Vilegard procuram seus conselhos em vários assuntos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_gaintrust_4"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_4",
+        "message": "Recentemente, ela perdeu seu filho de forma trágica. Se você puder ganhar a sua confiança, você vai ter uma forte aliada aqui.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Falar com Wrye. Entendi.",
+                "nextPhraseID": "jolnor_gaintrust_5"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_5",
+        "message": "E por último mas não menos importante, eu tenho um favor a pedir-lhe também.",
+        "replies": [
+            {
+                "text": "Que favor é esse?",
+                "nextPhraseID": "jolnor_gaintrust_6"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_6",
+        "message": "No norte de Vilegard existe uma taverna chamada Foaming Flask. Na minha opinião, esta taverna é um pretexto para um posto da guarda de Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_gaintrust_7"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_7",
+        "message": "A taberna é quase sempre visitado pela guarda real de Feygard, a serviço do Lorde Geomyr.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_gaintrust_8"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_8",
+        "message": "Eles estão aqui provavelmente para nos espionar, já que somos seguidores do Sombra. As forças de Lorde Geomyr sempre tentam fazer a vida difícil para nós e para a Sombra.",
+        "replies": [
+            {
+                "text": "Sim, eles parecem ser encrenqueiros em todo lugar.",
+                "nextPhraseID": "jolnor_gaintrust_9"
+            },
+            {
+                "text": "Tenho certeza que eles têm suas razões para fazer o que eles fazem.",
+                "nextPhraseID": "jolnor_gaintrust_10"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_9",
+        "message": "Certo. Desordeiros, certamente.",
+        "replies": [
+            {
+                "text": "O que você quer que eu faça?",
+                "nextPhraseID": "jolnor_gaintrust_11"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_10",
+        "message": "Sim, o propósito deles é tornar a vida miserável para nós, eu tenho certeza.",
+        "replies": [
+            {
+                "text": "O que você quer que eu faça?",
+                "nextPhraseID": "jolnor_gaintrust_11"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_11",
+        "message": "Meus relatórios dizem que há um guarda do lado de fora da taberna, para manter um olho sobre os perigos potenciais.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_gaintrust_12"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_12",
+        "message": "Eu quero que você verifique se o guarda desaparece de alguma forma. Como você vai fazer isso é problema seu.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jolnor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Eu não tenho certeza se devo perturbar os guardas de patrulha Feygard. Isso poderia realmente meter-me em problemas.",
+                "nextPhraseID": "jolnor_gaintrust_13"
+            },
+            {
+                "text": "Pela Sombra, vou fazer o que você pedir.",
+                "nextPhraseID": "jolnor_gaintrust_14"
+            },
+            {
+                "text": "Ok, eu espero que isso leve a um tesouro no final.",
+                "nextPhraseID": "jolnor_gaintrust_14"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_13",
+        "message": "A escolha é sua. Você pode pelo menos ir verificar a taberna e veja se você encontra qualquer coisa suspeita.",
+        "replies": [
+            {
+                "text": "Talvez.",
+                "nextPhraseID": "jolnor_gaintrust_15"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_14",
+        "message": "Bom. Reporte-me ao retornar quando você o fizer.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_gaintrust_15"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_gaintrust_15",
+        "message": "Então, a fim de ganhar a nossa confiança aqui em Vilegard, eu sugiro que você ajude Kaori, Wrye e eu.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Obrigado pela informação. Eu estarei de volta quando eu tiver algo a relatar.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_1",
+        "message": "Sugiro que você ajudar Kaori, Wrye e eu para ganhar nossa confiança.",
+        "replies": [
+            {
+                "text": "Sobre o que o guarda do lado de fora da taverna Foaming Flask ...",
+                "nextPhraseID": "jolnor_guard_select"
+            },
+            {
+                "text": "Sobre as tarefas ...",
+                "nextPhraseID": "jolnor_quests_2"
+            },
+            {
+                "text": "Não importa, vamos falar de outros assuntos.",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_2",
+        "message": "Sim, o que tem com eles?",
+        "replies": [
+            {
+                "text": "O que eu deveria fazer de novo?",
+                "nextPhraseID": "jolnor_suspicious_2"
+            },
+            {
+                "text": "Fiz todas as tarefas que você me pediu para fazer.",
+                "nextPhraseID": "jolnor_quests_select_1",
+                "requires": {
+                    "progress": "jolnor:30"
+                }
+            },
+            {
+                "text": "Não importa, vamos falar de outros assuntos.",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_guard_select",
+        "replies": [
+            {
+                "nextPhraseID": "jolnor_guard_completed",
+                "requires": {
+                    "progress": "jolnor:30"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_guard_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_guard_1",
+        "message": "Sim, o que tem com ele? Você já se livrou dele?",
+        "replies": [
+            {
+                "text": "Sim, ele vai deixar o cargo assim que seu turno encerrar.",
+                "nextPhraseID": "jolnor_guard_2",
+                "requires": {
+                    "progress": "jolnor:20"
+                }
+            },
+            {
+                "text": "Sim, ele foi removido.",
+                "nextPhraseID": "jolnor_guard_2",
+                "requires": {
+                    "item": {
+                        "itemID": "ffguard_qitem",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não, mas estou trabalhando nisso.",
+                "nextPhraseID": "jolnor_gaintrust_14"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_guard_completed",
+        "message": "Sim, você lidou com ele anteriormente. Agradeço pela ajuda.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_quests_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_guard_2",
+        "message": "Muito bom. Agradeço pela ajuda.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jolnor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Não tem problema. Vamos voltar para essas outras tarefas que falamos.",
+                "nextPhraseID": "jolnor_quests_2"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_select_1",
+        "replies": [
+            {
+                "nextPhraseID": "jolnor_quests_select_2",
+                "requires": {
+                    "progress": "kaori:20"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_quests_kaori_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_kaori_1",
+        "message": "Você ainda precisa ajudar Kaori com sua tarefa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_select_2",
+        "replies": [
+            {
+                "nextPhraseID": "jolnor_quests_completed",
+                "requires": {
+                    "progress": "wrye:90"
+                }
+            },
+            {
+                "nextPhraseID": "jolnor_quests_wrye_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_wrye_1",
+        "message": "Você ainda precisa ajudar Wrye com sua tarefa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_completed",
+        "message": "Bom. Você ajudou a todos nós três.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_quests_completed_2"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_completed_2",
+        "message": "Suponho que isso mostra alguma dedicação, e que estejamos prontos a confiar em você agora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_quests_completed_3"
+            }
+        ]
+    },
+    {
+        "id": "jolnor_quests_completed_3",
+        "message": "Você tem nosso agradecimento, amigo. Você sempre vai encontrar um abrigo aqui em Vilegard. Seja bem-vindo a nossa aldeia.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jolnor_select_1"
+            }
+        ]
+    }
+]

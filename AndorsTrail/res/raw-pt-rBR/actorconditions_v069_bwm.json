@@ -1,0 +1,101 @@
+[
+    {
+        "id": "speed_minor",
+        "iconID": "actorconditions_1:87",
+        "name": "Velocidade menor",
+        "category": 2,
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseMaxAP": 2
+        }
+    },
+    {
+        "id": "fatigue_minor",
+        "iconID": "actorconditions_1:14",
+        "name": "Fadiga menor",
+        "category": 2,
+        "abilityEffect": {
+            "increaseMoveCost": 2,
+            "increaseAttackCost": 2,
+            "increaseAttackDamage": {
+                "min": -1,
+                "max": -1
+            }
+        }
+    },
+    {
+        "id": "feebleness_minor",
+        "iconID": "actorconditions_1:74",
+        "name": "Fraqueza de arma menor",
+        "category": 1,
+        "abilityEffect": {
+            "increaseAttackDamage": {
+                "min": -3,
+                "max": -3
+            }
+        }
+    },
+    {
+        "id": "bleeding_wound",
+        "iconID": "actorconditions_2:0",
+        "name": "Ferida sangrando",
+        "category": 3,
+        "isStacking": 1,
+        "roundEffect": {
+            "visualEffectID": 0,
+            "increaseCurrentHP": {
+                "min": -1,
+                "max": -1
+            }
+        }
+    },
+    {
+        "id": "rage_minor",
+        "iconID": "actorconditions_1:90",
+        "name": "Fúria menor",
+        "category": 1,
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseMaxHP": 35,
+            "increaseAttackChance": 60,
+            "increaseBlockChance": -90,
+            "increaseDamageResistance": -1
+        }
+    },
+    {
+        "id": "blackwater_misery",
+        "iconID": "actorconditions_1:58",
+        "name": "Tormento das Águas Negras",
+        "category": 3,
+        "abilityEffect": {
+            "increaseAttackCost": 1,
+            "increaseAttackChance": -50,
+            "increaseCriticalSkill": -50
+        }
+    },
+    {
+        "id": "intoxicated",
+        "iconID": "actorconditions_2:1",
+        "name": "Intoxicado",
+        "category": 1,
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseMaxHP": 15,
+            "increaseAttackCost": 1,
+            "increaseAttackChance": -30,
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 4
+            }
+        }
+    },
+    {
+        "id": "dazed",
+        "iconID": "actorconditions_1:65",
+        "name": "Atordoado",
+        "category": 1,
+        "abilityEffect": {
+            "increaseBlockChance": -40
+        }
+    }
+]

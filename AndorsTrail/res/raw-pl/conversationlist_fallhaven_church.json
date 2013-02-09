@@ -1,0 +1,265 @@
+[
+    {
+        "id": "chapelgoer",
+        "message": "Cień mnie ogarnia."
+    },
+    {
+        "id": "thoronir_default",
+        "message": "Cień daje nam ciepło, moje dziecko.",
+        "replies": [
+            {
+                "text": "Co możesz mi powiedzieć o Cieniu?",
+                "nextPhraseID": "thoronir_shadow_1"
+            },
+            {
+                "text": "Możesz mi powiedzieć więcej o kościele?",
+                "nextPhraseID": "thoronir_church_1"
+            },
+            {
+                "text": "Czy potki Bonemeal są już gotowe?",
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_shadow_1",
+        "message": "Cień nas ochroni przed niebezpieczeństwami nocy. I chroni nas podczas snu.",
+        "replies": [
+            {
+                "text": "Tharal mnie przysyła, hasło brzmi 'Blask Cienia'.",
+                "nextPhraseID": "thoronir_tharal_select",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "text": "Niech cień będzie z tobą.",
+                "nextPhraseID": "thoronir_default"
+            },
+            {
+                "text": "Dla mnie ten cień to ściema.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_1",
+        "message": "To nasza kaplica modlitwy w Fallhaven. Nasi wierni zwracają się do nas po wsparcie.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_2",
+        "message": "Ten kościół wytrzymał setki lat, i nigdy nie było tu hien cmentarnych.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_church_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_select",
+        "replies": [
+            {
+                "nextPhraseID": "thoronir_trade_bonemeal",
+                "requires": {
+                    "progress": "bonemeal:100"
+                }
+            },
+            {
+                "nextPhraseID": "thoronir_tharal_1"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_1",
+        "message": "Blask cienia w rzeczy samej chłopcze. A więc mój stary przyjaciel Tharal przysłał cie?",
+        "replies": [
+            {
+                "text": "Co możesz mi powiedzieć o potkach bonemeal?",
+                "nextPhraseID": "thoronir_tharal_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_3",
+        "message": "Katakumby pod kościołem są pozostałościami naszych poprzedników. Nasz wielki król Luthor podobno jest tutaj pochowany.",
+        "replies": [
+            {
+                "text": "Czy ktoś wchodził do katakumb?",
+                "nextPhraseID": "thoronir_church_4",
+                "requires": {
+                    "progress": "bucus:10"
+                }
+            },
+            {
+                "text": "Jest coś jeszcze o co chciałem zapytać.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_church_4",
+        "message": "Nikt nie ma pozwolenia na zejście do katakumb, z wyjątkiem Athamyra, mojego ucznia. To jedyna osoba która tam była w ciągu ostatnich paru lat.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, może go spotkam.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_2",
+        "message": "Ciiii, Nie powinniśmy tak głośno rozmawiać o używaniu bonemealów. Jak pewnie wiesz Lord Geomyr zakazał całkowicie bonemeal.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_3"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_3",
+        "message": "Kiedy pojawił się zakaz, nie odważyłem się trzymać ich więcej, więc wyrzuciłem jej do dziury na zapasy. To było dosyć głupie z mojej strony, gdy teraz na to patrze.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_tharal_4"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_4",
+        "message": "Znajdziesz dla mnie 5 kości szkieletów, które mogę użyć do miksowania potek bonemeal? Bonemeal jest potężny w leczeniu starych ran.",
+        "replies": [
+            {
+                "text": "Jasne, mogę to zrobić.",
+                "nextPhraseID": "thoronir_tharal_5"
+            },
+            {
+                "text": "Mam te kości dla ciebie.",
+                "nextPhraseID": "thoronir_tharal_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bone",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_5",
+        "message": "Dziękuje, proszę wróć niebawem. Słyszałem, że w opuszczonym domu na północy są w okolicy nieumarli. Może tam znajdziesz jakieś kości?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, sprawdzę tam.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_tharal_complete",
+        "message": "Dzięki, te kości będą w sam raz. Teraz mogę dla ciebie zrobić parę potek bonemeal.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thoronir_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "thoronir_complete_2",
+        "message": "Daj mi trochę czasu, żeby zmieszać potke bonemeal. To bardzo potężna potka zdrowia. Wróć za jakiś czas."
+    },
+    {
+        "id": "thoronir_trade_bonemeal",
+        "message": "Tak, potki bonemeal są już gotowe. Proszę używaj ich z rozwagą i nie pozwól, żeby cię zauważyli strażnicy. Wiesz, że nie można już ich używać.",
+        "replies": [
+            {
+                "text": "Pokaż ile zrobiłeś tych potków.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Chciałem zapytać o coś innego.",
+                "nextPhraseID": "thoronir_default"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard",
+        "message": "Turn back while you still can, mortal. This is no place for you. Only death awaits you here.",
+        "replies": [
+            {
+                "text": "Very well. I will turn back.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Move aside, I need to get deeper into the catacombs.",
+                "nextPhraseID": "catacombguard1"
+            },
+            {
+                "text": "By the Shadow, you will not stop me.",
+                "nextPhraseID": "catacombguard1"
+            }
+        ]
+    },
+    {
+        "id": "catacombguard1",
+        "message": "Nieee, nie możesz przejść!",
+        "replies": [
+            {
+                "text": "Ok. Walczmy.",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "luthor",
+        "message": "*hissss* Co śmiertelnik przeszkadza mi we śnie?",
+        "replies": [
+            {
+                "text": "Na moc cienia, kim ty jesteś?",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "W końcu godny przeciwnik! Czekałem na to.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Dobra, dobra skończmy z tym już.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

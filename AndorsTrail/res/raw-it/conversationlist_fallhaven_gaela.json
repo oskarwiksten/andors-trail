@@ -1,0 +1,84 @@
+[
+    {
+        "id": "gaela",
+        "replies": [
+            {
+                "nextPhraseID": "gaela_r",
+                "requires": {
+                    "progress": "andor:40"
+                }
+            },
+            {
+                "nextPhraseID": "gaela_0"
+            }
+        ]
+    },
+    {
+        "id": "gaela_r",
+        "message": "Hello again. I hope you will find what you are looking for."
+    },
+    {
+        "id": "gaela_0",
+        "message": "Veloce è la mia lama. Velenosa la mia lingua. O era il contrario?",
+        "replies": [
+            {
+                "text": "Sembra ci siano un sacco di ladri qui a Fallhaven.",
+                "nextPhraseID": "gaela_1"
+            }
+        ]
+    },
+    {
+        "id": "gaela_1",
+        "message": "Si, noi ladri abbiamo una forte presenza a Fallhaven.",
+        "replies": [
+            {
+                "text": "Qualcos'altro?",
+                "nextPhraseID": "gaela_2",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gaela_2",
+        "message": "Ho sentito che hai aiutato Gruil, un compagno ladro del villaggio di Crossglen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gaela_3"
+            }
+        ]
+    },
+    {
+        "id": "gaela_3",
+        "message": "Voci dicono che stai cercando qualcuno. Potrei essere in grado di aiutarti.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gaela_4"
+            }
+        ]
+    },
+    {
+        "id": "gaela_4",
+        "message": "Dovresti andare a parlare con Bucus nella casa abbandonata a sud-ovest. Digli che vuoi sapere di più sulla gilda dei ladri.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Grazie, andrò a parlare con lui.",
+                "nextPhraseID": "gaela_5"
+            }
+        ]
+    },
+    {
+        "id": "gaela_5",
+        "message": "Consideralo un favore, in cambio del tuo aiuto a Gruil."
+    }
+]

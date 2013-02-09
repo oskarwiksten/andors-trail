@@ -1,0 +1,138 @@
+[
+    {
+        "id": "tharal1",
+        "message": "Das Leuchten des Schattens sei mit dir, mein Junge.",
+        "replies": [
+            {
+                "text": "Hast du etwas zu verkaufen?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Was kannst du mir über Knochenmehl sagen?",
+                "nextPhraseID": "tharal_bonemeal_select",
+                "requires": {
+                    "progress": "bonemeal:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharal_bonemeal4",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "nextPhraseID": "tharal_bonemeal1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal1",
+        "message": "Knochenmehl? Darüber sollten wir lieber nicht reden. Laut einem Erlass von Lord Geomyr ist es nicht mehr erlaubt.",
+        "replies": [
+            {
+                "text": "Bitte?",
+                "nextPhraseID": "tharal_bonemeal2_1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2_1",
+        "message": "Nein, wir sollten wirklich nicht darüber reden.",
+        "replies": [
+            {
+                "text": "Ach, komm' schon.",
+                "nextPhraseID": "tharal_bonemeal2"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2",
+        "message": "Nun, wenn du darauf bestehst: Bring mir 5 Insektenflügel die ich für das Herstellen von Tränken brauche, dann können wir weiterreden.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Hier sind die Insektenflügel.",
+                "nextPhraseID": "tharal_bonemeal3",
+                "requires": {
+                    "item": {
+                        "itemID": "insectwing",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Okay, ich werde welche holen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal3",
+        "message": "Danke mein Junge. Ich weiß, dass ich mich auf dich verlassen kann.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal4"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal4",
+        "message": "Oh ja, Knochenmehl. Gemischt mit den richtigen Zutaten kann es zu einem sehr wirksamen Heilmittel werden.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal5"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal5",
+        "message": "Wir haben es früher oft benutzt. Aber jetzt hat der Bastard Lord Geomyr jeglichen Gebrauch verboten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal6"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal6",
+        "message": "Wie soll ich jetzt die Leute heilen? Mit normalen Heiltränken? Pah, die sind so unwirksam.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal7"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal7",
+        "message": "Ich kenne jemand, der noch einen Vorrat an Knochenmehl hat, wenn du interessiert bist. Rede mit Thoronir, meinem Priesterkollegen in Fallhaven. Nenne ihm das Passwort 'Leuchten des Schattens'.",
+        "replies": [
+            {
+                "text": "Danke. Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

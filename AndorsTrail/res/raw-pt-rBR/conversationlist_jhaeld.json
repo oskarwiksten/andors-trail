@@ -1,0 +1,1149 @@
+[
+    {
+        "id": "jhaeld",
+        "replies": [
+            {
+                "nextPhraseID": "jhaeld_idol_1",
+                "requires": {
+                    "progress": "fiveidols:41"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_completed",
+                "requires": {
+                    "progress": "remgard2:45"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_killalg_3",
+                "requires": {
+                    "progress": "remgard2:41"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_killalg_2",
+                "requires": {
+                    "progress": "remgard2:40"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_killalg",
+                "requires": {
+                    "progress": "remgard2:21"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_alg_3",
+                "requires": {
+                    "progress": "remgard2:10"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_rejected",
+                "requires": {
+                    "progress": "remgard:110"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_return8",
+                "requires": {
+                    "progress": "remgard:80"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_return6",
+                "requires": {
+                    "progress": "remgard:75"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_return1",
+                "requires": {
+                    "progress": "remgard:50"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_1"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_1",
+        "message": "O que, quem é você? Não me incomode, criança. Nós não queremos que as crianças passeiem por aqui.",
+        "replies": [
+            {
+                "text": "Você é Jhaeld? Eu fui enviado aqui para ajudá-lo a investigar as pessoas desaparecidas.",
+                "nextPhraseID": "jhaeld_3"
+            },
+            {
+                "text": "Ei, cuidado com o seu tom. Seria uma pena se mais alguém de seu povo... desaparece.",
+                "nextPhraseID": "jhaeld_2"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_2",
+        "message": "Hrmpf. Eu não levo ameaças facilmente. Especialmente quando vem de um fedelho como você.",
+        "replies": [
+            {
+                "text": "Eu fui enviado aqui para ajudá-lo a investigar as pessoas desaparecidas.",
+                "nextPhraseID": "jhaeld_3"
+            },
+            {
+                "text": "É melhor se acostumar com isso, com uma atitude como essa.",
+                "nextPhraseID": "jhaeld_leave"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_reject",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 110
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "jhaeld_leave"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_leave",
+        "message": "Eu acho que é melhor sair, antes que qualquer coisa ruim aconteça com você."
+    },
+    {
+        "id": "jhaeld_3",
+        "message": "Sim, sim. As pessoas desaparecidas. O que poderia um garoto como você ajudar, ein?",
+        "replies": [
+            {
+                "text": "Eu estava pensando que você poderia me fornecer algumas tarefas para ajudá-lo com a investigação.",
+                "nextPhraseID": "jhaeld_4"
+            },
+            {
+                "text": "O guarda ponte me disse para falar com você.",
+                "nextPhraseID": "jhaeld_4"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_4",
+        "message": "Hum, agora que você está aqui você pode muito bem tornar-se útil, em vez de apenas estar parado aí com esse olhar estúpido. Mesmo você sendo uma criança, você pode ser capaz de coletar algumas informações para mim.",
+        "replies": [
+            {
+                "text": "Claro, do que você precisa?",
+                "nextPhraseID": "jhaeld_7"
+            },
+            {
+                "text": "Suspiro. Ok. Eu acho.",
+                "nextPhraseID": "jhaeld_7"
+            },
+            {
+                "text": "Eu prefiro matar alguma coisa.",
+                "nextPhraseID": "jhaeld_6"
+            },
+            {
+                "text": "Ei, cuidado com o o que diz!",
+                "nextPhraseID": "jhaeld_5"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_5",
+        "message": "Não, você deveria moderar seu tom! Lembre-se de onde você está e com quem você está falando. Eu sou Jhaeld, e você está em Remgard - o que poderia ser chamado de *minha* cidade.",
+        "replies": [
+            {
+                "text": "Certo. Do que você precisa?",
+                "nextPhraseID": "jhaeld_7"
+            },
+            {
+                "text": "Você não me assusta, velho!",
+                "nextPhraseID": "jhaeld_leave"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_6",
+        "message": "Ha ha. Você? Matar alguma coisa? Agora essa é a coisa mais engraçada que eu ouvi durante todo o dia. Apenas isso.",
+        "replies": [
+            {
+                "text": "Ei, cuidado com o seu tom!",
+                "nextPhraseID": "jhaeld_5"
+            },
+            {
+                "text": "Sei me cuidar. Do que você precisa?",
+                "nextPhraseID": "jhaeld_7"
+            },
+            {
+                "text": "É só esperar e ver.",
+                "nextPhraseID": "jhaeld_7"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_7",
+        "message": "(Suspiro) Sequer pensar que precisamos obter ajuda de crianças como mensageiros nesses dias.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_8"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_8",
+        "message": "Eu acho que você sabe já sabe o histórico dessa situação. Tivemos algumas pessoas desaparecidas dentre nós há algum tempo. Nós não temos ideia do que aconteceu com as pessoas que desapareceram, ou mesmo se eles ainda estão vivas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_9"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_9",
+        "message": "Considerando como muitos são os que desapareceram sem que ninguém saiba o que aconteceu, não parece que eles estejão viajando.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_10"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_10",
+        "message": "Ok, então o que eu gostaria que você fizesse para mim é pedir a algumas pessoas que conhecem as pessoas desaparecidas. O fato de que você não seja daqui pode ajudá-lo a obter informações que nem eu nem meus guardas seriamos capazes de adquirir.",
+        "replies": [
+            {
+                "text": "Som bastante simples.",
+                "nextPhraseID": "jhaeld_14"
+            },
+            {
+                "text": "Claro, eu vou fazê-lo. Quem você quer que eu procure?",
+                "nextPhraseID": "jhaeld_14"
+            },
+            {
+                "text": "Eu não estou muito certo sobre isso. Haverá uma recompensa?",
+                "nextPhraseID": "jhaeld_11"
+            },
+            {
+                "text": "Eu não estou muito certo sobre isso. Por que eu irei ajudar vocês?",
+                "nextPhraseID": "jhaeld_13"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_11",
+        "message": "O quê, você tem a arrogância de pedir uma recompensa por nos ajudar a encontrar as pessoas que estão faltando? Se é ouro que você procura, eu sugiro que você procure em outro lugar.",
+        "replies": [
+            {
+                "text": "Bem, eu vou fazê-lo. Quem você quer que eu procure?",
+                "nextPhraseID": "jhaeld_14"
+            },
+            {
+                "text": "Sem recompensa, sem ajuda.",
+                "nextPhraseID": "jhaeld_12"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_12",
+        "message": "Eu sabia que você era apenas problema. Suspiro. Por favor, deixe-me.",
+        "replies": [
+            {
+                "text": "Bem, eu vou fazê-lo. Quem você quer que eu procure?",
+                "nextPhraseID": "jhaeld_14"
+            },
+            {
+                "text": "Como quiser.",
+                "nextPhraseID": "jhaeld_reject"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_13",
+        "message": "Porque? Seria a coisa certa a fazer, claro. Se você não consegue entender isso, é melhor ir para outro lugar.",
+        "replies": [
+            {
+                "text": "Bem, eu vou fazê-lo. Quem você quer que eu procure?",
+                "nextPhraseID": "jhaeld_14"
+            },
+            {
+                "text": "Não vou fazer isso. Não vejo por que eu deveria ajudá-lo.",
+                "nextPhraseID": "jhaeld_reject"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_14",
+        "message": "Há quatro pessoas aqui em Remgard que eu acredito que possam dizer mais do que aquilo que conseguimos extrair deles. Eu quero que você vá perguntar a eles o que eles sabem dos desaparecimentos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_15"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_15",
+        "message": "Primeiro, tem o Norath e sua esposa Bethir que vivem na casa da fazenda na costa sudoeste. Bethir está desaparecida, e Norath pode saber mais sobre onde ela poderia estar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 51
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_16"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_16",
+        "message": "Em segundo lugar, como você pode ter ouvido, fomos abençoados com a visita de uma delegação dos Cavaleiros de Elythom aqui em Remgard. Infelizmente, um dos cavaleiros desapareceu, o que é muito constrangedor para nós. Eles podem ser encontrados aqui na taverna.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 52
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_17"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_17",
+        "message": "Em terceiro lugar, a anciã Duaina geralmente tem uma grande sabedoria a compartilhar, considerando a experiência que ela tem com... coisas fora do comum. Você vai encontrá-la em sua casa, ao sul.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 53
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_18"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_18",
+        "message": "Por último, você deve ir falar com Rothses, o armeiro na cidade. Ele se encontra com a maioria das pessoas e, em seguida, e poderia ter pego algo que ele não ousaria contar aos guardas. Sua casa fica no lado oeste da cidade.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 54
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_19"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_19",
+        "message": "Por favor seja tão rápido quanto possível.",
+        "replies": [
+            {
+                "text": "E sobre aquela mulher, Algangror, que vive fora da cidade?",
+                "nextPhraseID": "jhaeld_21",
+                "requires": {
+                    "progress": "remgard:30"
+                }
+            },
+            {
+                "text": "Eu vou perguntar a eles.",
+                "nextPhraseID": "jhaeld_20"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_20",
+        "message": "Como eu disse, por favor, seja o mais rápido possível."
+    },
+    {
+        "id": "jhaeld_21",
+        "message": "O que foi isso? Você ainda está aqui? Eu lhe disse para ser tão rápido quanto possível.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 59
+            }
+        ],
+        "replies": [
+            {
+                "text": "O que tem ela? O guarda da ponte enviou-me a investigar aquela casa, e parecia muito chateado quando eu mencionei que ela estava lá.",
+                "nextPhraseID": "jhaeld_22"
+            },
+            {
+                "text": "Eu vou procurar essas pessoas que você mencionou.",
+                "nextPhraseID": "jhaeld_20"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_22",
+        "message": "Você não me ouve? Eu lhe disse para ser tão rápido quanto possível! Isso significa que você deve ir falar com as pessoas em vez de estar aqui jogando conversa fora.",
+        "replies": [
+            {
+                "text": "Mas o guarda ponte parecia ...",
+                "nextPhraseID": "jhaeld_23"
+            },
+            {
+                "text": "Mas eu pensei que ...",
+                "nextPhraseID": "jhaeld_23"
+            },
+            {
+                "text": "E sobre o ...",
+                "nextPhraseID": "jhaeld_23"
+            },
+            {
+                "text": "Eu vou procurar essas pessoas que você mencionou.",
+                "nextPhraseID": "jhaeld_20"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_23",
+        "message": "Você ainda está falando? Eu sabia que você era nada além de problemas no momento em que a vi. Agora, por favor você pode se apressar e ir falar com essas pessoas?",
+        "replies": [
+            {
+                "text": "Certo. Eu vou perguntar a eles.",
+                "nextPhraseID": "jhaeld_20"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_rejected",
+        "message": "E agora? Olha, nós não queremos que crianças como você fiquem zanzando por aqui, mexendo com nossas coisas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_leave"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return1",
+        "message": "Você falou com as pessoas que eu lhe enviei para perguntar sobre as pessoas desaparecidas?",
+        "replies": [
+            {
+                "text": "Sim, eu falei com todos eles.",
+                "nextPhraseID": "jhaeld_return2",
+                "requires": {
+                    "progress": "remgard:70"
+                }
+            },
+            {
+                "text": "Você pode repetir os nomes das pessoas que você queria que eu procurasse?",
+                "nextPhraseID": "jhaeld_14"
+            },
+            {
+                "text": "Eu não estou muito certo sobre isso. Haverá uma recompensa?",
+                "nextPhraseID": "jhaeld_11"
+            },
+            {
+                "text": "Eu não estou muito certo sobre isso. Por que eu iria ajudar vocês?",
+                "nextPhraseID": "jhaeld_13"
+            },
+            {
+                "text": "Ainda não, mas eu irei.",
+                "nextPhraseID": "jhaeld_19"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return2",
+        "message": "Bem, o que você descobriu?",
+        "replies": [
+            {
+                "text": "Nada. Nenhum deles me disse nada de novo sobre as pessoas desaparecidas.",
+                "nextPhraseID": "jhaeld_return3"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return3",
+        "message": "Então .. Deixe-me entender direito. Você foi e perguntou-lhes sobre as pessoas desaparecidas, e que não lhe disseram nada de novo?",
+        "replies": [
+            {
+                "text": "Não. Nenhum deles tinha nada de novo a dizer.",
+                "nextPhraseID": "jhaeld_return4"
+            },
+            {
+                "text": "Você me ouviu pela primeira vez.",
+                "nextPhraseID": "jhaeld_return4"
+            },
+            {
+                "text": "Talvez você devesse ter me mandou perguntar a outras pessoas do que esses perdedores que voce me mandou procurar.",
+                "nextPhraseID": "jhaeld_return4"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return4",
+        "message": "Ah, eu sabia que você era nada além de problemas no momento em que o vi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_return5"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return5",
+        "message": "Enviei-lhe para fazer uma tarefa simples, e você voltou com... nada!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_return6"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return6",
+        "message": "(Jhaeld murmura) crianças estúpidas ..",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 75
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_return7"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return7",
+        "message": "Certo então.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_return8"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return8",
+        "message": "Sugiro que você vá olhar em outros lugares, se você realmente quer nos ajudar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 80
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_return_s"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_return_s",
+        "replies": [
+            {
+                "nextPhraseID": "jhaeld_task2_n",
+                "requires": {
+                    "progress": "fiveidols:20"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_task2_f",
+                "requires": {
+                    "progress": "remgard:59"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_task2_y",
+                "requires": {
+                    "progress": "remgard:30"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_task2"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_task2_f",
+        "message": "Talvez alguém saiba algo que nós não tenhamos levado em conta. Além disso, eu me lembro de você dizer algo sobre Algangror antes, não é mesmo?",
+        "replies": [
+            {
+                "text": "Sim. Como eu tentei dizer-lhe, Algangror está escondida na casa abandonada fora da cidade.",
+                "nextPhraseID": "jhaeld_alg_3"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_task2_y",
+        "message": "Talvez alguém saiba algo que nós não tenhamos levado em conta.",
+        "replies": [
+            {
+                "text": "O guarda ponte enviou-me para explorar uma casa abandonada fora da cidade.",
+                "nextPhraseID": "jhaeld_alg_1"
+            },
+            {
+                "text": "Será que o nome 'Algangror' significa alguma coisa para você?",
+                "nextPhraseID": "jhaeld_alg_2"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_task2",
+        "message": "Talvez alguém saiba algo que nós não tenhamos levado em conta.",
+        "replies": [
+            {
+                "text": "O guarda ponte enviou-me para explorar uma casa abandonada fora da cidade.",
+                "nextPhraseID": "jhaeld_alg_1"
+            },
+            {
+                "text": "Eu poderia saber algo, mas prometi não contar a ninguém.",
+                "nextPhraseID": "jhaeld_task2_1",
+                "requires": {
+                    "progress": "remgard:31"
+                }
+            },
+            {
+                "text": "Eu não sei de mais nada.",
+                "nextPhraseID": "jhaeld_task2_n"
+            },
+            {
+                "text": "Eu vou procurar ao redor.",
+                "nextPhraseID": "jhaeld_task2_n"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_task2_1",
+        "message": "Um segredo, né? Você faria bem se me dissesse o que sabe. Vidas podem estar em jogo aqui.",
+        "replies": [
+            {
+                "text": "O guarda ponte enviou-me para explorar uma casa abandonada fora da cidade.",
+                "nextPhraseID": "jhaeld_alg_1"
+            },
+            {
+                "text": "Não, eu vou manter minha palavra, e não dizer.",
+                "nextPhraseID": "jhaeld_task2_2"
+            },
+            {
+                "text": "Não importa, não era nada.",
+                "nextPhraseID": "jhaeld_task2_n"
+            },
+            {
+                "text": "Não importa, eu vou perguntar se alguém mais sabe de algo.",
+                "nextPhraseID": "jhaeld_task2_n"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_task2_2",
+        "message": "Ah, alguém com honra. Eu respeito isso, e não vou perguntar mais nada.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_task2_n"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_task2_n",
+        "message": "Não tenho mais nada para lhe dizer."
+    },
+    {
+        "id": "jhaeld_alg_1",
+        "message": "Hm, sim, e daí?",
+        "replies": [
+            {
+                "text": "Eu conheci uma mulher chamada Algangror naquela casa.",
+                "nextPhraseID": "jhaeld_alg_2"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_2",
+        "message": "Algangror?! Esse é um nome que eu não ouço faz muito tempo.",
+        "replies": [
+            {
+                "text": "Algangror está escondida na casa abandonada fora da cidade.",
+                "nextPhraseID": "jhaeld_alg_3"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_3",
+        "message": "Se Algangror está aqui, esta é uma notícia realmente sombria.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard2",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_4"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_4",
+        "message": "Para ser honesto, eu tinha ouvido falar sobre isso antes, mas eu desconsiderei toda a conversa pois eu não acreditei nisso. Agora que você também me afirma isso eu estou começando a pensar que isso talvez possa ser verdade. Ela pode ter retornado.",
+        "replies": [
+            {
+                "text": "Quem é ela?",
+                "nextPhraseID": "jhaeld_alg_5"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_5",
+        "message": "Ela morava aqui em Remgard, durante os dias de prosperidade. Ela ainda ajudou com as colheitas em alguns anos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_6"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_6",
+        "message": "Então algo aconteceu. Ela começou a ter idéias, e, ocasionalmente, se trancou em sua casa por vários dias. Ninguém sabia o que estava fazendo ali, mas todos sabíamos que nada era de bom.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_7"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_7",
+        "message": "Ainda me lembro do cheiro que vinha da casa dela. Ugh. O que poderia cheirar tão ruim assim?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_8"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_8",
+        "message": "De qualquer forma, começamos a questioná-la, e tentamos persuadi-la a dizer o que ela estava fazendo. Teimosa e louca como ela estava, se recusou, é claro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_9"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_9",
+        "message": "As coisas começaram a piorar, e o mau cheiro se espalhava como uma névoa profunda sobre toda a cidade. Todos nós que vivemos aqui em Remgard sabiamos que tinhamos que agir antes que ela fizesse algo que poderia prejudicar a todos nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_10"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_10",
+        "message": "Assim, forçamo-la a se explicar.",
+        "replies": [
+            {
+                "text": "E ela contou?",
+                "nextPhraseID": "jhaeld_alg_11"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_11",
+        "message": "Você acredita, ela nos disse que ela acreditava que o que ela fazia não era da nossa conta. Ela ainda teve o estômago para nos dizer que queria ser deixada sozinha.",
+        "replies": [
+            {
+                "text": "O que você fez?",
+                "nextPhraseID": "jhaeld_alg_12"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_12",
+        "message": "É claro que fiz o que qualquer homem sensato faria. Nós a obrigamos a abandonar sua casa e encontrar outro lugar para viver. Em algum lugar diferente Remgard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_13"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_13",
+        "message": "Você deveria tê-la ter visto. Unhas tão longas quanto os dedos, e o rosto dela cheio de cabelo sujo. Claramente, ela era louca e não poderia ser razoável.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_14"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_14",
+        "message": "Quando ela caminhava pela cidade, as crianças começavam a gritar de pavor por causa dela.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_15"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_15",
+        "message": "A pior coisa, porém, é que ela disse que iria lançar uma maldição sobre todos nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_16"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_16",
+        "message": "Tudo isso foi a vários trimestres atrás, e as coisas têm retornado a seu ritmo normal deste então.",
+        "replies": [
+            {
+                "text": "E estava assim, até então, antes do seu retorno.",
+                "nextPhraseID": "jhaeld_alg_17"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_17",
+        "message": "Sim. Seu retorno explicaria as pessoas desaparecidas. Ela deve ter feito alguma coisa com eles. Eu temo pelo pior.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_18"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_18",
+        "message": "Considerando as pessoas que desapareceram, eu sinceramente não sei o que fazer. Como você sabe, até mesmo um dos Cavaleiros de Elythom desapareceu.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_19"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_19",
+        "message": "Alguém que possa fazer isso é realmente perigosa. Eu não tenho certeza se iria mesmo arriscar a enviar os guardas lá fora, atrás ela, com medo do que ela poderia fazer.",
+        "replies": [
+            {
+                "text": "Então, o que fazer?",
+                "nextPhraseID": "jhaeld_alg_20"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_20",
+        "message": "Se eu tivesse que escolher, eu preferiria não lidar com isso, e apenas selar a ponte da cidade para estar tão segura quanto possível, para evitar que mais pessoas continuem desaparecendo.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard2",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_21s"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_21s",
+        "replies": [
+            {
+                "nextPhraseID": "jhaeld_alg_21n",
+                "requires": {
+                    "progress": "remgard2:21"
+                }
+            },
+            {
+                "nextPhraseID": "jhaeld_alg_21"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_21n",
+        "message": "Eu... Eu não sei o que fazer."
+    },
+    {
+        "id": "jhaeld_alg_21",
+        "message": "Eu... Eu não sei o que fazer.",
+        "replies": [
+            {
+                "text": "Eu poderia ajudá-lo, se quiser.",
+                "nextPhraseID": "jhaeld_alg_24"
+            },
+            {
+                "text": "Você é um idiota patético. Você prefere sentar aqui e não fazer nada, em vez de confrontá-la?",
+                "nextPhraseID": "jhaeld_alg_22"
+            },
+            {
+                "text": "Hah, parece chato ser você!",
+                "nextPhraseID": "jhaeld_alg_23"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_22",
+        "message": "Eu não vou ver mais do meu povo se machucar, ou o que quer que ela tenha feito para eles. Vou manter o meu povo seguro.",
+        "replies": [
+            {
+                "text": "Eu poderia ajudá-lo, se quiser.",
+                "nextPhraseID": "jhaeld_alg_24"
+            },
+            {
+                "text": "Hah, parece chato ser você!",
+                "nextPhraseID": "jhaeld_alg_23"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_23",
+        "message": "Insultos não vão ajudar a chegar a lugar algum. As pessoas que desapareceram ainda estão faltando, e mais alguém pode ser ferida, enquanto você anda por aí distribuindo insultos. Tenho pena de você.",
+        "replies": [
+            {
+                "text": "Eu poderia ajudá-lo, se quiser.",
+                "nextPhraseID": "jhaeld_alg_24"
+            },
+            {
+                "text": "Você idiota patético. Você prefere sentar aqui e não fazer nada, em vez de confrontá-la?",
+                "nextPhraseID": "jhaeld_alg_22"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_24",
+        "message": "Se você realmente quiser nos ajudar, por favor, tenha cuidado. Não se pode confiar nela.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_25"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_25",
+        "message": "No entanto, se você encontrar uma maneira de fazê-la desaparecer, nós naturalmente teríamos para sempre uma dívida com você.",
+        "replies": [
+            {
+                "text": "Vou ver o que posso fazer.",
+                "nextPhraseID": "jhaeld_alg_26"
+            },
+            {
+                "text": "Eu tenho lidado com inimigos mais fortes.",
+                "nextPhraseID": "jhaeld_alg_27"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_26",
+        "message": "Lembre-se, por favor, tenha cuidado! Eu não quero ser responsável por outra pessoa desaparecer.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard2",
+                "value": 21
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_alg_27",
+        "message": "Eu duvido.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_alg_26"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg",
+        "message": "Olá novamente. Que novidades você traz?",
+        "replies": [
+            {
+                "text": "Você pode me contar a história de Algangror novamente?",
+                "nextPhraseID": "jhaeld_alg_5"
+            },
+            {
+                "text": "Eu ainda estou tentando encontrar uma maneira de fazer Algangror desaparecer.",
+                "nextPhraseID": "jhaeld_alg_26"
+            },
+            {
+                "text": "Algangror está morta.",
+                "nextPhraseID": "jhaeld_killalg_1",
+                "requires": {
+                    "progress": "remgard2:35"
+                }
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_1",
+        "message": "Acho isso muito difícil de acreditar. Matar Algangror é uma tarefa difícil, dado o seu poder.",
+        "replies": [
+            {
+                "text": "Eu lhe trouxe o anel dela como prova de que o que eu digo é verdade.",
+                "nextPhraseID": "jhaeld_killalg_1b",
+                "requires": {
+                    "item": {
+                        "itemID": "algangror_ring",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não, não importa. Eu realmente não a derrotei ainda.",
+                "nextPhraseID": "jhaeld_alg_26"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_1b",
+        "message": "Eu mal posso acreditar! Sim, este é realmente o seu anel.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard2",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_killalg_2"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_2",
+        "message": "Você realmente a derrotou? Estou tão aliviado! Diga-me, o quão louco ela estava? Não, não me diga, eu não quero ouvir mais dessa sujeira.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_killalg_3"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_3",
+        "message": "Isso significa que o povo de Remgard está agora a salvo dela, e é tudo graças a você! Quem diria.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard2",
+                "value": 41
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_killalg_4"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_4",
+        "message": "Eu... Eu não sei o que dizer. Obrigado, isso é o mínimo que posso dizer.",
+        "replies": [
+            {
+                "text": "Você é muito bem-vindo.",
+                "nextPhraseID": "jhaeld_killalg_5"
+            },
+            {
+                "text": "Essa foi uma luta dura. Agora, vamos falar da recompensa.",
+                "nextPhraseID": "jhaeld_killalg_5"
+            },
+            {
+                "text": "Apenas mais outro corpo nas minhas costas.",
+                "nextPhraseID": "jhaeld_killalg_5"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_5",
+        "message": "Eu acho que a cidade inteira está em dívida, mas eles podem não saber disso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_killalg_6"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_killalg_6",
+        "message": "Vá falar com Rothses mais no lado oeste da cidade. Ele deve ser capaz de ajudar a melhorar alguns de seus equipamentos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard2",
+                "value": 45
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jhaeld_completed"
+            }
+        ]
+    },
+    {
+        "id": "jhaeld_completed",
+        "message": "Mais uma vez, obrigado por toda sua ajuda."
+    },
+    {
+        "id": "jhaeld_idol_1",
+        "message": "Por favor, deixe-me, criança. Eu estou com um súbito ataque de náuseas. Eu provavelmente devo me deitar."
+    }
+]

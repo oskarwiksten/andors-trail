@@ -1,0 +1,201 @@
+[
+    {
+        "id": "leonid1",
+        "message": "Привет пацан. Ты ведь сын Михаила, не так ли? У тебя еще есть брат.\n\nЯ Леонид, управляющий деревни Кроссглен.",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "leonid_andor"
+            },
+            {
+                "text": "Кроссглен",
+                "nextPhraseID": "leonid_crossglen"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_andor",
+        "message": "Твоего брата? Нет, я не видел его сегодня. Кажется я видел его здесь вчера, он разговаривал с Груилом. Может он знает?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Спасибо",
+                "nextPhraseID": "leonid_continue"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_continue",
+        "message": "Могу я еще чем нибудь помочь?",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "leonid_andor"
+            },
+            {
+                "text": "Кроссглен",
+                "nextPhraseID": "leonid_crossglen"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen",
+        "message": "Как ты знаешь, это деревня Кроссглен. Мы фермерская община.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen1"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen1",
+        "message": "У нас есть Аудир, с его кузницей на юго-западе, хижина Леты и ее мужа на западе, эта ратуша и хижина твоего отца на северо-западе.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen2"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen2",
+        "message": "Вот в принципе и всё. Мы стараемся жить мирно.",
+        "replies": [
+            {
+                "text": "Последние события",
+                "nextPhraseID": "leonid_crossglen3"
+            },
+            {
+                "text": "Назад",
+                "nextPhraseID": "leonid_continue"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen3",
+        "message": "Были некоторые беспорядки несколько недель назад, которые вы могли заметить. Некоторые жители участвовали в митинге против нового указа Лорда Геомира.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen4"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen4",
+        "message": "Лорд Геомир выступил с заявлением о незаконном использовании Костной муки, как исцеляющего вещества. Некоторые жители утверждают, что мы должны выступить против слова Лорда Геомира и по-прежнему использовать ее сами.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen4_1"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen4_1",
+        "message": "Фарал, наш священник, особенно расстроился и предложил сделать что-то c Лордом Геомиром.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen5"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen5",
+        "message": "Другие жители утверждают, что мы должны придерживаться желания Лорда Геомира желания.\n\nЛично я еще не решил на чьей я стороне.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen6"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen6",
+        "message": "С одной стороны, Лорд Геомир поддерживает Долину Креста большим количеством охраны. *указывает на солдат в зале*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen7"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen7",
+        "message": "Но, с другой стороны, налоги и жесткие правила, что разрешено, а что нет действительно сильно ударили по деревне.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen8"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen8",
+        "message": "Кто-то должен идти к замку Геомира и поговорить с управляющим о нашей ситуации здесь, в Кроссглене.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "crossglen",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "leonid_crossglen9"
+            }
+        ]
+    },
+    {
+        "id": "leonid_crossglen9",
+        "message": "В то же время, мы запретили любое использование костной муки, как исцеляющего вещества.",
+        "replies": [
+            {
+                "text": "Назад",
+                "nextPhraseID": "leonid_continue"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "leonid_bye"
+            }
+        ]
+    },
+    {
+        "id": "leonid_bye",
+        "message": "Да прибудет с тобой Тень.",
+        "replies": [
+            {
+                "text": "Выход",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

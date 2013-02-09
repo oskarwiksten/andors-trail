@@ -1,0 +1,350 @@
+[
+    {
+        "id": "jan_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "jan_complete2",
+                "requires": {
+                    "progress": "jan:100"
+                }
+            },
+            {
+                "nextPhraseID": "jan_return",
+                "requires": {
+                    "progress": "jan:10"
+                }
+            },
+            {
+                "nextPhraseID": "jan_default"
+            }
+        ]
+    },
+    {
+        "id": "jan_default",
+        "message": "Hallo Junge. Lass mich bitte allein mit meiner Trauer.",
+        "replies": [
+            {
+                "text": "Was ist das Problem?",
+                "nextPhraseID": "jan_default2"
+            },
+            {
+                "text": "Möchtest du darüber reden?",
+                "nextPhraseID": "jan_default2"
+            },
+            {
+                "text": "Alles klar, Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default2",
+        "message": "Oh, es ist so traurig. Ich möchte wirklich nicht darüber reden.",
+        "replies": [
+            {
+                "text": "Bitte, erzähl es mir.",
+                "nextPhraseID": "jan_default3"
+            },
+            {
+                "text": "Okay, Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default3",
+        "message": "Nun, ich denke es ist in Ordnung wenn ich es dir erzähle. Du scheinst ein freundlicher Junge zu sein.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default4"
+            }
+        ]
+    },
+    {
+        "id": "jan_default4",
+        "message": "Mein Freund Gandir, sein Freund Irogotu und ich gingen hinunter in dieses Loch um zu graben. Wir hatten gehört, dass es hier einen verborgenen Schatz gibt.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default5"
+            }
+        ]
+    },
+    {
+        "id": "jan_default5",
+        "message": "Wir haben angefangen zu graben und sind schließlich in ein tiefer liegendes Höhlensystem durchgebrochen. Da haben wir sie entdeckt: Kriechtiere und Käfer.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default6"
+            }
+        ]
+    },
+    {
+        "id": "jan_default6",
+        "message": "Oh, dieses verdammte Kriechzeugs. Hätten mich beinahe getötet.\n\nGandir und ich sagten zu Irogotu, dass wir die Grabung beenden und fliehen sollten, solange wir noch könnten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default7"
+            }
+        ]
+    },
+    {
+        "id": "jan_default7",
+        "message": "Aber Irogotu wollte weiter in die Höhlen vordringen. Er und Gandir gerieten in Streit und fingen an zu kämpfen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default8"
+            }
+        ]
+    },
+    {
+        "id": "jan_default8",
+        "message": "Dann passierte es.\n\n*schluchz*\n\nOh, was haben wir nur getan?",
+        "replies": [
+            {
+                "text": "Bitte erzähl weiter.",
+                "nextPhraseID": "jan_default9"
+            }
+        ]
+    },
+    {
+        "id": "jan_default9",
+        "message": "Irogotu tötete Gandir mit seinen bloßen Händen. Man konnte das Feuer in seinen Augen sehen, beinahe als hätte er es genossen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default10"
+            }
+        ]
+    },
+    {
+        "id": "jan_default10",
+        "message": "Ich bin geflohen und habe mich wegen der Kriechtiere und Irogotu selbst auch nicht mehr zurück nach unten getraut.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default11"
+            }
+        ]
+    },
+    {
+        "id": "jan_default11",
+        "message": "Oh dieser verdammte Irogotu. Wenn ich nur zu ihm gelangen könnte, dann würde ich es ihm schon zeigen.",
+        "replies": [
+            {
+                "text": "Denkst du, ich kann helfen?",
+                "nextPhraseID": "jan_default11_1"
+            }
+        ]
+    },
+    {
+        "id": "jan_default11_1",
+        "message": "Glaubst du, dass du mir helfen könntest?",
+        "replies": [
+            {
+                "text": "Sicher! Da könnten ein paar Schätze auf mich warten.",
+                "nextPhraseID": "jan_default12"
+            },
+            {
+                "text": "Sicher! Irogotu soll für seine Taten bezahlen.",
+                "nextPhraseID": "jan_default12"
+            },
+            {
+                "text": "Nein danke, da möchte ich lieber nicht hineingezogen werden. Das klingt gefährlich.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default12",
+        "message": "Wirklich? Du glaubst, dass du mir helfen kannst? Hm, vielleicht kannst du das wirklich. Hüte dich vor diesen Käfern, sie sind ziemlich zähe Bastarde.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jan",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default13"
+            }
+        ]
+    },
+    {
+        "id": "jan_default13",
+        "message": "Wenn du wirklich helfen willst, finde Irogotu unten in dieser Höhle und bring mir Gandir's Ring zurück.",
+        "replies": [
+            {
+                "text": "Sicher, ich werde dir helfen.",
+                "nextPhraseID": "jan_default14"
+            },
+            {
+                "text": "Kannst du mir deine Geschichte noch mal erzählen?",
+                "nextPhraseID": "jan_background"
+            },
+            {
+                "text": "Nichts für ungut, Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default14",
+        "message": "Komm zu mir zurück, wenn du fertig bist. Und hole Gandir's Ring von Irogotu unten in der Höhle.",
+        "replies": [
+            {
+                "text": "Okay, bis später.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_return",
+        "message": "Hallo Junge. Hast du Irogotu in der Höhle gefunden?",
+        "replies": [
+            {
+                "text": "Nein, noch nicht.",
+                "nextPhraseID": "jan_default14"
+            },
+            {
+                "text": "Kannst du mir deine Geschichte noch mal erzählen?",
+                "nextPhraseID": "jan_background"
+            },
+            {
+                "text": "Ja, ich habe Irogotu getötet.",
+                "nextPhraseID": "jan_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_gandir",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "jan_background",
+        "message": "Hast du nicht zugehört, als ich dir alles erzählt habe? Muss ich die Geschichte wirklich noch einmal erzählen?",
+        "replies": [
+            {
+                "text": "Ja, bitte wiederhole die Geschichte noch einmal.",
+                "nextPhraseID": "jan_default3"
+            },
+            {
+                "text": "Ich habe beim ersten Mal nicht so genau zugehört. Wie war das nochmal mit dem Schatz?",
+                "nextPhraseID": "jan_default4"
+            },
+            {
+                "text": "Nein, vergiss es. Ich erinnere mich wieder.",
+                "nextPhraseID": "jan_default14"
+            }
+        ]
+    },
+    {
+        "id": "jan_complete2",
+        "message": "Danke für deine Hilfe mit Irogotu! Ich stehe für immer in deiner Schuld.",
+        "replies": [
+            {
+                "text": "Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_complete",
+        "message": "Warte mal. Du bist wirklich da hinuntergegangen und lebend zurückgekommen? Wie hast du das gemacht. Wow, ich bin schon beinahe gestorben, als ich in die Höhle gegangen bin.\n\nVielen Dank für Gandir's Ring. Jetzt habe ich wenigstens eine Erinnerung an ihn.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jan",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ich habe gern geholfen. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Möge der Schatten mit dir sein. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Jaja, ich hab' es nur wegen der Beute getan.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "irogotu",
+        "message": "Wen haben wir den da? Wieder ein Abenteurer der gekommen ist, meinen Schatz zu stehlen. Das ist MEINE HÖHLE. Und der Schatz ist MEIN!",
+        "replies": [
+            {
+                "text": "Hast du Gandir getötet?",
+                "nextPhraseID": "irogotu1",
+                "requires": {
+                    "progress": "jan:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "irogotu1",
+        "message": "Dieser Frischling Gandir. Er stand mir im Weg. Ich habe ihn lediglich als Werkzeug benutzt, um mich tiefer in diese Höhle zu graben.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "irogotu2"
+            }
+        ]
+    },
+    {
+        "id": "irogotu2",
+        "message": "Nebenbei, ich konnte ihn nie ausstehen.",
+        "replies": [
+            {
+                "text": "Ich schätze, er hat den Tod verdient. Hatte er einen Ring dabei?",
+                "nextPhraseID": "irogotu3"
+            },
+            {
+                "text": "Jan erwähnte etwas von einem Ring?",
+                "nextPhraseID": "irogotu3"
+            }
+        ]
+    },
+    {
+        "id": "irogotu3",
+        "message": "NEIN! Du kannst ihn nicht haben. Er gehört mir. Und überhaupt, wer bist du Junge, dass du hier herunterkommst, um mich zu stören?!",
+        "replies": [
+            {
+                "text": "Ich bin kein Junge mehr! Und jetzt gib mir den Ring!",
+                "nextPhraseID": "irogotu4"
+            },
+            {
+                "text": "Gib mir diesen Ring und wir könnten beide lebend aus dieser Sache heraus kommen.",
+                "nextPhraseID": "irogotu4"
+            }
+        ]
+    },
+    {
+        "id": "irogotu4",
+        "message": "Nein. Wenn du ihn willst, musst du ihn meiner leblosen Hand entreißen. Der Fairness halber sollte ich dir mitteilen, dass ich über große Macht verfüge, so dass du dich eventuell lieber für die Flucht entscheiden solltest.",
+        "replies": [
+            {
+                "text": "Sehr gut, lass uns sehen, wer von uns sterben wird.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Beim Schatten, Gandir wird gerächt werden.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]
