@@ -1,15 +1,10 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en" ng-app="ateditor">
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-	<link rel="shortcut icon" href="http://andorstrail.com/favicon.ico"/>	
-	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
-	
-	<link rel="stylesheet" type="text/css" href="styles2.css" />
-	<link rel="stylesheet" type="text/css" href="inc/ui.dynatree.css" />
-	<script type="text/javascript" src="AndorsTrailEditor.js"></script>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="inc/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="inc/hint.min.css" />
+	<link rel="stylesheet" href="styles.css" />
 	<title>Andor's Trail Content Editor</title>
 </head>
 <body>
@@ -23,992 +18,113 @@
 		</span>
 	</div>
 	<div id="buttons">
-		<div id="import">Import</div>
-		<div id="export">Export</div>
+		<a href="#import" class="btn"><i class="icon-upload"></i> Import</a>
+		<a href="#export" class="btn"><i class="icon-download"></i> Export</a>
 	</div>
+	<div class="clearfix"></div>
 </div>
-
-<script type="text/template" id="listitem">
-	<li><img />{{name}}</li>
-</script>
 
 <div id="left" class="workarea">
-	<div id="tools">
-		<h3><a href="#">Actor conditions</a></h3>
-		<div id="actorconditionlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
+	<div id="tools" ng-controller="ATEditor.controllers.NavigationController" ng-init="$('.collapse').collapse()">
+		<div class="accordion" id="accordion-nav">
+			<div class="accordion-group" ng-show="previousItems.length > 0">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" href="#collapse-nav-previous">Recently opened</a>
+				</div>
+				<div id="collapse-nav-previous" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<ul class="itemlist">
+							<li ng-repeat="p in previousItems" ng-click="editObj(p.section, p.obj)" fadey>
+								<img ng-tile-image="p.obj.iconID" ng-tile-image-scale="0.7" ng-show="p.section.hasIcon()" />
+								{{getName(p.section, p.obj)}}
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Quests</a></h3>
-		<div id="questlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
+			<div class="accordion-group" ng-repeat="section in sections">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" ng-href="#collapse-nav-{{section.id}}">
+						{{section.name}}
+					</a>
+				</div>
+				<div id="collapse-nav-{{section.id}}" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<div class="tools-buttons">
+							<button ng-click="addObj(section)" class="btn"><i class="icon-plus-sign"></i> Add</button>
+							<button ng-click="editAsTable(section)" class="btn" ng-show="supportsTableEdit(section)"><i class="icon-list"></i> Table</button>
+							<button ng-click="clear(section)" class="btn"><i class="icon-trash"></i> Clear</button>
+						</div>
+						<ul class="itemlist">
+							<li ng-repeat="obj in section.items" ng-click="editObj(section, obj)" fadey>
+								<div style="float: left;">
+									<img ng-tile-image="obj.iconID" ng-tile-image-scale="0.7" ng-show="section.hasIcon()" />
+									{{getName(section, obj)}}
+								</div>
+								<div style="float: right;">
+									<a ng-click="dupObj(section, obj)" class="btn btn-mini" title="Duplicate"><i class="icon-plus"></i></a>
+									<a ng-click="delObj(section, obj)" class="btn btn-mini" title="Remove"><i class="icon-trash"></i></a>
+								</div>
+								<div style="clear: both;"> </div>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Items</a></h3>
-		<div id="itemlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Droplists</a></h3>
-		<div id="droplist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Dialogue</a></h3>
-		<div id="conversationlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
-		</div>
-		
-		<h3><a href="#">Monsters &amp; NPCs</a></h3>
-		<div id="monsterlist">
-			<div class="tools-buttons">
-				<div id="add">Add</div>
-				<div id="clear">Clear</div>
-			</div>
-			<ul class="itemlist"> </ul>
 		</div>
 	</div>
 </div>
 
-<div id="center" class="workarea">
-	<div id="tabs">
-		<ul>
-			<li><a href="#tabs-1">Start</a></li>
-		</ul>
-		<div id="tabs-1">
-			<h3>Welcome to the content editor for Andor's Trail.</h3>
-			Start by importing some content from the game by pressing the top right "Import" button.<br />
-			Or you could start by creating new content by selecting something from the left list.<br />
-			<br />
+<form class="form-inline">
+<div id="center" class="workarea" ng-view></div>
+	
+</div>
+</form>
+
+<div id="selectIconModal" class="modal hide fade" role="dialog" ng-controller="ATEditor.controllers.SelectIconController">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>Select icon</h3>
+	</div>
+	<div class="modal-body">
+		<div ng-repeat="section in sections">
+			<div ng-show="section.id == selectedSection">
+				<div ng-repeat="imageID in section.imageIDs" ng-tile-image="imageID" ng-click="imageSelected(imageID)" class="at-input-icon"></div>
+			</div>
 		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal">Cancel</button>
 	</div>
 </div>
 
-</div>
 
-
-<div class="hidden" id="templates">
-	
-	<!-- ========================================================= -->
-	<!--   Monster editor                                          -->
-	
-	<div id="editMonster">
-		<h3>Monster / NPC</h3>
-		<fieldset class="fieldSet">
-			<legend>General</legend>
-			<div class="fieldWithLabel">
-				<div id="monsterimage" class="field"><input type="hidden" id="iconID" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Internal id:</label>
-				<input class="field" type="text" size="30" id="id" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="name" class="label">Display name:</label>
-				<input class="field" type="text" size="30" id="name" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="tags" class="label">Spawngroup:</label>
-				<input class="field" type="text" size="30" id="tags" class="fieldInput" title="This is a grouping of monster types. Use these tags on spawn areas to spawn random monsters with the same tag. Several monsters may have the same tag." />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="size" class="label">Size:</label>
-				<input class="field" type="text" size="5" id="size" class="fieldInput" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="faction" class="label">Faction:</label>
-				<input class="field" type="text" size="30" id="faction" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="unique" />Is unique (will not respawn)</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="monsterClass" class="label">Monster class:</label>
-				<select class="field" id="monsterClass">
-					<option value="0">Humanoid</option>
-					<option value="1">Insect</option>
-					<option value="2">Demon</option>
-					<option value="3">Construct</option>
-					<option value="4">Animal</option>
-					<option value="5">Giant</option>
-					<option value="6">Undead</option>
-					<option value="7">Reptile</option>
-					<option value="8">Ghost</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasConversation" />Has conversation</div>
-			</div>
-			<div class="fieldWithLabel" id="hasConversationDisplay">
-				<label for="phraseID" class="label">Conversation phrase ID:</label>
-				<input class="field" type="text" size="30" id="phraseID" class="fieldInput" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="droplistID" class="label">Droplist ID (combat or shop):</label>
-				<input class="field" type="text" size="30" id="droplistID" class="fieldInput"/>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet">
-			<legend>Stats</legend>
-			<div class="fieldWithLabel">
-				<label for="maxAP" class="label">Total AP:</label>
-				<input class="field" type="text" size="5" id="maxAP" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="moveCost" class="label">Movement cost (AP):</label>
-				<input class="field" type="text" size="5" id="moveCost" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="maxHP" class="label">Max HP:</label>
-				<input class="field" type="text" size="5" id="maxHP" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasCombat" />Has combat traits</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasCombatDisplay">
-			<legend>Combat</legend>
-			<div class="fieldWithLabel">
-				<label for="experience" class="label">Experience:</label>
-				<input class="field" type="text" size="7" id="experience" class="fieldInput integer" readonly="readonly" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackCost" class="label">Attack cost (AP):</label>
-				<input class="field" type="text" size="5" id="attackCost" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackChance" class="label">Attack chance:</label>
-				<div class="field"><input type="text" size="5" id="attackChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackDamage" class="label">Attack damage (range):</label>
-				<div class="field"><input type="text" size="3" id="attackDamage_Min" class="fieldInput integer" /> - <input type="text" size="3" id="attackDamage_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasCritical" />Has critical chance</div>
-			</div>
-			<div id="hasCriticalDisplay">
-				<div class="fieldWithLabel">
-					<label for="criticalChance" class="label">Critical skill:</label>
-					<div class="field"><input type="text" size="5" id="criticalChance" class="fieldInput integer" />%</div>
-				</div>
-				<div class="fieldWithLabel">
-					<label for="criticalMultiplier" class="label">Critical multiplier:</label>
-					<input class="field" type="text" size="5" id="criticalMultiplier" class="fieldInput integer" />
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="blockChance" class="label">Block chance:</label>
-				<div class="field"><input type="text" size="5" id="blockChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="damageResistance" class="label">Damage resistance:</label>
-				<input class="field" type="text" size="5" id="damageResistance" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasHitEffect" />Has effect on each hit</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasHitEffectDisplay">
-			<legend>On every successful attack hit</legend>
-			<div class="fieldWithLabel">
-				<label for="onHit_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="onHit_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="onHit_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="onHit_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="onHit_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="onHit_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="onHit_conditionsSource" class="label">Conditions added to source</label>
-				<table class="field" id="onHit_conditionsSource">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="onHit_conditionsTarget" class="label">Conditions added to target</label>
-				<table class="field" id="onHit_conditionsTarget">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<div class="endSets"> </div>
-	</div>
-	
-	<div id="dialog-onHitConditions">
-		<div class="fieldWithLabel">
-			<label for="condition" class="label">Actor condition id:</label>
-			<input type="text" size="30" id="condition" class="field fieldInput"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="magnitude" class="label">Magnitude:</label>
-			<input type="text" size="5" id="magnitude" class="field fieldInput integer"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="duration" class="label">Duration (number of turns):</label>
-			<input type="text" size="5" id="duration" class="field fieldInput integer"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="chance" class="label">Chance:</label>
-			<select class="field" id="chance">
-				<option value="100">Always</option>
-				<option value="70">Frequent (70%)</option>
-				<option value="50">Sometimes (50%)</option>
-				<option value="20">Rare (20%)</option>
-				<option value="10">Seldom (10%)</option>
-				<option value="1">Very seldom (1%)</option>
-				<option value="1/1000">Unique (0.1%)</option>
-			</select>
-		</div>
-	</div>
-	
-	
-	<!-- ========================================================= -->
-	<!--   Droplist editor                                         -->
-	
-	<div id="editDroplist">
-		<h3>Droplist</h3>
-		<fieldset class="fieldSet">
-			<legend>General</legend>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Droplist internal ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="stages" class="label">Items dropped</label>
-				<table class="field" id="items">
-					<thead><tr>
-						<th id="itemID">Item (id)</th>
-						<th id="quantity_Min">Min quantity</th>
-						<th id="quantity_Max">Max quantity</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-						
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<div class="endSets"> </div>
-	</div>
-	
-	<div id="dialog-droplistItem">
-		<div class="fieldWithLabel">
-			<label for="itemID" class="label">Item (id):</label>
-			<input type="text" size="30" id="itemID" class="field fieldInput"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="quantity" class="label">Quantity:</label>
-			<div class="field"><input type="text" size="3" id="quantity_Min" class="fieldInput integer" /> - <input type="text" size="3" id="quantity_Max" class="fieldInput integer" /></div>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="chance" class="label">Chance:</label>
-			<select class="field" id="chance">
-				<option value="100">Always</option>
-				<option value="70">Often (70%)</option>
-				<option value="30">Sometimes (30%)</option>
-				<option value="25">Sometimes (25%)</option>
-				<option value="20">Rare (20%)</option>
-				<option value="10">Rare (10%)</option>
-				<option value="5">Seldom (5%)</option>
-				<option value="1">Unique (1%)</option>
-				<option value="1/1000">Extraordinary (0.1%)</option>
-				<option value="1/10000">Legendary (0.01%)</option>
-			</select>
-		</div>
-	</div>
-	
-	
-	<!-- ========================================================= -->
-	<!--   Item editor                                             -->
-	
-	<div id="editItem">
-		<h3>Item</h3>
-		<fieldset class="fieldSet">
-			<legend>General</legend>
-			<div class="fieldWithLabel">
-				<div id="itemimage" class="field"><input type="hidden" id="iconID" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="name" class="label">Display name:</label>
-				<input class="field" type="text" size="30" id="name" class="fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Internal ID:</label>
-				<input class="field" type="text" size="30" id="id" class="fieldInput" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="category" class="label">Category:</label>
-				<select class="field" id="category">
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="displaytype" class="label">Display as:</label>
-				<select class="field" id="displaytype">
-					<option value="0">Ordinary item</option>
-					<option value="1">Quest item (yellow)</option>
-					<option value="2">Legendary (green)</option>
-					<option value="3">Extraordinary (blue)</option>
-					<option value="4">Rare (purple)</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="baseMarketCost" class="label">Base market cost (gold):</label>
-				<input class="field" type="text" size="7" id="baseMarketCost" readonly="readonly" class="fieldInput integer" title="The actual price is adjusted 15% depending on if the item is being bought or sold. Set to 0 to prohibit selling this item type (for example, for a quest item)." />
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasManualPrice" />Item has manually specified store price</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="marketCost_Sell" class="label">Actual price (gold):</label>
-				<div class="field">
-					<span>Sell: <input type="text" size="7" id="marketCost_Sell" class="fieldInput integer" readonly="readonly" /></span>
-					<span>Buy: <input type="text" size="7" id="marketCost_Buy" class="fieldInput integer" readonly="readonly" /></span>
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasEquipEffect" />Has equip effect</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasUseEffect" />Has use effect</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasHitEffect" />Has effect on every hit</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasKillEffect" />Has effect on every kill</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasEquipEffectDisplay">
-			<legend>When equipped</legend>
-			<div class="fieldWithLabel">
-				<label for="equip_boostMaxHP" class="label">Boost max HP:</label>
-				<input type="text" size="5" id="equip_boostMaxHP" class="field fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_boostMaxAP" class="label">Boost max AP:</label>
-				<input type="text" size="5" id="equip_boostMaxAP" class="field fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_moveCostPenalty" class="label">Move cost penalty (AP):</label>
-				<input type="text" size="5" id="equip_moveCostPenalty" class="field fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_attackCost" class="label">Attack cost (AP):</label>
-				<input class="field" type="text" size="5" id="equip_attackCost" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_attackChance" class="label">Attack chance:</label>
-				<div class="field"><input type="text" size="5" id="equip_attackChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_attackDamage" class="label">Attack damage (range):</label>
-				<div class="field"><input type="text" size="3" id="equip_attackDamage_Min" class="fieldInput integer" /> - <input type="text" size="3" id="equip_attackDamage_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="equip_hasCritical" />Has critical chance</div>
-			</div>
-			<div id="equip_hasCriticalDisplay">
-				<div class="fieldWithLabel">
-					<label for="equip_criticalChance" class="label">Critical skill:</label>
-					<div class="field"><input type="text" size="5" id="equip_criticalChance" class="fieldInput integer" />%</div>
-				</div>
-				<div class="fieldWithLabel">
-					<label for="equip_criticalMultiplier" class="label">Critical multiplier:</label>
-					<input class="field" type="text" size="5" id="equip_criticalMultiplier" class="fieldInput integer" />
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_blockChance" class="label">Block chance:</label>
-				<div class="field"><input type="text" size="5" id="equip_blockChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_damageResistance" class="label">Damage resistance:</label>
-				<input class="field" type="text" size="5" id="equip_damageResistance" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="equip_conditions" class="label">Apply actor condition</label>
-				<table class="field" id="equip_conditions">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasUseEffectDisplay">
-			<legend>When used</legend>
-			<div class="fieldWithLabel">
-				<label for="use_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="use_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="use_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="use_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="use_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="use_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="use_conditionsSource" class="label">Apply actor condition</label>
-				<table class="field" id="use_conditionsSource">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasHitEffectDisplay">
-			<legend>When making a successful hit</legend>
-			<div class="fieldWithLabel">
-				<label for="hit_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="hit_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="hit_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="hit_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="hit_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="hit_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="hit_conditionsSource" class="label">Apply actor condition to source</label>
-				<table class="field" id="hit_conditionsSource">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="hit_conditionsTarget" class="label">Apply actor condition to target</label>
-				<table class="field" id="hit_conditionsTarget">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasKillEffectDisplay">
-			<legend>On every kill</legend>
-			<div class="fieldWithLabel">
-				<label for="kill_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="kill_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="kill_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="kill_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="kill_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="kill_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="kill_conditionsSource" class="label">Apply actor condition</label>
-				<table class="field" id="kill_conditionsSource">
-					<thead><tr>
-						<th id="condition">Condition</th>
-						<th id="magnitude">Magnitude</th>
-						<th id="duration">Duration</th>
-						<th id="chance">Chance</th>
-					</tr></thead>
-					<tbody>
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<div class="endSets"> </div>
-	</div>
-	
-	<div id="dialog-equipConditions">
-		<div class="fieldWithLabel">
-			<label for="condition" class="label">Actor condition id:</label>
-			<input type="text" size="30" id="condition" class="field fieldInput"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="magnitude" class="label">Magnitude:</label>
-			<input type="text" size="5" id="magnitude" class="field fieldInput integer"/>
-		</div>
-	</div>
-	
-	
-	<!-- ========================================================= -->
-	<!--   Quest editor                                            -->
-	
-	<div id="editQuest">
-		<h3>Quest</h3>
-		<fieldset class="fieldSet">
-			<legend>General</legend>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Internal ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="name" class="label">Display name:</label>
-				<input type="text" size="30" id="name" class="field fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="showInLog" />Show in quest log</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet">
-			<legend>Stages</legend>
-			<div class="fieldWithLabel">
-				<label for="stages" class="label">Stages shown in quest log</label>
-				<table class="field" id="stages">
-					<thead><tr>
-						<th id="progress">Progress</th>
-						<th id="logText">Logtext</th>
-						<th id="rewardExperience">Experience</th>
-						<th id="finishesQuest">Finishes quest</th>
-					</tr></thead>
-					<tbody>
-						
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<div class="endSets"> </div>
-	</div>
-	
-	<div id="dialog-questlog">
-		<div class="fieldWithLabel">
-			<label for="progress" class="label">Progress stage (#):</label>
-			<input type="text" size="4" id="progress" class="field fieldInput integer"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="logText" class="label">Logtext displayed in quest log:</label>
-			<textarea rows="4" cols="40" id="logText"></textarea>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="rewardExperience" class="label">Experience reward for reaching this stage:</label>
-			<input type="text" size="7" id="rewardExperience" class="field fieldInput integer"/>
-		</div>
-		<div class="fieldWithLabel">
-			<div class="label"><input type="checkbox" id="finishesQuest" />Finishes quest</div>
-		</div>
-	</div>
-	
-	
-	
-	<!-- ========================================================= -->
-	<!--   Dialogue editor                                         -->
-	
-	<div id="editDialogue">
-		<h3>Dialogue</h3>
-		<fieldset class="fieldSet">
-			<legend>Conversation flow</legend>
-			<div id="dialogueTree"> </div>
-		</fieldset>
-		<fieldset class="fieldSet" id="dialoguePhrase">
-			<legend>NPC phrase</legend>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Phrase ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="message" class="label">NPC says:</label>
-				<textarea rows="4" cols="40" id="message"></textarea>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasRewards" />Reaching this phrase gives rewards</div>
-			</div>
-			<div class="fieldWithLabel" id="hasRewardsDisplay">
-				<label for="rewards" class="label">Rewards</label>
-				<table class="field" id="rewards">
-					<thead><tr>
-						<th id="rewardType">Type</th>
-						<th id="rewardID">ID</th>
-						<th id="value">Value</th>
-					</tr></thead>
-					<tbody>
-						
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="dialoguePhraseReplies">
-			<legend>Replies</legend>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasOnlyNextReply" />Phrase leads directly to another phrase without replies</div>
-			</div>
-			<div class="fieldWithLabel" id="hasOnlyNextReplyDisplay">
-				<label for="nextPhraseID" class="label">Phrase ID:</label>
-				<div class="field">
-					<input type="text" size="30" id="nextPhraseID" class="fieldInput" />
-					<img src="imgarrowright.png" alt="Follow" id="followNextReply" class="imageButton" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used." />
-				</div>
-			</div>
-			<div class="fieldWithLabel" id="hasRepliesDisplay">
-				<label for="replies" class="label">Replies</label>
-				<table class="field" id="replies">
-					<thead><tr>
-						<th id="text">Reply</th>
-					</tr></thead>
-					<tbody>
-						
-					</tbody>
-				</table>
-				<div id="add">Add</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="dialogueReply">
-			<legend>Player reply</legend>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Phrase ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput" readonly="readonly" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="text" class="label">Player says:</label>
-				<textarea rows="4" cols="40" id="text"></textarea>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="replyLeadsTo" class="label">Reply leads to:</label>
-				<select class="field fieldInput" id="replyLeadsTo">
-					<option value="">NPC phrase</option>
-					<option value="S">Trading screen</option>
-					<option value="F">Combat</option>
-					<option value="X">Conversation ends</option>
-					<option value="R">NPC is removed from map</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel" id="nextPhraseIDDisplay">
-				<label for="nextPhraseID" class="label">Next phrase ID:</label>
-				<div class="field">
-					<input type="text" size="30" id="nextPhraseID" class="fieldInput"/>
-					<img src="imgarrowright.png" alt="Follow" id="followReply" class="imageButton" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used." />
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="requiresItems" />Player must have item(s) to select this reply</div>
-			</div>
-			<div id="requiresItemsDisplay">
-				<div class="fieldWithLabel">
-					<label for="requires_itemID" class="label">Required item ID (will be removed from inventory)</label>
-					<input type="text" size="30" id="requires_itemID" class="field fieldInput"/>
-				</div>
-				<div class="fieldWithLabel">
-					<label for="requires_Quantity" class="label">Required item quantity</label>
-					<input type="text" size="5" id="requires_Quantity" class="field fieldInput integer"/>
-				</div>
-				<div class="fieldWithLabel">
-					<label for="requires_Type" class="label">Player should have item in:</label>
-					<select class="field fieldInput" id="requires_Type">
-						<option value="0">Inventory & item will be removed</option>
-						<option value="1">Inventory</option>
-						<option value="2">Worn equipment</option>
-					</select>
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="requiresQuest" />Player must have progressed quest to select this reply</div>
-			</div>
-			<div class="fieldWithLabel" id="requiresQuestDisplay">
-				<label for="requires_Progress" class="label">Quest stage required: (questname:stage)</label>
-				<input type="text" size="30" id="requires_Progress" class="field fieldInput" title="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20."/>
-			</div>
-			
-		</fieldset>
-		<div class="endSets"> </div>
-	</div>
-	
-	<div id="dialog-phrasereward">
-		<div class="fieldWithLabel">
-			<label for="rewardType" class="label">Type:</label>
-			<select class="field fieldInput" id="rewardType">
-				<option value="0">Quest progress</option>
-				<option value="1">Droplist</option>
-				<option value="2">Skill increase</option>
-				<option value="3">Actor condition</option>
-				<option value="4">Alignment/faction change</option>
-			</select>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="rewardID" class="label">ID:</label>
-			<input type="text" size="30" id="rewardID" class="field fieldInput"/>
-		</div>
-		<div class="fieldWithLabel">
-			<label for="value" class="label">Value:</label>
-			<input type="text" size="5" id="value" class="field fieldInput integer"/>
-		</div>
-	</div>
-		
-		
-	
-	<!-- ========================================================= -->
-	<!--   Actor condition editor                                  -->
-	
-	<div id="editActorCondition">
-		<h3>Actor condition</h3>
-		<fieldset class="fieldSet">
-			<legend>General</legend>
-			<div class="fieldWithLabel">
-				<div id="actorconditionimage" class="field"><input type="hidden" id="iconID" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="id" class="label">Internal ID:</label>
-				<input type="text" size="30" id="id" class="field fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="name" class="label">Display name:</label>
-				<input type="text" size="30" id="name" class="field fieldInput"/>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="category" class="label">Category:</label>
-				<select class="field fieldInput" id="category">
-					<option value="0">Spiritual</option>
-					<option value="1">Mental</option>
-					<option value="2">Physical Capacity</option>
-					<option value="3">Blood Disorder</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="isPositive" />Positive effect</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="isStacking" />Allow stacked effects</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasRoundEffect" />Has effect every round (every 6s)</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasFullRoundEffect" />Has effect every full round (every 25:th s)</div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasAbilityEffect" />Has constant ability effect</div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasRoundEffectDisplay">
-			<legend>Every round (6s)</legend>
-			<div class="fieldWithLabel">
-				<label for="round_visualEffectID" class="label">Visual effect:</label>
-				<select class="field fieldInput" id="round_visualEffectID">
-					<option value="-1">None</option>
-					<option value="0">Red splatter</option>
-					<option value="1">Blue swirl</option>
-					<option value="2">Green splatter</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="round_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="round_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="round_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="round_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="round_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="round_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasFullRoundEffectDisplay">
-			<legend>Every full round (25s)</legend>
-			<div class="fieldWithLabel">
-				<label for="fullround_visualEffectID" class="label">Visual effect:</label>
-				<select class="field fieldInput" id="fullround_visualEffectID">
-					<option value="-1">None</option>
-					<option value="0">Red splatter</option>
-					<option value="1">Blue swirl</option>
-					<option value="2">Green splatter</option>
-				</select>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="fullround_boostHP" class="label">Boost current HP (range):</label>
-				<div class="field"><input type="text" size="3" id="fullround_boostHP_Min" class="fieldInput" /> - <input type="text" size="3" id="fullround_boostHP_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="fullround_boostAP" class="label">Boost current AP (range):</label>
-				<div class="field"><input type="text" size="3" id="fullround_boostAP_Min" class="fieldInput" /> - <input type="text" size="3" id="fullround_boostAP_Max" class="fieldInput integer" /></div>
-			</div>
-		</fieldset>
-		<fieldset class="fieldSet" id="hasAbilityEffectDisplay">
-			<legend>Constant ability effect</legend>
-			<div class="fieldWithLabel">
-				<label for="boostMaxHP" class="label">Boost max HP:</label>
-				<input type="text" size="5" id="boostMaxHP" class="field fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="boostMaxAP" class="label">Boost max AP:</label>
-				<input type="text" size="5" id="boostMaxAP" class="field fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="moveCostPenalty" class="label">Move cost penalty (AP):</label>
-				<input type="text" size="5" id="moveCostPenalty" class="field fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackCost" class="label">Attack cost (AP):</label>
-				<input class="field" type="text" size="5" id="attackCost" class="fieldInput integer" />
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackChance" class="label">Attack chance:</label>
-				<div class="field"><input type="text" size="5" id="attackChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="attackDamage" class="label">Attack damage (range):</label>
-				<div class="field"><input type="text" size="3" id="attackDamage_Min" class="fieldInput integer" /> - <input type="text" size="3" id="attackDamage_Max" class="fieldInput integer" /></div>
-			</div>
-			<div class="fieldWithLabel">
-				<div class="label"><input type="checkbox" id="hasCritical" />Has critical chance</div>
-			</div>
-			<div id="hasCriticalDisplay">
-				<div class="fieldWithLabel">
-					<label for="criticalChance" class="label">Critical skill:</label>
-					<div class="field"><input type="text" size="5" id="criticalChance" class="fieldInput integer" />%</div>
-				</div>
-				<div class="fieldWithLabel">
-					<label for="criticalMultiplier" class="label">Critical multiplier:</label>
-					<input class="field" type="text" size="5" id="criticalMultiplier" class="fieldInput integer" />
-				</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="blockChance" class="label">Block chance:</label>
-				<div class="field"><input type="text" size="5" id="blockChance" class="fieldInput integer" />%</div>
-			</div>
-			<div class="fieldWithLabel">
-				<label for="damageResistance" class="label">Damage resistance:</label>
-				<input class="field" type="text" size="5" id="damageResistance" class="fieldInput integer" />
-			</div>
-		</fieldset>
-		<div class="endSets"> </div>
-	</div>
-		
-		
-	<!-- ========================================================= -->
-	<!--   Import / Export dialog form                             -->
-	
-	<div id="dialog-import">
-		<div id="description" class="importexport-description">This data corresponds to the files named res/values/content_*.xml in the source code.</div>
-		<div id="importsections">
-			<h3 class="import-actorconditions"><a href="#">Actor conditions</a></h3>
-			<div class="import-actorconditions">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-				<div id="import">Import</div>
-			</div>
-			
-			<h3 class="import-quests"><a href="#">Quests</a></h3>
-			<div class="import-quests">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-				<div id="import">Import</div>
-			</div>
-			
-			<h3 class="import-items"><a href="#">Items</a></h3>
-			<div class="import-items">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-				<div id="import">Import</div>
-			</div>
-			
-			<h3 class="import-droplists"><a href="#">Droplists</a></h3>
-			<div class="import-droplists">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-				<div id="import">Import</div>
-			</div>
-			
-			<h3 class="import-dialogue"><a href="#">Dialogue</a></h3>
-			<div class="import-dialogue">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-				<div id="import">Import</div>
-			</div>
-			
-			<h3 class="import-monsters"><a href="#">Monsters</a></h3>
-			<div class="import-monsters">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-				<div id="import">Import</div>
-			</div>
-		</div>
-	</div>
-	
-	<div id="dialog-export">
-		<div id="description" class="importexport-description">This data corresponds to the files named res/values/content_*.xml in the source code.</div>
-		<div id="exportsections">
-			<h3 class="export-actorconditions"><a href="#">Actor conditions</a></h3>
-			<div class="export-actorconditions">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-			</div>
-			
-			<h3 class="export-quests"><a href="#">Quests</a></h3>
-			<div class="export-quests">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-			</div>
-			
-			<h3 class="export-items"><a href="#">Items</a></h3>
-			<div class="export-items">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-			</div>
-			
-			<h3 class="export-droplists"><a href="#">Droplists</a></h3>
-			<div class="export-droplists">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-			</div>
-			
-			<h3 class="export-dialogue"><a href="#">Dialogue</a></h3>
-			<div class="export-dialogue">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-			</div>
-			
-			<h3 class="export-monsters"><a href="#">Monsters</a></h3>
-			<div class="export-monsters">
-				<div><textarea id="value" rows="9" cols="80"></textarea></div>
-			</div>
-		</div>
-	</div>
-	
-	<!-- ========================================================= -->
-	<!--   Select images dialog                                    -->
-	
-	<div id="dialog-images"> </div>
-
-</div>
-
-<script type="text/javascript">
-$(document).ready(startEditor);
-</script>
+<script src="inc/jquery.min.js"></script>
+<script src="inc/underscore-min.js"></script>
+<script src="inc/angular.min.js"></script>
+<script src="inc/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/tilesets.js"></script>
+<script src="js/fieldlist.js"></script>
+<script src="js/datastore.js"></script>
+<script src="js/defaults.js"></script>
+<script src="js/importexport.js"></script>
+<script src="js/model.js"></script>
+<script src="js/exampledata.js"></script>
+<script src="js/controllers/navigation.js"></script>
+<script src="js/controllers/actorcondition.js"></script>
+<script src="js/controllers/quest.js"></script>
+<script src="js/controllers/item.js"></script>
+<script src="js/controllers/droplist.js"></script>
+<script src="js/controllers/dialogue.js"></script>
+<script src="js/controllers/monster.js"></script>
+<script src="js/controllers/itemcategory.js"></script>
+<script src="js/controllers/import.js"></script>
+<script src="js/controllers/export.js"></script>
+<script src="js/controllers/selecticon.js"></script>
+<script src="js/app.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/legacyimport.js"></script>
 
 </body>
 </html>

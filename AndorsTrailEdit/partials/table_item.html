@@ -1,0 +1,198 @@
+<h3>Items</h3>
+
+<label class="checkbox"><input type="checkbox" ng-model="iconID" />Icon</label>
+<label class="checkbox"><input type="checkbox" ng-model="id" />Id</label>
+<label class="checkbox"><input type="checkbox" ng-model="name" />Name</label>
+<label class="checkbox"><input type="checkbox" ng-model="category" />Category</label>
+<label class="checkbox"><input type="checkbox" ng-model="displaytype" />Display type</label>
+<label class="checkbox"><input type="checkbox" ng-model="hasManualPrice" />Has manual price</label>
+<label class="checkbox"><input type="checkbox" ng-model="price" />Base market cost</label>
+
+<label class="checkbox"><input type="checkbox" ng-model="hasEquipEffect" />Has equip effect</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseMaxHP" />MaxHP</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseMaxAP" />MaxAP</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseMoveCost" />Increase move cost</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseUseItemCost" />Increase use item cost</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseReequipCost" />Increase re-equip cost</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseAttackCost" />Attack cost</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseAttackChance" />Attack chance</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseAttackDamage" />Attack damage</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseCriticalSkill" />Critical skill</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_setCriticalMultiplier" />Critical multiplier</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseBlockChance" />Block chance</label>
+<label class="checkbox"><input type="checkbox" ng-model="equipEffect_increaseDamageResistance" />Damage resistance</label>
+
+<label class="checkbox"><input type="checkbox" ng-model="useEffect" />Use effect</label>
+<label class="checkbox"><input type="checkbox" ng-model="hitEffect" />Hit effect</label>
+<label class="checkbox"><input type="checkbox" ng-model="killEffect" />Kill effect</label>
+
+
+<table>
+	<thead>
+		<tr>
+			<th ng-ds-fade="iconID">Icon</th>
+			<th ng-ds-fade="id">
+				<span class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two items may have the same id). Prefer short ids since it keeps savegames smaller.">
+					Id
+				</span>
+			</th>
+			<th ng-ds-fade="name">Name</th>
+			<th ng-ds-fade="category">Category</th>
+			<th ng-ds-fade="displaytype">Type</th>
+			<th ng-ds-fade="hasManualPrice">Manual price?</th>
+			<th ng-ds-fade="price">
+				<span class="hint  hint--top" data-hint="Base market cost">Price</span>
+			</th>
+			<th ng-ds-fade="hasEquipEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when equipped">Equip?</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseMaxHP">
+				<span class="hint  hint--top" data-hint="Increase maximum HP">+MaxHP</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseMaxAP">
+				<span class="hint  hint--top" data-hint="Increase maximum AP">+MaxAP</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseMoveCost">
+				<span class="hint  hint--top" data-hint="Increase in AP cost of moving one tile">+MoveCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseUseItemCost">
+				<span class="hint  hint--top" data-hint="Increase in AP cost of using items">+UseItemCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseReequipCost">
+				<span class="hint  hint--top" data-hint="Increase in AP cost of equipping and un-equipping wearable items">+ReequipCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseAttackCost">
+				<span class="hint  hint--top" data-hint="Incease in AP cost of making one attack">AtkCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseAttackChance">
+				<span class="hint  hint--top" data-hint="Increase attack chance">+AC</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseAttackDamage">
+				<span class="hint  hint--top" data-hint="Increase attack damage (min - max)">+AD</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseCriticalSkill">
+				<span class="hint  hint--top" data-hint="Increase critical skill">+CS</span>
+			</th>
+			<th ng-ds-fade="equipEffect_setCriticalMultiplier">
+				<span class="hint  hint--top" data-hint="Set critical modifier (only for weapons)">CM</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseBlockChance">
+				<span class="hint  hint--top" data-hint="Increase block chance">+BC</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseDamageResistance">
+				<span class="hint  hint--top" data-hint="Increase damage resistance">+DR</span>
+			</th>
+			
+			<th ng-ds-fade="useEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when using it">Use?</span>
+			</th>
+			<th ng-ds-fade="useEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when using item">+HP</span>
+			</th>
+			<th ng-ds-fade="useEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when using item">+AP</span>
+			</th>
+			<th ng-ds-fade="hitEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when hitting a monster in combat">Hit?</span>
+			</th>
+			<th ng-ds-fade="hitEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when hitting monster in combat">+HP</span>
+			</th>
+			<th ng-ds-fade="hitEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when hitting monster in combat">+AP</span>
+			</th>
+			<th ng-ds-fade="killEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when killing a monster in combat">Kill?</span>
+			</th>
+			<th ng-ds-fade="killEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when killing monster in combat">+HP</span>
+			</th>
+			<th ng-ds-fade="killEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when killing monster in combat">+AP</span>
+			</th>
+			
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="item in items">
+			<td ng-ds-fade="iconID"><div ng-tile-image="item.iconID" class="at-input-icon" ng-select-image="item" ng-select-image-dest="item.iconID"></div></td>
+			<td ng-ds-fade="id"><input type="text" ng-model="item.id" class="at-input-id" /></td>
+			<td ng-ds-fade="name"><input type="text" ng-model="item.name" class="at-input-name" /></td>
+			<td ng-ds-fade="category">
+				<select ng-model="item.category" ng-options="s.name for s in itemCategories"></select>
+			</td>
+			<td ng-ds-fade="displaytype">
+				<select ng-model="item.displaytype">
+					<option value="0">Ordinary item</option>
+					<option value="1">Quest item (yellow)</option>
+					<option value="2">Legendary (green)</option>
+					<option value="3">Extraordinary (blue)</option>
+					<option value="4">Rare (purple)</option>
+				</select>
+			</td>
+			<td ng-ds-fade="hasManualPrice"><input type="checkbox" ng-model="item.hasManualPrice" ng-true-value="1" ng-false-value="0" ng-change="updateCost(item)" /></td>
+			<td ng-ds-fade="price">
+				<input type="text" ng-show="item.hasManualPrice == 0" value="{{getItemCost(item)}}" readonly="readonly" class="at-input-gold" />
+				<input type="text" ng-show="item.hasManualPrice == 1" ng-model="item.baseMarketCost" class="at-input-gold" />
+			</td>
+			<td ng-ds-fade="hasEquipEffect"><input type="checkbox" ng-model="item.hasEquipEffect" title="Has effect when equipping item?" /></td>
+			<td ng-ds-fade="equipEffect_increaseMaxHP"><input type="text" ng-model="item.equipEffect.increaseMaxHP" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseMaxAP"><input type="text" ng-model="item.equipEffect.increaseMaxAP" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseMoveCost"><input type="text" ng-model="item.equipEffect.increaseMoveCost" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseUseItemCost"><input type="text" ng-model="item.equipEffect.increaseUseItemCost" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseReequipCost"><input type="text" ng-model="item.equipEffect.increaseReequipCost" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseAttackCost"><input type="text" ng-model="item.equipEffect.increaseAttackCost" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseAttackChance"><input type="text" ng-model="item.equipEffect.increaseAttackChance" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseAttackDamage">
+				<input type="text" ng-model="item.equipEffect.increaseAttackDamage.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.equipEffect.increaseAttackDamage.max" class="at-input-stat-minmax" />
+			</td>
+			<td ng-ds-fade="equipEffect_increaseCriticalSkill"><input type="text" ng-model="item.equipEffect.increaseCriticalSkill" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_setCriticalMultiplier"><input type="text" ng-model="item.equipEffect.setCriticalMultiplier" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseBlockChance"><input type="text" ng-model="item.equipEffect.increaseBlockChance" class="at-input-stat" /></td>
+			<td ng-ds-fade="equipEffect_increaseDamageResistance"><input type="text" ng-model="item.equipEffect.increaseDamageResistance" class="at-input-stat" /></td>
+			
+			<td ng-ds-fade="useEffect"><input type="checkbox" ng-model="item.hasUseEffect" title="Has effect when using item?" /></td>
+			<td ng-ds-fade="useEffect">
+				<input type="text" ng-model="item.useEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.useEffect.increaseCurrentHP.max" class="at-input-stat-minmax" />
+			</td>
+			<td ng-ds-fade="useEffect">
+				<input type="text" ng-model="item.useEffect.increaseCurrentAP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.useEffect.increaseCurrentAP.max" class="at-input-stat-minmax" />
+			</td>
+			
+			<td ng-ds-fade="hitEffect"><input type="checkbox" ng-model="item.hasHitEffect" title="Has effect when hitting a target in combat?" /></td>
+			<td ng-ds-fade="hitEffect">
+				<input type="text" ng-model="item.hitEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.hitEffect.increaseCurrentHP.max" class="at-input-stat-minmax" />
+			</td>
+			<td ng-ds-fade="hitEffect">
+				<input type="text" ng-model="item.hitEffect.increaseCurrentAP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.hitEffect.increaseCurrentAP.max" class="at-input-stat-minmax" />
+			</td>
+			
+			<td ng-ds-fade="killEffect"><input type="checkbox" ng-model="item.hasKillEffect" title="Has effect when killing a target in combat?" /></td>
+			<td ng-ds-fade="killEffect">
+				<input type="text" ng-model="item.killEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.killEffect.increaseCurrentHP.max" class="at-input-stat-minmax" />
+			</td>
+			<td ng-ds-fade="killEffect">
+				<input type="text" ng-model="item.killEffect.increaseCurrentAP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="item.killEffect.increaseCurrentAP.max" class="at-input-stat-minmax" />
+			</td>
+			
+			<td><a ng-click="edit(item)" class="btn"><i class="icon-forward"></i> Edit</a></td>
+		</tr>
+	</tbody>
+</table>
+
+<div class="endSets"> </div>
