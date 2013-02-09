@@ -9,7 +9,7 @@
 		</span>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="id">Internal id:</label>
+		<label for="id" class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two monster may have the same id). Prefer short ids since it keeps savegames smaller.">Internal id:</label>
 		<input type="text" size="30" id="id" class="field at-input-id" ng-model="obj.id"/>
 	</div>
 	<div class="fieldWithLabel">
@@ -17,11 +17,14 @@
 		<input type="text" size="30" id="name" class="field at-input-name" ng-model="obj.name"/>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="spawnGroup">Spawngroup:</label>
-		<input type="text" size="30" id="spawnGroup" class="field at-input-id" ng-model="obj.spawnGroup" title="This is a grouping of monster types. Use these tags on spawn areas to spawn random monsters with the same tag. Several monsters may have the same tag." />
+		<label for="spawnGroup" class="hint  hint--top" data-hint="The name to enter on spawn areas in TMX map files for spawning this type of monster. Several monster types may have the same spawngroup, which makes the game spawn one random monster type from the spawngroup.">Spawngroup:</label>
+		<input type="text" size="30" id="spawnGroup" class="field at-input-id" ng-model="obj.spawnGroup" />
 	</div>
 	<div class="fieldWithLabel">
-		<label class="checkbox"><input type="checkbox" id="unique" ng-model="obj.unique" ng-true-value="1" ng-false-value="0" />Is unique (will not respawn)</label>
+		<label class="checkbox">
+			<input type="checkbox" id="unique" ng-model="obj.unique" ng-true-value="1" ng-false-value="0" />
+			<span class="hint  hint--top" data-hint="Unique monsters will not respawn. Typically used for bosses.">Is unique (will not respawn)</span>
+		</label>
 	</div>
 	<div class="fieldWithLabel">
 		<label for="monsterClass">Monster class:</label>
@@ -55,18 +58,18 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.showAdvanced">
-		<label for="faction">Faction:</label>
+		<label for="faction" class="hint  hint--top" data-hint="Used for making whole groups of monsters aggressive from dialogue. Dialogue replies may affect the player's faction ratings, and having rating less than 0 for a faction will make all monsters in a faction automatically attack.">Faction:</label>
 		<input type="text" size="30" id="faction" ng-model="obj.faction" class="field at-input-id"/>
 	</div>
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="hasConversation" ng-model="obj.hasConversation" />Has conversation</label>
 	</div>
 	<div class="fieldWithLabel" id="hasConversationDisplay" ng-ds-fade="obj.hasConversation">
-		<label for="phraseID">Conversation phrase ID:</label>
+		<label for="phraseID" class="hint  hint--top" data-hint="ID of the starting conversation phrase that will be used when engaging in conversation with this NPC.">Conversation phrase ID:</label>
 		<input type="text" size="30" id="phraseID" ng-model="obj.phraseID" class="field at-input-id" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="droplistID">Droplist ID (combat or shop):</label>
+		<label for="droplistID" class="hint  hint--top" data-hint="ID of the droplist that will contain the items that are dropped when the monster is killed. If this monster is an NPC, this is the list of items that are available to buy as shop items.">Droplist ID (combat or shop):</label>
 		<input type="text" size="30" id="droplistID" ng-model="obj.droplistID" class="field at-input-id"/>
 	</div>
 </fieldset>
@@ -156,10 +159,10 @@
 		<table class="field" id="onHit_conditionsSource">
 			<thead>
 				<tr>
-					<th>Condition</th>
-					<th>Magnitude</th>
-					<th>Duration</th>
-					<th>Chance</th>
+					<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+					<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
+					<th><span class="hint  hint--left" data-hint="How many rounds the actor condtions should last. Use 999 for a permanent effect.">Duration</span></th>
+					<th><span class="hint  hint--left" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 					<th></th>
 				</tr>
 			</thead>
@@ -180,10 +183,10 @@
 		<table class="field" id="onHit_conditionsTarget">
 			<thead>
 				<tr>
-					<th>Condition</th>
-					<th>Magnitude</th>
-					<th>Duration</th>
-					<th>Chance</th>
+					<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+					<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
+					<th><span class="hint  hint--left" data-hint="How many rounds the actor condtions should last. Use 999 for a permanent effect.">Duration</span></th>
+					<th><span class="hint  hint--left" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 					<th></th>
 				</tr>
 			</thead>

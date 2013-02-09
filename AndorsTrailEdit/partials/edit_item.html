@@ -13,7 +13,7 @@
 		<input type="text" size="30" id="name" class="field at-input-name" ng-model="obj.name" />
 	</div>
 	<div class="fieldWithLabel">
-		<label for="id">Internal ID:</label>
+		<label for="id" class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two items may have the same id). Prefer short ids since it keeps savegames smaller.">Internal ID:</label>
 		<input type="text" size="30" id="id" class="field at-input-id" ng-model="obj.id" />
 	</div>
 	<div class="fieldWithLabel">
@@ -112,7 +112,7 @@
 		<input type="text" size="5" id="equip_criticalChance" class="field at-input-stat" ng-model="obj.equipEffect.increaseCriticalSkill" />
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="isWeapon">
-		<label for="equip_criticalMultiplier">Critical multiplier:</label>
+		<label for="equip_criticalMultiplier" class="hint  hint--top" data-hint="Only for weapons">Critical multiplier:</label>
 		<input type="text" size="5" id="equip_criticalMultiplier" class="field at-input-stat" ng-model="obj.equipEffect.setCriticalMultiplier" />
 	</div>
 	<div class="fieldWithLabel">
@@ -127,8 +127,8 @@
 		<label for="equip_conditions">Apply actor condition</label>
 		<table class="field" id="equip_conditions">
 			<thead><tr>
-				<th>Condition</th>
-				<th>Magnitude</th>
+				<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+				<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>
@@ -164,10 +164,10 @@
 		<label for="use_conditionsSource">Apply actor condition</label>
 		<table class="field" id="use_conditionsSource">
 			<thead><tr>
-				<th>Condition</th>
-				<th>Magnitude</th>
-				<th>Duration</th>
-				<th>Chance</th>
+				<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+				<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
+				<th><span class="hint  hint--left" data-hint="How many rounds the actor condtions should last. Use 999 for a permanent effect.">Duration</span></th>
+				<th><span class="hint  hint--left" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>
@@ -205,10 +205,10 @@
 		<label for="hit_conditionsSource">Apply actor condition to source</label>
 		<table class="field" id="hit_conditionsSource">
 			<thead><tr>
-				<th>Condition</th>
-				<th>Magnitude</th>
-				<th>Duration</th>
-				<th>Chance</th>
+				<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+				<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
+				<th><span class="hint  hint--left" data-hint="How many rounds the actor condtions should last. Use 999 for a permanent effect.">Duration</span></th>
+				<th><span class="hint  hint--left" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>
@@ -227,10 +227,10 @@
 		<label for="hit_conditionsTarget">Apply actor condition to target</label>
 		<table class="field" id="hit_conditionsTarget">
 			<thead><tr>
-				<th>Condition</th>
-				<th>Magnitude</th>
-				<th>Duration</th>
-				<th>Chance</th>
+				<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+				<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
+				<th><span class="hint  hint--left" data-hint="How many rounds the actor condtions should last. Use 999 for a permanent effect.">Duration</span></th>
+				<th><span class="hint  hint--left" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>
@@ -268,10 +268,10 @@
 		<label for="kill_conditionsSource">Apply actor condition</label>
 		<table class="field" id="kill_conditionsSource">
 			<thead><tr>
-				<th>Condition</th>
-				<th>Magnitude</th>
-				<th>Duration</th>
-				<th>Chance</th>
+				<th><span class="hint  hint--left" data-hint="Id of the actor condition to be applied.">Condition</span></th>
+				<th><span class="hint  hint--left" data-hint="How strong the effect should be. For example, magnitude=2 is equal to having two effects active at the same time. Use -99 to remove permanent effects.">Magnitude</span></th>
+				<th><span class="hint  hint--left" data-hint="How many rounds the actor condtions should last. Use 999 for a permanent effect.">Duration</span></th>
+				<th><span class="hint  hint--left" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>

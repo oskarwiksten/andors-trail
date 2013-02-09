@@ -9,7 +9,7 @@
 		</span>
 	</div>
 	<div class="fieldWithLabel">
-		<label for="id">Internal ID:</label>
+		<label for="id" class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two conditions may have the same id). Prefer short ids since it keeps savegames smaller.">Internal ID:</label>
 		<input type="text" id="id" class="field at-input-id" ng-model="obj.id" />
 	</div>
 	<div class="fieldWithLabel">
@@ -26,10 +26,16 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
-		<label class="checkbox" title="Positive effects are not affected by the Rejuvenation skill" ><input type="checkbox" id="isPositive" ng-model="obj.isPositive" ng-true-value="1" ng-false-value="0" />Positive effect</label>
+		<label class="checkbox">
+			<input type="checkbox" id="isPositive" ng-model="obj.isPositive" ng-true-value="1" ng-false-value="0" />
+			<span class="hint  hint--top" data-hint="Positive effects are not affected by the Rejuvenation skill.">Positive effect</span>
+		</label>
 	</div>
 	<div class="fieldWithLabel">
-		<label class="checkbox"><input type="checkbox" id="isStacking" ng-model="obj.isStacking" ng-true-value="1" ng-false-value="0" />Actors may have several of these, simultaneously</label>
+		<label class="checkbox">
+			<input type="checkbox" id="isStacking" ng-model="obj.isStacking" ng-true-value="1" ng-false-value="0" />
+			<span class="hint  hint--top" data-hint="If checked, then actors may have several of these, simultaneously. Otherwise, only one condition at a time may be active on an actor.">Is stacking</span>
+		</label>
 	</div>
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="hasRoundEffect" ng-model="obj.hasRoundEffect" />Has effect every round (every 6s)</label>

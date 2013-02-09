@@ -25,25 +25,65 @@
 	<thead>
 		<tr>
 			<th ng-ds-fade="iconID">Icon</th>
-			<th ng-ds-fade="id">Id</th>
+			<th ng-ds-fade="id">
+				<span class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two monster may have the same id). Prefer short ids since it keeps savegames smaller.">
+					Id
+				</span>
+			</th>
 			<th ng-ds-fade="name">Name</th>
-			<th ng-ds-fade="spawnGroup">Spawngroup</th>
-			<th ng-ds-fade="unique">Unique</th>
+			<th ng-ds-fade="spawnGroup">
+				<span class="hint  hint--top" data-hint="The name to enter on spawn areas in TMX map files for spawning this type of monster. Several monster types may have the same spawngroup, which makes the game spawn one random monster type from the spawngroup.">
+					Spawngroup
+				</span>
+			</th>
+			<th ng-ds-fade="unique">
+				<span class="hint  hint--top" data-hint="Unique monsters will not respawn. Typically used for bosses.">Unique</span>
+			</th>
 			<th ng-ds-fade="monsterClass">Class</th>
-			<th ng-ds-fade="phraseID">Phrase</th>
-			<th ng-ds-fade="droplistID">Droplist</th>
-			<th ng-ds-fade="experience">Exp</th>
-			<th ng-ds-fade="maxAP">AP</th>
-			<th ng-ds-fade="moveCost">MoveCost</th>
-			<th ng-ds-fade="maxHP">HP</th>
-			<th ng-ds-fade="attackCost">AttackCost</th>
-			<th ng-ds-fade="attackChance">AC</th>
-			<th ng-ds-fade="attackDamage">AD</th>
-			<th ng-ds-fade="hasCritical">Crit?</th>
-			<th ng-ds-fade="criticalSkill">CS</th>
-			<th ng-ds-fade="criticalMultiplier">CM</th>
-			<th ng-ds-fade="blockChance">BC</th>
-			<th ng-ds-fade="damageResistance">DR</th>
+			<th ng-ds-fade="phraseID">
+				<span class="hint  hint--top" data-hint="ID of the starting conversation phrase that will be used when engaging in conversation with this NPC.">Phrase</span>
+			</th>
+			<th ng-ds-fade="droplistID">
+				<span class="hint  hint--top" data-hint="ID of the droplist that will contain the items that are dropped when the monster is killed. If this monster is an NPC, this is the list of items that are available to buy as shop items.">
+					Droplist
+				</span>
+			</th>
+			<th ng-ds-fade="experience">
+				<span class="hint  hint--top" data-hint="Experience">Exp</span>
+			</th>
+			<th ng-ds-fade="maxAP">
+				<span class="hint  hint--top" data-hint="Maximum action points">AP</span>
+			</th>
+			<th ng-ds-fade="moveCost">
+				<span class="hint  hint--top" data-hint="AP cost of moving one tile">MoveCost</span>
+			</th>
+			<th ng-ds-fade="maxHP">
+				<span class="hint  hint--top" data-hint="Maximum health points">HP</span>
+			</th>
+			<th ng-ds-fade="attackCost">
+				<span class="hint  hint--top" data-hint="AP cost of doing one attack">AttackCost</span>
+			</th>
+			<th ng-ds-fade="attackChance">
+				<span class="hint  hint--top" data-hint="Attack chance">AC</span>
+			</th>
+			<th ng-ds-fade="attackDamage">
+				<span class="hint  hint--top" data-hint="Attack damage (min - max)">AD</span>
+			</th>
+			<th ng-ds-fade="hasCritical">
+				<span class="hint  hint--top" data-hint="May cause critical attacks">Crit?</span>
+			</th>
+			<th ng-ds-fade="criticalSkill">
+				<span class="hint  hint--top" data-hint="Critical skill">CS</span>
+			</th>
+			<th ng-ds-fade="criticalMultiplier">
+				<span class="hint  hint--top" data-hint="Critical multiplier">CM</span>
+			</th>
+			<th ng-ds-fade="blockChance">
+				<span class="hint  hint--top" data-hint="Block chance">BC</span>
+			</th>
+			<th ng-ds-fade="damageResistance">
+				<span class="hint  hint--top" data-hint="Damage resistance">DR</span>
+			</th>
 			<th></th>
 		</tr>
 	</thead>

@@ -31,36 +31,85 @@
 	<thead>
 		<tr>
 			<th ng-ds-fade="iconID">Icon</th>
-			<th ng-ds-fade="id">Id</th>
+			<th ng-ds-fade="id">
+				<span class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two items may have the same id). Prefer short ids since it keeps savegames smaller.">
+					Id
+				</span>
+			</th>
 			<th ng-ds-fade="name">Name</th>
 			<th ng-ds-fade="category">Category</th>
 			<th ng-ds-fade="displaytype">Type</th>
 			<th ng-ds-fade="hasManualPrice">Manual price?</th>
-			<th ng-ds-fade="price">Price</th>
+			<th ng-ds-fade="price">
+				<span class="hint  hint--top" data-hint="Base market cost">Price</span>
+			</th>
+			<th ng-ds-fade="hasEquipEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when equipped">Equip?</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseMaxHP">
+				<span class="hint  hint--top" data-hint="Increase maximum HP">+MaxHP</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseMaxAP">
+				<span class="hint  hint--top" data-hint="Increase maximum AP">+MaxAP</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseMoveCost">
+				<span class="hint  hint--top" data-hint="Increase in AP cost of moving one tile">+MoveCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseUseItemCost">
+				<span class="hint  hint--top" data-hint="Increase in AP cost of using items">+UseItemCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseReequipCost">
+				<span class="hint  hint--top" data-hint="Increase in AP cost of equipping and un-equipping wearable items">+ReequipCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseAttackCost">
+				<span class="hint  hint--top" data-hint="Incease in AP cost of making one attack">AtkCost</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseAttackChance">
+				<span class="hint  hint--top" data-hint="Increase attack chance">+AC</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseAttackDamage">
+				<span class="hint  hint--top" data-hint="Increase attack damage (min - max)">+AD</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseCriticalSkill">
+				<span class="hint  hint--top" data-hint="Increase critical skill">+CS</span>
+			</th>
+			<th ng-ds-fade="equipEffect_setCriticalMultiplier">
+				<span class="hint  hint--top" data-hint="Set critical modifier (only for weapons)">CM</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseBlockChance">
+				<span class="hint  hint--top" data-hint="Increase block chance">+BC</span>
+			</th>
+			<th ng-ds-fade="equipEffect_increaseDamageResistance">
+				<span class="hint  hint--top" data-hint="Increase damage resistance">+DR</span>
+			</th>
 			
-			<th ng-ds-fade="hasEquipEffect">Equip?</th>
-			<th ng-ds-fade="equipEffect_increaseMaxHP">+MaxHP</th>
-			<th ng-ds-fade="equipEffect_increaseMaxAP">+MaxAP</th>
-			<th ng-ds-fade="equipEffect_increaseMoveCost">+MoveCost</th>
-			<th ng-ds-fade="equipEffect_increaseUseItemCost">+UseItemCost</th>
-			<th ng-ds-fade="equipEffect_increaseReequipCost">+ReequipCost</th>
-			<th ng-ds-fade="equipEffect_increaseAttackCost">AtkCost</th>
-			<th ng-ds-fade="equipEffect_increaseAttackChance">+AC</th>
-			<th ng-ds-fade="equipEffect_increaseAttackDamage">+AD</th>
-			<th ng-ds-fade="equipEffect_increaseCriticalSkill">+CS</th>
-			<th ng-ds-fade="equipEffect_setCriticalMultiplier">CM</th>
-			<th ng-ds-fade="equipEffect_increaseBlockChance">+BC</th>
-			<th ng-ds-fade="equipEffect_increaseDamageResistance">+DR</th>
-			
-			<th ng-ds-fade="useEffect">Use?</th>
-			<th ng-ds-fade="useEffect">+HP</th>
-			<th ng-ds-fade="useEffect">+AP</th>
-			<th ng-ds-fade="hitEffect">Hit?</th>
-			<th ng-ds-fade="hitEffect">+HP</th>
-			<th ng-ds-fade="hitEffect">+AP</th>
-			<th ng-ds-fade="killEffect">Kill?</th>
-			<th ng-ds-fade="killEffect">+HP</th>
-			<th ng-ds-fade="killEffect">+AP</th>
+			<th ng-ds-fade="useEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when using it">Use?</span>
+			</th>
+			<th ng-ds-fade="useEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when using item">+HP</span>
+			</th>
+			<th ng-ds-fade="useEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when using item">+AP</span>
+			</th>
+			<th ng-ds-fade="hitEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when hitting a monster in combat">Hit?</span>
+			</th>
+			<th ng-ds-fade="hitEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when hitting monster in combat">+HP</span>
+			</th>
+			<th ng-ds-fade="hitEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when hitting monster in combat">+AP</span>
+			</th>
+			<th ng-ds-fade="killEffect">
+				<span class="hint  hint--top" data-hint="Item has an effect when killing a monster in combat">Kill?</span>
+			</th>
+			<th ng-ds-fade="killEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when killing monster in combat">+HP</span>
+			</th>
+			<th ng-ds-fade="killEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when killing monster in combat">+AP</span>
+			</th>
 			
 			<th></th>
 		</tr>

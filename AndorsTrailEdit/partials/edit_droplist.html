@@ -2,7 +2,7 @@
 <fieldset>
 	<legend>General</legend>
 	<div class="fieldWithLabel">
-		<label for="id">Droplist internal ID:</label>
+		<label for="id" class="hint  hint--top" data-hint="The id is not displayed to the player anywhere. Must be a unique id (no two droplists may have the same id). This is the id that you can enter on monsters to make them drop all these items.">Droplist internal ID:</label>
 		<input type="text" size="30" id="id" class="field at-input-id" ng-model="obj.id" />
 	</div>
 	<div class="fieldWithLabel">
@@ -11,7 +11,7 @@
 			<thead><tr>
 				<th id="itemID">Item (id)</th>
 				<th id="quantity">Quantity (range)</th>
-				<th id="chance">Chance</th>
+				<th id="chance"><span class="hint  hint--top" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>

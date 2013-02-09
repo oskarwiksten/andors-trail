@@ -24,8 +24,10 @@
 		<table class="field" id="rewards">
 			<thead><tr>
 				<th>Type</th>
-				<th>ID</th>
-				<th>Value</th>
+				<th><span class="hint  hint--top" data-hint="Id of the quest, droplist, skill, condition of cation to be affected.">ID</span></th>
+				<th><span class="hint  hint--top" data-hint="For quest rewards: quest stage to reward. For skill rewards: how many skill levels to reward. For conditions: duration of added effetct. For alignment: amount of faction change. Not used for droplists.">
+					Value
+				</span></th>
 				<th></th>
 			</tr></thead>
 			<tbody>
@@ -136,8 +138,8 @@
 		<label class="checkbox"><input type="checkbox" id="requiresQuest" ng-model="reply.requiresQuest" />Player must have progressed quest to select this reply</label>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="reply.requiresQuest">
-		<label for="requires_Progress">Quest stage required:</label>
-		<input type="text" size="30" id="requires_Progress" class="field at-input-id" ng-model="reply.requires.progress" placeholder="questname:stage" title="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20."/>
+		<label for="requires_Progress" class="hint  hint--left" data-hint="For example, 'mikhail:20' would require that the quest mikhail is at at least stage 20.">Quest stage required:</label>
+		<input type="text" size="30" id="requires_Progress" class="field at-input-id" ng-model="reply.requires.progress" placeholder="questname:stage"/>
 	</div>
 	
 </fieldset>
