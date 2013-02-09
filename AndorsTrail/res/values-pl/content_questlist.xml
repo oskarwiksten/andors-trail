@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-	<!--  These quests do not need translation: -->
-	<string name="questlist_nondisplayed">
-[id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
-{nondisplay|Placeholder for hidden quest stages (not displayed)|0|{
-	{10|Tavern room in Foaming Flask|||}
-	{16|Sleeping quarters in Blackwater mountain|||}
-	{17|Sleeping quarters in Crossroads1|||}
-	{18|Shopping from Minarra in Crossroads tower|||}
-	{19|Sleeping quarters in Loneford10|||}
-	{20|Selling Izthiel claws to Gauward|||}
-	{21|Tavern room in Remgard|||}
-	}|};
-{crossglen|TODO|0|{{1|||0|}}|};
-{fallhaventavern|Room to rent|0|{{10|||1|}}|};
-{arcir|Elythara|0|{{10|||0|}}|};
-	</string>
-
 	<string name="questlist">
 [id|name|showInLog|stages[progress|logText|rewardExperience|finishesQuest|]|];
 {andor|W poszukiwaniu Andora|1|{
