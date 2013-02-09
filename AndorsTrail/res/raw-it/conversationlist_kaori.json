@@ -1,0 +1,296 @@
+[
+    {
+        "id": "kaori_start",
+        "replies": [
+            {
+                "nextPhraseID": "kaori_default_1",
+                "requires": {
+                    "progress": "kaori:20"
+                }
+            },
+            {
+                "nextPhraseID": "kaori_return_1",
+                "requires": {
+                    "progress": "kaori:10"
+                }
+            },
+            {
+                "nextPhraseID": "kaori_1"
+            }
+        ]
+    },
+    {
+        "id": "kaori_1",
+        "message": "Non sei benvenuto qui, sei pregato di andartene.",
+        "replies": [
+            {
+                "text": "Perché qui a  Vilegard siete così diffidenti verso i forestieri?",
+                "nextPhraseID": "kaori_2"
+            },
+            {
+                "text": "Jolnor mi ha chiesto di parlare con te.",
+                "nextPhraseID": "kaori_3",
+                "requires": {
+                    "progress": "kaori:5"
+                }
+            }
+        ]
+    },
+    {
+        "id": "kaori_2",
+        "message": "Non voglio parlare con te. Vai a parlare con Jolnor nella cappella se vuoi aiutarci.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, ciao.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Ok, non dirlo a me.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "kaori_3",
+        "message": "Hai fatto? Forse non sei così male come pensavo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kaori_4"
+            }
+        ]
+    },
+    {
+        "id": "kaori_4",
+        "message": "Non sono ancora convinta che tu non sia una spia mandata da Feygard per provocare guai.",
+        "replies": [
+            {
+                "text": "Cosa mi puoi raccontare su Vilegard?",
+                "nextPhraseID": "kaori_trust_1"
+            },
+            {
+                "text": "Ti posso assicurare che non sono una spia.",
+                "nextPhraseID": "kaori_5"
+            },
+            {
+                "text": "Feygard? Dove o che cosa è?",
+                "nextPhraseID": "kaori_trust_1"
+            }
+        ]
+    },
+    {
+        "id": "kaori_5",
+        "message": "Hm. Forse no. Però potresti esserlo. No, non sono ancora sicura.",
+        "replies": [
+            {
+                "text": "C'è qualcosa che possa fare per guadagnare la tua fiducia?",
+                "nextPhraseID": "kaori_10"
+            },
+            {
+                "text": "[corrompi] Che ne diresti di 100 monete d'oro? Potrebbero aiutarti a fidarti di me?",
+                "nextPhraseID": "kaori_bribe"
+            }
+        ]
+    },
+    {
+        "id": "kaori_trust_1",
+        "message": "Non sono sicura di voler parlare di questo.",
+        "replies": [
+            {
+                "text": "C'è qualcosa che possa fare per guadagnare la tua fiducia?",
+                "nextPhraseID": "kaori_10"
+            },
+            {
+                "text": "[corrompi] Che ne diresti di 100 monete d'oro? Potrebbero aiutarti a fidarti di me?",
+                "nextPhraseID": "kaori_bribe"
+            }
+        ]
+    },
+    {
+        "id": "kaori_bribe",
+        "message": "Stai cercando di corrompermi ragazzo? Non funziona con me. A che servirebbe avere il denaro se in realtà tu fossi una spia?",
+        "replies": [
+            {
+                "text": "C'è qualcosa che possa fare per guadagnare la tua fiducia?",
+                "nextPhraseID": "kaori_10"
+            }
+        ]
+    },
+    {
+        "id": "kaori_10",
+        "message": "Se davvero vuoi dimostrarmi di non essere una spia di Feygard, c'è qualcosa che potresti fare per me.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kaori_11"
+            }
+        ]
+    },
+    {
+        "id": "kaori_11",
+        "message": "Fino a poco tempo fa, usavamo una speciale pozione di ossa per la guarigione. Questa è una pozione di guarigione molto potente e può essere utilizzata per molti scopi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kaori_12"
+            }
+        ]
+    },
+    {
+        "id": "kaori_12",
+        "message": "Ma adesso la pozione è stata bandita da Lord Geomyr e non se ne trova quasi più.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kaori_13"
+            }
+        ]
+    },
+    {
+        "id": "kaori_13",
+        "message": "Mi piacerebbe averne un po' di scorta. Se riesci a portarmi 10 pozioni di ossa potrei prendere in considerazione di iniziare a fidarmi di te.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kaori",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, troverò la pozione per te.",
+                "nextPhraseID": "kaori_14"
+            },
+            {
+                "text": "No, se è vietata, molto probabilmente c'è una buona ragione. Forse è meglio non usarla.",
+                "nextPhraseID": "kaori_15"
+            },
+            {
+                "text": "Ho già alcune pozioni d'ossa con me, puoi averle.",
+                "nextPhraseID": "kaori_20",
+                "requires": {
+                    "item": {
+                        "itemID": "bonemeal_potion",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "kaori_return_1",
+        "message": "Bentornato, hai trovato le 10 pozioni d'ossa che ho chiesto?",
+        "replies": [
+            {
+                "text": "No, le sto ancora cercando!",
+                "nextPhraseID": "kaori_14"
+            },
+            {
+                "text": "Sì, ti ho portato le pozioni!",
+                "nextPhraseID": "kaori_20",
+                "requires": {
+                    "item": {
+                        "itemID": "bonemeal_potion",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "No, se è vietata, molto probabilmente c'è una buona ragione. Forse è meglio non usarla.",
+                "nextPhraseID": "kaori_15"
+            }
+        ]
+    },
+    {
+        "id": "kaori_14",
+        "message": "Beh, sbrigati, mi servono veramente e al più presto!"
+    },
+    {
+        "id": "kaori_15",
+        "message": "Bene, ora però vattene!"
+    },
+    {
+        "id": "kaori_20",
+        "message": "Bene, dammele!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kaori",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kaori_21"
+            }
+        ]
+    },
+    {
+        "id": "kaori_21",
+        "message": "Sì, sembra la pozione giusta. Grazie molte ragazzo. Mmmh, forse, sì. Forse sei un bravo ragazzo, che l'Ombra vegli su di te.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kaori_default_1"
+            }
+        ]
+    },
+    {
+        "id": "kaori_default_1",
+        "message": "C'è qualcosa di cui vuoi parlarmi?",
+        "replies": [
+            {
+                "text": "Cosa sai dirmi su Vilegard?",
+                "nextPhraseID": "kaori_vilegard_1"
+            },
+            {
+                "text": "Perché a Vilegard tutti diffidano dei forestieri?",
+                "nextPhraseID": "kaori_vilegard_2"
+            }
+        ]
+    },
+    {
+        "id": "kaori_vilegard_1",
+        "message": "Dovresti parlare con Erttu se vuoi sapere la storia di Vilegard. Vive da queste parti da più tempo di me.",
+        "replies": [
+            {
+                "text": "Ok, lo farò.",
+                "nextPhraseID": "kaori_default_1"
+            }
+        ]
+    },
+    {
+        "id": "kaori_vilegard_2",
+        "message": "In tutta la nostra storia ci sono persone arrivate qui a causare guai. Nel corso del tempo abbiamo imparato che tenere a noi stessi è la cosa migliore.",
+        "replies": [
+            {
+                "text": "Mmh, sembra una buona idea.",
+                "nextPhraseID": "kaori_vilegard_3"
+            },
+            {
+                "text": "Non mi convince molto.",
+                "nextPhraseID": "kaori_vilegard_3"
+            }
+        ]
+    },
+    {
+        "id": "kaori_vilegard_3",
+        "message": "In ogni caso, è per questo che siamo così sospettosi verso i forestieri.",
+        "replies": [
+            {
+                "text": "Me ne sono accorto!",
+                "nextPhraseID": "kaori_default_1"
+            }
+        ]
+    }
+]

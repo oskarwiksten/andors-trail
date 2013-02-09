@@ -1,0 +1,272 @@
+[
+    {
+        "id": "oluag_1",
+        "replies": [
+            {
+                "nextPhraseID": "oluag_grave_16",
+                "requires": {
+                    "progress": "wrye:80"
+                }
+            },
+            {
+                "nextPhraseID": "oluag_1_1"
+            }
+        ]
+    },
+    {
+        "id": "oluag_1_1",
+        "message": "Hallo. Ich bin Oluag.",
+        "replies": [
+            {
+                "text": "Was machst du hier bei all diesen Kisten?",
+                "nextPhraseID": "oluag_2"
+            }
+        ]
+    },
+    {
+        "id": "oluag_2",
+        "message": "Ach die. Sie sind nicht von Bedeutung. Kümmere dich nicht darum. Um das Grab dort drüben solltest du dir auch keine Gedanken machen.",
+        "replies": [
+            {
+                "text": "Welches Grab?",
+                "nextPhraseID": "oluag_grave_select"
+            },
+            {
+                "text": "Nicht von Bedeutung? Wirklich? Das klingt verdächtig.",
+                "nextPhraseID": "oluag_boxes_1"
+            }
+        ]
+    },
+    {
+        "id": "oluag_boxes_1",
+        "message": "Nein nein, nichts von alledem ist verdächtig. Es ist ja nicht so, dass sie Schmuggelware oder irgendetwas ähnliches enthalten würden.",
+        "replies": [
+            {
+                "text": "Was hattest du von einem Grab gesagt?",
+                "nextPhraseID": "oluag_grave_select"
+            },
+            {
+                "text": "Nun gut. Ich vermute, dann habe ich nichts gesehen.",
+                "nextPhraseID": "oluag_goodbye"
+            }
+        ]
+    },
+    {
+        "id": "oluag_goodbye",
+        "message": "Richtig. Tschüss."
+    },
+    {
+        "id": "oluag_grave_select",
+        "replies": [
+            {
+                "nextPhraseID": "oluag_grave_return",
+                "requires": {
+                    "progress": "wrye:80"
+                }
+            },
+            {
+                "nextPhraseID": "oluag_grave_1"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_return",
+        "message": "Ich habe dir meine Geschichte bereits erzählt.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_5"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_1",
+        "message": "Ja, ok. Also gleich dort drüben ist ein Grab. Ich schwöre, ich hatte damit nichts zu tun.",
+        "replies": [
+            {
+                "text": "Nichts? Wirklich?",
+                "nextPhraseID": "oluag_grave_2"
+            },
+            {
+                "text": "Ok. Ich vermute, du hast wirklich nichts damit zu tun.",
+                "nextPhraseID": "oluag_goodbye"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_2",
+        "message": "Nun, wenn ich sage 'nichts', dann meine ich auch wirklich nichts. Oder vielleicht auch ein ganz kleines bisschen.",
+        "replies": [
+            {
+                "text": "Ein kleines bisschen?",
+                "nextPhraseID": "oluag_grave_3"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_3",
+        "message": "Ok, also vielleicht hatte ich ein kleines bisschen damit zu tun.",
+        "replies": [
+            {
+                "text": "Du fängst besser an, zu reden.",
+                "nextPhraseID": "oluag_grave_5"
+            },
+            {
+                "text": "Was hast du getan?",
+                "nextPhraseID": "oluag_grave_5"
+            },
+            {
+                "text": "Muss ich es aus dir rausprügeln?",
+                "nextPhraseID": "oluag_grave_4"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_4",
+        "message": "Entspann dich, entspann dich. Ich will keine Kämpfe mehr.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_5"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_5",
+        "message": "Da war dieser Junge, den ich gefunden habe. Er war schon fast verblutet.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_6"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_6",
+        "message": "Ich konnte ein paar Sätze aus ihm herausbekommen, bevor er starb.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_7"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_7",
+        "message": "Also begrub ich ihn dort drüben in diesem Grab.",
+        "replies": [
+            {
+                "text": "Was waren die letzten Sätze, die du von ihm gehört hast?",
+                "nextPhraseID": "oluag_grave_8"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_8",
+        "message": "Irgendetwas über Vilegard und Ryndel, ich bin mir nicht sicher? Ich habe nicht wirklich zugehört, ich war mehr an dem interessiert, was er bei sich hatte.",
+        "replies": [
+            {
+                "text": "Ich sollte mir das Grab einmal ansehen. Tschüss.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Rincel, war es das? Aus Vilegard? Wryes vermisster Sohn.",
+                "nextPhraseID": "oluag_grave_9",
+                "requires": {
+                    "progress": "wrye:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_9",
+        "message": "Ja, das könnte es gewesen sein. Auf jeden Fall sagte er etwas darüber, den Traum zu erfüllen, die großartige Stadt Feygard zu sehen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_10"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_10",
+        "message": "Und er erzählte mir etwas darüber, dass er es sich nicht traute, jemandem davon zu erzählen.",
+        "replies": [
+            {
+                "text": "Vielleicht hatte er sich nicht getraut, es Wrye zu erzählen?",
+                "nextPhraseID": "oluag_grave_11"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_11",
+        "message": "Ja sicher, das ist möglich. Er hatte hier sein Lager aufgeschlagen, aber er wurde von einigen Monstern angegriffen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_12"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_12",
+        "message": "Offenbar war er kein so guter Kämpfer wie beispielsweise jemand wie ich. Deshalb verwundeten ihn die Monster zu stark, als das er die Nacht hätte überleben können.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_13"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_13",
+        "message": "Dummerweise müssen sie ihm auch alles abgenommen haben, da ich nichts bei ihm finden konnte.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_14"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_14",
+        "message": "Ich hörte den Kampflärm, konnte aber erst zu ihm zu gelangen, als die Monster schon geflohen waren.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_15"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_15",
+        "message": "Wie auch immer. Jetzt liegt er dort drüben begraben. Ruhe in Frieden.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 80
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "oluag_grave_16"
+            }
+        ]
+    },
+    {
+        "id": "oluag_grave_16",
+        "message": "Lausiger Junge. Er hätte wenigstens ein paar Goldmünzen dabeihaben können.",
+        "replies": [
+            {
+                "text": "Vielen Dank für die Geschichte. Auf Wiedersehen.",
+                "nextPhraseID": "oluag_goodbye"
+            },
+            {
+                "text": "Vielen Dank für die Geschichte. Der Schatten sei mit dir.",
+                "nextPhraseID": "oluag_goodbye"
+            }
+        ]
+    }
+]

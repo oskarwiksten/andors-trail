@@ -1,0 +1,161 @@
+[
+    {
+        "id": "odair1",
+        "message": "A to ty. Ty i ten twój brat. Zawsze stwarzacie problemy.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair_select"
+            }
+        ]
+    },
+    {
+        "id": "odair_select",
+        "replies": [
+            {
+                "nextPhraseID": "odair_complete2",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "odair_continue",
+                "requires": {
+                    "progress": "odair:10"
+                }
+            },
+            {
+                "nextPhraseID": "odair2"
+            }
+        ]
+    },
+    {
+        "id": "odair2",
+        "message": "Hmm, może jednak będzie z ciebie pożytek. Myślisz, że dasz radę wykonać małą robótkę?",
+        "replies": [
+            {
+                "text": "Powiedz mi co to za robótka.",
+                "nextPhraseID": "odair3"
+            },
+            {
+                "text": "Jasne, jeśli mi się to opłaci.",
+                "nextPhraseID": "odair3"
+            }
+        ]
+    },
+    {
+        "id": "odair3",
+        "message": "Swojego czasu często chodziłem do tej jaskini *pokazuje na zachód*, żeby sprawdzić zapasy. Ale w tej jaskini ostatnio zaroiło się od szczurów.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair4"
+            }
+        ]
+    },
+    {
+        "id": "odair4",
+        "message": "Właściwie to zauważyłem, że jeden z tych szczurów jest większy niż pozostałe. Myślisz, że masz co trzeba, żeby się ich pozbyć?",
+        "replies": [
+            {
+                "text": "Jasnę pomogę ci żebyście znów mogli tam robić zapasy.",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Jasnę pomogę ci, ale tylko dlatego, że może tam być coś cennego dla mnie.",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Nie, dzięki",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair5",
+        "message": "Musisz tam wejść i zabić tego największego, może dzięki temu reszta sobie pójdzie i znów będziemy mogli używać tej jaskini.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "On second thought, I don't think I will help you after all.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_cowards",
+        "message": "Wiedziałem, że tak będzie. Ty i twój brat zawsze byliście tchórzami.",
+        "replies": [
+            {
+                "text": "Bye",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_continue",
+        "message": "Zabiłeś tego olbrzymiego szczura w jaskini na zachód stąd?",
+        "replies": [
+            {
+                "text": "Tak, zabiłem go.",
+                "nextPhraseID": "odair_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_caverat",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Jeszcze raz co miałem zrobić?",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Nie, jeszcze nie.",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete",
+        "message": "Dzięki młody! Może ty i twój brat nie jesteście takimi tchórzami jak myślałem. Weź te monety jako moje podziękowanie.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Dzięki",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete2",
+        "message": "Dzięki za pomoc z tamtymi szczurami. W końcu możemy używać tej jaskini.",
+        "replies": [
+            {
+                "text": "Bye",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

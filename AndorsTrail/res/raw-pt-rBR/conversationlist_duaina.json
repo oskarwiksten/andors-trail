@@ -1,0 +1,324 @@
+[
+    {
+        "id": "duaina",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_0"
+            }
+        ]
+    },
+    {
+        "id": "duaina_0",
+        "message": "Você! Eu vi você.",
+        "replies": [
+            {
+                "text": "Jhaeld enviou-me para perguntar-lhe sobre as pessoas que desapareceram.",
+                "nextPhraseID": "duaina_1",
+                "requires": {
+                    "progress": "remgard:52"
+                }
+            },
+            {
+                "text": "Eu acho que não, eu nunca estive aqui antes.",
+                "nextPhraseID": "duaina_stop"
+            },
+            {
+                "text": "Sim, eu esteve aqui, lembra?",
+                "nextPhraseID": "duaina_1",
+                "requires": {
+                    "progress": "remgard:63"
+                }
+            }
+        ]
+    },
+    {
+        "id": "duaina_1",
+        "message": "Os sonhos e as visões. É você! A criança que desafia a besta. (Duaina dá-lhe um olhar aterrorizado)",
+        "replies": [
+            {
+                "text": "Então você me viu em suas visões?",
+                "nextPhraseID": "duaina_2"
+            }
+        ]
+    },
+    {
+        "id": "duaina_2",
+        "message": "A besta dormindo. Não, não. A luz ofuscante. Ah, por que você veio aqui? Você veio para mim?",
+        "replies": [
+            {
+                "text": "O que você está falando?",
+                "nextPhraseID": "duaina_3"
+            }
+        ]
+    },
+    {
+        "id": "duaina_3",
+        "message": "Nããão, por favor, me poupe!",
+        "replies": [
+            {
+                "text": "Eu não estou aqui para te pegar, se é isso que você está com medo.",
+                "nextPhraseID": "duaina_4"
+            }
+        ]
+    },
+    {
+        "id": "duaina_4",
+        "message": "Eu posso ver isso em você. Você tem o dom. O presente que irá destruir a besta. Minhas visões eram verdadeiras.",
+        "replies": [
+            {
+                "text": "Talvez você esteja me confundindo com meu irmão Andor?",
+                "nextPhraseID": "duaina_5"
+            }
+        ]
+    },
+    {
+        "id": "duaina_5",
+        "message": "Um irmão? Sim, isso deve ser o que eu vi em minhas visões. Está tudo ficando mais claras.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_6"
+            }
+        ]
+    },
+    {
+        "id": "duaina_6",
+        "message": "A mão negra varre a terra. O animal que caça. Nããão! Deixar este lugar!",
+        "replies": [
+            {
+                "text": "Eu não estou aqui para te machucar!",
+                "nextPhraseID": "duaina_7"
+            }
+        ]
+    },
+    {
+        "id": "duaina_7",
+        "message": "A criança e o irmão. As pessoas inocentes. A besta lança sua sombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_0"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_0",
+        "message": "Eu te vi em minhas visões.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_1"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_1",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_s_1a",
+                "requires": {
+                    "progress": "flagstone:60"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_s_2"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_1a",
+        "message": "Matando a besta debaixo da prisão de Flagstone.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_2"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_2",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_s_2a",
+                "requires": {
+                    "progress": "farrik:70"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_s_2b",
+                "requires": {
+                    "progress": "farrik:90"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_s_3"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_2a",
+        "message": "Cooperando com os ladrões em Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_3"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_2b",
+        "message": "Trabalhando contra os ladrões em Fallhaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_3"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_3",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_s_3a",
+                "requires": {
+                    "progress": "bjorgur_grave:50"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_s_3b",
+                "requires": {
+                    "progress": "bjorgur_grave:60"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_s_4"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_3a",
+        "message": "Algo sobre um punhal voltou a um ancestral em seu túmulo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_4"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_3b",
+        "message": "Alguma coisa sobre roubar um punhal em uma tumba escura.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_s_4"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_4",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_s_4a",
+                "requires": {
+                    "progress": "benbyr:30"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_jhaeld_s_1"
+            }
+        ]
+    },
+    {
+        "id": "duaina_s_4a",
+        "message": "Matando ovelhas inocentes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "duaina_jhaeld_s_1"
+            }
+        ]
+    },
+    {
+        "id": "duaina_jhaeld_s_1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 63
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "duaina_jhaeld_s_2",
+                "requires": {
+                    "progress": "remgard:61"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_8"
+            }
+        ]
+    },
+    {
+        "id": "duaina_jhaeld_s_2",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_jhaeld_s_3",
+                "requires": {
+                    "progress": "remgard:62"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_8"
+            }
+        ]
+    },
+    {
+        "id": "duaina_jhaeld_s_3",
+        "replies": [
+            {
+                "nextPhraseID": "duaina_jhaeld_s_4",
+                "requires": {
+                    "progress": "remgard:64"
+                }
+            },
+            {
+                "nextPhraseID": "duaina_8"
+            }
+        ]
+    },
+    {
+        "id": "duaina_jhaeld_s_4",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 70
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "duaina_8"
+            }
+        ]
+    },
+    {
+        "id": "duaina_8",
+        "message": "(Duaina olha em você em silêncio, enquanto segura sua mão sobre a boca)",
+        "replies": [
+            {
+                "text": "O que mais você viu em suas visões?",
+                "nextPhraseID": "duaina_stop"
+            },
+            {
+                "text": "Eu não entendo.",
+                "nextPhraseID": "duaina_stop"
+            }
+        ]
+    },
+    {
+        "id": "duaina_stop",
+        "message": "(Duaina olha em você em silêncio)"
+    }
+]

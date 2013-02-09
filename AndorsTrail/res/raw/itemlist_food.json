@@ -1,0 +1,206 @@
+[
+    {
+        "id": "apple_green",
+        "iconID": "items_consumables:2",
+        "name": "Green apple",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 14,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 8,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "apple_red",
+        "iconID": "items_consumables:3",
+        "name": "Red apple",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 22,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 12,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "meat",
+        "iconID": "items_consumables:25",
+        "name": "Meat",
+        "category": "animal_e",
+        "hasManualPrice": 1,
+        "baseMarketCost": 29,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 2,
+                    "duration": 12,
+                    "chance": 100
+                },
+                {
+                    "condition": "foodp",
+                    "magnitude": 3,
+                    "duration": 10,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "meat_cooked",
+        "iconID": "items_consumables:27",
+        "name": "Cooked meat",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 78,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 3,
+                    "duration": 11,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "strawberry",
+        "iconID": "items_consumables:8",
+        "name": "Strawberry",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 3,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 2,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "carrot",
+        "iconID": "items_consumables:15",
+        "name": "Carrot",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 14,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 8,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "bread",
+        "iconID": "items_consumables:21",
+        "name": "Bread",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 6,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 10,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "mushroom",
+        "iconID": "items_consumables:19",
+        "name": "Mushroom",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 3,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 2,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pear",
+        "iconID": "items_consumables:9",
+        "name": "Pear",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 14,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 8,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "eggs",
+        "iconID": "items_consumables:20",
+        "name": "Eggs",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 10,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 6,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "radish",
+        "iconID": "items_consumables:14",
+        "name": "Radish",
+        "category": "food",
+        "hasManualPrice": 1,
+        "baseMarketCost": 6,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 1,
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        }
+    }
+]

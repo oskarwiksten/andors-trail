@@ -1,0 +1,219 @@
+[
+    {
+        "id": "fallhaven_drunk",
+        "message": "Żaden problem. Nie panieee! Nie sprawia już żadnych problemów. Usiąde na zewnątrz gdzieś.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_2",
+        "message": "A ty to kto? Jesteś tym strażnikiem?",
+        "replies": [
+            {
+                "text": "Tak",
+                "nextPhraseID": "fallhaven_drunk_3_1"
+            },
+            {
+                "text": "Nie",
+                "nextPhraseID": "fallhaven_drunk_3_2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_3_1",
+        "message": "Oh, panie. Jak widać nie sprawiam już żadnych problemów? Usiąde tak jak mówiłeś ok?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_4"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_3_2",
+        "message": "Oh to dobrze. Ten strażnik wywalił mnie z tawerny. Jak go jeszcze zobaczę to się z nim policzę.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_4"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_4",
+        "message": "A kto się w grudniu urodził, ma wstać, ma wstać, ma wstać. Uh, jak leci?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_5"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_5",
+        "message": "Mówiłeś coś? Że gdzie ja byłem? A tak więc weszliśmy do podziemi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_6"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_6",
+        "message": "Albo to był dom? Nie pamiętam.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_7"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_7",
+        "message": "Nie,nie , to było na zewnątrz! Teraz pamiętam.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_7_select"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_7_select",
+        "replies": [
+            {
+                "nextPhraseID": "fallhaven_drunk_11",
+                "requires": {
+                    "progress": "fallhavendrunk:100"
+                }
+            },
+            {
+                "nextPhraseID": "fallhaven_drunk_8"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_8",
+        "message": "That's where we..\n\nHey, where did my mead go? Did you take it from me? ",
+        "replies": [
+            {
+                "text": "Yes",
+                "nextPhraseID": "fallhaven_drunk_9_1"
+            },
+            {
+                "text": "No",
+                "nextPhraseID": "fallhaven_drunk_9_2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_9_1",
+        "message": "Cóż to oddawaj z powrotem! Albo idź kup trochę miodu.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "fallhavendrunk",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Masz trochę miodu.",
+                "nextPhraseID": "fallhaven_drunk_10",
+                "requires": {
+                    "item": {
+                        "itemID": "mead",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, kupie trochę dla ciebie.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Nie wydaje mi się, że powinienem ci pomagać.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_9_2",
+        "message": "Chyba się upiłem. Możesz mi załatwić więcej miodu? ",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "fallhavendrunk",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Here, have some mead.",
+                "nextPhraseID": "fallhaven_drunk_10",
+                "requires": {
+                    "item": {
+                        "itemID": "mead",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, kupie trochę miodu.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Nie wydaję mi się. Żegnaj.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_10",
+        "message": "Oh słodki napój bogów. Niieechhh cieeeń będziie z tobąą. *robi duże oczy*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_11"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_11",
+        "message": "*łyknij sobie tego miodu*\n\nDobry towar!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_drunk_12"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_drunk_12",
+        "message": "Taa ja i Unmir świetnie się bawimy. Sam go zapytaj, najczęściej jest w stodole na wschód stąd. Zastanawia mnie *burps* gdzie się podział ten skarb.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "fallhavendrunk",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "Skarb? Wchodzę w to! Zaraz pójdę poszukać Unnmira.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Dzięki za historyjkę. Żegnaj.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

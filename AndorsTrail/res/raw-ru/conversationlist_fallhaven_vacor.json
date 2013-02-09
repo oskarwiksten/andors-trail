@@ -1,0 +1,604 @@
+[
+    {
+        "id": "vacor",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_return_complete0",
+                "requires": {
+                    "progress": "vacor:60"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_return2",
+                "requires": {
+                    "progress": "vacor:40"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_42",
+                "requires": {
+                    "progress": "vacor:30"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_select1"
+            }
+        ]
+    },
+    {
+        "id": "vacor_select1",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_return1",
+                "requires": {
+                    "progress": "vacor:20"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_begin"
+            }
+        ]
+    },
+    {
+        "id": "vacor_begin",
+        "message": "Привет.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_2"
+            }
+        ]
+    },
+    {
+        "id": "vacor_2",
+        "message": "Юный авантюрист? Хм. Возможно ты будешь мне полезен.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_3"
+            }
+        ]
+    },
+    {
+        "id": "vacor_3",
+        "message": "Готов ли ты помочь мне?",
+        "replies": [
+            {
+                "text": "Конечно",
+                "nextPhraseID": "vacor_4"
+            },
+            {
+                "text": "Нет",
+                "nextPhraseID": "vacor_bah"
+            }
+        ]
+    },
+    {
+        "id": "vacor_bah",
+        "message": "Черт, жалкое существо. Я знал, что не стоит тебя просить. А теперь оставь меня."
+    },
+    {
+        "id": "vacor_4",
+        "message": "Долгое время, я работал над Заклинанием разрыва и много читал об этом.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_5"
+            }
+        ]
+    },
+    {
+        "id": "vacor_5",
+        "message": "Заклинание могло открыть, так сказать, новые возможности.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_6"
+            }
+        ]
+    },
+    {
+        "id": "vacor_6",
+        "message": "Эм, да, Заклинание разрыва открывает кое-что. Гм.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_7"
+            }
+        ]
+    },
+    {
+        "id": "vacor_7",
+        "message": "Так что я усердно работал над получением последней части для него.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_8"
+            }
+        ]
+    },
+    {
+        "id": "vacor_8",
+        "message": "Потом вдруг, банда головорезов пришла сюда и начала запугивать меня.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_9"
+            }
+        ]
+    },
+    {
+        "id": "vacor_9",
+        "message": "Они сказали, что они посланники Тени, и настаивали, что бы я прекратил работу над заклинанием.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_10"
+            }
+        ]
+    },
+    {
+        "id": "vacor_10",
+        "message": "Нелепо, не правда ли? Я был настолько близок к получению силы!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_11"
+            }
+        ]
+    },
+    {
+        "id": "vacor_11",
+        "message": "О, я мог бы быть сильным. Мое дорогое Заклинание.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_12"
+            }
+        ]
+    },
+    {
+        "id": "vacor_12",
+        "message": "В любом случае, я как раз собирался закончить последнюю часть моего Заклинаниея разрыва, когда бандиты пришли и ограбили меня.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_13"
+            }
+        ]
+    },
+    {
+        "id": "vacor_13",
+        "message": "Бандиты взяли мой рецепт для заклинания и скрылись, прежде чем я успел позвать стражу.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_14"
+            }
+        ]
+    },
+    {
+        "id": "vacor_14",
+        "message": "Теперь я не могу вспомнить, последнюю его часть.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_15"
+            }
+        ]
+    },
+    {
+        "id": "vacor_15",
+        "message": "Как вы думаете, могли бы помочь мне найти его? Тогда бы я наконец-то получил бы силу!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_16"
+            }
+        ]
+    },
+    {
+        "id": "vacor_16",
+        "message": "Вы, конечно же, будете соответствующим образом вознаграждены.",
+        "replies": [
+            {
+                "text": "Я помогу",
+                "nextPhraseID": "vacor_17"
+            },
+            {
+                "text": "Думаю нет",
+                "nextPhraseID": "vacor_17"
+            },
+            {
+                "text": "Нет, спасибо, это похоже то, с чем бы я предпочел не связываться.",
+                "nextPhraseID": "vacor_bah"
+            }
+        ]
+    },
+    {
+        "id": "vacor_17",
+        "message": "Я знал, что не стоило довер... Подождите, что? На самом деле вы сказали 'да'? Ха, ну и ну.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_18"
+            }
+        ]
+    },
+    {
+        "id": "vacor_18",
+        "message": "Хорошо, найди четыре части моего Заклинания разрыва, что украли бандиты, и принеси их ко мне.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_19"
+            }
+        ]
+    },
+    {
+        "id": "vacor_19",
+        "message": "Было четверо бандитов, и все они направились на юг от Фоллхейвена, после того как на меня напали.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_20"
+            }
+        ]
+    },
+    {
+        "id": "vacor_20",
+        "message": "Вы должны отыскать четырех бандитов южнее Фоллхейвена.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_21"
+            }
+        ]
+    },
+    {
+        "id": "vacor_21",
+        "message": "Пожалуйста поторопитесь! Мне так хочется открыть раскол .. Эм, я подразумеваю закончить заклинание. Ничего странного в этом, правда?"
+    },
+    {
+        "id": "vacor_return1",
+        "message": "Снова здравствуйте. Как продвигаются поиски частей моего Заклинания разрыва?",
+        "replies": [
+            {
+                "text": "Готово",
+                "nextPhraseID": "vacor_40",
+                "requires": {
+                    "item": {
+                        "itemID": "vacor_spell",
+                        "quantity": 4,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Частей?",
+                "nextPhraseID": "vacor_18"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "vacor_4"
+            }
+        ]
+    },
+    {
+        "id": "vacor_40",
+        "message": "О, ты нашел все части? Скорее, Дай их мне.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_41"
+            }
+        ]
+    },
+    {
+        "id": "vacor_41",
+        "message": "Да, это те самые, украденные, части.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_42"
+            }
+        ]
+    },
+    {
+        "id": "vacor_42",
+        "message": "Теперь я должен закончить заклинание и открыть Теневой разлом .. эмм я имел в виду новые возможности. Да, именно это я и сказал.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_43"
+            }
+        ]
+    },
+    {
+        "id": "vacor_43",
+        "message": "Есть одна проблемма, перед тем как я смогу продолжить работу над заклинанием, это мой глупый помошник Унзел.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_44"
+            }
+        ]
+    },
+    {
+        "id": "vacor_44",
+        "message": "Унзел поступил ко мне в ученики уже очень давно. Но он начал меня раздражать своими вопросами и разговорами о морали.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_45"
+            }
+        ]
+    },
+    {
+        "id": "vacor_45",
+        "message": "Он говорит что мое занятие заклинаниями нарушает волю Тени.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_46"
+            }
+        ]
+    },
+    {
+        "id": "vacor_46",
+        "message": "Хах, Тень. Какую пользу мы когда-либо имели от Тени?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_47"
+            }
+        ]
+    },
+    {
+        "id": "vacor_47",
+        "message": "Я однажды закончу Заклинание разрыва и мы будем избавлены от Тени.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_48"
+            }
+        ]
+    },
+    {
+        "id": "vacor_48",
+        "message": "В любом случае. Я чую что это Унзел натравил на меня тех бандитов, и если его не остановить возможны и другие проблеммы.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_49"
+            }
+        ]
+    },
+    {
+        "id": "vacor_49",
+        "message": "Я хочу что бы ты нашел Унзела и убил его для меня. Возможно он сейчас где-то на юго-западе от Фоллхейвена.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_50"
+            }
+        ]
+    },
+    {
+        "id": "vacor_50",
+        "message": "Принеси мне его перстень в качестве доказательства, что ты убил его.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_51"
+            }
+        ]
+    },
+    {
+        "id": "vacor_51",
+        "message": "А теперь торопись, я не могу долго ждать. Сила должна быть МОЕЙ!"
+    },
+    {
+        "id": "vacor_return2",
+        "message": "Снова здравствуйте. Как продвигается наше дело?",
+        "replies": [
+            {
+                "text": "Унзел",
+                "nextPhraseID": "vacor_return2_2"
+            },
+            {
+                "text": "Дело?",
+                "nextPhraseID": "vacor_43"
+            }
+        ]
+    },
+    {
+        "id": "vacor_return2_2",
+        "message": "Ты убил Унзела? Принеси мне его перстень, когда убьешь.",
+        "replies": [
+            {
+                "text": "Убил",
+                "nextPhraseID": "vacor_60",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_unzel",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Shadow",
+                "nextPhraseID": "vacor_70",
+                "requires": {
+                    "progress": "vacor:51"
+                }
+            }
+        ]
+    },
+    {
+        "id": "vacor_60",
+        "message": "Уха-ха, Унзел мертв! Это исчадье морали!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_61"
+            }
+        ]
+    },
+    {
+        "id": "vacor_61",
+        "message": "Я вижу кровь на твоих сапогах. Я надеюсь что ты убил и его приспешников.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_62"
+            }
+        ]
+    },
+    {
+        "id": "vacor_62",
+        "message": "Это замечательный день. Скоро я получу силу!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_63"
+            }
+        ]
+    },
+    {
+        "id": "vacor_63",
+        "message": "Вот, возми эти монеты за твою помощь.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_64"
+            }
+        ]
+    },
+    {
+        "id": "vacor_64",
+        "message": "А теперь оставь меня, я должен подготовиться к созданию заклинания."
+    },
+    {
+        "id": "vacor_return_complete0",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_msg_16",
+                "requires": {
+                    "progress": "kaverin:90"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_msg_9",
+                "requires": {
+                    "progress": "kaverin:75"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_msg1",
+                "requires": {
+                    "progress": "kaverin:60",
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "vacor_return_complete"
+            }
+        ]
+    },
+    {
+        "id": "vacor_return_complete",
+        "message": "Снова здравствуй, мой ассасин. Скоро я закончу свое Заклинание разрыва."
+    },
+    {
+        "id": "vacor_70",
+        "message": "Что? Он поведал тебе историю? И ты конечно же поверил ему?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_71"
+            }
+        ]
+    },
+    {
+        "id": "vacor_71",
+        "message": "Я даю тебе один шанс. Или ты убиваешь Унзела и получаешь свои деньги. Или ты будешь иметь честь познать мою силу!",
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "vacor_72"
+            },
+            {
+                "text": "Уйти",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "vacor_72",
+        "message": "Ха, ничтожное создание. Я знал, что не стоит доверять тебе. Теперь ты умрешь вместе со своей драгоценной Тенью.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 54
+            }
+        ],
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Тебя надо остановить.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

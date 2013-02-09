@@ -1,0 +1,258 @@
+[
+    {
+        "id": "nocmar",
+        "message": "Hallo, ich bin Nocmar.",
+        "replies": [
+            {
+                "text": "Sieht so aus als wäre das hier die Schmiede. Hast du etwas zum handeln?",
+                "nextPhraseID": "nocmar_trade_select"
+            },
+            {
+                "text": "Unnmir schickte mich.",
+                "nextPhraseID": "nocmar_quest_select",
+                "requires": {
+                    "progress": "nocmar:10"
+                }
+            },
+            {
+                "text": "Tschüss",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_select",
+        "replies": [
+            {
+                "nextPhraseID": "nocmar_complete_5",
+                "requires": {
+                    "progress": "nocmar:200"
+                }
+            },
+            {
+                "nextPhraseID": "nocmar_continue",
+                "requires": {
+                    "progress": "nocmar:20"
+                }
+            },
+            {
+                "nextPhraseID": "nocmar_quest"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_select",
+        "replies": [
+            {
+                "nextPhraseID": "S",
+                "requires": {
+                    "progress": "nocmar:200"
+                }
+            },
+            {
+                "nextPhraseID": "nocmar_trade_1"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_1",
+        "message": "Ich habe keine Gegenstände zu verkaufen. Ich hatte viele Sachen zum Verkauf, aber heutzutage ist es mir nicht erlaubt etwas zu verkaufen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_2",
+        "message": "Ich war einmal einer der besten Schmiede in Fallhaven. Dann verbot mir dieser Bastard Lord Geomyr die Benutzung von Herzstahl.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_3"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_3",
+        "message": "Durch einen Erlass von Lord Geomyr, ist es sogar niemand in Fallhaven auch nur erlaubt Herzstahlwaffen zu benutzen. Und schon gar nicht welche zu verkaufen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_4"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_4",
+        "message": "Darum muss ich jetzt die wenigen Herzstahlwaffen, die ich noch habe, verstecken. Und ich riskiere keinesfalls sie zu verkaufen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_4_1"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_4_1",
+        "message": "I habe das Herzstahlleuchten, jetzt wo Lord Geomyr ihn verboten hat, seit mehreren Jahren nicht gesehen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_trade_5"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_trade_5",
+        "message": "Leider kann ich dir keine meiner Waffen verkaufen."
+    },
+    {
+        "id": "nocmar_quest",
+        "message": "Unnmir schickte dich, huh? Ich vermute, es muss dann wichtig sein.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nocmar",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_1"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_1",
+        "message": "Okay, diese alten Waffen haben, nachdem sie länger nicht mehr benutzt wurden, ihr inneres Leuchten verloren.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_2",
+        "message": "Um den Herzstahl erneut zum Leuchten zu bringen, brauchen wir einen Herzstein.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_3"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_3",
+        "message": "Vor Jahren, bekämpften wir die Lichs von Undertell. Ich habe keine Ahnung, ob sie den Ort immer noch heimsuchen.",
+        "replies": [
+            {
+                "text": "Undertell? Was ist das?",
+                "nextPhraseID": "nocmar_quest_4"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_4",
+        "message": "Undertell; die Gruben der verlorenen Seelen. Reise nach Süden und betrete die Höhle der Zwerge. Von dort folge dem schrecklichen Gestank.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_quest_5"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_quest_5",
+        "message": "Hüte dich vor den Lichs von Undertell, falls sie immer noch da sind. Diese Dinger können dich mit ihren Blicken allein töten."
+    },
+    {
+        "id": "nocmar_continue",
+        "message": "Hast du schon einen Herzstein gefunden?",
+        "replies": [
+            {
+                "text": "Ja, letztendlich habe ich einen gefunden.",
+                "nextPhraseID": "nocmar_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "heartstone",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Kannst du mir die Geschichte nochmal erzählen?",
+                "nextPhraseID": "nocmar_quest_1"
+            },
+            {
+                "text": "Nein, noch nicht.",
+                "nextPhraseID": "nocmar_continue_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_continue_2",
+        "message": "Bitte such weiter. Unnmir muss etwas Wichtiges mit dir vorhaben."
+    },
+    {
+        "id": "nocmar_complete",
+        "message": "Beim Schatten! Du hast tatsächlich einen Herzstein gefunden. Ich dachte, ich würde diesen Tag nicht mehr erleben.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nocmar",
+                "value": 200
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_2",
+        "message": "Kannst du das Leuchten sehen? Es ist buchstäblich pulsierend.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_3"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_3",
+        "message": "Schnell. Lass uns die alten Herzstahlwaffen wieder zum Leuchten bringen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_4"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_4",
+        "message": "*Nocmar legt den Herzstein zwischen die Herzstahlwaffen*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "nocmar_complete_5"
+            }
+        ]
+    },
+    {
+        "id": "nocmar_complete_5",
+        "message": "Kannst du es spüren? Der Herzstahl leuchtet wieder.",
+        "replies": [
+            {
+                "text": "Lass mich sehen, welche Gegenstände du für mich hast.",
+                "nextPhraseID": "S"
+            }
+        ]
+    }
+]

@@ -1,0 +1,206 @@
+[
+    {
+        "id": "fallhaven_citizen1",
+        "message": "Эй, привет. Хорошая погода, не так ли?",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "fallhaven_andor_1"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_citizen2",
+        "message": "Здрасть. Ты что-то хотел?",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "fallhaven_andor_2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_citizen3",
+        "message": "Прив. Чем могу помочь?",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "fallhaven_andor_3"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_citizen4",
+        "message": "Ты, парень, из деревни Кроссглен, так?",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "fallhaven_andor_4"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_citizen5",
+        "message": "Прочь с дороги, крестьянин."
+    },
+    {
+        "id": "fallhaven_citizen6",
+        "message": "Доброго дня вам.",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "fallhaven_andor_6"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_andor_1",
+        "message": "Нет, прости. я никого не видел в округе."
+    },
+    {
+        "id": "fallhaven_andor_2",
+        "message": "Еще один пацан говоришь? Хм, дай подумать.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_andor_1"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_andor_3",
+        "message": "Хм, я видел кого-то несколько дней назад. Но не могу вспомнить точно."
+    },
+    {
+        "id": "fallhaven_andor_4",
+        "message": "Ах да, еще один парень из Кроссглена был здесь несколько дней назад. Не уверен что он подходит под описание.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_andor_4_1"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_andor_4_1",
+        "message": "За ним следили какие-то темные люди. Больше ничего не видел."
+    },
+    {
+        "id": "fallhaven_andor_6",
+        "message": "Неа. Не видел."
+    },
+    {
+        "id": "fallhaven_guard",
+        "message": "Держись по дальше от проблем."
+    },
+    {
+        "id": "fallhaven_priest",
+        "message": "Да прибудет с тобой Тень.",
+        "replies": [
+            {
+                "text": "Тень",
+                "nextPhraseID": "priest_shadow_1"
+            }
+        ]
+    },
+    {
+        "id": "priest_shadow_1",
+        "message": "Тень защищает нас. Тень оберегает нас когда мы спим.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "priest_shadow_2"
+            }
+        ]
+    },
+    {
+        "id": "priest_shadow_2",
+        "message": "Она следует за нами куда бы мы не шли. Следуй с Тенью, сын мой.",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Все, до свидания",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "rigmor",
+        "message": "Ну привет! Маленький уродец.",
+        "replies": [
+            {
+                "text": "Брат",
+                "nextPhraseID": "rigmor_1"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "rigmor_leave_select"
+            }
+        ]
+    },
+    {
+        "id": "rigmor_1",
+        "message": "Говоришь твой брат? Его зовут Эндор? Нет. Не встречала никого похожего.",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "rigmor_leave_select"
+            }
+        ]
+    },
+    {
+        "id": "rigmor_leave_select",
+        "replies": [
+            {
+                "nextPhraseID": "rigmor_thanks",
+                "requires": {
+                    "progress": "calomyran:100"
+                }
+            },
+            {
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "rigmor_thanks",
+        "message": "Я слышала, что вы помогли моему старику найди его книгу, спасибо. Он говорил об этой книге несколько недель. Бедняжка, у него тенденция забывать вещи.",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Не спускай с него глаз или с ним может случиться что-нибудь плохое.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Все, что я сделал, я сделал только ради денег.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_clothes",
+        "message": "Приветствую в моём магазине. Пожалуйста оцени богатый выбор одежды и ювелирных изделий.",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_potions",
+        "message": "Добро пожаловать в мой магазин. У меня широкий выбор зелий на все случаи жизни.",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            }
+        ]
+    }
+]

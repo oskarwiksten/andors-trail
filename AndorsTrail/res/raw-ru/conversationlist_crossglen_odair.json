@@ -1,0 +1,161 @@
+[
+    {
+        "id": "odair1",
+        "message": "О, это ты. Ты один из братьев. Всегда вас путал.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair_select"
+            }
+        ]
+    },
+    {
+        "id": "odair_select",
+        "replies": [
+            {
+                "nextPhraseID": "odair_complete2",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "odair_continue",
+                "requires": {
+                    "progress": "odair:10"
+                }
+            },
+            {
+                "nextPhraseID": "odair2"
+            }
+        ]
+    },
+    {
+        "id": "odair2",
+        "message": "Хм, возможно ты будешь мне полезен. Сможешь помочь мне с небольшим делом, как ты думаешь?",
+        "replies": [
+            {
+                "text": "Что за дело?",
+                "nextPhraseID": "odair3"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "odair3"
+            }
+        ]
+    },
+    {
+        "id": "odair3",
+        "message": "Недавно я пошел к пещере *указывает на запад*, чтобы проверить, наши поставки. Но, пещера была зараженна крысами.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair4"
+            }
+        ]
+    },
+    {
+        "id": "odair4",
+        "message": "В частности, я видел одну крысу, что была больше других. Как ты думаешь, сможешь помочь мне с моей задачей?",
+        "replies": [
+            {
+                "text": "Конечно",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Нет, извини",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Нет уж, как-нибудь обойдусь",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair5",
+        "message": "Ты должен войти в эту пещеру и убить большую крысу, таким образом, возможно, мы сможем остановить распространение крыс в пещере и начать использовать её снова, как наши пещеры поставок.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Хорошо",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Ну уж нет",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_cowards",
+        "message": "Ничего удивительного. Ты и твой брат всегда были трусами.",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_continue",
+        "message": "Ты убил большую крысу в пещере к западу отсюда?",
+        "replies": [
+            {
+                "text": "Да",
+                "nextPhraseID": "odair_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_caverat",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Что?",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Еще нет",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete",
+        "message": "Большое спасибо тебе за помощь парень! Может быть, ты и твой брат не столь трусливы, как я думал. Вот, возьми эти монеты за твою помощь.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Спасибо",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete2",
+        "message": "Спасибо за помощь, ешё раз. Теперь мы можем начать использовать эти пещеры, как наши пещеры поставок снова.",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

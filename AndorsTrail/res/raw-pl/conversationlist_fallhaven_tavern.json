@@ -1,0 +1,107 @@
+[
+    {
+        "id": "bela",
+        "message": "Witaj w tawernie. Usiądź sobie gdzieś.",
+        "replies": [
+            {
+                "text": "Pokaż mi co masz do zjedzenia i do picia",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Są jakieś wolne pokoje?",
+                "nextPhraseID": "bela_room_select"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_1",
+        "message": "Pokój kosztuje tylko 10 złotych monet.",
+        "replies": [
+            {
+                "text": "Kup [10 złota]",
+                "nextPhraseID": "bela_room_2",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Nie, dzięki.",
+                "nextPhraseID": "bela"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_2",
+        "message": "Dzięki. Weź pokój na końcu hali.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "fallhaventavern",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Dziękuje. Jest coś jeszcze o co chciałem zapytać.",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Dzięki. Żegnaj.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_3",
+        "message": "Mam nadzieję, że pokój będzie ci odpowiadał. To ten ostatni pokój na końcu.",
+        "replies": [
+            {
+                "text": "Dziękuje. Jest coś jeszcze o co chciałem zapytać.",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Dzięki. Żegnaj.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_select",
+        "replies": [
+            {
+                "nextPhraseID": "bela_room_3",
+                "requires": {
+                    "progress": "fallhaventavern:10"
+                }
+            },
+            {
+                "nextPhraseID": "bela_room_1"
+            }
+        ]
+    },
+    {
+        "id": "ganos",
+        "message": "Wyglądasz znajomo.",
+        "replies": [
+            {
+                "text": "Masz coś na handel?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Wiesz coś o gildii złodzieji?",
+                "nextPhraseID": "ganos_1",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ganos_1",
+        "message": "Gildii złodzieji? A skąd niby? Wyglądam ci na złodzieja?! Hrmpf."
+    }
+]

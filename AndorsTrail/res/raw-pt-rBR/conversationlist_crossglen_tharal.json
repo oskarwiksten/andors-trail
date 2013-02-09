@@ -1,0 +1,138 @@
+[
+    {
+        "id": "tharal1",
+        "message": "Caminhe no brilho da Sombra, meu filho.",
+        "replies": [
+            {
+                "text": "Você tem alguma coisa para vender?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "O que você pode me dizer sobre farinha de ossos?",
+                "nextPhraseID": "tharal_bonemeal_select",
+                "requires": {
+                    "progress": "bonemeal:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharal_bonemeal4",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "nextPhraseID": "tharal_bonemeal1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal1",
+        "message": "Farinha de ossos? Não devemos falar sobre isso. O Lorde Geomyr emitiu um decreto proibindo seu uso.",
+        "replies": [
+            {
+                "text": "Por favor?",
+                "nextPhraseID": "tharal_bonemeal2_1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2_1",
+        "message": "Não, nós realmente não deveríamos falar sobre isso.",
+        "replies": [
+            {
+                "text": "Ah, vamos lá!",
+                "nextPhraseID": "tharal_bonemeal2"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2",
+        "message": "Bem, você realmente é que persistente. Traga-me cinco asas de insetos que possam ser usados ​​para fazer poções e talvez possamos conversar mais.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Aqui, eu tenho as asas dos insetos.",
+                "nextPhraseID": "tharal_bonemeal3",
+                "requires": {
+                    "item": {
+                        "itemID": "insectwing",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, eu vou trazê-los.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal3",
+        "message": "Obrigado, garoto. Eu sabia que podia contar com você.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal4"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal4",
+        "message": "Ah, sim, farinha de ossos. Misturada com os componentes corretos, pode ser um dos agentes de cura mais eficazes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal5"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal5",
+        "message": "No passado, costumávamos usar bastante. Mas agora que bastardo Lorde Geomyr proibiu todo o uso disso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal6"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal6",
+        "message": "Como é que eu vou curar as pessoas agora? Usando poções regulares de cura? Bah, elas são tão ineficazes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal7"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal7",
+        "message": "Eu conheço alguém que ainda tem um suprimento de farinha de ossos, se você estiver interessado. Vá falar com Thoronir, um amigo sacerdote em Fallhaven. Diga a ele a senha 'Brilho da Sombra'.",
+        "replies": [
+            {
+                "text": "Obrigado, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

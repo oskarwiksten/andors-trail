@@ -1,0 +1,68 @@
+[
+    {
+        "id": "dunla_default",
+        "message": "Sembri un tipo furbo, hai bisogno di qualche rifornimento?",
+        "replies": [
+            {
+                "text": "Certo, fammi vedere quello che hai a disposizione.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Cosa puoi dirmi su di te?",
+                "nextPhraseID": "dunla_1"
+            }
+        ]
+    },
+    {
+        "id": "dunla_1",
+        "message": "Io? Io non sono nessuno. Non mi hai nemmeno visto, nè tanto meno mi hai parlato."
+    },
+    {
+        "id": "tharwyn_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharwyn_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_1",
+        "message": "Ciao. Ho sentito che hai aiutato Jolnor nella cappella. Hai il mio rispetto, amico.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharwyn_2"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_2",
+        "message": "Siediti dove vuoi. Cosa posso fare per te?",
+        "replies": [
+            {
+                "text": "Fammi vedere cosa hai da mangiare.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_tavern_drunk_1",
+        "message": "Ohh, guarda, un ragazzo sperduto! Ecco, fatti un sorso di idromele!",
+        "replies": [
+            {
+                "text": "No grazie.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Tieni a freno la lingua, ubriacone.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

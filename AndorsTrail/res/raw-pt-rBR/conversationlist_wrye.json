@@ -1,0 +1,488 @@
+[
+    {
+        "id": "wrye_select_1",
+        "replies": [
+            {
+                "nextPhraseID": "wrye_return_2",
+                "requires": {
+                    "progress": "wrye:90"
+                }
+            },
+            {
+                "nextPhraseID": "wrye_return_1",
+                "requires": {
+                    "progress": "wrye:40"
+                }
+            },
+            {
+                "nextPhraseID": "wrye_mourn_1"
+            }
+        ]
+    },
+    {
+        "id": "wrye_return_1",
+        "message": "Bem-vindo de volta. Você já descobriu alguma coisa sobre meu filho, Rincel?",
+        "replies": [
+            {
+                "text": "Você pode me contar a história sobre o que aconteceu de novo?",
+                "nextPhraseID": "wrye_mourn_5"
+            },
+            {
+                "text": "Não, eu não encontrei nada ainda.",
+                "nextPhraseID": "wrye_story_14"
+            },
+            {
+                "text": "Sim, eu descobri a história sobre o que aconteceu com ele.",
+                "nextPhraseID": "wrye_resolved_1",
+                "requires": {
+                    "progress": "wrye:80"
+                }
+            }
+        ]
+    },
+    {
+        "id": "wrye_return_2",
+        "message": "Bem-vindo de volta. Obrigado por sua ajuda para descobrir o que aconteceu com o meu filho.",
+        "replies": [
+            {
+                "text": "A Sombra esteja com você.",
+                "nextPhraseID": "wrye_story_15"
+            },
+            {
+                "text": "Você é bem-vindo.",
+                "nextPhraseID": "wrye_story_15"
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_1",
+        "message": "Sombra me ajuda.",
+        "replies": [
+            {
+                "text": "Qual é o problema?",
+                "nextPhraseID": "wrye_mourn_2"
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_2",
+        "message": "Meu filho! Meu filho está desaparecido.",
+        "replies": [
+            {
+                "text": "Jolnor disse que eu deveria vê-la sobre o seu filho.",
+                "nextPhraseID": "wrye_mourn_5",
+                "requires": {
+                    "progress": "wrye:10"
+                }
+            },
+            {
+                "text": "O que tem ele?",
+                "nextPhraseID": "wrye_mourn_3"
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_3",
+        "message": "Eu não quero falar sobre isso. Não com um estrangeiro como você.",
+        "replies": [
+            {
+                "text": "Estrangeiro?",
+                "nextPhraseID": "wrye_mourn_4"
+            },
+            {
+                "text": "Jolnor disse que eu deveria vê-la sobre o seu filho.",
+                "nextPhraseID": "wrye_mourn_5",
+                "requires": {
+                    "progress": "wrye:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_4",
+        "message": "Por favor, deixe-me.\n\nOh, que a Sombra cuide de mim."
+    },
+    {
+        "id": "wrye_mourn_5",
+        "message": "Meu filho está morto, eu sei! E é culpa dos malditos guardas. Esses guardas com sua atitude esnobe típica de Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_mourn_6"
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_6",
+        "message": "No início, eles vêm com promessas de proteção e poder. Mas então você realmente começar a vê-los como eles são.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_mourn_7"
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_7",
+        "message": "Eu posso sentir isso em mim. A Sombra fala comigo. Ele está morto.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Você pode me dizer o que aconteceu?",
+                "nextPhraseID": "wrye_story_1"
+            },
+            {
+                "text": "O que você está falando?",
+                "nextPhraseID": "wrye_story_1"
+            },
+            {
+                "text": "A Sombra esteja com você.",
+                "nextPhraseID": "wrye_mourn_8"
+            }
+        ]
+    },
+    {
+        "id": "wrye_mourn_8",
+        "message": "Obrigado. A Sombra cuida de mim.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_1"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_1",
+        "message": "Tudo começou com a vinda dos guardas Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_2"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_2",
+        "message": "Eles tentaram pressionar todos em Vilegard para recrutar mais soldados.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_3"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_3",
+        "message": "Os guardas dizem que precisam de mais apoio para ajudar a esmagar o suporto levante e sabotagem.",
+        "replies": [
+            {
+                "text": "Como é que isso se relaciona com o seu filho?",
+                "nextPhraseID": "wrye_story_4"
+            },
+            {
+                "text": "Você poderia ir direto ao ponto?",
+                "nextPhraseID": "wrye_story_4"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_4",
+        "message": "Meu filho, Rincel, não parece se importar muito com as histórias que eles lhe contavam.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_5"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_5",
+        "message": "Eu também disse Rincel o quão ruim seria, em minha opinião, se alistar para a guarda real.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_6"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_6",
+        "message": "Os guardas ficaram dois dias a conversar com todo mundo aqui em Vilegard. Então eles deixaram. Eles foram para a cidade mais próxima, eu acho.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_7"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_7",
+        "message": "Alguns dias se passaram, e de repente meu menino Rincel foi embora. Estou certo de aqueles guardas conseguiram convencê-lo de alguma forma, para juntar-se a eles.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_8"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_8",
+        "message": "Ah como eu desprezo esses bastardos maldosos e esnobes de Feygard.",
+        "replies": [
+            {
+                "text": "E agora?",
+                "nextPhraseID": "wrye_story_9"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_9",
+        "message": "Isso se deu há várias semanas. Agora sinto um vazio por dentro. Eu sei, em meu interior, que alguma coisa aconteceu com meu filho Rincel.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_10"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_10",
+        "message": "Temo que ele tenha morrido ou se ferido de alguma forma. Esses bastardos provavelmente conduziram-no para a sua própria morte.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_11"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_11",
+        "message": "*soluço* A Sombra me ajude.",
+        "replies": [
+            {
+                "text": "O que posso fazer para ajudar?",
+                "nextPhraseID": "wrye_story_13"
+            },
+            {
+                "text": "Isso soa horrível. Tenho certeza de que você está imaginando coisas.",
+                "nextPhraseID": "wrye_story_13"
+            },
+            {
+                "text": "Você tem prova de que as pessoas de Feygard estão envolvidas?",
+                "nextPhraseID": "wrye_story_12"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_12",
+        "message": "Não, mas algo me diz que eles são os responsáveis. A Sombra fala comigo.",
+        "replies": [
+            {
+                "text": "OK. Existe algo que eu possa fazer para ajudar?",
+                "nextPhraseID": "wrye_story_13"
+            },
+            {
+                "text": "Você parece um pouco demasiado ocupada com a Sombra. Eu não quero participar disso.",
+                "nextPhraseID": "wrye_mourn_4"
+            },
+            {
+                "text": "Eu provavelmente não deveria se envolver com isso, se isso significa que eu poderia perturbar o guarda real.",
+                "nextPhraseID": "wrye_mourn_4"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_13",
+        "message": "Se você quer me ajudar, por favor, descobra o que aconteceu com o meu filho, Rincel.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Alguma ideia de onde eu deveria olhar?",
+                "nextPhraseID": "wrye_story_16"
+            },
+            {
+                "text": "OK. Eu vou procurar o seu filho. Espero que haja alguma recompensa por isso.",
+                "nextPhraseID": "wrye_story_14"
+            },
+            {
+                "text": "Pela sombra, o seu filho vai ser vingado.",
+                "nextPhraseID": "wrye_story_14"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_14",
+        "message": "Por favor, volte aqui, logo que você descobrir algo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_story_15"
+            }
+        ]
+    },
+    {
+        "id": "wrye_story_15",
+        "message": "Caminhe com a Sombra."
+    },
+    {
+        "id": "wrye_story_16",
+        "message": "Eu acho que você poderia perguntar na taberna aqui em Vilegard, ou a taberna Foaming Flask, ao norte daqui.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 41
+            }
+        ],
+        "replies": [
+            {
+                "text": "Pela sombra, o seu filho vai ser vingado.",
+                "nextPhraseID": "wrye_story_14"
+            },
+            {
+                "text": "OK. Eu vou procurar o seu filho. Espero que haja alguma recompensa por isso.",
+                "nextPhraseID": "wrye_story_14"
+            },
+            {
+                "text": "OK. Eu vou procurar o seu filho, de modo que você poderá saber o que aconteceu com ele.",
+                "nextPhraseID": "wrye_story_14"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_1",
+        "message": "Por favor, diga-me o que aconteceu com ele!",
+        "replies": [
+            {
+                "text": "Ele deixou Vilegard por sua própria vontade, porque ele queria ver a grande cidade de Feygard.",
+                "nextPhraseID": "wrye_resolved_2"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_2",
+        "message": "Eu não acredito nisso.",
+        "replies": [
+            {
+                "text": "Ele secretamente desejava ir para Feygard, mas não se atreveu a dizer.",
+                "nextPhraseID": "wrye_resolved_3"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_3",
+        "message": "Realmente?",
+        "replies": [
+            {
+                "text": "Mas ele nunca chegou longe. Ele foi atacado enquanto estava acampando de noite.",
+                "nextPhraseID": "wrye_resolved_4"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_4",
+        "message": "Atacado?",
+        "replies": [
+            {
+                "text": "Sim, ele não conseguiu enfrentar sozinho os monstros, e ficou gravemente ferido.",
+                "nextPhraseID": "wrye_resolved_5"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_5",
+        "message": "Meu filho querido.",
+        "replies": [
+            {
+                "text": "Eu conversei com um homem que o encontrou sangrando até a morte.",
+                "nextPhraseID": "wrye_resolved_6"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_6",
+        "message": "Ele ainda estava vivo?",
+        "replies": [
+            {
+                "text": "Sim, mas não por muito tempo. Ele não sobreviveu aos ferimentos. Ele agora está enterrado até o noroeste de Vilegard.",
+                "nextPhraseID": "wrye_resolved_7"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_7",
+        "message": "Ah, meu pobre rapaz. O que eu fiz?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "wrye",
+                "value": 90
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_resolved_8"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_8",
+        "message": "Sempre achei que ele compartilhava do meu ponto de vista com relação a esses esnobes Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_resolved_9"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_9",
+        "message": "E agora ele não está mais entre nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_resolved_10"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_10",
+        "message": "Obrigado, amigo, para descobrir o que aconteceu com ele e me dizendo a verdade.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_resolved_11"
+            }
+        ]
+    },
+    {
+        "id": "wrye_resolved_11",
+        "message": "Ah, meu pobre rapaz.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "wrye_mourn_4"
+            }
+        ]
+    }
+]

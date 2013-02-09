@@ -1,0 +1,237 @@
+[
+    {
+        "id": "vacor_msg1",
+        "message": "O que é isso em suas mãos?! ... Eu reconheço que o selo!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kaverin",
+                "value": 70
+            }
+        ],
+        "replies": [
+            {
+                "text": "Você deve reconhecê-lo, eu achei essa mensagem com um dos associados a Unzel em Remgard.",
+                "nextPhraseID": "vacor_msg_a1"
+            },
+            {
+                "text": "O quê? ... Oh, isso?",
+                "nextPhraseID": "vacor_msg_b1"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_a1",
+        "message": "Com certeza, ele não deu isso apenas a você!",
+        "replies": [
+            {
+                "text": "Ele estava fazendo perguntas demais. Ele precisava ser silenciado.",
+                "nextPhraseID": "vacor_msg_a2"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_a2",
+        "message": "Então, você o matou? Certo?!",
+        "replies": [
+            {
+                "text": "Kaverin está morto. Seu sangue ainda está em minhas botas.",
+                "nextPhraseID": "vacor_msg_3"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_b1",
+        "message": "Como esse documento foi chegar em suas mãos ?!",
+        "replies": [
+            {
+                "text": "Um homem em Remgard, com o nome de Kaverin, perguntou-me sobre Unzel ...",
+                "nextPhraseID": "vacor_msg_b2"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_b2",
+        "message": "O que aconteceu, menino?!",
+        "replies": [
+            {
+                "text": "Kaverin está morto. Seu sangue ainda está em minhas botas.",
+                "nextPhraseID": "vacor_msg_3"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_3",
+        "message": "Bom, talvez agora eu posso trabalhar no meu feitiço de elevação em paz ...",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_4"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_4",
+        "message": "eu devo ter esse documento!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_5"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_5",
+        "message": "Eu preciso saber o que eles estão planejando!",
+        "replies": [
+            {
+                "text": "Aqui, temos a mensagem.",
+                "nextPhraseID": "vacor_msg_8",
+                "requires": {
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "O que está nele para mim?",
+                "nextPhraseID": "vacor_msg_6"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_6",
+        "message": "Eu tenho uma reserva de poções escondida, longe a sudoeste.",
+        "replies": [
+            {
+                "text": "Excelente, eu posso sempre usar mais suprimentos.",
+                "nextPhraseID": "vacor_msg_7"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_7",
+        "message": "Bom. Agora dê-me a mensagem.",
+        "replies": [
+            {
+                "text": "Aqui está a mensagem, Vacor.",
+                "nextPhraseID": "vacor_msg_8",
+                "requires": {
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_8",
+        "message": "Aqui, pegue este mapa como compensação por seus problemas.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "vacor_map"
+            },
+            {
+                "rewardType": 0,
+                "rewardID": "kaverin",
+                "value": 75
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_9"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_9",
+        "message": "Ele vai levar você longe para o sudoeste, com um dos meus esconderijos secretos ... onde uma reserva de poções está oculta.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_10"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_10",
+        "message": "(O mapa mostra uma localização a noroeste da antiga prisão de Flagstone)",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kaverin",
+                "value": 90
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_11"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_11",
+        "message": "Agora, vamos ver isso aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_12"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_12",
+        "message": "(Vacor abre a mensagem e inicia a leitura da mensagem selada)",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_13"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_13",
+        "message": "Sim ... hum ... Sério?! *Murmura* ... Sim, é verdade ...",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_14"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_14",
+        "message": "HA HA HA!!! O PODER LOGO SERÁ MEU!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_msg_15"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_15",
+        "message": "HA HA HA! O PODER LOGO SERÁ MEU!",
+        "replies": [
+            {
+                "text": "Excelente! A sombra deve ser parada!",
+                "nextPhraseID": "vacor_msg_16"
+            },
+            {
+                "text": "Eu só queria uma recompensa ... Que estranho.",
+                "nextPhraseID": "vacor_msg_16"
+            }
+        ]
+    },
+    {
+        "id": "vacor_msg_16",
+        "message": "Obrigado por me dar essa mensagem, mas agora, por favor me deixe. Tenho coisas mais importantes para fazer do que falar com você."
+    }
+]

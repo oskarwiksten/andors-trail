@@ -1,0 +1,65 @@
+[
+    {
+        "id": "remgard_tavern_room",
+        "message": "Você não tem permissão para entrar nesta sala até que você a alugue."
+    },
+    {
+        "id": "sign_waterway6",
+        "message": "Sul: Brimhaven\nOeste: Loneford\nLeste: Brightport, Lago Laeroth"
+    },
+    {
+        "id": "sign_waterway9",
+        "message": "Oeste: Loneford\nLeste: Brightport, Lago Laeroth"
+    },
+    {
+        "id": "sign_waterway11",
+        "message": "Oeste: Loneford\nSul: Brightport"
+    },
+    {
+        "id": "sign_remgard0",
+        "message": "Bem-vindo ao Lago Laeroth e à cidade de Remgard!"
+    },
+    {
+        "id": "wild16_cave",
+        "message": "O mato é denso demais para você passar."
+    },
+    {
+        "id": "sign_wild16",
+        "replies": [
+            {
+                "nextPhraseID": "sign_wild16_r",
+                "requires": {
+                    "progress": "kaverin:100"
+                }
+            },
+            {
+                "nextPhraseID": "sign_wild16_1"
+            }
+        ]
+    },
+    {
+        "id": "sign_wild16_r",
+        "message": "Você se espreme através da abertura estreita da caverna."
+    },
+    {
+        "id": "sign_wild16_1",
+        "message": "Você se espreme através da abertura estreita da caverna. O ar viciado que paira pesado dentro da caverna úmida, que cheira a mofo e a papel antigo, enche o seu nariz.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kaverin",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_wild16_2"
+            }
+        ]
+    },
+    {
+        "id": "sign_wild16_2",
+        "message": "Esta deve ser a caverna que o mapa leva. Este deve ser o esconderijo do velho Vacor."
+    }
+]

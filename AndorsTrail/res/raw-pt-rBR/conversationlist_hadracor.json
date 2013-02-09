@@ -1,0 +1,424 @@
+[
+    {
+        "id": "woodcutter_0",
+        "message": "Vespas estúpidas .."
+    },
+    {
+        "id": "woodcutter_2",
+        "message": "Fique longe da estrada para o oeste, pois conduz a Carn Tower. Você certamente não deve quer ir para lá.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "woodcutter_1"
+            }
+        ]
+    },
+    {
+        "id": "woodcutter_1",
+        "message": "Ao viajar, mantenha-se nas estradas. Saia do curso e você pode encontrar-se em perigo."
+    },
+    {
+        "id": "woodcutter_3",
+        "message": "Talvez não devêssemos ter cortado todas as árvores ali. Essas vespas parecem realmente chateadas."
+    },
+    {
+        "id": "woodcutter_4",
+        "message": "Eu ainda posso sentir a picada dessas vespas em minhas pernas. Que bom que já terminamos de cortar todas as árvores."
+    },
+    {
+        "id": "woodcutter_5",
+        "message": "Olá, bem-vindo ao nosso acampamento. Você deve falar com Hadracor ali."
+    },
+    {
+        "id": "hadracor",
+        "replies": [
+            {
+                "nextPhraseID": "hadracor_complete_1",
+                "requires": {
+                    "progress": "hadracor:30"
+                }
+            },
+            {
+                "nextPhraseID": "hadracor_gaveitems_1",
+                "requires": {
+                    "progress": "hadracor:21"
+                }
+            },
+            {
+                "nextPhraseID": "hadracor_gaveitems_1",
+                "requires": {
+                    "progress": "hadracor:20"
+                }
+            },
+            {
+                "nextPhraseID": "hadracor_wantsitems_1",
+                "requires": {
+                    "progress": "hadracor:10"
+                }
+            },
+            {
+                "nextPhraseID": "hadracor_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_1",
+        "message": "Olá, eu sou Hadracor.",
+        "replies": [
+            {
+                "text": "Que lugar é esse?",
+                "nextPhraseID": "hadracor_story_1"
+            },
+            {
+                "text": "Você viu meu irmão Andor por aqui? Parece um pouco como eu.",
+                "nextPhraseID": "hadracor_andor_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_andor_1",
+        "message": "Parece com você? Não, eu teria lembrado.",
+        "replies": [
+            {
+                "text": "Ok, adeus.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Que lugar é esse?",
+                "nextPhraseID": "hadracor_story_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_1",
+        "message": "Este é o acampamento qu nós, lenhadores montamos, enquanto trabalhamos cortando árvores aqui nesses dias.",
+        "replies": [
+            {
+                "text": "Em que vocês trabalharam?",
+                "nextPhraseID": "hadracor_story_2"
+            },
+            {
+                "text": "Notei um monte de tocos de árvores por aqui",
+                "nextPhraseID": "hadracor_story_2"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_2",
+        "message": "Nossas ordens eram para cortar todas as árvores sul da ponte Feygard e norte da estrada daqui para Carn Tower.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_3"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_3",
+        "message": "Eu acho que os nobres de Feygard tem alguns planos para estas terras.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_4"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_4",
+        "message": "Nós, nós apenas cortamos aquelas árvores. Sem perguntas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_5"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_5",
+        "message": "No entanto, desta vez, encontramos alguns problemas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_6"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_6",
+        "message": "Veja você, havia essas vespas realmente desagradáveis na floresta que cortamos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_7"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_7",
+        "message": "Nada que já tivéssemos visto antes, e, eu vou te dizer, temos visto um monte de animais selvagens em nossos dias.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_8"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_8",
+        "message": "Elas quase obtiveram successo conosco, e nós estávamos quase prontos para abandonar tudo. Mas trabalho é trabalho e fomos pagos por Feygard para este trabalho.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_9"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_9",
+        "message": "Então nós fomos em frente e terminamos de cortar todas as árvores, tentando evitar as vespas, tanto quanto pudéssemos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_10"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_10",
+        "message": "No entanto, eu aposto que, o que quer que os nobres de Feygard pretendam nestas terras, eles certamente não incluem em seus planos que essas vespas desagradáveis ​​ainda estejam por perto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_11"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_11",
+        "message": "Veja este risco aqui? E este abcesso? Sim, essas vespas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_story_11_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_11_1",
+        "replies": [
+            {
+                "nextPhraseID": "hadracor_accept_1_1",
+                "requires": {
+                    "progress": "hadracor:10"
+                }
+            },
+            {
+                "nextPhraseID": "hadracor_story_12"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_story_12",
+        "message": "Eu gostaria de vingança contra as vespas. Nós, infelizmente, não somos combatentes bons o suficiente para pegar essas vespas, eles são realmente muito rápidas para nós.",
+        "replies": [
+            {
+                "text": "Dura sorte, vocês parecem mesmo um bando de covardes.",
+                "nextPhraseID": "hadracor_decline_1"
+            },
+            {
+                "text": "Eu poderia tentar eliminar essas vespas para você, se quiser.",
+                "nextPhraseID": "hadracor_accept_1"
+            },
+            {
+                "text": "Apenas um punhado de vespas? Isso não é problema para mim. Eu vou matá-los para você.",
+                "nextPhraseID": "hadracor_accept_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_decline_1",
+        "message": "Eu vou fingir que não ouvi isso."
+    },
+    {
+        "id": "hadracor_accept_1",
+        "message": "Você o faria? Claro, você tem uma chance.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_accept_1_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_accept_1_1",
+        "message": "Notei que algumas das vespas são maiores do que as outras, e as outras vespas tendem a seguir os maiores nas vizinhanças.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_accept_2"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_accept_2",
+        "message": "Se você pudesse matar pelo menos cinco daquelas gigantes e me trazer de volta suas asas como prova, eu ficaria muito grato.",
+        "replies": [
+            {
+                "text": "Claro, vou estar de volta com essas asas de vespas gigantes para você.",
+                "nextPhraseID": "hadracor_accept_3"
+            },
+            {
+                "text": "Não tem problema.",
+                "nextPhraseID": "hadracor_accept_3"
+            },
+            {
+                "text": "Pensando bem, é melhor eu ficar de fora dessa.",
+                "nextPhraseID": "hadracor_decline_2"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_decline_2",
+        "message": "Tudo bem, eu acho que nós podemos encontrar alguém para ajudar-nos a obter vingança sobre elas."
+    },
+    {
+        "id": "hadracor_accept_3",
+        "message": "Bom, apresse-se em voltar assim que estiver terminado.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "hadracor",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "hadracor_wantsitems_1",
+        "message": "Olá novamente. Você matou aquelas vespas para nós?",
+        "replies": [
+            {
+                "text": "Você poderia contar-me sua história novamente?",
+                "nextPhraseID": "hadracor_story_2"
+            },
+            {
+                "text": "Conte-me novamente o que devo fazer.",
+                "nextPhraseID": "hadracor_story_6"
+            },
+            {
+                "text": "Ainda não, mas estou trabalhando nisso.",
+                "nextPhraseID": "hadracor_accept_3"
+            },
+            {
+                "text": "Sim, eu matei seis delas.",
+                "nextPhraseID": "hadracor_wantsitems_3",
+                "requires": {
+                    "item": {
+                        "itemID": "hadracor_waspwing",
+                        "quantity": 6,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Sim, eu matei cinco delas.",
+                "nextPhraseID": "hadracor_wantsitems_2",
+                "requires": {
+                    "item": {
+                        "itemID": "hadracor_waspwing",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "hadracor_wantsitems_2",
+        "message": "Uau, você realmente matou essas coisas?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "hadracor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_gaveitems_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_wantsitems_3",
+        "message": "Uau, você realmente matou seis dessas coisas? Eu pensei que eram apenas cinco, então eu acho que devo ser ainda mais agradecido. Aqui, tome estas luvas como agradecimento.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "hadracor",
+                "value": 21
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "hadracor_reward"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_gaveitems_1"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_gaveitems_1",
+        "message": "Muito bem meu amigo. Obrigado por se vingar sobre essas coisas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_complete_1",
+        "message": "Olá novamente. Obrigado por sua ajuda com as vespas anteriores.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_complete_2"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_complete_2",
+        "message": "Como um símbolo de nossa gratidão, estamos dispostos a negociar alguns de nossos equipamentos com você, se você quiser.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "hadracor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hadracor_complete_3"
+            }
+        ]
+    },
+    {
+        "id": "hadracor_complete_3",
+        "message": "Não é muito, mas temos alguns machados realmente afiados que você pode estar interessado.",
+        "replies": [
+            {
+                "text": "Não, obrigado. Tchau.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Ok, deixe-me ver o que você tem.",
+                "nextPhraseID": "S"
+            }
+        ]
+    }
+]

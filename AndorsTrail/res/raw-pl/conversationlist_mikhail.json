@@ -1,0 +1,350 @@
+[
+    {
+        "id": "mikhail_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select2",
+                "requires": {
+                    "progress": "mikhail_bread:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": {
+                    "progress": "mikhail_bread:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_start_select2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select2",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select_default",
+                "requires": {
+                    "progress": "mikhail_rats:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": {
+                    "progress": "mikhail_rats:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_start_select_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select_default",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_visited",
+                "requires": {
+                    "progress": "andor:1"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_gamestart"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_gamestart",
+        "message": "Oh jak dobrze, że się obudziłeś.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_visited"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_visited",
+        "message": "Nie mogę nigdzie znaleźć twojego brata. Nie wrócił od wczoraj.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail3",
+        "message": "Nieważne, pewnie wróci niebawem pewnie wróci.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_default",
+        "message": "Mogę ci pomóc w czymś jeszcze?",
+        "replies": [
+            {
+                "text": "Masz dla mnie jakieś zadania?",
+                "nextPhraseID": "mikhail_tasks"
+            },
+            {
+                "text": "Czy jest coś jeszcze o czym powinienem wiedzieć jeśli chodzi o Andora?",
+                "nextPhraseID": "mikhail_andor1"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_tasks",
+        "message": "Oh tak jest coś w czym mógłbyś mi pomóc, chleb i szczury. O którym zadaniu chciałbyś porozmawiać?",
+        "replies": [
+            {
+                "text": "O co chodzi z tym chlebem?",
+                "nextPhraseID": "mikhail_bread_select"
+            },
+            {
+                "text": "Co z tymi szczurami?",
+                "nextPhraseID": "mikhail_rats_select"
+            },
+            {
+                "text": "Nieważne, porozmawiajmy o czymś innym.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor1",
+        "message": "Tak jak mówiłem wcześniej Andor nie wrócił odkąd wczoraj wyszedł. Zaczynam się o niego martwić. Proszę poszukaj swojego brata mówił, że wyjdzie tylko na chwilę.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_andor2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor2",
+        "message": "Może znów wszedł do tej jaskini z zapasami i utknął. Albo jest u Lety w piwnicy i trenuje tym drewnianym mieczykiem. Proszę poszukaj go w mieście.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_bread_complete2",
+                "requires": {
+                    "progress": "mikhail_bread:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": {
+                    "progress": "mikhail_bread:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_start",
+        "message": "Oh prawie bym zapomniał. Jeśli masz czas idź zobacz się z Marą w centrum miasta i kup trochę chleba.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_bread",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_continue",
+        "message": "Przyniosłeś już chleb?",
+        "replies": [
+            {
+                "text": "Tak, proszę.",
+                "nextPhraseID": "mikhail_bread_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bread",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Nie, jeszcze nie.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete",
+        "message": "Dzięki w końcu mogę zjeść śniadanie. Masz tu trochę drobnych za fatygę.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_bread",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete2",
+        "message": "Jeszcze raz dzięki za chleb.",
+        "replies": [
+            {
+                "text": "Nie ma za co.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_rats_complete2",
+                "requires": {
+                    "progress": "mikhail_rats:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": {
+                    "progress": "mikhail_rats:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start",
+        "message": "Znów widziałem te szczury w ogrodzie. Możesz je zabić?.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_rats",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Już sobie z nimi poradziłem.",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_trainingrat",
+                        "quantity": 2,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ok, sprawdzę czy już ich tam nie ma.",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start2",
+        "message": "Jeśli te sczury cię skrzywdzą wróć do domu i odpocznij w swoim łóżku. Dzięki temu odzyskasz siły.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_rats_start3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start3",
+        "message": "A i nie zapomnij sprawdzić swój inwentarz. Pewnie nadal masz ten stary pierścień ode mnie. Sprawdź czy na pewno go masz na palcu.",
+        "replies": [
+            {
+                "text": "Ok, rozumiem. Mogę tu odpocząć, gdy będe ranny i mam sprawdzić inwentarz.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_continue",
+        "message": "Zabiłeś te dwa szczury w naszym ogrodzie?",
+        "replies": [
+            {
+                "text": "Tak, już się z nimi rozprawiłem.",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_trainingrat",
+                        "quantity": 2,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Nie, jeszcze nie.",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete",
+        "message": "Naprawdę? Wielkie dzięki za pomoc!\n\nJak jesteś ranny odpocznij na łóżku, żeby odzyskać siły.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_rats",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete2",
+        "message": "Jeszcze raz dzięki za pomoc z tymi szczurami.\n\nJak jesteś ranny odpocznij na łóżku, żeby odzyskać siły.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    }
+]

@@ -1,0 +1,74 @@
+[
+    {
+        "id": "fallhaven_bandit",
+        "message": "Vattene ragazzo, non ho tempo per te.",
+        "replies": [
+            {
+                "text": "Sto cercando un pezzo dell'incantesimo",
+                "nextPhraseID": "fallhaven_bandit_2",
+                "requires": {
+                    "progress": "vacor:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_bandit_2",
+        "message": "No! Vacor non otterrà il potere dell'incantesimo!",
+        "replies": [
+            {
+                "text": "Combatti!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "bandit1",
+        "message": "Cosa abbiamo qui? Un viandante perduto?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bandit1_2"
+            }
+        ]
+    },
+    {
+        "id": "bandit1_2",
+        "message": "Quanto credi che valga la tua vita?? Dammi 100 monete d'oro e ti lascerò andare.",
+        "replies": [
+            {
+                "text": "Ok ok, ecco l'oro, ti prego non farmi del male!",
+                "nextPhraseID": "bandit1_3",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 100,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Che ne dici di combattere?",
+                "nextPhraseID": "bandit1_4"
+            },
+            {
+                "text": "E quanto vale la tua di vita?",
+                "nextPhraseID": "bandit1_4"
+            }
+        ]
+    },
+    {
+        "id": "bandit1_3",
+        "message": "Era ora! Sei libero di andartene."
+    },
+    {
+        "id": "bandit1_4",
+        "message": "Ok, la vita è tua. Combattiamo. E' tanto che aspetto un bel combattimento!",
+        "replies": [
+            {
+                "text": "Combatti!",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

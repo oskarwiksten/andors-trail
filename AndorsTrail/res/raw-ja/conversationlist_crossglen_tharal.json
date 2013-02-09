@@ -1,0 +1,138 @@
+[
+    {
+        "id": "tharal1",
+        "message": "我等の子よ、シャドーの灯りの中を歩きなさい。",
+        "replies": [
+            {
+                "text": "何か売買できますか？",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "骨粉についての話を聞きたい。",
+                "nextPhraseID": "tharal_bonemeal_select",
+                "requires": {
+                    "progress": "bonemeal:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharal_bonemeal4",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "nextPhraseID": "tharal_bonemeal1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal1",
+        "message": "骨粉？ その話はするべきではありません。 あれは違法だという勅令が、Geomyr卿から出されたのです。",
+        "replies": [
+            {
+                "text": "でも、お願いします。",
+                "nextPhraseID": "tharal_bonemeal2_1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2_1",
+        "message": "駄目です。 我々は、本当に禁じられているんですよ。",
+        "replies": [
+            {
+                "text": "どうしても駄目ですか？",
+                "nextPhraseID": "tharal_bonemeal2"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2",
+        "message": "はあ、君がそんなに頑固なら少し考えます。\nポーションを作るのに使うので、昆虫の翅を5つ持ってきてください。 そうしたら話しましょう。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "はい、これです。（昆虫の翅を渡す）",
+                "nextPhraseID": "tharal_bonemeal3",
+                "requires": {
+                    "item": {
+                        "itemID": "insectwing",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "持ってきます。",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal3",
+        "message": "ありがとう。 君ならやってくれると思っていたよ。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal4"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal4",
+        "message": "骨粉は、正しく調合すれば、この辺りで手に入るいちばん強力な回復剤になるのです。",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal5"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal5",
+        "message": "以前はよく使っていたものですが、奴に・・・おっと、Geomyr卿に禁止されてしまったのです。",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal6"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal6",
+        "message": "どうやってこれから治療するというのでしょう。普通の'治癒のポーション'を使えって？あんなに効きにくい物をですか。",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal7"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal7",
+        "message": "さて、もし関心がおありなら、まだ骨粉のポーションを作ってくださる方を紹介しましょう。Fallhavenの神官、Thoronirを訪ねなさい。合言葉の'Glow of the Shadow'を言えばわかるでしょう。",
+        "replies": [
+            {
+                "text": "ありがとう。 ではまた。",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

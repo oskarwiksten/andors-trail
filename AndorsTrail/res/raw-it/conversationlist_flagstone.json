@@ -1,0 +1,586 @@
+[
+    {
+        "id": "zombie1",
+        "message": "Cane freeescaaa!",
+        "replies": [
+            {
+                "text": "Per l'Ombra, ti ucciderò!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Bleah, chi sei tu? E cos'è questo odore?",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "prisoner1",
+        "message": "Nooo, non sarò imprigionato di nuovo!",
+        "replies": [
+            {
+                "text": "Ma io non...",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "prisoner2",
+        "message": "Aaaa! Chi è là? Non voglio essere schiavo di nuovo!",
+        "replies": [
+            {
+                "text": "Calmati, stavo solo...",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_guard0",
+        "message": "Ah, un altro mortale. Preparati a diventare parte del mio esercito di non morti!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "flagstone",
+                "value": 31
+            }
+        ],
+        "replies": [
+            {
+                "text": "Che l'Ombra ti colga.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Preparati a morire un'altra volta.",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_guard1",
+        "message": "Muori mortale!",
+        "replies": [
+            {
+                "text": "Che l'Ombra ti colga.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Preparati ad incontrare la mia lama.",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_guard2",
+        "message": "Come? Un mortale qui dentro che non è stato marchiato dal mio tocco?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "flagstone",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_guard2_2"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_guard2_2",
+        "message": "Mmmmh..sembri morbido e delizioso, prenderai parte alla festa?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_guard2_3"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_guard2_3",
+        "message": "Penso proprio di sì. Una volta che avrò finito con te, il mio esercito si riverserà fuori da Flagstone.",
+        "replies": [
+            {
+                "text": "Per l'Ombra, devi essere fermato!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "No! Questa terra deve essere protetta dai non-morti!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry",
+        "replies": [
+            {
+                "nextPhraseID": "flagstone_sentry_return4",
+                "requires": {
+                    "progress": "flagstone:60"
+                }
+            },
+            {
+                "nextPhraseID": "flagstone_sentry_return3",
+                "requires": {
+                    "progress": "flagstone:40"
+                }
+            },
+            {
+                "nextPhraseID": "flagstone_sentry_select0"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_select0",
+        "replies": [
+            {
+                "nextPhraseID": "flagstone_sentry_return2",
+                "requires": {
+                    "progress": "flagstone:30"
+                }
+            },
+            {
+                "nextPhraseID": "flagstone_sentry_return1",
+                "requires": {
+                    "progress": "flagstone:10"
+                }
+            },
+            {
+                "nextPhraseID": "flagstone_sentry_1"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_1",
+        "message": "Alt! Chi va là? A nessuno è permesso di avvicinarsi a Flagstone.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_2"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_2",
+        "message": "Dovresti tornare indietro finchè puoi farlo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_3"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_3",
+        "message": "Flagstone è stata invasa da non-morti ed io sono di guardia per assicurare che non fuggano.",
+        "replies": [
+            {
+                "text": "Potresti raccontarmi la storia di Flagstone?",
+                "nextPhraseID": "flagstone_sentry_4"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_4",
+        "message": "Flagstone è stata usata come prigione per i lavoratori in fuga da quando si è iniziato a scavare il monte Galmore.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_5"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_5",
+        "message": "Ma una volta che gli scavi sono terminati, il campo di prigionia ha perso il suo scopo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_6"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_6",
+        "message": "Al Lord che governava a quel tempo non importava molto dei detenuti che erano a Flagstone, così li ha lasciati là.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_7"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_7",
+        "message": "Il guardiano del carcere che controllava Flagstone ha preso il suo lavoro molto seriamente tanto da continuare ad amministrare la prigione come quando gli scavi erano in attività.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_8"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_8",
+        "message": "Per anni non si hanno avuto notizie di Flagstone. Eccetto da alcuni viaggiatori che sentivano terribili urla e lamenti passando da queste strade.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_9"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_9",
+        "message": "Recentemente, ci sono stati dei cambiamenti di attività a Flagstone! Da allora i non-morti sono apparsi in gran numero.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_10"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_10",
+        "message": "Questa è la storia. Devo stare di guardia e fare in modo che i non morti non escano da Flagstone",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_11"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_11",
+        "message": "Quindi ti consiglio di andartene se non vuoi essere sopraffatto dai non morti.",
+        "replies": [
+            {
+                "text": "Posso esplorare le rovine di Flagstone?",
+                "nextPhraseID": "flagstone_sentry_12"
+            },
+            {
+                "text": "Ok, è meglio che me ne vada.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_12",
+        "message": "Sei davvero sicuro di voler andare là? Beh ok, per me va bene.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_13"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_13",
+        "message": "Non ti fermerò ma non sentirò la tua mancanza se non tornerai.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_14"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_14",
+        "message": "Continua. Fammi sapere se c'è qualcosa che posso dirti per aiutarti.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_15"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_15",
+        "message": "Ritorna qui se hai bisogno di consigli.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "flagstone",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Va bene, in caso di problemi tornerò da te.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_return1",
+        "message": "Bentornato! sei stato a Flagstone? sono sorpreso che tu sia riuscito ad uscirne.",
+        "replies": [
+            {
+                "text": "Ripeti",
+                "nextPhraseID": "flagstone_sentry_4"
+            },
+            {
+                "text": "C'è un guardiano nei livelli inferiori di Flagstone al quale non ci si può avvicinare.",
+                "nextPhraseID": "flagstone_sentry_20",
+                "requires": {
+                    "progress": "flagstone:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_20",
+        "message": "Un guardiano dici? Questa è una notizia preoccupante, significa che c'è una forza più grande dietro a tutto questo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_21"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_21",
+        "message": "Hai trovato il vecchio guardiano di Flagstone? Egli era solito portare sempre una collana con sè.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_22"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_22",
+        "message": "Era molto geloso con essa, forse la collana era una sorta di chiave.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_23"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_23",
+        "message": "Se riesci a recuperare la collana del guardiano, torna qui e ti aiuterò a decifrare i messaggi che potrebbero esserci sopra.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "flagstone",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "L'ho trovata, ecco.",
+                "nextPhraseID": "flagstone_sentry_40",
+                "requires": {
+                    "item": {
+                        "itemID": "necklace_flagstone",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Mi ripeti la storia del guardiano?",
+                "nextPhraseID": "flagstone_sentry_20"
+            },
+            {
+                "text": "Ok, andrò a cercare il guardiano.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_return2",
+        "message": "Chi si rivede. Hai trovato l'ex guardiano di Flagstone?",
+        "replies": [
+            {
+                "text": "A proposito del guardiano...",
+                "nextPhraseID": "flagstone_sentry_23"
+            },
+            {
+                "text": "Ripetimi ancora la storia.",
+                "nextPhraseID": "flagstone_sentry_3"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_40",
+        "message": "Hai trovato la collana?? Bene, portamela.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "flagstone",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_41"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_41",
+        "message": "Ora, vediamo qui. Ah sì, è come pensavo. La collana contiene una parola d'ordine.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "flagstone_sentry_42"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_42",
+        "message": "'Ombra del sole', è questa la parola. Dovresti avvicinarti al guardiano con questa frase.",
+        "replies": [
+            {
+                "text": "Lascia",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_return3",
+        "message": "Bentornato. Come va la ricerca della fonte dei non morti?",
+        "replies": [
+            {
+                "text": "Nessun progresso ancora.",
+                "nextPhraseID": "flagstone_sentry_43"
+            }
+        ]
+    },
+    {
+        "id": "flagstone_sentry_43",
+        "message": "Beh, continua a cercare. Ritorna da me se hai bisogno di consigli."
+    },
+    {
+        "id": "flagstone_sentry_return4",
+        "message": "Chi si rivede. Sembra che qualcosa sia accaduto dentro Flagstone che ha reso i non morti più deboli. Sono sicuro che devo ringraziare te per questo."
+    },
+    {
+        "id": "narael",
+        "message": "Grazie per avermi liberato da questo mostro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_select"
+            }
+        ]
+    },
+    {
+        "id": "narael_select",
+        "replies": [
+            {
+                "nextPhraseID": "narael_9",
+                "requires": {
+                    "progress": "flagstone:60"
+                }
+            },
+            {
+                "nextPhraseID": "narael_1"
+            }
+        ]
+    },
+    {
+        "id": "narael_1",
+        "message": "Sono prigioniero qui da quasi un'eternità.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_2"
+            }
+        ]
+    },
+    {
+        "id": "narael_2",
+        "message": "Oh, le cose che mi hanno fatto...Grazie mille per avermi liberato.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_3"
+            }
+        ]
+    },
+    {
+        "id": "narael_3",
+        "message": "Una volta ero un cittadino di Nor City e lavoravo agli scavi di Monte Galmore.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_4"
+            }
+        ]
+    },
+    {
+        "id": "narael_4",
+        "message": "Ma un giorno volli lasciare l'incarico per tornare da mia moglie.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_5"
+            }
+        ]
+    },
+    {
+        "id": "narael_5",
+        "message": "L'ufficiale in carica non me lo permise, così mi inviarono prigioniero a Flagstone per aver disertato i lavori.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_6"
+            }
+        ]
+    },
+    {
+        "id": "narael_6",
+        "message": "Se solo potessi vedere mia moglie ancora una volta. Ma non c'è più vita in me...Non ho nemmeno le forze di lasciare questo posto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_7"
+            }
+        ]
+    },
+    {
+        "id": "narael_7",
+        "message": "Credo che il mio destino sia di morire qui. Ma ora come un uomo libero, almeno.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_8"
+            }
+        ]
+    },
+    {
+        "id": "narael_8",
+        "message": "Ora lasciami al mio destino, non ho la forza di andarmene.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "flagstone",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "narael_9"
+            }
+        ]
+    },
+    {
+        "id": "narael_9",
+        "message": "Se cerchi mia moglie Taurum a Nor City, per favore dille che sto bene e che non l'ho dimenticata .",
+        "replies": [
+            {
+                "text": "Lo farò, addio.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Lo farò. Che l'Ombra sia con te.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

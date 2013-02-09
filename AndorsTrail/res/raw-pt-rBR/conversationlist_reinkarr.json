@@ -1,0 +1,159 @@
+[
+    {
+        "id": "reinkarr",
+        "message": "Obrigado.",
+        "replies": [
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "reinkarr_3"
+            },
+            {
+                "text": "Estou procurando meu irmão Andor.",
+                "nextPhraseID": "reinkarr_1"
+            },
+            {
+                "text": "Eu estou apenas procurando por problemas.",
+                "nextPhraseID": "reinkarr_2"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_1",
+        "message": "Ok então. Boa sorte com isso.",
+        "replies": [
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "reinkarr_3"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_2",
+        "message": "Ha ha, isso soa como um aventureiro certeza! Coragem é o que você precisa para ser um aventureiro bem sucedido, filho. Em você não parece faltar coragem, se assim posso dizer.",
+        "replies": [
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "reinkarr_3"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_3",
+        "message": "Eu sou Reinkarr. Eu acho que você poderia me chamar de um aventureiro sortudo.",
+        "replies": [
+            {
+                "text": "Alguma boa história para contar?",
+                "nextPhraseID": "reinkarr_4"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_4",
+        "message": "Não, não realmente. Eu nunca peguei o jeito do negócio aventurar totalmente. Eu e alguns outros companheiros foram à procura por estes... cristais... da qual havíamos ouvido falar.",
+        "replies": [
+            {
+                "text": "Que cristais?",
+                "nextPhraseID": "reinkarr_5"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_5",
+        "message": "Realmente não importa. Nós nunca encontramos nenhum deles, de qualquer maneira.",
+        "replies": [
+            {
+                "text": "Que cristais que você estava procurando?",
+                "nextPhraseID": "reinkarr_6"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_6",
+        "message": "Eles eram chamados de 'cristais Oegyth'. Supostamente muito poderosos e valem uma fortuna.",
+        "replies": [
+            {
+                "text": "Eu tenho um desses.",
+                "nextPhraseID": "reinkarr_oeg_1",
+                "requires": {
+                    "item": {
+                        "itemID": "oegyth",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "text": "Então, o que o fez parar de procurar?",
+                "nextPhraseID": "reinkarr_8"
+            },
+            {
+                "text": "O que são eles?",
+                "nextPhraseID": "reinkarr_7"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_7",
+        "message": "Na verdade, tudo o que eu sei é que eles são uma espécie de cristal. Como eu disse, eles são supostamente muito poderosos. Nós só procuramos eles para que possamos vendê-los e tornar-nos ricos.",
+        "replies": [
+            {
+                "text": "O que fez você parar de procurar?",
+                "nextPhraseID": "reinkarr_8"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_8",
+        "message": "Só o tédio total, eu acho. Nós nunca fomos nem um pouco bons com respeito a lutas, e  como tal, nunca encontramos uma dessas coisas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "reinkarr_9"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_9",
+        "message": "De qualquer forma, foi bom falar com você, garoto. Tome cuidado."
+    },
+    {
+        "id": "reinkarr_oeg_1",
+        "message": "O quê? Você realmente tem uma dessas coisas? Deixe-me ver. Sim, isso combina com a descrição que eu li.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "reinkarr_oeg_2"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_oeg_2",
+        "message": "Você faria bem para si mesmo em guardar isso para si, garoto. Faça o que fizer, não perca-lo, e não saia por aí mostrando para todo mundo que você o encontrou. Você pode entrar em sérios apuros.",
+        "replies": [
+            {
+                "text": "O que posso fazer com ele?",
+                "nextPhraseID": "reinkarr_oeg_3"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_oeg_3",
+        "message": "Eu ouço há comerciantes que fariam qualquer coisa para ter em suas mãos em alguns desses cristais. Você deve procurar os comerciantes em uma das grandes cidades, e perguntar-lhes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "reinkarr_oeg_4"
+            }
+        ]
+    },
+    {
+        "id": "reinkarr_oeg_4",
+        "message": "Tenha cuidado embora!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "reinkarr_9"
+            }
+        ]
+    }
+]

@@ -1,0 +1,151 @@
+[
+    {
+        "id": "fallhaven_oldman",
+        "replies": [
+            {
+                "nextPhraseID": "fallhaven_oldman_complete_2",
+                "requires": {
+                    "progress": "calomyran:100"
+                }
+            },
+            {
+                "nextPhraseID": "fallhaven_oldman_continue",
+                "requires": {
+                    "progress": "calomyran:10"
+                }
+            },
+            {
+                "nextPhraseID": "fallhaven_oldman_1"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_1",
+        "message": "Quer ajudar um homem velho, por favor?",
+        "replies": [
+            {
+                "text": "Claro, o que você precisa?",
+                "nextPhraseID": "fallhaven_oldman_2"
+            },
+            {
+                "text": "Eu poderia. Estamos falando de algum tipo de recompensa?",
+                "nextPhraseID": "fallhaven_oldman_2"
+            },
+            {
+                "text": "Não, eu não vou ajudar um velho como você. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_2",
+        "message": "Eu perdi recentemente um livro meu muito valioso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_oldman_3"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_3",
+        "message": "Eu sei que estava comigo ontem. Agora, eu não consigo mais encontrá-lo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_oldman_4"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_4",
+        "message": "Eu nunca perco as coisas! Alguém deve ter roubado, esse é o meu palpite.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_oldman_5"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_5",
+        "message": "Você poderia ir procurar o meu livro? É chamado 'Segredos de Calomyran'.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_oldman_6"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_6",
+        "message": "Eu não tenho nenhuma ideia de onde ele possa ser. Você poderia perguntar Arcir, ele parece gostar muito de livros. *aponta para uma casa ao sul*",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "calomyran",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, eu vou perguntar a Arcir. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_continue",
+        "message": "Como está a busca do meu livro? É chamado de 'Segredos de Calomyran'. Você encontrou o meu livro?",
+        "replies": [
+            {
+                "text": "Sim, eu o encontrei.",
+                "nextPhraseID": "fallhaven_oldman_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "calomyran_secrets",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não, eu não encontrei ainda.",
+                "nextPhraseID": "fallhaven_oldman_6"
+            },
+            {
+                "text": "Você poderia contar-me sua história de novo, por favor?",
+                "nextPhraseID": "fallhaven_oldman_2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_complete",
+        "message": "O meu livro! Obrigado, obrigado! Onde estava? Não, não me diga. Aqui, tome estas moedas como recompensa.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "calomyran",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold51"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Obrigado. Tchau.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Finalmente um pouco de ouro. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_oldman_complete_2",
+        "message": "Muito obrigado por encontrar o meu livro!"
+    }
+]

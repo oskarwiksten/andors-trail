@@ -1,39 +1,35 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
-import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.util.Pair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class ActorConditionsTypeParser extends ResourceParserFor<ActorConditionType> {
+public final class ActorConditionsTypeParser extends JsonCollectionParserFor<ActorConditionType> {
 	
 	private final DynamicTileLoader tileLoader;
 		
 	public ActorConditionsTypeParser(final DynamicTileLoader tileLoader) {
-		super(30);
 		this.tileLoader = tileLoader;
 	}
-	
+
 	@Override
-	public Pair<String, ActorConditionType> parseRow(String[] parts) {
-		final String conditionTypeID = parts[0];
-		
-		AbilityModifierTraits stats = null;
-		if (ResourceParserUtils.parseBoolean(parts[18], false)) {
-			stats = ResourceParserUtils.parseAbilityModifierTraits(parts, 19);
-		} 
-		
-		return new Pair<String, ActorConditionType>(conditionTypeID, new ActorConditionType(
+	protected Pair<String, ActorConditionType> parseObject(JSONObject o) throws JSONException {
+		final String conditionTypeID = o.getString(JsonFieldNames.ActorCondition.conditionTypeID);
+		ActorConditionType result = new ActorConditionType(
 				conditionTypeID
-				, parts[1]
-				, ResourceParserUtils.parseImageID(tileLoader, parts[2])
-				, Integer.parseInt(parts[3])
-				, ResourceParserUtils.parseBoolean(parts[4], false)
-				, ResourceParserUtils.parseBoolean(parts[5], false)
-				, ResourceParserUtils.parseStatsModifierTraits(parts, 6)
-    			, ResourceParserUtils.parseStatsModifierTraits(parts, 12)
-    			, stats
-			));
+				,o.getString(JsonFieldNames.ActorCondition.name)
+				,ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.ActorCondition.iconID))
+				,o.getInt(JsonFieldNames.ActorCondition.category)
+				,o.optInt(JsonFieldNames.ActorCondition.isStacking) > 0
+				,o.optInt(JsonFieldNames.ActorCondition.isPositive) > 0
+				,ResourceParserUtils.parseStatsModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.roundEffect))
+				,ResourceParserUtils.parseStatsModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.fullRoundEffect))
+				,ResourceParserUtils.parseAbilityModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.abilityEffect))
+		);
+		return new Pair<String, ActorConditionType>(conditionTypeID, result);
 	}
 }

@@ -1,0 +1,326 @@
+[
+    {
+        "id": "unzel_1",
+        "message": "Привет. Я Унзел.",
+        "replies": [
+            {
+                "text": "Лагерь",
+                "nextPhraseID": "unzel_2"
+            },
+            {
+                "text": "Вакор",
+                "nextPhraseID": "unzel_3",
+                "requires": {
+                    "progress": "vacor:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "unzel_2",
+        "message": "а, это мой лагерь. Приятное местечко, не так ли?",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "unzel_3",
+        "message": "Тебя послал Вакор? Я понимал что рано или поздно он пришлет кого-нибудь.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_4"
+            }
+        ]
+    },
+    {
+        "id": "unzel_4",
+        "message": "Ну что же. Убей меня если должен, или позволь мне рассказать свою сторону этой истории.",
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "unzel_fight"
+            },
+            {
+                "text": "История",
+                "nextPhraseID": "unzel_5"
+            }
+        ]
+    },
+    {
+        "id": "unzel_fight",
+        "message": "Ну хорошо, начнем нашу битву.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 53
+            }
+        ],
+        "replies": [
+            {
+                "text": "В бой!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "unzel_5",
+        "message": "Спасибо за то что решил выслушать.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_10"
+            }
+        ]
+    },
+    {
+        "id": "unzel_10",
+        "message": "Вакор и я путешествовали вместе. Но он стал одержим созданием заклинаний.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_11"
+            }
+        ]
+    },
+    {
+        "id": "unzel_11",
+        "message": "Он начал интересоваться Тенью. Я знаю, что должен был попытаться остановить его.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_12"
+            }
+        ]
+    },
+    {
+        "id": "unzel_12",
+        "message": "Я начал расспрашивать его о причине интереса, но он отмалчивался.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_13"
+            }
+        ]
+    },
+    {
+        "id": "unzel_13",
+        "message": "Через некоторое время он стал одержим мыслью о Заклинании разрыва, говорил что оно дарует ему неограниченную силу против Тени.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_14"
+            }
+        ]
+    },
+    {
+        "id": "unzel_14",
+        "message": "Было только одно, что я мог сделать. Я должен был оставить его и положить конец изготовлению Заклинания разрыва.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_15"
+            }
+        ]
+    },
+    {
+        "id": "unzel_15",
+        "message": "Я послал несколько друзей забрать у него заклинание.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_16_select"
+            }
+        ]
+    },
+    {
+        "id": "unzel_16_select",
+        "replies": [
+            {
+                "nextPhraseID": "unzel_16_2",
+                "requires": {
+                    "progress": "vacor:50"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_16_1"
+            }
+        ]
+    },
+    {
+        "id": "unzel_16_1",
+        "message": "И вот мы здесь.",
+        "replies": [
+            {
+                "text": "Бандиты",
+                "nextPhraseID": "unzel_17"
+            }
+        ]
+    },
+    {
+        "id": "unzel_16_2",
+        "message": "И вот мы здесь.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_19"
+            }
+        ]
+    },
+    {
+        "id": "unzel_17",
+        "message": "Что? Ты убил моих друзей? Ох, я чувствую как во мне закипает ярость.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_18"
+            }
+        ]
+    },
+    {
+        "id": "unzel_18",
+        "message": "Но я понимаю, что это все дело рук Вакора. Я дам тебе выбор. Выбирай разумно.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_19"
+            }
+        ]
+    },
+    {
+        "id": "unzel_19",
+        "message": "Или ты на стороне Вакора и его заклинания, или ты поможешь мне расквитаться с ним. Так на чьей ты стороне?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Я с тобой",
+                "nextPhraseID": "unzel_20"
+            },
+            {
+                "text": "Вакор",
+                "nextPhraseID": "unzel_fight"
+            }
+        ]
+    },
+    {
+        "id": "unzel_20",
+        "message": "Спасибо тебе, друг мой. Мы защитим Тень от Вакора.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 51
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "unzel_21"
+            }
+        ]
+    },
+    {
+        "id": "unzel_21",
+        "message": "Ты должен поговорить с ним о Тени."
+    },
+    {
+        "id": "unzel_return_1",
+        "message": "С возвращением. Ты поговорил с Вакором?",
+        "replies": [
+            {
+                "text": "Да",
+                "nextPhraseID": "unzel_30",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_vacor",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Вакор?",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "unzel_30",
+        "message": "Ты убил его? Прими мою благодарность, друг. Теперь мы в безопасности. Вот, Возми эти монеты за твою помощь.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 61
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Thank you.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "unzel_40",
+        "message": "Спасибо за помощь. Мы спасены от заклинания Вакора.",
+        "replies": [
+            {
+                "text": "У меня есть послание для тебя от Каверина из Ремгарда",
+                "nextPhraseID": "unzel_msg1",
+                "requires": {
+                    "progress": "kaverin:25",
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "unzel",
+        "replies": [
+            {
+                "nextPhraseID": "unzel_msg_r0",
+                "requires": {
+                    "progress": "kaverin:30"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_40",
+                "requires": {
+                    "progress": "vacor:61"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_return_1",
+                "requires": {
+                    "progress": "vacor:51"
+                }
+            },
+            {
+                "nextPhraseID": "unzel_1"
+            }
+        ]
+    }
+]

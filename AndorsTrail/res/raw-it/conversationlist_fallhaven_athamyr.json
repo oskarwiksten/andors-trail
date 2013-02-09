@@ -1,0 +1,115 @@
+[
+    {
+        "id": "athamyr",
+        "message": "Cammina con l'Ombra.",
+        "replies": [
+            {
+                "text": "Catacombe",
+                "nextPhraseID": "athamyr_select",
+                "requires": {
+                    "progress": "bucus:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "athamyr_1",
+        "message": "Si, sono già stato nelle catacombe della chiesa di Fallhaven. ",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_2"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_2",
+        "message": "Ma io sono l'unico che ha il permesso e il coraggio di andare laggiù.",
+        "replies": [
+            {
+                "text": "Permesso",
+                "nextPhraseID": "athamyr_3"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_3",
+        "message": "Vuoi scendere nelle catacombe? Hm, forse possiamo fare un accordo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_4"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_4",
+        "message": "Portami po' di quella carne cotta dalla taverna e puoi avere il permesso di scendere nelle catacombe.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ecco, ho la carne che mi hai chiesto.",
+                "nextPhraseID": "athamyr_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "meat_cooked",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Bene, andrò a prenderne un po'.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_complete_2",
+        "message": "Grazie per avermi aiutato. Ora hai il permesso di scendere nelle catacombe della Chiesa di Fallhaven .",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 50
+            }
+        ]
+    },
+    {
+        "id": "athamyr_select",
+        "replies": [
+            {
+                "nextPhraseID": "athamyr_complete_2",
+                "requires": {
+                    "progress": "bucus:40"
+                }
+            },
+            {
+                "nextPhraseID": "athamyr_1"
+            }
+        ]
+    },
+    {
+        "id": "athamyr_complete",
+        "message": "Grazie, ci voleva.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bucus",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "athamyr_complete_2"
+            }
+        ]
+    }
+]

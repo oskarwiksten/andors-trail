@@ -1,0 +1,156 @@
+[
+    {
+        "id": "prim_armorer",
+        "replies": [
+            {
+                "nextPhraseID": "prim_armorer_1",
+                "requires": {
+                    "progress": "prim_hunt:240"
+                }
+            },
+            {
+                "nextPhraseID": "prim_armorer_2"
+            }
+        ]
+    },
+    {
+        "id": "prim_armorer_1",
+        "message": "Benvenuto amico, vuoi vedere quali attrezzature vendo?",
+        "replies": [
+            {
+                "text": "Certo, fammi federe cosa hai.",
+                "nextPhraseID": "prim_armorer_3"
+            }
+        ]
+    },
+    {
+        "id": "prim_armorer_2",
+        "message": "Benvenuto viaggiatore, sei venuto a chiedere i miei servigi e le mie attrezzature?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_notrust"
+            }
+        ]
+    },
+    {
+        "id": "prim_armorer_3",
+        "message": "Devo dirti che i miei rifornimenti non sono più quelli di una volta, ora che l'ingresso Sud della miniera è crollato. Sono veramente pochi i commercianti che vengono fino a qui.",
+        "replies": [
+            {
+                "text": "Ok, fammi vedere la tua merce.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "prim_notrust",
+        "message": "Ad ogni modo non posso aiutarti. I miei servizi sono solo per i residenti di Prim. Non mi fido ancora di te, potresti essere una spia dell'insediamento di Blackwater."
+    },
+    {
+        "id": "prim_tailor",
+        "message": "Benvenuto viaggiatore, cosa posso fare per te?",
+        "replies": [
+            {
+                "text": "Fammi vedere cosa hai in vendita.",
+                "nextPhraseID": "prim_tailor_1"
+            }
+        ]
+    },
+    {
+        "id": "prim_tailor_1",
+        "message": "Vendere? Mi spiace ma le mie merci sono tutte esaurite. Ora che i commercianti non vengono più fino a qui, non ricevo più i miei rifornimenti abituali. Al momento non ho nulla da scambiare con te."
+    },
+    {
+        "id": "guthbered_guard",
+        "replies": [
+            {
+                "nextPhraseID": "guthbered_guard_2",
+                "requires": {
+                    "progress": "bwm_agent:130"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_guard_1"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_guard_1",
+        "message": "Parla col capo invece."
+    },
+    {
+        "id": "guthbered_guard_2",
+        "message": "Per favore, non farmi del male! Sto solo facendo il mio lavoro qui."
+    },
+    {
+        "id": "prim_guard1",
+        "message": "Cosa stai guardando? Queste armi nelle casse sono solo per noi guardie."
+    },
+    {
+        "id": "prim_guard2",
+        "message": "(La guardia ti squadra con occhio accondiscendente.)"
+    },
+    {
+        "id": "prim_guard3",
+        "message": "Oh, sono così stanco, chissà fra quanto potrò riposare!"
+    },
+    {
+        "id": "prim_guard4",
+        "message": "Non posso parlare ora,, sono di guardia. Parla con Guthbered laggiù."
+    },
+    {
+        "id": "prim_treasury_guard",
+        "message": "Le vedi queste barre? Resisteranno praticamente a tutto."
+    },
+    {
+        "id": "prim_acolyte",
+        "message": "Quando il mio addestramento sarà terminato, sarò uno dei più grandi guaritori in circolazione."
+    },
+    {
+        "id": "prim_pupil1",
+        "message": "Non vedi che sto cercando di leggere? Parlami tra un po' e forse ti ascolterò."
+    },
+    {
+        "id": "prim_pupil2",
+        "message": "Non posso parlare ora, sto lavorando."
+    },
+    {
+        "id": "prim_pupil3",
+        "message": "Sei tu quello di cui ho sentito parlare? Non può essere, ti immaginavo più alto."
+    },
+    {
+        "id": "prim_priest",
+        "replies": [
+            {
+                "nextPhraseID": "prim_priest_1",
+                "requires": {
+                    "progress": "prim_hunt:240"
+                }
+            },
+            {
+                "nextPhraseID": "prim_priest_2"
+            }
+        ]
+    },
+    {
+        "id": "prim_priest_1",
+        "message": "Benvenuto amico! Vuoi dare un'occhiata alla mia fornitura di pozioni e unguenti?",
+        "replies": [
+            {
+                "text": "Certo, fammi vedere che cos'hai.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "prim_priest_2",
+        "message": "Benvenuto viaggiatore. Sei venuto a chiedere aiuto a me ed alle miei pozioni?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "prim_notrust"
+            }
+        ]
+    }
+]

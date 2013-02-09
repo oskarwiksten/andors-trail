@@ -1,0 +1,171 @@
+[
+    {
+        "id": "vilegard_villager_1",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_1_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_1_0",
+        "message": "Hallo. Wer bist du? Du bist hier in Vilegard nicht willkommen.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor hier gesehen?",
+                "nextPhraseID": "vilegard_villager_1_2"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_1_2",
+        "message": "Nein, habe ich bestimmt nicht. Und wenn ich es hätte, warum sollte ich es dir erzählen?"
+    },
+    {
+        "id": "vilegard_villager_2",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_2_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_2_0",
+        "message": "Beim Schatten, du bist ein Fremder. Wir mögen hier keine Fremden.",
+        "replies": [
+            {
+                "text": "Warum hat hier in Vilegard jeder so viel Angst vor Fremden?",
+                "nextPhraseID": "vilegard_villager_5_1"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_3",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_3_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_3_0",
+        "message": "Das ist Vilegard. Du wirst hier keine Annehmlichkeiten finden, Fremder."
+    },
+    {
+        "id": "vilegard_villager_4",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_4_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_4_0",
+        "message": "Du siehst aus wie der andere Junge, der hier herumrannte. Wahrscheinlich verursachst du Ärger, wie immer bei Fremden.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder Andor gesehen?",
+                "nextPhraseID": "vilegard_villager_1_2"
+            },
+            {
+                "text": "Ich werde keinen Ärger machen.",
+                "nextPhraseID": "vilegard_villager_4_2"
+            },
+            {
+                "text": "Oh ja, ich werde Ärger machen, schon klar.",
+                "nextPhraseID": "vilegard_villager_4_3"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_4_2",
+        "message": "Nein, ich bin sicher das tust du. Fremde tun das immer."
+    },
+    {
+        "id": "vilegard_villager_4_3",
+        "message": "Ja, ich weiß. Deshalb wollen wir deine Sorte hier nicht haben. Du solltest Vilegard verlassen, solange du noch kannst."
+    },
+    {
+        "id": "vilegard_villager_5",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_5_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_5_0",
+        "message": "Hallo Fremder. Du siehst verloren aus, das ist gut. Jetzt verlasse Vilegard, solange du noch kannst.",
+        "replies": [
+            {
+                "text": "Warum hat hier in Vilegard jeder so viel Angst vor Fremden?",
+                "nextPhraseID": "vilegard_villager_5_1"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_5_1",
+        "message": "Ich traue dir nicht über den Weg. Du solltest Jolnor in der Kapelle aufsuchen, falls du etwas Sympathie möchtest.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_friend",
+        "message": "Hallo. Ich hörte, du halfst uns einfachem Volk hier in Vilegard. Bitte bleib solange wie du willst als Freund.",
+        "replies": [
+            {
+                "text": "Danke sehr. Hast du meinen Bruder Andor hier gesehen?",
+                "nextPhraseID": "vilegard_villager_friend_1"
+            },
+            {
+                "text": "Vielen Dank. Man sieht sich.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_friend_1",
+        "message": "Dein Bruder? Nein, ich habe niemanden gesehen, der aussieht wie du. Aber andererseits nehme ich nie viel Notiz von Fremden.",
+        "replies": [
+            {
+                "text": "Danke, tschüss.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

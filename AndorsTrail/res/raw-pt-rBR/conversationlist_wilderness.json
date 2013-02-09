@@ -1,0 +1,74 @@
+[
+    {
+        "id": "fallhaven_bandit",
+        "message": "Cai fora, garoto. Eu não tenho tempo para você.",
+        "replies": [
+            {
+                "text": "Eu estou procurando por um pedaço do feitiço de elevação.",
+                "nextPhraseID": "fallhaven_bandit_2",
+                "requires": {
+                    "progress": "vacor:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_bandit_2",
+        "message": "Nãs! Vacor não irá ganhar o poder do feitiço de elevação!",
+        "replies": [
+            {
+                "text": "Vamos lutar!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "bandit1",
+        "message": "O que temos aqui? Um andarilho perdido?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bandit1_2"
+            }
+        ]
+    },
+    {
+        "id": "bandit1_2",
+        "message": "Quanto é a sua vida vale para você? Dê-me 100 moedas de ouro e eu vou deixar você ir.",
+        "replies": [
+            {
+                "text": "Ok ok. Aqui está o ouro. Por favor, não me machuque!",
+                "nextPhraseID": "bandit1_3",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 100,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Que tal lutarmos por ela?",
+                "nextPhraseID": "bandit1_4"
+            },
+            {
+                "text": "Quanto vale sua vida?",
+                "nextPhraseID": "bandit1_4"
+            }
+        ]
+    },
+    {
+        "id": "bandit1_3",
+        "message": "Tempos difíceis. Você está livre para ir."
+    },
+    {
+        "id": "bandit1_4",
+        "message": "Ok, então, será pela sua vida. Vamos lutar. Eu estava ansioso para uma boa luta!",
+        "replies": [
+            {
+                "text": "Vamos lutar!",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

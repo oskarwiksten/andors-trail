@@ -1,25 +1,21 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
-import java.util.Collection;
-
+import android.content.res.Resources;
+import android.content.res.TypedArray;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.DropListParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ItemCategoryParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ItemTypeParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.MonsterTypeParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
-import com.gpl.rpg.AndorsTrail.resource.parsers.WorldMapParser;
+import com.gpl.rpg.AndorsTrail.resource.parsers.*;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
-import android.content.res.Resources;
-import android.content.res.TypedArray;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.Collection;
 
 public final class ResourceLoader {
 
@@ -82,7 +78,7 @@ public final class ResourceLoader {
         final ItemCategoryParser itemCategoryParser = new ItemCategoryParser();
         final TypedArray categoriesToLoad = r.obtainTypedArray(itemCategoriesResourceId);
         for (int i = 0; i < categoriesToLoad.length(); ++i) {
-        	world.itemCategories.initialize(itemCategoryParser, categoriesToLoad.getString(i));	
+        	world.itemCategories.initialize(itemCategoryParser, readStringFromRaw(r, categoriesToLoad, i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ItemCategoryParser");
         
@@ -91,7 +87,7 @@ public final class ResourceLoader {
         final ActorConditionsTypeParser actorConditionsTypeParser = new ActorConditionsTypeParser(loader);
         final TypedArray conditionsToLoad = r.obtainTypedArray(actorConditionsResourceId);
         for (int i = 0; i < conditionsToLoad.length(); ++i) {
-        	world.actorConditionsTypes.initialize(actorConditionsTypeParser, conditionsToLoad.getString(i));	
+        	world.actorConditionsTypes.initialize(actorConditionsTypeParser, readStringFromRaw(r, conditionsToLoad, i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ActorConditionsTypeParser");
         
@@ -106,7 +102,7 @@ public final class ResourceLoader {
         final ItemTypeParser itemTypeParser = new ItemTypeParser(loader, world.actorConditionsTypes, world.itemCategories);
         final TypedArray itemsToLoad = r.obtainTypedArray(itemsResourceId);
         for (int i = 0; i < itemsToLoad.length(); ++i) {
-        	world.itemTypes.initialize(itemTypeParser, itemsToLoad.getString(i));	
+        	world.itemTypes.initialize(itemTypeParser, readStringFromRaw(r, itemsToLoad, i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ItemTypeParser");
         
@@ -116,7 +112,7 @@ public final class ResourceLoader {
         final DropListParser dropListParser = new DropListParser(world.itemTypes);
         final TypedArray droplistsToLoad = r.obtainTypedArray(droplistsResourceId);
         for (int i = 0; i < droplistsToLoad.length(); ++i) {
-        	world.dropLists.initialize(dropListParser, droplistsToLoad.getString(i));
+        	world.dropLists.initialize(dropListParser, readStringFromRaw(r, droplistsToLoad, i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("DropListParser");
         
@@ -126,7 +122,7 @@ public final class ResourceLoader {
         final QuestParser questParser = new QuestParser();
         final TypedArray questsToLoad = r.obtainTypedArray(questsResourceId);
         for (int i = 0; i < questsToLoad.length(); ++i) {
-        	world.quests.initialize(questParser, questsToLoad.getString(i));
+        	world.quests.initialize(questParser, readStringFromRaw(r, questsToLoad, i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("QuestParser");
     	
@@ -137,7 +133,7 @@ public final class ResourceLoader {
         final TypedArray conversationsListsToLoad = r.obtainTypedArray(conversationsListsResourceId);
         for (int i = 0; i < conversationsListsToLoad.length(); ++i) {
         	ConversationCollection conversations = new ConversationCollection();
-        	Collection<String> ids = conversations.initialize(conversationListParser, conversationsListsToLoad.getString(i));
+        	Collection<String> ids = conversations.initialize(conversationListParser, readStringFromRaw(r, conversationsListsToLoad, i));
         	world.conversationLoader.addIDs(conversationsListsToLoad.getResourceId(i, -1), ids);
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ConversationListParser");
@@ -148,7 +144,7 @@ public final class ResourceLoader {
         final MonsterTypeParser monsterTypeParser = new MonsterTypeParser(world.dropLists, world.actorConditionsTypes, loader);
         final TypedArray monstersToLoad = r.obtainTypedArray(monstersResourceId);
         for (int i = 0; i < monstersToLoad.length(); ++i) {
-        	world.monsterTypes.initialize(monsterTypeParser, monstersToLoad.getString(i));
+        	world.monsterTypes.initialize(monsterTypeParser, readStringFromRaw(r, monstersToLoad, i));
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("MonsterTypeParser");
         
@@ -189,6 +185,25 @@ public final class ResourceLoader {
         	L.log("ResourceLoader ran for " + duration + " ms.");
         }
     }
+
+	public static String readStringFromRaw(final Resources r, final TypedArray array, final int index) {
+		return readStringFromRaw(r, array.getResourceId(index, -1));
+	}
+	public static String readStringFromRaw(final Resources r, final int resourceID) {
+		InputStream is = r.openRawResource(resourceID);
+		BufferedReader br = new BufferedReader(new InputStreamReader(is));
+		StringBuilder sb = new StringBuilder(1000);
+		String line = "";
+		try {
+			while((line = br.readLine()) != null) sb.append(line);
+			br.close();
+			is.close();
+			return sb.toString();
+		} catch (IOException e) {
+			L.log("ERROR: Reading from resource " + resourceID + " failed. " + e.toString());
+			return "";
+		}
+	}
 
 	private static void prepareTilesets(DynamicTileLoader loader, int mTileSize) {
 		final Size dst_sz1x1 = new Size(mTileSize, mTileSize);

@@ -1,0 +1,333 @@
+[
+    {
+        "id": "ff_outsideguard_select",
+        "replies": [
+            {
+                "nextPhraseID": "ff_outsideguard_trouble_24",
+                "requires": {
+                    "progress": "jolnor:20"
+                }
+            },
+            {
+                "nextPhraseID": "ff_outsideguard_1"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_1",
+        "message": "Hallo. Solltest du hier sein? Du weißt, dass dies eine Taverne ist. Die 'Schäumende Flasche', um genau zu sein.",
+        "replies": [
+            {
+                "text": "Wer bist du?",
+                "nextPhraseID": "ff_outsideguard_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_2",
+        "message": "Ich bin Mitglied der königlichen Garde von Feygard.",
+        "replies": [
+            {
+                "text": "Feygard, wo ist das?",
+                "nextPhraseID": "ff_outsideguard_3"
+            },
+            {
+                "text": "Was machst du hier?",
+                "nextPhraseID": "ff_outsideguard_3"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_3",
+        "message": "Geh und sprich mit dem Kommandanten drinnen, wenn du reden willst. Ich muss auf meinem Posten wachsam sein.",
+        "replies": [
+            {
+                "text": "Ok. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Warum musst du vor einer Taverne wachsam sein?",
+                "nextPhraseID": "ff_outsideguard_trouble_1",
+                "requires": {
+                    "progress": "jolnor:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_1",
+        "message": "Wirklich, ich kann nicht mit dir reden. Ich könnte Ärger bekommen.",
+        "replies": [
+            {
+                "text": "Ok. Ich werde dich nicht mehr belästigen. Der Schatten sei mit dir.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Ok. Ich werde dich nicht mehr belästigen. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Was für Ärger?",
+                "nextPhraseID": "ff_outsideguard_trouble_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_2",
+        "message": "Nein wirklich, der Kommandant könnte mich sehen. Ich muss jederzeit wachsam auf meinem Posten sein. *seufz*",
+        "replies": [
+            {
+                "text": "Ok. ich werde dich nicht mehr belästigen. Der Schatten sei mit dir.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Ok. Ich werde dich nicht mehr belästigen. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Magst du deine Arbeit hier?",
+                "nextPhraseID": "ff_outsideguard_trouble_3"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_3",
+        "message": "Meine Arbeit? Ich schätze, die königliche Garde ist in Ordnung. Ich meine, Feygard ist ein wirklich schöner Platz zum leben.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ff_outsideguard_trouble_4"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_4",
+        "message": "Wachdienst hier irgendwo im Nirgendwo zu haben, ist nicht wirklich das, wofür ich mich zum Dienst gemeldet habe.",
+        "replies": [
+            {
+                "text": "Darauf wette ich. Dieser Ort ist wirklich langweilig.",
+                "nextPhraseID": "ff_outsideguard_trouble_5"
+            },
+            {
+                "text": "Du musst auch Müde werden, wenn du hier nur herumstehst.",
+                "nextPhraseID": "ff_outsideguard_trouble_5"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_5",
+        "message": "Ja, ich weiß. Ich würde lieber in der Taverne sein und wie die älteren Offiziere und der Kommandant trinken. Wie kommt es dazu, dass ich hier draußen stehen muss?",
+        "replies": [
+            {
+                "text": "Wenigstens wacht der Schatten über dich.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Warum gehst du nicht einfach, wenn es nicht das ist was du machen möchtest?",
+                "nextPhraseID": "ff_outsideguard_trouble_7"
+            },
+            {
+                "text": "Die größere Aufgabe der königlichen Garde, den Frieden zu bewahren, ist es auf lange Sicht Wert.",
+                "nextPhraseID": "ff_outsideguard_trouble_6"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_6",
+        "message": "Ja, du hast natürlich Recht. Unsere Pflicht gilt Feygard und den Frieden vor allen, die ihn stören wollen, zu erhalten.",
+        "replies": [
+            {
+                "text": "Ja. Der Schatten wird nicht gefällig auf die sehen, die den Frieden stören wollen.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Ja. Die Störenfriede sollen bestraft werden.",
+                "nextPhraseID": "ff_outsideguard_trouble_8"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_7",
+        "message": "Nein, meine Loyalität gehört Feygard. Wenn ich gehen würde, würde ich auch meine Loyalität zurücklassen.",
+        "replies": [
+            {
+                "text": "Was bedeutet das, wenn du mit dem, was du tust, nicht Zufrieden bist?",
+                "nextPhraseID": "ff_outsideguard_trouble_9"
+            },
+            {
+                "text": "Ja, das hört sich richtig an. Nach dem, was ich gehört habe, scheint Feygard eine tolle Stadt zu sein.",
+                "nextPhraseID": "ff_outsideguard_trouble_6"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_8",
+        "message": "Richtig. Ich mag dich, Junge. Weißt du was? Wenn du möchtest, lege ich in den Kasernen für dich ein gutes Wort ein, wenn wir nach Feygard zurückkehren.",
+        "replies": [
+            {
+                "text": "Sicher, das klingt gut.",
+                "nextPhraseID": "ff_outsideguard_trouble_20"
+            },
+            {
+                "text": "Nein, danke. Ich habe schon genug zu tun.",
+                "nextPhraseID": "ff_outsideguard_trouble_20"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_9",
+        "message": "Naja, ich bin davon überzeugt, dass ich den Gesetzen folgen muss, die von unseren Herrschern gemacht wurden. Wenn wir die Gesetze nicht befolgen, was bleibt dann übrig?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ff_outsideguard_trouble_10"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_10",
+        "message": "Chaos. Unordnung.\n\nNein, ich bevorzuge den gesetzestreuen Weg von Feygard. Meine Loyalität ist beständig.",
+        "replies": [
+            {
+                "text": "Hört sich gut an. Gesetze werden gemacht, um befolgt zu werden.",
+                "nextPhraseID": "ff_outsideguard_trouble_8"
+            },
+            {
+                "text": "Da stimme ich nicht zu. Wir sollten unserem Herzen folgen, auch wenn das gegen die Regeln verstößt.",
+                "nextPhraseID": "ff_outsideguard_trouble_12"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_20",
+        "message": "Gab es noch etwas anderes, was du wolltest?",
+        "replies": [
+            {
+                "text": "Ich habe mich gefragt, warum du hier Wache stehst.",
+                "nextPhraseID": "ff_outsideguard_trouble_21"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_12",
+        "message": "Deine Einstellungen machen mich besorgt. Wir könnten uns in der Zukunft erneut treffen. Aber dann wird uns möglicherweise so eine zivilisierte Diskussion nicht möglich sein."
+    },
+    {
+        "id": "ff_outsideguard_trouble_21",
+        "message": "Richtig, darüber haben wir gesprochen. Wie ich gesagt habe, würde ich lieber drinnen am Feuer sein.",
+        "replies": [
+            {
+                "text": "Ich könnte für dich übernehmen, wenn du rein gehen möchtest.",
+                "nextPhraseID": "ff_outsideguard_trouble_23"
+            },
+            {
+                "text": "Hartes Schicksal. Ich vermute, du wirst hier draußen zurück gelassen, während dein Kommandant und deine Kameraden drinnen sind.",
+                "nextPhraseID": "ff_outsideguard_trouble_22"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_22",
+        "message": "Ja, das ist wieder mein Glück."
+    },
+    {
+        "id": "ff_outsideguard_trouble_23",
+        "message": "Wirklich? Ja, das wäre großartig. Dann könnte ich wenigstens etwas Essen und die Wärme am Feuer genießen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ff_outsideguard_trouble_24"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_24",
+        "message": "Ich werde kurz reingehen. Wirst du Wache stehen, während ich reingehe?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jolnor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Sicher, das werde ich tun.",
+                "nextPhraseID": "ff_outsideguard_trouble_25"
+            },
+            {
+                "text": "[Lüge] Sicher, das werde ich tun.",
+                "nextPhraseID": "ff_outsideguard_trouble_25"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_25",
+        "message": "Vielen Dank, mein Freund."
+    },
+    {
+        "id": "ff_outsideguard_shadow_1",
+        "message": "Schatten? Merkwürdig, dass du das erwähnst. Erkläre dich!",
+        "replies": [
+            {
+                "text": "Ich meinte damit gar nichts. Vergiss, dass ich etwas gesagt habe.",
+                "nextPhraseID": "ff_outsideguard_shadow_2"
+            },
+            {
+                "text": "Der Schatten wacht über uns, während wir schlafen.",
+                "nextPhraseID": "ff_outsideguard_shadow_3"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_shadow_2",
+        "message": "Gut. Nun verschwinde, bevor ich dich noch fertig machen muss."
+    },
+    {
+        "id": "ff_outsideguard_shadow_3",
+        "message": "Was? Bist du einer von diesen Unruhestiftern, die hierher geschickt wurden, um unsere Mission zu sabotieren?",
+        "replies": [
+            {
+                "text": "Der Schatten beschützt uns.",
+                "nextPhraseID": "ff_outsideguard_shadow_4"
+            },
+            {
+                "text": "Nun gut. Ich fange besser keinen Kampf mit der königlichen Garde an.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_shadow_4",
+        "message": "Das reicht. Besser du kämpfst oder fliehst jetzt, Junge.",
+        "replies": [
+            {
+                "text": "Gut. Ich habe schon auf einen Kampf gewartet!",
+                "nextPhraseID": "ff_outsideguard_shadow_5"
+            },
+            {
+                "text": "Für den Schatten!",
+                "nextPhraseID": "ff_outsideguard_shadow_5"
+            },
+            {
+                "text": "Schon gut. Ich habe bloß mit dir gescherzt.",
+                "nextPhraseID": "ff_outsideguard_shadow_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_shadow_5",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jolnor",
+                "value": 21
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

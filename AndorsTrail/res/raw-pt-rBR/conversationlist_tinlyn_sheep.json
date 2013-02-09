@@ -1,0 +1,359 @@
+[
+    {
+        "id": "tinlyn_lostsheep1",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_y",
+                "requires": {
+                    "progress": "tinlyn:20"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep1_n"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep2",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_y",
+                "requires": {
+                    "progress": "tinlyn:21"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep2_n"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep3",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_y",
+                "requires": {
+                    "progress": "tinlyn:22"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep3_n"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep4",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_y",
+                "requires": {
+                    "progress": "tinlyn:23"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep4_n"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep1_n",
+        "message": "Behehe!",
+        "replies": [
+            {
+                "text": "Colocar os sinos de Tinlyn ao redor do pescoço das ovelhas",
+                "nextPhraseID": "tinlyn_lostsheep1_place",
+                "requires": {
+                    "item": {
+                        "itemID": "tinlyn_bells",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "tinlyn_lostsheep_atk",
+                "requires": {
+                    "progress": "benbyr:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep2_n",
+        "message": "Behehe!",
+        "replies": [
+            {
+                "text": "Colocar os sinos de Tinlyn ao redor do pescoço das ovelhas",
+                "nextPhraseID": "tinlyn_lostsheep2_place",
+                "requires": {
+                    "item": {
+                        "itemID": "tinlyn_bells",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "tinlyn_lostsheep_atk",
+                "requires": {
+                    "progress": "benbyr:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep3_n",
+        "message": "Behehe!",
+        "replies": [
+            {
+                "text": "Colocar os sinos de Tinlyn ao redor do pescoço das ovelhas",
+                "nextPhraseID": "tinlyn_lostsheep3_place",
+                "requires": {
+                    "item": {
+                        "itemID": "tinlyn_bells",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "tinlyn_lostsheep_atk",
+                "requires": {
+                    "progress": "benbyr:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep4_n",
+        "message": "Behehe!",
+        "replies": [
+            {
+                "text": "Colocar os sinos de Tinlyn ao redor do pescoço das ovelhas",
+                "nextPhraseID": "tinlyn_lostsheep4_place",
+                "requires": {
+                    "item": {
+                        "itemID": "tinlyn_bells",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "tinlyn_lostsheep_atk",
+                "requires": {
+                    "progress": "benbyr:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_y",
+        "message": "Behehe!",
+        "replies": [
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "tinlyn_lostsheep_atk",
+                "requires": {
+                    "progress": "benbyr:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep1_place",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep2_place",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 21
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep3_place",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 22
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep4_place",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 23
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_1"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_check_1",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_2",
+                "requires": {
+                    "progress": "tinlyn:20"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep_placed_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_check_2",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_3",
+                "requires": {
+                    "progress": "tinlyn:21"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep_placed_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_check_3",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_check_4",
+                "requires": {
+                    "progress": "tinlyn:22"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep_placed_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_check_4",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_placed_1",
+                "requires": {
+                    "progress": "tinlyn:23"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_lostsheep_placed_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_placed_1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 25
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_placed_2"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_placed_2",
+        "message": "(Você coloca os sinos ao redor do pescoço das ovelhas.)"
+    },
+    {
+        "id": "tinlyn_lostsheep_atk",
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_lostsheep_atk1",
+                "requires": {
+                    "progress": "tinlyn:10"
+                }
+            },
+            {
+                "nextPhraseID": "tinlyn_sheep_atk"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_lostsheep_atk1",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "tinlyn",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tinlyn_sheep_atk"
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_sheep",
+        "message": "Behehe!",
+        "replies": [
+            {
+                "text": "Atacar",
+                "nextPhraseID": "tinlyn_lostsheep_atk",
+                "requires": {
+                    "progress": "benbyr:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tinlyn_sheep_atk",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "benbyr",
+                "value": 21
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

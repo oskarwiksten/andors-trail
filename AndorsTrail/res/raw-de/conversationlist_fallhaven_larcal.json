@@ -1,0 +1,85 @@
+[
+    {
+        "id": "larcal",
+        "message": "Ich habe keine Zeit für dich, Junge. Verschwinde.",
+        "replies": [
+            {
+                "text": "Ich fand eine Notiz mit deinem Namen drauf, während ich nach dem Buch 'Calomyranische Geheimnisse' suchte.",
+                "nextPhraseID": "larcal_1",
+                "requires": {
+                    "progress": "calomyran:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "larcal_1",
+        "message": "Wie jetzt, was ist denn jetzt los? Willst du andeuten, ich wäre unten in Arcir's Keller gewesen?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_2"
+            }
+        ]
+    },
+    {
+        "id": "larcal_2",
+        "message": "Na, möglicherweise war ich das. Das Buch gehört jedenfalls mir.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_3"
+            }
+        ]
+    },
+    {
+        "id": "larcal_3",
+        "message": "Schau, lass uns das friedlich regeln. Du gehst weg und vergisst alles über das Buch und du darfst am Leben bleiben.",
+        "replies": [
+            {
+                "text": "Also gut. Behalte dein Buch.",
+                "nextPhraseID": "larcal_4"
+            },
+            {
+                "text": "Nein, du wirst mir das Buch geben.",
+                "nextPhraseID": "larcal_5"
+            }
+        ]
+    },
+    {
+        "id": "larcal_4",
+        "message": "Guter Knabe, jetzt lauf weg."
+    },
+    {
+        "id": "larcal_5",
+        "message": "Okay, jetzt fängst du an mich zu nerven, Junge. Verschwinde solange du noch kannst.",
+        "replies": [
+            {
+                "text": "Also gut, ich gehe.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Nein, dieses Buch gehört nicht dir!",
+                "nextPhraseID": "larcal_6"
+            }
+        ]
+    },
+    {
+        "id": "larcal_6",
+        "message": "Du bist immer noch da? Also dann, wenn du das Buch so dringend brauchst, wirst du es mir wegnehmen müssen!",
+        "replies": [
+            {
+                "text": "Na endlich, ein Kampf. Darauf habe ich gewartet!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Ich habe gehofft, dass es nicht so weit kommen würde.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Also gut, ich werde verschwinden.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

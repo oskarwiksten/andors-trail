@@ -1,0 +1,118 @@
+[
+    {
+        "id": "gruil1",
+        "message": "Psst, hej.\n\nChcesz coś kupić?",
+        "replies": [
+            {
+                "text": "Jasne, pokaż co masz.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Słyszałem, że rozmawiałeś z moim bratem jakiś czas temu.",
+                "nextPhraseID": "gruil_select",
+                "requires": {
+                    "progress": "andor:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gruil_select",
+        "replies": [
+            {
+                "nextPhraseID": "gruil_return",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            },
+            {
+                "nextPhraseID": "gruil2"
+            }
+        ]
+    },
+    {
+        "id": "gruil2",
+        "message": "Z twoim bratem? A masz na myśli Andora? Może i coś wiem, ale ta informacja będzie kosztować. Przynieś mi trujący gruczoł jednego z tych węży, a może coś powiem.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Mam ten gruczoł dla ciebie.",
+                "nextPhraseID": "gruil_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "gland",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Dobra przyniosę.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "gruil_complete",
+        "message": "Dzięki dzieciaku. Ten będzie w sam raz.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor1"
+            }
+        ]
+    },
+    {
+        "id": "gruil_return",
+        "message": "Już ci mówiłem co wiem.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor1"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor1",
+        "message": "Gadałem z nim wczoraj. Pytał się czy znam jakiegoś Umara albo jakoś tak. Nie mam pojęcia o kogo mu chodziło.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor2"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor2",
+        "message": "Wyglądał na zdenerwowanego i odszedł w pośpiechu. Coś o gildii złodzieji w Fallheaven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor3"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor3",
+        "message": "To wszystko co wiem. Może powinieneś popytać w Fallheaven. Znajdź tam mojego znajomego Gaela, możliwe, że on wie coś więcej.",
+        "replies": [
+            {
+                "text": "Thanks, bye.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

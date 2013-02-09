@@ -1,0 +1,387 @@
+[
+    {
+        "id": "andor",
+        "name": "Suche nach Andor",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 1,
+                "logText": "Mein Vater Mikhail sagte mir, dass mein Bruder Andor gestern nicht nach Hause gekommen sei. Ich soll im Dorf nach ihm suchen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 10,
+                "logText": "Leonid erzählte mir, dass er gesehen hat wie Andor mit Gruil sprach. Ich sollte Gruil danach fragen, vielleicht kann er mir weiterhelfen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Gruil möchte, dass ich ihm eine Giftdrüse bringe, dann wird er mir mehr erzählen. Er sagte, dass einige Giftschlagen so eine Drüse haben.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 30,
+                "logText": "Gruil sagte, dass Andor nach jemand namens Umar gesucht hat. Ich soll seinen Freund Gaela danach fragen. Er wohnt im Osten von Fallhaven.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 40,
+                "logText": "Ich habe mit Gaela in Fallhaven gesprochen. Er riet mir, Bucus zu suchen und ihn nach der Diebesgilde zu fragen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 50,
+                "logText": "Bucus erlaubte mir, die Falltür in dem verfallenen Haus in Fallhaven zu benutzen. Ich soll mit Umar sprechen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 51,
+                "logText": "Umar, ein Mitglied der Diebesgilde in Fallhaven, schien mich zu kennen, verwechselte mich aber mit Andor. Offensichtlich war Andor also hier und hat sich mit ihm getroffen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 55,
+                "logText": "Umar sagte mir, dass Andor nach einem Alchemisten namens Lodar gesucht hat. Ich sollte nach seinem Versteck suchen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 61,
+                "logText": "Ich hörte eine Geschichte in Loneford die besagte, dass Andor wohl dort gewesen sein soll und vielleicht auch etwas mit der Krankheit zu tun haben könnte, die die Menschen dort plagt. Ich kann mir nicht vorstellen, dass das Andor war. Aber wenn doch, warum sollte er die Leute von Loneford krank machen wollen?",
+                "finishesQuest": 0
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread",
+        "name": "Brot zum Frühstück",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 100,
+                "logText": "Ich habe das Brot gekauft und Mikhail gegeben.",
+                "finishesQuest": 1
+            },
+            {
+                "progress": 10,
+                "logText": "Mikhail möchte, dass ich bei Mara im Gemeindehaus ein Brot kaufe.",
+                "finishesQuest": 0
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats",
+        "name": "Ratten!",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 100,
+                "logText": "Ich habe die beiden Ratten in unserem Garten getötet.",
+                "rewardExperience": 20,
+                "finishesQuest": 1
+            },
+            {
+                "progress": 10,
+                "logText": "Mikhail wäre mir dankbar, wenn ich mich um die Ratten in unserem Garten kümmern würde. Nachdem ich die Ratten getötet habe, soll ich zu ihm zurück kommen. Falls ich verletzt werde, kann ich mich jederzeit im Bett ausruhen, um meine Gesundheit wieder herzustellen.",
+                "finishesQuest": 0
+            }
+        ]
+    },
+    {
+        "id": "leta",
+        "name": "Verschollener Ehemann",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Leta in Crossglen bat mich, nach ihrem Ehemann Oromir zu suchen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Ich habe Oromir im Süden von Crossglen gefunden. Er versteckte sich vor seiner Frau Leta.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Ich habe Leta erzählt, dass sich Oromir in Crossglen versteckt.",
+                "rewardExperience": 50,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "odair",
+        "name": "Rattenplage",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Odair möchte, dass ich mich um die Ratten in der Vorratshöhle von Crossglen kümmere. Genaugenommen hat er mir aufgetragen, die große Ratte zu töten, die dort ihr Unwesen treibt.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Ich habe für Odair die Vorratshöhle von Crossglen von den Ratten befreit.",
+                "rewardExperience": 300,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "bonemeal",
+        "name": "Verbotene Substanz",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Leonid erzählte mir in der Gemeindehalle von Crossglen etwas über eine Unruhe im Dorf vor einigen Wochen. Offensichtlich hat Lord Geomyr jeglichen Gebrauch von Knochenmehl als Heilsubstanz untersagt.\n\nTharal, der Dorfpriester sollte mehr darüber wissen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Tharal möchte nicht über Knochenmehl reden. Mit 5 Insektenflügeln sollte ich ihn umstimmen können.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 30,
+                "logText": "Tharal erzählte mir, dass Knochenmehl eine sehr wirksame Heilsubstanz ist und er hat sich ziemlich darüber aufgeregt, dass es nicht mehr erlaubt ist, welches zu besitzen. Falls ich mehr darüber wissen will, soll ich zu Thoronir nach Fallhaven reisen und das Passwort 'Das Leuchten des Schattens' nennen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 40,
+                "logText": "Ich habe mit Thoronir in Fallhaven gesprochen. Er könnte mir einen Knochenmehltrank herstellen, wenn ich ihm 5 Skelettknochen bringe. Er meinte, dass es in dem verlassenen Haus nördlich von Fallhaven wahrscheinlich ein paar Skelette geben könnte.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Ich habe Thoronir die Knochen gegeben. Er kann mich ab jetzt mit Knochenmehltränken versorgen.\nIch sollte aber vorsichtig sein, wenn ich sie benutzen will, da das Verwenden der Tränke von Lord Geomyr verboten wurde.",
+                "rewardExperience": 900,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "jan",
+        "name": "Zerbrochene Freundschaft",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Jan erzählte mir seine Geschichte, in der er und seine beiden Freunde Gandir und Irogotu in eine Höhle kletterten, um dort nach einem versteckten Schatz zu suchen. Aber sie fingen an zu streiten und Irogotu tötete in seiner Wut Gandir.\nIch soll Gandir's Ring von Irogotu zurückbringen und mich bei Jan melden, wenn ich ihn habe.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Irogotu ist tot. Ich habe Jan den Ring von Gandir zurückgebracht und seinen Freund gerächt.",
+                "rewardExperience": 1500,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "bucus",
+        "name": "Der Schlüssel von Luthor",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Bucus aus Fallhaven könnte etwas über Andor wissen. Er will, dass ich ihm den Schlüssel von Luthor aus den Katakomben unter der Kirche von Fallhaven bringe.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Die Katakomben unter der Kirche von Fallhaven sind nicht zugänglich. Athamyr ist die einzige Person, die sowohl die Erlaubnis als auch den Mut dafür hat, die Katakomben zu betreten. Ich sollte mich mit ihm in seinem Haus südwestlich der Kirche treffen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 30,
+                "logText": "Athamyr hat Appetit auf einen leckeren Braten. Nach dem Essen kann er mir wohl mehr erzählen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 40,
+                "logText": "Ich habe Athamyr einen leckeren Braten gebracht.",
+                "rewardExperience": 700,
+                "finishesQuest": 0
+            },
+            {
+                "progress": 50,
+                "logText": "Athamyr gab mir die Erlaubnis, die Katakomben unter der Kirche von Fallhaven zu betreten.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Ich habe Bucus den Schlüssel von Luthor gebracht.",
+                "rewardExperience": 2150,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "fallhavendrunk",
+        "name": "Erzählung eines Säufers",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Ein Betrunkener vor der Taverne von Fallhaven hat angefangen, mir seine Geschichte zu erzählen. Um mehr zu hören, soll ich ihm ein wenig Met holen. Ich weiß nicht, ob das was bringt.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Der Betrunkene schwärmte von seinen früheren Reisen mit Unnmir. Ich sollte einmal mit Unnmir reden.",
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "calomyran",
+        "name": "Calomyranische Geheimnisse",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Ein alter Mann aus Fallhaven sagte mir, dass er sein Buch 'Calomyranische Geheimnisse' verloren habe. Ich soll danach suchen. Vielleicht in Arcir's Haus im südlichen Teil von Fallhaven?",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Ich habe eine herausgerissene Seite aus einem Buch mit dem Titel 'Calomyranische Geheimnisse' gefunden. Der Name 'Larcal' wurde darauf geschrieben.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 100,
+                "logText": "Ich habe dem alten Mann das Buch zurückgegeben.",
+                "rewardExperience": 600,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "nocmar",
+        "name": "Verlorene Schätze",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Unnmir hat mir von seinem Leben als Abenteurer erzählt und schickte mich zu Nocmar. Sein Haus ist ein wenig südwestlich von der Taverne in Fallhaven.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Nocmar sagte mir, dass er früher einmal als Schmied gearbeitet hat. Aber da Lord Geomyr die Verwendung von Herzstahl verboten hat, kann er seine Waffen nicht mehr schmieden.\nWenn ich einen Herzstein finde und ihn zu Nocmar bringe, sollte er wieder Herzstahl schmieden können.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 200,
+                "logText": "Ich habe einen Herzstein zu Nocmar gebracht. Bald wird es wieder Gegenstände aus Herzstahl geben.",
+                "rewardExperience": 1200,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "flagstone",
+        "name": "Uralte Geheimnisse",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Ich traf einen Wachposten außerhalb der Festung Flagstone. Er erzählte mir, dass Flagstone früher als Straflager für flüchtige Arbeiter von Mount Galmore genutzt wurde. Neuerdings ergiesst sich allerdings ein Strom untoter Monster aus Flagstone. Ich sollte die Quelle der Untoten finden! Der Wachposten will mir helfen, falls es nötig sein sollte.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Ich habe eine Art Fluchttunnel unterhalb von Flagstone gefunden, der in eine größere Höhle führt. Diese Höhle wird von einem Dämon bewacht, dem ich auf keinen Fall gewachsen bin. Vielleicht weiß der Wachposten außerhalb von Flagstone mehr?",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 30,
+                "logText": "Der Wachposten erzählt mir, dass der frühere Leiter eine Halskette hatte, die er immer trug. Auf dieser Kette könnten möglicherweise die Worte zu finden sein, die den Dämon besänftigen. Ich soll zum Wachposten zurückkehren wenn ich die Kette gefunden habe, damit er die Worte entschlüsseln kann.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 31,
+                "logText": "Ich habe den früheren Leiter von Flagstone auf der oberen Etage gefunden. Ich sollte nun zum Wachposten zurückkehren.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 40,
+                "logText": "Ich kenne jetzt die Worte, die man benötigt, um sich dem Dämon unter Flagstone zu nähern: 'Licht und Schatten'.",
+                "rewardExperience": 1600,
+                "finishesQuest": 0
+            },
+            {
+                "progress": 50,
+                "logText": "Tief unterhalb von Flagstone habe ich endlich die Quelle der untoten Heimsuchung gefunden: Eine Kreatur, die aus dem Leid der früheren Häftlinge von Flagstone entstand.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 60,
+                "logText": "Ich habe Narael, einen überlebenen Häftling tief unterhalb von Flagstone gefunden. Narael stammt aus Nor. Er ist zu schwach, um zu laufen. Wenn ich aber sein Frau in Nor finden kann, werde ich sicher großzügig belohnt.",
+                "rewardExperience": 2100,
+                "finishesQuest": 1
+            }
+        ]
+    },
+    {
+        "id": "vacor",
+        "name": "Fehlende Teile",
+        "showInLog": 1,
+        "stages": [
+            {
+                "progress": 10,
+                "logText": "Der Magier Vacor im Südwesten von Fallhaven hat versucht, einen magischen Spalt zu schaffen. Irgendwie kam er mir komisch vor, fast besessen von diesem Zauberspruch. Er schien sich große Macht davon zu versprechen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 20,
+                "logText": "Vacor möchte, dass ich ihm die vier Teile des Spaltzaubers zurückbringe. Er behauptet, dass sie ihm von vier Banditen irgendwo südlich von Fallhaven gestohlen wurden.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 30,
+                "logText": "Ich habe die vier Teile des Spaltzaubers zu Vacor zurückgebracht.",
+                "rewardExperience": 1200,
+                "finishesQuest": 0
+            },
+            {
+                "progress": 40,
+                "logText": "Vacor erzählte mir von seinem ehemaligen Lehrling Unzel, der anfing ihn in Frage zu stellen. Vacor möchte, dass ich Unzel umbringe, und seinen Siegelring als Beweis dafür bringe. Unzel sollte irgendwo südwestlich außerhalb von Fallhaven zu finden sein.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 50,
+                "logText": "Unzel sagte, ich solle entweder Partei für Vacor oder für ihn ergreifen. Er lässt mir die Wahl.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 51,
+                "logText": "Ich habe mich für Unzel entschieden. Ich sollte mit Vacor im Süden von Fallhaven über Unzel und den Schatten sprechen.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 53,
+                "logText": "Ich habe Unzel angegriffen. Ich sollte seinen Ring zu Vacor bringen, sobald er tot ist.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 54,
+                "logText": "Ich habe Vacor angegriffen. Ich sollte seinen Ring zu Unzel bringen, sobald er tot ist.",
+                "finishesQuest": 0
+            },
+            {
+                "progress": 60,
+                "logText": "Ich habe Unzel getötet und Vacor über die Tat informiert.",
+                "rewardExperience": 1600,
+                "finishesQuest": 1
+            },
+            {
+                "progress": 61,
+                "logText": "Ich habe Vacor getötet und Unzel über die Tat informiert.",
+                "rewardExperience": 1600,
+                "finishesQuest": 1
+            }
+        ]
+    }
+]

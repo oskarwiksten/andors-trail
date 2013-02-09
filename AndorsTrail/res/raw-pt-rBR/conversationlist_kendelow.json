@@ -1,0 +1,238 @@
+[
+    {
+        "id": "kendelow",
+        "replies": [
+            {
+                "nextPhraseID": "kendelow_1",
+                "requires": {
+                    "progress": "remgard2:45"
+                }
+            },
+            {
+                "nextPhraseID": "kendelow_2"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_1",
+        "message": "Ouvi dizer que você nos ajudou a nos livrar da bruxa Algangror. Obrigado.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_d"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_2",
+        "message": "Bem-vindo ao meu botequim. Eu espero que possa tornar sua estadia o mais agradável.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_d"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_d",
+        "message": "Como posso ser útil?",
+        "replies": [
+            {
+                "text": "O que há para fazer por aqui?",
+                "nextPhraseID": "kendelow_3"
+            },
+            {
+                "text": "Você tem alguma coisa para negociar?",
+                "nextPhraseID": "kendelow_shop"
+            },
+            {
+                "text": "Existem quartos disponíveis?",
+                "nextPhraseID": "kendelow_room_1"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_shop",
+        "message": "Ah, claro. Aqui, dê uma olhada.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_3",
+        "message": "A maioria das pessoas aqui em Remgard cuidam das suas colheitas. Fora isso, eu ouvi que o armeiro Arnal mais na costa ocidental, tem alguns bom produtos para negociar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_4"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_4",
+        "message": "Além disso, geralmente recebemos muitos visitantes aqui na taverna. Ultimamente, temos tido muito menos visitas por aqui, no entanto, com o fechamento da ponte, por causa dessas pessoas desaparecidas e tudo o mais.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_5"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_5",
+        "message": "Em seu caminho, talvez você tenha notado que temos até uma visita dos Cavaleiros de Elythom aqui na taberna? Parece que mais e mais pessoas estão se conscientizando da hospitalidade de Remgard.",
+        "replies": [
+            {
+                "text": "Obrigado. Eu tenho algumas outras perguntas.",
+                "nextPhraseID": "kendelow_d"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_1",
+        "replies": [
+            {
+                "nextPhraseID": "kendelow_room_2",
+                "requires": {
+                    "progress": "nondisplay:21"
+                }
+            },
+            {
+                "nextPhraseID": "kendelow_room_3"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_2",
+        "message": "Você já alugou meu quarto anteriormente. Não temos quaisquer outros quartos disponíveis alem dele."
+    },
+    {
+        "id": "kendelow_room_3",
+        "message": "Por quê? Sim, de fato, tenho sim. Eu tenho um quarto confortável disponível no andar superior.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_room_4"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_4",
+        "message": "O inquilino anterior deixou-o apressadamente alguns dias atrás.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_room_5"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_5",
+        "message": "Você pode alugar o quarto por tanto tempo quanto você quiser por apenas 600 moedas de ouro.",
+        "replies": [
+            {
+                "text": "600 moedas de ouro, você está louco!? Isso é uma fortuna.",
+                "nextPhraseID": "kendelow_room_6s"
+            },
+            {
+                "text": "Existe alguma coisa que você pode fazer para baixar o preço?",
+                "nextPhraseID": "kendelow_room_6s"
+            },
+            {
+                "text": "Eu vou ocupá-lo. Aqui está o ouro.",
+                "nextPhraseID": "kendelow_room_8",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 600,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Eu não tenho tanto ouro.",
+                "nextPhraseID": "kendelow_room_7"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_6s",
+        "replies": [
+            {
+                "nextPhraseID": "kendelow_room_6b",
+                "requires": {
+                    "progress": "remgard2:45"
+                }
+            },
+            {
+                "nextPhraseID": "kendelow_room_6a"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_6a",
+        "message": "O preço é fixo. Eu não posso sair por aí distribuindo descontos para qualquer um. Além disso, mantenha em mente que você pode alugá-lo durante o tempo que você deseja.",
+        "replies": [
+            {
+                "text": "Eu vou ocupá-lo. Aqui está o ouro.",
+                "nextPhraseID": "kendelow_room_8",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 600,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Eu não tenho tanto ouro.",
+                "nextPhraseID": "kendelow_room_7"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_6b",
+        "message": "Como você nos ajudou aqui em Remgard com a bruxa Algangror, eu estou preparado para oferecer-lhe um desconto. Que tal lhe parecem 400 moedas de ouro por ele, ao invés?",
+        "replies": [
+            {
+                "text": "Eu vou ocupá-lo. Aqui está o ouro.",
+                "nextPhraseID": "kendelow_room_8",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 400,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Eu não tenho tanto ouro.",
+                "nextPhraseID": "kendelow_room_7"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_7",
+        "message": "Estarei esperando pelo seu retorno, uma vez que você consiga ouro, se você ainda estiver interessado.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "kendelow_d"
+            }
+        ]
+    },
+    {
+        "id": "kendelow_room_8",
+        "message": "Obrigado. O quarto é no andar de cima. Você pode alugá-lo durante o tempo que você quiser.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nondisplay",
+                "value": 21
+            }
+        ]
+    }
+]

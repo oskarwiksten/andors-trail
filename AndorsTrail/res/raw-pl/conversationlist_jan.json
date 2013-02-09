@@ -1,0 +1,350 @@
+[
+    {
+        "id": "jan_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "jan_complete2",
+                "requires": {
+                    "progress": "jan:100"
+                }
+            },
+            {
+                "nextPhraseID": "jan_return",
+                "requires": {
+                    "progress": "jan:10"
+                }
+            },
+            {
+                "nextPhraseID": "jan_default"
+            }
+        ]
+    },
+    {
+        "id": "jan_default",
+        "message": "Cześć dzieciaku. Proszę zostaw mnie z moją żałobą.",
+        "replies": [
+            {
+                "text": "W czym problem?",
+                "nextPhraseID": "jan_default2"
+            },
+            {
+                "text": "Chcesz o tym porozmawiać?",
+                "nextPhraseID": "jan_default2"
+            },
+            {
+                "text": "Ok, narazie",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default2",
+        "message": "Oh to takie smutne. Naprawdę nie chce o tym rozmawiać.",
+        "replies": [
+            {
+                "text": "Please do.",
+                "nextPhraseID": "jan_default3"
+            },
+            {
+                "text": "Ok, narazie",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default3",
+        "message": "Cóż no dobrze powiem ci. Wyglądasz na dość miłego dzieciaka.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default4"
+            }
+        ]
+    },
+    {
+        "id": "jan_default4",
+        "message": "Mój przyjaciel Gandir, i jego znajomy Irogotu, i ja poszliśmy na dół kopać tą dziurę. Słyszeliśmy o ukrytym skarbie, który się tam znajduje.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default5"
+            }
+        ]
+    },
+    {
+        "id": "jan_default5",
+        "message": "Zaczęliśmy kopać po jakimś czasie w końcu dokopaliśmy się do jakichś podziemnych jaskiń. Wtedy je odkryliśmy. Futrzaki z kłami i jakieś inne robactwo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default6"
+            }
+        ]
+    },
+    {
+        "id": "jan_default6",
+        "message": "Oh te futrzane bestie. Cholerne bestie. Omal mnie nie zabiły.\n\nGandir i ja mówiliśmy Irogotu żebyśmy zostawili ten dół póki jeszcze możemy.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default7"
+            }
+        ]
+    },
+    {
+        "id": "jan_default7",
+        "message": "Ale Irogotu chciał kontynuować głębiej kopanie. On i Gandir zaczęli się o to bić.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default8"
+            }
+        ]
+    },
+    {
+        "id": "jan_default8",
+        "message": "I wtedy.\n\n*sob*\n\nO rany co myśmy zrobili?",
+        "replies": [
+            {
+                "text": "Kontynuuj",
+                "nextPhraseID": "jan_default9"
+            }
+        ]
+    },
+    {
+        "id": "jan_default9",
+        "message": "Irogotu zabił Gandira gołymi rękoma. Można było dostrzec nienawiść w oczach. I chyba mu się to spodobało.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default10"
+            }
+        ]
+    },
+    {
+        "id": "jan_default10",
+        "message": "Uciekłem i nie miałem odwagi znów tam zejść, bo bałem się tych bestii i samego Irogotu .",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default11"
+            }
+        ]
+    },
+    {
+        "id": "jan_default11",
+        "message": "Oh ten przeklęty Irogotu. Gdybym tylko go dorwał. Pokazałbym mu.",
+        "replies": [
+            {
+                "text": "Uważasz, że mogę jakoś pomóc",
+                "nextPhraseID": "jan_default11_1"
+            }
+        ]
+    },
+    {
+        "id": "jan_default11_1",
+        "message": "Pomógłbyś mi?",
+        "replies": [
+            {
+                "text": "Jasne, może są tam jakieś skarby dla mnie.",
+                "nextPhraseID": "jan_default12"
+            },
+            {
+                "text": "Jasne, Irogotu musi zapłacić za to co zrobił.",
+                "nextPhraseID": "jan_default12"
+            },
+            {
+                "text": "Nie, dzięki nie chce brać w tym udziału to zbyt niebezpieczne.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default12",
+        "message": "Naprawdę? Myślisz, że dasz radę? Hm, może jednak dasz. Strzeż się tych bestii tam na dole są naprawde twarde.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jan",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "jan_default13"
+            }
+        ]
+    },
+    {
+        "id": "jan_default13",
+        "message": "Jeśli naprawdę chcesz pomóc, zejdź na dół rozpraw się z Irogotu i zdobądź dla mnie pierścień Gandira.",
+        "replies": [
+            {
+                "text": "Jasne, że pomogę.",
+                "nextPhraseID": "jan_default14"
+            },
+            {
+                "text": "Możesz mi opowiedzieć tą historię jeszcze raz?",
+                "nextPhraseID": "jan_background"
+            },
+            {
+                "text": "Nieważne, żegnaj.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_default14",
+        "message": "Wróć do mnie jak skończysz. Pamiętaj o pierścieniu Gandira dla mnie.",
+        "replies": [
+            {
+                "text": "Ok, narazie",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_return",
+        "message": "Witaj z powrotem dzieciaku. Znalazłeś ten pierścień?",
+        "replies": [
+            {
+                "text": "Nie, jeszcze nie.",
+                "nextPhraseID": "jan_default14"
+            },
+            {
+                "text": "Możesz mi opowiedzieć tą historię jeszcze raz?",
+                "nextPhraseID": "jan_background"
+            },
+            {
+                "text": "Tak, i zabiłem Irogotu.",
+                "nextPhraseID": "jan_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_gandir",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "jan_background",
+        "message": "Nie słuchałeś jak ci ją opowiadałem za pierwszym razem? Naprawdę muszę jeszcze raz ją opowiedzieć?",
+        "replies": [
+            {
+                "text": "Tak, opowiedz mi ją jeszcze raz.",
+                "nextPhraseID": "jan_default3"
+            },
+            {
+                "text": "Nie słuchałem za bardzo za pierwszym razem. To mówisz, że jaki tam jest skarb?",
+                "nextPhraseID": "jan_default4"
+            },
+            {
+                "text": "Nie, nieważne. Już sobie przypomniałem.",
+                "nextPhraseID": "jan_default14"
+            }
+        ]
+    },
+    {
+        "id": "jan_complete2",
+        "message": "Dzięki za pomoc z Irogotu! Jestem na zawsze twoim dłużnikiem.",
+        "replies": [
+            {
+                "text": "Bye",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "jan_complete",
+        "message": "Czekaj, jak to? Zszedłeś na dół i wróciłeś żywy? Jak to zrobiłeś? Wow, ja prawie tam zginąłem.\n\nOh wielkie dzięki za ten pierścień Gandira! Teraz mam chociaż jakąś pamiątke po nim.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jan",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "Cieszę się, że mogłem pomóc. Żegnaj.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Niech cień cię nie opuszcza. Żegnaj.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "I tak zrobiłem to tylko dla skarbu.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "irogotu",
+        "message": "O co za niespodzianka. Kolejny poszukiwacz przygód, który chce mój skarb. To jest MOJA JASKINIA. Skarb będzie MÓJ!",
+        "replies": [
+            {
+                "text": "Zabiłeś Gandira?",
+                "nextPhraseID": "irogotu1",
+                "requires": {
+                    "progress": "jan:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "irogotu1",
+        "message": "Tego szczeniaka Gandira? Stał mi tylko na drodze. Użyłem go tylko żeby kopał za mnie głębiej.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "irogotu2"
+            }
+        ]
+    },
+    {
+        "id": "irogotu2",
+        "message": "Po za tym nigdy go nie lubiłem.",
+        "replies": [
+            {
+                "text": "Wydaje mi się, że zasłużył na śmierć. Czy miał na sobie pierścień?",
+                "nextPhraseID": "irogotu3"
+            },
+            {
+                "text": "Jan wspominał coś o pierścieniu?",
+                "nextPhraseID": "irogotu3"
+            }
+        ]
+    },
+    {
+        "id": "irogotu3",
+        "message": "NIE! Nie możesz go mieć. Jest mój, a właściwie to kim ty jesteś, że przychodzisz tutaj i mi tylko przeszkadzasz?!",
+        "replies": [
+            {
+                "text": "Nie jestem już dzieckiem! A teraz dawaj mi pierścień!",
+                "nextPhraseID": "irogotu4"
+            },
+            {
+                "text": "Daj mi pierścień, a oboje ujdziemy stąd z życiem.",
+                "nextPhraseID": "irogotu4"
+            }
+        ]
+    },
+    {
+        "id": "irogotu4",
+        "message": "Nie. Jeśli go chcesz musisz mi go odebrać siłą, a powinieneś wiedzieć, że mam potężną moc. A z resztą pewnie nawet się nie odważysz ze mną walczyć.",
+        "replies": [
+            {
+                "text": "Jak sobie chcesz zobaczymy kto tutaj umrze.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Z mocą Cienia, Gandir zostanie pomszczony.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

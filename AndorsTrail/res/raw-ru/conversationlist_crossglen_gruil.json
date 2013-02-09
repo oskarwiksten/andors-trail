@@ -1,0 +1,118 @@
+[
+    {
+        "id": "gruil1",
+        "message": "Псс, эй.\n\nХочешь торговать?",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Брат",
+                "nextPhraseID": "gruil_select",
+                "requires": {
+                    "progress": "andor:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "gruil_select",
+        "replies": [
+            {
+                "nextPhraseID": "gruil_return",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            },
+            {
+                "nextPhraseID": "gruil2"
+            }
+        ]
+    },
+    {
+        "id": "gruil2",
+        "message": "Твой брат? Ах, ты имеешь в виду Эндора? Я могу знать кое-что, но эта информация будет тебе дорого стоить. Принеси мне железу одной из ядовитых змей и, возможно, я тебе скажу.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Я принес",
+                "nextPhraseID": "gruil_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "gland",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Хорошо, пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "gruil_complete",
+        "message": "Большое спасибо друг. Это очень хорошо.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor1"
+            }
+        ]
+    },
+    {
+        "id": "gruil_return",
+        "message": "Слушай парень, я расскажу тебе.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor1"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor1",
+        "message": "Я разговаривал с ним вчера. Он спросил, знаю ли я кого-то по имени Умар или нечто подобное. Я не имею понятия о ком он говорил.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor2"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor2",
+        "message": "Казалось, он действительно чем-то расстроен и очень торопится. Что-то еще о Гильдии Воров в Фоллхейвене.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "gruil_andor3"
+            }
+        ]
+    },
+    {
+        "id": "gruil_andor3",
+        "message": "Это все что я знаю. Может поспрашиваеш в Фоллхейвене. Найди моего друга Гаела, он, обычно, много чего знает.",
+        "replies": [
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

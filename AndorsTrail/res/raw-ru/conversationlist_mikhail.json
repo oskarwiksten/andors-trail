@@ -1,0 +1,350 @@
+[
+    {
+        "id": "mikhail_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select2",
+                "requires": {
+                    "progress": "mikhail_bread:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": {
+                    "progress": "mikhail_bread:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_start_select2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select2",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select_default",
+                "requires": {
+                    "progress": "mikhail_rats:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": {
+                    "progress": "mikhail_rats:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_start_select_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select_default",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_visited",
+                "requires": {
+                    "progress": "andor:1"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_gamestart"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_gamestart",
+        "message": "Отлично, ты проснулся.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_visited"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_visited",
+        "message": "Я нигде не могу найти твоего брата. Он не вернулся, с тех пор как ушел вчера.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "andor",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail3",
+        "message": "Неважно, он, наверное, скоро вернется.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_default",
+        "message": "Можешь мне помочь кое в чем?",
+        "replies": [
+            {
+                "text": "Помощь",
+                "nextPhraseID": "mikhail_tasks"
+            },
+            {
+                "text": "Брат",
+                "nextPhraseID": "mikhail_andor1"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_tasks",
+        "message": "О да, есть некоторые вещи в которых мне нужна помощь.",
+        "replies": [
+            {
+                "text": "Хлеб",
+                "nextPhraseID": "mikhail_bread_select"
+            },
+            {
+                "text": "Крысы",
+                "nextPhraseID": "mikhail_rats_select"
+            },
+            {
+                "text": "Назад",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor1",
+        "message": "Как я говорил, Эндор ушел вчера и до сих пор не вернулся. Я начинаю беспокоиться за него. Пожалуйста, иди и поищи своего брата, он сказал что скоро вернется.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_andor2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor2",
+        "message": "Может он снова отправился в пещеры и потерялся. Или он в подвале у Леты снова тренируется со своим деревянным мечом. Пожалуйста, поищи его в городе.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_bread_complete2",
+                "requires": {
+                    "progress": "mikhail_bread:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": {
+                    "progress": "mikhail_bread:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_bread_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_start",
+        "message": "Ой, я совсем забыл. Если у тебя есть время, пожалуйста найди Мару в ратуше и купи мне немного хлеба.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_bread",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_continue",
+        "message": "Ты купил хлеб у Мары в ратуше, о котором я просил?",
+        "replies": [
+            {
+                "text": "Да, вот",
+                "nextPhraseID": "mikhail_bread_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "bread",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Нет еще",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete",
+        "message": "Большое спасибо, теперь я смогу позавтракать. Вот, возми несколько монет за твою помощь.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_bread",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete2",
+        "message": "Спасибо, еще раз, за хлеб.",
+        "replies": [
+            {
+                "text": "Пожалуйста",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_rats_complete2",
+                "requires": {
+                    "progress": "mikhail_rats:100"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": {
+                    "progress": "mikhail_rats:10"
+                }
+            },
+            {
+                "nextPhraseID": "mikhail_rats_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start",
+        "message": "Я видел несколько крыс в огороде. Не мог бы ты поискать их? Пожалуйста, убей всех крыс, которых увидишь.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_rats",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Готово",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_trainingrat",
+                        "quantity": 2,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Конечно",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start2",
+        "message": "Если пострадаешь от крыс, то возвращайся и отдохни в кровати. Это поможет восстановить силы.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_rats_start3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start3",
+        "message": "Так же не забудь проверить свой инвентарь. У тебя, наверное, еще сохранилось кольцо, которое я тебе подарил. Убедись что надел его.",
+        "replies": [
+            {
+                "text": "Хорошо",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_continue",
+        "message": "Ты убил крыс в огороде?",
+        "replies": [
+            {
+                "text": "Да",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_trainingrat",
+                        "quantity": 2,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Еще нет",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete",
+        "message": "Вау, Спасибо за твою помощь!\n\nЕсли устал, используй кровать для отдыха. Это поможет восстановить твои силы.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "mikhail_rats",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete2",
+        "message": "Спасибо, еще раз, за помощь с крысами.\n\nЕсли устал, используй кровать для отдыха. Это поможет восстановить твои силы.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    }
+]

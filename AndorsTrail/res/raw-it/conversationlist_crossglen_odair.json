@@ -1,0 +1,161 @@
+[
+    {
+        "id": "odair1",
+        "message": "Oh, sei tu. Con questa storia di tuo fratello sei sempre ad infastidire",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair_select"
+            }
+        ]
+    },
+    {
+        "id": "odair_select",
+        "replies": [
+            {
+                "nextPhraseID": "odair_complete2",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "odair_continue",
+                "requires": {
+                    "progress": "odair:10"
+                }
+            },
+            {
+                "nextPhraseID": "odair2"
+            }
+        ]
+    },
+    {
+        "id": "odair2",
+        "message": "Hm, forse potresti essermi utile. Potresti aiutarmi con un piccolo compito, che ne pensi?",
+        "replies": [
+            {
+                "text": "Compito",
+                "nextPhraseID": "odair3"
+            },
+            {
+                "text": "Ciao",
+                "nextPhraseID": "odair3"
+            }
+        ]
+    },
+    {
+        "id": "odair3",
+        "message": "Di recente sono stato nella grotta *indica ad ovest* a controllare le nostre provviste. Ma sembra che sia infestata di topi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "odair4"
+            }
+        ]
+    },
+    {
+        "id": "odair4",
+        "message": "In particolare ho visto un topo che era più grande degli altri. Pensi di riuscire ad aiutarmi?",
+        "replies": [
+            {
+                "text": "Certo, così la caverna potrà essere ancora a disposizione dei cittadini di Crossglen",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Va bene ti aiuterò, ma solo se ci sarà una ricompensa per me",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "No grazie",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair5",
+        "message": "Ho bisogno che tu entri in quella grotta e uccida il topo più grande, in questo modo forse si può fermare l'infestazione e ricominciare ad usare la grotta come magazzino",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "No grazie",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_cowards",
+        "message": "Non pensavo che fossi così, tu e tuo fratello siete sempre stati dei vigliacchi",
+        "replies": [
+            {
+                "text": "Ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_continue",
+        "message": "Hai ucciso il grande topo che sta nella grotta?",
+        "replies": [
+            {
+                "text": "Si",
+                "nextPhraseID": "odair_complete",
+                "requires": {
+                    "item": {
+                        "itemID": "tail_caverat",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Cosa?",
+                "nextPhraseID": "odair5"
+            },
+            {
+                "text": "Non ancora",
+                "nextPhraseID": "odair_cowards"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete",
+        "message": "Grazie mille per l'aiuto ragazzo! Forse tu e tuo fratello non siete così codardi come pensavo. Ecco, prendi queste monete come ringraziamento",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "odair",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Grazie",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "odair_complete2",
+        "message": "Grazie per l'aiuto, ora possiamo utilizzare la grotta come magazzino.",
+        "replies": [
+            {
+                "text": "Ciao",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

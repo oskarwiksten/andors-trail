@@ -1,0 +1,158 @@
+[
+    {
+        "id": "kazaul_guardian",
+        "message": "Kazaul..",
+        "replies": [
+            {
+                "text": "O quê?",
+                "nextPhraseID": "kazaul_guardian_1"
+            },
+            {
+                "text": "Kazaul, destruidor de sonhos brilhantes.",
+                "nextPhraseID": "kazaul_guardian_2",
+                "requires": {
+                    "progress": "kazaul:40"
+                }
+            }
+        ]
+    },
+    {
+        "id": "kazaul_guardian_1",
+        "message": "(O guardião parece completamente inconsciente de sua presença)"
+    },
+    {
+        "id": "kazaul_guardian_2",
+        "message": "(O guardião olha para você com seus olhos ardentes)",
+        "replies": [
+            {
+                "text": "Kazaul, profanador do Templo do Elytharan.",
+                "nextPhraseID": "kazaul_guardian_3"
+            }
+        ]
+    },
+    {
+        "id": "kazaul_guardian_3",
+        "message": "(Você vê os olhos ardentes do guardião instantaneamente se transformar em uma névoa vermelho escuro)",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Uma luta, eu estava esperando por isso!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Por favor, não me mate!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Pela a sombra!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul",
+        "replies": [
+            {
+                "nextPhraseID": "sign_kazaul_1",
+                "requires": {
+                    "progress": "kazaul:60"
+                }
+            },
+            {
+                "nextPhraseID": "sign_kazaul_3"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_1",
+        "message": "Você vê o santuário de Kazaul onde você derramou o frasco de purificador de espírito.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_kazaul_2"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_2",
+        "message": "A rocha anteriormente brilhante e quente agora está fria como qualquer pedaço de rocha comum."
+    },
+    {
+        "id": "sign_kazaul_3",
+        "message": "À sua frente está uma grande rocha polida, que parece ser um santuário.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_kazaul_4"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_4",
+        "message": "Você pode sentir um calor intenso vindo da rocha, quase como um fogo ardente.",
+        "replies": [
+            {
+                "text": "Deixe a formação sozinha.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Aplica o frasco purificador de espírito na formação.",
+                "nextPhraseID": "sign_kazaul_5",
+                "requires": {
+                    "item": {
+                        "itemID": "q_kazaul_vial",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_5",
+        "message": "Você suavemente derrama o conteúdo do frasco na formação.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_kazaul_6"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_6",
+        "message": "Você ouve um ruído alto das profundezas do santuário. No início, a formação parece não ter sido afetada, mas depois de um tempo você vê o brilho da rocha diminuir lentamente.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_kazaul_7"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_7",
+        "message": "O processo continua, mais rapidamente, reduzindo o calor gerado na formação.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_kazaul_8"
+            }
+        ]
+    },
+    {
+        "id": "sign_kazaul_8",
+        "message": "Este deve ser o processo de purificação do santuário Kazaul."
+    }
+]

@@ -1,0 +1,388 @@
+[
+    {
+        "id": "remgard_bridge",
+        "replies": [
+            {
+                "nextPhraseID": "remgardb_helped_1",
+                "requires": {
+                    "progress": "remgard:35"
+                }
+            },
+            {
+                "nextPhraseID": "remgardb_helped_n",
+                "requires": {
+                    "progress": "remgard:31"
+                }
+            },
+            {
+                "nextPhraseID": "remgardb_helped_y",
+                "requires": {
+                    "progress": "remgard:30"
+                }
+            },
+            {
+                "nextPhraseID": "remgardb_help_return",
+                "requires": {
+                    "progress": "remgard:20"
+                }
+            },
+            {
+                "nextPhraseID": "remgardb_1"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_1",
+        "message": "Alto! Ninguém está autorizado a entrar ou sair Remgard.",
+        "replies": [
+            {
+                "text": "Por que? Há algo de errado?",
+                "nextPhraseID": "remgardb_2"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_2",
+        "message": "Errado? Pode apostar que está. Várias das pessoas da cidade desapareceram, e ainda estamos conduzindo o inquérito.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_3"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_3",
+        "message": "Estamos procurando por eles na cidade, e questionando todos em busca de pistas sobre onde eles poderiam estar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Por favor, continue.",
+                "nextPhraseID": "remgardb_5"
+            },
+            {
+                "text": "Talvez eles apenas tenham decidido ir embora?",
+                "nextPhraseID": "remgardb_4"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_4",
+        "message": "Não, eu duvido disso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_5"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_5",
+        "message": "Considerando que nossa cidade é cercada pelo lago Laeroth, nós, os guardas, somos capazes de manter um olhar atento sobre tudo o que acontece aqui. Nós somos capazes de manter um registro de quem vai e vem, uma vez que esta ponte é a nossa única ligação com o continente.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_6"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_6",
+        "message": "Para o seu bem, é provavelmente mais seguro para você ficar fora da cidade até que a nossa investigação esteja completa.",
+        "replies": [
+            {
+                "text": "Eu estou disposto a ajudá-lo com a investigação se quiser.",
+                "nextPhraseID": "remgardb_help_1"
+            },
+            {
+                "text": "Ok, vou deixá-lo com a sua investigação.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Que tal se você me permitir entrar na cidade, para que eu possa negociar. Prometo ser rápido.",
+                "nextPhraseID": "remgardb_7"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_7",
+        "message": "Não. Como eu disse, ninguém, exceto nós, os guardas, estamos autorizados a entrar ou sair da cidade até que nossa investigação seja concluída. Eu sugiro que você saia agora."
+    },
+    {
+        "id": "remgardb_help_1",
+        "message": "Hum, sim, acho que pode ser uma boa ideia, na verdade. Considerando que você chegou até aqui, você deve ter algum conhecimento dos arredores.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 15
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_2"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_2",
+        "message": "Quer saber: você pode ser capaz de nos ajudar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_2b"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_2b",
+        "message": "Há uma casa abandonada em algum lugar a leste da aqui, em uma península na margem norte do lago Laeroth.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_3"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_3",
+        "message": "Temos razões para acreditar que esta cabana esteja habitada por alguém, já que temos visto luzes de velas vindo de lá durante a noite através do lago. Não estamos certos, porém, pode ser apenas a luz da lua sobre a água.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_4"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_4",
+        "message": "É aí que você entra. Talvez você possa ser capaz de nos ajudar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_5"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_5",
+        "message": "Devo ficar aqui e guardar a ponte, mas você pode ir lá e dar olhada dentro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_6"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_6",
+        "message": "Agora, devo avisá-lo - isso pode ser perigoso. Se for como suspeitamos,  a pessoa na cabina pode ser... digamos... uma oradora persuasiva.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_7"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_7",
+        "message": "Então, se você realmente quiser nos ajudar, a tarefa que lhe peço é que você apenas olhe dentro dessa cabana e identifique se há alguém lá, e se assim for quem seria.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_8"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_8",
+        "message": "Relate-me de volta o mais rápido possível, e não fale muito com alguém esteja por lá.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_help_9s"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_9s",
+        "replies": [
+            {
+                "nextPhraseID": "X",
+                "requires": {
+                    "progress": "remgard:20"
+                }
+            },
+            {
+                "nextPhraseID": "remgardb_help_9"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_9",
+        "message": "Você estaria disposto a fazer essa tarefa por nós?",
+        "replies": [
+            {
+                "text": "Claro, eu ficaria feliz em ajudar.",
+                "nextPhraseID": "remgardb_help_10"
+            },
+            {
+                "text": "Eu vou fazer isso. Espero, no entanto, que haja alguma recompensa por isso.",
+                "nextPhraseID": "remgardb_help_10"
+            },
+            {
+                "text": "De jeito nenhum, isso soa muito perigoso para mim.",
+                "nextPhraseID": "remgardb_help_9d"
+            },
+            {
+                "text": "Na verdade, eu já estive lá. Há uma mulher chamada Algangror na cabana.",
+                "nextPhraseID": "remgardb_helped_y",
+                "requires": {
+                    "progress": "algangror:10"
+                }
+            },
+            {
+                "text": "Na verdade, eu já estive lá, mas a cabana estava vazia.",
+                "nextPhraseID": "remgardb_helped_n",
+                "requires": {
+                    "progress": "algangror:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_9d",
+        "message": "Eu não culpo você por declinar. Apesar de tudo, pode ser uma tarefa perigosa. Não custava perguntar."
+    },
+    {
+        "id": "remgardb_help_10",
+        "message": "Excelente. Relate-me ao retornar o mais rápido possível.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 20
+            }
+        ]
+    },
+    {
+        "id": "remgardb_help_return",
+        "message": "Será que você encontrou alguma coisa naquela casa abandonada?",
+        "replies": [
+            {
+                "text": "Ainda não. Conte-me novamente o que devo fazer.",
+                "nextPhraseID": "remgardb_help_2b"
+            },
+            {
+                "text": "Ainda não, ainda estou trabalhando nisso.",
+                "nextPhraseID": "remgardb_help_10"
+            },
+            {
+                "text": "Há uma mulher chamada Algangror na cabana.",
+                "nextPhraseID": "remgardb_helped_y",
+                "requires": {
+                    "progress": "algangror:10"
+                }
+            },
+            {
+                "text": "Sim, eu estive lá, mas a cabana estava vazia.",
+                "nextPhraseID": "remgardb_helped_n",
+                "requires": {
+                    "progress": "algangror:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "remgardb_helped_y",
+        "message": "Algangror, argh. Então é como se temia. Esta é uma notícia terrível.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_helped_1"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_helped_1",
+        "message": "Você deve ir ver o ancião da vila, Jhaeld, e conversar com ele sobre o que devemos fazer em seguida. Eu vou deixar você entrar Remgard para falar com ele.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 35
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_helped_2"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_helped_2",
+        "message": "Você provavelmente pode encontrá-lo na taberna para o sudeste, já que é onde ele passa a maior parte do seu tempo.",
+        "replies": [
+            {
+                "text": "Eu vou vê-lo.",
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_helped_n",
+        "message": "Obrigado por checar a cabana. É um alívio saber que ela esteja vazia. Nossos receios podem não ser verdade, então, depois de tudo.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "remgard",
+                "value": 31
+            }
+        ],
+        "replies": [
+            {
+                "text": "De nada. Algo mais em que eu possa ajudá-lo?",
+                "nextPhraseID": "remgardb_helped_n_2"
+            },
+            {
+                "text": "De nada. Agora, e sobre a recompensa?",
+                "nextPhraseID": "remgardb_helped_n_3"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_helped_n_2",
+        "message": "Eu acho que você provou-nos ser útil. Podemos ter mais trabalho para você, se você estiver interessado.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_helped_1"
+            }
+        ]
+    },
+    {
+        "id": "remgardb_helped_n_3",
+        "message": "Não, não, nós não discutimos qualquer recompensa. Mas pode haver uma para você, se você está disposto a nos ajudar ainda mais.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "remgardb_helped_1"
+            }
+        ]
+    }
+]

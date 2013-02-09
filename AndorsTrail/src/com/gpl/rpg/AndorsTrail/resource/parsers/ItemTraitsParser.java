@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
-import java.util.ArrayList;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
@@ -10,61 +8,60 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceObjectParser;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonParserFor;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public final class ItemTraitsParser {
-	private final ResourceObjectParser<ActorConditionEffect> actorConditionEffectParser_withDuration;
-	private final ResourceObjectParser<ActorConditionEffect> actorConditionEffectParser_withoutDuration;
-	private final ResourceFileTokenizer tokenize4Fields = new ResourceFileTokenizer(4);
-	private final ResourceFileTokenizer tokenize2Fields = new ResourceFileTokenizer(2);
-	
+	private final JsonParserFor<ActorConditionEffect> actorConditionEffectParser_withDuration;
+	private final JsonParserFor<ActorConditionEffect> actorConditionEffectParser_withoutDuration;
+
 	public ItemTraitsParser(final ActorConditionTypeCollection actorConditionTypes) {
-		this.actorConditionEffectParser_withDuration = new ResourceObjectParser<ActorConditionEffect>() {
+		this.actorConditionEffectParser_withDuration = new JsonParserFor<ActorConditionEffect>() {
 			@Override
-			public ActorConditionEffect parseRow(String[] parts) {
+			protected ActorConditionEffect parseObject(JSONObject o) throws JSONException {
 				return new ActorConditionEffect(
-						actorConditionTypes.getActorConditionType(parts[0])
-						, ResourceParserUtils.parseInt(parts[1], ActorCondition.MAGNITUDE_REMOVE_ALL)
-						, ResourceParserUtils.parseInt(parts[2], ActorCondition.DURATION_FOREVER)
-						, ResourceParserUtils.parseChance(parts[3])
-					);
+						actorConditionTypes.getActorConditionType(o.getString(JsonFieldNames.ActorConditionEffect.condition))
+						, o.optInt(JsonFieldNames.ActorConditionEffect.magnitude, ActorCondition.MAGNITUDE_REMOVE_ALL)
+						, o.optInt(JsonFieldNames.ActorConditionEffect.duration, ActorCondition.DURATION_FOREVER)
+						, ResourceParserUtils.parseChance(o.getString(JsonFieldNames.ActorConditionEffect.chance))
+				);
 			}
 		};
-		this.actorConditionEffectParser_withoutDuration = new ResourceObjectParser<ActorConditionEffect>() {
+		this.actorConditionEffectParser_withoutDuration = new JsonParserFor<ActorConditionEffect>() {
 			@Override
-			public ActorConditionEffect parseRow(String[] parts) {
+			protected ActorConditionEffect parseObject(JSONObject o) throws JSONException {
 				return new ActorConditionEffect(
-						actorConditionTypes.getActorConditionType(parts[0])
-						, ResourceParserUtils.parseInt(parts[1], 1)
+						actorConditionTypes.getActorConditionType(o.getString(JsonFieldNames.ActorConditionEffect.condition))
+						, o.optInt(JsonFieldNames.ActorConditionEffect.magnitude, 1)
 						, ActorCondition.DURATION_FOREVER
 						, ResourceParserUtils.always
-					);
+				);
 			}
 		};
 	}
 	
-	public ItemTraits_OnUse parseItemTraits_OnUse(String[] parts, int startIndex, boolean parseTargetConditions) {
-		boolean hasEffect = ResourceParserUtils.parseBoolean(parts[startIndex], false);
-		if (!hasEffect) return null;
+	public ItemTraits_OnUse parseItemTraits_OnUse(JSONObject o) throws JSONException {
+		if (o == null) return null;
 		
-		ConstRange boostCurrentHP = ResourceParserUtils.parseConstRange(parts[startIndex + 1], parts[startIndex + 2]);
-		ConstRange boostCurrentAP = ResourceParserUtils.parseConstRange(parts[startIndex + 3], parts[startIndex + 4]);
+		ConstRange boostCurrentHP = ResourceParserUtils.parseConstRange(o.optJSONObject(JsonFieldNames.ItemTraits_OnUse.increaseCurrentHP));
+		ConstRange boostCurrentAP = ResourceParserUtils.parseConstRange(o.optJSONObject(JsonFieldNames.ItemTraits_OnUse.increaseCurrentAP));
 		final ArrayList<ActorConditionEffect> addedConditions_source = new ArrayList<ActorConditionEffect>();
 		final ArrayList<ActorConditionEffect> addedConditions_target = new ArrayList<ActorConditionEffect>();
-		tokenize4Fields.tokenizeArray(parts[startIndex + 5], addedConditions_source, actorConditionEffectParser_withDuration);
-		if (parseTargetConditions) {
-			tokenize4Fields.tokenizeArray(parts[startIndex + 6], addedConditions_target, actorConditionEffectParser_withDuration);
-		}
-		if (       boostCurrentHP == null 
+		actorConditionEffectParser_withDuration.parseRows(o.optJSONArray(JsonFieldNames.ItemTraits_OnUse.conditionsSource), addedConditions_source);
+		actorConditionEffectParser_withDuration.parseRows(o.optJSONArray(JsonFieldNames.ItemTraits_OnUse.conditionsTarget), addedConditions_target);
+		if (       boostCurrentHP == null
 				&& boostCurrentAP == null
 				&& addedConditions_source.isEmpty()
 				&& addedConditions_target.isEmpty()
 			) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				L.log("OPTIMIZE: Tried to parseItemTraits_OnUse , where hasEffect=" + parts[startIndex] + ", but all data was empty.");
+				L.log("OPTIMIZE: Tried to parseItemTraits_OnUse , where hasEffect=" + o.toString() + ", but all data was empty.");
 			}
 			return null;
 		} else {
@@ -80,17 +77,16 @@ public final class ItemTraitsParser {
 		}
 	}
 	
-	public ItemTraits_OnEquip parseItemTraits_OnEquip(String[] parts, int startIndex) {
-		boolean hasEffect = ResourceParserUtils.parseBoolean(parts[startIndex], false);
-		if (!hasEffect) return null;
+	public ItemTraits_OnEquip parseItemTraits_OnEquip(JSONObject o) throws JSONException {
+		if (o == null) return null;
 		
-		AbilityModifierTraits stats = ResourceParserUtils.parseAbilityModifierTraits(parts, startIndex + 1);
+		AbilityModifierTraits stats = ResourceParserUtils.parseAbilityModifierTraits(o);
 		final ArrayList<ActorConditionEffect> addedConditions = new ArrayList<ActorConditionEffect>();
-		tokenize2Fields.tokenizeArray(parts[startIndex + 12], addedConditions, actorConditionEffectParser_withoutDuration);
+		actorConditionEffectParser_withoutDuration.parseRows(o.optJSONArray(JsonFieldNames.ItemTraits_OnEquip.addedConditions), addedConditions);
 		
 		if (stats == null && addedConditions.isEmpty()) {
 			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				L.log("OPTIMIZE: Tried to parseItemTraits_OnEquip , where hasEffect=" + parts[startIndex] + ", but all data was empty.");
+				L.log("OPTIMIZE: Tried to parseItemTraits_OnEquip , where hasEffect=" + o.toString() + ", but all data was empty.");
 			}
 			return null;
 		} else {

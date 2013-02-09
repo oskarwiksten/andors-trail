@@ -5,6 +5,7 @@ import java.util.HashMap;
 
 import android.content.res.Resources;
 
+import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 
 public final class ConversationLoader {
@@ -20,7 +21,7 @@ public final class ConversationLoader {
 		
 		ConversationListParser conversationListParser = new ConversationListParser();
 		int resourceID = resourceIDsPerPhraseID.get(phraseID);
-		conversationCollection.initialize(conversationListParser, r.getString(resourceID));
+		conversationCollection.initialize(conversationListParser, ResourceLoader.readStringFromRaw(r, resourceID));
 		
 		return conversationCollection.getPhrase(phraseID);
 	}

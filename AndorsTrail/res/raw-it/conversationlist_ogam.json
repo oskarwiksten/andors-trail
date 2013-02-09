@@ -1,0 +1,170 @@
+[
+    {
+        "id": "ogam_1",
+        "message": "Fede. Potere. Sforzo.",
+        "replies": [
+            {
+                "text": "Cosa?",
+                "nextPhraseID": "ogam_2"
+            },
+            {
+                "text": "Mi hanno detto di parlare con te.",
+                "nextPhraseID": "ogam_2",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_2",
+        "message": "Indietro è il fardello alto e basso",
+        "replies": [
+            {
+                "text": "Cosa?",
+                "nextPhraseID": "ogam_3"
+            },
+            {
+                "text": "Continua, ti prego.",
+                "nextPhraseID": "ogam_3"
+            },
+            {
+                "text": "Sveglia? Umar della Gilda dei ladri di Fallhaven mi ha mandato a parlare con te.",
+                "nextPhraseID": "ogam_3",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_3",
+        "message": "Nascondersi nell'Ombra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ogam_4"
+            }
+        ]
+    },
+    {
+        "id": "ogam_4",
+        "message": "Allo stesso modo, nel corpo e nella mente.",
+        "replies": [
+            {
+                "text": "Hai intenzione di dire qualcosa di sensato?",
+                "nextPhraseID": "ogam_5"
+            },
+            {
+                "text": "Cosa vuoi dire?",
+                "nextPhraseID": "ogam_5"
+            }
+        ]
+    },
+    {
+        "id": "ogam_5",
+        "message": "L'ordinato e il caotico.",
+        "replies": [
+            {
+                "text": "Ci sei? Sai come posso raggiungere il rifugio di Lodar?",
+                "nextPhraseID": "ogam_lodar_1",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            },
+            {
+                "text": "Non capisco.",
+                "nextPhraseID": "ogam_6"
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_1",
+        "message": "Lodar? Chiaro, fremente, ferito.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ogam_6"
+            }
+        ]
+    },
+    {
+        "id": "ogam_6",
+        "message": "Si, la vera forma. Osserva.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ogam_7"
+            }
+        ]
+    },
+    {
+        "id": "ogam_7",
+        "message": "Nascondersi nell'Ombra.",
+        "replies": [
+            {
+                "text": "L'Ombra ?",
+                "nextPhraseID": "ogam_4"
+            },
+            {
+                "text": "Ma ascolti quello che dico?",
+                "nextPhraseID": "ogam_4"
+            },
+            {
+                "text": "Sveglia? Sai come posso raggiungere il rifugio di Lodar?",
+                "nextPhraseID": "ogam_lodar_2",
+                "requires": {
+                    "progress": "lodar:15"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_2",
+        "message": "Lodar, a metà strada fra l'Ombra e la luce. Formazioni rocciose.",
+        "replies": [
+            {
+                "text": "OK, a metà strada tra due luoghi. Ci sono delle rocce?",
+                "nextPhraseID": "ogam_lodar_3"
+            },
+            {
+                "text": "Uh. Potresti ripetere?",
+                "nextPhraseID": "ogam_lodar_3"
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_3",
+        "message": "Guardiano. Bagliore dell'Ombra.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "lodar",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Bagliore dell'Ombra? Sono queste le parole da dire al guardiano?",
+                "nextPhraseID": "ogam_lodar_4"
+            },
+            {
+                "text": "'Bagliore dell'Ombra'? Ho già sentito queste parole da qualche parte...",
+                "nextPhraseID": "ogam_lodar_4",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ogam_lodar_4",
+        "message": "Rovesciarsi, contorcersi, cancellare la forma.",
+        "replies": [
+            {
+                "text": "Cosa significa?",
+                "nextPhraseID": "ogam_1"
+            }
+        ]
+    }
+]

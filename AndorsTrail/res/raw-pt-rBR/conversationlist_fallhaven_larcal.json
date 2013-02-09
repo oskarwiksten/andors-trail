@@ -1,0 +1,85 @@
+[
+    {
+        "id": "larcal",
+        "message": "Eu não tenho tempo para você, garoto. Cai fora!",
+        "replies": [
+            {
+                "text": "Encontrei um bilhete com o seu nome ao procurar o livro 'Segredos de Calomyran'.",
+                "nextPhraseID": "larcal_1",
+                "requires": {
+                    "progress": "calomyran:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "larcal_1",
+        "message": "Agora, agora, o que temos aqui? Você está insinuando que eu fui no porão do Arcir?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_2"
+            }
+        ]
+    },
+    {
+        "id": "larcal_2",
+        "message": "Então, talvez fosse eu. O livro é meu de qualquer maneira.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "larcal_3"
+            }
+        ]
+    },
+    {
+        "id": "larcal_3",
+        "message": "Olha, vamos resolver isso pacificamente. Se você for embora e esquecer que o livro, você ainda pode viver.",
+        "replies": [
+            {
+                "text": "Muito bem. Mantenha o seu livro.",
+                "nextPhraseID": "larcal_4"
+            },
+            {
+                "text": "Não, você vai me dar aquele livro.",
+                "nextPhraseID": "larcal_5"
+            }
+        ]
+    },
+    {
+        "id": "larcal_4",
+        "message": "Bom menino. Agora fuja."
+    },
+    {
+        "id": "larcal_5",
+        "message": "Ok, agora você está começando a me irritar, garoto. Cai fora enquanto você ainda pode.",
+        "replies": [
+            {
+                "text": "Muito bem. Eu vou sair.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Não, o livro não é seu!",
+                "nextPhraseID": "larcal_6"
+            }
+        ]
+    },
+    {
+        "id": "larcal_6",
+        "message": "Você ainda está aqui? Ok, então, se você quer um livro tão ruim, você vai ter que tirar isso de mim!",
+        "replies": [
+            {
+                "text": "Finalmente uma luta. Eu estava ansioso por isso!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Eu esperava que não chegasse a isso.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Muito bem. Eu vou sair.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

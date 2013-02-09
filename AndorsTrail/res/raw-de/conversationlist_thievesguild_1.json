@@ -1,0 +1,342 @@
+[
+    {
+        "id": "thievesguild_thief_1",
+        "message": "Hallo Junge.",
+        "replies": [
+            {
+                "text": "Hallo. Weißt du, wo ich Umar finden kann?",
+                "nextPhraseID": "thievesguild_thief_4"
+            },
+            {
+                "text": "Was ist das für ein Ort?",
+                "nextPhraseID": "thievesguild_thief_2"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_thief_2",
+        "message": "Das ist unsere Gildenhalle. Hier sind wir vor den Wachen von Fallhaven sicher.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_thief_3"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_thief_3",
+        "message": "Wir können hier so ziemlich alles machen, was wir wollen. Solange Umar es erlaubt, versteht sich.",
+        "replies": [
+            {
+                "text": "Weißt du, wo ich Umar finden kann?",
+                "nextPhraseID": "thievesguild_thief_4"
+            },
+            {
+                "text": "Wer ist Umar?",
+                "nextPhraseID": "thievesguild_thief_5"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_thief_4",
+        "message": "Er ist wahrscheinlich in seinem Raum, dort drüben. *zeigt darauf*",
+        "replies": [
+            {
+                "text": "Danke.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_thief_5",
+        "message": "Umar ist unser Gildenoberhaupt. Er macht unsere Regeln und entscheidet für uns bei moralischen Fragen.",
+        "replies": [
+            {
+                "text": "Wo kann ich ihn finden?",
+                "nextPhraseID": "thievesguild_thief_4"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_1",
+        "message": "Hallo, möchtest du etwas?",
+        "replies": [
+            {
+                "text": "Du siehst aus, als wärst du hier der Koch.",
+                "nextPhraseID": "thievesguild_cook_2"
+            },
+            {
+                "text": "Darf ich sehen, welches Essen du verkaufst?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Farrik sagte, du kannst mir einen speziellen Met zubereiten.",
+                "nextPhraseID": "thievesguild_select_1",
+                "requires": {
+                    "progress": "farrik:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_2",
+        "message": "Das ist richtig. Jemand muss dafür sorgen, dass diese Raufbolde satt werden.",
+        "replies": [
+            {
+                "text": "Das riecht auf jeden Fall sehr gut",
+                "nextPhraseID": "thievesguild_cook_3"
+            },
+            {
+                "text": "Dieser Eintopf sieht ekelhaft aus",
+                "nextPhraseID": "thievesguild_cook_4"
+            },
+            {
+                "text": "Na dann, bis später",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_3",
+        "message": "Danke. Mit diesem Eintopf geht es gut voran.",
+        "replies": [
+            {
+                "text": "Ich bin daran interessiert, etwas davon zu kaufen.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_4",
+        "message": "Ja, ich weiß. Mit diesen schlechten Zutaten kann man nicht viel machen? Immerhin macht es uns satt.",
+        "replies": [
+            {
+                "text": "Darf ich sehen, was du zu verkaufen hast?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_5",
+        "message": "Oh sicher. Du hast vor, jemand ins Reich der Träume zu schicken, oder?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_cook_6"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_6",
+        "message": "Keine Angst, ich werde es niemandem erzählen. So etwas zuzubereiten gehört zu meinen Spezialitäten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_cook_7"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_7",
+        "message": "Gib mir eine Minute, um ihn für dich zusammenzumischen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_cook_8"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_select_1",
+        "replies": [
+            {
+                "nextPhraseID": "thievesguild_cook_10",
+                "requires": {
+                    "progress": "farrik:25"
+                }
+            },
+            {
+                "nextPhraseID": "thievesguild_cook_5"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_8",
+        "message": "Hier. Das sollte genügen. Bitte schön.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "farrik",
+                "value": 25
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "sleepingmead"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_cook_9"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_10",
+        "message": "Ja, ich hab dir vorhin einen speziellen Trank gegeben.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_cook_9"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_cook_9",
+        "message": "Sei vorsichtig, damit du nicht etwas von dem Zeug an die Finger bekommst, es ist wirklich sehr stark.",
+        "replies": [
+            {
+                "text": "Vielen Dank.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_pickpocket_1",
+        "message": "Hallo.",
+        "replies": [
+            {
+                "text": "Wer bist du?",
+                "nextPhraseID": "thievesguild_pickpocket_2"
+            },
+            {
+                "text": "Was ist das für ein Ort?",
+                "nextPhraseID": "thievesguild_thief_2"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_pickpocket_2",
+        "message": "Mein richtiger Name ist unwichtig. Die Leute nennen mich meistens Flinke Hände.",
+        "replies": [
+            {
+                "text": "Warum das?",
+                "nextPhraseID": "thievesguild_pickpocket_3"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_pickpocket_3",
+        "message": "Nun, ich habe eine Tendenz zu .. wie soll ich es sagen .. gewisse Dinge einfach anzueignen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "thievesguild_pickpocket_4"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_pickpocket_4",
+        "message": "Dinge, die früher anderen Besitzern gehörten.",
+        "replies": [
+            {
+                "text": "Meinst du stehlen?",
+                "nextPhraseID": "thievesguild_pickpocket_5"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_pickpocket_5",
+        "message": "Nein nein. ich würde es nicht stehlen nennen. Es ist mehr ein Eigentumstransfer. Für mich ist es das.",
+        "replies": [
+            {
+                "text": "Das hört sich für mich aber sehr nach stehlen an.",
+                "nextPhraseID": "thievesguild_pickpocket_6"
+            },
+            {
+                "text": "Das hört sich für mich wie eine gute Rechtfertigung an.",
+                "nextPhraseID": "thievesguild_pickpocket_6"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_pickpocket_6",
+        "message": "Naja, wir sind die Diebesgilde. Was hast du erwartet?"
+    },
+    {
+        "id": "thievesguild_troublemaker_1",
+        "message": "Hallo. Kenne ich dich nicht irgendwoher?",
+        "replies": [
+            {
+                "text": "Nein, ich bin sicher, wir sind uns noch nie begegnet.",
+                "nextPhraseID": "thievesguild_troublemaker_3"
+            },
+            {
+                "text": "Was machst du hier?",
+                "nextPhraseID": "thievesguild_troublemaker_2"
+            },
+            {
+                "text": "Kann ich einen Blick auf deine Vorräte werfen?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_troublemaker_2",
+        "message": "Ich habe ein Auge auf unsere Vorräte für die Gilde.",
+        "replies": [
+            {
+                "text": "Kann ich einen Blick auf deine Vorräte werfen?",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_troublemaker_3",
+        "message": "Nein, ich erkenne dich wirklich.",
+        "replies": [
+            {
+                "text": "Du musst mich mit jemand anderem verwechselt haben.",
+                "nextPhraseID": "thievesguild_troublemaker_4"
+            },
+            {
+                "text": "Vielleicht hast du mich mit meinem Bruder Andor verwechselt.",
+                "nextPhraseID": "thievesguild_troublemaker_5"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_troublemaker_4",
+        "message": "Ja, das könnte sein.",
+        "replies": [
+            {
+                "text": "Hast du meinen Bruder hier gesehen? Er sieht mir ähnlich.",
+                "nextPhraseID": "thievesguild_troublemaker_5"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_troublemaker_5",
+        "message": "Oh ja, jetzt wo du es sagst. Da war dieser Junge, der hier umher rannte und eine Menge Fragen stellte.",
+        "replies": [
+            {
+                "text": "Weißt du, was er gesucht oder gemacht hat?",
+                "nextPhraseID": "thievesguild_troublemaker_6"
+            }
+        ]
+    },
+    {
+        "id": "thievesguild_troublemaker_6",
+        "message": "Nein. Ich weiß es nicht. Ich kümmere mich bloß um die Vorräte.",
+        "replies": [
+            {
+                "text": "Ok, vielen Dank jedenfalls. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Bah, du bist nutzlos. Auf Wiedersehen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

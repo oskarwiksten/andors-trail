@@ -1,0 +1,333 @@
+[
+    {
+        "id": "ff_outsideguard_select",
+        "replies": [
+            {
+                "nextPhraseID": "ff_outsideguard_trouble_24",
+                "requires": {
+                    "progress": "jolnor:20"
+                }
+            },
+            {
+                "nextPhraseID": "ff_outsideguard_1"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_1",
+        "message": "Ciao. Sei sicuro di dover venire qui? Questa è una taverna, sai. Il 'Fiasco Schiumoso' per essere precisi.",
+        "replies": [
+            {
+                "text": "Chi sei tu?",
+                "nextPhraseID": "ff_outsideguard_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_2",
+        "message": "Sono un membro della pattuglia di guardie di Feygard.",
+        "replies": [
+            {
+                "text": "Feygard, dov'è?",
+                "nextPhraseID": "ff_outsideguard_3"
+            },
+            {
+                "text": "Cosa ci fai da queste parti?",
+                "nextPhraseID": "ff_outsideguard_3"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_3",
+        "message": "Vai a parlare con il capitano, io devo stare di guardia qui!",
+        "replies": [
+            {
+                "text": "Ok. Ciao.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Perché devi stare di guardia fuori di una taverna?",
+                "nextPhraseID": "ff_outsideguard_trouble_1",
+                "requires": {
+                    "progress": "jolnor:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_1",
+        "message": "Davvero, non posso parlare con te, potrei finire nei guai.",
+        "replies": [
+            {
+                "text": "Ok. Non ti disturberò più, che l'Ombra sia con te!",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Ok. non ti disturberò più, ciao.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Quali guai?",
+                "nextPhraseID": "ff_outsideguard_trouble_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_2",
+        "message": "No davvero, il capitano potrebbe vedermi. Devo essere vigile sul mio posto in ogni momento *sigh*",
+        "replies": [
+            {
+                "text": "Ok. Non ti disturberò più, che l'Ombra sia con te.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Ok. Non ti disturberò ulteriormente, Ciao.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Ti piace il tuo lavoro qui?",
+                "nextPhraseID": "ff_outsideguard_trouble_3"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_3",
+        "message": "Il mio lavoro? Credo che la guardia reale sia valida, voglio dire...Feygard è un posto molto bello in cui vivere.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ff_outsideguard_trouble_4"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_4",
+        "message": "Diciamo che fare la guardia qua in mezzo al nulla non è proprio quello che intendevo fare...",
+        "replies": [
+            {
+                "text": "Ci credo. Questo posto è davvero noioso.",
+                "nextPhraseID": "ff_outsideguard_trouble_5"
+            },
+            {
+                "text": "Ti stancherai molto a stare qui sempre in piedi.",
+                "nextPhraseID": "ff_outsideguard_trouble_5"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_5",
+        "message": "Si, molto. Preferirei essere dentro alla taverna a bere con gli altri e il capitano. Ma perché devo stare qui?",
+        "replies": [
+            {
+                "text": "Almeno l'Ombra veglia su di te.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Perché non te ne vai se non è quello che vuoi fare?",
+                "nextPhraseID": "ff_outsideguard_trouble_7"
+            },
+            {
+                "text": "La grande causa della guardia reale, ovvero mantenere la pace, sarà ben ricompensata a lungo termine.",
+                "nextPhraseID": "ff_outsideguard_trouble_6"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_6",
+        "message": "Sì, hai ragione, naturalmente. Il nostro dovere è quello di mantenere la pace.",
+        "replies": [
+            {
+                "text": "Si, l'Ombra non guarda con favore chi disturba la pace.",
+                "nextPhraseID": "ff_outsideguard_shadow_1"
+            },
+            {
+                "text": "Sì. I piantagrane dovrebbero essere puniti.",
+                "nextPhraseID": "ff_outsideguard_trouble_8"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_7",
+        "message": "No, io sono fedele alla causa di Feygard. Se me ne andassi, dovrei anche tradire la mia fedeltà.",
+        "replies": [
+            {
+                "text": "Cosa significa questo se non sei soddisfatto di ciò che fai ?",
+                "nextPhraseID": "ff_outsideguard_trouble_9"
+            },
+            {
+                "text": "Sì, mi sembra giusto. Feygard sembra un bel posto da quello che ho sentito.",
+                "nextPhraseID": "ff_outsideguard_trouble_6"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_8",
+        "message": "Bene. Mi piaci ragazzo. Potrei mettere una buona parola per te in caserma quando torneremo a Feygard, se vuoi.",
+        "replies": [
+            {
+                "text": "Certo, mi sembra una buona idea.",
+                "nextPhraseID": "ff_outsideguard_trouble_20"
+            },
+            {
+                "text": "No grazie, ho già tanto da fare...",
+                "nextPhraseID": "ff_outsideguard_trouble_20"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_9",
+        "message": "Beh, io sono convinto che si debbano seguire le leggi stabilite dai nostri governanti. Se non obbediamo alle leggi, che cosa ci rimane?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ff_outsideguard_trouble_10"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_10",
+        "message": "Caos. Nessun ordine.\n\nNo, io preferisco il modo lecito di Feygard. La mia fedeltà è salda.",
+        "replies": [
+            {
+                "text": "Si, ha senso quello che dici, le leggi sono fatte per essere rispettate.",
+                "nextPhraseID": "ff_outsideguard_trouble_8"
+            },
+            {
+                "text": "Non sono d'accordo. Dobbiamo seguire il nostro cuore, anche se questo va contro le regole.",
+                "nextPhraseID": "ff_outsideguard_trouble_12"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_20",
+        "message": "C'era qualcos'altro che volevi?",
+        "replies": [
+            {
+                "text": "Mi stavo chiedendo il motivo per cui fai la guardia qui.",
+                "nextPhraseID": "ff_outsideguard_trouble_21"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_12",
+        "message": "Questo mi disturba. Forse ci vedremo di nuovo in futuro. Ma la nostra prossima discussione potrebbe non essere piacevole."
+    },
+    {
+        "id": "ff_outsideguard_trouble_21",
+        "message": "Giusto, stavamo divagando. Come ho detto, avrei preferito essere dentro seduto accanto al fuoco.",
+        "replies": [
+            {
+                "text": "Potrei prendere il tuo posto se vuoi entrare.",
+                "nextPhraseID": "ff_outsideguard_trouble_23"
+            },
+            {
+                "text": "Che sfortuna, pensare che tu sia qui mentre i tuoi compagni e il capitano sono dentro.",
+                "nextPhraseID": "ff_outsideguard_trouble_22"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_22",
+        "message": "Si, è la mia solita fortuna."
+    },
+    {
+        "id": "ff_outsideguard_trouble_23",
+        "message": "Davvero? Sarebbe fantastico, almeno potrei prendere qualcosa da bere e scaldarmi un po' vicino al fuoco.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ff_outsideguard_trouble_24"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_24",
+        "message": "OK, allora entro un attimo. Stai qui a fare la guardia al posto mio finché non torno?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jolnor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Certo, lo farò.",
+                "nextPhraseID": "ff_outsideguard_trouble_25"
+            },
+            {
+                "text": "[Bugia] Certo, lo farò.",
+                "nextPhraseID": "ff_outsideguard_trouble_25"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_trouble_25",
+        "message": "Grazie mille, sei un amico."
+    },
+    {
+        "id": "ff_outsideguard_shadow_1",
+        "message": "L'Ombra? Curioso che tu l'abbia menzionata. Spiegati!",
+        "replies": [
+            {
+                "text": "Non volevo dire niente. Anzi, non ho detto niente.",
+                "nextPhraseID": "ff_outsideguard_shadow_2"
+            },
+            {
+                "text": "L'Ombra veglia su di noi quando dormiamo.",
+                "nextPhraseID": "ff_outsideguard_shadow_3"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_shadow_2",
+        "message": "Bene, ora vattene prima di costringermi a fare i conti con te."
+    },
+    {
+        "id": "ff_outsideguard_shadow_3",
+        "message": "Cosa? Sei uno di quei piantagrane mandati qui per sabotare la nostra missione?",
+        "replies": [
+            {
+                "text": "L'Ombra ci protegge.",
+                "nextPhraseID": "ff_outsideguard_shadow_4"
+            },
+            {
+                "text": "Bene. Meglio non iniziare una lotta con la guardia reale.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_shadow_4",
+        "message": "Questo è troppo, è meglio che scappi ora oppure dovrai combattere.",
+        "replies": [
+            {
+                "text": "Bene, aspettavo proprio un combattimento.",
+                "nextPhraseID": "ff_outsideguard_shadow_5"
+            },
+            {
+                "text": "Per l'Ombra!",
+                "nextPhraseID": "ff_outsideguard_shadow_5"
+            },
+            {
+                "text": "Non farci caso, stavo solo scherzando.",
+                "nextPhraseID": "ff_outsideguard_shadow_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_outsideguard_shadow_5",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "jolnor",
+                "value": 21
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

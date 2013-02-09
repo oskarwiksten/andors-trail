@@ -1,0 +1,107 @@
+[
+    {
+        "id": "bela",
+        "message": "Добро пожаловать в таверну Фоллхейвена. Присаживайтесь за любой столик.",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Комната",
+                "nextPhraseID": "bela_room_select"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_1",
+        "message": "Комната стоит 10 золотых в сутки.",
+        "replies": [
+            {
+                "text": "Я беру",
+                "nextPhraseID": "bela_room_2",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Назад",
+                "nextPhraseID": "bela"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_2",
+        "message": "Спасибо. Ваша комната последняя по коридору.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "fallhaventavern",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Назад",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_3",
+        "message": "Я надеюсь комната вас устроит. Это последняя комната по коридору.",
+        "replies": [
+            {
+                "text": "Назад",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_select",
+        "replies": [
+            {
+                "nextPhraseID": "bela_room_3",
+                "requires": {
+                    "progress": "fallhaventavern:10"
+                }
+            },
+            {
+                "nextPhraseID": "bela_room_1"
+            }
+        ]
+    },
+    {
+        "id": "ganos",
+        "message": "YТы мне кого-то напоминаешь.",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Гильдия Воров",
+                "nextPhraseID": "ganos_1",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ganos_1",
+        "message": "Гильдия воров? Откуда мне знать? По-твоему я похож на вора?! Хрррф."
+    }
+]

@@ -1,0 +1,232 @@
+[
+    {
+        "id": "herec_start",
+        "replies": [
+            {
+                "nextPhraseID": "herec_q5",
+                "requires": {
+                    "progress": "bwm_wyrms:30"
+                }
+            },
+            {
+                "nextPhraseID": "herec_q3",
+                "requires": {
+                    "progress": "bwm_wyrms:20"
+                }
+            },
+            {
+                "nextPhraseID": "herec_q1",
+                "requires": {
+                    "progress": "bwm_wyrms:10"
+                }
+            },
+            {
+                "nextPhraseID": "herec_1"
+            }
+        ]
+    },
+    {
+        "id": "herec_1",
+        "message": "Benvenuto viaggiatore. Devi essere quello di cui ho sentito parlare, quello che è salito sulla montagna.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_2"
+            }
+        ]
+    },
+    {
+        "id": "herec_2",
+        "message": "Saresti disposto ad aiutarmi con un compito?",
+        "replies": [
+            {
+                "text": "Dipende, quale compito?",
+                "nextPhraseID": "herec_4"
+            },
+            {
+                "text": "Perché dovrei aiutarti?",
+                "nextPhraseID": "herec_3"
+            }
+        ]
+    },
+    {
+        "id": "herec_3",
+        "message": "Ah, un negoziatore. Mi piaci. Se mi aiuti, dividerò i frutti del mio lavoro con te. Dovrebbero valere molto per te.",
+        "replies": [
+            {
+                "text": "Bene, di cosa hai bisogno?",
+                "nextPhraseID": "herec_4"
+            },
+            {
+                "text": "No, come posso accettare qualcosa se non so di cosa si tratta?",
+                "nextPhraseID": "herec_11"
+            }
+        ]
+    },
+    {
+        "id": "herec_4",
+        "message": "E' davvero semplice. Sto studiando questi dragoni che stanno in agguato qui fuori dall'insediamento. Sto cercando di trovare i loro punti di forza per usarli a mio vantaggio.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_5"
+            }
+        ]
+    },
+    {
+        "id": "herec_5",
+        "message": "Ma la mia bravura sta nell'analisi e non nel trovarmi faccia a faccia con quelle creature.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_6"
+            }
+        ]
+    },
+    {
+        "id": "herec_6",
+        "message": "Ed è qui che entri in gioco tu.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_7"
+            }
+        ]
+    },
+    {
+        "id": "herec_7",
+        "message": "Ho bisogno che tu raccolga alcuni campioni per me. Ho sentito che alcuni dragoni bianchi hanno artigli più affilati che possono essere estratti al momento della loro morte.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_8"
+            }
+        ]
+    },
+    {
+        "id": "herec_8",
+        "message": "Se tu riuscissi a portarmi qualche artiglio di dragone bianco, potrei veramente velocizzare la mia ricerca. ",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_9"
+            }
+        ]
+    },
+    {
+        "id": "herec_9",
+        "message": "Diciamo che 5 artigli dovrebbero essere sufficienti.",
+        "replies": [
+            {
+                "text": "Ok si può fare, ti farò avere 5 artigli di dragone bianco.",
+                "nextPhraseID": "herec_10"
+            },
+            {
+                "text": "Certo, quelle bestie non sono un problema per me.",
+                "nextPhraseID": "herec_10"
+            },
+            {
+                "text": "Non mi avvicinerò mai più a quelle bestie, per nessun motivo al mondo.",
+                "nextPhraseID": "herec_11"
+            }
+        ]
+    },
+    {
+        "id": "herec_10",
+        "message": "Ottimo, fai più in fretta possibile in modo che io possa continuare i miei esperimenti.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_wyrms",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "herec_11",
+        "message": "Ti assicuro che la mia ricerca è veramente importante, ma la scelta è tua e anche la perdita."
+    },
+    {
+        "id": "herec_q1",
+        "message": "Bentornato, come sta andando la ricerca?",
+        "replies": [
+            {
+                "text": "Cosa dovrei fare di nuovo?",
+                "nextPhraseID": "herec_4"
+            },
+            {
+                "text": "Non ho ancora trovato tutto, ma ci sto lavorando.",
+                "nextPhraseID": "herec_10"
+            },
+            {
+                "text": "Ho trovato quello che hai chiesto.",
+                "nextPhraseID": "herec_q2",
+                "requires": {
+                    "item": {
+                        "itemID": "bwm_claws",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "herec_q2",
+        "message": "Ben fatto amico mio! Questi saranno molto importanti per la mia ricerca.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_wyrms",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_q2_2"
+            }
+        ]
+    },
+    {
+        "id": "herec_q2_2",
+        "message": "Torna fra pochi minuti e avrò qualcosa per te."
+    },
+    {
+        "id": "herec_q3",
+        "message": "Bentornato amico mio! Ho buone notizie. Ho distillato con successo i frammenti degli artigli che mi hai portato.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_q4"
+            }
+        ]
+    },
+    {
+        "id": "herec_q4",
+        "message": "Ora sono in grado di creare pozioni che contengono l'essenza dei dragoni bianchi. Queste pozioni saranno molto utili negli scontri futuri con questi mostri.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_wyrms",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "herec_q5"
+            }
+        ]
+    },
+    {
+        "id": "herec_q5",
+        "message": "Vorresti comprare delle pozioni?",
+        "replies": [
+            {
+                "text": "Certo, fammi vedere che cos'hai.",
+                "nextPhraseID": "S"
+            }
+        ]
+    }
+]

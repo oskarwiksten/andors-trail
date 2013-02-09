@@ -1,0 +1,470 @@
+[
+    {
+        "id": "erinith",
+        "replies": [
+            {
+                "nextPhraseID": "erinith_complete_1",
+                "requires": {
+                    "progress": "erinith:50"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_givenpotion_1",
+                "requires": {
+                    "progress": "erinith:40"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_givenpotion_1",
+                "requires": {
+                    "progress": "erinith:41"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_givenpotion_1",
+                "requires": {
+                    "progress": "erinith:42"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_needspotions_1",
+                "requires": {
+                    "progress": "erinith:30"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_needsbook_1",
+                "requires": {
+                    "progress": "erinith:20"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_needsbook_1",
+                "requires": {
+                    "progress": "erinith:21"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_complete_1",
+        "message": "Obrigado por toda sua ajuda anterior."
+    },
+    {
+        "id": "erinith_1",
+        "message": "Por favor, você tem que me ajudar!",
+        "replies": [
+            {
+                "text": "O que há de errado?",
+                "nextPhraseID": "erinith_story_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_1",
+        "message": "Eu estava montando acampamento aqui durante a noite, e foi atacado por bandidos enquanto dormia.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_story_2"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_2",
+        "message": "Concordo, esta ferida não parece estar se curando.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_story_3"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_3",
+        "message": "Pelo menos eu consegui impedi-los de obter o meu livro. Tenho certeza de que eles estavam atrás do livro.",
+        "replies": [
+            {
+                "text": "Parece um livro valioso então. Isso soa interessante, por favor, continue.",
+                "nextPhraseID": "erinith_story_4"
+            },
+            {
+                "text": "O que aconteceu?",
+                "nextPhraseID": "erinith_story_4"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_4",
+        "message": "Consegui lançar o livro no meio das árvores ali durante o ataque. *Aponta para as árvores diretamente ao norte*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_story_5"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_5",
+        "message": "Eu não acho que eles conseguiram pegar o livro. É provável que ainda esteja em algum lugar entre as árvores.",
+        "replies": [
+            {
+                "text": "O que há no livro?",
+                "nextPhraseID": "erinith_story_6"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_6",
+        "message": "Ah, eu não posso dizer realmente.",
+        "replies": [
+            {
+                "text": "Eu poderia ajudá-lo a encontrar o livro, se quiser.",
+                "nextPhraseID": "erinith_story_7"
+            },
+            {
+                "text": "Quanto valeria para você, caso eu obtenha o livro de volta?",
+                "nextPhraseID": "erinith_story_gold_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_7",
+        "message": "Você o faria? Oh obrigado.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_story_8"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_8",
+        "message": "Por favor, vá procurá-lo entre as árvores para o nordeste."
+    },
+    {
+        "id": "erinith_story_gold_1",
+        "message": "Valeria? Bem, eu estava esperando que você pode me ajudar de qualquer maneira, mas eu acho que posso lhe dar umas 200 moedas de ouro.",
+        "replies": [
+            {
+                "text": "200 moedas de ouro é então. Eu vou procurar livro para você.",
+                "nextPhraseID": "erinith_story_gold_2"
+            },
+            {
+                "text": "Apenas 200 moedas de ouro, é que tudo o que você pode fazer? Tudo bem, eu vou procurar para você esse livro estúpido.",
+                "nextPhraseID": "erinith_story_gold_2"
+            },
+            {
+                "text": "Guarde seu ouro, eu vou devolver o livro para você de qualquer maneira.",
+                "nextPhraseID": "erinith_story_7"
+            },
+            {
+                "text": "Não, eu não estou me envolver nisso. Tchau.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "erinith_story_gold_2",
+        "message": "Faça isso rápido.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 21
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_story_8"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needsbook_1",
+        "message": "Você ainda não encontrou meu livro?",
+        "replies": [
+            {
+                "text": "Ainda não, eu ainda estou procurando.",
+                "nextPhraseID": "erinith_story_8"
+            },
+            {
+                "text": "Sim, aqui está o seu livro.",
+                "nextPhraseID": "erinith_needsbook_2",
+                "requires": {
+                    "item": {
+                        "itemID": "erinith_book",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "erinith_needsbook_2",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "erinith_needsbook_3_2",
+                "requires": {
+                    "progress": "erinith:21"
+                }
+            },
+            {
+                "nextPhraseID": "erinith_needsbook_3_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needsbook_3_1",
+        "message": "Você encontrou! Oh muito obrigado. Eu estava tão preocupado que eu tinha perdido.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_2"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needsbook_3_2",
+        "message": "Você encontrou! Oh muito obrigado. Em troca, aqui é o ouro que eu prometi.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_2"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_1",
+        "message": "Obrigado por me ajudar a encontrar o meu livro anteriormente.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_2"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_2",
+        "message": "Eu ainda estou machucado com esta ferida que abriu durante o ataque noturno.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_3"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_3",
+        "message": "Realmente, dói muito e não parece estar se curando.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_4"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_4",
+        "message": "Eu estou realmente precisando de alguma cicatrização mais forte aqui. Talvez algumas poções resolvessem.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_5"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_5",
+        "message": "Ouvi dizer que os fabricantes de poções estes dias têm de poções maiores de cura, e não apenas as poções regulares.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_needspotions_6"
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_6",
+        "message": "Uma porção maior certamente resolveria. Caso contrário, eu acho que quatro poções regular de saúde seriam suficientes.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 31
+            }
+        ],
+        "replies": [
+            {
+                "text": "Vou pegar aquelas poções para você.",
+                "nextPhraseID": "erinith_needspotions_7"
+            },
+            {
+                "text": "Aqui, pegue essa poção de farinha de ossos ao invés. É muito potente na cura de feridas profundas.",
+                "nextPhraseID": "erinith_gavepotion_bm_1",
+                "requires": {
+                    "item": {
+                        "itemID": "bonemeal_potion",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui, pegue essa poção de saúde.",
+                "nextPhraseID": "erinith_gavepotion_major_1",
+                "requires": {
+                    "item": {
+                        "itemID": "health_major2",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui, pegue essa poção de saúde.",
+                "nextPhraseID": "erinith_gavepotion_major_1",
+                "requires": {
+                    "item": {
+                        "itemID": "health_major",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Aqui, tome estas poções quatro regulares de saúde.",
+                "nextPhraseID": "erinith_gavepotion_reg_1",
+                "requires": {
+                    "item": {
+                        "itemID": "health",
+                        "quantity": 4,
+                        "requireType": 0
+                    }
+                }
+            }
+        ]
+    },
+    {
+        "id": "erinith_needspotions_7",
+        "message": "Obrigado meu amigo. Por favor, volte logo."
+    },
+    {
+        "id": "erinith_gavepotion_bm_1",
+        "message": "Poção farinha de ossos? Mas .. mas .. Nós não somos autorizados a usá-los uma vez que eles são proibidos por Lorde Geomyr.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Quem vai descobrir?",
+                "nextPhraseID": "erinith_gavepotion_bm_2"
+            },
+            {
+                "text": "Eu já as usei em mim mesmo. São perfeitamente seguras.",
+                "nextPhraseID": "erinith_gavepotion_bm_2"
+            }
+        ]
+    },
+    {
+        "id": "erinith_gavepotion_bm_2",
+        "message": "Hm, sim. Eu acho que você tem razão. Oh, bem, aqui vai. *bebeu a porção*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_gavepotion_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_gavepotion_major_1",
+        "message": "Obrigado por me trazer uma. *bebeu a porção*",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 41
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_gavepotion_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_gavepotion_reg_1",
+        "message": "Obrigado por trazê-las para mim. *Bebeu todas as quatro poções*",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 42
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_gavepotion_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_gavepotion_1",
+        "message": "Uau, eu já sinto-me um pouco melhor. Eu acho que esta cura realmente funciona.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "erinith_givenpotion_1"
+            }
+        ]
+    },
+    {
+        "id": "erinith_givenpotion_1",
+        "message": "Obrigado, meu amigo, por sua ajuda. Meu livro está seguro e minha ferida está cicatrizando. Espero que nossos caminhos se cruzem novamente.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "erinith",
+                "value": 50
+            }
+        ]
+    }
+]

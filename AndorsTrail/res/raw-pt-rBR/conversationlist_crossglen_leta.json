@@ -1,0 +1,110 @@
+[
+    {
+        "id": "leta1",
+        "message": "Ei, esta é a minha casa, saia daqui!",
+        "replies": [
+            {
+                "text": "Mas eu estava apenas ...",
+                "nextPhraseID": "leta2"
+            },
+            {
+                "text": "É sobre o seu marido Oromir.",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta2",
+        "message": "Basta criança, saia da minha casa!",
+        "replies": [
+            {
+                "text": "É sobre o seu marido Oromir.",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_select",
+        "replies": [
+            {
+                "nextPhraseID": "leta_oromir_complete2",
+                "requires": {
+                    "progress": "leta:100"
+                }
+            },
+            {
+                "nextPhraseID": "leta_oromir1"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir1",
+        "message": "Você sabe alguma coisa sobre o meu marido? Ele deveria estar aqui me ajudando na fazenda hoje, mas ele parece estar ausente, como sempre\nSigh.",
+        "replies": [
+            {
+                "text": "Eu não tenho ideia.",
+                "nextPhraseID": "leta_oromir2"
+            },
+            {
+                "text": "Sim, eu o encontrei. Ele está escondido entre algumas árvores a leste.",
+                "nextPhraseID": "leta_oromir_complete",
+                "requires": {
+                    "progress": "leta:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir2",
+        "message": "Se você o vir, diga-lhe para retornar correndo e me ajudar com as tarefas domésticas. Agora, saia daqui!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete",
+        "message": "Ele está se escondendo? Isso não me surpreende. Vou mostrar a ele quem é o chefe por aqui!\nObrigado por avisar-me.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 100
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete2",
+        "message": "Obrigado por me contar sobre Oromir mais cedo. Eu vou em breve ao encontro dele."
+    },
+    {
+        "id": "oromir1",
+        "message": "Oh, você assustou-me.\nOi.",
+        "replies": [
+            {
+                "text": "Oi",
+                "nextPhraseID": "oromir2"
+            }
+        ]
+    },
+    {
+        "id": "oromir2",
+        "message": "Estou escondido aqui da minha esposa Leta. Ela está sempre com raiva de mim por não ajudá-la na fazenda. Por favor, não diga a ela que eu estou aqui.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Certo.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

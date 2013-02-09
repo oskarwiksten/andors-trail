@@ -1,0 +1,83 @@
+[
+    {
+        "id": "bwm_agent_5_start",
+        "replies": [
+            {
+                "nextPhraseID": "bwm_agent_5_6",
+                "requires": {
+                    "progress": "bwm_agent:50"
+                }
+            },
+            {
+                "nextPhraseID": "bwm_agent_5_1"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_1",
+        "message": "Olá novamente. Bem feito se esgueirando desses monstros.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_2"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_2",
+        "message": "Estamos quase lá agora. Apenas um pouco mais.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_3"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_3",
+        "message": "Devemos nos apressar nesse último trecho, o assentamento está perto agora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_4"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_4",
+        "message": "Eu espero que você possa aguentar o frio aqui fora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_5"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_5",
+        "message": "Além disso, fique longe dos dragões. Eles têm uma mordida realmente desagradável.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "bwm_agent_5_6"
+            }
+        ]
+    },
+    {
+        "id": "bwm_agent_5_6",
+        "message": "Agora se apresse. Estamos quase lá. Siga o caminho de neve para o norte, e você deve atingir o assentamento em breve.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 50
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, vou seguir o caminho para o norte, mais para cima da montanha.",
+                "nextPhraseID": "R"
+            }
+        ]
+    }
+]

@@ -1,0 +1,190 @@
+[
+    {
+        "id": "armor_chain1",
+        "iconID": "items_armours:17",
+        "name": "Cotte de mailles rouillée",
+        "category": "chmail",
+        "baseMarketCost": 3629,
+        "equipEffect": {
+            "increaseAttackChance": -9,
+            "increaseBlockChance": 20
+        }
+    },
+    {
+        "id": "armor_chain2",
+        "iconID": "items_armours:17",
+        "name": "Cotte de mailles ordinaire",
+        "category": "chmail",
+        "baseMarketCost": 4191,
+        "equipEffect": {
+            "increaseAttackChance": -10,
+            "increaseBlockChance": 22
+        }
+    },
+    {
+        "id": "hat_leather1",
+        "iconID": "items_armours:24",
+        "name": "Casquette de cuir ordinaire",
+        "category": "hd_lthr",
+        "baseMarketCost": 261,
+        "equipEffect": {
+            "increaseAttackChance": -2,
+            "increaseBlockChance": 7
+        }
+    },
+    {
+        "id": "sleepingmead",
+        "iconID": "items_consumables:51",
+        "name": "Hydromel somnifère",
+        "category": "other",
+        "displaytype": 1,
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "ffguard_qitem",
+        "iconID": "items_jewelry:0",
+        "name": "Bague de la patrouille de Feygard",
+        "category": "other",
+        "displaytype": 1,
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "shield6",
+        "iconID": "items_armours:3",
+        "name": "Pavois en bois",
+        "category": "shld_twr",
+        "baseMarketCost": 952,
+        "equipEffect": {
+            "increaseAttackChance": -6,
+            "increaseBlockChance": 12
+        }
+    },
+    {
+        "id": "shield7",
+        "iconID": "items_armours:3",
+        "name": "Pavois en bois épais",
+        "category": "shld_twr",
+        "baseMarketCost": 1538,
+        "equipEffect": {
+            "increaseAttackChance": -6,
+            "increaseBlockChance": 14
+        }
+    },
+    {
+        "id": "club_wood1",
+        "iconID": "items_weapons:44",
+        "name": "Bâton lourd en acier",
+        "category": "mace",
+        "baseMarketCost": 950,
+        "equipEffect": {
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 15,
+            "increaseCriticalSkill": 5,
+            "setCriticalMultiplier": 3,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 11
+            }
+        }
+    },
+    {
+        "id": "club_wood2",
+        "iconID": "items_weapons:44",
+        "name": "Bâton lourd équilibré en acier",
+        "category": "mace",
+        "baseMarketCost": 2194,
+        "equipEffect": {
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 10,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 3,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 11
+            }
+        }
+    },
+    {
+        "id": "gloves_grip",
+        "iconID": "items_armours:35",
+        "name": "Gant de prise assurée",
+        "category": "hnd_lthr",
+        "baseMarketCost": 471,
+        "equipEffect": {
+            "increaseAttackChance": 9,
+            "increaseBlockChance": 1
+        }
+    },
+    {
+        "id": "gloves_fancy",
+        "iconID": "items_armours:35",
+        "name": "Gants fantaisistes",
+        "category": "hnd_cloth",
+        "baseMarketCost": 78,
+        "equipEffect": {
+            "increaseAttackChance": 5
+        }
+    },
+    {
+        "id": "ring_crit1",
+        "iconID": "items_jewelry:0",
+        "name": "Anneau d'attaque",
+        "category": "ring",
+        "displaytype": 4,
+        "baseMarketCost": 2921,
+        "equipEffect": {
+            "increaseCriticalSkill": 5
+        }
+    },
+    {
+        "id": "ring_crit2",
+        "iconID": "items_jewelry:0",
+        "name": "Anneau d'attaque vicieuse",
+        "category": "ring",
+        "displaytype": 4,
+        "baseMarketCost": 3455,
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseCriticalSkill": 7
+        }
+    },
+    {
+        "id": "armor_stone",
+        "iconID": "items_armours:17",
+        "name": "Cuirasse de pierre",
+        "category": "bdy_hv",
+        "displaytype": 3,
+        "baseMarketCost": 52,
+        "equipEffect": {
+            "increaseAttackCost": 2,
+            "increaseBlockChance": 22,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "ring_shadow0",
+        "iconID": "items_jewelry:2",
+        "name": "Anneau de l'Ombre Mineure",
+        "category": "ring",
+        "displaytype": 2,
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackChance": 25,
+            "increaseCriticalSkill": 6,
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 7
+            },
+            "increaseBlockChance": 5,
+            "addedConditions": [
+                {
+                    "condition": "regen",
+                    "magnitude": 1
+                }
+            ]
+        }
+    }
+]

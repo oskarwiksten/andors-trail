@@ -1,0 +1,128 @@
+[
+    {
+        "id": "ambelie_1",
+        "message": "Oh nein, ein Bürgerlicher. Geh weg von mir. Ich könnte mir etwas holen.",
+        "replies": [
+            {
+                "text": "Wer bist du?",
+                "nextPhraseID": "ambelie_2"
+            },
+            {
+                "text": "Was macht eine noble Frau, wie du es bist, an einem Ort wie diesem?",
+                "nextPhraseID": "ambelie_5"
+            },
+            {
+                "text": "Ich würde froh darüber sein, von einer Wichtigtuerin wie dir fortzukommen.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_2",
+        "message": "Ich bin Ambelie vom Hause Laumwill in Feygard. Ich bin sicher, dass du von mir und meinem Haus gehört haben musst.",
+        "replies": [
+            {
+                "text": "Oh, ja.. Äh.. Haus von Laumwill in Feygard. Natürlich.",
+                "nextPhraseID": "ambelie_3"
+            },
+            {
+                "text": "Ich habe noch nie etwas von dir oder deinem Haus gehört.",
+                "nextPhraseID": "ambelie_4"
+            },
+            {
+                "text": "Wo ist Feygard?",
+                "nextPhraseID": "ambelie_3"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_3",
+        "message": "Feygard, die großartige Stadt des Friedens. Sicher musst du sie kennen. Im Nordwesten unseres großartigen Landes.",
+        "replies": [
+            {
+                "text": "Was macht eine noble Frau, wie du es bist, an einem Ort wie diesem?",
+                "nextPhraseID": "ambelie_5"
+            },
+            {
+                "text": "Nein, ich habe noch nie davon gehört.",
+                "nextPhraseID": "ambelie_4"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_4",
+        "message": "Pfft. Das beweist alles, was ich von euch Wilden hier im Süden gehört habe. So ungebildet."
+    },
+    {
+        "id": "ambelie_5",
+        "message": "Ich, Ambelie, vom Hause Laumwill in Feygard, bin auf einer Reise zum südlichen Nor City.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ambelie_6"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_6",
+        "message": "Eine Reise um zu sehen, ob Nor City wirklich so ist, wie man sagt. Ob es wirklich mit dem Glanz der großartigen Stadt Feygard verglichen werden kann.",
+        "replies": [
+            {
+                "text": "Nor City, wo ist das?",
+                "nextPhraseID": "ambelie_7"
+            },
+            {
+                "text": "Wenn du es in Feygard so magst, warum verlässt du es dann überhaupt?",
+                "nextPhraseID": "ambelie_9"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_7",
+        "message": "Hast du noch nie von Nor City gehört? Ich werde eine Notiz machen, dass die Wilden hier nicht einmal von der Stadt gehört haben.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ambelie_8"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_8",
+        "message": "Ich bin mir immer sicherer, dass Nor City nicht einmal in meinen wildesten Träumen, mit der großartigen Stadt von Feygard verglichen werden kann.",
+        "replies": [
+            {
+                "text": "Viel Glück auf deiner Reise.",
+                "nextPhraseID": "ambelie_10"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_9",
+        "message": "All die Edelfrauen in Feygard reden immer wieder über den mysteriösen Schatten von Nor City. Ich habe es selbst gesehen.",
+        "replies": [
+            {
+                "text": "Nor City, wo ist das?",
+                "nextPhraseID": "ambelie_7"
+            },
+            {
+                "text": "Viel Glück auf deiner Reise.",
+                "nextPhraseID": "ambelie_10"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_10",
+        "message": "Vielen Dank. Nun geh bitte, bevor mich noch jemand mit einem Bürgerlichen wie dir reden sieht.",
+        "replies": [
+            {
+                "text": "Bürgerlichen? Versuchst du mich zu beleidigen? Tschüss.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Was immer du sagst, du würdest vermutlich nicht einmal eine Waldwespe überleben.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

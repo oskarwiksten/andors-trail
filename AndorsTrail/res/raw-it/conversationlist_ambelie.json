@@ -1,0 +1,128 @@
+[
+    {
+        "id": "ambelie_1",
+        "message": "Oh cielo, un plebeo. Stai lontano da me. Potresti attaccarmi qualcosa.",
+        "replies": [
+            {
+                "text": "Chi sei tu?",
+                "nextPhraseID": "ambelie_2"
+            },
+            {
+                "text": "Cosa fa una nobildonna come te in un posto come questo?",
+                "nextPhraseID": "ambelie_5"
+            },
+            {
+                "text": "Sarei ben felice di allontanarmi da una snob come te.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_2",
+        "message": "Sono Ambelie della casata di Laumwill di Feygard. Sono sicura che avrai sentito parlare di me e della mia casata.",
+        "replies": [
+            {
+                "text": "Oh, sì...uhm...Casata di Laumwill di Feygard. Naturalmente.",
+                "nextPhraseID": "ambelie_3"
+            },
+            {
+                "text": "Non ho mai sentito parlare di te nè della tua casata.",
+                "nextPhraseID": "ambelie_4"
+            },
+            {
+                "text": "Dov'è Feygard?",
+                "nextPhraseID": "ambelie_3"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_3",
+        "message": "Feygard, la grande città della pace. Sicuramente la conosci. A Nord-Ovest del nostro grande paese.",
+        "replies": [
+            {
+                "text": "Cosa fa una nobildonna come te in un posto come questo?",
+                "nextPhraseID": "ambelie_5"
+            },
+            {
+                "text": "No, non ne ho mai sentito parlare.",
+                "nextPhraseID": "ambelie_4"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_4",
+        "message": "Pfft. Questo dimostra che tutto ciò che ho sentito su di voi selvaggi del sud è vero, così ignoranti..."
+    },
+    {
+        "id": "ambelie_5",
+        "message": "Io, Ambelie della casata di Laumwill di Feygard, sono in gita verso Nor City, la città a Sud.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ambelie_6"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_6",
+        "message": "Sono in gita per constatare se è vero tutto quello di cui ho sentito parlare. Se veramente Nor City può essere paragonata al fascino della grande città di Feygard.",
+        "replies": [
+            {
+                "text": "Nor City, e dov'è?",
+                "nextPhraseID": "ambelie_7"
+            },
+            {
+                "text": "Se vi piace così tanto Feygard, perché ve ne siete andata?",
+                "nextPhraseID": "ambelie_9"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_7",
+        "message": "Non sai nemmeno di Nor City? Terrò conto che i selvaggi di qui non hanno nemmeno mai sentito parlare della città.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "ambelie_8"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_8",
+        "message": "Sto cominciando a essere sempre più convinta che Nor City non sarà mai, nemmeno nei miei sogni più azzardati, paragonabile alla grandiosa Feygard.",
+        "replies": [
+            {
+                "text": "Buona fortuna con la tua escursione.",
+                "nextPhraseID": "ambelie_10"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_9",
+        "message": "Tutte le nobildonne di Feygard continuano a parlare della misteriosa Ombra di Nor City. Voglio vederla di persona.",
+        "replies": [
+            {
+                "text": "Nor City, e dov'è?",
+                "nextPhraseID": "ambelie_7"
+            },
+            {
+                "text": "Buona fortuna con la tua escursione.",
+                "nextPhraseID": "ambelie_10"
+            }
+        ]
+    },
+    {
+        "id": "ambelie_10",
+        "message": "Grazie, ora però lasciami sola, prima che qualcuno mi veda a parlare con un plebeo.",
+        "replies": [
+            {
+                "text": "Plebeo? Stai cercando di insultarmi? Addio.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Probabilmente non riusciresti nemmeno a sopravvivere a una vespa della foresta.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

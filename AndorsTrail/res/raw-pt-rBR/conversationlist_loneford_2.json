@@ -1,0 +1,284 @@
+[
+    {
+        "id": "loneford_guard0",
+        "message": "Nós mantemos a ordem por aqui. Eu me pergunto o que as pessoas de Loneford fariam sem nós, guardas de Feygard. Coitados."
+    },
+    {
+        "id": "loneford_villager0",
+        "message": "*tosse* Por favor, ajude-nos, em breve não haverá mais muitos de nós!",
+        "replies": [
+            {
+                "text": "O que houve?",
+                "nextPhraseID": "loneford_farmer0_1"
+            }
+        ]
+    },
+    {
+        "id": "loneford_villager1",
+        "message": "Não consigo sentir mais o meu rosto! Por favor, ajude-nos!",
+        "replies": [
+            {
+                "text": "O que há de errado?",
+                "nextPhraseID": "loneford_farmer0_1"
+            }
+        ]
+    },
+    {
+        "id": "loneford_villager2",
+        "message": "Não mexa comigo, eu preciso terminar de cortar a madeira. Vá incomodar outra pessoa."
+    },
+    {
+        "id": "loneford_villager3",
+        "message": "Eu temo pela nossa sobrevivência. Parece que estamos piorando a cada dia que passa. É uma coisa boa que Feygard nos ajude, pelo menos.",
+        "replies": [
+            {
+                "text": "O que há de errado?",
+                "nextPhraseID": "loneford_farmer0_1"
+            }
+        ]
+    },
+    {
+        "id": "loneford_villager4",
+        "message": "Não te conheço de algum lugar? Você parece-me familiar de alguma forma."
+    },
+    {
+        "id": "landa",
+        "replies": [
+            {
+                "nextPhraseID": "landa_already_1",
+                "requires": {
+                    "progress": "loneford:35"
+                }
+            },
+            {
+                "nextPhraseID": "landa_1"
+            }
+        ]
+    },
+    {
+        "id": "landa_1",
+        "message": "Wha? Você? Não, fica longe de mim!",
+        "replies": [
+            {
+                "text": "Ouvi dizer que você viu alguma coisa que você não vai falar.",
+                "nextPhraseID": "landa_2",
+                "requires": {
+                    "progress": "loneford:25"
+                }
+            }
+        ]
+    },
+    {
+        "id": "landa_2",
+        "message": "(Landa dá-lhe um olhar aterrorizado)",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_3"
+            }
+        ]
+    },
+    {
+        "id": "landa_3",
+        "message": "Você estava lá! Eu v-v-vi você!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_4"
+            }
+        ]
+    },
+    {
+        "id": "landa_4",
+        "message": "Não foi você? Não, parecia com você, e eu tenho uma boa memória! * Morde o lábio *",
+        "replies": [
+            {
+                "text": "Calma.",
+                "nextPhraseID": "landa_5"
+            }
+        ]
+    },
+    {
+        "id": "landa_5",
+        "message": "Fique longe de mim, o que quer que você tenha feito por lá, é problema seu e eu não quero me intrometer!",
+        "replies": [
+            {
+                "text": "Você deve ter me confundido com outra pessoa.",
+                "nextPhraseID": "landa_6"
+            }
+        ]
+    },
+    {
+        "id": "landa_6",
+        "message": "Por favor, não me machuque!",
+        "replies": [
+            {
+                "text": "Landa, você deve ter me confundido com outra pessoa! O que foi que você viu?",
+                "nextPhraseID": "landa_7"
+            }
+        ]
+    },
+    {
+        "id": "landa_7",
+        "message": "Não, é menor do que ele.",
+        "replies": [
+            {
+                "text": "Você vai me dizer o que foi que você viu?",
+                "nextPhraseID": "landa_8"
+            }
+        ]
+    },
+    {
+        "id": "landa_8",
+        "message": "O rapaz. Ele estava fazendo algo. Eu tentei a esgueirar-se por perto para ver o que foi que ele estava fazendo, o que eu fiz. Mas ele fugiu antes que eu pudesse ver.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_9"
+            }
+        ]
+    },
+    {
+        "id": "landa_9",
+        "message": "Ele fez algo no poço de Loneford.",
+        "replies": [
+            {
+                "text": "Quando foi isso?",
+                "nextPhraseID": "landa_10"
+            }
+        ]
+    },
+    {
+        "id": "landa_10",
+        "message": "Foi no meio da noite, no dia antes de tudo começar. No dia seguinte, eu estava dormindo durante o dia. Assim, não percebi toda a agitação quando eles trouxeram Hesor volta.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_11"
+            }
+        ]
+    },
+    {
+        "id": "landa_11",
+        "message": "Quase toda a aldeia queria ver o que tinha acontecido com Hesor. Guardei isso para mim e não se atrevi a falar com ninguém.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_12"
+            }
+        ]
+    },
+    {
+        "id": "landa_12",
+        "message": "No mesmo dia, outros começaram a ficar pálidos também. Eu podia ver isso em seus rostos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_13"
+            }
+        ]
+    },
+    {
+        "id": "landa_13",
+        "message": "Na noite seguinte, eu estava me preparando para ir para ir para o poço e procurar todos os vestígios do que o rapaz tinha feito.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_14"
+            }
+        ]
+    },
+    {
+        "id": "landa_14",
+        "message": "Olhei pela janela para ver se havia alguém que pudesse me ver. Em vez disso, eu vi alguém se escondendo em torno do poço, enchendo vários frascos misturando imundice com a água do próprio poço.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_15"
+            }
+        ]
+    },
+    {
+        "id": "landa_15",
+        "message": "Tenho certeza que foi Buceth, da capela. Eu tenho um bom olho para as pessoas, e uma boa memória. Sim, tenho a certeza que foi Buceth.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_16"
+            }
+        ]
+    },
+    {
+        "id": "landa_16",
+        "message": "Além disso, não é estranho que Buceth não tenha ficado doente, enquanto todos os outros na aldeia ficaram doentes?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 31
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_17"
+            }
+        ]
+    },
+    {
+        "id": "landa_17",
+        "message": "Ele deve estar tramando algo. Ele e aquele rapaz que parecia você. Tem certeza de que não foi você?",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 35
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_18"
+            }
+        ]
+    },
+    {
+        "id": "landa_18",
+        "message": "Não importa. Por favor, não diga a ninguém que eu lhe disse tudo isso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "landa_19"
+            }
+        ]
+    },
+    {
+        "id": "landa_19",
+        "message": "Agora, sai daqui garoto, antes que alguém o veja falar comigo. *Olha em volta ansiosamente*",
+        "replies": [
+            {
+                "text": "Obrigado Landa. Seu segredo está seguro comigo.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Obrigado Landa. Eu vou considerar isso.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Você terminou? Ufa, pensei que nunca ia parar de falar.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "landa_already_1",
+        "message": "Você de novo? Eu já disse a você. Saia daqui antes que alguém o veja falar comigo."
+    }
+]

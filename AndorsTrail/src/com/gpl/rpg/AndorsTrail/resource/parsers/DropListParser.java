@@ -6,45 +6,46 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonParserFor;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Pair;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class DropListParser extends ResourceParserFor<DropList> {
+public final class DropListParser extends JsonCollectionParserFor<DropList> {
 
-	private final ResourceFileTokenizer droplistItemResourceTokenizer = new ResourceFileTokenizer(4);
-	private final ResourceObjectParser<DropItem> dropItemParser;
-	
+	private final JsonParserFor<DropItem> dropItemParser;
+
 	public DropListParser(final ItemTypeCollection itemTypes) {
-		super(2);
-		this.dropItemParser = new ResourceObjectParser<DropItem>() {
+		this.dropItemParser = new JsonParserFor<DropItem>() {
 			@Override
-			public DropItem parseRow(String[] parts) {
+			protected DropItem parseObject(JSONObject o) throws JSONException {
 				return new DropItem(
-						itemTypes.getItemType(parts[0]) 						// Itemtype
-						, ResourceParserUtils.parseChance(parts[3]) 				// Chance
-						, ResourceParserUtils.parseQuantity(parts[1], parts[2]) 	// Quantity
-					);
+						itemTypes.getItemType(o.getString(JsonFieldNames.DropItem.itemID))
+						,ResourceParserUtils.parseChance(o.getString(JsonFieldNames.DropItem.chance))
+						,ResourceParserUtils.parseQuantity(o.getJSONObject(JsonFieldNames.DropItem.quantity))
+				);
 			}
 		};
 	}
 
 	@Override
-	public Pair<String, DropList> parseRow(String[] parts) {
-		// [id|items[itemID|quantity_Min|quantity_Max|chance|]|];
-		
-		String droplistID = parts[0];
-		
+	protected Pair<String, DropList> parseObject(JSONObject o) throws JSONException {
+		String droplistID = o.getString(JsonFieldNames.DropList.dropListID);
+
+		JSONArray array = o.getJSONArray(JsonFieldNames.DropList.items);
 		final ArrayList<DropItem> items = new ArrayList<DropItem>();
-		droplistItemResourceTokenizer.tokenizeArray(parts[1], items, dropItemParser);				
-		DropItem[] items_ = items.toArray(new DropItem[items.size()]);
-		
+		dropItemParser.parseRows(array, items);
+
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			if (items_.length <= 0) {
+			if (items.size() <= 0) {
 				L.log("OPTIMIZE: Droplist \"" + droplistID + "\" has no dropped items.");
 			}
 		}
-		return new Pair<String, DropList>(droplistID, new DropList(items_));
+
+		return new Pair<String, DropList>(droplistID, new DropList(items));
 	}
 }

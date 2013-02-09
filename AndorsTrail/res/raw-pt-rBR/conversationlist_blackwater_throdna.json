@@ -1,0 +1,640 @@
+[
+    {
+        "id": "throdna_start",
+        "replies": [
+            {
+                "nextPhraseID": "throdna_purify_4",
+                "requires": {
+                    "progress": "kazaul:100"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_purify_1",
+                "requires": {
+                    "progress": "kazaul:41"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_return_3",
+                "requires": {
+                    "progress": "kazaul:30"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_return_1",
+                "requires": {
+                    "progress": "kazaul:10"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_1"
+            }
+        ]
+    },
+    {
+        "id": "throdna_1",
+        "message": "Kazaul .. Sombra .. o que era mesmo?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_2"
+            }
+        ]
+    },
+    {
+        "id": "throdna_2",
+        "message": "Ah, um visitante. Olá lá. Eu não vi você por aqui antes. Eles permitiram que você viesse aqui?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_3"
+            }
+        ]
+    },
+    {
+        "id": "throdna_3",
+        "message": "É claro que eles permitiram. Estou apenas divagando. Harlenn e sua turma sempre mantêm seus deveres mundanos sob controle.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_4"
+            }
+        ]
+    },
+    {
+        "id": "throdna_4",
+        "message": "Então, quem é você, hein? Provavelmente está aqui para me incomodar com alguma queixa mundana sobre a necessidade de mais recursos para o assentamento ou alguém reclamando do vento frio do lado de fora de novo?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_loop_1"
+            }
+        ]
+    },
+    {
+        "id": "throdna_loop_1",
+        "message": "O que você quer?",
+        "replies": [
+            {
+                "text": "Que lugar é esse?",
+                "nextPhraseID": "throdna_6"
+            },
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "throdna_7"
+            },
+            {
+                "text": "O que foi que você falou quando cheguei? Kazaul?",
+                "nextPhraseID": "throdna_8"
+            },
+            {
+                "text": "Você está ciente de que há uma rivalidade acontecendo entre esse assentamento e Prim?",
+                "nextPhraseID": "throdna_5"
+            }
+        ]
+    },
+    {
+        "id": "throdna_5",
+        "message": "E lá vai você com seus problemas mundanos. Eu digo a você, seus problemas mundanos não me interessam nem um pouco.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_6"
+            }
+        ]
+    },
+    {
+        "id": "throdna_6",
+        "message": "Esta é a câmara dos magos da Montanha das Águas Negras. Dedicamos o nosso tempo para os estudos da Sombra e seus descendentes.",
+        "replies": [
+            {
+                "text": "Descendentes?",
+                "nextPhraseID": "throdna_8"
+            },
+            {
+                "text": "Vamos falar de outras questões.",
+                "nextPhraseID": "throdna_loop_1"
+            }
+        ]
+    },
+    {
+        "id": "throdna_7",
+        "message": "Eu sou Throdna. Uma das messoas mais sábias nesse setor, caso você me pergunte.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_loop_1"
+            }
+        ]
+    },
+    {
+        "id": "throdna_8",
+        "message": "Kazaul, a cria da Sombra de medula vermelha.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 8
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_9"
+            }
+        ]
+    },
+    {
+        "id": "throdna_9",
+        "message": "Estamos tentando ler tudo o que puder sobre Kazaul, e o ritual. Parece que pode ser tarde demais.",
+        "replies": [
+            {
+                "text": "O que quer dizer?",
+                "nextPhraseID": "throdna_10"
+            }
+        ]
+    },
+    {
+        "id": "throdna_10",
+        "message": "O ritual. Acreditamos que Kazaul irá se manifestar em nossa presença em breve.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_11"
+            }
+        ]
+    },
+    {
+        "id": "throdna_11",
+        "message": "Temos de aprender mais sobre o ritual Kazaul, para ganhar seu poder e aprender a usá-lo para nossos propósitos.",
+        "replies": [
+            {
+                "text": "Posso ajudar de alguma forma?",
+                "nextPhraseID": "throdna_12"
+            },
+            {
+                "text": "O que você pretende fazer?",
+                "nextPhraseID": "throdna_12"
+            }
+        ]
+    },
+    {
+        "id": "throdna_12",
+        "message": "Como eu disse, nós queremos aprender mais sobre o próprio ritual.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 9
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_13"
+            }
+        ]
+    },
+    {
+        "id": "throdna_13",
+        "message": "Tempos atrás, estávamos à beira de ter em nossas mãos todo o ritual em si, mas o mensageiro diante em circunstâncias interessantes durante sua viagem até aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_14"
+            }
+        ]
+    },
+    {
+        "id": "throdna_14",
+        "message": "Nós sabíamos que ele tinha as partes do ritual completo com ele, mas como ele foi morto e nós não pudemor ir atrás dele, por causa dos monstros - suas anotações ficaram inacessíveis para nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_15"
+            }
+        ]
+    },
+    {
+        "id": "throdna_15",
+        "message": "De acordo com nossas fontes, devem haver cinco partes do ritual espalhadas por toda a montanha. Três deles descrevendo o ritual em si, e duas descrevendo o canto Kazaul usado para chamar o guardião.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_15_1"
+            }
+        ]
+    },
+    {
+        "id": "throdna_16",
+        "message": "Hum, talvez você poderia ter-nos um bom uso ...",
+        "replies": [
+            {
+                "text": "Eu ficaria feliz em ajudar.",
+                "nextPhraseID": "throdna_18"
+            },
+            {
+                "text": "Parece perigoso, mas vou fazê-lo.",
+                "nextPhraseID": "throdna_18"
+            },
+            {
+                "text": "Mantenha o seu ritual da sombra para vocês mesmo. Eu não quero ser envolvido nisto.",
+                "nextPhraseID": "throdna_17"
+            }
+        ]
+    },
+    {
+        "id": "throdna_17",
+        "message": "Bem, vamos ter de encontrar outra pessoa então."
+    },
+    {
+        "id": "throdna_18",
+        "message": "Sim, você pode ser capaz de ajudar. Não que você realmente tenha realmente alguma escolha.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_19"
+            }
+        ]
+    },
+    {
+        "id": "throdna_19",
+        "message": "OK. Encontre-me os fragmentos do ritual que o antigo mensageiro estava trazendo. Eles devem ser encontrados em algum lugar no caminho de acesso à Montanha das Águas Negras.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Vou voltar com os pedaços do ritual.",
+                "nextPhraseID": "throdna_20"
+            }
+        ]
+    },
+    {
+        "id": "throdna_20",
+        "message": "Sim, você irá.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 11
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_1",
+        "message": "Olá novamente. Eu espero que você venha aqui me dizer que tem as cinco partes do ritual.",
+        "replies": [
+            {
+                "text": "Eu ainda estou procurando por elas.",
+                "nextPhraseID": "throdna_return_2"
+            },
+            {
+                "text": "Quantos pedaços eu tenho que encontrar?",
+                "nextPhraseID": "throdna_15"
+            },
+            {
+                "text": "Conte-me novamente o que devo fazer.",
+                "nextPhraseID": "throdna_12"
+            },
+            {
+                "text": "Sim, eu acho que encontrei todos eles.",
+                "nextPhraseID": "throdna_check_1",
+                "requires": {
+                    "progress": "kazaul:21"
+                }
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_2",
+        "message": "Então se apresse e vá encontrá-los! Por quê você ainda está parado aqui?"
+    },
+    {
+        "id": "throdna_return_3",
+        "message": "Você realmente encontrou todas as cinco partes? Acho que eu deveria agradecer. Pois então. Obrigado.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_4"
+            }
+        ]
+    },
+    {
+        "id": "throdna_15_1",
+        "replies": [
+            {
+                "nextPhraseID": "X",
+                "requires": {
+                    "progress": "kazaul:10"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_16"
+            }
+        ]
+    },
+    {
+        "id": "throdna_check_1",
+        "replies": [
+            {
+                "nextPhraseID": "throdna_check_2",
+                "requires": {
+                    "progress": "kazaul:22"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_check_fail"
+            }
+        ]
+    },
+    {
+        "id": "throdna_check_2",
+        "replies": [
+            {
+                "nextPhraseID": "throdna_check_3",
+                "requires": {
+                    "progress": "kazaul:25"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_check_fail"
+            }
+        ]
+    },
+    {
+        "id": "throdna_check_3",
+        "replies": [
+            {
+                "nextPhraseID": "throdna_check_4",
+                "requires": {
+                    "progress": "kazaul:26"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_check_fail"
+            }
+        ]
+    },
+    {
+        "id": "throdna_check_4",
+        "replies": [
+            {
+                "nextPhraseID": "throdna_return_3",
+                "requires": {
+                    "progress": "kazaul:27"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_check_fail"
+            }
+        ]
+    },
+    {
+        "id": "throdna_check_fail",
+        "message": "Parece que você não encontrou ainda todas as cinco partes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_15"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_4",
+        "message": "Temos assuntos mais urgentes para nos concentrarmos. Como mencionado anteriormente, acreditamos que Kazaul irá se manifestar em nossa presença em breve.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_5"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_5",
+        "message": "Se isso vier a acontecer, não poderíamos completar a nossa pesquisa sobre o ritual ou sobre Kazaul, e todos os nossos esforços estariam perdidos.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_6"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_6",
+        "message": "Portanto, temos a intenção de retardar o processo, tanto quanto pudermos, até que tenhamos aprendido sobre seus poderes.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_7"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_7",
+        "message": "Você pode ser útil para nós aqui novamente.",
+        "replies": [
+            {
+                "text": "Eu estou pronto para qualquer coisa.",
+                "nextPhraseID": "throdna_return_8"
+            },
+            {
+                "text": "O que você precisa de mim?",
+                "nextPhraseID": "throdna_return_8"
+            },
+            {
+                "text": "Espero que envolva mais mortes e saques.",
+                "nextPhraseID": "throdna_return_8"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_8",
+        "message": "Precisamos de você para fazer duas coisas. Primeiro, você deve encontrar o santuário de Kazaul. Nossos batedores dizem-nos que o santuário deve estar localizado em algum lugar perto da base da Montanha das Águas Negras.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_9"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_9",
+        "message": "No entanto, todas as passagens para o santuário estão 'envoltas em sombras' de acordo com nossos batedores. Eu não tenho certeza o que isso significa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_10"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_10",
+        "message": "Segundo, nós precisamos que você pegue um frasco de purificador de espírito e aplique ao santuário.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_11_select"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_11_select",
+        "replies": [
+            {
+                "nextPhraseID": "throdna_return_13",
+                "requires": {
+                    "progress": "kazaul:41"
+                }
+            },
+            {
+                "nextPhraseID": "throdna_return_11"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_11",
+        "message": "Este frasco é um frasco de purificador de espírito. Deve atrasar o processo o tempo suficiente para que sejamos capazes de continuar nossa pesquisa.",
+        "replies": [
+            {
+                "text": "Parece fácil. Eu vou fazer isso.",
+                "nextPhraseID": "throdna_return_12"
+            },
+            {
+                "text": "Parece perigoso, mas vou fazê-lo.",
+                "nextPhraseID": "throdna_return_12"
+            },
+            {
+                "text": "Isso soa como uma armadilha. Eu não vou aceitar fazer seu trabalho sujo.",
+                "nextPhraseID": "throdna_17"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_12",
+        "message": "Bom, aqui está o frasco. Agora se apresse.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 41
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "throdna_items"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_return_13"
+            }
+        ]
+    },
+    {
+        "id": "throdna_return_13",
+        "message": "Volte para mim assim que tiver concluído sua tarefa."
+    },
+    {
+        "id": "throdna_purify_1",
+        "message": "Olá novamente. Eu espero que você esteja aqui para me dizer que você purificou o santuário de Kazaul.",
+        "replies": [
+            {
+                "text": "Sim, está feito.",
+                "nextPhraseID": "throdna_purify_3",
+                "requires": {
+                    "progress": "kazaul:60"
+                }
+            },
+            {
+                "text": "Não, ainda não.",
+                "nextPhraseID": "throdna_purify_2"
+            },
+            {
+                "text": "Conte-me novamente o que devo fazer.",
+                "nextPhraseID": "throdna_return_8"
+            }
+        ]
+    },
+    {
+        "id": "throdna_purify_2",
+        "message": "Então se apresse e leve o frasco para o santuário! Por quê você ainda está parado por aqui?"
+    },
+    {
+        "id": "throdna_purify_3",
+        "message": "Bom. Temos pressa em continuar nossa pesquisa sobre Kazaul.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "kazaul",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_purify_4"
+            }
+        ]
+    },
+    {
+        "id": "throdna_purify_4",
+        "message": "Você deve sair daqui e permitir que nos concentremos em nosso trabalho.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_purify_5"
+            }
+        ]
+    },
+    {
+        "id": "throdna_purify_5",
+        "message": ".. Kazaul, destruidor de sonhos brilhantes ..",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_purify_6"
+            }
+        ]
+    },
+    {
+        "id": "throdna_purify_6",
+        "message": ".. Kazaul .. Sombra ..",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "throdna_purify_7"
+            }
+        ]
+    },
+    {
+        "id": "throdna_purify_7",
+        "message": "(Throdna continua a resmungar sobre sobre Kazaul, mas você não pode fazer quaisquer outras palavras)"
+    },
+    {
+        "id": "throdna_guard",
+        "message": "Mantenha sua voz baixa, enquanto estiver na câmara interior."
+    },
+    {
+        "id": "blackwater_acolyte",
+        "message": "Você também está olhando para se tornar um com a Sombra?"
+    }
+]

@@ -1,0 +1,247 @@
+[
+    {
+        "id": "ff_cook_1",
+        "message": "Ciao, Hai bisogno di aiuto dalla cucina?",
+        "replies": [
+            {
+                "text": "Certo, fammi vedere il cibo che hai in vendita.",
+                "nextPhraseID": "ff_cook_3"
+            },
+            {
+                "text": "Che odore orribile, ma cosa stai cucinando?",
+                "nextPhraseID": "ff_cook_2"
+            },
+            {
+                "text": "Questo odore è sublime, cosa stai cucinando?",
+                "nextPhraseID": "ff_cook_2"
+            }
+        ]
+    },
+    {
+        "id": "ff_cook_2",
+        "message": "Oh, questo? Dovrebbe essere uno stufato di cane rabbioso. Credo abbia bisogno di cuocere ancora un po'.",
+        "replies": [
+            {
+                "text": "Sono curioso di assaggiarlo quando è pronto, per ora buon lavoro.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Che schifo, sembra terribile. Si può veramente mangiare una cosa del genere? Ciao.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "ff_cook_3",
+        "message": "No, purtroppo non ho alcun cibo da vendere. Vai a parlare con Torilo di là se vuoi qualche bevanda o cibo già pronto."
+    },
+    {
+        "id": "torilo_1",
+        "message": "Benvenuto nella taverna Fiasco Schiumoso, accogliamo tutti i viaggiatori qui.",
+        "replies": [
+            {
+                "text": "Grazie, sei il capo di questo posto?",
+                "nextPhraseID": "torilo_2"
+            },
+            {
+                "text": "Hai visto un ragazzo chiamato Rincel qui intorno ultimamente?",
+                "nextPhraseID": "torilo_rincel_1",
+                "requires": {
+                    "progress": "wrye:41"
+                }
+            }
+        ]
+    },
+    {
+        "id": "torilo_2",
+        "message": "Io sono Torilo, il titolare di questa struttura. Puoi sederti nel posto che preferisci.",
+        "replies": [
+            {
+                "text": "Posso vedere che cibi e bevande hai a disposizione?",
+                "nextPhraseID": "torilo_shop_1"
+            },
+            {
+                "text": "Posso riposare da qualche parte?",
+                "nextPhraseID": "torilo_rest_select"
+            },
+            {
+                "text": "Ma quelle guardie che urlano e gridano così tanto, fanno sempre così?",
+                "nextPhraseID": "torilo_guards_1"
+            }
+        ]
+    },
+    {
+        "id": "torilo_default",
+        "message": "Desideri qualcos'altro?",
+        "replies": [
+            {
+                "text": "Posso vedere che cibi e bevande hai a disposizione?",
+                "nextPhraseID": "torilo_shop_1"
+            },
+            {
+                "text": "Ma quelle guardie che urlano e gridano così tanto, fanno sempre così?",
+                "nextPhraseID": "torilo_guards_1"
+            },
+            {
+                "text": "Hai visto un ragazzo chiamato Rincel qui intorno ultimamente?",
+                "nextPhraseID": "torilo_rincel_1",
+                "requires": {
+                    "progress": "wrye:41"
+                }
+            }
+        ]
+    },
+    {
+        "id": "torilo_shop_1",
+        "message": "Certamente, abbiamo una vasta scelta fra cibi e bevande!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_select",
+        "replies": [
+            {
+                "nextPhraseID": "torilo_rest_1",
+                "requires": {
+                    "progress": "nondisplay:10"
+                }
+            },
+            {
+                "nextPhraseID": "torilo_rest_3"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_1",
+        "message": "Certo, hai già affittato la stanza sul retro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_rest_2"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_2",
+        "message": "Ti prego, sentiti libero di usarla come più ti aggrada. Spero solo tu riesca a dormire con tutte queste guardie che cantano a squarciagola le loro canzoni.",
+        "replies": [
+            {
+                "text": "Grazie.",
+                "nextPhraseID": "torilo_default"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_3",
+        "message": "Oh, certo. Abbiamo una stanza molto confortevole sul retro, qui alla taverna Fiasco Schiumoso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_rest_4"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_4",
+        "message": "Disponibile per sole 250 monete d'oro. Poi puoi restare quanto vuoi!",
+        "replies": [
+            {
+                "text": "250 monete d'oro? Certo, non sono niente per me, ecco, tieni.",
+                "nextPhraseID": "torilo_rest_6",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 250,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "250 monete d'oro sono molte, ma credo che ne valga la pena. Ecco, tieni.",
+                "nextPhraseID": "torilo_rest_6",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 250,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Acc... è un po troppo per me.",
+                "nextPhraseID": "torilo_rest_5"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_5",
+        "message": "Oh come vuoi, sei tu che ci perdi.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_default"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rest_6",
+        "message": "Grazie, la stanza ora è affittata per te.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "nondisplay",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_rest_2"
+            }
+        ]
+    },
+    {
+        "id": "torilo_rincel_1",
+        "message": "Rincel? No, non che io ricordi. In realtà, non vengono molti bambini qui. *risatina*.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_default"
+            }
+        ]
+    },
+    {
+        "id": "torilo_guards_1",
+        "message": "Sigh, sì. Quelle guardie sono qua da parecchio tempo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_guards_2"
+            }
+        ]
+    },
+    {
+        "id": "torilo_guards_2",
+        "message": "Sembrano essere alla ricerca di qualcosa o qualcuno, ma non so chi o cosa.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_guards_3"
+            }
+        ]
+    },
+    {
+        "id": "torilo_guards_3",
+        "message": "Spero che l'Ombra vegli su di noi, in modo che non succeda nulla di male alla taverna Fiasco Schiumoso a causa loro.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "torilo_default"
+            }
+        ]
+    }
+]

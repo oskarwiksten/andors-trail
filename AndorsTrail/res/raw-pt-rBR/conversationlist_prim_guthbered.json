@@ -1,0 +1,1150 @@
+[
+    {
+        "id": "guthbered_start",
+        "replies": [
+            {
+                "nextPhraseID": "guthbered_sentbybwm_leave",
+                "requires": {
+                    "progress": "bwm_agent:131"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_sentbybwm_fight",
+                "requires": {
+                    "progress": "bwm_agent:130"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_sentbybwm_1",
+                "requires": {
+                    "progress": "bwm_agent:120"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_reject",
+                "requires": {
+                    "progress": "prim_hunt:251"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_reject",
+                "requires": {
+                    "progress": "prim_hunt:250"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_completed",
+                "requires": {
+                    "progress": "prim_hunt:100"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_killharl_2",
+                "requires": {
+                    "progress": "prim_hunt:99"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_workingforbwm_2",
+                "requires": {
+                    "progress": "bwm_agent:95"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_killharl_1",
+                "requires": {
+                    "progress": "prim_hunt:80"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_lookforsigns_1",
+                "requires": {
+                    "progress": "prim_hunt:50"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_return_1_1",
+                "requires": {
+                    "progress": "prim_hunt:25"
+                }
+            },
+            {
+                "nextPhraseID": "guthbered_1"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_reject",
+        "message": "Você de novo? Deixar este lugar e vá para junto de seus amigos no assentamento da Montanha das Águas Negras. Não queremos negócio com você.",
+        "replies": [
+            {
+                "text": "Eu estou aqui para dar-lhe uma mensagem da parte do assentamento da Montanha das Águas Negras.",
+                "nextPhraseID": "guthbered_attacks",
+                "requires": {
+                    "progress": "bwm_agent:70"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_attacks",
+        "message": "Que mensagem?",
+        "replies": [
+            {
+                "text": "Harlenn no assentamento da Montanha das Águas Negras quer que você pare seus ataques contra o assentamento.",
+                "nextPhraseID": "guthbered_attacks_1"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_attacks_1",
+        "message": "Isso é completamente insano. Nós!? Parar nossos ataques?! Diga-lhe que não temos nada a ver com o que acontece lá em cima. Eles trouxeram a sua própria desgraça sobre si mesmos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 80
+            }
+        ]
+    },
+    {
+        "id": "guthbered_return_1_1",
+        "message": "Bem-vindo novamente, viajante. Você falou com Harlenn no assentamento Montanha das Águas Negras?",
+        "replies": [
+            {
+                "text": "Você pode me contar a história sobre os monstros de novo?",
+                "nextPhraseID": "guthbered_13"
+            },
+            {
+                "text": "O que eu devo fazer mesmo?",
+                "nextPhraseID": "guthbered_29"
+            },
+            {
+                "text": "Você pode me contar a história sobre Prim de novo?",
+                "nextPhraseID": "guthbered_2"
+            },
+            {
+                "text": "Sim, mas Harlenn nega que eles tenham alguma coisa a ver com os ataques.",
+                "nextPhraseID": "guthbered_talkedto_harl_1",
+                "requires": {
+                    "progress": "prim_hunt:30"
+                }
+            },
+            {
+                "text": "Na verdade, eu estou aqui para dar-lhe uma mensagem da parte do assentamento da Montanha das Águas Negras.",
+                "nextPhraseID": "guthbered_attacks",
+                "requires": {
+                    "progress": "bwm_agent:70"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_1",
+        "message": "Bem-vindo a Prim, viajante.",
+        "replies": [
+            {
+                "text": "O que você pode me dizer sobre Prim?",
+                "nextPhraseID": "guthbered_2"
+            },
+            {
+                "text": "Quem é você?",
+                "nextPhraseID": "guthbered_who_1"
+            },
+            {
+                "text": "Disseram-me para vê-lo sobre uma ajuda contra os ataques de monstros.",
+                "nextPhraseID": "guthbered_20",
+                "requires": {
+                    "progress": "prim_hunt:11"
+                }
+            },
+            {
+                "text": "Na verdade, eu estou aqui para dar-lhe uma mensagem a partir do assentamento da Montanha das Águas Negras.",
+                "nextPhraseID": "guthbered_attacks",
+                "requires": {
+                    "progress": "bwm_agent:70"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_2",
+        "message": "Prim começou como um simples campo para os mineiros que trabalhavam nas minas por aqui. Mais tarde, ela cresceu a um assentamento, e alguns anos atrás, conta até mesmo com uma taberna e uma pousada por aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_3"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_3",
+        "message": "Este lugar costumava ser cheio de vida, quando os mineiros trabalhavam aqui.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_4"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_4",
+        "message": "Os mineiros também atraiam um grande número de comerciantes que costumavam passar por aqui.",
+        "replies": [
+            {
+                "text": "'Costumava'?",
+                "nextPhraseID": "guthbered_5"
+            },
+            {
+                "text": "O que aconteceu então?",
+                "nextPhraseID": "guthbered_5"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_5",
+        "message": "Até bem recentemente, podiamos pelo menos ter algum contato com as aldeias de fora. Hoje em dia, a esperança está perdida.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_6"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_6",
+        "message": "Você vê, o túnel da mina para o sul desabou, e ninguém mais pode entrar ou sair de Prim.",
+        "replies": [
+            {
+                "text": "Eu sei, eu vim de lá.",
+                "nextPhraseID": "guthbered_7"
+            },
+            {
+                "text": "Azar.",
+                "nextPhraseID": "guthbered_10"
+            },
+            {
+                "text": "O que o fez desmoronar?",
+                "nextPhraseID": "guthbered_11"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_7",
+        "message": "Você passou lá? Oh. Bem, sim, é claro que você deve ter, visto que você não é de Prim. Portanto, há um caminho através dela, apesar de tudo, né?",
+        "replies": [
+            {
+                "text": "Sim, mas eu tive que ir através da parte escura da mina, que encontra-se escura.",
+                "nextPhraseID": "guthbered_8"
+            },
+            {
+                "text": "Sim, a passagem pelo interior da mina está segura.",
+                "nextPhraseID": "guthbered_8"
+            },
+            {
+                "text": "Não, estou brincando. Escalei sobre o cume da montanha para chegar aqui.",
+                "nextPhraseID": "guthbered_8"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_8",
+        "message": "OK. Vamos ter que investigar isso mais tarde.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_9"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_9",
+        "message": "Enfim, como eu estava dizendo ..",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_10"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_10",
+        "message": "O túnel da mina desabou tornando difícil para todos os comerciantes chegarem a Prim. Nossos recursos estão realmente começando a diminuir.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_12"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_11",
+        "message": "Não temos certeza. Mas temos as nossas suspeitas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_10"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_12",
+        "message": "Além disso, há os ataques dos monstros que temos de lidar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 11
+            }
+        ],
+        "replies": [
+            {
+                "text": "Sim, eu notei alguns monstros fora da aldeia.",
+                "nextPhraseID": "guthbered_13"
+            },
+            {
+                "text": "Que monstros?",
+                "nextPhraseID": "guthbered_13"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_who_1",
+        "message": "Sou Guthbered, protetor da vila.",
+        "replies": [
+            {
+                "text": "O que você pode me dizer sobre Prim?",
+                "nextPhraseID": "guthbered_2"
+            },
+            {
+                "text": "Disseram-me para vê-lo sobre uma ajuda contra os ataques de monstros.",
+                "nextPhraseID": "guthbered_20",
+                "requires": {
+                    "progress": "prim_hunt:11"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_13",
+        "message": "Tempos atrás, começamos a ver os primeiros monstros. No início, eles não foram problema para nós os contê-los. Nossos guardas poderiam exterminá-los facilmente.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_14"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_14",
+        "message": "Mas depois de um tempo, alguns de nossos guardas se machucaram, e a quantidade de monstros aumentou.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_15"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_15",
+        "message": "Além disso, quase parecia que os monstros estavam ficando mais inteligentes. Seus ataques foram ficando mais e mais coordenados.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_16"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_16",
+        "message": "Agora, não podemos segurá-los mais. Eles vêm principalmente à noite.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_17"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_17",
+        "message": "Segundo a lenda, os monstros são chamados de 'Gornauds'.",
+        "replies": [
+            {
+                "text": "Alguma idéia de onde eles podem estar vindo?",
+                "nextPhraseID": "guthbered_18"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_18",
+        "message": "Ah, sim, nós somos quase certeza.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_19"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_19",
+        "message": "Esses bastardos do mal do assentamento da Montanha das Águas Negras provavelmente convocou-os para nos atacar. Eles preferem ver-nos perecer.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_22"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_20",
+        "message": "Ah bom. Você falou com Tonis? Sim, eu tenho certeza que você o encontrou no seu caminho para a cidade.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_21"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_21",
+        "message": "Bom. Deixe-me dizer-lhe contar primeiro a história de Prim.",
+        "replies": [
+            {
+                "text": "Certo.",
+                "nextPhraseID": "guthbered_2"
+            },
+            {
+                "text": "Prefiro pular para o final diretamente.",
+                "nextPhraseID": "guthbered_13"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_22",
+        "message": "Nós costumávamos negociar com eles lá em cima, mas tudo mudou, uma vez que ficaram gananciosos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 25
+            }
+        ],
+        "replies": [
+            {
+                "text": "Eu conheci um homem fora da mina que desabou que disse que ele era do assentamento da Montanha das Águas Negras.",
+                "nextPhraseID": "guthbered_26"
+            },
+            {
+                "text": "Você precisa de alguma ajuda para lidar com esses monstros?",
+                "nextPhraseID": "guthbered_23"
+            },
+            {
+                "text": "Eu ficaria feliz em ajudá-lo com os monstros.",
+                "nextPhraseID": "guthbered_24"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_23",
+        "message": "Um garoto, não é? Sim, por favor, você é bem-vindo para ajudar.",
+        "replies": [
+            {
+                "text": "Eu ficaria feliz em ajudá-lo com os monstros.",
+                "nextPhraseID": "guthbered_24"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_24",
+        "message": "Você realmente acha que tem o que é preciso para nos ajudar?",
+        "replies": [
+            {
+                "text": "Eu deixei um rastro de sangue de monstros atrás de mim.",
+                "nextPhraseID": "guthbered_25"
+            },
+            {
+                "text": "Claro, eu posso lidar com isso.",
+                "nextPhraseID": "guthbered_25"
+            },
+            {
+                "text": "Se os monstros são parecidos com aqueles que estiveram no meu caminho, vai ser uma luta dura. Mas eu dou conta.",
+                "nextPhraseID": "guthbered_25"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_25",
+        "message": "Muito bem! Eu acho que devemos ir direto à fonte do problema.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_29"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_26",
+        "message": "Um homem, que veio do assentamento da Montanha das Águas Negras, você diz?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_27"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_27",
+        "message": "Ele disse alguma coisa sobre nós aqui em Prim?",
+        "replies": [
+            {
+                "text": "Não. Mas ele insistiu que eu fosse direto para leste ao sair da mina, portanto, não atingindo Prim.",
+                "nextPhraseID": "guthbered_28"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_28",
+        "message": "Que figuras. Eles enviam seus espiões até hoje.",
+        "replies": [
+            {
+                "text": "Você precisa de alguma ajuda para lidar com esses monstros?",
+                "nextPhraseID": "guthbered_23"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_29",
+        "message": "Como eu disse, nós acreditamos que esses bastardos do assentamento Montanha das Águas Negras estão por trás, de alguma forma, dos monstros nos atacam.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_30"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_30",
+        "message": "Eu quero que você vá até lá para o assentamento e perguntar ao ministro da guerra, Harlenn, por que eles estão fazendo isso conosco.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 25
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, eu vou perguntar a Harlenn no assentamento da Montanha das Águas Negras por que eles estão atacando sua vila.",
+                "nextPhraseID": "guthbered_31"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_31",
+        "message": "Obrigado amigo.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 25
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_1",
+        "message": "O que eu esperava? É claro que ele diria isso. Ele, provavelmente, até nega isso a si mesmo. Enquanto isso, nós aqui em Prim sofremos com seus ataques selvagens.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_2"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_2",
+        "message": "Tenho certeza que eles estão por trás desses ataques. No entanto, eu não tenho provas suficientes para suportar minhas desconfianças, de forma a que eu possa agir.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_3"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_3",
+        "message": "Mas tenho certeza de que são eles! Como eles são falsos! Sempre mentindo e enganando. Destruindo e causando tumulto.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_4"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_4",
+        "message": "Basta ouvir o nome que escolheram para si mesmos: 'das Águas Negras'. O tom da soa como problema.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_5"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_5",
+        "message": "De qualquer forma, gostaria de obter alguma evidência adicional sobre o que eles estão fazendo. Talvez  que você possa nos ajudar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_6"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_6",
+        "message": "Mas eu preciso ter certeza de que eu posso confiar em você. Se você estiver trabalhando para eles, é melhor que você me diga agora antes que as coisas fiquem... bagunçadas.",
+        "replies": [
+            {
+                "text": "Claro, você pode confiar em mim. Eu vou ajudar o povo de Prim.",
+                "nextPhraseID": "guthbered_talkedto_harl_8"
+            },
+            {
+                "text": "Hm, talvez eu devesse, ao invés,ajudar as pessoas da Montanha das Águas Negras.",
+                "nextPhraseID": "guthbered_workingforbwm_1"
+            },
+            {
+                "text": "(Mentira) Você pode confiar em mim.",
+                "nextPhraseID": "guthbered_talkedto_harl_7",
+                "requires": {
+                    "progress": "bwm_agent:70"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_7",
+        "message": "No entanto, de alguma forma eu não confio em você.",
+        "replies": [
+            {
+                "text": "Eu estava trabalhando para eles, mas eu decidi ajudá-lo, ao invés.",
+                "nextPhraseID": "guthbered_talkedto_harl_8"
+            },
+            {
+                "text": "Por que eu iria querer trabalhar para a sua aldeia imunda? As pessoas no assentamento Montanha das Águas Negras merece a minha ajuda muito mais do que você.",
+                "nextPhraseID": "guthbered_workingforbwm_1"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_8",
+        "message": "Bom. Estou feliz que você quiser nos ajudar.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_9"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_workingforbwm_1",
+        "message": "Certo. Você deve sair agora, enquanto você ainda pode, traidor.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 250
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_9",
+        "message": "Eu quero que você vá lá em cima ao assentamento e encontrar pistas sobre o que eles estão planejando.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_10"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_10",
+        "message": "Acreditamos que eles estejam treinando seus lutadores para lançar um grande ataque a nós em breve.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_11"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_11",
+        "message": "Vá procurar os planos que você puder encontrar. Mas certifique-se de que eles não te vejam procurando-as.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_talkedto_harl_12"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_12",
+        "message": "Você provavelmente deve iniciar sua pesquisa no local onde o ministro da guerra, Harlenn, estiver.",
+        "replies": [
+            {
+                "text": "OK. Vou procurar pistas em seu assentamento.",
+                "nextPhraseID": "guthbered_talkedto_harl_13"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_talkedto_harl_13",
+        "message": "Obrigado, amigo. Relate-me de volta sobre suas descobertas.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 50
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_1",
+        "message": "Olá novamente. Achou algo no assentamento da Montanha das Águas Negras?",
+        "replies": [
+            {
+                "text": "Não, eu ainda estou procurando.",
+                "nextPhraseID": "guthbered_talkedto_harl_13"
+            },
+            {
+                "text": "Poderia repetir novamente o que devo fazer?",
+                "nextPhraseID": "guthbered_talkedto_harl_9"
+            },
+            {
+                "text": "Sim, encontrei alguns papéis com um plano para atacar Prim.",
+                "nextPhraseID": "guthbered_lookforsigns_2",
+                "requires": {
+                    "progress": "prim_hunt:60"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_2",
+        "message": "Então é como suspeitávamos. Esta é uma notícia realmente terrível.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_lookforsigns_3"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_3",
+        "message": "Agora você entende o que eu havia dito. Eles estão sempre à procura de causar problemas.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_lookforsigns_4"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_4",
+        "message": "Obrigado por encontrar essa informação para nós.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 70
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_lookforsigns_5"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_5",
+        "message": "Muito bem. Vamos ter que lidar com isso.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_lookforsigns_6"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_6",
+        "message": "Eu esperava que não chegasse a isso. Mas ficamos sem nenhuma escolha. Temos de eliminar a principal força motriz por trás dos ataques. Temos de eliminar seu ministro da guerra, Harlenn.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_lookforsigns_7"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_7",
+        "message": "Esta seria uma tarefa excelente para você meu amigo. Desde que você tem acesso às suas instalações, você pode se esgueirar por lá e matar o bastardo do Harlenn.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_lookforsigns_8"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_8",
+        "message": "Ao matá-lo, podemos ter certeza de que seus ataques ... digamos ... perderão seus dentes. Há há.",
+        "replies": [
+            {
+                "text": "Não tem problema, ele vale tanto quanto um morto.",
+                "nextPhraseID": "guthbered_lookforsigns_9"
+            },
+            {
+                "text": "Você tem certeza de mais violência vai realmente resolver este conflito?",
+                "nextPhraseID": "guthbered_lookforsigns_10"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_9",
+        "message": "Excelente. Volte para mim assim que você terminar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 80
+            }
+        ]
+    },
+    {
+        "id": "guthbered_lookforsigns_10",
+        "message": "Não, não realmente. Mas, por agora, parece que a única opção que temos.",
+        "replies": [
+            {
+                "text": "vou tirá-lo, mas vou tentar encontrar uma solução pacífica para esta.",
+                "nextPhraseID": "guthbered_lookforsigns_9"
+            },
+            {
+                "text": "Muito bem. Ele vale tanto quanto um morto.",
+                "nextPhraseID": "guthbered_lookforsigns_9"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_workingforbwm_2",
+        "message": "Minhas fontes de dentro do assentamento Montanha das Águas Negras dizem-me que você está a trabalhando para eles.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_workingforbwm_3"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_workingforbwm_3",
+        "message": "É, naturalmente, a sua escolha. Mas se você está trabalhando para eles, você não é bem-vindo aqui em Prim. Você deve deixar rapidamente, enquanto ainda pode.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 251
+            }
+        ]
+    },
+    {
+        "id": "guthbered_completed",
+        "message": "Olá novamente meu amigo. Obrigado por sua ajuda para lidar com os bandidos até da Montanha das Águas Negras.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_completed_1"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_completed_1",
+        "message": "Tenho certeza de que todos aqui em Prim vai querer falar com você agora.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 240
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_completed_2"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_completed_2",
+        "message": "Obrigado novamente por sua ajuda.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 250
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_1",
+        "message": "O brilho em seus olhos me assusta.",
+        "replies": [
+            {
+                "text": "Eu fui enviado pelo assentamento Montanha das Águas Negras para pará-lo.",
+                "nextPhraseID": "guthbered_sentbybwm_fight"
+            },
+            {
+                "text": "Eu fui enviado pelo assentamento Montanha das Águas Negras para pará-lo. No entanto, eu decidi não matá-lo.",
+                "nextPhraseID": "guthbered_sentbybwm_3"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_fight",
+        "message": "Eu esperava que não chegasse a isso. Tenho receio de que você não irá sobreviver a este encontro. Será apenas outra vida em minhas mãos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 130
+            }
+        ],
+        "replies": [
+            {
+                "text": "Pela sombra!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Palavras corajosas, vamos ver se você suas ações não irão desapontar.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Grande, estou ansioso para lhe matar.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Vamos lutar!",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_3",
+        "message": "Que interessante ... Por favor, continue.",
+        "replies": [
+            {
+                "text": "É óbvio que este conflito só vai acabar com mais derramamento de sangue. Isso deve parar por aqui.",
+                "nextPhraseID": "guthbered_sentbybwm_4"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_4",
+        "message": "O que você está propondo?",
+        "replies": [
+            {
+                "text": "A minha proposta é que você deixe esta vila e encontre um novo lar em outro lugar.",
+                "nextPhraseID": "guthbered_sentbybwm_5"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_5",
+        "message": "Ah, por que eu iria querer fazer isso?",
+        "replies": [
+            {
+                "text": "Estas duas cidades estarão sempre lutar uns contra os outros. Se você a deixar, eles vão pensar que ganharam, e pararão com seus ataques.",
+                "nextPhraseID": "guthbered_sentbybwm_6"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_6",
+        "message": "Hum, até que você parece estar com a razão.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_sentbybwm_7"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_7",
+        "message": "Ok, você me convenceu. Vou deixar Prim e ir para outra cidade. A sobrevivência do meu povo aqui é mais importante do que eu.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_sentbybwm_leave"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_sentbybwm_leave",
+        "message": "Obrigado amigo, por fazer meu bom senso retornar.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bwm_agent",
+                "value": 131
+            }
+        ],
+        "replies": [
+            {
+                "text": "Você é bem-vindo.",
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_1",
+        "message": "Olá novamente. Você conseguiu remover aquele bastardo do Harlenn, ministro da guerra do assentamento da Montanha das Águas Negras?",
+        "replies": [
+            {
+                "text": "Você pode me dizer novamente o que eu devo fazer?",
+                "nextPhraseID": "guthbered_lookforsigns_6"
+            },
+            {
+                "text": "Ainda não. Eu ainda estou trabalhando nisso.",
+                "nextPhraseID": "guthbered_lookforsigns_9"
+            },
+            {
+                "text": "Sim, ele está morto.",
+                "nextPhraseID": "guthbered_killharl_2",
+                "requires": {
+                    "item": {
+                        "itemID": "harlenn_id",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Sim, ele está desaparecido.",
+                "nextPhraseID": "guthbered_killharl_3",
+                "requires": {
+                    "progress": "prim_hunt:91"
+                }
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_2",
+        "message": "Enquanto eu sou grato por saber que ele foi morto, também estou triste que tenha terminado assim.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 99
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_4"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_3",
+        "message": "Sério? Esta é uma grande notícia, de fato.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_4"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_4",
+        "message": "Isso provavelmente significa que seus ataques a nossa aldeia cessarão.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_5"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_5",
+        "message": "Eu não sei como lhe agradecer o suficiente meu amigo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_6"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_6",
+        "message": "Aqui, por favor, aceite estes alguns itens como uma forma de compensação por sua ajuda. Além disso, deve levar este pedaço de papel que adquirimos.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "prim_hunt",
+                "value": 100
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "guthbered_reward"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_7"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_7",
+        "message": "Esta é uma permissão que ... obtivemos ... De acordo com as nossas fontes, ela permitirá que você acesse a câmara interna do assentamento da Montanha das Águas Negras.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_8"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_8",
+        "message": "Agora, a licença não é ... digamos .. completamente genuína. Mas estamos certos de que os guardas não irão notar nenhuma diferença.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_killharl_9"
+            }
+        ]
+    },
+    {
+        "id": "guthbered_killharl_9",
+        "message": "Enfim, você tem meus maiores agradecimentos pela ajuda que você forneceu para nós.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "guthbered_completed_1"
+            }
+        ]
+    }
+]

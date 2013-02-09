@@ -1,0 +1,110 @@
+[
+    {
+        "id": "leta1",
+        "message": "おい、ここは私の家だよ！出て行きなさい。",
+        "replies": [
+            {
+                "text": "でも、僕はただ...",
+                "nextPhraseID": "leta2"
+            },
+            {
+                "text": "あなたの夫のOromirさんのことなんですが。",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta2",
+        "message": "さっさと、出て行きなさい！",
+        "replies": [
+            {
+                "text": "あなたの夫のOromirさんのことなんですが。",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_select",
+        "replies": [
+            {
+                "nextPhraseID": "leta_oromir_complete2",
+                "requires": {
+                    "progress": "leta:100"
+                }
+            },
+            {
+                "nextPhraseID": "leta_oromir1"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir1",
+        "message": "主人の事、何か知っているのかい？ あの人は今日、私と畑仕事をしなきゃいけないのに、いつも通りにどこか行っちゃったのよ。\nはぁ...",
+        "replies": [
+            {
+                "text": "特にわかりません。",
+                "nextPhraseID": "leta_oromir2"
+            },
+            {
+                "text": "Oromirさんは東の方で林の中に隠れていましたよ。",
+                "nextPhraseID": "leta_oromir_complete",
+                "requires": {
+                    "progress": "leta:20"
+                }
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir2",
+        "message": "あの人を見つけたら、早く帰って家事を手伝うように言ってちょうだい。\nさあ、今度こそ帰りなさい。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete",
+        "message": "隠れてた？ 驚くことじゃないわね。 ここのボスが誰なのか、あの人に教えておくわ。\n知らせてくれて感謝するよ。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 100
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete2",
+        "message": "さっきは教えてくれてありがとうね。私はとっととあの人を捕えに行くわ。"
+    },
+    {
+        "id": "oromir1",
+        "message": "わっ、びっくりした。\nこんにちは。",
+        "replies": [
+            {
+                "text": "こんにちは。",
+                "nextPhraseID": "oromir2"
+            }
+        ]
+    },
+    {
+        "id": "oromir2",
+        "message": "僕はここで、妻のLetaから隠れてるんだよ。彼女、僕が畑を手伝わないといつも怒るんだ。ここにいるってこと、どうか彼女に教えないでくれ。",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "leta",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "オッケー",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

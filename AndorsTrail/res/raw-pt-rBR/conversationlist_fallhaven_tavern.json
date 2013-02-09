@@ -1,0 +1,107 @@
+[
+    {
+        "id": "bela",
+        "message": "Bem-vindo à taverna de Fallhaven. Sente-se em qualquer lugar.",
+        "replies": [
+            {
+                "text": "Deixe-me ver o que alimentos e bebidas que você tem disponíveis.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Existem quartos disponíveis?",
+                "nextPhraseID": "bela_room_select"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_1",
+        "message": "Um quarto custa apenas 10 moedas de ouro.",
+        "replies": [
+            {
+                "text": "Compre[10 moedas de ouro]",
+                "nextPhraseID": "bela_room_2",
+                "requires": {
+                    "item": {
+                        "itemID": "gold",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Não, obrigado.",
+                "nextPhraseID": "bela"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_2",
+        "message": "Obrigado. Pegue o último quarto ao final do corredor.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "fallhaventavern",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Obrigado. Gostaria de falar sobre outra coisa.",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Obrigado, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_3",
+        "message": "Espero que o quarto esteja adequado às suas necessidades. É o último quarto ao final do corredor.",
+        "replies": [
+            {
+                "text": "Obrigado. Gostaria de falar sobre outra coisa.",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Obrigado, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_select",
+        "replies": [
+            {
+                "nextPhraseID": "bela_room_3",
+                "requires": {
+                    "progress": "fallhaventavern:10"
+                }
+            },
+            {
+                "nextPhraseID": "bela_room_1"
+            }
+        ]
+    },
+    {
+        "id": "ganos",
+        "message": "Você parece estranhamente familiar.",
+        "replies": [
+            {
+                "text": "Você tem alguma coisa para o vender?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Você sabe alguma coisa sobre a Corja dos Ladrões?",
+                "nextPhraseID": "ganos_1",
+                "requires": {
+                    "progress": "andor:30"
+                }
+            }
+        ]
+    },
+    {
+        "id": "ganos_1",
+        "message": "Corja dos Ladrões? Como eu poderia saber? Eu pareço um ladrão para você?! Hrmpf."
+    }
+]

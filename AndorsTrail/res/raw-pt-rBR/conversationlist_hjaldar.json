@@ -1,0 +1,426 @@
+[
+    {
+        "id": "hjaldar",
+        "replies": [
+            {
+                "nextPhraseID": "hjaldar_pots_1",
+                "requires": {
+                    "progress": "sisterfight:61"
+                }
+            },
+            {
+                "nextPhraseID": "hjaldar_r3",
+                "requires": {
+                    "progress": "sisterfight:60"
+                }
+            },
+            {
+                "nextPhraseID": "hjaldar_r1",
+                "requires": {
+                    "progress": "sisterfight:45"
+                }
+            },
+            {
+                "nextPhraseID": "hjaldar_7r",
+                "requires": {
+                    "progress": "sisterfight:40"
+                }
+            },
+            {
+                "nextPhraseID": "hjaldar_1"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_1",
+        "message": "Olá. Sou Hjaldar.",
+        "replies": [
+            {
+                "text": "O que você faz aqui?",
+                "nextPhraseID": "hjaldar_2"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_2",
+        "message": "Eu costumava ser um fabricante de porções. Na verdade, eu costumava ser o único fabricante de poções aqui em Remgard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_3"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_3",
+        "message": "Isso foi um bom negócio. As pessoas até mesmo viajavam até aqui de outras cidades pelas montanhas.",
+        "replies": [
+            {
+                "text": "O que fez você parar?",
+                "nextPhraseID": "hjaldar_4"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_4",
+        "message": "Bem, duas coisas. Em primeiro lugar, eu estou ficando mais velho e não tenho mais o desejo de trabalhar dias inteiros, fazendo poções para os outros.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_5"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_5",
+        "message": "Em segundo lugar, eu fiquei sem a maioria dos ingredientes. Alguns deles são realmente difíceis de obter.",
+        "replies": [
+            {
+                "text": "Pena. Foi bom falar com você, adeus.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Eu estou procurando uma poção de precisão para as irmãs Elwille, você pode ajudar com isso?",
+                "nextPhraseID": "hjaldar_6",
+                "requires": {
+                    "progress": "sisterfight:31"
+                }
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_6",
+        "message": "Oh, poções de precisão. Sim, aquelas eram populares. Infelizmente, não posso ajudá-lo com isso agora.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_7"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_7",
+        "message": "Meu fornecimento de extrato de medula de Lyson secou. Sem o qual, não posso fazer poções que sejam úteis para alguma coisa, realmente.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "Pena. Obrigado assim mesmo. Tchau.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Existe algum lugar que eu possa obter algum, e trazê-lo para você?",
+                "nextPhraseID": "hjaldar_8"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_7r",
+        "message": "Olá novamente. Desculpe por não ser capaz de ajudá-lo com as poções de precisão que você pediu.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_7"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_8",
+        "message": "Duvido. É realmente difícil de encontrar. Apenas os mais bem abastecidos fabricantes de poção têm.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_9"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_9",
+        "message": "Eu costumava abastecer meu estoque com meu velho amigo Mazeg. Eu não tenho nenhuma ideia de onde ele possa estar nestes dias, no entanto.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_10"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_10",
+        "message": "Eu acho que, se você puder encontrá-lo, ele poderá ser capaz de fornecer-lhe um pouco de extrato de medula de Lyson.",
+        "replies": [
+            {
+                "text": "Alguma ideia de onde eu poderia encontrá-lo?",
+                "nextPhraseID": "hjaldar_12"
+            },
+            {
+                "text": "Isso parece muito trabalhoso. Esqueça a poção.",
+                "nextPhraseID": "hjaldar_11"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_11",
+        "message": "Ok então. Desculpe eu possa ajudá-lo. Tchau."
+    },
+    {
+        "id": "hjaldar_12",
+        "message": "Não, eu não sei. A última vez que o vi, ele foi para o oeste. Pela aparência de sua mochila, parecia que ele estava se preparando para uma longa viagem rumo oeste.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_13"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_13",
+        "message": "Ele até tinha trajes para viajar através de climas mais frios - neve, gelo e esse tipo de coisa.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 41
+            }
+        ],
+        "replies": [
+            {
+                "text": "Obrigado pela informação. Vou tentar encontrá-lo.",
+                "nextPhraseID": "hjaldar_14"
+            },
+            {
+                "text": "Isso soa como muito trabalhoso.Esqueça a poção.",
+                "nextPhraseID": "hjaldar_11"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_14",
+        "message": "Boa sorte em sua busca. Se você encontrá-lo, o que eu duvido que você consiga, por favor, diga 'olá' para ele de minha parte, e diga-lhe que estou bem.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 45
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r1",
+        "message": "Olá novamente. Será que você conseguiu encontrar o meu velho amigo Mazeg?",
+        "replies": [
+            {
+                "text": "Sim, eu trouxe um pouco de extrato de medula de Lyson.",
+                "nextPhraseID": "hjaldar_r2",
+                "requires": {
+                    "item": {
+                        "itemID": "lyson_marrow",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "O que foi que você estava dizendo sobre as poções de precisão?",
+                "nextPhraseID": "hjaldar_6"
+            },
+            {
+                "text": "O que fez você parar de fazer poções?",
+                "nextPhraseID": "hjaldar_4"
+            },
+            {
+                "text": "Alguma ideia de onde eu poderia encontrar Mazeg?",
+                "nextPhraseID": "hjaldar_12"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r2",
+        "message": "Oh uau. Sim, isso é, de fato, extrato de medula. Bom trabalho!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r4"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r3",
+        "message": "Obrigado por me trazer algum extrato de medula. Bom trabalho!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r4"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r4",
+        "message": "Diga-me, você encontrou Mazeg ou você conseguiu isso em algum outro lugar?",
+        "replies": [
+            {
+                "text": "Eu visitei Mazeg no povoado de Montanha das Águas Negras.",
+                "nextPhraseID": "hjaldar_r5"
+            },
+            {
+                "text": "Você me fez correr todo o caminho para a Montanha das Águas Negras, espero que as poções valam a pena!",
+                "nextPhraseID": "hjaldar_r5"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r5",
+        "message": "Montanha das Águas Negras? Eu receio que eu não saiba onde é. Não importa, eu espero que tudo esteja bem com o meu velho amigo.",
+        "replies": [
+            {
+                "text": "Ele me disse para enviar seus cumprimentos mais calorosos.",
+                "nextPhraseID": "hjaldar_r6"
+            },
+            {
+                "text": "Ele parecia um homem velho lamentável que já viveu o melhor de seus dias.",
+                "nextPhraseID": "hjaldar_r7"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r6",
+        "message": "Bom. Bom. Fico feliz em saber que ele está bem.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r8"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r7",
+        "message": "Admito que o tempo não ficou ao seu lado.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r8"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r8",
+        "message": "De qualquer forma, vamos fazer essa poção que você pediu anteriormente. Eu já preparei os outros ingredientes para outra poção de antemão.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r9"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r9",
+        "message": "Agora, vamos ver. Alguns destes .. *Hjaldar puxa alguns morangos e coloca-os em sua mistura*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r10"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r10",
+        "message": "Adiciona um pouco isso em alguns frascos limpos ..",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r11"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r11",
+        "message": "Apenas uma pitada destes em um desses frascos ..",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r12"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r12",
+        "message": "Finalmente, o extrato de medula Lyson ..",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r13"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r13",
+        "message": "Isso. Agora só precisa lhes dar uma boa misturada.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r14"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r14",
+        "message": "*Hjaldar agita vigorosamente os frascos, um em cada uma das suas mãos*",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hjaldar_r15"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_r15",
+        "message": "Ah, isso deve servir. Aqui está. Uma poção de precisão e uma poção de dano. Espero que seja útil.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "sisterfight",
+                "value": 61
+            },
+            {
+                "rewardType": 1,
+                "rewardID": "hjaldar_pots",
+                "value": 0
+            }
+        ],
+        "replies": [
+            {
+                "text": "Que seja. Espero que todo esse trabalho valha a pena!",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Obrigado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "hjaldar_pots_1",
+        "message": "Obrigado por entrar em contato com Mazeg para mim anteriormente. Com este extrato de medula de Lyson que você me trouxe, eu posso agora fazer outras poções para você, se você precisar.",
+        "replies": [
+            {
+                "text": "Deixe-me ver que poções que você tem.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Você é bem-vindo, adeus.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

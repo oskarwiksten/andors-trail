@@ -1,0 +1,212 @@
+[
+    {
+        "id": "toszylae_guard",
+        "replies": [
+            {
+                "nextPhraseID": "toszylae_guard_8",
+                "requires": {
+                    "progress": "toszylae:45"
+                }
+            },
+            {
+                "nextPhraseID": "toszylae_guard_5",
+                "requires": {
+                    "progress": "toszylae:42"
+                }
+            },
+            {
+                "nextPhraseID": "toszylae_guard_1"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_1",
+        "message": "(A criatura horripilante olha para baixo, dirigindo a você os seus olhos ardentes, e fala em voz sibilante)",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "toszylae_guard_s"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_s",
+        "replies": [
+            {
+                "nextPhraseID": "toszylae_guard_3_1",
+                "requires": {
+                    "progress": "toszylae:32"
+                }
+            },
+            {
+                "nextPhraseID": "toszylae_guard_2_1",
+                "requires": {
+                    "progress": "toszylae:15"
+                }
+            },
+            {
+                "nextPhraseID": "toszylae_guard_1_1"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_1_1",
+        "message": "O quê?",
+        "replies": [
+            {
+                "text": "Kulauil hamar Urum Kazaul'te. Kazaul Hamat urul.",
+                "nextPhraseID": "toszylae_guard_1_n"
+            },
+            {
+                "text": "Kazaul o quê?",
+                "nextPhraseID": "toszylae_guard_1_n"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_1_n",
+        "message": "(A criatura se afasta)",
+        "replies": [
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "toszylae_guard_1_n2"
+            },
+            {
+                "text": "Deixou a criatura",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_1_n2",
+        "message": "(Embora você tente fazer o seu ataque contra o guardião, seus braços permanecem retidos por uma força enorme)"
+    },
+    {
+        "id": "toszylae_guard_2_1",
+        "message": "Kulauil hamar Urum Kazaul'te. Kazaul Hamat urul.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "toszylae",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Esta deve ser a frase que Ulirfendor estava procurando.",
+                "nextPhraseID": "toszylae_guard_2_n"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_2_n",
+        "message": "(A criatura se afasta)",
+        "replies": [
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "toszylae_guard_2_n2"
+            },
+            {
+                "text": "Deixou a criatura",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_2_n2",
+        "message": "(Embora você tente fazer o seu ataque contra o guardião, seus braços permanecem retidos por uma força enorme)",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "toszylae",
+                "value": 21
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_3_1",
+        "message": "Kulauil hamar Urum Kazaul'te. Kazaul Hamat urul.",
+        "replies": [
+            {
+                "text": "Klaatu varmun ur Kazaul'te",
+                "nextPhraseID": "toszylae_guard_2_n"
+            },
+            {
+                "text": "Klaatu ur Kazaul'te",
+                "nextPhraseID": "toszylae_guard_2_n"
+            },
+            {
+                "text": "Klatam ur turum Kazaul'te",
+                "nextPhraseID": "toszylae_guard_4"
+            },
+            {
+                "text": "Klaatu... Verata...n .. nick .. (o resto é superado pelo ruído de uma tosse bem-cronometrada)",
+                "nextPhraseID": "toszylae_guard_2_n"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_4",
+        "message": "Kulum Kazaul.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "toszylae",
+                "value": 42
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "toszylae_guard_5"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_5",
+        "message": "(Seus olhos pulsa em um brilho intenso quando a criatura começa a se mover em direção a você)",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "toszylae_guard_6"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_6",
+        "message": "(O Guardião dá um riso que faz o cabelo na parte de trás do seu pescoço se ouriçar)",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "toszylae_guard_7"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_7",
+        "message": "Kazaul'te vaarmun iktel urul.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "toszylae_guard_8"
+            }
+        ]
+    },
+    {
+        "id": "toszylae_guard_8",
+        "message": "(Ela levanta suas garras parecidas com mãos para cima da cabeça, procurando ficar pronto para atacar em você)",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "toszylae",
+                "value": 45
+            }
+        ],
+        "replies": [
+            {
+                "text": "Atacar!",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

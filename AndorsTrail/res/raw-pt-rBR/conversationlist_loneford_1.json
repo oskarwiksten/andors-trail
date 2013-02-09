@@ -1,0 +1,259 @@
+[
+    {
+        "id": "loneford_farmer0",
+        "message": "O que fizemos para merecer isso?",
+        "replies": [
+            {
+                "text": "O que há de errado?",
+                "nextPhraseID": "loneford_farmer0_1"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer0_1",
+        "message": "Você não ouviu sobre a doença?",
+        "replies": [
+            {
+                "text": "Que doença?",
+                "nextPhraseID": "loneford_farmer_il_1"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_1",
+        "message": "Tudo começou há alguns dias. Selgan encontrou Hesor desmaiado em sua lavoura antiga, com o rosto completamente branco e tremendo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_farmer_il_2"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_2",
+        "message": "Poucos dias depois, Selgan começou a mostrar os mesmos sintomas que Hesor, com dores de estômago. Eu também comecei a sentir as dores e tem arrepios.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_farmer_il_3"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_3",
+        "message": "Em seguida, todas as pessoas apresentaram os sintomas de uma forma ou de outra.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_farmer_il_4"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_4",
+        "message": "Pobre Selgan e Hesor: aparentemente pegaram a forma mais forte disso. âmbos morreram anteontem.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_farmer_il_5"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_5",
+        "message": "Maldita doença, por que tinha que ser Selgan e Hesor? Eu quero saber quem é o próximo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_farmer_il_6"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_6",
+        "message": "Nós todos começamos a investigar o que poderia ser a causa. Ainda não descobrimos a causa, mas temos as nossas suspeitas.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_farmer_il_7"
+            }
+        ]
+    },
+    {
+        "id": "loneford_farmer_il_7",
+        "message": "Felizmente, agora Feygard enviou patrulhas aqui para ajudar a proteger a vila, pelo menos. Nós ainda estamos sofrendo, porém, e tememos quem será o próximo a ser tomado pela doença.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 11
+            }
+        ]
+    },
+    {
+        "id": "loneford_wellguard",
+        "message": "Por favor, informar qualquer comportamento suspeito que você puder descobrir a Kuldan."
+    },
+    {
+        "id": "rolwynn",
+        "message": "O que fizemos para merecer isso? Por favor, você pode nos ajudar?",
+        "replies": [
+            {
+                "text": "O que você acha que é a causa da doença?",
+                "nextPhraseID": "rolwynn_1",
+                "requires": {
+                    "progress": "loneford:11"
+                }
+            },
+            {
+                "text": "O que há de errado?",
+                "nextPhraseID": "loneford_farmer0_1"
+            }
+        ]
+    },
+    {
+        "id": "rolwynn_1",
+        "message": "Meu palpite é que isso deve ter sido algo feito por essas pessoas arrogantes de Feygard.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rolwynn_2"
+            }
+        ]
+    },
+    {
+        "id": "rolwynn_2",
+        "message": "Eles estão sempre procurando maneiras de tornar nossa vida um pouco mais difícil.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rolwynn_3"
+            }
+        ]
+    },
+    {
+        "id": "rolwynn_3",
+        "message": "Tentamos cultivar nossas terras para nos alimentar, mas eles exigem que eles recebam uma parcela de tudo o que obtemos das vendas",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rolwynn_4"
+            }
+        ]
+    },
+    {
+        "id": "rolwynn_4",
+        "message": "Ultimamente, as culturas não têm sido tão boas como costumavam ser, e os guardas, aparentemente, acho que estão embolsando com uma parcela do que está sendo pago.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "rolwynn_5"
+            }
+        ]
+    },
+    {
+        "id": "rolwynn_5",
+        "message": "Estou certo de que eles tenham feito algo conosco, como punição por não seguirmos suas regras *. Eles estão sempre falando sobre como as leis e as regras são tão preciosas para eles.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 22
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "loneford_ill_c_1"
+            }
+        ]
+    },
+    {
+        "id": "loneford_ill_c_1",
+        "replies": [
+            {
+                "nextPhraseID": "loneford_ill_c_2",
+                "requires": {
+                    "progress": "loneford:21"
+                }
+            },
+            {
+                "nextPhraseID": "loneford_ill_c_n"
+            }
+        ]
+    },
+    {
+        "id": "loneford_ill_c_2",
+        "replies": [
+            {
+                "nextPhraseID": "loneford_ill_c_3",
+                "requires": {
+                    "progress": "loneford:22"
+                }
+            },
+            {
+                "nextPhraseID": "loneford_ill_c_n"
+            }
+        ]
+    },
+    {
+        "id": "loneford_ill_c_3",
+        "replies": [
+            {
+                "nextPhraseID": "loneford_ill_c_4",
+                "requires": {
+                    "progress": "loneford:23"
+                }
+            },
+            {
+                "nextPhraseID": "loneford_ill_c_n"
+            }
+        ]
+    },
+    {
+        "id": "loneford_ill_c_4",
+        "replies": [
+            {
+                "nextPhraseID": "loneford_ill_c_5",
+                "requires": {
+                    "progress": "loneford:24"
+                }
+            },
+            {
+                "nextPhraseID": "loneford_ill_c_n"
+            }
+        ]
+    },
+    {
+        "id": "loneford_ill_c_n",
+        "message": "Isso é o que eu acho, que de qualquer maneira."
+    },
+    {
+        "id": "loneford_ill_c_5",
+        "message": "Há algo mais, também. Eu conversei com aquele bêbado, Landa, na taberna, mais cedo hoje. Ele disse que viu alguma coisa, mas não se atreveu a dizer-me o que era.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "loneford",
+                "value": 25
+            }
+        ],
+        "replies": [
+            {
+                "text": "Obrigado, eu vou falar com ele.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Grande, devo falar com mais um bêbado.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

@@ -1,0 +1,140 @@
+[
+    {
+        "id": "audir1",
+        "message": "この店へよく来てくれた！\n\n良い武具が揃ってるよ、見て行ってくれ。",
+        "replies": [
+            {
+                "text": "武具を見せてください。",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "arambold1",
+        "message": "ううむ、この酔っ払いどもが歌っている中、私は眠れるんだろうか？\n誰か何とかしてほしいね。",
+        "replies": [
+            {
+                "text": "ここで休憩してもいいですか？",
+                "nextPhraseID": "arambold2"
+            },
+            {
+                "text": "何か売買できますか？",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "arambold2",
+        "message": "もちろん、君はここで休憩できる。\n\n好きなベッドを使うんだな。",
+        "replies": [
+            {
+                "text": "ありがとう、それでは。",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "drunk1",
+        "message": "飲め飲め飲め飲め もうちっと飲め！\n飲め飲め飲め飲め 倒れるまでよぉ！\n\nおいボウズ、俺たちと一緒に飲まねえか？",
+        "replies": [
+            {
+                "text": "遠慮します。",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "またいつか。",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "mara_default",
+        "message": "こいつら飲んだくれは無視しな、 厄介事を起こしてばかりなんだ。\n\n何か食べるかい？",
+        "replies": [
+            {
+                "text": "何か売買できますか？",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "mara1",
+        "replies": [
+            {
+                "nextPhraseID": "mara_thanks",
+                "requires": {
+                    "progress": "odair:100"
+                }
+            },
+            {
+                "nextPhraseID": "mara_default"
+            }
+        ]
+    },
+    {
+        "id": "mara_thanks",
+        "message": "Odairを手伝って、あの貯蔵の洞穴を掃除したって聞いたよ。 また使えるようになるんだからね、すごく感謝してる。",
+        "replies": [
+            {
+                "text": "いえ、どういたしまして。",
+                "nextPhraseID": "mara_default"
+            }
+        ]
+    },
+    {
+        "id": "farm1",
+        "message": "俺は仕事中だ、邪魔をするなよ。",
+        "replies": [
+            {
+                "text": "僕の兄のAndorを見ませんでした？",
+                "nextPhraseID": "farm_andor"
+            }
+        ]
+    },
+    {
+        "id": "farm2",
+        "message": "忙しいのが分からんか、坊主！邪魔するならよそでやってくれ。",
+        "replies": [
+            {
+                "text": "僕の兄のAndorを見ませんでした？",
+                "nextPhraseID": "farm_andor"
+            }
+        ]
+    },
+    {
+        "id": "farm_andor",
+        "message": "Andor？ いや、俺は最近見てないよ。"
+    },
+    {
+        "id": "snakemaster",
+        "message": "フムフム、何が来たのかな？ お客さん、何て素晴らしい。 私の手下たちをすべてくぐり抜け、はるばるやって来た・・・感動しますね。\n\nちっちゃい子犬ちゃん、そろそろ死ぬ準備をしなさい？",
+        "replies": [
+            {
+                "text": "いいぞ、こんな戦いを待っていたんだ！",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "ここで死ぬのは誰か分からせてやる。",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "やめて！痛くしないで！",
+                "nextPhraseID": "F"
+            }
+        ]
+    },
+    {
+        "id": "haunt",
+        "message": "定命の者よ、おお、我輩をこの呪われた場所から解放してくれ！",
+        "replies": [
+            {
+                "text": "問題なく解放してあげますよ。",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "つまり、殺してって事？",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

@@ -1,0 +1,68 @@
+[
+    {
+        "id": "dunla_default",
+        "message": "Du siehst aus wie ein gerissenes Kerlchen. Brauchst du ein paar Vorräte?",
+        "replies": [
+            {
+                "text": "Sicher, lass mich sehen, was du zu verkaufen hast.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Was kannst du mir über dich erzählen?",
+                "nextPhraseID": "dunla_1"
+            }
+        ]
+    },
+    {
+        "id": "dunla_1",
+        "message": "Ich? Ich bin niemand. Du hast mich nicht einmal gesehen und ganz sicher hast du nicht mit mir gesprochen."
+    },
+    {
+        "id": "tharwyn_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharwyn_1",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_1",
+        "message": "Hallo. Ich hörte, du hast Jolnor in der Kapelle geholfen. Du hast meinen Dank, mein Freund.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharwyn_2"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_2",
+        "message": "Setz dich irgendwo hin. Was kann ich dir bringen?",
+        "replies": [
+            {
+                "text": "Zeig mir welches Essen du anzubieten hast.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_tavern_drunk_1",
+        "message": "Sieh an, ein verlorener Junge. Hier, nimm etwas Met, Kleiner.",
+        "replies": [
+            {
+                "text": "Nein, danke.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Achte auf deine Zunge, Saufbold.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

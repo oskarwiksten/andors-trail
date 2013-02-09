@@ -1,0 +1,138 @@
+[
+    {
+        "id": "tharal1",
+        "message": "Сиянии Тени озаряет твой путь, сын мой.",
+        "replies": [
+            {
+                "text": "Торговать",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Костная мука",
+                "nextPhraseID": "tharal_bonemeal_select",
+                "requires": {
+                    "progress": "bonemeal:10"
+                }
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharal_bonemeal4",
+                "requires": {
+                    "progress": "bonemeal:30"
+                }
+            },
+            {
+                "nextPhraseID": "tharal_bonemeal1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal1",
+        "message": "Костная мука? Мы не должны говорить об этом. Никто не должен. Приказ Лорда Геомира.",
+        "replies": [
+            {
+                "text": "Ну пожаалуйста?",
+                "nextPhraseID": "tharal_bonemeal2_1"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2_1",
+        "message": "Нет, мы в самом деле не должны говорить об этом.",
+        "replies": [
+            {
+                "text": "Ой, ну расскажи",
+                "nextPhraseID": "tharal_bonemeal2"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal2",
+        "message": "Что же, если ты действительно хочешь это знать. Принеси мне 5 крыльев насекомых, которые я использую для создания зелья и может быть мы поговорим.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Я сделал это",
+                "nextPhraseID": "tharal_bonemeal3",
+                "requires": {
+                    "item": {
+                        "itemID": "insectwing",
+                        "quantity": 5,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Хорошо",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal3",
+        "message": "Спасибо парень. Я знал, что могу рассчитывать на тебя.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "bonemeal",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal4"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal4",
+        "message": "Ах да, Костная мука. Смешанная с правильными компонентами она может быть одним из наиболее эффективных исцеляющих средств.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal5"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal5",
+        "message": "Раньше мы ее часто использовали. Но сейчас этот ублюдок, Лорд Геомир, запретил ее использование.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal6"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal6",
+        "message": "Как я должен лечить людей сейчас? Использовать обычные лечебные зелья? Черт, это так не эффективно.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_bonemeal7"
+            }
+        ]
+    },
+    {
+        "id": "tharal_bonemeal7",
+        "message": "Если ты заинтересован - я знаю, что кто-то до сих пор поставляет Костную муку. Иди и поговори с Форониром, священником в Фоллхейвене. Скажи ему пароль 'Сияние Тени'.",
+        "replies": [
+            {
+                "text": "Спасибо, пока",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

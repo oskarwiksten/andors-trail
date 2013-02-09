@@ -1,0 +1,604 @@
+[
+    {
+        "id": "vacor",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_return_complete0",
+                "requires": {
+                    "progress": "vacor:60"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_return2",
+                "requires": {
+                    "progress": "vacor:40"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_42",
+                "requires": {
+                    "progress": "vacor:30"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_select1"
+            }
+        ]
+    },
+    {
+        "id": "vacor_select1",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_return1",
+                "requires": {
+                    "progress": "vacor:20"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_begin"
+            }
+        ]
+    },
+    {
+        "id": "vacor_begin",
+        "message": "Hallo.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_2"
+            }
+        ]
+    },
+    {
+        "id": "vacor_2",
+        "message": "Was bist du, eine Art Abenteurer? Hm. Vielleicht kannst für mich nützlich sein.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_3"
+            }
+        ]
+    },
+    {
+        "id": "vacor_3",
+        "message": "Willst du mir helfen?",
+        "replies": [
+            {
+                "text": "Sicher, was für Hilfe brauchst du?",
+                "nextPhraseID": "vacor_4"
+            },
+            {
+                "text": "Nein, warum sollte ich dir helfen?",
+                "nextPhraseID": "vacor_bah"
+            }
+        ]
+    },
+    {
+        "id": "vacor_bah",
+        "message": "Bah, niedrige Kreatur. Ich wusste, ich hätte dich nicht fragen sollen. Jetzt verschwinde."
+    },
+    {
+        "id": "vacor_4",
+        "message": "Vor einiger Zeit, arbeitete ich an einem Spaltzauber, über den ich gelesen hatte.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_5"
+            }
+        ]
+    },
+    {
+        "id": "vacor_5",
+        "message": "Der Zauberspruch soll angeblich, sagen wir mal so, neue Möglichkeiten eröffnen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_6"
+            }
+        ]
+    },
+    {
+        "id": "vacor_6",
+        "message": "Erm, ja, der Spaltzauber wird Dinge öffnen, ganz richtig. Ähm.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_7"
+            }
+        ]
+    },
+    {
+        "id": "vacor_7",
+        "message": "Also war ich hart am arbeiten, um die letzten Teile zusammenzusetzen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_8"
+            }
+        ]
+    },
+    {
+        "id": "vacor_8",
+        "message": "Dann plötzlich, kam eine Rotte von Schlägern hierher und begann mich zu terrorisieren.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_9"
+            }
+        ]
+    },
+    {
+        "id": "vacor_9",
+        "message": "Sie sagten, sie wären Botschafter des Schattens und beharrten darauf, dass ich meine Zauberei unterlassen sollte.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_10"
+            }
+        ]
+    },
+    {
+        "id": "vacor_10",
+        "message": "Lächerlich, nicht war? Ich war so kurz davor die Macht zu besitzen!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_11"
+            }
+        ]
+    },
+    {
+        "id": "vacor_11",
+        "message": "Oh, die Macht, die ich hätte haben können. Mein teurer Spaltzauber.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_12"
+            }
+        ]
+    },
+    {
+        "id": "vacor_12",
+        "message": "Jedenfalls, ich war gerade dabei den letzten Teils des Spaltzaubers zu beenden, als diese Banditen kamen und mich ausraubten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_13"
+            }
+        ]
+    },
+    {
+        "id": "vacor_13",
+        "message": "Die Banditen klauten meine Notizen des Zauberspruchs und flüchteten bevor ich die Wache rufen konnten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_14"
+            }
+        ]
+    },
+    {
+        "id": "vacor_14",
+        "message": "Nach Jahren der Arbeit, kann ich mich scheinbar nicht mehr an die letzten Teile des Zauberspruchs erinnern.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_15"
+            }
+        ]
+    },
+    {
+        "id": "vacor_15",
+        "message": "Kannst du mir helfen, sie zu finden? Dann kann ich letztendlich die Macht doch haben!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_16"
+            }
+        ]
+    },
+    {
+        "id": "vacor_16",
+        "message": "Für deine Beteiligung mir die Macht zu verschaffen wirst du natürlich angemessen belohnt werden.",
+        "replies": [
+            {
+                "text": "Eine Belohnung? Ich bin dabei!",
+                "nextPhraseID": "vacor_17"
+            },
+            {
+                "text": "Also gut. Ich werde dir helfen.",
+                "nextPhraseID": "vacor_17"
+            },
+            {
+                "text": "Nein danke, das scheint etwas zu sein, in das ich lieber nicht verwickelt werden will.",
+                "nextPhraseID": "vacor_bah"
+            }
+        ]
+    },
+    {
+        "id": "vacor_17",
+        "message": "Ich wusste ich könnte dir nicht trauen... Warte, was? Du hast wirklich ja gesagt? Ha, also gut.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_18"
+            }
+        ]
+    },
+    {
+        "id": "vacor_18",
+        "message": "Okay, finde die 4 Teile meines Spaltzaubers, die die Banditen weggenommen haben, und bring die Teile zu mir.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_19"
+            }
+        ]
+    },
+    {
+        "id": "vacor_19",
+        "message": "Es waren 4 Banditen und nachdem sie mich überfallen hatten verteilten sie sich im Süden von Fallhaven .",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_20"
+            }
+        ]
+    },
+    {
+        "id": "vacor_20",
+        "message": "Du solltest in den Gegenden südlich von Fallhaven nach den 4 Banditen suchen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_21"
+            }
+        ]
+    },
+    {
+        "id": "vacor_21",
+        "message": "Bitte beeile dich! Ich bin so begierig den Spalt zu öffnen.. äh, ich meine den Zauberspruch zu vollenden. Ist nichts falsches dabei, oder?"
+    },
+    {
+        "id": "vacor_return1",
+        "message": "Hallo nochmal. Wie ist die Suche nach meinen verlorenen Teilen des Spaltzaubers verlaufen?",
+        "replies": [
+            {
+                "text": "Ich habe alle Teile gefunden.",
+                "nextPhraseID": "vacor_40",
+                "requires": {
+                    "item": {
+                        "itemID": "vacor_spell",
+                        "quantity": 4,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Was sollte ich nochmal machen?",
+                "nextPhraseID": "vacor_18"
+            },
+            {
+                "text": "Kannst du mir die ganze Geschichte nochmal erzählen?",
+                "nextPhraseID": "vacor_4"
+            }
+        ]
+    },
+    {
+        "id": "vacor_40",
+        "message": "Oh, du hast alle 4 Teile gefunden? Schnell, gib sie mir.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 30
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_41"
+            }
+        ]
+    },
+    {
+        "id": "vacor_41",
+        "message": "Ja, das sind die Teile, die die Banditen mitgenommen haben.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_42"
+            }
+        ]
+    },
+    {
+        "id": "vacor_42",
+        "message": "Jetzt sollte ich fähig sein den Spaltzauber zu vollenden und den Schattenspalt zu öffnen.. äh, ich meine neue Möglichkeiten zu eröffnen. Ja, das meinte ich.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_43"
+            }
+        ]
+    },
+    {
+        "id": "vacor_43",
+        "message": "Das einzige Hindernis zwischen mir und der fortlaufenden Erforschung des Spaltzaubers, ist dieser blöde Kerl Unzel.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_44"
+            }
+        ]
+    },
+    {
+        "id": "vacor_44",
+        "message": "Unzel war vor einiger Zeit mein Lehrling. Aber er begann mich mit seinen Fragen und seinem Vortrag über Moral zu nerven.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_45"
+            }
+        ]
+    },
+    {
+        "id": "vacor_45",
+        "message": "Er sagte meine Zauberei würde den Willen des Schattens zerbrechen.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_46"
+            }
+        ]
+    },
+    {
+        "id": "vacor_46",
+        "message": "Bah, der Schatten. Was hat er jemals für MICH getan?!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_47"
+            }
+        ]
+    },
+    {
+        "id": "vacor_47",
+        "message": "Eines Tages werde ich meinen Spaltzauber ausführen und wir werden vom Schatten befreit sein.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_48"
+            }
+        ]
+    },
+    {
+        "id": "vacor_48",
+        "message": "Jedenfalls habe ich das Gefühl, dass Unzel diese Banditen zu mir sandte. Wenn ich ihn nicht aufhalte, wird er vermutlich weitere schicken.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_49"
+            }
+        ]
+    },
+    {
+        "id": "vacor_49",
+        "message": "Ich brauche dich um Unzel zu finden und ihn für mich zu töten. Er kann wahrscheinlich irgendwo südwestlich von Fallhaven gefunden werden.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 40
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_50"
+            }
+        ]
+    },
+    {
+        "id": "vacor_50",
+        "message": "Bring mir seinen Siegelring als Beweis wenn du ihn getötet hast.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_51"
+            }
+        ]
+    },
+    {
+        "id": "vacor_51",
+        "message": "Jetzt beeil dich, ich kann nicht mehr viel länger warten. Die Macht soll MIR gehören!"
+    },
+    {
+        "id": "vacor_return2",
+        "message": "Hallo nochmal. Irgendein Fortschritt bisher?",
+        "replies": [
+            {
+                "text": "Über Unzel...",
+                "nextPhraseID": "vacor_return2_2"
+            },
+            {
+                "text": "Kannst du mir die Geschichte noch einmal erzählen?",
+                "nextPhraseID": "vacor_43"
+            }
+        ]
+    },
+    {
+        "id": "vacor_return2_2",
+        "message": "Hast du Unzel schon für mich getötet? Bring mir seinen Siegelring wenn du ihn getötet hast.",
+        "replies": [
+            {
+                "text": "Ich habe ihn erledigt. Hier ist sein Ring.",
+                "nextPhraseID": "vacor_60",
+                "requires": {
+                    "item": {
+                        "itemID": "ring_unzel",
+                        "quantity": 1,
+                        "requireType": 0
+                    }
+                }
+            },
+            {
+                "text": "Ich habe mir Unzel's Geschichte angehört und habe entschieden auf seine Seite zu wechseln. Der Schatten muss bewahrt werden.",
+                "nextPhraseID": "vacor_70",
+                "requires": {
+                    "progress": "vacor:51"
+                }
+            }
+        ]
+    },
+    {
+        "id": "vacor_60",
+        "message": "Ha ha, Unzel ist tot! Diese erbärmliche Kreatur ist weg!",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 60
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_61"
+            }
+        ]
+    },
+    {
+        "id": "vacor_61",
+        "message": "Ich kann Blut an deinen Schuhen sehen. Und ich habe dich sogar überzeugt vorher seine Lakaien zu töten.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_62"
+            }
+        ]
+    },
+    {
+        "id": "vacor_62",
+        "message": "Das ist wirklich ein großer Tag. Bald werde ich die Macht haben!",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_63"
+            }
+        ]
+    },
+    {
+        "id": "vacor_63",
+        "message": "Hier, nimm diese Goldmünzen für deine Hilfe.",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "gold200"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_64"
+            }
+        ]
+    },
+    {
+        "id": "vacor_64",
+        "message": "Jetzt geh, ich muss Vorbereitungen treffen bevor ich den Spaltzauber ausführen kann."
+    },
+    {
+        "id": "vacor_return_complete0",
+        "replies": [
+            {
+                "nextPhraseID": "vacor_msg_16",
+                "requires": {
+                    "progress": "kaverin:90"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_msg_9",
+                "requires": {
+                    "progress": "kaverin:75"
+                }
+            },
+            {
+                "nextPhraseID": "vacor_msg1",
+                "requires": {
+                    "progress": "kaverin:60",
+                    "item": {
+                        "itemID": "kaverin_message",
+                        "quantity": 1,
+                        "requireType": 1
+                    }
+                }
+            },
+            {
+                "nextPhraseID": "vacor_return_complete"
+            }
+        ]
+    },
+    {
+        "id": "vacor_return_complete",
+        "message": "Hallo nochmal, mein Freund der Attentäter. Bald werde ich den Spaltzauber fertig haben."
+    },
+    {
+        "id": "vacor_70",
+        "message": "Was? Er hat dir seine Geschichte erzählt? Du hast sie ihm tatsächlich abgenommen?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vacor_71"
+            }
+        ]
+    },
+    {
+        "id": "vacor_71",
+        "message": "Ich gebe dir noch eine Chance. Entweder du tötest Unzel für mich und ich werde dich stattlich belohnen, oder du musst mit mir kämpfen.",
+        "replies": [
+            {
+                "text": "Nein. Du musst aufgehalten werden.",
+                "nextPhraseID": "vacor_72"
+            },
+            {
+                "text": "Okay, ich werde noch einmal darüber nachdenken.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "vacor_72",
+        "message": "Bah, niedrige Kreatur. Ich wusste ich hätte dir nicht trauen sollen. Jetzt wirst du sterben zusammen mit deinem heißgeliebten Schatten.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vacor",
+                "value": 54
+            }
+        ],
+        "replies": [
+            {
+                "text": "Für den Schatten!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Du musst aufgehalten werden.",
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

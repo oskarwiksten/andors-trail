@@ -1,0 +1,171 @@
+[
+    {
+        "id": "vilegard_villager_1",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_1_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_1_0",
+        "message": "Ciao. Chi sei? Non sei il benvenuto qui a Vilegard.",
+        "replies": [
+            {
+                "text": "Hai visto mio fratello Andor da queste parti?",
+                "nextPhraseID": "vilegard_villager_1_2"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_1_2",
+        "message": "No non l'ho visto. E se anche fosse, perché dovrei dirlo a te?"
+    },
+    {
+        "id": "vilegard_villager_2",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_2_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_2_0",
+        "message": "Per l'Ombra, sei un forestiero. Non vogliamo forestieri qui.",
+        "replies": [
+            {
+                "text": "Perché avete tutti paura dei forestieri a Vilegard?",
+                "nextPhraseID": "vilegard_villager_5_1"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_3",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_3_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_3_0",
+        "message": "Questa è Vilegard. Non troverai nessun conforto qui, forestiero."
+    },
+    {
+        "id": "vilegard_villager_4",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_4_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_4_0",
+        "message": "Assomigli ad un ragazzo che girava da queste parti, probabilmente ha causato dei guai, come tutti i forestieri.",
+        "replies": [
+            {
+                "text": "Hai visto mio fratello Andor?",
+                "nextPhraseID": "vilegard_villager_1_2"
+            },
+            {
+                "text": "Non ho intenzione di causare guai.",
+                "nextPhraseID": "vilegard_villager_4_2"
+            },
+            {
+                "text": "Oh certo, ho intenzione di causare un sacco di guai.",
+                "nextPhraseID": "vilegard_villager_4_3"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_4_2",
+        "message": "No? Io sono sicuro che lo farai. Tutti i forestieri causano guai."
+    },
+    {
+        "id": "vilegard_villager_4_3",
+        "message": "Sì, lo so. Ecco perché non ti vogliamo qua in torno. Dovresti lasciare Vilegard ora, finchè sei ancora in tempo."
+    },
+    {
+        "id": "vilegard_villager_5",
+        "replies": [
+            {
+                "nextPhraseID": "vilegard_villager_friend",
+                "requires": {
+                    "progress": "vilegard:30"
+                }
+            },
+            {
+                "nextPhraseID": "vilegard_villager_5_0"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_5_0",
+        "message": "Ciao straniero. Sembri perso, e ciò è cosa buona. Ora lascia Vilegard finché ti è possibile.",
+        "replies": [
+            {
+                "text": "Perché a Vilegard tutti diffidano dei forestieri?",
+                "nextPhraseID": "vilegard_villager_5_1"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_5_1",
+        "message": "Non mi fido di te. Potresti parlare con Jolnor, nella cappella, se hai bisogno di comprensione.",
+        "rewards": [
+            {
+                "rewardType": 0,
+                "rewardID": "vilegard",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_friend",
+        "message": "Ciao. Ho sentito che ci hai aiutato. Puoi restare tutto il tempo che desideri.",
+        "replies": [
+            {
+                "text": "Grazie. Hai visto mio fratello Andor qui intorno?",
+                "nextPhraseID": "vilegard_villager_friend_1"
+            },
+            {
+                "text": "Grazie, arrivederci.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_villager_friend_1",
+        "message": "tuo fratello? no, non ho visto nessuno che ti somiglia. ma comunque non faccio molto caso agli stranieri .",
+        "replies": [
+            {
+                "text": "grazie, ciao.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

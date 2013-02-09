@@ -1,25 +1,24 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.model.item.ItemCategory;
-import com.gpl.rpg.AndorsTrail.resource.ResourceFileTokenizer.ResourceParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.util.Pair;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-public final class ItemCategoryParser extends ResourceParserFor<ItemCategory> {
-
-	public ItemCategoryParser() {
-		super(5);
-	}
+public final class ItemCategoryParser extends JsonCollectionParserFor<ItemCategory> {
 
 	@Override
-	public Pair<String, ItemCategory> parseRow(String[] parts) {
-		String id = parts[0];
-		final ItemCategory itemType = new ItemCategory(
+	protected Pair<String, ItemCategory> parseObject(JSONObject o) throws JSONException {
+		final String id = o.getString(JsonFieldNames.ItemCategory.itemCategoryID);
+		ItemCategory result = new ItemCategory(
 				id
-    			, parts[1]										// displayName
-    			, ResourceParserUtils.parseInt(parts[2], 0)		// actionType
-    			, ResourceParserUtils.parseInt(parts[3], -1)	// inventorySlot
-    			, ResourceParserUtils.parseInt(parts[4], 0)		// size
-			);
-		return new Pair<String, ItemCategory>(id, itemType);
+				,o.getString(JsonFieldNames.ItemCategory.name)
+				,o.optInt(JsonFieldNames.ItemCategory.actionType, 0)
+				,o.optInt(JsonFieldNames.ItemCategory.inventorySlot, -1)
+				,o.optInt(JsonFieldNames.ItemCategory.size, 0)
+		);
+		return new Pair<String, ItemCategory>(id, result);
 	}
 }
