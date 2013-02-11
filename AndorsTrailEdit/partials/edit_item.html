@@ -22,6 +22,10 @@
 		</select>
 	</div>
 	<div class="fieldWithLabel">
+		<label for="description" class="hint  hint--top" data-hint="Background story of the item, that ties its history into the rest of the world.">Lore/Description:</label>
+		<textarea class="field" rows="4" cols="40" id="description" ng-model="obj.description" placeholder="Leave empty for most normal items"></textarea>
+	</div>
+	<div class="fieldWithLabel">
 		<label for="displaytype">Display as:</label>
 		<select class="field" id="displaytype" ng-model="obj.displaytype">
 			<option value="0">Ordinary item</option>

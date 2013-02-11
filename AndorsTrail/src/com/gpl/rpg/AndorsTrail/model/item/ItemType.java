@@ -15,6 +15,7 @@ public final class ItemType {
 	public final String id;
 	public final int iconID;
 	private final String name;
+	private final String description;
 	private final boolean hasPersonalizedName;
 	public final ItemCategory category;
 	public final boolean hasManualPrice;
@@ -31,7 +32,8 @@ public final class ItemType {
 			String id, 
 			int iconID, 
 			String name, 
-			ItemCategory category, 
+			String description,
+			ItemCategory category,
 			int displayType, 
 			boolean hasManualPrice, 
 			int fixedBaseMarketCost, 
@@ -42,6 +44,7 @@ public final class ItemType {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;
+		this.description = description;
 		this.category = category;
 		this.displayType = displayType;
 		this.hasManualPrice = hasManualPrice;
@@ -68,13 +71,14 @@ public final class ItemType {
 		if (baseMarketCost == 0) return false;
 		return true;
 	}
-	
-	public String getName(Player p) {
+
+    public String getDescription() { return description; }
+    public String getName(Player p) {
 		if (!hasPersonalizedName) return name;
 		else return name.replace(Constants.PLACEHOLDER_PLAYERNAME, p.getName());		
 	}
-	
-	public int getOverlayTileID() {
+
+    public int getOverlayTileID() {
 		switch (displayType) {
 		case ItemType.DISPLAYTYPE_QUEST:
 			return TileManager.iconID_selection_yellow;

@@ -25,6 +25,14 @@
 				style="@style/titleWithIcon"
 				android:drawableLeft="@drawable/equip_weapon"
 				/>
+
+            <TextView
+                android:id="@+id/iteminfo_description"
+                android:textStyle="italic"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/section_margin"
+                />
 		
 			<TextView 
 				android:id="@+id/iteminfo_displaytype"
