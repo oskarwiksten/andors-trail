@@ -42,7 +42,7 @@ public final class ResourceLoader {
     	
         final int mTileSize = world.tileManager.tileSize;
 
-        TranslationLoader translationLoader = new TranslationLoader(r.getAssets());
+        TranslationLoader translationLoader = new TranslationLoader(r.getAssets(), r);
 
         DynamicTileLoader loader = new DynamicTileLoader(world.tileManager.tileCache);
         prepareTilesets(loader, mTileSize);

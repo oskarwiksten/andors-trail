@@ -35,6 +35,7 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 	public Pair<String, ItemType> parseObject(JSONObject o) throws JSONException {
 		final String id = o.getString(JsonFieldNames.ItemType.itemTypeID);
 		final String itemTypeName = translationLoader.translateItemTypeName(o.getString(JsonFieldNames.ItemType.name));
+		final String description = translationLoader.translateItemTypeDescription(o.optString(JsonFieldNames.ItemType.description, null));
 		final ItemTraits_OnEquip equipEffect = itemTraitsParser.parseItemTraits_OnEquip(o.optJSONObject(JsonFieldNames.ItemType.equipEffect));
 		final ItemTraits_OnUse useEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.useEffect));
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.hitEffect));
@@ -46,7 +47,7 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 				id
     			, ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.ItemType.iconID))
     			, itemTypeName
-                , o.optString(JsonFieldNames.ItemType.description, null)
+                , description
 	        	, itemCategories.getItemCategory(o.getString(JsonFieldNames.ItemType.category))
     			, o.optInt(JsonFieldNames.ItemType.displaytype, ItemType.DISPLAYTYPE_ORDINARY)
     			, hasManualPrice

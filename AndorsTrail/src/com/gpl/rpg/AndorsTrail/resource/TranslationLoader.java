@@ -1,9 +1,12 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
 import android.content.res.AssetManager;
+import android.content.res.Resources;
+import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 import java.io.BufferedInputStream;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -11,21 +14,30 @@ import java.nio.charset.Charset;
 public final class TranslationLoader {
     private final BinaryMoFileParser parser;
 
-    public TranslationLoader(AssetManager mgr) {
-        BinaryMoFileParser parser = null;
+    public TranslationLoader(AssetManager mgr, Resources res) {
+        this.parser = createParser(mgr, res);
+    }
+
+    private static final String translationDir = "translation" + File.separator;
+    private static BinaryMoFileParser createParser(AssetManager mgr, Resources res) {
+        String translationFilename = res.getString(R.string.localize_resources_from_mo_filename);
+        if (translationFilename == null || translationFilename.length() <= 0) return null;
+
+        translationFilename = translationDir + translationFilename;
+
         try {
-            InputStream is = mgr.open("messages.mo");
-            parser = new BinaryMoFileParser(is);
+            InputStream is = mgr.open(translationFilename);
+            return new BinaryMoFileParser(is);
         } catch (IOException e) {
-            L.log("ERROR: Reading from translation asset failed: " + e.toString());
+            L.log("ERROR: Reading from translation asset \"" + translationFilename + "\" failed: " + e.toString());
+            return null;
         }
-        this.parser = parser;
     }
 
     private String tr(String s) {
         if (s == null) return null;
-        if (s.length() <= 1) return s;
         if (parser == null) return s;
+        if (s.length() <= 1) return s;
         try {
             //String t = parser.translate(s);
             //L.log(translations.size() + " : " + s + " -> " + t);
@@ -46,13 +58,12 @@ public final class TranslationLoader {
     public String translateItemCategoryName(String s) { return tr(s); }
     public String translateActorConditionName(String s) { return tr(s); }
     public String translateItemTypeName(String s) { return tr(s); }
+    public String translateItemTypeDescription(String s) {return tr(s); }
     public String translateMonsterTypeName(String s) { return tr(s); }
     public String translateQuestName(String s) { return tr(s); }
     public String translateQuestLogEntry(String s) { return tr(s); }
     public String translateConversationPhrase(String s) { return tr(s); }
     public String translateConversationReply(String s) { return tr(s); }
-
-    //public static HashSet<String> translations = new HashSet<String>();
 
     private static final class BinaryMoFileParser {
         private final InputStream is;
@@ -86,7 +97,6 @@ public final class TranslationLoader {
             byte[] bytes = s.getBytes(charset);
             byte[] translation = find(bytes);
             if (translation == null || translation.length <= 0) return s;
-            //translations.add(s);
             return new String(translation, charset);
         }
 
