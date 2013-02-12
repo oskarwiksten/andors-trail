@@ -17,14 +17,19 @@ public final class TranslationLoader {
     public TranslationLoader(AssetManager mgr, Resources res) {
         this.parser = createParser(mgr, res);
     }
+    public TranslationLoader(AssetManager mgr, String filename) {
+        this.parser = createParser(mgr, filename);
+    }
 
     private static final String translationDir = "translation" + File.separator;
     private static BinaryMoFileParser createParser(AssetManager mgr, Resources res) {
         String translationFilename = res.getString(R.string.localize_resources_from_mo_filename);
         if (translationFilename == null || translationFilename.length() <= 0) return null;
 
-        translationFilename = translationDir + translationFilename;
+        return createParser(mgr, translationDir + translationFilename);
+    }
 
+    private static BinaryMoFileParser createParser(AssetManager mgr, String translationFilename) {
         try {
             InputStream is = mgr.open(translationFilename);
             return new BinaryMoFileParser(is);
