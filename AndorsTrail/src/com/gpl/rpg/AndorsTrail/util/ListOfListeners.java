@@ -26,6 +26,9 @@ public class ListOfListeners<T> {
 			}
 		}
 	}
+    public final void clear() {
+        listeners.clear();
+    }
 	
 	protected final void callAllListeners(Function<T> e) {
 		for (int i = listeners.size()-1; i >= 0; --i) {
