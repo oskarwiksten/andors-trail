@@ -263,10 +263,17 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private final Handler monsterTurnHandler = new Handler() {
 		@Override
         public void handleMessage(Message msg) {
-        	monsterTurnHandler.removeMessages(0);
+        	removeMessages(0);
             CombatController.this.handleNextMonsterAction();
         }
 	};
+    private void waitForNextMonsterAction() {
+        if (view.preferences.attackspeed_milliseconds <= 0) {
+            handleNextMonsterAction();
+        } else {
+            monsterTurnHandler.sendEmptyMessageDelayed(0, view.preferences.attackspeed_milliseconds);
+        }
+    }
 	
 	public void beginMonsterTurn(boolean isFirstRound) {
 		view.actorStatsController.setActorMinAP(world.model.player);
@@ -317,8 +324,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			startAttackEffect(attack, world.model.player.position, this, CALLBACK_MONSTERATTACK);
 		} else {
 			combatActionListeners.onMonsterAttackMissed(currentActiveMonster, attack);
-			
-			monsterTurnHandler.sendEmptyMessageDelayed(0, view.preferences.attackspeed_milliseconds);
+
+            waitForNextMonsterAction();
 		}
 	}
 	
