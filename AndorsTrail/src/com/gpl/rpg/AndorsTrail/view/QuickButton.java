@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.view;
 
+import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
@@ -45,10 +46,12 @@ public final class QuickButton extends Button {
 	
 	private String currentItemID = "unassigned";
 	public void setItemType(ItemType type, WorldContext world, TileCollection tiles) {
+        final Resources res = getContext().getResources();
+
 		if (type == null) {
 			if (currentItemID == null) return;
 			empty = true;
-			world.tileManager.setImageViewTileForUIIcon(this, TileManager.iconID_unassigned_quickslot);
+			world.tileManager.setImageViewTileForUIIcon(res, this, TileManager.iconID_unassigned_quickslot);
 			currentItemID = null;
 			setGrayScale(true);
 			setText("");
@@ -57,7 +60,7 @@ public final class QuickButton extends Button {
 			int quantity = world.model.player.inventory.getItemQuantity(type.id);
 			empty = quantity == 0;
 			if (!type.id.equals(currentItemID)) {
-				world.tileManager.setImageViewTile(this, type, tiles);
+				world.tileManager.setImageViewTile(res, this, type, tiles);
 				setCompoundDrawablePadding(textPadding);
 				currentItemID = type.id;
 			}

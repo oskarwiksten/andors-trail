@@ -184,7 +184,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
     private void updateWornImage(ImageView imageView, int resourceIDEmptyImage, ItemType type) {
 		if (type != null) {
-			world.tileManager.setImageViewTile(imageView, type, wornTiles);
+			world.tileManager.setImageViewTile(getResources(), imageView, type, wornTiles);
 		} else {
 			imageView.setImageResource(resourceIDEmptyImage);
 		}

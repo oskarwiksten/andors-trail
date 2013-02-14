@@ -76,7 +76,7 @@ public final class MonsterInfoActivity extends Activity {
 
 	private void updateTitle(Monster monster) {
 		monsterinfo_title.setText(monster.getName());
-		world.tileManager.setImageViewTile(monsterinfo_title, monster);
+		world.tileManager.setImageViewTile(getResources(), monsterinfo_title, monster);
         monsterinfo_difficulty.setText(getMonsterDifficultyResource(view, monster));
 	}
 

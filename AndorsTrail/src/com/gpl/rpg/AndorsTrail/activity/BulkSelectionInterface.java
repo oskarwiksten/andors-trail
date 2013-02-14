@@ -105,7 +105,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		// change image and name of the item
 		final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
         itemName.setText(itemType.getName(world.model.player));
-        world.tileManager.setImageViewTileForSingleItemType(itemName, itemType, getResources());
+        world.tileManager.setImageViewTileForSingleItemType(res, itemName, itemType);
         
         int actionTextResourceID = 0;
 		if (interfaceType == BULK_INTERFACE_BUY) {

@@ -91,7 +91,7 @@ public final class LevelUpActivity extends Activity {
     		return;
     	}
     	
-    	world.tileManager.setImageViewTile(levelup_title, player);
+    	world.tileManager.setImageViewTile(res, levelup_title, player);
         levelup_description.setText(res.getString(R.string.levelup_description, player.getLevel() + 1));
         if (player.nextLevelAddsNewSkillpoint()) {
         	levelup_adds_new_skillpoint.setVisibility(View.VISIBLE);

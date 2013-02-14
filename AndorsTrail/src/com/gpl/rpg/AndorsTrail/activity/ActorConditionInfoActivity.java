@@ -35,7 +35,7 @@ public final class ActorConditionInfoActivity extends Activity {
         
         TextView tv = (TextView) findViewById(R.id.actorconditioninfo_title);
         tv.setText(conditionType.name);
-        world.tileManager.setImageViewTile(tv, conditionType);
+        world.tileManager.setImageViewTile(getResources(), tv, conditionType);
         
         Button b = (Button) findViewById(R.id.actorconditioninfo_close);
         b.setOnClickListener(new OnClickListener() {

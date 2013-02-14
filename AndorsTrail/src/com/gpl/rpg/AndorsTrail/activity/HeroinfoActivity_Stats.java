@@ -56,7 +56,7 @@ public final class HeroinfoActivity_Stats extends Activity {
         
         TextView tv = (TextView) findViewById(R.id.heroinfo_title);
         tv.setText(player.getName());
-        world.tileManager.setImageViewTile(tv, player);
+        world.tileManager.setImageViewTile(getResources(), tv, player);
         
         heroinfo_container = (ViewGroup) findViewById(R.id.heroinfo_container);
         heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);

@@ -125,33 +125,33 @@ public final class TileManager {
 	
 	
 	
-	public void setImageViewTile(TextView textView, Monster monster) { setImageViewTileForMonster(textView, monster.iconID); }
-	public void setImageViewTile(TextView textView, Player player) { setImageViewTileForPlayer(textView, player.iconID); }
-	public void setImageViewTileForMonster(TextView textView, int iconID) { setImageViewTile(textView, currentMapTiles.getBitmap(iconID)); }
-	public void setImageViewTileForPlayer(TextView textView, int iconID) { setImageViewTile(textView, preloadedTiles.getBitmap(iconID)); }
-	public void setImageViewTile(TextView textView, ActorConditionType conditionType) { setImageViewTile(textView, preloadedTiles.getBitmap(conditionType.iconID)); }
-	public void setImageViewTileForUIIcon(TextView textView, int iconID) { setImageViewTile(textView, preloadedTiles.getBitmap(iconID)); }
-	private void setImageViewTile(TextView textView, Bitmap b) { textView.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(b), null, null, null); }
+	public void setImageViewTile(Resources res, TextView textView, Monster monster) { setImageViewTileForMonster(res, textView, monster.iconID); }
+	public void setImageViewTile(Resources res, TextView textView, Player player) { setImageViewTileForPlayer(res, textView, player.iconID); }
+	public void setImageViewTileForMonster(Resources res, TextView textView, int iconID) { setImageViewTile(res, textView, currentMapTiles.getBitmap(iconID)); }
+	public void setImageViewTileForPlayer(Resources res, TextView textView, int iconID) { setImageViewTile(res, textView, preloadedTiles.getBitmap(iconID)); }
+	public void setImageViewTile(Resources res, TextView textView, ActorConditionType conditionType) { setImageViewTile(res, textView, preloadedTiles.getBitmap(conditionType.iconID)); }
+	public void setImageViewTileForUIIcon(Resources res, TextView textView, int iconID) { setImageViewTile(res, textView, preloadedTiles.getBitmap(iconID)); }
+	private void setImageViewTile(Resources res, TextView textView, Bitmap b) { textView.setCompoundDrawablesWithIntrinsicBounds(new BitmapDrawable(res, b), null, null, null); }
 
-	public void setImageViewTileForSingleItemType(TextView textView, ItemType itemType, Resources r) {
-		final Bitmap icon = tileCache.loadSingleTile(itemType.iconID, r);
-		setImageViewTile(textView, itemType, icon);
+	public void setImageViewTileForSingleItemType(Resources res, TextView textView, ItemType itemType) {
+		final Bitmap icon = tileCache.loadSingleTile(itemType.iconID, res);
+		setImageViewTile(res, textView, itemType, icon);
 	}
-	public void setImageViewTile(TextView textView, ItemType itemType, TileCollection itemTileCollection) {
+	public void setImageViewTile(Resources res, TextView textView, ItemType itemType, TileCollection itemTileCollection) {
 		final Bitmap icon = itemTileCollection.getBitmap(itemType.iconID);
-		setImageViewTile(textView, itemType, icon);
+		setImageViewTile(res, textView, itemType, icon);
 	}
-	private void setImageViewTile(TextView textView, ItemType itemType, Bitmap icon) {
+	private void setImageViewTile(Resources res, TextView textView, ItemType itemType, Bitmap icon) {
 		final int overlayIconID = itemType.getOverlayTileID();
 		if (overlayIconID != -1) {
 			textView.setCompoundDrawablesWithIntrinsicBounds(
 				new LayerDrawable(new Drawable[] {
-					new BitmapDrawable(preloadedTiles.getBitmap(overlayIconID))
-					,new BitmapDrawable(icon)
+					new BitmapDrawable(res, preloadedTiles.getBitmap(overlayIconID))
+					,new BitmapDrawable(res, icon)
 				}), null, null, null
 			);
 		} else {
-			setImageViewTile(textView, icon);
+			setImageViewTile(res, textView, icon);
 		}
 	}
 	
@@ -162,21 +162,21 @@ public final class TileManager {
 	public void setImageViewTile(ImageView imageView, ActorConditionType conditionType) { imageView.setImageBitmap(preloadedTiles.getBitmap(conditionType.iconID)); }
 	public void setImageViewTileForUIIcon(ImageView imageView, int iconID) { imageView.setImageBitmap(preloadedTiles.getBitmap(iconID)); }
 
-	public void setImageViewTileForSingleItemType(ImageView imageView, ItemType itemType, Resources r) {
-		final Bitmap icon = tileCache.loadSingleTile(itemType.iconID, r);
-		setImageViewTile(imageView, itemType, icon);
+	public void setImageViewTileForSingleItemType(Resources res, ImageView imageView, ItemType itemType) {
+		final Bitmap icon = tileCache.loadSingleTile(itemType.iconID, res);
+		setImageViewTile(res, imageView, itemType, icon);
 	}
-	public void setImageViewTile(ImageView imageView, ItemType itemType, TileCollection itemTileCollection) {
+	public void setImageViewTile(Resources res, ImageView imageView, ItemType itemType, TileCollection itemTileCollection) {
 		final Bitmap icon = itemTileCollection.getBitmap(itemType.iconID);
-		setImageViewTile(imageView, itemType, icon);
+		setImageViewTile(res, imageView, itemType, icon);
 	}
-	private void setImageViewTile(ImageView imageView, ItemType itemType, Bitmap icon) {
+	private void setImageViewTile(Resources res, ImageView imageView, ItemType itemType, Bitmap icon) {
 		final int overlayIconID = itemType.getOverlayTileID();
 		if (overlayIconID != -1) {
 			imageView.setImageDrawable(
 				new LayerDrawable(new Drawable[] {
-					new BitmapDrawable(preloadedTiles.getBitmap(overlayIconID))
-					,new BitmapDrawable(icon)
+					new BitmapDrawable(res, preloadedTiles.getBitmap(overlayIconID))
+					,new BitmapDrawable(res, icon)
 				})
 			);
 		} else {

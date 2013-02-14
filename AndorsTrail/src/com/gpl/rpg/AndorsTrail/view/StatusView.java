@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.view;
 
+import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
@@ -60,10 +61,11 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
         
 		expBar = (RangeBar) findViewById(R.id.statusview_exp);
 		expBar.init(R.drawable.ui_progress_exp, R.string.status_exp);
-        
-		levelupDrawable = new LayerDrawable(new Drawable[] {
-				new BitmapDrawable(world.tileManager.preloadedTiles.getBitmap(player.iconID))
-				,new BitmapDrawable(world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
+
+        Resources res = getResources();
+        levelupDrawable = new LayerDrawable(new Drawable[] {
+				new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(player.iconID))
+				,new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
 		});
 		
 		toggleToolbox = (ImageButton) findViewById(R.id.toolbox_toggle);

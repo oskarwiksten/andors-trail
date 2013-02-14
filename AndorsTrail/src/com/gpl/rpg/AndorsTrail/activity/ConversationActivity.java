@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
@@ -431,7 +432,6 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			final ConversationStatement statement = getItem(position);
-			
 			View result = convertView;
 			if (result == null) {
 				result = View.inflate(getContext(), R.layout.conversation_statement, null);
@@ -439,8 +439,9 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 			
 			final TextView tv = (TextView) result.findViewById(R.id.conversation_text);
 	        if (statement.hasActor()) {
-	        	if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(tv, statement.iconID);
-	        	else tileManager.setImageViewTileForMonster(tv, statement.iconID);
+                final Resources res = getContext().getResources();
+                if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(res, tv, statement.iconID);
+	        	else tileManager.setImageViewTileForMonster(res, tv, statement.iconID);
 				
 	    		tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);
 		        Spannable sp = (Spannable) tv.getText();
