@@ -17,9 +17,11 @@ public final class Range {
 	}
 	
 	public boolean equals(Range r) {
+		if (r == null) return false;
 		return max == r.max && current == r.current;
 	}
     public boolean equals(ConstRange r) {
+		if (r == null) return false;
         return max == r.max && current == r.current;
     }
 	

@@ -38,9 +38,10 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		if (result == null) {
 			result = View.inflate(getContext(), R.layout.inventoryitemview, null);
 		}
-		
-		tileManager.setImageViewTile(getContext().getResources(), (ImageView) result.findViewById(R.id.inv_image), item.itemType, tileCollection);
-		((TextView) result.findViewById(R.id.inv_text)).setText(ItemController.describeItemForListView(item, player));
+		TextView tv = (TextView) result;
+
+		tileManager.setImageViewTile(getContext().getResources(), tv, item.itemType, tileCollection);
+		tv.setText(ItemController.describeItemForListView(item, player));
 		return result;
 	}
 	

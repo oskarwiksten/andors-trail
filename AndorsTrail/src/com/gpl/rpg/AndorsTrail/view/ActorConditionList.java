@@ -38,12 +38,11 @@ public final class ActorConditionList extends LinearLayout {
 		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 		
 		for (ActorCondition c : conditions) {
-			View v = View.inflate(context, R.layout.inventoryitemview, null);
-			ImageView iw = (ImageView) v.findViewById(R.id.inv_image);
-			world.tileManager.setImageViewTile(iw, c.conditionType);
+			TextView v = (TextView) View.inflate(context, R.layout.inventoryitemview, null);
+			world.tileManager.setImageViewTile(res, v, c.conditionType);
 			SpannableString content = new SpannableString(describeEffect(res, c));
 			content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
-			((TextView) v.findViewById(R.id.inv_text)).setText(content);
+			v.setText(content);
 			final ActorConditionType conditionType = c.conditionType;
 			v.setOnClickListener(new OnClickListener() {
 				@Override
