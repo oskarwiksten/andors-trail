@@ -36,8 +36,8 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class WorldMapController {
 
-	public static int WORLDMAP_SCREENSHOT_TILESIZE = 8;
-    public static int WORLDMAP_DISPLAY_TILESIZE = WORLDMAP_SCREENSHOT_TILESIZE;
+	private static final int WORLDMAP_SCREENSHOT_TILESIZE = 8;
+    public static final int WORLDMAP_DISPLAY_TILESIZE = WORLDMAP_SCREENSHOT_TILESIZE;
     
 	public static void updateWorldMap(final WorldContext world, final PredefinedMap map, final LayeredTileMap mapTiles, final TileCollection cachedTiles, final Resources res) {
 		
@@ -148,11 +148,11 @@ public final class WorldMapController {
 		File noMediaFile = new File(dir, ".nomedia");
 		if (!noMediaFile.exists()) noMediaFile.createNewFile();
     }
-    public static File getFileForMap(PredefinedMap map) { return getFileForMap(map.name); }
-    public static File getFileForMap(String mapName) {
+    private static File getFileForMap(PredefinedMap map) { return getFileForMap(map.name); }
+    private static File getFileForMap(String mapName) {
     	return new File(getWorldmapDirectory(), mapName + ".png");
     }
-    public static File getWorldmapDirectory() {
+    private static File getWorldmapDirectory() {
     	File dir = Environment.getExternalStorageDirectory();
     	dir = new File(dir, Constants.FILENAME_SAVEGAME_DIRECTORY);
     	return new File(dir, Constants.FILENAME_WORLDMAP_DIRECTORY);
@@ -165,7 +165,7 @@ public final class WorldMapController {
     	File f = WorldMapController.getFileForMap(mapName);
 		return f.exists();
     }
-	private static String getWorldMapSegmentAsHtml(Resources res, WorldContext world, String segmentName) throws IOException {
+	private static String getWorldMapSegmentAsHtml(Resources res, WorldContext world, String segmentName) {
 		WorldMapSegment segment = world.maps.worldMapSegments.get(segmentName);
 		
 		Collection<String> displayedMapNames = new HashSet<String>();

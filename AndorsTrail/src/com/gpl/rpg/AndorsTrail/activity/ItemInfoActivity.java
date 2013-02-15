@@ -18,12 +18,12 @@ import java.util.Collections;
 
 public final class ItemInfoActivity extends Activity {
 	
-	public static int ITEMACTION_NONE = 1;
-	public static int ITEMACTION_USE = 2;
-	public static int ITEMACTION_EQUIP = 3;
-	public static int ITEMACTION_UNEQUIP = 4;
-	public static int ITEMACTION_BUY = 5;
-	public static int ITEMACTION_SELL = 6;
+	public static final int ITEMACTION_NONE = 1;
+	public static final int ITEMACTION_USE = 2;
+	public static final int ITEMACTION_EQUIP = 3;
+	public static final int ITEMACTION_UNEQUIP = 4;
+	public static final int ITEMACTION_BUY = 5;
+	public static final int ITEMACTION_SELL = 6;
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {

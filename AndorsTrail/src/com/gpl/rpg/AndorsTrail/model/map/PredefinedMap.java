@@ -30,12 +30,12 @@ public final class PredefinedMap {
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
 	public int lastVisitVersion = 0;
-	public final boolean isOutdoors;
+	private final boolean isOutdoors;
 
-	public final boolean[][] isWalkable;
+	private final boolean[][] isWalkable;
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
-	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean hasFOW, boolean isOutdoors) {
+	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;

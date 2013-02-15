@@ -162,7 +162,7 @@ public final class Dialogs {
 	}
 
 	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot loot, final String msg) {
-		showLoot(mainActivity, view, world, loot, Collections.singletonList(loot), R.string.dialog_monsterloot_title, msg);
+		showLoot(mainActivity, view, world, loot, Collections.singletonList(loot), R.string.dialog_groundloot_title, msg);
  	}
 	
 	private static void showLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot combinedLoot, final Iterable<Loot> lootBags, final int title, final String msg) {
@@ -302,8 +302,8 @@ public final class Dialogs {
 	public static void showBulkDroppingInterface(HeroinfoActivity_Inventory currentActivity, String itemTypeID, int totalAvailableAmount) {
 		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, MainActivity.INTENTREQUEST_BULKSELECT_DROP);
 	}
-	
-	public static void showBulkSelectionInterface(Activity currentActivity, String itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
+
+    private static void showBulkSelectionInterface(Activity currentActivity, String itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
 		Intent intent = new Intent(currentActivity, BulkSelectionInterface.class);
 		intent.putExtra("itemTypeID", itemTypeID);
 		intent.putExtra("totalAvailableAmount", totalAvailableAmount);

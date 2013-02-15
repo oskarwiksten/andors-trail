@@ -25,8 +25,8 @@ public final class Loot {
 		this.position = new Coord();
 		this.isVisible = isVisible;
 	}
-	
-	public void add(Loot l) {
+
+    private void add(Loot l) {
 		this.exp += l.exp;
 		this.gold += l.gold;
 		this.items.add(l.items);

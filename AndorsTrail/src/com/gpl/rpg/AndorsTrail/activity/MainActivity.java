@@ -64,11 +64,11 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	
     private ViewContext view;
     private WorldContext world;
-    
-    public MainView mainview;
-    public StatusView statusview;
-    public CombatView combatview;
-    public QuickitemView quickitemview;
+
+    private MainView mainview;
+    private StatusView statusview;
+    private CombatView combatview;
+    private QuickitemView quickitemview;
     private DisplayActiveActorConditionIcons activeConditions;
     private ToolboxView toolboxview;
     private VirtualDpadView dpad;

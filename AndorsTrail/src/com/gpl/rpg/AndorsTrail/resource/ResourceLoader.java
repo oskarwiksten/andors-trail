@@ -193,7 +193,7 @@ public final class ResourceLoader {
 		InputStream is = r.openRawResource(resourceID);
 		BufferedReader br = new BufferedReader(new InputStreamReader(is));
 		StringBuilder sb = new StringBuilder(1000);
-		String line = "";
+		String line;
 		try {
 			while((line = br.readLine()) != null) sb.append(line);
 			br.close();

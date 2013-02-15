@@ -54,9 +54,8 @@ public final class TileManager {
 	public static final int iconID_splatter_brown_2b = 17;
 	public static final int iconID_splatter_white_1a = 18;
 	public static final int iconID_splatter_white_1b = 19;
-	
-    private float density;
-	public int tileSize;
+
+    public int tileSize;
 
 	public int viewTileSize;
     public float scale;
@@ -114,7 +113,7 @@ public final class TileManager {
 	}
 	
 	public void setDensity(Resources r) {
-		density = r.getDisplayMetrics().density;
+        float density = r.getDisplayMetrics().density;
 		tileSize = (int) (32 * density);
 	}
 	
@@ -197,7 +196,7 @@ public final class TileManager {
         tileCache.loadTilesFor(preloadedTileIDs, r, preloadedTiles);
 	}
 
-	private HashMap<String, HashSet<Integer>> tileIDsPerMap = new HashMap<String, HashSet<Integer>>();
+	private final HashMap<String, HashSet<Integer>> tileIDsPerMap = new HashMap<String, HashSet<Integer>>();
 	private void addTileIDsFor(HashSet<Integer> dest, String mapName, final Resources res, final WorldContext world) {
 		HashSet<Integer> cachedTileIDs = tileIDsPerMap.get(mapName);
 		if (cachedTileIDs == null) {

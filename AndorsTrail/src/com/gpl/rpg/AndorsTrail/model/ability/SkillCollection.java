@@ -69,10 +69,10 @@ public final class SkillCollection {
 	public static final int CONCUSSION_THRESHOLD = 50;
 	public static final int PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE = 15;
 
-	public static final int MAX_LEVEL_BARTER = (int) Math.floor((float) Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
-	public static final int MAX_LEVEL_BARKSKIN = 5;
-	public static final int MAX_LEVEL_SPEED = 2;
-	public static final int MAX_LEVEL_EVASION = Math.max(
+	private static final int MAX_LEVEL_BARTER = (int) Math.floor((float) Constants.MARKET_PRICEFACTOR_PERCENT / PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE);
+	private static final int MAX_LEVEL_BARKSKIN = 5;
+	private static final int MAX_LEVEL_SPEED = 2;
+	private static final int MAX_LEVEL_EVASION = Math.max(
 			Constants.FLEE_FAIL_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE
 			,Constants.MONSTER_AGGRESSION_CHANCE_PERCENT / PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE
 			);

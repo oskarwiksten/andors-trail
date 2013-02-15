@@ -28,7 +28,7 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 import android.content.res.Resources;
 
 public final class TMXMapTranslator {
-	private ArrayList<TMXMap> maps = new ArrayList<TMXMap>();
+	private final ArrayList<TMXMap> maps = new ArrayList<TMXMap>();
 	
 	public void read(Resources r, int xmlResourceId, String name) {
 		maps.add(TMXMapFileParser.read(r, xmlResourceId, name));
@@ -123,16 +123,11 @@ public final class TMXMapTranslator {
 						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
 						int maxQuantity = 1;
 						int spawnChance = 10;
-						boolean isUnique = false;
 						for (TMXProperty p : object.properties) {
 							if (p.name.equalsIgnoreCase("quantity")) {
 								maxQuantity = Integer.parseInt(p.value);
 							} else if (p.name.equalsIgnoreCase("spawnchance")) {
 								spawnChance = Integer.parseInt(p.value);
-							} else if (p.name.equalsIgnoreCase("respawn")) {
-								isUnique = !Boolean.parseBoolean(p.value);
-							} else if (p.name.equalsIgnoreCase("unique")) {
-								isUnique = Boolean.parseBoolean(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + " has unrecognized property \"" + p.name + "\".");
 							}
@@ -146,7 +141,7 @@ public final class TMXMapTranslator {
 						}
 						
 						String[] monsterTypeIDs = new String[types.size()];
-						isUnique = types.get(0).isUnique;
+						boolean isUnique = types.get(0).isUnique;
 						for (int i = 0; i < monsterTypeIDs.length; ++i) {
 							monsterTypeIDs[i] = types.get(i).id;
 						}
@@ -192,7 +187,7 @@ public final class TMXMapTranslator {
 			MonsterSpawnArea[] _spawnAreas = new MonsterSpawnArea[spawnAreas.size()];
 			_spawnAreas = spawnAreas.toArray(_spawnAreas);
 
-			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, isWalkable, _eventObjects, _spawnAreas, false, isOutdoors));
+			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, isWalkable, _eventObjects, _spawnAreas, isOutdoors));
 		}
 		
 		return result;
@@ -213,7 +208,7 @@ public final class TMXMapTranslator {
 		}
 		HashSet<Integer> usedTileIDs = new HashSet<Integer>();
 		for (TMXLayer layer : map.layers) {
-			int ixMapLayer = -2;
+			int ixMapLayer;
 			String layerName = layer.name;
 			assert(layerName != null);
 			assert(layerName.length() > 0);

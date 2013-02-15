@@ -73,7 +73,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		title.setText(skillTitle);
 		description.setText(getSkillShortDescriptionResourceID(skillID));
 		
-		boolean enabled = true;
+		boolean enabled;
 		if (player.hasAvailableSkillpoints()) {
 			enabled = SkillController.canLevelupSkillManually(player, skill);
 		} else {

@@ -19,6 +19,9 @@ public final class Range {
 	public boolean equals(Range r) {
 		return max == r.max && current == r.current;
 	}
+    public boolean equals(ConstRange r) {
+        return max == r.max && current == r.current;
+    }
 	
 	public void set(Range r) {
 		this.max = r.max;

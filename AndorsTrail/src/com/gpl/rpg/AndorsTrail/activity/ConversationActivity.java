@@ -58,8 +58,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	private ArrayList<ConversationStatement> conversationHistory = new ArrayList<ConversationStatement>();
 	private StatementContainerAdapter listAdapter;
 	private Button nextButton;
-	private Button leaveButton;
-	private ListView statementList;
+    private ListView statementList;
 	private Monster npc;
 	private RadioGroup replyGroup;
 	private OnCheckedChangeListener radioButtonListener;
@@ -84,7 +83,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
         this.npc = Dialogs.getMonsterFromIntent(getIntent(), world);
         displayActors = (npc != null);
 
-        phraseID = uri.getLastPathSegment().toString(); 
+        phraseID = uri.getLastPathSegment();
         if (savedInstanceState != null) {
         	applyPhraseRewards = false;
         	phraseID = savedInstanceState.getString("phraseID");
@@ -109,13 +108,13 @@ public final class ConversationActivity extends Activity implements OnKeyListene
         statementList.setAdapter(listAdapter);
         
         nextButton = (Button) findViewById(R.id.conversation_next);
-        leaveButton = (Button) findViewById(R.id.conversation_leave);
+        Button leaveButton = (Button) findViewById(R.id.conversation_leave);
         leaveButton.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				ConversationActivity.this.finish();
-			}
-		});
+            @Override
+            public void onClick(View v) {
+                ConversationActivity.this.finish();
+            }
+        });
         
         radioButtonListener = new OnCheckedChangeListener() {
 			@Override
@@ -354,7 +353,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	}
     	s.text = text;
     	s.color = color;
-    	s.isPlayerActor = actor != null ? actor == player : false;
+    	s.isPlayerActor = actor != null && actor == player;
     	conversationHistory.add(s);
     	statementList.clearFocus();
 		listAdapter.notifyDataSetChanged();

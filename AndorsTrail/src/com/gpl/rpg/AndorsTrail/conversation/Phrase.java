@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.conversation;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 
 public final class Phrase {
-	public static final Reply[] NO_REPLIES = new Reply[0];
+	private static final Reply[] NO_REPLIES = new Reply[0];
 	
 	public final String message;
 	public final Reply[] replies;

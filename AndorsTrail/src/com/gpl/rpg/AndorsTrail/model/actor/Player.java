@@ -190,7 +190,7 @@ public final class Player extends Actor {
 	public boolean nextLevelAddsNewSkillpoint() {
     	return thisLevelAddsNewSkillpoint(level + 1);
 	}
-	public static boolean thisLevelAddsNewSkillpoint(int level) {
+	private static boolean thisLevelAddsNewSkillpoint(int level) {
     	return ((level - Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL) % Constants.NEW_SKILL_POINT_EVERY_N_LEVELS == 0);
 	}
 	public boolean hasAvailableSkillpoints() {

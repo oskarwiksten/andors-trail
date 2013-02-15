@@ -40,7 +40,6 @@ public final class Monster extends Actor {
 		this.name = monsterType.name;
 		this.ap.max = monsterType.maxAP;
 		this.health.max = monsterType.maxHP;
-		this.position.set(position);
 		this.moveCost = monsterType.moveCost;
 		this.attackCost = monsterType.attackCost;
 		this.attackChance = monsterType.attackChance;
@@ -105,7 +104,7 @@ public final class Monster extends Actor {
 		return new Monster(src, world, fileversion, monsterType);
 	}
 
-	public Monster(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
+	private Monster(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
 		this(monsterType);
 		
 		boolean readCombatTraits = true;

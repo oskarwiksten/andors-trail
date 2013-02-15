@@ -91,9 +91,8 @@ public final class ItemType {
 		}
 		return -1;
 	}
-	
-	public int calculateCost() { return calculateCost(category, effects_equip, effects_use); }
-	public static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use) {
+
+    private static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use) {
 		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateCost(category.isWeapon());
 		final int costUse = effects_use == null ? 0 : effects_use.calculateCost();
 		//final int costHit = effects_hit == null ? 0 : effects_hit.calculateCost();

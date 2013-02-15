@@ -35,7 +35,7 @@ public final class ViewContext {
 	public final SkillController skillController;
 	
 	public final AndorsTrailPreferences preferences;
-	public final WeakReference<AndorsTrailApplication> app;
+	private final WeakReference<AndorsTrailApplication> app;
 	
 	public ViewContext(AndorsTrailApplication app, WorldContext world) {
 		this.app = new WeakReference<AndorsTrailApplication>(app);

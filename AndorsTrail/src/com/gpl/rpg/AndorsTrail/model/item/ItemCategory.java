@@ -10,7 +10,7 @@ public final class ItemCategory {
 	public final String displayName;
 	public final int inventorySlot;
 	private final int actionType;
-	public final int size;
+	private final int size;
 	
 	public ItemCategory(String id, String displayName, int actionType, int inventorySlot, int size) {
 		this.id = id;

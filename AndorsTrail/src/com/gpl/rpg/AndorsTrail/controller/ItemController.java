@@ -146,7 +146,7 @@ public final class ItemController {
 		SkillController.applySkillEffectsFromItemProficiencies(player);
 		SkillController.applySkillEffectsFromFightingStyles(player);
 	}
-	public static ItemType getMainWeapon(Player player) {
+	private static ItemType getMainWeapon(Player player) {
 		ItemType itemType = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
 		if (itemType != null) return itemType;
 		itemType = player.inventory.wear[Inventory.WEARSLOT_SHIELD];

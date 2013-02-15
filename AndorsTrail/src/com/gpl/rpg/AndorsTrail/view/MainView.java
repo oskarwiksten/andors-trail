@@ -44,7 +44,7 @@ public final class MainView extends SurfaceView
 
 	private final int tileSize;
     private float scale;
-    public int scaledTileSize;
+    private int scaledTileSize;
 
     private Size screenSizeTileCount = null;
     private final Coord screenOffset = new Coord(); // pixel offset where the image begins

@@ -17,14 +17,12 @@ public final class LayeredTileMap {
 	private static final ColorFilter colorFilterBlack40 = createGrayScaleColorFilter(0.4f);
 	private static final ColorFilter colorFilterBlack60 = createGrayScaleColorFilter(0.6f);
 	private static final ColorFilter colorFilterBlack80 = createGrayScaleColorFilter(0.8f);
-	
-	public final Size size;
+
 	public final MapLayer[] layers;
 	public final Collection<Integer> usedTileIDs;
 	public final String colorFilter;
 	
 	public LayeredTileMap(Size size, MapLayer[] layers, Collection<Integer> usedTileIDs, String colorFilter) {
-		this.size = size;
 		assert(size.width > 0);
 		assert(size.height > 0);
 		assert(layers.length == 3);

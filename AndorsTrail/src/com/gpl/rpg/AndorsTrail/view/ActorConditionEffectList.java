@@ -56,8 +56,8 @@ public final class ActorConditionEffectList extends LinearLayout {
 			this.addView(tv, layoutParams);
 		}
 	}
-	
-	public static String describeEffect(Resources res, ActorConditionEffect effect) {
+
+    private static String describeEffect(Resources res, ActorConditionEffect effect) {
 		String msg = describeEffect(res, effect.conditionType, effect.magnitude, effect.duration);
 		if (effect.chance.isMax()) return msg;
 		

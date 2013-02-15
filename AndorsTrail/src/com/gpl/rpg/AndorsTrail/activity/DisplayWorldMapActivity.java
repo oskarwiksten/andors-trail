@@ -74,7 +74,10 @@ public final class DisplayWorldMapActivity extends Activity {
 		
 		WorldMapSegment segment = world.maps.worldMapSegments.get(worldMapSegmentName);
 		WorldMapSegmentMap map = segment.maps.get(world.model.currentMap.name);
-		if (map == null) this.finish();
+		if (map == null) {
+            this.finish();
+            return;
+        }
 
 		String url = "file://" + worldmap.getAbsolutePath() + '?'
 				+ (world.model.player.position.x + map.worldPosition.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE 

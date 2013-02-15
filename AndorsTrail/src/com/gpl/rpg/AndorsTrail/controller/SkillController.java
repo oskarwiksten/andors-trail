@@ -81,7 +81,7 @@ public final class SkillController {
 	}
 	
 	
-	public static boolean canLevelupSkillWithQuest(Player player, SkillInfo skill) {
+	private static boolean canLevelupSkillWithQuest(Player player, SkillInfo skill) {
 		final int playerSkillLevel = player.getSkillLevel(skill.id);
 		if (skill.hasMaxLevel()) {
 			if (playerSkillLevel >= skill.maxLevel) return false;

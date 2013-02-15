@@ -211,7 +211,7 @@ public final class TMXMapFileParser {
 		}
 	}
 	
-	private static TMXProperty readTMXProperty(XmlResourceParser xrp) throws XmlPullParserException, IOException {
+	private static TMXProperty readTMXProperty(XmlResourceParser xrp) {
 		final TMXProperty property = new TMXProperty();
 		property.name = xrp.getAttributeValue(null, "name");
 		property.value = xrp.getAttributeValue(null, "value");
@@ -255,7 +255,7 @@ public final class TMXMapFileParser {
 		public String orientation;
 		public int tilewidth;
 		public int tileheight;
-		public ArrayList<TMXObjectGroup> objectGroups = new ArrayList<TMXObjectGroup>();
+		public final ArrayList<TMXObjectGroup> objectGroups = new ArrayList<TMXObjectGroup>();
 	}
 	public static class TMXLayerMap {
 		public int width;

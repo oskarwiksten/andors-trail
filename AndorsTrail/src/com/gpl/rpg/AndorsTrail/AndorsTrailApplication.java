@@ -36,7 +36,7 @@ public final class AndorsTrailApplication extends Application {
 	public static AndorsTrailApplication getApplicationFromActivityContext(Context context) {
 		return getApplicationFromActivity(getActivityFromActivityContext(context)); 
 	}
-	public static Activity getActivityFromActivityContext(Context context) {
+    private static Activity getActivityFromActivityContext(Context context) {
 		return (Activity) context;
 	}
 	

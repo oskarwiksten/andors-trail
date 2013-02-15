@@ -12,10 +12,10 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 
 public final class GameStatistics {
-	public int deaths = 0;
-	public final HashMap<String, Integer> killedMonsters = new HashMap<String, Integer>();
-	public final HashMap<String, Integer> usedItems = new HashMap<String, Integer>();
-	public int spentGold = 0;
+	private int deaths = 0;
+    private final HashMap<String, Integer> killedMonsters = new HashMap<String, Integer>();
+    private final HashMap<String, Integer> usedItems = new HashMap<String, Integer>();
+    private int spentGold = 0;
 	
 	public GameStatistics() { }
 	public void addMonsterKill(String monsterTypeID) {

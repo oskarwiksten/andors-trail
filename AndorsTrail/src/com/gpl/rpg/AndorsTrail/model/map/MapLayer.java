@@ -4,7 +4,7 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MapLayer {
-	public final Size size;
+	private final Size size;
 	public final int[][] tiles;
 	
 	public MapLayer(Size size) {
