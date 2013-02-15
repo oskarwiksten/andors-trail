@@ -18,12 +18,10 @@ import com.gpl.rpg.AndorsTrail.WorldSetup.OnSceneLoadedListener;
 
 public final class LoadingActivity extends Activity implements OnResourcesLoadedListener, OnSceneLoadedListener {
 
-    private static final int DIALOG_LOADING = 1;
-    private static final int DIALOG_LOADING_FAILED = 2;
-    private static final int DIALOG_LOADING_WRONGVERSION = 3;
     private WorldSetup setup;
-    
-	@Override
+    private ProgressDialog progressDialog;
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
@@ -34,7 +32,7 @@ public final class LoadingActivity extends Activity implements OnResourcesLoaded
 	@Override
     public void onResume() {
 		super.onResume();
-		showDialog(DIALOG_LOADING);
+        progressDialog = ProgressDialog.show(this, null, getString(R.string.dialog_loading_message));
         setup.setOnResourcesLoadedListener(this);
 	}
 	
@@ -52,22 +50,22 @@ public final class LoadingActivity extends Activity implements OnResourcesLoaded
 	
 	@Override
 	public void onSceneLoaded() {
-    	removeDialog(DIALOG_LOADING);
+        progressDialog.hide();
     	startActivity(new Intent(this, MainActivity.class));
     	this.finish();
 	}
 	
 	@Override
 	public void onSceneLoadFailed(int loadResult) {
-    	removeDialog(DIALOG_LOADING);
+        progressDialog.hide();
     	if (loadResult == Savegames.LOAD_RESULT_FUTURE_VERSION) {
-    		showDialog(DIALOG_LOADING_WRONGVERSION);	
+            showLoadingFailedDialog(R.string.dialog_loading_failed_incorrectversion);
     	} else {
-    		showDialog(DIALOG_LOADING_FAILED);
+            showLoadingFailedDialog(R.string.dialog_loading_failed_message);
     	}
 	}
 
-	private Dialog createLoadingFailedDialog(int messageResourceID) {
+	private void showLoadingFailedDialog(int messageResourceID) {
 		Dialog d = new AlertDialog.Builder(this)
 	        .setTitle(R.string.dialog_loading_failed_title)
 	        .setMessage(messageResourceID)
@@ -79,23 +77,6 @@ public final class LoadingActivity extends Activity implements OnResourcesLoaded
 				LoadingActivity.this.finish();
 			}
 		});
-	    return d;
+        d.show();
 	}
-	
-    @Override
-    protected Dialog onCreateDialog(final int id) {
-        switch(id) {
-        case DIALOG_LOADING:
-            ProgressDialog dialog = new ProgressDialog(this);
-            dialog.setMessage(getResources().getText(R.string.dialog_loading_message));
-            dialog.setIndeterminate(true);
-            dialog.setCancelable(false);
-            return dialog;
-        case DIALOG_LOADING_FAILED:
-        	return createLoadingFailedDialog(R.string.dialog_loading_failed_message); 
-        case DIALOG_LOADING_WRONGVERSION:
-        	return createLoadingFailedDialog(R.string.dialog_loading_failed_incorrectversion); 
-        }
-        return super.onCreateDialog(id);
-    }
 }
