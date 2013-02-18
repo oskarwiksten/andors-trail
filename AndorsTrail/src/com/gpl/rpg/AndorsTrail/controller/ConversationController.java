@@ -8,12 +8,15 @@ import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
+
+import java.util.ArrayList;
 
 public final class ConversationController {
 
@@ -26,11 +29,18 @@ public final class ConversationController {
 	}
 	
 	private static final ConstRange always = new ConstRange(1, 1);
-	
-	public Loot applyPhraseRewards(final Player player, final Phrase phrase) {
+
+	public static final class PhraseRewards {
+		public final Loot loot = new Loot();
+		public final ArrayList<ActorConditionEffect> actorConditions = new ArrayList<ActorConditionEffect>();
+		public final ArrayList<SkillInfo> skillIncrease = new ArrayList<SkillInfo>();
+		public final ArrayList<QuestProgress> questProgress = new ArrayList<QuestProgress>();
+	}
+
+	public PhraseRewards applyPhraseRewards(final Player player, final Phrase phrase) {
 		if (phrase.rewards == null || phrase.rewards.length == 0) return null;
 		
-		final Loot loot = new Loot();
+		final PhraseRewards result = new PhraseRewards();
 		for (Reward reward : phrase.rewards) {
 			switch (reward.rewardType) {
 			case Reward.REWARD_TYPE_ACTOR_CONDITION:
@@ -42,13 +52,18 @@ public final class ConversationController {
 				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(reward.rewardID);
 				ActorConditionEffect e = new ActorConditionEffect(conditionType, magnitude, duration, always);
 				view.actorStatsController.applyActorCondition(player, e);
+				result.actorConditions.add(e);
 				break;
 			case Reward.REWARD_TYPE_SKILL_INCREASE:
 				int skillID = Integer.parseInt(reward.rewardID);
-				view.skillController.levelUpSkillByQuest(player, world.skills.getSkill(skillID));
+				SkillInfo skill = world.skills.getSkill(skillID);
+				boolean addedSkill = view.skillController.levelUpSkillByQuest(player, skill);
+				if (addedSkill) {
+					result.skillIncrease.add(skill);
+				}
 				break;
 			case Reward.REWARD_TYPE_DROPLIST:
-				world.dropLists.getDropList(reward.rewardID).createRandomLoot(loot, player);
+				world.dropLists.getDropList(reward.rewardID).createRandomLoot(result.loot, player);
 				break;
 			case Reward.REWARD_TYPE_QUEST_PROGRESS:
 				QuestProgress progress = new QuestProgress(reward.rewardID, reward.value);
@@ -56,7 +71,8 @@ public final class ConversationController {
 				if (added) {  // Only apply exp reward if the quest stage was reached just now (and not re-reached)
 					QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
 					if (stage != null) {
-						loot.exp += stage.rewardExperience;
+						result.loot.exp += stage.rewardExperience;
+						result.questProgress.add(progress);
 					}
 				}
 				break;
@@ -66,9 +82,9 @@ public final class ConversationController {
 			}
 		}
 		
-		player.inventory.add(loot);
-		view.actorStatsController.addExperience(loot.exp);
-		return loot;
+		player.inventory.add(result.loot);
+		view.actorStatsController.addExperience(result.loot.exp);
+		return result;
 	}
 	
 	public static void applyReplyEffect(final Player player, final Reply reply) {

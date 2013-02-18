@@ -220,9 +220,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     		assert(npc != null);
     		assert(npc.getDropList() != null);
     		Intent intent = new Intent(this, ShopActivity.class);
-    		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/shop"));
     		Dialogs.addMonsterIdentifiers(intent, npc);
-    		startActivityForResult(intent, MainActivity.INTENTREQUEST_SHOP);
+    		startActivity(intent);
     		ConversationActivity.this.finish();
     		return;
     	} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
@@ -239,10 +238,10 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
     		if (phrase == null) phrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null);
     	}
-    	
-    	Loot loot = null;
+
+		ConversationController.PhraseRewards phraseRewards = null;
     	if (applyPhraseRewards) {
-    		loot = view.conversationController.applyPhraseRewards(player, phrase);
+			phraseRewards = view.conversationController.applyPhraseRewards(player, phrase);
     	}
     	
     	if (phrase.message == null) {
@@ -256,23 +255,24 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	
     	String message = ConversationController.getDisplayMessage(phrase, player);
     	
-    	if (applyPhraseRewards && loot != null) {
+    	if (applyPhraseRewards && phraseRewards != null) {
+			Loot loot = phraseRewards.loot;
 	    	if (loot.hasItemsOrExp()) {
 	    		message += "\n";
 		    	if (loot.exp > 0) {
-		    		message += "\n" + getResources().getString(R.string.conversation_rewardexp, loot.exp);
+		    		message += "\n" + getString(R.string.conversation_rewardexp, loot.exp);
 		    	}
 		    	if (loot.gold > 0) {
-		    		message += "\n" + getResources().getString(R.string.conversation_rewardgold, loot.gold);
+		    		message += "\n" + getString(R.string.conversation_rewardgold, loot.gold);
 		    	} else if (loot.gold < 0) {
-		    		message += "\n" + getResources().getString(R.string.conversation_lostgold, -loot.gold);
+		    		message += "\n" + getString(R.string.conversation_lostgold, -loot.gold);
 		    	}
 		    	if (!loot.items.isEmpty()) {
 		    		final int len = loot.items.countItems();
 		    		if (len == 1) {
-		    			message += "\n" + getResources().getString(R.string.conversation_rewarditem);
+		    			message += "\n" + getString(R.string.conversation_rewarditem);
 		    		} else {
-		    			message += "\n" + getResources().getString(R.string.conversation_rewarditems, len);
+		    			message += "\n" + getString(R.string.conversation_rewarditems, len);
 		    		}
 		    	}
 	    	}
@@ -358,16 +358,6 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	statementList.clearFocus();
 		listAdapter.notifyDataSetChanged();
 		statementList.requestLayout();
-	}
-	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-		switch (requestCode) {
-		case MainActivity.INTENTREQUEST_SHOP:
-			ConversationActivity.this.finish();
-			break;
-		}
 	}
     
     @Override

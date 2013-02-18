@@ -103,9 +103,10 @@ public final class SkillController {
 		player.availableSkillIncreases -= 1;
 		addSkillLevel(skill.id);
 	}
-	public void levelUpSkillByQuest(Player player, SkillInfo skill) {
-		if (!canLevelupSkillWithQuest(player, skill)) return;
+	public boolean levelUpSkillByQuest(Player player, SkillInfo skill) {
+		if (!canLevelupSkillWithQuest(player, skill)) return false;
 		addSkillLevel(skill.id);
+		return true;
 	}
 
 	public void addSkillLevel(int skillID) {

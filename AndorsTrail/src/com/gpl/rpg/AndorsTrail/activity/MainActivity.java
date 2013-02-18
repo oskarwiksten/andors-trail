@@ -53,7 +53,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
     public static final int INTENTREQUEST_ITEMINFO = 3;
     public static final int INTENTREQUEST_CONVERSATION = 4;
-    public static final int INTENTREQUEST_SHOP = 5;
     public static final int INTENTREQUEST_LEVELUP = 6;
     public static final int INTENTREQUEST_PREFERENCES = 7;
     public static final int INTENTREQUEST_SAVEGAME = 8;
