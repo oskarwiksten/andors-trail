@@ -1,19 +1,19 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.GameRoundListeners;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
 public final class GameRoundController implements TimedMessageTask.Callback {
     
-    private final ViewContext view;
+    private final ControllerContext controllers;
     private final WorldContext world;
     private final TimedMessageTask roundTimer;
 	public final GameRoundListeners gameRoundListeners = new GameRoundListeners();
 	
-	public GameRoundController(ViewContext context, WorldContext world) {
-    	this.view = context;
+	public GameRoundController(ControllerContext controllers, WorldContext world) {
+    	this.controllers = controllers;
     	this.world = world;
     	this.roundTimer = new TimedMessageTask(this, Constants.TICK_DELAY, true);
     }
@@ -64,9 +64,9 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     }
 	
     public void onNewFullRound() {
-		view.controller.resetMapsNotRecentlyVisited();
-		view.actorStatsController.applyConditionsToMonsters(world.model.currentMap, true);
-    	view.actorStatsController.applyConditionsToPlayer(world.model.player, true);
+		controllers.mapController.resetMapsNotRecentlyVisited();
+		controllers.actorStatsController.applyConditionsToMonsters(world.model.currentMap, true);
+    	controllers.actorStatsController.applyConditionsToPlayer(world.model.player, true);
 		gameRoundListeners.onNewFullRound();
     }
     
@@ -76,18 +76,18 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		gameRoundListeners.onNewRound();
     }
     public void onNewPlayerRound() {
-    	view.actorStatsController.applyConditionsToPlayer(world.model.player, false);
-    	view.actorStatsController.applySkillEffectsForNewRound(world.model.player, world.model.currentMap);
+    	controllers.actorStatsController.applyConditionsToPlayer(world.model.player, false);
+    	controllers.actorStatsController.applySkillEffectsForNewRound(world.model.player, world.model.currentMap);
     }
     public void onNewMonsterRound() {
-    	view.actorStatsController.applyConditionsToMonsters(world.model.currentMap, false);
+    	controllers.actorStatsController.applyConditionsToMonsters(world.model.currentMap, false);
     }
     
 	private void onNewTick() {
-    	view.monsterMovementController.moveMonsters();
-    	view.monsterSpawnController.maybeSpawn(world.model.currentMap);
-		view.monsterMovementController.attackWithAgressiveMonsters();
-		view.effectController.updateSplatters(world.model.currentMap);
+    	controllers.monsterMovementController.moveMonsters();
+    	controllers.monsterSpawnController.maybeSpawn(world.model.currentMap);
+		controllers.monsterMovementController.attackWithAgressiveMonsters();
+		controllers.effectController.updateSplatters(world.model.currentMap);
 		gameRoundListeners.onNewTick();
 	}
 }

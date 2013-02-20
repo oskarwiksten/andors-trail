@@ -14,7 +14,7 @@ import android.widget.LinearLayout;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListener;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
@@ -25,7 +25,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	private static final int NUM_QUICK_SLOTS = Inventory.NUM_QUICK_SLOTS;
 
 	private final WorldContext world;
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final QuickButton[] buttons = new QuickButton[NUM_QUICK_SLOTS];
 	private final HashSet<Integer> loadedTileIDs = new HashSet<Integer>();
 	private TileCollection tiles = null;
@@ -34,7 +34,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 		super(context, attrs);
 	    AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
 	    this.world = app.getWorld();
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         setFocusable(false);
         setOrientation(LinearLayout.HORIZONTAL);
 
@@ -65,7 +65,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 		QuickButton button = (QuickButton)v;
 		if(button.isEmpty())
 			return;
-		view.itemController.quickitemUse(button.getIndex());
+		controllers.itemController.quickitemUse(button.getIndex());
 	}
 	
 	@Override
@@ -123,9 +123,9 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	}
 
 	public void subscribe() {
-		view.itemController.quickSlotListeners.add(this);
+		controllers.itemController.quickSlotListeners.add(this);
 	}
 	public void unsubscribe() {
-		view.itemController.quickSlotListeners.remove(this);
+		controllers.itemController.quickSlotListeners.remove(this);
 	}
 }

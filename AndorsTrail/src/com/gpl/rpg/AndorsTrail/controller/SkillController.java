@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
@@ -16,11 +16,11 @@ import com.gpl.rpg.AndorsTrail.model.item.DropList.DropItem;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class SkillController {
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
 
-	public SkillController(ViewContext view, WorldContext world) {
-		this.view = view;
+	public SkillController(ControllerContext controllers, WorldContext world) {
+		this.controllers = controllers;
 		this.world = world;
 	}
 
@@ -38,7 +38,7 @@ public final class SkillController {
 		if (player.hasCriticalMultiplierEffect()) {
 			player.criticalMultiplier += player.criticalMultiplier * SkillCollection.PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT * player.getSkillLevel(SkillCollection.SKILL_BETTER_CRITICALS) / 100;
 		}
-		view.actorStatsController.addActorMaxAP(player, SkillCollection.PER_SKILLPOINT_INCREASE_SPEED * player.getSkillLevel(SkillCollection.SKILL_SPEED), false);
+		controllers.actorStatsController.addActorMaxAP(player, SkillCollection.PER_SKILLPOINT_INCREASE_SPEED * player.getSkillLevel(SkillCollection.SKILL_SPEED), false);
 		/*final int berserkLevel = player.getSkillLevel(Skills.SKILL_BERSERKER);
 		if (berserkLevel > 0) {
 			final int berserkHealth = player.health.max * Skills.BERSERKER_STARTS_AT_HEALTH_PERCENT / 100;
@@ -112,7 +112,7 @@ public final class SkillController {
 	public void addSkillLevel(int skillID) {
 		Player player = world.model.player;
 		player.skillLevels.put(skillID, player.skillLevels.get(skillID) + 1);
-		view.actorStatsController.recalculatePlayerStats(player);
+		controllers.actorStatsController.recalculatePlayerStats(player);
 	}
 	
 	public static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player) {
@@ -153,7 +153,7 @@ public final class SkillController {
 	private void addConditionToActor(Actor target, String conditionName, int magnitude, int duration) {
 		ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(conditionName);
 		ActorConditionEffect effect = new ActorConditionEffect(conditionType, magnitude, duration, null);
-		view.actorStatsController.applyActorCondition(target, effect);
+		controllers.actorStatsController.applyActorCondition(target, effect);
 	}
 			
 	public void applySkillEffectsFromPlayerAttack(AttackResult result, Monster monster) {
@@ -181,7 +181,7 @@ public final class SkillController {
 	public void applySkillEffectsFromMonsterAttack(AttackResult result, Monster monster) {
 		if (!result.isHit) {
 			if (rollForSkillChance(world.model.player, SkillCollection.SKILL_TAUNT, SkillCollection.PER_SKILLPOINT_INCREASE_TAUNT_CHANCE)) {
-				view.actorStatsController.changeActorAP(monster, -SkillCollection.TAUNT_AP_LOSS, false, false);
+				controllers.actorStatsController.changeActorAP(monster, -SkillCollection.TAUNT_AP_LOSS, false, false);
 			}
 		}
 	}

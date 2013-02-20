@@ -22,7 +22,7 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -53,10 +53,10 @@ public final class Savegames {
 			return false;
 		}
 	}
-	public static int loadWorld(WorldContext world, ViewContext view, Context androidContext, int slot) {
+	public static int loadWorld(WorldContext world, ControllerContext controllers, Context androidContext, int slot) {
 		try {
 			FileInputStream fos = getInputFile(androidContext, slot);
-			int result = loadWorld(world, view, fos);
+			int result = loadWorld(world, controllers, fos);
 			fos.close();
 			return result;
 		} catch (IOException e) {
@@ -110,24 +110,24 @@ public final class Savegames {
 		dest.close();
 	}
 	
-	public static int loadWorld(WorldContext world, ViewContext view, InputStream inState) throws IOException {
+	public static int loadWorld(WorldContext world, ControllerContext controllers, InputStream inState) throws IOException {
 		DataInputStream src = new DataInputStream(inState);
 		final FileHeader header = new FileHeader(src);
 		if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
 		
-		world.maps.readFromParcel(src, world, view, header.fileversion);
-		world.model = new ModelContainer(src, world, view, header.fileversion);
+		world.maps.readFromParcel(src, world, controllers, header.fileversion);
+		world.model = new ModelContainer(src, world, controllers, header.fileversion);
 		src.close();
 		
-		onWorldLoaded(world, view);
+		onWorldLoaded(world, controllers);
 		
 		return LOAD_RESULT_SUCCESS;
 	}
 	
-	private static void onWorldLoaded(WorldContext world, ViewContext view) {
-		view.actorStatsController.recalculatePlayerStats(world.model.player);
-		view.controller.resetMapsNotRecentlyVisited();
-		view.movementController.moveBlockedActors();
+	private static void onWorldLoaded(WorldContext world, ControllerContext controllers) {
+		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
+		controllers.mapController.resetMapsNotRecentlyVisited();
+		controllers.movementController.moveBlockedActors();
 	}
 	
 	public static FileHeader quickload(Context androidContext, int slot) {

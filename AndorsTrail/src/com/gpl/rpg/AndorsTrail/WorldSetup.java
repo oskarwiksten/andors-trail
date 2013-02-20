@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
@@ -15,7 +15,7 @@ import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 public final class WorldSetup {
 	
 	private final WorldContext world;
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WeakReference<Context> androidContext;
 	private boolean isResourcesInitialized = false;
 	private boolean isInitializingResources = false;
@@ -29,9 +29,9 @@ public final class WorldSetup {
 	public String newHeroName;
 	private int loadResult;
 	
-	public WorldSetup(WorldContext world, ViewContext view, Context androidContext) {
+	public WorldSetup(WorldContext world, ControllerContext controllers, Context androidContext) {
 		this.world = world;
-		this.view = view;
+		this.controllers = controllers;
 		this.androidContext = new WeakReference<Context>(androidContext);
 	}
 
@@ -139,9 +139,9 @@ public final class WorldSetup {
 	
 	private int continueWorld() {
 		Context ctx = androidContext.get();
-		int result = Savegames.loadWorld(world, view, ctx, loadFromSlot);
+		int result = Savegames.loadWorld(world, controllers, ctx, loadFromSlot);
     	if (result == Savegames.LOAD_RESULT_SUCCESS) {
-			view.movementController.cacheCurrentMapData(ctx.getResources(), world.model.currentMap);
+			controllers.movementController.cacheCurrentMapData(ctx.getResources(), world.model.currentMap);
 		}
 		return result;
 	}
@@ -151,9 +151,9 @@ public final class WorldSetup {
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
 		
-		view.actorStatsController.recalculatePlayerStats(world.model.player);
-		view.movementController.respawnPlayer(ctx.getResources());
-		view.controller.lotsOfTimePassed();
+		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
+		controllers.movementController.respawnPlayer(ctx.getResources());
+		controllers.mapController.lotsOfTimePassed();
 	}
 
 

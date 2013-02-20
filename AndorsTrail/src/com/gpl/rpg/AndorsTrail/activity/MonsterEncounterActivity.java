@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 
@@ -23,7 +23,7 @@ public final class MonsterEncounterActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
 		final WorldContext world = app.getWorld();
-		final ViewContext view = app.getViewContext();
+		final ControllerContext controllers = app.getControllerContext();
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
@@ -35,7 +35,7 @@ public final class MonsterEncounterActivity extends Activity {
         
         setContentView(R.layout.monsterencounter);
 
-        CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(view, monster));
+        CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(controllers, monster));
 
         TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
         tv.setText(monster.getName());

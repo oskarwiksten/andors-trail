@@ -32,7 +32,7 @@ import android.widget.TextView.BufferType;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ConversationController;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
@@ -51,7 +51,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	private static final int NPCConversationColor = Color.argb(255, 0xbb, 0xbb, 0x22);
 	
 	private WorldContext world;
-	private ViewContext view;
+	private ControllerContext controllers;
 	private Player player;
 	private String phraseID;
 	private Phrase phrase;
@@ -74,7 +74,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.getWorld();
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         this.player = world.model.player;
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -241,7 +241,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 
 		ConversationController.PhraseRewards phraseRewards = null;
     	if (applyPhraseRewards) {
-			phraseRewards = view.conversationController.applyPhraseRewards(player, phrase);
+			phraseRewards = controllers.conversationController.applyPhraseRewards(player, phrase);
     	}
     	
     	if (phrase.message == null) {

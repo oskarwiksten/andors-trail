@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
@@ -192,7 +192,7 @@ public final class PredefinedMap {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public void readFromParcel(DataInputStream src, WorldContext world, ViewContext view, int fileversion) throws IOException {
+	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
 		final int loadedSpawnAreas = src.readInt();
 		for(int i = 0; i < loadedSpawnAreas; ++i) {
 			this.spawnAreas[i].readFromParcel(src, world, fileversion);
@@ -226,7 +226,7 @@ public final class PredefinedMap {
 		
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
-			if (area.isUnique && visited) view.monsterSpawnController.spawnAllInArea(this, area, true);
+			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, area, true);
 			else area.reset();
 		}
 	}

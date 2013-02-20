@@ -5,12 +5,12 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class InputController implements OnClickListener, OnLongClickListener{
-	private final ViewContext view;
+	private final ControllerContext controllers;
     private final WorldContext world;
 
 	private final Coord lastTouchPosition_tileCoords = new Coord();
@@ -18,8 +18,8 @@ public final class InputController implements OnClickListener, OnLongClickListen
     private int lastTouchPosition_dy = 0;
     private long lastTouchEventTime = 0;
 
-	public InputController(ViewContext view, WorldContext world) {
-    	this.view = view;
+	public InputController(ControllerContext controllers, WorldContext world) {
+    	this.controllers = controllers;
     	this.world = world;
     }
 
@@ -52,14 +52,14 @@ public final class InputController implements OnClickListener, OnLongClickListen
 	public void onRelativeMovement(int dx, int dy) {
 		if (!allowInputInterval()) return;
     	if (world.model.uiSelections.isInCombat) {
-			view.combatController.executeMoveAttack(dx, dy);
+			controllers.combatController.executeMoveAttack(dx, dy);
 		} else {
-			view.movementController.startMovement(dx, dy, null);
+			controllers.movementController.startMovement(dx, dy, null);
 		}
 	}
 
 	public void onKeyboardCancel() {
-		view.movementController.stopMovement();
+		controllers.movementController.stopMovement();
 	}
 	
 	@Override
@@ -76,7 +76,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 			if (Math.abs(lastTouchPosition_dx) > 1) return false;
 			if (Math.abs(lastTouchPosition_dy) > 1) return false;
 				
-			view.combatController.setCombatSelection(lastTouchPosition_tileCoords);
+			controllers.combatController.setCombatSelection(lastTouchPosition_tileCoords);
 			return true;
 		}
 		return false;
@@ -90,7 +90,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
     }
 
 	public void onTouchCancell() {
-		view.movementController.stopMovement();
+		controllers.movementController.stopMovement();
 	}
 
 	public boolean onTouchedTile(int tile_x, int tile_y) {
@@ -100,7 +100,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 		
 		if (world.model.uiSelections.isInCombat) return false;
 			
-		view.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
+		controllers.movementController.startMovement(lastTouchPosition_dx, lastTouchPosition_dy, lastTouchPosition_tileCoords);
 		return true;
 	}
 }

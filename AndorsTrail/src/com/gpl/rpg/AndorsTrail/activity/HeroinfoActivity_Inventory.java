@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.activity;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -31,7 +31,7 @@ import android.widget.AdapterView.OnItemClickListener;
 
 public final class HeroinfoActivity_Inventory extends Activity {
 	private WorldContext world;
-	private ViewContext view;
+	private ControllerContext controllers;
 	private TileCollection wornTiles;
 
 	private Player player;
@@ -52,7 +52,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.getWorld();
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         this.player = world.model.player;
         
         setContentView(R.layout.heroinfo_inventory);
@@ -116,12 +116,12 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getString("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
 			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
-	        	view.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
+	        	controllers.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_EQUIP) {
 	    		int slot = suggestInventorySlot(itemType);
-	        	view.itemController.equipItem(itemType, slot);
+	        	controllers.itemController.equipItem(itemType, slot);
 	        } else  if (actionType == ItemInfoActivity.ITEMACTION_USE) {
-				view.itemController.useItem(itemType);	
+				controllers.itemController.useItem(itemType);
 			}
 			break;
 		case MainActivity.INTENTREQUEST_BULKSELECT_DROP:
@@ -149,7 +149,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 
 	private void dropItem(String itemTypeID, int quantity) {
 		ItemType itemType = world.itemTypes.getItemType(itemTypeID);
-		view.itemController.dropItem(itemType, quantity);
+		controllers.itemController.dropItem(itemType, quantity);
 	}
 
 	private void update() {
@@ -227,7 +227,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
 		switch (item.getItemId()) {
 		case R.id.inv_menu_info:
 			showInventoryItemInfo(getSelectedItemType(info));
-			//context.controller.itemInfo(this, getSelectedItemType(info));
+			//context.mapController.itemInfo(this, getSelectedItemType(info));
 			break;
 		case R.id.inv_menu_drop:
 			String itemTypeID = getSelectedItemType(info).id;
@@ -240,29 +240,29 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			break;
 		case R.id.inv_menu_equip:
 			itemType = getSelectedItemType(info);
-			view.itemController.equipItem(itemType, itemType.category.inventorySlot);
+			controllers.itemController.equipItem(itemType, itemType.category.inventorySlot);
 			break;
 		case R.id.inv_menu_equip_offhand:
 			itemType = getSelectedItemType(info);
-			view.itemController.equipItem(itemType, itemType.category.inventorySlot + 1);
+			controllers.itemController.equipItem(itemType, itemType.category.inventorySlot + 1);
 			break;
 		/*case R.id.inv_menu_unequip:
-			context.controller.unequipItem(this, getSelectedItemType(info));
+			context.mapController.unequipItem(this, getSelectedItemType(info));
 			break;*/
 		case R.id.inv_menu_use:
-			view.itemController.useItem(getSelectedItemType(info));
+			controllers.itemController.useItem(getSelectedItemType(info));
 			break;
 		case R.id.inv_menu_assign:
 			lastSelectedItem = getSelectedItemType(info);
 			break;
 		case R.id.inv_assign_slot1:
-			view.itemController.setQuickItem(lastSelectedItem, 0);
+			controllers.itemController.setQuickItem(lastSelectedItem, 0);
 			break;
 		case R.id.inv_assign_slot2:
-			view.itemController.setQuickItem(lastSelectedItem, 1);
+			controllers.itemController.setQuickItem(lastSelectedItem, 1);
 			break;
 		case R.id.inv_assign_slot3:
-			view.itemController.setQuickItem(lastSelectedItem, 2);
+			controllers.itemController.setQuickItem(lastSelectedItem, 2);
 			break;
 		case R.id.inv_menu_movetop:
 			player.inventory.sortToTop(getSelectedItemType(info).id);

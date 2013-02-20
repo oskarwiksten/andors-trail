@@ -36,7 +36,7 @@ import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -48,10 +48,10 @@ import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
 public final class Dialogs {
 	
-	private static void showDialogAndPause(Dialog d, final ViewContext context) { 
+	private static void showDialogAndPause(Dialog d, final ControllerContext context) {
 		showDialogAndPause(d, context, null);
 	}
-	private static void showDialogAndPause(Dialog d, final ViewContext context, final OnDismissListener onDismiss) {
+	private static void showDialogAndPause(Dialog d, final ControllerContext context, final OnDismissListener onDismiss) {
 		context.gameRoundController.pause();
     	d.setOnDismissListener(new OnDismissListener() {
 			@Override
@@ -70,15 +70,15 @@ public final class Dialogs {
 	}
 	*/
 	
-	public static void showKeyArea(final MainActivity currentActivity, final ViewContext context, String phraseID) {
+	public static void showKeyArea(final MainActivity currentActivity, final ControllerContext context, String phraseID) {
 		showConversation(currentActivity, context, phraseID, null);
 	}
 	
-	public static void showMapSign(final MainActivity currentActivity, final ViewContext context, String phraseID) {
+	public static void showMapSign(final MainActivity currentActivity, final ControllerContext context, String phraseID) {
 		showConversation(currentActivity, context, phraseID, null);
 	}
 	
-	public static void showConversation(final MainActivity currentActivity, final ViewContext context, final String phraseID, final Monster npc) {
+	public static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID));
@@ -101,7 +101,7 @@ public final class Dialogs {
         return world.model.currentMap.getMonsterAt(x, y);
 	}
 	
-	public static void showMonsterEncounter(final MainActivity currentActivity, final ViewContext context, final Monster monster) {
+	public static void showMonsterEncounter(final MainActivity currentActivity, final ControllerContext context, final Monster monster) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, MonsterEncounterActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/monsterencounter"));
@@ -154,18 +154,18 @@ public final class Dialogs {
 		}
 	}
 	
-	public static void showMonsterLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Collection<Loot> lootBags, final Loot combinedLoot, final String msg) {
+	public static void showMonsterLoot(final MainActivity mainActivity, final ControllerContext controllers, final WorldContext world, final Collection<Loot> lootBags, final Loot combinedLoot, final String msg) {
 		// CombatController will do killedMonsterBags.clear() after this method has been called,
 		// so we need to keep the list of objects. Therefore, we create a shallow copy of the list of bags.
 		ArrayList<Loot> bags = new ArrayList<Loot>(lootBags);
-		showLoot(mainActivity, view, world, combinedLoot, bags, R.string.dialog_monsterloot_title, msg);
+		showLoot(mainActivity, controllers, world, combinedLoot, bags, R.string.dialog_monsterloot_title, msg);
 	}
 
-	public static void showGroundLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot loot, final String msg) {
-		showLoot(mainActivity, view, world, loot, Collections.singletonList(loot), R.string.dialog_groundloot_title, msg);
+	public static void showGroundLoot(final MainActivity mainActivity, final ControllerContext controllers, final WorldContext world, final Loot loot, final String msg) {
+		showLoot(mainActivity, controllers, world, loot, Collections.singletonList(loot), R.string.dialog_groundloot_title, msg);
  	}
 	
-	private static void showLoot(final MainActivity mainActivity, final ViewContext view, final WorldContext world, final Loot combinedLoot, final Iterable<Loot> lootBags, final int title, final String msg) {
+	private static void showLoot(final MainActivity mainActivity, final ControllerContext controllers, final WorldContext world, final Loot combinedLoot, final Iterable<Loot> lootBags, final int title, final String msg) {
 		final ListView itemList = new ListView(mainActivity);
 		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
 		itemList.setPadding(20, 0, 20, 20);
@@ -176,7 +176,7 @@ public final class Dialogs {
 				final String itemTypeID = ((ItemContainerAdapter) parent.getAdapter()).getItem(position).itemType.id;
 				for (Loot l : lootBags) {
 					if (l.items.removeItem(itemTypeID)) {
-						view.itemController.removeLootBagIfEmpty(l);
+						controllers.itemController.removeLootBagIfEmpty(l);
 						break;
 					}
 				}
@@ -199,17 +199,17 @@ public final class Dialogs {
 			db.setPositiveButton(R.string.dialog_loot_pickall, new DialogInterface.OnClickListener() {
 	            @Override
 	            public void onClick(DialogInterface dialog, int which) {
-	            	view.itemController.pickupAll(lootBags);
+	            	controllers.itemController.pickupAll(lootBags);
 	            }
 	        });
 		}
 		
 		final Dialog d = db.create();
 		
-		showDialogAndPause(d, view, new OnDismissListener() {
+		showDialogAndPause(d, controllers, new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
-				view.itemController.removeLootBagIfEmpty(lootBags);
+				controllers.itemController.removeLootBagIfEmpty(lootBags);
 			}
 		});
 	}
@@ -230,29 +230,29 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_LEVELUP);
 	}
 
-	public static void showConfirmRest(final Activity currentActivity, final ViewContext viewContext, final MapObject area) {
+	public static void showConfirmRest(final Activity currentActivity, final ControllerContext controllerContext, final MapObject area) {
 		Dialog d = new AlertDialog.Builder(currentActivity)
         .setTitle(R.string.dialog_rest_title)
         .setMessage(R.string.dialog_rest_confirm_message)
         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-            	viewContext.controller.rest(area);
+            	controllerContext.mapController.rest(area);
             }
         })
         .setNegativeButton(android.R.string.no, null)
         .create();
 
-    	showDialogAndPause(d, viewContext);
+    	showDialogAndPause(d, controllerContext);
 	}
-	public static void showRested(final Activity currentActivity, final ViewContext viewContext) {
+	public static void showRested(final Activity currentActivity, final ControllerContext controllerContext) {
 		Dialog d = new AlertDialog.Builder(currentActivity)
         .setTitle(R.string.dialog_rest_title)
         .setMessage(R.string.dialog_rest_message)
         .setNeutralButton(android.R.string.ok, null)
         .create();
 
-    	showDialogAndPause(d, viewContext);
+    	showDialogAndPause(d, controllerContext);
 	}
 
 	public static void showNewVersion(final Activity currentActivity) {
@@ -268,12 +268,12 @@ public final class Dialogs {
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_PREFERENCES);
 	}
 	
-	public static void showSave(final MainActivity mainActivity, final ViewContext viewContext, final WorldContext world) {
+	public static void showSave(final MainActivity mainActivity, final ControllerContext controllerContext, final WorldContext world) {
 		if (world.model.uiSelections.isInCombat) {
 			mainActivity.showToast(mainActivity.getResources().getString(R.string.menu_save_saving_not_allowed_in_combat), Toast.LENGTH_SHORT);
 			return;
 		}
-		viewContext.gameRoundController.pause();
+		controllerContext.gameRoundController.pause();
     	Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
     	intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
     	mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);

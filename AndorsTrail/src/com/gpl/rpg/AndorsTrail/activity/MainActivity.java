@@ -7,8 +7,8 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.savegames.Savegames;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
@@ -61,7 +61,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	public static final int INTENTREQUEST_BULKSELECT_DROP = 11;
     public static final int INTENTREQUEST_SKILLINFO = 12;
 	
-    private ViewContext view;
+    private ControllerContext controllers;
     private WorldContext world;
 
     private MainView mainview;
@@ -86,7 +86,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
         if (!app.isInitialized()) { finish(); return; }
         AndorsTrailPreferences preferences = app.getPreferences();
         this.world = app.getWorld();
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
     	app.setWindowParameters(this);
         
         setContentView(R.layout.main);
@@ -94,7 +94,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
         statusview = (StatusView) findViewById(R.id.main_statusview);
         combatview = (CombatView) findViewById(R.id.main_combatview);
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
-        activeConditions = new DisplayActiveActorConditionIcons(view, world, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
+        activeConditions = new DisplayActiveActorConditionIcons(controllers, world, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
         dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         toolboxview = (ToolboxView) findViewById(R.id.main_toolboxview);
         statusview.registerToolboxViews(toolboxview, quickitemview);
@@ -109,7 +109,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		clearMessages();
 		
 		if (AndorsTrailApplication.DEVELOPMENT_DEBUGBUTTONS) 
-			new DebugInterface(view, world, this).addDebugButtons();
+			new DebugInterface(controllers, world, this).addDebugButtons();
         
 		quickitemview.setVisibility(View.GONE);
         quickitemview.registerForContextMenu(this);
@@ -130,9 +130,9 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		switch (requestCode) {
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
-				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+				controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 			} else {
-				view.combatController.exitCombat(false);
+				controllers.combatController.exitCombat(false);
 			}
 			break;
 		case INTENTREQUEST_CONVERSATION:
@@ -142,13 +142,13 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 				Monster m = world.model.currentMap.getMonsterAt(p);
 				if (m == null) return; //Shouldn't happen.
 				m.forceAggressive();
-				view.combatController.setCombatSelection(m, p);
-				view.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+				controllers.combatController.setCombatSelection(m, p);
+				controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
 			} else if (resultCode == ConversationActivity.ACTIVITYRESULT_REMOVE) {
 				final Coord p = world.model.player.nextPosition;
 				Monster m = world.model.currentMap.getMonsterAt(p);
 				if (m == null) return;
-				view.monsterSpawnController.remove(world.model.currentMap, m);
+				controllers.monsterSpawnController.remove(world.model.currentMap, m);
 			}
 			break;
 		case INTENTREQUEST_PREFERENCES:
@@ -178,8 +178,8 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	@Override
     protected void onPause() {
         super.onPause();
-        view.gameRoundController.pause();
-        view.movementController.stopMovement();
+        controllers.gameRoundController.pause();
+        controllers.movementController.stopMovement();
         
         unsubscribeFromModel();
         
@@ -193,11 +193,11 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
         subscribeToModelChanges();
         
-        view.gameRoundController.resume();
+        controllers.gameRoundController.resume();
         
 		if (world.model.uiSelections.isInCombat) {
-			view.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
-			view.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
+			controllers.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
+			controllers.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
 		}
 		updateStatus();
     }
@@ -208,17 +208,17 @@ public final class MainActivity extends Activity implements PlayerMovementListen
         mainview.unsubscribe();
         quickitemview.unsubscribe();
         statusview.unsubscribe();
-        view.movementController.playerMovementListeners.remove(this);
-        view.combatController.combatActionListeners.remove(this);
-        view.combatController.combatTurnListeners.remove(this);
-        view.controller.worldEventListeners.remove(this);
+        controllers.movementController.playerMovementListeners.remove(this);
+        controllers.combatController.combatActionListeners.remove(this);
+        controllers.combatController.combatTurnListeners.remove(this);
+        controllers.mapController.worldEventListeners.remove(this);
 	}
 
 	private void subscribeToModelChanges() {
-		view.controller.worldEventListeners.add(this);
-        view.combatController.combatTurnListeners.add(this);
-        view.combatController.combatActionListeners.add(this);
-		view.movementController.playerMovementListeners.add(this);
+		controllers.mapController.worldEventListeners.add(this);
+        controllers.combatController.combatTurnListeners.add(this);
+        controllers.combatController.combatActionListeners.add(this);
+		controllers.movementController.playerMovementListeners.add(this);
 		statusview.subscribe();
 		quickitemview.subscribe();
 		mainview.subscribe();
@@ -242,7 +242,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
 			@Override
 			public boolean onMenuItemClick(MenuItem arg0) {
-				Dialogs.showSave(MainActivity.this, view, world);
+				Dialogs.showSave(MainActivity.this, controllers, world);
 				return true;
 			}
 		});
@@ -282,13 +282,13 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		QuickButtonContextMenuInfo menuInfo;
 		if(item.getGroupId() == R.id.quick_menu_assign_group){
 			menuInfo = (QuickButtonContextMenuInfo) lastSelectedMenu;
-			view.itemController.setQuickItem(world.model.player.inventory.items.get(item.getItemId()).itemType, menuInfo.index);
+			controllers.itemController.setQuickItem(world.model.player.inventory.items.get(item.getItemId()).itemType, menuInfo.index);
 			return true;
 		}
 		switch(item.getItemId()){
 		case R.id.quick_menu_unassign:
 			menuInfo = (QuickButtonContextMenuInfo) item.getMenuInfo();
-			view.itemController.setQuickItem(null, menuInfo.index);
+			controllers.itemController.setQuickItem(null, menuInfo.index);
 			break;
 		case R.id.quick_menu_assign:
 			menuInfo = (QuickButtonContextMenuInfo) item.getMenuInfo();
@@ -405,38 +405,38 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
 	@Override
 	public void onPlayerStartedConversation(Monster m, String phraseID) {
-		Dialogs.showConversation(this, view, phraseID, m);
+		Dialogs.showConversation(this, controllers, phraseID, m);
 	}
 
 	@Override
 	public void onPlayerSteppedOnMonster(Monster m) {
-		Dialogs.showMonsterEncounter(this, view, m);
+		Dialogs.showMonsterEncounter(this, controllers, m);
 	}
 
 	@Override
 	public void onPlayerSteppedOnMapSignArea(MapObject area) {
-		Dialogs.showMapSign(this, view, area.id);
+		Dialogs.showMapSign(this, controllers, area.id);
 	}
 
 	@Override
 	public void onPlayerSteppedOnKeyArea(MapObject area) {
-		Dialogs.showKeyArea(this, view, area.id);
+		Dialogs.showKeyArea(this, controllers, area.id);
 	}
 
 	@Override
 	public void onPlayerSteppedOnRestArea(MapObject area) {
-		Dialogs.showConfirmRest(this, view, area);
+		Dialogs.showConfirmRest(this, controllers, area);
 	}
 
 	@Override
 	public void onPlayerSteppedOnGroundLoot(Loot loot) {
 		final String msg = Dialogs.getGroundLootMessage(this, loot);
-		Dialogs.showGroundLoot(this, view, world, loot, msg);
+		Dialogs.showGroundLoot(this, controllers, world, loot, msg);
 	}
 
 	@Override
 	public void onPlayerPickedUpGroundLoot(Loot loot) {
-		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
+		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
 		
 		final String msg = Dialogs.getGroundLootMessage(this, loot);
 		showToast(msg, Toast.LENGTH_LONG);
@@ -446,12 +446,12 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	public void onPlayerFoundMonsterLoot(Collection<Loot> loot, int exp) {
 		final Loot combinedLoot = Loot.combine(loot);
 		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
-		Dialogs.showMonsterLoot(this, view, world, loot, combinedLoot, msg);
+		Dialogs.showMonsterLoot(this, controllers, world, loot, combinedLoot, msg);
 	}
 
 	@Override
 	public void onPlayerPickedUpMonsterLoot(Collection<Loot> loot, int exp) {
-		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
+		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
 		
 		final Loot combinedLoot = Loot.combine(loot);
 		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
@@ -460,7 +460,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
 	@Override
 	public void onPlayerRested() {
-		Dialogs.showRested(this, view);
+		Dialogs.showRested(this, controllers);
 	}
 
 	@Override

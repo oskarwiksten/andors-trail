@@ -12,7 +12,7 @@ import android.widget.RelativeLayout;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 
@@ -35,8 +35,8 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.getWorld();
-		final ViewContext view = app.getViewContext();
-        this.inputController = view.inputController;
+		final ControllerContext controllers = app.getControllerContext();
+        this.inputController = controllers.inputController;
 
         setImageResource(R.drawable.ui_dpad);
         setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));

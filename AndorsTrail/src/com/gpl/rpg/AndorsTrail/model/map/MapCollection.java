@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -43,12 +43,12 @@ public final class MapCollection {
 
 	// ====== PARCELABLE ===================================================================
 
-	public void readFromParcel(DataInputStream src, WorldContext world, ViewContext view, int fileversion) throws IOException {
+	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
 		int size;
 		if (fileversion == 5) size = 11;
 		else size = src.readInt();
 		for(int i = 0; i < size; ++i) {
-			predefinedMaps.get(i).readFromParcel(src, world, view, fileversion);
+			predefinedMaps.get(i).readFromParcel(src, world, controllers, fileversion);
 			if (i >= 40) {
 				if (fileversion < 15) predefinedMaps.get(i).visited = false;
 			}

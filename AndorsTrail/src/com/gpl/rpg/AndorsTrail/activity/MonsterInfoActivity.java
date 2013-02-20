@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
@@ -21,7 +21,7 @@ import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 public final class MonsterInfoActivity extends Activity {
 	
 	private WorldContext world;
-	private ViewContext view;
+	private ControllerContext controllers;
 	
 	private TextView monsterinfo_title;
 	private TextView monsterinfo_difficulty;
@@ -37,7 +37,7 @@ public final class MonsterInfoActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.getWorld();
-		this.view = app.getViewContext();
+		this.controllers = app.getControllerContext();
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         
         setContentView(R.layout.monsterinfo);
@@ -77,7 +77,7 @@ public final class MonsterInfoActivity extends Activity {
 	private void updateTitle(Monster monster) {
 		monsterinfo_title.setText(monster.getName());
 		world.tileManager.setImageViewTile(getResources(), monsterinfo_title, monster);
-        monsterinfo_difficulty.setText(getMonsterDifficultyResource(view, monster));
+        monsterinfo_difficulty.setText(getMonsterDifficultyResource(controllers, monster));
 	}
 
 	private void updateTraits(Monster monster) {
@@ -92,8 +92,8 @@ public final class MonsterInfoActivity extends Activity {
         monsterinfo_max_ap.setText(Integer.toString(monster.getMaxAP()));
     }
 
-	public static int getMonsterDifficultyResource(ViewContext viewContext, Monster monster) {
-		final int difficulty = viewContext.combatController.getMonsterDifficulty(monster);
+	public static int getMonsterDifficultyResource(ControllerContext controllerContext, Monster monster) {
+		final int difficulty = controllerContext.combatController.getMonsterDifficulty(monster);
 		if (difficulty >= 80) return R.string.monster_difficulty_veryeasy;
 		if (difficulty >= 60) return R.string.monster_difficulty_easy;
 		if (difficulty >= 40) return R.string.monster_difficulty_normal;

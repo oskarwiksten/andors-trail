@@ -11,7 +11,7 @@ import android.util.FloatMath;
 import android.util.SparseIntArray;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
@@ -253,9 +253,9 @@ public final class Player extends Actor {
 	
 	// ====== PARCELABLE ===================================================================
 
-	public static Player readFromParcel(DataInputStream src, WorldContext world, ViewContext view, int fileversion) throws IOException {
+	public static Player readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
 		Player player = new Player(src, world, fileversion);
-		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, view, fileversion);
+		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, controllers, fileversion);
 		return player;
 	}
 	

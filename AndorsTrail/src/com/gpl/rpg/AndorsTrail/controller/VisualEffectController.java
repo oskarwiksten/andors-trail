@@ -7,7 +7,7 @@ import android.os.Handler;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection.VisualEffect;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.VisualEffectFrameListeners;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -21,14 +21,14 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 public final class VisualEffectController {
 	private int effectCount = 0;
 
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
 	private final VisualEffectCollection effectTypes;
 	
 	public final VisualEffectFrameListeners visualEffectFrameListeners = new VisualEffectFrameListeners();
 	
-	public VisualEffectController(ViewContext view, WorldContext world) {
-		this.view = view;
+	public VisualEffectController(ControllerContext controllers, WorldContext world) {
+		this.controllers = controllers;
 		this.world = world;
 		this.effectTypes = world.visualEffectTypes;
 	}
@@ -132,11 +132,11 @@ public final class VisualEffectController {
 			BloodSplatter b = map.splatters.get(i);
 			if (b.removeAfter <= now) {
 				map.splatters.remove(i);
-				view.monsterSpawnController.monsterSpawnListeners.onSplatterRemoved(map, b.position);
+				controllers.monsterSpawnController.monsterSpawnListeners.onSplatterRemoved(map, b.position);
 			} else if (!b.reducedIcon && b.reduceIconAfter <= now) {
 				b.reducedIcon = true;
 				b.iconID++;
-				view.monsterSpawnController.monsterSpawnListeners.onSplatterChanged(map, b.position);
+				controllers.monsterSpawnController.monsterSpawnListeners.onSplatterChanged(map, b.position);
 			}
 		}
 	}
@@ -145,7 +145,7 @@ public final class VisualEffectController {
 		int iconID = getSplatterIconFromMonsterClass(m.getMonsterClass());
 		if (iconID > 0) {
 			map.splatters.add(new BloodSplatter(iconID, m.position));
-			view.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(map, m.position);
+			controllers.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(map, m.position);
 		}
 	}
 	

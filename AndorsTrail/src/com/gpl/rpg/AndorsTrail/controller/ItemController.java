@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.LootBagListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListeners;
@@ -21,13 +21,13 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 
 public final class ItemController {
 	
-	private final ViewContext view;
+	private final ControllerContext controllers;
     private final WorldContext world;
     public final QuickSlotListeners quickSlotListeners = new QuickSlotListeners(); 
     public final LootBagListeners lootBagListeners = new LootBagListeners();
 
-	public ItemController(ViewContext context, WorldContext world) {
-    	this.view = context;
+	public ItemController(ControllerContext controllers, WorldContext world) {
+    	this.controllers = controllers;
     	this.world = world;
     }
 	
@@ -41,7 +41,7 @@ public final class ItemController {
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
     	if (world.model.uiSelections.isInCombat) {
-    		boolean changed = view.actorStatsController.useAPs(player, player.getReequipCost());
+    		boolean changed = controllers.actorStatsController.useAPs(player, player.getReequipCost());
     		if (!changed) return;
     	}
 		
@@ -55,8 +55,8 @@ public final class ItemController {
 		}
 			
 		player.inventory.wear[slot] = type;
-		view.actorStatsController.addConditionsFromEquippedItem(player, type);
-		view.actorStatsController.recalculatePlayerStats(player);
+		controllers.actorStatsController.addConditionsFromEquippedItem(player, type);
+		controllers.actorStatsController.recalculatePlayerStats(player);
     }
 
    	public void unequipSlot(ItemType type, int slot) {
@@ -65,12 +65,12 @@ public final class ItemController {
 		if (player.inventory.isEmptySlot(slot)) return;
     	
 		if (world.model.uiSelections.isInCombat) {
-			boolean changed = view.actorStatsController.useAPs(player, player.getReequipCost());
+			boolean changed = controllers.actorStatsController.useAPs(player, player.getReequipCost());
     		if (!changed) return;
     	}
     	
 		unequipSlot(player, slot);
-		view.actorStatsController.recalculatePlayerStats(player);
+		controllers.actorStatsController.recalculatePlayerStats(player);
     }
 
    	private void unequipSlot(Player player, int slot) {
@@ -78,20 +78,20 @@ public final class ItemController {
    		if (removedItemType == null) return;
 		player.inventory.addItem(removedItemType);
 		player.inventory.wear[slot] = null;
-		view.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
+		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
     }
     
     public void useItem(ItemType type) {
     	if (!type.isUsable()) return;
     	final Player player = world.model.player;
     	if (world.model.uiSelections.isInCombat) {
-    		boolean changed = view.actorStatsController.useAPs(player, player.getUseItemCost());
+    		boolean changed = controllers.actorStatsController.useAPs(player, player.getUseItemCost());
     		if (!changed) return;
     	}
     	
     	if (!player.inventory.removeItem(type.id, 1)) return;
     	
-    	view.actorStatsController.applyUseEffect(player, null, type.effects_use);
+    	controllers.actorStatsController.applyUseEffect(player, null, type.effects_use);
     	world.model.statistics.addItemUsage(type);
 		
     	//TODO: provide feedback that the item has been used.
@@ -100,29 +100,29 @@ public final class ItemController {
     
 	public void playerSteppedOnLootBag(Loot loot) {
 		if (loot.isVisible && pickupLootBagWithoutConfirmation()) {
-			view.controller.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
+			controllers.mapController.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
 			pickupAll(loot);
 			removeLootBagIfEmpty(loot);
 		} else {
-			view.controller.worldEventListeners.onPlayerSteppedOnGroundLoot(loot);
+			controllers.mapController.worldEventListeners.onPlayerSteppedOnGroundLoot(loot);
 			consumeNonItemLoot(loot);
 		}
 	}
 	
 	public void lootMonsterBags(Collection<Loot> killedMonsterBags, int totalExpThisFight) {
 		if (pickupLootBagWithoutConfirmation()) {
-			view.controller.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
+			controllers.mapController.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
 			pickupAll(killedMonsterBags);
 			removeLootBagIfEmpty(killedMonsterBags);
-			view.gameRoundController.resume();
+			controllers.gameRoundController.resume();
 		} else {
-			view.controller.worldEventListeners.onPlayerFoundMonsterLoot(killedMonsterBags, totalExpThisFight);
+			controllers.mapController.worldEventListeners.onPlayerFoundMonsterLoot(killedMonsterBags, totalExpThisFight);
 			consumeNonItemLoot(killedMonsterBags);
 		}
 	}
 
 	private boolean pickupLootBagWithoutConfirmation() {
-		if (view.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_DIALOG) return false;
+		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_DIALOG) return false;
 		return true;
 	}
 
@@ -163,7 +163,7 @@ public final class ItemController {
 			if (SkillController.isDualWielding(mainHandItem, type)) return;
 		}
 		if (type.effects_equip != null && type.effects_equip.stats != null)
-		view.actorStatsController.applyAbilityEffects(player, type.effects_equip.stats, 1);
+		controllers.actorStatsController.applyAbilityEffects(player, type.effects_equip.stats, 1);
 	}
 	
 	public static void recalculateHitEffectsFromWornItems(Player player) {

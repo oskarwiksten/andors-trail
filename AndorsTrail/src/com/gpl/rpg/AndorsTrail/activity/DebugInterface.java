@@ -9,19 +9,19 @@ import android.widget.Toast;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 @SuppressWarnings("unused")
 public final class DebugInterface {
-	private final ViewContext viewContext;
+	private final ControllerContext controllerContext;
 	private final MainActivity mainActivity;
 	private final Resources res;
 	private final WorldContext world;
 	
-	public DebugInterface(ViewContext view, WorldContext world, MainActivity mainActivity) {
-		this.viewContext = view;
+	public DebugInterface(ControllerContext controllers, WorldContext world, MainActivity mainActivity) {
+		this.controllerContext = controllers;
 		this.world = world;
 		this.res = mainActivity.getResources();
 		this.mainActivity = mainActivity;
@@ -97,13 +97,13 @@ public final class DebugInterface {
 	    			player.addQuestProgress(new QuestProgress("bwm_agent", 50));
 	    			player.addQuestProgress(new QuestProgress("bwm_agent", 60));
 	    			
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain45", "south", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain45", "south", 0, 0);
 				}
 			})*/
 			/*,new DebugButton("prim", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
 				}
 			})*/
 			/*,new DebugButton("exp+=10000", new OnClickListener() {
@@ -128,7 +128,7 @@ public final class DebugInterface {
 				public void onClick(View arg0) {
 	    			world.model.player.baseTraits.maxHP = 200;
 	    			world.model.player.health.max = world.model.player.baseTraits.maxHP;
-	    			viewContext.actorStatsController.setActorMaxHealth(world.model.player);
+	    			controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
 	    			world.model.player.conditions.clear();
 	    			mainActivity.showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
@@ -137,37 +137,37 @@ public final class DebugInterface {
 			,new DebugButton("cg", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "crossglen", "hall", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "crossglen", "hall", 0, 0);
 				}
 			})
 			,new DebugButton("vg", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "vilegard_s", "tavern", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "vilegard_s", "tavern", 0, 0);
 				}
 			})
 			,new DebugButton("cr", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "houseatcrossroads4", "down", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "houseatcrossroads4", "down", 0, 0);
 				}
 			})
 			,new DebugButton("lf", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "loneford9", "south", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "loneford9", "south", 0, 0);
 				}
 			})
 			,new DebugButton("fh", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "fallhaven_ne", "clothes", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "fallhaven_ne", "clothes", 0, 0);
 				}
 			})
 			,new DebugButton("rc", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			viewContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "roadtocarntower1", "left3", 0, 0);
+	    			controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "roadtocarntower1", "left3", 0, 0);
 				}
 			})
 			*/

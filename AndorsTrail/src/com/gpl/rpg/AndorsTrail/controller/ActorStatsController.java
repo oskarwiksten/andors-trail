@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import java.util.ArrayList;
 
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.listeners.PlayerStatsListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
@@ -25,14 +25,14 @@ import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 
 public final class ActorStatsController {
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
 	public final ActorConditionListeners actorConditionListeners = new ActorConditionListeners();
 	public final ActorStatsListeners actorStatsListeners = new ActorStatsListeners();
 	public final PlayerStatsListeners playerStatsListeners = new PlayerStatsListeners();
 
-	public ActorStatsController(ViewContext context, WorldContext world) {
-    	this.view = context;
+	public ActorStatsController(ControllerContext controllers, WorldContext world) {
+    	this.controllers = controllers;
     	this.world = world;
     }
 
@@ -193,8 +193,8 @@ public final class ActorStatsController {
 	public void recalculatePlayerStats(Player player) { 
 		player.resetStatsToBaseTraits();
 		player.recalculateLevelExperience();
-		view.itemController.applyInventoryEffects(player);
-		view.skillController.applySkillEffects(player);
+		controllers.itemController.applyInventoryEffects(player);
+		controllers.skillController.applySkillEffects(player);
 		applyEffectsFromCurrentConditions(player);
 		ItemController.recalculateHitEffectsFromWornItems(player);
 		capActorHealthAtMax(player);
@@ -217,7 +217,7 @@ public final class ActorStatsController {
 		
 		applyStatsEffects(player, isFullRound);
 		if (player.isDead()) {
-			view.controller.handlePlayerDeath();
+			controllers.mapController.handlePlayerDeath();
 			return;
 		}
 
@@ -269,7 +269,7 @@ public final class ActorStatsController {
 		if (monster.conditions.isEmpty()) return;
 		applyStatsEffects(monster, isFullRound);
 		if (monster.isDead()) {
-			view.combatController.playerKilledMonster(monster);
+			controllers.combatController.playerKilledMonster(monster);
 			return;
 		}
 		
@@ -344,7 +344,7 @@ public final class ActorStatsController {
 
 	private void startVisualEffect(Actor actor, VisualEffect effectToStart) {
 		if (effectToStart == null) return;
-		view.effectController.startEffect(
+		controllers.effectController.startEffect(
 			actor.position
 			, effectToStart.visualEffectID
 			, effectToStart.effectValue

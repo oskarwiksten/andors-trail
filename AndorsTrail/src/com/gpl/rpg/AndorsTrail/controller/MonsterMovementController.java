@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
@@ -12,12 +12,12 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MonsterMovementController {
-	private final ViewContext view;
+	private final ControllerContext controllers;
     private final WorldContext world;
     public final MonsterMovementListeners monsterMovementListeners = new MonsterMovementListeners();
 
-	public MonsterMovementController(ViewContext context, WorldContext world) {
-		this.view = context;
+	public MonsterMovementController(ControllerContext controllers, WorldContext world) {
+		this.controllers = controllers;
     	this.world = world;
     }
 	
@@ -42,7 +42,7 @@ public final class MonsterMovementController {
 	    		int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
 	    		if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
 	    			monsterMovementListeners.onMonsterSteppedOnPlayer(m);
-	    			view.combatController.monsterSteppedOnPlayer(m);
+	    			controllers.combatController.monsterSteppedOnPlayer(m);
 	    			return;
 	    		}
 	    	}
@@ -90,7 +90,7 @@ public final class MonsterMovementController {
 					return;
 				}
 				monsterMovementListeners.onMonsterSteppedOnPlayer(m);
-				view.combatController.monsterSteppedOnPlayer(m);
+				controllers.combatController.monsterSteppedOnPlayer(m);
 			} else {
 				CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
 				m.position.set(m.nextPosition.topLeft);

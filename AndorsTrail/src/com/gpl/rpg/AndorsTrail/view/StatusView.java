@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.listeners.PlayerStatsListener;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -24,7 +24,7 @@ import android.widget.ImageButton;
 
 public final class StatusView extends RelativeLayout implements PlayerStatsListener, ActorStatsListener {
 	
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
 	private final Player player;
 	
@@ -39,7 +39,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	public StatusView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         this.world = app.getWorld();
         this.player = world.model.player;
         
@@ -93,12 +93,12 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	}
 	
 	public void subscribe() {
-		view.actorStatsController.actorStatsListeners.add(this);
-		view.actorStatsController.playerStatsListeners.add(this);
+		controllers.actorStatsController.actorStatsListeners.add(this);
+		controllers.actorStatsController.playerStatsListeners.add(this);
 	}
 	public void unsubscribe() {
-		view.actorStatsController.playerStatsListeners.remove(this);
-		view.actorStatsController.actorStatsListeners.remove(this);
+		controllers.actorStatsController.playerStatsListeners.remove(this);
+		controllers.actorStatsController.actorStatsListeners.remove(this);
 	}
 	
 	private void updateHealth() {

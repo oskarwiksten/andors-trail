@@ -17,7 +17,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
@@ -38,7 +38,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	private final TextView monsterActionText;
 	
 	private final WorldContext world;
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final Resources res;
 	private final AndorsTrailPreferences preferences;
 	private final Player player;
@@ -52,7 +52,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
         this.world = app.getWorld();
         this.player = world.model.player;
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         this.preferences = app.getPreferences();
         this.res = getResources();
 
@@ -60,7 +60,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
         inflate(context, R.layout.combatview, this);
         this.setBackgroundResource(R.drawable.ui_gradientshape_translucent);
         
-        final CombatController c = view.combatController;
+        final CombatController c = controllers.combatController;
         attackMoveButton = (Button) findViewById(R.id.combatview_moveattack);
         attackMoveButton.setOnClickListener(new OnClickListener() {
 			@Override
@@ -179,14 +179,14 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	}
 
 	public void subscribe() {
-		view.combatController.combatSelectionListeners.add(this);
-		view.combatController.combatTurnListeners.add(this);
-		view.actorStatsController.actorStatsListeners.add(this);
+		controllers.combatController.combatSelectionListeners.add(this);
+		controllers.combatController.combatTurnListeners.add(this);
+		controllers.actorStatsController.actorStatsListeners.add(this);
 	}
 	public void unsubscribe() {
-		view.actorStatsController.actorStatsListeners.remove(this);
-		view.combatController.combatTurnListeners.remove(this);
-		view.combatController.combatSelectionListeners.remove(this);
+		controllers.actorStatsController.actorStatsListeners.remove(this);
+		controllers.combatController.combatTurnListeners.remove(this);
+		controllers.combatController.combatSelectionListeners.remove(this);
 	}
 
 	@Override

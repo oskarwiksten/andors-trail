@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
@@ -19,7 +19,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public final class LevelUpActivity extends Activity {
 	private WorldContext world;
-	private ViewContext view;
+	private ControllerContext controllers;
 	private Player player;
 	private TextView levelup_description;
 	private TextView levelup_title;
@@ -31,7 +31,7 @@ public final class LevelUpActivity extends Activity {
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.getWorld();
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         this.player = world.model.player;
         
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -103,7 +103,7 @@ public final class LevelUpActivity extends Activity {
     public void levelup(int selectionID) {
     	if (LevelUpActivity.this.isFinishing()) return;
     	
-    	view.actorStatsController.addLevelupEffect(player, selectionID);
+    	controllers.actorStatsController.addLevelupEffect(player, selectionID);
     	finish();
     }
 }

@@ -2,7 +2,7 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
@@ -53,7 +53,7 @@ public final class MainView extends SurfaceView
     
     private final ModelContainer model;
     private final WorldContext world;
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final InputController inputController;
 	private final AndorsTrailPreferences preferences;
 	
@@ -74,11 +74,11 @@ public final class MainView extends SurfaceView
 		this.holder = getHolder();
 		
 		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.view = app.getViewContext();
+        this.controllers = app.getControllerContext();
         this.world = app.getWorld();
     	this.model = world.model;
     	this.tileSize = world.tileManager.tileSize;
-    	this.inputController = view.inputController;
+    	this.inputController = controllers.inputController;
     	this.preferences = app.getPreferences();
 
     	holder.addCallback(this);
@@ -399,22 +399,22 @@ public final class MainView extends SurfaceView
 	}
 
 	public void subscribe() {
-		view.gameRoundController.gameRoundListeners.add(this);
-		view.effectController.visualEffectFrameListeners.add(this);
-		view.itemController.lootBagListeners.add(this);
-		view.movementController.playerMovementListeners.add(this);
-		view.combatController.combatSelectionListeners.add(this);
-		view.monsterSpawnController.monsterSpawnListeners.add(this);
-		view.monsterMovementController.monsterMovementListeners.add(this);
+		controllers.gameRoundController.gameRoundListeners.add(this);
+		controllers.effectController.visualEffectFrameListeners.add(this);
+		controllers.itemController.lootBagListeners.add(this);
+		controllers.movementController.playerMovementListeners.add(this);
+		controllers.combatController.combatSelectionListeners.add(this);
+		controllers.monsterSpawnController.monsterSpawnListeners.add(this);
+		controllers.monsterMovementController.monsterMovementListeners.add(this);
 	}
 	public void unsubscribe() {
-		view.monsterMovementController.monsterMovementListeners.remove(this);
-		view.monsterSpawnController.monsterSpawnListeners.remove(this);
-		view.combatController.combatSelectionListeners.remove(this);
-		view.movementController.playerMovementListeners.remove(this);
-		view.itemController.lootBagListeners.remove(this);
-		view.effectController.visualEffectFrameListeners.remove(this);
-		view.gameRoundController.gameRoundListeners.remove(this);
+		controllers.monsterMovementController.monsterMovementListeners.remove(this);
+		controllers.monsterSpawnController.monsterSpawnListeners.remove(this);
+		controllers.combatController.combatSelectionListeners.remove(this);
+		controllers.movementController.playerMovementListeners.remove(this);
+		controllers.itemController.lootBagListeners.remove(this);
+		controllers.effectController.visualEffectFrameListeners.remove(this);
+		controllers.gameRoundController.gameRoundListeners.remove(this);
 	}
 
 	@Override

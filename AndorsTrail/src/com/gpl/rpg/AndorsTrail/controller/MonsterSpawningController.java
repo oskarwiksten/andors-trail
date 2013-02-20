@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterSpawnListeners;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -12,12 +12,12 @@ import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterSpawningController {
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
     public final MonsterSpawnListeners monsterSpawnListeners = new MonsterSpawnListeners();
 
-	public MonsterSpawningController(ViewContext view, WorldContext world) {
-    	this.view = view;
+	public MonsterSpawningController(ControllerContext controllers, WorldContext world) {
+    	this.controllers = controllers;
     	this.world = world;
     }
 	
@@ -26,7 +26,7 @@ public final class MonsterSpawningController {
 			final boolean wasAbleToSpawn = spawnInArea(map, area, null);
 			if (!wasAbleToSpawn) break;
 		}
-		view.actorStatsController.healAllMonsters(area);
+		controllers.actorStatsController.healAllMonsters(area);
 	}
 	
 	public void maybeSpawn(PredefinedMap map) {

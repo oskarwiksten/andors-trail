@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
 import android.app.Activity;
@@ -23,12 +23,12 @@ public final class AndorsTrailApplication extends Application {
 	
 	private final AndorsTrailPreferences preferences = new AndorsTrailPreferences();
 	private final WorldContext world = new WorldContext();
-	private final ViewContext view = new ViewContext(this, world);
-	private final WorldSetup setup = new WorldSetup(world, view, this);
+	private final ControllerContext controllers = new ControllerContext(this, world);
+	private final WorldSetup setup = new WorldSetup(world, controllers, this);
 	public WorldContext getWorld() { return world; }
 	public WorldSetup getWorldSetup() { return setup; }
 	public AndorsTrailPreferences getPreferences() { return preferences; }
-	public ViewContext getViewContext() { return view; }
+	public ControllerContext getControllerContext() { return controllers; }
 	
 	public static AndorsTrailApplication getApplicationFromActivity(Activity activity) {
 		return ((AndorsTrailApplication) activity.getApplication());

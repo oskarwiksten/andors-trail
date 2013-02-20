@@ -8,7 +8,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.controller.ActorStatsController;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
-import com.gpl.rpg.AndorsTrail.controller.Controller;
+import com.gpl.rpg.AndorsTrail.controller.MapController;
 import com.gpl.rpg.AndorsTrail.controller.ConversationController;
 import com.gpl.rpg.AndorsTrail.controller.GameRoundController;
 import com.gpl.rpg.AndorsTrail.controller.MonsterSpawningController;
@@ -19,9 +19,9 @@ import com.gpl.rpg.AndorsTrail.controller.MonsterMovementController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.controller.InputController;
 
-public final class ViewContext {
+public final class ControllerContext {
 	//Controllers
-	public final Controller controller;
+	public final MapController mapController;
 	public final GameRoundController gameRoundController;
 	public final CombatController combatController;
 	public final ConversationController conversationController;
@@ -37,11 +37,11 @@ public final class ViewContext {
 	public final AndorsTrailPreferences preferences;
 	private final WeakReference<AndorsTrailApplication> app;
 	
-	public ViewContext(AndorsTrailApplication app, WorldContext world) {
+	public ControllerContext(AndorsTrailApplication app, WorldContext world) {
 		this.app = new WeakReference<AndorsTrailApplication>(app);
 		this.preferences = app.getPreferences();
 
-		this.controller = new Controller(this, world);
+		this.mapController = new MapController(this, world);
 		this.gameRoundController = new GameRoundController(this, world);
 		this.combatController = new CombatController(this, world);
 		this.conversationController = new ConversationController(this, world);

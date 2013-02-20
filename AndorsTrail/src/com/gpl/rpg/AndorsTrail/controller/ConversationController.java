@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
@@ -20,11 +20,11 @@ import java.util.ArrayList;
 
 public final class ConversationController {
 
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
 
-	public ConversationController(ViewContext view, WorldContext world) {
-		this.view = view;
+	public ConversationController(ControllerContext controllers, WorldContext world) {
+		this.controllers = controllers;
 		this.world = world;
 	}
 	
@@ -51,13 +51,13 @@ public final class ConversationController {
 				
 				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(reward.rewardID);
 				ActorConditionEffect e = new ActorConditionEffect(conditionType, magnitude, duration, always);
-				view.actorStatsController.applyActorCondition(player, e);
+				controllers.actorStatsController.applyActorCondition(player, e);
 				result.actorConditions.add(e);
 				break;
 			case Reward.REWARD_TYPE_SKILL_INCREASE:
 				int skillID = Integer.parseInt(reward.rewardID);
 				SkillInfo skill = world.skills.getSkill(skillID);
-				boolean addedSkill = view.skillController.levelUpSkillByQuest(player, skill);
+				boolean addedSkill = controllers.skillController.levelUpSkillByQuest(player, skill);
 				if (addedSkill) {
 					result.skillIncrease.add(skill);
 				}
@@ -83,7 +83,7 @@ public final class ConversationController {
 		}
 		
 		player.inventory.add(result.loot);
-		view.actorStatsController.addExperience(result.loot.exp);
+		controllers.actorStatsController.addExperience(result.loot.exp);
 		return result;
 	}
 	

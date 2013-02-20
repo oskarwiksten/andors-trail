@@ -4,7 +4,7 @@ import android.content.res.Resources;
 import android.os.AsyncTask;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListeners;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
@@ -22,13 +22,13 @@ import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
 public final class MovementController implements TimedMessageTask.Callback {
-	private final ViewContext view;
+	private final ControllerContext controllers;
     private final WorldContext world;
     private final TimedMessageTask movementHandler;
     public final PlayerMovementListeners playerMovementListeners = new PlayerMovementListeners(); 
 
-	public MovementController(ViewContext context, WorldContext world) {
-    	this.view = context;
+	public MovementController(ControllerContext controllers, WorldContext world) {
+    	this.controllers = controllers;
     	this.world = world;
     	this.movementHandler = new TimedMessageTask(this, Constants.MINIMUM_INPUT_INTERVAL, false);
     }
@@ -40,7 +40,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			protected Void doInBackground(Void... arg0) {
 				stopMovement();
 				
-				placePlayerAt(view.getResources(), objectType, mapName, placeName, offset_x, offset_y); 
+				placePlayerAt(controllers.getResources(), objectType, mapName, placeName, offset_x, offset_y);
 				
 				return null;
 			}
@@ -50,11 +50,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 				super.onPostExecute(result);
 				stopMovement();
 				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
-				view.gameRoundController.resume();
+				controllers.gameRoundController.resume();
 			}
 			
 		};
-		view.gameRoundController.pause();
+		controllers.gameRoundController.pause();
 		task.execute();
     }
 	
@@ -84,19 +84,19 @@ public final class MovementController implements TimedMessageTask.Callback {
 		else playerVisitsMapFirstTime(newMap);
 		
 		refreshMonsterAggressiveness(newMap, model.player);
-		view.effectController.updateSplatters(newMap);
+		controllers.effectController.updateSplatters(newMap);
 
 	}
     
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
 		m.reset();
-		view.monsterSpawnController.spawnAll(m);
+		controllers.monsterSpawnController.spawnAll(m);
 		m.createAllContainerLoot();
 		m.visited = true;
 	}
 	private void playerVisitsMap(PredefinedMap m) {
 		// Respawn everything if a certain time has elapsed.
-		if (!m.isRecentlyVisited()) view.monsterSpawnController.spawnAll(m);
+		if (!m.isRecentlyVisited()) controllers.monsterSpawnController.spawnAll(m);
 	}
 	
 	private boolean mayMovePlayer() {
@@ -111,7 +111,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     	
     	Monster m = world.model.currentMap.getMonsterAt(world.model.player.nextPosition);
 		if (m != null) {
-			view.controller.steppedOnMonster(m, world.model.player.nextPosition);
+			controllers.mapController.steppedOnMonster(m, world.model.player.nextPosition);
 			return;
 		}
 
@@ -120,15 +120,15 @@ public final class MovementController implements TimedMessageTask.Callback {
     
     private boolean findWalkablePosition(int dx, int dy) {
     	// try to move with movementAggresiveness, if that fails fall back to MOVEMENTAGGRESSIVENESS_NORMAL
-    	if (findWalkablePosition(dx, dy, view.preferences.movementAggressiveness)) return true;
+    	if (findWalkablePosition(dx, dy, controllers.preferences.movementAggressiveness)) return true;
     	
-    	if (view.preferences.movementAggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return false;
+    	if (controllers.preferences.movementAggressiveness == AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL) return false;
     	
     	return findWalkablePosition(dx, dy, AndorsTrailPreferences.MOVEMENTAGGRESSIVENESS_NORMAL);
     }
 
 	public boolean findWalkablePosition(int dx, int dy, int aggressiveness) {
-    	if (view.preferences.movementMethod == AndorsTrailPreferences.MOVEMENTMETHOD_STRAIGHT) {
+    	if (controllers.preferences.movementMethod == AndorsTrailPreferences.MOVEMENTMETHOD_STRAIGHT) {
     		return findWalkablePosition_straight(dx, dy, aggressiveness);
     	} else  {
     		return findWalkablePosition_directional(dx, dy, aggressiveness);
@@ -209,26 +209,26 @@ public final class MovementController implements TimedMessageTask.Callback {
     	for (MapObject o : currentMap.eventObjects) {
     		if (o.type == MapObject.MAPEVENT_KEYAREA) {
 	    		if (o.position.contains(newPosition)) {
-	    			if (!view.controller.canEnterKeyArea(o)) return;
+	    			if (!controllers.mapController.canEnterKeyArea(o)) return;
 	    		}
     		}
     	}
 		
     	player.lastPosition.set(player.position);
     	player.position.set(newPosition);
-    	view.combatController.setCombatSelection(null, null);
+    	controllers.combatController.setCombatSelection(null, null);
     	playerMovementListeners.onPlayerMoved(newPosition, player.lastPosition);
 		
 		if (handleEvents) {
 			MapObject o = currentMap.getEventObjectAt(newPosition);
 			if (o != null) {
 				if (!o.position.contains(player.lastPosition)) { // Do not trigger event if the player already was on the same MapObject before.
-					view.controller.handleMapEvent(o, newPosition);
+					controllers.mapController.handleMapEvent(o, newPosition);
 				}
 			}
 	    	
 	    	Loot loot = currentMap.getBagAt(newPosition);
-	    	if (loot != null) view.itemController.playerSteppedOnLootBag(loot);
+	    	if (loot != null) controllers.itemController.playerSteppedOnLootBag(loot);
 		}
     }
 

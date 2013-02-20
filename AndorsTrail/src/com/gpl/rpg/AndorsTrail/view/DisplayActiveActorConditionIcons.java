@@ -16,7 +16,7 @@ import android.widget.RelativeLayout.LayoutParams;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.context.ViewContext;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
@@ -27,20 +27,20 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	
 	private final AndorsTrailPreferences preferences;
 	private final TileManager tileManager;
-	private final ViewContext view;
+	private final ControllerContext controllers;
 	private final WorldContext world;
 	private final RelativeLayout activeConditions;
 	private final ArrayList<ActiveConditionIcon> currentConditionIcons = new ArrayList<ActiveConditionIcon>();
 	private final WeakReference<Context> androidContext;
 	
 	public DisplayActiveActorConditionIcons(
-			final ViewContext view, 
+			final ControllerContext controllers,
 			final WorldContext world, 
 			Context androidContext, 
 			RelativeLayout activeConditions) {
-		this.view = view;
+		this.controllers = controllers;
 		this.world = world;
-		this.preferences = view.preferences;
+		this.preferences = controllers.preferences;
 		this.tileManager = world.tileManager;
 		this.androidContext = new WeakReference<Context>(androidContext);
 		this.activeConditions = activeConditions;
@@ -83,7 +83,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	}
 
 	public void unsubscribe() {
-		view.actorStatsController.actorConditionListeners.remove(this);
+		controllers.actorStatsController.actorConditionListeners.remove(this);
 		for (ActiveConditionIcon icon : currentConditionIcons) icon.condition = null;
 	}
 
@@ -92,7 +92,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 		for (ActorCondition condition : world.model.player.conditions) {
 			getFirstFreeIcon().setActiveCondition(condition);
 		}
-		view.actorStatsController.actorConditionListeners.add(this);
+		controllers.actorStatsController.actorConditionListeners.add(this);
 	}
 
 	private final class ActiveConditionIcon implements AnimationListener {
