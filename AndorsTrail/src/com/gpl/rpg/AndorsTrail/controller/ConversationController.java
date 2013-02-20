@@ -1,7 +1,10 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
@@ -9,6 +12,8 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -37,44 +42,23 @@ public final class ConversationController {
 		public final ArrayList<QuestProgress> questProgress = new ArrayList<QuestProgress>();
 	}
 
-	public PhraseRewards applyPhraseRewards(final Player player, final Phrase phrase) {
+	private PhraseRewards applyPhraseRewards(final Player player, final Phrase phrase) {
 		if (phrase.rewards == null || phrase.rewards.length == 0) return null;
 		
 		final PhraseRewards result = new PhraseRewards();
 		for (Reward reward : phrase.rewards) {
 			switch (reward.rewardType) {
 			case Reward.REWARD_TYPE_ACTOR_CONDITION:
-				int magnitude = 1;
-				int duration = reward.value;
-				if (reward.value == ActorCondition.DURATION_FOREVER) duration = ActorCondition.DURATION_FOREVER;
-				else if (reward.value == ActorCondition.MAGNITUDE_REMOVE_ALL) magnitude = ActorCondition.MAGNITUDE_REMOVE_ALL;
-				
-				ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(reward.rewardID);
-				ActorConditionEffect e = new ActorConditionEffect(conditionType, magnitude, duration, always);
-				controllers.actorStatsController.applyActorCondition(player, e);
-				result.actorConditions.add(e);
+				addActorConditionReward(player, reward.rewardID, reward.value, result);
 				break;
 			case Reward.REWARD_TYPE_SKILL_INCREASE:
-				int skillID = Integer.parseInt(reward.rewardID);
-				SkillInfo skill = world.skills.getSkill(skillID);
-				boolean addedSkill = controllers.skillController.levelUpSkillByQuest(player, skill);
-				if (addedSkill) {
-					result.skillIncrease.add(skill);
-				}
+				addSkillReward(player, Integer.parseInt(reward.rewardID), result);
 				break;
 			case Reward.REWARD_TYPE_DROPLIST:
-				world.dropLists.getDropList(reward.rewardID).createRandomLoot(result.loot, player);
+				addDropListReward(player, reward.rewardID, result);
 				break;
 			case Reward.REWARD_TYPE_QUEST_PROGRESS:
-				QuestProgress progress = new QuestProgress(reward.rewardID, reward.value);
-				boolean added = player.addQuestProgress(progress);
-				if (added) {  // Only apply exp reward if the quest stage was reached just now (and not re-reached)
-					QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
-					if (stage != null) {
-						result.loot.exp += stage.rewardExperience;
-						result.questProgress.add(progress);
-					}
-				}
+				addQuestProgressReward(player, reward.rewardID, reward.value, result);
 				break;
 			case Reward.REWARD_TYPE_ALIGNMENT_CHANGE:
 				player.addAlignment(reward.rewardID, reward.value);
@@ -86,8 +70,44 @@ public final class ConversationController {
 		controllers.actorStatsController.addExperience(result.loot.exp);
 		return result;
 	}
-	
-	public static void applyReplyEffect(final Player player, final Reply reply) {
+
+	private void addQuestProgressReward(Player player, String questID, int questProgress, PhraseRewards result) {
+		QuestProgress progress = new QuestProgress(questID, questProgress);
+		boolean added = player.addQuestProgress(progress);
+		if (!added) return; // Only apply exp reward if the quest stage was reached just now (and not re-reached)
+
+		QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
+		if (stage != null) {
+			result.loot.exp += stage.rewardExperience;
+			result.questProgress.add(progress);
+		}
+	}
+
+	private void addDropListReward(Player player, String droplistID, PhraseRewards result) {
+		world.dropLists.getDropList(droplistID).createRandomLoot(result.loot, player);
+	}
+
+	private void addSkillReward(Player player, int skillID, PhraseRewards result) {
+		SkillInfo skill = world.skills.getSkill(skillID);
+		boolean addedSkill = controllers.skillController.levelUpSkillByQuest(player, skill);
+		if (addedSkill) {
+			result.skillIncrease.add(skill);
+		}
+	}
+
+	private void addActorConditionReward(Player player, String conditionTypeID, int value, PhraseRewards result) {
+		int magnitude = 1;
+		int duration = value;
+		if (value == ActorCondition.DURATION_FOREVER) duration = ActorCondition.DURATION_FOREVER;
+		else if (value == ActorCondition.MAGNITUDE_REMOVE_ALL) magnitude = ActorCondition.MAGNITUDE_REMOVE_ALL;
+
+		ActorConditionType conditionType = world.actorConditionsTypes.getActorConditionType(conditionTypeID);
+		ActorConditionEffect e = new ActorConditionEffect(conditionType, magnitude, duration, always);
+		controllers.actorStatsController.applyActorCondition(player, e);
+		result.actorConditions.add(e);
+	}
+
+	private static void applyReplyEffect(final Player player, final Reply reply) {
 		if (!reply.requiresItem()) return;
 		
 		if (reply.itemRequirementType == Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE) {
@@ -98,8 +118,8 @@ public final class ConversationController {
 			}
 		}
 	}
-    
-	public static boolean canSelectReply(final Player player, final Reply reply) {
+
+	private static boolean canSelectReply(final Player player, final Reply reply) {
 		if (!hasRequiredQuestProgress(player, reply.requiresProgress)) return false;
 		if (!hasRequiredItems(player, reply)) return false;
 		return true;
@@ -122,9 +142,125 @@ public final class ConversationController {
     	}
     }
 
-	public static String getDisplayMessage(Phrase phrase, Player player) { return replacePlayerName(phrase.message, player); }
-	public static String getDisplayMessage(Reply reply, Player player) { return replacePlayerName(reply.text, player); }
+	private static String getDisplayMessage(Phrase phrase, Player player) { return replacePlayerName(phrase.message, player); }
+	private static String getDisplayMessage(Reply reply, Player player) { return replacePlayerName(reply.text, player); }
     private static String replacePlayerName(String s, Player player) {
 		return s.replace(Constants.PLACEHOLDER_PLAYERNAME, player.getName());
+	}
+
+	public static final class ConversationStatemachine {
+		private final ConversationCollection conversationCollection = new ConversationCollection();
+		private final WorldContext world;
+		private final ControllerContext controllers;
+		private final Player player;
+		private final Resources res;
+		private String phraseID;
+		private Phrase currentPhrase;
+		private Monster npc;
+		public ConversationStateListener listener;
+
+		public ConversationStatemachine(WorldContext world, ControllerContext controllers, Resources res, ConversationStateListener listener) {
+			this.world = world;
+			this.player = world.model.player;
+			this.controllers = controllers;
+			this.res = res;
+			this.listener = listener;
+		}
+
+		public void setCurrentNPC(Monster currentNPC) { this.npc = currentNPC; }
+		public Monster getCurrentNPC() { return npc; }
+		public String getCurrentPhraseID() { return phraseID; }
+
+		public void playerSelectedReply(Reply r) {
+			applyReplyEffect(player, r);
+			proceedToPhrase(r.nextPhrase);
+		}
+
+		public void playerSelectedNextStep() {
+			playerSelectedReply(currentPhrase.replies[0]);
+		}
+
+		public interface ConversationStateListener {
+			void onTextPhraseReached(String message, Actor actor);
+			void onConversationEnded();
+			void onConversationEndedWithShop(Monster npc);
+			void onConversationEndedWithCombat(Monster npc);
+			void onConversationEndedWithRemoval(Monster npc);
+			void onPlayerReceivedRewards(ConversationController.PhraseRewards phraseRewards);
+			void onConversationCanProceedWithNext();
+			void onConversationHasReply(Reply r, String message);
+		}
+
+		private void setCurrentPhrase(String phraseID) {
+			this.phraseID = phraseID;
+			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+				if (currentPhrase == null) currentPhrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null);
+			}
+		}
+
+		public void proceedToPhrase(String phraseID) {
+			if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
+				listener.onConversationEnded();
+				return;
+			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_SHOP)) {
+				listener.onConversationEndedWithShop(npc);
+				return;
+			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
+				listener.onConversationEndedWithCombat(npc);
+				return;
+			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_REMOVE)) {
+				listener.onConversationEndedWithRemoval(npc);
+				return;
+			}
+
+			setCurrentPhrase(phraseID);
+
+			ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
+			if (phraseRewards != null) {
+				listener.onPlayerReceivedRewards(phraseRewards);
+			}
+
+			if (currentPhrase.message == null) {
+				for (Reply r : currentPhrase.replies) {
+					if (!canSelectReply(player, r)) continue;
+					applyReplyEffect(player, r);
+					proceedToPhrase(r.nextPhrase);
+					return;
+				}
+			}
+
+			String message = getDisplayMessage(currentPhrase, player);
+			listener.onTextPhraseReached(message, npc);
+
+			requestReplies();
+		}
+
+		private void requestReplies() {
+			if (hasOnlyOneNextReply()) {
+				listener.onConversationCanProceedWithNext();
+				return;
+			}
+
+			for (Reply r : currentPhrase.replies) {
+				if (!canSelectReply(player, r)) continue;
+				listener.onConversationHasReply(r, getDisplayMessage(r, player));
+			}
+		}
+
+		public void proceedToRestoredState(String phraseID) {
+			setCurrentPhrase(phraseID);
+			requestReplies();
+		}
+
+		public int getReplyCount() {
+			if (currentPhrase.replies == null) return 0;
+			return currentPhrase.replies.length;
+		}
+		public boolean hasOnlyOneNextReply() {
+			if (getReplyCount() != 1) return false;
+			if (currentPhrase.replies[0].text.equals(ConversationCollection.REPLY_NEXT)) return true;
+			return false;
+		}
 	}
 }

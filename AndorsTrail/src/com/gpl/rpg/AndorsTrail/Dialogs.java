@@ -85,15 +85,20 @@ public final class Dialogs {
 		addMonsterIdentifiers(intent, npc);
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
 	}
-	
+
 	public static void addMonsterIdentifiers(Intent intent, Monster monster) {
-		if (monster == null) return;
-		intent.putExtra("x", monster.position.x);
-		intent.putExtra("y", monster.position.y);
+		addMonsterIdentifiers(intent.getExtras(), monster);
 	}
-	
+	public static void addMonsterIdentifiers(Bundle bundle, Monster monster) {
+		if (monster == null) return;
+		bundle.putInt("x", monster.position.x);
+		bundle.putInt("y", monster.position.y);
+	}
+
 	public static Monster getMonsterFromIntent(Intent intent, final WorldContext world) {
-		Bundle params = intent.getExtras();
+		return getMonsterFromBundle(intent.getExtras(), world);
+	}
+	public static Monster getMonsterFromBundle(Bundle params, final WorldContext world) {
 		if (params == null) return null;
 		if (!params.containsKey("x")) return null;
 		int x = params.getInt("x");
