@@ -118,7 +118,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 
 	private int getSelectedReplyIndex() {
-    	for (int i = 0; i < conversationState.getReplyCount(); ++i) {
+    	for (int i = 0; i < replyGroup.getChildCount(); ++i) {
 			final View v = replyGroup.getChildAt(i);
 			if (v == null) continue;
 			final RadioButton rb = (RadioButton) v;
@@ -126,18 +126,18 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     	}
     	return -1;
     }
-    
-    private void setSelectedReplyIndex(int i) {
-		int replyCount = conversationState.getReplyCount();
-    	if (replyCount <= 0) return;
-    	if (i < 0) i = 0;
-    	else if (i >= replyCount) i = replyCount - 1;
-    	
-    	View v = replyGroup.getChildAt(i);
+
+	private void setSelectedReplyIndex(int i) {
+		int replyCount = replyGroup.getChildCount();
+		if (replyCount <= 0) return;
+		if (i < 0) i = 0;
+		else if (i >= replyCount) i = replyCount - 1;
+
+		View v = replyGroup.getChildAt(i);
 		if (v == null) return;
 		RadioButton rb = (RadioButton) v;
 		rb.setChecked(true);
-    }
+	}
  
     @Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -181,7 +181,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 	
 	private RadioButton getSelectedReplyButton() {
-		for (int i = 0; i < conversationState.getReplyCount(); ++i) {
+		for (int i = 0; i < replyGroup.getChildCount(); ++i) {
 			final View v = replyGroup.getChildAt(i);
 			if (v == null) continue;
 			final RadioButton rb = (RadioButton) v;

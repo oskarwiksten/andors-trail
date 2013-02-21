@@ -253,12 +253,9 @@ public final class ConversationController {
 			requestReplies();
 		}
 
-		public int getReplyCount() {
-			if (currentPhrase.replies == null) return 0;
-			return currentPhrase.replies.length;
-		}
 		public boolean hasOnlyOneNextReply() {
-			if (getReplyCount() != 1) return false;
+			if (currentPhrase.replies == null) return false;
+			if (currentPhrase.replies.length != 1) return false;
 			if (currentPhrase.replies[0].text.equals(ConversationCollection.REPLY_NEXT)) return true;
 			return false;
 		}
