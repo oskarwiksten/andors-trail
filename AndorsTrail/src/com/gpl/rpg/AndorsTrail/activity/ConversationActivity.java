@@ -91,8 +91,9 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 				nextButtonClicked();
 			}
 		});
+        nextButton.setEnabled(false);
 
-		statementList.setOnKeyListener(this);
+        statementList.setOnKeyListener(this);
 
 		statementList.setSelected(false);
 		statementList.setFocusable(false);
@@ -193,11 +194,12 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 	
 	private void nextButtonClicked() {
+        RadioButton rb = getSelectedReplyButton();
 		replyGroup.removeAllViews();
-		if (conversationState.hasOnlyOneNextReply()) {
+        nextButton.setEnabled(false);
+        if (conversationState.hasOnlyOneNextReply()) {
 			conversationState.playerSelectedNextStep();
 		} else {
-			RadioButton rb = getSelectedReplyButton();
 			if (rb == null) return;
 			Reply r = (Reply) rb.getTag();
 			addConversationStatement(player, rb.getText().toString());
@@ -391,7 +393,5 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		rb.setFocusable(false);
 		rb.setFocusableInTouchMode(false);
 		replyGroup.addView(rb, layoutParams);
-
-		nextButton.setEnabled(false);
 	}
 }
