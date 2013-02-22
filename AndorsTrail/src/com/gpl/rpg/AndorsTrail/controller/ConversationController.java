@@ -20,6 +20,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
+import com.gpl.rpg.AndorsTrail.util.Coord;
 
 import java.util.ArrayList;
 
@@ -218,10 +219,10 @@ public final class ConversationController {
 				listener.onConversationEndedWithShop(npc);
 				return;
 			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
-				listener.onConversationEndedWithCombat(npc);
+                endConversationWithCombat();
 				return;
 			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_REMOVE)) {
-				listener.onConversationEndedWithRemoval(npc);
+                endConversationWithRemovingNPC();
 				return;
 			}
 
@@ -247,7 +248,19 @@ public final class ConversationController {
 			requestReplies();
 		}
 
-		private void requestReplies() {
+        private void endConversationWithRemovingNPC() {
+            controllers.monsterSpawnController.remove(world.model.currentMap, npc);
+            listener.onConversationEndedWithRemoval(npc);
+        }
+
+        private void endConversationWithCombat() {
+            npc.forceAggressive();
+            controllers.combatController.setCombatSelection(npc);
+            controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+            listener.onConversationEndedWithCombat(npc);
+        }
+
+        private void requestReplies() {
 			if (hasOnlyOneNextReply()) {
 				listener.onConversationCanProceedWithNext();
 				return;

@@ -137,19 +137,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 			break;
 		case INTENTREQUEST_CONVERSATION:
 			MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
-			if (resultCode == ConversationActivity.ACTIVITYRESULT_ATTACK) {
-				final Coord p = world.model.player.nextPosition;
-				Monster m = world.model.currentMap.getMonsterAt(p);
-				if (m == null) return; //Shouldn't happen.
-				m.forceAggressive();
-				controllers.combatController.setCombatSelection(m, p);
-				controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
-			} else if (resultCode == ConversationActivity.ACTIVITYRESULT_REMOVE) {
-				final Coord p = world.model.player.nextPosition;
-				Monster m = world.model.currentMap.getMonsterAt(p);
-				if (m == null) return;
-				controllers.monsterSpawnController.remove(world.model.currentMap, m);
-			}
 			break;
 		case INTENTREQUEST_PREFERENCES:
 			AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
