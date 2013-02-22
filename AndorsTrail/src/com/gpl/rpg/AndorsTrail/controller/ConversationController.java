@@ -40,7 +40,15 @@ public final class ConversationController {
 		public final ArrayList<ActorConditionEffect> actorConditions = new ArrayList<ActorConditionEffect>();
 		public final ArrayList<SkillInfo> skillIncrease = new ArrayList<SkillInfo>();
 		public final ArrayList<QuestProgress> questProgress = new ArrayList<QuestProgress>();
-	}
+
+        public boolean isEmpty() {
+            if (loot.hasItemsOrExp()) return false;
+            if (!actorConditions.isEmpty()) return false;
+            if (!skillIncrease.isEmpty()) return false;
+            if (!questProgress.isEmpty()) return false;
+            return true;
+        }
+    }
 
 	private PhraseRewards applyPhraseRewards(final Player player, final Phrase phrase) {
 		if (phrase.rewards == null || phrase.rewards.length == 0) return null;
@@ -65,9 +73,12 @@ public final class ConversationController {
 				break;
 			}
 		}
-		
+
+        if (result.isEmpty()) return null;
+
 		player.inventory.add(result.loot);
 		controllers.actorStatsController.addExperience(result.loot.exp);
+
 		return result;
 	}
 
