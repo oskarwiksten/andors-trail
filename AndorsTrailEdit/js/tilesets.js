@@ -101,13 +101,18 @@ var ATEditor = (function(ATEditor, utils) {
 	add("items_misc_2", {x:20, y:12}, [ 'item' ] );
 	add("items_misc_3", {x:20, y:12}, [ 'item' ] );
 	add("items_misc_4", {x:20, y:4}, [ 'item' ] );
+	add("items_misc_5", {x:9, y:5}, [ 'item' ] );
+	add("items_reterski_1", {x:3, y:10}, [ 'item' ] );
+	add("items_tometik1", {x:6, y:10}, [ 'item' ] );
+	add("items_tometik2", {x:10, y:10}, [ 'item' ] );
+	add("items_tometik3", {x:8, y:6}, [ 'item' ] );
 	add("monsters_armor1", {x: 1, y:1}, [ 'monster' ] );
-	add("monsters_demon1", {x: 1, y:1}, [ 'monster' ], {x:64, y:64} );
 	add("monsters_dogs", {x: 7, y:1}, [ 'monster' ] );
 	add("monsters_eye1", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_eye2", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_eye3", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_eye4", {x: 1, y:1}, [ 'monster' ] );
+	add("monsters_eye5", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_ghost1", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_hydra1", {x: 1, y:1}, [ 'monster' ], {x:64, y:64} );
 	add("monsters_insects", {x: 6, y:1}, [ 'monster' ] );
@@ -123,7 +128,6 @@ var ATEditor = (function(ATEditor, utils) {
 	add("monsters_skeleton1", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_skeleton2", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_snakes", {x: 6, y:1}, [ 'monster' ] );
-	add("monsters_cyclops", {x: 1, y:1}, [ 'monster' ], {x:64, y:96} );
 	add("monsters_warrior1", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_wraiths", {x: 3, y:1}, [ 'monster' ] );
 	add("monsters_zombie1", {x: 1, y:1}, [ 'monster' ] );
@@ -133,9 +137,20 @@ var ATEditor = (function(ATEditor, utils) {
 	add("monsters_rltiles1", {x:20, y:8}, [ 'monster' ] );
 	add("monsters_rltiles2", {x:20, y:9}, [ 'monster' ] );
 	add("monsters_rltiles3", {x:10, y:3}, [ 'monster' ] );
-	add("monsters_redshrike1", {x:6, y:1}, [ 'monster' ] );
+	add("monsters_rltiles4", {x:12, y:4}, [ 'monster' ] );
+	add("monsters_redshrike1", {x:7, y:1}, [ 'monster' ] );
 	add("monsters_ld1", {x:20, y:12}, [ 'monster' ] );
 	add("monsters_ld2", {x:20, y:12}, [ 'monster' ] );
+	add("monsters_tometik1", {x:10, y:9}, [ 'monster' ] );
+	add("monsters_tometik2", {x:6, y:1}, [ 'monster' ] );
+	add("monsters_tometik3", {x:6, y:4}, [ 'monster' ] );
+	add("monsters_tometik4", {x:6, y:7}, [ 'monster' ] );
+	add("monsters_tometik5", {x:6, y:16}, [ 'monster' ] );
+	add("monsters_tometik6", {x:7, y:6}, [ 'monster' ] );
+	add("monsters_tometik7", {x:8, y:11}, [ 'monster' ] );
+	add("monsters_demon1", {x:1, y:1}, [ 'monster' ], {x:64, y:64} );
+	add("monsters_demon2", {x:1, y:1}, [ 'monster' ], {x:64, y:64} );
+	add("monsters_cyclops", {x:1, y:1}, [ 'monster' ], {x:64, y:96} );
 	
 	ATEditor.tilesets = {
 		getTileset: getTileset
