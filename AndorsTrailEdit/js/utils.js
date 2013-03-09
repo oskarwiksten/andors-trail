@@ -71,15 +71,19 @@ var ATEditor = (function(ATEditor, _) {
 		return o;
 	}
 	
+	function isNumber(s) {
+		if (!_.isString(s)) { return false; }
+		var v = parseInt(s);
+		if (_.isNaN(v)) { return false; }
+		return (v.toString() == s);
+	}
+	
 	function convertStringsToIntegers(o) {
 		var key;
 		for (key in o) {
 			var v = o[key];
-			if (_.isString(v)) {
-				v = parseInt(v);
-				if (!_.isNaN(v)) {
-					o[key] = v;
-				}
+			if (isNumber(v)) {
+				o[key] = parseInt(v);
 			} else if (_.isArray(v)) {
 				convertStringsToIntegers(v);
 			} else if (_.isObject(v)) {
