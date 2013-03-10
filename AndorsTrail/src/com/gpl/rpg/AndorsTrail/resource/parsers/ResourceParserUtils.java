@@ -107,7 +107,7 @@ public final class ResourceParserUtils {
 				,increaseAttackDamage != null ? increaseAttackDamage.current : 0
 				,increaseAttackDamage != null ? increaseAttackDamage.max : 0
 				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseCriticalSkill, 0)
-				,o.optInt(JsonFieldNames.AbilityModifierTraits.setCriticalMultiplier, 0)
+				,(float)o.optDouble(JsonFieldNames.AbilityModifierTraits.setCriticalMultiplier, 0)
 				,o.optInt(JsonFieldNames.AbilityModifierTraits.increaseDamageResistance, 0)
 		);
 	}
