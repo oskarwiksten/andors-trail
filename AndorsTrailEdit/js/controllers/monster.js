@@ -5,7 +5,7 @@ var ATEditor = (function(ATEditor, model) {
 		var EXP_FACTOR_SCALING = 0.7;
 		
 		var div100 = function(v) { return v / 100; }
-		var v = function(i) { return i ? i : 0; }
+		var v = function(i) { return i ? parseFloat(i) : 0; }
 		
 		var attacksPerTurn = Math.floor(v(obj.maxAP) / v(obj.attackCost));
 		var avgDamagePotential = 0;
