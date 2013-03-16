@@ -65,7 +65,11 @@ public final class AbilityModifierTraits {
 		final int costMaxHP = (int) (30*Math.pow(Math.max(0,increaseMaxHP), 1.2) + 70*increaseMaxHP);
 		final int costMaxAP = (int) (50*Math.pow(Math.max(0,increaseMaxAP), 3) + 750*increaseMaxAP);
 		final int costMovement = (int) (510*Math.pow(Math.max(0,-increaseMoveCost), 2.5) - 350*increaseMoveCost);
-		
-		return costBC + costAC + costAP + costDR + costDMG_Min + costDMG_Max + costCS + costCM + costMaxHP + costMaxAP + costMovement;
+		final int costUseItem = (int)(915*Math.pow(Math.max(0,-increaseUseItemCost), 3) - 430*increaseUseItemCost);
+		final int costReequip = (int)(450*Math.pow(Math.max(0,-increaseReequipCost), 2) - 250*increaseReequipCost);
+
+		return costBC + costAC + costAP + costDR + costDMG_Min + costDMG_Max + costCS + costCM
+				+ costMaxHP + costMaxAP
+				+ costMovement + costUseItem + costReequip;
 	}
 }

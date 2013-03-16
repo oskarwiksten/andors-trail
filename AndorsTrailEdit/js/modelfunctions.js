@@ -102,11 +102,18 @@ var ATModelFunctions = (function(ATModelFunctions) {
 				
 				var equip_boostMaxHP = v(obj.equipEffect.increaseMaxHP);
 				var equip_boostMaxAP = v(obj.equipEffect.increaseMaxAP);
-				var equip_moveCostPenalty = v(obj.equipEffect.increaseMoveCost);
 				var costMaxHP = Math.round(30*Math.pow(Math.max(0,equip_boostMaxHP), 1.2) + 70*equip_boostMaxHP);
 				var costMaxAP = Math.round(50*Math.pow(Math.max(0,equip_boostMaxAP), 3) + 750*equip_boostMaxAP);
+				
+				var equip_moveCostPenalty = v(obj.equipEffect.increaseMoveCost);
+				var equip_useItemCostPenalty = v(obj.equipEffect.increaseUseItemCost);
+				var equip_reequipCostPenalty = v(obj.equipEffect.increaseReequipCost);
 				var costMovement = Math.round(510*Math.pow(Math.max(0,-equip_moveCostPenalty), 2.5) - 350*equip_moveCostPenalty);
-				itemEquipCost = costCombat + costMaxHP + costMaxAP + costMovement;
+				var costUseItem = Math.round(915*Math.pow(Math.max(0,-equip_useItemCostPenalty), 3) - 430*equip_useItemCostPenalty);
+				var costReequip = Math.round(450*Math.pow(Math.max(0,-equip_reequipCostPenalty), 2) - 250*equip_reequipCostPenalty);
+				var costAPModifiers = costMovement + costUseItem + costReequip;
+				
+				itemEquipCost = costCombat + costMaxHP + costMaxAP + costAPModifiers;
 			}
 			
 			var result = itemEquipCost + itemUsageCost;
