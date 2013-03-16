@@ -2,8 +2,9 @@
 <html lang="en" ng-app="ateditor">
 <head>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="inc/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="inc/hint.min.css" />
+	<link rel="shortcut icon" href="http://andorstrail.com/favicon.ico"/>
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/hint.min.css" />
 	<link rel="stylesheet" href="styles.css" />
 	<title>Andor's Trail Content Editor</title>
 </head>
@@ -81,7 +82,7 @@
 </div>
 </form>
 
-<div id="selectIconModal" class="modal hide fade" role="dialog" ng-controller="ATEditor.controllers.SelectIconController">
+<div id="selectIconModal" class="modal hide fade" role="dialog" tabindex="-1" ng-controller="ATEditor.controllers.SelectIconController">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal">×</button>
 		<h3>Select icon</h3>
@@ -99,10 +100,10 @@
 </div>
 
 
-<script src="inc/jquery.min.js"></script>
-<script src="inc/underscore-min.js"></script>
-<script src="inc/angular.min.js"></script>
-<script src="inc/bootstrap/js/bootstrap.min.js"></script>
+<script src="lib/jquery.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/tilesets.js"></script>
 <script src="js/fieldlist.js"></script>
