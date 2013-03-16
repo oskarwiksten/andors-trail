@@ -51,19 +51,20 @@ var ATModelFunctions = (function(ATModelFunctions) {
 		}
 		
 		function calculateItemCost(obj) {
-			var v = function(i) { return i ? parseFloat(i) : 0; }
+			var v = function(i) { return i ? parseFloat(i) : 0; };
 			var sgn = function(v) {
 				if (v < 0) return -1;
 				else if (v > 0) return 1;
 				else return 0;
-			}
+			};
+			var avg = function(o) {
+				if (!o) return 0;
+				return (v(o.min) + v(o.max)) / 2;
+			};
 			
 			var itemUsageCost = 0;
 			if (obj.useEffect && obj.hasUseEffect) {
-				var averageHPBoost = 0;
-				if (obj.useEffect.increaseCurrentHP) {
-					averageHPBoost = (v(obj.useEffect.increaseCurrentHP.min) + v(obj.useEffect.increaseCurrentHP.max)) / 2;
-				}
+				var averageHPBoost = avg(obj.useEffect.increaseCurrentHP);
 				var costBoostHP = Math.round(0.1*sgn(averageHPBoost)*Math.pow(Math.abs(averageHPBoost), 2) + 3*averageHPBoost);
 				itemUsageCost = costBoostHP;
 			}
@@ -116,7 +117,25 @@ var ATModelFunctions = (function(ATModelFunctions) {
 				itemEquipCost = costCombat + costMaxHP + costMaxAP + costAPModifiers;
 			}
 			
-			var result = itemEquipCost + itemUsageCost;
+			var hitEffectsCost = 0;
+			if (obj.hitEffect && obj.hasHitEffect) {
+				var averageHPBoost = avg(obj.hitEffect.increaseCurrentHP);
+				var averageAPBoost = avg(obj.hitEffect.increaseCurrentAP);
+				var costBoostHP = Math.round(2770*Math.pow(Math.max(0,averageHPBoost), 2.5) + 450*averageHPBoost);
+				var costBoostAP = Math.round(3100*Math.pow(Math.max(0,averageAPBoost), 2.5) + 300*averageAPBoost);
+				hitEffectsCost = costBoostHP + costBoostAP;
+			}
+			
+			var killEffectsCost = 0;
+			if (obj.killEffect && obj.hasKillEffect) {
+				var averageHPBoost = avg(obj.killEffect.increaseCurrentHP);
+				var averageAPBoost = avg(obj.killEffect.increaseCurrentAP);
+				var costBoostHP = Math.round(923*Math.pow(Math.max(0,averageHPBoost), 2.5) + 450*averageHPBoost);
+				var costBoostAP = Math.round(1033*Math.pow(Math.max(0,averageAPBoost), 2.5) + 300*averageAPBoost);
+				killEffectsCost = costBoostHP + costBoostAP;
+			}
+			
+			var result = itemEquipCost + itemUsageCost + hitEffectsCost + killEffectsCost;
 			if (result <= 0) { result = 1; }
 			
 			return result;

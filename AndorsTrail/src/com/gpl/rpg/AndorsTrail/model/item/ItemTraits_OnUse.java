@@ -14,8 +14,19 @@ public final class ItemTraits_OnUse {
 		this.addedConditions_target = addedConditions_target;
 	}
 
-	public int calculateCost() {
-		final int costStats = changedStats == null ? 0 : changedStats.calculateCost();
+
+	public int calculateUseCost() {
+		final int costStats = changedStats == null ? 0 : changedStats.calculateUseCost();
+		return costStats;
+	}
+
+	public int calculateHitCost() {
+		final int costStats = changedStats == null ? 0 : changedStats.calculateHitCost();
+		return costStats;
+	}
+
+	public int calculateKillCost() {
+		final int costStats = changedStats == null ? 0 : changedStats.calculateKillCost();
 		return costStats;
 	}
 }

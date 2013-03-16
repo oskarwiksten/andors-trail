@@ -14,7 +14,7 @@ public final class ItemTraits_OnEquip {
 		this.addedConditions = addedConditions;
 	}
 
-	public int calculateCost(boolean isWeapon) {
+	public int calculateEquipCost(boolean isWeapon) {
 		final int costStats = stats == null ? 0 : stats.calculateCost(isWeapon);
 		return costStats;
 	}

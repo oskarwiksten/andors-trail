@@ -48,7 +48,7 @@ public final class ItemType {
 		this.category = category;
 		this.displayType = displayType;
 		this.hasManualPrice = hasManualPrice;
-		this.baseMarketCost = hasManualPrice ? fixedBaseMarketCost : calculateCost(category, effects_equip, effects_use);
+		this.baseMarketCost = hasManualPrice ? fixedBaseMarketCost : calculateCost(category, effects_equip, effects_use, effects_hit, effects_kill);
 		this.fixedBaseMarketCost = fixedBaseMarketCost;
 		this.effects_equip = effects_equip;
 		this.effects_use = effects_use;
@@ -92,11 +92,11 @@ public final class ItemType {
 		return -1;
 	}
 
-    private static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use) {
-		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateCost(category.isWeapon());
-		final int costUse = effects_use == null ? 0 : effects_use.calculateCost();
-		//final int costHit = effects_hit == null ? 0 : effects_hit.calculateCost();
-		//final int costKill = effects_kill == null ? 0 : effects_kill.calculateCost();
-		return Math.max(1, costEquipStats + costUse);
+    private static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateEquipCost(category.isWeapon());
+		final int costUse = effects_use == null ? 0 : effects_use.calculateUseCost();
+		final int costHit = effects_hit == null ? 0 : effects_hit.calculateHitCost();
+		final int costKill = effects_kill == null ? 0 : effects_kill.calculateKillCost();
+		return Math.max(1, costEquipStats + costUse + costHit + costKill);
 	}
 }
