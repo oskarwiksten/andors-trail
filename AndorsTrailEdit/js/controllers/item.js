@@ -13,6 +13,16 @@ var ATEditor = (function(ATEditor, model, ATModelFunctions) {
 		
 		$scope.$watch('obj.category', function(val) {
 			$scope.isWeapon = ATModelFunctions.itemCategoryFunctions.isWeaponCategory(val);
+			$scope.isUsable = ATModelFunctions.itemCategoryFunctions.isUsableCategory(val);
+			if (!$scope.isUsable) {
+				$scope.obj.hasUseEffect = false;
+			}
+			$scope.isWearable = ATModelFunctions.itemCategoryFunctions.isWearableCategory(val);
+			if (!$scope.isWearable) {
+				$scope.obj.hasEquipEffect = false;
+				$scope.obj.hasHitEffect = false;
+				$scope.obj.hasKillEffect = false;
+			}
 		});
 		$scope.$watch('obj.hasManualPrice', function(hasManualPrice) {
 			$scope.obj.baseMarketCost = hasManualPrice ? ATModelFunctions.itemFunctions.calculateItemCost($scope.obj) : 0;
