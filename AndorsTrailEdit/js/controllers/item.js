@@ -1,4 +1,4 @@
-var ATEditor = (function(ATEditor, model, ATModelFunctions) {
+var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
 
 	function setCategoryToObject(item, itemCategories) {
 		if (_.isString(item.category)) {
@@ -56,9 +56,14 @@ var ATEditor = (function(ATEditor, model, ATModelFunctions) {
 			item.baseMarketCost = ATModelFunctions.itemFunctions.getItemCost(item);
 		};
 		
-		$scope.iconID = true;
-		$scope.id = true;
-		$scope.cost = true;
+		if (!settings.itemTableEditorVisibleColumns) {
+			settings.itemTableEditorVisibleColumns = {
+				iconID: true
+				,id: true
+				,cost: true
+			};
+		}
+		$scope.settings = settings.itemTableEditorVisibleColumns;
 	}
 	
 	ATEditor.controllers = ATEditor.controllers || {};
@@ -66,4 +71,4 @@ var ATEditor = (function(ATEditor, model, ATModelFunctions) {
 	ATEditor.controllers.ItemTableController = ItemTableController;
 
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATModelFunctions);
+})(ATEditor, ATEditor.model, ATEditor.settings, ATModelFunctions);

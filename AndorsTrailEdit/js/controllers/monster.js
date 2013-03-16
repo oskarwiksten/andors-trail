@@ -1,4 +1,4 @@
-var ATEditor = (function(ATEditor, model, ATModelFunctions) {
+var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
 
 	function MonsterController($scope, $routeParams) {
 		$scope.obj = model.monsters.findById($routeParams.id) || {};
@@ -22,9 +22,14 @@ var ATEditor = (function(ATEditor, model, ATModelFunctions) {
 			window.location = "#/" + model.monsters.id + "/edit/" + monster.id;
 		};
 		
-		$scope.iconID = true;
-		$scope.id = true;
-		$scope.experience = true;
+		if (!settings.monsterTableEditorVisibleColumns) {
+			settings.monsterTableEditorVisibleColumns = {
+				iconID: true
+				,id: true
+				,experience: true
+			};
+		}
+		$scope.settings = settings.monsterTableEditorVisibleColumns;
 	}
 	
 	ATEditor.controllers = ATEditor.controllers || {};
@@ -32,4 +37,4 @@ var ATEditor = (function(ATEditor, model, ATModelFunctions) {
 	ATEditor.controllers.MonsterTableController = MonsterTableController;
 
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATModelFunctions);
+})(ATEditor, ATEditor.model, ATEditor.settings, ATModelFunctions);
