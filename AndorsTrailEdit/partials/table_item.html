@@ -27,7 +27,7 @@
 <label class="checkbox"><input type="checkbox" ng-model="settings.killEffect" />Kill effect</label>
 
 
-<table>
+<table class="tableeditor">
 	<thead>
 		<tr>
 			<th ng-ds-fade="settings.iconID">Icon</th>
@@ -194,5 +194,9 @@
 		</tr>
 	</tbody>
 </table>
+
+<div>
+	<button ng-click="addObj()" class="btn"><i class="icon-plus-sign"></i> Add</button>
+</div>
 
 <div class="endSets"> </div>

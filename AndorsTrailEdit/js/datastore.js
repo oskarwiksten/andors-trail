@@ -42,6 +42,7 @@ var ATEditor = (function(ATEditor, _) {
 		this.clone = function(o) { 
 			var obj = ATEditor.utils.deepClone(o);
 			this.ensureUniqueId(obj);
+			obj[options.nameField] = 'Copy of ' + obj[options.nameField];
 			items.push(obj);
 			return obj;
 		};

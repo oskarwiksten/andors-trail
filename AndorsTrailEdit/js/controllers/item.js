@@ -1,4 +1,4 @@
-var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
+var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctions) {
 
 	function setCategoryToObject(item, itemCategories) {
 		if (_.isString(item.category)) {
@@ -43,14 +43,18 @@ var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
 	}
 	
 	function ItemTableController($scope, $routeParams) {
-		$scope.items = model.items.items;
+		var section = model.items;
+		$scope.items = section.items;
 		$scope.itemCategories = model.itemCategories.items;
 		_.each($scope.items, function(item) {
 			setCategoryToObject(item, model.itemCategories);
 		});
 		$scope.getItemCost = ATModelFunctions.itemFunctions.getItemCost;
 		$scope.edit = function(item) {
-			window.location = "#/" + model.items.id + "/edit/" + item.id;
+			window.location = "#/" + section.id + "/edit/" + item.id;
+		};
+		$scope.addObj = function() {
+			importExport.prepareObjectsForEditor(section, [ section.addNew() ]);
 		};
 		$scope.updateCost = function(item) {
 			item.baseMarketCost = ATModelFunctions.itemFunctions.getItemCost(item);
@@ -71,4 +75,4 @@ var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
 	ATEditor.controllers.ItemTableController = ItemTableController;
 
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATEditor.settings, ATModelFunctions);
+})(ATEditor, ATEditor.model, ATEditor.importExport, ATEditor.settings, ATModelFunctions);

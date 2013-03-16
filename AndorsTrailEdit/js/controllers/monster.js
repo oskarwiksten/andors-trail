@@ -1,4 +1,4 @@
-var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
+var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctions) {
 
 	function MonsterController($scope, $routeParams) {
 		$scope.obj = model.monsters.findById($routeParams.id) || {};
@@ -16,10 +16,14 @@ var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
 	}
 	
 	function MonsterTableController($scope, $routeParams) {
-		$scope.monsters = model.monsters.items;
+		var section = model.monsters;
+		$scope.monsters = section.items;
 		$scope.getExperience = ATModelFunctions.monsterFunctions.getMonsterExperience;
 		$scope.edit = function(monster) {
-			window.location = "#/" + model.monsters.id + "/edit/" + monster.id;
+			window.location = "#/" + section.id + "/edit/" + monster.id;
+		};
+		$scope.addObj = function() {
+			importExport.prepareObjectsForEditor(section, [ section.addNew() ]);
 		};
 		
 		if (!settings.monsterTableEditorVisibleColumns) {
@@ -37,4 +41,4 @@ var ATEditor = (function(ATEditor, model, settings, ATModelFunctions) {
 	ATEditor.controllers.MonsterTableController = MonsterTableController;
 
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATEditor.settings, ATModelFunctions);
+})(ATEditor, ATEditor.model, ATEditor.importExport, ATEditor.settings, ATModelFunctions);
