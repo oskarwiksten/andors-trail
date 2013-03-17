@@ -239,6 +239,7 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.items_misc_3, "items_misc_3", src_sz20x12, defaultTileSize);
         loader.prepareTileset(R.drawable.items_misc_4, "items_misc_4", new Size(20, 4), defaultTileSize);
         loader.prepareTileset(R.drawable.items_misc_5, "items_misc_5", new Size(9, 5), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_misc_6, "items_misc_6", new Size(9, 4), defaultTileSize);
         loader.prepareTileset(R.drawable.items_reterski_1, "items_reterski_1", new Size(3, 10), defaultTileSize);
         loader.prepareTileset(R.drawable.items_tometik1, "items_tometik1", new Size(6, 10), defaultTileSize);
         loader.prepareTileset(R.drawable.items_tometik2, "items_tometik2", new Size(10, 10), defaultTileSize);
@@ -257,7 +258,6 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.monsters_eye2, "monsters_eye2", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_eye3, "monsters_eye3", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_eye4, "monsters_eye4", src_sz1x1, defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_eye5, "monsters_eye5", src_sz1x1, defaultTileSize);
 	    loader.prepareTileset(R.drawable.monsters_ghost1, "monsters_ghost1", src_sz1x1, defaultTileSize);
 	    loader.prepareTileset(R.drawable.monsters_hydra1, "monsters_hydra1", src_sz1x1, dst_sz2x2);
         loader.prepareTileset(R.drawable.monsters_insects, "monsters_insects", src_sz6x1, defaultTileSize);
@@ -283,12 +283,15 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.monsters_skeleton2, "monsters_skeleton2", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_snakes, "monsters_snakes", src_sz6x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_tometik1, "monsters_tometik1", new Size(10, 9), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_tometik2, "monsters_tometik2", new Size(6, 1), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_tometik3, "monsters_tometik3", new Size(6, 4), defaultTileSize);
-        loader.prepareTileset(R.drawable.monsters_tometik4, "monsters_tometik4", new Size(6, 7), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_tometik2, "monsters_tometik2", new Size(8, 10), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_tometik3, "monsters_tometik3", new Size(6, 13), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_tometik4, "monsters_tometik4", new Size(6, 13), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_tometik5, "monsters_tometik5", new Size(6, 16), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_tometik6, "monsters_tometik6", new Size(7, 6), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_tometik7, "monsters_tometik7", new Size(8, 11), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_tometik8, "monsters_tometik8", new Size(7, 9), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_tometik9, "monsters_tometik9", new Size(8, 8), defaultTileSize);
+        loader.prepareTileset(R.drawable.monsters_tometik10, "monsters_tometik10", new Size(6, 13), defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_wraiths, "monsters_wraiths", src_sz3x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_zombie1, "monsters_zombie1", src_sz1x1, defaultTileSize);
         loader.prepareTileset(R.drawable.monsters_zombie2, "monsters_zombie2", src_sz1x1, defaultTileSize);

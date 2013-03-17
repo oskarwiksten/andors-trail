@@ -102,6 +102,7 @@ var ATEditor = (function(ATEditor, utils) {
 	add("items_misc_3", {x:20, y:12}, [ 'item' ] );
 	add("items_misc_4", {x:20, y:4}, [ 'item' ] );
 	add("items_misc_5", {x:9, y:5}, [ 'item' ] );
+	add("items_misc_6", {x:9, y:4}, [ 'item' ] );
 	add("items_reterski_1", {x:3, y:10}, [ 'item' ] );
 	add("items_tometik1", {x:6, y:10}, [ 'item' ] );
 	add("items_tometik2", {x:10, y:10}, [ 'item' ] );
@@ -112,7 +113,6 @@ var ATEditor = (function(ATEditor, utils) {
 	add("monsters_eye2", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_eye3", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_eye4", {x: 1, y:1}, [ 'monster' ] );
-	add("monsters_eye5", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_ghost1", {x: 1, y:1}, [ 'monster' ] );
 	add("monsters_hydra1", {x: 1, y:1}, [ 'monster' ], {x:64, y:64} );
 	add("monsters_insects", {x: 6, y:1}, [ 'monster' ] );
@@ -142,12 +142,15 @@ var ATEditor = (function(ATEditor, utils) {
 	add("monsters_ld1", {x:20, y:12}, [ 'monster' ] );
 	add("monsters_ld2", {x:20, y:12}, [ 'monster' ] );
 	add("monsters_tometik1", {x:10, y:9}, [ 'monster' ] );
-	add("monsters_tometik2", {x:6, y:1}, [ 'monster' ] );
-	add("monsters_tometik3", {x:6, y:4}, [ 'monster' ] );
-	add("monsters_tometik4", {x:6, y:7}, [ 'monster' ] );
+	add("monsters_tometik2", {x:8, y:10}, [ 'monster' ] );
+	add("monsters_tometik3", {x:6, y:13}, [ 'monster' ] );
+	add("monsters_tometik4", {x:6, y:13}, [ 'monster' ] );
 	add("monsters_tometik5", {x:6, y:16}, [ 'monster' ] );
 	add("monsters_tometik6", {x:7, y:6}, [ 'monster' ] );
 	add("monsters_tometik7", {x:8, y:11}, [ 'monster' ] );
+	add("monsters_tometik8", {x:7, y:9}, [ 'monster' ] );
+	add("monsters_tometik9", {x:8, y:8}, [ 'monster' ] );
+	add("monsters_tometik10", {x:6, y:13}, [ 'monster' ] );
 	add("monsters_demon1", {x:1, y:1}, [ 'monster' ], {x:64, y:64} );
 	add("monsters_demon2", {x:1, y:1}, [ 'monster' ], {x:64, y:64} );
 	add("monsters_cyclops", {x:1, y:1}, [ 'monster' ], {x:64, y:96} );
