@@ -136,7 +136,10 @@
 				<input type="text" ng-show="item.hasManualPrice == 0" value="{{getItemCost(item)}}" readonly="readonly" class="at-input-gold" />
 				<input type="text" ng-show="item.hasManualPrice == 1" ng-model="item.baseMarketCost" class="at-input-gold" />
 			</td>
-			<td ng-ds-fade="settings.hasEquipEffect"><input type="checkbox" ng-model="item.hasEquipEffect" title="Has effect when equipping item?" /></td>
+			<td ng-ds-fade="settings.hasEquipEffect">
+				<input type="checkbox" ng-model="item.hasEquipEffect" title="Has effect when equipping item?" />
+				<span ng-show="item.equipEffect.addedConditions.length > 0">*</span>
+			</td>
 			<td ng-ds-fade="settings.equipEffect_increaseMaxHP"><input type="text" ng-model="item.equipEffect.increaseMaxHP" class="at-input-stat" /></td>
 			<td ng-ds-fade="settings.equipEffect_increaseMaxAP"><input type="text" ng-model="item.equipEffect.increaseMaxAP" class="at-input-stat" /></td>
 			<td ng-ds-fade="settings.equipEffect_increaseMoveCost"><input type="text" ng-model="item.equipEffect.increaseMoveCost" class="at-input-stat" /></td>
@@ -154,7 +157,10 @@
 			<td ng-ds-fade="settings.equipEffect_increaseBlockChance"><input type="text" ng-model="item.equipEffect.increaseBlockChance" class="at-input-stat" /></td>
 			<td ng-ds-fade="settings.equipEffect_increaseDamageResistance"><input type="text" ng-model="item.equipEffect.increaseDamageResistance" class="at-input-stat" /></td>
 			
-			<td ng-ds-fade="settings.useEffect"><input type="checkbox" ng-model="item.hasUseEffect" title="Has effect when using item?" /></td>
+			<td ng-ds-fade="settings.useEffect">
+				<input type="checkbox" ng-model="item.hasUseEffect" title="Has effect when using item?" />
+				<span ng-show="item.useEffect.conditionsSource.length > 0">*</span>
+			</td>
 			<td ng-ds-fade="settings.useEffect">
 				<input type="text" ng-model="item.useEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
 				-
@@ -166,7 +172,11 @@
 				<input type="text" ng-model="item.useEffect.increaseCurrentAP.max" class="at-input-stat-minmax" />
 			</td>
 			
-			<td ng-ds-fade="settings.hitEffect"><input type="checkbox" ng-model="item.hasHitEffect" title="Has effect when hitting a target in combat?" /></td>
+			<td ng-ds-fade="settings.hitEffect">
+				<input type="checkbox" ng-model="item.hasHitEffect" title="Has effect when hitting a target in combat?" />
+				<span ng-show="item.hitEffect.conditionsSource.length > 0">S</span>
+				<span ng-show="item.hitEffect.conditionsTarget.length > 0">T</span>
+			</td>
 			<td ng-ds-fade="settings.hitEffect">
 				<input type="text" ng-model="item.hitEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
 				-
@@ -178,7 +188,10 @@
 				<input type="text" ng-model="item.hitEffect.increaseCurrentAP.max" class="at-input-stat-minmax" />
 			</td>
 			
-			<td ng-ds-fade="settings.killEffect"><input type="checkbox" ng-model="item.hasKillEffect" title="Has effect when killing a target in combat?" /></td>
+			<td ng-ds-fade="settings.killEffect">
+				<input type="checkbox" ng-model="item.hasKillEffect" title="Has effect when killing a target in combat?" />
+				<span ng-show="item.killEffect.conditionsSource.length > 0">*</span>
+			</td>
 			<td ng-ds-fade="settings.killEffect">
 				<input type="text" ng-model="item.killEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
 				-

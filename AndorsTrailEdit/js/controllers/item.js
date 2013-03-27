@@ -6,6 +6,14 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 		}
 	}
 	
+	function setItemPriceSuggestion(item) {
+		if (item.hasManualPrice == 1) {
+			item.baseMarketCost = ATModelFunctions.itemFunctions.calculateItemCost(item);
+		} else {
+			item.baseMarketCost = 0;
+		}
+	}
+	
 	function ItemController($scope, $routeParams) {
 		$scope.obj = model.items.findById($routeParams.id) || {};
 		$scope.itemCategories = model.itemCategories.items;
@@ -24,10 +32,8 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 				$scope.obj.hasKillEffect = false;
 			}
 		});
-		$scope.$watch('obj.hasManualPrice', function(hasManualPrice) {
-			$scope.obj.baseMarketCost = hasManualPrice ? ATModelFunctions.itemFunctions.calculateItemCost($scope.obj) : 0;
-		});
 		
+		$scope.updateCost = setItemPriceSuggestion;
 		$scope.getItemCost = ATModelFunctions.itemFunctions.getItemCost;
 		$scope.getItemSellingCost = ATModelFunctions.itemFunctions.getItemSellingCost;
 		$scope.getItemBuyingCost = ATModelFunctions.itemFunctions.getItemBuyingCost;
@@ -49,16 +55,14 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 		_.each($scope.items, function(item) {
 			setCategoryToObject(item, model.itemCategories);
 		});
-		$scope.getItemCost = ATModelFunctions.itemFunctions.getItemCost;
 		$scope.edit = function(item) {
 			window.location = "#/" + section.id + "/edit/" + item.id;
 		};
 		$scope.addObj = function() {
 			importExport.prepareObjectsForEditor(section, [ section.addNew() ]);
 		};
-		$scope.updateCost = function(item) {
-			item.baseMarketCost = ATModelFunctions.itemFunctions.getItemCost(item);
-		};
+		$scope.updateCost = setItemPriceSuggestion;
+		$scope.getItemCost = ATModelFunctions.itemFunctions.getItemCost;
 		
 		if (!settings.itemTableEditorVisibleColumns) {
 			settings.itemTableEditorVisibleColumns = {

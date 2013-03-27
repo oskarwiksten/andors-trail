@@ -51,7 +51,7 @@
 <fieldset>
 	<legend>Price</legend>
 	<div class="fieldWithLabel">
-		<label class="checkbox"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" />Item has manually specified store price</label>
+		<label class="checkbox"><input type="checkbox" id="hasManualPrice" ng-model="obj.hasManualPrice" ng-true-value="1" ng-false-value="0" ng-change="updateCost(obj)" />Item has manually specified store price</label>
 	</div>
 	<div class="fieldWithLabel">
 		<label for="baseMarketCost">Base market cost (gold):</label>
