@@ -13,6 +13,8 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 			var idx = list.indexOf(cond);
 			list.splice(idx, 1);
 		};
+		$scope.previous = ATEditor.navigationFunctions.editByIndexOffset(model.monsters, $scope.obj, -1);
+		$scope.next = ATEditor.navigationFunctions.editByIndexOffset(model.monsters, $scope.obj, 1);
 	}
 	
 	function MonsterTableController($scope, $routeParams) {
@@ -20,7 +22,7 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 		$scope.monsters = section.items;
 		$scope.getExperience = ATModelFunctions.monsterFunctions.getMonsterExperience;
 		$scope.edit = function(monster) {
-			window.location = "#/" + section.id + "/edit/" + monster.id;
+			ATEditor.navigationFunctions.editObj(section, monster);
 		};
 		$scope.addObj = function() {
 			importExport.prepareObjectsForEditor(section, [ section.addNew() ]);

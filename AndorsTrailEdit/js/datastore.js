@@ -83,6 +83,15 @@ var ATEditor = (function(ATEditor, _) {
 		this.ensureUniqueId = function(obj) {
 			obj[options.idField] = this.findFirstFreeId(obj[options.idField]);
 		};
+		this.findByIndexOffset = function(obj, offset) {
+			if (_.isEmpty(this.items)) { return; }
+			
+			var idx = _.indexOf(this.items, obj);
+			idx = idx + offset;
+			if (idx < 0) { idx = this.items.length - 1; }
+			if (idx >= this.items.length) { idx = 0; }
+			return this.items[idx];
+		};
 	};
 
 	return ATEditor;

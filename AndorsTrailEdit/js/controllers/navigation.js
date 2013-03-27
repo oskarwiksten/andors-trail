@@ -1,5 +1,20 @@
 var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 
+	function editObjId(section, objId) {
+		window.location = "#/" + section.id + "/edit/" + objId;
+	}
+	function editObj(section, obj) {
+		editObjId(section, obj.id);
+	}
+	
+	function editByIndexOffset(section, obj, offset) {
+		return function() {
+			var nextObj = section.findByIndexOffset(obj, offset);
+			if (!nextObj) { return; }
+			editObj(section, nextObj);
+		};
+	}
+	
 	function NavigationController($scope, $routeParams, $http) {
 		$scope.sections = model.sections;
 		$scope.previousItems = [];
@@ -12,7 +27,7 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 			if ($scope.previousItems.length > 5) {
 				$scope.previousItems.pop();
 			}
-			window.location = "#/" + section.id + "/edit/" + obj.id;
+			editObj(section, obj);
 		};
 		$scope.addObj = function(section) {
 			var item = section.addNew();
@@ -51,6 +66,11 @@ var ATEditor = (function(ATEditor, model, importExport, exampleData) {
 	
 	ATEditor.controllers = ATEditor.controllers || {};
 	ATEditor.controllers.NavigationController = NavigationController;
+	ATEditor.navigationFunctions = {
+		editObj: editObj
+		,editObjId: editObjId
+		,editByIndexOffset: editByIndexOffset
+	};
 		
 	return ATEditor;
 })(ATEditor, ATEditor.model, ATEditor.importExport, ATEditor.exampleData);

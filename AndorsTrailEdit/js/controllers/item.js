@@ -46,6 +46,9 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 			var idx = list.indexOf(cond);
 			list.splice(idx, 1);
 		};
+		
+		$scope.previous = ATEditor.navigationFunctions.editByIndexOffset(model.items, $scope.obj, -1);
+		$scope.next = ATEditor.navigationFunctions.editByIndexOffset(model.items, $scope.obj, 1);
 	}
 	
 	function ItemTableController($scope, $routeParams) {
@@ -56,7 +59,7 @@ var ATEditor = (function(ATEditor, model, importExport, settings, ATModelFunctio
 			setCategoryToObject(item, model.itemCategories);
 		});
 		$scope.edit = function(item) {
-			window.location = "#/" + section.id + "/edit/" + item.id;
+			ATEditor.navigationFunctions.editObj(section, item);
 		};
 		$scope.addObj = function() {
 			importExport.prepareObjectsForEditor(section, [ section.addNew() ]);

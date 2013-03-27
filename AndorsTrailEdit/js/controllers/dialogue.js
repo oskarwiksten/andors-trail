@@ -18,7 +18,7 @@ var ATEditor = (function(ATEditor, model, defaults, importExport, _) {
 			if (phraseId) { 
 				var nextPhrase = model.dialogue.findById(phraseId);
 				if (nextPhrase) {
-					window.location = "#/" + model.dialogue.id + "/edit/" + phraseId;
+					ATEditor.navigationFunctions.editObjId(model.dialogue, phraseId);
 					return;
 				}
 			} else {
@@ -31,7 +31,7 @@ var ATEditor = (function(ATEditor, model, defaults, importExport, _) {
 			phraseId = newPhrase.id;
 			obj[prop] = phraseId;
 			
-			window.location = "#/" + model.dialogue.id + "/edit/" + phraseId;
+			ATEditor.navigationFunctions.editObjId(model.dialogue, phraseId);
 		};
 		$scope.selectReply = function(reply) {
 			$scope.reply = reply;
