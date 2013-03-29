@@ -33,7 +33,7 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.hitEffect));
 		final ItemTraits_OnUse killEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.killEffect));
 		
-		final int baseMarketCost = o.getInt(JsonFieldNames.ItemType.baseMarketCost);
+		final int baseMarketCost = o.optInt(JsonFieldNames.ItemType.baseMarketCost);
 		final boolean hasManualPrice = o.optInt(JsonFieldNames.ItemType.hasManualPrice, 0) > 0;
 		final ItemType itemType = new ItemType(
 				id

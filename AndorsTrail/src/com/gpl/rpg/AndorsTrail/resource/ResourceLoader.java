@@ -245,6 +245,7 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.items_tometik2, "items_tometik2", new Size(10, 10), defaultTileSize);
         loader.prepareTileset(R.drawable.items_tometik3, "items_tometik3", new Size(8, 6), defaultTileSize);
         loader.prepareTileset(R.drawable.items_necklaces_1, "items_necklaces_1", new Size(10, 3), defaultTileSize);
+        loader.prepareTileset(R.drawable.items_weapons_2, "items_weapons_2", new Size(7, 1), defaultTileSize);
         loader.prepareTileset(R.drawable.items_weapons_3, "items_weapons_3", new Size(13, 5), defaultTileSize);
         loader.prepareTileset(R.drawable.items_armours_2, "items_armours_2", src_sz7x1, defaultTileSize);
         loader.prepareTileset(R.drawable.items_armours_3, "items_armours_3", new Size(10, 4), defaultTileSize);

@@ -16,8 +16,9 @@ public final class ConversationLoader {
 	}
 	
 	public Phrase loadPhrase(String phraseID, ConversationCollection conversationCollection, Resources r) {
-		Phrase phrase = conversationCollection.getPhrase(phraseID);
-		if (phrase != null) return phrase;
+		if (conversationCollection.hasPhrase(phraseID)) {
+			return conversationCollection.getPhrase(phraseID);
+		}
 		
 		ConversationListParser conversationListParser = new ConversationListParser();
 		int resourceID = resourceIDsPerPhraseID.get(phraseID);

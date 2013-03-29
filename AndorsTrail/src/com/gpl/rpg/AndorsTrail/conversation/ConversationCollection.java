@@ -15,7 +15,10 @@ public final class ConversationCollection {
 	public static final String REPLY_NEXT = "N";
 	
 	private final HashMap<String, Phrase> phrases = new HashMap<String, Phrase>();
-	
+
+	public boolean hasPhrase(String id) {
+		return phrases.containsKey(id);
+	}
 	public Phrase getPhrase(String id) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!phrases.containsKey(id)) {

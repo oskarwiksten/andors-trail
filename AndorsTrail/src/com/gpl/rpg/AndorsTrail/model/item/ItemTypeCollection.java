@@ -15,6 +15,7 @@ public final class ItemTypeCollection {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!itemTypes.containsKey(id)) {
 				L.log("WARNING: Cannot find ItemType for id \"" + id + "\".");
+				return null;
 			}
 		}
 		return itemTypes.get(id);

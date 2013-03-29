@@ -39,7 +39,10 @@ public final class ResourceParserUtils {
 	public static ConstRange parseConstRange(JSONObject o) throws JSONException {
 		if (o == null) return null;
 
-		return new ConstRange(o.getInt(JsonFieldNames.Range.max), o.getInt(JsonFieldNames.Range.min));
+		return new ConstRange(
+				o.getInt(JsonFieldNames.Range.max),
+				o.optInt(JsonFieldNames.Range.min)
+		);
 	}
 
 	public static final ConstRange always = one;
