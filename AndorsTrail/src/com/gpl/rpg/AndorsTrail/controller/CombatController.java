@@ -123,8 +123,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 	}
 	
-	public boolean canExitCombat() { return getAdjacentMonster() == null; }
-	private Monster getAdjacentMonster() { 
+	public boolean canExitCombat() { return getAdjacentAggressiveMonster() == null; }
+	private Monster getAdjacentAggressiveMonster() {
 		return MovementController.getAdjacentAggressiveMonster(world.model.currentMap, world.model.player); 
 	}
 
@@ -140,7 +140,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		} else if (dx != 0 || dy != 0) {
 			executeFlee(dx, dy);
 		} else {
-			Monster m = getAdjacentMonster();
+			Monster m = getAdjacentAggressiveMonster();
 			if (m == null) return;
 			setCombatSelection(m);
 			executePlayerAttack();
@@ -160,6 +160,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (controllers.effectController.isRunningVisualEffect()) return;
 		if (!useAPs(world.model.player.getAttackCost())) return;
 		final Monster target = world.model.uiSelections.selectedMonster;
+		final Coord attackPosition = world.model.uiSelections.selectedPosition;
 
 		final AttackResult attack = playerAttacks(target);
 		this.lastAttackResult = attack;
@@ -167,11 +168,11 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (attack.isHit) {
 			combatActionListeners.onPlayerAttackSuccess(target, attack);
 			
-			if (lastAttackResult.targetDied) {
+			if (attack.targetDied) {
 				playerKilledMonster(target);
 			}
 			
-			startAttackEffect(attack, world.model.uiSelections.selectedPosition, this, CALLBACK_PLAYERATTACK);
+			startAttackEffect(attack, attackPosition, this, CALLBACK_PLAYERATTACK);
 		} else {
 			combatActionListeners.onPlayerAttackMissed(target, attack);
 			playerAttackCompleted();
@@ -179,16 +180,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	private void playerAttackCompleted() {
-		if (lastAttackResult.targetDied) {
-			Monster nextMonster = getAdjacentMonster();
-			if (nextMonster == null) {
-				exitCombat(true);
-				return;
-			} else {
-				setCombatSelection(nextMonster);
-			}
+		if (world.model.uiSelections.selectedMonster == null) {
+			selectNextAggressiveMonster();
 		}
-		
+
 		playerActionCompleted();
 	}
 	
@@ -218,7 +213,21 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 		
 		combatActionListeners.onPlayerKilledMonster(killedMonster);
+
+		if (world.model.uiSelections.selectedMonster == killedMonster) {
+			selectNextAggressiveMonster();
+		}
     }
+
+	private boolean selectNextAggressiveMonster() {
+		Monster nextMonster = getAdjacentAggressiveMonster();
+		if (nextMonster == null) {
+			setCombatSelection(null, null);
+			return false;
+		}
+		setCombatSelection(nextMonster);
+		return true;
+	}
 
 	private boolean playerHasApLeft() {
 		final Player player = world.model.player;
@@ -228,6 +237,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return false;
 	}
 	private void playerActionCompleted() {
+		if (canExitCombat()) {
+			exitCombat(true);
+			return;
+		}
 		if (!playerHasApLeft()) beginMonsterTurn(false);
 	}
 	private void continueTurn() {
@@ -249,8 +262,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		
 		world.model.player.nextPosition.set(dest);
 		controllers.movementController.moveToNextIfPossible(false);
-		
-		if (canExitCombat()) exitCombat(true);
 		
 		playerActionCompleted();
 	}
@@ -283,6 +294,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				controllers.actorStatsController.setActorMaxAP(m);
 			}
 		}
+		currentActiveMonster = null;
 		if (!isFirstRound) controllers.gameRoundController.onNewMonsterRound();
 		handleNextMonsterAction();
 	}
@@ -367,6 +379,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	private void newPlayerTurn(boolean isFirstRound) {
+		if (canExitCombat()) {
+			exitCombat(true);
+			return;
+		}
 		controllers.actorStatsController.setActorMaxAP(world.model.player);
 		if (!isFirstRound) controllers.gameRoundController.onNewPlayerRound();
 		world.model.uiSelections.isPlayersCombatTurn = true;
