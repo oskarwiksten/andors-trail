@@ -64,7 +64,7 @@ public final class SkillCollection {
 	public static final int PER_SKILLPOINT_INCREASE_CRIT1_CHANCE = 50;
 	public static final int PER_SKILLPOINT_INCREASE_CRIT2_CHANCE = 50;
 	public static final int PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE = 20;
-	public static final int PER_SKILLPOINT_INCREASE_TAUNT_CHANCE = 25;
+	public static final int PER_SKILLPOINT_INCREASE_TAUNT_CHANCE = 75;
 	public static final int TAUNT_AP_LOSS = 2;
 	public static final int CONCUSSION_THRESHOLD = 50;
 	public static final int PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE = 15;
