@@ -18,8 +18,9 @@
 <label class="checkbox"><input type="checkbox" ng-model="settings.hasCritical" />Has critical hits</label>
 <label class="checkbox"><input type="checkbox" ng-model="settings.criticalSkill" />Critical skill</label>
 <label class="checkbox"><input type="checkbox" ng-model="settings.criticalMultiplier" />Critical multiplier</label>
-<label class="checkbox"><input type="checkbox" ng-model="settings.blockChance" />Clock chance</label>
+<label class="checkbox"><input type="checkbox" ng-model="settings.blockChance" />Block chance</label>
 <label class="checkbox"><input type="checkbox" ng-model="settings.damageResistance" />Damage resistance</label>
+<label class="checkbox"><input type="checkbox" ng-model="settings.hitEffect" />Hit effect</label>
 
 <table class="tableeditor">
 	<thead>
@@ -84,6 +85,15 @@
 			<th ng-ds-fade="settings.damageResistance">
 				<span class="hint  hint--top" data-hint="Damage resistance">DR</span>
 			</th>
+			<th ng-ds-fade="settings.hitEffect">
+				<span class="hint  hint--top" data-hint="Each attack has an effect when successfully hitting an opponent in combat">Hit?</span>
+			</th>
+			<th ng-ds-fade="settings.hitEffect">
+				<span class="hint  hint--top" data-hint="Increase current HP when hitting opponent in combat">+HP</span>
+			</th>
+			<th ng-ds-fade="settings.hitEffect">
+				<span class="hint  hint--top" data-hint="Increase current AP when hitting opponent in combat">+AP</span>
+			</th>
 			<th></th>
 		</tr>
 	</thead>
@@ -125,6 +135,23 @@
 			<td ng-ds-fade="settings.criticalMultiplier"><input type="text" ng-model="monster.criticalMultiplier" class="at-input-stat" /></td>
 			<td ng-ds-fade="settings.blockChance"><input type="text" ng-model="monster.blockChance" class="at-input-stat" /></td>
 			<td ng-ds-fade="settings.damageResistance"><input type="text" ng-model="monster.damageResistance" class="at-input-stat" /></td>
+			
+			<td ng-ds-fade="settings.hitEffect">
+				<input type="checkbox" ng-model="monster.hasHitEffect" title="Has effect when hitting a target in combat?" />
+				<span ng-show="monster.hitEffect.conditionsSource.length > 0">S</span>
+				<span ng-show="monster.hitEffect.conditionsTarget.length > 0">T</span>
+			</td>
+			<td ng-ds-fade="settings.hitEffect">
+				<input type="text" ng-model="monster.hitEffect.increaseCurrentHP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="monster.hitEffect.increaseCurrentHP.max" class="at-input-stat-minmax" />
+			</td>
+			<td ng-ds-fade="settings.hitEffect">
+				<input type="text" ng-model="monster.hitEffect.increaseCurrentAP.min" class="at-input-stat-minmax" />
+				-
+				<input type="text" ng-model="monster.hitEffect.increaseCurrentAP.max" class="at-input-stat-minmax" />
+			</td>
+			
 			<td><a ng-click="edit(monster)" class="btn"><i class="icon-forward"></i> Edit</a></td>
 		</tr>
 	</tbody>
