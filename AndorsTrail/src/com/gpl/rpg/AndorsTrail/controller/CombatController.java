@@ -322,14 +322,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	private static boolean shouldAttackWithMonsterInCombat(Monster m, Coord playerPosition) {
-		if (!m.hasAPs(m.combatTraits.attackCost)) return false;
+		if (!m.hasAPs(m.getAttackCost())) return false;
 		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
 		return true;
 	}
 	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
 		if (m.aggressionType == MonsterType.AGGRESSIONTYPE_NONE) return false;
 		
-		if (!m.hasAPs(m.actorTraits.moveCost)) return false;
+		if (!m.hasAPs(m.getMoveCost())) return false;
 		if (m.position.isAdjacentTo(playerPosition)) return false;
 		
 		if (m.aggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
@@ -346,7 +346,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void handleNextMonsterAction() {
 		if (!world.model.uiSelections.isMainActivityVisible) return;
 		
-		int nextMonsterAction = determineNextMonsterAction(model.player.position);
+		int nextMonsterAction = determineNextMonsterAction(world.model.player.position);
 		if (nextMonsterAction == ACTION_NONE) {
 			endMonsterTurn();
 		} else if (nextMonsterAction == ACTION_ATTACK) {
@@ -357,21 +357,18 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	private void moveCurrentMonster() {
-		currentActiveMonster.useAPs(currentActiveMonster.actorTraits.moveCost);
-		if (context.monsterMovementController.findPathFor(currentActiveMonster, model.player.position)) {
-			currentActiveMonster.position.set(currentActiveMonster.nextPosition.topLeft);
-			String monsterName = currentActiveMonster.actorTraits.name;
-			Resources r = context.mainActivity.getResources();
-			message(r.getString(R.string.combat_result_monstermoved, monsterName));
-			context.mainActivity.redrawAll(MainView.REDRAW_ALL_MONSTER_MOVED);
+		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
+		if (controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
+			controllers.monsterMovementController.moveMonsterToNextPosition(currentActiveMonster, world.model.currentMap);
+            combatActionListeners.onMonsterMovedDuringCombat(currentActiveMonster);
 		}
-		monsterTurnHandler.sendEmptyMessageDelayed(0, context.preferences.attackspeed_milliseconds);
+		waitForNextMonsterAction();
 	}
 	
 	private void attackWithCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getAttackCost());
 
-		combatTurnListeners.onMonsterIsAttacking(currentActiveMonster);
+        combatTurnListeners.onMonsterIsAttacking(currentActiveMonster);
 		AttackResult attack = monsterAttacks(currentActiveMonster);
 		this.lastAttackResult = attack;
 		

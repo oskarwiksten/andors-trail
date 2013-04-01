@@ -81,7 +81,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
     		// Monster has been moving and arrived at the destination.
     		cancelCurrentMonsterMovement(m);
     	} else {
-    		determineMonsterNextPosition(m, area, model.player.position);
+    		determineMonsterNextPosition(m, area, world.model.player.position);
     		
     		if (!monsterCanMoveTo(map, tileMap, m.nextPosition)) {
     			cancelCurrentMonsterMovement(m);
@@ -95,9 +95,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 				monsterMovementListeners.onMonsterSteppedOnPlayer(m);
 				controllers.combatController.monsterSteppedOnPlayer(m);
 			} else {
-				CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
-				m.position.set(m.nextPosition.topLeft);
-				monsterMovementListeners.onMonsterMoved(map, m, previousPosition);
+                moveMonsterToNextPosition(m, map);
 			}
     	}
 	}
@@ -138,6 +136,12 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
 	@Override
 	public boolean isWalkable(CoordRect r) {
-		return model.currentMap.monsterCanMoveTo(r);
+		return monsterCanMoveTo(world.model.currentMap, r);
 	}
+
+    public void moveMonsterToNextPosition(Monster m, PredefinedMap map) {
+        CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
+        m.position.set(m.nextPosition.topLeft);
+        monsterMovementListeners.onMonsterMoved(map, m, previousPosition);
+    }
 }

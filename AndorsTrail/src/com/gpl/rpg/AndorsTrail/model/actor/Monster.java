@@ -31,7 +31,8 @@ public final class Monster extends Actor {
 	public Monster(MonsterType monsterType) {
 		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
 		this.monsterType = monsterType;
-		this.iconID = monsterType.iconID;
+        this.aggressionType = monsterType.aggressionType;
+        this.iconID = monsterType.iconID;
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
 		this.ap.setMax();
@@ -49,7 +50,6 @@ public final class Monster extends Actor {
 		this.criticalMultiplier = monsterType.criticalMultiplier;
 		if (monsterType.damagePotential != null) this.damagePotential.set(monsterType.damagePotential);
 		else this.damagePotential.set(0, 0);
-		this.aggressionType = monsterType.aggressionType;
 		this.blockChance = monsterType.blockChance;
 		this.damageResistance = monsterType.damageResistance;
 		this.onHitEffects = monsterType.onHitEffects;
@@ -146,7 +146,6 @@ public final class Monster extends Actor {
 				this.shopItems = new ItemContainer(src, world, fileversion);
 			}
 		}
-		this.aggressionType = monsterType.aggressionType;
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
