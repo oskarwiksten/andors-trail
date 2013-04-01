@@ -23,20 +23,21 @@ public final class ItemCategory {
 	private static final int ACTIONTYPE_NONE = 0;
 	private static final int ACTIONTYPE_USE = 1;
 	private static final int ACTIONTYPE_EQUIP = 2;
+	public int getSize() { return size; }
 	public boolean isEquippable() { return actionType == ACTIONTYPE_EQUIP; }
 	public boolean isUsable() { return actionType == ACTIONTYPE_USE; }
 	public boolean isWeapon() { return inventorySlot == Inventory.WEARSLOT_WEAPON; }
 	public boolean isShield() { return inventorySlot == Inventory.WEARSLOT_SHIELD; }
 	public boolean isArmor() { return Inventory.isArmorSlot(inventorySlot); }
 	public boolean isTwohandWeapon() {
-		/*if (!isWeapon()) return false;
+		if (!isWeapon()) return false;
 		else if (size == SIZE_LARGE) return true;
-		else*/ return false;
+		else return false;
 	}
 	public boolean isOffhandCapableWeapon() {
-		/*if (!isWeapon()) return false;
+		if (!isWeapon()) return false;
 		else if (size == SIZE_LIGHT) return true;
 		else if (size == SIZE_STD) return true;
-		else*/ return false;
+		else return false;
 	}
 }

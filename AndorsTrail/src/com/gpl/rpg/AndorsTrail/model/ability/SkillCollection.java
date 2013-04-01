@@ -184,34 +184,34 @@ public final class SkillCollection {
 			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_CHANCE, 3)
 			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 5)
 		}));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_DAGGER, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_1HSWORD, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_2HSWORD, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_AXE, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_BLUNT, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_UNARMED, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_SHIELD, 2, false, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_UNARMORED, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_LIGHT, 3, false, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_HEAVY, 4, false, null));
-		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_DUAL_WIELD, 2, false, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_DAGGER, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_1HSWORD, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_2HSWORD, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_AXE, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_BLUNT, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_UNARMED, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_SHIELD, 2, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_UNARMORED, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_LIGHT, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_HEAVY, 4, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
+		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_DUAL_WIELD, 2, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(15, 0) 
 			}));
-		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_2HAND, 2, false, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_2HAND, 2, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(15, 0) 
 			}));
-		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2, false, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(15, 0) 
 			}));
-		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_DUAL_WIELD, 1, false, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_DUAL_WIELD, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
 				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_DUAL_WIELD, 2)
 			}));
-		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_2HAND, 1, false, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_2HAND, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
 				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_2HAND, 2)
 			}));
-		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_WEAPON_SHIELD, 1, false, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_WEAPON_SHIELD, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
 				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2)
 			}));
