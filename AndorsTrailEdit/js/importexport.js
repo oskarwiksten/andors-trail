@@ -87,7 +87,7 @@ var ATEditor = (function(ATEditor, _) {
 		if (!o.hasRewards) { delete o.rewards; }
 		delete o.hasRewards;
 		_.each(o.replies, function(reply) {
-			if (reply.replyLeadsTo) { reply.text = reply.replyLeadsTo; }
+			if (reply.replyLeadsTo) { reply.nextPhraseID = reply.replyLeadsTo; }
 			delete reply.replyLeadsTo;
 			var requires = reply.requires;
 			if (!reply.requiresItems) { delete requires.item; }
