@@ -1,4 +1,4 @@
-var ATEditor = (function(ATEditor, model, defaults, importExport, _) {
+var ATEditor = (function(ATEditor, model, defaults, importExport) {
 
 	function DialogueController($scope, $routeParams) {
 		$scope.datasource = model.dialogue;
@@ -47,10 +47,13 @@ var ATEditor = (function(ATEditor, model, defaults, importExport, _) {
 			phrase.replies.push(reply);
 			$scope.reply = reply;
 		};
+		$scope.showPhraseTree = function(phrase) {
+			window.location = "#/" + model.dialogue.id + "/tree/" + phrase.id;
+		};
 	};
 	
 	ATEditor.controllers = ATEditor.controllers || {};
 	ATEditor.controllers.DialogueController = DialogueController;
 
 	return ATEditor;
-})(ATEditor, ATEditor.model, ATEditor.defaults, ATEditor.importExport, _);
+})(ATEditor, ATEditor.model, ATEditor.defaults, ATEditor.importExport);

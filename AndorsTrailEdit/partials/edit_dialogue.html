@@ -2,6 +2,12 @@
 
 <fieldset id="dialoguePhrase">
 	<legend>NPC phrase</legend>
+	
+	<button ng-click="showPhraseTree(phrase)" class="btn" title="Show conversation as tree">
+		<i class="icon-align-center"></i> Show as tree
+	</button>
+	<br /><br />
+	
 	<div class="fieldWithLabel">
 		<label for="id">Phrase ID:</label>
 		<input type="text" size="30" id="id" class="field at-input-id" ng-model="phrase.id" />

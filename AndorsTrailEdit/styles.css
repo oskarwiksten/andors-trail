@@ -40,10 +40,28 @@ html, body 					{ margin:0; padding:0; }
 .fieldWithLabel table tbody tr:hover	{ background-color: #d7d7ff; }
 table.tableeditor			{ margin-bottom: 20px; }
 
-#dialogueTree				{ width: 400px; }
-#dialogueTree ul			{ list-style: none; margin-left: 10px; }
-#dialogueTree li			{  }
-#dialogueTree .selected		{ background-color: #d7d7ff; }
+#dialogueTree ul 						{ padding-top: 20px; position: relative; margin-left: 0; }
+#dialogueTree li 						{ float: left; text-align: center; list-style-type: none; position: relative; padding: 20px 5px 0 5px; }
+#dialogueTree li::before, #dialogueTree li::after
+										{ content: ''; position: absolute; top: 0; right: 50%; border-top: 1px solid #ccc; width: 50%; height: 20px; }
+#dialogueTree li::after					{ right: auto; left: 50%; border-left: 1px solid #ccc; }
+#dialogueTree li:only-child::after, #dialogueTree li:only-child::before
+										{ display: none; }
+#dialogueTree li:only-child				{ padding-top: 0; }
+#dialogueTree li:first-child::before, #dialogueTree li:last-child::after
+										{ border: 0 none; }
+#dialogueTree li:last-child::before		{ border-right: 1px solid #ccc; border-radius: 0 5px 0 0; -webkit-border-radius: 0 5px 0 0; -moz-border-radius: 0 5px 0 0; }
+#dialogueTree li:first-child::after		{ border-radius: 5px 0 0 0; -webkit-border-radius: 5px 0 0 0; -moz-border-radius: 5px 0 0 0; }
+#dialogueTree ul ul::before				{ content: ''; position: absolute; top: 0; left: 50%; border-left: 1px solid #ccc; width: 0; height: 20px; }
+#dialogueTree .dialogue-node			{ 
+	border: 1px solid #ccc; padding: 5px 10px; text-decoration: none; display: inline-block; max-width: 80px; 
+	box-shadow: 1px 1px 5px #bbb; -moz-box-shadow: 1px 1px 5px #bbb; -webkit-box-shadow: 1px 1px 5px #bbb;
+	border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px;
+}
+#dialogueTree .dialogue-node-reply		{ background-color: #ddffdd; }
+#dialogueTree .dialogue-node-loop		{ background-color: #ffdddd; }
+#dialogueTree .dialogue-node-action		{ background-color: #ffffcc; }
+
 .dialogueConditional 		{ color: #855; }
 
 .tools-buttons				{ padding-bottom: 10px; }

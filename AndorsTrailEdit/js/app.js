@@ -12,6 +12,7 @@ var ATEditor = (function(ATEditor, controllers) {
 				.when('/item/table', {templateUrl: htmldir+'table_item.html', controller: controllers.ItemTableController})
 				.when('/droplist/edit/:id', {templateUrl: htmldir+'edit_droplist.html', controller: controllers.DropListController})
 				.when('/dialogue/edit/:id', {templateUrl: htmldir+'edit_dialogue.html', controller: controllers.DialogueController})
+				.when('/dialogue/tree/:id', {templateUrl: htmldir+'tree_dialogue.html', controller: controllers.DialogueShowTreeController})
 				.when('/monster/edit/:id', {templateUrl: htmldir+'edit_monster.html', controller: controllers.MonsterController})
 				.when('/monster/table', {templateUrl: htmldir+'table_monster.html', controller: controllers.MonsterTableController})
 				.when('/itemcategory/edit/:id', {templateUrl: htmldir+'edit_itemcategory.html', controller: controllers.ItemCategoryController})
