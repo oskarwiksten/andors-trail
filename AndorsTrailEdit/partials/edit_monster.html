@@ -65,6 +65,14 @@
 		<label for="faction" class="hint  hint--top" data-hint="Used for making whole groups of monsters aggressive from dialogue. Dialogue replies may affect the player's faction ratings, and having rating less than 0 for a faction will make all monsters in a faction automatically attack.">Faction:</label>
 		<input type="text" size="30" id="faction" ng-model="obj.faction" class="field at-input-id"/>
 	</div>
+	<div class="fieldWithLabel" ng-ds-fade="obj.showAdvanced">
+		<label for="movementAggressionType">Movement in combat:</label>
+		<select class="field" id="movementAggressionType" ng-model="obj.movementAggressionType">
+			<option value="0">Does not move in combat</option>
+			<option value="1">Help others in same spawn area</option>
+			<option value="2">Move towards player if inside spawn area</option>
+		</select>
+	</div>
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="hasConversation" ng-model="obj.hasConversation" />Has conversation</label>
 	</div>

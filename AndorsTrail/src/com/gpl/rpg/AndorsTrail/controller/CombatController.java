@@ -327,14 +327,15 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return true;
 	}
 	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
-		if (m.aggressionType == MonsterType.AGGRESSIONTYPE_NONE) return false;
+		final int movementAggressionType = m.getMovementAggressionType();
+		if (movementAggressionType == MonsterType.AGGRESSIONTYPE_NONE) return false;
 		
 		if (!m.hasAPs(m.getMoveCost())) return false;
 		if (m.position.isAdjacentTo(playerPosition)) return false;
 		
-		if (m.aggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
+		if (movementAggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
 			if (a.area.contains(playerPosition)) return true;
-		} else if (m.aggressionType == MonsterType.AGGRESSIONTYPE_HELP_OTHERS) {
+		} else if (movementAggressionType == MonsterType.AGGRESSIONTYPE_HELP_OTHERS) {
 			for (Monster o : a.monsters) {
 				if (o == m) continue;
 				if (o.rectPosition.isAdjacentTo(playerPosition)) return true;

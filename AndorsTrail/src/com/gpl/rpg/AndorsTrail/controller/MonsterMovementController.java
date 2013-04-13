@@ -101,7 +101,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
     
     private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-    	if (m.aggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
+        if (m.getMovementAggressionType() == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
     		if (area.area.contains(playerPosition)) {
     			if (findPathFor(m, playerPosition)) return;
     		}
@@ -114,7 +114,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 			);
 	}
 
-	private void cancelCurrentMonsterMovement(final Monster m) {
+	private static void cancelCurrentMonsterMovement(final Monster m) {
     	m.movementDestination = null;
 		m.nextActionTime += getMillisecondsPerMove(m) * Constants.rollValue(Constants.monsterWaitTurns);
     }

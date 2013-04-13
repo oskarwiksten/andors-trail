@@ -109,6 +109,7 @@ public final class JsonFieldNames {
 		public static final String spawnGroup = "spawnGroup";
 		public static final String size = "size";
 		public static final String monsterClass = "monsterClass";
+		public static final String movementAggressionType = "movementAggressionType";
 		public static final String unique = "unique";
 		public static final String faction = "faction";
 		public static final String maxHP = "maxHP";

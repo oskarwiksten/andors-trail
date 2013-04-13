@@ -26,7 +26,7 @@ public final class MonsterType {
 	public final String faction;
 	public final int monsterClass;
 	public final int aggressionType;
-	
+
 	public final Size tileSize;
 	public final int iconID;
 	public final int maxAP;
@@ -51,6 +51,7 @@ public final class MonsterType {
 			boolean isUnique,
 			String faction,
 			int monsterClass,
+			int aggressionType,
 			Size tileSize,
 			int iconID,
 			int maxAP,
@@ -73,6 +74,7 @@ public final class MonsterType {
 		this.faction = faction;
 		this.isUnique = isUnique;
 		this.monsterClass = monsterClass;
+		this.aggressionType = aggressionType;
 		this.tileSize = tileSize;
 		this.iconID = iconID;
 		this.maxAP = maxAP;
@@ -86,14 +88,13 @@ public final class MonsterType {
 		this.blockChance = blockChance;
 		this.damageResistance = damageResistance;
 		this.onHitEffects = onHitEffects;
-		this.aggressionType = getAggressionType(monsterClass);
 	}
 	
 	public static final int AGGRESSIONTYPE_NONE = 0;
 	public static final int AGGRESSIONTYPE_HELP_OTHERS = 1; // Will move to help if the player attacks some other monster in the same spawn.
-	public static final int AGGRESSIONTYPE_PROTECT_SPAWN = 2; // Will move to attack if the player stands inside the spawn. 
-	
-	private static int getAggressionType(int monsterClass) {
+	public static final int AGGRESSIONTYPE_PROTECT_SPAWN = 2; // Will move to attack if the player stands inside the spawn.
+
+	private static int getSuggestedAggressionType(int monsterClass) {
 		switch (monsterClass) {
 		case MONSTERCLASS_CONSTRUCT:
 		case MONSTERCLASS_GIANT:
@@ -114,8 +115,8 @@ public final class MonsterType {
 
 	public boolean isImmuneToCriticalHits() {
 		if (monsterClass == MONSTERCLASS_GHOST) return true;
-		else if (monsterClass == MONSTERCLASS_UNDEAD) return true;
-		else if (monsterClass == MONSTERCLASS_DEMON) return true;
+		if (monsterClass == MONSTERCLASS_UNDEAD) return true;
+		if (monsterClass == MONSTERCLASS_DEMON) return true;
 		return false;
 	}
 	
