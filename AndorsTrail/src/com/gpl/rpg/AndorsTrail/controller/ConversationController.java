@@ -280,8 +280,10 @@ public final class ConversationController {
 		public boolean hasOnlyOneNextReply() {
 			if (currentPhrase.replies == null) return false;
 			if (currentPhrase.replies.length != 1) return false;
-			if (currentPhrase.replies[0].text.equals(ConversationCollection.REPLY_NEXT)) return true;
-			return false;
+			final Reply singleReply = currentPhrase.replies[0];
+			if (!singleReply.text.equals(ConversationCollection.REPLY_NEXT)) return false;
+			if (!canSelectReply(player, singleReply)) return false;
+			return true;
 		}
 	}
 }
