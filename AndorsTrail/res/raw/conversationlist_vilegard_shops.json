@@ -82,6 +82,18 @@
             {
                 "text": "Can I see what items you have for sale?",
                 "nextPhraseID": "vilegard_shop_notrust_2"
+            },
+            {
+                "text": "I have a shipment of Feygard items for you.",
+                "nextPhraseID": "vilegard_shop_notrust_2",
+                "requires": {
+                    "progress": "feygard_shipment:35",
+                    "item": {
+                        "itemID": "fg_ironsword",
+                        "quantity": 10,
+                        "requireType": 0
+                    }
+                }
             }
         ]
     },
