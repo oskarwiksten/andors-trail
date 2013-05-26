@@ -105,7 +105,7 @@ public final class Savegames {
 		DataOutputStream dest = new DataOutputStream(outStream);
 		final int flags = 0;
 		FileHeader.writeToParcel(dest, world.model.player.getName(), displayInfo);
-		world.maps.writeToParcel(dest, flags);
+		world.maps.writeToParcel(dest, world, flags);
 		world.model.writeToParcel(dest, flags);
 		dest.close();
 	}

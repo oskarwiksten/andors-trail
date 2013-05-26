@@ -1,34 +1,46 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForMap;
+import com.gpl.rpg.AndorsTrail.util.L;
+
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
-
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.util.L;
+import java.util.List;
 
 public final class MapCollection {
-	public final ArrayList<PredefinedMap> predefinedMaps = new ArrayList<PredefinedMap>();
+	private final HashMap<String, PredefinedMap> predefinedMaps = new HashMap<String, PredefinedMap>();
 	public final HashMap<String, WorldMapSegment> worldMapSegments = new HashMap<String, WorldMapSegment>();
 
 	public MapCollection() {}
-	
-	public PredefinedMap findPredefinedMap(String name) {
-    	for (PredefinedMap m : predefinedMaps) {
-    		if (m.name.equals(name)) return m;
-    	}
-    	if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Cannot find LayeredWorldMap for name \"" + name + "\".");
+
+	public void addAll(ArrayList<PredefinedMap> mapsToAdd) {
+		for (PredefinedMap map : mapsToAdd) {
+			predefinedMaps.put(map.name, map);
 		}
-    	return null;
+	}
+
+	public Collection<PredefinedMap> getAllMaps() {
+		return predefinedMaps.values();
+	}
+
+	public PredefinedMap findPredefinedMap(String name) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (!predefinedMaps.containsKey(name)) {
+				L.log("WARNING: Cannot find PredefinedMap for name \"" + name + "\".");
+			}
+		}
+		return predefinedMaps.get(name);
     }
 
 	public void reset() {
-		for (PredefinedMap m : predefinedMaps) {
+		for (PredefinedMap m : getAllMaps()) {
     		m.reset();
     	}
 	}
@@ -48,18 +60,42 @@ public final class MapCollection {
 		if (fileversion == 5) size = 11;
 		else size = src.readInt();
 		for(int i = 0; i < size; ++i) {
-			predefinedMaps.get(i).readFromParcel(src, world, controllers, fileversion);
+			String name;
+			if (fileversion >= 35) {
+				name = src.readUTF();
+			} else {
+				name = LegacySavegameFormatReaderForMap.getMapnameFromIndex(i);
+			}
+			PredefinedMap map = predefinedMaps.get(name);
+			if (map == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+					L.log("WARNING: Tried to load savegame with map \"" + name + "\", but no such map exists.");
+				}
+				continue;
+			}
+			map.readFromParcel(src, world, controllers, fileversion);
 			if (i >= 40) {
-				if (fileversion < 15) predefinedMaps.get(i).visited = false;
+				if (fileversion < 15) map.visited = false;
 			}
 		}
 	}
-	
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		final int size = predefinedMaps.size();
-		dest.writeInt(size);
-		for(int i = 0; i < size; ++i) {
-			predefinedMaps.get(i).writeToParcel(dest, flags);
+
+	private static boolean shouldSaveMap(WorldContext world, PredefinedMap map) {
+		if (map == world.model.currentMap) return true;
+		if (!map.visited) return false;
+		if (map.hasPersistentData()) return true;
+		return false;
+	}
+
+	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
+		List<PredefinedMap> mapsToExport = new ArrayList<PredefinedMap>();
+		for(PredefinedMap map : getAllMaps()) {
+			if (shouldSaveMap(world, map)) mapsToExport.add(map);
+		}
+		dest.writeInt(mapsToExport.size());
+		for(PredefinedMap map : mapsToExport) {
+			dest.writeUTF(map.name);
+			map.writeToParcel(dest, flags);
 		}
 	}
 }

@@ -117,7 +117,7 @@ public final class DebugInterface {
 			,new DebugButton("reset", new OnClickListener() {
 	    		@Override
 				public void onClick(View arg0) {
-	    			for(PredefinedMap map : world.maps.predefinedMaps) {
+	    			for(PredefinedMap map : world.maps.getAllMaps()) {
 	    				map.resetTemporaryData();
 	    			}
 	    			mainActivity.showToast("DEBUG: maps respawned", Toast.LENGTH_SHORT);

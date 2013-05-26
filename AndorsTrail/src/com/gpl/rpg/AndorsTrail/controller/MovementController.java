@@ -255,7 +255,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		
 		// If any monsters somehow spawned on an unwalkable tile, we move the monster to a new position on the spawnarea
 		// This could happen if we change some tile to non-walkable in a future version.
-		for (PredefinedMap map : world.maps.predefinedMaps) {
+		for (PredefinedMap map : world.maps.getAllMaps()) {
 			Coord playerPosition = null;
 			if (map == model.currentMap) playerPosition = model.player.position;
 			for (MonsterSpawnArea a : map.spawnAreas) {

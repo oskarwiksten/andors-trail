@@ -178,6 +178,14 @@ public final class PredefinedMap {
 	public boolean hasResetTemporaryData() {
 		return lastVisitTime == VISIT_RESET;
 	}
+	public boolean hasPersistentData() {
+		if (!hasResetTemporaryData()) return true;
+		if (!groundBags.isEmpty()) return true;
+		for (MonsterSpawnArea a : spawnAreas) {
+			if (a.isUnique) return true;
+		}
+		return false;
+	}
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {

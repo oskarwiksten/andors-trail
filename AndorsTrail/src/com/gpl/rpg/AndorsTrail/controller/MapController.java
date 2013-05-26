@@ -80,9 +80,9 @@ public final class MapController {
 		controllers.actorStatsController.recalculatePlayerStats(player);
 		controllers.actorStatsController.setActorMaxAP(player);
 		controllers.actorStatsController.setActorMaxHealth(player);
-		for (PredefinedMap m : world.maps.predefinedMaps) {
+		for (PredefinedMap m : world.maps.getAllMaps()) {
 			m.resetTemporaryData();
-    	}
+		}
 		controllers.monsterSpawnController.spawnAll(world.model.currentMap);
 	}
 
@@ -99,7 +99,7 @@ public final class MapController {
 	}
 
 	public void resetMapsNotRecentlyVisited() {
-		for (PredefinedMap m : world.maps.predefinedMaps) {
+		for (PredefinedMap m : world.maps.getAllMaps()) {
 			if (m == world.model.currentMap) continue;
 			if (m.isRecentlyVisited()) continue;
 			if (m.hasResetTemporaryData()) continue;

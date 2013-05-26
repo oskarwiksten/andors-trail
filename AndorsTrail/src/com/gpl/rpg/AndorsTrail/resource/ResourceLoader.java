@@ -159,7 +159,7 @@ public final class ResourceLoader {
         	mapReader.read(r, mapResourceId, mapName);
         }
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("TMXMapReader");
-        world.maps.predefinedMaps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));
+        world.maps.addAll(mapReader.transformMaps(loader, world.monsterTypes, world.dropLists));
         mapReader = null;
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("mapReader.transformMaps");
         
