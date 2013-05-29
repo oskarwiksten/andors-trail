@@ -29,7 +29,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 				if (requiresItem != null) {
 					requiresItemTypeID = requiresItem.getString(JsonFieldNames.ReplyRequiresItem.itemID);
 					requiresItemQuantity = requiresItem.getInt(JsonFieldNames.ReplyRequiresItem.quantity);
-					itemRequirementType = requiresItem.getInt(JsonFieldNames.ReplyRequiresItem.requireType);
+					itemRequirementType = requiresItem.optInt(JsonFieldNames.ReplyRequiresItem.requireType, Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE);
 				}
 			}
 			return new Reply(
@@ -47,7 +47,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		@Override
 		protected Reward parseObject(JSONObject o) throws JSONException {
 			return new Reward(
-					o.getInt(JsonFieldNames.PhraseReward.rewardType)
+					o.optInt(JsonFieldNames.PhraseReward.rewardType, Reward.REWARD_TYPE_QUEST_PROGRESS)
 					,o.getString(JsonFieldNames.PhraseReward.rewardID)
 					,o.optInt(JsonFieldNames.PhraseReward.value, 0)
 			);

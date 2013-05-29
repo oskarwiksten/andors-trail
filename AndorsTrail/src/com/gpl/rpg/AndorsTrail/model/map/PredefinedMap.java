@@ -203,6 +203,11 @@ public final class PredefinedMap {
 	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
 		final int loadedSpawnAreas = src.readInt();
 		for(int i = 0; i < loadedSpawnAreas; ++i) {
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				if (i >= this.spawnAreas.length) {
+					L.log("WARNING: Trying to load monsters in map " + this.name + " for spawn #" + i + ". This will totally fail.");
+				}
+			}
 			this.spawnAreas[i].readFromParcel(src, world, fileversion);
 		}
 		

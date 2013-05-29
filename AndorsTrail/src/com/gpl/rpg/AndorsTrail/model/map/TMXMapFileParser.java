@@ -180,7 +180,7 @@ public final class TMXMapFileParser {
 	private static void readTMXMapLayerData(XmlResourceParser xrp, final TMXLayer layer) throws XmlPullParserException, IOException {
 		String compressionMethod = xrp.getAttributeValue(null, "compression");
 		xrp.next();
-		String data = xrp.getText().trim();
+		String data = xrp.getText().replaceAll("\\s", "");
 		final int len = layer.width * layer.height * 4;
 		
 		ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data));

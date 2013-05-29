@@ -48,7 +48,7 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 		return new Pair<String, MonsterType>(monsterTypeID, new MonsterType(
 				monsterTypeID
 				, o.getString(JsonFieldNames.Monster.name)
-				, o.getString(JsonFieldNames.Monster.spawnGroup)
+				, o.optString(JsonFieldNames.Monster.spawnGroup, monsterTypeID)
 				, exp
 				, droplists.getDropList(o.optString(JsonFieldNames.Monster.droplistID, null))
 				, o.optString(JsonFieldNames.Monster.phraseID, null)
