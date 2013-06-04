@@ -31,6 +31,9 @@ var ATEditor = (function(ATEditor, _) {
 			reply.requiresItems = ATEditor.utils.hasValues(reply.requires.item);
 			reply.requiresQuest = _.toBool(reply.requires.progress);
 		});
+		_.each(o.rewards, function(reward) {
+			if (!reward.rewardType) { reward.rewardType = 0; }
+		});
 	};
 	prep.monster = function(o) {
 		o.hasConversation = _.toBool(o.phraseID);
