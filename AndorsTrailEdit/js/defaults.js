@@ -15,7 +15,6 @@ var ATEditor = (function(ATEditor, _) {
 		,item: {
 			displaytype: 0
 			,hasManualPrice: 0
-			,category: 'other'
 			,equipEffect: { increaseAttackDamage: {}, addedConditions: [] }
 			,useEffect: { increaseCurrentHP: {}, increaseCurrentAP: {}, conditionsSource: [], conditionsTarget: [] }
 			,hitEffect: { increaseCurrentHP: {}, increaseCurrentAP: {}, conditionsSource: [], conditionsTarget: [] }
