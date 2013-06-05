@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
@@ -7,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonParserFor;
+import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -59,11 +61,17 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		final String id = o.getString(JsonFieldNames.Phrase.phraseID);
 
 		final ArrayList<Reply> replies = new ArrayList<Reply>();
-		replyParser.parseRows(o.optJSONArray(JsonFieldNames.Phrase.replies), replies);
-		final Reply[] _replies = replies.toArray(new Reply[replies.size()]);
-
 		final ArrayList<Reward> rewards = new ArrayList<Reward>();
-		rewardParser.parseRows(o.optJSONArray(JsonFieldNames.Phrase.rewards), rewards);
+		try {
+			replyParser.parseRows(o.optJSONArray(JsonFieldNames.Phrase.replies), replies);
+			rewardParser.parseRows(o.optJSONArray(JsonFieldNames.Phrase.rewards), rewards);
+		} catch (JSONException e) {
+			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+				L.log("ERROR: parsing phrase " + id + " : " + e.getMessage());
+			}
+		}
+
+		final Reply[] _replies = replies.toArray(new Reply[replies.size()]);
 		Reward[] _rewards = rewards.toArray(new Reward[rewards.size()]);
 		if (_rewards.length == 0) _rewards = null;
 
