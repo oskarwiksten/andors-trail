@@ -1,0 +1,28 @@
+[
+  {
+    "id": "sign_roadbeforecrossroads1",
+    "message": "You notice that these rocks seem out of place compared to the surroundings. Maybe they are meant to symbolize something?",
+    "rewards": [ { "rewardID": "lodar", "value": 30 } ],
+    "replies": [
+      {
+        "requires": { "progress": "lodar:20" },
+        "text": "Examine the stones more closely",
+        "nextPhraseID": "sign_rbfcr1_2"
+      },
+      {
+        "nextPhraseID": "X",
+        "text": "Leave"
+      }
+    ]
+  },
+  {
+    "id": "sign_rbfcr1_2",
+    "message": "You notice some writing on one of the rocks, but it is very faint and in some form of writing that you do not understand.",
+    "replies": [ { "text": "N", "nextPhraseID": "sign_rbfcr1_3" } ]
+  },
+  {
+    "id": "sign_rbfcr1_3",
+    "message": "While examining them, you recall the the old man Ogam in Vilegard spoke of some 'Rocky Formations'. Could this be what he was referring to? If that is the case, you wonder if this path might lead to Lodar's hideaway.",
+    "rewards": [ { "rewardID": "lodar", "value": 31 } ]
+  }
+]

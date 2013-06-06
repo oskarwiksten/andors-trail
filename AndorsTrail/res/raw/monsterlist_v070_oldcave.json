@@ -1,0 +1,142 @@
+[
+  {
+    "id": "hadar_1",
+    "iconID": "monsters_tometik8:25",
+    "name": "Rancid zombie",
+    "spawnGroup": "hadar_1",
+    "monsterClass": 6,
+    "maxHP": 26,
+    "moveCost": 5,
+    "attackCost": 3,
+    "attackChance": 83,
+    "criticalSkill": 20,
+    "criticalMultiplier": 3,
+    "blockChance": 47,
+    "damageResistance": 3,
+    "attackDamage": {
+      "min": 4,
+      "max": 7
+    }
+  },
+  {
+    "id": "hadar_2",
+    "iconID": "monsters_tometik8:25",
+    "name": "Rotting zombie",
+    "spawnGroup": "hadar_2",
+    "monsterClass": 6,
+    "maxHP": 32,
+    "moveCost": 5,
+    "attackCost": 3,
+    "attackChance": 90,
+    "criticalSkill": 20,
+    "criticalMultiplier": 3,
+    "blockChance": 54,
+    "damageResistance": 3,
+    "attackDamage": {
+      "min": 5,
+      "max": 8
+    }
+  },
+  {
+    "id": "hadar_3",
+    "iconID": "monsters_tometik8:27",
+    "name": "Blighted zombie",
+    "spawnGroup": "hadar_3",
+    "monsterClass": 6,
+    "maxHP": 49,
+    "moveCost": 5,
+    "attackCost": 3,
+    "attackChance": 98,
+    "criticalSkill": 20,
+    "criticalMultiplier": 2,
+    "blockChance": 57,
+    "damageResistance": 2,
+    "attackDamage": {
+      "min": 7,
+      "max": 10
+    }
+  },
+  {
+    "id": "hadar_4",
+    "iconID": "monsters_tometik1:78",
+    "name": "Dread zombie",
+    "spawnGroup": "hadar_4",
+    "monsterClass": 6,
+    "maxHP": 95,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 184,
+    "criticalSkill": 20,
+    "criticalMultiplier": 3,
+    "blockChance": 102,
+    "attackDamage": {
+      "min": 2,
+      "max": 5
+    },
+    "hitEffect": {
+      "increaseCurrentHP": {
+        "min": 2,
+        "max": 3
+      },
+      "conditionsTarget": [
+        {
+          "condition": "bleeding_wound",
+          "magnitude": 5,
+          "duration": 7,
+          "chance": 30
+        }
+      ]
+    }
+  },
+  {
+    "id": "morphrang_1",
+    "iconID": "monsters_zombie2:0",
+    "name": "Corrupted zombie",
+    "spawnGroup": "morphrang_1",
+    "monsterClass": 6,
+    "maxHP": 42,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 127,
+    "blockChance": 56,
+    "damageResistance": 4,
+    "attackDamage": {
+      "min": 2,
+      "max": 9
+    }
+  },
+  {
+    "id": "morphrang_2",
+    "iconID": "monsters_zombie2:0",
+    "name": "Bloodthirsty zombie",
+    "spawnGroup": "morphrang_2",
+    "monsterClass": 6,
+    "maxHP": 54,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 134,
+    "blockChance": 70,
+    "damageResistance": 4,
+    "attackDamage": {
+      "min": 2,
+      "max": 9
+    }
+  },
+  {
+    "id": "morphrang_3",
+    "iconID": "monsters_zombie2:0",
+    "name": "Tainted zombie",
+    "spawnGroup": "morphrang_3",
+    "monsterClass": 6,
+    "maxHP": 57,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 137,
+    "blockChance": 77,
+    "damageResistance": 5,
+    "attackDamage": {
+      "min": 3,
+      "max": 9
+    }
+  }
+]
