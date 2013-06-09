@@ -3,7 +3,7 @@
     "id": "forestfox2",
     "iconID": "monsters_rltiles4:4",
     "name": "Young forest fox",
-    "spawnGroup": "forestfox",
+    "spawnGroup": "forestfox2",
 	"droplistID": "mwolf",
     "monsterClass": 4,
     "maxHP": 31,
@@ -22,7 +22,7 @@
     "id": "forestfox3",
     "iconID": "monsters_rltiles4:4",
     "name": "Forest fox",
-    "spawnGroup": "forestfox",
+    "spawnGroup": "forestfox2",
 	"droplistID": "mwolf",
     "monsterClass": 4,
     "maxHP": 35,
@@ -93,6 +93,25 @@
     "attackDamage": {
       "max": 5
     }
+  },
+  {
+    "id": "redft_cr",
+    "iconID": "monsters_rltiles4:10",
+    "name": "Vicious redfoot beast",
+	"droplistID": "oegyth1",
+    "monsterClass": 4,
+    "maxHP": 347,
+    "moveCost": 5,
+    "attackCost": 3,
+    "attackChance": 84,
+    "criticalSkill": 65,
+    "criticalMultiplier": 3,
+    "blockChance": 75,
+    "damageResistance": 4,
+    "attackDamage": {
+      "max": 9
+    },
+	"unique": 1
   },
   {
     "id": "ccentip0",

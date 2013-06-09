@@ -137,7 +137,7 @@
  </layer>
  <layer name="Walkable" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJxzFWBgcB3BGB0Qo56QGcSaiU8dujg2tbjsIuRGYtyNTS8h84iVJ1WcXH30Mo/YsCA1LZHqblLUw/jE2EdqHqLELEIYAGuGRw8=
+   eJxzFWBgcB3BGB0Qo56QGcSaiU8dujg2tbjsIuRGYtyNTS8h84iVJ1WcXH30Mo/YsCA1LZHqblLUw/jE2EeKHdQwCx8GAI9SR2Q=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="20" height="15">
@@ -155,28 +155,27 @@
   </object>
   <object name="sign_lodarcave0" type="sign" x="256" y="192" width="160" height="224"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15" visible="0">
-  <object name="zortak_4" type="spawn" x="64" y="160" width="96" height="224"/>
-  <object name="xalirg_5" type="spawn" x="32" y="96" width="160" height="160"/>
-  <object name="slargrum_9" type="spawn" x="192" y="160" width="160" height="256">
+ <objectgroup name="Spawn" width="20" height="15">
+  <object name="hirathil0" type="spawn" x="64" y="160" width="96" height="224"/>
+  <object name="hirathil0" type="spawn" x="32" y="96" width="160" height="160"/>
+  <object name="hirathil0" type="spawn" x="448" y="160" width="32" height="32"/>
+  <object name="hirathil0" type="spawn" x="480" y="128" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr3" type="spawn" x="352" y="160" width="128" height="32">
+  <object name="hirathil0" type="spawn" x="544" y="192" width="64" height="192"/>
+  <object name="hirathil0" type="spawn" x="512" y="384" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="zortak_4" type="spawn" x="512" y="96" width="32" height="64">
+  <object name="hirathil0" type="spawn" x="192" y="160" width="224" height="256"/>
+ </objectgroup>
+ <objectgroup name="Spawn_bats" width="20" height="15">
+  <object name="cavebat1" type="spawn" x="32" y="160" width="416" height="256">
    <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_10" type="spawn" x="544" y="192" width="64" height="192"/>
-  <object name="xalirg_5" type="spawn" x="512" y="384" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
+    <property name="quantity" value="4"/>
    </properties>
   </object>
  </objectgroup>

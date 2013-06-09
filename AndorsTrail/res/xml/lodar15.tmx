@@ -128,17 +128,17 @@
    eJw7ysbAcBSIJzMxMEyhEB8d5GYtpaJZ25koNw9mFjXMQzYLZh65YYduFiXxMNzMWoYFYzOLUFwuB+IdWDA2s2BpA5vdIHN2AvEpLBibWTDzsNm9E48efJgUu0cx6RgA3OL4BA==
   </data>
  </layer>
- <layer name="Objects" width="19" height="19" visible="0">
+ <layer name="Objects" width="19" height="19">
   <data encoding="base64" compression="zlib">
    eJyNU81OwzAMTsrVlVbtkeBleACQeAS4sQtiL8QdCZBgSBOXSqObKNzYqPBHktm10g5LkZP4y2fHP+3EuTU598G65ZUknaE/eRVVwFVlsHe8r4Gvgg0Yz/ou3mG/54xni4WsKOiTyJt84d3TJPpwwnHOuFfqY7V4tjfU9wm9pD7uXZ338aj4NO80xvZFIa57lafEuyB5b/OW+Dvq8+HujW3XhfAhD4htqfgsD+qAvAH3wHePqlZt5NO1hNSmDtApDvi6MPnX+i++SnJyHGN8phDLhqSWZyM8udzoHDYmP0M8+g9DNRt7b/H4T52p2SG/uZ7e8h9Oy3ztbO9DNt65Wx/2cy/275iLl9SnGb/e/LeLPDesL73MLCTp1GtzL+/Waj8rpB+2mRlBjXck85r44POK148XnqNS/K5GZhbzvDDzqSW9RW/tDE+unkN2xN+ofh3DDc2engMt/+33Q/c5/QuKMpwU
   </data>
  </layer>
- <layer name="Above" width="19" height="19" visible="0">
+ <layer name="Above" width="19" height="19">
   <data encoding="base64" compression="zlib">
    eJxjYCAefBQgQTEZ4AMJ5iOrBbkLxCfHffjspJV/jwLNPUZFs9H9AOOTGia4woJREMEmxjxS4hGbeTB3k2IOsnmk6Kd1msYH0qlkN8icNBxmkeo/bOaQEw/YAKE8ixxv+PI0oTxLrHsp8Rep6YwSAAD8yy+s
   </data>
  </layer>
- <layer name="Walkable" width="19" height="19" visible="0">
+ <layer name="Walkable" width="19" height="19">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcCUBIwNS9BEyC5+ZyOLY1BJrDrlqqRUe1DSPWnYSGxb41JMSpsTEBznmUOofStMytrRKqTnUchtyPJEbJ+SGLy6/UArold5pbQ4xGACfx1RX
   </data>
@@ -157,53 +157,44 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="19" visible="0">
-  <object name="undeadcr1" type="spawn" x="352" y="32" width="192" height="96">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_5" type="spawn" x="480" y="128" width="64" height="32">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="zortak_1" type="spawn" x="384" y="160" width="192" height="160">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr1" type="spawn" x="352" y="256" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_5" type="spawn" x="96" y="64" width="256" height="256">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr1" type="spawn" x="64" y="64" width="288" height="256">
+ <objectgroup name="Spawn" width="19" height="19">
+  <object name="yjacket4" type="spawn" x="384" y="192" width="192" height="128">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="forestuylom2" type="spawn" x="192" y="480" width="160" height="32">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr2" type="spawn" x="352" y="416" width="224" height="160">
+  <object name="yjacket5" type="spawn" x="96" y="64" width="128" height="96">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="zortak_2" type="spawn" x="64" y="320" width="128" height="128"/>
-  <object name="forestuylom2" type="spawn" x="32" y="320" width="160" height="224">
+  <object name="yjacket3" type="spawn" x="160" y="160" width="256" height="160">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="yjacket2" type="spawn" x="352" y="64" width="192" height="128">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
+  <object name="brtender_cr" type="spawn" x="64" y="320" width="96" height="96"/>
+  <object name="hanklbit4" type="spawn" x="160" y="448" width="32" height="96">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="hanklbit3" type="spawn" x="192" y="480" width="192" height="32">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="hanklbit2" type="spawn" x="384" y="416" width="160" height="160">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="brtender1" type="spawn" x="64" y="416" width="96" height="96"/>
  </objectgroup>
  <objectgroup name="Keys" width="19" height="19" visible="0"/>
 </map>

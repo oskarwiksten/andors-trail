@@ -1,9 +1,10 @@
 [
   {
-    "id": "slirsdar_1",
+    "id": "caveburr1",
     "iconID": "monsters_rltiles2:161",
     "name": "Young posionous cave burrower",
-    "spawnGroup": "caveslir1",
+    "spawnGroup": "caveburr1",
+    "droplistID": "burrower",
     "monsterClass": 1,
     "maxHP": 57,
     "moveCost": 5,
@@ -25,10 +26,11 @@
     }
   },
   {
-    "id": "slirsdar_2",
+    "id": "caveburr2",
     "iconID": "monsters_rltiles2:161",
     "name": "Infected larval cave burrower",
-    "spawnGroup": "caveslir1",
+    "spawnGroup": "caveburr1",
+    "droplistID": "burrower",
     "monsterClass": 1,
     "maxHP": 62,
     "moveCost": 5,
@@ -50,10 +52,11 @@
     }
   },
   {
-    "id": "slirsdar_3",
+    "id": "caveburr3",
     "iconID": "monsters_rltiles2:164",
     "name": "Poisonous cave burrower",
-    "spawnGroup": "caveslir2",
+    "spawnGroup": "caveburr1",
+    "droplistID": "burrower",
     "monsterClass": 1,
     "maxHP": 65,
     "moveCost": 5,
@@ -81,10 +84,11 @@
     }
   },
   {
-    "id": "slirsdar_4",
+    "id": "caveburr4",
     "iconID": "monsters_rltiles2:164",
     "name": "Strong poisonous cave burrower",
-    "spawnGroup": "caveslir2",
+    "spawnGroup": "caveburr2",
+    "droplistID": "burrower",
     "monsterClass": 1,
     "maxHP": 67,
     "moveCost": 5,
@@ -112,10 +116,11 @@
     }
   },
   {
-    "id": "slirsdar_5",
+    "id": "caveburr5",
     "iconID": "monsters_rltiles2:165",
     "name": "Giant poisonous cave burrower",
-    "spawnGroup": "caveslir2",
+    "spawnGroup": "caveburr2",
+    "droplistID": "burrower",
     "monsterClass": 1,
     "maxHP": 69,
     "moveCost": 5,
@@ -143,10 +148,11 @@
     }
   },
   {
-    "id": "narg_1",
+    "id": "cavebat1",
     "iconID": "monsters_tometik4:0",
     "name": "Gray cave bat",
-    "spawnGroup": "cavenarg1",
+    "spawnGroup": "cavebat1",
+    "droplistID": "cavebat",
     "monsterClass": 4,
     "maxHP": 28,
     "moveCost": 5,
@@ -161,10 +167,11 @@
     }
   },
   {
-    "id": "narg_2",
+    "id": "cavebat2",
     "iconID": "monsters_tometik4:0",
     "name": "Black cave bat",
-    "spawnGroup": "cavenarg1",
+    "spawnGroup": "cavebat1",
+    "droplistID": "cavebat",
     "monsterClass": 4,
     "maxHP": 32,
     "moveCost": 5,
@@ -179,10 +186,11 @@
     }
   },
   {
-    "id": "narg_3",
+    "id": "cavebat3",
     "iconID": "monsters_tometik4:2",
     "name": "Brown cave bat",
-    "spawnGroup": "cavenarg2",
+    "spawnGroup": "cavebat1",
+    "droplistID": "cavebat",
     "monsterClass": 4,
     "maxHP": 36,
     "moveCost": 5,
@@ -197,10 +205,11 @@
     }
   },
   {
-    "id": "narg_4",
+    "id": "cavebat4",
     "iconID": "monsters_tometik4:2",
     "name": "Cave bat",
-    "spawnGroup": "cavenarg2",
+    "spawnGroup": "cavebat2",
+    "droplistID": "cavebat",
     "monsterClass": 4,
     "maxHP": 39,
     "moveCost": 5,
@@ -215,10 +224,11 @@
     }
   },
   {
-    "id": "narg_5",
+    "id": "cavebat5",
     "iconID": "monsters_tometik4:4",
     "name": "Aggressive cave bat",
-    "spawnGroup": "cavenarg3",
+    "spawnGroup": "cavebat2",
+    "droplistID": "cavebat",
     "monsterClass": 4,
     "maxHP": 41,
     "moveCost": 5,

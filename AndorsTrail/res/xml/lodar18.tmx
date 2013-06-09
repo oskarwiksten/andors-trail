@@ -138,7 +138,7 @@
    eJzNVssNgzAMTTlzgOnYoMyBmKBDVZzbBXrsrSobtBZENS92viD1ScgIgp/tOM8YI6NrlBeBd6X4Z9731865MbTGnFpmE3gtNO5H/bsfKt3fWC052HuMxRcTcvt4JPTwPY/Fx2uRW3vJJ8YSyleqUQ4vPjsi382+tvG8pfk6MbBYCFRzm5Mvt8v6bUz+0hq7t2TpOkfUUPKjcfOe5Wu61UfXbPWCo4qsK3Kjnwl4re0ad61F7J7OSuwI5N0DMf1OXJQL2TFRg0pAXK96sc+IOFP1Ucp9o9XG1a29wLlx33vWV9LZxeepujUrPRvsK5ynMMtK5oU2d0Oz9QbaEDpDyIvaTXZgeoiYoT98mJRYcs+uw638S1hg78bo8h4gnusBc7YEOENKzo7k26clqf64T82HNhNT+j8087RYJqGWqQjNvByfpTiK8x7w+wEGYn8P
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30" visible="0">
+ <layer name="Walkable" width="30" height="30">
   <data encoding="base64" compression="zlib">
    eJzFUkEOwCAI8wn7lP//0k4mi1FKoTASk0VYW2rnM8YUn1Vq3BMHW0peRkflzh2eV+yT8byL19JhzVZmzKspwom0VOTBy4Eqw8twI88i2WK0ZfKGNHv66owh7IzPEYw118mLsubJhIXl8dfCVZTqbdndWXzF+YtXvUO1P2xeurizGr7/WrgM9947fWd2Oc15daP7yJsw/Zt+lluFGcmJ516d/733Ark71yk=
   </data>
@@ -193,82 +193,36 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
-  <object name="slargrum_5" type="spawn" x="32" y="256" width="96" height="96"/>
-  <object name="undeadcr1" type="spawn" x="160" y="320" width="32" height="64">
+ <objectgroup name="Spawn" width="30" height="30">
+  <object name="zortak1" type="spawn" x="64" y="256" width="64" height="128"/>
+  <object name="zortak2" type="spawn" x="192" y="384" width="32" height="64"/>
+  <object name="zortaks" type="spawn" x="64" y="448" width="192" height="160"/>
+  <object name="vscale2" type="spawn" x="96" y="832" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="zortak_3" type="spawn" x="192" y="416" width="32" height="32"/>
-  <object name="slargrum_6" type="spawn" x="64" y="448" width="192" height="160">
+  <object name="vscale2" type="spawn" x="192" y="768" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr2" type="spawn" x="32" y="800" width="160" height="128">
+  <object name="vscale3" type="spawn" x="256" y="672" width="640" height="224">
+   <properties>
+    <property name="quantity" value="6"/>
+   </properties>
+  </object>
+  <object name="morkins" type="spawn" x="352" y="512" width="128" height="64"/>
+  <object name="morkin1" type="spawn" x="576" y="544" width="96" height="32"/>
+  <object name="morkin1" type="spawn" x="672" y="512" width="224" height="96"/>
+  <object name="morkin1" type="spawn" x="640" y="352" width="32" height="32"/>
+  <object name="morkins" type="spawn" x="736" y="160" width="160" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="zortak_1" type="spawn" x="192" y="768" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_7" type="spawn" x="224" y="768" width="128" height="128">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="zortak_3" type="spawn" x="320" y="672" width="160" height="192">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="slargrum_6" type="spawn" x="480" y="672" width="256" height="192">
-   <properties>
-    <property name="quantity" value="4"/>
-   </properties>
-  </object>
-  <object name="undeadcr3" type="spawn" x="736" y="832" width="96" height="64"/>
-  <object name="slargrum_6" type="spawn" x="864" y="768" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="xalirg_1" type="spawn" x="672" y="512" width="256" height="128">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="zortak_3" type="spawn" x="352" y="512" width="320" height="96">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="undeadcr2" type="spawn" x="672" y="416" width="64" height="32">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="zortak_4" type="spawn" x="640" y="352" width="32" height="32"/>
-  <object name="slargrum_8" type="spawn" x="576" y="256" width="64" height="32">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr3" type="spawn" x="608" y="192" width="32" height="32"/>
-  <object name="xalirg_1" type="spawn" x="512" y="32" width="224" height="160">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="zortak_3" type="spawn" x="736" y="32" width="192" height="96">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
+  <object name="morkin1" type="spawn" x="608" y="192" width="32" height="32"/>
+  <object name="morkin2" type="spawn" x="512" y="64" width="384" height="96"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="30" visible="0"/>
 </map>

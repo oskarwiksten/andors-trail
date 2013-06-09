@@ -1,6 +1,6 @@
 [
   {
-    "id": "fly_1",
+    "id": "dungfly1",
     "iconID": "monsters_rltiles2:168",
     "name": "Giant dungfly",
     "spawnGroup": "forestfly1",
@@ -16,13 +16,14 @@
     "attackDamage": {
       "min": 4,
       "max": 5
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "fly_2",
+    "id": "dungfly2",
     "iconID": "monsters_rltiles2:168",
     "name": "Aggressive dungfly",
-    "spawnGroup": "forestfly2",
+    "spawnGroup": "forestfly1",
     "monsterClass": 1,
     "maxHP": 23,
     "moveCost": 5,
@@ -35,13 +36,14 @@
     "attackDamage": {
       "min": 5,
       "max": 7
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "fly_3",
+    "id": "dungfly3",
     "iconID": "monsters_rltiles2:169",
     "name": "Vicious dungfly",
-    "spawnGroup": "forestfly3",
+    "spawnGroup": "forestfly2",
     "monsterClass": 1,
     "maxHP": 34,
     "moveCost": 5,
@@ -64,13 +66,14 @@
           "chance": 50
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "werewolf_1",
+    "id": "brtender1",
     "iconID": "monsters_ld2:153",
     "name": "Branchtender",
-    "spawnGroup": "werewolf_1",
+    "spawnGroup": "brtender1",
     "maxHP": 57,
     "moveCost": 5,
     "attackCost": 5,
@@ -80,13 +83,14 @@
     "attackDamage": {
       "min": 5,
       "max": 8
-    }
+    },
+    "droplistID": "brtender"
   },
   {
-    "id": "werewolf_2",
+    "id": "brtender2",
     "iconID": "monsters_ld2:153",
     "name": "Frantic branchtender",
-    "spawnGroup": "werewolf_2",
+    "spawnGroup": "brtender2",
     "maxHP": 72,
     "moveCost": 5,
     "attackCost": 5,
@@ -106,13 +110,41 @@
           "chance": 20
         }
       ]
-    }
+    },
+    "droplistID": "brtender"
   },
   {
-    "id": "regral_1",
+    "id": "brtender_cr",
+    "iconID": "monsters_ld2:153",
+    "name": "Ancient branchtender",
+    "unique": 1,
+    "maxHP": 253,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 155,
+    "blockChance": 90,
+    "damageResistance": 7,
+    "attackDamage": {
+      "min": 7,
+      "max": 11
+    },
+    "hitEffect": {
+      "conditionsTarget": [
+        {
+          "condition": "bleeding_wound",
+          "magnitude": 1,
+          "duration": 5,
+          "chance": 20
+        }
+      ]
+    },
+    "droplistID": "oegyth1"
+  },
+  {
+    "id": "anklebiter2",
     "iconID": "monsters_tometik4:56",
     "name": "Small horned anklebiter",
-    "spawnGroup": "forestregral1",
+    "spawnGroup": "hanklbit1",
     "monsterClass": 4,
     "maxHP": 38,
     "moveCost": 5,
@@ -123,13 +155,14 @@
     "attackDamage": {
       "min": 3,
       "max": 7
-    }
+    },
+    "droplistID": "anklebiter"
   },
   {
-    "id": "regral_2",
+    "id": "anklebiter3",
     "iconID": "monsters_tometik4:55",
     "name": "Young horned anklebiter",
-    "spawnGroup": "forestregral1",
+    "spawnGroup": "hanklbit1",
     "monsterClass": 4,
     "maxHP": 46,
     "moveCost": 5,
@@ -142,13 +175,14 @@
     "attackDamage": {
       "min": 5,
       "max": 7
-    }
+    },
+    "droplistID": "anklebiter"
   },
   {
-    "id": "regral_3",
+    "id": "anklebiter4",
     "iconID": "monsters_tometik4:55",
     "name": "Fast horned anklebiter",
-    "spawnGroup": "forestregral2",
+    "spawnGroup": "hanklbit2",
     "monsterClass": 4,
     "maxHP": 52,
     "moveCost": 5,
@@ -161,13 +195,14 @@
     "attackDamage": {
       "min": 1,
       "max": 9
-    }
+    },
+    "droplistID": "anklebiter"
   },
   {
-    "id": "regral_4",
+    "id": "anklebiter5",
     "iconID": "monsters_tometik4:52",
     "name": "Tough horned anklebiter",
-    "spawnGroup": "forestregral2",
+    "spawnGroup": "hanklbit2",
     "monsterClass": 4,
     "maxHP": 64,
     "moveCost": 5,
@@ -180,13 +215,14 @@
     "attackDamage": {
       "min": 3,
       "max": 9
-    }
+    },
+    "droplistID": "anklebiter"
   },
   {
-    "id": "regral_5",
+    "id": "anklebiter6",
     "iconID": "monsters_tometik4:52",
     "name": "Strong horned anklebiter",
-    "spawnGroup": "forestregral3",
+    "spawnGroup": "hanklbit3",
     "monsterClass": 4,
     "maxHP": 76,
     "moveCost": 5,
@@ -199,15 +235,15 @@
     "attackDamage": {
       "min": 1,
       "max": 13
-    }
+    },
+    "droplistID": "anklebiter"
   },
   {
-    "id": "regral_boss",
+    "id": "anklebiter7",
     "iconID": "monsters_tometik4:51",
     "name": "Steelhide horned anklebiter",
-    "spawnGroup": "forestregral4",
+    "spawnGroup": "hanklbit4",
     "monsterClass": 4,
-    "unique": 1,
     "maxHP": 124,
     "moveCost": 5,
     "attackCost": 3,
@@ -219,13 +255,14 @@
     "attackDamage": {
       "min": 4,
       "max": 11
-    }
+    },
+    "droplistID": "anklebiter"
   },
   {
-    "id": "urdom_1",
+    "id": "erumen_8",
     "iconID": "monsters_tometik2:12",
     "name": "Young erumem forest lizard",
-    "spawnGroup": "urdom_1",
+    "spawnGroup": "erumen_f1",
     "monsterClass": 7,
     "maxHP": 92,
     "moveCost": 5,
@@ -237,13 +274,14 @@
     "attackDamage": {
       "min": 4,
       "max": 7
-    }
+    },
+    "droplistID": "erumen"
   },
   {
-    "id": "urdom_2",
+    "id": "erumen_9",
     "iconID": "monsters_tometik2:15",
     "name": "Erumem forest lizard",
-    "spawnGroup": "urdom_2",
+    "spawnGroup": "erumen_f1",
     "monsterClass": 7,
     "maxHP": 107,
     "moveCost": 5,
@@ -255,15 +293,15 @@
     "attackDamage": {
       "min": 6,
       "max": 7
-    }
+    },
+    "droplistID": "erumen"
   },
   {
-    "id": "urdom_boss",
+    "id": "erumen_10",
     "iconID": "monsters_tometik1:79",
     "name": "Erumem forest lizard matriarch",
-    "spawnGroup": "urdom_3",
+    "spawnGroup": "erumen_f2",
     "monsterClass": 7,
-    "unique": 1,
     "maxHP": 114,
     "moveCost": 5,
     "attackCost": 3,
@@ -275,13 +313,14 @@
     "attackDamage": {
       "min": 7,
       "max": 8
-    }
+    },
+    "droplistID": "erumen"
   },
   {
-    "id": "zortak_1",
+    "id": "zortak1",
     "iconID": "monsters_tometik7:83",
     "name": "Zortak scout",
-    "spawnGroup": "zortak_1",
+    "spawnGroup": "zortaks",
     "monsterClass": 5,
     "maxHP": 173,
     "moveCost": 5,
@@ -294,13 +333,14 @@
     "attackDamage": {
       "min": 4,
       "max": 12
-    }
+    },
+    "droplistID": "zortak"
   },
   {
-    "id": "zortak_2",
+    "id": "zortak2",
     "iconID": "monsters_tometik7:83",
     "name": "Zortak fighter",
-    "spawnGroup": "zortak_2",
+    "spawnGroup": "zortak1",
     "monsterClass": 5,
     "maxHP": 189,
     "moveCost": 5,
@@ -313,13 +353,14 @@
     "attackDamage": {
       "min": 4,
       "max": 9
-    }
+    },
+    "droplistID": "zortak"
   },
   {
-    "id": "zortak_3",
+    "id": "zortak3",
     "iconID": "monsters_tometik7:87",
     "name": "Zortak guard",
-    "spawnGroup": "zortak_3",
+    "spawnGroup": "zortak1",
     "monsterClass": 5,
     "maxHP": 195,
     "moveCost": 5,
@@ -332,13 +373,14 @@
     "attackDamage": {
       "min": 2,
       "max": 10
-    }
+    },
+    "droplistID": "zortak"
   },
   {
-    "id": "zortak_4",
+    "id": "zortak4",
     "iconID": "monsters_tometik7:87",
     "name": "Zortak barbarian",
-    "spawnGroup": "zortak_4",
+    "spawnGroup": "zortak2",
     "monsterClass": 5,
     "maxHP": 207,
     "moveCost": 5,
@@ -351,13 +393,13 @@
     "attackDamage": {
       "min": 3,
       "max": 11
-    }
+    },
+    "droplistID": "zortak"
   },
   {
-    "id": "zortak_guardian",
+    "id": "zortakb",
     "iconID": "monsters_tometik7:85",
     "name": "Zortak leader",
-    "spawnGroup": "zortak_5",
     "monsterClass": 5,
     "unique": 1,
     "maxHP": 279,
@@ -380,13 +422,15 @@
           "chance": 20
         }
       ]
-    }
+    },
+    "droplistID": "zortakb",
+    "phraseID": "zortakb"
   },
   {
-    "id": "wesral_1",
+    "id": "yjacket1",
     "iconID": "monsters_rltiles2:113",
     "name": "Puny yellowjacket",
-    "spawnGroup": "forestwesral1",
+    "spawnGroup": "yjacket1",
     "monsterClass": 1,
     "maxHP": 31,
     "moveCost": 5,
@@ -408,13 +452,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_2",
+    "id": "yjacket2",
     "iconID": "monsters_rltiles2:113",
     "name": "Small yellowjacket",
-    "spawnGroup": "forestwesral1",
+    "spawnGroup": "yjacket1",
     "monsterClass": 1,
     "maxHP": 37,
     "moveCost": 5,
@@ -436,13 +481,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_3",
+    "id": "yjacket3",
     "iconID": "monsters_rltiles2:112",
     "name": "Swarming yellowjacket",
-    "spawnGroup": "forestwesral2",
+    "spawnGroup": "yjacket1",
     "monsterClass": 1,
     "maxHP": 42,
     "moveCost": 5,
@@ -464,13 +510,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_4",
+    "id": "yjacket4",
     "iconID": "monsters_rltiles2:112",
     "name": "Stinging yellowjacket",
-    "spawnGroup": "forestwesral2",
+    "spawnGroup": "yjacket2",
     "monsterClass": 1,
     "maxHP": 48,
     "moveCost": 5,
@@ -492,13 +539,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_5",
+    "id": "yjacket5",
     "iconID": "monsters_rltiles2:112",
     "name": "Quick yellowjacket",
-    "spawnGroup": "forestwesral3",
+    "spawnGroup": "yjacket2",
     "monsterClass": 1,
     "maxHP": 53,
     "moveCost": 5,
@@ -520,13 +568,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_6",
+    "id": "yjacket6",
     "iconID": "monsters_rltiles2:172",
     "name": "Aggressive yellowjacket",
-    "spawnGroup": "forestwesral3",
+    "spawnGroup": "yjacket3",
     "monsterClass": 1,
     "maxHP": 58,
     "moveCost": 5,
@@ -548,13 +597,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_7",
+    "id": "yjacket7",
     "iconID": "monsters_rltiles2:171",
     "name": "Enraged yellowjacket",
-    "spawnGroup": "forestwesral4",
+    "spawnGroup": "yjacket3",
     "monsterClass": 1,
     "maxHP": 66,
     "moveCost": 5,
@@ -576,13 +626,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_8",
+    "id": "yjacket8",
     "iconID": "monsters_insects:5",
     "name": "Giant yellowjacket",
-    "spawnGroup": "forestwesral4",
+    "spawnGroup": "yjacket4",
     "monsterClass": 1,
     "maxHP": 74,
     "moveCost": 5,
@@ -604,15 +655,15 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "wesral_boss",
+    "id": "yjacket9",
     "iconID": "monsters_rltiles2:17",
     "name": "Yellowjacket queen",
-    "spawnGroup": "forestwesral5",
+    "spawnGroup": "yjacket5",
     "monsterClass": 1,
-    "unique": 1,
     "maxHP": 87,
     "moveCost": 5,
     "attackCost": 3,
@@ -624,13 +675,14 @@
     "attackDamage": {
       "min": 5,
       "max": 7
-    }
+    },
+    "droplistID": "wasp"
   },
   {
-    "id": "slargrum_1",
+    "id": "vscale1",
     "iconID": "monsters_tometik4:21",
     "name": "Puny venomscales",
-    "spawnGroup": "slargrum_1",
+    "spawnGroup": "vscale1",
     "monsterClass": 7,
     "maxHP": 42,
     "moveCost": 5,
@@ -653,13 +705,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_2",
+    "id": "vscale2",
     "iconID": "monsters_tometik4:21",
     "name": "Young venomscales",
-    "spawnGroup": "slargrum_2",
+    "spawnGroup": "vscale1",
     "monsterClass": 7,
     "maxHP": 46,
     "moveCost": 5,
@@ -682,13 +735,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_3",
+    "id": "vscale3",
     "iconID": "monsters_tometik4:17",
     "name": "Gray venomscales",
-    "spawnGroup": "slargrum_3",
+    "spawnGroup": "vscale1",
     "monsterClass": 7,
     "maxHP": 48,
     "moveCost": 5,
@@ -711,13 +765,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_4",
+    "id": "vscale4",
     "iconID": "monsters_tometik4:17",
     "name": "Aggressive venomscales",
-    "spawnGroup": "slargrum_4",
+    "spawnGroup": "vscale2",
     "monsterClass": 7,
     "maxHP": 52,
     "moveCost": 5,
@@ -740,13 +795,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_5",
+    "id": "vscale5",
     "iconID": "monsters_tometik4:22",
     "name": "Quick venomscales",
-    "spawnGroup": "slargrum_5",
+    "spawnGroup": "vscale2",
     "monsterClass": 7,
     "maxHP": 56,
     "moveCost": 5,
@@ -769,13 +825,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_6",
+    "id": "vscale6",
     "iconID": "monsters_tometik4:22",
     "name": "Vicious venomscales",
-    "spawnGroup": "slargrum_6",
+    "spawnGroup": "vscale3",
     "monsterClass": 7,
     "maxHP": 59,
     "moveCost": 5,
@@ -798,13 +855,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_7",
+    "id": "vscale7",
     "iconID": "monsters_tometik4:32",
     "name": "Strong venomscales",
-    "spawnGroup": "slargrum_7",
+    "spawnGroup": "vscale3",
     "monsterClass": 7,
     "maxHP": 63,
     "moveCost": 5,
@@ -827,13 +885,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_8",
+    "id": "vscale8",
     "iconID": "monsters_tometik4:32",
     "name": "Tough venomscales",
-    "spawnGroup": "slargrum_8",
+    "spawnGroup": "vscale4",
     "monsterClass": 7,
     "maxHP": 67,
     "moveCost": 5,
@@ -856,13 +915,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscale"
   },
   {
-    "id": "slargrum_9",
+    "id": "vscaleb1",
     "iconID": "monsters_tometik7:56",
     "name": "Breeder of venomscales",
-    "spawnGroup": "slargrum_9",
+    "spawnGroup": "vscaleb1",
     "maxHP": 197,
     "moveCost": 5,
     "attackCost": 3,
@@ -881,13 +941,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscaleb"
   },
   {
-    "id": "slargrum_10",
+    "id": "vscaleb2",
     "iconID": "monsters_tometik7:72",
     "name": "Venomscale Master",
-    "spawnGroup": "slargrum_10",
+    "spawnGroup": "vscaleb2",
     "maxHP": 205,
     "moveCost": 5,
     "attackCost": 3,
@@ -906,13 +967,14 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "droplistID": "vscaleb"
   },
   {
-    "id": "crallarab_1",
+    "id": "morkin1",
     "iconID": "monsters_tometik5:67",
     "name": "Morkin lookout",
-    "spawnGroup": "undeadcr1",
+    "spawnGroup": "morkins",
     "maxHP": 145,
     "moveCost": 5,
     "attackCost": 5,
@@ -920,13 +982,14 @@
     "blockChance": 134,
     "attackDamage": {
       "max": 3
-    }
+    },
+    "droplistID": "morkin"
   },
   {
-    "id": "crallarab_2",
+    "id": "morkin2",
     "iconID": "monsters_tometik5:66",
     "name": "Morkin scout",
-    "spawnGroup": "undeadcr1",
+    "spawnGroup": "morkin1",
     "maxHP": 152,
     "moveCost": 5,
     "attackCost": 5,
@@ -934,13 +997,14 @@
     "blockChance": 139,
     "attackDamage": {
       "max": 3
-    }
+    },
+    "droplistID": "morkin"
   },
   {
-    "id": "crallarab_3",
+    "id": "morkin3",
     "iconID": "monsters_tometik5:69",
     "name": "Morkin fighter",
-    "spawnGroup": "undeadcr2",
+    "spawnGroup": "morkin1",
     "maxHP": 159,
     "moveCost": 5,
     "attackCost": 5,
@@ -948,13 +1012,14 @@
     "blockChance": 145,
     "attackDamage": {
       "max": 3
-    }
+    },
+    "droplistID": "morkin"
   },
   {
-    "id": "crallarab_4",
+    "id": "morkin4",
     "iconID": "monsters_tometik5:70",
     "name": "Morkin guard",
-    "spawnGroup": "undeadcr2",
+    "spawnGroup": "morkin2",
     "maxHP": 165,
     "moveCost": 5,
     "attackCost": 5,
@@ -962,13 +1027,14 @@
     "blockChance": 150,
     "attackDamage": {
       "max": 3
-    }
+    },
+    "droplistID": "morkin"
   },
   {
-    "id": "crallarab_5",
+    "id": "morkin5",
     "iconID": "monsters_tometik5:70",
     "name": "Morkin berserker",
-    "spawnGroup": "undeadcr3",
+    "spawnGroup": "morkin3",
     "maxHP": 171,
     "moveCost": 5,
     "attackCost": 5,
@@ -976,13 +1042,14 @@
     "blockChance": 155,
     "attackDamage": {
       "max": 3
-    }
+    },
+    "droplistID": "morkin"
   },
   {
-    "id": "crallarab_6",
+    "id": "morkin6",
     "iconID": "monsters_tometik5:68",
     "name": "Morkin leader",
-    "spawnGroup": "undeadcr3",
+    "spawnGroup": "morkin4",
     "maxHP": 175,
     "moveCost": 5,
     "attackCost": 5,
@@ -990,13 +1057,38 @@
     "blockChance": 163,
     "attackDamage": {
       "max": 3
-    }
+    },
+    "droplistID": "morkin"
   },
   {
-    "id": "monster_guard",
+    "id": "morkin_cr",
+    "iconID": "monsters_tometik1:21",
+    "name": "Morkin elder",
+    "unique": 1,
+    "maxHP": 375,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 139,
+    "blockChance": 163,
+    "attackDamage": {
+      "max": 5
+    },
+    "hitEffect": {
+      "conditionsTarget": [
+        {
+          "condition": "fatigue_minor",
+          "magnitude": 1,
+          "duration": 3,
+          "chance": 30
+        }
+      ]
+    },
+    "droplistID": "oegyth1"
+  },
+  {
+    "id": "lbridge",
     "iconID": "monsters_tometik5:23",
     "name": "Guardian of the Bridge",
-    "spawnGroup": "monster_guard",
     "size": "2x2",
     "monsterClass": 5,
     "unique": 1,
@@ -1025,13 +1117,15 @@
           "chance": 30
         }
       ]
-    }
+    },
+    "phraseID": "lbridge",
+    "droplistID": "lbridge"
   },
   {
-    "id": "uylom_1",
+    "id": "khakin1",
     "iconID": "monsters_rltiles1:111",
     "name": "Khakin spawn",
-    "spawnGroup": "forestuylom1",
+    "spawnGroup": "khakin1",
     "monsterClass": 7,
     "maxHP": 47,
     "moveCost": 5,
@@ -1044,13 +1138,14 @@
     "attackDamage": {
       "min": 7,
       "max": 9
-    }
+    },
+    "droplistID": "khakin"
   },
   {
-    "id": "uylom_2",
+    "id": "khakin2",
     "iconID": "monsters_rltiles1:112",
     "name": "Aggressive Khakin beast",
-    "spawnGroup": "forestuylom1",
+    "spawnGroup": "khakin1",
     "monsterClass": 7,
     "maxHP": 48,
     "moveCost": 5,
@@ -1063,13 +1158,14 @@
     "attackDamage": {
       "min": 7,
       "max": 9
-    }
+    },
+    "droplistID": "khakin"
   },
   {
-    "id": "uylom_3",
+    "id": "khakin3",
     "iconID": "monsters_rltiles1:113",
     "name": "Tough Khakin beast",
-    "spawnGroup": "forestuylom2",
+    "spawnGroup": "khakin2",
     "monsterClass": 7,
     "maxHP": 49,
     "moveCost": 5,
@@ -1082,13 +1178,14 @@
     "attackDamage": {
       "min": 7,
       "max": 9
-    }
+    },
+    "droplistID": "khakin"
   },
   {
-    "id": "uylom_4",
+    "id": "khakin4",
     "iconID": "monsters_rltiles1:114",
     "name": "Strong Khakin beast",
-    "spawnGroup": "forestuylom2",
+    "spawnGroup": "khakin3",
     "monsterClass": 7,
     "maxHP": 50,
     "moveCost": 5,
@@ -1101,13 +1198,14 @@
     "attackDamage": {
       "min": 7,
       "max": 9
-    }
+    },
+    "droplistID": "khakin"
   },
   {
-    "id": "xalirg_1",
+    "id": "cryptmist1",
     "iconID": "monsters_rltiles2:142",
     "name": "Thin mist of the crypt",
-    "spawnGroup": "xalirg_1",
+    "spawnGroup": "cryptmist1",
     "monsterClass": 8,
     "maxHP": 162,
     "moveCost": 5,
@@ -1118,13 +1216,14 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+    "droplistID": "cryptmist"
   },
   {
-    "id": "xalirg_2",
+    "id": "cryptmist2",
     "iconID": "monsters_rltiles2:142",
     "name": "Clear mist of the crypt",
-    "spawnGroup": "xalirg_2",
+    "spawnGroup": "cryptmist1",
     "monsterClass": 8,
     "maxHP": 166,
     "moveCost": 5,
@@ -1135,13 +1234,14 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+    "droplistID": "cryptmist"
   },
   {
-    "id": "xalirg_3",
+    "id": "cryptmist3",
     "iconID": "monsters_rltiles2:142",
     "name": "Mist of the crypt",
-    "spawnGroup": "xalirg_3",
+    "spawnGroup": "cryptmist2",
     "monsterClass": 8,
     "maxHP": 170,
     "moveCost": 5,
@@ -1152,13 +1252,14 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+    "droplistID": "cryptmist"
   },
   {
-    "id": "xalirg_4",
+    "id": "cryptmist4",
     "iconID": "monsters_rltiles2:142",
     "name": "Thick mist of the crypt",
-    "spawnGroup": "xalirg_4",
+    "spawnGroup": "cryptmist2",
     "monsterClass": 8,
     "maxHP": 174,
     "moveCost": 5,
@@ -1169,13 +1270,14 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+    "droplistID": "cryptmist"
   },
   {
-    "id": "xalirg_5",
+    "id": "cryptmist5",
     "iconID": "monsters_rltiles1:3",
     "name": "Bright mist of the crypt",
-    "spawnGroup": "xalirg_5",
+    "spawnGroup": "cryptmist3",
     "monsterClass": 8,
     "maxHP": 176,
     "moveCost": 5,
@@ -1186,6 +1288,57 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+    "droplistID": "cryptmist"
+  },
+  {
+    "id": "vermin0",
+    "name": "Rat",
+    "monsterClass": 4,
+    "attackDamage": {
+      "max": 1
+    },
+    "iconID": "monsters_rats:0",
+    "blockChance": 5,
+    "attackChance": 10,
+    "attackCost": 4,
+    "spawnGroup": "vermin",
+    "droplistID": "vermin"
+  },
+  {
+    "id": "vermin1",
+    "name": "Rat",
+    "monsterClass": 4,
+    "attackDamage": {
+      "max": 1
+    },
+    "iconID": "monsters_rltiles2:145",
+    "blockChance": 5,
+    "attackChance": 10,
+    "attackCost": 4,
+    "spawnGroup": "vermin",
+    "droplistID": "vermin"
+  },
+  {
+    "id": "pig",
+    "name": "Pig",
+    "monsterClass": 4,
+    "iconID": "monsters_rltiles2:106",
+    "spawnGroup": "pig",
+    "phraseID": "pig"
+  },
+  {
+    "id": "vermin2",
+    "name": "Roach",
+    "monsterClass": 1,
+    "attackDamage": {
+      "max": 1
+    },
+    "iconID": "monsters_tometik10:43",
+    "blockChance": 5,
+    "attackChance": 10,
+    "attackCost": 4,
+    "spawnGroup": "vermin",
+    "droplistID": "vermin"
   }
 ]

@@ -138,7 +138,7 @@
    eJydlVESwiAMRNET0NN5AzmH08P1vyepN7DRycyyJiR0f2oN+wgJhVKSWkq5LfAEPapve93j/9fz9wEMj6ceGfuuv3fxIktjLcFD6ZrUL2rAQcbqrIlzYAlDOU+Kt0SOzBQGc3CuqzrIu1WbZ60xYqky+bXaP0eKeMLYjV56suqKewvjXg9Gyux3T1wPrrHwvD1osTB/q1+YHzN5nsxaeIz6o7ktcf6zc7Ms1ii/K723NOqXxrI9RfFesfwzTDn79sR4zDfK++/75rtmMUylZ858T9/zO8HsxgdSpndHeuegJ66Z3pFeHbWGM/sEPawr5z17Mj3xesieUWzEZI8Vmz1DkLcFtfsAJCNdrg==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="30" visible="0">
+ <layer name="Walkable" width="20" height="30">
   <data encoding="base64" compression="zlib">
    eJzNklEKwDAIQ3uEXsr7X2k/G4wyNU1SmCAU2j41JuYYcecTMflcQ2GtPPStWvPNc7H+wqs0YvfWhdIf87+aVZ1N9VzGYrWrWNWZ9RTbJ6OJynSy2P6yfygLiR0fZr10fEUzF7Or4WS6vNMxd/RBZmX0Rmc+zXTtBNHwxA6/7i5ntpa/
   </data>
@@ -187,59 +187,39 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="30" visible="0">
-  <object name="slargrum_7" type="spawn" x="32" y="768" width="224" height="160">
+ <objectgroup name="Spawn" width="20" height="30">
+  <object name="vscale2" type="spawn" x="416" y="864" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr2" type="spawn" x="32" y="736" width="224" height="192"/>
-  <object name="undeadcr2" type="spawn" x="416" y="864" width="64" height="32">
+  <object name="vscale1" type="spawn" x="416" y="800" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_6" type="spawn" x="416" y="800" width="64" height="32">
+  <object name="morkins" type="spawn" x="128" y="544" width="192" height="128"/>
+  <object name="morkin1" type="spawn" x="64" y="576" width="64" height="32"/>
+  <object name="morkin1" type="spawn" x="320" y="576" width="160" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr3" type="spawn" x="128" y="544" width="192" height="128">
+  <object name="morkin1" type="spawn" x="320" y="544" width="32" height="32"/>
+  <object name="morkin1" type="spawn" x="320" y="480" width="32" height="32"/>
+  <object name="morkin1" type="spawn" x="160" y="352" width="288" height="128"/>
+  <object name="morkin1" type="spawn" x="64" y="288" width="96" height="96"/>
+  <object name="morkin1" type="spawn" x="128" y="192" width="288" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="zortak_3" type="spawn" x="64" y="576" width="32" height="32"/>
-  <object name="slargrum_7" type="spawn" x="320" y="576" width="160" height="192">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="zortak_4" type="spawn" x="320" y="544" width="32" height="32"/>
-  <object name="slargrum_8" type="spawn" x="320" y="480" width="32" height="32"/>
-  <object name="undeadcr3" type="spawn" x="160" y="352" width="288" height="128">
+  <object name="morkins" type="spawn" x="352" y="64" width="64" height="32"/>
+  <object name="vscale2" type="spawn" x="64" y="768" width="160" height="128">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="zortak_3" type="spawn" x="256" y="256" width="32" height="96"/>
-  <object name="slargrum_6" type="spawn" x="64" y="320" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="zortak_2" type="spawn" x="128" y="256" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_7" type="spawn" x="128" y="192" width="288" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr3" type="spawn" x="352" y="96" width="32" height="96"/>
-  <object name="slargrum_8" type="spawn" x="352" y="64" width="64" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="20" height="30"/>
 </map>

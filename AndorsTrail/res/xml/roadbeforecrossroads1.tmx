@@ -140,7 +140,7 @@
  </layer>
  <layer name="Walkable" width="29" height="25">
   <data encoding="base64" compression="zlib">
-   eJy9k9sNgDAIRTuCS3X/lYx/DeFxKCCJMVIvByjsZ609+Hw2Gd9iSu5kHhrv9MtzzTIcT2eZdp7hUZ9npD/nW/qtb49HuCRORUf7a2koi+RNZkTbG8KXu0A1tzVbMSmjs9cV5s0enZw/ud6cdfOiPG5rndrnaHemuZGum0m1WcveYddcV+vMzFjHfWr/kdopl851xK3sasU6WZn7eQHtbnyE
+   eJy1lNsJwDAIADNCl8r+K4X+BfFxRhVKqamez+xvrT34/DLp32JK7mQcGu/Wy3NNMhzPzhLtPMOjOk9Ife631FvfHo9wiZ+KHa2vZUNZJG4yI9reEL7cBWrzmrPlkzIqtc7WsYt95xjdPxNcb866eVEcr7lO7XO0O9PcyK6bSW2zku1h11xX88zMWEc/tf9I7pRL5zriVna1Ip2sTH8O9Mh82Q==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="29" height="25">
@@ -178,12 +178,18 @@
  </objectgroup>
  <objectgroup name="Spawn" width="29" height="25">
   <object name="fox2" type="spawn" x="192" y="96" width="160" height="64"/>
-  <object name="forestsnail1" type="spawn" x="160" y="448" width="192" height="288">
+  <object name="jelly1" type="spawn" x="160" y="448" width="192" height="288">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="forestserpent1" type="spawn" x="512" y="608" width="160" height="128">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="forestserpent1" type="spawn" x="512" y="608" width="160" height="160"/>
+  <object name="forestfly1" type="spawn" x="768" y="128" width="128" height="192"/>
+  <object name="forestwolf2" type="spawn" x="640" y="384" width="128" height="96"/>
  </objectgroup>
  <objectgroup name="Keys" width="29" height="25"/>
 </map>

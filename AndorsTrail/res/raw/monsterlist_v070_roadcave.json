@@ -26,7 +26,8 @@
           "chance": 40
         }
       ]
-    }
+    },
+    "droplistID": "jelly"
   },
   {
     "id": "jelly2",
@@ -54,7 +55,8 @@
           "chance": 40
         }
       ]
-    }
+    },
+    "droplistID": "jelly"
   },
   {
     "id": "jelly3",
@@ -83,7 +85,8 @@
           "chance": 40
         }
       ]
-    }
+    },
+    "droplistID": "jelly"
   },
   {
     "id": "jelly4",
@@ -110,7 +113,8 @@
           "chance": 40
         }
       ]
-    }
+    },
+    "droplistID": "jelly"
   },
   {
     "id": "jelly5",
@@ -139,6 +143,38 @@
           "chance": 40
         }
       ]
-    }
+    },
+    "droplistID": "jelly"
+  },
+  {
+    "id": "jelly6",
+    "iconID": "monsters_tometik2:2",
+    "name": "Emerald Ooze",
+    "spawnGroup": "jelly_b",
+    "monsterClass": 3,
+    "maxHP": 131,
+    "moveCost": 5,
+    "attackCost": 5,
+    "attackChance": 115,
+    "criticalSkill": 10,
+    "criticalMultiplier": 2,
+    "blockChance": 70,
+    "damageResistance": 7,
+    "attackDamage": {
+      "min": 8,
+      "max": 12
+    },
+    "hitEffect": {
+      "conditionsTarget": [
+        {
+          "condition": "slime",
+          "magnitude": 3,
+          "duration": 5,
+          "chance": 40
+        }
+      ]
+    },
+    "unique": 1,
+    "droplistID": "jelly_b"
   }
 ]

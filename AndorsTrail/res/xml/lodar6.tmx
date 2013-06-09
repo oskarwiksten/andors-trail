@@ -128,17 +128,17 @@
    eJw7ysbAcHQUj+JRDMdTmMjX28QEwVOYyDdnKVDfMjRMjjnbgfp2oGFy/XWKCRUPdByN4lE8ioceBgBjqaoV
   </data>
  </layer>
- <layer name="Objects" width="18" height="30" visible="0">
+ <layer name="Objects" width="18" height="30">
   <data encoding="base64" compression="zlib">
    eJyVVEtOAzEMTWadkTLiBHAVeiWQWLJlx5ZTITZIfESBSpWmtHyWlAJ5JO5kUtszWKoyTexn+/lTNcZ8eGOqgdOG0zTy+1iMvdpEEbBKf5zfP/OAs3Dxm4uPdN99h/Pmd+NZZxikn+vlfss3wrh3ek5D/ABjGTCOQk63Sk5VI/OC/8QHiRY37ibB38z130hWBS/SqfFSxqH1lfSG+rRO55b66rTidSAvjo+nx6eJGJdCvaBzJ/ACDmA799EetZgKNdwKk1POG+why+Tzyu/W/IaJB/cP6f7CBnsbv19trNOTT++NXieS8yqem2B/Fn4/trNFnpvkC/2k1Ykw94PeQR1rhnieXddzc6/zw/Jodu+mCXOR5kqamdJH/vbpeOwtftb/Zbxkc+15bsuZHbN/pHNop/5nPyPnE4EvbT/nuiRtyg2zt3Z9vTxf1HyV9lCZP/XDpO5wsSNpPw3tZ25Pl/Ucs58pdszbl7KPtP1ssxyO677/Uh+5YP4fs/0MnVbJQeqf8g7yPbBTx/QP4jms5f7mzl/wU/g0
   </data>
  </layer>
- <layer name="Above" width="18" height="30" visible="0">
+ <layer name="Above" width="18" height="30">
   <data encoding="base64" compression="zlib">
    eJxjYCANfBAgUQMFAGTXRyz2IYtRwz309BMxYCD9NBzDdrD5CVuapgSQ6h5s9mMzA6QOVx4kFxDKz6Sahe4+9Lgm1+zjAggz8NlHrBvxgcGWnigFtEov6GFPTrhhi09qgwt4zBwMfhjI8gcAoew20Q==
   </data>
  </layer>
- <layer name="Walkable" width="18" height="30" visible="0">
+ <layer name="Walkable" width="18" height="30">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcKUzBgFK9SMDapg10Gag+2ugwmU4hu1w9NNgcQ+1whZZPzXdQw2zKPUrPrXUSguDMT1RO21Qaiau+KRX+AwHP1BqFgAh1ZPC
   </data>
@@ -157,60 +157,48 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="18" height="30" visible="0">
-  <object name="undeadcr1" type="spawn" x="416" y="704" width="128" height="96">
+ <objectgroup name="Spawn" width="18" height="30">
+  <object name="erumen_f1" type="spawn" x="448" y="704" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_3" type="spawn" x="320" y="608" width="64" height="32">
+  <object name="erumen_f1" type="spawn" x="320" y="640" width="32" height="32">
    <properties>
-    <property name="quantity" value="2"/>
+    <property name="quantity" value="1"/>
    </properties>
   </object>
-  <object name="slargrum_4" type="spawn" x="288" y="640" width="128" height="160">
+  <object name="erumen_f2" type="spawn" x="288" y="64" width="128" height="64">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="erumen_f1" type="spawn" x="192" y="128" width="192" height="160">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="forestregral3" type="spawn" x="224" y="576" width="128" height="32"/>
-  <object name="urdom_3" type="spawn" x="288" y="32" width="128" height="96">
-   <properties>
-    <property name="respawn" value="false"/>
-   </properties>
-  </object>
-  <object name="undeadcr1" type="spawn" x="64" y="480" width="160" height="160">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="werewolf_2" type="spawn" x="192" y="416" width="64" height="32">
+  <object name="erumen_f1" type="spawn" x="160" y="288" width="128" height="160">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="192" y="352" width="64" height="32">
+  <object name="erumen_f1" type="spawn" x="64" y="448" width="128" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_4" type="spawn" x="192" y="288" width="64" height="32">
+  <object name="erumen_f1" type="spawn" x="256" y="576" width="32" height="32">
+   <properties>
+    <property name="quantity" value="1"/>
+   </properties>
+  </object>
+  <object name="erumen_f1" type="spawn" x="256" y="832" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="192" y="160" width="192" height="96">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_4" type="spawn" x="288" y="128" width="64" height="32">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr1" type="spawn" x="288" y="800" width="128" height="96"/>
-  <object name="slargrum_4" type="spawn" x="192" y="864" width="64" height="32">
+  <object name="erumen_f1" type="spawn" x="320" y="672" width="128" height="224">
    <properties>
     <property name="quantity" value="2"/>
    </properties>

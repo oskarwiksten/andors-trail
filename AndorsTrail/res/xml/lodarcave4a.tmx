@@ -149,41 +149,45 @@
   </object>
  </objectgroup>
  <objectgroup name="Spawn" width="20" height="20">
-  <object name="harskardaer" type="spawn" x="288" y="256" width="64" height="64">
-   <properties>
-    <property name="respawn" value="unique"/>
-   </properties>
-  </object>
-  <object name="cavegir5" type="spawn" x="256" y="320" width="160" height="64">
+  <object name="hirazinn" type="spawn" x="288" y="256" width="64" height="64"/>
+  <object name="hirathil2" type="spawn" x="256" y="320" width="160" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="cavegir4" type="spawn" x="128" y="384" width="256" height="96">
+  <object name="hirathil2" type="spawn" x="128" y="384" width="256" height="96">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="cavegir4" type="spawn" x="128" y="256" width="32" height="128"/>
-  <object name="cavegir5" type="spawn" x="192" y="128" width="64" height="96"/>
-  <object name="cavegir5" type="spawn" x="448" y="192" width="160" height="128">
+  <object name="hirathil2" type="spawn" x="192" y="128" width="64" height="96">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="cavegir5" type="spawn" x="256" y="128" width="224" height="64">
+  <object name="hirathil2" type="spawn" x="416" y="128" width="192" height="192">
    <properties>
-    <property name="quantity" value="3"/>
+    <property name="quantity" value="4"/>
    </properties>
   </object>
-  <object name="cavegir4" type="spawn" x="512" y="320" width="32" height="160">
+  <object name="hirathil2" type="spawn" x="352" y="512" width="192" height="96">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="cavegir5" type="spawn" x="352" y="544" width="96" height="64"/>
-  <object name="cavegir4" type="spawn" x="448" y="480" width="96" height="96"/>
-  <object name="cavegir3" type="spawn" x="64" y="480" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Spawn_bats" width="20" height="20" visible="0">
+  <object name="cavebat2" type="spawn" x="128" y="96" width="480" height="512">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Keys" width="20" height="20">
+  <object name="lodar2:35" type="key" x="64" y="448" width="32" height="96">
+   <properties>
+    <property name="phrase" value="sign_lodarcave4a"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

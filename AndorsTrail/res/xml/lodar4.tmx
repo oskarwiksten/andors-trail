@@ -138,7 +138,7 @@
    eJzNlMsNgCAQRLUAEmzexIsl2IV6txLtQIkhEoL7E1bmgodhH4vDNo1Mh32+d/vuC+V8B9G7Ij4q06vteH6qqP1Ia29AfQrbeTj3XkIl2Fg+UuxUZkreD7UmdAbo/4cajIwN+UfzrNz3xvHH7Oni9eZepTUomq89S7TP9/zl/BJxepWwqb44R7XpzznmBM0dzTnrWWFOc7x5jJmrFuZP9ZeLrSXuzKyZCWVbs09OLnIytYUxTzuhREg=
   </data>
  </layer>
- <layer name="Walkable" width="30" height="25" visible="0">
+ <layer name="Walkable" width="30" height="25">
   <data encoding="base64" compression="zlib">
    eJzNk1EOwCAIQz3CLuX9r7QvE2MKlKJuJMs+Bn2tsv601sVnlDr/BVedteYivfFtriyTYSMOKiWzx157UD/LRzqeFpOH6c/UfNa7ds3jZLJW9rzC2sm+xbR2ruJfYaP3idzofq07Z30obMTN5Lc8r/NeNuQju6dMeXvGci3/XjbEsriMDuPX688yWGZ0JhkN9f+Ldk/VUz2cYlbv6AT/JvNv+V6NTqqr
   </data>
@@ -176,92 +176,55 @@
   </object>
   <object name="sign_lodar4" type="sign" x="768" y="384" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25" visible="0">
-  <object name="forestregral1" type="spawn" x="64" y="96" width="64" height="96"/>
-  <object name="forestwesral2" type="spawn" x="128" y="160" width="128" height="96">
+ <objectgroup name="Spawn" width="30" height="25">
+  <object name="forestfly1" type="spawn" x="64" y="96" width="64" height="96"/>
+  <object name="hanklbit1" type="spawn" x="128" y="160" width="160" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="forestregral1" type="spawn" x="192" y="256" width="96" height="64"/>
-  <object name="forestfly3" type="spawn" x="224" y="352" width="64" height="32">
+  <object name="forestfly2" type="spawn" x="224" y="352" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="forestwesral3" type="spawn" x="224" y="416" width="256" height="224">
+  <object name="forestfly1" type="spawn" x="64" y="416" width="384" height="224">
    <properties>
     <property name="quantity" value="5"/>
    </properties>
   </object>
-  <object name="forestregral1" type="spawn" x="64" y="544" width="160" height="64">
+  <object name="forestfly1" type="spawn" x="480" y="384" width="224" height="160">
+   <properties>
+    <property name="quantity" value="4"/>
+   </properties>
+  </object>
+  <object name="forestfly1" type="spawn" x="640" y="544" width="192" height="96">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
-  <object name="forestregral1" type="spawn" x="288" y="384" width="192" height="256">
+  <object name="forestfly1" type="spawn" x="416" y="96" width="192" height="192">
    <properties>
-    <property name="quantity" value="2"/>
+    <property name="quantity" value="5"/>
    </properties>
   </object>
-  <object name="forestwesral3" type="spawn" x="480" y="448" width="96" height="96">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="forestwesral3" type="spawn" x="640" y="544" width="192" height="96">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="forestregral1" type="spawn" x="576" y="384" width="160" height="160">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="forestwesral3" type="spawn" x="576" y="352" width="160" height="192">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="forestregral2" type="spawn" x="448" y="64" width="64" height="32">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="forestregral1" type="spawn" x="416" y="96" width="192" height="192">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="forestwesral4" type="spawn" x="384" y="96" width="256" height="224">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="forestwesral3" type="spawn" x="640" y="64" width="192" height="288">
+  <object name="forestfly1" type="spawn" x="608" y="96" width="288" height="224">
    <properties>
     <property name="quantity" value="6"/>
    </properties>
   </object>
-  <object name="forestregral2" type="spawn" x="832" y="64" width="64" height="96"/>
-  <object name="forestregral2" type="spawn" x="768" y="448" width="64" height="96"/>
-  <object name="forestwesral4" type="spawn" x="832" y="416" width="32" height="32"/>
-  <object name="forestregral1" type="spawn" x="864" y="416" width="64" height="288">
-   <properties>
-    <property name="quantity" value="3"/>
-   </properties>
-  </object>
-  <object name="forestwesral3" type="spawn" x="640" y="672" width="224" height="96">
+  <object name="forestfly2" type="spawn" x="768" y="480" width="64" height="32"/>
+  <object name="yjacket1" type="spawn" x="864" y="480" width="32" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="forestfly3" type="spawn" x="608" y="640" width="256" height="128">
+  <object name="yjacket1" type="spawn" x="640" y="672" width="256" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
+  <object name="brtender1" type="spawn" x="256" y="448" width="224" height="192"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="25" visible="0"/>
 </map>

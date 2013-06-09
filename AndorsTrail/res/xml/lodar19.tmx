@@ -128,17 +128,17 @@
    eJztk7ENgDAMBBEFzMo+YQRgBGAAmkyFLLBkrE+IA0gUKa6xov/Yfru6qtxPGAFvak9An2oLYHjgRZpde0BaK9CnmgfMN95oRtzHKnz9WdP6sX+zd+qMuA8nfHtRszAbZoT6yPV1xhmhXW/NN5kN7Z13Tb45mU39q947exKWzCKtQfnr3qQ+eyJCmQ1pcc7kfereUkGZjWn5+nqfd73FQDcRe8++uX6FQsHODidBqVg=
   </data>
  </layer>
- <layer name="Objects" width="30" height="20" visible="0">
+ <layer name="Objects" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJytVstKxEAQnInXBBI8eNaLH7J+i3+g4NXbetOD4uL/eF5BBR+oURDUrK+bumqX6XbKSeIDbFgmmZme6qmu7uxD7lxSOPfwj6OXsZTxKHUf9izjUN5dUa9hbPPh9Xhf1/yXdbErwXpS3LnMfVqlcw0MtZEPzwMfMO7l7JH4TspZd3kT80bPXRefU3kushBHPzoTGJs6h7Pm5ffqa4wNHS1Gw27DtPtdyvtL6hpmGGtJHQNjYK6Nu9Wkgx8dBxT7rSeeFGdFnheJb44bdpI2z5zI6hwZtuVgRbGMI4yI/404Aibuf0wa28ldQzMjXcc+04DPgk6ADX62fH2f7zjqUW5hlvszyhtryuxQ9l3r3oI4svNOdQ0aizmy/C7o3mEe/A3X8hLXRWxcJ+M03AM8HKQhlqtIU8jHLeW6zIM2Y8129QO2Ss/i/gAbEe6y5uNN84HcgW8++yfNmiGnqIMx1WNfNdb3QXfAmRaeZ7KQL4uxs15c4H8Q8XSgfa8gjWMvzt7UulzT+Qu6O3joaQx8n6HqfVXrzWp6Ow88JaoTix+83aW1vuHb15q7JjzWi+XihPxt7z71cOQC77OkZ+hmTOcCz/TLWpvSXtCm1eeI9yr9qk+22PeIer/V+mQWYvmcb9Eq56DUns8cdn3vKorLExfwL6lWLX7+liX6e1SeeuTP94t94hhg6A+Gt6T5Lak24X+ehr4cc9dVt7sy7uXfY8NeqX+g31ke42/Yb/5DwMfqxnzb7l+1aKLrLr/9/xLH2/YN/sv4DpAYDb8=
   </data>
  </layer>
- <layer name="Above" width="30" height="20" visible="0">
+ <layer name="Above" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJztVdsNgCAMZASdzg1gUvXfSWADIZEEL4VSqfHH+wLBuz7OaswPN33DHeKZv869Qgyl1lKsb9zzODfCTvc13g0DuYVaHgQWrT4Ka4S6Kc7cWyr32nMJUo0tw1HG8NRf2EtOU8LVutej01NDjsuBd7XAcVFe7fXFPtBPjKvkeepJDT9THj0aNZLETfFQ+jW0ak1956iX9zUenHFULda43zrel2JkNnDaGv80Thtn7duaUpyo1EUm
   </data>
  </layer>
- <layer name="Walkable" width="30" height="20" visible="0">
+ <layer name="Walkable" width="30" height="20">
   <data encoding="base64" compression="zlib">
    eJy9k8sNwCAMQxmhS7H/Sj1VilDcGOcTiQOf8IxJ9rPWbho2uhiId8Yk0653Mj3OpN8Vf53VGnHRv6hamXw1mLsyem/1TdYMw6zUFPEqvPjyPO/ZelE88PLtHDHOtfM8epsSbM9Ee3915OWznjE5ivaqXkC1jDxQ+0B9e/beDL+beTNeGH+Hzg==
   </data>
@@ -163,81 +163,65 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20" visible="0">
-  <object name="zortak_3" type="spawn" x="608" y="32" width="192" height="96">
+ <objectgroup name="Spawn" width="30" height="20">
+  <object name="vscale3" type="spawn" x="608" y="64" width="192" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_6" type="spawn" x="832" y="64" width="64" height="96">
+  <object name="vscale4" type="spawn" x="832" y="64" width="64" height="96">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr2" type="spawn" x="800" y="192" width="32" height="64">
+  <object name="vscale3" type="spawn" x="768" y="192" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="zortak_2" type="spawn" x="704" y="224" width="32" height="64">
+  <object name="vscale2" type="spawn" x="384" y="192" width="384" height="128">
+   <properties>
+    <property name="quantity" value="3"/>
+   </properties>
+  </object>
+  <object name="vscaleb2" type="spawn" x="96" y="160" width="128" height="96"/>
+  <object name="vscaleb1" type="spawn" x="224" y="160" width="160" height="128">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="undeadcr3" type="spawn" x="544" y="256" width="160" height="64">
+  <object name="hanklbit3" type="spawn" x="384" y="416" width="32" height="32"/>
+  <object name="hanklbit2" type="spawn" x="416" y="352" width="160" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="slargrum_7" type="spawn" x="416" y="224" width="128" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="zortak_4" type="spawn" x="96" y="160" width="128" height="96"/>
-  <object name="undeadcr3" type="spawn" x="224" y="160" width="160" height="128">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr2" type="spawn" x="384" y="224" width="32" height="32"/>
-  <object name="slargrum_5" type="spawn" x="576" y="320" width="64" height="96">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="forestuylom1" type="spawn" x="384" y="416" width="32" height="32"/>
-  <object name="undeadcr1" type="spawn" x="416" y="352" width="160" height="192">
+  <object name="hanklbit2" type="spawn" x="576" y="416" width="256" height="192">
    <properties>
     <property name="quantity" value="4"/>
    </properties>
   </object>
-  <object name="forestuylom1" type="spawn" x="576" y="416" width="256" height="192">
+  <object name="hanklbit1" type="spawn" x="672" y="320" width="224" height="96">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="hanklbit2" type="spawn" x="320" y="416" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="hanklbit2" type="spawn" x="256" y="416" width="32" height="64">
+   <properties>
+    <property name="quantity" value="2"/>
+   </properties>
+  </object>
+  <object name="hanklbit3" type="spawn" x="32" y="384" width="224" height="192">
    <properties>
     <property name="quantity" value="4"/>
    </properties>
   </object>
-  <object name="undeadcr1" type="spawn" x="672" y="352" width="160" height="64"/>
-  <object name="slargrum_5" type="spawn" x="832" y="320" width="96" height="128">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="undeadcr1" type="spawn" x="320" y="416" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="forestuylom1" type="spawn" x="256" y="416" width="32" height="64">
-   <properties>
-    <property name="quantity" value="2"/>
-   </properties>
-  </object>
-  <object name="slargrum_6" type="spawn" x="32" y="384" width="224" height="192">
-   <properties>
-    <property name="quantity" value="4"/>
-   </properties>
-  </object>
+  <object name="brtender2" type="spawn" x="64" y="352" width="128" height="256"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="20" visible="0"/>
 </map>
