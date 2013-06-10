@@ -200,7 +200,12 @@
             {
                 "text": "Let me see what potions you have available.",
                 "nextPhraseID": "S"
-            }
+            },
+			{
+				"text": "I was told that I can get some Spotted Hornbeam fungus from you.",
+				"requires": { "progress": "lodar_pots:10" },
+				"nextPhraseID": "fallhaven_potions1"
+			}
         ]
     }
 ]
