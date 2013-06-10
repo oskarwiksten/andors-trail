@@ -25,7 +25,15 @@
     "iconID": "monsters_rltiles1:86",
     "phraseID": "aulowenn0",
     "unique": 1,
-    "droplistID": "aulowenn"
+    "droplistID": "aulowenn",
+    "maxHP": 194,
+    "maxAP": 10,
+    "moveCost": 5,
+    "attackCost": 3,
+    "attackChance": 120,
+    "blockChance": 90,
+    "damageResistance": 5,
+    "attackDamage": { "min": 0, "max": 9 }
   },
   {
     "id": "charwd_guard",
@@ -166,7 +174,15 @@
     "unique": 1,
     "phraseID": "tiqui",
     "droplistID": "tiqui",
-    "iconID": "monsters_tometik5:87"
+    "iconID": "monsters_tometik5:87",
+    "maxHP": 145,
+    "maxAP": 10,
+    "moveCost": 5,
+    "attackCost": 3,
+    "attackChance": 90,
+    "blockChance": 120,
+    "damageResistance": 9,
+    "attackDamage": { "min": 0, "max": 9 }
   },
   {
     "id": "twoteeth",

@@ -135,7 +135,7 @@
    eJxjYKA+SBcgX18amXrDydQ3UHrR/fqcSHPIDSNc+t7y0MY+EKBWuKaSaI4sE375XhLNc8MSRqS4CV2tNAH30QsAAGTgC5Y=
   </data>
  </layer>
- <layer name="Walkable" width="15" height="17" visible="0">
+ <layer name="Walkable" width="15" height="17">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcB1EGAQGSi8MkKsPHZDqbnL1kuNudHsp8TM9wplSvaMYEwMADT5KYQ==
   </data>
@@ -155,13 +155,12 @@
   </object>
   <object name="sign_lostmine4" type="sign" x="224" y="224" width="96" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="17" visible="0">
-  <object name="fardaph_4" type="spawn" x="160" y="128" width="224" height="160">
+ <objectgroup name="Spawn" width="15" height="17">
+  <object name="ash2" type="spawn" x="160" y="128" width="224" height="160">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="noedidh_5" type="spawn" x="128" y="128" width="256" height="160"/>
  </objectgroup>
  <objectgroup name="Keys" width="15" height="17"/>
 </map>
