@@ -455,8 +455,13 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterMoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
         if (map != currentMap) return;
-		if (!mapViewArea.intersects(m.rectPosition)) return;
-		redrawNextTick = true;
+		if (!mapViewArea.intersects(m.rectPosition) && !mapViewArea.intersects(previousPosition)) return;
+		if (model.uiSelections.isInCombat) {
+			redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
+			redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_MOVED);
+		} else {
+			redrawNextTick = true;
+		}
 	}
 
 	@Override
