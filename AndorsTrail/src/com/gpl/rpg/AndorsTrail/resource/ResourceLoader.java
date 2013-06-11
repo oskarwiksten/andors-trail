@@ -334,8 +334,8 @@ public final class ResourceLoader {
         loader.prepareTileset(R.drawable.map_trail_1, "map_trail_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_tree_1, "map_tree_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_wall_1, "map_wall_1.png", src_mapTileSize, defaultTileSize);
-        loader.prepareTileset(R.drawable.map_wall_2, "map_wall_2.png", src_mapTileSize, defaultTileSize);
-        loader.prepareTileset(R.drawable.map_wall_3, "map_wall_3.png", src_mapTileSize, defaultTileSize);
+        loader.prepareTileset(R.drawable.map_wall_2, "map_wall_2.png", new Size(15, 8), defaultTileSize);
+        loader.prepareTileset(R.drawable.map_wall_3, "map_wall_3.png", new Size(15, 8), defaultTileSize);
         loader.prepareTileset(R.drawable.map_window_1, "map_window_1.png", src_mapTileSize, defaultTileSize);
         loader.prepareTileset(R.drawable.map_window_2, "map_window_2.png", src_mapTileSize, defaultTileSize);
         
