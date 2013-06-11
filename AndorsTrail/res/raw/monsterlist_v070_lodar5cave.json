@@ -13,16 +13,6 @@
     "blockChance": 126,
     "attackDamage": {
       "max": 5
-    },
-    "hitEffect": {
-      "conditionsTarget": [
-        {
-          "condition": "slow",
-          "magnitude": 1,
-          "duration": 3,
-          "chance": 10
-        }
-      ]
     }
   },
   {
@@ -39,16 +29,6 @@
     "blockChance": 129,
     "attackDamage": {
       "max": 6
-    },
-    "hitEffect": {
-      "conditionsTarget": [
-        {
-          "condition": "slow",
-          "magnitude": 1,
-          "duration": 3,
-          "chance": 20
-        }
-      ]
     }
   },
   {
@@ -68,12 +48,6 @@
     },
     "hitEffect": {
       "conditionsTarget": [
-        {
-          "condition": "slow",
-          "magnitude": 1,
-          "duration": 3,
-          "chance": 10
-        },
         {
           "condition": "poison_weak",
           "magnitude": 1,
@@ -101,12 +75,6 @@
     "hitEffect": {
       "conditionsTarget": [
         {
-          "condition": "slow",
-          "magnitude": 1,
-          "duration": 3,
-          "chance": 20
-        },
-        {
           "condition": "poison_weak",
           "magnitude": 1,
           "duration": 5,
@@ -133,12 +101,6 @@
     "hitEffect": {
       "conditionsTarget": [
         {
-          "condition": "slow",
-          "magnitude": 1,
-          "duration": 5,
-          "chance": 10
-        },
-        {
           "condition": "poison_weak",
           "magnitude": 2,
           "duration": 3,
@@ -164,7 +126,8 @@
     "attackDamage": {
       "min": 3,
       "max": 5
-    }
+    },
+	"movementAggressionType": 2
   },
   {
     "id": "cavebat2",
@@ -183,7 +146,8 @@
     "attackDamage": {
       "min": 2,
       "max": 6
-    }
+    },
+	"movementAggressionType": 2
   },
   {
     "id": "cavebat3",
@@ -202,7 +166,8 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+	"movementAggressionType": 2
   },
   {
     "id": "cavebat4",
@@ -221,7 +186,8 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+	"movementAggressionType": 2
   },
   {
     "id": "cavebat5",
@@ -240,6 +206,7 @@
     "attackDamage": {
       "min": 1,
       "max": 7
-    }
+    },
+	"movementAggressionType": 2
   }
 ]

@@ -17,7 +17,8 @@
       "min": 4,
       "max": 5
     },
-    "droplistID": "wasp"
+    "droplistID": "wasp",
+	"movementAggressionType": 2
   },
   {
     "id": "dungfly2",
@@ -37,7 +38,8 @@
       "min": 5,
       "max": 7
     },
-    "droplistID": "wasp"
+    "droplistID": "wasp",
+	"movementAggressionType": 2
   },
   {
     "id": "dungfly3",
@@ -57,17 +59,8 @@
       "min": 7,
       "max": 8
     },
-    "hitEffect": {
-      "conditionsTarget": [
-        {
-          "condition": "sleeping_sickness",
-          "magnitude": 2,
-          "duration": 3,
-          "chance": 50
-        }
-      ]
-    },
-    "droplistID": "wasp"
+    "droplistID": "wasp",
+	"movementAggressionType": 2
   },
   {
     "id": "brtender1",
@@ -334,7 +327,8 @@
       "min": 4,
       "max": 12
     },
-    "droplistID": "zortak"
+    "droplistID": "zortak",
+	"movementAggressionType": 1
   },
   {
     "id": "zortak2",
@@ -354,7 +348,8 @@
       "min": 4,
       "max": 9
     },
-    "droplistID": "zortak"
+    "droplistID": "zortak",
+	"movementAggressionType": 1
   },
   {
     "id": "zortak3",
@@ -374,7 +369,8 @@
       "min": 2,
       "max": 10
     },
-    "droplistID": "zortak"
+    "droplistID": "zortak",
+	"movementAggressionType": 1
   },
   {
     "id": "zortak4",
@@ -394,7 +390,8 @@
       "min": 3,
       "max": 11
     },
-    "droplistID": "zortak"
+    "droplistID": "zortak",
+	"movementAggressionType": 1
   },
   {
     "id": "zortakb",
@@ -935,7 +932,7 @@
     "hitEffect": {
       "conditionsTarget": [
         {
-          "condition": "poisoning_blood",
+          "condition": "poison_weak",
           "magnitude": 2,
           "duration": 5,
           "chance": 30
@@ -961,7 +958,7 @@
     "hitEffect": {
       "conditionsTarget": [
         {
-          "condition": "poisoning_blood",
+          "condition": "poison_weak",
           "magnitude": 2,
           "duration": 5,
           "chance": 30
