@@ -359,10 +359,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	private void moveCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
-		if (controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
-			controllers.monsterMovementController.moveMonsterToNextPosition(currentActiveMonster, world.model.currentMap);
-            combatActionListeners.onMonsterMovedDuringCombat(currentActiveMonster);
+		if (!controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
+			// Couldn't find a path to move on.
+			handleNextMonsterAction();
+			return;
 		}
+
+		controllers.monsterMovementController.moveMonsterToNextPosition(currentActiveMonster, world.model.currentMap);
+        combatActionListeners.onMonsterMovedDuringCombat(currentActiveMonster);
 		waitForNextMonsterAction();
 	}
 	
