@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import android.widget.*;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
@@ -20,13 +21,10 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public final class StartScreenActivity extends Activity {
-	
+
+	public static final int INTENTREQUEST_PREFERENCES = 7;
     public static final int INTENTREQUEST_LOADGAME = 9;
     
 	private boolean hasExistingGame = false;
@@ -41,9 +39,7 @@ public final class StartScreenActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        final AndorsTrailPreferences preferences = app.getPreferences();
-        AndorsTrailPreferences.read(this, preferences);
-		app.setWindowParameters(this);
+        app.setWindowParameters(this);
 		
         setContentView(R.layout.startscreen);
 
@@ -81,13 +77,13 @@ public final class StartScreenActivity extends Activity {
 				startActivity(new Intent(StartScreenActivity.this, AboutActivity.class));
 			}
 		});
-        
-        b = (Button) findViewById(R.id.startscreen_quit);
-        b.setOnClickListener(new OnClickListener() {
+
+		b = (Button) findViewById(R.id.startscreen_preferences);
+		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				//comfirmQuit();
-				StartScreenActivity.this.finish();
+				Intent intent = new Intent(StartScreenActivity.this, Preferences.class);
+				startActivityForResult(intent, INTENTREQUEST_PREFERENCES);
 			}
 		});
         
@@ -107,7 +103,7 @@ public final class StartScreenActivity extends Activity {
         final Resources res = getResources();
         TileManager tileManager = app.getWorld().tileManager;
         tileManager.setDensity(res);
-        tileManager.updatePreferences(preferences);
+        updatePreferences();
         app.getWorldSetup().startResourceLoader(res);
         
         if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
@@ -120,7 +116,13 @@ public final class StartScreenActivity extends Activity {
         	continueGame(false, Savegames.SLOT_QUICKSAVE, null);
         }
     }
-	
+
+	private void updatePreferences() {
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		AndorsTrailPreferences preferences = app.getPreferences();
+		preferences.read(this);
+		app.getWorld().tileManager.updatePreferences(preferences);
+	}
 	
 	@Override
 	protected void onResume() {
@@ -160,6 +162,9 @@ public final class StartScreenActivity extends Activity {
 			if (resultCode != Activity.RESULT_OK) break;
 			final int slot = data.getIntExtra("slot", 1);
 			continueGame(false, slot, null);
+			break;
+		case INTENTREQUEST_PREFERENCES:
+			updatePreferences();
 			break;
 		}
 	}
@@ -222,21 +227,4 @@ public final class StartScreenActivity extends Activity {
         .setNegativeButton(android.R.string.cancel, null)
         .create().show(); 
 	}
-
-	/*
-	private void comfirmQuit() {
-		new AlertDialog.Builder(this)
-        .setTitle(R.string.dialog_confirmexit_title)
-        .setMessage(R.string.dialog_confirmexit_message)
-        .setIcon(android.R.drawable.ic_dialog_alert)
-        .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialog, int which) {
-				StartScreenActivity.this.finish();
-			}
-		})
-        .setNegativeButton(android.R.string.cancel, null)
-        .create().show(); 
-	}
-	*/
 }

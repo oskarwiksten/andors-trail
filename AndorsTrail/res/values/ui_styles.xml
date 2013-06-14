@@ -30,9 +30,15 @@
         <item name="android:layout_height">@dimen/smalltext_buttonheight</item>
     </style>
     
-	<style name="toolboxButton">
+	<style name="toolboxButtonTile">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="toolboxButtonDrawable">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:padding">0dp</item>
     </style>
     
     <style name="traitsinfo_label" parent="android:Widget.TextView">

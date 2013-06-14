@@ -54,7 +54,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
     public static final int INTENTREQUEST_ITEMINFO = 3;
     public static final int INTENTREQUEST_CONVERSATION = 4;
     public static final int INTENTREQUEST_LEVELUP = 6;
-    public static final int INTENTREQUEST_PREFERENCES = 7;
     public static final int INTENTREQUEST_SAVEGAME = 8;
     public static final int INTENTREQUEST_BULKSELECT_BUY = 9;
 	public static final int INTENTREQUEST_BULKSELECT_SELL = 10;
@@ -138,13 +137,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		case INTENTREQUEST_CONVERSATION:
 			MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
 			break;
-		case INTENTREQUEST_PREFERENCES:
-			AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-			AndorsTrailPreferences preferences = app.getPreferences();
-	        AndorsTrailPreferences.read(this, preferences);
-	        world.tileManager.updatePreferences(preferences);
-	        dpad.updateVisibility(preferences);
-			break;
 		case INTENTREQUEST_SAVEGAME:
 			if (resultCode != Activity.RESULT_OK) break;
 			final int slot = data.getIntExtra("slot", 1);
@@ -211,38 +203,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		mainview.subscribe();
 		combatview.subscribe();
         activeConditions.subscribe();
-	}
-
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(R.string.exit_to_menu)
-		.setIcon(android.R.drawable.ic_menu_close_clear_cancel)
-		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			@Override
-			public boolean onMenuItemClick(MenuItem arg0) {
-				MainActivity.this.finish();
-				return true;
-			}
-		});
-		menu.add(R.string.menu_save)
-		.setIcon(android.R.drawable.ic_menu_save)
-		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			@Override
-			public boolean onMenuItemClick(MenuItem arg0) {
-				Dialogs.showSave(MainActivity.this, controllers, world);
-				return true;
-			}
-		});
-		menu.add(R.string.menu_settings)
-		.setIcon(android.R.drawable.ic_menu_preferences)
-		.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-			@Override
-			public boolean onMenuItemClick(MenuItem arg0) {
-				Dialogs.showPreferences(MainActivity.this);
-				return true;
-			}
-		});
-		return true;
 	}
 	
 	@Override
@@ -316,7 +276,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		statusText.setVisibility(View.GONE);
 	}
 
-	public void showToast(String msg, int duration) {
+	private void showToast(String msg, int duration) {
 		Toast t = null;
 		if (lastToast != null) t = lastToast.get();
 		if (t == null) {

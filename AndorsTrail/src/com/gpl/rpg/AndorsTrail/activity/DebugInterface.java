@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
+import android.content.Context;
 import android.content.res.Resources;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -12,6 +13,8 @@ import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+
+import java.lang.ref.WeakReference;
 
 @SuppressWarnings("unused")
 public final class DebugInterface {
@@ -37,7 +40,7 @@ public final class DebugInterface {
 	    			world.model.player.damagePotential.set(99, 99);
 	    			world.model.player.attackChance = 200;
 	    			world.model.player.attackCost = 1;
-	    			mainActivity.showToast("DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: damagePotential=99, chance=200%, cost=1", Toast.LENGTH_SHORT);
 				}
 			})
 			/*,new DebugButton("dmg=1", new OnClickListener() {
@@ -45,7 +48,7 @@ public final class DebugInterface {
 				public void onClick(View arg0) {
 	    			world.model.player.traits.combatTraits.set(1, 1);
 	    			mainActivity.updateStatus();
-	    			mainActivity.showToast("DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
 				}
 			})*/
 			/*,new DebugButton("items", new OnClickListener() {
@@ -65,7 +68,7 @@ public final class DebugInterface {
 	    			world.model.player.inventory.addItem(world.itemTypes.getItemType("chaosreaper"));
 	    			
 	    			mainActivity.updateStatus();
-	    			mainActivity.showToast("DEBUG: added items", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: added items", Toast.LENGTH_SHORT);
 				}
 			})*/
 			/*new DebugButton("skills++", new OnClickListener() {
@@ -80,7 +83,7 @@ public final class DebugInterface {
 	    			}
 	    			ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
 	    			updateStatus();
-	    			showToast("DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT);
 				}
 			})*/
 			/*,new DebugButton("bwm", new OnClickListener() {
@@ -111,7 +114,7 @@ public final class DebugInterface {
 				public void onClick(View arg0) {
 	    			world.model.player.addExperience(10000);
 	    			mainActivity.updateStatus();
-	    			mainActivity.showToast("DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
 			,new DebugButton("reset", new OnClickListener() {
@@ -120,7 +123,7 @@ public final class DebugInterface {
 	    			for(PredefinedMap map : world.maps.getAllMaps()) {
 	    				map.resetTemporaryData();
 	    			}
-	    			mainActivity.showToast("DEBUG: maps respawned", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: maps respawned", Toast.LENGTH_SHORT);
 				}
 			})
 			,new DebugButton("hp", new OnClickListener() {
@@ -130,7 +133,7 @@ public final class DebugInterface {
 	    			world.model.player.health.max = world.model.player.baseTraits.maxHP;
 	    			controllerContext.actorStatsController.setActorMaxHealth(world.model.player);
 	    			world.model.player.conditions.clear();
-	    			mainActivity.showToast("DEBUG: hp set to max", Toast.LENGTH_SHORT);
+	    			showToast(mainActivity, "DEBUG: hp set to max", Toast.LENGTH_SHORT);
 				}
 			})
 			/*
@@ -173,6 +176,10 @@ public final class DebugInterface {
 			*/
 			
     	});
+	}
+
+	private void showToast(Context context, String msg, int duration) {
+		Toast.makeText(context, msg, duration).show();
 	}
 
 	private static class DebugButton {

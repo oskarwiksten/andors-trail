@@ -51,7 +51,7 @@
 				/>
 
 		</LinearLayout>
-		
+
 		<TextView
 			android:id="@+id/startscreen_version"
 			android:layout_width="wrap_content"
@@ -97,19 +97,19 @@
 		android:orientation="horizontal"
 		android:gravity="center_vertical"
 		>
+        <Button
+            android:id="@+id/startscreen_preferences"
+            android:layout_width="0dip"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/menu_settings"
+            />
 		<Button
 			android:id="@+id/startscreen_about"
 			android:layout_width="0dip"
 			android:layout_weight="1"
 			android:layout_height="wrap_content"
 			android:text="@string/startscreen_about"
-			/>
-		<Button
-			android:id="@+id/startscreen_quit"
-			android:layout_width="0dip"
-			android:layout_weight="1"
-			android:layout_height="wrap_content"
-			android:text="@string/exit"
 			/>
 	</LinearLayout>
 </LinearLayout>

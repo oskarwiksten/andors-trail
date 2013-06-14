@@ -40,7 +40,8 @@ public final class AndorsTrailPreferences {
 	public boolean enableUiAnimations = true;
 	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 	
-	public static void read(final Context androidContext, AndorsTrailPreferences dest) {
+	public void read(final Context androidContext) {
+		AndorsTrailPreferences dest = this;
 		try {
 			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(androidContext);
 			dest.confirmRest = prefs.getBoolean("confirm_rest", true);

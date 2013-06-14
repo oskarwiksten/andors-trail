@@ -7,14 +7,19 @@
 	android:background="@drawable/ui_gradientshape"
 	>
 
-	<ImageButton 
+    <ImageButton
+        android:id="@+id/toolbox_save"
+        style="@style/toolboxButtonDrawable"
+        android:src="@android:drawable/ic_menu_save"
+        />
+    <ImageButton
 		android:id="@+id/toolbox_map"
-		style="@style/toolboxButton"
+		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_map"
 	    />
 	<ImageButton 
 	    android:id="@+id/toolbox_quickitems"
-		style="@style/toolboxButton"
+		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_equipment"
 	    />
 </LinearLayout>
