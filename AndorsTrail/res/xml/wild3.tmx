@@ -125,22 +125,22 @@
  </tileset>
  <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcHQUj+JRPIppjH2ZGBgi2RkYfJgg2JuJOubFMUEwpeYdZ4OYd5wNgSk1Dx1TGobUNo9SDADsZDhV
+   eJw7ysbAcHQUj+JRPIqx4ONImFKzfJkYGCLZGRh8mCDYm4kyd8HMi2OCYJB55LoT5keQech+psTf6OZQIxypbR42M0nRCwAICzhv
   </data>
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJydVL0OgjAQLsQwQSyPoIm+iJvG2cnRReOIb+CgT+RzMLqQEDfjIE9gj1p6LVcofElz/bn7+h13tOKMhSljFWEDYTfC1kjlfhHrOdgA2VPk5qr9meZLExTPrPkfwKd0qDttfXvOvAD3KX160+QaCuBTup+xmcdbrA9TSojlb/GtuRxnz7xc/I0+C0eu76CG694sojX7oOvOwLceRH80R4nUB2jFdsRhuOqhYvtyr/u5tWn2G1WPCY7z0Dq2Vyk9uFdVfvhfLbnUV3b1Yo9mXM/M4rmM6HEq/3vgr8f2wb7LUM/hnVuI9ctRd+qbqB6A7wnnO+RzE2/BJ5a8jwGcGLk4v3JT01estyjOxaHqC+cwcmRnQvccvce414vYzA2wQvMfFT9GIQ==
+   eJydVEEKwjAQ3BaRHlpsH6EfERQVjyIKHlVQPPoIfZHv8OhFEG/ixReYbVyziZsaHQibppnZ2WbTRw4QFwAPIUYqDlQsUej1c2rmGCMW13W/VrkfjF6RMT448xdQj3xQTtffLIcgYD7yZxZtrV+BeuT7lNp13NTzvCEZcfY7ev1cj01gXT79tz8Hq9zkkIYv77Yuew5BVc4o9DyE/ni/yrQ/xAe3gsfhOw/ifqu97OePRbvfpPOocV6A1397VfLDe5Xq43e1lwAs2OgnsmaVHzpP1Fo6/LlPswJU/5jx9pGZj5KA78M8U0S9Vmy24H+uGWs9CRfhnlAP4PecKF6XcXfqX3BPtd7B00uSJgdpXhkf9YaM59Og88X3OI6viJodNqaJ3evn1K4N0WbzJ7KTRJs=
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYCANfBTAziZV70ACUtzxQYC27qa1+dQEZWyoboW5HZsfiPUXNf0Pch8lgFS3EKueXP+hm/8BiznIai6h0ZS4h1ZpMlwAgmGAmDDEpQZkThqaebgAoTC5hGROGpF+J2RmqwBx9hKSR1bziEB6oDcAAGDrL3U=
+   eJxjYCANfBTAziZV70ACUtzxQYC27qa1+dQEZWyoboW5HZsfiPUXNf0Pch8lgFS3EKueXP+hm/8BiznIai6h0ZS4B6TmEVTdIyrED6MghA4XgGAYICYMcakBmZOGZh6DIHYzCIXJJSRz0pDUPuHBrwcXAIVZqwCmmvto5hHjLmQ1j0gMO2KAIi8DgxIQg8KOEUf44QIA42I1yg==
   </data>
  </layer>
  <layer name="Walkable" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJytVEkOACEM8gl+yv9/aU6TGFKBLiQ9uIRSWj17rUPiB7vjBuLej+5UOBlUTVkwn1wNeNYFejqFqkcOL+Zgs6D0ZfuhtHVqjrR0803Wo3x25qjSl6k3F/FlPXT+uxeHq6/DqWpTa4cvw4/4AAjbLn0=
+   eJytU9sNACEMcgSXcv+V7usSQyrQB0k/1Eqh1rPXOiR+sBw3EPd+lFPhZFCesmB9cjXgWRfY0ylUe+TwYg02C0pf9j2Uto7nSEu33qQf1WdnjirvMuEh4nP/Mrsb1XlxuPo6nMqbWjt8GX7EB3LILig=
   </data>
  </layer>
  <objectgroup name="Mapevents" width="0" height="0">
@@ -195,14 +195,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="0" height="0">
+ <objectgroup name="Spawn" width="0" height="0" visible="0">
   <object name="Jan" type="spawn" x="192" y="416" width="32" height="32"/>
-  <object name="forestwasp" type="spawn" x="352" y="512" width="256" height="96">
+  <object name="forestwasp" type="spawn" x="352" y="512" width="224" height="64">
    <properties>
     <property name="quantity" value="5"/>
    </properties>
   </object>
-  <object name="forestdog" type="spawn" x="288" y="288" width="320" height="224">
+  <object name="forestdog" type="spawn" x="288" y="288" width="288" height="224">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
@@ -212,7 +212,7 @@
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="forestant" type="spawn" x="32" y="224" width="224" height="128"/>
+  <object name="forestant" type="spawn" x="64" y="224" width="224" height="128"/>
  </objectgroup>
  <objectgroup name="Keys" width="0" height="0" visible="0"/>
 </map>

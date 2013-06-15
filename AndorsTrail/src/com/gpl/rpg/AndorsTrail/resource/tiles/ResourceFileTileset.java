@@ -39,7 +39,7 @@ public final class ResourceFileTileset {
 				);
         
 	        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-		        L.log("OPTIMIZE: Tileset " + tilesetName + " will be resized from " + sourceTileSize.toString() + " to " + destinationTileSize.toString());
+		        //L.log("OPTIMIZE: Tileset " + tilesetName + " will be resized from " + sourceTileSize.toString() + " to " + destinationTileSize.toString());
 	        }
 		}
 	}

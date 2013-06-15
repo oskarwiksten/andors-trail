@@ -157,14 +157,14 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15" visible="0">
+ <objectgroup name="Spawn" width="30" height="15">
   <object name="fox1" type="spawn" x="64" y="96" width="192" height="160">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
   <object name="minorhaunt1" type="spawn" x="192" y="192" width="256" height="160"/>
-  <object name="forestwasp" type="spawn" x="192" y="32" width="416" height="192">
+  <object name="forestwasp" type="spawn" x="192" y="64" width="416" height="160">
    <properties>
     <property name="quantity" value="4"/>
    </properties>

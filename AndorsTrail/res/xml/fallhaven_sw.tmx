@@ -188,12 +188,12 @@
   </object>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="20"/>
- <objectgroup name="Citizens" width="30" height="20" visible="0">
-  <object name="fallhaven_citizen3" type="spawn" x="320" y="32" width="576" height="288"/>
+ <objectgroup name="Citizens" width="30" height="20">
+  <object name="fallhaven_citizen3" type="spawn" x="320" y="64" width="576" height="256"/>
  </objectgroup>
  <objectgroup name="NPCs, Monsters" width="30" height="20">
   <object name="fallhaven_lumberjack" type="spawn" x="416" y="256" width="32" height="32"/>
-  <object name="forestant" type="spawn" x="32" y="416" width="288" height="192">
+  <object name="forestant" type="spawn" x="64" y="384" width="288" height="192">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
@@ -203,9 +203,6 @@
     <property name="quantity" value="2"/>
    </properties>
   </object>
-  <object name="vacor" type="spawn" x="128" y="128" width="32" height="32">
-   <properties>
-   </properties>
-  </object>
+  <object name="vacor" type="spawn" x="128" y="128" width="32" height="32"/>
  </objectgroup>
 </map>
