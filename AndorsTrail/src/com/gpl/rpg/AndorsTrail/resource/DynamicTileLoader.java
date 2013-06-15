@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import android.util.SparseArray;
 import android.util.SparseIntArray;
@@ -85,7 +86,17 @@ public final class DynamicTileLoader {
 		}
 		return tileID;
 	}
-	
+
+	public void prepareAllMapTiles() {
+		for (Map.Entry<String, ResourceFileTilesetLoadList> tileset : preparedTilesetsByResourceName.entrySet()) {
+			if (!tileset.getKey().startsWith("map_")) continue;
+			ResourceFileTilesetLoadList b = tileset.getValue();
+			int numTiles = b.tileset.numTiles.width * b.tileset.numTiles.height;
+			for(int i = 0; i < numTiles; ++i) {
+				prepareTileID(b, i);
+			}
+		}
+	}
 	
 	public void flush() {
 		tileCache.allocateMaxTileID(currentTileStoreIndex);	

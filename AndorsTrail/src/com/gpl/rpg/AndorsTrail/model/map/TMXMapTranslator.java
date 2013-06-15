@@ -39,10 +39,10 @@ public final class TMXMapTranslator {
 		return transformMap(resultMap, tileCache, map.name);
 	}
 
-	public ArrayList<PredefinedMap> transformMaps(DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
-		return transformMaps(maps, tileLoader, monsterTypes, dropLists);
+	public ArrayList<PredefinedMap> transformMaps(MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
+		return transformMaps(maps, monsterTypes, dropLists);
 	}
-	public ArrayList<PredefinedMap> transformMaps(Collection<TMXMap> maps, DynamicTileLoader tileLoader, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
+	public ArrayList<PredefinedMap> transformMaps(Collection<TMXMap> maps, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
 		ArrayList<PredefinedMap> result = new ArrayList<PredefinedMap>();
 		
 		Tile tile = new Tile();
@@ -59,18 +59,6 @@ public final class TMXMapTranslator {
 			}
 			
 			final Size mapSize = new Size(m.width, m.height);
-			for (TMXLayer layer : m.layers) {
-				for (int y = 0; y < layer.height; ++y) {
-					for (int x = 0; x < layer.width; ++x) {
-						int gid = layer.gids[x][y];
-						if (gid <= 0) continue;
-						
-						if (!getTile(m, gid, tile)) continue;
-						tileLoader.prepareTileID(tile.tilesetName, tile.localId);
-					}
-				}
-			}
-			
 			ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
 			ArrayList<MonsterSpawnArea> spawnAreas = new ArrayList<MonsterSpawnArea>();
 			

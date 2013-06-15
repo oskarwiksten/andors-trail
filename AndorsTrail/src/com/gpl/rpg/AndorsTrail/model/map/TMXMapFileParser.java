@@ -30,8 +30,6 @@ public final class TMXMapFileParser {
 		try {
 			// Map format: http://sourceforge.net/apps/mediawiki/tiled/index.php?title=Examining_the_map_format
 			int eventType;
-			final ArrayList<TMXLayer> layers = new ArrayList<TMXLayer>();
-			final ArrayList<TMXTileSet> tileSets = new ArrayList<TMXTileSet>();
 			while ((eventType = xrp.next()) != XmlResourceParser.END_DOCUMENT) {
 				if (eventType == XmlResourceParser.START_TAG) {
 					String s = xrp.getName();
@@ -44,12 +42,8 @@ public final class TMXMapFileParser {
 						map.tileheight = xrp.getAttributeIntValue(null, "tileheight", -1);
 						XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 							public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
-								if (tagName.equals("tileset")) {
-									tileSets.add(readTMXTileSet(xrp));
-								} else if (tagName.equals("objectgroup")) {
+								if (tagName.equals("objectgroup")) {
 									map.objectGroups.add(readTMXObjectGroup(xrp));
-								} else if (tagName.equals("layer")) {
-									layers.add(readTMXMapLayer(xrp));
 								} else if (tagName.equals("property")) {
 									map.properties.add(readTMXProperty(xrp));
 								}
@@ -59,8 +53,6 @@ public final class TMXMapFileParser {
 				}
             }
             xrp.close();
-            map.layers = layers.toArray(new TMXLayer[layers.size()]);
-            map.tileSets = tileSets.toArray(new TMXTileSet[tileSets.size()]);
 		} catch (XmlPullParserException e) {
 			L.log("Error reading map \"" + name + "\": XmlPullParserException : " + e.toString());
 		} catch (IOException e) {
