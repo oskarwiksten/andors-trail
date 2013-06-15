@@ -1,6 +1,8 @@
 package com.gpl.rpg.AndorsTrail.model.quest;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class Quest implements Comparable<Quest> {
 	public final String questID;
@@ -16,7 +18,17 @@ public final class Quest implements Comparable<Quest> {
 		this.showInLog = showInLog;
 		this.sortOrder = sortOrder;
 	}
-	
+
+	public QuestLogEntry getQuestLogEntry(final int progress) {
+		for (QuestLogEntry s : stages) {
+			if (s.progress == progress) return s;
+		}
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			L.log("WARNING: Cannot find stage " + progress + " in quest \"" + questID + "\".");
+		}
+		return null;
+	}
+
 	public boolean isCompleted(final Player player) {
 		for (QuestLogEntry e : stages) {
 			if (!e.finishesQuest) continue;

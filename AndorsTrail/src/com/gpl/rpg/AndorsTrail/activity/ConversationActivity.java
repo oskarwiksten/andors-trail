@@ -29,6 +29,9 @@ import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.quest.Quest;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 import java.util.ArrayList;
@@ -37,9 +40,13 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		, ConversationController.ConversationStatemachine.ConversationStateListener {
 	public static final int ACTIVITYRESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
 	public static final int ACTIVITYRESULT_REMOVE = Activity.RESULT_FIRST_USER + 2;
-	private static final int playerConversationColor = Color.argb(255, 0xbb, 0x22, 0x22);
-	private static final int NPCConversationColor = Color.argb(255, 0xbb, 0xbb, 0x22);
-	
+	private static final int playerNameColor = Color.argb(255, 0xbb, 0x22, 0x22);
+	private static final int NPCNameColor = Color.argb(255, 0xbb, 0xbb, 0x22);
+	private static final int playerPhraseColor = 0;
+	private static final int NPCPhraseColor = 0;
+	private static final int rewardColor = Color.argb(255, 0x99, 0x99, 0x55);
+
+	private WorldContext world;
 	private Player player;
 	private ArrayList<ConversationStatement> conversationHistory = new ArrayList<ConversationStatement>();
 	private ConversationController.ConversationStatemachine conversationState;
@@ -55,7 +62,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		super.onCreate(savedInstanceState);
 		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
 		if (!app.isInitialized()) { finish(); return; }
-		WorldContext world = app.getWorld();
+		this.world = app.getWorld();
 		this.player = world.model.player;
 		this.conversationState = new ConversationController.ConversationStatemachine(world, app.getControllerContext(), getResources(), this);
 
@@ -202,12 +209,12 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		} else {
 			if (rb == null) return;
 			Reply r = (Reply) rb.getTag();
-			addConversationStatement(player, rb.getText().toString());
+			addConversationStatement(player, rb.getText().toString(), playerPhraseColor);
 			conversationState.playerSelectedReply(r);
 		}
 	}
 
-	private void addConversationStatement(Actor actor, String text) {
+	private void addConversationStatement(Actor actor, String text, int textColor) {
     	ConversationStatement s = new ConversationStatement();
     	if (actor != null) {
 	    	s.iconID = actor.iconID;
@@ -216,7 +223,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
     		s.iconID = ConversationStatement.NO_ICON;
     	}
     	s.text = text;
-    	s.color = actor == player ? playerConversationColor : NPCConversationColor;
+		s.nameColor = actor == player ? playerNameColor : NPCNameColor;
+		s.textColor = textColor;
     	s.isPlayerActor = actor != null && actor == player;
     	conversationHistory.add(s);
     	statementList.clearFocus();
@@ -237,7 +245,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		public String actorName;
 		public String text;
 		public int iconID;
-		public int color;
+		public int nameColor;
+		public int textColor;
 		public boolean isPlayerActor;
 		
 		public boolean hasActor() {
@@ -252,7 +261,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 			dest.writeString(actorName);
 			dest.writeString(text);
 			dest.writeInt(iconID);
-			dest.writeInt(color);
+			dest.writeInt(nameColor);
+			dest.writeInt(textColor);
 			dest.writeByte((byte) (isPlayerActor ? 1 : 0));
 		}
 		
@@ -263,7 +273,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		    	result.actorName = in.readString();
 		    	result.text = in.readString();
 		    	result.iconID = in.readInt();
-		    	result.color = in.readInt();
+		    	result.nameColor = in.readInt();
+				result.textColor = in.readInt();
 		    	result.isPlayerActor = in.readByte() == 1;
 		        return result;
 		    }
@@ -299,10 +310,19 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 				
 	    		tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);
 		        Spannable sp = (Spannable) tv.getText();
-		        sp.setSpan(new ForegroundColorSpan(statement.color), 0, statement.actorName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+		        sp.setSpan(new ForegroundColorSpan(statement.nameColor), 0, statement.actorName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				if (statement.textColor != 0) {
+					sp.setSpan(new ForegroundColorSpan(statement.textColor), statement.actorName.length()+1, sp.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				}
 	        } else {
 	        	tv.setCompoundDrawables(null, null, null, null);
-	    		tv.setText(statement.text);
+	    		if (statement.textColor == 0) {
+					tv.setText(statement.text);
+				} else {
+					tv.setText(statement.text, BufferType.SPANNABLE);
+					Spannable sp = (Spannable) tv.getText();
+					sp.setSpan(new ForegroundColorSpan(statement.textColor), 0, statement.text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+				}
 		    }
 			
 			return result;
@@ -321,14 +341,23 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 
 	@Override
 	public void onTextPhraseReached(String message, Actor actor) {
-		addConversationStatement(actor, message);
+		addConversationStatement(actor, message, NPCPhraseColor);
 	}
 
 	@Override
 	public void onPlayerReceivedRewards(ConversationController.PhraseRewards phraseRewards) {
 		Loot loot = phraseRewards.loot;
-		if (!loot.hasItemsOrExp()) return;
 
+		for (QuestProgress reward : phraseRewards.questProgress) {
+			Quest q = world.quests.getQuest(reward.questID);
+			if (!q.showInLog) continue;
+			QuestLogEntry logEntry = q.getQuestLogEntry(reward.progress);
+			if (logEntry.finishesQuest) {
+				addRewardMessage(getString(R.string.conversation_reward_quest_finished, q.name));
+			} else {
+				addRewardMessage(getString(R.string.conversation_reward_quest_updated, q.name));
+			}
+		}
 		if (loot.exp > 0) {
 			addRewardMessage(getString(R.string.conversation_rewardexp, loot.exp));
 		}
@@ -348,7 +377,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 
 	private void addRewardMessage(String text) {
-		addConversationStatement(null, text);
+		addConversationStatement(null, text, rewardColor);
 	}
 
 	@Override

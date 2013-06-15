@@ -21,16 +21,9 @@ public final class QuestCollection  {
 	public QuestLogEntry getQuestLogEntry(final QuestProgress stage) {
 		Quest q = getQuest(stage.questID);
 		if (q == null) return null;
-		
-		for (QuestLogEntry s : q.stages) {
-			if (s.progress == stage.progress) return s;
-		}
-		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Cannot find stage " + stage.progress + " in quest \"" + stage.questID + "\".");
-		}
-		return null;
+		return q.getQuestLogEntry(stage.progress);
 	}
-	
+
 	public Quest getQuest(final String questID) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!quests.containsKey(questID)) {
