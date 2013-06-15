@@ -83,7 +83,7 @@ public final class MapController {
 		for (PredefinedMap m : world.maps.getAllMaps()) {
 			m.resetTemporaryData();
 		}
-		controllers.monsterSpawnController.spawnAll(world.model.currentMap);
+		controllers.monsterSpawnController.spawnAll(world.model.currentMap, world.model.currentTileMap);
 	}
 
 	public void rest(MapObject area) {

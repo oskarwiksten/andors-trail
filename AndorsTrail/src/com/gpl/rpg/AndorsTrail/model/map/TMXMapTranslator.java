@@ -58,32 +58,15 @@ public final class TMXMapTranslator {
 				else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + " has unrecognized property \"" + p.name + "\".");
 			}
 			
-			boolean[][] isWalkable = new boolean[m.width][m.height];
-			for (int y = 0; y < m.height; ++y) {
-				for (int x = 0; x < m.width; ++x) {
-					isWalkable[x][y] = true;
-				}
-			}
 			final Size mapSize = new Size(m.width, m.height);
 			for (TMXLayer layer : m.layers) {
-				String layerName = layer.name;
-				assert(layerName != null);
-				assert(layerName.length() > 0);
-				layerName = layerName.toLowerCase();
-				
-				boolean isWalkableLayer = layerName.startsWith("walk");
-				
 				for (int y = 0; y < layer.height; ++y) {
 					for (int x = 0; x < layer.width; ++x) {
 						int gid = layer.gids[x][y];
 						if (gid <= 0) continue;
 						
-						if (isWalkableLayer) {
-							isWalkable[x][y] = false;
-						} else {
-							if (!getTile(m, gid, tile)) continue;
-							tileLoader.prepareTileID(tile.tilesetName, tile.localId);
-						}
+						if (!getTile(m, gid, tile)) continue;
+						tileLoader.prepareTileID(tile.tilesetName, tile.localId);
 					}
 				}
 			}
@@ -187,7 +170,7 @@ public final class TMXMapTranslator {
 			MonsterSpawnArea[] _spawnAreas = new MonsterSpawnArea[spawnAreas.size()];
 			_spawnAreas = spawnAreas.toArray(_spawnAreas);
 
-			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, isWalkable, _eventObjects, _spawnAreas, isOutdoors));
+			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, _eventObjects, _spawnAreas, isOutdoors));
 		}
 		
 		return result;
@@ -201,6 +184,12 @@ public final class TMXMapTranslator {
 			,new MapLayer(mapSize)
 			,new MapLayer(mapSize)
 		};
+		boolean[][] isWalkable = new boolean[map.width][map.height];
+		for (int y = 0; y < map.height; ++y) {
+			for (int x = 0; x < map.width; ++x) {
+				isWalkable[x][y] = true;
+			}
+		}
 		Tile tile = new Tile();
 		String colorFilter = null;
 		for (TMXProperty prop : map.properties) {
@@ -208,17 +197,20 @@ public final class TMXMapTranslator {
 		}
 		HashSet<Integer> usedTileIDs = new HashSet<Integer>();
 		for (TMXLayer layer : map.layers) {
-			int ixMapLayer;
+			int ixMapLayer = 0;
 			String layerName = layer.name;
 			assert(layerName != null);
 			assert(layerName.length() > 0);
 			layerName = layerName.toLowerCase();
+			boolean isWalkableLayer = false;
 			if (layerName.startsWith("object")) {
 				ixMapLayer = LayeredTileMap.LAYER_OBJECTS;
 			} else if (layerName.startsWith("ground")) {
 				ixMapLayer = LayeredTileMap.LAYER_GROUND;
 			} else if (layerName.startsWith("above")) {
 				ixMapLayer = LayeredTileMap.LAYER_ABOVE;
+			} else if (layerName.startsWith("walk")) {
+				isWalkableLayer = true;
 			} else {
 				continue;
 			}
@@ -229,14 +221,18 @@ public final class TMXMapTranslator {
 					if (gid <= 0) continue;
 					
 					if (!getTile(map, gid, tile)) continue;
-					
-					int tileID = tileCache.getTileID(tile.tilesetName, tile.localId);
-					layers[ixMapLayer].tiles[x][y] = tileID;
-					usedTileIDs.add(tileID);
+
+					if (isWalkableLayer) {
+						isWalkable[x][y] = false;
+					} else {
+						int tileID = tileCache.getTileID(tile.tilesetName, tile.localId);
+						layers[ixMapLayer].tiles[x][y] = tileID;
+						usedTileIDs.add(tileID);
+					}
 				}
 			}
 		}
-		return new LayeredTileMap(mapSize, layers, usedTileIDs, colorFilter);
+		return new LayeredTileMap(mapSize, layers, isWalkable, usedTileIDs, colorFilter);
 	}
 	
 	private static boolean getTile(final TMXLayerMap map, final int gid, final Tile dest) {

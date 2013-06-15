@@ -32,10 +32,9 @@ public final class PredefinedMap {
 	public int lastVisitVersion = 0;
 	private final boolean isOutdoors;
 
-	private final boolean[][] isWalkable;
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
-	public PredefinedMap(int xmlResourceId, String name, Size size, boolean[][] isWalkable, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
+	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
@@ -43,28 +42,9 @@ public final class PredefinedMap {
 		this.spawnAreas = spawnAreas;
 		assert(size.width > 0);
 		assert(size.height > 0);
-		assert(isWalkable.length == size.width);
-		assert(isWalkable[0].length == size.height);
-		this.isWalkable = isWalkable;
 		this.isOutdoors = isOutdoors;
 	}
-	
-	public final boolean isWalkable(final Coord p) { 
-		if (isOutside(p.x, p.y)) return false;
-    	return isWalkable[p.x][p.y]; 
-	}
-    public final boolean isWalkable(final int x, final int y) {
-    	if (isOutside(x, y)) return false;
-    	return isWalkable[x][y];
-    }
-    public final boolean isWalkable(final CoordRect p) {
-    	for (int y = 0; y < p.size.height; ++y) {
-			for (int x = 0; x < p.size.width; ++x) {
-				if (!isWalkable(p.topLeft.x + x, p.topLeft.y + y)) return false;
-			}
-		}
-		return true;
-    }
+
     public final boolean isOutside(final Coord p) { return isOutside(p.x, p.y); }
     public final boolean isOutside(final int x, final int y) {
     	if (x < 0) return true;
@@ -73,11 +53,11 @@ public final class PredefinedMap {
     	if (y >= size.height) return true;
     	return false;
     }
-    public final boolean isOutside(final CoordRect area) { 
-    	if (isOutside(area.topLeft)) return true; 
+    public final boolean isOutside(final CoordRect area) {
+    	if (isOutside(area.topLeft)) return true;
     	if (area.topLeft.x + area.size.width > size.width) return true;
     	if (area.topLeft.y + area.size.height > size.height) return true;
-    	return false; 
+    	return false;
     }
     
     public MapObject findEventObject(int objectType, String name) {
@@ -239,7 +219,7 @@ public final class PredefinedMap {
 		
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
-			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, area, true);
+			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, null, area, true);
 			else area.reset();
 		}
 	}

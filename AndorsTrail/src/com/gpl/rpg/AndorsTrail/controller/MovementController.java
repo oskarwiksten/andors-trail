@@ -73,32 +73,38 @@ public final class MovementController implements TimedMessageTask.Callback {
 		final ModelContainer model = world.model;
 		
 		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
-		cacheCurrentMapData(res, newMap);
-		model.currentMap = newMap;
 		model.player.position.set(place.position.topLeft);
 		model.player.position.x += Math.min(offset_x, place.position.size.width-1);
 		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
 		model.player.lastPosition.set(model.player.position);
 		
-		if (newMap.visited) playerVisitsMap(newMap);
-		else playerVisitsMapFirstTime(newMap);
-		
-		refreshMonsterAggressiveness(newMap, model.player);
-		controllers.effectController.updateSplatters(newMap);
+		if (!newMap.visited) {
+			playerVisitsMapFirstTime(newMap);
+		}
 
+		prepareMapAsCurrentMap(newMap, res, true);
 	}
     
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
 		m.reset();
-		controllers.monsterSpawnController.spawnAll(m);
 		m.createAllContainerLoot();
-		m.visited = true;
 	}
-	private void playerVisitsMap(PredefinedMap m) {
-		// Respawn everything if a certain time has elapsed.
-		if (!m.isRecentlyVisited()) controllers.monsterSpawnController.spawnAll(m);
+
+	public void prepareMapAsCurrentMap(PredefinedMap newMap, Resources res, boolean spawnMonsters) {
+		final ModelContainer model = world.model;
+		model.currentMap = newMap;
+		cacheCurrentMapData(res, newMap);
+		if (spawnMonsters) {
+			if (!newMap.isRecentlyVisited()) {
+				controllers.monsterSpawnController.spawnAll(newMap, model.currentTileMap);
+			}
+		}
+		newMap.visited = true;
+		moveBlockedActors(newMap, model.currentTileMap);
+		refreshMonsterAggressiveness(newMap, model.player);
+		controllers.effectController.updateSplatters(newMap);
 	}
-	
+
 	private boolean mayMovePlayer() {
 		return !world.model.uiSelections.isInCombat;
 	}
@@ -174,7 +180,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     			,player.position.y + dy
 			);
 
-    	if (!world.model.currentMap.isWalkable(player.nextPosition)) return false;
+    	if (!world.model.currentTileMap.isWalkable(player.nextPosition)) return false;
     	
 		// allow player to enter every field when he is NORMAL
 		// prevent player from entering "non-monster-fields" when he is AGGRESSIVE
@@ -240,12 +246,13 @@ public final class MovementController implements TimedMessageTask.Callback {
 		placePlayerAsyncAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 	}
 
-	public void moveBlockedActors() {
+	public void moveBlockedActors(PredefinedMap map, LayeredTileMap tileMap) {
 		final ModelContainer model = world.model;
-		if (!world.model.currentMap.isWalkable(world.model.player.position)) {
-			// If the player somehow spawned on an unwalkable tile, we move the player to the first mapchange area.
-			// This could happen if we change some tile to non-walkable in a future version.
-			for (MapObject o : model.currentMap.eventObjects) {
+
+		// If the player somehow spawned on an unwalkable tile, we move the player to the first mapchange area.
+		// This could happen if we change some tile to non-walkable in a future version.
+		if (!tileMap.isWalkable(model.player.position)) {
+			for (MapObject o : map.eventObjects) {
 	    		if (o.type == MapObject.MAPEVENT_NEWMAP) {
 	    			model.player.position.set(o.position.topLeft);
 		    		break;
@@ -255,22 +262,19 @@ public final class MovementController implements TimedMessageTask.Callback {
 		
 		// If any monsters somehow spawned on an unwalkable tile, we move the monster to a new position on the spawnarea
 		// This could happen if we change some tile to non-walkable in a future version.
-		for (PredefinedMap map : world.maps.getAllMaps()) {
-			Coord playerPosition = null;
-			if (map == model.currentMap) playerPosition = model.player.position;
-			for (MonsterSpawnArea a : map.spawnAreas) {
-				for (Monster m : a.monsters) {
-					if (!map.isWalkable(m.rectPosition)) {
-						Coord p = MonsterSpawningController.getRandomFreePosition(map, a.area, m.tileSize, playerPosition);
-						if (p == null) continue;
-						m.position.set(p);
-					}
+		Coord playerPosition = model.player.position;
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (Monster m : a.monsters) {
+				if (!tileMap.isWalkable(m.rectPosition)) {
+					Coord p = MonsterSpawningController.getRandomFreePosition(map, tileMap, a.area, m.tileSize, playerPosition);
+					if (p == null) continue;
+					m.position.set(p);
 				}
 			}
 		}
 	}
 
-	public void cacheCurrentMapData(final Resources res, final PredefinedMap nextMap) {
+	private void cacheCurrentMapData(final Resources res, final PredefinedMap nextMap) {
 		LayeredTileMap mapTiles = TMXMapTranslator.readLayeredTileMap(res, world.tileManager.tileCache, nextMap);
 		TileCollection cachedTiles = world.tileManager.loadTilesFor(nextMap, mapTiles, world, res);
 		world.model.currentTileMap = mapTiles;
@@ -279,8 +283,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		WorldMapController.updateWorldMap(world, nextMap, mapTiles, cachedTiles, res);
 	}
-	
-	
+
+
 	private int movementDx;
 	private int movementDy;
 	public void startMovement(int dx, int dy, Coord destination) {

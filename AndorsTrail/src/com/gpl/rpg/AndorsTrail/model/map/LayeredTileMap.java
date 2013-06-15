@@ -6,6 +6,8 @@ import android.graphics.ColorFilter;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 
+import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LayeredTileMap {
@@ -18,17 +20,59 @@ public final class LayeredTileMap {
 	private static final ColorFilter colorFilterBlack60 = createGrayScaleColorFilter(0.6f);
 	private static final ColorFilter colorFilterBlack80 = createGrayScaleColorFilter(0.8f);
 
+	private final Size size;
 	public final MapLayer[] layers;
 	public final Collection<Integer> usedTileIDs;
+	private final boolean[][] isWalkable;
 	public final String colorFilter;
 	
-	public LayeredTileMap(Size size, MapLayer[] layers, Collection<Integer> usedTileIDs, String colorFilter) {
+	public LayeredTileMap(
+			Size size,
+			MapLayer[] layers,
+			boolean[][] isWalkable,
+			Collection<Integer> usedTileIDs,
+			String colorFilter) {
 		assert(size.width > 0);
 		assert(size.height > 0);
 		assert(layers.length == 3);
+		assert(isWalkable.length == size.width);
+		assert(isWalkable[0].length == size.height);
+		this.size = size;
 		this.layers = layers;
 		this.usedTileIDs = usedTileIDs;
+		this.isWalkable = isWalkable;
 		this.colorFilter = colorFilter;
+	}
+
+	public final boolean isWalkable(final Coord p) {
+		if (isOutside(p.x, p.y)) return false;
+		return isWalkable[p.x][p.y];
+	}
+	public final boolean isWalkable(final int x, final int y) {
+		if (isOutside(x, y)) return false;
+		return isWalkable[x][y];
+	}
+	public final boolean isWalkable(final CoordRect p) {
+		for (int y = 0; y < p.size.height; ++y) {
+			for (int x = 0; x < p.size.width; ++x) {
+				if (!isWalkable(p.topLeft.x + x, p.topLeft.y + y)) return false;
+			}
+		}
+		return true;
+	}
+	public final boolean isOutside(final Coord p) { return isOutside(p.x, p.y); }
+	public final boolean isOutside(final int x, final int y) {
+		if (x < 0) return true;
+		if (y < 0) return true;
+		if (x >= size.width) return true;
+		if (y >= size.height) return true;
+		return false;
+	}
+	public final boolean isOutside(final CoordRect area) {
+		if (isOutside(area.topLeft)) return true;
+		if (area.topLeft.x + area.size.width > size.width) return true;
+		if (area.topLeft.y + area.size.height > size.height) return true;
+		return false;
 	}
 
 	public void setColorFilter(Paint mPaint) {

@@ -5,6 +5,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MonsterMovementListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
@@ -49,8 +50,10 @@ public final class MonsterMovementController {
     	}
     }
 	
-	public static boolean monsterCanMoveTo(final PredefinedMap map, final CoordRect p) {
-		if (!map.isWalkable(p)) return false;
+	public static boolean monsterCanMoveTo(final PredefinedMap map, final LayeredTileMap tilemap, final CoordRect p) {
+		if (tilemap != null) {
+			if (!tilemap.isWalkable(p)) return false;
+		}
 		if (map.getMonsterAt(p) != null) return false;
 		MapObject m = map.getEventObjectAt(p.topLeft);
 		if (m != null) {
@@ -61,7 +64,8 @@ public final class MonsterMovementController {
     
 	private void moveMonster(final Monster m, final MonsterSpawnArea area) {
         PredefinedMap map = world.model.currentMap;
-    	m.nextActionTime += getMillisecondsPerMove(m);
+		LayeredTileMap tileMap = world.model.currentTileMap;
+		m.nextActionTime += getMillisecondsPerMove(m);
     	if (m.movementDestination == null) {
     		// Monster has waited and should start to move again.
     		m.movementDestination = new Coord(m.position);
@@ -80,7 +84,7 @@ public final class MonsterMovementController {
 					,m.position.y + sgn(m.movementDestination.y - m.position.y)
 				);
     		
-    		if (!monsterCanMoveTo(map, m.nextPosition)) {
+    		if (!monsterCanMoveTo(map, tileMap, m.nextPosition)) {
     			cancelCurrentMonsterMovement(m);
     			return;
     		}

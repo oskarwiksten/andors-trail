@@ -85,7 +85,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     
 	private void onNewTick() {
     	controllers.monsterMovementController.moveMonsters();
-    	controllers.monsterSpawnController.maybeSpawn(world.model.currentMap);
+    	controllers.monsterSpawnController.maybeSpawn(world.model.currentMap, world.model.currentTileMap);
 		controllers.monsterMovementController.attackWithAgressiveMonsters();
 		controllers.effectController.updateSplatters(world.model.currentMap);
 		gameRoundListeners.onNewTick();
