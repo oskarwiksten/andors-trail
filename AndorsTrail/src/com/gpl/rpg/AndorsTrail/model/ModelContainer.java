@@ -14,6 +14,7 @@ public final class ModelContainer {
 	
 	public final Player player;
 	public final InterfaceData uiSelections;
+	public final CombatLog combatLog = new CombatLog();
 	public final GameStatistics statistics;
 	public PredefinedMap currentMap;
 	public LayeredTileMap currentTileMap;

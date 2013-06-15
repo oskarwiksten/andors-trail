@@ -9,10 +9,15 @@
 
     <ImageButton
         android:id="@+id/toolbox_save"
-        style="@style/toolboxButtonDrawable"
-        android:src="@android:drawable/ic_menu_save"
+        style="@style/toolboxButtonTile"
+        android:src="@drawable/ui_icon_save"
         />
     <ImageButton
+        android:id="@+id/toolbox_combatlog"
+        style="@style/toolboxButtonTile"
+        android:src="@drawable/ui_icon_combat"
+        />
+	<ImageButton
 		android:id="@+id/toolbox_map"
 		style="@style/toolboxButtonTile"
 		android:src="@drawable/ui_icon_map"

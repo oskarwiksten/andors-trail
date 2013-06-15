@@ -1,14 +1,19 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
-import java.lang.ref.WeakReference;
-import java.util.Collection;
-
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.*;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.View.OnClickListener;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
-import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
@@ -23,30 +28,13 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.view.CombatView;
-import com.gpl.rpg.AndorsTrail.view.DisplayActiveActorConditionIcons;
-import com.gpl.rpg.AndorsTrail.view.MainView;
-import com.gpl.rpg.AndorsTrail.view.ToolboxView;
-import com.gpl.rpg.AndorsTrail.view.VirtualDpadView;
+import com.gpl.rpg.AndorsTrail.view.*;
 import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
-import com.gpl.rpg.AndorsTrail.view.QuickitemView;
-import com.gpl.rpg.AndorsTrail.view.StatusView;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.SubMenu;
-import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.MenuItem.OnMenuItemClickListener;
-import android.view.View.OnClickListener;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
+import java.lang.ref.WeakReference;
+import java.util.Collection;
 
 public final class MainActivity extends Activity implements PlayerMovementListener, CombatActionListener, CombatTurnListener, WorldEventListener {
 
@@ -69,10 +57,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
     private QuickitemView quickitemview;
     private DisplayActiveActorConditionIcons activeConditions;
     private ToolboxView toolboxview;
-    private VirtualDpadView dpad;
-	
-	private static final int NUM_MESSAGES = 3;
-	private final String[] messages = new String[NUM_MESSAGES];
+
 	private TextView statusText;
 	private WeakReference<Toast> lastToast = null;
 	private ContextMenuInfo lastSelectedMenu = null;
@@ -94,7 +79,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
         combatview = (CombatView) findViewById(R.id.main_combatview);
         quickitemview = (QuickitemView) findViewById(R.id.main_quickitemview);
         activeConditions = new DisplayActiveActorConditionIcons(controllers, world, this, (RelativeLayout) findViewById(R.id.statusview_activeconditions));
-        dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
+		VirtualDpadView dpad = (VirtualDpadView) findViewById(R.id.main_virtual_dpad);
         toolboxview = (ToolboxView) findViewById(R.id.main_toolboxview);
         statusview.registerToolboxViews(toolboxview, quickitemview);
         
@@ -102,7 +87,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		statusText.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				clearMessages();
+				statusText.setVisibility(View.GONE);
 			}
 		});
 		clearMessages();
@@ -253,26 +238,15 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		combatview.updateStatus();
 		toolboxview.updateIcons();
 	}
-	
+
 	private void message(String msg) {
-		StringBuilder sb = new StringBuilder(100);
-		for(int i = 0; i < NUM_MESSAGES-1; ++i) {
-			messages[i] = messages[i + 1];
-			if (messages[i].length() > 0) {
-				sb.append(messages[i]);
-				sb.append('\n');
-			}
-		}
-		messages[NUM_MESSAGES-1] = msg;
-		sb.append(msg);
-		statusText.setText(sb.toString());
+		world.model.combatLog.append(msg);
+		statusText.setText(world.model.combatLog.getLastMessages());
 		statusText.setVisibility(View.VISIBLE);
 	}
 	
 	private void clearMessages() {
-		for(int i = 0; i < NUM_MESSAGES; ++i) {
-			messages[i] = "";
-		}
+		world.model.combatLog.appendCombatEnded();
 		statusText.setVisibility(View.GONE);
 	}
 
@@ -313,17 +287,15 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
 	@Override
 	public void onPlayerAttackSuccess(Monster target, AttackResult attackResult) {
-		String msg;
 		final String monsterName = target.getName();
 		if (attackResult.isCriticalHit) {
-			msg = getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage);
+			message(getString(R.string.combat_result_herohitcritical, monsterName, attackResult.damage));
 		} else {
-			msg = getString(R.string.combat_result_herohit, monsterName, attackResult.damage);
+			message(getString(R.string.combat_result_herohit, monsterName, attackResult.damage));
 		}
 		if (attackResult.targetDied) {
-			msg += ' ' + getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage);
+			message(getString(R.string.combat_result_herokillsmonster, monsterName, attackResult.damage));
 		}
-		message(msg);
 	}
 
 	@Override

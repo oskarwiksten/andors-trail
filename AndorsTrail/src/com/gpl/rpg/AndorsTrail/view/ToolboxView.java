@@ -29,6 +29,7 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 	private final ImageButton toolbox_quickitems;
 	private final ImageButton toolbox_map;
 	private final ImageButton toolbox_save;
+	private final ImageButton toolbox_combatlog;
 	private ImageButton toggleVisibility;
 	private QuickitemView quickitemView;
 
@@ -57,6 +58,8 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		toolbox_map.setOnClickListener(this);
 		toolbox_save = (ImageButton)findViewById(R.id.toolbox_save);
 		toolbox_save.setOnClickListener(this);
+		toolbox_combatlog = (ImageButton)findViewById(R.id.toolbox_combatlog);
+		toolbox_combatlog.setOnClickListener(this);
 	}
 
 	public void registerToolboxViews(ImageButton toggleVisibility, QuickitemView quickitemView) {
@@ -76,7 +79,12 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			if (Dialogs.showSave((Activity)getContext(), controllers, world)) {
 				setVisibility(View.GONE);
 			}
+		} else if (btn == toolbox_combatlog) {
+			Dialogs.showCombatLog(getContext(), controllers, world);
+			setVisibility(View.GONE);
 		}
+
+		if (getVisibility() == View.GONE) setToolboxIcon(false);
 	}
 
 	private void toggleQuickItemView() {

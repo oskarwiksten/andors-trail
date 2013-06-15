@@ -15,9 +15,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.*;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
@@ -32,7 +30,6 @@ import com.gpl.rpg.AndorsTrail.activity.ItemInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
 import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
-import com.gpl.rpg.AndorsTrail.activity.Preferences;
 import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
 import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
 import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
@@ -319,5 +316,26 @@ public final class Dialogs {
 		intent.putExtra("skillID", skillID);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/showskillinfo/" + skillID));
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SKILLINFO);
+	}
+
+	public static void showCombatLog(final Context context, final ControllerContext controllerContext, final WorldContext world) {
+		final String[] combatLogMessages = world.model.combatLog.getAllMessages();
+
+		final ListView itemList = new ListView(context);
+		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
+		itemList.setPadding(20, 0, 20, 20);
+		itemList.setStackFromBottom(true);
+		itemList.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+		itemList.setChoiceMode(ListView.CHOICE_MODE_NONE);
+		itemList.setAdapter(new ArrayAdapter<String>(context, R.layout.combatlog_row, android.R.id.text1, combatLogMessages));
+
+		final Dialog d = new AlertDialog.Builder(context)
+				.setTitle(R.string.combat_log_title)
+				.setIcon(R.drawable.ui_icon_combat)
+				.setNegativeButton(R.string.dialog_close, null)
+				.setView(itemList)
+				.create();
+
+		showDialogAndPause(d, controllerContext);
 	}
 }
