@@ -58,6 +58,7 @@ public final class MonsterMovementController {
 		MapObject m = map.getEventObjectAt(p.topLeft);
 		if (m != null) {
 			if (m.type == MapObject.MAPEVENT_NEWMAP) return false;
+			if (m.type == MapObject.MAPEVENT_KEYAREA) return false;
 		}
     	return true;
 	}

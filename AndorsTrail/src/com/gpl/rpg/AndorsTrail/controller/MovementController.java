@@ -252,12 +252,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		// If the player somehow spawned on an unwalkable tile, we move the player to the first mapchange area.
 		// This could happen if we change some tile to non-walkable in a future version.
 		if (!tileMap.isWalkable(model.player.position)) {
-			for (MapObject o : map.eventObjects) {
-	    		if (o.type == MapObject.MAPEVENT_NEWMAP) {
-	    			model.player.position.set(o.position.topLeft);
-		    		break;
-	    		}
-	    	}
+			Coord p = getFirstMapChangeAreaPosition(map);
+			if (p != null) model.player.position.set(p);
 		}
 		
 		// If any monsters somehow spawned on an unwalkable tile, we move the monster to a new position on the spawnarea
@@ -265,13 +261,31 @@ public final class MovementController implements TimedMessageTask.Callback {
 		Coord playerPosition = model.player.position;
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!tileMap.isWalkable(m.rectPosition)) {
-					Coord p = MonsterSpawningController.getRandomFreePosition(map, tileMap, a.area, m.tileSize, playerPosition);
-					if (p == null) continue;
-					m.position.set(p);
-				}
+				if (tileMap.isWalkable(m.rectPosition)) continue;
+				Coord p = MonsterSpawningController.getRandomFreePosition(map, tileMap, a.area, m.tileSize, playerPosition);
+				if (p == null) continue;
+				m.position.set(p);
 			}
 		}
+
+		// Move ground bags that are are placed on unwalkable tiles.
+		// This could happen if we change some tile to non-walkable in a future version.
+		for (Loot bag : map.groundBags) {
+			if (tileMap.isWalkable(bag.position)) continue;
+			Coord p = getFirstMapChangeAreaPosition(map);
+			if (p == null) continue;
+			     if (tileMap.isWalkable(new Coord(p.x+1, p.y  ))) bag.position.set(p.x+1, p.y  );
+			else if (tileMap.isWalkable(new Coord(p.x  , p.y+1))) bag.position.set(p.x  , p.y+1);
+			else if (tileMap.isWalkable(new Coord(p.x-1, p.y  ))) bag.position.set(p.x-1, p.y  );
+			else if (tileMap.isWalkable(new Coord(p.x  , p.y-1))) bag.position.set(p.x  , p.y-1);
+		}
+	}
+
+	private static Coord getFirstMapChangeAreaPosition(PredefinedMap map) {
+		for (MapObject o : map.eventObjects) {
+			if (o.type == MapObject.MAPEVENT_NEWMAP) return o.position.topLeft;
+		}
+		return null;
 	}
 
 	private void cacheCurrentMapData(final Resources res, final PredefinedMap nextMap) {
