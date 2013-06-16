@@ -141,7 +141,7 @@ public final class WorldSetup {
 		Context ctx = androidContext.get();
 		int result = Savegames.loadWorld(world, controllers, ctx, loadFromSlot);
     	if (result == Savegames.LOAD_RESULT_SUCCESS) {
-			controllers.movementController.cacheCurrentMapData(ctx.getResources(), world.model.currentMap);
+			controllers.movementController.prepareMapAsCurrentMap(world.model.currentMap, ctx.getResources(), false);
 		}
 		return result;
 	}

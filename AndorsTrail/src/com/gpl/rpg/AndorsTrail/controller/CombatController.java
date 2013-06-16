@@ -1,11 +1,8 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import java.util.ArrayList;
-
 import android.os.Handler;
 import android.os.Message;
 import android.util.FloatMath;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
@@ -21,9 +18,10 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+
+import java.util.ArrayList;
 
 public final class CombatController implements VisualEffectCompletedCallback {
 	private final ControllerContext controllers;
@@ -105,11 +103,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	
 	public void setCombatSelection(Coord p) {
-		PredefinedMap map = world.model.currentMap;
-		Monster m = map.getMonsterAt(p);
+		Monster m = world.model.currentMap.getMonsterAt(p);
 		if (m != null) {
 			setCombatSelection(m, p);
-		} else if (map.isWalkable(p)) {
+		} else if (world.model.currentTileMap.isWalkable(p)) {
 			setCombatSelection(null, p);
 		}
 	}

@@ -127,7 +127,6 @@ public final class Savegames {
 	private static void onWorldLoaded(WorldContext world, ControllerContext controllers) {
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
 		controllers.mapController.resetMapsNotRecentlyVisited();
-		controllers.movementController.moveBlockedActors();
 	}
 	
 	public static FileHeader quickload(Context androidContext, int slot) {
