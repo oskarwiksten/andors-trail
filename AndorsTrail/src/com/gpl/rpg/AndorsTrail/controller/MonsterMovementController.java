@@ -136,7 +136,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
 	@Override
 	public boolean isWalkable(CoordRect r) {
-		return monsterCanMoveTo(world.model.currentMap, r);
+		return monsterCanMoveTo(world.model.currentMap, world.model.currentTileMap, r);
 	}
 
     public void moveMonsterToNextPosition(Monster m, PredefinedMap map) {
