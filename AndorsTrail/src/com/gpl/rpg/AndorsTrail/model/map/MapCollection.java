@@ -17,6 +17,7 @@ import java.util.List;
 public final class MapCollection {
 	private final HashMap<String, PredefinedMap> predefinedMaps = new HashMap<String, PredefinedMap>();
 	public final HashMap<String, WorldMapSegment> worldMapSegments = new HashMap<String, WorldMapSegment>();
+	public boolean worldMapRequiresUpdate = true;
 
 	public MapCollection() {}
 
@@ -43,6 +44,7 @@ public final class MapCollection {
 		for (PredefinedMap m : getAllMaps()) {
     		m.reset();
     	}
+		worldMapRequiresUpdate = true;
 	}
 	
 	public String getWorldMapSegmentNameForMap(String mapName) {

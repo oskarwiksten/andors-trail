@@ -1,19 +1,19 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.zip.GZIPInputStream;
-import java.util.zip.InflaterInputStream;
-
-import org.xmlpull.v1.XmlPullParserException;
-
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
 import com.gpl.rpg.AndorsTrail.util.Base64;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.XmlResourceParserUtils;
+import org.xmlpull.v1.XmlPullParserException;
 
-import android.content.res.Resources;
-import android.content.res.XmlResourceParser;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.zip.GZIPInputStream;
+import java.util.zip.InflaterInputStream;
 
 public final class TMXMapFileParser {
 	public static TMXObjectMap readObjectMap(Resources r, int xmlResourceId, String name) {
@@ -200,10 +200,16 @@ public final class TMXMapFileParser {
 		for(int y = 0; y < layer.height; ++y) {
 			for(int x = 0; x < layer.width; ++x, i += 4) {
 				int gid = readIntLittleEndian(buffer, i);
-				//if (gid != 0) L.log(getHexString(buffer, i) + " -> " + gid);
 				layer.gids[x][y] = gid;
-				//L.log("(" + x + "," + y + ") : " + layer.gids[x][y]);
 			}
+		}
+
+		try {
+			MessageDigest digest = MessageDigest.getInstance("MD5");
+			digest.update(buffer);
+			layer.layoutHash = digest.digest();
+		} catch (NoSuchAlgorithmException e) {
+			throw new IOException("Failed to create layout hash for map layer " + layer.name);
 		}
 	}
 	
@@ -275,6 +281,7 @@ public final class TMXMapFileParser {
 		public int width;
 		public int height;
 		public int[][] gids;
+		public byte[] layoutHash;
 	}
 	public static final class TMXObjectGroup {
 		public String name;

@@ -18,6 +18,7 @@ public final class LayeredTileMap {
 
 	private final Size size;
 	public final MapSection currentLayout;
+	private String currentLayoutHash;
 	public final ReplaceableMapSection[] replacements;
 	public final String colorFilter;
 	public final Collection<Integer> usedTileIDs;
@@ -32,6 +33,7 @@ public final class LayeredTileMap {
 		this.replacements = replacements;
 		this.colorFilter = colorFilter;
 		this.usedTileIDs = usedTileIDs;
+		this.currentLayoutHash = currentLayout.calculateHash();
 	}
 
 	public final boolean isWalkable(final Coord p) {
@@ -89,7 +91,12 @@ public final class LayeredTileMap {
 		});
 	}
 
+	public String getCurrentLayoutHash() {
+		return currentLayoutHash;
+	}
+
 	public void applyReplacement(ReplaceableMapSection replacement) {
 		replacement.apply(currentLayout);
+		currentLayoutHash = currentLayout.calculateHash();
 	}
 }

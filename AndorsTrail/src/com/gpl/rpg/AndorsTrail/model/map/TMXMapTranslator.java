@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -244,11 +246,12 @@ public final class TMXMapTranslator {
 			HashSet<Integer> usedTileIDs,
 			SetOfLayerNames layerNames
 			) {
-		final MapLayer layerGround = transformMapLayer(findLayer(layersPerLayerName, layerNames.groundLayerName, srcMap.name), srcMap, tileCache, area, usedTileIDs);
-		final MapLayer layerObjects = transformMapLayer(findLayer(layersPerLayerName, layerNames.objectsLayerName, srcMap.name), srcMap, tileCache, area, usedTileIDs);
-		final MapLayer layerAbove = transformMapLayer(findLayer(layersPerLayerName, layerNames.aboveLayersName, srcMap.name), srcMap, tileCache, area, usedTileIDs);
+		final MapLayer layerGround = transformMapLayer(layersPerLayerName, layerNames.groundLayerName, srcMap, tileCache, area, usedTileIDs);
+		final MapLayer layerObjects = transformMapLayer(layersPerLayerName, layerNames.objectsLayerName, srcMap, tileCache, area, usedTileIDs);
+		final MapLayer layerAbove = transformMapLayer(layersPerLayerName, layerNames.aboveLayersName, srcMap, tileCache, area, usedTileIDs);
 		boolean[][] isWalkable = transformWalkableMapLayer(findLayer(layersPerLayerName, layerNames.walkableLayersName, srcMap.name), area);
-		return new MapSection(layerGround, layerObjects, layerAbove, isWalkable);
+		byte[] layoutHash = calculateLayoutHash(srcMap, layersPerLayerName, layerNames);
+		return new MapSection(layerGround, layerObjects, layerAbove, isWalkable, layoutHash);
 	}
 
 	private static TMXLayer findLayer(HashMap<String, TMXLayer> layersPerLayerName, String layerName, String mapName) {
@@ -264,12 +267,14 @@ public final class TMXMapTranslator {
 	}
 
 	private static MapLayer transformMapLayer(
-			TMXLayer srcLayer,
+			HashMap<String, TMXLayer> layersPerLayerName,
+			String layerName,
 			TMXLayerMap srcMap,
 			TileCache tileCache,
 			CoordRect area,
 			HashSet<Integer> usedTileIDs
 	) {
+		TMXLayer srcLayer = findLayer(layersPerLayerName, layerName, srcMap.name);
 		if (srcLayer == null) return null;
 		final MapLayer result = new MapLayer(area.size);
 		Tile tile = new Tile();
@@ -303,6 +308,26 @@ public final class TMXMapTranslator {
 			}
 		}
 		return isWalkable;
+	}
+
+	private static byte[] calculateLayoutHash(TMXLayerMap map, HashMap<String, TMXLayer> layersPerLayerName, SetOfLayerNames layerNames) {
+		try {
+			MessageDigest digest = MessageDigest.getInstance("MD5");
+			digestLayer(layersPerLayerName, layerNames.groundLayerName, map, digest);
+			digestLayer(layersPerLayerName, layerNames.objectsLayerName, map, digest);
+			digestLayer(layersPerLayerName, layerNames.aboveLayersName, map, digest);
+			return digest.digest();
+		} catch (NoSuchAlgorithmException e) {
+			L.log("ERROR: Failed to create layout hash for map " + map.name + " : " + e.toString());
+		}
+		return new byte[0];
+	}
+
+	private static void digestLayer(HashMap<String, TMXLayer> layersPerLayerName, String layerName, TMXLayerMap map, MessageDigest digest) {
+		TMXLayer srcLayer = findLayer(layersPerLayerName, layerName, map.name);
+		if (srcLayer == null) return;
+		if (srcLayer.layoutHash == null) return;
+		digest.update(srcLayer.layoutHash);
 	}
 
 	private static boolean getTile(final TMXLayerMap map, final int gid, final Tile dest) {

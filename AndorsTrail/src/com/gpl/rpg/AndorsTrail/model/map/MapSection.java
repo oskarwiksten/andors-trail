@@ -1,5 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import com.gpl.rpg.AndorsTrail.util.ByteUtils;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MapSection {
@@ -7,16 +8,19 @@ public final class MapSection {
 	public final MapLayer layerObjects;
 	public final MapLayer layerAbove;
 	public final boolean[][] isWalkable;
+	private final byte[] layoutHash;
 
 	public MapSection(
 			MapLayer layerGround,
 			MapLayer layerObjects,
 			MapLayer layerAbove,
-			boolean[][] isWalkable) {
+			boolean[][] isWalkable,
+			byte[] layoutHash) {
 		this.layerGround = layerGround;
 		this.layerObjects = layerObjects;
 		this.layerAbove = layerAbove;
 		this.isWalkable = isWalkable;
+		this.layoutHash = layoutHash;
 	}
 
 	public void replaceLayerContentsWith(final MapSection replaceLayersWith, final CoordRect replacementArea) {
@@ -30,6 +34,9 @@ public final class MapSection {
 				System.arraycopy(replaceLayersWith.isWalkable[sx], 0, isWalkable[dx], dy, height);
 			}
 		}
+		for(int i = 0; i < layoutHash.length; ++i) {
+			layoutHash[i] ^= replaceLayersWith.layoutHash[i];
+		}
 	}
 
 	private static void replaceTileLayerSection(MapLayer dest, MapLayer src, CoordRect area) {
@@ -39,5 +46,9 @@ public final class MapSection {
 		for (int sx = 0, dx = area.topLeft.x; sx < area.size.width; ++sx, ++dx) {
 			System.arraycopy(src.tiles[sx], 0, dest.tiles[dx], dy, height);
 		}
+	}
+
+	public String calculateHash() {
+		return ByteUtils.toHexString(layoutHash);
 	}
 }

@@ -8,9 +8,11 @@ import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.*;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.ReplaceableMapSection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MapController {
     
@@ -110,25 +112,26 @@ public final class MapController {
     	}
 	}
 
-	public void applyCurrentMapReplacements(final Resources res) {
-		if (!applyReplacements(world.model.currentTileMap)) return;
+	public void applyCurrentMapReplacements(final Resources res, boolean updateWorldmap) {
+		if (!applyReplacements(world.model.currentMap, world.model.currentTileMap)) return;
+		world.maps.worldMapRequiresUpdate = true;
 
-		world.model.currentMap.visited = false; // Force worldmap png to be updated.
-		WorldMapController.updateWorldMapForCurrentMap(world, res);
-		world.model.currentMap.visited = true;
-
+		if (!updateWorldmap) return;
+		WorldMapController.updateWorldMap(world, res);
 		mapLayoutListeners.onMapTilesChanged(world.model.currentMap, world.model.currentTileMap);
 	}
 
-	private boolean applyReplacements(LayeredTileMap map) {
-		if (map.replacements == null) return false;
+	private boolean applyReplacements(PredefinedMap map, LayeredTileMap tileMap) {
 		boolean hasUpdated = false;
-		for(ReplaceableMapSection replacement : map.replacements) {
-			if (replacement.isApplied) continue;
-			if (!satisfiesCondition(replacement)) continue;
-			map.applyReplacement(replacement);
-			hasUpdated = true;
+		if (tileMap.replacements != null) {
+			for(ReplaceableMapSection replacement : tileMap.replacements) {
+				if (replacement.isApplied) continue;
+				if (!satisfiesCondition(replacement)) continue;
+				tileMap.applyReplacement(replacement);
+				hasUpdated = true;
+			}
 		}
+		map.lastSeenLayoutHash = tileMap.getCurrentLayoutHash();
 		return hasUpdated;
 	}
 

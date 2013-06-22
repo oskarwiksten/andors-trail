@@ -121,7 +121,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 			break;
 		case INTENTREQUEST_CONVERSATION:
 			MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
-			controllers.mapController.applyCurrentMapReplacements(getResources());
+			controllers.mapController.applyCurrentMapReplacements(getResources(), true);
 			break;
 		case INTENTREQUEST_SAVEGAME:
 			if (resultCode != Activity.RESULT_OK) break;

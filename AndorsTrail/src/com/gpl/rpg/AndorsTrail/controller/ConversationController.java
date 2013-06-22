@@ -20,7 +20,6 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
-import com.gpl.rpg.AndorsTrail.util.Coord;
 
 import java.util.ArrayList;
 
