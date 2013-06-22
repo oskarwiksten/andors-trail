@@ -34,9 +34,7 @@ public final class MapSection {
 				System.arraycopy(replaceLayersWith.isWalkable[sx], 0, isWalkable[dx], dy, height);
 			}
 		}
-		for(int i = 0; i < layoutHash.length; ++i) {
-			layoutHash[i] ^= replaceLayersWith.layoutHash[i];
-		}
+		ByteUtils.xorArray(layoutHash, replaceLayersWith.layoutHash);
 	}
 
 	private static void replaceTileLayerSection(MapLayer dest, MapLayer src, CoordRect area) {

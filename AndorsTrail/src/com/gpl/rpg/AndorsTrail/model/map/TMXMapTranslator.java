@@ -222,7 +222,7 @@ public final class TMXMapTranslator {
 					QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(obj.name);
 					if (requireQuestStage == null) {
 						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-							L.log("OPTIMIZE: Map " + map.name + " contains replace area that cannot be parsed as a quest stage.");
+							L.log("WARNING: Map " + map.name + " contains replace area that cannot be parsed as a quest stage.");
 						}
 						continue;
 					}

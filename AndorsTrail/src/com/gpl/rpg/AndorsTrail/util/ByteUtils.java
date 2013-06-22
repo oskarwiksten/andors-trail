@@ -13,4 +13,11 @@ public final class ByteUtils {
 		}
 		return result.toString();
 	}
+
+	public static void xorArray(byte[] array, byte[] mask) {
+		final int len = Math.min(array.length, mask.length);
+		for(int i = 0; i < len; ++i) {
+			array[i] ^= mask[i];
+		}
+	}
 }
