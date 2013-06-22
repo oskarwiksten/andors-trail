@@ -49,6 +49,6 @@ public final class MapSection {
 	}
 
 	public String calculateHash() {
-		return ByteUtils.toHexString(layoutHash);
+		return ByteUtils.toHexString(layoutHash, 4);
 	}
 }
