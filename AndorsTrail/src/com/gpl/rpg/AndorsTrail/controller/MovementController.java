@@ -99,6 +99,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 				controllers.monsterSpawnController.spawnAll(newMap, model.currentTileMap);
 			}
 		}
+		controllers.mapController.applyCurrentMapReplacements(res);
+		WorldMapController.updateWorldMapForCurrentMap(world, res);
 		newMap.visited = true;
 		moveBlockedActors(newMap, model.currentTileMap);
 		refreshMonsterAggressiveness(newMap, model.player);
@@ -294,8 +296,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 		world.model.currentTileMap = mapTiles;
 		world.tileManager.currentMapTiles = cachedTiles;
 		world.tileManager.cacheAdjacentMaps(res, world, nextMap);
-
-		WorldMapController.updateWorldMap(world, nextMap, mapTiles, cachedTiles, res);
 	}
 
 

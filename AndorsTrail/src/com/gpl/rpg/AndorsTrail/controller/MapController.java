@@ -1,20 +1,23 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.*;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MapController {
     
     private final ControllerContext controllers;
     private final WorldContext world;
     public final WorldEventListeners worldEventListeners = new WorldEventListeners();
+	public final MapLayoutListeners mapLayoutListeners = new MapLayoutListeners();
 
 	public MapController(ControllerContext controllers, WorldContext world) {
     	this.controllers = controllers;
@@ -105,5 +108,31 @@ public final class MapController {
 			if (m.hasResetTemporaryData()) continue;
 			m.resetTemporaryData();
     	}
+	}
+
+	public void applyCurrentMapReplacements(final Resources res) {
+		if (!applyReplacements(world.model.currentTileMap)) return;
+
+		world.model.currentMap.visited = false; // Force worldmap png to be updated.
+		WorldMapController.updateWorldMapForCurrentMap(world, res);
+		world.model.currentMap.visited = true;
+
+		mapLayoutListeners.onMapTilesChanged(world.model.currentMap, world.model.currentTileMap);
+	}
+
+	private boolean applyReplacements(LayeredTileMap map) {
+		if (map.replacements == null) return false;
+		boolean hasUpdated = false;
+		for(ReplaceableMapSection replacement : map.replacements) {
+			if (replacement.isApplied) continue;
+			if (!satisfiesCondition(replacement)) continue;
+			map.applyReplacement(replacement);
+			hasUpdated = true;
+		}
+		return hasUpdated;
+	}
+
+	public boolean satisfiesCondition(ReplaceableMapSection replacement) {
+		return world.model.player.hasExactQuestProgress(replacement.requireQuestStage);
 	}
 }

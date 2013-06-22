@@ -121,6 +121,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 			break;
 		case INTENTREQUEST_CONVERSATION:
 			MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
+			controllers.mapController.applyCurrentMapReplacements(getResources());
 			break;
 		case INTENTREQUEST_SAVEGAME:
 			if (resultCode != Activity.RESULT_OK) break;
@@ -138,14 +139,25 @@ public final class MainActivity extends Activity implements PlayerMovementListen
     	final Player player = world.model.player;
     	return Savegames.saveWorld(world, this, slot, getString(R.string.savegame_currenthero_displayinfo, player.getLevel(), player.getTotalExperience(), player.getGold()));
 	}
-    
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		if (!AndorsTrailApplication.getApplicationFromActivity(this).getWorldSetup().isSceneReady) return;
+		subscribeToModelChanges();
+	}
+
+	@Override
+	protected void onStop() {
+		super.onStop();
+		unsubscribeFromModel();
+	}
+
 	@Override
     protected void onPause() {
         super.onPause();
         controllers.gameRoundController.pause();
         controllers.movementController.stopMovement();
-        
-        unsubscribeFromModel();
         
         save(Savegames.SLOT_QUICKSAVE);
     }
@@ -155,8 +167,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
         super.onResume();
         if (!AndorsTrailApplication.getApplicationFromActivity(this).getWorldSetup().isSceneReady) return;
 
-        subscribeToModelChanges();
-        
         controllers.gameRoundController.resume();
         
 		if (world.model.uiSelections.isInCombat) {

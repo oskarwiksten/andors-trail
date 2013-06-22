@@ -1,8 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
@@ -12,12 +10,12 @@ import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXLayer;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXLayerMap;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXMap;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObjectMap;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObject;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObjectGroup;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXProperty;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXTileSet;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
-import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
@@ -28,25 +26,24 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 import android.content.res.Resources;
 
 public final class TMXMapTranslator {
-	private final ArrayList<TMXMap> maps = new ArrayList<TMXMap>();
+	private final ArrayList<TMXObjectMap> maps = new ArrayList<TMXObjectMap>();
 	
 	public void read(Resources r, int xmlResourceId, String name) {
-		maps.add(TMXMapFileParser.read(r, xmlResourceId, name));
+		maps.add(TMXMapFileParser.readObjectMap(r, xmlResourceId, name));
 	}
 	
 	public static LayeredTileMap readLayeredTileMap(Resources res, TileCache tileCache, PredefinedMap map) {
-		TMXLayerMap resultMap = TMXMapFileParser.readLayeredTileMap(res, map.xmlResourceId, map.name);
-		return transformMap(resultMap, tileCache, map.name);
+		TMXLayerMap resultMap = TMXMapFileParser.readLayerMap(res, map.xmlResourceId, map.name);
+		return transformMap(resultMap, tileCache);
 	}
 
 	public ArrayList<PredefinedMap> transformMaps(MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
 		return transformMaps(maps, monsterTypes, dropLists);
 	}
-	public ArrayList<PredefinedMap> transformMaps(Collection<TMXMap> maps, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
+	public ArrayList<PredefinedMap> transformMaps(Collection<TMXObjectMap> maps, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
 		ArrayList<PredefinedMap> result = new ArrayList<PredefinedMap>();
 		
-		Tile tile = new Tile();
-		for (TMXMap m : maps) {
+		for (TMXObjectMap m : maps) {
 			assert(m.name != null);
 			assert(m.name.length() > 0);
 			assert(m.width > 0);
@@ -64,13 +61,7 @@ public final class TMXMapTranslator {
 			
 			for (TMXObjectGroup group : m.objectGroups) {
 				for (TMXObject object : group.objects) {
-					final Coord topLeft = new Coord(
-						Math.round(((float)object.x) / m.tilewidth)
-						,Math.round(((float)object.y) / m.tileheight)
-					);
-					final int width = Math.round(((float)object.width) / m.tilewidth);
-					final int height = Math.round(((float)object.height) / m.tileheight);
-					final CoordRect position = new CoordRect(topLeft, new Size(width, height));
+					final CoordRect position = getTMXObjectPosition(object, m);
 					
 					if (object.type == null) {
 						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) 
@@ -148,6 +139,8 @@ public final class TMXMapTranslator {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;
 						mapObjects.add(MapObject.createNewContainerArea(position, dropList));
+					} else if (object.type.equals("replace")) {
+						// Do nothing. Will be handled when reading map layers instead.
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}
@@ -163,66 +156,155 @@ public final class TMXMapTranslator {
 		
 		return result;
 	}
-	
 
-	private static LayeredTileMap transformMap(TMXLayerMap map, TileCache tileCache, String mapName) {
+	private static CoordRect getTMXObjectPosition(TMXObject object, TMXMap m) {
+		final Coord topLeft = new Coord(
+				Math.round(((float)object.x) / m.tilewidth)
+				,Math.round(((float)object.y) / m.tileheight)
+		);
+		final int width = Math.round(((float)object.width) / m.tilewidth);
+		final int height = Math.round(((float)object.height) / m.tileheight);
+		return new CoordRect(topLeft, new Size(width, height));
+	}
+
+	private static final String LAYERNAME_GROUND = "ground";
+	private static final String LAYERNAME_OBJECTS = "objects";
+	private static final String LAYERNAME_ABOVE = "above";
+	private static final String LAYERNAME_WALKABLE = "walkable";
+	private static final SetOfLayerNames defaultLayerNames = new SetOfLayerNames(LAYERNAME_GROUND, LAYERNAME_OBJECTS, LAYERNAME_ABOVE, LAYERNAME_WALKABLE);
+
+	private static LayeredTileMap transformMap(TMXLayerMap map, TileCache tileCache) {
 		final Size mapSize = new Size(map.width, map.height);
-		final MapLayer[] layers = new MapLayer[] {
-			new MapLayer(mapSize)
-			,new MapLayer(mapSize)
-			,new MapLayer(mapSize)
-		};
-		boolean[][] isWalkable = new boolean[map.width][map.height];
-		for (int y = 0; y < map.height; ++y) {
-			for (int x = 0; x < map.width; ++x) {
-				isWalkable[x][y] = true;
-			}
-		}
-		Tile tile = new Tile();
 		String colorFilter = null;
 		for (TMXProperty prop : map.properties) {
 			if (prop.name.equalsIgnoreCase("colorfilter")) colorFilter = prop.value;
 		}
 		HashSet<Integer> usedTileIDs = new HashSet<Integer>();
+		HashMap<String, TMXLayer> layersPerLayerName = new HashMap<String, TMXLayer>();
 		for (TMXLayer layer : map.layers) {
-			int ixMapLayer = 0;
 			String layerName = layer.name;
 			assert(layerName != null);
 			assert(layerName.length() > 0);
 			layerName = layerName.toLowerCase();
-			boolean isWalkableLayer = false;
-			if (layerName.startsWith("object")) {
-				ixMapLayer = LayeredTileMap.LAYER_OBJECTS;
-			} else if (layerName.startsWith("ground")) {
-				ixMapLayer = LayeredTileMap.LAYER_GROUND;
-			} else if (layerName.startsWith("above")) {
-				ixMapLayer = LayeredTileMap.LAYER_ABOVE;
-			} else if (layerName.startsWith("walk")) {
-				isWalkableLayer = true;
-			} else {
-				continue;
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				if (layersPerLayerName.containsKey(layerName)) {
+					L.log("WARNING: Map \"" + map.name + "\" contains multiple layers with name \"" + layerName + "\".");
+				}
 			}
-			
-			for (int y = 0; y < layer.height; ++y) {
-				for (int x = 0; x < layer.width; ++x) {
-					int gid = layer.gids[x][y];
-					if (gid <= 0) continue;
-					
-					if (!getTile(map, gid, tile)) continue;
+			layersPerLayerName.put(layerName, layer);
+		}
 
-					if (isWalkableLayer) {
-						isWalkable[x][y] = false;
-					} else {
-						int tileID = tileCache.getTileID(tile.tilesetName, tile.localId);
-						layers[ixMapLayer].tiles[x][y] = tileID;
-						usedTileIDs.add(tileID);
+		MapSection defaultLayout = transformMapSection(map,
+				tileCache,
+				new CoordRect(new Coord(0,0), mapSize),
+				layersPerLayerName,
+				usedTileIDs,
+				defaultLayerNames);
+
+		ArrayList<ReplaceableMapSection> replaceableSections = new ArrayList<ReplaceableMapSection>();
+		for (TMXObjectGroup objectGroup : map.objectGroups) {
+			for(TMXObject obj : objectGroup.objects) {
+				if ("replace".equals(obj.type)) {
+					final CoordRect position = getTMXObjectPosition(obj, map);
+					SetOfLayerNames layerNames = new SetOfLayerNames();
+					for (TMXProperty prop : obj.properties) {
+						if (prop.name.equalsIgnoreCase(LAYERNAME_GROUND)) layerNames.groundLayerName = prop.value;
+						else if (prop.name.equalsIgnoreCase(LAYERNAME_OBJECTS)) layerNames.objectsLayerName = prop.value;
+						else if (prop.name.equalsIgnoreCase(LAYERNAME_ABOVE)) layerNames.aboveLayersName = prop.value;
+						else if (prop.name.equalsIgnoreCase(LAYERNAME_WALKABLE)) layerNames.walkableLayersName = prop.value;
+						else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+							L.log("OPTIMIZE: Map " + map.name + " contains replace area with unknown property \"" + prop.name + "\".");
+						}
 					}
+					MapSection replacementSection = transformMapSection(map, tileCache, position, layersPerLayerName, usedTileIDs, layerNames);
+					QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(obj.name);
+					if (requireQuestStage == null) {
+						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+							L.log("OPTIMIZE: Map " + map.name + " contains replace area that cannot be parsed as a quest stage.");
+						}
+						continue;
+					}
+					replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requireQuestStage));
 				}
 			}
 		}
-		return new LayeredTileMap(mapSize, layers, isWalkable, usedTileIDs, colorFilter);
+
+		ReplaceableMapSection[] replaceableSections_ = null;
+		if (!replaceableSections.isEmpty()) {
+			replaceableSections_ = replaceableSections.toArray(new ReplaceableMapSection[replaceableSections.size()]);
+		}
+		return new LayeredTileMap(mapSize, defaultLayout, replaceableSections_, colorFilter, usedTileIDs);
 	}
-	
+
+	private static MapSection transformMapSection(
+			TMXLayerMap srcMap,
+			TileCache tileCache,
+			CoordRect area,
+			HashMap<String, TMXLayer> layersPerLayerName,
+			HashSet<Integer> usedTileIDs,
+			SetOfLayerNames layerNames
+			) {
+		final MapLayer layerGround = transformMapLayer(findLayer(layersPerLayerName, layerNames.groundLayerName, srcMap.name), srcMap, tileCache, area, usedTileIDs);
+		final MapLayer layerObjects = transformMapLayer(findLayer(layersPerLayerName, layerNames.objectsLayerName, srcMap.name), srcMap, tileCache, area, usedTileIDs);
+		final MapLayer layerAbove = transformMapLayer(findLayer(layersPerLayerName, layerNames.aboveLayersName, srcMap.name), srcMap, tileCache, area, usedTileIDs);
+		boolean[][] isWalkable = transformWalkableMapLayer(findLayer(layersPerLayerName, layerNames.walkableLayersName, srcMap.name), area);
+		return new MapSection(layerGround, layerObjects, layerAbove, isWalkable);
+	}
+
+	private static TMXLayer findLayer(HashMap<String, TMXLayer> layersPerLayerName, String layerName, String mapName) {
+		if (layerName == null) return null;
+		if (layerName.length() == 0) return null;
+		TMXLayer result = layersPerLayerName.get(layerName);
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (result == null) {
+				L.log("WARNING: Cannot find maplayer \"" + layerName + "\" requested by map \"" + mapName + "\".");
+			}
+		}
+		return result;
+	}
+
+	private static MapLayer transformMapLayer(
+			TMXLayer srcLayer,
+			TMXLayerMap srcMap,
+			TileCache tileCache,
+			CoordRect area,
+			HashSet<Integer> usedTileIDs
+	) {
+		if (srcLayer == null) return null;
+		final MapLayer result = new MapLayer(area.size);
+		Tile tile = new Tile();
+		for (int dy = 0, sy = area.topLeft.y; dy < area.size.height; ++dy, ++sy) {
+			for (int dx = 0, sx = area.topLeft.x; dx < area.size.width; ++dx, ++sx) {
+				int gid = srcLayer.gids[sx][sy];
+				if (gid <= 0) continue;
+
+				if (!getTile(srcMap, gid, tile)) continue;
+
+				int tileID = tileCache.getTileID(tile.tilesetName, tile.localId);
+				result.tiles[dx][dy] = tileID;
+				usedTileIDs.add(tileID);
+			}
+		}
+		return result;
+	}
+
+	private static boolean[][] transformWalkableMapLayer(TMXLayer srcLayer, CoordRect area) {
+		if (srcLayer == null) return null;
+		final boolean[][] isWalkable = new boolean[area.size.width][area.size.height];
+		for (int x = 0; x < area.size.width; ++x) {
+			Arrays.fill(isWalkable[x], true);
+		}
+		for (int dy = 0, sy = area.topLeft.y; dy < area.size.height; ++dy, ++sy) {
+			for (int dx = 0, sx = area.topLeft.x; dx < area.size.width; ++dx, ++sx) {
+				int gid = srcLayer.gids[sx][sy];
+				if (gid > 0) {
+					isWalkable[dx][dy] = false;
+				}
+			}
+		}
+		return isWalkable;
+	}
+
 	private static boolean getTile(final TMXLayerMap map, final int gid, final Tile dest) {
 		for(int i = map.tileSets.length - 1; i >= 0; --i) {
 			TMXTileSet ts = map.tileSets[i];
@@ -232,7 +314,7 @@ public final class TMXMapTranslator {
 				return true;
 			}
 		}
-		L.log("WARNING: Cannot find tile for gid " + gid); //(" + x + ", " + y + "), ")
+		L.log("WARNING: Cannot find tile for gid " + gid);
 		return false;
 	}
 	
@@ -240,73 +322,23 @@ public final class TMXMapTranslator {
 		public String tilesetName;
 		public int localId;
 	}
-	
-	/*
-	public static final class TMXMap extends TMXLayerMap {
-		public int xmlResourceId;
-		public String name;
-		public String orientation;
-		public int tilewidth;
-		public int tileheight;
-		public ArrayList<TMXObjectGroup> objectGroups = new ArrayList<TMXObjectGroup>();
-	}
-	public static class TMXLayerMap {
-		public int width;
-		public int height;
-		public TMXTileSet[] tileSets;
-		public TMXLayer[] layers;
-	}
-	public static final class TMXTileSet {
-		public int firstgid;
-		public String name;
-		public int tilewidth;
-		public int tileheight;
-		public String imageSource;
-		public String imageName;
-	}
-	public static final class TMXLayer {
-		public String name;
-		public int width;
-		public int height;
-		public int[][] gids;
-	}
-	public static final class TMXObjectGroup {
-		public String name;
-		public int width;
-		public int height;
-		public ArrayList<TMXObject> objects = new ArrayList<TMXObject>();
-	}
-	public static final class TMXObject {
-		public String name;
-		public String type;
-		public int x;
-		public int y;
-		public int width;
-		public int height;
-		public ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
-	}
-	public static final class TMXProperty {
-		public String name;
-		public String value;
-	}
-	*/
-	/*
-	 
-	 <map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
-		 <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
-	  		<image source="tilesets/tiles.png"/>
-		 </tileset>
-		 <layer name="Tile Layer 1" width="10" height="10">
-			<data encoding="base64" compression="gzip">
-			   H4sIAAAAAAAAA/NgYGDwIBK7AbEnHkyOOmwYXR02MwZSHQyTah4xGADnAt2SkAEAAA==
-			</data>
-		 </layer>
-		 <layer name="Tile Layer 2" width="10" height="10">
-			<data encoding="base64" compression="gzip">
-			   H4sIAAAAAAAAA2NgoA1gYUHlP2HGro6NBbt4MysqXw2oLhEqlgSlU4H0YjR12EAbUE0KFnXPgG5iRLJ/GQ6zHuNwOy7gxE6aemQAAJRT7VKQAQAA
-			</data>
-		 </layer>
-	 </map>
 
-	 */
+	private static final class SetOfLayerNames {
+		public String groundLayerName;
+		public String objectsLayerName;
+		public String aboveLayersName;
+		public String walkableLayersName;
+		public SetOfLayerNames() {
+			this.groundLayerName = null;
+			this.objectsLayerName = null;
+			this.aboveLayersName = null;
+			this.walkableLayersName = null;
+		}
+		public SetOfLayerNames(String groundLayerName, String objectsLayerName, String aboveLayersName, String walkableLayersName) {
+			this.groundLayerName = groundLayerName;
+			this.objectsLayerName = objectsLayerName;
+			this.aboveLayersName = aboveLayersName;
+			this.walkableLayersName = walkableLayersName;
+		}
+	}
 }

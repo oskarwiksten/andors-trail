@@ -38,14 +38,22 @@ public final class WorldMapController {
 
 	private static final int WORLDMAP_SCREENSHOT_TILESIZE = 8;
     public static final int WORLDMAP_DISPLAY_TILESIZE = WORLDMAP_SCREENSHOT_TILESIZE;
-    
-	public static void updateWorldMap(final WorldContext world, final PredefinedMap map, final LayeredTileMap mapTiles, final TileCollection cachedTiles, final Resources res) {
-		
+
+	public static void updateWorldMapForCurrentMap(final WorldContext world, final Resources res) {
+		updateWorldMap(world, world.model.currentMap, world.model.currentTileMap, world.tileManager.currentMapTiles, res);
+	}
+
+	public static void updateWorldMap(
+			final WorldContext world,
+			final PredefinedMap map,
+			final LayeredTileMap mapTiles,
+			final TileCollection cachedTiles,
+			final Resources res) {
 		final String worldMapSegmentName = world.maps.getWorldMapSegmentNameForMap(map.name);
 		if (worldMapSegmentName == null) return;
-		
+
 		if (!shouldUpdateWorldMap(map, worldMapSegmentName)) return;
-		
+
 		(new AsyncTask<Void, Void, Void>()  {
 			@Override
 			protected Void doInBackground(Void... arg0) {
@@ -53,10 +61,13 @@ public final class WorldMapController {
 				try {
 					updateCachedBitmap(map, renderer);
 					updateWorldMapSegment(res, world, worldMapSegmentName);
+					if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+						L.log("WorldMapController: Updated worldmap segment " + worldMapSegmentName + " for map " + map.name);
+					}
 				} catch (IOException e) {
 					L.log("Error creating worldmap file for map " + map.name + " : " + e.toString());
 				}
-		    	return null;
+				return null;
 			}
 		}).execute();
 	}
@@ -114,15 +125,15 @@ public final class WorldMapController {
 			canvas.scale(scale, scale);
 
 			synchronized (cachedTiles) {
-				drawMapLayer(canvas, mapTiles.layers[LayeredTileMap.LAYER_GROUND]);
-		        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_OBJECTS);
-		        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_ABOVE);
+				drawMapLayer(canvas, mapTiles.currentLayout.layerGround);
+		        tryDrawMapLayer(canvas, mapTiles.currentLayout.layerObjects);
+		        tryDrawMapLayer(canvas, mapTiles.currentLayout.layerAbove);
 			}
 	        return image;
 		}
-		
-		private void tryDrawMapLayer(Canvas canvas, final int layerIndex) {
-	    	if (mapTiles.layers.length > layerIndex) drawMapLayer(canvas, mapTiles.layers[layerIndex]);        
+
+		private void tryDrawMapLayer(Canvas canvas, final MapLayer layer) {
+			if (layer != null) drawMapLayer(canvas, layer);
 	    }
 	    
 	    private void drawMapLayer(Canvas canvas, final MapLayer layer) {

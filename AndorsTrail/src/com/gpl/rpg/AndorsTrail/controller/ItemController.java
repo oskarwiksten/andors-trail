@@ -6,7 +6,6 @@ import java.util.Collection;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.controller.listeners.LootBagListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListeners;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
@@ -23,8 +22,7 @@ public final class ItemController {
 	
 	private final ControllerContext controllers;
     private final WorldContext world;
-    public final QuickSlotListeners quickSlotListeners = new QuickSlotListeners(); 
-    public final LootBagListeners lootBagListeners = new LootBagListeners();
+    public final QuickSlotListeners quickSlotListeners = new QuickSlotListeners();
 
 	public ItemController(ControllerContext controllers, WorldContext world) {
     	this.controllers = controllers;
@@ -213,7 +211,7 @@ public final class ItemController {
 		if (loot.hasItems()) return false;
 
 		world.model.currentMap.removeGroundLoot(loot);
-		lootBagListeners.onLootBagRemoved(world.model.currentMap, loot.position);
+		controllers.mapController.mapLayoutListeners.onLootBagRemoved(world.model.currentMap, loot.position);
 		return true; // The bag was removed.
 	}
 	
