@@ -11,46 +11,38 @@ import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class LayeredTileMap {
-	public static final int LAYER_GROUND = 0;
-	public static final int LAYER_OBJECTS = 1;
-	public static final int LAYER_ABOVE = 2;
-
 	private static final ColorFilter colorFilterBlack20 = createGrayScaleColorFilter(0.2f);
 	private static final ColorFilter colorFilterBlack40 = createGrayScaleColorFilter(0.4f);
 	private static final ColorFilter colorFilterBlack60 = createGrayScaleColorFilter(0.6f);
 	private static final ColorFilter colorFilterBlack80 = createGrayScaleColorFilter(0.8f);
 
 	private final Size size;
-	public final MapLayer[] layers;
-	public final Collection<Integer> usedTileIDs;
-	private final boolean[][] isWalkable;
+	public final MapSection currentLayout;
+	private String currentLayoutHash;
+	public final ReplaceableMapSection[] replacements;
 	public final String colorFilter;
-	
+	public final Collection<Integer> usedTileIDs;
 	public LayeredTileMap(
 			Size size,
-			MapLayer[] layers,
-			boolean[][] isWalkable,
-			Collection<Integer> usedTileIDs,
-			String colorFilter) {
-		assert(size.width > 0);
-		assert(size.height > 0);
-		assert(layers.length == 3);
-		assert(isWalkable.length == size.width);
-		assert(isWalkable[0].length == size.height);
+			MapSection layout,
+			ReplaceableMapSection[] replacements,
+			String colorFilter,
+			Collection<Integer> usedTileIDs) {
 		this.size = size;
-		this.layers = layers;
-		this.usedTileIDs = usedTileIDs;
-		this.isWalkable = isWalkable;
+		this.currentLayout = layout;
+		this.replacements = replacements;
 		this.colorFilter = colorFilter;
+		this.usedTileIDs = usedTileIDs;
+		this.currentLayoutHash = currentLayout.calculateHash();
 	}
 
 	public final boolean isWalkable(final Coord p) {
 		if (isOutside(p.x, p.y)) return false;
-		return isWalkable[p.x][p.y];
+		return currentLayout.isWalkable[p.x][p.y];
 	}
 	public final boolean isWalkable(final int x, final int y) {
 		if (isOutside(x, y)) return false;
-		return isWalkable[x][y];
+		return currentLayout.isWalkable[x][y];
 	}
 	public final boolean isWalkable(final CoordRect p) {
 		for (int y = 0; y < p.size.height; ++y) {
@@ -97,5 +89,14 @@ public final class LayeredTileMap {
 			0.00f, 0.00f, f,     0.0f, 0.0f,
 			0.00f, 0.00f, 0.00f, 1.0f, 0.0f
 		});
+	}
+
+	public String getCurrentLayoutHash() {
+		return currentLayoutHash;
+	}
+
+	public void applyReplacement(ReplaceableMapSection replacement) {
+		replacement.apply(currentLayout);
+		currentLayoutHash = currentLayout.calculateHash();
 	}
 }

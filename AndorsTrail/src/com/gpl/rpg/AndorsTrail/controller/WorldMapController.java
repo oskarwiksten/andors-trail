@@ -4,8 +4,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.*;
 
 import android.content.Context;
 import android.content.Intent;
@@ -22,10 +21,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.DisplayWorldMapActivity;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
-import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment;
+import com.gpl.rpg.AndorsTrail.model.map.*;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.NamedWorldMapArea;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.WorldMapSegmentMap;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
@@ -38,14 +34,22 @@ public final class WorldMapController {
 
 	private static final int WORLDMAP_SCREENSHOT_TILESIZE = 8;
     public static final int WORLDMAP_DISPLAY_TILESIZE = WORLDMAP_SCREENSHOT_TILESIZE;
-    
-	public static void updateWorldMap(final WorldContext world, final PredefinedMap map, final LayeredTileMap mapTiles, final TileCollection cachedTiles, final Resources res) {
-		
+
+	public static void updateWorldMap(final WorldContext world, final Resources res) {
+		updateWorldMap(world, world.model.currentMap, world.model.currentTileMap, world.tileManager.currentMapTiles, res);
+	}
+
+	private static void updateWorldMap(
+			final WorldContext world,
+			final PredefinedMap map,
+			final LayeredTileMap mapTiles,
+			final TileCollection cachedTiles,
+			final Resources res) {
 		final String worldMapSegmentName = world.maps.getWorldMapSegmentNameForMap(map.name);
 		if (worldMapSegmentName == null) return;
-		
-		if (!shouldUpdateWorldMap(map, worldMapSegmentName)) return;
-		
+
+		if (!shouldUpdateWorldMap(map, worldMapSegmentName, world.maps.worldMapRequiresUpdate)) return;
+
 		(new AsyncTask<Void, Void, Void>()  {
 			@Override
 			protected Void doInBackground(Void... arg0) {
@@ -53,24 +57,27 @@ public final class WorldMapController {
 				try {
 					updateCachedBitmap(map, renderer);
 					updateWorldMapSegment(res, world, worldMapSegmentName);
+					world.maps.worldMapRequiresUpdate = false;
+					if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
+						L.log("WorldMapController: Updated worldmap segment " + worldMapSegmentName + " for map " + map.name);
+					}
 				} catch (IOException e) {
 					L.log("Error creating worldmap file for map " + map.name + " : " + e.toString());
 				}
-		    	return null;
+				return null;
 			}
 		}).execute();
 	}
 	
-	private static boolean shouldUpdateWorldMap(PredefinedMap map, String worldMapSegmentName) {
+	private static boolean shouldUpdateWorldMap(PredefinedMap map, String worldMapSegmentName, boolean forceUpdate) {
+		if (forceUpdate) return true;
 		if (!map.visited) return true;
 		File file = getFileForMap(map);
 		if (!file.exists()) return true;
 		
-		if (map.lastVisitVersion < AndorsTrailApplication.CURRENT_VERSION) return true;
-		
 		file = getCombinedWorldMapFile(worldMapSegmentName);
 		if (!file.exists()) return true;
-		
+
 		return false;
 	}
 
@@ -78,9 +85,7 @@ public final class WorldMapController {
 		ensureWorldmapDirectoryExists();
     	
 		File file = getFileForMap(map);
-    	if (file.exists()) {
-    		if (map.lastVisitVersion == AndorsTrailApplication.CURRENT_VERSION) return;
-    	}
+    	if (file.exists()) return;
 		
 		Bitmap image = renderer.drawMap();
 		FileOutputStream fos = new FileOutputStream(file);
@@ -88,6 +93,17 @@ public final class WorldMapController {
         fos.flush();
         fos.close();
         image.recycle();
+		L.log("WorldMapController: Wrote " + file.getAbsolutePath());
+
+		// Before we had the hash as part of the filename, the png files were just named [mapname].png
+		// let's just remove those old files since the new hash-based filenames contain the same data.
+		if (map.lastSeenLayoutHash.length() > 0) {
+			File oldFile = getFileForMap(map.name);
+			if (!oldFile.getName().equalsIgnoreCase(file.getName())) {
+				oldFile.delete();
+				L.log("WorldMapController: Deleted " + oldFile.getAbsolutePath());
+			}
+		}
 	}
 
 	private static final class MapRenderer {
@@ -114,15 +130,15 @@ public final class WorldMapController {
 			canvas.scale(scale, scale);
 
 			synchronized (cachedTiles) {
-				drawMapLayer(canvas, mapTiles.layers[LayeredTileMap.LAYER_GROUND]);
-		        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_OBJECTS);
-		        tryDrawMapLayer(canvas, LayeredTileMap.LAYER_ABOVE);
+				drawMapLayer(canvas, mapTiles.currentLayout.layerGround);
+		        tryDrawMapLayer(canvas, mapTiles.currentLayout.layerObjects);
+		        tryDrawMapLayer(canvas, mapTiles.currentLayout.layerAbove);
 			}
 	        return image;
 		}
-		
-		private void tryDrawMapLayer(Canvas canvas, final int layerIndex) {
-	    	if (mapTiles.layers.length > layerIndex) drawMapLayer(canvas, mapTiles.layers[layerIndex]);        
+
+		private void tryDrawMapLayer(Canvas canvas, final MapLayer layer) {
+			if (layer != null) drawMapLayer(canvas, layer);
 	    }
 	    
 	    private void drawMapLayer(Canvas canvas, final MapLayer layer) {
@@ -144,11 +160,14 @@ public final class WorldMapController {
 		if (!dir.exists()) dir.mkdir();
 		dir = new File(dir, Constants.FILENAME_WORLDMAP_DIRECTORY);
 		if (!dir.exists()) dir.mkdir();
-		
+
 		File noMediaFile = new File(dir, ".nomedia");
 		if (!noMediaFile.exists()) noMediaFile.createNewFile();
     }
-    private static File getFileForMap(PredefinedMap map) { return getFileForMap(map.name); }
+    private static File getFileForMap(PredefinedMap map) {
+		if (map.lastSeenLayoutHash.length() <= 0) return getFileForMap(map.name);
+		else return getFileForMap(map.name + "." + map.lastSeenLayoutHash);
+	}
     private static File getFileForMap(String mapName) {
     	return new File(getWorldmapDirectory(), mapName + ".png");
     }
@@ -161,19 +180,19 @@ public final class WorldMapController {
     	return new File(getWorldmapDirectory(), Constants.FILENAME_WORLDMAP_HTMLFILE_PREFIX + segmentName + Constants.FILENAME_WORLDMAP_HTMLFILE_SUFFIX);
     }
 	
-    private static boolean shouldDisplayMapOnWorldmap(String mapName) {
-    	File f = WorldMapController.getFileForMap(mapName);
-		return f.exists();
-    }
 	private static String getWorldMapSegmentAsHtml(Resources res, WorldContext world, String segmentName) {
 		WorldMapSegment segment = world.maps.worldMapSegments.get(segmentName);
 		
-		Collection<String> displayedMapNames = new HashSet<String>();
+		Map<String, File> displayedMapFilenamesPerMapName = new HashMap<String, File>(segment.maps.size());
 		Coord offsetWorldmapTo = new Coord(999999, 999999);
 		for (WorldMapSegmentMap map : segment.maps.values()) {
-			if (!shouldDisplayMapOnWorldmap(map.mapName)) continue;
+			PredefinedMap predefinedMap = world.maps.findPredefinedMap(map.mapName);
+			if (predefinedMap == null) continue;
+			if (!predefinedMap.visited) continue;
+			File f = WorldMapController.getFileForMap(predefinedMap);
+			if (!f.exists()) continue;
+			displayedMapFilenamesPerMapName.put(map.mapName, f);
 			
-			displayedMapNames.add(map.mapName);
 			offsetWorldmapTo.x = Math.min(offsetWorldmapTo.x, map.worldPosition.x);
 			offsetWorldmapTo.y = Math.min(offsetWorldmapTo.y, map.worldPosition.y);
 		}
@@ -182,8 +201,8 @@ public final class WorldMapController {
 
 		StringBuilder mapsAsHtml = new StringBuilder(1000);
 		for (WorldMapSegmentMap segmentMap : segment.maps.values()) {
-			File f = WorldMapController.getFileForMap(segmentMap.mapName);
-			if (!f.exists()) continue;
+			File f = displayedMapFilenamesPerMapName.get(segmentMap.mapName);
+			if (f == null) continue;
 			
 			Size size = getMapSize(segmentMap, world);
 			mapsAsHtml
@@ -212,7 +231,7 @@ public final class WorldMapController {
 
 		StringBuilder namedAreasAsHtml = new StringBuilder(500);
 		for (NamedWorldMapArea area : segment.namedAreas.values()) {
-			CoordRect r = determineNamedAreaBoundary(area, segment, world, displayedMapNames);
+			CoordRect r = determineNamedAreaBoundary(area, segment, world, displayedMapFilenamesPerMapName.keySet());
 			if (r == null) continue;
 			namedAreasAsHtml
 				.append("<div class=\"namedarea ")
@@ -244,7 +263,7 @@ public final class WorldMapController {
 		return world.maps.findPredefinedMap(map.mapName).size;
 	}
 	
-	private static CoordRect determineNamedAreaBoundary(NamedWorldMapArea area, WorldMapSegment segment, WorldContext world, Collection<String> displayedMapNames) {
+	private static CoordRect determineNamedAreaBoundary(NamedWorldMapArea area, WorldMapSegment segment, WorldContext world, Set<String> displayedMapNames) {
 		Coord topLeft = null;
 		Coord bottomRight = null;
 		

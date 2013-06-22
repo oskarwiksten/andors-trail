@@ -1,13 +1,17 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.ReplaceableMapSection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class MapController {
@@ -15,6 +19,7 @@ public final class MapController {
     private final ControllerContext controllers;
     private final WorldContext world;
     public final WorldEventListeners worldEventListeners = new WorldEventListeners();
+	public final MapLayoutListeners mapLayoutListeners = new MapLayoutListeners();
 
 	public MapController(ControllerContext controllers, WorldContext world) {
     	this.controllers = controllers;
@@ -105,5 +110,32 @@ public final class MapController {
 			if (m.hasResetTemporaryData()) continue;
 			m.resetTemporaryData();
     	}
+	}
+
+	public void applyCurrentMapReplacements(final Resources res, boolean updateWorldmap) {
+		if (!applyReplacements(world.model.currentMap, world.model.currentTileMap)) return;
+		world.maps.worldMapRequiresUpdate = true;
+
+		if (!updateWorldmap) return;
+		WorldMapController.updateWorldMap(world, res);
+		mapLayoutListeners.onMapTilesChanged(world.model.currentMap, world.model.currentTileMap);
+	}
+
+	private boolean applyReplacements(PredefinedMap map, LayeredTileMap tileMap) {
+		boolean hasUpdated = false;
+		if (tileMap.replacements != null) {
+			for(ReplaceableMapSection replacement : tileMap.replacements) {
+				if (replacement.isApplied) continue;
+				if (!satisfiesCondition(replacement)) continue;
+				tileMap.applyReplacement(replacement);
+				hasUpdated = true;
+			}
+		}
+		map.lastSeenLayoutHash = tileMap.getCurrentLayoutHash();
+		return hasUpdated;
+	}
+
+	public boolean satisfiesCondition(ReplaceableMapSection replacement) {
+		return world.model.player.hasExactQuestProgress(replacement.requireQuestStage);
 	}
 }

@@ -1,31 +1,31 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import android.content.res.Resources;
+import android.content.res.XmlResourceParser;
+import com.gpl.rpg.AndorsTrail.util.Base64;
+import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.XmlResourceParserUtils;
+import org.xmlpull.v1.XmlPullParserException;
+
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
-import org.xmlpull.v1.XmlPullParserException;
-
-import com.gpl.rpg.AndorsTrail.util.Base64;
-import com.gpl.rpg.AndorsTrail.util.L;
-import com.gpl.rpg.AndorsTrail.util.XmlResourceParserUtils;
-
-import android.content.res.Resources;
-import android.content.res.XmlResourceParser;
-
 public final class TMXMapFileParser {
-	public static TMXMap read(Resources r, int xmlResourceId, String name) {
-		return read(r.getXml(xmlResourceId), xmlResourceId, name);
+	public static TMXObjectMap readObjectMap(Resources r, int xmlResourceId, String name) {
+		return readObjectMap(r.getXml(xmlResourceId), xmlResourceId, name);
 	}
 	
-	public static TMXLayerMap readLayeredTileMap(Resources r, int xmlResourceId, String name) {
+	public static TMXLayerMap readLayerMap(Resources r, int xmlResourceId, String name) {
 		return readLayerMap(r.getXml(xmlResourceId), name);
 	}
 	
-	private static TMXMap read(XmlResourceParser xrp, int xmlResourceId, String name) {
-		final TMXMap map = new TMXMap();
+	private static TMXObjectMap readObjectMap(XmlResourceParser xrp, int xmlResourceId, String name) {
+		final TMXObjectMap map = new TMXObjectMap();
 		map.xmlResourceId = xmlResourceId;
 		try {
 			// Map format: http://sourceforge.net/apps/mediawiki/tiled/index.php?title=Examining_the_map_format
@@ -35,7 +35,6 @@ public final class TMXMapFileParser {
 					String s = xrp.getName();
 					if (s.equals("map")) {
 						map.name = name;
-						map.orientation = xrp.getAttributeValue(null, "orientation");
 						map.width = xrp.getAttributeIntValue(null, "width", -1);
 						map.height = xrp.getAttributeIntValue(null, "height", -1);
 						map.tilewidth = xrp.getAttributeIntValue(null, "tilewidth", -1);
@@ -72,8 +71,11 @@ public final class TMXMapFileParser {
 				if (eventType == XmlResourceParser.START_TAG) {
 					String s = xrp.getName();
 					if (s.equals("map")) {
+						map.name = name;
 						map.width = xrp.getAttributeIntValue(null, "width", -1);
 						map.height = xrp.getAttributeIntValue(null, "height", -1);
+						map.tilewidth = xrp.getAttributeIntValue(null, "tilewidth", -1);
+						map.tileheight = xrp.getAttributeIntValue(null, "tileheight", -1);
 						XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 							public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 								if (tagName.equals("tileset")) {
@@ -82,6 +84,8 @@ public final class TMXMapFileParser {
 									layers.add(readTMXMapLayer(xrp));
 								} else if (tagName.equals("property")) {
 									map.properties.add(readTMXProperty(xrp));
+								} else if (tagName.equals("objectgroup")) {
+									map.objectGroups.add(readTMXObjectGroup(xrp));
 								}
 							}
 						});
@@ -196,10 +200,16 @@ public final class TMXMapFileParser {
 		for(int y = 0; y < layer.height; ++y) {
 			for(int x = 0; x < layer.width; ++x, i += 4) {
 				int gid = readIntLittleEndian(buffer, i);
-				//if (gid != 0) L.log(getHexString(buffer, i) + " -> " + gid);
 				layer.gids[x][y] = gid;
-				//L.log("(" + x + "," + y + ") : " + layer.gids[x][y]);
 			}
+		}
+
+		try {
+			MessageDigest digest = MessageDigest.getInstance("MD5");
+			digest.update(buffer);
+			layer.layoutHash = digest.digest();
+		} catch (NoSuchAlgorithmException e) {
+			throw new IOException("Failed to create layout hash for map layer " + layer.name);
 		}
 	}
 	
@@ -241,19 +251,21 @@ public final class TMXMapFileParser {
 				(buffer[offset + 3] << 24) & 0xff000000;
 	}
 	
-	public static final class TMXMap extends TMXLayerMap {
+	public static final class TMXObjectMap extends TMXMap {
 		public int xmlResourceId;
-		public String name;
-		public String orientation;
-		public int tilewidth;
-		public int tileheight;
 		public final ArrayList<TMXObjectGroup> objectGroups = new ArrayList<TMXObjectGroup>();
 	}
-	public static class TMXLayerMap {
-		public int width;
-		public int height;
+	public static final class TMXLayerMap extends TMXMap {
 		public TMXTileSet[] tileSets;
 		public TMXLayer[] layers;
+		public final ArrayList<TMXObjectGroup> objectGroups = new ArrayList<TMXObjectGroup>();
+	}
+	public static class TMXMap {
+		public String name;
+		public int width;
+		public int height;
+		public int tilewidth;
+		public int tileheight;
 		public final ArrayList<TMXProperty> properties = new ArrayList<TMXProperty>();
 	}
 	public static final class TMXTileSet {
@@ -269,6 +281,7 @@ public final class TMXMapFileParser {
 		public int width;
 		public int height;
 		public int[][] gids;
+		public byte[] layoutHash;
 	}
 	public static final class TMXObjectGroup {
 		public String name;

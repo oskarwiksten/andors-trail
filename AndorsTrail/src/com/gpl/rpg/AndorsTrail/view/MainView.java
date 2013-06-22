@@ -38,7 +38,7 @@ public final class MainView extends SurfaceView
 		CombatSelectionListener, 
 		MonsterSpawnListener, 
 		MonsterMovementListener,
-		LootBagListener,
+		MapLayoutListener,
 		VisualEffectFrameListener,
 		GameRoundListener {
 
@@ -276,8 +276,8 @@ public final class MainView extends SurfaceView
 	
 	private void doDrawRect(Canvas canvas, CoordRect area) {
 		
-    	drawMapLayer(canvas, area, currentTileMap.layers[LayeredTileMap.LAYER_GROUND]);
-        tryDrawMapLayer(canvas, area, LayeredTileMap.LAYER_OBJECTS);
+    	drawMapLayer(canvas, area, currentTileMap.currentLayout.layerGround);
+        tryDrawMapLayer(canvas, area, currentTileMap.currentLayout.layerObjects);
         
         for (BloodSplatter splatter : currentMap.splatters) {
     		drawFromMapPosition(canvas, area, splatter.position, splatter.iconID);
@@ -296,7 +296,7 @@ public final class MainView extends SurfaceView
 			}
 		}
 		
-		tryDrawMapLayer(canvas, area, LayeredTileMap.LAYER_ABOVE);
+		tryDrawMapLayer(canvas, area, currentTileMap.currentLayout.layerAbove);
         
 		if (model.uiSelections.selectedPosition != null) {
 			if (model.uiSelections.selectedMonster != null) {
@@ -307,8 +307,8 @@ public final class MainView extends SurfaceView
 		}
     }
     
-	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final int layerIndex) {
-    	if (currentTileMap.layers.length > layerIndex) drawMapLayer(canvas, area, currentTileMap.layers[layerIndex]);        
+	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
+    	if (layer != null) drawMapLayer(canvas, area, layer);
     }
     
     private void drawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
@@ -401,7 +401,7 @@ public final class MainView extends SurfaceView
 	public void subscribe() {
 		controllers.gameRoundController.gameRoundListeners.add(this);
 		controllers.effectController.visualEffectFrameListeners.add(this);
-		controllers.itemController.lootBagListeners.add(this);
+		controllers.mapController.mapLayoutListeners.add(this);
 		controllers.movementController.playerMovementListeners.add(this);
 		controllers.combatController.combatSelectionListeners.add(this);
 		controllers.monsterSpawnController.monsterSpawnListeners.add(this);
@@ -412,7 +412,7 @@ public final class MainView extends SurfaceView
 		controllers.monsterSpawnController.monsterSpawnListeners.remove(this);
 		controllers.combatController.combatSelectionListeners.remove(this);
 		controllers.movementController.playerMovementListeners.remove(this);
-		controllers.itemController.lootBagListeners.remove(this);
+		controllers.mapController.mapLayoutListeners.remove(this);
 		controllers.effectController.visualEffectFrameListeners.remove(this);
 		controllers.gameRoundController.gameRoundListeners.remove(this);
 	}
@@ -492,6 +492,12 @@ public final class MainView extends SurfaceView
         if (map != currentMap) return;
 		if (!mapViewArea.contains(p)) return;
         redrawTile(p, REDRAW_TILE_BAG);
+	}
+
+	@Override
+	public void onMapTilesChanged(PredefinedMap map, LayeredTileMap tileMap) {
+		if (map != currentMap) return;
+		redrawAll(REDRAW_ALL_MAP_CHANGED);
 	}
 
 	@Override

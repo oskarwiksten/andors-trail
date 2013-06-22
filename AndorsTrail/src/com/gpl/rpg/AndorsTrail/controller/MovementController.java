@@ -88,6 +88,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
 		m.reset();
 		m.createAllContainerLoot();
+		world.maps.worldMapRequiresUpdate = true;
 	}
 
 	public void prepareMapAsCurrentMap(PredefinedMap newMap, Resources res, boolean spawnMonsters) {
@@ -99,10 +100,12 @@ public final class MovementController implements TimedMessageTask.Callback {
 				controllers.monsterSpawnController.spawnAll(newMap, model.currentTileMap);
 			}
 		}
+		controllers.mapController.applyCurrentMapReplacements(res, false);
 		newMap.visited = true;
 		moveBlockedActors(newMap, model.currentTileMap);
 		refreshMonsterAggressiveness(newMap, model.player);
 		controllers.effectController.updateSplatters(newMap);
+		WorldMapController.updateWorldMap(world, res);
 	}
 
 	private boolean mayMovePlayer() {
@@ -294,8 +297,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 		world.model.currentTileMap = mapTiles;
 		world.tileManager.currentMapTiles = cachedTiles;
 		world.tileManager.cacheAdjacentMaps(res, world, nextMap);
-
-		WorldMapController.updateWorldMap(world, nextMap, mapTiles, cachedTiles, res);
 	}
 
 

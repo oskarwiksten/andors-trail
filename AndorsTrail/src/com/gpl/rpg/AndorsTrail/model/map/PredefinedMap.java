@@ -29,7 +29,7 @@ public final class PredefinedMap {
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
-	public int lastVisitVersion = 0;
+	public String lastSeenLayoutHash = "";
 	private final boolean isOutdoors;
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
@@ -136,7 +136,7 @@ public final class PredefinedMap {
 		}
 		groundBags.clear();
 		visited = false;
-		lastVisitVersion = 0;
+		lastSeenLayoutHash = "";
 	}
 
 	public boolean isRecentlyVisited() {
@@ -145,7 +145,6 @@ public final class PredefinedMap {
 	}
 	public void updateLastVisitTime() {
 		lastVisitTime = System.currentTimeMillis();
-		lastVisitVersion = AndorsTrailApplication.CURRENT_VERSION;
 	}
 	public void resetTemporaryData() {
 		for(MonsterSpawnArea a : spawnAreas) {
@@ -213,10 +212,13 @@ public final class PredefinedMap {
 		lastVisitTime = src.readLong();
 		
 		if (visited) {
-			if (fileversion <= 30) lastVisitVersion = 30;
-			else lastVisitVersion = src.readInt();
+			if (fileversion > 30 && fileversion < 36) {
+				/*int lastVisitVersion = */src.readInt();
+			}
+			if (fileversion < 36) lastSeenLayoutHash = "";
+			else lastSeenLayoutHash = src.readUTF();
 		}
-		
+
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
 			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, null, area, true);
@@ -235,6 +237,8 @@ public final class PredefinedMap {
 		}
 		dest.writeBoolean(visited);
 		dest.writeLong(lastVisitTime);
-		if (visited) dest.writeInt(lastVisitVersion);
+		if (visited) {
+			dest.writeUTF(lastSeenLayoutHash);
+		}
 	}
 }
