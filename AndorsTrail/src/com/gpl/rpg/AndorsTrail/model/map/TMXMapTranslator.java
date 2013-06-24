@@ -29,11 +29,11 @@ import android.content.res.Resources;
 
 public final class TMXMapTranslator {
 	private final ArrayList<TMXObjectMap> maps = new ArrayList<TMXObjectMap>();
-	
+
 	public void read(Resources r, int xmlResourceId, String name) {
 		maps.add(TMXMapFileParser.readObjectMap(r, xmlResourceId, name));
 	}
-	
+
 	public static LayeredTileMap readLayeredTileMap(Resources res, TileCache tileCache, PredefinedMap map) {
 		TMXLayerMap resultMap = TMXMapFileParser.readLayerMap(res, map.xmlResourceId, map.name);
 		return transformMap(resultMap, tileCache);
@@ -44,34 +44,35 @@ public final class TMXMapTranslator {
 	}
 	public ArrayList<PredefinedMap> transformMaps(Collection<TMXObjectMap> maps, MonsterTypeCollection monsterTypes, DropListCollection dropLists) {
 		ArrayList<PredefinedMap> result = new ArrayList<PredefinedMap>();
-		
+
 		for (TMXObjectMap m : maps) {
 			assert(m.name != null);
 			assert(m.name.length() > 0);
 			assert(m.width > 0);
 			assert(m.height > 0);
-			
+
 			boolean isOutdoors = false;
 			for (TMXProperty p : m.properties) {
 				if(p.name.equalsIgnoreCase("outside")) isOutdoors = (Integer.parseInt(p.value) != 0);
 				else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + " has unrecognized property \"" + p.name + "\".");
 			}
-			
+
 			final Size mapSize = new Size(m.width, m.height);
 			ArrayList<MapObject> mapObjects = new ArrayList<MapObject>();
 			ArrayList<MonsterSpawnArea> spawnAreas = new ArrayList<MonsterSpawnArea>();
-			
+
 			for (TMXObjectGroup group : m.objectGroups) {
 				for (TMXObject object : group.objects) {
 					final CoordRect position = getTMXObjectPosition(object, m);
-					
+					final Coord topLeft = position.topLeft;
+
 					if (object.type == null) {
-						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) 
-							L.log("WARNING: Map " + m.name + ", object \"" + object.name + "\" has null type.");
+						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA)
+							L.log("WARNING: Map " + m.name + ", object \"" + object.name + "\"@" + topLeft.toString() + " has null type.");
 					} else if (object.type.equalsIgnoreCase("sign")) {
 						String phraseID = object.name;
 						for (TMXProperty p : object.properties) {
-							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + " has unrecognized property \"" + p.name + "\".");
+							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
 						mapObjects.add(MapObject.createMapSignEvent(position, phraseID));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
@@ -80,7 +81,7 @@ public final class TMXMapTranslator {
 						for (TMXProperty p : object.properties) {
 							if(p.name.equalsIgnoreCase("map")) map = p.value;
 							else if(p.name.equalsIgnoreCase("place")) place = p.value;
-							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + " has unrecognized property \"" + p.name + "\".");
+							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
 						mapObjects.add(MapObject.createNewMapEvent(position, object.name, map, place));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
@@ -88,22 +89,28 @@ public final class TMXMapTranslator {
 						int maxQuantity = 1;
 						int spawnChance = 10;
 						for (TMXProperty p : object.properties) {
+							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+								if (p.value.equals("")) {
+									L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + "@" + topLeft.toString() + " has property \"" + p.name + "\" without value.");
+									continue;
+								}
+							}
 							if (p.name.equalsIgnoreCase("quantity")) {
 								maxQuantity = Integer.parseInt(p.value);
 							} else if (p.name.equalsIgnoreCase("spawnchance")) {
 								spawnChance = Integer.parseInt(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + " has unrecognized property \"" + p.name + "\".");
+								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						
+
 						if (types.isEmpty()) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + " contains spawn \"" + object.name + "\" that does not correspond to any monsters. The spawn will be removed.");
+								L.log("OPTIMIZE: Map " + m.name + " contains spawn \"" + object.name + "\"@" + topLeft.toString() + " that does not correspond to any monsters. The spawn will be removed.");
 							}
 							continue;
 						}
-						
+
 						String[] monsterTypeIDs = new String[types.size()];
 						boolean isUnique = types.get(0).isUnique;
 						for (int i = 0; i < monsterTypeIDs.length; ++i) {
@@ -115,13 +122,13 @@ public final class TMXMapTranslator {
 								,new Range(1000, spawnChance)
 								,monsterTypeIDs
 								,isUnique
-							);
+						);
 						spawnAreas.add(area);
 					} else if (object.type.equalsIgnoreCase("key")) {
 						QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(object.name);
 						if (requireQuestStage == null) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + " contains key area that cannot be parsed as a quest stage.");
+								L.log("OPTIMIZE: Map " + m.name + " contains key area at " + topLeft.toString() + " that cannot be parsed as a quest stage.");
 							}
 							continue;
 						}
@@ -130,10 +137,10 @@ public final class TMXMapTranslator {
 							if (p.name.equalsIgnoreCase("phrase")) {
 								phraseID = p.value;
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + " has unrecognized property \"" + p.name + "\".");
+								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						
+
 						mapObjects.add(MapObject.createNewKeyArea(position, phraseID, requireQuestStage));
 					} else if (object.type.equals("rest")) {
 						mapObjects.add(MapObject.createNewRest(position, object.name));
@@ -155,7 +162,7 @@ public final class TMXMapTranslator {
 
 			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, _eventObjects, _spawnAreas, isOutdoors));
 		}
-		
+
 		return result;
 	}
 
@@ -245,7 +252,7 @@ public final class TMXMapTranslator {
 			HashMap<String, TMXLayer> layersPerLayerName,
 			HashSet<Integer> usedTileIDs,
 			SetOfLayerNames layerNames
-			) {
+	) {
 		final MapLayer layerGround = transformMapLayer(layersPerLayerName, layerNames.groundLayerName, srcMap, tileCache, area, usedTileIDs);
 		final MapLayer layerObjects = transformMapLayer(layersPerLayerName, layerNames.objectsLayerName, srcMap, tileCache, area, usedTileIDs);
 		final MapLayer layerAbove = transformMapLayer(layersPerLayerName, layerNames.aboveLayersName, srcMap, tileCache, area, usedTileIDs);
@@ -257,7 +264,7 @@ public final class TMXMapTranslator {
 	private static TMXLayer findLayer(HashMap<String, TMXLayer> layersPerLayerName, String layerName, String mapName) {
 		if (layerName == null) return null;
 		if (layerName.length() == 0) return null;
-		TMXLayer result = layersPerLayerName.get(layerName);
+		TMXLayer result = layersPerLayerName.get(layerName.toLowerCase());
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (result == null) {
 				L.log("WARNING: Cannot find maplayer \"" + layerName + "\" requested by map \"" + mapName + "\".");
@@ -342,7 +349,7 @@ public final class TMXMapTranslator {
 		L.log("WARNING: Cannot find tile for gid " + gid);
 		return false;
 	}
-	
+
 	private static final class Tile {
 		public String tilesetName;
 		public int localId;

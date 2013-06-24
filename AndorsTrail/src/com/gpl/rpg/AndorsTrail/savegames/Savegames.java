@@ -19,6 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.os.Environment;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
@@ -56,7 +57,7 @@ public final class Savegames {
 	public static int loadWorld(WorldContext world, ControllerContext controllers, Context androidContext, int slot) {
 		try {
 			FileInputStream fos = getInputFile(androidContext, slot);
-			int result = loadWorld(world, controllers, fos);
+			int result = loadWorld(androidContext.getResources(), world, controllers, fos);
 			fos.close();
 			return result;
 		} catch (IOException e) {
@@ -110,7 +111,7 @@ public final class Savegames {
 		dest.close();
 	}
 	
-	public static int loadWorld(WorldContext world, ControllerContext controllers, InputStream inState) throws IOException {
+	public static int loadWorld(Resources res, WorldContext world, ControllerContext controllers, InputStream inState) throws IOException {
 		DataInputStream src = new DataInputStream(inState);
 		final FileHeader header = new FileHeader(src);
 		if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
@@ -119,14 +120,15 @@ public final class Savegames {
 		world.model = new ModelContainer(src, world, controllers, header.fileversion);
 		src.close();
 		
-		onWorldLoaded(world, controllers);
+		onWorldLoaded(res, world, controllers);
 		
 		return LOAD_RESULT_SUCCESS;
 	}
 	
-	private static void onWorldLoaded(WorldContext world, ControllerContext controllers) {
+	private static void onWorldLoaded(Resources res, WorldContext world, ControllerContext controllers) {
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
 		controllers.mapController.resetMapsNotRecentlyVisited();
+		controllers.movementController.prepareMapAsCurrentMap(world.model.currentMap, res, false);
 	}
 	
 	public static FileHeader quickload(Context androidContext, int slot) {

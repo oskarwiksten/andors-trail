@@ -139,11 +139,7 @@ public final class WorldSetup {
 	
 	private int continueWorld() {
 		Context ctx = androidContext.get();
-		int result = Savegames.loadWorld(world, controllers, ctx, loadFromSlot);
-    	if (result == Savegames.LOAD_RESULT_SUCCESS) {
-			controllers.movementController.prepareMapAsCurrentMap(world.model.currentMap, ctx.getResources(), false);
-		}
-		return result;
+		return Savegames.loadWorld(world, controllers, ctx, loadFromSlot);
 	}
 	
 	private void createNewWorld() {
