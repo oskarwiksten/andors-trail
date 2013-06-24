@@ -167,7 +167,7 @@
     },
 	"movementAggressionType": 1
   },
-  {
+    {
     "id": "hirazinn",
     "iconID": "monsters_demon2:0",
     "name": "Hira'zinn",
@@ -182,16 +182,25 @@
     "criticalSkill": 10,
     "criticalMultiplier": 2,
     "blockChance": 132,
-    "damageResistance": 13,
+    "damageResistance": 21,
     "attackDamage": {
       "min": 3,
-      "max": 4
+      "max": 6
     },
     "hitEffect": {
       "increaseCurrentHP": {
         "min": 1,
         "max": 8
-      }
-    }
+      },
+      "conditionsTarget": [
+        {
+          "magnitude": 3,
+          "duration": 4,
+          "chance": 25,
+          "condition": "fear"
+        }
+      ]
+    },
+    "size": "2x2"
   }
 ]

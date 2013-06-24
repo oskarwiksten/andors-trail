@@ -125,7 +125,7 @@
  </tileset>
  <layer name="Ground" width="29" height="30">
   <data encoding="base64" compression="zlib">
-   eJzNlt0NwjAMhIEH2IttWIMVaEdoGYF2AITUqcBST5ws23HTIvFwgoKTz45/0uaw2zUJ3ZJ27aw1e9QyX8f/YvakaK+O7CO7e4I5kLpgr8dHl9PXrjckvDHIJ9ZNpEeBK0zYDYZGOl/P78H53eMKE98nQxyv5zfbsUrxcu6ieD1Za7qZG9UqcmfFW/LVWgOex7wmYqlRibk1r5bZ02e27zVT9yHn0qsn9HC27zVT96HsJ9K55HpCDy/pewg2vBZMtmtnHvzQ/0PgRmdt+RYxM2fnzaESV8ubc54y/ZuZDUuYS2qYn/U98kumMM77/Fy1lO3XjmISZnauWnko1RDnFDEJMxuPdZ/X+JphWnccevhpvLOsZaJf9SwSFrSWqec9mMzQ0usteUyuZ2ZGPGZm3191nHr23TdmWrG3ilc615o4rZpZwtuKmakb1hteoxte
+   eJzNlt0NwjAMhIEH2IttWIMVaEdoO0LLAAiJqcBST5ws23HTIvFwgoKTz45/0uaw2zUJ3ZJ27aw1e9Qyn8f/YvakaK+O7CO7IcGcSF2w1/jR5fS16w0J7x7kE+tepLHAFSbsJkN3Ol/P78n53eMKE99fhjhez2+2Y5Xi5dxF8Xqy1nQzN6pV5M6Kt+SrtQY8j9kmYqlRibk1r5bZ02e27zVT9yHn0qsn9HC27zVT96HsJ9K55HpCDy/pewg2vBZMq57gh/4fAjc6a8u3iJk5O28OlbhrazjTv5nZsIS5pIb5Wd8jv2QK47zPz1VL2X7tKCZhZueqlYdSDXFOEZMws/FY93mNrxmmdcehhx/GO8taJvpVzyJhQWuZV4fJDC293pLH5HpmZsRjZvb9VcepZ9+wMdOKvVW80rnWxGnVzBLeVsxM3bDeV70blw==
   </data>
  </layer>
  <layer name="Objects" width="29" height="30">
@@ -138,7 +138,7 @@
    eJytV4sNgkAMRSeA6djgmMMwm7qObqBEninPfpGXEBLp9fX12t7Zdcdj7D/P4/08+9yarF3E2Q01f1Xeh7CXOqv+LDvkTL4lWGcVzDsF8S7fGzgPQuSr9Tk7D6yzJX0xZ6WGNV4JK9fZ2KrgWvJsJDJ6NZspUZdWr5yG31o/Kb6YN6oR9gkf1X2tcFpY+DRNezlRT1EPQ6eWCwvoe+u30dhHYI9O1jjRPnE8e+qW0YgDMSB+q34AqTN7DmgzPQP4/PesrHACe+sWkLXjzaXrn9pkL0g+xhE5nKhmAK/PovM3mtmy/5Zc3ZQ7QhSztK/kZnTyKf0zsvFpvN/cDmsNUh2yHubb+BQ+Nm+D83L+vOfzljfTOwsv1muY6Zs337OcXo8iD5K3rTEiXzzzM/vGe3ZPzGS+QwPR/QHrMrPo6egYDb1enEf8P4n4JF5+SXtZ
   </data>
  </layer>
- <layer name="Walkable" width="29" height="30">
+ <layer name="Walkable" width="29" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJzNk1EOgDAIQ3cEL+X9r+SXybKsULpiJFk0bvBKh/c1xg3WHOiMc63xJ6Zb11ovio5+33clT+WqzF1O5o/qY5TD1HMz3XOcedSleXdW6fmEdzLLWa2qF6r+nYcdvkV5FWZVW+Szo88oOmatMiMsjz2r6GK9Q/fC+Mly5+/zE2nIajA6mYjmEvGifcTImGgfcav3FOUri9XqZFa5TubXfXbpc+WfMJXZqfwfp3lunQ8Oy9PX
   </data>
@@ -187,7 +187,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="29" height="30">
+ <objectgroup name="Spawn" width="29" height="30" visible="0">
   <object name="yjacket2" type="spawn" x="64" y="192" width="64" height="64"/>
   <object name="yjacket2" type="spawn" x="32" y="384" width="96" height="192">
    <properties>
