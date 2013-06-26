@@ -80,6 +80,7 @@ public final class ResourceLoader {
         for (int i = 0; i < categoriesToLoad.length(); ++i) {
         	world.itemCategories.initialize(itemCategoryParser, readStringFromRaw(r, categoriesToLoad, i));
         }
+		categoriesToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ItemCategoryParser");
         
     	// ========================================================================
@@ -89,6 +90,7 @@ public final class ResourceLoader {
         for (int i = 0; i < conditionsToLoad.length(); ++i) {
         	world.actorConditionsTypes.initialize(actorConditionsTypeParser, readStringFromRaw(r, conditionsToLoad, i));
         }
+		conditionsToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ActorConditionsTypeParser");
         
         // ========================================================================
@@ -104,6 +106,7 @@ public final class ResourceLoader {
         for (int i = 0; i < itemsToLoad.length(); ++i) {
         	world.itemTypes.initialize(itemTypeParser, readStringFromRaw(r, itemsToLoad, i));
         }
+		itemsToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ItemTypeParser");
         
         
@@ -114,6 +117,7 @@ public final class ResourceLoader {
         for (int i = 0; i < droplistsToLoad.length(); ++i) {
         	world.dropLists.initialize(dropListParser, readStringFromRaw(r, droplistsToLoad, i));
         }
+		droplistsToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("DropListParser");
         
         
@@ -124,6 +128,7 @@ public final class ResourceLoader {
         for (int i = 0; i < questsToLoad.length(); ++i) {
         	world.quests.initialize(questParser, readStringFromRaw(r, questsToLoad, i));
         }
+		questsToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("QuestParser");
     	
 
@@ -136,6 +141,7 @@ public final class ResourceLoader {
         	Collection<String> ids = conversations.initialize(conversationListParser, readStringFromRaw(r, conversationsListsToLoad, i));
         	world.conversationLoader.addIDs(conversationsListsToLoad.getResourceId(i, -1), ids);
         }
+		conversationsListsToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ConversationListParser");
         
         
@@ -146,6 +152,7 @@ public final class ResourceLoader {
         for (int i = 0; i < monstersToLoad.length(); ++i) {
         	world.monsterTypes.initialize(monsterTypeParser, readStringFromRaw(r, monstersToLoad, i));
         }
+		monstersToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("MonsterTypeParser");
         
         
@@ -158,6 +165,7 @@ public final class ResourceLoader {
         	final String mapName = r.getResourceEntryName(mapResourceId);
         	mapReader.read(r, mapResourceId, mapName);
         }
+		mapsToLoad.recycle();
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("TMXMapReader");
         world.maps.addAll(mapReader.transformMaps(world.monsterTypes, world.dropLists));
 		loader.prepareAllMapTiles();

@@ -9,7 +9,7 @@
 	>
 	<uses-sdk 
 		android:minSdkVersion="4" 
-		android:targetSdkVersion="10"
+		android:targetSdkVersion="17"
 		/>
 	
 	<supports-screens
@@ -28,7 +28,8 @@
 		android:name=".AndorsTrailApplication" 
 		android:label="@string/app_name" 
 		android:icon="@drawable/icon"
-		android:description="@string/app_description" 
+		android:description="@string/app_description"
+        android:allowBackup="true"
 		>
 		<activity 
 		    android:name=".activity.StartScreenActivity" 

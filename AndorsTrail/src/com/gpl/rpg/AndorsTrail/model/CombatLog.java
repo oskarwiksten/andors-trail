@@ -2,11 +2,12 @@ package com.gpl.rpg.AndorsTrail.model;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.ListIterator;
 
 public final class CombatLog {
 	private final LinkedList<String> messages = new LinkedList<String>();
-	public static final int MAX_COMBAT_LOG_LENGTH = 100;
-	public static final String newCombatSession = "--";
+	private static final int MAX_COMBAT_LOG_LENGTH = 100;
+	private static final String newCombatSession = "--";
 
 	public CombatLog() { }
 
@@ -24,11 +25,11 @@ public final class CombatLog {
 	public String getLastMessages() {
 		if (messages.isEmpty()) return "";
 		StringBuilder sb = new StringBuilder(100);
-		Iterator<String> it = messages.descendingIterator();
-		sb.append(it.next());
+		ListIterator<String> it = messages.listIterator(messages.size());
+		sb.append(it.previous());
 		int i = 1;
-		while (it.hasNext() && i++ < 3) {
-			String s = it.next();
+		while (it.hasPrevious() && i++ < 3) {
+			String s = it.previous();
 			if (s.equals(newCombatSession)) break;
 			sb.insert(0, '\n').insert(0, s);
 		}

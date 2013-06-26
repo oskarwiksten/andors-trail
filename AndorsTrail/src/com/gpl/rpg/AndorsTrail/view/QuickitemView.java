@@ -50,6 +50,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 			item.setItemType(null, world, tiles);
 			item.setOnClickListener(this);
 		}
+		quickButtons.recycle();
 	}
 	
 	public boolean isQuickButtonId(int id){
