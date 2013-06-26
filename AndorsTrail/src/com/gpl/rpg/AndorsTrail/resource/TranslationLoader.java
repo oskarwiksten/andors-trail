@@ -9,7 +9,6 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
 
 public final class TranslationLoader {
     private final BinaryMoFileParser parser;
@@ -94,7 +93,7 @@ public final class TranslationLoader {
             is.close();
         }
 
-        private final Charset charset = Charset.forName("utf-8");
+        private static final String charset = "utf-8";
 
         public String translate(String s) throws IOException {
             if (numStrings <= 0) return s;
