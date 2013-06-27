@@ -11,6 +11,7 @@
     	<item>@raw/actorconditions_v0611</item>
     	<item>@raw/actorconditions_v0611_2</item>
     	<item>@raw/actorconditions_v0612_2</item>
+    	<item>@raw/actorconditions_v070</item>
     </array>
 
     <array name="loadresource_items">
@@ -33,6 +34,8 @@
 		<item>@raw/itemlist_v0611_1</item>
 		<item>@raw/itemlist_v0611_2</item>
 		<item>@raw/itemlist_v0611_3</item>
+		<item>@raw/itemlist_v070</item>
+		<item>@raw/itemlist_v070_questitems</item>
     </array>
     
     <array name="loadresource_droplists">
@@ -49,6 +52,9 @@
         <item>@raw/droplists_v0611_monsters</item>
         <item>@raw/droplists_v0611_npcs</item>
         <item>@raw/droplists_v0611_shops</item>
+        <item>@raw/droplists_v070_quest</item>
+        <item>@raw/droplists_v070_shops</item>
+        <item>@raw/droplists_v070_mobs</item>
     </array>
     
     <array name="loadresource_quests">
@@ -60,6 +66,9 @@
 		<item>@raw/questlist_v0611</item>
 		<item>@raw/questlist_v0611_2</item>
 		<item>@raw/questlist_v0611_3</item>
+		<item>@raw/questlist_v070_charwood</item>
+		<item>@raw/questlist_v070_lodar</item>
+		<item>@raw/questlist_v070_lowyna</item>
     </array>
     
     <array name="loadresource_conversationlists">
@@ -185,6 +194,35 @@
 		<item>@raw/conversationlist_vacor2</item>
 		<item>@raw/conversationlist_unzel2</item>
 		<item>@raw/conversationlist_v0612graves</item>
+    	<item>@raw/conversationlist_agthor</item>
+    	<item>@raw/conversationlist_aulowenn</item>
+    	<item>@raw/conversationlist_charwood1</item>
+    	<item>@raw/conversationlist_charwood2</item>
+    	<item>@raw/conversationlist_esfiume</item>
+    	<item>@raw/conversationlist_falothen</item>
+    	<item>@raw/conversationlist_fayvara</item>
+    	<item>@raw/conversationlist_hirazinn</item>
+    	<item>@raw/conversationlist_kantya</item>
+    	<item>@raw/conversationlist_lethenlor</item>
+    	<item>@raw/conversationlist_lleglaris</item>
+    	<item>@raw/conversationlist_lodar</item>
+    	<item>@raw/conversationlist_lodar0g</item>
+    	<item>@raw/conversationlist_lodarfg</item>
+    	<item>@raw/conversationlist_lodarfg2</item>
+    	<item>@raw/conversationlist_lodarfg3</item>
+    	<item>@raw/conversationlist_lodarfg4</item>
+    	<item>@raw/conversationlist_lowyna</item>
+    	<item>@raw/conversationlist_maevalia</item>
+    	<item>@raw/conversationlist_thukuzun</item>
+    	<item>@raw/conversationlist_tiqui</item>
+    	<item>@raw/conversationlist_twoteeth</item>
+    	<item>@raw/conversationlist_v070signs1</item>
+    	<item>@raw/conversationlist_v070signs2</item>
+    	<item>@raw/conversationlist_woodcabin</item>
+    	<item>@raw/conversationlist_highwayman1</item>
+    	<item>@raw/conversationlist_lodarmobs</item>
+    	<item>@raw/conversationlist_fallhaven_v070</item>
+    	<item>@raw/conversationlist_vilegard_v070</item>
     </array>
 
     <array name="loadresource_monsters">
@@ -202,6 +240,16 @@
     	<item>@raw/monsterlist_v0611_monsters1</item>
     	<item>@raw/monsterlist_v0611_npcs1</item>
     	<item>@raw/monsterlist_v0611_npcs2</item>
+    	<item>@raw/monsterlist_v070_charwood</item>
+    	<item>@raw/monsterlist_v070_charwood2</item>
+    	<item>@raw/monsterlist_v070_lodar1cave</item>
+    	<item>@raw/monsterlist_v070_lodar5cave</item>
+    	<item>@raw/monsterlist_v070_lodarcave</item>
+    	<item>@raw/monsterlist_v070_lodarmaze</item>
+    	<item>@raw/monsterlist_v070_lodarnpcs</item>
+    	<item>@raw/monsterlist_v070_oldcave</item>
+    	<item>@raw/monsterlist_v070_roadcave</item>
+    	<item>@raw/monsterlist_v070_npcs</item>
     </array>
     
     <array name="loadresource_maps">
@@ -494,5 +542,99 @@
 		
 	    <!-- maps for v0.7.0 -->
 		<item>@xml/gapfiller2</item>
+		<item>@xml/lodar0</item>
+		<item>@xml/lodar1</item>
+		<item>@xml/lodar10</item>
+		<item>@xml/lodar11</item>
+		<item>@xml/lodar12</item>
+		<item>@xml/lodar12cave0</item>
+		<item>@xml/lodar12cave1</item>
+		<item>@xml/lodar13</item>
+		<item>@xml/lodar14</item>
+		<item>@xml/lodar15</item>
+		<item>@xml/lodar16</item>
+		<item>@xml/lodar17</item>
+		<item>@xml/lodar18</item>
+		<item>@xml/lodar19</item>
+		<item>@xml/lodar1cave0</item>
+		<item>@xml/lodar2</item>
+		<item>@xml/lodar20</item>
+		<item>@xml/lodar21</item>
+		<item>@xml/lodar3</item>
+		<item>@xml/lodar4</item>
+		<item>@xml/lodar5</item>
+		<item>@xml/lodar5cave0</item>
+		<item>@xml/lodar5cave1</item>
+		<item>@xml/lodar5cave2</item>
+		<item>@xml/lodar6</item>
+		<item>@xml/lodar7</item>
+		<item>@xml/lodar8</item>
+		<item>@xml/lodar8cave0</item>
+		<item>@xml/lodar9</item>
+		<item>@xml/lodarcave0</item>
+		<item>@xml/lodarcave1</item>
+		<item>@xml/lodarcave2</item>
+		<item>@xml/lodarcave3</item>
+		<item>@xml/lodarcave4</item>
+		<item>@xml/lodarcave4a</item>
+		<item>@xml/lodarcave5</item>
+		<item>@xml/lodarcave6</item>
+		<item>@xml/lodarcave7</item>
+		<item>@xml/lodarhouse0</item>
+		<item>@xml/lodarhouse1</item>
+		<item>@xml/lostmine0</item>
+		<item>@xml/lostmine1</item>
+		<item>@xml/lostmine10</item>
+		<item>@xml/lostmine11</item>
+		<item>@xml/lostmine1a</item>
+		<item>@xml/lostmine2</item>
+		<item>@xml/lostmine2a</item>
+		<item>@xml/lostmine3</item>
+		<item>@xml/lostmine4</item>
+		<item>@xml/lostmine5</item>
+		<item>@xml/lostmine6</item>
+		<item>@xml/lostmine7</item>
+		<item>@xml/lostmine8</item>
+		<item>@xml/lostmine9</item>
+		<item>@xml/minerhouse0</item>
+		<item>@xml/minerhouse1</item>
+		<item>@xml/minerhouse2</item>
+		<item>@xml/minerhouse3</item>
+		<item>@xml/minerhouse4</item>
+		<item>@xml/minerhouse5</item>
+		<item>@xml/minerhouse6</item>
+		<item>@xml/minerhouse7</item>
+		<item>@xml/minerhouse8</item>
+		<item>@xml/minerhouse9</item>
+		<item>@xml/oldcave0</item>
+		<item>@xml/oldcave1</item>
+		<item>@xml/roadbeforecrossroads1</item>
+		<item>@xml/roadbeforecrossroads2</item>
+		<item>@xml/roadbeforecrossroads3</item>
+		<item>@xml/roadbeforecrossroads4</item>
+		<item>@xml/roadbeforecrossroads5</item>
+		<item>@xml/roadbeforecrossroads6</item>
+		<item>@xml/roadbeforecrossroads7</item>
+		<item>@xml/roadbeforecrossroads8</item>
+		<item>@xml/roadbeforecrossroads9</item>
+		<item>@xml/roadcave0</item>
+		<item>@xml/roadcave1</item>
+		<item>@xml/waytolostmine0</item>
+		<item>@xml/waytolostmine1</item>
+		<item>@xml/waytolostmine2</item>
+		<item>@xml/waytolostmine3</item>
+		<item>@xml/waytominingtown0</item>
+		<item>@xml/waytominingtown1</item>
+		<item>@xml/waytominingtown1a</item>
+		<item>@xml/waytominingtown2</item>
+		<item>@xml/waytominingtown3</item>
+		<item>@xml/woodhouse0</item>
+		<item>@xml/woodhouse1</item>
+		<item>@xml/woodhouse2</item>
+		<item>@xml/woodhouse3</item>
+		<item>@xml/woodsettlement0</item>
+		<item>@xml/tradehouse0</item>
+		<item>@xml/tradehouse1</item>
+		<item>@xml/tradehouse0a</item>
     </array>
 </resources>

@@ -68,6 +68,11 @@
                         "requireType": 0
                     }
                 }
+            },
+            {
+                "text": "On the body of something called the Hira'zinn, I found this peculiar sword. Do you know anything about it?.",
+                "requires": { "item": { "requireType": 1, "itemID": "xulviir0", "quantity": 1 } },
+                "nextPhraseID": "vilegard_smith_xul_1"
             }
         ]
     },
@@ -91,9 +96,14 @@
                     "item": {
                         "itemID": "fg_ironsword",
                         "quantity": 10,
-                        "requireType": 0
+                        "requireType": 1
                     }
                 }
+            },
+            {
+                "text": "On the body of something called the Hira'zinn, I found this peculiar sword. Do you know anything about it?.",
+                "requires": { "item": { "requireType": 1, "itemID": "xulviir0", "quantity": 1 } },
+                "nextPhraseID": "vilegard_shop_notrust_2"
             }
         ]
     },

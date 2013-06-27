@@ -157,6 +157,12 @@
     <property name="place" value="southeast"/>
    </properties>
   </object>
+  <object name="east" type="mapchange" x="640" y="192" width="32" height="192">
+   <properties>
+    <property name="map" value="roadbeforecrossroads1"/>
+    <property name="place" value="west"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Spawn" width="21" height="20">
   <object name="larva_1" type="spawn" x="224" y="448" width="32" height="32"/>
