@@ -102,6 +102,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 		controllers.mapController.applyCurrentMapReplacements(res, false);
 		newMap.visited = true;
+		newMap.updateLastVisitTime();
 		moveBlockedActors(newMap, model.currentTileMap);
 		refreshMonsterAggressiveness(newMap, model.player);
 		controllers.effectController.updateSplatters(newMap);

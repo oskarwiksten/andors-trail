@@ -180,44 +180,52 @@ public final class PredefinedMap {
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
-		final int loadedSpawnAreas = src.readInt();
-		for(int i = 0; i < loadedSpawnAreas; ++i) {
-			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				if (i >= this.spawnAreas.length) {
-					L.log("WARNING: Trying to load monsters in map " + this.name + " for spawn #" + i + ". This will totally fail.");
+		boolean shouldLoadPersistentData = true;
+		if (fileversion >= 37) shouldLoadPersistentData = src.readBoolean();
+
+		int loadedSpawnAreas = 0;
+		if (shouldLoadPersistentData) {
+			loadedSpawnAreas = src.readInt();
+			for(int i = 0; i < loadedSpawnAreas; ++i) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+					if (i >= this.spawnAreas.length) {
+						L.log("WARNING: Trying to load monsters in map " + this.name + " for spawn #" + i + ". This will totally fail.");
+					}
+				}
+				this.spawnAreas[i].readFromParcel(src, world, fileversion);
+			}
+
+			groundBags.clear();
+			if (fileversion <= 5) return;
+
+			final int size2 = src.readInt();
+			for(int i = 0; i < size2; ++i) {
+				groundBags.add(new Loot(src, world, fileversion));
+			}
+
+			if (fileversion <= 11) return;
+
+			if (fileversion < 37) visited = src.readBoolean();
+
+			if (fileversion <= 15) {
+				if (visited) {
+					lastVisitTime = System.currentTimeMillis();
+					createAllContainerLoot();
+				}
+				return;
+			}
+			lastVisitTime = src.readLong();
+
+			if (visited) {
+				if (fileversion > 30 && fileversion < 36) {
+					/*int lastVisitVersion = */src.readInt();
 				}
 			}
-			this.spawnAreas[i].readFromParcel(src, world, fileversion);
 		}
-		
-		groundBags.clear();
-		if (fileversion <= 5) return;
-		
-		final int size2 = src.readInt();
-		for(int i = 0; i < size2; ++i) {
-			groundBags.add(new Loot(src, world, fileversion));
-		}
+		if (fileversion >= 37) visited = true;
 
-		if (fileversion <= 11) return;
-		visited = src.readBoolean();
-		
-		
-		if (fileversion <= 15) {
-			if (visited) {
-				lastVisitTime = System.currentTimeMillis();
-				createAllContainerLoot();
-			}
-			return;
-		}
-		lastVisitTime = src.readLong();
-		
-		if (visited) {
-			if (fileversion > 30 && fileversion < 36) {
-				/*int lastVisitVersion = */src.readInt();
-			}
-			if (fileversion < 36) lastSeenLayoutHash = "";
-			else lastSeenLayoutHash = src.readUTF();
-		}
+		if (fileversion < 36) lastSeenLayoutHash = "";
+		else lastSeenLayoutHash = src.readUTF();
 
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
@@ -227,18 +235,20 @@ public final class PredefinedMap {
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeInt(spawnAreas.length);
-		for(MonsterSpawnArea a : spawnAreas) {
-			a.writeToParcel(dest, flags);
+		if (hasPersistentData()) {
+			dest.writeBoolean(true);
+			dest.writeInt(spawnAreas.length);
+			for(MonsterSpawnArea a : spawnAreas) {
+				a.writeToParcel(dest, flags);
+			}
+			dest.writeInt(groundBags.size());
+			for(Loot l : groundBags) {
+				l.writeToParcel(dest, flags);
+			}
+			dest.writeLong(lastVisitTime);
+		} else {
+			dest.writeBoolean(false);
 		}
-		dest.writeInt(groundBags.size());
-		for(Loot l : groundBags) {
-			l.writeToParcel(dest, flags);
-		}
-		dest.writeBoolean(visited);
-		dest.writeLong(lastVisitTime);
-		if (visited) {
-			dest.writeUTF(lastSeenLayoutHash);
-		}
+		dest.writeUTF(lastSeenLayoutHash);
 	}
 }
