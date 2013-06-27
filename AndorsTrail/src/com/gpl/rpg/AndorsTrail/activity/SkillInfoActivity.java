@@ -13,6 +13,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
@@ -133,6 +134,22 @@ public final class SkillInfoActivity extends Activity {
 		case SkillCollection.SKILL_REJUVENATION: return R.string.skill_title_rejuvenation;
 		case SkillCollection.SKILL_TAUNT: return R.string.skill_title_taunt;
 		case SkillCollection.SKILL_CONCUSSION: return R.string.skill_title_concussion;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_DAGGER: return R.string.skill_title_weapon_prof_dagger;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_1HSWORD: return R.string.skill_title_weapon_prof_1hsword;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_2HSWORD: return R.string.skill_title_weapon_prof_2hsword;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_AXE: return R.string.skill_title_weapon_prof_axe;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_BLUNT: return R.string.skill_title_weapon_prof_blunt;
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_UNARMED: return R.string.skill_title_weapon_prof_unarmed;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_SHIELD: return R.string.skill_title_armor_prof_shield;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_UNARMORED: return R.string.skill_title_armor_prof_unarmored;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT: return R.string.skill_title_armor_prof_light;
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY: return R.string.skill_title_armor_prof_heavy;
+		case SkillCollection.SKILL_FIGHTSTYLE_DUAL_WIELD: return R.string.skill_title_fightstyle_dualwield;
+		case SkillCollection.SKILL_FIGHTSTYLE_2HAND: return R.string.skill_title_fightstyle_2hand;
+		case SkillCollection.SKILL_FIGHTSTYLE_WEAPON_SHIELD: return R.string.skill_title_fightstyle_weapon_shield;
+		case SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD: return R.string.skill_title_specialization_dualwield;
+		case SkillCollection.SKILL_SPECIALIZATION_2HAND: return R.string.skill_title_specialization_2hand;
+		case SkillCollection.SKILL_SPECIALIZATION_WEAPON_SHIELD: return R.string.skill_title_specialization_weapon_shield;
 		default:
 			return -1;
 		}
@@ -166,6 +183,22 @@ public final class SkillInfoActivity extends Activity {
 		case SkillCollection.SKILL_REJUVENATION: return res.getString(R.string.skill_longdescription_rejuvenation, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE);
 		case SkillCollection.SKILL_TAUNT: return res.getString(R.string.skill_longdescription_taunt, SkillCollection.PER_SKILLPOINT_INCREASE_TAUNT_CHANCE, SkillCollection.TAUNT_AP_LOSS);
 		case SkillCollection.SKILL_CONCUSSION: return res.getString(R.string.skill_longdescription_concussion, SkillCollection.CONCUSSION_THRESHOLD, SkillCollection.PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE);
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_DAGGER: return res.getString(R.string.skill_longdescription_weapon_prof_dagger, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC);
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_1HSWORD: return res.getString(R.string.skill_longdescription_weapon_prof_1hsword, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC);
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_2HSWORD: return res.getString(R.string.skill_longdescription_weapon_prof_2hsword, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC);
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_AXE: return res.getString(R.string.skill_longdescription_weapon_prof_axe, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC);
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_BLUNT: return res.getString(R.string.skill_longdescription_weapon_prof_blunt, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC);
+		case SkillCollection.SKILL_WEAPON_PROFICIENCY_UNARMED: return res.getString(R.string.skill_longdescription_weapon_prof_unarmed, SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_AC, SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG, SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_BC);
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_SHIELD: return res.getString(R.string.skill_longdescription_armor_prof_shield, SkillCollection.PER_SKILLPOINT_INCREASE_SHIELD_PROF_DR);
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_UNARMORED: return res.getString(R.string.skill_longdescription_armor_prof_unarmored, SkillCollection.PER_SKILLPOINT_INCREASE_UNARMORED_BC);
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT: return res.getString(R.string.skill_longdescription_armor_prof_light, SkillCollection.PER_SKILLPOINT_INCREASE_LIGHT_ARMOR_BC_PERCENT);
+		case SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY: return res.getString(R.string.skill_longdescription_armor_prof_heavy, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_ATKCOST_PERCENT);
+		case SkillCollection.SKILL_FIGHTSTYLE_DUAL_WIELD: return res.getString(R.string.skill_longdescription_fightstyle_dualwield, SkillCollection.DUALWIELD_EFFICIENCY_LEVEL0, SkillCollection.DUALWIELD_EFFICIENCY_LEVEL1, SkillCollection.DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT, SkillCollection.DUALWIELD_EFFICIENCY_LEVEL2);
+		case SkillCollection.SKILL_FIGHTSTYLE_2HAND: return res.getString(R.string.skill_longdescription_fightstyle_2hand, SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_2HAND_DMG_PERCENT);
+		case SkillCollection.SKILL_FIGHTSTYLE_WEAPON_SHIELD: return res.getString(R.string.skill_longdescription_fightstyle_weapon_shield, SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_WEAPON_AC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_SHIELD_BC_PERCENT);
+		case SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD: return res.getString(R.string.skill_longdescription_specialization_dualwield, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT);
+		case SkillCollection.SKILL_SPECIALIZATION_2HAND: return res.getString(R.string.skill_longdescription_specialization_2hand, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_DMG_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_AC_PERCENT);
+		case SkillCollection.SKILL_SPECIALIZATION_WEAPON_SHIELD: return res.getString(R.string.skill_longdescription_specialization_weapon_shield, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_AC_PERCENT, SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_DMG_PERCENT);
 		default:
 			return "";
 		}
