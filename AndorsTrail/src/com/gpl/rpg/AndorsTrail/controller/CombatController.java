@@ -15,6 +15,7 @@ import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
@@ -296,34 +297,83 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		handleNextMonsterAction();
 	}
 	
-	private Monster determineNextMonster(Monster previousMonster) {
-		if (previousMonster != null) {
-			if (previousMonster.hasAPs(previousMonster.getAttackCost())) return previousMonster;
+	private static final int ACTION_NONE = 0;
+	private static final int ACTION_ATTACK = 1;
+	private static final int ACTION_MOVE = 2;
+	private int determineNextMonsterAction(Coord playerPosition) {
+		if (currentActiveMonster != null) {
+			if (shouldAttackWithMonsterInCombat(currentActiveMonster, playerPosition)) return ACTION_ATTACK;
 		}
 		
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				if (!m.isAgressive()) continue;
 				
-				if (m.isAdjacentTo(world.model.player)) {
-					if (m.hasAPs(m.getAttackCost())) return m;
+				if (shouldAttackWithMonsterInCombat(m, playerPosition)) {
+					currentActiveMonster = m;
+					return ACTION_ATTACK;
+				} else if (shouldMoveMonsterInCombat(m, a, playerPosition)) {
+					currentActiveMonster = m;
+					return ACTION_MOVE;
 				}
 			}
 		}
-		return null;
+		return ACTION_NONE;
+	}
+	
+	private static boolean shouldAttackWithMonsterInCombat(Monster m, Coord playerPosition) {
+		if (!m.hasAPs(m.getAttackCost())) return false;
+		if (!m.rectPosition.isAdjacentTo(playerPosition)) return false;
+		return true;
+	}
+	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
+		final int movementAggressionType = m.getMovementAggressionType();
+		if (movementAggressionType == MonsterType.AGGRESSIONTYPE_NONE) return false;
+		
+		if (!m.hasAPs(m.getMoveCost())) return false;
+		if (m.position.isAdjacentTo(playerPosition)) return false;
+		
+		if (movementAggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
+			if (a.area.contains(playerPosition)) return true;
+		} else if (movementAggressionType == MonsterType.AGGRESSIONTYPE_HELP_OTHERS) {
+			for (Monster o : a.monsters) {
+				if (o == m) continue;
+				if (o.rectPosition.isAdjacentTo(playerPosition)) return true;
+			}
+		}
+		return false;
 	}
 	
 	private void handleNextMonsterAction() {
 		if (!world.model.uiSelections.isMainActivityVisible) return;
 		
-		currentActiveMonster = determineNextMonster(currentActiveMonster);
-		if (currentActiveMonster == null) {
+		int nextMonsterAction = determineNextMonsterAction(world.model.player.position);
+		if (nextMonsterAction == ACTION_NONE) {
 			endMonsterTurn();
+		} else if (nextMonsterAction == ACTION_ATTACK) {
+			attackWithCurrentMonster();
+		} else if (nextMonsterAction == ACTION_MOVE) {
+			moveCurrentMonster();
+		}
+	}
+	
+	private void moveCurrentMonster() {
+		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getMoveCost());
+		if (!controllers.monsterMovementController.findPathFor(currentActiveMonster, world.model.player.position)) {
+			// Couldn't find a path to move on.
+			handleNextMonsterAction();
 			return;
 		}
+
+		controllers.monsterMovementController.moveMonsterToNextPosition(currentActiveMonster, world.model.currentMap);
+        combatActionListeners.onMonsterMovedDuringCombat(currentActiveMonster);
+		waitForNextMonsterAction();
+	}
+	
+	private void attackWithCurrentMonster() {
 		controllers.actorStatsController.useAPs(currentActiveMonster, currentActiveMonster.getAttackCost());
-		
-		combatTurnListeners.onMonsterIsAttacking(currentActiveMonster);
+
+        combatTurnListeners.onMonsterIsAttacking(currentActiveMonster);
 		AttackResult attack = monsterAttacks(currentActiveMonster);
 		this.lastAttackResult = attack;
 		
@@ -337,7 +387,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
             waitForNextMonsterAction();
 		}
 	}
-	
+
 	private static final int CALLBACK_MONSTERATTACK = 0;
 	private static final int CALLBACK_PLAYERATTACK = 1;
 	

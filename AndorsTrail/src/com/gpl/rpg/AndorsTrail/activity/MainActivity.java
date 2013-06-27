@@ -323,6 +323,12 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		}
 	}
 
+    @Override
+    public void onMonsterMovedDuringCombat(Monster m) {
+        String monsterName = m.getName();
+        message(getString(R.string.combat_result_monstermoved, monsterName));
+    }
+
 	@Override
 	public void onPlayerKilledMonster(Monster target) { }
 

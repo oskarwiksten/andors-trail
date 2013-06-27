@@ -34,6 +34,7 @@ var ATEditor = (function(ATEditor, _) {
 			,moveCost: 10
 			,unique: 0
 			,monsterClass: 0
+			,movementAggressionType: 0
 			,attackDamage: {}
 			,hitEffect: { increaseCurrentHP: {}, increaseCurrentAP: {}, conditionsSource: [], conditionsTarget: [] }
 		}

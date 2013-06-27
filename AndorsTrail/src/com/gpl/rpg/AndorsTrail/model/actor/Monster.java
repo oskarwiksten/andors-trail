@@ -16,20 +16,20 @@ import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public final class Monster extends Actor {
-	
+
 	public Coord movementDestination = null;
 	public long nextActionTime = 0;
 	public final CoordRect nextPosition;
 	
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
-	
+
 	private final MonsterType monsterType;
-	
+
 	public Monster(MonsterType monsterType) {
 		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
 		this.monsterType = monsterType;
-		this.iconID = monsterType.iconID;
+        this.iconID = monsterType.iconID;
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
 		this.ap.setMax();
@@ -58,7 +58,8 @@ public final class Monster extends Actor {
 	public String getMonsterTypeID() { return monsterType.id; }
 	public String getFaction() { return monsterType.faction; }
 	public int getMonsterClass() { return monsterType.monsterClass; }
-	
+	public int getMovementAggressionType() { return monsterType.aggressionType; }
+
 	public void createLoot(Loot container, Player player) {
 		int exp = this.getExp();
 		exp += exp * player.getSkillLevel(SkillCollection.SKILL_MORE_EXP) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;

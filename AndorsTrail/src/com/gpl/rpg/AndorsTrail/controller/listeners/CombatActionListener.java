@@ -8,6 +8,7 @@ public interface CombatActionListener {
 	void onPlayerAttackSuccess(Monster target, AttackResult attackResult);
 	void onMonsterAttackMissed(Monster attacker, AttackResult attackResult);
 	void onMonsterAttackSuccess(Monster attacker, AttackResult attackResult);
+    void onMonsterMovedDuringCombat(Monster m);
 	void onPlayerKilledMonster(Monster target);
 	void onPlayerStartedFleeing();
 	void onPlayerFailedFleeing();
