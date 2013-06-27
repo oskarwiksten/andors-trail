@@ -5,6 +5,7 @@ import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonParserFor;
@@ -16,8 +17,10 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public final class ConversationListParser extends JsonCollectionParserFor<Phrase> {
-	
-	private final JsonParserFor<Reply> replyParser = new JsonParserFor<Reply>() {
+
+    private final TranslationLoader translationLoader;
+
+    private final JsonParserFor<Reply> replyParser = new JsonParserFor<Reply>() {
 		@Override
 		protected Reply parseObject(JSONObject o) throws JSONException {
 			JSONObject requires = o.optJSONObject(JsonFieldNames.Reply.requires);
@@ -35,7 +38,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 				}
 			}
 			return new Reply(
-					o.optString(JsonFieldNames.Reply.text, "")
+                    translationLoader.translateConversationReply(o.optString(JsonFieldNames.Reply.text, ""))
 					,o.getString(JsonFieldNames.Reply.nextPhraseID)
 					,QuestProgress.parseQuestProgress(requiresProgress)
 					,requiresItemTypeID
@@ -55,8 +58,12 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 			);
 		}
 	};
-	
-	@Override
+
+    public ConversationListParser(TranslationLoader translationLoader) {
+        this.translationLoader = translationLoader;
+    }
+
+    @Override
 	protected Pair<String, Phrase> parseObject(JSONObject o) throws JSONException {
 		final String id = o.getString(JsonFieldNames.Phrase.phraseID);
 
@@ -76,7 +83,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		if (_rewards.length == 0) _rewards = null;
 
 		return new Pair<String, Phrase>(id, new Phrase(
-				o.optString(JsonFieldNames.Phrase.message, null)
+                translationLoader.translateConversationPhrase(o.optString(JsonFieldNames.Phrase.message, null))
 				, _replies
 				, _rewards
 		));

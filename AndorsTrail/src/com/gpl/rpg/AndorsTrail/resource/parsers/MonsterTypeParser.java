@@ -7,6 +7,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
+import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
@@ -21,9 +22,15 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 	private final DropListCollection droplists;
 	private final ItemTraitsParser itemTraitsParser;
 	private final DynamicTileLoader tileLoader;
-	
-	public MonsterTypeParser(final DropListCollection droplists, final ActorConditionTypeCollection actorConditionTypes, final DynamicTileLoader tileLoader) {
-		this.itemTraitsParser = new ItemTraitsParser(actorConditionTypes);
+    private final TranslationLoader translationLoader;
+
+    public MonsterTypeParser(
+            final DropListCollection droplists,
+            final ActorConditionTypeCollection actorConditionTypes,
+            final DynamicTileLoader tileLoader,
+            final TranslationLoader translationLoader) {
+        this.translationLoader = translationLoader;
+        this.itemTraitsParser = new ItemTraitsParser(actorConditionTypes);
 		this.droplists = droplists;
 		this.tileLoader = tileLoader;
 	}
@@ -47,7 +54,7 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 
 		return new Pair<String, MonsterType>(monsterTypeID, new MonsterType(
 				monsterTypeID
-				, o.getString(JsonFieldNames.Monster.name)
+				, translationLoader.translateMonsterTypeName(o.getString(JsonFieldNames.Monster.name))
 				, o.optString(JsonFieldNames.Monster.spawnGroup, monsterTypeID)
 				, exp
 				, droplists.getDropList(o.optString(JsonFieldNames.Monster.droplistID, null))

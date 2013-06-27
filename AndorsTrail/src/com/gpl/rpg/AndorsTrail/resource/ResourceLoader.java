@@ -41,7 +41,9 @@ public final class ResourceLoader {
     	taskStart = start;
     	
         final int mTileSize = world.tileManager.tileSize;
-        
+
+        TranslationLoader translationLoader = new TranslationLoader(r.getAssets(), r);
+
         DynamicTileLoader loader = new DynamicTileLoader(world.tileManager.tileCache);
         prepareTilesets(loader, mTileSize);
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("prepareTilesets");
@@ -75,7 +77,7 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load item categories
-        final ItemCategoryParser itemCategoryParser = new ItemCategoryParser();
+        final ItemCategoryParser itemCategoryParser = new ItemCategoryParser(translationLoader);
         final TypedArray categoriesToLoad = r.obtainTypedArray(itemCategoriesResourceId);
         for (int i = 0; i < categoriesToLoad.length(); ++i) {
         	world.itemCategories.initialize(itemCategoryParser, readStringFromRaw(r, categoriesToLoad, i));
@@ -85,7 +87,7 @@ public final class ResourceLoader {
         
     	// ========================================================================
         // Load condition types
-        final ActorConditionsTypeParser actorConditionsTypeParser = new ActorConditionsTypeParser(loader);
+        final ActorConditionsTypeParser actorConditionsTypeParser = new ActorConditionsTypeParser(loader, translationLoader);
         final TypedArray conditionsToLoad = r.obtainTypedArray(actorConditionsResourceId);
         for (int i = 0; i < conditionsToLoad.length(); ++i) {
         	world.actorConditionsTypes.initialize(actorConditionsTypeParser, readStringFromRaw(r, conditionsToLoad, i));
@@ -101,7 +103,7 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load items
-        final ItemTypeParser itemTypeParser = new ItemTypeParser(loader, world.actorConditionsTypes, world.itemCategories);
+        final ItemTypeParser itemTypeParser = new ItemTypeParser(loader, world.actorConditionsTypes, world.itemCategories, translationLoader);
         final TypedArray itemsToLoad = r.obtainTypedArray(itemsResourceId);
         for (int i = 0; i < itemsToLoad.length(); ++i) {
         	world.itemTypes.initialize(itemTypeParser, readStringFromRaw(r, itemsToLoad, i));
@@ -123,7 +125,7 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load quests
-        final QuestParser questParser = new QuestParser();
+        final QuestParser questParser = new QuestParser(translationLoader);
         final TypedArray questsToLoad = r.obtainTypedArray(questsResourceId);
         for (int i = 0; i < questsToLoad.length(); ++i) {
         	world.quests.initialize(questParser, readStringFromRaw(r, questsToLoad, i));
@@ -134,7 +136,7 @@ public final class ResourceLoader {
 
         // ========================================================================
         // Load conversations
-        final ConversationListParser conversationListParser = new ConversationListParser();
+        final ConversationListParser conversationListParser = new ConversationListParser(translationLoader);
         final TypedArray conversationsListsToLoad = r.obtainTypedArray(conversationsListsResourceId);
         for (int i = 0; i < conversationsListsToLoad.length(); ++i) {
         	ConversationCollection conversations = new ConversationCollection();
@@ -147,7 +149,7 @@ public final class ResourceLoader {
         
         // ========================================================================
         // Load monsters
-        final MonsterTypeParser monsterTypeParser = new MonsterTypeParser(world.dropLists, world.actorConditionsTypes, loader);
+        final MonsterTypeParser monsterTypeParser = new MonsterTypeParser(world.dropLists, world.actorConditionsTypes, loader, translationLoader);
         final TypedArray monstersToLoad = r.obtainTypedArray(monstersResourceId);
         for (int i = 0; i < monstersToLoad.length(); ++i) {
         	world.monsterTypes.initialize(monsterTypeParser, readStringFromRaw(r, monstersToLoad, i));
@@ -186,7 +188,8 @@ public final class ResourceLoader {
         WorldMapParser.read(r, R.xml.worldmap, world.maps);
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("WorldMapParser");
         // ========================================================================
-        
+
+        translationLoader.close();
         
 
         if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
@@ -227,7 +230,7 @@ public final class ResourceLoader {
         final Size src_sz20x12 = new Size(20, 12);
         final Size src_mapTileSize = new Size(16, 8);
         final Size src_mapTileSize7 = new Size(16, 7);
-        
+
         loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
         
         loader.prepareTileset(R.drawable.ui_selections, "ui_selections", new Size(5, 1), defaultTileSize);
