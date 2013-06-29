@@ -108,8 +108,8 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 
 		if (savedInstanceState != null) {
 			conversationState.setCurrentNPC(Dialogs.getMonsterFromBundle(savedInstanceState, world));
-			conversationHistory = savedInstanceState.getParcelableArrayList("conversationHistory");
-			if (conversationHistory == null) conversationHistory = new ArrayList<ConversationStatement>();
+			ArrayList<ConversationStatement> savedConversationHistory = savedInstanceState.getParcelableArrayList("conversationHistory");
+			if (savedConversationHistory != null) conversationHistory.addAll(savedConversationHistory);
 			final String phraseID = savedInstanceState.getString("phraseID");
 			conversationState.proceedToRestoredState(phraseID);
 		} else {
