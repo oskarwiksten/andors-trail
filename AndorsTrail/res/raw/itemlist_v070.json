@@ -601,8 +601,8 @@
         "min": 4,
         "max": 15
       },
-      "increaseAttackCost": 5,
-      "increaseAttackChance": 32,
+      "increaseAttackCost": 6,
+      "increaseAttackChance": 26,
       "increaseBlockChance": 12,
       "increaseMaxHP": -2,
       "setCriticalMultiplier": 2
@@ -613,13 +613,13 @@
           "magnitude": 3,
           "condition": "bleeding_wound",
           "duration": 3,
-          "chance": 25
+          "chance": 5
         },
         {
           "magnitude": 1,
           "condition": "dazed",
           "duration": 2,
-          "chance": 45
+          "chance": 10
         }
       ]
     },
