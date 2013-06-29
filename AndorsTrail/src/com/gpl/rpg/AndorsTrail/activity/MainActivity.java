@@ -99,6 +99,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
         quickitemview.registerForContextMenu(this);
     	
     	dpad.updateVisibility(preferences);
+		quickitemview.setPosition(preferences);
     	
     	// Define which views are in front of each other.
     	dpad.bringToFront();

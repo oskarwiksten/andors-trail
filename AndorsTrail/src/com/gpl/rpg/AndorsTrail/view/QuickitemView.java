@@ -9,9 +9,12 @@ import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
+import android.widget.RelativeLayout;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.MainActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
@@ -36,21 +39,33 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	    this.world = app.getWorld();
         this.controllers = app.getControllerContext();
         setFocusable(false);
-        setOrientation(LinearLayout.HORIZONTAL);
 
-        inflate(context, R.layout.quickitemview, this);
-		Resources res = getResources();
+		int position = app.getPreferences().quickslotsPosition;
+		switch(position) {
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_HORIZONTAL_BOTTOM_LEFT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_HORIZONTAL_BOTTOM_RIGHT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM:
+				setOrientation(LinearLayout.HORIZONTAL);
+				break;
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_BOTTOM_LEFT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_BOTTOM_RIGHT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_CENTER_LEFT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_CENTER_RIGHT:
+				setOrientation(LinearLayout.VERTICAL);
+				break;
+		}
+
+        Resources res = getResources();
 		this.setBackgroundColor(res.getColor(color.transparent));
 
-		TypedArray quickButtons = res.obtainTypedArray(R.array.quick_buttons);
-		for(int i = 0; i < buttons.length; ++i) {
-			buttons[i] = (QuickButton)findViewById(quickButtons.getResourceId(i, -1));
+		for(int i = 0; i < NUM_QUICK_SLOTS; ++i) {
+			buttons[i] = new QuickButton(context, null);
 			QuickButton item = buttons[i];
 			item.setIndex(i);
 			item.setItemType(null, world, tiles);
 			item.setOnClickListener(this);
+			addView(item);
 		}
-		quickButtons.recycle();
 	}
 	
 	public boolean isQuickButtonId(int id){
@@ -111,6 +126,37 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 	public void registerForContextMenu(MainActivity mainActivity) {
 		for(QuickButton item: buttons)
 			mainActivity.registerForContextMenu(item);
+	}
+
+	public void setPosition(AndorsTrailPreferences preferences) {
+		int positionRelativeTo = R.id.main_mainview;
+		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+		switch (preferences.quickslotsPosition) {
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_HORIZONTAL_BOTTOM_LEFT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_BOTTOM_LEFT:
+				params.addRule(RelativeLayout.ALIGN_LEFT, positionRelativeTo);
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, positionRelativeTo);
+				break;
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_HORIZONTAL_BOTTOM_RIGHT:
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_BOTTOM_RIGHT:
+				params.addRule(RelativeLayout.ALIGN_RIGHT, positionRelativeTo);
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, positionRelativeTo);
+				break;
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM:
+				params.addRule(RelativeLayout.CENTER_HORIZONTAL);
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, positionRelativeTo);
+				break;
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_CENTER_LEFT:
+				params.addRule(RelativeLayout.ALIGN_LEFT, positionRelativeTo);
+				params.addRule(RelativeLayout.CENTER_VERTICAL);
+				break;
+			case AndorsTrailPreferences.QUICKSLOTS_POSITION_VERTICAL_CENTER_RIGHT:
+				params.addRule(RelativeLayout.ALIGN_RIGHT, positionRelativeTo);
+				params.addRule(RelativeLayout.CENTER_VERTICAL);
+				break;
+		}
+
+		setLayoutParams(params);
 	}
 
 	@Override

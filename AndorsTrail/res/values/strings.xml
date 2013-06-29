@@ -629,4 +629,25 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="skill_longdescription_specialization_2hand">Increases damage potential of two-handed weapons by an additional %1$d %% of the original damage potential, in addition to the benefis given by the weapon style skill. The attack chances of two-handed weapons are also increased by %2$d %% of their original attack chances.</string>
 	<string name="skill_longdescription_specialization_weapon_shield">Increases both attack chances and damage potential of weapons. The attack chance is increased by %1$d %% of the original attack chance, and the damage potential is increased by %2$d %% of the original damage potential.</string>
 
+    <string name="preferences_quickslots_placement">Quickslot position</string>
+    <string name="preferences_quickslots_placement_summary">Where to place the quickslots</string>
+    <string-array name="preferences_quickslots_placements">
+        <item>Center bottom</item>
+        <item>Middle left</item>
+        <item>Middle right</item>
+        <item>Bottom left, along left border</item>
+        <item>Bottom left, along bottom border</item>
+        <item>Bottom right, along bottom border</item>
+        <item>Bottom right, along right border</item>
+    </string-array>
+    <string-array name="preferences_quickslots_placements_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+    </string-array>
+
 </resources>

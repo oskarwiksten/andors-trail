@@ -25,7 +25,14 @@ public final class AndorsTrailPreferences {
 	public static final int CONFIRM_OVERWRITE_SAVEGAME_ALWAYS = 0;
 	public static final int CONFIRM_OVERWRITE_SAVEGAME_WHEN_PLAYERNAME_DIFFERS = 1;
 	public static final int CONFIRM_OVERWRITE_SAVEGAME_NEVER = 2;
-	
+	public static final int QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM = 0;
+	public static final int QUICKSLOTS_POSITION_VERTICAL_CENTER_LEFT = 1;
+	public static final int QUICKSLOTS_POSITION_VERTICAL_CENTER_RIGHT = 2;
+	public static final int QUICKSLOTS_POSITION_VERTICAL_BOTTOM_LEFT = 3;
+	public static final int QUICKSLOTS_POSITION_HORIZONTAL_BOTTOM_LEFT = 4;
+	public static final int QUICKSLOTS_POSITION_HORIZONTAL_BOTTOM_RIGHT = 5;
+	public static final int QUICKSLOTS_POSITION_VERTICAL_BOTTOM_RIGHT = 6;
+
 	public boolean confirmRest = true;
 	public boolean confirmAttack = true;
 	public int displayLoot = DISPLAYLOOT_DIALOG;
@@ -39,6 +46,7 @@ public final class AndorsTrailPreferences {
 	public boolean optimizedDrawing = false;
 	public boolean enableUiAnimations = true;
 	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
+	public int quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 	
 	public void read(final Context androidContext) {
 		AndorsTrailPreferences dest = this;
@@ -56,7 +64,8 @@ public final class AndorsTrailPreferences {
 			dest.optimizedDrawing = prefs.getBoolean("optimized_drawing", false);
 			dest.enableUiAnimations = prefs.getBoolean("enableUiAnimations", true);
 			dest.displayOverwriteSavegame = Integer.parseInt(prefs.getString("display_overwrite_savegame", Integer.toString(CONFIRM_OVERWRITE_SAVEGAME_ALWAYS)));
-			
+			dest.quickslotsPosition = Integer.parseInt(prefs.getString("quickslots_placement", Integer.toString(QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM)));
+
 			// This might be implemented as a skill in the future.
 			//dest.movementAggressiveness = Integer.parseInt(prefs.getString("movementaggressiveness", Integer.toString(MOVEMENTAGGRESSIVENESS_NORMAL)));
 		} catch (Exception e) {
@@ -73,15 +82,7 @@ public final class AndorsTrailPreferences {
 			dest.optimizedDrawing = false;
 			dest.enableUiAnimations = true;
 			dest.displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
+			dest.quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 		}
-	}
-	
-	public static boolean shouldUseFullscreen(final Context androidContext) {
-		try {
-			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(androidContext);
-			return prefs.getBoolean("fullscreen", true);
-		} catch (Exception e) {
-		}
-		return true;
 	}
 }
