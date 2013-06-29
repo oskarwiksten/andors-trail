@@ -233,13 +233,13 @@ public final class SkillController {
 			int skill = getProficiencySkillForItemCategory(itemType.category);
 			if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT) {
 				if (skillLevelLightArmor > 0) {
-					playerTraits.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, SkillCollection.PER_SKILLPOINT_INCREASE_LIGHT_ARMOR_BC_PERCENT * skillLevelLightArmor);
+					playerTraits.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, SkillCollection.PER_SKILLPOINT_INCREASE_LIGHT_ARMOR_BC_PERCENT * skillLevelLightArmor, 0);
 				}
 			} else if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY) { 
 				if (skillLevelHeavyArmor > 0) {
-					playerTraits.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT * skillLevelHeavyArmor);
-					playerTraits.moveCost -= getPercentage(itemType.effects_equip.stats.increaseMoveCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT * skillLevelHeavyArmor);
-					playerTraits.attackCost -= getPercentage(itemType.effects_equip.stats.increaseAttackCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_ATKCOST_PERCENT * skillLevelHeavyArmor);
+					playerTraits.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT * skillLevelHeavyArmor, 0);
+					playerTraits.moveCost -= getPercentage(itemType.effects_equip.stats.increaseMoveCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT * skillLevelHeavyArmor, 0);
+					playerTraits.attackCost -= getPercentage(itemType.effects_equip.stats.increaseAttackCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_ATKCOST_PERCENT * skillLevelHeavyArmor, 0);
 				}
 			}
 		}
@@ -303,18 +303,18 @@ public final class SkillController {
 		if (isWielding2HandItem(mainHandItem, offHandItem)) {
 			int skillLevelFightStyle = player.getSkillLevel(SkillCollection.SKILL_FIGHTSTYLE_2HAND);
 			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_2HAND);
-			addPercentDamage(playerTraits, mainHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_2HAND_DMG_PERCENT);
-			addPercentDamage(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_DMG_PERCENT);
-			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_AC_PERCENT);
+			addPercentDamage(playerTraits, mainHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_2HAND_DMG_PERCENT, 0);
+			addPercentDamage(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_DMG_PERCENT, 0);
+			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_AC_PERCENT, 0);
 		}
 		
 		if (isWieldingWeaponAndShield(mainHandItem, offHandItem)) {
 			int skillLevelFightStyle = player.getSkillLevel(SkillCollection.SKILL_FIGHTSTYLE_WEAPON_SHIELD);
 			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_WEAPON_SHIELD);
-			addPercentAttackChance(playerTraits, mainHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_WEAPON_AC_PERCENT);
-			addPercentBlockChance(playerTraits, offHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_SHIELD_BC_PERCENT);
-			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_AC_PERCENT);
-			addPercentDamage(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_DMG_PERCENT);
+			addPercentAttackChance(playerTraits, mainHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_WEAPON_AC_PERCENT, 0);
+			addPercentBlockChance(playerTraits, offHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_SHIELD_BC_PERCENT, 0);
+			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_AC_PERCENT, 0);
+			addPercentDamage(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_DMG_PERCENT, 0);
 		}
 		
 		if (isDualWielding(mainHandItem, offHandItem)) {
@@ -322,58 +322,60 @@ public final class SkillController {
 			if (offHandItem.effects_equip != null) {
 				AbilityModifierTraits offHandCombatTraits = offHandItem.effects_equip.stats;
 				int attackCostMainHand = mainHandItem.effects_equip.stats.increaseAttackCost;
+				int attackCostOffHand = offHandItem.effects_equip.stats.increaseAttackCost;
 				int percent;
 				if (skillLevelFightStyle == 2) {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL2;
-					playerTraits.attackCost = Math.max(attackCostMainHand, offHandCombatTraits.increaseAttackCost);
+					playerTraits.attackCost = Math.max(attackCostMainHand, attackCostOffHand);
 				} else if (skillLevelFightStyle == 1) {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL1;
-					playerTraits.attackCost = attackCostMainHand + getPercentage(offHandCombatTraits.increaseAttackCost, SkillCollection.DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT);
+					playerTraits.attackCost = attackCostMainHand + getPercentage(attackCostOffHand, SkillCollection.DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT, 0);
 				} else {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL0;
-					playerTraits.attackCost = attackCostMainHand + offHandCombatTraits.increaseAttackCost;
+					playerTraits.attackCost = attackCostMainHand + attackCostOffHand;
 				}
-				
-				int attackChance = offHandCombatTraits.increaseAttackChance;
-				attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC * getSkillLevelForItemType(player, offHandItem);
-				
-				playerTraits.attackChance += (int) FloatMath.floor(attackChance * percent / 100.0f);
-				playerTraits.blockChance += (int) FloatMath.floor(offHandCombatTraits.increaseBlockChance * percent / 100.0f);
-				playerTraits.damagePotential.addToMax((int) FloatMath.floor(offHandCombatTraits.increaseMaxDamage * percent / 100.0f));
-				playerTraits.damagePotential.add((int) FloatMath.floor(offHandCombatTraits.increaseMinDamage * percent / 100.0f), false);
-				playerTraits.criticalSkill += (int) FloatMath.floor(offHandCombatTraits.increaseCriticalSkill * percent / 100.0f);
+
+				final int increaseACFromWeaponProficiency = SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC * getSkillLevelForItemType(player, offHandItem);
+				playerTraits.attackChance += getPercentage(increaseACFromWeaponProficiency, percent, 0);
+
+				addPercentAttackChance(player, offHandItem, percent, 100);
+				addPercentBlockChance(player, offHandItem, percent, 100);
+				addPercentDamage(player, offHandItem, percent, 100);
+				playerTraits.criticalSkill += getPercentage(offHandCombatTraits.increaseCriticalSkill, percent, 100);
 			}
 			
 			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD);
-			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT);
-			addPercentBlockChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT);
-			addPercentAttackChance(playerTraits, offHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT);
-			addPercentBlockChance(playerTraits, offHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT);
+			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT, 0);
+			addPercentBlockChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT, 0);
+			addPercentAttackChance(playerTraits, offHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT, 0);
+			addPercentBlockChance(playerTraits, offHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT, 0);
 		}
 	}
 
-	private static void addPercentAttackChance(Player player, ItemType itemType, int percentToAdd) {
+	private static void addPercentAttackChance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		if (percentToAdd == 0) return;
-		player.attackChance += getPercentage(itemType.effects_equip.stats.increaseAttackChance, percentToAdd);
+		player.attackChance += getPercentage(itemType.effects_equip.stats.increaseAttackChance, percentForPositiveValues, percentForNegativeValues);
 	}
 
-	private static void addPercentBlockChance(Player player, ItemType itemType, int percentToAdd) {
+	private static void addPercentBlockChance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		if (percentToAdd == 0) return;
-		player.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, percentToAdd);
+		player.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, percentForPositiveValues, percentForNegativeValues);
 	}
 
-	private static void addPercentDamage(Player player, ItemType itemType, int percentToAdd) {
+	private static void addPercentDamage(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		if (percentToAdd == 0) return;
-		player.damagePotential.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxDamage, percentToAdd));
-		player.damagePotential.add(getPercentage(itemType.effects_equip.stats.increaseMinDamage, percentToAdd), false);
+		player.damagePotential.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxDamage, percentForPositiveValues, percentForNegativeValues));
+		player.damagePotential.add(getPercentage(itemType.effects_equip.stats.increaseMinDamage, percentForPositiveValues, percentForNegativeValues), false);
 	}
-	
-	private static int getPercentage(int originalValue, int percentToAdd) {
-		if (originalValue <= 0) return 0;
-		return (int) FloatMath.floor(originalValue * percentToAdd / 100.0f);
+
+	private static int getPercentage(int originalValue, int percentForPositiveValues, int percentForNegativeValues) {
+		if (originalValue == 0) {
+			return 0;
+		} else if (originalValue > 0) {
+			return (int) FloatMath.floor(originalValue * percentForPositiveValues / 100.0f);
+		} else {
+			return (int) FloatMath.floor(originalValue * percentForNegativeValues / 100.0f);
+		}
 	}
 
 	public static boolean isDualWielding(ItemType mainHandItem, ItemType offHandItem) {

@@ -133,6 +133,7 @@ public final class ItemController {
 		
 		applyInventoryEffects(player, Inventory.WEARSLOT_WEAPON);
 		applyInventoryEffects(player, Inventory.WEARSLOT_SHIELD);
+		SkillController.applySkillEffectsFromFightingStyles(player);
 		applyInventoryEffects(player, Inventory.WEARSLOT_HEAD);
 		applyInventoryEffects(player, Inventory.WEARSLOT_BODY);
 		applyInventoryEffects(player, Inventory.WEARSLOT_HAND);
@@ -140,9 +141,7 @@ public final class ItemController {
 		applyInventoryEffects(player, Inventory.WEARSLOT_NECK);
 		applyInventoryEffects(player, Inventory.WEARSLOT_LEFTRING);
 		applyInventoryEffects(player, Inventory.WEARSLOT_RIGHTRING);
-		
 		SkillController.applySkillEffectsFromItemProficiencies(player);
-		SkillController.applySkillEffectsFromFightingStyles(player);
 	}
 	public static ItemType getMainWeapon(Player player) {
 		ItemType itemType = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
