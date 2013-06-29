@@ -72,7 +72,7 @@ public final class WorldMapController {
 	private static boolean shouldUpdateWorldMap(PredefinedMap map, String worldMapSegmentName, boolean forceUpdate) {
 		if (forceUpdate) return true;
 		if (!map.visited) return true;
-		File file = getFileForMap(map);
+		File file = getFileForMap(map, false);
 		if (!file.exists()) return true;
 		
 		file = getCombinedWorldMapFile(worldMapSegmentName);
@@ -84,7 +84,7 @@ public final class WorldMapController {
 	private static void updateCachedBitmap(PredefinedMap map, MapRenderer renderer) throws IOException {
 		ensureWorldmapDirectoryExists();
     	
-		File file = getFileForMap(map);
+		File file = getFileForMap(map, false);
     	if (file.exists()) return;
 		
 		Bitmap image = renderer.drawMap();
@@ -94,16 +94,6 @@ public final class WorldMapController {
         fos.close();
         image.recycle();
 		L.log("WorldMapController: Wrote " + file.getAbsolutePath());
-
-		// Before we had the hash as part of the filename, the png files were just named [mapname].png
-		// let's just remove those old files since the new hash-based filenames contain the same data.
-		if (map.lastSeenLayoutHash.length() > 0) {
-			File oldFile = getFileForMap(map.name);
-			if (!oldFile.getName().equalsIgnoreCase(file.getName())) {
-				oldFile.delete();
-				L.log("WorldMapController: Deleted " + oldFile.getAbsolutePath());
-			}
-		}
 	}
 
 	private static final class MapRenderer {
@@ -164,12 +154,16 @@ public final class WorldMapController {
 		File noMediaFile = new File(dir, ".nomedia");
 		if (!noMediaFile.exists()) noMediaFile.createNewFile();
     }
-    private static File getFileForMap(PredefinedMap map) {
-		if (map.lastSeenLayoutHash.length() <= 0) return getFileForMap(map.name);
-		else return getFileForMap(map.name + "." + map.lastSeenLayoutHash);
+    private static File getFileForMap(PredefinedMap map, boolean verifyFileExists) {
+		if (map.lastSeenLayoutHash.length() > 0) {
+			File fileWithHash = getPngFile(map.name + "." + map.lastSeenLayoutHash);
+			if (!verifyFileExists) return fileWithHash;
+			else if (fileWithHash.exists()) return fileWithHash;
+		}
+		return getPngFile(map.name);
 	}
-    private static File getFileForMap(String mapName) {
-    	return new File(getWorldmapDirectory(), mapName + ".png");
+    private static File getPngFile(String fileName) {
+    	return new File(getWorldmapDirectory(), fileName + ".png");
     }
     private static File getWorldmapDirectory() {
     	File dir = Environment.getExternalStorageDirectory();
@@ -189,7 +183,7 @@ public final class WorldMapController {
 			PredefinedMap predefinedMap = world.maps.findPredefinedMap(map.mapName);
 			if (predefinedMap == null) continue;
 			if (!predefinedMap.visited) continue;
-			File f = WorldMapController.getFileForMap(predefinedMap);
+			File f = WorldMapController.getFileForMap(predefinedMap, true);
 			if (!f.exists()) continue;
 			displayedMapFilenamesPerMapName.put(map.mapName, f);
 			
