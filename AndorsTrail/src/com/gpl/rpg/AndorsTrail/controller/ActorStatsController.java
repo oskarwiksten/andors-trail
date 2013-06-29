@@ -277,13 +277,12 @@ public final class ActorStatsController {
 	}
 
 	private void applyStatsEffects(Actor actor, boolean isFullRound) {
-		VisualEffect effectToStart = null;
 		for (ActorCondition c : actor.conditions) {
 			StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
-			effectToStart = applyStatsModifierEffect(actor, effect, c.magnitude, effectToStart);
-			if (effect != null) actorConditionListeners.onActorConditionRoundEffectApplied(actor, c);
+			boolean hasEffect = applyStatsModifierEffect(actor, effect, c.magnitude);
+			if (hasEffect) actorConditionListeners.onActorConditionRoundEffectApplied(actor, c);
 		}
-		startVisualEffect(actor, effectToStart);
+		controllers.effectController.startEnqueuedEffect(actor.position);
 	}
 	
 	private void decreaseDurationAndRemoveConditions(Actor actor) {
@@ -321,8 +320,8 @@ public final class ActorStatsController {
 			}
 		}
 		if (effect.changedStats != null) {
-			VisualEffect effectToStart = applyStatsModifierEffect(source, effect.changedStats, 1, null);
-			startVisualEffect(source, effectToStart);
+			applyStatsModifierEffect(source, effect.changedStats, 1);
+			controllers.effectController.startEnqueuedEffect(source.position);
 		}
 	}
 
@@ -334,46 +333,27 @@ public final class ActorStatsController {
 		applyActorCondition(actor, conditionEffect);
 	}
 
-	private static class VisualEffect {
-		public int visualEffectID;
-		public int effectValue;
-		public VisualEffect(int visualEffectID) {
-			this.visualEffectID = visualEffectID;
-		}
-	}
+	private boolean applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude) {
+		if (effect == null) return false;
 
-	private void startVisualEffect(Actor actor, VisualEffect effectToStart) {
-		if (effectToStart == null) return;
-		controllers.effectController.startEffect(
-			actor.position
-			, effectToStart.visualEffectID
-			, effectToStart.effectValue
-			, null
-			, 0);
-	}
-	
-	private VisualEffect applyStatsModifierEffect(Actor actor, StatsModifierTraits effect, int magnitude, VisualEffect existingVisualEffect) {
-		if (effect == null) return existingVisualEffect;
-		
-		int effectValue = 0;
-		int visualEffectID = effect.visualEffectID;
+		boolean hasUpdatedStats = false;
 		if (effect.currentAPBoost != null) {
-			effectValue = Constants.rollValue(effect.currentAPBoost);
-			effectValue *= magnitude;
+			int effectValue = Constants.rollValue(effect.currentAPBoost) * magnitude;
 			boolean changed = changeActorAP(actor, effectValue, false, false);
-			if (!changed) effectValue = 0; // So that the visualeffect doesn't start.
-			if (effectValue != 0) {
+			if (changed) {
+				int visualEffectID = effect.visualEffectID;
 				if (!effect.hasVisualEffect()) {
 					visualEffectID = VisualEffectCollection.EFFECT_RESTORE_AP;
 				}
+				controllers.effectController.enqueueEffect(visualEffectID, effectValue);
+				hasUpdatedStats = true;
 			}
 		}
 		if (effect.currentHPBoost != null) {
-			effectValue = Constants.rollValue(effect.currentHPBoost);
-			effectValue *= magnitude;
+			int effectValue = Constants.rollValue(effect.currentHPBoost) * magnitude;
 			boolean changed = changeActorHealth(actor, effectValue, false, false);
-			if (!changed) effectValue = 0; // So that the visualeffect doesn't start.
-			if (effectValue != 0) {
+			if (changed) {
+				int visualEffectID = effect.visualEffectID;
 				if (!effect.hasVisualEffect()) {
 					if (effectValue > 0) {
 						visualEffectID = VisualEffectCollection.EFFECT_RESTORE_HP;
@@ -381,17 +361,11 @@ public final class ActorStatsController {
 						visualEffectID = VisualEffectCollection.EFFECT_BLOOD;
 					}
 				}
+				controllers.effectController.enqueueEffect(visualEffectID, effectValue);
+				hasUpdatedStats = true;
 			}
 		}
-		if (effectValue != 0) {
-			if (existingVisualEffect == null) {
-				existingVisualEffect = new VisualEffect(visualEffectID);
-			} else if (Math.abs(effectValue) > Math.abs(existingVisualEffect.effectValue)) { 
-				existingVisualEffect.visualEffectID = visualEffectID;
-			}
-			existingVisualEffect.effectValue += effectValue;
-		}
-		return existingVisualEffect;
+		return hasUpdatedStats;
 	}
 	
 	public void applyKillEffectsToPlayer(Player player) {

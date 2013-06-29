@@ -38,7 +38,25 @@ public final class VisualEffectController {
 		(new VisualEffectAnimation(effectTypes.effects[effectID], position, displayValue, callback, callbackValue))
 		.start();
 	}
-	
+
+	private static final int NO_ENQUEUED_EFFECT = -1;
+	private int enqueuedEffectID = NO_ENQUEUED_EFFECT;
+	private int enqueuedEffectValue = 0;
+	public void enqueueEffect(int effectID, int displayValue) {
+		if (enqueuedEffectID == NO_ENQUEUED_EFFECT) {
+			enqueuedEffectID = effectID;
+		} else if (Math.abs(displayValue) > Math.abs(enqueuedEffectValue)) {
+			enqueuedEffectID = effectID;
+		}
+		enqueuedEffectValue += displayValue;
+	}
+	public void startEnqueuedEffect(Coord position) {
+		if (enqueuedEffectID == NO_ENQUEUED_EFFECT) return;
+		startEffect(position, enqueuedEffectID, enqueuedEffectValue, null, 0);
+		enqueuedEffectID = NO_ENQUEUED_EFFECT;
+		enqueuedEffectValue = 0;
+	}
+
 	public final class VisualEffectAnimation extends Handler implements Runnable {
 
 		@Override
