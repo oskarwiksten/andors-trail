@@ -97,6 +97,12 @@ public final class LegacySavegameFormatReaderForPlayer {
 		if (fileversion <= 30) {
 			player.baseTraits.attackCost = Player.DEFAULT_PLAYER_ATTACKCOST;
 		}
+
+		if (fileversion <= 37) {
+			if (player.hasExactQuestProgress("lodar13_rest", 30) && player.hasExactQuestProgress("lodar13_rest", 31)) {
+				player.addQuestProgress(new QuestProgress("lodar13_rest", 65));
+			}
+		}
 	}
 	
 	public static int getExpectedNumberOfSkillpointsForLevel(int level) {

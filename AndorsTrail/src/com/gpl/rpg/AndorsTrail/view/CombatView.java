@@ -161,7 +161,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 		updateAttackMoveButtonText();
 	}
 
-	public void show() {
+	private void show() {
 		updateStatus();
 		setVisibility(View.VISIBLE);
     	bringToFront();
@@ -170,7 +170,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
     	}
 	}
 
-	public void hide() {
+	private void hide() {
 		if (preferences.enableUiAnimations) {
 			startAnimation(hideAnimation);
 		} else {

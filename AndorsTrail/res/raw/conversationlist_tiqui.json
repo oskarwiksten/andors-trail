@@ -46,6 +46,34 @@
   },
   {
     "id": "tiqui_atk",
+    "replies": [
+      {
+        "requires": {
+          "progress": "lodar13_rest:31"
+        },
+        "nextPhraseID": "tiqui_atk1"
+      },
+      {
+        "nextPhraseID": "tiqui_atk0"
+      }
+    ]
+  },
+  {
+    "id": "tiqui_atk1",
+    "rewards": [
+      {
+        "rewardID": "lodar13_rest",
+        "value": 65
+      }
+    ],
+    "replies": [
+      {
+        "nextPhraseID": "tiqui_atk0"
+      }
+    ]
+  },
+  {
+    "id": "tiqui_atk0",
     "rewards": [
       {
         "rewardID": "lodar13_rest",

@@ -33,6 +33,34 @@
   },
   {
     "id": "aulowenn_atk",
+    "replies": [
+      {
+        "requires": {
+          "progress": "lodar13_rest:30"
+        },
+        "nextPhraseID": "aulowenn_atk1"
+      },
+      {
+        "nextPhraseID": "aulowenn_atk0"
+      }
+    ]
+  },
+  {
+    "id": "aulowenn_atk1",
+    "rewards": [
+      {
+        "rewardID": "lodar13_rest",
+        "value": 65
+      }
+    ],
+    "replies": [
+      {
+        "nextPhraseID": "aulowenn_atk0"
+      }
+    ]
+  },
+  {
+    "id": "aulowenn_atk0",
     "rewards": [
       {
         "rewardID": "lodar13_rest",
@@ -42,7 +70,7 @@
     "replies": [
       {
         "nextPhraseID": "F",
-        "text": "Attack"
+        "text": "Attack!"
       }
     ],
     "message": "For Feygard!"
@@ -426,7 +454,7 @@
     "id": "aulowenn_tq3",
     "replies": [
       {
-        "text": "Attack",
+        "text": "You will be no match for me.",
         "nextPhraseID": "aulowenn_atk"
       },
       {
@@ -440,7 +468,7 @@
     "id": "aulowenn_tq4",
     "replies": [
       {
-        "text": "Attack",
+        "text": "You will be no match for me.",
         "nextPhraseID": "aulowenn_atk"
       },
       {
