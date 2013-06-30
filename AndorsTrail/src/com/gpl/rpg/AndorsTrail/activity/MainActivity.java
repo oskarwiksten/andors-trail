@@ -262,6 +262,8 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	}
 
 	private void showToast(String msg, int duration) {
+		if (msg == null) return;
+		if (msg.length() == 0) return;
 		Toast t = null;
 		if (lastToast != null) t = lastToast.get();
 		if (t == null) {
@@ -366,7 +368,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
 	@Override
 	public void onPlayerSteppedOnGroundLoot(Loot loot) {
-		final String msg = Dialogs.getGroundLootMessage(this, loot);
+		final String msg = Dialogs.getGroundLootFoundMessage(this, loot);
 		Dialogs.showGroundLoot(this, controllers, world, loot, msg);
 	}
 
@@ -374,14 +376,14 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	public void onPlayerPickedUpGroundLoot(Loot loot) {
 		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
 		
-		final String msg = Dialogs.getGroundLootMessage(this, loot);
+		final String msg = Dialogs.getGroundLootPickedUpMessage(this, loot);
 		showToast(msg, Toast.LENGTH_LONG);
 	}
 
 	@Override
 	public void onPlayerFoundMonsterLoot(Collection<Loot> loot, int exp) {
 		final Loot combinedLoot = Loot.combine(loot);
-		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
+		final String msg = Dialogs.getMonsterLootFoundMessage(this, combinedLoot, exp);
 		Dialogs.showMonsterLoot(this, controllers, world, loot, combinedLoot, msg);
 	}
 
@@ -390,7 +392,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
 		
 		final Loot combinedLoot = Loot.combine(loot);
-		final String msg = Dialogs.getMonsterLootMessage(this, combinedLoot, exp);
+		final String msg = Dialogs.getMonsterLootPickedUpMessage(this, combinedLoot, exp);
 		showToast(msg, Toast.LENGTH_LONG);
 	}
 

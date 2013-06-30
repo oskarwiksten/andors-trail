@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.model.item;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.Collection;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContainer;
@@ -33,11 +34,14 @@ public final class Loot {
 	}
 	
 	public boolean hasItemsOrExp() {
-		return exp != 0 || hasItems();
+		return exp != 0 || hasItemsOrGold();
+	}
+	public boolean hasItemsOrGold() {
+		return gold != 0 || hasItems();
 	}
 	public boolean hasItems() {
-		return gold != 0 || !items.isEmpty();
-	}	
+		return !items.isEmpty();
+	}
 	public boolean isContainer() {
 		return !isVisible;
 	}
@@ -47,6 +51,14 @@ public final class Loot {
 			result.add(l);
 		}
 		return result;
+	}
+	public static boolean hasItems(Collection<Loot> lootBags) {
+		if (lootBags == null) return false;
+		if (lootBags.isEmpty()) return false;
+		for (Loot loot : lootBags) {
+			if (loot.hasItems()) return true;
+		}
+		return false;
 	}
 
 

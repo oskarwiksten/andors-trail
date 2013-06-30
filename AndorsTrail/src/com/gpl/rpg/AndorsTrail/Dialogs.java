@@ -120,34 +120,46 @@ public final class Dialogs {
 		context.startActivity(intent);
 	}
 	
-	public static String getGroundLootMessage(final Context ctx, final Loot loot) {
+	public static String getGroundLootFoundMessage(final Context ctx, final Loot loot) {
 		StringBuilder sb = new StringBuilder(60);
 		if (!loot.items.isEmpty()) {
 			sb.append(ctx.getString(R.string.dialog_groundloot_message));
 		}
-		if (loot.gold > 0) {
-			sb.append(' ');
-			sb.append(ctx.getString(R.string.dialog_loot_foundgold, loot.gold));
-		}
-		appendLootMessage(ctx, loot, sb);
+		appendGoldPickedUpMessage(ctx, loot, sb);
 		return sb.toString();
 	}
-	public static String getMonsterLootMessage(final Context ctx, final Loot combinedLoot, final int exp) {
+	public static String getGroundLootPickedUpMessage(final Context ctx, final Loot loot) {
 		StringBuilder sb = new StringBuilder(60);
+		appendLootPickedUpMessage(ctx, loot, sb);
+		return sb.toString();
+	}
+	public static String getMonsterLootFoundMessage(final Context ctx, final Loot combinedLoot, final int exp) {
+		StringBuilder sb = new StringBuilder(60);
+		appendMonsterEncounterSurvivedMessage(ctx, sb, exp);
+		appendGoldPickedUpMessage(ctx, combinedLoot, sb);
+		return sb.toString();
+	}
+	public static String getMonsterLootPickedUpMessage(final Context ctx, final Loot combinedLoot, final int exp) {
+		StringBuilder sb = new StringBuilder(60);
+		appendMonsterEncounterSurvivedMessage(ctx, sb, exp);
+		appendLootPickedUpMessage(ctx, combinedLoot, sb);
+		return sb.toString();
+	}
+	private static void appendMonsterEncounterSurvivedMessage(final Context ctx, final StringBuilder sb, final int exp) {
 		sb.append(ctx.getString(R.string.dialog_monsterloot_message));
-		
 		if (exp > 0) {
 			sb.append(' ');
 			sb.append(ctx.getString(R.string.dialog_monsterloot_gainedexp, exp));
 		}
-		appendLootMessage(ctx, combinedLoot, sb);
-		return sb.toString();
 	}
-	private static void appendLootMessage(final Context ctx, final Loot loot, final StringBuilder sb) {
+	private static void appendGoldPickedUpMessage(final Context ctx, final Loot loot, final StringBuilder sb) {
 		if (loot.gold > 0) {
 			sb.append(' ');
 			sb.append(ctx.getString(R.string.dialog_loot_foundgold, loot.gold));
 		}
+	}
+	private static void appendLootPickedUpMessage(final Context ctx, final Loot loot, final StringBuilder sb) {
+		appendGoldPickedUpMessage(ctx, loot, sb);
 		int numItems = loot.items.countItems();
 		if (numItems == 1) {
 			sb.append(' ');

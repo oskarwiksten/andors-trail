@@ -108,7 +108,7 @@ public final class ItemController {
 	}
 	
 	public void lootMonsterBags(Collection<Loot> killedMonsterBags, int totalExpThisFight) {
-		if (pickupLootBagWithoutConfirmation()) {
+		if (pickupLootBagWithoutConfirmation() || !Loot.hasItems(killedMonsterBags)) {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
 			pickupAll(killedMonsterBags);
 			removeLootBagIfEmpty(killedMonsterBags);
@@ -207,7 +207,7 @@ public final class ItemController {
 		}
 	}
 	public boolean removeLootBagIfEmpty(final Loot loot) {
-		if (loot.hasItems()) return false;
+		if (loot.hasItemsOrGold()) return false;
 
 		world.model.currentMap.removeGroundLoot(loot);
 		controllers.mapController.mapLayoutListeners.onLootBagRemoved(world.model.currentMap, loot.position);

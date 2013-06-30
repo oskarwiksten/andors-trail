@@ -59,14 +59,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
     	currentActiveMonster = null;
     	world.model.uiSelections.selectedPosition = null;
     	world.model.uiSelections.selectedMonster = null;
-    	if (killedMonsterBags.isEmpty()) {
-			controllers.gameRoundController.resume();
+		if (pickupLootBags && totalExpThisFight > 0) {
+			controllers.itemController.lootMonsterBags(killedMonsterBags, totalExpThisFight);
 		} else {
-    		if (pickupLootBags) {
-    			controllers.itemController.lootMonsterBags(killedMonsterBags, totalExpThisFight);
-    		}
-    		killedMonsterBags.clear();
-    	}
+			controllers.gameRoundController.resume();
+		}
+		killedMonsterBags.clear();
     	totalExpThisFight = 0;
     }
     
@@ -204,7 +202,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		loot.exp = 0;
 		controllers.actorStatsController.applyKillEffectsToPlayer(player);
 		
-		if (!loot.hasItems()) {
+		if (!loot.hasItemsOrGold()) {
 			world.model.currentMap.removeGroundLoot(loot);
 		} else if (world.model.uiSelections.isInCombat) {
 			killedMonsterBags.add(loot);
@@ -235,6 +233,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return false;
 	}
 	private void playerActionCompleted() {
+		if (!world.model.uiSelections.isInCombat) return;
 		if (canExitCombat()) {
 			exitCombat(true);
 			return;
