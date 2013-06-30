@@ -96,7 +96,7 @@ public final class MapCollection {
 		dest.writeInt(mapsToExport.size());
 		for(PredefinedMap map : mapsToExport) {
 			dest.writeUTF(map.name);
-			map.writeToParcel(dest, flags);
+			map.writeToParcel(dest, world, flags);
 		}
 	}
 }

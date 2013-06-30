@@ -157,8 +157,9 @@ public final class PredefinedMap {
 	public boolean hasResetTemporaryData() {
 		return lastVisitTime == VISIT_RESET;
 	}
-	public boolean hasPersistentData() {
+	public boolean hasPersistentData(WorldContext world) {
 		if (!hasResetTemporaryData()) return true;
+		if (this == world.model.currentMap) return true;
 		if (!groundBags.isEmpty()) return true;
 		for (MonsterSpawnArea a : spawnAreas) {
 			if (a.isUnique) return true;
@@ -234,8 +235,8 @@ public final class PredefinedMap {
 		}
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		if (hasPersistentData()) {
+	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
+		if (this.hasPersistentData(world)) {
 			dest.writeBoolean(true);
 			dest.writeInt(spawnAreas.length);
 			for(MonsterSpawnArea a : spawnAreas) {
