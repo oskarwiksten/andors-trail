@@ -178,7 +178,7 @@
     "maxHP": 263,
     "moveCost": 5,
     "attackCost": 2,
-    "attackChance": 93,
+    "attackChance": 129,
     "criticalSkill": 10,
     "criticalMultiplier": 2,
     "blockChance": 132,
@@ -194,10 +194,16 @@
       },
       "conditionsTarget": [
         {
-          "magnitude": 3,
+          "magnitude": 5,
           "duration": 4,
-          "chance": 25,
+          "chance": 50,
           "condition": "fear"
+        },
+        {
+          "magnitude": 3,
+          "duration": 3,
+          "chance": 50,
+          "condition": "bleeding_wound"
         }
       ]
     },
