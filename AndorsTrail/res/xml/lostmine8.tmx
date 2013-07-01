@@ -122,7 +122,7 @@
  </tileset>
  <layer name="Ground" width="13" height="19">
   <data encoding="base64" compression="zlib">
-   eJylUkEOgCAMI1z8i5+WLyAvMIQX8CE5bMmsRVAPPdDRZesavHNBsAsCAeNTwyGInVoErjRUQW7YTP8CvHLrcoXVII/cH02UWoK67sM0Wfa2c6OPTFf9fVYLpmH7vdGx/2xW9eEpH6hRH3r5sHmz/mo2MB+YN5YLdmubtxn/evcZef5FM6sb3Ql76fsEm+Z2zg==
+   eJylUsERgCAM4/i4i0uLIyAjoCswjzzauxqDoD7yICXQpgneuSDYBIGA8aliF8RGLQJ3VBRBrliktpqa8srN0xVWgzxyfzRR5k5Q13mYJsvctm/rS+uv4u+9WjANm++Njt1nvaoPT/lAjfrQyofNm/VXs4H5wLyxXLBd27yN+NfaT8/zL5pRXW9P+JaeT1Prdkk=
   </data>
  </layer>
  <layer name="Objects" width="13" height="19">
@@ -135,7 +135,7 @@
    eJxjYKAMpAuQJgcSS8OhB5scPvUgEI5FDpsYqXpm8xLW08+E3x58/iQVELKLVoActxIKf0r0ILsHW/hORYs3QumHErcgA0Lxg56e6AEAvUEN0Q==
   </data>
  </layer>
- <layer name="Walkable" width="13" height="19">
+ <layer name="Walkable" width="13" height="19" visible="0">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcB0ADAK01IMOcMmRogefPaS6l1R7sLkPlxkDFeYDoYfUcCBWD75wxqUPlzpS44nc8EDHANfDPm0=
   </data>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="13" height="19">
+ <objectgroup name="Spawn" width="13" height="19" visible="0">
   <object name="fire1" type="spawn" x="64" y="128" width="128" height="160">
    <properties>
     <property name="quantity" value="3"/>
