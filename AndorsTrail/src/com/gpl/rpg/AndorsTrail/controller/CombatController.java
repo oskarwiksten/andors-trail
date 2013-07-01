@@ -131,6 +131,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			executePlayerAttack();
 		} else if (world.model.uiSelections.selectedPosition != null) {
 			executeCombatMove(world.model.uiSelections.selectedPosition);
+		} else if (controllers.effectController.isRunningVisualEffect()) {
+			return;
 		} else if (canExitCombat()) {
 			exitCombat(true);
 		} else if (dx != 0 || dy != 0) {
@@ -392,6 +394,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	
 	@Override
 	public void onVisualEffectCompleted(int callbackValue) {
+		if (!world.model.uiSelections.isInCombat) return;
 		if (callbackValue == CALLBACK_MONSTERATTACK) {
 			monsterAttackCompleted();
 		} else if (callbackValue == CALLBACK_PLAYERATTACK) {
