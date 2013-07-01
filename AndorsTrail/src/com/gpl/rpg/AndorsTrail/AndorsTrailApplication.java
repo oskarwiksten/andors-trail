@@ -20,7 +20,8 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES || DEVELOPMENT_DEBUGBUTTONS;
 	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 37;
 	public static final String CURRENT_VERSION_DISPLAY = "0.7.0a1";
-	
+	public static final boolean IS_RELEASE_VERSION = !CURRENT_VERSION_DISPLAY.matches(".*[a-d].*");
+
 	private final AndorsTrailPreferences preferences = new AndorsTrailPreferences();
 	private final WorldContext world = new WorldContext();
 	private final ControllerContext controllers = new ControllerContext(this, world);

@@ -94,11 +94,15 @@ public final class StartScreenActivity extends Activity {
 				Dialogs.showLoad(StartScreenActivity.this);
 			}
 		});
-    	
+
+		TextView development_version = (TextView) findViewById(R.id.startscreen_dev_version);
         if (AndorsTrailApplication.DEVELOPMENT_INCOMPATIBLE_SAVEGAMES) {
-            TextView development_version = (TextView) findViewById(R.id.startscreen_dev_version);
+			development_version.setText(R.string.startscreen_incompatible_savegames);
             development_version.setVisibility(View.VISIBLE);
-        }
+        } else if (!AndorsTrailApplication.IS_RELEASE_VERSION) {
+			development_version.setText(R.string.startscreen_non_release_version);
+			development_version.setVisibility(View.VISIBLE);
+		}
         
         final Resources res = getResources();
         TileManager tileManager = app.getWorld().tileManager;
