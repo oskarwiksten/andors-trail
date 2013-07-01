@@ -9,7 +9,6 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
-import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -196,7 +195,10 @@ public final class SkillController {
 		
 		ItemType mainWeapon = ItemController.getMainWeapon(player);
 		if (mainWeapon != null) {
-			playerTraits.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC * getSkillLevelForItemType(player, mainWeapon);
+			final int skillLevel = getSkillLevelForItemType(player, mainWeapon);
+			addPercentAttackChance(player, mainWeapon, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC_PERCENT * skillLevel, 0);
+			addPercentBlockChance(player, mainWeapon, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_BC_PERCENT * skillLevel, 0);
+			addPercentCriticalSkill(player, mainWeapon, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_CS_PERCENT * skillLevel, 0);
 		}
 		
 		final int unarmedLevel = player.getSkillLevel(SkillCollection.SKILL_WEAPON_PROFICIENCY_UNARMED);
@@ -233,11 +235,11 @@ public final class SkillController {
 			int skill = getProficiencySkillForItemCategory(itemType.category);
 			if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT) {
 				if (skillLevelLightArmor > 0) {
-					playerTraits.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, SkillCollection.PER_SKILLPOINT_INCREASE_LIGHT_ARMOR_BC_PERCENT * skillLevelLightArmor, 0);
+					addPercentBlockChance(player, itemType, SkillCollection.PER_SKILLPOINT_INCREASE_LIGHT_ARMOR_BC_PERCENT * skillLevelLightArmor, 0);
 				}
 			} else if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY) { 
 				if (skillLevelHeavyArmor > 0) {
-					playerTraits.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT * skillLevelHeavyArmor, 0);
+					addPercentBlockChance(player, itemType, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT * skillLevelHeavyArmor, 0);
 					playerTraits.moveCost -= getPercentage(itemType.effects_equip.stats.increaseMoveCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT * skillLevelHeavyArmor, 0);
 					playerTraits.attackCost -= getPercentage(itemType.effects_equip.stats.increaseAttackCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_ATKCOST_PERCENT * skillLevelHeavyArmor, 0);
 				}
@@ -320,7 +322,6 @@ public final class SkillController {
 		if (isDualWielding(mainHandItem, offHandItem)) {
 			int skillLevelFightStyle = player.getSkillLevel(SkillCollection.SKILL_FIGHTSTYLE_DUAL_WIELD);
 			if (offHandItem.effects_equip != null) {
-				AbilityModifierTraits offHandCombatTraits = offHandItem.effects_equip.stats;
 				int attackCostMainHand = mainHandItem.effects_equip.stats.increaseAttackCost;
 				int attackCostOffHand = offHandItem.effects_equip.stats.increaseAttackCost;
 				int percent;
@@ -335,13 +336,15 @@ public final class SkillController {
 					playerTraits.attackCost = attackCostMainHand + attackCostOffHand;
 				}
 
-				final int increaseACFromWeaponProficiency = SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC * getSkillLevelForItemType(player, offHandItem);
-				playerTraits.attackChance += getPercentage(increaseACFromWeaponProficiency, percent, 0);
+				final int skillLevel = getSkillLevelForItemType(player, offHandItem);
+				addPercentAttackChance(player, offHandItem, getPercentage(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_AC_PERCENT * skillLevel, percent, 0), 0);
+				addPercentBlockChance(player, offHandItem, getPercentage(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_BC_PERCENT * skillLevel, percent, 0), 0);
+				addPercentCriticalSkill(player, offHandItem, getPercentage(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_CS_PERCENT * skillLevel, percent, 0), 0);
 
 				addPercentAttackChance(player, offHandItem, percent, 100);
 				addPercentBlockChance(player, offHandItem, percent, 100);
 				addPercentDamage(player, offHandItem, percent, 100);
-				playerTraits.criticalSkill += getPercentage(offHandCombatTraits.increaseCriticalSkill, percent, 100);
+				addPercentCriticalSkill(player, offHandItem, percent, 100);
 			}
 			
 			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD);
@@ -366,6 +369,11 @@ public final class SkillController {
 		if (itemType.effects_equip == null) return;
 		player.damagePotential.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxDamage, percentForPositiveValues, percentForNegativeValues));
 		player.damagePotential.add(getPercentage(itemType.effects_equip.stats.increaseMinDamage, percentForPositiveValues, percentForNegativeValues), false);
+	}
+
+	private static void addPercentCriticalSkill(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.criticalSkill += getPercentage(itemType.effects_equip.stats.increaseCriticalSkill, percentForPositiveValues, percentForNegativeValues);
 	}
 
 	private static int getPercentage(int originalValue, int percentForPositiveValues, int percentForNegativeValues) {
