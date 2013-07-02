@@ -272,12 +272,12 @@ public final class SkillController {
 		return player.getSkillLevel(skill);
 	}
 	
-	private static int getProficiencySkillForItemCategory(ItemCategory category) {
+	public static int getProficiencySkillForItemCategory(ItemCategory category) {
 		final String itemCategoryID = category.id;
 		if (category.isWeapon()) {
 			if (itemCategoryID.equals("dagger") || itemCategoryID.equals("ssword")) 
 				return SkillCollection.SKILL_WEAPON_PROFICIENCY_DAGGER;
-			else if (itemCategoryID.equals("lsword") || itemCategoryID.equals("bsword")) 
+			else if (itemCategoryID.equals("lsword") || itemCategoryID.equals("bsword") || itemCategoryID.equals("rapier"))
 				return SkillCollection.SKILL_WEAPON_PROFICIENCY_1HSWORD;
 			else if (itemCategoryID.equals("2hsword")) 
 				return SkillCollection.SKILL_WEAPON_PROFICIENCY_2HSWORD;
