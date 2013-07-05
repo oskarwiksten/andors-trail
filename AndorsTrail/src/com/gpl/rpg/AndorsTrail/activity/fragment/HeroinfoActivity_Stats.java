@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.activity.fragment;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,11 +10,13 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
@@ -30,7 +33,8 @@ public final class HeroinfoActivity_Stats extends Fragment {
 
 	private WorldContext world;
 	private Player player;
-	
+
+	private View view;
 	private Button levelUpButton;
     private TextView heroinfo_ap;
     private TextView heroinfo_reequip_cost;
@@ -59,7 +63,8 @@ public final class HeroinfoActivity_Stats extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.heroinfo_stats, container, false);
-        
+		view = v;
+
         TextView tv = (TextView) v.findViewById(R.id.heroinfo_title);
         tv.setText(player.getName());
         world.tileManager.setImageViewTile(getResources(), tv, player);
@@ -121,6 +126,8 @@ public final class HeroinfoActivity_Stats extends Fragment {
     }
     
 	private void updateTraits() {
+		final Resources res = getResources();
+
 		heroinfo_level.setText(Integer.toString(player.getLevel()));
 		heroinfo_totalexperience.setText(Integer.toString(player.getTotalExperience()));
 		heroinfo_ap.setText(player.getMaxAP() + "/" + player.getCurrentAP());
@@ -158,5 +165,33 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		if (effects_hit.isEmpty()) effects_hit = null;
 		if (effects_kill.isEmpty()) effects_kill = null;
 		actorinfo_onhiteffects.update(null, null, effects_hit, effects_kill, false);
+
+
+		updateStatsTableRow(world.model.statistics.getNumberOfCompletedQuests(world), R.id.heroinfo_gamestats_quests, R.id.heroinfo_gamestats_quests_row);
+		updateStatsTableRow(world.model.statistics.getNumberOfVisitedMaps(world), R.id.heroinfo_gamestats_visited_maps, R.id.heroinfo_gamestats_visited_maps_row);
+		updateStatsTableRow(world.model.statistics.getDeaths(), R.id.heroinfo_gamestats_deaths, R.id.heroinfo_gamestats_deaths_row);
+		updateStatsTableRow(world.model.statistics.getSpentGold(), R.id.heroinfo_gamestats_spent_gold, R.id.heroinfo_gamestats_spent_gold_row);
+		updateStatsTableRow(world.model.statistics.getNumberOfUsedItems(), R.id.heroinfo_gamestats_num_used_items, R.id.heroinfo_gamestats_num_used_items_row);
+		updateStatsTableRow(world.model.statistics.getNumberOfUsedBonemealPotions(), R.id.heroinfo_gamestats_bonemeals, R.id.heroinfo_gamestats_bonemeals_row);
+		updateStatsTableRow(world.model.statistics.getNumberOfKilledMonsters(), R.id.heroinfo_gamestats_num_killed_monsters, R.id.heroinfo_gamestats_num_killed_monsters_row);
+		updateStatsTableRow(world.model.statistics.getMostCommonlyUsedItem(world, res), R.id.heroinfo_gamestats_fav_item, R.id.heroinfo_gamestats_fav_item_row);
+		updateStatsTableRow(world.model.statistics.getMostPowerfulKilledMonster(world), R.id.heroinfo_gamestats_top_boss, R.id.heroinfo_gamestats_top_boss_row);
+		updateStatsTableRow(world.model.statistics.getTop5MostCommonlyKilledMonsters(world, res), R.id.heroinfo_gamestats_fav_monsters, R.id.heroinfo_gamestats_fav_monsters_row);
     }
+
+	private void updateStatsTableRow(int value, int textView, int tableRow) {
+		String s = (value > 0) ? Integer.toString(value) : null;
+		updateStatsTableRow(s, textView, tableRow);
+	}
+
+	private void updateStatsTableRow(String value, int textView, int tableRow) {
+		TextView tv = (TextView) view.findViewById(textView);
+		TableRow tr = (TableRow) view.findViewById(tableRow);
+		if (value != null) {
+			tv.setText(value);
+			tr.setVisibility(View.VISIBLE);
+		} else {
+			tr.setVisibility(View.GONE);
+		}
+	}
 }
