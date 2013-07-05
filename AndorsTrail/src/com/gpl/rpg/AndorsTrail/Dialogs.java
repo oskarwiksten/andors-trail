@@ -1,38 +1,22 @@
 package com.gpl.rpg.AndorsTrail;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.*;
+import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-
-import com.gpl.rpg.AndorsTrail.activity.ActorConditionInfoActivity;
-import com.gpl.rpg.AndorsTrail.activity.BulkSelectionInterface;
-import com.gpl.rpg.AndorsTrail.activity.ConversationActivity;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Inventory;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Skills;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity_Stats;
-import com.gpl.rpg.AndorsTrail.activity.LoadSaveActivity;
-import com.gpl.rpg.AndorsTrail.activity.MainActivity;
-import com.gpl.rpg.AndorsTrail.activity.ItemInfoActivity;
-import com.gpl.rpg.AndorsTrail.activity.LevelUpActivity;
-import com.gpl.rpg.AndorsTrail.activity.MonsterEncounterActivity;
-import com.gpl.rpg.AndorsTrail.activity.MonsterInfoActivity;
-import com.gpl.rpg.AndorsTrail.activity.ShopActivity;
-import com.gpl.rpg.AndorsTrail.activity.SkillInfoActivity;
-import com.gpl.rpg.AndorsTrail.activity.StartScreenActivity;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
+import com.gpl.rpg.AndorsTrail.activity.*;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -42,6 +26,10 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public final class Dialogs {
 	
@@ -230,20 +218,20 @@ public final class Dialogs {
 		});
 	}
 
-	public static void showItemInfo(final Activity currentActivity, String itemTypeID, int actionType, String buttonText, boolean buttonEnabled, int inventorySlot) {
-		Intent intent = new Intent(currentActivity, ItemInfoActivity.class);
+	public static Intent getIntentForItemInfo(final Context ctx, String itemTypeID, int actionType, String buttonText, boolean buttonEnabled, int inventorySlot) {
+		Intent intent = new Intent(ctx, ItemInfoActivity.class);
 		intent.putExtra("buttonText", buttonText);
 		intent.putExtra("buttonEnabled", buttonEnabled);
 		intent.putExtra("itemTypeID", itemTypeID);
 		intent.putExtra("actionType", actionType);
 		intent.putExtra("inventorySlot", inventorySlot);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/iteminfo/" + itemTypeID));
-		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_ITEMINFO);
+		return intent;
 	}
-	public static void showLevelUp(final HeroinfoActivity_Stats currentActivity) {
-		Intent intent = new Intent(currentActivity, LevelUpActivity.class);
+	public static Intent getIntentForLevelUp(final Context ctx) {
+		Intent intent = new Intent(ctx, LevelUpActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/levelup"));
-		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_LEVELUP);
+		return intent;
 	}
 
 	public static void showConfirmRest(final Activity currentActivity, final ControllerContext controllerContext, final MapObject area) {
@@ -303,31 +291,31 @@ public final class Dialogs {
 		context.startActivity(intent);
 	}
 	
-	public static void showBulkBuyingInterface(ShopActivity currentActivity, String itemTypeID, int totalAvailableAmount) {
-		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY, MainActivity.INTENTREQUEST_BULKSELECT_BUY);
+	public static Intent getIntentForBulkBuyingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
+		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY);
 	}
 	
-	public static void showBulkSellingInterface(ShopActivity currentActivity, String itemTypeID, int totalAvailableAmount) {
-		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL, MainActivity.INTENTREQUEST_BULKSELECT_SELL);
+	public static Intent getIntentForBulkSellingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
+		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL);
 	}
 	
-	public static void showBulkDroppingInterface(HeroinfoActivity_Inventory currentActivity, String itemTypeID, int totalAvailableAmount) {
-		showBulkSelectionInterface(currentActivity, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP, MainActivity.INTENTREQUEST_BULKSELECT_DROP);
+	public static Intent getIntentForBulkDroppingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
+		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP);
 	}
 
-    private static void showBulkSelectionInterface(Activity currentActivity, String itemTypeID, int totalAvailableAmount, int interfaceType, int requestCode) {
-		Intent intent = new Intent(currentActivity, BulkSelectionInterface.class);
+    private static Intent getIntentForBulkSelectionInterface(final Context ctx, String itemTypeID, int totalAvailableAmount, int interfaceType) {
+		Intent intent = new Intent(ctx, BulkSelectionInterface.class);
 		intent.putExtra("itemTypeID", itemTypeID);
 		intent.putExtra("totalAvailableAmount", totalAvailableAmount);
 		intent.putExtra("interfaceType", interfaceType);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/bulkselection/" + itemTypeID));
-		currentActivity.startActivityForResult(intent, requestCode);
+		return intent;
 	}
-	public static void showSkillInfo(HeroinfoActivity_Skills currentActivity, int skillID) {
-		Intent intent = new Intent(currentActivity, SkillInfoActivity.class);
+	public static Intent getIntentForSkillInfo(final Context ctx, int skillID) {
+		Intent intent = new Intent(ctx, SkillInfoActivity.class);
 		intent.putExtra("skillID", skillID);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/showskillinfo/" + skillID));
-		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SKILLINFO);
+		return intent;
 	}
 
 	public static void showCombatLog(final Context context, final ControllerContext controllerContext, final WorldContext world) {

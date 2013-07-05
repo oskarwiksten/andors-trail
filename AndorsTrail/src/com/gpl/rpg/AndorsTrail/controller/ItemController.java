@@ -243,21 +243,22 @@ public final class ItemController {
 		if (!itemType.isSellable()) return false;
 		return true;
 	}
-	public static void sell(Player player, ItemType itemType, ItemContainer merchant, int quantity) {
+	public static boolean sell(Player player, ItemType itemType, ItemContainer merchant, int quantity) {
 		int price = getSellingPrice(player, itemType) * quantity;
-		if (player.inventory.removeItem(itemType.id, quantity)) {
-			player.inventory.gold += price;
-			merchant.addItem(itemType, quantity);
-		}
+		if (!maySellItem(player, itemType)) return false;
+		if (!player.inventory.removeItem(itemType.id, quantity)) return false;
+		player.inventory.gold += price;
+		merchant.addItem(itemType, quantity);
+		return true;
 	}
-	public static void buy(ModelContainer model, Player player, ItemType itemType, ItemContainer merchant, int quantity) {
+	public static boolean buy(ModelContainer model, Player player, ItemType itemType, ItemContainer merchant, int quantity) {
 		int price = getBuyingPrice(player, itemType) * quantity;
-		if (!canAfford(player, price)) return;
-		if (merchant.removeItem(itemType.id, quantity)) {
-			player.inventory.gold -= price;
-			player.inventory.addItem(itemType, quantity);
-			model.statistics.addGoldSpent(price);
-		}
+		if (!canAfford(player, price)) return false;
+		if (!merchant.removeItem(itemType.id, quantity)) return false;
+		player.inventory.gold -= price;
+		player.inventory.addItem(itemType, quantity);
+		model.statistics.addGoldSpent(price);
+		return true;
 	}
 	
 

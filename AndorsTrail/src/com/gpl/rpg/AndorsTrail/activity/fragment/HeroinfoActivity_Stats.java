@@ -1,9 +1,17 @@
-package com.gpl.rpg.AndorsTrail.activity;
+package com.gpl.rpg.AndorsTrail.activity.fragment;
 
-import java.util.ArrayList;
-
-import com.gpl.rpg.AndorsTrail.Dialogs;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TableLayout;
+import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -14,18 +22,13 @@ import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.TableLayout;
-import android.widget.TextView;
+import java.util.ArrayList;
 
-public final class HeroinfoActivity_Stats extends Activity {
+public final class HeroinfoActivity_Stats extends Fragment {
 
+	private static final int INTENTREQUEST_LEVELUP = 6;
+
+	private WorldContext world;
 	private Player player;
 	
 	private Button levelUpButton;
@@ -43,44 +46,48 @@ public final class HeroinfoActivity_Stats extends Activity {
     private ItemEffectsView actorinfo_onhiteffects;
     private TableLayout heroinfo_basestats_table;
     private ViewGroup heroinfo_container;
-	
-    @Override
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        if (!app.isInitialized()) { finish(); return; }
-		final WorldContext world = app.getWorld();
+        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this.getActivity());
+        if (!app.isInitialized()) return;
+		this.world = app.getWorld();
         this.player = world.model.player;
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.heroinfo_stats, container, false);
         
-        setContentView(R.layout.heroinfo_stats);
-        
-        TextView tv = (TextView) findViewById(R.id.heroinfo_title);
+        TextView tv = (TextView) v.findViewById(R.id.heroinfo_title);
         tv.setText(player.getName());
         world.tileManager.setImageViewTile(getResources(), tv, player);
         
-        heroinfo_container = (ViewGroup) findViewById(R.id.heroinfo_container);
-        heroinfo_ap = (TextView) findViewById(R.id.heroinfo_ap);
-        heroinfo_reequip_cost = (TextView) findViewById(R.id.heroinfo_reequip_cost);
-        heroinfo_useitem_cost = (TextView) findViewById(R.id.heroinfo_useitem_cost);
-        basetraitsinfo_max_hp = (TextView) findViewById(R.id.basetraitsinfo_max_hp);
-        basetraitsinfo_max_ap = (TextView) findViewById(R.id.basetraitsinfo_max_ap);
-        heroinfo_base_reequip_cost = (TextView) findViewById(R.id.heroinfo_base_reequip_cost);
-        heroinfo_base_useitem_cost = (TextView) findViewById(R.id.heroinfo_base_useitem_cost);
-        heroinfo_level = (TextView) findViewById(R.id.heroinfo_level);
-        heroinfo_totalexperience = (TextView) findViewById(R.id.heroinfo_totalexperience);
-		actorinfo_onhiteffects = (ItemEffectsView) findViewById(R.id.actorinfo_onhiteffects);
-		heroinfo_basestats_table = (TableLayout) findViewById(R.id.heroinfo_basestats_table);
+        heroinfo_container = (ViewGroup) v.findViewById(R.id.heroinfo_container);
+        heroinfo_ap = (TextView) v.findViewById(R.id.heroinfo_ap);
+        heroinfo_reequip_cost = (TextView) v.findViewById(R.id.heroinfo_reequip_cost);
+        heroinfo_useitem_cost = (TextView) v.findViewById(R.id.heroinfo_useitem_cost);
+        basetraitsinfo_max_hp = (TextView) v.findViewById(R.id.basetraitsinfo_max_hp);
+        basetraitsinfo_max_ap = (TextView) v.findViewById(R.id.basetraitsinfo_max_ap);
+        heroinfo_base_reequip_cost = (TextView) v.findViewById(R.id.heroinfo_base_reequip_cost);
+        heroinfo_base_useitem_cost = (TextView) v.findViewById(R.id.heroinfo_base_useitem_cost);
+        heroinfo_level = (TextView) v.findViewById(R.id.heroinfo_level);
+        heroinfo_totalexperience = (TextView) v.findViewById(R.id.heroinfo_totalexperience);
+		actorinfo_onhiteffects = (ItemEffectsView) v.findViewById(R.id.actorinfo_onhiteffects);
+		heroinfo_basestats_table = (TableLayout) v.findViewById(R.id.heroinfo_basestats_table);
 
-        rangebar_hp = (RangeBar) findViewById(R.id.heroinfo_healthbar);
+        rangebar_hp = (RangeBar) v.findViewById(R.id.heroinfo_healthbar);
         rangebar_hp.init(R.drawable.ui_progress_health, R.string.status_hp);
-        rangebar_exp = (RangeBar) findViewById(R.id.heroinfo_expbar);
+        rangebar_exp = (RangeBar) v.findViewById(R.id.heroinfo_expbar);
         rangebar_exp.init(R.drawable.ui_progress_exp, R.string.status_exp);
         
-        levelUpButton = (Button) findViewById(R.id.heroinfo_levelup);
+        levelUpButton = (Button) v.findViewById(R.id.heroinfo_levelup);
         levelUpButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				Dialogs.showLevelUp(HeroinfoActivity_Stats.this);
+				Intent intent = Dialogs.getIntentForLevelUp(getActivity());
+				startActivityForResult(intent, INTENTREQUEST_LEVELUP);
 				// We disable the button temporarily, so that there is no possibility 
 				//  of clicking it again before the levelup activity has started.
 				// See issue:
@@ -88,22 +95,25 @@ public final class HeroinfoActivity_Stats extends Activity {
 				levelUpButton.setEnabled(false);
 			}
 		});
+
+		return v;
     }
 
     @Override
-	protected void onResume() {
-    	super.onResume();
-    	updateTraits();
-        updateLevelup();
+	public void onStart() {
+		super.onStart();
+		update();
     }
-    
-    @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		switch (requestCode) {
-		case MainActivity.INTENTREQUEST_LEVELUP:
-			break;
-		}
+		update();
+	}
+
+	private void update() {
+		updateTraits();
+		updateLevelup();
 	}
 
 	private void updateLevelup() {

@@ -1,8 +1,22 @@
-package com.gpl.rpg.AndorsTrail.activity;
+package com.gpl.rpg.AndorsTrail.activity.fragment;
 
-import com.gpl.rpg.AndorsTrail.Dialogs;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.*;
+import android.view.ContextMenu.ContextMenuInfo;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.AdapterContextMenuInfo;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.ItemInfoActivity;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.ItemController;
@@ -13,23 +27,11 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.view.ItemContainerAdapter;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.ContextMenu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
-import android.widget.AdapterView;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.AdapterContextMenuInfo;
-import android.widget.AdapterView.OnItemClickListener;
+public final class HeroinfoActivity_Inventory extends Fragment {
 
-public final class HeroinfoActivity_Inventory extends Activity {
+	private static final int INTENTREQUEST_ITEMINFO = 3;
+	private static final int INTENTREQUEST_BULKSELECT_DROP = 11;
+
 	private WorldContext world;
 	private ControllerContext controllers;
 	private TileCollection wornTiles;
@@ -49,15 +51,18 @@ public final class HeroinfoActivity_Inventory extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        if (!app.isInitialized()) { finish(); return; }
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this.getActivity());
+		if (!app.isInitialized()) return;
         this.world = app.getWorld();
         this.controllers = app.getControllerContext();
         this.player = world.model.player;
-        
-        setContentView(R.layout.heroinfo_inventory);
+	}
 
-		ListView inventoryList = (ListView) findViewById(R.id.inventorylist_root);
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.heroinfo_inventory, container, false);
+        
+		ListView inventoryList = (ListView) v.findViewById(R.id.inventorylist_root);
         registerForContextMenu(inventoryList);
         inventoryList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
@@ -66,34 +71,36 @@ public final class HeroinfoActivity_Inventory extends Activity {
 				showInventoryItemInfo(itemType.id);
 			}
 		});
-		ItemContainer container = player.inventory;
+		ItemContainer inv = player.inventory;
         wornTiles = world.tileManager.loadTilesFor(player.inventory, getResources());
-        inventoryListAdapter = new ItemContainerAdapter(this, world.tileManager, container, player, wornTiles);
+        inventoryListAdapter = new ItemContainerAdapter(getActivity(), world.tileManager, inv, player, wornTiles);
         inventoryList.setAdapter(inventoryListAdapter);
         
-        heroinfo_stats_gold = (TextView) findViewById(R.id.heroinfo_stats_gold);
-        heroinfo_stats_attack = (TextView) findViewById(R.id.heroinfo_stats_attack);
-        heroinfo_stats_defense = (TextView) findViewById(R.id.heroinfo_stats_defense);
+        heroinfo_stats_gold = (TextView) v.findViewById(R.id.heroinfo_stats_gold);
+        heroinfo_stats_attack = (TextView) v.findViewById(R.id.heroinfo_stats_attack);
+        heroinfo_stats_defense = (TextView) v.findViewById(R.id.heroinfo_stats_defense);
         
-        setWearSlot(Inventory.WEARSLOT_WEAPON, R.id.heroinfo_worn_weapon, R.drawable.equip_weapon);
-        setWearSlot(Inventory.WEARSLOT_SHIELD, R.id.heroinfo_worn_shield, R.drawable.equip_shield);
-        setWearSlot(Inventory.WEARSLOT_HEAD, R.id.heroinfo_worn_head, R.drawable.equip_head);
-        setWearSlot(Inventory.WEARSLOT_BODY, R.id.heroinfo_worn_body, R.drawable.equip_body);
-        setWearSlot(Inventory.WEARSLOT_FEET, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
-        setWearSlot(Inventory.WEARSLOT_NECK, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
-        setWearSlot(Inventory.WEARSLOT_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
-        setWearSlot(Inventory.WEARSLOT_LEFTRING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
-        setWearSlot(Inventory.WEARSLOT_RIGHTRING, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
+        setWearSlot(v, Inventory.WEARSLOT_WEAPON, R.id.heroinfo_worn_weapon, R.drawable.equip_weapon);
+        setWearSlot(v, Inventory.WEARSLOT_SHIELD, R.id.heroinfo_worn_shield, R.drawable.equip_shield);
+        setWearSlot(v, Inventory.WEARSLOT_HEAD, R.id.heroinfo_worn_head, R.drawable.equip_head);
+        setWearSlot(v, Inventory.WEARSLOT_BODY, R.id.heroinfo_worn_body, R.drawable.equip_body);
+        setWearSlot(v, Inventory.WEARSLOT_FEET, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
+        setWearSlot(v, Inventory.WEARSLOT_NECK, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
+        setWearSlot(v, Inventory.WEARSLOT_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
+        setWearSlot(v, Inventory.WEARSLOT_LEFTRING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
+        setWearSlot(v, Inventory.WEARSLOT_RIGHTRING, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
+
+		return v;
     }
 
     @Override
-	protected void onResume() {
-    	super.onResume();
+	public void onStart() {
+		super.onStart();
     	update();
     }
 
-	private void setWearSlot(final int inventorySlot, int viewId, int resourceId) {
-    	final ImageView imageView = (ImageView) findViewById(viewId);
+	private void setWearSlot(final View v, final int inventorySlot, int viewId, int resourceId) {
+    	final ImageView imageView = (ImageView) v.findViewById(viewId);
     	wornItemImage[inventorySlot] = imageView;
     	defaultWornItemImageResourceIDs[inventorySlot] = resourceId;
     	imageView.setOnClickListener(new OnClickListener() {
@@ -105,13 +112,13 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			}
 		});
 	}
-    
-    @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
-		case MainActivity.INTENTREQUEST_ITEMINFO:
-			if (resultCode != RESULT_OK) break;
+		case INTENTREQUEST_ITEMINFO:
+			if (resultCode != Activity.RESULT_OK) break;
 			
 			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getString("itemTypeID"));
 			int actionType = data.getExtras().getInt("actionType");
@@ -124,14 +131,15 @@ public final class HeroinfoActivity_Inventory extends Activity {
 				controllers.itemController.useItem(itemType);
 			}
 			break;
-		case MainActivity.INTENTREQUEST_BULKSELECT_DROP:
-			if (resultCode != RESULT_OK) break;
+		case INTENTREQUEST_BULKSELECT_DROP:
+			if (resultCode != Activity.RESULT_OK) break;
 			
 			int quantity = data.getExtras().getInt("selectedAmount");
 			String itemTypeID = data.getExtras().getString("itemTypeID");
 			dropItem(itemTypeID, quantity);
 			break;
 		}
+		update();
 	}
 
 	private int suggestInventorySlot(ItemType itemType) {
@@ -199,7 +207,7 @@ public final class HeroinfoActivity_Inventory extends Activity {
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenuInfo menuInfo) {
 		super.onCreateContextMenu(menu, v, menuInfo);
     	ItemType type = getSelectedItemType((AdapterContextMenuInfo) menuInfo);
-		MenuInflater inflater = getMenuInflater();
+		MenuInflater inflater = getActivity().getMenuInflater();
 		switch (v.getId()) {
 		case R.id.inventorylist_root:
 			inflater.inflate(R.menu.inventoryitem, menu);
@@ -233,7 +241,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
 			String itemTypeID = getSelectedItemType(info).id;
 			int quantity = player.inventory.getItemQuantity(itemTypeID);
 			if (quantity > 1) {
-				Dialogs.showBulkDroppingInterface(this, itemTypeID, quantity);
+				Intent intent = Dialogs.getIntentForBulkDroppingInterface(getActivity(), itemTypeID, quantity);
+				startActivityForResult(intent, INTENTREQUEST_BULKSELECT_DROP);
 			} else {
 				dropItem(itemTypeID, quantity);
 			}
@@ -290,7 +299,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
     	} else {
     		text = getResources().getString(R.string.iteminfo_action_unequip);
     	}
-    	Dialogs.showItemInfo(HeroinfoActivity_Inventory.this, itemType.id, ItemInfoActivity.ITEMACTION_UNEQUIP, text, enabled, inventorySlot);
+		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ITEMACTION_UNEQUIP, text, enabled, inventorySlot);
+		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
     }
     private void showInventoryItemInfo(String itemTypeID) { 
     	showInventoryItemInfo(world.itemTypes.getItemType(itemTypeID)); 
@@ -321,8 +331,8 @@ public final class HeroinfoActivity_Inventory extends Activity {
     	if (isInCombat && ap > 0) {
     		enabled = world.model.player.hasAPs(ap);
     	}
-    	
-    	Dialogs.showItemInfo(HeroinfoActivity_Inventory.this, itemType.id, action, text, enabled, -1);
+
+		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, action, text, enabled, -1);
+		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
     }
-    
 }

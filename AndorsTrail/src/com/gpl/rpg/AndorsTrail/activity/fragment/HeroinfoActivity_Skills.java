@@ -1,9 +1,12 @@
-package com.gpl.rpg.AndorsTrail.activity;
+package com.gpl.rpg.AndorsTrail.activity.fragment;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -16,58 +19,70 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.view.SkillListAdapter;
 
-public final class HeroinfoActivity_Skills extends Activity {
+public final class HeroinfoActivity_Skills extends Fragment {
+
+	private static final int INTENTREQUEST_SKILLINFO = 12;
+
 	private WorldContext world;
 	private ControllerContext controllers;
-
 	private Player player;
 
 	private SkillListAdapter skillListAdapter;
-	
-    @Override
+	private TextView listskills_number_of_increases;
+
+	@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        if (!app.isInitialized()) { finish(); return; }
+        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(getActivity());
+        if (!app.isInitialized()) return;
         this.world = app.getWorld();
-        this.controllers = app.getControllerContext();
+		this.controllers = app.getControllerContext();
         this.player = world.model.player;
-        
-        setContentView(R.layout.heroinfo_skill_list);
-        
-        skillListAdapter = new SkillListAdapter(this, world.skills.getAllSkills(), player);
-        ListView skillList = (ListView) findViewById(R.id.heroinfo_listskills_list);
+	}
+
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		View v = inflater.inflate(R.layout.heroinfo_skill_list, container, false);
+
+		final Activity ctx = getActivity();
+        skillListAdapter = new SkillListAdapter(ctx, world.skills.getAllSkills(), player);
+        ListView skillList = (ListView) v.findViewById(R.id.heroinfo_listskills_list);
         skillList.setAdapter(skillListAdapter);
         skillList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				Dialogs.showSkillInfo(HeroinfoActivity_Skills.this, (int) id);
+				Intent intent = Dialogs.getIntentForSkillInfo(ctx, (int) id);
+				startActivityForResult(intent, INTENTREQUEST_SKILLINFO);
 			}
 		});
+		listskills_number_of_increases = (TextView) v.findViewById(R.id.heroinfo_listskills_number_of_increases);
+		return v;
     }
 
-    @Override
-	protected void onResume() {
-    	super.onResume();
-    	updateSkillList();
-    }
+	@Override
+	public void onStart() {
+		super.onStart();
+		update();
+	}
 
-    @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		switch (requestCode) {
-		case MainActivity.INTENTREQUEST_SKILLINFO:
-			if (resultCode != RESULT_OK) break;
-			
+		case INTENTREQUEST_SKILLINFO:
+			if (resultCode != Activity.RESULT_OK) break;
+
 			int skillID = data.getExtras().getInt("skillID");
 			controllers.skillController.levelUpSkillManually(player, world.skills.getSkill(skillID));
 			break;
 		}
+		update();
+	}
+
+	private void update() {
+		updateSkillList();
 	}
 
 	private void updateSkillList() {
-		TextView listskills_number_of_increases = (TextView) findViewById(R.id.heroinfo_listskills_number_of_increases);
-        
         int numberOfSkillIncreases = player.getAvailableSkillIncreases();
 		if (numberOfSkillIncreases > 0) {
 			if (numberOfSkillIncreases == 1) {

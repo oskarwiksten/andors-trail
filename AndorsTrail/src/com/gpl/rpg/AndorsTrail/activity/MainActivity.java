@@ -39,14 +39,8 @@ import java.util.Collection;
 public final class MainActivity extends Activity implements PlayerMovementListener, CombatActionListener, CombatTurnListener, WorldEventListener {
 
     public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
-    public static final int INTENTREQUEST_ITEMINFO = 3;
     public static final int INTENTREQUEST_CONVERSATION = 4;
-    public static final int INTENTREQUEST_LEVELUP = 6;
     public static final int INTENTREQUEST_SAVEGAME = 8;
-    public static final int INTENTREQUEST_BULKSELECT_BUY = 9;
-	public static final int INTENTREQUEST_BULKSELECT_SELL = 10;
-	public static final int INTENTREQUEST_BULKSELECT_DROP = 11;
-    public static final int INTENTREQUEST_SKILLINFO = 12;
 	
     private ControllerContext controllers;
     private WorldContext world;

@@ -61,14 +61,14 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				clickListener.onItemActionClicked(position, itemType, isSelling);
+				clickListener.onItemActionClicked(position, itemType);
 			}
 		});
 		b = (Button) result.findViewById(R.id.shopitem_infobutton);
 		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				clickListener.onItemInfoClicked(position, itemType, isSelling);
+				clickListener.onItemInfoClicked(position, itemType);
 			}
 		});
 		return result;
@@ -80,7 +80,7 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	}
 	
 	public static interface OnContainerItemClickedListener {
-		void onItemActionClicked(int position, ItemType itemType, boolean isSelling);
-		void onItemInfoClicked(int position, ItemType itemType, boolean isSelling);
+		void onItemActionClicked(int position, ItemType itemType);
+		void onItemInfoClicked(int position, ItemType itemType);
 	}
 }
