@@ -369,9 +369,21 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	@Override
 	public void onPlayerPickedUpGroundLoot(Loot loot) {
 		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
-		
+		if (!showToastForPickedUpItems(loot)) return;
+
 		final String msg = Dialogs.getGroundLootPickedUpMessage(this, loot);
 		showToast(msg, Toast.LENGTH_LONG);
+	}
+
+	private boolean showToastForPickedUpItems(Loot loot) {
+		switch (controllers.preferences.displayLoot) {
+			case AndorsTrailPreferences.DISPLAYLOOT_TOAST:
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS_ELSE_TOAST:
+				return true;
+			case AndorsTrailPreferences.DISPLAYLOOT_TOAST_FOR_ITEMS:
+				return loot.hasItems();
+		}
+		return false;
 	}
 
 	@Override
@@ -384,8 +396,10 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	@Override
 	public void onPlayerPickedUpMonsterLoot(Collection<Loot> loot, int exp) {
 		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_NONE) return;
-		
+
 		final Loot combinedLoot = Loot.combine(loot);
+		if (!showToastForPickedUpItems(combinedLoot)) return;
+
 		final String msg = Dialogs.getMonsterLootPickedUpMessage(this, combinedLoot, exp);
 		showToast(msg, Toast.LENGTH_LONG);
 	}

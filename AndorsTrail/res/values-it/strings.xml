@@ -246,25 +246,17 @@
 
         <string-array name="preferences_display_loot">
                 <item>Mostra il resoconto del bottino</item>
+				<item>Show loot dialog box when finding items</item>
+				<item>Show loot dialog box when finding items, short notification otherwise</item>
                 <item>Mostra notifica corta</item>
+				<item>Show short notification only when finding items</item>
                 <item>Non mostrare</item>
-        </string-array>
-        <string-array name="preferences_display_loot_values">
-                <item>0</item>
-                <item>1</item>
-                <item>2</item>
         </string-array>
         <string-array name="preferences_attackspeed">
                 <item>Istantanea (nessuna animazione)</item>
                 <item>Veloce</item>
                 <item>Normale</item>
                 <item>Lenta</item>
-        </string-array>
-        <string-array name="preferences_attackspeed_values">
-                <item>0</item>
-                <item>400</item>
-                <item>1000</item>
-                <item>1500</item>
         </string-array>
         
         <string name="preferences_movement_category">Movimento</string>
@@ -273,10 +265,6 @@
         <string-array name="preferences_movementmethods">
                 <item>Diritto (originale)</item>
                 <item>Direzionale</item>
-        </string-array>
-        <string-array name="preferences_movementmethod_values">
-                <item>0</item>
-                <item>1</item>
         </string-array>
 
 
@@ -313,11 +301,6 @@
                 <item>Normale</item>
                 <item>1.5x normale</item>
                 <item>Raddoppia</item>
-        </string-array>
-        <string-array name="preferences_display_scaling_factor_values">
-                <item>1.0f</item>
-                <item>1.5f</item>
-                <item>2.0f</item>
         </string-array>
         
 	<!-- =========================================== -->

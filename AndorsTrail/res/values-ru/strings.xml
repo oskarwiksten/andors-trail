@@ -255,25 +255,17 @@
 
 	<string-array name="preferences_display_loot">
 		<item>Показывать диалог</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
 		<item>Короткое уведомление</item>
+		<item>Show short notification only when finding items</item>
 		<item>Не показывать</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string-array name="preferences_attackspeed">
 		<item>Мгновенно (без анимации)</item>
 		<item>Быстро</item>
 		<item>Нормально</item>
 		<item>Медленно</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
 	</string-array>
 	
 	<string name="preferences_movement_category">Движение</string>
@@ -282,10 +274,6 @@
 	<string-array name="preferences_movementmethods">
 		<item>Прямо (базовый)</item>
 		<item>Обходить препятствия</item>
-	</string-array>
-	<string-array name="preferences_movementmethod_values">
-		<item>0</item>
-		<item>1</item>
 	</string-array>
 
 
@@ -323,11 +311,6 @@
 		<item>Крупнее в 1.5 раза</item>
 		<item>Двойной размер</item>
 	</string-array>
-	<string-array name="preferences_display_scaling_factor_values">
-		<item>1.0f</item>
-		<item>1.5f</item>
-		<item>2.0f</item>
-	</string-array>
 	
 	<string name="inventory_assign">Назначить быстрый слот</string>
 	<string name="inventory_assign_slot1">Слот №1</string>
@@ -353,17 +336,6 @@
 		<item>Левый верхний угол</item>
 		<item>Правый верхний угол</item>
 		<item>Сверху в центре</item>
-	</string-array>
-	<string-array name="preferences_movement_dpad_positions_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
 	</string-array>
 	
 	<string name="actorconditioninfo_constant_effect">Постоянный эффект</string>

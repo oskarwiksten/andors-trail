@@ -254,13 +254,19 @@
 	<string name="preferences_combat_speed">Determines how fast monsters attack.</string>
 
 	<string-array name="preferences_display_loot">
-		<item>Show loot dialog box</item>
+        <item>Always show loot dialog box</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
 		<item>Show short notification</item>
-		<item>Do not display</item>
+        <item>Show short notification only when finding items</item>
+        <item>Do not display</item>
 	</string-array>
 	<string-array name="preferences_display_loot_values">
 		<item>0</item>
+        <item>3</item>
+        <item>4</item>
 		<item>1</item>
+        <item>5</item>
 		<item>2</item>
 	</string-array>
 	<string-array name="preferences_attackspeed">

@@ -248,25 +248,17 @@
 
   <string-array name="preferences_display_loot">
     <item>Afficher la boîte de dialogue des butins</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
     <item>Afficher une simple notification</item>
+        <item>Show short notification only when finding items</item>
     <item>Ne rien afficher</item>
-  </string-array>
-  <string-array name="preferences_display_loot_values">
-    <item>0</item>
-    <item>1</item>
-    <item>2</item>
   </string-array>
   <string-array name="preferences_attackspeed">
     <item>Instantanée (pas d\'animations)</item>
     <item>Rapide</item>
     <item>Normale</item>
     <item>Lente</item>
-  </string-array>
-  <string-array name="preferences_attackspeed_values">
-    <item>0</item>
-    <item>400</item>
-    <item>1000</item>
-    <item>1500</item>
   </string-array>
   
   <string name="preferences_movement_category">Déplacement</string>
@@ -275,10 +267,6 @@
   <string-array name="preferences_movementmethods">
     <item>Tout droit</item>
     <item>Éviter les obstacles</item>
-  </string-array>
-  <string-array name="preferences_movementmethod_values">
-    <item>0</item>
-    <item>1</item>
   </string-array>
 
 
@@ -320,11 +308,6 @@
     <item>Zoom de 150%</item>
     <item>Zoom de 200%</item>
   </string-array>
-  <string-array name="preferences_display_scaling_factor_values">
-    <item>1.0f</item>
-    <item>1.5f</item>
-    <item>2.0f</item>
-  </string-array>
   
   <string name="inventory_assign">Affecter un emplacement rapide</string>
   <string name="inventory_assign_slot1">Emplacement 1</string>
@@ -351,17 +334,6 @@
     <item>En haut à gauche</item>
     <item>En haut à droite</item>
     <item>Centrée en haut</item>
-  </string-array>
-  <string-array name="preferences_movement_dpad_positions_values">
-    <item>0</item>
-    <item>1</item>
-    <item>2</item>
-    <item>3</item>
-    <item>4</item>
-    <item>5</item>
-    <item>6</item>
-    <item>7</item>
-    <item>8</item>
   </string-array>
   
   <string name="actorconditioninfo_constant_effect">Effet continu</string>

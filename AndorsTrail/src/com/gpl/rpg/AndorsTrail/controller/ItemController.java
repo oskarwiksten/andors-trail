@@ -97,7 +97,7 @@ public final class ItemController {
     }
     
 	public void playerSteppedOnLootBag(Loot loot) {
-		if (loot.isVisible && pickupLootBagWithoutConfirmation()) {
+		if (pickupLootBagWithoutConfirmation(loot)) {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
 			pickupAll(loot);
 			removeLootBagIfEmpty(loot);
@@ -108,7 +108,7 @@ public final class ItemController {
 	}
 	
 	public void lootMonsterBags(Collection<Loot> killedMonsterBags, int totalExpThisFight) {
-		if (pickupLootBagWithoutConfirmation() || !Loot.hasItems(killedMonsterBags)) {
+		if (pickupLootBagsWithoutConfirmation(killedMonsterBags)) {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
 			pickupAll(killedMonsterBags);
 			removeLootBagIfEmpty(killedMonsterBags);
@@ -119,8 +119,22 @@ public final class ItemController {
 		}
 	}
 
-	private boolean pickupLootBagWithoutConfirmation() {
-		if (controllers.preferences.displayLoot == AndorsTrailPreferences.DISPLAYLOOT_DIALOG) return false;
+	private boolean pickupLootBagWithoutConfirmation(Loot bag) {
+		if (bag.isContainer()) return false;
+		switch (controllers.preferences.displayLoot) {
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_ALWAYS:
+				return false;
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS:
+			case AndorsTrailPreferences.DISPLAYLOOT_DIALOG_FOR_ITEMS_ELSE_TOAST:
+				if (bag.hasItems()) return false;
+		}
+		return true;
+	}
+
+	private boolean pickupLootBagsWithoutConfirmation(Collection<Loot> bags) {
+		for(Loot bag : bags) {
+			if (!pickupLootBagWithoutConfirmation(bag)) return false;
+		}
 		return true;
 	}
 

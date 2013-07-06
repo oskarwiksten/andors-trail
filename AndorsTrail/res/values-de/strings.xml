@@ -255,25 +255,17 @@
 
 	<string-array name="preferences_display_loot">
 		<item>Beute-Dialog anzeigen</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
 		<item>Kurze Nachricht</item>
+        <item>Show short notification only when finding items</item>
 		<item>Nicht anzeigen</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string-array name="preferences_attackspeed">
 		<item>Sofort (keine Animation)</item>
 		<item>Schnell</item>
 		<item>Normal</item>
 		<item>Langsam</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
 	</string-array>
 	
 	<string name="preferences_movement_category">Bewegung</string>
@@ -282,10 +274,6 @@
 	<string-array name="preferences_movementmethods">
 		<item>Direkt (original)</item>
 		<item>Hindernisse umgehen</item>
-	</string-array>
-	<string-array name="preferences_movementmethod_values">
-		<item>0</item>
-		<item>1</item>
 	</string-array>
 
 
@@ -323,11 +311,6 @@
 		<item>1,5-fache Größe</item>
 		<item>Doppelte Größe</item>
 	</string-array>
-	<string-array name="preferences_display_scaling_factor_values">
-		<item>1.0f</item>
-		<item>1.5f</item>
-		<item>2.0f</item>
-	</string-array>
 	
 	<string name="inventory_assign">Quickslot zuweisen</string>
 	<string name="inventory_assign_slot1">Quickslot 1</string>
@@ -353,17 +336,6 @@
 		<item>Obere linke Ecke</item>
 		<item>Obere rechte Ecke</item>
 		<item>Oben in der Mitte</item>
-	</string-array>
-	<string-array name="preferences_movement_dpad_positions_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
 	</string-array>
 	
 	<string name="actorconditioninfo_constant_effect">andauernder Effekt</string>
@@ -548,11 +520,6 @@
 		<item>Immer eine Bestätigung anzeigen</item>
 		<item>Nur dann eine Bestätigung anzeigen, wenn ein anderer Spielername überschrieben wird</item>
 		<item>Nie eine Bestätigung anzeigen</item>
-	</string-array>
-	<string-array name="preferences_display_overwrite_savegame_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string name="preferences_dialog_overwrite_savegame_title">Bestätige das Überschreiben von Spielständen</string>
 	<string name="preferences_dialog_overwrite_savegame">Zeigt eine Frage an ob beim Speichern auf einen bereits existierenden Spielstand dieser überschrieben werden soll.</string>

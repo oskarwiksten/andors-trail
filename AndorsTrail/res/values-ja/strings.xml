@@ -261,25 +261,17 @@
 
 	<string-array name="preferences_display_loot">
 		<item>ダイアログボックスを表示</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
 		<item>短い通知を表示</item>
+        <item>Show short notification only when finding items</item>
 		<item>表示なし</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string-array name="preferences_attackspeed">
 		<item>即時（アニメーションなし）</item>
 		<item>速い</item>
 		<item>普通</item>
 		<item>遅い</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
 	</string-array>
 	
 	<string name="preferences_movement_category">移動</string>
@@ -288,10 +280,6 @@
 	<string-array name="preferences_movementmethods">
 		<item>直進 (original)</item>
 		<item>障害物を回避する</item>
-	</string-array>
-	<string-array name="preferences_movementmethod_values">
-		<item>0</item>
-		<item>1</item>
 	</string-array>
 
 
@@ -329,11 +317,6 @@
 		<item>1.5x</item>
 		<item>2.0x</item>
 	</string-array>
-	<string-array name="preferences_display_scaling_factor_values">
-		<item>1.0f</item>
-		<item>1.5f</item>
-		<item>2.0f</item>
-	</string-array>
 	
 	<string name="inventory_assign">クイック・スロットに入れる</string>
 	<string name="inventory_assign_slot1">Slot 1</string>
@@ -359,17 +342,6 @@
 		<item>左上</item>
 		<item>右上</item>
 		<item>上</item>
-	</string-array>
-	<string-array name="preferences_movement_dpad_positions_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
 	</string-array>
 	
 	<string name="actorconditioninfo_constant_effect">状態変化を受けている間</string>

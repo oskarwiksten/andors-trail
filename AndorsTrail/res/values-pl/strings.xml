@@ -257,25 +257,17 @@ Translated by toudi5-bełchatów
 
 	<string-array name="preferences_display_loot">
 		<item>Pokaż okienko zdobytych przedmiotów</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
 		<item>Pokaż krótką informacje</item>
+        <item>Show short notification only when finding items</item>
 		<item>Nie wyświetlaj</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string-array name="preferences_attackspeed">
 		<item>Natychmiastowe (bez animacji)</item>
 		<item>Szybkie</item>
 		<item>Normalne</item>
 		<item>Wolne</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
 	</string-array>
 	
 	<string name="preferences_movement_category">Ruch</string>
@@ -284,10 +276,6 @@ Translated by toudi5-bełchatów
 	<string-array name="preferences_movementmethods">
 		<item>Prosta (oryginalna)</item>
 		<item>Omijanie obiektów</item>
-	</string-array>
-	<string-array name="preferences_movementmethod_values">
-		<item>0</item>
-		<item>1</item>
 	</string-array>
 
 
@@ -325,11 +313,6 @@ Translated by toudi5-bełchatów
 		<item>1.5x powiększony</item>
 		<item>Podwójnie powiększony</item>
 	</string-array>
-	<string-array name="preferences_display_scaling_factor_values">
-		<item>1.0f</item>
-		<item>1.5f</item>
-		<item>2.0f</item>
-	</string-array>
 	
 	<string name="inventory_assign">Przypisz szybki slot</string>
 	<string name="inventory_assign_slot1">Slot 1</string>
@@ -355,17 +338,6 @@ Translated by toudi5-bełchatów
 		<item>Lewy górny róg</item>
 		<item>Prawy górny róg</item>
 		<item>Na górze po środku</item>
-	</string-array>
-	<string-array name="preferences_movement_dpad_positions_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
 	</string-array>
 	
 	<string name="actorconditioninfo_constant_effect">Stały efekt</string>
@@ -550,11 +522,6 @@ Translated by toudi5-bełchatów
 		<item>Zawsze pokazuj okienko potwierdzeń</item>
 		<item>Pokazuj tylko, gdy nadpisuję plik z innym imieniem bohatera</item>
 		<item>Nigdy nie pokazuj okienka potwierdzeń</item>
-	</string-array>
-	<string-array name="preferences_display_overwrite_savegame_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string name="preferences_dialog_overwrite_savegame_title">Potwierdź nadpisanie gry</string>
 	<string name="preferences_dialog_overwrite_savegame">Zadaje pytanie zawsze, gdy chcesz nadpisać grę na slocie, który jest już zajęty.</string>

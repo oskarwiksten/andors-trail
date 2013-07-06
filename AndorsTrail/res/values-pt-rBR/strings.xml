@@ -256,25 +256,17 @@
 
 	<string-array name="preferences_display_loot">
 		<item>Mostrar caixa de diálogo com despojos</item>
+        <item>Show loot dialog box when finding items</item>
+        <item>Show loot dialog box when finding items, short notification otherwise</item>
 		<item>Mostrar notificação curta</item>
+		<item>Show short notification only when finding items</item>
 		<item>Não mostrar</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string-array name="preferences_attackspeed">
 		<item>Instantânea (sem animações)</item>
 		<item>Rápida</item>
 		<item>Normal</item>
 		<item>Lenta</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
 	</string-array>
 
 	<string name="preferences_movement_category">Deslocamento</string>
@@ -283,10 +275,6 @@
 	<string-array name="preferences_movementmethods">
 		<item>Linha reta (modo padrão)</item>
 		<item>Contornar obstáculos</item>
-	</string-array>
-	<string-array name="preferences_movementmethod_values">
-		<item>0</item>
-		<item>1</item>
 	</string-array>
 
 
@@ -324,11 +312,6 @@
 		<item>1.5x o tamanho</item>
 		<item>Dobro do tamanho</item>
 	</string-array>
-	<string-array name="preferences_display_scaling_factor_values">
-		<item>1.0f</item>
-		<item>1.5f</item>
-		<item>2.0f</item>
-	</string-array>
 
 	<string name="inventory_assign">Atribuir posição rápida</string>
 	<string name="inventory_assign_slot1">Posição 1</string>
@@ -354,17 +337,6 @@
 		<item>Canto superior esquerdo</item>
 		<item>Canto superior direito</item>
 		<item>Cima</item>
-	</string-array>
-	<string-array name="preferences_movement_dpad_positions_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
 	</string-array>
 
 	<string name="actorconditioninfo_constant_effect">Efeito constante</string>
@@ -550,11 +522,6 @@
 		<item>Sempre mostra diálogo de confirmação</item>
 		<item>Mostra apenas quando sobre-estcrevendo em cima de salvamento de outro jogador</item>
 		<item>Nunca mostra diálogo de confirmação</item>
-	</string-array>
-	<string-array name="preferences_display_overwrite_savegame_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
 	</string-array>
 	<string name="preferences_dialog_overwrite_savegame_title">Confirma re-escrita de salvamento</string>
 	<string name="preferences_dialog_overwrite_savegame">Pergunta o que deve ser feito caso tente-se gravar sobre um salvamento anterior.</string>
