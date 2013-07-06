@@ -135,7 +135,7 @@
    eJxjYKAPSBegrhlpJJiHzW6QGClmIJuDTV84Gf7Dp4cc8/D5hxzz8AFqmkdOXOAD9PDrVF7qmkcJoLZ54kwIdhYP6fqnY9FDjfyPDGgZhqJMqGFADsCmn1IzByMAAAwXDDM=
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcB3FYACjYWxCarGJ4wOkmIfPDGLF8ZlHqtsJ6aE0PAiZhctsQuFHrbRBqvtIcTs1zaS2O4mNG1LtRDeTWumBGEBJmFIavtjClFyzcJlNTwwAC59f9g==
   </data>
@@ -147,8 +147,9 @@
     <property name="place" value="down lodar5cave1"/>
    </properties>
   </object>
+  <object name="sign_lodar5cave2" type="sign" x="512" y="448" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="cavebat2" type="spawn" x="480" y="160" width="128" height="128">
    <properties>
     <property name="quantity" value="2"/>
