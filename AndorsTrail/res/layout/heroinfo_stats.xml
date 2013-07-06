@@ -58,8 +58,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/section_margin"
-                android:text="@string/actorinfo_currenttraits" />
+                android:text="@string/actorinfo_currenttraits"
+                style="@style/actorinfo_sectionheader"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/ui_headerbackground"
+                />
 
 			<TableLayout
 				android:layout_width="match_parent"
@@ -92,8 +98,8 @@
 				android:layout_height="wrap_content"
 				android:text="@string/actorinfo_currentconditions"
 				android:id="@+id/actorinfo_currentconditions_title"
-				android:layout_marginTop="@dimen/section_margin"
-				/>
+                style="@style/actorinfo_sectionheader"
+                />
 			<com.gpl.rpg.AndorsTrail.view.ActorConditionList
 				android:id="@+id/actorinfo_currentconditions"
 				android:layout_width="match_parent"
@@ -103,9 +109,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/section_margin"
                 android:text="@string/actorinfo_basetraits"
-				/>
+                style="@style/actorinfo_sectionheader"
+                />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@drawable/ui_headerbackground"
+                />
 
             <TableLayout
 				android:layout_width="match_parent"
@@ -134,56 +145,17 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/section_margin"
                 android:text="@string/heroinfo_gamestats"
+                style="@style/actorinfo_sectionheader"
                 />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:id="@+id/actorinfo_currentconditions_title2"
+                android:background="@drawable/ui_headerbackground"
+                />
+            <include layout="@layout/heroinfo_stats_gamestats" />
 
-            <TableLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/heroinfo_gamestats_table"
-                    >
-                <TableRow android:id="@+id/heroinfo_gamestats_quests_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_quests" />
-                    <TextView android:id="@+id/heroinfo_gamestats_quests" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_visited_maps_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_visited_maps" />
-                    <TextView android:id="@+id/heroinfo_gamestats_visited_maps" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_deaths_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_deaths" />
-                    <TextView android:id="@+id/heroinfo_gamestats_deaths" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_spent_gold_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_spent_gold" />
-                    <TextView android:id="@+id/heroinfo_gamestats_spent_gold" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_bonemeals_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_bonemeals" />
-                    <TextView android:id="@+id/heroinfo_gamestats_bonemeals" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_num_used_items_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_num_used_items" />
-                    <TextView android:id="@+id/heroinfo_gamestats_num_used_items" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_fav_item_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_fav_item" />
-                    <TextView android:id="@+id/heroinfo_gamestats_fav_item" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_num_killed_monsters_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_num_killed_monsters" />
-                    <TextView android:id="@+id/heroinfo_gamestats_num_killed_monsters" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_top_boss_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_top_boss" />
-                    <TextView android:id="@+id/heroinfo_gamestats_top_boss" />
-                </TableRow>
-                <TableRow android:id="@+id/heroinfo_gamestats_fav_monsters_row">
-                    <TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_gamestats_fav_monsters" />
-                    <TextView android:id="@+id/heroinfo_gamestats_fav_monsters" />
-                </TableRow>
-            </TableLayout>
         </LinearLayout>
     </ScrollView>
 

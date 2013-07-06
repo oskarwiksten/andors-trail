@@ -174,24 +174,31 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		updateStatsTableRow(world.model.statistics.getNumberOfUsedItems(), R.id.heroinfo_gamestats_num_used_items, R.id.heroinfo_gamestats_num_used_items_row);
 		updateStatsTableRow(world.model.statistics.getNumberOfUsedBonemealPotions(), R.id.heroinfo_gamestats_bonemeals, R.id.heroinfo_gamestats_bonemeals_row);
 		updateStatsTableRow(world.model.statistics.getNumberOfKilledMonsters(), R.id.heroinfo_gamestats_num_killed_monsters, R.id.heroinfo_gamestats_num_killed_monsters_row);
-		updateStatsTableRow(world.model.statistics.getMostCommonlyUsedItem(world, res), R.id.heroinfo_gamestats_fav_item, R.id.heroinfo_gamestats_fav_item_row);
-		updateStatsTableRow(world.model.statistics.getMostPowerfulKilledMonster(world), R.id.heroinfo_gamestats_top_boss, R.id.heroinfo_gamestats_top_boss_row);
-		updateStatsTableRow(world.model.statistics.getTop5MostCommonlyKilledMonsters(world, res), R.id.heroinfo_gamestats_fav_monsters, R.id.heroinfo_gamestats_fav_monsters_row);
+		updateStatsTableRow(world.model.statistics.getMostCommonlyUsedItem(world, res), R.id.heroinfo_gamestats_fav_item, R.id.heroinfo_gamestats_fav_item_row1, R.id.heroinfo_gamestats_fav_item_row2);
+		updateStatsTableRow(world.model.statistics.getMostPowerfulKilledMonster(world), R.id.heroinfo_gamestats_top_boss, R.id.heroinfo_gamestats_top_boss_row1, R.id.heroinfo_gamestats_top_boss_row2);
+		updateStatsTableRow(world.model.statistics.getTop5MostCommonlyKilledMonsters(world, res), R.id.heroinfo_gamestats_fav_monsters, R.id.heroinfo_gamestats_fav_monsters_row1, R.id.heroinfo_gamestats_fav_monsters_row2);
     }
 
 	private void updateStatsTableRow(int value, int textView, int tableRow) {
 		String s = (value > 0) ? Integer.toString(value) : null;
-		updateStatsTableRow(s, textView, tableRow);
+		updateStatsTableRow(s, textView, tableRow, 0);
 	}
 
 	private void updateStatsTableRow(String value, int textView, int tableRow) {
+		updateStatsTableRow(value, textView, tableRow, 0);
+	}
+	private void updateStatsTableRow(String value, int textView, int tableRow1, int tableRow2) {
 		TextView tv = (TextView) view.findViewById(textView);
-		TableRow tr = (TableRow) view.findViewById(tableRow);
+		TableRow tr1 = (TableRow) view.findViewById(tableRow1);
+		TableRow tr2 = null;
+		if (tableRow2 != 0) tr2 = (TableRow) view.findViewById(tableRow2);
 		if (value != null) {
 			tv.setText(value);
-			tr.setVisibility(View.VISIBLE);
+			tr1.setVisibility(View.VISIBLE);
+			if (tr2 != null) tr2.setVisibility(View.VISIBLE);
 		} else {
-			tr.setVisibility(View.GONE);
+			tr1.setVisibility(View.GONE);
+			if (tr2 != null) tr2.setVisibility(View.GONE);
 		}
 	}
 }
