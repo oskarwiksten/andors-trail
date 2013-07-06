@@ -230,11 +230,9 @@
 	
 	<string name="questlog_title">Quests</string>
 	<string name="questlog_includecompleted_prompt">Select quests to show</string>
-	<string-array name="questlog_includecompleted">
-		<item>Hide completed quests</item>
-		<item>Include completed quests</item>
-		<item>Only completed quests</item>
-	</string-array>
+    <string name="questlog_includecompleted_hidecompleted">Hide completed quests</string>
+    <string name="questlog_includecompleted_includecompleted">Include completed quests</string>
+    <string name="questlog_includecompleted_onlycompleted">Only completed quests</string>
 	<string name="questlog_queststatus">Status: %1$s</string>
 	<string name="questlog_queststatus_inprogress">In progress</string>
 	<string name="questlog_queststatus_completed">Completed</string>
@@ -253,46 +251,23 @@
 	<string name="preferences_combat_speed_title">Combat speed</string>
 	<string name="preferences_combat_speed">Determines how fast monsters attack.</string>
 
-	<string-array name="preferences_display_loot">
-        <item>Always show loot dialog box</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-		<item>Show short notification</item>
-        <item>Show short notification only when finding items</item>
-        <item>Do not display</item>
-	</string-array>
-	<string-array name="preferences_display_loot_values">
-		<item>0</item>
-        <item>3</item>
-        <item>4</item>
-		<item>1</item>
-        <item>5</item>
-		<item>2</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>Instant (no animations)</item>
-		<item>Fast</item>
-		<item>Normal</item>
-		<item>Slow</item>
-	</string-array>
-	<string-array name="preferences_attackspeed_values">
-		<item>0</item>
-		<item>400</item>
-		<item>1000</item>
-		<item>1500</item>
-	</string-array>
+    <string name="preferences_display_loot_dialog">Always show loot dialog box</string>
+    <string name="preferences_display_loot_dialog_on_items">Show loot dialog box when finding items</string>
+    <string name="preferences_display_loot_dialog_on_items_or_toast">Show loot dialog box when finding items, short notification otherwise</string>
+    <string name="preferences_display_loot_toast">Show short notification</string>
+    <string name="preferences_display_loot_toast_on_items">Show short notification only when finding items</string>
+    <string name="preferences_display_loot_never">Do not display</string>
+
+    <string name="preferences_attackspeed_instant">Instant (no animations)</string>
+    <string name="preferences_attackspeed_fast">Fast</string>
+    <string name="preferences_attackspeed_normal">Normal</string>
+    <string name="preferences_attackspeed_slow">Slow</string>
 	
 	<string name="preferences_movement_category">Movement</string>
 	<string name="preferences_movementmethod_title">Movement method</string>
 	<string name="preferences_movementmethod">Type of movement method and handling of obstacles.</string>
-	<string-array name="preferences_movementmethods">
-		<item>Straight (original)</item>
-		<item>Avoiding obstacles</item>
-	</string-array>
-	<string-array name="preferences_movementmethod_values">
-		<item>0</item>
-		<item>1</item>
-	</string-array>
+    <string name="preferences_movementmethods_straight">Straight (original)</string>
+    <string name="preferences_movementmethods_avoid">Avoiding obstacles</string>
 
 
 	<!-- =========================================== -->
@@ -324,16 +299,9 @@
 	
 	<string name="preferences_display_scaling_factor_title">Scaling factor</string>
 	<string name="preferences_display_scaling_factor">Makes the game view display everything larger.</string>
-	<string-array name="preferences_display_scaling_factor">
-		<item>Normal size</item>
-		<item>1.5x size</item>
-		<item>Double size</item>
-	</string-array>
-	<string-array name="preferences_display_scaling_factor_values">
-		<item>1.0f</item>
-		<item>1.5f</item>
-		<item>2.0f</item>
-	</string-array>
+    <string name="preferences_display_scaling_factor_normal">Normal size</string>
+    <string name="preferences_display_scaling_factor_50_percent_larger">1.5x size</string>
+    <string name="preferences_display_scaling_factor_double">Double size</string>
 	
 	<string name="inventory_assign">Assign quick slot</string>
 	<string name="inventory_assign_slot1">Slot 1</string>
@@ -348,29 +316,16 @@
 	<string name="preferences_movement_dpad_position">Enables a virtual on-screen directional pad to guide movement.</string>
 	<string name="preferences_movement_dpad_minimizeable_title">Minimizable d-pad</string>
 	<string name="preferences_movement_dpad_minimizeable">If the virtual d-pad is enabled, this setting allows the d-pad to be minimized by pressing its center.</string>
-	
-	<string-array name="preferences_movement_dpad_positions">
-		<item>Disabled</item>
-		<item>Lower right corner</item>
-		<item>Lower left corner</item>
-		<item>Center bottom</item>
-		<item>Center left</item>
-		<item>Center right</item>
-		<item>Upper left corner</item>
-		<item>Upper right corner</item>
-		<item>Center top</item>
-	</string-array>
-	<string-array name="preferences_movement_dpad_positions_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-		<item>3</item>
-		<item>4</item>
-		<item>5</item>
-		<item>6</item>
-		<item>7</item>
-		<item>8</item>
-	</string-array>
+
+    <string name="preferences_movement_dpad_positions_disabled">Disabled</string>
+    <string name="preferences_movement_dpad_positions_lower_right">Lower right corner</string>
+    <string name="preferences_movement_dpad_positions_lower_left">Lower left corner</string>
+    <string name="preferences_movement_dpad_positions_center_bottom">Center bottom</string>
+    <string name="preferences_movement_dpad_positions_center_left">Center left</string>
+    <string name="preferences_movement_dpad_positions_center_right">Center right</string>
+    <string name="preferences_movement_dpad_positions_upper_left">Upper left corner</string>
+    <string name="preferences_movement_dpad_positions_upper_right">Upper right corner</string>
+    <string name="preferences_movement_dpad_positions_center_top">Center top</string>
 	
 	<string name="actorconditioninfo_constant_effect">Constant effect</string>
 	<string name="actorconditioninfo_effect_every_round">Every round</string>
@@ -456,23 +411,19 @@
 
 	<string name="loadsave_save_to_new_slot">Create new savegame slot</string>
 	<string name="loadsave_save_overwrite_confirmation_title">Overwrite savegame?</string>
-	<string name="loadsave_save_overwrite_confirmation">This savegame contains a different player name (%1$s) than your current player name (%2$s). Are you sure you want to overwrite this savegame?</string> 
-	
-	<string-array name="iteminfo_displaytypes">
-		<item>Ordinary</item>
-		<item>Quest item</item>
-		<item>Legendary</item>
-		<item>Extraordinary</item>
-		<item>Rare</item>
-	</string-array>
+	<string name="loadsave_save_overwrite_confirmation">This savegame contains a different player name (%1$s) than your current player name (%2$s). Are you sure you want to overwrite this savegame?</string>
+
+    <string name="iteminfo_displaytypes_ordinary">Ordinary</string>
+    <string name="iteminfo_displaytypes_quest">Quest item</string>
+    <string name="iteminfo_displaytypes_legendary">Legendary</string>
+    <string name="iteminfo_displaytypes_extraordinary">Extraordinary</string>
+    <string name="iteminfo_displaytypes_rare">Rare</string>
 	
 	<string name="actorconditioninfo_category">Condition category: %1$s</string>
-	<string-array name="actorcondition_categories">
-		<item>Spiritual</item>
-		<item>Mental</item>
-		<item>Physical Capacity</item>
-		<item>Blood Disorder</item>
-	</string-array>
+    <string name="actorcondition_categories_spiritual">Spiritual</string>
+    <string name="actorcondition_categories_mental">Mental</string>
+    <string name="actorcondition_categories_physical">Physical Capacity</string>
+    <string name="actorcondition_categories_blood">Blood Disorder</string>
 	
 	<string name="traitsinfo_base_max_hp">Max HP:</string>
 	<string name="traitsinfo_base_max_ap">Max AP:</string>
@@ -550,17 +501,10 @@
 	
 	<string name="loadsave_save_overwrite_confirmation_all">Are you sure you want to overwrite this savegame?</string> 
 	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
-	<string-array name="preferences_display_overwrite_savegame_entries">
-		<item>Always show confirmation dialog box</item>
-		<item>Only show when overwriting a different playername</item>
-		<item>Never display confirmation dialog box</item>
-	</string-array>
-	<string-array name="preferences_display_overwrite_savegame_values">
-		<item>0</item>
-		<item>1</item>
-		<item>2</item>
-	</string-array>
-	<string name="preferences_dialog_overwrite_savegame_title">Confirm overwriting savegames</string>
+    <string name="preferences_display_overwrite_savegame_entries_always_confirm">Always show confirmation dialog box</string>
+    <string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Only show when overwriting a different playername</string>
+    <string name="preferences_display_overwrite_savegame_entries_never_confirm">Never display confirmation dialog box</string>
+    <string name="preferences_dialog_overwrite_savegame_title">Confirm overwriting savegames</string>
 	<string name="preferences_dialog_overwrite_savegame">Gives a question about whether you want to overwrite when saving to a savegame slot that already contains a savegame.</string>
 	
 	<!-- =========================================== -->
@@ -637,24 +581,13 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 
     <string name="preferences_quickslots_placement">Quickslot position</string>
     <string name="preferences_quickslots_placement_summary">Where to place the quickslots</string>
-    <string-array name="preferences_quickslots_placements">
-        <item>Center bottom</item>
-        <item>Middle left</item>
-        <item>Middle right</item>
-        <item>Bottom left, along left border</item>
-        <item>Bottom left, along bottom border</item>
-        <item>Bottom right, along bottom border</item>
-        <item>Bottom right, along right border</item>
-    </string-array>
-    <string-array name="preferences_quickslots_placements_values">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-    </string-array>
+    <string name="preferences_quickslots_placements_horizontal_center_bottom">Center bottom</string>
+    <string name="preferences_quickslots_placements_vertical_center_left">Middle left</string>
+    <string name="preferences_quickslots_placements_vertical_center_right">Middle right</string>
+    <string name="preferences_quickslots_placements_vertical_bottom_left">Bottom left, along left border</string>
+    <string name="preferences_quickslots_placements_horizontal_bottom_left">Bottom left, along bottom border</string>
+    <string name="preferences_quickslots_placements_horizontal_bottom_right">Bottom right, along bottom border</string>
+    <string name="preferences_quickslots_placements_vertical_bottom_right">Bottom right, along right border</string>
     <string name="startscreen_incompatible_savegames">This is a development version of Andor\'s Trail. Savegames produced by this version are incompatible with the release version.</string>
     <string name="startscreen_non_release_version">This is a prerelease version of Andor\'s Trail. Savegames produced by this version might not be compatible with the release version.</string>
     <string name="heroinfo_gamestats">Game statistics</string>

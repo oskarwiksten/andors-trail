@@ -232,11 +232,9 @@ Translated by toudi5-bełchatów
 	
 	<string name="questlog_title">Zadania</string>
 	<string name="questlog_includecompleted_prompt">Wybierz zadanie, żeby rozwinąć</string>
-	<string-array name="questlog_includecompleted">
-		<item>Schowaj ukończone zadania</item>
-		<item>Pokazuj ukończone zadania</item>
-		<item>Tylko ukończone zadania</item>
-	</string-array>
+	<string name="questlog_includecompleted_hidecompleted">Schowaj ukończone zadania</string>
+	<string name="questlog_includecompleted_includecompleted">Pokazuj ukończone zadania</string>
+	<string name="questlog_includecompleted_onlycompleted">Tylko ukończone zadania</string>
 	<string name="questlog_queststatus">Status: %1$s</string>
 	<string name="questlog_queststatus_inprogress">W trakcie</string>
 	<string name="questlog_queststatus_completed">Zakończone</string>
@@ -255,28 +253,19 @@ Translated by toudi5-bełchatów
 	<string name="preferences_combat_speed_title">Prędkość walk</string>
 	<string name="preferences_combat_speed">Jak szybko mają atakować potwory.</string>
 
-	<string-array name="preferences_display_loot">
-		<item>Pokaż okienko zdobytych przedmiotów</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-		<item>Pokaż krótką informacje</item>
-        <item>Show short notification only when finding items</item>
-		<item>Nie wyświetlaj</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>Natychmiastowe (bez animacji)</item>
-		<item>Szybkie</item>
-		<item>Normalne</item>
-		<item>Wolne</item>
-	</string-array>
+	<string name="preferences_display_loot_dialog">Pokaż okienko zdobytych przedmiotów</string>
+	<string name="preferences_display_loot_toast">Pokaż krótką informacje</string>
+	<string name="preferences_display_loot_never">Nie wyświetlaj</string>
+	<string name="preferences_attackspeed_instant">Natychmiastowe (bez animacji)</string>
+	<string name="preferences_attackspeed_fast">Szybkie</string>
+	<string name="preferences_attackspeed_normal">Normalne</string>
+	<string name="preferences_attackspeed_slow">Wolne</string>
 	
 	<string name="preferences_movement_category">Ruch</string>
 	<string name="preferences_movementmethod_title">Metoda poruszania się</string>
 	<string name="preferences_movementmethod">Metoda poruszania się i omijania obiektów.</string>
-	<string-array name="preferences_movementmethods">
-		<item>Prosta (oryginalna)</item>
-		<item>Omijanie obiektów</item>
-	</string-array>
+	<string name="preferences_movementmethods_straight">Prosta (oryginalna)</string>
+	<string name="preferences_movementmethods_avoid">Omijanie obiektów</string>
 
 
 	<!-- =========================================== -->
@@ -308,11 +297,9 @@ Translated by toudi5-bełchatów
 	
 	<string name="preferences_display_scaling_factor_title">Skalowanie obrazu</string>
 	<string name="preferences_display_scaling_factor">Sprawia, że gra będzie wyświetlana w powiększeniu.</string>
-	<string-array name="preferences_display_scaling_factor">
-		<item>Normalny rozmiar</item>
-		<item>1.5x powiększony</item>
-		<item>Podwójnie powiększony</item>
-	</string-array>
+	<string name="preferences_display_scaling_factor_normal">Normalny rozmiar</string>
+	<string name="preferences_display_scaling_factor_50_percent_larger">1.5x powiększony</string>
+	<string name="preferences_display_scaling_factor_double">Podwójnie powiększony</string>
 	
 	<string name="inventory_assign">Przypisz szybki slot</string>
 	<string name="inventory_assign_slot1">Slot 1</string>
@@ -328,17 +315,15 @@ Translated by toudi5-bełchatów
 	<string name="preferences_movement_dpad_minimizeable_title">Minimalizuj w-pad</string>
 	<string name="preferences_movement_dpad_minimizeable">Kiedy wirtualny pad jest włączony, ta opcja pozwala go zminimalizować.</string>
 	
-	<string-array name="preferences_movement_dpad_positions">
-		<item>Wyłączony</item>
-		<item>Prawy dolny róg</item>
-		<item>Lewy dolny róg</item>
-		<item>Na dole po środku</item>
-		<item>Środek po lewej</item>
-		<item>Środek po prawej</item>
-		<item>Lewy górny róg</item>
-		<item>Prawy górny róg</item>
-		<item>Na górze po środku</item>
-	</string-array>
+	<string name="preferences_movement_dpad_positions_disabled">Wyłączony</string>
+	<string name="preferences_movement_dpad_positions_lower_right">Prawy dolny róg</string>
+	<string name="preferences_movement_dpad_positions_lower_left">Lewy dolny róg</string>
+	<string name="preferences_movement_dpad_positions_center_bottom">Na dole po środku</string>
+	<string name="preferences_movement_dpad_positions_center_left">Środek po lewej</string>
+	<string name="preferences_movement_dpad_positions_center_right">Środek po prawej</string>
+	<string name="preferences_movement_dpad_positions_upper_left">Lewy górny róg</string>
+	<string name="preferences_movement_dpad_positions_upper_right">Prawy górny róg</string>
+	<string name="preferences_movement_dpad_positions_center_top">Na górze po środku</string>
 	
 	<string name="actorconditioninfo_constant_effect">Stały efekt</string>
 	<string name="actorconditioninfo_effect_every_round">Co turę</string>
@@ -426,21 +411,17 @@ Translated by toudi5-bełchatów
 	<string name="loadsave_save_overwrite_confirmation_title">Nadpisać grę?</string>
 	<string name="loadsave_save_overwrite_confirmation">Ten zapis posiada bohatera o innym imieniu (%1$s) niż ten którym grasz obecnie (%2$s). Na pewno chcesz nadpisać grę?</string> 
 	
-	<string-array name="iteminfo_displaytypes">
-		<item>Zwykły</item>
-		<item>Przedmiot do zadania</item>
-		<item>Legendarny</item>
-		<item>Niezwykły</item>
-		<item>Rzadki</item>
-	</string-array>
+	<string name="iteminfo_displaytypes_ordinary">Zwykły</string>
+	<string name="iteminfo_displaytypes_quest">Przedmiot do zadania</string>
+	<string name="iteminfo_displaytypes_legendary">Legendarny</string>
+	<string name="iteminfo_displaytypes_extraordinary">Niezwykły</string>
+	<string name="iteminfo_displaytypes_rare">Rzadki</string>
 	
 	<string name="actorconditioninfo_category">Kategoria: %1$s</string>
-	<string-array name="actorcondition_categories">
-		<item>Duchowy</item>
-		<item>Psychiczny</item>
-		<item>Fizyczny</item>
-		<item>Skażający krew</item>
-	</string-array>
+	<string name="actorcondition_categories_spiritual">Duchowy</string>
+	<string name="actorcondition_categories_mental">Psychiczny</string>
+	<string name="actorcondition_categories_physical">Fizyczny</string>
+	<string name="actorcondition_categories_blood">Skażający krew</string>
 	
 	<string name="traitsinfo_base_max_hp">Maks PŻ:</string>
 	<string name="traitsinfo_base_max_ap">Maks WT:</string>
@@ -518,11 +499,9 @@ Translated by toudi5-bełchatów
 	
 	<string name="loadsave_save_overwrite_confirmation_all">Jesteś pewny, że chcesz nadpisać grę?</string> 
 	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
-	<string-array name="preferences_display_overwrite_savegame_entries">
-		<item>Zawsze pokazuj okienko potwierdzeń</item>
-		<item>Pokazuj tylko, gdy nadpisuję plik z innym imieniem bohatera</item>
-		<item>Nigdy nie pokazuj okienka potwierdzeń</item>
-	</string-array>
+	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Zawsze pokazuj okienko potwierdzeń</string>
+	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Pokazuj tylko, gdy nadpisuję plik z innym imieniem bohatera</string>
+	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Nigdy nie pokazuj okienka potwierdzeń</string>
 	<string name="preferences_dialog_overwrite_savegame_title">Potwierdź nadpisanie gry</string>
 	<string name="preferences_dialog_overwrite_savegame">Zadaje pytanie zawsze, gdy chcesz nadpisać grę na slocie, który jest już zajęty.</string>
 	

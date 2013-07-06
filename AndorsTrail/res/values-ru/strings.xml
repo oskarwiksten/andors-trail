@@ -230,11 +230,9 @@
 	
 	<string name="questlog_title">Задания</string>
 	<string name="questlog_includecompleted_prompt">Выберите задания для отображения</string>
-	<string-array name="questlog_includecompleted">
-		<item>Спрятать завершенные задания</item>
-		<item>Включая завершенные задания</item>
-		<item>Только завершенные задания</item>
-	</string-array>
+	<string name="questlog_includecompleted_hidecompleted">Спрятать завершенные задания</string>
+	<string name="questlog_includecompleted_includecompleted">Включая завершенные задания</string>
+	<string name="questlog_includecompleted_onlycompleted">Только завершенные задания</string>
 	<string name="questlog_queststatus">Статус: %1$s</string>
 	<string name="questlog_queststatus_inprogress">В процессе</string>
 	<string name="questlog_queststatus_completed">Выполнено</string>
@@ -253,28 +251,19 @@
 	<string name="preferences_combat_speed_title">Скорость схватки</string>
 	<string name="preferences_combat_speed">Выбор скорости атаки монстров.</string>
 
-	<string-array name="preferences_display_loot">
-		<item>Показывать диалог</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-		<item>Короткое уведомление</item>
-		<item>Show short notification only when finding items</item>
-		<item>Не показывать</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>Мгновенно (без анимации)</item>
-		<item>Быстро</item>
-		<item>Нормально</item>
-		<item>Медленно</item>
-	</string-array>
+	<string name="preferences_display_loot_dialog">Показывать диалог</string>
+	<string name="preferences_display_loot_toast">Короткое уведомление</string>
+	<string name="preferences_display_loot_never">Не показывать</string>
+	<string name="preferences_attackspeed_instant">Мгновенно (без анимации)</string>
+	<string name="preferences_attackspeed_fast">Быстро</string>
+	<string name="preferences_attackspeed_normal">Нормально</string>
+	<string name="preferences_attackspeed_slow">Медленно</string>
 	
 	<string name="preferences_movement_category">Движение</string>
 	<string name="preferences_movementmethod_title">Способ движения</string>
 	<string name="preferences_movementmethod">Способ движения и обхода препятствий.</string>
-	<string-array name="preferences_movementmethods">
-		<item>Прямо (базовый)</item>
-		<item>Обходить препятствия</item>
-	</string-array>
+	<string name="preferences_movementmethods_straight">Прямо (базовый)</string>
+	<string name="preferences_movementmethods_avoid">Обходить препятствия</string>
 
 
 	<!-- =========================================== -->
@@ -306,11 +295,9 @@
 	
 	<string name="preferences_display_scaling_factor_title">Масштаб</string>
 	<string name="preferences_display_scaling_factor">Сделать все изображения на поле игры крупнее.</string>
-	<string-array name="preferences_display_scaling_factor">
-		<item>Нормальный размер</item>
-		<item>Крупнее в 1.5 раза</item>
-		<item>Двойной размер</item>
-	</string-array>
+	<string name="preferences_display_scaling_factor_normal">Нормальный размер</string>
+	<string name="preferences_display_scaling_factor_50_percent_larger">Крупнее в 1.5 раза</string>
+	<string name="preferences_display_scaling_factor_double">Двойной размер</string>
 	
 	<string name="inventory_assign">Назначить быстрый слот</string>
 	<string name="inventory_assign_slot1">Слот №1</string>
@@ -326,17 +313,15 @@
 	<string name="preferences_movement_dpad_minimizeable_title">Минимизировать джойстик</string>
 	<string name="preferences_movement_dpad_minimizeable">Если виртуальный джойстик включен, позволить минимизировать джойстик нажатием на его центр.</string>
 	
-	<string-array name="preferences_movement_dpad_positions">
-		<item>Выключен</item>
-		<item>Правый нижний угол</item>
-		<item>Левый нижний угол</item>
-		<item>Внизу в центре</item>
-		<item>Слева в центре</item>
-		<item>Справа в центре</item>
-		<item>Левый верхний угол</item>
-		<item>Правый верхний угол</item>
-		<item>Сверху в центре</item>
-	</string-array>
+	<string name="preferences_movement_dpad_positions_disabled">Выключен</string>
+	<string name="preferences_movement_dpad_positions_lower_right">Правый нижний угол</string>
+	<string name="preferences_movement_dpad_positions_lower_left">Левый нижний угол</string>
+	<string name="preferences_movement_dpad_positions_center_bottom">Внизу в центре</string>
+	<string name="preferences_movement_dpad_positions_center_left">Слева в центре</string>
+	<string name="preferences_movement_dpad_positions_center_right">Справа в центре</string>
+	<string name="preferences_movement_dpad_positions_upper_left">Левый верхний угол</string>
+	<string name="preferences_movement_dpad_positions_upper_right">Правый верхний угол</string>
+	<string name="preferences_movement_dpad_positions_center_top">Сверху в центре</string>
 	
 	<string name="actorconditioninfo_constant_effect">Постоянный эффект</string>
 	<string name="actorconditioninfo_effect_every_round">Каждый ход</string>
@@ -424,21 +409,17 @@
 	<string name="loadsave_save_overwrite_confirmation_title">Перезаписать сохраненную игру?</string>
 	<string name="loadsave_save_overwrite_confirmation">Это игра содержит героя с другим именем (%1$s), не совпадающим с именем тегущего героя (%2$s). Вы уверены, что хотите перезаписать сохраненную игру?</string> 
 	
-	<string-array name="iteminfo_displaytypes">
-		<item>Обычный</item>
-		<item>Необходимый для задания</item>
-		<item>Легендарный</item>
-		<item>Экстраординарный</item>
-		<item>Редкий</item>
-	</string-array>
+	<string name="iteminfo_displaytypes_ordinary">Обычный</string>
+	<string name="iteminfo_displaytypes_quest">Необходимый для задания</string>
+	<string name="iteminfo_displaytypes_legendary">Легендарный</string>
+	<string name="iteminfo_displaytypes_extraordinary">Экстраординарный</string>
+	<string name="iteminfo_displaytypes_rare">Редкий</string>
 	
 	<string name="actorconditioninfo_category">Условия болезни: %1$s</string>
-	<string-array name="actorcondition_categories">
-		<item>Духовное</item>
-		<item>Психическое</item>
-		<item>Физическое</item>
-		<item>Поражение крови</item>
-	</string-array>
+	<string name="actorcondition_categories_spiritual">Духовное</string>
+	<string name="actorcondition_categories_mental">Психическое</string>
+	<string name="actorcondition_categories_physical">Физическое</string>
+	<string name="actorcondition_categories_blood">Поражение крови</string>
 	
 	<string name="traitsinfo_base_max_hp">Макс. ОЗ:</string>
 	<string name="traitsinfo_base_max_ap">Макс. ОД:</string>
@@ -517,16 +498,9 @@
         
         <string name="loadsave_save_overwrite_confirmation_all">Вы точно хотите перезаписать это сохранение?</string> 
         <string name="loadsave_save_overwrite_confirmation_slot">(слот %1$d)</string>
-        <string-array name="preferences_display_overwrite_savegame_entries">
-                <item>Всегда показывать диалог подтверждения</item>
-                <item>Показывать только при перезаписи игроком с другим именем</item>
-                <item>Не показывать диалог подтверждения</item>
-        </string-array>
-        <string-array name="preferences_display_overwrite_savegame_values">
-                <item>0</item>
-                <item>1</item>
-                <item>2</item>
-        </string-array>
+        <string name="preferences_display_overwrite_savegame_entries_always_confirm">Всегда показывать диалог подтверждения</string>
+        <string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Показывать только при перезаписи игроком с другим именем</string>
+        <string name="preferences_display_overwrite_savegame_entries_never_confirm">Не показывать диалог подтверждения</string>
         <string name="preferences_dialog_overwrite_savegame_title">Перезаписать сохранение</string>
         <string name="preferences_dialog_overwrite_savegame">Настройка диалога подтверждения при попытке перезаписать сохранение</string>
         

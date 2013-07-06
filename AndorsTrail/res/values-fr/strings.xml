@@ -223,11 +223,9 @@
   
   <string name="questlog_title">Quêtes</string>
   <string name="questlog_includecompleted_prompt">Sélectionner les quêtes à afficher</string>
-  <string-array name="questlog_includecompleted">
-    <item>Cacher les quêtes terminées</item>
-    <item>Inclure les quêtes terminées</item>
-    <item>N\'afficher que les quêtes terminées</item>
-  </string-array>
+  <string name="questlog_includecompleted_hidecompleted">Cacher les quêtes terminées</string>
+  <string name="questlog_includecompleted_includecompleted">Inclure les quêtes terminées</string>
+  <string name="questlog_includecompleted_onlycompleted">N\'afficher que les quêtes terminées</string>
   <string name="questlog_queststatus">État : %1$s</string>
   <string name="questlog_queststatus_inprogress">En cours</string>
   <string name="questlog_queststatus_completed">Terminée</string>
@@ -246,34 +244,23 @@
   <string name="preferences_combat_speed_title">Vitesse des combats</string>
   <string name="preferences_combat_speed">Détermine la vitesse d\'attaque des monstres.</string>
 
-  <string-array name="preferences_display_loot">
-    <item>Afficher la boîte de dialogue des butins</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-    <item>Afficher une simple notification</item>
-        <item>Show short notification only when finding items</item>
-    <item>Ne rien afficher</item>
-  </string-array>
-  <string-array name="preferences_attackspeed">
-    <item>Instantanée (pas d\'animations)</item>
-    <item>Rapide</item>
-    <item>Normale</item>
-    <item>Lente</item>
-  </string-array>
+  <string name="preferences_display_loot_dialog">Afficher la boîte de dialogue des butins</string>
+  <string name="preferences_display_loot_toast">Afficher une simple notification</string>
+  <string name="preferences_display_loot_never">Ne rien afficher</string>
+  <string name="preferences_attackspeed_instant">Instantanée (pas d\'animations)</string>
+  <string name="preferences_attackspeed_fast">Rapide</string>
+  <string name="preferences_attackspeed_normal">Normale</string>
+  <string name="preferences_attackspeed_slow">Lente</string>
   
   <string name="preferences_movement_category">Déplacement</string>
   <string name="preferences_movementmethod_title">Méthode de déplacement</string>
   <string name="preferences_movementmethod">Méthode de déplacement et de gestion des obstacles.</string>
-  <string-array name="preferences_movementmethods">
-    <item>Tout droit</item>
-    <item>Éviter les obstacles</item>
-  </string-array>
+  <string name="preferences_movementmethods_straight">Tout droit</string>
+  <string name="preferences_movementmethods_avoid">Éviter les obstacles</string>
 
 
   <!-- =========================================== -->
   <!-- Added in v0.6.9 -->
-
-  <!-- À revoir... Je ne vois pas où c'est utilisé dans le jeu. zorun, 20 février 2012 -->
 
   <string name="actorinfo_currentconditions">Conditions actives</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
   <string name="actorcondition_info_removes_all">Effacer tout %1$s</string>
@@ -303,11 +290,9 @@
 
   <string name="preferences_display_scaling_factor_title">Facteur de zoom</string>
   <string name="preferences_display_scaling_factor">Permet d\'agrandir toute la zone de jeu</string>
-  <string-array name="preferences_display_scaling_factor">
-    <item>Taille normale</item>
-    <item>Zoom de 150%</item>
-    <item>Zoom de 200%</item>
-  </string-array>
+  <string name="preferences_display_scaling_factor_normal">Taille normale</string>
+  <string name="preferences_display_scaling_factor_50_percent_larger">Zoom de 150%</string>
+  <string name="preferences_display_scaling_factor_double">Zoom de 200%</string>
   
   <string name="inventory_assign">Affecter un emplacement rapide</string>
   <string name="inventory_assign_slot1">Emplacement 1</string>
@@ -324,17 +309,15 @@
   <string name="preferences_movement_dpad_minimizeable_title">Minimisation de la croix directionnelle virtuelle</string>
   <string name="preferences_movement_dpad_minimizeable">Si la croix directionnelle virtuelle est activée, ce réglage permet de la réduire en pressant son centre.</string>
   
-  <string-array name="preferences_movement_dpad_positions">
-    <item>Désactivée</item>
-    <item>En bas à droite</item>
-    <item>En bas à gauche</item>
-    <item>Centrée en bas</item>
-    <item>Centrée à gauche</item>
-    <item>Centrée à droite</item>
-    <item>En haut à gauche</item>
-    <item>En haut à droite</item>
-    <item>Centrée en haut</item>
-  </string-array>
+  <string name="preferences_movement_dpad_positions_disabled">Désactivée</string>
+  <string name="preferences_movement_dpad_positions_lower_right">En bas à droite</string>
+  <string name="preferences_movement_dpad_positions_lower_left">En bas à gauche</string>
+  <string name="preferences_movement_dpad_positions_center_bottom">Centrée en bas</string>
+  <string name="preferences_movement_dpad_positions_center_left">Centrée à gauche</string>
+  <string name="preferences_movement_dpad_positions_center_right">Centrée à droite</string>
+  <string name="preferences_movement_dpad_positions_upper_left">En haut à gauche</string>
+  <string name="preferences_movement_dpad_positions_upper_right">En haut à droite</string>
+  <string name="preferences_movement_dpad_positions_center_top">Centrée en haut</string>
   
   <string name="actorconditioninfo_constant_effect">Effet continu</string>
   <string name="actorconditioninfo_effect_every_round">À chaque tour</string>
@@ -422,21 +405,17 @@
   <string name="loadsave_save_overwrite_confirmation_title">Écraser la sauvegarde ?</string>
   <string name="loadsave_save_overwrite_confirmation">Cette sauvegarde contient un nom de personnage différent (%1$s) de votre nom actuel (%2$s). Êtes-vous sûr de vouloir écraser cette sauvegarde ?</string> 
   
-  <string-array name="iteminfo_displaytypes">
-    <item>Ordinaire</item>
-    <item>Objet de quête</item>
-    <item>Légendaire</item>
-    <item>Extraordinaire</item>
-    <item>Rare</item>
-  </string-array>
+  <string name="iteminfo_displaytypes_ordinary">Ordinaire</string>
+  <string name="iteminfo_displaytypes_quest">Objet de quête</string>
+  <string name="iteminfo_displaytypes_legendary">Légendaire</string>
+  <string name="iteminfo_displaytypes_extraordinary">Extraordinaire</string>
+  <string name="iteminfo_displaytypes_rare">Rare</string>
   
   <string name="actorconditioninfo_category">Types de troubles : %1$s</string>
-  <string-array name="actorcondition_categories">
-    <item>Spirituel</item>
-    <item>Mental</item>
-    <item>Capacité physique</item>
-    <item>Trouble sanguin</item>
-  </string-array>
+  <string name="actorcondition_categories_spiritual">Spirituel</string>
+  <string name="actorcondition_categories_mental">Mental</string>
+  <string name="actorcondition_categories_physical">Capacité physique</string>
+  <string name="actorcondition_categories_blood">Trouble sanguin</string>
   
   <string name="traitsinfo_base_max_hp">HP max. :</string>
   <string name="traitsinfo_base_max_ap">AP max. :</string>

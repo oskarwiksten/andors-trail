@@ -231,11 +231,9 @@
 
 	<string name="questlog_title">Aventuras</string>
 	<string name="questlog_includecompleted_prompt">Apresentação de aventuras</string>
-	<string-array name="questlog_includecompleted">
-		<item>Esconder aventuras terminadas</item>
-		<item>Incluir aventuras terminadas</item>
-		<item>Apenas aventuras terminadas</item>
-	</string-array>
+	<string name="questlog_includecompleted_hidecompleted">Esconder aventuras terminadas</string>
+	<string name="questlog_includecompleted_includecompleted">Incluir aventuras terminadas</string>
+	<string name="questlog_includecompleted_onlycompleted">Apenas aventuras terminadas</string>
 	<string name="questlog_queststatus">Estado: %1$s</string>
 	<string name="questlog_queststatus_inprogress">Em progresso</string>
 	<string name="questlog_queststatus_completed">Terminada</string>
@@ -254,28 +252,19 @@
 	<string name="preferences_combat_speed_title">Velociade de combate</string>
 	<string name="preferences_combat_speed">Define a velocidade de ataque dos monstros.</string>
 
-	<string-array name="preferences_display_loot">
-		<item>Mostrar caixa de diálogo com despojos</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-		<item>Mostrar notificação curta</item>
-		<item>Show short notification only when finding items</item>
-		<item>Não mostrar</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>Instantânea (sem animações)</item>
-		<item>Rápida</item>
-		<item>Normal</item>
-		<item>Lenta</item>
-	</string-array>
+	<string name="preferences_display_loot_dialog">Mostrar caixa de diálogo com despojos</string>
+	<string name="preferences_display_loot_toast">Mostrar notificação curta</string>
+	<string name="preferences_display_loot_never">Não mostrar</string>
+	<string name="preferences_attackspeed_instant">Instantânea (sem animações)</string>
+	<string name="preferences_attackspeed_fast">Rápida</string>
+	<string name="preferences_attackspeed_normal">Normal</string>
+	<string name="preferences_attackspeed_slow">Lenta</string>
 
 	<string name="preferences_movement_category">Deslocamento</string>
 	<string name="preferences_movementmethod_title">Método de deslocamento</string>
 	<string name="preferences_movementmethod">Tipo de deslocamento e tratamento de obstáculos.</string>
-	<string-array name="preferences_movementmethods">
-		<item>Linha reta (modo padrão)</item>
-		<item>Contornar obstáculos</item>
-	</string-array>
+	<string name="preferences_movementmethods_straight">Linha reta (modo padrão)</string>
+	<string name="preferences_movementmethods_avoid">Contornar obstáculos</string>
 
 
 	<!-- =========================================== -->
@@ -307,11 +296,9 @@
 
 	<string name="preferences_display_scaling_factor_title">Fator de ampliação</string>
 	<string name="preferences_display_scaling_factor">Faz com que tudo se veja maior.</string>
-	<string-array name="preferences_display_scaling_factor">
-		<item>Tamanho normal</item>
-		<item>1.5x o tamanho</item>
-		<item>Dobro do tamanho</item>
-	</string-array>
+	<string name="preferences_display_scaling_factor_normal">Tamanho normal</string>
+	<string name="preferences_display_scaling_factor_50_percent_larger">1.5x o tamanho</string>
+	<string name="preferences_display_scaling_factor_double">Dobro do tamanho</string>
 
 	<string name="inventory_assign">Atribuir posição rápida</string>
 	<string name="inventory_assign_slot1">Posição 1</string>
@@ -327,17 +314,15 @@
 	<string name="preferences_movement_dpad_minimizeable_title">D-pad minimizável</string>
 	<string name="preferences_movement_dpad_minimizeable">Se o d-pad estiver ativo, esta opção permite minimizar o d-pad ao ser apertado no centro.</string>
 
-	<string-array name="preferences_movement_dpad_positions">
-		<item>Inativo</item>
-		<item>Canto inferior direito</item>
-		<item>Canto inferiro esquerdo</item>
-		<item>Baixo</item>
-		<item>Esquerda</item>
-		<item>Direita</item>
-		<item>Canto superior esquerdo</item>
-		<item>Canto superior direito</item>
-		<item>Cima</item>
-	</string-array>
+	<string name="preferences_movement_dpad_positions_disabled">Inativo</string>
+	<string name="preferences_movement_dpad_positions_lower_right">Canto inferior direito</string>
+	<string name="preferences_movement_dpad_positions_lower_left">Canto inferiro esquerdo</string>
+	<string name="preferences_movement_dpad_positions_center_bottom">Baixo</string>
+	<string name="preferences_movement_dpad_positions_center_left">Esquerda</string>
+	<string name="preferences_movement_dpad_positions_center_right">Direita</string>
+	<string name="preferences_movement_dpad_positions_upper_left">Canto superior esquerdo</string>
+	<string name="preferences_movement_dpad_positions_upper_right">Canto superior direito</string>
+	<string name="preferences_movement_dpad_positions_center_top">Cima</string>
 
 	<string name="actorconditioninfo_constant_effect">Efeito constante</string>
 	<string name="actorconditioninfo_effect_every_round">Todos os turnos</string>
@@ -425,22 +410,18 @@
 	<string name="loadsave_save_overwrite_confirmation_title">Substituir salvamento?</string>
 	<string name="loadsave_save_overwrite_confirmation">Este salvamento contém um nome de jogador diferente (%1$s) do nome do jogador atual (%2$s). Tem certeza que quer substituir salvamento?</string>
 
-	<string-array name="iteminfo_displaytypes">
-		<item>Ordinário</item>
-		<item>Objeto de aventura</item>
-		<item>Lendário</item>
-		<item>Extraordinário</item>
-		<item>Raro</item>
-	</string-array>
-
+	<string name="iteminfo_displaytypes_ordinary">Ordinário</string>
+	<string name="iteminfo_displaytypes_quest">Objeto de aventura</string>
+	<string name="iteminfo_displaytypes_legendary">Lendário</string>
+	<string name="iteminfo_displaytypes_extraordinary">Extraordinário</string>
+	<string name="iteminfo_displaytypes_rare">Raro</string>
+	
 	<string name="actorconditioninfo_category">Categoria do encantamento: %1$s</string>
-	<string-array name="actorcondition_categories">
-		<item>Espiritual</item>
-		<item>Mental</item>
-		<item>Capacidade Física</item>
-		<item>Problema Sanguíneo</item>
-	</string-array>
-
+	<string name="actorcondition_categories_spiritual">Espiritual</string>
+	<string name="actorcondition_categories_mental">Mental</string>
+	<string name="actorcondition_categories_physical">Capacidade Física</string>
+	<string name="actorcondition_categories_blood">Problema Sanguíneo</string>
+	
 	<string name="traitsinfo_base_max_hp">HP Máx.:</string>
 	<string name="traitsinfo_base_max_ap">AP Máx.:</string>
 	<string name="menu_save_saving_not_allowed_in_combat">Não é possível guardar o jogo durante um combate.</string>
@@ -518,11 +499,9 @@
 
 	<string name="loadsave_save_overwrite_confirmation_all">Está certo que quer sobre-escrever esse salvamento?</string>
 	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
-	<string-array name="preferences_display_overwrite_savegame_entries">
-		<item>Sempre mostra diálogo de confirmação</item>
-		<item>Mostra apenas quando sobre-estcrevendo em cima de salvamento de outro jogador</item>
-		<item>Nunca mostra diálogo de confirmação</item>
-	</string-array>
+	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Sempre mostra diálogo de confirmação</string>
+	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Mostra apenas quando sobre-estcrevendo em cima de salvamento de outro jogador</string>
+	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Nunca mostra diálogo de confirmação</string>
 	<string name="preferences_dialog_overwrite_savegame_title">Confirma re-escrita de salvamento</string>
 	<string name="preferences_dialog_overwrite_savegame">Pergunta o que deve ser feito caso tente-se gravar sobre um salvamento anterior.</string>
 

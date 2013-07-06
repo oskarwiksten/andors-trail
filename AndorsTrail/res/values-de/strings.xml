@@ -230,11 +230,9 @@
 	
 	<string name="questlog_title">Quests</string>
 	<string name="questlog_includecompleted_prompt">Welche Quests anzeigen?</string>
-	<string-array name="questlog_includecompleted">
-		<item>Verstecke abgeschlossene Quests</item>
-		<item>Zeige auch abgeschlossene Quests</item>
-		<item>Zeige nur abgeschlossene Quests</item>
-	</string-array>
+	<string name="questlog_includecompleted_hidecompleted">Verstecke abgeschlossene Quests</string>
+	<string name="questlog_includecompleted_includecompleted">Zeige auch abgeschlossene Quests</string>
+	<string name="questlog_includecompleted_onlycompleted">Zeige nur abgeschlossene Quests</string>
 	<string name="questlog_queststatus">Status: %1$s</string>
 	<string name="questlog_queststatus_inprogress">Offen</string>
 	<string name="questlog_queststatus_completed">Abgeschlossen</string>
@@ -253,28 +251,19 @@
 	<string name="preferences_combat_speed_title">Kampfgeschwindigkeit</string>
 	<string name="preferences_combat_speed">Bestimmt, wie schnell Gegner angreifen.</string>
 
-	<string-array name="preferences_display_loot">
-		<item>Beute-Dialog anzeigen</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-		<item>Kurze Nachricht</item>
-        <item>Show short notification only when finding items</item>
-		<item>Nicht anzeigen</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>Sofort (keine Animation)</item>
-		<item>Schnell</item>
-		<item>Normal</item>
-		<item>Langsam</item>
-	</string-array>
+	<string name="preferences_display_loot_dialog">Beute-Dialog anzeigen</string>
+	<string name="preferences_display_loot_toast">Kurze Nachricht</string>
+	<string name="preferences_display_loot_never">Nicht anzeigen</string>
+	<string name="preferences_attackspeed_instant">Sofort (keine Animation)</string>
+	<string name="preferences_attackspeed_fast">Schnell</string>
+	<string name="preferences_attackspeed_normal">Normal</string>
+	<string name="preferences_attackspeed_slow">Langsam</string>
 	
 	<string name="preferences_movement_category">Bewegung</string>
 	<string name="preferences_movementmethod_title">Bewegungsmethode</string>
 	<string name="preferences_movementmethod">Methode für die Fortbewegung und Behandlung von Hindernissen.</string>
-	<string-array name="preferences_movementmethods">
-		<item>Direkt (original)</item>
-		<item>Hindernisse umgehen</item>
-	</string-array>
+	<string name="preferences_movementmethods_straight">Direkt (original)</string>
+	<string name="preferences_movementmethods_avoid">Hindernisse umgehen</string>
 
 
 	<!-- =========================================== -->
@@ -306,11 +295,9 @@
 	
 	<string name="preferences_display_scaling_factor_title">Skalierung</string>
 	<string name="preferences_display_scaling_factor">Vergrößert die Darstellung.</string>
-	<string-array name="preferences_display_scaling_factor">
-		<item>Normalgröße</item>
-		<item>1,5-fache Größe</item>
-		<item>Doppelte Größe</item>
-	</string-array>
+	<string name="preferences_display_scaling_factor_normal">Normalgröße</string>
+	<string name="preferences_display_scaling_factor_50_percent_larger">1,5-fache Größe</string>
+	<string name="preferences_display_scaling_factor_double">Doppelte Größe</string>
 	
 	<string name="inventory_assign">Quickslot zuweisen</string>
 	<string name="inventory_assign_slot1">Quickslot 1</string>
@@ -326,17 +313,15 @@
 	<string name="preferences_movement_dpad_minimizeable_title">Minimierbares D-Pad</string>
 	<string name="preferences_movement_dpad_minimizeable">Wenn das virtuelle D-Pad aktiviert ist, erlaubt diese Einstellung die Minimierung des D-Pads durch einen Klick auf die Mitte.</string>
 	
-	<string-array name="preferences_movement_dpad_positions">
-		<item>Deaktiviert</item>
-		<item>Untere rechte Ecke</item>
-		<item>Untere linke Ecke</item>
-		<item>Unten in der Mitte</item>
-		<item>Links in der Mitte</item>
-		<item>Rechts in der Mitte</item>
-		<item>Obere linke Ecke</item>
-		<item>Obere rechte Ecke</item>
-		<item>Oben in der Mitte</item>
-	</string-array>
+	<string name="preferences_movement_dpad_positions_disabled">Deaktiviert</string>
+	<string name="preferences_movement_dpad_positions_lower_right">Untere rechte Ecke</string>
+	<string name="preferences_movement_dpad_positions_lower_left">Untere linke Ecke</string>
+	<string name="preferences_movement_dpad_positions_center_bottom">Unten in der Mitte</string>
+	<string name="preferences_movement_dpad_positions_center_left">Links in der Mitte</string>
+	<string name="preferences_movement_dpad_positions_center_right">Rechts in der Mitte</string>
+	<string name="preferences_movement_dpad_positions_upper_left">Obere linke Ecke</string>
+	<string name="preferences_movement_dpad_positions_upper_right">Obere rechte Ecke</string>
+	<string name="preferences_movement_dpad_positions_center_top">Oben in der Mitte</string>
 	
 	<string name="actorconditioninfo_constant_effect">andauernder Effekt</string>
 	<string name="actorconditioninfo_effect_every_round">Jede Runde</string>
@@ -424,21 +409,17 @@
 	<string name="loadsave_save_overwrite_confirmation_title">Speicherplatz überschreiben?</string>
 	<string name="loadsave_save_overwrite_confirmation">Dieser Speicherplatz enthält einen anderen Spielernamen (%1$s) als den aktuellen Spielernamen (%2$s). Soll dieser Spielstand wirklich überschrieben werden?</string> 
 	
-	<string-array name="iteminfo_displaytypes">
-		<item>Gewöhnlich</item>
-		<item>Quest Gegenstand</item>
-		<item>Legendär</item>
-		<item>Außergewöhnlich</item>
-		<item>Selten</item>
-	</string-array>
+	<string name="iteminfo_displaytypes_ordinary">Gewöhnlich</string>
+	<string name="iteminfo_displaytypes_quest">Quest Gegenstand</string>
+	<string name="iteminfo_displaytypes_legendary">Legendär</string>
+	<string name="iteminfo_displaytypes_extraordinary">Außergewöhnlich</string>
+	<string name="iteminfo_displaytypes_rare">Selten</string>
 	
 	<string name="actorconditioninfo_category">Effekt Kategorie: %1$s</string>
-	<string-array name="actorcondition_categories">
-		<item>Geistig</item>
-		<item>Mental</item>
-		<item>Physisch</item>
-		<item>Blutstörungen</item>
-	</string-array>
+	<string name="actorcondition_categories_spiritual">Geistig</string>
+	<string name="actorcondition_categories_mental">Mental</string>
+	<string name="actorcondition_categories_physical">Physisch</string>
+	<string name="actorcondition_categories_blood">Blutstörungen</string>
 	
 	<string name="traitsinfo_base_max_hp">Max LP:</string>
 	<string name="traitsinfo_base_max_ap">Max AP:</string>
@@ -516,11 +497,9 @@
 	
 	<string name="loadsave_save_overwrite_confirmation_all">Soll dieser Spielstand wirklich überschrieben werden?</string> 
 	<string name="loadsave_save_overwrite_confirmation_slot">(Speicherplatz %1$d)</string>
-	<string-array name="preferences_display_overwrite_savegame_entries">
-		<item>Immer eine Bestätigung anzeigen</item>
-		<item>Nur dann eine Bestätigung anzeigen, wenn ein anderer Spielername überschrieben wird</item>
-		<item>Nie eine Bestätigung anzeigen</item>
-	</string-array>
+	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Immer eine Bestätigung anzeigen</string>
+	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Nur dann eine Bestätigung anzeigen, wenn ein anderer Spielername überschrieben wird</string>
+	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Nie eine Bestätigung anzeigen</string>
 	<string name="preferences_dialog_overwrite_savegame_title">Bestätige das Überschreiben von Spielständen</string>
 	<string name="preferences_dialog_overwrite_savegame">Zeigt eine Frage an ob beim Speichern auf einen bereits existierenden Spielstand dieser überschrieben werden soll.</string>
 	

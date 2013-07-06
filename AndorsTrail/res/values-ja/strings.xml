@@ -236,11 +236,9 @@
 	
 	<string name="questlog_title">クエスト</string>
 	<string name="questlog_includecompleted_prompt">表示するクエスト:</string>
-	<string-array name="questlog_includecompleted">
-		<item>完了したクエスト以外</item>
-		<item>完了したクエストを含める</item>
-		<item>完了したクエストのみ</item>
-	</string-array>
+	<string name="questlog_includecompleted_hidecompleted">完了したクエスト以外</string>
+	<string name="questlog_includecompleted_includecompleted">完了したクエストを含める</string>
+	<string name="questlog_includecompleted_onlycompleted">完了したクエストのみ</string>
 	<string name="questlog_queststatus">状況: %1$s</string>
 	<string name="questlog_queststatus_inprogress">進行中</string>
 	<string name="questlog_queststatus_completed">完了</string>
@@ -259,28 +257,19 @@
 	<string name="preferences_combat_speed_title">戦闘スピード</string>
 	<string name="preferences_combat_speed">モンスターの攻撃のスピードを決めます。</string>
 
-	<string-array name="preferences_display_loot">
-		<item>ダイアログボックスを表示</item>
-        <item>Show loot dialog box when finding items</item>
-        <item>Show loot dialog box when finding items, short notification otherwise</item>
-		<item>短い通知を表示</item>
-        <item>Show short notification only when finding items</item>
-		<item>表示なし</item>
-	</string-array>
-	<string-array name="preferences_attackspeed">
-		<item>即時（アニメーションなし）</item>
-		<item>速い</item>
-		<item>普通</item>
-		<item>遅い</item>
-	</string-array>
+	<string name="preferences_display_loot_dialog">ダイアログボックスを表示</string>
+	<string name="preferences_display_loot_toast">短い通知を表示</string>
+	<string name="preferences_display_loot_never">表示なし</string>
+	<string name="preferences_attackspeed_instant">即時（アニメーションなし）</string>
+	<string name="preferences_attackspeed_fast">速い</string>
+	<string name="preferences_attackspeed_normal">普通</string>
+	<string name="preferences_attackspeed_slow">遅い</string>
 	
 	<string name="preferences_movement_category">移動</string>
 	<string name="preferences_movementmethod_title">移動方法</string>
 	<string name="preferences_movementmethod">移動と障害物の扱い</string>
-	<string-array name="preferences_movementmethods">
-		<item>直進 (original)</item>
-		<item>障害物を回避する</item>
-	</string-array>
+	<string name="preferences_movementmethods_straight">直進 (original)</string>
+	<string name="preferences_movementmethods_avoid">障害物を回避する</string>
 
 
 	<!-- =========================================== -->
@@ -312,11 +301,9 @@
 	
 	<string name="preferences_display_scaling_factor_title">拡大率</string>
 	<string name="preferences_display_scaling_factor">ゲームのあらゆる部分の表示を拡大します。</string>
-	<string-array name="preferences_display_scaling_factor">
-		<item>通常</item>
-		<item>1.5x</item>
-		<item>2.0x</item>
-	</string-array>
+	<string name="preferences_display_scaling_factor_normal">通常</string>
+	<string name="preferences_display_scaling_factor_50_percent_larger">1.5x</string>
+	<string name="preferences_display_scaling_factor_double">2.0x</string>
 	
 	<string name="inventory_assign">クイック・スロットに入れる</string>
 	<string name="inventory_assign_slot1">Slot 1</string>
@@ -332,17 +319,15 @@
 	<string name="preferences_movement_dpad_minimizeable_title">d-padを最小化する</string>
 	<string name="preferences_movement_dpad_minimizeable">Virtual d-pad が有効である時、d-pad の中心を押すことで最小化できるようにします。</string>
 	
-	<string-array name="preferences_movement_dpad_positions">
-		<item>無効</item>
-		<item>右下</item>
-		<item>左下</item>
-		<item>下</item>
-		<item>左</item>
-		<item>右</item>
-		<item>左上</item>
-		<item>右上</item>
-		<item>上</item>
-	</string-array>
+	<string name="preferences_movement_dpad_positions_disabled">無効</string>
+	<string name="preferences_movement_dpad_positions_lower_right">右下</string>
+	<string name="preferences_movement_dpad_positions_lower_left">左下</string>
+	<string name="preferences_movement_dpad_positions_center_bottom">下</string>
+	<string name="preferences_movement_dpad_positions_center_left">左</string>
+	<string name="preferences_movement_dpad_positions_center_right">右</string>
+	<string name="preferences_movement_dpad_positions_upper_left">左上</string>
+	<string name="preferences_movement_dpad_positions_upper_right">右上</string>
+	<string name="preferences_movement_dpad_positions_center_top">上</string>
 	
 	<string name="actorconditioninfo_constant_effect">状態変化を受けている間</string>
 	<string name="actorconditioninfo_effect_every_round">ラウンドごとに</string>
@@ -433,21 +418,17 @@
 	<string name="loadsave_save_overwrite_confirmation_title">セーブを上書きしますか?</string>
 	<string name="loadsave_save_overwrite_confirmation">このセーブには現在のプレイヤー名(%2$s)と異なるプレイヤー名(%1$s)が記録されています。本当にこのセーブを上書きしてもいいですか?</string> 
 	
-	<string-array name="iteminfo_displaytypes">
-		<item>一般的なアイテム</item>
-		<item>クエストアイテム</item>
-		<item>伝説のアイテム</item>
-		<item>特別なアイテム</item>
-		<item>レアアイテム</item>
-	</string-array>
+	<string name="iteminfo_displaytypes_ordinary">一般的なアイテム</string>
+	<string name="iteminfo_displaytypes_quest">クエストアイテム</string>
+	<string name="iteminfo_displaytypes_legendary">伝説のアイテム</string>
+	<string name="iteminfo_displaytypes_extraordinary">特別なアイテム</string>
+	<string name="iteminfo_displaytypes_rare">レアアイテム</string>
 	
 	<string name="actorconditioninfo_category">状態変化カテゴリ: %1$s</string>
-	<string-array name="actorcondition_categories">
-		<item>霊魂</item>
-		<item>精神</item>
-		<item>身体能力</item>
-		<item>血液異常</item>
-	</string-array>
+	<string name="actorcondition_categories_spiritual">霊魂</string>
+	<string name="actorcondition_categories_mental">精神</string>
+	<string name="actorcondition_categories_physical">身体能力</string>
+	<string name="actorcondition_categories_blood">血液異常</string>
 	
 	<string name="traitsinfo_base_max_hp">Max HP:</string>
 	<string name="traitsinfo_base_max_ap">Max AP:</string>

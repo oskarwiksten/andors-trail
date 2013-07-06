@@ -221,11 +221,9 @@
        
         <string name="questlog_title">Missioni</string>
         <string name="questlog_includecompleted_prompt">Seleziona le missioni da mostrare</string>
-        <string-array name="questlog_includecompleted">
-                <item>Nascondi le missioni complete</item>
-                <item>Includi le missioni complete</item>
-                <item>Solo missioni complete</item>
-        </string-array>
+        <string name="questlog_includecompleted_hidecompleted">Nascondi le missioni complete</string>
+        <string name="questlog_includecompleted_includecompleted">Includi le missioni complete</string>
+        <string name="questlog_includecompleted_onlycompleted">Solo missioni complete</string>
         <string name="questlog_queststatus">Stato: %1$s</string>
         <string name="questlog_queststatus_inprogress">In corso</string>
         <string name="questlog_queststatus_completed">Completato</string>       
@@ -244,28 +242,19 @@
         <string name="preferences_combat_speed_title">Velocità di combattimento</string>
         <string name="preferences_combat_speed">Determina quanto la velocità di combattimento dei nemici.</string>
 
-        <string-array name="preferences_display_loot">
-                <item>Mostra il resoconto del bottino</item>
-				<item>Show loot dialog box when finding items</item>
-				<item>Show loot dialog box when finding items, short notification otherwise</item>
-                <item>Mostra notifica corta</item>
-				<item>Show short notification only when finding items</item>
-                <item>Non mostrare</item>
-        </string-array>
-        <string-array name="preferences_attackspeed">
-                <item>Istantanea (nessuna animazione)</item>
-                <item>Veloce</item>
-                <item>Normale</item>
-                <item>Lenta</item>
-        </string-array>
+        <string name="preferences_display_loot_dialog">Mostra il resoconto del bottino</string>
+        <string name="preferences_display_loot_toast">Mostra notifica corta</string>
+        <string name="preferences_display_loot_never">Non mostrare</string>
+        <string name="preferences_attackspeed_instant">Istantanea (nessuna animazione)</string>
+        <string name="preferences_attackspeed_fast">Veloce</string>
+        <string name="preferences_attackspeed_normal">Normale</string>
+        <string name="preferences_attackspeed_slow">Lenta</string>
         
         <string name="preferences_movement_category">Movimento</string>
         <string name="preferences_movementmethod_title">Tipo di movimento</string>
         <string name="preferences_movementmethod">Tipo di movimento e manovre sugli ostacoli.</string>
-        <string-array name="preferences_movementmethods">
-                <item>Diritto (originale)</item>
-                <item>Direzionale</item>
-        </string-array>
+        <string name="preferences_movementmethods_straight">Diritto (originale)</string>
+        <string name="preferences_movementmethods_avoid">Direzionale</string>
 
 
         <!-- =========================================== -->
@@ -297,11 +286,9 @@
         
         <string name="preferences_display_scaling_factor_title">Fattore di scala</string>
         <string name="preferences_display_scaling_factor">Tutto il gioco viene visualizzato più grande.</string>
-        <string-array name="preferences_display_scaling_factor">
-                <item>Normale</item>
-                <item>1.5x normale</item>
-                <item>Raddoppia</item>
-        </string-array>
+        <string name="preferences_display_scaling_factor_normal">Normale</string>
+        <string name="preferences_display_scaling_factor_50_percent_larger">1.5x normale</string>
+        <string name="preferences_display_scaling_factor_double">Raddoppia</string>
         
 	<!-- =========================================== -->
 	<!-- Added in v0.7.0 -->
