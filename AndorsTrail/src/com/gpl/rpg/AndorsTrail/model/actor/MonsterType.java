@@ -115,7 +115,7 @@ public final class MonsterType {
 
 	public boolean isImmuneToCriticalHits() {
 		if (monsterClass == MONSTERCLASS_GHOST) return true;
-		if (monsterClass == MONSTERCLASS_UNDEAD) return true;
+		if (monsterClass == MONSTERCLASS_CONSTRUCT) return true;
 		if (monsterClass == MONSTERCLASS_DEMON) return true;
 		return false;
 	}
