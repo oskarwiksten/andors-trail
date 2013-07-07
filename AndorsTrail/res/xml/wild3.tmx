@@ -125,25 +125,25 @@
  </tileset>
  <layer name="Ground" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcHQUj+JRPIqxYB8mBKbULF+gGZHsCPO8KTATZBbMvDgmCPamwEyQWcfZIOaBaBimxI3HsWBKzMNmJqXmYTOTFL0AmZoz9g==
+   eJw7ysbAcJQE/EmANPWjeBSP4qGLfZgQmFKzfIFmRLIjzPMmw0wmQYRZMPPimCDYm0wzYeYdZ4OYB6JhmFzzjrKhmkMN87CZSal52MwkRS8Ax3UzdQ==
   </data>
  </layer>
  <layer name="Objects" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJydVMEKwjAMzYbIDhtuH6E/IigqHkUUPKqgePQj9Iv8Do9eBPEmXvwCm9XYtKaz+iCk65qXlyXdIweIC4CH4CPlB8qXKPT+OTVr9BHz67qfqzwPhq/IWDw46xeQj3RQTlffLIcgYD7SZzZtrl+BfKT7lNp13NTzvCEJcc47fP1c2yawLh//W5+DVW5ySObLu63LmkNQlTMK7YcwH+9XmdaH+IitiOPw9YNiv9VezvPHpj1vUj9qPC5A67+zKunhs0r18bvaSwAWzPqJzFmlh/qJXEsnfu7jrADVP2Zx+8isR0nA92GaySNfKzZH8D/XjDWfhItwT2gG8HtOVNyYndmpf8E91XwHzyxJnBzI2VV2ZfHIN2RxPg7qL75HO748cnaYTRN71s+pXRuizdZPx+tEsw==
+   eJydlEGqwjAQhsci0kWL7SH0Ig8UFZciT3CpwhOXHkJP5DlcuhHEnbjxBC+/Scw0TjT6w5A0mfkySSalkihRdiue25pqB6q9y/hBGMc3b+c50bKh5yWWjbW8MmcM8vpGdx5bR8pvWlCUSpMf8nSDVdanAg9x14zokFX3cVHfs6aUiJ5/+Hu8fqFtFbmvEN/yfP0Vbg3JQuuuG3LOMXq1pp978D6E+nhM5To/6JM4rtB92Nh3ey9zadDVveX5qnv1+C7Xb2tVyofXKq9f69NL1Xth1k9l5qt85uadg7Xw4mchZoTGLG5bc/1RGnE+wn8HvHbiXI7qPFqJ5kk6Ce/E1gDO81fFjZnPpqn/E+DtArUkMbnA7Co7s3jwhiwuxLD3i3nY3rRgdphN0mqtH7Pq3qAf1v8H7ds/4w==
   </data>
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYCANfBTAziZV70ACUtzxQYC27qa1+dQEZWyoboW5HZsfiPUXNf0Pch8lgFS3EKueXP+hm/8BiznIai6h0ZS4B6TmEVTdIyrED6MghA4XgGAYICYMcakBmZOGZh6DIHYzCIXJJSRz0pDUPuHBrwcXAIWZOwemmvto5hHjLmQ1j0gMO2KAIi8DgxIQg8KOEUf44QIApRI1hA==
+   eJxjYCANfBSA0B8EEGxk8AGLGLregQSkugGXP6kFaG0+NUEZGyof5nZsfiDWX9T0O8h9IPMe8pCnn9S4oLUf0c3HlreQ1VxCoylxD0jNI6i6RxTEEcwuRkEIHS4AwTBATBiiq4GxQeakoZnHIIjdDEJhcgnJnDQktU/wpCV8ZoLCzJ0DU819NPOIcRdyvD4iMezQAboekJmKvAwMSkAMCjtGHOGHCwAANso9OA==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJytVEkOACEM8gl+yv9/aU6TGFKBLiQ9uIRSWj17rUPiB7vjBuLej+5UOBlUTVkwn1wNeNYFejqFqkcOL+Zgs6D0ZfuhtHVqjrR0803Wo3x25qjSl6k3F/FlPXT+uxeHq6/DqWpTa4cvw4/4AAjbLn0=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="0" height="0">
+ <objectgroup name="Mapevents" width="0" height="0" visible="0">
   <object name="sign_wild3" type="sign" x="224" y="128" width="32" height="32"/>
   <object name="north" type="mapchange" x="256" y="0" width="64" height="32">
    <properties>

@@ -130,12 +130,12 @@
  </layer>
  <layer name="Objects" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJzNkkEKgzAQRWNxmYIH6TG66lEKPU8P50LXCo1rbbQZcMjnN4ld9sOQhMyb+RlizH/qWR3nvBI5yF1OxlTn3/utVeRENbB9E/f3sL/toawyotkaM9p4bu03J/GAmpONLIoZ5kTYC3mfYXriVW/qrb5dyN9CdHA/wL6mGXdUB+X3WlpzS3jRWUjuGmKxZd9uz/NNZFhjwpP6RsaDJ/GhXlridc6l/7XQ/By912fez55x1vjWVE08Xw/+vuZOGZ/cK9VjLrCpVST/o3TPb8P1Awszbco=
+   eJzNUkEOgjAQbA3HmvAQn+HJp5j4Hh/HQc4QhTNYajdh0snagkcnaboNMzvTpcb8J+52n/PKcFh3Ohhjj7/7LTbpBBVp2zrV11hf1gUtNILJGdO7dG7ct07WjXqOLmkZWqN1AvZivS9oWqUH3sobuYfIX+J60veO6krN+KH6MCRTqFOd42IWfvWd3XZu5BPInuP1GR/k9qTX+ZClUXrMeet9zTQ/9AyUjb1yQGaeNe6KzIPqwefzztsHd6T+gXqyV8ljUnfUu1dngfzzEp/nkuN8AKh2aag=
   </data>
  </layer>
  <layer name="Above" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYKAMhAtQV18aHvPw2YWu7wIR7sJn10CAtzjcQ4xf0M15RyW/IbvpHQFz0e0l1t2kuhXZHlxhRikAmY/uH3LCFZv70M0g1kx8foW5F5uZ2NyNrpaYcMRlBylxQMguQmEBAJs0KN8=
+   eJxjYKAMhAtQV18aHvPw2YWu7wIR7sJn10CAtzjcQ4xf0M15RyW/IbsJl/tw2YvP3TB1IJoS/5HiPlIAsvuw2UssQHYTNjOx8YkxCx2AzMBmF0wfuh3oaonxGy47SAl3dDOwyeMDAG8EK7o=
   </data>
  </layer>
  <layer name="Walkable" width="20" height="15">
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15" visible="0">
+ <objectgroup name="Spawn" width="20" height="15">
   <object name="forestserpent2" type="spawn" x="160" y="288" width="320" height="128"/>
   <object name="fox1" type="spawn" x="320" y="64" width="256" height="128">
    <properties>
@@ -170,5 +170,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15"/>
+ <objectgroup name="Keys" width="20" height="15" visible="0"/>
 </map>
