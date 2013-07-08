@@ -16,7 +16,9 @@
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="0"/>
+                android:layout_weight="0"
+                android:visibility="gone"
+                />
 
         <FrameLayout
                 android:id="@android:id/tabcontent"
