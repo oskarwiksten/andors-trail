@@ -125,25 +125,25 @@
  </tileset>
  <layer name="Ground" width="8" height="19">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAwCTIwHCUDYI/CSDY2MSQ1YLYIDl0/ch8dLXo4vjspQRjcxs5bkL3Lz796GYNNv2U+h+beTAxdBomDwDdlGu5
+   eJw7ysbAcBQJfxJA5aOLMQmiskFyyGLofHS16OL47KUEY3MbOW5C9y8+/ehmDTb9lPqfUNxiC3MAiQdsOg==
   </data>
  </layer>
  <layer name="Objects" width="8" height="19">
   <data encoding="base64" compression="zlib">
-   eJyVUUEOgCAMm/eZwBP0cf6XK2iivsShILABxl5YurXrAmgQGIjbUHIQZpcx1V3oUpf7+NcogJ32HJh6juqJ/Oeww2KaX/Hp5/CcDZyLXq1sMQ9UMnVwqoon0/vMudetacz39n/pX55pjJJePH/R+3F/FdyPIf7hBf5wFHA=
+   eJyVUUEOgCAMq/eZwBP0cf6XK2iivkQQEISBsReWbu1KBtQYJLBRzUH6ehlT3YV863If9yoB7HbPQalnbD1Z/zns0JTmV/L9HI7TgTPRq5Ut5gGTqYNTMJ6F3mXOvW5NY763/0v/8IVGidqrzP/q/fg/C+a2OeINL9gwFHA=
   </data>
  </layer>
  <layer name="Above" width="8" height="19">
   <data encoding="base64" compression="zlib">
-   eJydUFsKACAI2xG6/7E8Sd0gIgwZq6x9ieylwEQrQC1YGDPvELhqF7mKw3C+yrjpPK+Jzpm+EbbxUnqfjTz5hl+9iZ8oveqfyT8h/oD1r36u6d7pLoA=
+   eJydUMkNACAI6wjuPxaTyAY+TBNCiqL9aEgvAIA5AB/7JdSM8GIWuYqTQb7KuOmY56Jzp2+EFV5Kz78lz7zDr97ETZRe9e/knxBvkPWvfuQsNxYugA==
   </data>
  </layer>
- <layer name="Walkable" width="8" height="19">
+ <layer name="Walkable" width="8" height="19" visible="0">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcB1EGARw8YkBuMxENweXGlLNIsYP1NRPrDyp7sfnf2LCDxcGAP7CJds=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="8" height="19">
+ <objectgroup name="Mapevents" width="8" height="19" visible="0">
   <object name="west" type="mapchange" x="0" y="160" width="32" height="64">
    <properties>
     <property name="map" value="wild0"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="8" height="19">
+ <objectgroup name="Spawn" width="8" height="19" visible="0">
   <object name="larva_2" type="spawn" x="64" y="192" width="64" height="32"/>
   <object name="larva_2" type="spawn" x="128" y="160" width="32" height="32"/>
   <object name="larva_2" type="spawn" x="160" y="160" width="32" height="32"/>
