@@ -89,6 +89,7 @@ public final class MapController {
 			m.resetTemporaryData();
 		}
 		controllers.monsterSpawnController.spawnAll(world.model.currentMap, world.model.currentTileMap);
+		controllers.gameRoundController.resetRoundTimers();
 	}
 
 	public void rest(MapObject area) {

@@ -59,6 +59,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
     	currentActiveMonster = null;
     	world.model.uiSelections.selectedPosition = null;
     	world.model.uiSelections.selectedMonster = null;
+		controllers.gameRoundController.resetRoundTimers();
 		if (pickupLootBags && totalExpThisFight > 0) {
 			controllers.itemController.lootMonsterBags(killedMonsterBags, totalExpThisFight);
 		} else {

@@ -27,7 +27,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	if (world.model.uiSelections.isInCombat) return false;
     	
     	onNewTick();
-    	
+
     	--ticksUntilNextRound;
     	if (ticksUntilNextRound <= 0) {
     		onNewRound();
@@ -42,13 +42,16 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	
     	return true;
     }
-    
-    public void resume() {
-    	world.model.uiSelections.isMainActivityVisible = true;
+
+	public void resetRoundTimers() {
 		restartWaitForNextRound();
 		restartWaitForNextFullRound();
+	}
+
+	public void resume() {
+		world.model.uiSelections.isMainActivityVisible = true;
 		roundTimer.start();
-    }
+	}
     
     private void restartWaitForNextFullRound() {
     	ticksUntilNextFullRound = Constants.TICKS_PER_FULLROUND;

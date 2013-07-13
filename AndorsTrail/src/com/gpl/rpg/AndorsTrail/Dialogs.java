@@ -45,16 +45,9 @@ public final class Dialogs {
 				context.gameRoundController.resume();
 			}
 		});
-    	//setBlurrywindow(d);
 		d.show();
 	}
 
-	/*
-	private static void setBlurrywindow(Dialog d) {
-		d.getWindow().setFlags(WindowManager.LayoutParams.FLAG_BLUR_BEHIND, WindowManager.LayoutParams.FLAG_BLUR_BEHIND);
-	}
-	*/
-	
 	public static void showKeyArea(final MainActivity currentActivity, final ControllerContext context, String phraseID) {
 		showConversation(currentActivity, context, phraseID, null);
 	}

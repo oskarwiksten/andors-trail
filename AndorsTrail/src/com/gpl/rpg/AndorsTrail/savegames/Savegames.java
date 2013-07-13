@@ -129,6 +129,7 @@ public final class Savegames {
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
 		controllers.mapController.resetMapsNotRecentlyVisited();
 		controllers.movementController.prepareMapAsCurrentMap(world.model.currentMap, res, false);
+		controllers.gameRoundController.resetRoundTimers();
 	}
 	
 	public static FileHeader quickload(Context androidContext, int slot) {
