@@ -125,25 +125,25 @@
  </tileset>
  <layer name="Ground" width="30" height="24">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcBQHZhJkYPgkQJjGpR/ZDGQxmF5S9BFjFyFMrBnIbiPHTkJ+o4YbqeVWfO7GFt/ocYgtLskJY2LsJpT2iAl3QmZgEyeU3on1L74wIyeMCYUhse4nRR2yHCn+poY6SvLVYMfElIm0wJTkYVq5Z6DCf6DTwCgexaN4aGEAkpUfNA==
+   eJw7ysbAcBQHZhJkYPgkQJjGpR8fBuklJI9sNiV2kWoGstvIsZOQ36jhRmq5FZ+7scU3sl3YxIl1BzazKE17xIQ7ITOwiRNK78T6F1+YkRPGhMKQWPeTog5ZjhR/U0MdJflqsGN88UdLTEkeppV7Bir8BzoNjOJRPIqHFgYAvMkffg==
   </data>
  </layer>
  <layer name="Objects" width="30" height="24">
   <data encoding="base64" compression="zlib">
-   eJy1VUFqwzAQVCBHF5zX9A95SqAftqlz7MFgH3IzcVNtmyXj0a6kQDogZEm7q9FqVv5qQwiHEHax7d/CL/rmb64WO7W9x8E+sakB+xljjHdpHt+dft9tehhbXKYm9eM1tdf8dLAfYjLyNjRbvoPju5Av52shv4HsR+KKfC0ka+BXuv+zcwbkOZJNj2Mjxx6XElB7COuOLg5vT5usPZzn8wnMsxjcSusSp8/kmLk8E1t9JqoTz25Ta0bNoU2SX0fPaOfpnvUegIPYeHV0pXO97207wRlq09NGl6kF1dhn6+/xKtTqQe3WyOkW2xzbN/EbIUc54J1pvA0Otv5W2lPyMxh3ntOXQvw4ns6XoLmw3gKsX70/5XE17BeKhe+nxPL0gzwscP5yWvL2OEWf45NNwf+BmlgfDkfmzjUs9VYby4OlZwHf8Qz6T3QLPsoR/2n8tqv+hoyNaIb3nNsyD2ve0p8HzccK/c3ggW/B6qyXuNXYW3vmYryq/4+YNf0PGU7KQw==
+   eJy1VUtOxDAMTaVZdqTpEeAS3IGjIHHhVrRLFpXaxexGUyCGGtzX5yQjDU+K0ia2489z8n4KITQhVHEcjuEbXf2zVopKZVc7Og/13/e5Lrdnz1Z7+F+ZNWu7Xb8fYiyPxzUWZnPFVG/1AtlTec1P68Qykbz1Jge//wQX0K0ask/sKkbw1frLsNszern6D4laqp8jyHT2n+TY8yUHyz0LViOPg5jrzTrZk3WMT0BjIb7l9sVOV9gvnu+ps0VnMnxPxbnpNdJzVmaXX4fPVs7jPfI9GB9ExuujK8T1dOBygpL7qU30gnLs7eSfcS+U8kHllujTZxxzHB/g32hylIKtmdrboOH8W+BMyU9Pap7il0L00J6u56C5YHeB7V+tn/pxJfIXsGXvT7GVet9StcP8pbjknfESdZ5vHAp8B0psvTo+ou/Yw9JvpbY8MD4LsMaz4f+Ot0ZHfbRvGt7tyr8+ISOcwTNlXjJ+sHXGPw+aj8XMYu9c78+eQSaXI1y/Rd6Lm+XoXrPENjh1+K/5C2rUy10=
   </data>
  </layer>
  <layer name="Above" width="30" height="24">
   <data encoding="base64" compression="zlib">
-   eJzdlNENgCAMRB2B/XdiFA1soHwQSdPSkxZIvB8+bO9eGzCHY6lSk5cnZpcci3/pTWA/l+U1W/WmJ8Kq8Y9wS1m1D90Z52XdGTKv5Xuvp50fnUOqQ3dMz56nt0Z2NVvRgcn636A6H68rvKeUWUWzKQ/ngzJr+0HesDSDhyJ5SzvlcZd2aQV77z5zdWi95jVap3FY+VC2lqHt+cLG9XtIY0Pre95/0w0uWGn6
+   eJzFlNENgCAMRB2B/XdiFA1sICYSm6alBxS8Hz689l4bMIdjq1LJy29mXphNc0b01CawXsrymq325ifCavGPcGtZtQ7dmdRrdmfIvDPfWzV0fnQOzYfumJ+tnt4a2dVqRQem2f8G11l6XeE7tcwqns15pD4os7Uf5A1rM3gosrf0pzzu0l/awd66z5IP9Vu9Rn0WxywfykYZaE0Pm1Qv5fTKYuvxa97V2pFBdQPDr230
   </data>
  </layer>
- <layer name="Walkable" width="30" height="24">
+ <layer name="Walkable" width="30" height="24" visible="0">
   <data encoding="base64" compression="zlib">
    eJzdVUEOwCAI8wl+iv9/aZctWcyAlmK2rAk3aFGK2hzDzrjDJhdIzcrtgdG88j0Oj5PVRhHdJVrL5rM6DBc655VL6VvxHqKLeBP1HnPebk1vJru0lR6jfUV8X92NKBflROarQtndiK96p9mORj1n8/a0Ub5uML6KODrqFB++jS/tSeW96NbM3keGW9Gs/C9PvXVq/SUOUOlr6g==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="24">
+ <objectgroup name="Mapevents" width="30" height="24" visible="0">
   <object name="west" type="mapchange" x="2" y="548" width="32" height="96">
    <properties>
     <property name="map" value="wild6"/>
@@ -199,7 +199,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="24">
+ <objectgroup name="Spawn" width="30" height="24" visible="0">
   <object name="bandit1" type="spawn" x="64" y="512" width="832" height="96"/>
   <object name="fallhaven_bandit" type="spawn" x="416" y="288" width="32" height="32"/>
   <object name="forestwasp2" type="spawn" x="160" y="352" width="736" height="352">
@@ -224,5 +224,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="24"/>
+ <objectgroup name="Keys" width="30" height="24" visible="0"/>
 </map>

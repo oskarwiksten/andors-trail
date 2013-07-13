@@ -125,25 +125,25 @@
  </tileset>
  <layer name="Ground" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjEmRg+CTAwHCUDYKZ0Pi4xHDJg2gQH5daZD2E1BBjN6mYmmaNYhpjXiyYAvOu8mJiSszzF8TElJgXD9Q/nRVCw/CAx8EgwwAjNedC
+   eJw7ysbAcBQJMwkyMHwSQBUDYWxihPTgwyA9pKgfxSMQ82LBFJh3lRcTU2KevyAmpsS8eKD+6awQGoYHPA4GGQYANmjpRg==
   </data>
  </layer>
  <layer name="Objects" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJyVU0sOgjAQbRPd0aSNnsUTuOIoJJ7DIxgvpy7caWThzgSFCR0ZHjMYXwJtp+/Nj8G5Hj51r+S+8Lw3bLP3EoL7KKYaFVmzDrbva/aVwlhDOOe7WzHwKTbbiSfv5nAHXgryoNScbSfQveB8ieMz11NG/dllfqXYEL9iM6weVEYOJcTjGupu/UR7RTTCTpx33lNvG6HVYPlmnRZPxkBgvsTjftVxqsW4+2W/blbOHX2fB/Eb0HF+mg19Hvywx/nDuhjbMK6V4y/EvGrfOwkd9g/zsubI6lEd7Zl45v/x3/sWcNpw7w==
+   eJyFVEsKwjAQTUB3CTToRXThCVz1KAXP4RHEy1kX7pR24U6oNWMzZvqa1Adlksm8+VOlPJxS2g2SwXeSaxt133PQP82Uo8VdSd8ejYm6WYi4tRn7YNyCL2encerwdjfRvgE/8m0OD7D7xfO4FrE3mPsFeC+4E1eC6ymL9HcI9lVCh/gXm5HrQZXJoYR4XEPrZV/kJaIT+rd4p952gptCzjfxyFedqKktxnEkMF+y437RbJGLcY/LQe5WSp11zKMDHteV0qHPk45n3D+si7G341o5/kLsZ2reTvB6yAPzyu1RrkftzE7Qv4NmlXvf+Ly2djqbDw8icAU=
   </data>
  </layer>
  <layer name="Above" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYKAN+ChAHTXUBB+w2AcSI8YdF+jsVloAmB/eAul3ArhpdIAsjq7mLRHhgstsbHbBwFdW7OLfWFHtxGYGNveJsmE3TwyHODZ/EbIXBMIpSCfYzEzDYR7MLaTGBUwdPn2w+MLmLmxpBpu7CAFseomRBwBPgjVe
+   eJz7KMBAEHwgQg26+o9E6CGkhlhziAUXsJhFrB3Y9A41APPDWyD9TgA3jQ6QxdHl3xIRLrjMxmYXDHxlxS7+jRXVTmzuQRaDqRVlw26eGA5xbO7FZy8MhFOQTrCZmYbDvLdY4oOYuICpw6cPFl/Y3IUtzWBzFyGATS8x8gCTXDs+
   </data>
  </layer>
  <layer name="Walkable" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJxzFWBgcMWBQQCfGDZ5ZDl0tfjEsMnjMhOfHhibkLnUAOT4DVndUAeE0gCusMCVlogxi1A6w2cfNcyktVmE/IIt/PH5lVhAbN7FpxeXG6iJAQneLtI=
+   eJxzFWBgcKUBhgF0Pi4xbPK4zMSnB8YmpIYagBy/Iasb6gA5vIlJC8j6cMUVpekMn33UMJPWZhHyC7bwx+dXYgGxeRefXlxuoCYGAJIMLyc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents" width="20" height="15" visible="0">
   <object name="west" type="mapchange" x="0" y="160" width="32" height="96">
    <properties>
     <property name="map" value="wild14"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15">
+ <objectgroup name="Spawn" width="20" height="15" visible="0">
   <object name="beetle2" type="spawn" x="64" y="96" width="96" height="352">
    <properties>
     <property name="quantity" value="2"/>
@@ -175,5 +175,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15"/>
+ <objectgroup name="Keys" width="20" height="15" visible="0"/>
 </map>

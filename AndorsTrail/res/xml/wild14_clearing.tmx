@@ -125,17 +125,17 @@
  </tileset>
  <layer name="Ground" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJz7JMDAcJQNgpkEGRg+CUBomNgnJHli1WGTx6b/BTMCY1OHC4P0/4Dq+4Gk9xUR5sDc+YNEO7GFA7H60MOBGHcSE47E6idHL0w/uXoJuZsYd+FLP+TGFy53wcRJlYfZgyv94xOHmQMAVummpg==
+   eJw7ysbAcHSA8AtmBCZV7w+ovh9Iel+RYM4PMuykFibFnaN4+GMAuDezwA==
   </data>
  </layer>
  <layer name="Objects" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYGBgYBQEEiCMA8DkiVWHC9ziwS8vw4JqDyOS2k5+KAOLfkYkdiw3drNf86C5EwjMWDCNuw1Th2Y/sj5kwM+DKYYNWLJA6EcCEDpVANMekNwtJPsJAZjaN9jcgKQfZD5IjSaOsEEGj5Dchc1MkFm30eyD6bmFJyxA4Q83G8ldMLkd6OGOy/9YxH0FMMWQzQe5C1sYvSIy7ggBmD243E0oXwAAfzsX3w==
+   eJx9UtsNwjAMDFL/iNTyzwIsgMQQjMAnw7ARs6QfoH5CpUyQQNzG4uranBTl4cvdxUrqnMtlpDI+ZTy8mxDrPkIdeYRnnZmP9Qg8RvDLusS+Wfpk4NzaeU6K7gbWl+1al/CGd7HusfjtBK/3P5+svE+i9bof3qO8p2beD1Xj2q19qBbA3+ojg7mjkgHvkz5xDkZvEAPkkr6ctff6nQDnMjf1fzD6SbW76Lvmb+U6KzzUp1yj+NeEl5LX6rdVZx/r//87Z50v45pxkg==
   </data>
  </layer>
  <layer name="Above" width="15" height="15">
   <data encoding="base64" compression="zlib">
-   eJylU8ENACEIYwSWdGEnOTa4+DAhPQro9YWBlkJQJIapyKMkeVBnDY0beN1B4uXL4O0xmt6QN/Wb330m6fd3Dyd89OeBO6k4WIvzRVrV3J27yviZbnaPzFdUv3WYXvd/VFg6L/9HK94=
+   eJy7IMCAAt4B+W/RxLABmDpC6t8RYRY5ANncVBxsmPuQ+cgglUi3oeu7JIApD7PnEg77KA0HUvSjuw8ZoIcJIT3oatH9h80sQv4mJn3h04/PXHzpEZe7sKknlL6JzSeEAMgcAPfGLkc=
   </data>
  </layer>
  <layer name="Walkable" width="15" height="15">
@@ -143,7 +143,7 @@
    eJxzFWBgcKUhRgf41JGrH10OHyBkPi6z8LmHWPsImYtNnBg/EbKXFP243IlLDN3d+NTiC09caYAYc7HJk6qf1HSHS5wcDAA/kSaF
   </data>
  </layer>
- <objectgroup name="Mapevents" width="0" height="0">
+ <objectgroup name="Mapevents" width="15" height="15">
   <object name="down" type="mapchange" x="384" y="64" width="32" height="32">
    <properties>
     <property name="map" value="wild14_cave"/>
@@ -152,9 +152,9 @@
   </object>
   <object name="sign_oluag" type="sign" x="384" y="352" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="0" height="0">
+ <objectgroup name="Spawn" width="15" height="15">
   <object name="oluag" type="spawn" x="160" y="96" width="32" height="32"/>
   <object name="forestboar3" type="spawn" x="64" y="320" width="192" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="0" height="0"/>
+ <objectgroup name="Keys" width="15" height="15" visible="0"/>
 </map>
