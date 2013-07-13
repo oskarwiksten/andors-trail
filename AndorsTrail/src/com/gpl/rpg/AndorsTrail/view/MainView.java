@@ -150,7 +150,7 @@ public final class MainView extends SurfaceView
 		case MotionEvent.ACTION_UP:
 		case MotionEvent.ACTION_CANCEL:
 		case MotionEvent.ACTION_OUTSIDE:
-			inputController.onTouchCancell();
+			inputController.onTouchCancel();
 			break;
 		}
 		return super.onTouchEvent(event);
@@ -187,10 +187,10 @@ public final class MainView extends SurfaceView
 	private void redrawArea_(CoordRect area) {
 		if (!hasSurface) return;
 		//if (!preferences.optimizedDrawing) area = mapViewArea;
-        
-		boolean b = currentMap.isOutside(area);
-        if (b) return;
-				
+
+		if (currentMap.isOutside(area)) return;
+		if (!mapViewArea.intersects(area)) return;
+
 		calculateRedrawRect(area);
 		Canvas c = null;
 		try {
@@ -222,6 +222,7 @@ public final class MainView extends SurfaceView
 		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;
 		
 		if (currentMap.isOutside(area)) return;
+		if (!mapViewArea.intersects(area)) return;
 		
 		calculateRedrawRect(area);
 		Canvas c = null;
@@ -444,7 +445,6 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterRemoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
         if (map != currentMap) return;
-		if (!mapViewArea.intersects(m.rectPosition)) return;
         redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
 	}
 
@@ -488,14 +488,12 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onLootBagCreated(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
-		if (!mapViewArea.contains(p)) return;
         redrawTile(p, REDRAW_TILE_BAG);
 	}
 
 	@Override
 	public void onLootBagRemoved(PredefinedMap map, Coord p) {
         if (map != currentMap) return;
-		if (!mapViewArea.contains(p)) return;
         redrawTile(p, REDRAW_TILE_BAG);
 	}
 

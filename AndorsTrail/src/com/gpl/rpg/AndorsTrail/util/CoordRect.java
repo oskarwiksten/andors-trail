@@ -40,6 +40,7 @@ public final class CoordRect {
 	}
 	*/
 	public boolean intersects(final CoordRect a) {
+		if (this == a) return true;
 		if (a.topLeft.x >= topLeft.x + size.width) return false;
 		if (a.topLeft.y >= topLeft.y + size.height) return false;
 		if (topLeft.x >= a.topLeft.x + a.size.width) return false;

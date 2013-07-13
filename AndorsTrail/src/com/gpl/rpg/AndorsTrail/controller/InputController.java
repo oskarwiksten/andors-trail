@@ -89,7 +89,7 @@ public final class InputController implements OnClickListener, OnLongClickListen
 		return true;
     }
 
-	public void onTouchCancell() {
+	public void onTouchCancel() {
 		controllers.movementController.stopMovement();
 	}
 
