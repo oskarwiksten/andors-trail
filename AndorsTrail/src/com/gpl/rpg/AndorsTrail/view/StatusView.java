@@ -31,11 +31,9 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 	private final RangeBar healthBar;
 	private final RangeBar expBar;
 	private final ImageButton heroImage;
-	private final ImageButton toggleToolbox;
 	private boolean showingLevelup;
 	private final Drawable levelupDrawable;
-	private ToolboxView toolbox;
-	
+
 	public StatusView(final Context context, AttributeSet attr) {
 		super(context, attr);
         AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
@@ -67,24 +65,13 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 				new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(player.iconID))
 				,new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
 		});
-		
-		toggleToolbox = (ImageButton) findViewById(R.id.toolbox_toggle);
-		world.tileManager.setImageViewTileForUIIcon(toggleToolbox, TileManager.iconID_boxclosed);
-		toggleToolbox.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				toolbox.toggleVisibility();
-			}
-		});
-		
+
 		updateStatus();
         updateIcon(player.canLevelup());
     }
 	
 	public void registerToolboxViews(ToolboxView toolbox, QuickitemView quickitemView) {
-		this.toolbox = toolbox;
-		toolbox.registerToolboxViews(toggleToolbox, quickitemView);
-		toolbox.updateIcons();
+		toolbox.registerToolboxViews((ImageButton) findViewById(R.id.toolbox_toggle), quickitemView);
 	}
 
 	public void updateStatus() {

@@ -93,5 +93,10 @@
             android:defaultValue="0"
             android:entries="@array/preferences_quickslots_placements"
             android:entryValues="@array/preferences_quickslots_placements_values" />
+        <CheckBoxPreference
+            android:title="@string/preferences_ui_show_quickslots_when_toolbox_is_visible_title"
+            android:defaultValue="false"
+            android:summary="@string/preferences_ui_show_quickslots_when_toolbox_is_visible"
+            android:key="showQuickslotsWhenToolboxIsVisible" />
     </PreferenceCategory>
 </PreferenceScreen>

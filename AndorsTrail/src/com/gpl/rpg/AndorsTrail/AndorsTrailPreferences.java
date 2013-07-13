@@ -50,6 +50,7 @@ public final class AndorsTrailPreferences {
 	public boolean enableUiAnimations = true;
 	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 	public int quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
+	public boolean showQuickslotsWhenToolboxIsVisible = false;
 	
 	public void read(final Context androidContext) {
 		AndorsTrailPreferences dest = this;
@@ -68,6 +69,7 @@ public final class AndorsTrailPreferences {
 			dest.enableUiAnimations = prefs.getBoolean("enableUiAnimations", true);
 			dest.displayOverwriteSavegame = Integer.parseInt(prefs.getString("display_overwrite_savegame", Integer.toString(CONFIRM_OVERWRITE_SAVEGAME_ALWAYS)));
 			dest.quickslotsPosition = Integer.parseInt(prefs.getString("quickslots_placement", Integer.toString(QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM)));
+			dest.showQuickslotsWhenToolboxIsVisible = prefs.getBoolean("showQuickslotsWhenToolboxIsVisible", false);
 
 			// This might be implemented as a skill in the future.
 			//dest.movementAggressiveness = Integer.parseInt(prefs.getString("movementaggressiveness", Integer.toString(MOVEMENTAGGRESSIVENESS_NORMAL)));
@@ -86,6 +88,7 @@ public final class AndorsTrailPreferences {
 			dest.enableUiAnimations = true;
 			dest.displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 			dest.quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
+			dest.showQuickslotsWhenToolboxIsVisible = false;
 		}
 	}
 }

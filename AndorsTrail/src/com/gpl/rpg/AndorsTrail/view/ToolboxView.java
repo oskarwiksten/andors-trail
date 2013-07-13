@@ -2,6 +2,10 @@ package com.gpl.rpg.AndorsTrail.view;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -30,8 +34,11 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 	private final ImageButton toolbox_map;
 	private final ImageButton toolbox_save;
 	private final ImageButton toolbox_combatlog;
-	private ImageButton toggleVisibility;
+	private ImageButton toggleToolboxVisibility;
 	private QuickitemView quickitemView;
+	private boolean hideQuickslotsWhenToolboxIsClosed = false;
+	private static final int quickSlotIcon = R.drawable.ui_icon_equipment;
+	private final Drawable quickSlotIconsLockedDrawable;
 
 	public ToolboxView(final Context context, AttributeSet attrs) {
 		super(context, attrs);
@@ -60,18 +67,29 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		toolbox_save.setOnClickListener(this);
 		toolbox_combatlog = (ImageButton)findViewById(R.id.toolbox_combatlog);
 		toolbox_combatlog.setOnClickListener(this);
+
+		Resources res = getResources();
+		quickSlotIconsLockedDrawable = new LayerDrawable(new Drawable[] {
+				res.getDrawable(quickSlotIcon)
+				,new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
+		});
+		hideQuickslotsWhenToolboxIsClosed = preferences.showQuickslotsWhenToolboxIsVisible;
 	}
 
 	public void registerToolboxViews(ImageButton toggleVisibility, QuickitemView quickitemView) {
-		this.toggleVisibility = toggleVisibility;
+		this.toggleToolboxVisibility = toggleVisibility;
 		this.quickitemView = quickitemView;
+		toggleVisibility.setOnClickListener(this);
+		updateIcons();
 	}
 
 	@Override
 	public void onClick(View btn) {
 		Context context = getContext();
-		if (btn == toolbox_quickitems) {
-			toggleQuickItemView();
+		if (btn == toggleToolboxVisibility) {
+			toggleVisibility();
+		} else if (btn == toolbox_quickitems) {
+			toggleQuickslotItemView();
 		} else if (btn == toolbox_map) {
 			if (!WorldMapController.displayWorldMap(context, world)) return;
 			setVisibility(View.GONE);
@@ -87,29 +105,51 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 		if (getVisibility() == View.GONE) setToolboxIcon(false);
 	}
 
-	private void toggleQuickItemView() {
-		if (quickitemView.getVisibility() == View.VISIBLE){
-			quickitemView.setVisibility(View.GONE);
+	private void toggleQuickslotItemView() {
+		if (preferences.showQuickslotsWhenToolboxIsVisible) {
+			hideQuickslotsWhenToolboxIsClosed = !hideQuickslotsWhenToolboxIsClosed;
+			updateToggleQuickSlotItemsIcon();
 		} else {
-			quickitemView.setVisibility(View.VISIBLE);
+			if (quickitemView.getVisibility() == View.VISIBLE) {
+				quickitemView.setVisibility(View.GONE);
+			} else {
+				quickitemView.setVisibility(View.VISIBLE);
+			}
 		}
 	}
 
-	public void toggleVisibility() {
-		if (getVisibility() == View.VISIBLE) {
+	private void toggleVisibility() {
+		if (getVisibility() == View.VISIBLE) hide();
+		else show();
+	}
+
+	private void hide() {
+		if (getVisibility() != View.GONE) {
 			if (preferences.enableUiAnimations) {
 				startAnimation(hideAnimation);
 			} else {
 				setVisibility(View.GONE);
 			}
-			setToolboxIcon(false);
-		} else {
+		}
+		if (preferences.showQuickslotsWhenToolboxIsVisible) {
+			if (hideQuickslotsWhenToolboxIsClosed) {
+				quickitemView.setVisibility(View.GONE);
+			}
+		}
+		setToolboxIcon(false);
+	}
+
+	private void show() {
+		if (getVisibility() != View.VISIBLE) {
 			setVisibility(View.VISIBLE);
 			if (preferences.enableUiAnimations) {
 				startAnimation(showAnimation);
 			}
-			setToolboxIcon(true);
 		}
+		if (preferences.showQuickslotsWhenToolboxIsVisible) {
+			quickitemView.setVisibility(View.VISIBLE);
+		}
+		setToolboxIcon(true);
 	}
 
 	public void updateIcons() {
@@ -118,9 +158,17 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 
 	private void setToolboxIcon(boolean opened) {
 		if (opened) {
-			world.tileManager.setImageViewTileForUIIcon(toggleVisibility, TileManager.iconID_boxopened);
+			world.tileManager.setImageViewTileForUIIcon(toggleToolboxVisibility, TileManager.iconID_boxopened);
 		} else {
-			world.tileManager.setImageViewTileForUIIcon(toggleVisibility, TileManager.iconID_boxclosed);
+			world.tileManager.setImageViewTileForUIIcon(toggleToolboxVisibility, TileManager.iconID_boxclosed);
 		}
+	}
+
+	private void updateToggleQuickSlotItemsIcon() {
+		if (preferences.showQuickslotsWhenToolboxIsVisible && !hideQuickslotsWhenToolboxIsClosed) {
+			toolbox_quickitems.setImageDrawable(quickSlotIconsLockedDrawable);
+			return;
+		}
+		toolbox_quickitems.setImageDrawable(getResources().getDrawable(quickSlotIcon));
 	}
 }
