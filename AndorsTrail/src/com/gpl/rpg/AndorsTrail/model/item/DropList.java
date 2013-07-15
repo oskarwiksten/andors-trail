@@ -13,9 +13,6 @@ public final class DropList {
 	public DropList(DropItem[] items) {
 		this.items = items;
 	}
-	public DropList(Collection<DropItem> items) {
-		this.items = items.toArray(new DropItem[items.size()]);
-	}
 	public void createRandomLoot(Loot loot, Player player) {
 		for (DropItem item : items) {
 			
