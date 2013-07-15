@@ -125,12 +125,12 @@
  </tileset>
  <layer name="Ground" width="19" height="20">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcBSI71CIj1PBDJg51DSLUr8dR8LkmoVuxlEyzMJlBilmETKDWLOIMQOfWcfZiHcLLrPI0Y+MyXXDKB7FQxkDAK5JN9w=
+   eJzNkLENgDAMBCOK1LD/PFaWYAomgBQvRZYD9scFxReW8pezpZYiT87FtAQGOJms1d3aEJalGUKwZowI64vhZXkYb6xW/S7ItXO7WJzt4Bx0OqfzmC48ZnOUM3qwXuhleFkemC236D94rzvWPbz30x3rHtH7/S03ogguNg==
   </data>
  </layer>
  <layer name="Objects" width="19" height="20">
   <data encoding="base64" compression="zlib">
-   eJytk9ENgzAMRGk/+sUHXqsr0BkyQIXUBdoFCyzBBE1Kgy6HrSYRliyE5bs8mzB0TfPw6Xy+fJbG/acP8ezWrPEJ0VfqmGcAJlc5E3rEuBV4WR6uYEe5HlP73+cIDmaxPN4KjzVL9GGPkTwWgwE5cuYJPmfRGVg/AwPO9K3L6rPA2SX3nzksLuTgnaAuPE+ScqFW+yZJgC6XiyM5Q2yurabMwbHNLKkm9rOG92H9G7GO/QmXsY/RuBPcH312/LKffW6Vd+i/Xo7LD6UWUvk=
+   eJytk8ERgjAUROHiiUPSli1oDSnAYcYGsEGRXghocBN3hySyM/+QwN//NoTeNM3dl/P18FWq26d/0WDeVeOz6FLZl/L0wOQqM6FH0LXAS3m4gjPK9Xh1+z5HcKQsyuNJeFSW4JN6jMSDMSDHP3ePZZmAATOt+/a7HkxctQxKgYOdCaq1MRf2sm8Sye48z1A0A/wYV5s5b8ts83twhvo31P42Q8waxZ1Q+X74SY6pI2t4/3w6rmZvtjtR
   </data>
  </layer>
  <layer name="Above" width="19" height="20">
@@ -138,12 +138,12 @@
    eJxjEGRgYATiUTAKqA0+CAwvc0D6P1LBLcjuAJlHrruoFS7YALq7sPmdVuFBinpkPaSGBynqqeHPwQAAiFoWLA==
   </data>
  </layer>
- <layer name="Walkable" width="19" height="20">
+ <layer name="Walkable" width="19" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcKUCBgFqmTOYzEIH1DCDHLMIAWqYQaxZpABK9eMyh1xAqX5s7qGGO8g1i5bxRIkfSU2PxOYVbObjs5ccd1LTHGq6ixoYAO8oQr4=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="20">
+ <objectgroup name="Mapevents" width="19" height="20" visible="0">
   <object name="west" type="mapchange" x="0" y="320" width="32" height="160">
    <properties>
     <property name="map" value="fields11"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="20">
+ <objectgroup name="Spawn" width="19" height="20" visible="0">
   <object name="frog_2" type="spawn" x="64" y="256" width="320" height="192">
    <properties>
     <property name="quantity" value="2"/>
@@ -174,5 +174,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="19" height="20"/>
+ <objectgroup name="Keys" width="19" height="20" visible="0"/>
 </map>

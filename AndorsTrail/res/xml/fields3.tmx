@@ -135,7 +135,7 @@
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjFGSgKvgoQF3zGKnsvpEAzlI5DkYBYTAa5ggw3MJiuPmHmgAA0ZsEmg==
+   eJy7K8BAVfCRyuYxClLXvJEAzlI5DkYBYTAa5ggw3MJiuPmHmgAAKrYFdQ==
   </data>
  </layer>
  <layer name="Walkable" width="20" height="20">
@@ -157,15 +157,15 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="20" height="20">
+ <objectgroup name="Spawn uniques" width="20" height="20" visible="0">
   <object name="tinlyn_lostsheep3" type="spawn" x="64" y="64" width="512" height="512"/>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="20" height="20">
+ <objectgroup name="Spawn monsters" width="20" height="20" visible="0">
   <object name="fieldcritter_2" type="spawn" x="96" y="96" width="480" height="480">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys" width="20" height="20" visible="0"/>
 </map>
