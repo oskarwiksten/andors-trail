@@ -56,8 +56,8 @@ public final class SkillCollection {
 	public static final int NUM_SKILLS = SKILL_SPECIALIZATION_WEAPON_SHIELD + 1;
 	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
-	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 1;
-	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN = 1;
+	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 2;
+	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN = 0;
 	public static final int PER_SKILLPOINT_INCREASE_DODGE = 9;
 	public static final int PER_SKILLPOINT_INCREASE_BARKSKIN = 1;
 	public static final int PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT = 20;
