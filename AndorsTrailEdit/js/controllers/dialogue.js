@@ -13,6 +13,13 @@ var ATEditor = (function(ATEditor, model, defaults, importExport) {
 		$scope.addReward = function(phrase) {
 			phrase.rewards.push({});
 		};
+		$scope.removeRequirement = function(reply, requirement) {
+			var idx = reply.requires.indexOf(requirement);
+			reply.requires.splice(idx, 1);
+		};
+		$scope.addRequirement = function(reply) {
+			reply.requires.push({});
+		};
 		$scope.proceedToPhrase = function(obj, prop) {
 			var phraseId = obj[prop];
 			if (phraseId) { 

@@ -44,7 +44,7 @@ var ATEditor = (function(ATEditor, _) {
 			,size: 0
 		}
 		,reply: {
-			requires: { item: { requireType: 0 } }
+			requires: []
 		}
 	};
 	

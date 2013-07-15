@@ -239,14 +239,20 @@ var ATEditor = (function(ATEditor, model, FieldList, _) {
 					nextPhraseID: obj.nextPhraseID
 				};
 				
-				if (obj.requires_Progress) { result.requires = { progress: obj.requires_Progress }; }
+				if (obj.requires_Progress) { 
+					result.requires = [];
+					result.requires.push({
+						requireType: 0,
+						requireID: obj.requires_Progress
+					});
+				}
 				if (obj.requires_itemID) { 
-					result.requires = result.requires || {}; 
-					result.requires.item = {
-						itemID: obj.requires_itemID,
-						quantity: obj.requires_Quantity,
-						requireType: obj.requires_Type
-					};
+					result.requires = result.requires || []; 
+					result.requires.push({ 
+						requireType: 1 + obj.requires_Type, 
+						requireID: obj.requires_itemID,
+						value: obj.requires_Quantity
+					});
 				}
 				
 				return result;

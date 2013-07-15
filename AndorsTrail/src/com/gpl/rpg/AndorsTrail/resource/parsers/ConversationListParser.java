@@ -3,8 +3,8 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
+import com.gpl.rpg.AndorsTrail.conversation.Phrase.Requirement;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonArrayParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
@@ -18,30 +18,24 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 
     private final TranslationLoader translationLoader;
 
+	private final JsonArrayParserFor<Requirement> requirementParser = new JsonArrayParserFor<Requirement>(Requirement.class) {
+		@Override
+		protected Requirement parseObject(JSONObject o) throws JSONException {
+			return new Requirement(
+					o.optInt(JsonFieldNames.ReplyRequires.requireType, Requirement.REQUIREMENT_TYPE_QUEST_PROGRESS)
+					,o.getString(JsonFieldNames.ReplyRequires.requireID)
+					,o.optInt(JsonFieldNames.ReplyRequires.value, 0)
+			);
+		}
+	};
+
     private final JsonArrayParserFor<Reply> replyParser = new JsonArrayParserFor<Reply>(Reply.class) {
 		@Override
 		protected Reply parseObject(JSONObject o) throws JSONException {
-			JSONObject requires = o.optJSONObject(JsonFieldNames.Reply.requires);
-			String requiresProgress = null;
-			String requiresItemTypeID = null;
-			int requiresItemQuantity = 0;
-			int itemRequirementType = Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE;
-			if (requires != null) {
-				requiresProgress = requires.optString(JsonFieldNames.ReplyRequires.progress, null);
-				JSONObject requiresItem = requires.optJSONObject(JsonFieldNames.ReplyRequires.item);
-				if (requiresItem != null) {
-					requiresItemTypeID = requiresItem.getString(JsonFieldNames.ReplyRequiresItem.itemID);
-					requiresItemQuantity = requiresItem.getInt(JsonFieldNames.ReplyRequiresItem.quantity);
-					itemRequirementType = requiresItem.optInt(JsonFieldNames.ReplyRequiresItem.requireType, Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE);
-				}
-			}
 			return new Reply(
                     translationLoader.translateConversationReply(o.optString(JsonFieldNames.Reply.text, ""))
 					,o.getString(JsonFieldNames.Reply.nextPhraseID)
-					,QuestProgress.parseQuestProgress(requiresProgress)
-					,requiresItemTypeID
-					,requiresItemQuantity
-					,itemRequirementType
+					,requirementParser.parseArray(o.optJSONArray(JsonFieldNames.Reply.requires))
 			);
 		}
 	};

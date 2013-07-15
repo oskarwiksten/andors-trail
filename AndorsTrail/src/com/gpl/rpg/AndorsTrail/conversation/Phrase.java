@@ -17,30 +17,35 @@ public final class Phrase {
 	}
 
 	public static final class Reply {
-		public static final int ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE = 0; // Player must have item(s) in inventory. Items will be removed when selecting reply.
-		public static final int ITEM_REQUIREMENT_TYPE_INVENTORY_KEEP = 1; // Player must have item(s) in inventory. Items will NOT be removed when selecting reply.
-		public static final int ITEM_REQUIREMENT_TYPE_WEAR_KEEP = 2; // Player must be wearing item(s). Items will NOT be removed when selecting reply.
-		
 		public final String text;
 		public final String nextPhrase;
-		public final QuestProgress requiresProgress;
-		public final String requiresItemTypeID;
-		public final int requiresItemQuantity;
-		public final int itemRequirementType;
-		
-		public boolean requiresItem() {
-			if (requiresItemTypeID == null) return false;
-			if (requiresItemQuantity <= 0) return false;
-	    	return true;
+		public final Requirement[] requires;
+
+		public boolean hasRequirements() {
+			return requires != null;
 		}
 		
-		public Reply(String text, String nextPhrase, QuestProgress requiresProgress, String requiresItemTypeID, int requiresItemQuantity, int itemRequirementType) {
+		public Reply(String text, String nextPhrase, Requirement[] requires) {
 			this.text = text;
 			this.nextPhrase = nextPhrase;
-			this.requiresProgress = requiresProgress;
-			this.requiresItemTypeID = requiresItemTypeID;
-			this.requiresItemQuantity = requiresItemQuantity;
-			this.itemRequirementType = itemRequirementType;
+			this.requires = requires;
+		}
+	}
+
+	public static final class Requirement {
+		public static final int REQUIREMENT_TYPE_QUEST_PROGRESS = 0;
+		public static final int REQUIREMENT_TYPE_INVENTORY_REMOVE = 1; // Player must have item(s) in inventory. Items will be removed when selecting reply.
+		public static final int REQUIREMENT_TYPE_INVENTORY_KEEP = 2; // Player must have item(s) in inventory. Items will NOT be removed when selecting reply.
+		public static final int REQUIREMENT_TYPE_WEAR_KEEP = 3; // Player must be wearing item(s). Items will NOT be removed when selecting reply.
+
+		public final int requireType;
+		public final String requireID;
+		public final int value;
+
+		public Requirement(int requireType, String requireID, int value) {
+			this.requireType = requireType;
+			this.requireID = requireID;
+			this.value = value;
 		}
 	}
 	

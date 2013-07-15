@@ -72,14 +72,9 @@ public final class JsonFieldNames {
 	}
 
 	public static final class ReplyRequires {
-		public static final String progress = "progress";
-		public static final String item = "item";
-	}
-
-	public static final class ReplyRequiresItem {
-		public static final String itemID = "itemID";
-		public static final String quantity = "quantity";
 		public static final String requireType = "requireType";
+		public static final String requireID = "requireID";
+		public static final String value = "value";
 	}
 
 	public static final class PhraseReward {

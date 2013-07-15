@@ -7,6 +7,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
+import com.gpl.rpg.AndorsTrail.conversation.Phrase.Requirement;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
@@ -119,40 +120,46 @@ public final class ConversationController {
 	}
 
 	private static void applyReplyEffect(final Player player, final Reply reply) {
-		if (!reply.requiresItem()) return;
-		
-		if (reply.itemRequirementType == Reply.ITEM_REQUIREMENT_TYPE_INVENTORY_REMOVE) {
-			if (ItemTypeCollection.isGoldItemType(reply.requiresItemTypeID)) {
-				player.inventory.gold -= reply.requiresItemQuantity;
-			} else {
-				player.inventory.removeItem(reply.requiresItemTypeID, reply.requiresItemQuantity);
+		if (!reply.hasRequirements()) return;
+
+		for (Requirement requirement : reply.requires) {
+			if (requirement.requireType == Requirement.REQUIREMENT_TYPE_INVENTORY_REMOVE) {
+				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
+					player.inventory.gold -= requirement.value;
+				} else {
+					player.inventory.removeItem(requirement.requireID, requirement.value);
+				}
 			}
 		}
 	}
 
 	private static boolean canSelectReply(final Player player, final Reply reply) {
-		if (!hasRequiredQuestProgress(player, reply.requiresProgress)) return false;
-		if (!hasRequiredItems(player, reply)) return false;
+		if (!reply.hasRequirements()) return true;
+
+		for (Requirement requirement : reply.requires) {
+			if (!playerSatisfiesRequirement(player, requirement)) return false;
+		}
 		return true;
     }
 	
-	private static boolean hasRequiredQuestProgress(final Player player, final QuestProgress progress) {
-    	if (progress == null) return true;
-    	return player.hasExactQuestProgress(progress);
+	private static boolean playerSatisfiesRequirement(final Player player, final Requirement requirement) {
+		switch (requirement.requireType) {
+			case Phrase.Requirement.REQUIREMENT_TYPE_QUEST_PROGRESS:
+				return player.hasExactQuestProgress(requirement.requireID, requirement.value);
+			case Phrase.Requirement.REQUIREMENT_TYPE_WEAR_KEEP:
+				return player.inventory.isWearing(requirement.requireID);
+			case Phrase.Requirement.REQUIREMENT_TYPE_INVENTORY_KEEP:
+			case Phrase.Requirement.REQUIREMENT_TYPE_INVENTORY_REMOVE:
+				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
+					return player.inventory.gold >= requirement.value;
+				} else {
+					return player.inventory.hasItem(requirement.requireID, requirement.value);
+				}
+			default:
+				return true;
+		}
     }
 	
-	private static boolean hasRequiredItems(final Player player, Reply reply) {
-		if (!reply.requiresItem()) return true;
-		
-    	if (ItemTypeCollection.isGoldItemType(reply.requiresItemTypeID)) { 
-    		return player.inventory.gold >= reply.requiresItemQuantity;
-    	} else if (reply.itemRequirementType == Reply.ITEM_REQUIREMENT_TYPE_WEAR_KEEP) {
-    		return player.inventory.isWearing(reply.requiresItemTypeID);
-    	} else {
-    		return player.inventory.hasItem(reply.requiresItemTypeID, reply.requiresItemQuantity);
-    	}
-    }
-
 	private static String getDisplayMessage(Phrase phrase, Player player) { return replacePlayerName(phrase.message, player); }
 	private static String getDisplayMessage(Reply reply, Player player) { return replacePlayerName(reply.text, player); }
     private static String replacePlayerName(String s, Player player) {

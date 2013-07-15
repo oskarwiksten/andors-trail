@@ -28,8 +28,10 @@ var ATEditor = (function(ATEditor, _) {
 		_.each(o.replies, function(reply) {
 			ATEditor.defaults.addDefaults('reply', reply);
 			if (reply.nextPhraseID && reply.nextPhraseID.length === 1) { reply.replyLeadsTo = reply.nextPhraseID; }
-			reply.requiresItems = ATEditor.utils.hasValues(reply.requires.item);
-			reply.requiresQuest = _.toBool(reply.requires.progress);
+			_.each(reply.requires, function(require) {
+				if (!require.requireType) { require.requireType = 0; }
+			});
+			reply.hasRequirements = ATEditor.utils.hasValues(reply.requires);
 		});
 		_.each(o.rewards, function(reward) {
 			if (!reward.rewardType) { reward.rewardType = 0; }
@@ -92,11 +94,8 @@ var ATEditor = (function(ATEditor, _) {
 		_.each(o.replies, function(reply) {
 			if (reply.replyLeadsTo) { reply.nextPhraseID = reply.replyLeadsTo; }
 			delete reply.replyLeadsTo;
-			var requires = reply.requires;
-			if (!reply.requiresItems) { delete requires.item; }
-			delete reply.requiresItems;
-			if (!reply.requiresQuest) { delete requires.progress; }
-			delete reply.requiresQuest;
+			if (!o.hasRequirements) { delete o.requires; }
+			delete reply.hasRequirements;
 		});
 		if (o.hasOnlyNextReply) {
 			o.replies = [ { text: "N", nextPhraseID: o.nextPhraseID } ];
