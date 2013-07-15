@@ -34,9 +34,13 @@
             {
                 "text": "Did you know that Taevinn thinks you caused the illness here in Loneford?",
                 "nextPhraseID": "sienn_pet_2",
-                "requires": {
-                    "progress": "loneford:24"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "24"
+                    }
+                ]
             }
         ]
     },

@@ -4,33 +4,53 @@
         "replies": [
             {
                 "nextPhraseID": "minarra_completed_1",
-                "requires": {
-                    "progress": "rogorn:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_completing_1",
-                "requires": {
-                    "progress": "rogorn:55"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "55"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_completing_1",
-                "requires": {
-                    "progress": "rogorn:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_look_1",
-                "requires": {
-                    "progress": "rogorn:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_return_1",
-                "requires": {
-                    "progress": "rogorn:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_first_1"
@@ -102,9 +122,13 @@
         "replies": [
             {
                 "nextPhraseID": "minarra_first_4_1",
-                "requires": {
-                    "progress": "rogorn:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_first_4"
@@ -345,21 +369,29 @@
             {
                 "text": "Yes, I killed them and recovered the three pieces of the painting.",
                 "nextPhraseID": "minarra_look_3",
-                "requires": {
-                    "progress": "rogorn:40",
-                    "item": {
-                        "itemID": "rogorn_qitem",
-                        "quantity": 3,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "40"
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "rogorn_qitem",
+                        "value": 3
                     }
-                }
+                ]
             },
             {
                 "text": "I travelled west and found a travelling group of men, but they did not match the men you described.",
                 "nextPhraseID": "minarra_look_5",
-                "requires": {
-                    "progress": "rogorn:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "45"
+                    }
+                ]
             }
         ]
     },
@@ -461,9 +493,13 @@
         "replies": [
             {
                 "nextPhraseID": "minarra_trade_2",
-                "requires": {
-                    "progress": "nondisplay:18"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "nondisplay",
+                        "value": "18"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "minarra_trade_rej"

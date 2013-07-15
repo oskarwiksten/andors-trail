@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "wrye_return_2",
-                "requires": {
-                    "progress": "wrye:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "wrye_return_1",
-                "requires": {
-                    "progress": "wrye:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "wrye_mourn_1"
@@ -34,9 +42,13 @@
             {
                 "text": "Yes, I have found out the story about what happened to him.",
                 "nextPhraseID": "wrye_resolved_1",
-                "requires": {
-                    "progress": "wrye:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "80"
+                    }
+                ]
             }
         ]
     },
@@ -71,9 +83,13 @@
             {
                 "text": "Jolnor said I should see you about your son.",
                 "nextPhraseID": "wrye_mourn_5",
-                "requires": {
-                    "progress": "wrye:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "What about him?",
@@ -92,9 +108,13 @@
             {
                 "text": "Jolnor said I should see you about your son.",
                 "nextPhraseID": "wrye_mourn_5",
-                "requires": {
-                    "progress": "wrye:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },

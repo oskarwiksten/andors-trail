@@ -4,33 +4,53 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_killedsheep_0",
-                "requires": {
-                    "progress": "benbyr:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_killedsheep_0",
-                "requires": {
-                    "progress": "tinlyn:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_complete_1",
-                "requires": {
-                    "progress": "tinlyn:31"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "31"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_complete_1",
-                "requires": {
-                    "progress": "tinlyn:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_look_1",
-                "requires": {
-                    "progress": "tinlyn:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "15"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_story_1"
@@ -42,9 +62,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_killedsheep_0_1",
-                "requires": {
-                    "progress": "tinlyn:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_killedsheep_1"
@@ -77,9 +101,13 @@
             {
                 "text": "I talked to Benbyr and heard the story about you two.",
                 "nextPhraseID": "tinlyn_benbyr_1",
-                "requires": {
-                    "progress": "benbyr:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },
@@ -125,9 +153,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_story_6",
-                "requires": {
-                    "progress": "tinlyn:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "15"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_story_4"
@@ -206,9 +238,13 @@
             {
                 "text": "Yes, I found all of them.",
                 "nextPhraseID": "tinlyn_found_1",
-                "requires": {
-                    "progress": "tinlyn:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "text": "Not yet. I am still looking.",
@@ -221,9 +257,13 @@
             {
                 "text": "I talked to Benbyr and heard the story about you two.",
                 "nextPhraseID": "tinlyn_benbyr_1",
-                "requires": {
-                    "progress": "benbyr:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },

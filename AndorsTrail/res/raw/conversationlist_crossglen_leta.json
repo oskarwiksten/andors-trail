@@ -28,9 +28,13 @@
         "replies": [
             {
                 "nextPhraseID": "leta_oromir_complete2",
-                "requires": {
-                    "progress": "leta:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "leta",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "leta_oromir1"
@@ -48,9 +52,13 @@
             {
                 "text": "Yes, I found him. He is hiding among some trees to the east.",
                 "nextPhraseID": "leta_oromir_complete",
-                "requires": {
-                    "progress": "leta:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "leta",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },

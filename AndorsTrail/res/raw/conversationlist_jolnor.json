@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "jolnor_default_3",
-                "requires": {
-                    "progress": "vilegard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_default_2",
-                "requires": {
-                    "progress": "vilegard:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_default"
@@ -30,9 +38,13 @@
             {
                 "text": "I was told to talk to you about why everyone in Vilegard is suspicious of outsiders.",
                 "nextPhraseID": "jolnor_suspicious_1",
-                "requires": {
-                    "progress": "vilegard:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },
@@ -101,9 +113,13 @@
         "replies": [
             {
                 "nextPhraseID": "S",
-                "requires": {
-                    "progress": "vilegard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_shop_2"
@@ -177,15 +193,23 @@
         "replies": [
             {
                 "nextPhraseID": "jolnor_gaintrust_return_2",
-                "requires": {
-                    "progress": "vilegard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_gaintrust_return",
-                "requires": {
-                    "progress": "vilegard:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_gaintrust_1"
@@ -431,9 +455,13 @@
             {
                 "text": "I have done all the tasks you asked me to do.",
                 "nextPhraseID": "jolnor_quests_select_1",
-                "requires": {
-                    "progress": "jolnor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jolnor",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "text": "Never mind, let's get back to those other topics.",
@@ -446,9 +474,13 @@
         "replies": [
             {
                 "nextPhraseID": "jolnor_guard_completed",
-                "requires": {
-                    "progress": "jolnor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jolnor",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_guard_1"
@@ -462,20 +494,24 @@
             {
                 "text": "Yes, he will leave his post as soon as this shift is over.",
                 "nextPhraseID": "jolnor_guard_2",
-                "requires": {
-                    "progress": "jolnor:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jolnor",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "text": "Yes, he is removed.",
                 "nextPhraseID": "jolnor_guard_2",
-                "requires": {
-                    "item": {
-                        "itemID": "ffguard_qitem",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "ffguard_qitem",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "No, but I am working on it.",
@@ -515,9 +551,13 @@
         "replies": [
             {
                 "nextPhraseID": "jolnor_quests_select_2",
-                "requires": {
-                    "progress": "kaori:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaori",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_quests_kaori_1"
@@ -539,9 +579,13 @@
         "replies": [
             {
                 "nextPhraseID": "jolnor_quests_completed",
-                "requires": {
-                    "progress": "wrye:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jolnor_quests_wrye_1"

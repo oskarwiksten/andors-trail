@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "thorin_return_1",
-                "requires": {
-                    "progress": "thorin:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "thorin",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "thorin_search_1",
-                "requires": {
-                    "progress": "thorin:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "thorin",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "thorin_1"
@@ -227,13 +235,13 @@
             {
                 "text": "Yes, this is what I found.",
                 "nextPhraseID": "thorin_search_c_1",
-                "requires": {
-                    "item": {
-                        "itemID": "thorin_bone",
-                        "quantity": 6,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "thorin_bone",
+                        "value": 6
                     }
-                }
+                ]
             },
             {
                 "text": "Mind if I use your bed over there to rest?",
@@ -254,9 +262,13 @@
         "replies": [
             {
                 "nextPhraseID": "thorin_rest_y",
-                "requires": {
-                    "progress": "thorin:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "thorin",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "thorin_rest_n"
@@ -282,9 +294,13 @@
         "replies": [
             {
                 "nextPhraseID": "thorin_trade_y",
-                "requires": {
-                    "progress": "thorin:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "thorin",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "thorin_trade_n"

@@ -4,27 +4,43 @@
         "replies": [
             {
                 "nextPhraseID": "ailshara_completed_y_1",
-                "requires": {
-                    "progress": "feygard_shipment:82"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "82"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ailshara_completed_n_1",
-                "requires": {
-                    "progress": "feygard_shipment:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ailshara_deliver_1",
-                "requires": {
-                    "progress": "feygard_shipment:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "35"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ailshara_interested_1",
-                "requires": {
-                    "progress": "feygard_shipment:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ailshara_1"
@@ -238,9 +254,13 @@
             {
                 "text": "Yes, it is done.",
                 "nextPhraseID": "ailshara_deliver_2_s",
-                "requires": {
-                    "progress": "feygard_shipment:55"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "55"
+                    }
+                ]
             },
             {
                 "text": "Never mind that, let me see what you have to trade.",
@@ -265,9 +285,13 @@
         "replies": [
             {
                 "nextPhraseID": "ailshara_deliver_3",
-                "requires": {
-                    "progress": "feygard_shipment:81"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "81"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ailshara_deliver_2"

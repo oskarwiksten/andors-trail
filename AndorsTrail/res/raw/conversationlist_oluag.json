@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "oluag_grave_16",
-                "requires": {
-                    "progress": "wrye:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "oluag_1_1"
@@ -60,9 +64,13 @@
         "replies": [
             {
                 "nextPhraseID": "oluag_grave_return",
-                "requires": {
-                    "progress": "wrye:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "oluag_grave_1"
@@ -172,9 +180,13 @@
             {
                 "text": "Rincel, was that it? From Vilegard? Wrye's missing son.",
                 "nextPhraseID": "oluag_grave_9",
-                "requires": {
-                    "progress": "wrye:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },

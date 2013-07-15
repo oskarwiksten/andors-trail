@@ -88,9 +88,13 @@
         "replies": [
             {
                 "nextPhraseID": "fallhaven_drunk_11",
-                "requires": {
-                    "progress": "fallhavendrunk:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fallhavendrunk",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_drunk_8"
@@ -125,13 +129,13 @@
             {
                 "text": "Here, have some mead.",
                 "nextPhraseID": "fallhaven_drunk_10",
-                "requires": {
-                    "item": {
-                        "itemID": "mead",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "mead",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, I'll go buy some mead for you.",
@@ -157,13 +161,13 @@
             {
                 "text": "Here, have some mead.",
                 "nextPhraseID": "fallhaven_drunk_10",
-                "requires": {
-                    "item": {
-                        "itemID": "mead",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "mead",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, I'll go buy some mead for you.",

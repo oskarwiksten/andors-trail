@@ -299,16 +299,24 @@
             {
                 "text": "[Lie] It is done. He should be no problem during the night.",
                 "nextPhraseID": "farrik_26",
-                "requires": {
-                    "progress": "farrik:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "text": "It is done. He should be no problem during the night.",
                 "nextPhraseID": "farrik_24",
-                "requires": {
-                    "progress": "farrik:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "60"
+                    }
+                ]
             }
         ]
     },
@@ -317,15 +325,23 @@
         "replies": [
             {
                 "nextPhraseID": "farrik_return_2",
-                "requires": {
-                    "progress": "farrik:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "70"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "farrik_return_2",
-                "requires": {
-                    "progress": "farrik:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "farrik_select_2"
@@ -337,9 +353,13 @@
         "replies": [
             {
                 "nextPhraseID": "farrik_return_1",
-                "requires": {
-                    "progress": "farrik:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "farrik_1"

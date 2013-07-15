@@ -6,9 +6,13 @@
             {
                 "text": "Have you been down in the catacombs?",
                 "nextPhraseID": "athamyr_select",
-                "requires": {
-                    "progress": "bucus:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bucus",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -56,13 +60,13 @@
             {
                 "text": "Here, I have cooked meat for you.",
                 "nextPhraseID": "athamyr_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "meat_cooked",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "meat_cooked",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, I'll go get some.",
@@ -86,9 +90,13 @@
         "replies": [
             {
                 "nextPhraseID": "athamyr_complete_2",
-                "requires": {
-                    "progress": "bucus:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bucus",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "athamyr_1"

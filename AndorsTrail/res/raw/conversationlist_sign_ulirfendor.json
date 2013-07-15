@@ -4,21 +4,33 @@
         "replies": [
             {
                 "nextPhraseID": "sign_ulirfendor_r",
-                "requires": {
-                    "progress": "darkprotector:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "darkprotector",
+                        "value": "70"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_ulirfendor_8",
-                "requires": {
-                    "progress": "darkprotector:66"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "darkprotector",
+                        "value": "66"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_ulirfendor_6",
-                "requires": {
-                    "progress": "darkprotector:65"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "darkprotector",
+                        "value": "65"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_ulirfendor_1"
@@ -90,13 +102,13 @@
             {
                 "text": "Place the helmet in front of the shrine",
                 "nextPhraseID": "sign_ulirfendor_6",
-                "requires": {
-                    "item": {
-                        "itemID": "helm_protector0",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "helm_protector0",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },
@@ -114,13 +126,13 @@
             {
                 "text": "Place the heart of the lich in front of the shrine",
                 "nextPhraseID": "sign_ulirfendor_7",
-                "requires": {
-                    "item": {
-                        "itemID": "toszylae_heart",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "toszylae_heart",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },

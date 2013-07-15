@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_c1",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rothses_1"
@@ -24,9 +28,13 @@
             {
                 "text": "Jhaeld told me you could help me improve my equipment.",
                 "nextPhraseID": "rothses_c2",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             }
         ]
     },
@@ -63,9 +71,13 @@
             {
                 "text": "Jhaeld sent me to ask you about the people that have gone missing.",
                 "nextPhraseID": "rothses_3s",
-                "requires": {
-                    "progress": "remgard:52"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "52"
+                    }
+                ]
             },
             {
                 "text": "How is business?",
@@ -84,9 +96,13 @@
             {
                 "text": "Jhaeld sent me to ask you about the people that have gone missing.",
                 "nextPhraseID": "rothses_3s",
-                "requires": {
-                    "progress": "remgard:52"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "52"
+                    }
+                ]
             }
         ]
     },
@@ -95,9 +111,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_19",
-                "requires": {
-                    "progress": "remgard:64"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "64"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rothses_3"
@@ -194,9 +214,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_jhaeld_s_2",
-                "requires": {
-                    "progress": "remgard:61"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "61"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rothses_20"
@@ -208,9 +232,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_jhaeld_s_3",
-                "requires": {
-                    "progress": "remgard:62"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "62"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rothses_20"
@@ -222,9 +250,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_jhaeld_s_4",
-                "requires": {
-                    "progress": "remgard:63"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "63"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rothses_20"
@@ -275,23 +307,23 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_imp_shield",
-                "requires": {
-                    "item": {
-                        "itemID": "remgard_shield_1",
-                        "quantity": 1,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 2,
+                        "requireID": "remgard_shield_1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_shield_w",
-                "requires": {
-                    "item": {
-                        "itemID": "remgard_shield_1",
-                        "quantity": 1,
-                        "requireType": 2
+                "requires": [
+                    {
+                        "requireType": 3,
+                        "requireID": "remgard_shield_1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_s3"
@@ -303,23 +335,23 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_imp_gloves",
-                "requires": {
-                    "item": {
-                        "itemID": "gloves_combat1",
-                        "quantity": 1,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 2,
+                        "requireID": "gloves_combat1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_gloves_w",
-                "requires": {
-                    "item": {
-                        "itemID": "gloves_combat1",
-                        "quantity": 1,
-                        "requireType": 2
+                "requires": [
+                    {
+                        "requireType": 3,
+                        "requireID": "gloves_combat1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_s4"
@@ -331,23 +363,23 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_imp_armour",
-                "requires": {
-                    "item": {
-                        "itemID": "armour_superior_chain",
-                        "quantity": 1,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 2,
+                        "requireID": "armour_superior_chain",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_armour_w",
-                "requires": {
-                    "item": {
-                        "itemID": "armour_superior_chain",
-                        "quantity": 1,
-                        "requireType": 2
+                "requires": [
+                    {
+                        "requireType": 3,
+                        "requireID": "armour_superior_chain",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_s5"
@@ -373,13 +405,13 @@
             {
                 "text": "Sure, here is the gold.",
                 "nextPhraseID": "rothses_imp_shield_1",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 700,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 700
                     }
-                }
+                ]
             },
             {
                 "text": "Maybe later. Do I have anything else that you can improve?",
@@ -392,13 +424,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_imp_shield_2",
-                "requires": {
-                    "item": {
-                        "itemID": "remgard_shield_1",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "remgard_shield_1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_s3"
@@ -438,13 +470,13 @@
             {
                 "text": "Sure, here is the gold.",
                 "nextPhraseID": "rothses_imp_gloves_1",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 300,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 300
                     }
-                }
+                ]
             },
             {
                 "text": "Maybe later. Do I have anything else that you can improve?",
@@ -457,13 +489,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_imp_gloves_2",
-                "requires": {
-                    "item": {
-                        "itemID": "gloves_combat1",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gloves_combat1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_s4"
@@ -503,13 +535,13 @@
             {
                 "text": "Sure, here is the gold.",
                 "nextPhraseID": "rothses_imp_armour_1",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 3000,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 3000
                     }
-                }
+                ]
             },
             {
                 "text": "Maybe later. Do I have anything else that you can improve?",
@@ -522,13 +554,13 @@
         "replies": [
             {
                 "nextPhraseID": "rothses_imp_armour_2",
-                "requires": {
-                    "item": {
-                        "itemID": "armour_superior_chain",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "armour_superior_chain",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "rothses_imp_s5"

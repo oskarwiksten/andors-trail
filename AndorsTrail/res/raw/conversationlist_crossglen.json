@@ -62,9 +62,13 @@
         "replies": [
             {
                 "nextPhraseID": "mara_thanks",
-                "requires": {
-                    "progress": "odair:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "odair",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mara_default"

@@ -46,9 +46,13 @@
             {
                 "text": "Have you seen a boy called Rincel around here recently?",
                 "nextPhraseID": "torilo_rincel_1",
-                "requires": {
-                    "progress": "wrye:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "41"
+                    }
+                ]
             }
         ]
     },
@@ -85,9 +89,13 @@
             {
                 "text": "Have you seen a boy called Rincel around here recently?",
                 "nextPhraseID": "torilo_rincel_1",
-                "requires": {
-                    "progress": "wrye:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "41"
+                    }
+                ]
             }
         ]
     },
@@ -106,9 +114,13 @@
         "replies": [
             {
                 "nextPhraseID": "torilo_rest_1",
-                "requires": {
-                    "progress": "nondisplay:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "nondisplay",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "torilo_rest_3"
@@ -152,24 +164,24 @@
             {
                 "text": "250 gold? Sure, that's nothing to me. Here you go.",
                 "nextPhraseID": "torilo_rest_6",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 250,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 250
                     }
-                }
+                ]
             },
             {
                 "text": "250 gold is a lot, but I guess it is worth it. Here you go.",
                 "nextPhraseID": "torilo_rest_6",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 250,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 250
                     }
-                }
+                ]
             },
             {
                 "text": "That sounds a bit too much for me.",

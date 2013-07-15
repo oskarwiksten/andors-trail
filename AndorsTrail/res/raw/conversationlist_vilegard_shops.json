@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "vilegard_armorer_1",
-                "requires": {
-                    "progress": "vilegard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vilegard_shop_notrust"
@@ -28,21 +32,33 @@
         "replies": [
             {
                 "nextPhraseID": "vilegard_smith_1",
-                "requires": {
-                    "progress": "feygard_shipment:56"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "56"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vilegard_smith_fg_2",
-                "requires": {
-                    "progress": "feygard_shipment:55"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "55"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vilegard_smith_1",
-                "requires": {
-                    "progress": "vilegard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vilegard_shop_notrust"
@@ -60,18 +76,28 @@
             {
                 "text": "I have a shipment of Feygard items for you.",
                 "nextPhraseID": "vilegard_smith_fg_1",
-                "requires": {
-                    "progress": "feygard_shipment:35",
-                    "item": {
-                        "itemID": "fg_ironsword",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "35"
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "fg_ironsword",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "On the body of something called the Hira'zinn, I found this peculiar sword. Do you know anything about it?.",
-                "requires": { "item": { "requireType": 1, "itemID": "xulviir0", "quantity": 1 } },
+                "requires": [
+                    {
+                        "requireType": 2,
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
                 "nextPhraseID": "vilegard_smith_xul_1"
             }
         ]
@@ -91,18 +117,28 @@
             {
                 "text": "I have a shipment of Feygard items for you.",
                 "nextPhraseID": "vilegard_shop_notrust_2",
-                "requires": {
-                    "progress": "feygard_shipment:35",
-                    "item": {
-                        "itemID": "fg_ironsword",
-                        "quantity": 10,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "35"
+                    },
+                    {
+                        "requireType": 2,
+                        "requireID": "fg_ironsword",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "On the body of something called the Hira'zinn, I found this peculiar sword. Do you know anything about it?.",
-                "requires": { "item": { "requireType": 1, "itemID": "xulviir0", "quantity": 1 } },
+                "requires": [
+                    {
+                        "requireType": 2,
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
                 "nextPhraseID": "vilegard_shop_notrust_2"
             }
         ]

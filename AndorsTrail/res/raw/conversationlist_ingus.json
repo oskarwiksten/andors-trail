@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "ingus_r1",
-                "requires": {
-                    "progress": "sisterfight:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ingus_1"
@@ -76,9 +80,13 @@
         "replies": [
             {
                 "nextPhraseID": "ingus_4b",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ingus_4a"
@@ -152,9 +160,13 @@
         "replies": [
             {
                 "nextPhraseID": "ingus_q1",
-                "requires": {
-                    "progress": "sisterfight:71"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "71"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ingus_t4"

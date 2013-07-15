@@ -4,81 +4,133 @@
         "replies": [
             {
                 "nextPhraseID": "algangror_fight_6",
-                "requires": {
-                    "progress": "remgard2:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "35"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_fight_3",
-                "requires": {
-                    "progress": "remgard2:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_d1",
-                "requires": {
-                    "progress": "fiveidols:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_cmp5",
-                "requires": {
-                    "progress": "fiveidols:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "70"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_cmp1",
-                "requires": {
-                    "progress": "fiveidols:61"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "61"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_story1",
-                "requires": {
-                    "progress": "fiveidols:51"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "51"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_task2_ret1",
-                "requires": {
-                    "progress": "fiveidols:37"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "37"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_task2_7",
-                "requires": {
-                    "progress": "fiveidols:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_d1",
-                "requires": {
-                    "progress": "algangror:101"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "101"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_d1",
-                "requires": {
-                    "progress": "algangror:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_c1",
-                "requires": {
-                    "progress": "algangror:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_3",
-                "requires": {
-                    "progress": "algangror:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_1",
-                "requires": {
-                    "progress": "algangror:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "15"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_1"
@@ -115,9 +167,13 @@
             {
                 "text": "I am sent by Jhaeld to end whatever it is you do to the people of Remgard.",
                 "nextPhraseID": "algangror_fight_1",
-                "requires": {
-                    "progress": "remgard2:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "21"
+                    }
+                ]
             }
         ]
     },
@@ -295,13 +351,13 @@
             {
                 "text": "Yes, they are all dead.",
                 "nextPhraseID": "algangror_return_2",
-                "requires": {
-                    "item": {
-                        "itemID": "algangror_rat",
-                        "quantity": 6,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "algangror_rat",
+                        "value": 6
                     }
-                }
+                ]
             },
             {
                 "text": "I am still working on it. Goodbye.",
@@ -318,9 +374,13 @@
             {
                 "text": "I am sent by Jhaeld to end whatever it is you do to the people of Remgard.",
                 "nextPhraseID": "algangror_fight_1",
-                "requires": {
-                    "progress": "remgard2:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "21"
+                    }
+                ]
             }
         ]
     },
@@ -380,15 +440,23 @@
         "replies": [
             {
                 "nextPhraseID": "algangror_told_1",
-                "requires": {
-                    "progress": "remgard2:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_c4",
-                "requires": {
-                    "progress": "remgard:75"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "75"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_return_c3"
@@ -509,9 +577,13 @@
             {
                 "text": "I am sent by Jhaeld to end whatever it is you do to the people of Remgard.",
                 "nextPhraseID": "algangror_fight_1",
-                "requires": {
-                    "progress": "remgard2:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "text": "Watch your tongue, witch.",
@@ -528,21 +600,33 @@
         "replies": [
             {
                 "nextPhraseID": "algangror_fight_2",
-                "requires": {
-                    "progress": "algangror:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_fight_2",
-                "requires": {
-                    "progress": "algangror:101"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "101"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_fight_1a",
-                "requires": {
-                    "progress": "algangror:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_fight_2"
@@ -569,9 +653,13 @@
         "replies": [
             {
                 "nextPhraseID": "algangror_fight_2a",
-                "requires": {
-                    "progress": "fiveidols:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_fight_3"
@@ -650,9 +738,13 @@
         "replies": [
             {
                 "nextPhraseID": "algangror_told_1a",
-                "requires": {
-                    "progress": "algangror:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_told_2"
@@ -992,9 +1084,13 @@
         "replies": [
             {
                 "nextPhraseID": "algangror_task2_19",
-                "requires": {
-                    "progress": "fiveidols:37"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "37"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "algangror_task2_18"
@@ -1045,9 +1141,13 @@
             {
                 "text": "It is done.",
                 "nextPhraseID": "algangror_task2_done1",
-                "requires": {
-                    "progress": "fiveidols:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "text": "I won't do your stupid task.",

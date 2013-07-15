@@ -6,9 +6,13 @@
             {
                 "text": "I'm looking for a piece of the Rift spell.",
                 "nextPhraseID": "fallhaven_bandit_2",
-                "requires": {
-                    "progress": "vacor:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -39,13 +43,13 @@
             {
                 "text": "Ok ok. Here is the gold. Please don't hurt me!",
                 "nextPhraseID": "bandit1_3",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 100,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 100
                     }
-                }
+                ]
             },
             {
                 "text": "How about we fight over it?",

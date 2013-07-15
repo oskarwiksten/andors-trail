@@ -156,9 +156,13 @@
         "replies": [
             {
                 "nextPhraseID": "rigmor_thanks",
-                "requires": {
-                    "progress": "calomyran:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "X"

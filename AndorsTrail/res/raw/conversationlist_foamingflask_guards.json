@@ -34,9 +34,13 @@
             {
                 "text": "Have you seen a boy called Rincel around here recently?",
                 "nextPhraseID": "ff_guard_rincel_1",
-                "requires": {
-                    "progress": "wrye:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "41"
+                    }
+                ]
             }
         ]
     },
@@ -85,26 +89,34 @@
             {
                 "text": "I have a shipment of iron swords from Gandoren for you.",
                 "nextPhraseID": "ff_captain_vg_items_1",
-                "requires": {
-                    "progress": "feygard_shipment:56",
-                    "item": {
-                        "itemID": "fg_ironsword_d",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "56"
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "fg_ironsword_d",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "I have a shipment of iron swords from Gandoren for you.",
                 "nextPhraseID": "ff_captain_fg_items_1",
-                "requires": {
-                    "progress": "feygard_shipment:25",
-                    "item": {
-                        "itemID": "fg_ironsword",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "25"
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "fg_ironsword",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "Who are you?",
@@ -113,9 +125,13 @@
             {
                 "text": "Have you seen a boy called Rincel around here recently?",
                 "nextPhraseID": "ff_captain_rincel_1",
-                "requires": {
-                    "progress": "wrye:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "wrye",
+                        "value": "41"
+                    }
+                ]
             }
         ]
     },

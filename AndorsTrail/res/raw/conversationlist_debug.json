@@ -31,13 +31,13 @@
             {
                 "text": "Iron sword*2",
                 "nextPhraseID": "debugquest2",
-                "requires": {
-                    "item": {
-                        "itemID": "dagger0",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "dagger0",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Progress+=10",
@@ -46,9 +46,13 @@
             {
                 "text": "Progress=100",
                 "nextPhraseID": "debugquest1",
-                "requires": {
-                    "progress": "debugquest:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "debugquest",
+                        "value": "100"
+                    }
+                ]
             }
         ]
     },

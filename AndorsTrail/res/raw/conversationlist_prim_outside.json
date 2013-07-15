@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "tonis_return_1",
-                "requires": {
-                    "progress": "prim_hunt:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tonis_1"
@@ -24,9 +28,13 @@
             {
                 "text": "Yes, he told me the story about Prim.",
                 "nextPhraseID": "tonis_8",
-                "requires": {
-                    "progress": "prim_hunt:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "text": "No, and I do not intend to speak to him either. I am on an urgent mission to help the Blackwater mountain settlement.",

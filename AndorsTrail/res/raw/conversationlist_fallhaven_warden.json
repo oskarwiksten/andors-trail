@@ -10,16 +10,24 @@
             {
                 "text": "I heard that you are fond of mead.",
                 "nextPhraseID": "fallhaven_warden_1",
-                "requires": {
-                    "progress": "farrik:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "text": "The thieves are planning an escape for their friend.",
                 "nextPhraseID": "fallhaven_warden_20",
-                "requires": {
-                    "progress": "farrik:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "30"
+                    }
+                ]
             }
         ]
     },
@@ -78,14 +86,18 @@
             {
                 "text": "I brought some with me if you would like to have a sip.",
                 "nextPhraseID": "fallhaven_warden_4",
-                "requires": {
-                    "progress": "farrik:25",
-                    "item": {
-                        "itemID": "sleepingmead",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "25"
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "sleepingmead",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, goodbye",
@@ -141,13 +153,13 @@
             {
                 "text": "I have 500 gold right here that you could have.",
                 "nextPhraseID": "fallhaven_warden_9",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 500,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 500
                     }
-                }
+                ]
             },
             {
                 "text": "You know you want the mead right?",
@@ -166,13 +178,13 @@
             {
                 "text": "So what if I pay you, say, 400 gold. Would that cover enough of your anxiety to enjoy the drink now?",
                 "nextPhraseID": "fallhaven_warden_9",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 400,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 400
                     }
-                }
+                ]
             },
             {
                 "text": "This is starting to sound too shady for me. I'll leave you to your duty, goodbye.",
@@ -210,15 +222,23 @@
         "replies": [
             {
                 "nextPhraseID": "fallhaven_warden_11",
-                "requires": {
-                    "progress": "farrik:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_warden_35",
-                "requires": {
-                    "progress": "farrik:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_warden_select_2"
@@ -230,15 +250,23 @@
         "replies": [
             {
                 "nextPhraseID": "fallhaven_warden_30",
-                "requires": {
-                    "progress": "farrik:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_warden_12",
-                "requires": {
-                    "progress": "farrik:32"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "32"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_warden"

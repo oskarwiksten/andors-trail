@@ -4,45 +4,73 @@
         "replies": [
             {
                 "nextPhraseID": "gandoren_completed_1",
-                "requires": {
-                    "progress": "feygard_shipment:81"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "81"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_completed_1",
-                "requires": {
-                    "progress": "feygard_shipment:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_deliver_1",
-                "requires": {
-                    "progress": "feygard_shipment:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_20",
-                "requires": {
-                    "progress": "feygard_shipment:22"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "22"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_20",
-                "requires": {
-                    "progress": "feygard_shipment:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_wantshelp_1",
-                "requires": {
-                    "progress": "feygard_shipment:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_noguards_1",
-                "requires": {
-                    "progress": "feygard_shipment:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_1"
@@ -430,16 +458,24 @@
             {
                 "text": "Yes. I have delivered them as you ordered.",
                 "nextPhraseID": "gandoren_deliver_y_1",
-                "requires": {
-                    "progress": "feygard_shipment:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "text": "Yes. I have delivered them.",
                 "nextPhraseID": "gandoren_deliver_n_1",
-                "requires": {
-                    "progress": "feygard_shipment:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "feygard_shipment",
+                        "value": "60"
+                    }
+                ]
             }
         ]
     },
@@ -540,9 +576,13 @@
         "replies": [
             {
                 "nextPhraseID": "gandoren_tr_4",
-                "requires": {
-                    "progress": "rogorn:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gandoren_tr_6"

@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "crossroads_sleepguard_2",
-                "requires": {
-                    "progress": "nondisplay:17"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "nondisplay",
+                        "value": "17"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "crossroads_sleepguard_1"
@@ -36,9 +40,13 @@
         "replies": [
             {
                 "nextPhraseID": "crossroads_sleepguard_5",
-                "requires": {
-                    "progress": "farrik:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "crossroads_sleepguard_4"
@@ -205,13 +213,13 @@
             {
                 "text": "Here is the gold, now get out of the way.",
                 "nextPhraseID": "R",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 800,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 800
                     }
-                }
+                ]
             }
         ]
     },

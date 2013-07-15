@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "arghes_2",
-                "requires": {
-                    "progress": "andor:51"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "51"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "arghes_1"

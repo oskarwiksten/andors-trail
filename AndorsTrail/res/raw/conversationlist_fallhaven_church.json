@@ -18,9 +18,13 @@
             {
                 "text": "Are the Bonemeal potions ready yet?",
                 "nextPhraseID": "thoronir_trade_bonemeal",
-                "requires": {
-                    "progress": "bonemeal:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bonemeal",
+                        "value": "100"
+                    }
+                ]
             }
         ]
     },
@@ -31,9 +35,13 @@
             {
                 "text": "Tharal sent me and told me to tell you the password 'Glow of the Shadow'.",
                 "nextPhraseID": "thoronir_tharal_select",
-                "requires": {
-                    "progress": "bonemeal:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bonemeal",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "text": "Shadow be with you.",
@@ -70,9 +78,13 @@
         "replies": [
             {
                 "nextPhraseID": "thoronir_trade_bonemeal",
-                "requires": {
-                    "progress": "bonemeal:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bonemeal",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "thoronir_tharal_1"
@@ -96,9 +108,13 @@
             {
                 "text": "Has anyone entered the catacombs?",
                 "nextPhraseID": "thoronir_church_4",
-                "requires": {
-                    "progress": "bucus:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bucus",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "There was something else I wanted to talk about.",
@@ -154,13 +170,13 @@
             {
                 "text": "I have those bones for you.",
                 "nextPhraseID": "thoronir_tharal_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "bone",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bone",
+                        "value": 5
                     }
-                }
+                ]
             }
         ]
     },

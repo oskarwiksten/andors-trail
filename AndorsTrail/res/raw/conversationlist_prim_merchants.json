@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "prim_armorer_1",
-                "requires": {
-                    "progress": "prim_hunt:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "prim_armorer_2"
@@ -66,9 +70,13 @@
         "replies": [
             {
                 "nextPhraseID": "guthbered_guard_2",
-                "requires": {
-                    "progress": "bwm_agent:130"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "130"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_guard_1"
@@ -124,9 +132,13 @@
         "replies": [
             {
                 "nextPhraseID": "prim_priest_1",
-                "requires": {
-                    "progress": "prim_hunt:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "prim_priest_2"

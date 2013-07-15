@@ -68,9 +68,13 @@
             {
                 "text": "Yes, I killed that lich.",
                 "nextPhraseID": "talion_demon_2",
-                "requires": {
-                    "progress": "darkprotector:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "darkprotector",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "No, I have not killed it yet.",
@@ -286,9 +290,13 @@
             {
                 "text": "Do you know anything about the illness here in Loneford?",
                 "nextPhraseID": "talion_1",
-                "requires": {
-                    "progress": "loneford:11"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "11"
+                    }
+                ]
             },
             {
                 "text": "Do you have anything to trade?",
@@ -337,9 +345,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_r",
-                "requires": {
-                    "progress": "maggots:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_bone_1"
@@ -353,13 +365,13 @@
             {
                 "text": "Here you go.",
                 "nextPhraseID": "talion_bone_2",
-                "requires": {
-                    "item": {
-                        "itemID": "bone",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bone",
+                        "value": 5
                     }
-                }
+                ]
             },
             {
                 "text": "On second thought, I'll be right back.",
@@ -389,9 +401,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_r",
-                "requires": {
-                    "progress": "maggots:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_hair_1"
@@ -405,13 +421,13 @@
             {
                 "text": "Here you go.",
                 "nextPhraseID": "talion_hair_2",
-                "requires": {
-                    "item": {
-                        "itemID": "hair",
-                        "quantity": 2,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "hair",
+                        "value": 2
                     }
-                }
+                ]
             },
             {
                 "text": "On second thought, I'll be right back.",
@@ -441,9 +457,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_r",
-                "requires": {
-                    "progress": "maggots:42"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "42"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_irdegh_1"
@@ -457,13 +477,13 @@
             {
                 "text": "Here you go.",
                 "nextPhraseID": "talion_irdegh_2",
-                "requires": {
-                    "item": {
-                        "itemID": "irdegh",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "irdegh",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "On second thought, I'll be right back.",
@@ -493,9 +513,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_r",
-                "requires": {
-                    "progress": "maggots:43"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "43"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_vial_1"
@@ -509,24 +533,24 @@
             {
                 "text": "Here you go, one small empty vial.",
                 "nextPhraseID": "talion_vial_2",
-                "requires": {
-                    "item": {
-                        "itemID": "vial_empty1",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "vial_empty1",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Here you go, one empty vial.",
                 "nextPhraseID": "talion_vial_2",
-                "requires": {
-                    "item": {
-                        "itemID": "vial_empty2",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "vial_empty2",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "On second thought, I'll be right back.",
@@ -556,9 +580,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_s2",
-                "requires": {
-                    "progress": "maggots:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_infect_31"
@@ -570,9 +598,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_s3",
-                "requires": {
-                    "progress": "maggots:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_infect_31"
@@ -584,9 +616,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_gather_s4",
-                "requires": {
-                    "progress": "maggots:42"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "42"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_infect_31"
@@ -598,9 +634,13 @@
         "replies": [
             {
                 "nextPhraseID": "talion_cure_1",
-                "requires": {
-                    "progress": "maggots:43"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "maggots",
+                        "value": "43"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "talion_infect_31"
@@ -843,13 +883,13 @@
             {
                 "text": "Ok, I'll take it for 300 gold.",
                 "nextPhraseID": "talion_bless_str_2",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 300,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 300
                     }
-                }
+                ]
             },
             {
                 "text": "Never mind, let's go back to those other blessings.",
@@ -864,13 +904,13 @@
             {
                 "text": "Ok, I'll take it for 250 gold.",
                 "nextPhraseID": "talion_bless_heal_2",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 250,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 250
                     }
-                }
+                ]
             },
             {
                 "text": "Never mind, let's go back to those other blessings.",
@@ -885,13 +925,13 @@
             {
                 "text": "Ok, I'll take it for 250 gold.",
                 "nextPhraseID": "talion_bless_acc_2",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 250,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 250
                     }
-                }
+                ]
             },
             {
                 "text": "Never mind, let's go back to those other blessings.",
@@ -906,13 +946,13 @@
             {
                 "text": "Ok, I'll take it for 400 gold.",
                 "nextPhraseID": "talion_bless_guard_2",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 400,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 400
                     }
-                }
+                ]
             },
             {
                 "text": "Never mind, let's go back to those other blessings.",

@@ -6,9 +6,13 @@
             {
                 "text": "I found a note with your name on it while looking for the book 'Calomyran Secrets'.",
                 "nextPhraseID": "larcal_1",
-                "requires": {
-                    "progress": "calomyran:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },

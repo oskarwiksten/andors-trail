@@ -68,9 +68,13 @@
         "replies": [
             {
                 "nextPhraseID": "larni_2",
-                "requires": {
-                    "progress": "fiveidols:42"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "42"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "larni_1"
@@ -94,9 +98,13 @@
         "replies": [
             {
                 "nextPhraseID": "arnal_2",
-                "requires": {
-                    "progress": "fiveidols:43"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "43"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "arnal_1"

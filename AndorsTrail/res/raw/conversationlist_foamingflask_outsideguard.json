@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "ff_outsideguard_trouble_24",
-                "requires": {
-                    "progress": "jolnor:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jolnor",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ff_outsideguard_1"
@@ -48,9 +52,13 @@
             {
                 "text": "Why must you stay alert outside a tavern?",
                 "nextPhraseID": "ff_outsideguard_trouble_1",
-                "requires": {
-                    "progress": "jolnor:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jolnor",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },

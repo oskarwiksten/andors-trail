@@ -4,21 +4,33 @@
         "replies": [
             {
                 "nextPhraseID": "herec_q5",
-                "requires": {
-                    "progress": "bwm_wyrms:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_wyrms",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "herec_q3",
-                "requires": {
-                    "progress": "bwm_wyrms:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_wyrms",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "herec_q1",
-                "requires": {
-                    "progress": "bwm_wyrms:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_wyrms",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "herec_1"
@@ -161,13 +173,13 @@
             {
                 "text": "I have found what you asked for.",
                 "nextPhraseID": "herec_q2",
-                "requires": {
-                    "item": {
-                        "itemID": "bwm_claws",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bwm_claws",
+                        "value": 5
                     }
-                }
+                ]
             }
         ]
     },

@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "mikhail_start_select2",
-                "requires": {
-                    "progress": "mikhail_bread:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_bread",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_bread_continue",
-                "requires": {
-                    "progress": "mikhail_bread:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_bread",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_start_select2"
@@ -24,15 +32,23 @@
         "replies": [
             {
                 "nextPhraseID": "mikhail_start_select_default",
-                "requires": {
-                    "progress": "mikhail_rats:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_rats",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_rats_continue",
-                "requires": {
-                    "progress": "mikhail_rats:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_rats",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_start_select_default"
@@ -44,9 +60,13 @@
         "replies": [
             {
                 "nextPhraseID": "mikhail_visited",
-                "requires": {
-                    "progress": "andor:1"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "1"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_gamestart"
@@ -147,15 +167,23 @@
         "replies": [
             {
                 "nextPhraseID": "mikhail_bread_complete2",
-                "requires": {
-                    "progress": "mikhail_bread:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_bread",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_bread_continue",
-                "requires": {
-                    "progress": "mikhail_bread:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_bread",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_bread_start"
@@ -186,13 +214,13 @@
             {
                 "text": "Yes, here you go.",
                 "nextPhraseID": "mikhail_bread_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "bread",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bread",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "No, not yet.",
@@ -236,15 +264,23 @@
         "replies": [
             {
                 "nextPhraseID": "mikhail_rats_complete2",
-                "requires": {
-                    "progress": "mikhail_rats:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_rats",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_rats_continue",
-                "requires": {
-                    "progress": "mikhail_rats:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "mikhail_rats",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mikhail_rats_start"
@@ -265,13 +301,13 @@
             {
                 "text": "I have already dealt with the rats.",
                 "nextPhraseID": "mikhail_rats_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "tail_trainingrat",
-                        "quantity": 2,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tail_trainingrat",
+                        "value": 2
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, I'll go check out in our garden.",
@@ -306,13 +342,13 @@
             {
                 "text": "Yes, I have dealt with the rats now.",
                 "nextPhraseID": "mikhail_rats_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "tail_trainingrat",
-                        "quantity": 2,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tail_trainingrat",
+                        "value": 2
                     }
-                }
+                ]
             },
             {
                 "text": "No, not yet.",

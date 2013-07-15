@@ -46,9 +46,13 @@
         "replies": [
             {
                 "nextPhraseID": "landa_already_1",
-                "requires": {
-                    "progress": "loneford:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "35"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "landa_1"
@@ -62,9 +66,13 @@
             {
                 "text": "I heard that you saw something that you won't talk about.",
                 "nextPhraseID": "landa_2",
-                "requires": {
-                    "progress": "loneford:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "25"
+                    }
+                ]
             }
         ]
     },

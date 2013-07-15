@@ -28,9 +28,13 @@
         "replies": [
             {
                 "nextPhraseID": "sign_wild16_r",
-                "requires": {
-                    "progress": "kaverin:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_wild16_1"

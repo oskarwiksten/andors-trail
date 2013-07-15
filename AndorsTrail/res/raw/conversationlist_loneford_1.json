@@ -108,9 +108,13 @@
             {
                 "text": "What do you think is the cause of the illness?",
                 "nextPhraseID": "rolwynn_1",
-                "requires": {
-                    "progress": "loneford:11"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "11"
+                    }
+                ]
             },
             {
                 "text": "What's wrong?",
@@ -180,9 +184,13 @@
         "replies": [
             {
                 "nextPhraseID": "loneford_ill_c_2",
-                "requires": {
-                    "progress": "loneford:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "loneford_ill_c_n"
@@ -194,9 +202,13 @@
         "replies": [
             {
                 "nextPhraseID": "loneford_ill_c_3",
-                "requires": {
-                    "progress": "loneford:22"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "22"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "loneford_ill_c_n"
@@ -208,9 +220,13 @@
         "replies": [
             {
                 "nextPhraseID": "loneford_ill_c_4",
-                "requires": {
-                    "progress": "loneford:23"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "23"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "loneford_ill_c_n"
@@ -222,9 +238,13 @@
         "replies": [
             {
                 "nextPhraseID": "loneford_ill_c_5",
-                "requires": {
-                    "progress": "loneford:24"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "24"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "loneford_ill_c_n"

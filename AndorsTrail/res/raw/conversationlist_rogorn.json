@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "rogorn_henchman_atk",
-                "requires": {
-                    "progress": "rogorn:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rogorn_henchman_noatk",
-                "requires": {
-                    "progress": "rogorn:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rogorn_henchman_1"
@@ -42,27 +50,43 @@
         "replies": [
             {
                 "nextPhraseID": "rogorn_completed_1",
-                "requires": {
-                    "progress": "rogorn:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rogorn_attack_1",
-                "requires": {
-                    "progress": "rogorn:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rogorn_story_r_9",
-                "requires": {
-                    "progress": "rogorn:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rogorn_toldstory_1",
-                "requires": {
-                    "progress": "rogorn:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "35"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "rogorn_first_1"
@@ -134,9 +158,13 @@
             {
                 "text": "I am looking for a group of men led by someone by the name of Rogorn. Are you him?",
                 "nextPhraseID": "rogorn_story_1",
-                "requires": {
-                    "progress": "rogorn:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "rogorn",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "text": "Just looking for any treasure that might reveal itself here.",

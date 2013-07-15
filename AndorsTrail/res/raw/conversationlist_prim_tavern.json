@@ -122,13 +122,13 @@
             {
                 "text": "Sure. Here you go.",
                 "nextPhraseID": "prim_tavern_guest2_1",
-                "requires": {
-                    "item": {
-                        "itemID": "mead",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "mead",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },

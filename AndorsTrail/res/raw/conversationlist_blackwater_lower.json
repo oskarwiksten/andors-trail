@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "laede_1",
-                "requires": {
-                    "progress": "bwm_agent:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "laede_3"
@@ -43,9 +47,13 @@
         "replies": [
             {
                 "nextPhraseID": "iducus_1",
-                "requires": {
-                    "progress": "bwm_agent:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "iducus_2"
@@ -155,9 +163,13 @@
         "replies": [
             {
                 "nextPhraseID": "blackwater_bossguard_2",
-                "requires": {
-                    "progress": "prim_hunt:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "blackwater_bossguard_1"
@@ -177,15 +189,23 @@
         "replies": [
             {
                 "nextPhraseID": "blackwater_throneguard_5",
-                "requires": {
-                    "progress": "bwm_agent:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "blackwater_throneguard_5",
-                "requires": {
-                    "progress": "prim_hunt:140"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "140"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "blackwater_throneguard_1"
@@ -199,13 +219,13 @@
             {
                 "text": "Here, I have a written permit to enter.",
                 "nextPhraseID": "blackwater_throneguard_3",
-                "requires": {
-                    "item": {
-                        "itemID": "bwm_permit",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bwm_permit",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },

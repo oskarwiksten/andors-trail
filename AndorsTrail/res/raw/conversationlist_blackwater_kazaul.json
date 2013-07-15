@@ -10,9 +10,13 @@
             {
                 "text": "Kazaul, destroyer of bright dreams.",
                 "nextPhraseID": "kazaul_guardian_2",
-                "requires": {
-                    "progress": "kazaul:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },
@@ -60,9 +64,13 @@
         "replies": [
             {
                 "nextPhraseID": "sign_kazaul_1",
-                "requires": {
-                    "progress": "kazaul:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_kazaul_3"
@@ -104,13 +112,13 @@
             {
                 "text": "Apply the vial of purifying spirit on the formation.",
                 "nextPhraseID": "sign_kazaul_5",
-                "requires": {
-                    "item": {
-                        "itemID": "q_kazaul_vial",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "q_kazaul_vial",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },

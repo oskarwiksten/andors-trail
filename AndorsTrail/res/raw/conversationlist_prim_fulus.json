@@ -25,9 +25,13 @@
         "replies": [
             {
                 "nextPhraseID": "sign_bwm35_1",
-                "requires": {
-                    "progress": "bjorgur_grave:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_bwm35_2"
@@ -45,13 +49,13 @@
             {
                 "text": "Place the dagger back into its original place.",
                 "nextPhraseID": "sign_bwm35_3",
-                "requires": {
-                    "item": {
-                        "itemID": "bjorgur_dagger",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bjorgur_dagger",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },
@@ -71,21 +75,33 @@
         "replies": [
             {
                 "nextPhraseID": "fulus_return_1",
-                "requires": {
-                    "progress": "bjorgur_grave:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fulus_return_3",
-                "requires": {
-                    "progress": "bjorgur_grave:51"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "51"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fulus_return_2",
-                "requires": {
-                    "progress": "bjorgur_grave:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fulus_1"
@@ -107,9 +123,13 @@
             {
                 "text": "I decided to help Bjorgur instead.",
                 "nextPhraseID": "fulus_return_3",
-                "requires": {
-                    "progress": "bjorgur_grave:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "text": "What was I supposed to do again?",
@@ -118,13 +138,13 @@
             {
                 "text": "Yes. Here it is.",
                 "nextPhraseID": "fulus_complete_1",
-                "requires": {
-                    "item": {
-                        "itemID": "bjorgur_dagger",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bjorgur_dagger",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },
@@ -225,9 +245,13 @@
             {
                 "text": "I have already helped Bjorgur return the dagger to its original place.",
                 "nextPhraseID": "fulus_return_3",
-                "requires": {
-                    "progress": "bjorgur_grave:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },
@@ -270,9 +294,13 @@
             {
                 "text": "I have already helped Bjorgur return the dagger to its original place.",
                 "nextPhraseID": "fulus_return_3",
-                "requires": {
-                    "progress": "bjorgur_grave:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },

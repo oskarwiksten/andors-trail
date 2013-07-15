@@ -34,27 +34,43 @@
         "replies": [
             {
                 "nextPhraseID": "hadracor_complete_1",
-                "requires": {
-                    "progress": "hadracor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "hadracor",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hadracor_gaveitems_1",
-                "requires": {
-                    "progress": "hadracor:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "hadracor",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hadracor_gaveitems_1",
-                "requires": {
-                    "progress": "hadracor:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "hadracor",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hadracor_wantsitems_1",
-                "requires": {
-                    "progress": "hadracor:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "hadracor",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hadracor_1"
@@ -208,9 +224,13 @@
         "replies": [
             {
                 "nextPhraseID": "hadracor_accept_1_1",
-                "requires": {
-                    "progress": "hadracor:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "hadracor",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hadracor_story_12"
@@ -311,24 +331,24 @@
             {
                 "text": "Yes, I killed six of them.",
                 "nextPhraseID": "hadracor_wantsitems_3",
-                "requires": {
-                    "item": {
-                        "itemID": "hadracor_waspwing",
-                        "quantity": 6,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "hadracor_waspwing",
+                        "value": 6
                     }
-                }
+                ]
             },
             {
                 "text": "Yes, I killed five of them.",
                 "nextPhraseID": "hadracor_wantsitems_2",
-                "requires": {
-                    "item": {
-                        "itemID": "hadracor_waspwing",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "hadracor_waspwing",
+                        "value": 5
                     }
-                }
+                ]
             }
         ]
     },

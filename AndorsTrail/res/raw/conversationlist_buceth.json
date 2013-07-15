@@ -4,33 +4,53 @@
         "replies": [
             {
                 "nextPhraseID": "buceth_complete_1",
-                "requires": {
-                    "progress": "loneford:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "buceth_fight_1",
-                "requires": {
-                    "progress": "loneford:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "buceth_story_3",
-                "requires": {
-                    "progress": "loneford:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "buceth_follow_1",
-                "requires": {
-                    "progress": "loneford:42"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "42"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "buceth_bribed_1",
-                "requires": {
-                    "progress": "loneford:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "buceth_1"
@@ -64,9 +84,13 @@
             {
                 "text": "I know of your business at the well the night after the illness broke out.",
                 "nextPhraseID": "buceth_2",
-                "requires": {
-                    "progress": "loneford:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "35"
+                    }
+                ]
             },
             {
                 "text": "Can you tell me more about the Shadow?",
@@ -119,68 +143,68 @@
             {
                 "text": "Here's 10 gold, take it.",
                 "nextPhraseID": "buceth_gold_no",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "Here's 100 gold, take it.",
                 "nextPhraseID": "buceth_gold_no",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 100,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 100
                     }
-                }
+                ]
             },
             {
                 "text": "Here's 250 gold, take it.",
                 "nextPhraseID": "buceth_gold_no",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 250,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 250
                     }
-                }
+                ]
             },
             {
                 "text": "Here's 500 gold, take it.",
                 "nextPhraseID": "buceth_gold_no",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 500,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 500
                     }
-                }
+                ]
             },
             {
                 "text": "Here's 1000 gold, take it.",
                 "nextPhraseID": "buceth_gold_yes",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 1000,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 1000
                     }
-                }
+                ]
             },
             {
                 "text": "Here's 2000 gold, take it.",
                 "nextPhraseID": "buceth_gold_yes",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 2000,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 2000
                     }
-                }
+                ]
             }
         ]
     },

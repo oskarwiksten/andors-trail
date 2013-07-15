@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "fallhaven_oldman_complete_2",
-                "requires": {
-                    "progress": "calomyran:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_oldman_continue",
-                "requires": {
-                    "progress": "calomyran:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "fallhaven_oldman_1"
@@ -101,13 +109,13 @@
             {
                 "text": "Yes, I found it.",
                 "nextPhraseID": "fallhaven_oldman_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "calomyran_secrets",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "calomyran_secrets",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "No, I have not found it yet.",

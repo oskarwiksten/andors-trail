@@ -4,21 +4,33 @@
         "replies": [
             {
                 "nextPhraseID": "vacor_return_complete0",
-                "requires": {
-                    "progress": "vacor:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vacor_return2",
-                "requires": {
-                    "progress": "vacor:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vacor_42",
-                "requires": {
-                    "progress": "vacor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vacor_select1"
@@ -30,9 +42,13 @@
         "replies": [
             {
                 "nextPhraseID": "vacor_return1",
-                "requires": {
-                    "progress": "vacor:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vacor_begin"
@@ -280,13 +296,13 @@
             {
                 "text": "I have found all the pieces.",
                 "nextPhraseID": "vacor_40",
-                "requires": {
-                    "item": {
-                        "itemID": "vacor_spell",
-                        "quantity": 4,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "vacor_spell",
+                        "value": 4
                     }
-                }
+                ]
             },
             {
                 "text": "What was I supposed to do again?",
@@ -447,20 +463,24 @@
             {
                 "text": "I have dealt with him. Here is his ring.",
                 "nextPhraseID": "vacor_60",
-                "requires": {
-                    "item": {
-                        "itemID": "ring_unzel",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "ring_unzel",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "I listened to Unzel's story and have decided to side with him. The Shadow must be preserved.",
                 "nextPhraseID": "vacor_70",
-                "requires": {
-                    "progress": "vacor:51"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "51"
+                    }
+                ]
             }
         ]
     },
@@ -526,26 +546,38 @@
         "replies": [
             {
                 "nextPhraseID": "vacor_msg_16",
-                "requires": {
-                    "progress": "kaverin:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vacor_msg_9",
-                "requires": {
-                    "progress": "kaverin:75"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "75"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vacor_msg1",
-                "requires": {
-                    "progress": "kaverin:60",
-                    "item": {
-                        "itemID": "kaverin_message",
-                        "quantity": 1,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "60"
+                    },
+                    {
+                        "requireType": 2,
+                        "requireID": "kaverin_message",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "nextPhraseID": "vacor_return_complete"

@@ -6,9 +6,13 @@
             {
                 "text": "Do you know anything about the illness?",
                 "nextPhraseID": "taevinn_1",
-                "requires": {
-                    "progress": "loneford:11"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "11"
+                    }
+                ]
             },
             {
                 "text": "What's wrong?",

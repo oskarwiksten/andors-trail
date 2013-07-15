@@ -68,9 +68,13 @@
             {
                 "text": "I have some Izthiel claws to sell you.",
                 "nextPhraseID": "gauward_sell_1",
-                "requires": {
-                    "progress": "nondisplay:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "nondisplay",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -152,46 +156,46 @@
             {
                 "text": "Here's one.",
                 "nextPhraseID": "gauward_sold_1",
-                "requires": {
-                    "item": {
-                        "itemID": "izthiel_claw",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "izthiel_claw",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Here's five.",
                 "nextPhraseID": "gauward_sold_5",
-                "requires": {
-                    "item": {
-                        "itemID": "izthiel_claw",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "izthiel_claw",
+                        "value": 5
                     }
-                }
+                ]
             },
             {
                 "text": "Here's ten.",
                 "nextPhraseID": "gauward_sold_10",
-                "requires": {
-                    "item": {
-                        "itemID": "izthiel_claw",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "izthiel_claw",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "Here's twenty.",
                 "nextPhraseID": "gauward_sold_20",
-                "requires": {
-                    "item": {
-                        "itemID": "izthiel_claw",
-                        "quantity": 20,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "izthiel_claw",
+                        "value": 20
                     }
-                }
+                ]
             },
             {
                 "text": "Never mind. I will be back with more Izthiel claws to sell you.",

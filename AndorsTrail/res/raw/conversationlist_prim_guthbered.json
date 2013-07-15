@@ -4,69 +4,113 @@
         "replies": [
             {
                 "nextPhraseID": "guthbered_sentbybwm_leave",
-                "requires": {
-                    "progress": "bwm_agent:131"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "131"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_sentbybwm_fight",
-                "requires": {
-                    "progress": "bwm_agent:130"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "130"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_sentbybwm_1",
-                "requires": {
-                    "progress": "bwm_agent:120"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "120"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_reject",
-                "requires": {
-                    "progress": "prim_hunt:251"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "251"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_reject",
-                "requires": {
-                    "progress": "prim_hunt:250"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "250"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_completed",
-                "requires": {
-                    "progress": "prim_hunt:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_killharl_2",
-                "requires": {
-                    "progress": "prim_hunt:99"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "99"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_workingforbwm_2",
-                "requires": {
-                    "progress": "bwm_agent:95"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "95"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_killharl_1",
-                "requires": {
-                    "progress": "prim_hunt:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_lookforsigns_1",
-                "requires": {
-                    "progress": "prim_hunt:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_return_1_1",
-                "requires": {
-                    "progress": "prim_hunt:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "guthbered_1"
@@ -80,9 +124,13 @@
             {
                 "text": "I am here to give you a message from the Blackwater Mountain settlement.",
                 "nextPhraseID": "guthbered_attacks",
-                "requires": {
-                    "progress": "bwm_agent:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "70"
+                    }
+                ]
             }
         ]
     },
@@ -126,16 +174,24 @@
             {
                 "text": "Yes, but Harlenn denies that they have anything to do with the attacks.",
                 "nextPhraseID": "guthbered_talkedto_harl_1",
-                "requires": {
-                    "progress": "prim_hunt:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "text": "Actually, I am here to give you a message from the Blackwater Mountain settlement.",
                 "nextPhraseID": "guthbered_attacks",
-                "requires": {
-                    "progress": "bwm_agent:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "70"
+                    }
+                ]
             }
         ]
     },
@@ -154,16 +210,24 @@
             {
                 "text": "I was told to see you about helping against the monster attacks.",
                 "nextPhraseID": "guthbered_20",
-                "requires": {
-                    "progress": "prim_hunt:11"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "11"
+                    }
+                ]
             },
             {
                 "text": "Actually, I am here to give you a message from the Blackwater Mountain settlement.",
                 "nextPhraseID": "guthbered_attacks",
-                "requires": {
-                    "progress": "bwm_agent:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "70"
+                    }
+                ]
             }
         ]
     },
@@ -319,9 +383,13 @@
             {
                 "text": "I was told to see you about helping against the monster attacks.",
                 "nextPhraseID": "guthbered_20",
-                "requires": {
-                    "progress": "prim_hunt:11"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "11"
+                    }
+                ]
             }
         ]
     },
@@ -629,9 +697,13 @@
             {
                 "text": "(Lie) You can trust me.",
                 "nextPhraseID": "guthbered_talkedto_harl_7",
-                "requires": {
-                    "progress": "bwm_agent:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "70"
+                    }
+                ]
             }
         ]
     },
@@ -736,9 +808,13 @@
             {
                 "text": "Yes, I found some papers with a plan to attack Prim.",
                 "nextPhraseID": "guthbered_lookforsigns_2",
-                "requires": {
-                    "progress": "prim_hunt:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "60"
+                    }
+                ]
             }
         ]
     },
@@ -1032,20 +1108,24 @@
             {
                 "text": "Yes, he is dead.",
                 "nextPhraseID": "guthbered_killharl_2",
-                "requires": {
-                    "item": {
-                        "itemID": "harlenn_id",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "harlenn_id",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Yes, he is gone.",
                 "nextPhraseID": "guthbered_killharl_3",
-                "requires": {
-                    "progress": "prim_hunt:91"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_hunt",
+                        "value": "91"
+                    }
+                ]
             }
         ]
     },

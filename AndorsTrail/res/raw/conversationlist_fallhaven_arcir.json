@@ -6,9 +6,13 @@
             {
                 "text": "I noticed your statue of Elythara downstairs.",
                 "nextPhraseID": "arcir_elythara_1",
-                "requires": {
-                    "progress": "arcir:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "arcir",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "You really seem to like your books.",
@@ -23,9 +27,13 @@
             {
                 "text": "I noticed your statue of Elythara downstairs.",
                 "nextPhraseID": "arcir_elythara_1",
-                "requires": {
-                    "progress": "arcir:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "arcir",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "You really seem to like your books.",
@@ -50,9 +58,13 @@
             {
                 "text": "Do you have a book called 'Calomyran Secrets'?",
                 "nextPhraseID": "arcir_calomyran_select",
-                "requires": {
-                    "progress": "calomyran:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "Okay.",
@@ -115,15 +127,23 @@
         "replies": [
             {
                 "nextPhraseID": "arcir_calomyran_complete",
-                "requires": {
-                    "progress": "calomyran:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "arcir_calomyran_5",
-                "requires": {
-                    "progress": "calomyran:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "calomyran",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "arcir_calomyran_1"

@@ -32,9 +32,13 @@
         "replies": [
             {
                 "nextPhraseID": "carthe_1",
-                "requires": {
-                    "progress": "fiveidols:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "carthe_2"

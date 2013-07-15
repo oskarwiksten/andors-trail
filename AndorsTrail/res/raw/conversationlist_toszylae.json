@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "toszylae_10",
-                "requires": {
-                    "progress": "toszylae:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "toszylae",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "toszylae_1"
@@ -135,9 +139,13 @@
         "replies": [
             {
                 "nextPhraseID": "sign_toszylae_2",
-                "requires": {
-                    "progress": "darkprotector:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "darkprotector",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "sign_toszylae_1"

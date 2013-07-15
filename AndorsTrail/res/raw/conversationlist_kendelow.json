@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "kendelow_1",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kendelow_2"
@@ -96,9 +100,13 @@
         "replies": [
             {
                 "nextPhraseID": "kendelow_room_2",
-                "requires": {
-                    "progress": "nondisplay:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "nondisplay",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kendelow_room_3"
@@ -144,13 +152,13 @@
             {
                 "text": "I'll take it. Here is the gold.",
                 "nextPhraseID": "kendelow_room_8",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 600,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 600
                     }
-                }
+                ]
             },
             {
                 "text": "I don't have that much gold.",
@@ -163,9 +171,13 @@
         "replies": [
             {
                 "nextPhraseID": "kendelow_room_6b",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kendelow_room_6a"
@@ -179,13 +191,13 @@
             {
                 "text": "I'll take it. Here is the gold.",
                 "nextPhraseID": "kendelow_room_8",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 600,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 600
                     }
-                }
+                ]
             },
             {
                 "text": "I don't have that much gold.",
@@ -200,13 +212,13 @@
             {
                 "text": "I'll take it. Here is the gold.",
                 "nextPhraseID": "kendelow_room_8",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 400,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 400
                     }
-                }
+                ]
             },
             {
                 "text": "I don't have that much gold.",

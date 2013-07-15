@@ -10,9 +10,13 @@
             {
                 "text": "I am sent by Vacor to kill you.",
                 "nextPhraseID": "unzel_3",
-                "requires": {
-                    "progress": "vacor:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },
@@ -142,9 +146,13 @@
         "replies": [
             {
                 "nextPhraseID": "unzel_16_2",
-                "requires": {
-                    "progress": "vacor:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "unzel_16_1"
@@ -240,13 +248,13 @@
             {
                 "text": "Yes, I have dealt with him.",
                 "nextPhraseID": "unzel_30",
-                "requires": {
-                    "item": {
-                        "itemID": "ring_vacor",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "ring_vacor",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "No, not yet.",
@@ -286,14 +294,18 @@
             {
                 "text": "I have a message for you from Kaverin in Remgard.",
                 "nextPhraseID": "unzel_msg1",
-                "requires": {
-                    "progress": "kaverin:25",
-                    "item": {
-                        "itemID": "kaverin_message",
-                        "quantity": 1,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "25"
+                    },
+                    {
+                        "requireType": 2,
+                        "requireID": "kaverin_message",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },
@@ -302,21 +314,33 @@
         "replies": [
             {
                 "nextPhraseID": "unzel_msg_r0",
-                "requires": {
-                    "progress": "kaverin:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "unzel_40",
-                "requires": {
-                    "progress": "vacor:61"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "61"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "unzel_return_1",
-                "requires": {
-                    "progress": "vacor:51"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "51"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "unzel_1"

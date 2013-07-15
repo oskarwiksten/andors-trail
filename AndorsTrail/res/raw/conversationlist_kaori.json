@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "kaori_default_1",
-                "requires": {
-                    "progress": "kaori:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaori",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaori_return_1",
-                "requires": {
-                    "progress": "kaori:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaori",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaori_1"
@@ -30,9 +38,13 @@
             {
                 "text": "Jolnor asked me to talk to you.",
                 "nextPhraseID": "kaori_3",
-                "requires": {
-                    "progress": "kaori:5"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaori",
+                        "value": "5"
+                    }
+                ]
             }
         ]
     },
@@ -175,13 +187,13 @@
             {
                 "text": "I already have some of those potions with me that you can have",
                 "nextPhraseID": "kaori_20",
-                "requires": {
-                    "item": {
-                        "itemID": "bonemeal_potion",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bonemeal_potion",
+                        "value": 10
                     }
-                }
+                ]
             }
         ]
     },
@@ -196,13 +208,13 @@
             {
                 "text": "Yes, I brought your potions.",
                 "nextPhraseID": "kaori_20",
-                "requires": {
-                    "item": {
-                        "itemID": "bonemeal_potion",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bonemeal_potion",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "No. If they are banned, there is most likely a good reason behind it. You shouldn't use them.",

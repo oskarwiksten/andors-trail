@@ -72,9 +72,13 @@
             {
                 "text": "Farrik said you can prepare me a round of special mead.",
                 "nextPhraseID": "thievesguild_select_1",
-                "requires": {
-                    "progress": "farrik:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -151,9 +155,13 @@
         "replies": [
             {
                 "nextPhraseID": "thievesguild_cook_10",
-                "requires": {
-                    "progress": "farrik:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "thievesguild_cook_5"

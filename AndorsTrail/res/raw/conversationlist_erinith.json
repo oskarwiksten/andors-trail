@@ -4,45 +4,73 @@
         "replies": [
             {
                 "nextPhraseID": "erinith_complete_1",
-                "requires": {
-                    "progress": "erinith:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_givenpotion_1",
-                "requires": {
-                    "progress": "erinith:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_givenpotion_1",
-                "requires": {
-                    "progress": "erinith:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_givenpotion_1",
-                "requires": {
-                    "progress": "erinith:42"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "42"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_needspotions_1",
-                "requires": {
-                    "progress": "erinith:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_needsbook_1",
-                "requires": {
-                    "progress": "erinith:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_needsbook_1",
-                "requires": {
-                    "progress": "erinith:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_1"
@@ -209,13 +237,13 @@
             {
                 "text": "Yes, here is your book.",
                 "nextPhraseID": "erinith_needsbook_2",
-                "requires": {
-                    "item": {
-                        "itemID": "erinith_book",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "erinith_book",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },
@@ -231,9 +259,13 @@
         "replies": [
             {
                 "nextPhraseID": "erinith_needsbook_3_2",
-                "requires": {
-                    "progress": "erinith:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "erinith",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "erinith_needsbook_3_1"
@@ -334,46 +366,46 @@
             {
                 "text": "Here, take this bonemeal potion instead. It's very potent in healing deep wounds.",
                 "nextPhraseID": "erinith_gavepotion_bm_1",
-                "requires": {
-                    "item": {
-                        "itemID": "bonemeal_potion",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bonemeal_potion",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Here, take this potion of major health.",
                 "nextPhraseID": "erinith_gavepotion_major_1",
-                "requires": {
-                    "item": {
-                        "itemID": "health_major2",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "health_major2",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Here, take this potion of major health.",
                 "nextPhraseID": "erinith_gavepotion_major_1",
-                "requires": {
-                    "item": {
-                        "itemID": "health_major",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "health_major",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Here, take these four regular potions of health.",
                 "nextPhraseID": "erinith_gavepotion_reg_1",
-                "requires": {
-                    "item": {
-                        "itemID": "health",
-                        "quantity": 4,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "health",
+                        "value": 4
                     }
-                }
+                ]
             }
         ]
     },

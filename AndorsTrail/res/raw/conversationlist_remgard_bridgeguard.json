@@ -4,27 +4,43 @@
         "replies": [
             {
                 "nextPhraseID": "remgardb_helped_1",
-                "requires": {
-                    "progress": "remgard:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "35"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "remgardb_helped_n",
-                "requires": {
-                    "progress": "remgard:31"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "31"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "remgardb_helped_y",
-                "requires": {
-                    "progress": "remgard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "remgardb_help_return",
-                "requires": {
-                    "progress": "remgard:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "remgardb_1"
@@ -216,9 +232,13 @@
         "replies": [
             {
                 "nextPhraseID": "X",
-                "requires": {
-                    "progress": "remgard:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "remgardb_help_9"
@@ -244,16 +264,24 @@
             {
                 "text": "Actually, I have already been there. There is a woman called Algangror in the cabin.",
                 "nextPhraseID": "remgardb_helped_y",
-                "requires": {
-                    "progress": "algangror:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "Actually, I have already been there, but the cabin was empty.",
                 "nextPhraseID": "remgardb_helped_n",
-                "requires": {
-                    "progress": "algangror:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },
@@ -287,16 +315,24 @@
             {
                 "text": "There is a woman called Algangror in the cabin.",
                 "nextPhraseID": "remgardb_helped_y",
-                "requires": {
-                    "progress": "algangror:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "Yes, I have been there, but the cabin was empty.",
                 "nextPhraseID": "remgardb_helped_n",
-                "requires": {
-                    "progress": "algangror:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "algangror",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },

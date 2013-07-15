@@ -4,27 +4,43 @@
         "replies": [
             {
                 "nextPhraseID": "throdna_purify_4",
-                "requires": {
-                    "progress": "kazaul:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_purify_1",
-                "requires": {
-                    "progress": "kazaul:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_return_3",
-                "requires": {
-                    "progress": "kazaul:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_return_1",
-                "requires": {
-                    "progress": "kazaul:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_1"
@@ -304,9 +320,13 @@
             {
                 "text": "Yes, I think I have found them all.",
                 "nextPhraseID": "throdna_check_1",
-                "requires": {
-                    "progress": "kazaul:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "21"
+                    }
+                ]
             }
         ]
     },
@@ -336,9 +356,13 @@
         "replies": [
             {
                 "nextPhraseID": "X",
-                "requires": {
-                    "progress": "kazaul:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_16"
@@ -350,9 +374,13 @@
         "replies": [
             {
                 "nextPhraseID": "throdna_check_2",
-                "requires": {
-                    "progress": "kazaul:22"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "22"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_check_fail"
@@ -364,9 +392,13 @@
         "replies": [
             {
                 "nextPhraseID": "throdna_check_3",
-                "requires": {
-                    "progress": "kazaul:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_check_fail"
@@ -378,9 +410,13 @@
         "replies": [
             {
                 "nextPhraseID": "throdna_check_4",
-                "requires": {
-                    "progress": "kazaul:26"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "26"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_check_fail"
@@ -392,9 +428,13 @@
         "replies": [
             {
                 "nextPhraseID": "throdna_return_3",
-                "requires": {
-                    "progress": "kazaul:27"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "27"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_check_fail"
@@ -501,9 +541,13 @@
         "replies": [
             {
                 "nextPhraseID": "throdna_return_13",
-                "requires": {
-                    "progress": "kazaul:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "throdna_return_11"
@@ -560,9 +604,13 @@
             {
                 "text": "Yes, it is done.",
                 "nextPhraseID": "throdna_purify_3",
-                "requires": {
-                    "progress": "kazaul:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kazaul",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "text": "No, not yet.",

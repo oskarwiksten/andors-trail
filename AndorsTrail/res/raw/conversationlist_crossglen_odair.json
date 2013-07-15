@@ -14,15 +14,23 @@
         "replies": [
             {
                 "nextPhraseID": "odair_complete2",
-                "requires": {
-                    "progress": "odair:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "odair",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "odair_continue",
-                "requires": {
-                    "progress": "odair:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "odair",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "odair2"
@@ -109,13 +117,13 @@
             {
                 "text": "Yes, I have killed the large rat.",
                 "nextPhraseID": "odair_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "tail_caverat",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tail_caverat",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "What was I supposed to do again?",

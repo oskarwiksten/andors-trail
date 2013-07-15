@@ -22,9 +22,13 @@
         "replies": [
             {
                 "nextPhraseID": "tharwyn_1",
-                "requires": {
-                    "progress": "vilegard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "vilegard_shop_notrust"

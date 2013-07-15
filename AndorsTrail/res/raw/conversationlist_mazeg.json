@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "mazeg_1",
-                "requires": {
-                    "progress": "bwm_agent:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mazeg_2"
@@ -24,9 +28,13 @@
             {
                 "text": "I am looking for some Lyson marrow extract, for Hjaldar in Remgard.",
                 "nextPhraseID": "mazeg_e_1",
-                "requires": {
-                    "progress": "sisterfight:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "45"
+                    }
+                ]
             }
         ]
     },
@@ -41,9 +49,13 @@
             {
                 "text": "I am looking for some Lyson marrow extract, for Hjaldar in Remgard.",
                 "nextPhraseID": "mazeg_e_1",
-                "requires": {
-                    "progress": "sisterfight:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "45"
+                    }
+                ]
             }
         ]
     },
@@ -52,21 +64,33 @@
         "replies": [
             {
                 "nextPhraseID": "mazeg_d",
-                "requires": {
-                    "progress": "sisterfight:55"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "55"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mazeg_e_5b",
-                "requires": {
-                    "progress": "sisterfight:51"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "51"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mazeg_e_5b",
-                "requires": {
-                    "progress": "sisterfight:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mazeg_e_2"
@@ -136,9 +160,13 @@
         "replies": [
             {
                 "nextPhraseID": "mazeg_e_7a",
-                "requires": {
-                    "progress": "bwm_agent:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "mazeg_e_7b"
@@ -159,13 +187,13 @@
             {
                 "text": "Here is 400 gold.",
                 "nextPhraseID": "mazeg_e_9",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 400,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 400
                     }
-                }
+                ]
             },
             {
                 "text": "Ouch, that much?! Is there anything you can do to lower the price?",
@@ -184,13 +212,13 @@
             {
                 "text": "Here is 400 gold.",
                 "nextPhraseID": "mazeg_e_9",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 400,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 400
                     }
-                }
+                ]
             },
             {
                 "text": "I'll return when I have the gold for it.",
@@ -212,13 +240,13 @@
             {
                 "text": "Here is 800 gold.",
                 "nextPhraseID": "mazeg_e_9",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 800,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 800
                     }
-                }
+                ]
             },
             {
                 "text": "Ouch, that much?! Is there anything you can do to lower the price?",
@@ -237,13 +265,13 @@
             {
                 "text": "Here is 800 gold.",
                 "nextPhraseID": "mazeg_e_9",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 800,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 800
                     }
-                }
+                ]
             },
             {
                 "text": "I'll return when I have the gold for it.",

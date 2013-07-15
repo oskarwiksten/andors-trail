@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "bwm_agent_3_4",
-                "requires": {
-                    "progress": "bwm_agent:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bwm_agent_3_1"
@@ -20,9 +24,13 @@
             {
                 "text": "I talked to some people in the village Prim. They had some interesting things to say about Blackwater mountain.",
                 "nextPhraseID": "bwm_agent_3_5",
-                "requires": {
-                    "progress": "bwm_agent:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "text": "I went east, as you said.",

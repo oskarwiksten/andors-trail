@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "ervelyn_gave1",
-                "requires": {
-                    "progress": "remgard2:46"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "46"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ervelyn_give1",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "ervelyn_1"

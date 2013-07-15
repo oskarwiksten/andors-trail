@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "jan_complete2",
-                "requires": {
-                    "progress": "jan:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jan",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jan_return",
-                "requires": {
-                    "progress": "jan:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jan",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jan_default"
@@ -219,13 +227,13 @@
             {
                 "text": "Yes, I have killed Irogotu.",
                 "nextPhraseID": "jan_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "ring_gandir",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "ring_gandir",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },
@@ -289,9 +297,13 @@
             {
                 "text": "Did you kill Gandir?",
                 "nextPhraseID": "irogotu1",
-                "requires": {
-                    "progress": "jan:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "jan",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },

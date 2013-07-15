@@ -4,21 +4,33 @@
         "replies": [
             {
                 "nextPhraseID": "benbyr_declined",
-                "requires": {
-                    "progress": "benbyr:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "benbyr_complete_1",
-                "requires": {
-                    "progress": "benbyr:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "benbyr_mission_1",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "benbyr_story_1"
@@ -154,9 +166,13 @@
         "replies": [
             {
                 "nextPhraseID": "benbyr_story_10",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "benbyr_story_9"
@@ -212,9 +228,13 @@
         "replies": [
             {
                 "nextPhraseID": "benbyr_accept_2",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "benbyr_story_13"
@@ -309,13 +329,13 @@
             {
                 "text": "I have slain all eight of Tinlyn's sheep for you.",
                 "nextPhraseID": "benbyr_mission_2",
-                "requires": {
-                    "item": {
-                        "itemID": "tinlyn_sheep_meat",
-                        "quantity": 8,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tinlyn_sheep_meat",
+                        "value": 8
                     }
-                }
+                ]
             }
         ]
     },

@@ -10,9 +10,13 @@
             {
                 "text": "What can you tell me about Bonemeal?",
                 "nextPhraseID": "tharal_bonemeal_select",
-                "requires": {
-                    "progress": "bonemeal:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bonemeal",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "Do you have anything to help against food-poisoning?",
@@ -25,9 +29,13 @@
         "replies": [
             {
                 "nextPhraseID": "tharal_bonemeal4",
-                "requires": {
-                    "progress": "bonemeal:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bonemeal",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tharal_bonemeal1"
@@ -68,13 +76,13 @@
             {
                 "text": "Here, I have the insect wings.",
                 "nextPhraseID": "tharal_bonemeal3",
-                "requires": {
-                    "item": {
-                        "itemID": "insectwing",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "insectwing",
+                        "value": 5
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, I'll bring them.",
@@ -139,30 +147,30 @@
             }
         ]
     },
-  {
-    "id": "tharal_antifoodp1",
-    "replies": [
-      {
-        "text": "N",
-        "nextPhraseID": "tharal_antifoodp2"
-      }
-    ],
-    "message": "No, sorry. I hear that the potion-maker in Fallhaven can create something to help against that though."
-  },
-  {
-    "id": "tharal_antifoodp2",
-    "rewards": [
-      {
-        "rewardID": "antifoodp",
-        "value": 10
-      }
-    ],
-    "replies": [
-      {
-        "text": "Thanks, I'll go see him.",
-        "nextPhraseID": "tharal1"
-      }
-    ],
-    "message": "You should go see him and ask if he has anything to help against that. He can probably help you."
-  }
+    {
+        "id": "tharal_antifoodp1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharal_antifoodp2"
+            }
+        ],
+        "message": "No, sorry. I hear that the potion-maker in Fallhaven can create something to help against that though."
+    },
+    {
+        "id": "tharal_antifoodp2",
+        "rewards": [
+            {
+                "rewardID": "antifoodp",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thanks, I'll go see him.",
+                "nextPhraseID": "tharal1"
+            }
+        ],
+        "message": "You should go see him and ask if he has anything to help against that. He can probably help you."
+    }
 ]

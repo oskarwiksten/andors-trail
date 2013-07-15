@@ -10,9 +10,13 @@
             {
                 "text": "I was told to see you.",
                 "nextPhraseID": "ogam_2",
-                "requires": {
-                    "progress": "lodar:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "lodar",
+                        "value": "15"
+                    }
+                ]
             }
         ]
     },
@@ -31,9 +35,13 @@
             {
                 "text": "Hello? Umar in the Fallhaven Thieves' Guild sent me to see you.",
                 "nextPhraseID": "ogam_3",
-                "requires": {
-                    "progress": "lodar:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "lodar",
+                        "value": "15"
+                    }
+                ]
             }
         ]
     },
@@ -68,9 +76,13 @@
             {
                 "text": "Hello? Do you know how I can reach Lodar's hideaway?",
                 "nextPhraseID": "ogam_lodar_1",
-                "requires": {
-                    "progress": "lodar:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "lodar",
+                        "value": "15"
+                    }
+                ]
             },
             {
                 "text": "I don't understand.",
@@ -113,9 +125,13 @@
             {
                 "text": "Hello? Do you know how I can reach Lodar's hideaway?",
                 "nextPhraseID": "ogam_lodar_2",
-                "requires": {
-                    "progress": "lodar:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "lodar",
+                        "value": "15"
+                    }
+                ]
             }
         ]
     },
@@ -151,9 +167,13 @@
             {
                 "text": "'Glow of the Shadow'? I recognize that from somewhere.",
                 "nextPhraseID": "ogam_lodar_4",
-                "requires": {
-                    "progress": "bonemeal:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bonemeal",
+                        "value": "30"
+                    }
+                ]
             }
         ]
     },

@@ -4,63 +4,103 @@
         "replies": [
             {
                 "nextPhraseID": "jhaeld_idol_1",
-                "requires": {
-                    "progress": "fiveidols:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_completed",
-                "requires": {
-                    "progress": "remgard2:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_killalg_3",
-                "requires": {
-                    "progress": "remgard2:41"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "41"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_killalg_2",
-                "requires": {
-                    "progress": "remgard2:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_killalg",
-                "requires": {
-                    "progress": "remgard2:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_alg_3",
-                "requires": {
-                    "progress": "remgard2:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_rejected",
-                "requires": {
-                    "progress": "remgard:110"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "110"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_return8",
-                "requires": {
-                    "progress": "remgard:80"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "80"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_return6",
-                "requires": {
-                    "progress": "remgard:75"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "75"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_return1",
-                "requires": {
-                    "progress": "remgard:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_1"
@@ -375,9 +415,13 @@
             {
                 "text": "What about that Algangror woman that lives outside town?",
                 "nextPhraseID": "jhaeld_21",
-                "requires": {
-                    "progress": "remgard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "text": "I'll go ask them.",
@@ -459,9 +503,13 @@
             {
                 "text": "Yes, I have talked to all of them.",
                 "nextPhraseID": "jhaeld_return2",
-                "requires": {
-                    "progress": "remgard:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "70"
+                    }
+                ]
             },
             {
                 "text": "Can you repeat the names of those that you wanted me to ask?",
@@ -578,21 +626,33 @@
         "replies": [
             {
                 "nextPhraseID": "jhaeld_task2_n",
-                "requires": {
-                    "progress": "fiveidols:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fiveidols",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_task2_f",
-                "requires": {
-                    "progress": "remgard:59"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "59"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_task2_y",
-                "requires": {
-                    "progress": "remgard:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_task2"
@@ -634,9 +694,13 @@
             {
                 "text": "I might know something, but I have promised not to tell anyone.",
                 "nextPhraseID": "jhaeld_task2_1",
-                "requires": {
-                    "progress": "remgard:31"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "31"
+                    }
+                ]
             },
             {
                 "text": "I don't know anything else.",
@@ -903,9 +967,13 @@
         "replies": [
             {
                 "nextPhraseID": "jhaeld_alg_21n",
-                "requires": {
-                    "progress": "remgard2:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "jhaeld_alg_21"
@@ -1022,9 +1090,13 @@
             {
                 "text": "Algangror is dead.",
                 "nextPhraseID": "jhaeld_killalg_1",
-                "requires": {
-                    "progress": "remgard2:35"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard2",
+                        "value": "35"
+                    }
+                ]
             }
         ]
     },
@@ -1035,13 +1107,13 @@
             {
                 "text": "I have brought you her ring as proof that what I say is true.",
                 "nextPhraseID": "jhaeld_killalg_1b",
-                "requires": {
-                    "item": {
-                        "itemID": "algangror_ring",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "algangror_ring",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "No, never mind. I haven't actually defeated her yet.",

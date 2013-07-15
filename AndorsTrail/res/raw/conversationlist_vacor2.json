@@ -87,13 +87,13 @@
             {
                 "text": "Here, have the message.",
                 "nextPhraseID": "vacor_msg_8",
-                "requires": {
-                    "item": {
-                        "itemID": "kaverin_message",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "kaverin_message",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "What's in it for me?",
@@ -118,13 +118,13 @@
             {
                 "text": "Here is the message, Vacor.",
                 "nextPhraseID": "vacor_msg_8",
-                "requires": {
-                    "item": {
-                        "itemID": "kaverin_message",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "kaverin_message",
+                        "value": 1
                     }
-                }
+                ]
             }
         ]
     },

@@ -166,15 +166,23 @@
         "replies": [
             {
                 "nextPhraseID": "prim_cook_return_1",
-                "requires": {
-                    "progress": "prim_innquest:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_innquest",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "prim_cook_return_2",
-                "requires": {
-                    "progress": "prim_innquest:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_innquest",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "prim_cook_1"
@@ -295,9 +303,13 @@
             {
                 "text": "Yes, he gave me permission to use the back room whenever I wish.",
                 "nextPhraseID": "prim_cook_return_6",
-                "requires": {
-                    "progress": "prim_innquest:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_innquest",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },

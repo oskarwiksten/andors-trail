@@ -68,9 +68,13 @@
         "replies": [
             {
                 "nextPhraseID": "waeges_1",
-                "requires": {
-                    "progress": "bwm_agent:240"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "waeges_2"

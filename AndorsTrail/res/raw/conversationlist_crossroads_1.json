@@ -68,9 +68,13 @@
         "replies": [
             {
                 "nextPhraseID": "crossroads_guard_r_1",
-                "requires": {
-                    "progress": "farrik:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "crossroads_guard_1"

@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "arghest_return_1",
-                "requires": {
-                    "progress": "prim_innquest:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_innquest",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "arghest_return_2",
-                "requires": {
-                    "progress": "prim_innquest:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_innquest",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "arghest_1"
@@ -34,9 +42,13 @@
             {
                 "text": "Did you rent the back room at the inn in Prim?",
                 "nextPhraseID": "arghest_8",
-                "requires": {
-                    "progress": "prim_innquest:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "prim_innquest",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },
@@ -137,24 +149,24 @@
             {
                 "text": "Yes, here you go, enjoy!",
                 "nextPhraseID": "arghest_return_4",
-                "requires": {
-                    "item": {
-                        "itemID": "milk",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "milk",
+                        "value": 5
                     }
-                }
+                ]
             },
             {
                 "text": "Yes, but this nearly cost me a fortune!",
                 "nextPhraseID": "arghest_return_4",
-                "requires": {
-                    "item": {
-                        "itemID": "milk",
-                        "quantity": 5,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "milk",
+                        "value": 5
                     }
-                }
+                ]
             }
         ]
     },

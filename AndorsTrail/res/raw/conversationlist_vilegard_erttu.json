@@ -16,9 +16,13 @@
             {
                 "text": "Why is everyone in Vilegard so suspicious of outsiders?",
                 "nextPhraseID": "erttu_distrust_1",
-                "requires": {
-                    "progress": "vilegard:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vilegard",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "text": "What can you tell me about Vilegard?",

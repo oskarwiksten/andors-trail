@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "unnmir_r",
-                "requires": {
-                    "progress": "nocmar:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "nocmar",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "unnmir_0"
@@ -30,9 +34,13 @@
             {
                 "text": "There was a drunk outside the tavern that told me a story about you two.",
                 "nextPhraseID": "unnmir_1",
-                "requires": {
-                    "progress": "fallhavendrunk:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fallhavendrunk",
+                        "value": "100"
+                    }
+                ]
             }
         ]
     },

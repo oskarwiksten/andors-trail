@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "bwm_agent_6_3",
-                "requires": {
-                    "progress": "bwm_agent:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bwm_agent",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bwm_agent_6_0"

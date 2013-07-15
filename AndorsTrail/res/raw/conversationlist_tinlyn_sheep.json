@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_y",
-                "requires": {
-                    "progress": "tinlyn:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep1_n"
@@ -18,9 +22,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_y",
-                "requires": {
-                    "progress": "tinlyn:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep2_n"
@@ -32,9 +40,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_y",
-                "requires": {
-                    "progress": "tinlyn:22"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "22"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep3_n"
@@ -46,9 +58,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_y",
-                "requires": {
-                    "progress": "tinlyn:23"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "23"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep4_n"
@@ -62,20 +78,24 @@
             {
                 "text": "Place Tinlyn's bell around the neck of the sheep.",
                 "nextPhraseID": "tinlyn_lostsheep1_place",
-                "requires": {
-                    "item": {
-                        "itemID": "tinlyn_bells",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tinlyn_bells",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Attack",
                 "nextPhraseID": "tinlyn_lostsheep_atk",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -86,20 +106,24 @@
             {
                 "text": "Place Tinlyn's bell around the neck of the sheep.",
                 "nextPhraseID": "tinlyn_lostsheep2_place",
-                "requires": {
-                    "item": {
-                        "itemID": "tinlyn_bells",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tinlyn_bells",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Attack",
                 "nextPhraseID": "tinlyn_lostsheep_atk",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -110,20 +134,24 @@
             {
                 "text": "Place Tinlyn's bell around the neck of the sheep.",
                 "nextPhraseID": "tinlyn_lostsheep3_place",
-                "requires": {
-                    "item": {
-                        "itemID": "tinlyn_bells",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tinlyn_bells",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Attack",
                 "nextPhraseID": "tinlyn_lostsheep_atk",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -134,20 +162,24 @@
             {
                 "text": "Place Tinlyn's bell around the neck of the sheep.",
                 "nextPhraseID": "tinlyn_lostsheep4_place",
-                "requires": {
-                    "item": {
-                        "itemID": "tinlyn_bells",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "tinlyn_bells",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Attack",
                 "nextPhraseID": "tinlyn_lostsheep_atk",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -158,9 +190,13 @@
             {
                 "text": "Attack",
                 "nextPhraseID": "tinlyn_lostsheep_atk",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -229,9 +265,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_check_2",
-                "requires": {
-                    "progress": "tinlyn:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep_placed_2"
@@ -243,9 +283,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_check_3",
-                "requires": {
-                    "progress": "tinlyn:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep_placed_2"
@@ -257,9 +301,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_check_4",
-                "requires": {
-                    "progress": "tinlyn:22"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "22"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep_placed_2"
@@ -271,9 +319,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_placed_1",
-                "requires": {
-                    "progress": "tinlyn:23"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "23"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_lostsheep_placed_2"
@@ -304,9 +356,13 @@
         "replies": [
             {
                 "nextPhraseID": "tinlyn_lostsheep_atk1",
-                "requires": {
-                    "progress": "tinlyn:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "tinlyn",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "tinlyn_sheep_atk"
@@ -335,9 +391,13 @@
             {
                 "text": "Attack",
                 "nextPhraseID": "tinlyn_lostsheep_atk",
-                "requires": {
-                    "progress": "benbyr:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },

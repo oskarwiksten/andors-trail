@@ -20,13 +20,13 @@
             {
                 "text": "Buy [10 gold]",
                 "nextPhraseID": "bela_room_2",
-                "requires": {
-                    "item": {
-                        "itemID": "gold",
-                        "quantity": 10,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 10
                     }
-                }
+                ]
             },
             {
                 "text": "No thanks.",
@@ -74,9 +74,13 @@
         "replies": [
             {
                 "nextPhraseID": "bela_room_3",
-                "requires": {
-                    "progress": "fallhaventavern:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "fallhaventavern",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bela_room_1"
@@ -94,9 +98,13 @@
             {
                 "text": "Do you know anything about the Thieves' Guild?",
                 "nextPhraseID": "ganos_1",
-                "requires": {
-                    "progress": "andor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "30"
+                    }
+                ]
             }
         ]
     },

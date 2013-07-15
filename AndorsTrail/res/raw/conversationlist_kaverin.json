@@ -4,51 +4,83 @@
         "replies": [
             {
                 "nextPhraseID": "kaverin_decline2",
-                "requires": {
-                    "progress": "kaverin:21"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "21"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_fight_1",
-                "requires": {
-                    "progress": "kaverin:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_done_ret",
-                "requires": {
-                    "progress": "kaverin:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_done3",
-                "requires": {
-                    "progress": "kaverin:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_done1",
-                "requires": {
-                    "progress": "kaverin:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_return1",
-                "requires": {
-                    "progress": "kaverin:25"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "25"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_accept2",
-                "requires": {
-                    "progress": "kaverin:22"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "22"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_8r",
-                "requires": {
-                    "progress": "kaverin:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kaverin_1"
@@ -103,23 +135,35 @@
             {
                 "text": "Yes, I've met that fool. He was an easy kill.",
                 "nextPhraseID": "kaverin_6",
-                "requires": {
-                    "progress": "vacor:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "text": "Yes, I have met him. I still have some of his blood on my boots.",
                 "nextPhraseID": "kaverin_6",
-                "requires": {
-                    "progress": "vacor:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "text": "Yes, I even helped him defeat a scoundrel named Vacor.",
                 "nextPhraseID": "kaverin_7",
-                "requires": {
-                    "progress": "vacor:61"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "vacor",
+                        "value": "61"
+                    }
+                ]
             }
         ]
     },
@@ -293,9 +337,13 @@
             {
                 "text": "Yes, the message is delivered.",
                 "nextPhraseID": "kaverin_done1",
-                "requires": {
-                    "progress": "kaverin:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "kaverin",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "text": "No, not yet.",

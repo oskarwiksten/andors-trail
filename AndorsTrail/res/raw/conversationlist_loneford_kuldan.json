@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "kuldan_c_1",
-                "requires": {
-                    "progress": "loneford:55"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "55"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kuldan_bc_1",
-                "requires": {
-                    "progress": "loneford:54"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "54"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "kuldan_1"
@@ -26,14 +34,18 @@
             {
                 "text": "I know what the cause of the illness is. Have a look at this vial that Buceth had on him.",
                 "nextPhraseID": "kuldan_bc_1",
-                "requires": {
-                    "progress": "loneford:50",
-                    "item": {
-                        "itemID": "buceth_vial",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "loneford",
+                        "value": "50"
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "buceth_vial",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Who are you?",

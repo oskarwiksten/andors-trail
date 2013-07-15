@@ -114,15 +114,23 @@
         "replies": [
             {
                 "nextPhraseID": "flagstone_sentry_return4",
-                "requires": {
-                    "progress": "flagstone:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "flagstone_sentry_return3",
-                "requires": {
-                    "progress": "flagstone:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "flagstone_sentry_select0"
@@ -134,15 +142,23 @@
         "replies": [
             {
                 "nextPhraseID": "flagstone_sentry_return2",
-                "requires": {
-                    "progress": "flagstone:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "flagstone_sentry_return1",
-                "requires": {
-                    "progress": "flagstone:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "flagstone_sentry_1"
@@ -321,9 +337,13 @@
             {
                 "text": "There is a guardian in the lower levels of Flagstone that cannot be approached.",
                 "nextPhraseID": "flagstone_sentry_20",
-                "requires": {
-                    "progress": "flagstone:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "20"
+                    }
+                ]
             }
         ]
     },
@@ -371,13 +391,13 @@
             {
                 "text": "I have found it, here.",
                 "nextPhraseID": "flagstone_sentry_40",
-                "requires": {
-                    "item": {
-                        "itemID": "necklace_flagstone",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "necklace_flagstone",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "What was that about the guardian again?",
@@ -473,9 +493,13 @@
         "replies": [
             {
                 "nextPhraseID": "narael_9",
-                "requires": {
-                    "progress": "flagstone:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "narael_1"

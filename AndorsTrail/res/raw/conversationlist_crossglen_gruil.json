@@ -10,9 +10,13 @@
             {
                 "text": "I heard that you talked to my brother a while ago.",
                 "nextPhraseID": "gruil_select",
-                "requires": {
-                    "progress": "andor:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },
@@ -21,9 +25,13 @@
         "replies": [
             {
                 "nextPhraseID": "gruil_return",
-                "requires": {
-                    "progress": "andor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gruil2"
@@ -44,13 +52,13 @@
             {
                 "text": "Here, I have a poison gland for you.",
                 "nextPhraseID": "gruil_complete",
-                "requires": {
-                    "item": {
-                        "itemID": "gland",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gland",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "Ok, I'll bring one.",

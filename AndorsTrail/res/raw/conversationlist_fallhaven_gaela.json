@@ -4,9 +4,13 @@
         "replies": [
             {
                 "nextPhraseID": "gaela_r",
-                "requires": {
-                    "progress": "andor:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "gaela_0"
@@ -34,9 +38,13 @@
             {
                 "text": "Anything more?",
                 "nextPhraseID": "gaela_2",
-                "requires": {
-                    "progress": "andor:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "30"
+                    }
+                ]
             }
         ]
     },

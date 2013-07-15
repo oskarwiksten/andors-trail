@@ -14,9 +14,13 @@
             {
                 "text": "Jhaeld sent me to ask you about the people that have gone missing.",
                 "nextPhraseID": "duaina_1",
-                "requires": {
-                    "progress": "remgard:52"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "52"
+                    }
+                ]
             },
             {
                 "text": "I don't think so, I've never been here before.",
@@ -25,9 +29,13 @@
             {
                 "text": "Yes, I was just here, remember?",
                 "nextPhraseID": "duaina_1",
-                "requires": {
-                    "progress": "remgard:63"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "63"
+                    }
+                ]
             }
         ]
     },
@@ -116,9 +124,13 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_s_1a",
-                "requires": {
-                    "progress": "flagstone:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "flagstone",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_s_2"
@@ -140,15 +152,23 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_s_2a",
-                "requires": {
-                    "progress": "farrik:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "70"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_s_2b",
-                "requires": {
-                    "progress": "farrik:90"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "farrik",
+                        "value": "90"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_s_3"
@@ -180,15 +200,23 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_s_3a",
-                "requires": {
-                    "progress": "bjorgur_grave:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_s_3b",
-                "requires": {
-                    "progress": "bjorgur_grave:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_s_4"
@@ -220,9 +248,13 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_s_4a",
-                "requires": {
-                    "progress": "benbyr:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "benbyr",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_jhaeld_s_1"
@@ -251,9 +283,13 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_jhaeld_s_2",
-                "requires": {
-                    "progress": "remgard:61"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "61"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_8"
@@ -265,9 +301,13 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_jhaeld_s_3",
-                "requires": {
-                    "progress": "remgard:62"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "62"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_8"
@@ -279,9 +319,13 @@
         "replies": [
             {
                 "nextPhraseID": "duaina_jhaeld_s_4",
-                "requires": {
-                    "progress": "remgard:64"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "remgard",
+                        "value": "64"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "duaina_8"

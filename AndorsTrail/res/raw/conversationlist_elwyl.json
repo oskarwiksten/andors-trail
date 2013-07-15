@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "elwel_4",
-                "requires": {
-                    "progress": "sisterfight:71"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "71"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "elwel_3",
-                "requires": {
-                    "progress": "sisterfight:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "elwel_1"
@@ -70,27 +78,43 @@
         "replies": [
             {
                 "nextPhraseID": "elwyl_cmp_1",
-                "requires": {
-                    "progress": "sisterfight:71"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "71"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "elwyl_res_2",
-                "requires": {
-                    "progress": "sisterfight:70"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "70"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "elwyl_pot_1",
-                "requires": {
-                    "progress": "sisterfight:31"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "31"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "elwyl_12",
-                "requires": {
-                    "progress": "sisterfight:20"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "20"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "elwyl_1"
@@ -174,9 +198,13 @@
             {
                 "text": "Some people have been complaining that your squabbling has kept them awake at night.",
                 "nextPhraseID": "elwyl_10",
-                "requires": {
-                    "progress": "sisterfight:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },
@@ -350,24 +378,24 @@
             {
                 "text": "I have one of those potions of accuracy focus for you.",
                 "nextPhraseID": "elwyl_res_1",
-                "requires": {
-                    "item": {
-                        "itemID": "pot_focus_ac",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "pot_focus_ac",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "I have a strong potion of accuracy focus for you.",
                 "nextPhraseID": "elwyl_res_1",
-                "requires": {
-                    "item": {
-                        "itemID": "pot_focus_ac2",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "pot_focus_ac2",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "You talked about some potion before. Could you repeat that?",
@@ -376,9 +404,13 @@
             {
                 "text": "Some people have been complaining that your squabbling has kept them awake at night.",
                 "nextPhraseID": "elwyl_10",
-                "requires": {
-                    "progress": "sisterfight:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "10"
+                    }
+                ]
             }
         ]
     },

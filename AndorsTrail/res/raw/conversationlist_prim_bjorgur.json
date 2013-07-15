@@ -4,15 +4,23 @@
         "replies": [
             {
                 "nextPhraseID": "bjorgur_return_1",
-                "requires": {
-                    "progress": "bjorgur_grave:50"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "50"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bjorgur_return_2",
-                "requires": {
-                    "progress": "bjorgur_grave:15"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "15"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bjorgur_1"
@@ -34,9 +42,13 @@
             {
                 "text": "(Lie) I went to check on the grave. Everything seems to be normal. You must be imagining things.",
                 "nextPhraseID": "bjorgur_return_3",
-                "requires": {
-                    "progress": "bjorgur_grave:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "text": "What was I supposed to do again?",
@@ -45,9 +57,13 @@
             {
                 "text": "Yes. I killed the intruder and restored the dagger to its original place.",
                 "nextPhraseID": "bjorgur_complete_1",
-                "requires": {
-                    "progress": "bjorgur_grave:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },
@@ -58,9 +74,13 @@
             {
                 "text": "I have been there. I met someone on one of the lower levels.",
                 "nextPhraseID": "bjorgur_2",
-                "requires": {
-                    "progress": "bjorgur_grave:30"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "30"
+                    }
+                ]
             },
             {
                 "text": "What about it?",
@@ -144,9 +164,13 @@
             {
                 "text": "I have actually already been there and restored the dagger to its original place.",
                 "nextPhraseID": "bjorgur_complete_2",
-                "requires": {
-                    "progress": "bjorgur_grave:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bjorgur_grave",
+                        "value": "40"
+                    }
+                ]
             }
         ]
     },

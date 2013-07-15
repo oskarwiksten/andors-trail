@@ -74,13 +74,13 @@
             {
                 "text": "I have one of those.",
                 "nextPhraseID": "reinkarr_oeg_1",
-                "requires": {
-                    "item": {
-                        "itemID": "oegyth",
-                        "quantity": 1,
-                        "requireType": 1
+                "requires": [
+                    {
+                        "requireType": 2,
+                        "requireID": "oegyth",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "So what made you stop looking?",

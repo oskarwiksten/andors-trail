@@ -18,9 +18,13 @@
         "replies": [
             {
                 "nextPhraseID": "bucus_umar_1",
-                "requires": {
-                    "progress": "bucus:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bucus",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bucus_andor_no_1"
@@ -46,15 +50,23 @@
         "replies": [
             {
                 "nextPhraseID": "bucus_thieves_complete_3",
-                "requires": {
-                    "progress": "bucus:100"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bucus",
+                        "value": "100"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bucus_thieves_continue",
-                "requires": {
-                    "progress": "bucus:10"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "bucus",
+                        "value": "10"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bucus_thieves_select2"
@@ -66,9 +78,13 @@
         "replies": [
             {
                 "nextPhraseID": "bucus_thieves_1",
-                "requires": {
-                    "progress": "andor:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "andor",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "bucus_thieves_no"
@@ -182,13 +198,13 @@
             {
                 "text": "Here, I have it. The key of Luthor.",
                 "nextPhraseID": "bucus_thieves_complete_1",
-                "requires": {
-                    "item": {
-                        "itemID": "key_luthor",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "key_luthor",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "I'm still looking for it. Bye.",

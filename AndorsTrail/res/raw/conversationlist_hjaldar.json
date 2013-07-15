@@ -4,27 +4,43 @@
         "replies": [
             {
                 "nextPhraseID": "hjaldar_pots_1",
-                "requires": {
-                    "progress": "sisterfight:61"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "61"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hjaldar_r3",
-                "requires": {
-                    "progress": "sisterfight:60"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "60"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hjaldar_r1",
-                "requires": {
-                    "progress": "sisterfight:45"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "45"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hjaldar_7r",
-                "requires": {
-                    "progress": "sisterfight:40"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "40"
+                    }
+                ]
             },
             {
                 "nextPhraseID": "hjaldar_1"
@@ -82,9 +98,13 @@
             {
                 "text": "I am looking for a potion of accuracy focus for the Elwille sisters, can you help with that?",
                 "nextPhraseID": "hjaldar_6",
-                "requires": {
-                    "progress": "sisterfight:31"
-                }
+                "requires": [
+                    {
+                        "requireType": 0,
+                        "requireID": "sisterfight",
+                        "value": "31"
+                    }
+                ]
             }
         ]
     },
@@ -216,13 +236,13 @@
             {
                 "text": "Yes, I brought you some Lyson marrow extract.",
                 "nextPhraseID": "hjaldar_r2",
-                "requires": {
-                    "item": {
-                        "itemID": "lyson_marrow",
-                        "quantity": 1,
-                        "requireType": 0
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "lyson_marrow",
+                        "value": 1
                     }
-                }
+                ]
             },
             {
                 "text": "What was that you were saying about those potions of accuracy focus?",
