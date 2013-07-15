@@ -404,27 +404,13 @@
         "replies": [
             {
                 "text": "Sure, here is the gold.",
-                "nextPhraseID": "rothses_imp_shield_1",
+                "nextPhraseID": "rothses_imp_shield_2",
                 "requires": [
                     {
                         "requireType": 1,
                         "requireID": "gold",
                         "value": 700
-                    }
-                ]
-            },
-            {
-                "text": "Maybe later. Do I have anything else that you can improve?",
-                "nextPhraseID": "rothses_imp_s3"
-            }
-        ]
-    },
-    {
-        "id": "rothses_imp_shield_1",
-        "replies": [
-            {
-                "nextPhraseID": "rothses_imp_shield_2",
-                "requires": [
+                    },
                     {
                         "requireType": 1,
                         "requireID": "remgard_shield_1",
@@ -433,6 +419,7 @@
                 ]
             },
             {
+                "text": "Maybe later. Do I have anything else that you can improve?",
                 "nextPhraseID": "rothses_imp_s3"
             }
         ]
@@ -469,27 +456,13 @@
         "replies": [
             {
                 "text": "Sure, here is the gold.",
-                "nextPhraseID": "rothses_imp_gloves_1",
+                "nextPhraseID": "rothses_imp_gloves_2",
                 "requires": [
                     {
                         "requireType": 1,
                         "requireID": "gold",
                         "value": 300
-                    }
-                ]
-            },
-            {
-                "text": "Maybe later. Do I have anything else that you can improve?",
-                "nextPhraseID": "rothses_imp_s4"
-            }
-        ]
-    },
-    {
-        "id": "rothses_imp_gloves_1",
-        "replies": [
-            {
-                "nextPhraseID": "rothses_imp_gloves_2",
-                "requires": [
+                    },
                     {
                         "requireType": 1,
                         "requireID": "gloves_combat1",
@@ -498,6 +471,7 @@
                 ]
             },
             {
+                "text": "Maybe later. Do I have anything else that you can improve?",
                 "nextPhraseID": "rothses_imp_s4"
             }
         ]
@@ -534,27 +508,13 @@
         "replies": [
             {
                 "text": "Sure, here is the gold.",
-                "nextPhraseID": "rothses_imp_armour_1",
+                "nextPhraseID": "rothses_imp_armour_2",
                 "requires": [
                     {
                         "requireType": 1,
                         "requireID": "gold",
                         "value": 3000
-                    }
-                ]
-            },
-            {
-                "text": "Maybe later. Do I have anything else that you can improve?",
-                "nextPhraseID": "rothses_imp_s5"
-            }
-        ]
-    },
-    {
-        "id": "rothses_imp_armour_1",
-        "replies": [
-            {
-                "nextPhraseID": "rothses_imp_armour_2",
-                "requires": [
+                    },
                     {
                         "requireType": 1,
                         "requireID": "armour_superior_chain",
@@ -563,6 +523,7 @@
                 ]
             },
             {
+                "text": "Maybe later. Do I have anything else that you can improve?",
                 "nextPhraseID": "rothses_imp_s5"
             }
         ]

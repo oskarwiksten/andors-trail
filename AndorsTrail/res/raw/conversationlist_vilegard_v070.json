@@ -210,10 +210,15 @@
                         "requireType": 1,
                         "requireID": "oegyth",
                         "value": 3
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "xulviir0",
+                        "value": 1
                     }
                 ],
                 "text": "I'm sure. Here is the sword and three of those crystals. Restore it to how it once was.",
-                "nextPhraseID": "vilegard_smith_xul_18"
+                "nextPhraseID": "vilegard_smith_xul_19"
             },
             {
                 "requires": [
@@ -228,24 +233,6 @@
             }
         ],
         "message": "You continue to amaze me. Now, are you really sure that you want to do this? The lives of the people that it has slain will haunt you."
-    },
-    {
-        "id": "vilegard_smith_xul_18",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "xulviir0",
-                        "value": 1
-                    }
-                ],
-                "nextPhraseID": "vilegard_smith_xul_19"
-            },
-            {
-                "nextPhraseID": "vilegard_smith_xul_19"
-            }
-        ]
     },
     {
         "id": "vilegard_smith_xul_19",

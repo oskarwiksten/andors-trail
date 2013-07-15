@@ -179,13 +179,23 @@
             {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": 1,
                         "requireID": "gland",
                         "value": 1
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "hair",
+                        "value": 2
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 50
                     }
                 ],
                 "text": "I have those ingredients for you.",
-                "nextPhraseID": "fallhaven_pot_antifp_c1"
+                "nextPhraseID": "fallhaven_pot_antifp_q1"
             }
         ],
         "message": "To make the potion against food-poisoning, I would need one poison gland and two pieces of animal fur. I will also require 50 gold for the work required."
@@ -202,7 +212,7 @@
                 "nextPhraseID": "fallhaven_pot_antifoodp8"
             }
         ],
-        "message": "Well, animal fur can probably be found any any animal outside of Fallhaven here. I heard some hunters found a pack of wolves a bit south of here."
+        "message": "Well, animal fur can probably be found on any beast here outside of Fallhaven. I heard some hunters found a pack of wolves a bit south of here."
     },
     {
         "id": "fallhaven_pot_antifoodp8",
@@ -217,98 +227,6 @@
             }
         ],
         "message": "Poison glands however, can be a bit trickier to find. I don't know really, but any poisonous creature might do. Maybe some snakes around here are poisonous?"
-    },
-    {
-        "id": "fallhaven_pot_antifp_c1",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 2,
-                        "requireID": "hair",
-                        "value": 2
-                    }
-                ],
-                "nextPhraseID": "fallhaven_pot_antifp_c2"
-            },
-            {
-                "nextPhraseID": "fallhaven_pot_antifp_c1a"
-            }
-        ]
-    },
-    {
-        "id": "fallhaven_pot_antifp_c2",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "gold",
-                        "value": 50
-                    }
-                ],
-                "nextPhraseID": "fallhaven_pot_antifp_c3"
-            },
-            {
-                "nextPhraseID": "fallhaven_pot_antifp_c2a"
-            }
-        ]
-    },
-    {
-        "id": "fallhaven_pot_antifp_c3",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "gland",
-                        "value": 1
-                    }
-                ],
-                "nextPhraseID": "fallhaven_pot_antifp_c4"
-            },
-            {
-                "nextPhraseID": "fallhaven_pot_antifp_c4"
-            }
-        ]
-    },
-    {
-        "id": "fallhaven_pot_antifp_c1a",
-        "replies": [
-            {
-                "text": "N",
-                "nextPhraseID": "fallhaven_pot_antifoodp5"
-            }
-        ],
-        "message": "No, you don't have the two pieces of animal fur that I need."
-    },
-    {
-        "id": "fallhaven_pot_antifp_c2a",
-        "replies": [
-            {
-                "text": "N",
-                "nextPhraseID": "fallhaven_pot_antifoodp5"
-            }
-        ],
-        "message": "No, you don't seem to have enough gold."
-    },
-    {
-        "id": "fallhaven_pot_antifp_c4",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "hair",
-                        "value": 2
-                    }
-                ],
-                "nextPhraseID": "fallhaven_pot_antifp_q1"
-            },
-            {
-                "nextPhraseID": "fallhaven_pot_antifp_q1"
-            }
-        ]
     },
     {
         "id": "fallhaven_pot_antifp_q1",

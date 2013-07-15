@@ -63,16 +63,6 @@
                 ]
             },
             {
-                "nextPhraseID": "ulirfendor_dp_proc_1",
-                "requires": [
-                    {
-                        "requireType": 0,
-                        "requireID": "darkprotector",
-                        "value": "30"
-                    }
-                ]
-            },
-            {
                 "nextPhraseID": "ulirfendor_dp_return1",
                 "requires": [
                     {
@@ -1279,12 +1269,17 @@
         "message": "Quickly now, give me the helmet and the heart of the lich, and I will begin the procedure.",
         "replies": [
             {
-                "text": "Here is the helmet.",
-                "nextPhraseID": "ulirfendor_dp_proc_1",
+                "text": "Here is the helmet and the heart.",
+                "nextPhraseID": "ulirfendor_dp_proc_2",
                 "requires": [
                     {
                         "requireType": 1,
                         "requireID": "helm_protector0",
+                        "value": 1
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "toszylae_heart",
                         "value": 1
                     }
                 ]
@@ -1304,33 +1299,14 @@
         "message": "Think all you want, but please hurry. We need to destroy this thing as soon as possible!"
     },
     {
-        "id": "ulirfendor_dp_proc_1",
-        "message": "Thank you. Next, I need the heart of that lich.",
+        "id": "ulirfendor_dp_proc_2",
+        "message": "Excellent. I will begin the procedure immediately.",
         "rewards": [
             {
                 "rewardType": 0,
                 "rewardID": "darkprotector",
                 "value": 30
-            }
-        ],
-        "replies": [
-            {
-                "text": "Here it is.",
-                "nextPhraseID": "ulirfendor_dp_proc_2",
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "toszylae_heart",
-                        "value": 1
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "id": "ulirfendor_dp_proc_2",
-        "message": "Excellent. I will begin the procedure immediately.",
-        "rewards": [
+            },
             {
                 "rewardType": 0,
                 "rewardID": "darkprotector",

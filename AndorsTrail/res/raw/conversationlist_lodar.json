@@ -863,64 +863,22 @@
             },
             {
                 "text": "I have those things on me, here.",
-                "nextPhraseID": "lodar_spo1_1"
-            }
-        ],
-        "message": "Have you ever noticed how insects are able to lift things that are much bigger than themselves? As it turns out, I have discovered that if you mix some ground up insect wings together with the dried body of a spider, you can experience that same sensation yourself."
-    },
-    {
-        "id": "lodar_spo1_1",
-        "replies": [
-            {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": 1,
                         "requireID": "spider",
                         "value": 1
-                    }
-                ],
-                "nextPhraseID": "lodar_spo1_2"
-            },
-            {
-                "nextPhraseID": "lodar_spo1_n"
-            }
-        ]
-    },
-    {
-        "id": "lodar_spo1_2",
-        "replies": [
-            {
-                "requires": [
+                    },
                     {
                         "requireType": 1,
                         "requireID": "insectwing",
                         "value": 1
                     }
                 ],
-                "nextPhraseID": "lodar_spo1_3"
-            },
-            {
-                "nextPhraseID": "lodar_spo1_n"
-            }
-        ]
-    },
-    {
-        "id": "lodar_spo1_3",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "spider",
-                        "value": 1
-                    }
-                ],
-                "nextPhraseID": "lodar_spo1_5"
-            },
-            {
                 "nextPhraseID": "lodar_spo1_5"
             }
-        ]
+        ],
+        "message": "Have you ever noticed how insects are able to lift things that are much larger than themselves? As it turns out, I have discovered that if you mix some ground up insect wings together with the dried body of a spider, you can experience that same sensation yourself."
     },
     {
         "id": "lodar_spo1_5",
@@ -949,16 +907,6 @@
         "message": "There. One mixture for you."
     },
     {
-        "id": "lodar_spo1_n",
-        "replies": [
-            {
-                "text": "N",
-                "nextPhraseID": "lodar_spo0"
-            }
-        ],
-        "message": "No, no you don't. Return to me when you have some insect wings and the dried body of a spider, and I'll be able to help you."
-    },
-    {
         "id": "lodar_spo2_0",
         "rewards": [
             {
@@ -973,64 +921,22 @@
             },
             {
                 "text": "I have those things on me, here.",
-                "nextPhraseID": "lodar_spo2_1"
-            }
-        ],
-        "message": "I have discovered that if you mix some ground up claws from a beast called the White Wyrm, together with a slight sprinkle of the center of a ruby gem, it can have a most interesting effect on you. Two of those claws and one gem would do."
-    },
-    {
-        "id": "lodar_spo2_1",
-        "replies": [
-            {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": 1,
                         "requireID": "bwm_claws",
                         "value": 2
-                    }
-                ],
-                "nextPhraseID": "lodar_spo2_2"
-            },
-            {
-                "nextPhraseID": "lodar_spo2_n"
-            }
-        ]
-    },
-    {
-        "id": "lodar_spo2_2",
-        "replies": [
-            {
-                "requires": [
+                    },
                     {
                         "requireType": 1,
                         "requireID": "gem2",
                         "value": 1
                     }
                 ],
-                "nextPhraseID": "lodar_spo2_3"
-            },
-            {
-                "nextPhraseID": "lodar_spo2_n"
-            }
-        ]
-    },
-    {
-        "id": "lodar_spo2_3",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "bwm_claws",
-                        "value": 2
-                    }
-                ],
-                "nextPhraseID": "lodar_spo2_5"
-            },
-            {
                 "nextPhraseID": "lodar_spo2_5"
             }
-        ]
+        ],
+        "message": "I have discovered that if you mix some ground up claws from a beast called the White Wyrm, together with a slight sprinkle of the center of a ruby gem, it can have a most interesting effect on you. Two of those claws and one gem would do."
     },
     {
         "id": "lodar_spo2_5",
@@ -1059,16 +965,6 @@
         "message": "There. One mixture for you."
     },
     {
-        "id": "lodar_spo2_n",
-        "replies": [
-            {
-                "text": "N",
-                "nextPhraseID": "lodar_spo0"
-            }
-        ],
-        "message": "No, no you don't. Return to me when you have two claws from the White Wyrm and a ruby gem, and I'll be able to help you."
-    },
-    {
         "id": "lodar_spo3_0",
         "rewards": [
             {
@@ -1083,64 +979,22 @@
             },
             {
                 "text": "I have those things on me, here.",
-                "nextPhraseID": "lodar_spo3_1"
-            }
-        ],
-        "message": "Up in the north, I have heard tales of beast called the Arulir. Their skin is thick as bark due to the interesting oily substance that they produce. I have learned that if you extract some of that thick oily substance, and mix it with an infectious claw from some monster, you can make a potion that makes your skin almost as tough as theirs. I will require two of those skins for it to be effective."
-    },
-    {
-        "id": "lodar_spo3_1",
-        "replies": [
-            {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": 1,
                         "requireID": "arulir_skin",
                         "value": 2
-                    }
-                ],
-                "nextPhraseID": "lodar_spo3_2"
-            },
-            {
-                "nextPhraseID": "lodar_spo3_n"
-            }
-        ]
-    },
-    {
-        "id": "lodar_spo3_2",
-        "replies": [
-            {
-                "requires": [
+                    },
                     {
                         "requireType": 1,
                         "requireID": "claws",
                         "value": 1
                     }
                 ],
-                "nextPhraseID": "lodar_spo3_3"
-            },
-            {
-                "nextPhraseID": "lodar_spo3_n"
-            }
-        ]
-    },
-    {
-        "id": "lodar_spo3_3",
-        "replies": [
-            {
-                "requires": [
-                    {
-                        "requireType": 1,
-                        "requireID": "arulir_skin",
-                        "value": 2
-                    }
-                ],
-                "nextPhraseID": "lodar_spo3_5"
-            },
-            {
                 "nextPhraseID": "lodar_spo3_5"
             }
-        ]
+        ],
+        "message": "Up in the north, I have heard tales of beast called the Arulir. Their skin is thick as bark due to the interesting oily substance that they produce. I have learned that if you extract some of that thick oily substance, and mix it with an infectious claw from some monster, you can make a potion that makes your skin almost as tough as theirs. I will require two of those skins for it to be effective."
     },
     {
         "id": "lodar_spo3_5",
@@ -1167,16 +1021,6 @@
             }
         ],
         "message": "There. One mixture for you."
-    },
-    {
-        "id": "lodar_spo3_n",
-        "replies": [
-            {
-                "text": "N",
-                "nextPhraseID": "lodar_spo0"
-            }
-        ],
-        "message": "No, no you don't. Return to me when you have some infectious claws and two skins of the Arulir, and I'll be able to help you."
     },
     {
         "id": "lodar_hira0",
