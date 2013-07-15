@@ -196,6 +196,58 @@
                 ],
                 "text": "I have those ingredients for you.",
                 "nextPhraseID": "fallhaven_pot_antifp_q1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gland",
+                        "value": 5
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "hair",
+                        "value": 10
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 250
+                    },
+                    {
+                        "requireType": 0,
+                        "requireID": "antifoodp",
+                        "value": 35
+                    }
+                ],
+                "text": "Here, I have enough of those ingredients for five potions.",
+                "nextPhraseID": "fallhaven_pot_antifp_q3x5"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "gland",
+                        "value": 10
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "hair",
+                        "value": 20
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "gold",
+                        "value": 500
+                    },
+                    {
+                        "requireType": 0,
+                        "requireID": "antifoodp",
+                        "value": 35
+                    }
+                ],
+                "text": "Here, I have enough of those ingredients for ten potions.",
+                "nextPhraseID": "fallhaven_pot_antifp_q3x10"
             }
         ],
         "message": "To make the potion against food-poisoning, I would need one poison gland and two pieces of animal fur. I will also require 50 gold for the work required."
@@ -274,6 +326,38 @@
             }
         ],
         "message": "There. One potion against food-poisoning for you."
+    },
+    {
+        "id": "fallhaven_pot_antifp_q3x5",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "antifoodp_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q4"
+            }
+        ],
+        "message": "There. Five potions against food-poisoning for you."
+    },
+    {
+        "id": "fallhaven_pot_antifp_q3x10",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "antifoodp_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q4"
+            }
+        ],
+        "message": "There. Ten potions against food-poisoning for you."
     },
     {
         "id": "fallhaven_pot_antifp_q4",

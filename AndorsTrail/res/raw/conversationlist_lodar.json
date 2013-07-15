@@ -876,6 +876,38 @@
                     }
                 ],
                 "nextPhraseID": "lodar_spo1_5"
+            },
+            {
+                "text": "I have enough of those things on me for five potions, here.",
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "spider",
+                        "value": 5
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "insectwing",
+                        "value": 5
+                    }
+                ],
+                "nextPhraseID": "lodar_spo1_5x5"
+            },
+            {
+                "text": "I have enough of those things on me for ten potions, here.",
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "spider",
+                        "value": 10
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "insectwing",
+                        "value": 10
+                    }
+                ],
+                "nextPhraseID": "lodar_spo1_5x10"
             }
         ],
         "message": "Have you ever noticed how insects are able to lift things that are much larger than themselves? As it turns out, I have discovered that if you mix some ground up insect wings together with the dried body of a spider, you can experience that same sensation yourself."
@@ -907,6 +939,58 @@
         "message": "There. One mixture for you."
     },
     {
+        "id": "lodar_spo1_5x5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo1_6x5"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo1_6x5",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "lodar_pot_str_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Five mixtures for you."
+    },
+    {
+        "id": "lodar_spo1_5x10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo1_6x10"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo1_6x10",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "lodar_pot_str_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Ten mixtures for you."
+    },
+    {
         "id": "lodar_spo2_0",
         "rewards": [
             {
@@ -934,6 +1018,38 @@
                     }
                 ],
                 "nextPhraseID": "lodar_spo2_5"
+            },
+            {
+                "text": "I have enough of those things on me for five potions, here.",
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bwm_claws",
+                        "value": 10
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "gem2",
+                        "value": 5
+                    }
+                ],
+                "nextPhraseID": "lodar_spo2_5x5"
+            },
+            {
+                "text": "I have enough of those things on me for ten potions, here.",
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "bwm_claws",
+                        "value": 20
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "gem2",
+                        "value": 10
+                    }
+                ],
+                "nextPhraseID": "lodar_spo2_5x10"
             }
         ],
         "message": "I have discovered that if you mix some ground up claws from a beast called the White Wyrm, together with a slight sprinkle of the center of a ruby gem, it can have a most interesting effect on you. Two of those claws and one gem would do."
@@ -965,6 +1081,58 @@
         "message": "There. One mixture for you."
     },
     {
+        "id": "lodar_spo2_5x5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo2_6x5"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo2_6x5",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "lodar_pot_def_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Five mixtures for you."
+    },
+    {
+        "id": "lodar_spo2_5x10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo2_6x10"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo2_6x10",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "lodar_pot_def_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Ten mixtures for you."
+    },
+    {
         "id": "lodar_spo3_0",
         "rewards": [
             {
@@ -992,6 +1160,38 @@
                     }
                 ],
                 "nextPhraseID": "lodar_spo3_5"
+            },
+            {
+                "text": "I have enough of those things on me for five potions, here.",
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "arulir_skin",
+                        "value": 10
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "claws",
+                        "value": 5
+                    }
+                ],
+                "nextPhraseID": "lodar_spo3_5x5"
+            },
+            {
+                "text": "I have enough of those things on me for ten potions, here.",
+                "requires": [
+                    {
+                        "requireType": 1,
+                        "requireID": "arulir_skin",
+                        "value": 20
+                    },
+                    {
+                        "requireType": 1,
+                        "requireID": "claws",
+                        "value": 10
+                    }
+                ],
+                "nextPhraseID": "lodar_spo3_5x10"
             }
         ],
         "message": "Up in the north, I have heard tales of beast called the Arulir. Their skin is thick as bark due to the interesting oily substance that they produce. I have learned that if you extract some of that thick oily substance, and mix it with an infectious claw from some monster, you can make a potion that makes your skin almost as tough as theirs. I will require two of those skins for it to be effective."
@@ -1021,6 +1221,58 @@
             }
         ],
         "message": "There. One mixture for you."
+    },
+    {
+        "id": "lodar_spo3_5x5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo3_6x5"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo3_6x5",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "lodar_pot_barkskin_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Five mixtures for you."
+    },
+    {
+        "id": "lodar_spo3_5x10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo3_6x10"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo3_6x10",
+        "rewards": [
+            {
+                "rewardType": 1,
+                "rewardID": "lodar_pot_barkskin_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Ten mixtures for you."
     },
     {
         "id": "lodar_hira0",
