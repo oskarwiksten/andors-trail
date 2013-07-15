@@ -65,15 +65,15 @@ public final class GameRoundController implements TimedMessageTask.Callback {
     	roundTimer.stop();
     	world.model.uiSelections.isMainActivityVisible = false;
     }
-	
-    public void onNewFullRound() {
+
+	public void onNewFullRound() {
 		controllers.mapController.resetMapsNotRecentlyVisited();
 		controllers.actorStatsController.applyConditionsToMonsters(world.model.currentMap, true);
     	controllers.actorStatsController.applyConditionsToPlayer(world.model.player, true);
 		gameRoundListeners.onNewFullRound();
     }
     
-    public void onNewRound() {
+    private void onNewRound() {
 		onNewMonsterRound();
     	onNewPlayerRound();
 		gameRoundListeners.onNewRound();

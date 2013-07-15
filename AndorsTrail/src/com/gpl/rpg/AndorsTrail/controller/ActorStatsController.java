@@ -277,12 +277,19 @@ public final class ActorStatsController {
 	}
 
 	private void applyStatsEffects(Actor actor, boolean isFullRound) {
+		// Apply negative effects before positive effects
 		for (ActorCondition c : actor.conditions) {
-			StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
-			boolean hasEffect = applyStatsModifierEffect(actor, effect, c.magnitude);
-			if (hasEffect) actorConditionListeners.onActorConditionRoundEffectApplied(actor, c);
+			if (!c.conditionType.isPositive) applyStatsEffects(actor, isFullRound, c);
+		}
+		for (ActorCondition c : actor.conditions) {
+			if (c.conditionType.isPositive) applyStatsEffects(actor, isFullRound, c);
 		}
 		controllers.effectController.startEnqueuedEffect(actor.position);
+	}
+	private void applyStatsEffects(Actor actor, boolean isFullRound, ActorCondition c) {
+		StatsModifierTraits effect = isFullRound ? c.conditionType.statsEffect_everyFullRound : c.conditionType.statsEffect_everyRound;
+		boolean hasEffect = applyStatsModifierEffect(actor, effect, c.magnitude);
+		if (hasEffect) actorConditionListeners.onActorConditionRoundEffectApplied(actor, c);
 	}
 	
 	private void decreaseDurationAndRemoveConditions(Actor actor) {
@@ -351,7 +358,7 @@ public final class ActorStatsController {
 		}
 		if (effect.currentHPBoost != null) {
 			int effectValue = Constants.rollValue(effect.currentHPBoost) * magnitude;
-			boolean changed = changeActorHealth(actor, effectValue, false, false);
+			boolean changed = changeActorHealth(actor, effectValue, true, false);
 			if (changed) {
 				int visualEffectID = effect.visualEffectID;
 				if (!effect.hasVisualEffect()) {
