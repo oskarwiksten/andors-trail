@@ -37,6 +37,8 @@ public final class Phrase {
 		public static final int REQUIREMENT_TYPE_INVENTORY_REMOVE = 1; // Player must have item(s) in inventory. Items will be removed when selecting reply.
 		public static final int REQUIREMENT_TYPE_INVENTORY_KEEP = 2; // Player must have item(s) in inventory. Items will NOT be removed when selecting reply.
 		public static final int REQUIREMENT_TYPE_WEAR_KEEP = 3; // Player must be wearing item(s). Items will NOT be removed when selecting reply.
+		public static final int REQUIREMENT_TYPE_SKILL_LEVEL = 4; // Player needs to have a specific skill equal to or above a certain level
+		public static final int REQUIREMENT_TYPE_KILLED_MONSTER = 5;
 
 		public final int requireType;
 		public final String requireID;

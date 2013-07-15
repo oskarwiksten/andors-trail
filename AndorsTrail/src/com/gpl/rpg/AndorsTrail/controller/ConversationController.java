@@ -133,28 +133,33 @@ public final class ConversationController {
 		}
 	}
 
-	private static boolean canSelectReply(final Player player, final Reply reply) {
+	private static boolean canSelectReply(final WorldContext world, final Reply reply) {
 		if (!reply.hasRequirements()) return true;
 
 		for (Requirement requirement : reply.requires) {
-			if (!playerSatisfiesRequirement(player, requirement)) return false;
+			if (!playerSatisfiesRequirement(world, requirement)) return false;
 		}
 		return true;
     }
 	
-	private static boolean playerSatisfiesRequirement(final Player player, final Requirement requirement) {
+	private static boolean playerSatisfiesRequirement(final WorldContext world, final Requirement requirement) {
+		Player player = world.model.player;
 		switch (requirement.requireType) {
-			case Phrase.Requirement.REQUIREMENT_TYPE_QUEST_PROGRESS:
+			case Requirement.REQUIREMENT_TYPE_QUEST_PROGRESS:
 				return player.hasExactQuestProgress(requirement.requireID, requirement.value);
-			case Phrase.Requirement.REQUIREMENT_TYPE_WEAR_KEEP:
+			case Requirement.REQUIREMENT_TYPE_WEAR_KEEP:
 				return player.inventory.isWearing(requirement.requireID);
-			case Phrase.Requirement.REQUIREMENT_TYPE_INVENTORY_KEEP:
-			case Phrase.Requirement.REQUIREMENT_TYPE_INVENTORY_REMOVE:
+			case Requirement.REQUIREMENT_TYPE_INVENTORY_KEEP:
+			case Requirement.REQUIREMENT_TYPE_INVENTORY_REMOVE:
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
 					return player.inventory.gold >= requirement.value;
 				} else {
 					return player.inventory.hasItem(requirement.requireID, requirement.value);
 				}
+			case Requirement.REQUIREMENT_TYPE_SKILL_LEVEL:
+				return player.getSkillLevel(Integer.parseInt(requirement.requireID)) >= requirement.value;
+			case Requirement.REQUIREMENT_TYPE_KILLED_MONSTER:
+				return world.model.statistics.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
 			default:
 				return true;
 		}
@@ -241,7 +246,7 @@ public final class ConversationController {
 
 			if (currentPhrase.message == null) {
 				for (Reply r : currentPhrase.replies) {
-					if (!canSelectReply(player, r)) continue;
+					if (!canSelectReply(world, r)) continue;
 					applyReplyEffect(player, r);
 					proceedToPhrase(r.nextPhrase);
 					return;
@@ -273,7 +278,7 @@ public final class ConversationController {
 			}
 
 			for (Reply r : currentPhrase.replies) {
-				if (!canSelectReply(player, r)) continue;
+				if (!canSelectReply(world, r)) continue;
 				listener.onConversationHasReply(r, getDisplayMessage(r, player));
 			}
 		}
@@ -288,7 +293,7 @@ public final class ConversationController {
 			if (currentPhrase.replies.length != 1) return false;
 			final Reply singleReply = currentPhrase.replies[0];
 			if (!singleReply.text.equals(ConversationCollection.REPLY_NEXT)) return false;
-			if (!canSelectReply(player, singleReply)) return false;
+			if (!canSelectReply(world, singleReply)) return false;
 			return true;
 		}
 	}

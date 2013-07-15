@@ -45,6 +45,12 @@ public final class GameStatistics {
 		return spentGold;
 	}
 
+	public int getNumberOfKillsForMonsterType(String monsterTypeID) {
+		Integer v = killedMonsters.get(monsterTypeID);
+		if (v == null) return 0;
+		return v;
+	}
+
 	public String getTop5MostCommonlyKilledMonsters(WorldContext world, Resources res) {
 		if (killedMonsters.isEmpty()) return null;
 		List<Entry<String, Integer>> entries = new ArrayList<Entry<String, Integer>>(killedMonsters.entrySet());
