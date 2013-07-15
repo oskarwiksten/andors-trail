@@ -1714,5 +1714,22 @@
     "category": "gem",
     "iconID": "items_misc_5:26",
     "baseMarketCost": 25
+  },
+  {
+    "id": "antifoodp",
+    "name": "Antidote",
+    "category": "pot",
+    "iconID": "items_consumables:67",
+    "useEffect": {
+      "conditionsSource": [
+        {
+          "magnitude": -99,
+          "condition": "foodp",
+          "chance": 100
+        }
+      ]
+    },
+    "baseMarketCost": 79,
+    "hasManualPrice": 1
   }
 ]

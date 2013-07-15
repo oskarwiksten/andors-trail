@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Andors Trail\n"
-"POT-Creation-Date: Tue Jul  9 19:29:22 CEST 2013\n"
+"POT-Creation-Date: Mon Jul 15 10:43:40 CEST 2013\n"
 "PO-Revision-Date: \n"
 "Last-Translator: Oskar Wiksten <oskar.wiksten@gmail.com>\n"
 "Language-Team: \n"
@@ -2392,6 +2392,34 @@ msgstr ""
 msgid "As thanks, Lleglaris offered to trade some of his items with me."
 msgstr ""
 
+#: questlist_v070_misc.json:antifoodp
+msgid "Taste is everything"
+msgstr ""
+
+#: questlist_v070_misc.json:antifoodp:10
+msgid "I should visit the potion-maker in Fallhaven and ask for something to help against food poisoning."
+msgstr ""
+
+#: questlist_v070_misc.json:antifoodp:15
+msgid "The potion-maker in Fallhaven can create potions that help against food-poisoning."
+msgstr ""
+
+#: questlist_v070_misc.json:antifoodp:20
+msgid "I should bring him a poison gland, two pieces of animal fur and 50 gold pieces, and he'll create a potion for me."
+msgstr ""
+
+#: questlist_v070_misc.json:antifoodp:30
+msgid "I have brought the ingredients for the potion."
+msgstr ""
+
+#: questlist_v070_misc.json:antifoodp:35
+msgid "I received a potion of antidote, that should help me if I get food-poisoning."
+msgstr ""
+
+#: questlist_v070_misc.json:antifoodp:40
+msgid "I can bring him more ingredients if I want him to create more antidote potions in the future."
+msgstr ""
+
 #: itemlist_animal.json:hair
 msgid "Animal hair"
 msgstr ""
@@ -3846,6 +3874,10 @@ msgstr ""
 
 #: itemlist_v070.json:gem_fire
 msgid "Gem of warmth"
+msgstr ""
+
+#: itemlist_v070.json:antifoodp
+msgid "Antidote"
 msgstr ""
 
 #: itemlist_v070_questitems.json:tiqui
@@ -7235,8 +7267,9 @@ msgstr ""
 #: conversationlist_blackwater_lower.json:blackwater_throneguard_2:0
 #: conversationlist_charwood1.json:charwd_guard2:0
 #: conversationlist_ervelyn.json:ervelyn_give2:0
+#: conversationlist_fallhaven_potions.json:fallhaven_potions3:0
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_q4:0
 #: conversationlist_fallhaven_unzel.json:unzel_30:1
-#: conversationlist_fallhaven_v070.json:fallhaven_potions3:0
 #: conversationlist_hjaldar.json:hjaldar_r15:0
 #: conversationlist_lodarfg.json:lodar_fg1_16
 #: conversationlist_loneford_4.json:arngyr_5
@@ -10538,6 +10571,11 @@ msgstr ""
 msgid "What can you tell me about Bonemeal?"
 msgstr ""
 
+#: conversationlist_crossglen_tharal.json:tharal1:2
+#: conversationlist_fallhaven_potions.json:fallhaven_potions:1
+msgid "Do you have anything to help against food-poisoning?"
+msgstr ""
+
 #: conversationlist_crossglen_tharal.json:tharal_bonemeal1
 msgid "Bonemeal? We shouldn't talk about that. Lord Geomyr issued a decree. It's not allowed anymore."
 msgstr ""
@@ -10586,6 +10624,19 @@ msgstr ""
 
 #: conversationlist_crossglen_tharal.json:tharal_bonemeal7
 msgid "I know someone that still has a supply of Bonemeal if you are interested. Go talk to Thoronir, a fellow priest in Fallhaven. Tell him my password 'Glow of the Shadow'."
+msgstr ""
+
+#: conversationlist_crossglen_tharal.json:tharal_antifoodp1
+msgid "No, sorry. I hear that the potion-maker in Fallhaven can create something to help against that though."
+msgstr ""
+
+#: conversationlist_crossglen_tharal.json:tharal_antifoodp2
+msgid "You should go see him and ask if he has anything to help against that. He can probably help you."
+msgstr ""
+
+#: conversationlist_crossglen_tharal.json:tharal_antifoodp2:0
+#: conversationlist_fallhaven_unnmir.json:unnmir_13:0
+msgid "Thanks, I'll go see him."
 msgstr ""
 
 #: conversationlist_crossroads_1.json:fanamor
@@ -11770,18 +11821,6 @@ msgstr ""
 msgid "Let me see your wares."
 msgstr ""
 
-#: conversationlist_fallhaven.json:fallhaven_potions
-msgid "Welcome to my shop. Please browse my fine selection of everyday potions."
-msgstr ""
-
-#: conversationlist_fallhaven.json:fallhaven_potions:0
-msgid "Let me see what potions you have available."
-msgstr ""
-
-#: conversationlist_fallhaven.json:fallhaven_potions:1
-msgid "I was told that I can get some Spotted Hornbeam fungus from you."
-msgstr ""
-
 #: conversationlist_fallhaven_arcir.json:arcir_start
 msgid "Hello. I'm Arcir."
 msgstr ""
@@ -12533,6 +12572,119 @@ msgstr ""
 msgid "Thank you so much for finding my book!"
 msgstr ""
 
+#: conversationlist_fallhaven_potions.json:fallhaven_potions
+msgid "Welcome to my shop. Please browse my fine selection of everyday potions."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_potions:0
+msgid "Let me see what potions you have available."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_potions:2
+msgid "I was told that I can get some Spotted Hornbeam fungus from you."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_potions2
+msgid "Oh yes. Really disgusting smell, they have. But good for making potions."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_potions3
+msgid "Here, have some. I don't have that much, so don't lose it!"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_potions4
+msgid "I already gave you some, before. Don't tell me you lost it?"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp2
+msgid "Oh yes, I have a recipe for a mixture that helps against food poisoning. If you want, I could create some of that for you."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp2:0
+msgid "Sounds good, what do you need from me?"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp3
+msgid "I am all out of the ingredients required for it. Maybe you could help me gather some of them?"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp3:0
+msgid "No way, I'm not running your errands."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp3:1
+msgid "What ingredients are needed?"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp4
+msgid "Fair enough. Welcome back if you change your mind."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp5
+msgid "To make the potion against food-poisoning, I would need one poison gland and two pieces of animal fur. I will also require 50 gold for the work required."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp5:0
+msgid "I'll be right back with those ingredients."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp5:1
+msgid "Any ideas where I can find those ingredients?"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp5:2
+msgid "I have those ingredients for you."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp6
+#: conversationlist_gandoren.json:gandoren_17
+msgid "Excellent."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp7
+msgid "Well, animal fur can probably be found any any animal outside of Fallhaven here. I heard some hunters found a pack of wolves a bit south of here."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp8
+msgid "Poison glands however, can be a bit trickier to find. I don't know really, but any poisonous creature might do. Maybe some snakes around here are poisonous?"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp8:0
+msgid "I'll be right back with those ingredients for you."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifoodp8:1
+msgid "Phew, that sounds like a lot of work. I don't know if I'll do it."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_c1a
+msgid "No, you don't have the two pieces of animal fur that I need."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_c2a
+msgid "No, you don't seem to have enough gold."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_q1
+msgid "Good. Give me a minute to prepare that antidote for you."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_q2
+msgid "[mixes the ingredients]"
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_q3
+msgid "There. One potion against food-poisoning for you."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_q4
+msgid "I can create more of those potions if you want. You'll have to bring me more of those ingredients then."
+msgstr ""
+
+#: conversationlist_fallhaven_potions.json:fallhaven_pot_antifp_q4:1
+msgid "I sure hope this mixture of your works."
+msgstr ""
+
 #: conversationlist_fallhaven_south.json:fallhaven_lumberjack
 msgid "Hi, I'm Jakrar."
 msgstr ""
@@ -12688,10 +12840,6 @@ msgstr ""
 msgid "His house is just southwest of the tavern."
 msgstr ""
 
-#: conversationlist_fallhaven_unnmir.json:unnmir_13:0
-msgid "Thanks, I'll go see him."
-msgstr ""
-
 #: conversationlist_fallhaven_unzel.json:unzel_1
 msgid "Hello. I'm Unzel."
 msgstr ""
@@ -12815,18 +12963,6 @@ msgstr ""
 
 #: conversationlist_fallhaven_unzel.json:unzel_40:0
 msgid "I have a message for you from Kaverin in Remgard."
-msgstr ""
-
-#: conversationlist_fallhaven_v070.json:fallhaven_potions2
-msgid "Oh yes. Really disgusting smell, they have. But good for making potions."
-msgstr ""
-
-#: conversationlist_fallhaven_v070.json:fallhaven_potions3
-msgid "Here, have some. I don't have that much, so don't lose it!"
-msgstr ""
-
-#: conversationlist_fallhaven_v070.json:fallhaven_potions4
-msgid "I already gave you some, before. Don't tell me you lost it?"
 msgstr ""
 
 #: conversationlist_fallhaven_vacor.json:vacor_begin
@@ -14845,10 +14981,6 @@ msgstr ""
 
 #: conversationlist_gandoren.json:gandoren_16:1
 msgid "Sounds good to me. Anything for the glory of Feygard."
-msgstr ""
-
-#: conversationlist_gandoren.json:gandoren_17
-msgid "Excellent."
 msgstr ""
 
 #: conversationlist_gandoren.json:gandoren_18

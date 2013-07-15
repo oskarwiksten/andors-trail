@@ -13,6 +13,10 @@
                 "requires": {
                     "progress": "bonemeal:10"
                 }
+            },
+            {
+                "text": "Do you have anything to help against food-poisoning?",
+                "nextPhraseID": "tharal_antifoodp1"
             }
         ]
     },
@@ -134,5 +138,31 @@
                 "nextPhraseID": "X"
             }
         ]
-    }
+    },
+  {
+    "id": "tharal_antifoodp1",
+    "replies": [
+      {
+        "text": "N",
+        "nextPhraseID": "tharal_antifoodp2"
+      }
+    ],
+    "message": "No, sorry. I hear that the potion-maker in Fallhaven can create something to help against that though."
+  },
+  {
+    "id": "tharal_antifoodp2",
+    "rewards": [
+      {
+        "rewardID": "antifoodp",
+        "value": 10
+      }
+    ],
+    "replies": [
+      {
+        "text": "Thanks, I'll go see him.",
+        "nextPhraseID": "tharal1"
+      }
+    ],
+    "message": "You should go see him and ask if he has anything to help against that. He can probably help you."
+  }
 ]
