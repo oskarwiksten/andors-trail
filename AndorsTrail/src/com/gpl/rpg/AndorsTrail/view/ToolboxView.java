@@ -92,17 +92,15 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 			toggleQuickslotItemView();
 		} else if (btn == toolbox_map) {
 			if (!WorldMapController.displayWorldMap(context, world)) return;
-			setVisibility(View.GONE);
+			hide(false);
 		} else if (btn == toolbox_save) {
 			if (Dialogs.showSave((Activity)getContext(), controllers, world)) {
-				setVisibility(View.GONE);
+				hide(false);
 			}
 		} else if (btn == toolbox_combatlog) {
 			Dialogs.showCombatLog(getContext(), controllers, world);
-			setVisibility(View.GONE);
+			hide(false);
 		}
-
-		if (getVisibility() == View.GONE) setToolboxIcon(false);
 	}
 
 	private void toggleQuickslotItemView() {
@@ -119,13 +117,13 @@ public final class ToolboxView extends LinearLayout implements OnClickListener {
 	}
 
 	private void toggleVisibility() {
-		if (getVisibility() == View.VISIBLE) hide();
+		if (getVisibility() == View.VISIBLE) hide(preferences.enableUiAnimations);
 		else show();
 	}
 
-	private void hide() {
+	private void hide(boolean animate) {
 		if (getVisibility() != View.GONE) {
-			if (preferences.enableUiAnimations) {
+			if (animate) {
 				startAnimation(hideAnimation);
 			} else {
 				setVisibility(View.GONE);
