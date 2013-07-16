@@ -190,19 +190,19 @@
         "hitEffect": {
             "increaseCurrentHP": {
                 "min": 1,
-                "max": 8
+                "max": 6
             },
             "conditionsTarget": [
                 {
-                    "magnitude": 5,
-                    "duration": 4,
-                    "chance": 50,
+                    "magnitude": 4,
+                    "duration": 3,
+                    "chance": 30,
                     "condition": "fear"
                 },
                 {
                     "magnitude": 3,
                     "duration": 3,
-                    "chance": 50,
+                    "chance": 30,
                     "condition": "bleeding_wound"
                 }
             ]
