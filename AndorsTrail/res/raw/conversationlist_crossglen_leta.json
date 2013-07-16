@@ -30,7 +30,7 @@
                 "nextPhraseID": "leta_oromir_complete2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "leta",
                         "value": "100"
                     }
@@ -54,7 +54,7 @@
                 "nextPhraseID": "leta_oromir_complete",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "leta",
                         "value": "20"
                     }
@@ -67,7 +67,7 @@
         "message": "If you see him, tell him to hurry back here and help me with the housework.\nNow get out of here!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "leta",
                 "value": 10
             }
@@ -78,7 +78,7 @@
         "message": "Hiding is he? That's not surprising. I'll go let him know who's the boss around here.\nThanks for letting me know though.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "leta",
                 "value": 100
             }
@@ -103,7 +103,7 @@
         "message": "I'm hiding here from my wife Leta. She is always getting angry at me for not helping out on the farm. Please don't tell her that I'm here.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "leta",
                 "value": 20
             }

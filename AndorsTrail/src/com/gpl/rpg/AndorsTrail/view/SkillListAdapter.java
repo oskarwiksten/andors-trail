@@ -39,7 +39,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		Collections.sort(result, new Comparator<SkillInfo>() {
     		@Override
 			public int compare(SkillInfo a, SkillInfo b) {
-				return a.id - b.id;
+				return a.id.ordinal() - b.id.ordinal();
 			}
 		});
 		return result;
@@ -47,14 +47,14 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 
 	private static boolean shouldDisplaySkill(SkillInfo skill, Player player) {
 		if (player.hasSkill(skill.id)) return true;
-		if (skill.levelupVisibility == SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN) return true;
+		if (skill.levelupVisibility == SkillInfo.LevelUpType.alwaysShown) return true;
 		return false;
 	}
 
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final SkillInfo skill = getItem(position);
-		final int skillID = skill.id;
+		final SkillCollection.SkillID skillID = skill.id;
 		
 		View result = convertView;
 		if (result == null) {
@@ -88,53 +88,53 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 	
 	@Override
 	public long getItemId(int position) {
-		return getItem(position).id;
+		return getItem(position).id.ordinal();
 	}
 	
-	private static int getSkillShortDescriptionResourceID(int skill) {
+	private static int getSkillShortDescriptionResourceID(SkillCollection.SkillID skill) {
 		switch (skill) {
-		case SkillCollection.SKILL_WEAPON_CHANCE: return R.string.skill_shortdescription_weapon_chance;
-		case SkillCollection.SKILL_WEAPON_DMG: return R.string.skill_shortdescription_weapon_dmg;
-		case SkillCollection.SKILL_BARTER: return R.string.skill_shortdescription_barter;
-		case SkillCollection.SKILL_DODGE: return R.string.skill_shortdescription_dodge;
-		case SkillCollection.SKILL_BARKSKIN: return R.string.skill_shortdescription_barkskin;
-		case SkillCollection.SKILL_MORE_CRITICALS: return R.string.skill_shortdescription_more_criticals;
-		case SkillCollection.SKILL_BETTER_CRITICALS: return R.string.skill_shortdescription_better_criticals;
-		case SkillCollection.SKILL_SPEED: return R.string.skill_shortdescription_speed;
-		case SkillCollection.SKILL_COINFINDER: return R.string.skill_shortdescription_coinfinder;
-		case SkillCollection.SKILL_MORE_EXP: return R.string.skill_shortdescription_more_exp;
-		case SkillCollection.SKILL_CLEAVE: return R.string.skill_shortdescription_cleave;
-		case SkillCollection.SKILL_EATER: return R.string.skill_shortdescription_eater;
-		case SkillCollection.SKILL_FORTITUDE: return R.string.skill_shortdescription_fortitude;
-		case SkillCollection.SKILL_EVASION: return R.string.skill_shortdescription_evasion;
-		case SkillCollection.SKILL_REGENERATION: return R.string.skill_shortdescription_regeneration;
-		case SkillCollection.SKILL_LOWER_EXPLOSS: return R.string.skill_shortdescription_lower_exploss;
-		case SkillCollection.SKILL_MAGICFINDER: return R.string.skill_shortdescription_magicfinder;
-		case SkillCollection.SKILL_RESISTANCE_MENTAL: return R.string.skill_shortdescription_resistance_mental;
-		case SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY: return R.string.skill_shortdescription_resistance_physical_capacity;
-		case SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER: return R.string.skill_shortdescription_resistance_blood_disorder;
-		case SkillCollection.SKILL_SHADOW_BLESS: return R.string.skill_shortdescription_shadow_bless;
-		case SkillCollection.SKILL_CRIT1: return R.string.skill_shortdescription_crit1;
-		case SkillCollection.SKILL_CRIT2: return R.string.skill_shortdescription_crit2;
-		case SkillCollection.SKILL_REJUVENATION: return R.string.skill_shortdescription_rejuvenation;
-		case SkillCollection.SKILL_TAUNT: return R.string.skill_shortdescription_taunt;
-		case SkillCollection.SKILL_CONCUSSION: return R.string.skill_shortdescription_concussion;
-		case SkillCollection.SKILL_WEAPON_PROFICIENCY_DAGGER: return R.string.skill_shortdescription_weapon_prof_dagger;
-		case SkillCollection.SKILL_WEAPON_PROFICIENCY_1HSWORD: return R.string.skill_shortdescription_weapon_prof_1hsword;
-		case SkillCollection.SKILL_WEAPON_PROFICIENCY_2HSWORD: return R.string.skill_shortdescription_weapon_prof_2hsword;
-		case SkillCollection.SKILL_WEAPON_PROFICIENCY_AXE: return R.string.skill_shortdescription_weapon_prof_axe;
-		case SkillCollection.SKILL_WEAPON_PROFICIENCY_BLUNT: return R.string.skill_shortdescription_weapon_prof_blunt;
-		case SkillCollection.SKILL_WEAPON_PROFICIENCY_UNARMED: return R.string.skill_shortdescription_weapon_prof_unarmed;
-		case SkillCollection.SKILL_ARMOR_PROFICIENCY_SHIELD: return R.string.skill_shortdescription_armor_prof_shield;
-		case SkillCollection.SKILL_ARMOR_PROFICIENCY_UNARMORED: return R.string.skill_shortdescription_armor_prof_unarmored;
-		case SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT: return R.string.skill_shortdescription_armor_prof_light;
-		case SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY: return R.string.skill_shortdescription_armor_prof_heavy;
-		case SkillCollection.SKILL_FIGHTSTYLE_DUAL_WIELD: return R.string.skill_shortdescription_fightstyle_dualwield;
-		case SkillCollection.SKILL_FIGHTSTYLE_2HAND: return R.string.skill_shortdescription_fightstyle_2hand;
-		case SkillCollection.SKILL_FIGHTSTYLE_WEAPON_SHIELD: return R.string.skill_shortdescription_fightstyle_weapon_shield;
-		case SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD: return R.string.skill_shortdescription_specialization_dualwield;
-		case SkillCollection.SKILL_SPECIALIZATION_2HAND: return R.string.skill_shortdescription_specialization_2hand;
-		case SkillCollection.SKILL_SPECIALIZATION_WEAPON_SHIELD: return R.string.skill_shortdescription_specialization_weapon_shield;
+		case weaponChance: return R.string.skill_shortdescription_weapon_chance;
+		case weaponDmg: return R.string.skill_shortdescription_weapon_dmg;
+		case barter: return R.string.skill_shortdescription_barter;
+		case dodge: return R.string.skill_shortdescription_dodge;
+		case barkSkin: return R.string.skill_shortdescription_barkskin;
+		case moreCriticals: return R.string.skill_shortdescription_more_criticals;
+		case betterCriticals: return R.string.skill_shortdescription_better_criticals;
+		case speed: return R.string.skill_shortdescription_speed;
+		case coinfinder: return R.string.skill_shortdescription_coinfinder;
+		case moreExp: return R.string.skill_shortdescription_more_exp;
+		case cleave: return R.string.skill_shortdescription_cleave;
+		case eater: return R.string.skill_shortdescription_eater;
+		case fortitude: return R.string.skill_shortdescription_fortitude;
+		case evasion: return R.string.skill_shortdescription_evasion;
+		case regeneration: return R.string.skill_shortdescription_regeneration;
+		case lowerExploss: return R.string.skill_shortdescription_lower_exploss;
+		case magicfinder: return R.string.skill_shortdescription_magicfinder;
+		case resistanceMental: return R.string.skill_shortdescription_resistance_mental;
+		case resistancePhysical: return R.string.skill_shortdescription_resistance_physical_capacity;
+		case resistanceBlood: return R.string.skill_shortdescription_resistance_blood_disorder;
+		case shadowBless: return R.string.skill_shortdescription_shadow_bless;
+		case crit1: return R.string.skill_shortdescription_crit1;
+		case crit2: return R.string.skill_shortdescription_crit2;
+		case rejuvenation: return R.string.skill_shortdescription_rejuvenation;
+		case taunt: return R.string.skill_shortdescription_taunt;
+		case concussion: return R.string.skill_shortdescription_concussion;
+		case weaponProficiencyDagger: return R.string.skill_shortdescription_weapon_prof_dagger;
+		case weaponProficiency1hsword: return R.string.skill_shortdescription_weapon_prof_1hsword;
+		case weaponProficiency2hsword: return R.string.skill_shortdescription_weapon_prof_2hsword;
+		case weaponProficiencyAxe: return R.string.skill_shortdescription_weapon_prof_axe;
+		case weaponProficiencyBlunt: return R.string.skill_shortdescription_weapon_prof_blunt;
+		case weaponProficiencyUnarmed: return R.string.skill_shortdescription_weapon_prof_unarmed;
+		case armorProficiencyShield: return R.string.skill_shortdescription_armor_prof_shield;
+		case armorProficiencyUnarmored: return R.string.skill_shortdescription_armor_prof_unarmored;
+		case armorProficiencyLight: return R.string.skill_shortdescription_armor_prof_light;
+		case armorProficiencyHeavy: return R.string.skill_shortdescription_armor_prof_heavy;
+		case fightstyleDualWield: return R.string.skill_shortdescription_fightstyle_dualwield;
+		case fightstyle2hand: return R.string.skill_shortdescription_fightstyle_2hand;
+		case fightstyleWeaponShield: return R.string.skill_shortdescription_fightstyle_weapon_shield;
+		case specializationDualWield: return R.string.skill_shortdescription_specialization_dualwield;
+		case specialization2hand: return R.string.skill_shortdescription_specialization_2hand;
+		case specializationWeaponShield: return R.string.skill_shortdescription_specialization_weapon_shield;
 		default:
 			return -1;
 		}

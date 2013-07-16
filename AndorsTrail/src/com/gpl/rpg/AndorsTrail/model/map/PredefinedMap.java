@@ -60,7 +60,7 @@ public final class PredefinedMap {
     	return false;
     }
     
-    public MapObject findEventObject(int objectType, String name) {
+    public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
     	for (MapObject o : eventObjects) {
     		if (o.type == objectType && name.equals(o.id)) return o;
     	}
@@ -76,7 +76,7 @@ public final class PredefinedMap {
 	}
     public boolean hasContainerAt(final Coord p) {
     	for (MapObject o : eventObjects) {
-    		if (o.type == MapObject.MAPEVENT_CONTAINER) {
+    		if (o.type == MapObject.MapObjectType.container) {
 	    		if (o.position.contains(p)) {
 	    			return true;
 	    		}
@@ -169,7 +169,7 @@ public final class PredefinedMap {
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {
-    		if (o.type == MapObject.MAPEVENT_CONTAINER) {
+    		if (o.type == MapObject.MapObjectType.container) {
 	    		Loot bag = getBagOrCreateAt(o.position.topLeft);
 	    		o.dropList.createRandomLoot(bag, null);
     		}

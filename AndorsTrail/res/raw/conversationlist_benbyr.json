@@ -6,7 +6,7 @@
                 "nextPhraseID": "benbyr_declined",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "60"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "benbyr_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "30"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "benbyr_mission_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "20"
                     }
@@ -168,7 +168,7 @@
                 "nextPhraseID": "benbyr_story_10",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "20"
                     }
@@ -230,7 +230,7 @@
                 "nextPhraseID": "benbyr_accept_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "20"
                     }
@@ -246,7 +246,7 @@
         "message": "Do this, and I will have avenged that fool Tinlyn.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "benbyr",
                 "value": 10
             }
@@ -271,7 +271,7 @@
         "message": "Very well, but remember that I have my eyes on you.. adventurer.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "benbyr",
                 "value": 60
             }
@@ -288,7 +288,7 @@
         "message": "Splendid!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "benbyr",
                 "value": 20
             }
@@ -331,7 +331,7 @@
                 "nextPhraseID": "benbyr_mission_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "tinlyn_sheep_meat",
                         "value": 8
                     }
@@ -344,7 +344,7 @@
         "message": "Ha ha! That fool Tinlyn must be in tears. The Shadow surely walks with you my friend.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "benbyr",
                 "value": 30
             }

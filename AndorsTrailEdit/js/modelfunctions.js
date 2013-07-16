@@ -3,32 +3,32 @@ var ATModelFunctions = (function(ATModelFunctions) {
 	ATModelFunctions.itemCategoryFunctions = (function() {
 		function isWearableCategory(itemCategory) {
 			if (!itemCategory) { return false; }
-			return itemCategory.actionType == 2;
+			return itemCategory.actionType == 'equip';
 		}
 		
 		function isUsableCategory(itemCategory) {
 			if (!itemCategory) { return false; }
-			return itemCategory.actionType == 1;
+			return itemCategory.actionType == 'use';
 		}
 		
 		function isWeaponCategory(itemCategory) {
 			if (!isWearableCategory(itemCategory)) { return false; }
-			if (itemCategory.inventorySlot != 0) { return false; }
+			if (itemCategory.inventorySlot != 'weapon') { return false; }
 			return true;
 		}
 		
 		function isShieldCategory(itemCategory) {
 			if (!isWearableCategory(itemCategory)) { return false; }
-			if (itemCategory.inventorySlot != 1) { return false; }
+			if (itemCategory.inventorySlot != 'shield') { return false; }
 			return true;
 		}
 		
 		function isArmorCategory(itemCategory) {
 			if (!isWearableCategory(itemCategory)) { return false; }
-			if (itemCategory.inventorySlot == 2) { return true; } // Head
-			if (itemCategory.inventorySlot == 3) { return true; } // Body
-			if (itemCategory.inventorySlot == 4) { return true; } // Hand
-			if (itemCategory.inventorySlot == 5) { return true; } // Feet
+			if (itemCategory.inventorySlot == 'head') { return true; }
+			if (itemCategory.inventorySlot == 'body') { return true; }
+			if (itemCategory.inventorySlot == 'hand') { return true; }
+			if (itemCategory.inventorySlot == 'feet') { return true; }
 			return false;
 		}
 		

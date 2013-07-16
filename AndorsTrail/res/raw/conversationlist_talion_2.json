@@ -70,7 +70,7 @@
                 "nextPhraseID": "talion_demon_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "darkprotector",
                         "value": "10"
                     }
@@ -251,7 +251,7 @@
         "message": "Bring me these things and I will be able to help you with your .. condition.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 30
             }
@@ -292,7 +292,7 @@
                 "nextPhraseID": "talion_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "11"
                     }
@@ -347,7 +347,7 @@
                 "nextPhraseID": "talion_gather_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "40"
                     }
@@ -367,7 +367,7 @@
                 "nextPhraseID": "talion_bone_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bone",
                         "value": 5
                     }
@@ -384,7 +384,7 @@
         "message": "Thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 40
             }
@@ -403,7 +403,7 @@
                 "nextPhraseID": "talion_gather_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "41"
                     }
@@ -423,7 +423,7 @@
                 "nextPhraseID": "talion_hair_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hair",
                         "value": 2
                     }
@@ -440,7 +440,7 @@
         "message": "Thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 41
             }
@@ -459,7 +459,7 @@
                 "nextPhraseID": "talion_gather_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "42"
                     }
@@ -479,7 +479,7 @@
                 "nextPhraseID": "talion_irdegh_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "irdegh",
                         "value": 1
                     }
@@ -496,7 +496,7 @@
         "message": "Thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 42
             }
@@ -515,7 +515,7 @@
                 "nextPhraseID": "talion_gather_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "43"
                     }
@@ -535,7 +535,7 @@
                 "nextPhraseID": "talion_vial_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "vial_empty1",
                         "value": 1
                     }
@@ -546,7 +546,7 @@
                 "nextPhraseID": "talion_vial_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "vial_empty2",
                         "value": 1
                     }
@@ -563,7 +563,7 @@
         "message": "Thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 43
             }
@@ -582,7 +582,7 @@
                 "nextPhraseID": "talion_gather_s2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "40"
                     }
@@ -600,7 +600,7 @@
                 "nextPhraseID": "talion_gather_s3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "41"
                     }
@@ -618,7 +618,7 @@
                 "nextPhraseID": "talion_gather_s4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "42"
                     }
@@ -636,7 +636,7 @@
                 "nextPhraseID": "talion_cure_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "43"
                     }
@@ -652,7 +652,7 @@
         "message": "That's all I need to cure you. Good work.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 45
             }
@@ -719,17 +719,17 @@
         "message": "(The potion smells rancid, but you manage to drink it all down. The pain from the stomach decreases, and you feel one of the rotworms crawling up into your mouth. You quickly spit the worm out into the now empty vial.)",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 50
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "potion_rotworm",
                 "value": 0
             },
             {
-                "rewardType": 3,
+                "rewardType": "actorCondition",
                 "rewardID": "rotworm",
                 "value": -99
             }
@@ -828,7 +828,7 @@
         "message": "Seeing as you managed to pull through all of this, I would be willing to offer you the help of giving you blessings of the Shadow if you want.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 51
             }
@@ -885,7 +885,7 @@
                 "nextPhraseID": "talion_bless_str_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 300
                     }
@@ -906,7 +906,7 @@
                 "nextPhraseID": "talion_bless_heal_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 250
                     }
@@ -927,7 +927,7 @@
                 "nextPhraseID": "talion_bless_acc_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 250
                     }
@@ -948,7 +948,7 @@
                 "nextPhraseID": "talion_bless_guard_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 400
                     }
@@ -965,7 +965,7 @@
         "message": "Very well. *starts chanting*",
         "rewards": [
             {
-                "rewardType": 3,
+                "rewardType": "actorCondition",
                 "rewardID": "shadowbless_str",
                 "value": 30
             }
@@ -982,7 +982,7 @@
         "message": "Very well. *starts chanting*",
         "rewards": [
             {
-                "rewardType": 3,
+                "rewardType": "actorCondition",
                 "rewardID": "shadowbless_heal",
                 "value": 45
             }
@@ -999,7 +999,7 @@
         "message": "Very well. *starts chanting*",
         "rewards": [
             {
-                "rewardType": 3,
+                "rewardType": "actorCondition",
                 "rewardID": "shadowbless_acc",
                 "value": 30
             }
@@ -1016,7 +1016,7 @@
         "message": "Very well. *starts chanting*",
         "rewards": [
             {
-                "rewardType": 3,
+                "rewardType": "actorCondition",
                 "rewardID": "shadowbless_guard",
                 "value": 20
             }

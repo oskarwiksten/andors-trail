@@ -27,7 +27,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lowyna",
                         "value": "20"
                     }
@@ -96,7 +96,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lowyna",
                         "value": "10"
                     }
@@ -126,14 +126,15 @@
         "rewards": [
             {
                 "rewardID": "lowyna",
-                "value": 20
+                "value": 20,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lowyna",
                         "value": "20"
                     }

@@ -12,7 +12,7 @@
                 "nextPhraseID": "gruil_select",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "10"
                     }
@@ -27,7 +27,7 @@
                 "nextPhraseID": "gruil_return",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "30"
                     }
@@ -43,7 +43,7 @@
         "message": "Your brother? Oh you mean Andor? I might know something, but that information will cost you. Bring me a poison gland from one of those poisonous snakes and maybe I'll tell you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "andor",
                 "value": 20
             }
@@ -54,7 +54,7 @@
                 "nextPhraseID": "gruil_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gland",
                         "value": 1
                     }
@@ -71,7 +71,7 @@
         "message": "Thanks a lot kid. This will do just fine.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "andor",
                 "value": 30
             }

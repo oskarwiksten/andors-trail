@@ -12,32 +12,32 @@
 	<div class="fieldWithLabel">
 		<label for="actionType">Action type:</label>
 		<select class="field" id="actionType" ng-model="obj.actionType">
-			<option value="0">Non-usable</option>
-			<option value="1">Usable</option>
-			<option value="2">Equippable</option>
+			<option value="none">Non-usable</option>
+			<option value="use">Usable</option>
+			<option value="equip">Equippable</option>
 		</select>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.actionType == 2">
 		<label for="inventorySlot">Equippable inventory slot:</label>
 		<select class="field" id="inventorySlot" ng-model="obj.inventorySlot">
-			<option value="-1">None</option>
-			<option value="0">Weapon</option>
-			<option value="1">Shield</option>
-			<option value="2">Head</option>
-			<option value="3">Body</option>
-			<option value="4">Hand</option>
-			<option value="5">Feet</option>
-			<option value="6">Neck</option>
-			<option value="7">Ring</option>
+			<option value="">None</option>
+			<option value="weapon">Weapon</option>
+			<option value="shield">Shield</option>
+			<option value="head">Head</option>
+			<option value="body">Body</option>
+			<option value="hand">Hand</option>
+			<option value="feet">Feet</option>
+			<option value="neck">Neck</option>
+			<option value="ring">Ring</option>
 		</select>
 	</div>
 	<div class="fieldWithLabel">
 		<label for="size">Size:</label>
 		<select class="field" id="size" ng-model="obj.size">
-			<option value="0">None</option>
-			<option value="1">Light</option>
-			<option value="2">Standard</option>
-			<option value="3">Large</option>
+			<option value="none">None</option>
+			<option value="light">Light</option>
+			<option value="std">Standard</option>
+			<option value="large">Large</option>
 		</select>
 	</div>
 </fieldset>

@@ -6,7 +6,7 @@
                 "nextPhraseID": "rothses_c1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "45"
                     }
@@ -30,7 +30,7 @@
                 "nextPhraseID": "rothses_c2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "45"
                     }
@@ -73,7 +73,7 @@
                 "nextPhraseID": "rothses_3s",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "52"
                     }
@@ -98,7 +98,7 @@
                 "nextPhraseID": "rothses_3s",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "52"
                     }
@@ -113,7 +113,7 @@
                 "nextPhraseID": "rothses_19",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "64"
                     }
@@ -206,7 +206,7 @@
         "id": "rothses_jhaeld_s_1",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "remgard",
                 "value": 64
             }
@@ -216,7 +216,7 @@
                 "nextPhraseID": "rothses_jhaeld_s_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "61"
                     }
@@ -234,7 +234,7 @@
                 "nextPhraseID": "rothses_jhaeld_s_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "62"
                     }
@@ -252,7 +252,7 @@
                 "nextPhraseID": "rothses_jhaeld_s_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "63"
                     }
@@ -267,7 +267,7 @@
         "id": "rothses_jhaeld_s_4",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "remgard",
                 "value": 70
             }
@@ -309,7 +309,7 @@
                 "nextPhraseID": "rothses_imp_shield",
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "remgard_shield_1",
                         "value": 1
                     }
@@ -319,7 +319,7 @@
                 "nextPhraseID": "rothses_imp_shield_w",
                 "requires": [
                     {
-                        "requireType": 3,
+                        "requireType": "wear",
                         "requireID": "remgard_shield_1",
                         "value": 1
                     }
@@ -337,7 +337,7 @@
                 "nextPhraseID": "rothses_imp_gloves",
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "gloves_combat1",
                         "value": 1
                     }
@@ -347,7 +347,7 @@
                 "nextPhraseID": "rothses_imp_gloves_w",
                 "requires": [
                     {
-                        "requireType": 3,
+                        "requireType": "wear",
                         "requireID": "gloves_combat1",
                         "value": 1
                     }
@@ -365,7 +365,7 @@
                 "nextPhraseID": "rothses_imp_armour",
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "armour_superior_chain",
                         "value": 1
                     }
@@ -375,7 +375,7 @@
                 "nextPhraseID": "rothses_imp_armour_w",
                 "requires": [
                     {
-                        "requireType": 3,
+                        "requireType": "wear",
                         "requireID": "armour_superior_chain",
                         "value": 1
                     }
@@ -407,12 +407,12 @@
                 "nextPhraseID": "rothses_imp_shield_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 700
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "remgard_shield_1",
                         "value": 1
                     }
@@ -429,7 +429,7 @@
         "message": "Here you go. One improved Remgard shield.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "remgard_shield_2"
             }
         ],
@@ -459,12 +459,12 @@
                 "nextPhraseID": "rothses_imp_gloves_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 300
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gloves_combat1",
                         "value": 1
                     }
@@ -481,7 +481,7 @@
         "message": "Here you go. One pair of improved combat gloves.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gloves_combat2"
             }
         ],
@@ -511,12 +511,12 @@
                 "nextPhraseID": "rothses_imp_armour_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 3000
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "armour_superior_chain",
                         "value": 1
                     }
@@ -533,7 +533,7 @@
         "message": "Here you go. One improved chain mail.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "armour_chain_remg"
             }
         ],

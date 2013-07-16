@@ -6,7 +6,7 @@
                 "nextPhraseID": "mazeg_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "240"
                     }
@@ -30,7 +30,7 @@
                 "nextPhraseID": "mazeg_e_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "45"
                     }
@@ -51,7 +51,7 @@
                 "nextPhraseID": "mazeg_e_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "45"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "mazeg_d",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "55"
                     }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "mazeg_e_5b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "51"
                     }
@@ -86,7 +86,7 @@
                 "nextPhraseID": "mazeg_e_5b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "50"
                     }
@@ -162,7 +162,7 @@
                 "nextPhraseID": "mazeg_e_7a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "240"
                     }
@@ -178,7 +178,7 @@
         "message": "Since you helped us up here in the Blackwater Mountain settlement earlier, I am willing to give you a discount on the price for some Lyson marrow extract. For 400 gold, I am willing to sell you some of it for my old friend Hjaldar.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 50
             }
@@ -189,7 +189,7 @@
                 "nextPhraseID": "mazeg_e_9",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 400
                     }
@@ -214,7 +214,7 @@
                 "nextPhraseID": "mazeg_e_9",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 400
                     }
@@ -231,7 +231,7 @@
         "message": "For 800 gold, I am willing to sell you some of it for my old friend Hjaldar.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 51
             }
@@ -242,7 +242,7 @@
                 "nextPhraseID": "mazeg_e_9",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 800
                     }
@@ -267,7 +267,7 @@
                 "nextPhraseID": "mazeg_e_9",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 800
                     }
@@ -284,12 +284,12 @@
         "message": "Thanks. Here's some of the Lyson marrow extract.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 55
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lyson_marrow",
                 "value": 0
             }

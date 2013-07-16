@@ -6,7 +6,7 @@
                 "nextPhraseID": "bwm_agent_2_7",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "20"
                     }
@@ -94,7 +94,7 @@
         "message": "I'll wait for you by the steps up to the mountain pass. See you there!\n\nRemember, go east once you exit the mine.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 20
             }

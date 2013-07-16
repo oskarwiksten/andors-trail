@@ -6,7 +6,7 @@
                 "nextPhraseID": "vacor_return_complete0",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "60"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "vacor_return2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "40"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "vacor_42",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "30"
                     }
@@ -44,7 +44,7 @@
                 "nextPhraseID": "vacor_return1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "20"
                     }
@@ -168,7 +168,7 @@
         "message": "Oh, the power I could have had. My dear rift spell.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 10
             }
@@ -253,7 +253,7 @@
         "message": "Ok, find the four pieces of my rift spell that the bandits took, and bring the pieces to me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 20
             }
@@ -298,7 +298,7 @@
                 "nextPhraseID": "vacor_40",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "vacor_spell",
                         "value": 4
                     }
@@ -319,7 +319,7 @@
         "message": "Oh, you found all four pieces? Hurry, give them to me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 30
             }
@@ -416,7 +416,7 @@
         "message": "I need you to find Unzel and kill him for me. He can probably be found somewhere southwest of Fallhaven.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 40
             }
@@ -465,7 +465,7 @@
                 "nextPhraseID": "vacor_60",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "ring_unzel",
                         "value": 1
                     }
@@ -476,7 +476,7 @@
                 "nextPhraseID": "vacor_70",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "51"
                     }
@@ -489,7 +489,7 @@
         "message": "Ha ha, Unzel is dead! That pathetic creature is gone!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 60
             }
@@ -526,7 +526,7 @@
         "message": "Here, have these coins for your help.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold200"
             }
         ],
@@ -548,7 +548,7 @@
                 "nextPhraseID": "vacor_msg_16",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "90"
                     }
@@ -558,7 +558,7 @@
                 "nextPhraseID": "vacor_msg_9",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "75"
                     }
@@ -568,12 +568,12 @@
                 "nextPhraseID": "vacor_msg1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "60"
                     },
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "kaverin_message",
                         "value": 1
                     }
@@ -617,7 +617,7 @@
         "message": "Bah, lowly creature. I knew I shouldn't have trusted you. Now you will die along with your precious Shadow.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 54
             }

@@ -6,7 +6,7 @@
                 "nextPhraseID": "gaela_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "40"
                     }
@@ -40,7 +40,7 @@
                 "nextPhraseID": "gaela_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "30"
                     }
@@ -73,7 +73,7 @@
         "message": "You should go talk to Bucus in the derelict house a bit southwest of here. Tell him you want to know more about the Thieves' Guild.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "andor",
                 "value": 40
             }

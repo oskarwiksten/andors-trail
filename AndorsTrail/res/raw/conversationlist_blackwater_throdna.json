@@ -6,7 +6,7 @@
                 "nextPhraseID": "throdna_purify_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "100"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "throdna_purify_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "41"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "throdna_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "30"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "throdna_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "10"
                     }
@@ -148,7 +148,7 @@
         "message": "Kazaul, the Shadow spawn of red marrow.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 8
             }
@@ -199,7 +199,7 @@
         "message": "As I said, we want to learn more about the ritual itself.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 9
             }
@@ -278,7 +278,7 @@
         "message": "Ok. Find me the pieces of the ritual that the former messenger carried on him. They should be found somewhere on the path up to Blackwater Mountain.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 10
             }
@@ -295,7 +295,7 @@
         "message": "Yes, you will.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 11
             }
@@ -322,7 +322,7 @@
                 "nextPhraseID": "throdna_check_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "21"
                     }
@@ -339,7 +339,7 @@
         "message": "You actually found all five pieces? I suppose I should thank you. Well then. Thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 30
             }
@@ -358,7 +358,7 @@
                 "nextPhraseID": "X",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "10"
                     }
@@ -376,7 +376,7 @@
                 "nextPhraseID": "throdna_check_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "22"
                     }
@@ -394,7 +394,7 @@
                 "nextPhraseID": "throdna_check_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "25"
                     }
@@ -412,7 +412,7 @@
                 "nextPhraseID": "throdna_check_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "26"
                     }
@@ -430,7 +430,7 @@
                 "nextPhraseID": "throdna_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "27"
                     }
@@ -524,7 +524,7 @@
         "message": "Second, we need you to take a vial of purifying spirit and apply it to the shrine.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 40
             }
@@ -543,7 +543,7 @@
                 "nextPhraseID": "throdna_return_13",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "41"
                     }
@@ -577,12 +577,12 @@
         "message": "Good, here is the vial. Now hurry.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 41
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "throdna_items"
             }
         ],
@@ -606,7 +606,7 @@
                 "nextPhraseID": "throdna_purify_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "60"
                     }
@@ -631,7 +631,7 @@
         "message": "Good. We must hurry to continue our research on Kazaul.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 100
             }

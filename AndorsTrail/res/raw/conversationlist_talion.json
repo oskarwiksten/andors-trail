@@ -6,7 +6,7 @@
                 "nextPhraseID": "talion_0",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "51"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "talion_cured_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "50"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "talion_cure_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "45"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "talion_infect_30",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "30"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "talion_infect_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "10"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "talion_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "11"
                     }
@@ -81,7 +81,7 @@
                 "nextPhraseID": "talion_bless_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "maggots",
                         "value": "51"
                     }
@@ -134,7 +134,7 @@
         "message": "My feeling is that this illness is caused by the Shadow, as punishment to all of us here in Loneford.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 23
             }

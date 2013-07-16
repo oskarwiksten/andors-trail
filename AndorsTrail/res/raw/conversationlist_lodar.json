@@ -5,7 +5,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "60"
                     }
@@ -15,7 +15,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "51"
                     }
@@ -25,7 +25,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "50"
                     }
@@ -35,7 +35,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "20"
                     }
@@ -45,7 +45,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar",
                         "value": "110"
                     }
@@ -93,7 +93,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 110
+                "value": 110,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -124,7 +125,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "message": "Yes yes, the Hira'zinn. As I said, I must find the correct mixture before it moves again."
@@ -196,7 +198,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 15
+                "value": 15,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -250,10 +253,11 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 20
+                "value": 20,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodarstone"
             }
         ],
@@ -279,7 +283,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar",
                         "value": "100"
                     }
@@ -296,7 +300,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 30
+                "value": 30,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -337,7 +342,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hirazinn",
                         "value": 1
                     }
@@ -353,7 +358,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 50
+                "value": 50,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -393,7 +399,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 51
+                "value": 51,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -493,7 +500,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 60
+                "value": 60,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -509,7 +517,7 @@
                 "text": "On the body of the Hira'zinn, I found this peculiar sword. Do you know anything about it?",
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "xulviir0",
                         "value": 1
                     }
@@ -606,7 +614,8 @@
         "rewards": [
             {
                 "rewardID": "xulviir",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -633,7 +642,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar_pots",
                         "value": "40"
                     }
@@ -643,7 +652,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar_pots",
                         "value": "30"
                     }
@@ -653,7 +662,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar_pots",
                         "value": "10"
                     }
@@ -709,7 +718,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hornbeam",
                         "value": 1
                     }
@@ -725,7 +734,8 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 30
+                "value": 30,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -751,7 +761,8 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 40
+                "value": 40,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -811,7 +822,8 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -853,7 +865,8 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 42
+                "value": 42,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -865,12 +878,12 @@
                 "text": "I have those things on me, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "spider",
                         "value": 1
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "insectwing",
                         "value": 1
                     }
@@ -881,12 +894,12 @@
                 "text": "I have enough of those things on me for five potions, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "spider",
                         "value": 5
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "insectwing",
                         "value": 5
                     }
@@ -897,12 +910,12 @@
                 "text": "I have enough of those things on me for ten potions, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "spider",
                         "value": 10
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "insectwing",
                         "value": 10
                     }
@@ -926,7 +939,7 @@
         "id": "lodar_spo1_6",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_str"
             }
         ],
@@ -952,7 +965,7 @@
         "id": "lodar_spo1_6x5",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_str_x5"
             }
         ],
@@ -978,7 +991,7 @@
         "id": "lodar_spo1_6x10",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_str_x10"
             }
         ],
@@ -995,7 +1008,8 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 41
+                "value": 41,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -1007,12 +1021,12 @@
                 "text": "I have those things on me, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bwm_claws",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gem2",
                         "value": 1
                     }
@@ -1023,12 +1037,12 @@
                 "text": "I have enough of those things on me for five potions, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bwm_claws",
                         "value": 10
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gem2",
                         "value": 5
                     }
@@ -1039,12 +1053,12 @@
                 "text": "I have enough of those things on me for ten potions, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bwm_claws",
                         "value": 20
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gem2",
                         "value": 10
                     }
@@ -1068,7 +1082,7 @@
         "id": "lodar_spo2_6",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_def"
             }
         ],
@@ -1094,7 +1108,7 @@
         "id": "lodar_spo2_6x5",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_def_x5"
             }
         ],
@@ -1120,7 +1134,7 @@
         "id": "lodar_spo2_6x10",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_def_x10"
             }
         ],
@@ -1137,7 +1151,8 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 43
+                "value": 43,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -1149,12 +1164,12 @@
                 "text": "I have those things on me, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "arulir_skin",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "claws",
                         "value": 1
                     }
@@ -1165,12 +1180,12 @@
                 "text": "I have enough of those things on me for five potions, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "arulir_skin",
                         "value": 10
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "claws",
                         "value": 5
                     }
@@ -1181,12 +1196,12 @@
                 "text": "I have enough of those things on me for ten potions, here.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "arulir_skin",
                         "value": 20
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "claws",
                         "value": 10
                     }
@@ -1210,7 +1225,7 @@
         "id": "lodar_spo3_6",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_barkskin"
             }
         ],
@@ -1236,7 +1251,7 @@
         "id": "lodar_spo3_6x5",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_barkskin_x5"
             }
         ],
@@ -1262,7 +1277,7 @@
         "id": "lodar_spo3_6x10",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_pot_barkskin_x10"
             }
         ],
@@ -1558,7 +1573,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "54"
                     }
@@ -1579,7 +1594,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "54"
                     }
@@ -1665,7 +1680,8 @@
         "rewards": [
             {
                 "rewardID": "andor",
-                "value": 70
+                "value": 70,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -1761,7 +1777,8 @@
         "rewards": [
             {
                 "rewardID": "andor",
-                "value": 71
+                "value": 71,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -1836,7 +1853,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "72"
                     }
@@ -1852,13 +1869,14 @@
         "id": "lodar_andor30",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "lodar_letter",
                 "value": 1
             },
             {
                 "rewardID": "andor",
-                "value": 72
+                "value": 72,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -1938,7 +1956,8 @@
         "rewards": [
             {
                 "rewardID": "andor",
-                "value": 80
+                "value": 80,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

@@ -77,8 +77,8 @@ public final class ActorStatsController {
 	}
 
 	private void removeNonStackableActorCondition(Player player, ActorConditionType type, int magnitude, int duration) {
-		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
-			ItemType t = player.inventory.wear[i];
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
 			if (t == null) continue;
 		
 			ItemTraits_OnEquip equipEffects = t.effects_equip;
@@ -225,7 +225,7 @@ public final class ActorStatsController {
 	}
 
 	private void removeConditionsFromSkillEffects(Player player) {
-		if (SkillController.rollForSkillChance(player, SkillCollection.SKILL_REJUVENATION, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
+		if (SkillController.rollForSkillChance(player, SkillCollection.SkillID.rejuvenation, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
 			int i = getRandomConditionForRejuvenate(player);
 			if (i >= 0) {
 				ActorCondition c = player.conditions.get(i);
@@ -247,7 +247,7 @@ public final class ActorStatsController {
 			ActorCondition c = player.conditions.get(i);
 			if (!c.isTemporaryEffect()) continue;
 			if (c.conditionType.isPositive) continue;
-			if (c.conditionType.conditionCategory == ActorConditionType.ACTORCONDITIONTYPE_SPIRITUAL) continue;
+			if (c.conditionType.conditionCategory == ActorConditionType.ConditionCategory.spiritual) continue;
 			potentialConditions.add(i);
 		}
 		if (potentialConditions.isEmpty()) return -1;
@@ -348,9 +348,9 @@ public final class ActorStatsController {
 			int effectValue = Constants.rollValue(effect.currentAPBoost) * magnitude;
 			boolean changed = changeActorAP(actor, effectValue, false, false);
 			if (changed) {
-				int visualEffectID = effect.visualEffectID;
-				if (!effect.hasVisualEffect()) {
-					visualEffectID = VisualEffectCollection.EFFECT_RESTORE_AP;
+				VisualEffectCollection.VisualEffectID visualEffectID = effect.visualEffectID;
+				if (visualEffectID == null) {
+					visualEffectID = VisualEffectCollection.VisualEffectID.blueSwirl;
 				}
 				controllers.effectController.enqueueEffect(visualEffectID, effectValue);
 				hasUpdatedStats = true;
@@ -360,12 +360,12 @@ public final class ActorStatsController {
 			int effectValue = Constants.rollValue(effect.currentHPBoost) * magnitude;
 			boolean changed = changeActorHealth(actor, effectValue, true, false);
 			if (changed) {
-				int visualEffectID = effect.visualEffectID;
-				if (!effect.hasVisualEffect()) {
+				VisualEffectCollection.VisualEffectID visualEffectID = effect.visualEffectID;
+				if (visualEffectID == null) {
 					if (effectValue > 0) {
-						visualEffectID = VisualEffectCollection.EFFECT_RESTORE_HP;
+						visualEffectID = VisualEffectCollection.VisualEffectID.blueSwirl;
 					} else {
-						visualEffectID = VisualEffectCollection.EFFECT_BLOOD;
+						visualEffectID = VisualEffectCollection.VisualEffectID.redSplash;
 					}
 				}
 				controllers.effectController.enqueueEffect(visualEffectID, effectValue);
@@ -376,8 +376,8 @@ public final class ActorStatsController {
 	}
 	
 	public void applyKillEffectsToPlayer(Player player) {
-		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
-			ItemType type = player.inventory.wear[i];
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
 			if (type == null) continue;
 			
 			applyUseEffect(player, null, type.effects_kill);
@@ -385,7 +385,7 @@ public final class ActorStatsController {
 	}
 
 	public void applySkillEffectsForNewRound(Player player, PredefinedMap currentMap) {
-		int level = player.getSkillLevel(SkillCollection.SKILL_REGENERATION);
+		int level = player.getSkillLevel(SkillCollection.SkillID.regeneration);
 		if (level > 0) {
 			boolean hasAdjacentMonster = MovementController.hasAdjacentAggressiveMonster(currentMap, player);
 			if (!hasAdjacentMonster) {
@@ -393,26 +393,28 @@ public final class ActorStatsController {
 			}
 		}
 	}
-    
-    public static final int LEVELUP_HEALTH = 0;
-    public static final int LEVELUP_ATTACK_CHANCE = 1;
-    public static final int LEVELUP_ATTACK_DAMAGE = 2;
-    public static final int LEVELUP_BLOCK_CHANCE = 3;
 
-    public void addLevelupEffect(Player player, int selectionID) {
+	public static enum LevelUpSelection {
+		health
+		,attackChance
+		,attackDamage
+		,blockChance
+	}
+
+    public void addLevelupEffect(Player player, LevelUpSelection selectionID) {
     	int hpIncrease = 0;
     	switch (selectionID) {
-    	case LEVELUP_HEALTH:
+    	case health:
     		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
     		break;
-    	case LEVELUP_ATTACK_CHANCE:
+    	case attackChance:
     		player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
     		break;
-    	case LEVELUP_ATTACK_DAMAGE:
+    	case attackDamage:
     		player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
     		player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
     		break;
-    	case LEVELUP_BLOCK_CHANCE:
+    	case blockChance:
     		player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
     		break;
     	}
@@ -421,7 +423,7 @@ public final class ActorStatsController {
     	}
     	player.level++;
     	
-    	hpIncrease += player.getSkillLevel(SkillCollection.SKILL_FORTITUDE) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
+    	hpIncrease += player.getSkillLevel(SkillCollection.SkillID.fortitude) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
     	addActorMaxHealth(player, hpIncrease, true);
 		player.baseTraits.maxHP += hpIncrease;
 		

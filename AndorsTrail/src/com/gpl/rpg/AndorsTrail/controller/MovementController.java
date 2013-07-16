@@ -33,7 +33,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     	this.movementHandler = new TimedMessageTask(this, Constants.MINIMUM_INPUT_INTERVAL, false);
     }
 	
-	public void placePlayerAsyncAt(final int objectType, final String mapName, final String placeName, final int offset_x, final int offset_y) {
+	public void placePlayerAsyncAt(final MapObject.MapObjectType objectType, final String mapName, final String placeName, final int offset_x, final int offset_y) {
 		
 		AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>()  {
 			@Override
@@ -58,7 +58,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		task.execute();
     }
 	
-	public void placePlayerAt(final Resources res, int objectType, String mapName, String placeName, int offset_x, int offset_y) {
+	public void placePlayerAt(final Resources res, MapObject.MapObjectType objectType, String mapName, String placeName, int offset_x, int offset_y) {
     	if (mapName == null || placeName == null) return;
 		PredefinedMap newMap = world.maps.findPredefinedMap(mapName);
 		if (newMap == null) {
@@ -217,7 +217,7 @@ public final class MovementController implements TimedMessageTask.Callback {
     	final Coord newPosition = player.nextPosition;
     	
     	for (MapObject o : currentMap.eventObjects) {
-    		if (o.type == MapObject.MAPEVENT_KEYAREA) {
+    		if (o.type == MapObject.MapObjectType.keyarea) {
 	    		if (o.position.contains(newPosition)) {
 	    			if (!controllers.mapController.canEnterKeyArea(o)) return;
 	    		}
@@ -243,11 +243,11 @@ public final class MovementController implements TimedMessageTask.Callback {
     }
 
 	public void respawnPlayer(Resources res) {
-		placePlayerAt(res, MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
+		placePlayerAt(res, MapObject.MapObjectType.rest, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
 	}
 	public void respawnPlayerAsync() {
-		placePlayerAsyncAt(MapObject.MAPEVENT_REST, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
+		placePlayerAsyncAt(MapObject.MapObjectType.rest, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
 	}
 
 	public void moveBlockedActors(PredefinedMap map, LayeredTileMap tileMap) {
@@ -287,7 +287,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	private static Coord getFirstMapChangeAreaPosition(PredefinedMap map) {
 		for (MapObject o : map.eventObjects) {
-			if (o.type == MapObject.MAPEVENT_NEWMAP) return o.position.topLeft;
+			if (o.type == MapObject.MapObjectType.newmap) return o.position.topLeft;
 		}
 		return null;
 	}

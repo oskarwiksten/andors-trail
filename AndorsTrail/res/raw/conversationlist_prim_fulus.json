@@ -4,7 +4,7 @@
         "message": "Hey you! You shouldn't be here. This dagger is mine. Get out!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 30
             }
@@ -27,7 +27,7 @@
                 "nextPhraseID": "sign_bwm35_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "40"
                     }
@@ -51,7 +51,7 @@
                 "nextPhraseID": "sign_bwm35_3",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bjorgur_dagger",
                         "value": 1
                     }
@@ -64,7 +64,7 @@
         "message": "You place the dagger back among the equipment, where it looks like it used to be.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 40
             }
@@ -77,7 +77,7 @@
                 "nextPhraseID": "fulus_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "60"
                     }
@@ -87,7 +87,7 @@
                 "nextPhraseID": "fulus_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "51"
                     }
@@ -97,7 +97,7 @@
                 "nextPhraseID": "fulus_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "20"
                     }
@@ -125,7 +125,7 @@
                 "nextPhraseID": "fulus_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "40"
                     }
@@ -140,7 +140,7 @@
                 "nextPhraseID": "fulus_complete_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bjorgur_dagger",
                         "value": 1
                     }
@@ -153,7 +153,7 @@
         "message": "What?! Sigh. Stupid kid. That dagger is worth a fortune. We could have been rich! Rich I tell you!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 51
             }
@@ -174,12 +174,12 @@
         "message": "Oh wow, you actually managed to get the dagger? Thank you kid. This is worth a lot. Here, take these coins as compensation for your efforts!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 60
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "fulus_reward"
             }
         ],
@@ -247,7 +247,7 @@
                 "nextPhraseID": "fulus_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "40"
                     }
@@ -296,7 +296,7 @@
                 "nextPhraseID": "fulus_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "40"
                     }
@@ -309,7 +309,7 @@
         "message": "Good. Return to me once you have it. Maybe you can talk to Bjorgur about directions to the tomb. His house is just outside here in Prim. Just don't mention anything about our plan to him!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 20
             }

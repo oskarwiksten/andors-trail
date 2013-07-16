@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.conversation;
 
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
-
 public final class Phrase {
 	private static final Reply[] NO_REPLIES = new Reply[0];
 	
@@ -33,18 +31,20 @@ public final class Phrase {
 	}
 
 	public static final class Requirement {
-		public static final int REQUIREMENT_TYPE_QUEST_PROGRESS = 0;
-		public static final int REQUIREMENT_TYPE_INVENTORY_REMOVE = 1; // Player must have item(s) in inventory. Items will be removed when selecting reply.
-		public static final int REQUIREMENT_TYPE_INVENTORY_KEEP = 2; // Player must have item(s) in inventory. Items will NOT be removed when selecting reply.
-		public static final int REQUIREMENT_TYPE_WEAR_KEEP = 3; // Player must be wearing item(s). Items will NOT be removed when selecting reply.
-		public static final int REQUIREMENT_TYPE_SKILL_LEVEL = 4; // Player needs to have a specific skill equal to or above a certain level
-		public static final int REQUIREMENT_TYPE_KILLED_MONSTER = 5;
+		public static enum RequirementType {
+			questProgress
+			,inventoryRemove  // Player must have item(s) in inventory. Items will be removed when selecting reply.
+			,inventoryKeep    // Player must have item(s) in inventory. Items will NOT be removed when selecting reply.
+			,wear             // Player must be wearing item(s). Items will NOT be removed when selecting reply.
+			,skillLevel       // Player needs to have a specific skill equal to or above a certain level
+			,killedMonster
+		}
 
-		public final int requireType;
+		public final RequirementType requireType;
 		public final String requireID;
 		public final int value;
 
-		public Requirement(int requireType, String requireID, int value) {
+		public Requirement(RequirementType requireType, String requireID, int value) {
 			this.requireType = requireType;
 			this.requireID = requireID;
 			this.value = value;
@@ -52,17 +52,19 @@ public final class Phrase {
 	}
 	
 	public static final class Reward {
-		public static final int REWARD_TYPE_QUEST_PROGRESS = 0;
-		public static final int REWARD_TYPE_DROPLIST = 1;
-		public static final int REWARD_TYPE_SKILL_INCREASE = 2;
-		public static final int REWARD_TYPE_ACTOR_CONDITION = 3;
-		public static final int REWARD_TYPE_ALIGNMENT_CHANGE = 4;
-		
-		public final int rewardType;
+		public static enum RewardType {
+			questProgress
+			,dropList
+			,skillIncrease
+			,actorCondition
+			,alignmentChange
+		}
+
+		public final RewardType rewardType;
 		public final String rewardID;
 		public final int value;
 		
-		public Reward(int rewardType, String rewardID, int value) {
+		public Reward(RewardType rewardType, String rewardID, int value) {
 			this.rewardType = rewardType;
 			this.rewardID = rewardID;
 			this.value = value;

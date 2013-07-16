@@ -12,7 +12,7 @@
                 "nextPhraseID": "nocmar_quest_select",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nocmar",
                         "value": "10"
                     }
@@ -31,7 +31,7 @@
                 "nextPhraseID": "nocmar_complete_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nocmar",
                         "value": "200"
                     }
@@ -41,7 +41,7 @@
                 "nextPhraseID": "nocmar_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nocmar",
                         "value": "20"
                     }
@@ -59,7 +59,7 @@
                 "nextPhraseID": "S",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nocmar",
                         "value": "200"
                     }
@@ -129,7 +129,7 @@
         "message": "Unnmir sent you huh? I guess it must be important then.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nocmar",
                 "value": 20
             }
@@ -194,7 +194,7 @@
                 "nextPhraseID": "nocmar_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "heartstone",
                         "value": 1
                     }
@@ -219,7 +219,7 @@
         "message": "By the Shadow. You actually found a heartstone. I thought I wouldn't live to see the day.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nocmar",
                 "value": 200
             }

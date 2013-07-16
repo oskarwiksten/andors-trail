@@ -40,11 +40,11 @@
 				<tr ng-repeat="reward in phrase.rewards">
 					<td>
 						<select class="field" id="rewardType" ng-model="reward.rewardType">
-							<option value="0">Quest progress</option>
-							<option value="1">Droplist</option>
-							<option value="2">Skill increase</option>
-							<option value="3">Actor condition</option>
-							<option value="4">Alignment/faction change</option>
+							<option value="questProgress">Quest progress</option>
+							<option value="dropList">Droplist</option>
+							<option value="skillIncrease">Skill increase</option>
+							<option value="actorCondition">Actor condition</option>
+							<option value="alignmentChange">Alignment/faction change</option>
 						</select>
 					</td>
 					<td><input type="text" size="30" ng-model="reward.rewardID" id="rewardID" class="at-input-id"/></td>
@@ -139,12 +139,12 @@
 				<tr ng-repeat="require in reply.requires">
 					<td>
 						<select class="field" id="requireType" ng-model="require.requireType">
-							<option value="0">Quest progress</option>
-							<option value="1">Inventory &amp; item will be removed</option>
-							<option value="2">Inventory</option>
-							<option value="3">Worn equipment</option>
-							<option value="4">Skill level</option>
-							<option value="5">Killed monster</option>
+							<option value="questProgress">Quest progress</option>
+							<option value="inventoryRemove">Inventory &amp; item will be removed</option>
+							<option value="inventoryKeep">Inventory</option>
+							<option value="wear">Worn equipment</option>
+							<option value="skillLevel">Skill level</option>
+							<option value="killedMonster">Killed monster</option>
 						</select>
 					</td>
 					<td><input type="text" size="30" ng-model="require.requireID" id="requireID" class="at-input-id"/></td>

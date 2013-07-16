@@ -6,7 +6,7 @@
                 "nextPhraseID": "kendelow_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "45"
                     }
@@ -102,7 +102,7 @@
                 "nextPhraseID": "kendelow_room_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nondisplay",
                         "value": "21"
                     }
@@ -154,7 +154,7 @@
                 "nextPhraseID": "kendelow_room_8",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 600
                     }
@@ -173,7 +173,7 @@
                 "nextPhraseID": "kendelow_room_6b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "45"
                     }
@@ -193,7 +193,7 @@
                 "nextPhraseID": "kendelow_room_8",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 600
                     }
@@ -214,7 +214,7 @@
                 "nextPhraseID": "kendelow_room_8",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 400
                     }
@@ -241,7 +241,7 @@
         "message": "Thank you. The room is upstairs. You may rent it for as long as you wish.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 21
             }

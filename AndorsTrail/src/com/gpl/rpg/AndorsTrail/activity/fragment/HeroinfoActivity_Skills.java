@@ -16,6 +16,7 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.view.SkillListAdapter;
 
@@ -50,7 +51,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
         skillList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				Intent intent = Dialogs.getIntentForSkillInfo(ctx, (int) id);
+				Intent intent = Dialogs.getIntentForSkillInfo(ctx, skillListAdapter.getItem(position).id);
 				startActivityForResult(intent, INTENTREQUEST_SKILLINFO);
 			}
 		});
@@ -71,7 +72,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 		case INTENTREQUEST_SKILLINFO:
 			if (resultCode != Activity.RESULT_OK) break;
 
-			int skillID = data.getExtras().getInt("skillID");
+			SkillCollection.SkillID skillID = SkillCollection.SkillID.valueOf(data.getExtras().getString("skillID"));
 			controllers.skillController.levelUpSkillManually(player, world.skills.getSkill(skillID));
 			break;
 		}

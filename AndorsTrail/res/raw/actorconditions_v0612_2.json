@@ -3,7 +3,7 @@
         "id": "food",
         "iconID": "actorconditions_1:35",
         "name": "Sustenance",
-        "category": 2,
+        "category": "physical",
         "isPositive": 1,
         "roundEffect": {
             "increaseCurrentHP": {
@@ -16,7 +16,7 @@
         "id": "foodp",
         "iconID": "actorconditions_2:2",
         "name": "Food-poisoning",
-        "category": 2,
+        "category": "physical",
         "roundEffect": {
             "increaseCurrentHP": {
                 "min": -1,

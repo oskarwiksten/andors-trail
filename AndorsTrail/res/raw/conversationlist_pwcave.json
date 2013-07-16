@@ -70,7 +70,7 @@
                 "nextPhraseID": "gauward_sell_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nondisplay",
                         "value": "20"
                     }
@@ -143,7 +143,7 @@
         "message": "Good. Please do. I like knowing that their numbers are reduced at least.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 20
             }
@@ -158,7 +158,7 @@
                 "nextPhraseID": "gauward_sold_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "izthiel_claw",
                         "value": 1
                     }
@@ -169,7 +169,7 @@
                 "nextPhraseID": "gauward_sold_5",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "izthiel_claw",
                         "value": 5
                     }
@@ -180,7 +180,7 @@
                 "nextPhraseID": "gauward_sold_10",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "izthiel_claw",
                         "value": 10
                     }
@@ -191,7 +191,7 @@
                 "nextPhraseID": "gauward_sold_20",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "izthiel_claw",
                         "value": 20
                     }
@@ -208,7 +208,7 @@
         "message": "Good, thank you. Here's some gold for your troubles.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold5"
             }
         ]
@@ -218,7 +218,7 @@
         "message": "Excellent, thank you! Here's some gold for your troubles.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold25"
             }
         ]
@@ -228,7 +228,7 @@
         "message": "Excellent, thank you! Here's some gold for your troubles.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold50"
             }
         ]
@@ -238,7 +238,7 @@
         "message": "Oh wow, you managed to get twenty of those claws? That's excellent, thank you! Here's some gold and some extra health potions for your troubles.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gauward_sold_20"
             }
         ]

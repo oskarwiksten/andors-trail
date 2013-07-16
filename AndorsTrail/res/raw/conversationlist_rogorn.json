@@ -6,7 +6,7 @@
                 "nextPhraseID": "rogorn_henchman_atk",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "40"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "rogorn_henchman_noatk",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "45"
                     }
@@ -52,7 +52,7 @@
                 "nextPhraseID": "rogorn_completed_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "60"
                     }
@@ -62,7 +62,7 @@
                 "nextPhraseID": "rogorn_attack_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "40"
                     }
@@ -72,7 +72,7 @@
                 "nextPhraseID": "rogorn_story_r_9",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "45"
                     }
@@ -82,7 +82,7 @@
                 "nextPhraseID": "rogorn_toldstory_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "35"
                     }
@@ -160,7 +160,7 @@
                 "nextPhraseID": "rogorn_story_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "20"
                     }
@@ -185,7 +185,7 @@
         "message": "That depends, why do you want to know?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 30
             }
@@ -266,7 +266,7 @@
         "message": "I had hoped it would not come to this. For the Shadow!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 40
             }
@@ -425,7 +425,7 @@
         "message": "However, something must have upset the guards there anyway. Now we hear that we are accused of murder and theft in Feygard, without even being there ourselves.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 35
             }
@@ -492,7 +492,7 @@
         "message": "You tell those guards that you searched for us, but did not find anyone.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 45
             }

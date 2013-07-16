@@ -10,50 +10,52 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo.SkillLevelRequirement;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public final class SkillCollection {
-	public static final int SKILL_WEAPON_CHANCE = 0;
-	public static final int SKILL_WEAPON_DMG = 1;
-	public static final int SKILL_BARTER = 2;
-	public static final int SKILL_DODGE = 3;			// + BC
-	public static final int SKILL_BARKSKIN = 4;			// Dmg resist
-	public static final int SKILL_MORE_CRITICALS = 5;
-	public static final int SKILL_BETTER_CRITICALS = 6;
-	public static final int SKILL_SPEED = 7; 			// Raises max ap
-	public static final int SKILL_COINFINDER = 8;
-	public static final int SKILL_MORE_EXP = 9;
-	public static final int SKILL_CLEAVE = 10; 			// +10ap on kill
-	public static final int SKILL_EATER = 11; 			// +1hp per kill
-	public static final int SKILL_FORTITUDE = 12; 		// +N hp per levelup
-	public static final int SKILL_EVASION = 13; 		// increase successful flee chance & reduce chance of monster attack
-	public static final int SKILL_REGENERATION = 14; 	// +N hp per round
-	public static final int SKILL_LOWER_EXPLOSS = 15;
-	public static final int SKILL_MAGICFINDER = 16;
-	public static final int SKILL_RESISTANCE_MENTAL = 17;            // lowers chance to get negative active conditions by monsters (Mental like Dazed)
-	public static final int SKILL_RESISTANCE_PHYSICAL_CAPACITY = 18; // lowers chance to get negative active conditions by monsters (Physical Capacity like Minor fatigue)
-	public static final int SKILL_RESISTANCE_BLOOD_DISORDER = 19;    // lowers chance to get negative active conditions by monsters (Blood Disorder like Weak Poison)
-	public static final int SKILL_SHADOW_BLESS = 20;
-	public static final int SKILL_CRIT1 = 21;			// lowers atk ability
-	public static final int SKILL_CRIT2 = 22;			// lowers def ability
-	public static final int SKILL_REJUVENATION = 23;	// Reduces magnitudes of conditions
-	public static final int SKILL_TAUNT = 24;			// Causes AP loss of attackers that miss
-	public static final int SKILL_CONCUSSION = 25;		// AC loss for monsters with (AC-BC)>N
-	public static final int SKILL_WEAPON_PROFICIENCY_DAGGER = 26;
-	public static final int SKILL_WEAPON_PROFICIENCY_1HSWORD = 27;
-	public static final int SKILL_WEAPON_PROFICIENCY_2HSWORD = 28;
-	public static final int SKILL_WEAPON_PROFICIENCY_AXE = 29;
-	public static final int SKILL_WEAPON_PROFICIENCY_BLUNT = 30;
-	public static final int SKILL_WEAPON_PROFICIENCY_UNARMED = 31;
-	public static final int SKILL_ARMOR_PROFICIENCY_SHIELD = 32;
-	public static final int SKILL_ARMOR_PROFICIENCY_UNARMORED = 33;
-	public static final int SKILL_ARMOR_PROFICIENCY_LIGHT = 34;
-	public static final int SKILL_ARMOR_PROFICIENCY_HEAVY = 35;
-	public static final int SKILL_FIGHTSTYLE_DUAL_WIELD = 36;
-	public static final int SKILL_FIGHTSTYLE_2HAND = 37;
-	public static final int SKILL_FIGHTSTYLE_WEAPON_SHIELD = 38;
-	public static final int SKILL_SPECIALIZATION_DUAL_WIELD = 39;
-	public static final int SKILL_SPECIALIZATION_2HAND = 40;
-	public static final int SKILL_SPECIALIZATION_WEAPON_SHIELD = 41;
+	public static enum SkillID {
+		weaponChance
+		,weaponDmg
+		,barter
+		,dodge
+		,barkSkin
+		,moreCriticals
+		,betterCriticals
+		,speed 			// Raises max ap
+		,coinfinder
+		,moreExp
+		,cleave 			// +10ap on kill
+		,eater 			// +1hp per kill
+		,fortitude 		// +N hp per levelup
+		,evasion 		// increase successful flee chance & reduce chance of monster attack
+		,regeneration 	// +N hp per round
+		,lowerExploss
+		,magicfinder
+		,resistanceMental      // lowers chance to get negative active conditions by monsters (Mental like Dazed)
+		,resistancePhysical    // lowers chance to get negative active conditions by monsters (Physical Capacity like Minor fatigue)
+		,resistanceBlood       // lowers chance to get negative active conditions by monsters (Blood Disorder like Weak Poison)
+		,shadowBless
+		,crit1			// lowers atk ability
+		,crit2			// lowers def ability ,rejuvenation	// Reduces magnitudes of conditions
+		,rejuvenation	// Reduces magnitudes of conditions
+		,taunt			// Causes AP loss of attackers that miss
+		,concussion		// AC loss for monsters with (AC-BC)>N
+		,weaponProficiencyDagger
+		,weaponProficiency1hsword
+		,weaponProficiency2hsword
+		,weaponProficiencyAxe
+		,weaponProficiencyBlunt
+		,weaponProficiencyUnarmed
+		,armorProficiencyShield
+		,armorProficiencyUnarmored
+		,armorProficiencyLight
+		,armorProficiencyHeavy
+		,fightstyleDualWield
+		,fightstyle2hand
+		,fightstyleWeaponShield
+		,specializationDualWield
+		,specialization2hand
+		,specializationWeaponShield
+	}
 	
-	public static final int NUM_SKILLS = SKILL_SPECIALIZATION_WEAPON_SHIELD + 1;
+	public static final int NUM_SKILLS = SkillID.specializationWeaponShield.ordinal() + 1;
 	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 2;
@@ -122,105 +124,105 @@ public final class SkillCollection {
 	
 	private final SparseArray<SkillInfo> skills = new SparseArray<SkillInfo>();
 	private void initializeSkill(SkillInfo skill) {
-		skills.put(skill.id, skill);
+		skills.put(skill.id.ordinal(), skill);
 	}
 	public void initialize() {
-		initializeSkill(new SkillInfo(SKILL_WEAPON_CHANCE, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_DMG, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_BARTER, MAX_LEVEL_BARTER, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_DODGE, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_BARKSKIN, MAX_LEVEL_BARKSKIN, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SkillID.weaponChance, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.weaponDmg, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.barter, MAX_LEVEL_BARTER, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.dodge, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.barkSkin, MAX_LEVEL_BARKSKIN, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 			SkillLevelRequirement.requireExperienceLevels(10, 0) 
-			,SkillLevelRequirement.requireCombatStats(Player.STAT_COMBAT_BLOCK_CHANCE, 15, 0) 
+			,SkillLevelRequirement.requirePlayerStats(Player.StatID.blockChance, 15, 0)
 		}));
-		initializeSkill(new SkillInfo(SKILL_MORE_CRITICALS, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_BETTER_CRITICALS, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 1)
+		initializeSkill(new SkillInfo(SkillID.moreCriticals, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.betterCriticals, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.moreCriticals, 1)
 		}));
-		initializeSkill(new SkillInfo(SKILL_SPEED, MAX_LEVEL_SPEED, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SkillID.speed, MAX_LEVEL_SPEED, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 			SkillLevelRequirement.requireExperienceLevels(15, 0) 
 		}));
-		initializeSkill(new SkillInfo(SKILL_COINFINDER, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_MORE_EXP, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_CLEAVE, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_CHANCE, 1) 
-			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 1)
+		initializeSkill(new SkillInfo(SkillID.coinfinder, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.moreExp, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.cleave, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.weaponChance, 1)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.weaponDmg, 1)
 		}));
-		initializeSkill(new SkillInfo(SKILL_EATER, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireActorStats(Player.STAT_ACTOR_MAX_HP, 20, 20)
+		initializeSkill(new SkillInfo(SkillID.eater, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requirePlayerStats(Player.StatID.maxHP, 20, 20)
 		}));
-		initializeSkill(new SkillInfo(SKILL_FORTITUDE, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
+		initializeSkill(new SkillInfo(SkillID.fortitude, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 			SkillLevelRequirement.requireExperienceLevels(15, -10)
 		}));
-		initializeSkill(new SkillInfo(SKILL_EVASION, MAX_LEVEL_EVASION, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_REGENERATION, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireActorStats(Player.STAT_ACTOR_MAX_HP, 30, 0)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_FORTITUDE, 1)
+		initializeSkill(new SkillInfo(SkillID.evasion, MAX_LEVEL_EVASION, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.regeneration, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requirePlayerStats(Player.StatID.maxHP, 30, 0)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.fortitude, 1)
 		}));
-		initializeSkill(new SkillInfo(SKILL_LOWER_EXPLOSS, MAX_LEVEL_LOWER_EXPLOSS, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_MAGICFINDER, SkillInfo.MAXLEVEL_NONE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_RESISTANCE_MENTAL, MAX_LEVEL_RESISTANCE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_RESISTANCE_PHYSICAL_CAPACITY, MAX_LEVEL_RESISTANCE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_RESISTANCE_BLOOD_DISORDER, MAX_LEVEL_RESISTANCE, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, null));
-		initializeSkill(new SkillInfo(SKILL_SHADOW_BLESS, 1, SkillInfo.LEVELUP_TYPE_ONLY_BY_QUESTS, null));
-		initializeSkill(new SkillInfo(SKILL_CRIT1, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 3)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_BETTER_CRITICALS, 3)
+		initializeSkill(new SkillInfo(SkillID.lowerExploss, MAX_LEVEL_LOWER_EXPLOSS, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.magicfinder, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.resistanceMental, MAX_LEVEL_RESISTANCE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.resistancePhysical, MAX_LEVEL_RESISTANCE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.resistanceBlood, MAX_LEVEL_RESISTANCE, SkillInfo.LevelUpType.alwaysShown, null));
+		initializeSkill(new SkillInfo(SkillID.shadowBless, 1, SkillInfo.LevelUpType.onlyByQuests, null));
+		initializeSkill(new SkillInfo(SkillID.crit1, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.moreCriticals, 3)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.betterCriticals, 3)
 		}));
-		initializeSkill(new SkillInfo(SKILL_CRIT2, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_MORE_CRITICALS, 6)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_BETTER_CRITICALS, 6)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_CRIT1, 1)
+		initializeSkill(new SkillInfo(SkillID.crit2, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.moreCriticals, 6)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.betterCriticals, 6)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.crit1, 1)
 		}));
-		initializeSkill(new SkillInfo(SKILL_REJUVENATION, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_RESISTANCE_BLOOD_DISORDER, 3)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_RESISTANCE_MENTAL, 3)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_RESISTANCE_PHYSICAL_CAPACITY, 3)
+		initializeSkill(new SkillInfo(SkillID.rejuvenation, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.resistanceBlood, 3)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.resistanceMental, 3)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.resistancePhysical, 3)
 		}));
-		initializeSkill(new SkillInfo(SKILL_TAUNT, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_EVASION, 2)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_DODGE, 4)
+		initializeSkill(new SkillInfo(SkillID.taunt, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.evasion, 2)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.dodge, 4)
 		}));
-		initializeSkill(new SkillInfo(SKILL_CONCUSSION, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] { 
-			SkillLevelRequirement.requireOtherSkill(SKILL_SPEED, 2)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_CHANCE, 3)
-			,SkillLevelRequirement.requireOtherSkill(SKILL_WEAPON_DMG, 5)
+		initializeSkill(new SkillInfo(SkillID.concussion, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
+			SkillLevelRequirement.requireOtherSkill(SkillID.speed, 2)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.weaponChance, 3)
+			,SkillLevelRequirement.requireOtherSkill(SkillID.weaponDmg, 5)
 		}));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_DAGGER, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_1HSWORD, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_2HSWORD, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_AXE, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_BLUNT, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_WEAPON_PROFICIENCY_UNARMED, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_SHIELD, 2, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_UNARMORED, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_LIGHT, 3, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_ARMOR_PROFICIENCY_HEAVY, 4, SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST, null));
-		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_DUAL_WIELD, 2, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
+		initializeSkill(new SkillInfo(SkillID.weaponProficiencyDagger, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.weaponProficiency1hsword, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.weaponProficiency2hsword, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.weaponProficiencyAxe, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.weaponProficiencyBlunt, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.weaponProficiencyUnarmed, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.armorProficiencyShield, 2, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.armorProficiencyUnarmored, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.armorProficiencyLight, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.armorProficiencyHeavy, 4, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
+		initializeSkill(new SkillInfo(SkillID.fightstyleDualWield, 2, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(15, 0) 
 			}));
-		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_2HAND, 2, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
+		initializeSkill(new SkillInfo(SkillID.fightstyle2hand, 2, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(15, 0) 
 			}));
-		initializeSkill(new SkillInfo(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
+		initializeSkill(new SkillInfo(SkillID.fightstyleWeaponShield, 2, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(15, 0) 
 			}));
-		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_DUAL_WIELD, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
+		initializeSkill(new SkillInfo(SkillID.specializationDualWield, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
-				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_DUAL_WIELD, 2)
+				,SkillLevelRequirement.requireOtherSkill(SkillID.fightstyleDualWield, 2)
 			}));
-		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_2HAND, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
+		initializeSkill(new SkillInfo(SkillID.specialization2hand, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
-				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_2HAND, 2)
+				,SkillLevelRequirement.requireOtherSkill(SkillID.fightstyle2hand, 2)
 			}));
-		initializeSkill(new SkillInfo(SKILL_SPECIALIZATION_WEAPON_SHIELD, 1, SkillInfo.LEVELUP_TYPE_ALWAYS_SHOWN, new SkillLevelRequirement[] {
+		initializeSkill(new SkillInfo(SkillID.specializationWeaponShield, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
-				,SkillLevelRequirement.requireOtherSkill(SKILL_FIGHTSTYLE_WEAPON_SHIELD, 2)
+				,SkillLevelRequirement.requireOtherSkill(SkillID.fightstyleWeaponShield, 2)
 			}));
 	}
 
-	public SkillInfo getSkill(int skillID) {
-		return skills.get(skillID);
+	public SkillInfo getSkill(SkillID skillID) {
+		return skills.get(skillID.ordinal());
 	}
 	
 	public Collection<SkillInfo> getAllSkills() {

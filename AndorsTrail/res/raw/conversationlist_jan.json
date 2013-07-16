@@ -6,7 +6,7 @@
                 "nextPhraseID": "jan_complete2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jan",
                         "value": "100"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "jan_return",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jan",
                         "value": "10"
                     }
@@ -172,7 +172,7 @@
         "message": "Really? You think you could help? Hm, maybe you could. Beware of those bugs though, they're really tough bastards.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "jan",
                 "value": 10
             }
@@ -229,7 +229,7 @@
                 "nextPhraseID": "jan_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "ring_gandir",
                         "value": 1
                     }
@@ -270,7 +270,7 @@
         "message": "Wait, what? You actually went down there and returned alive? How did you manage that? Wow, I almost died going into that cave.\n\nOh thank you so much for bringing me back Gandir's ring! Now I can have something to remember him by.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "jan",
                 "value": 100
             }
@@ -299,7 +299,7 @@
                 "nextPhraseID": "irogotu1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jan",
                         "value": "10"
                     }

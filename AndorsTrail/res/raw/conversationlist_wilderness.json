@@ -8,7 +8,7 @@
                 "nextPhraseID": "fallhaven_bandit_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "20"
                     }
@@ -45,7 +45,7 @@
                 "nextPhraseID": "bandit1_3",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 100
                     }

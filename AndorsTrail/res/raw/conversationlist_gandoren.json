@@ -6,7 +6,7 @@
                 "nextPhraseID": "gandoren_completed_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "81"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "gandoren_completed_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "80"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "gandoren_deliver_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "25"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "gandoren_20",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "22"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "gandoren_20",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "21"
                     }
@@ -56,7 +56,7 @@
                 "nextPhraseID": "gandoren_wantshelp_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "20"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "gandoren_noguards_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "10"
                     }
@@ -144,7 +144,7 @@
         "message": "This also means that we cannot focus as much on our usual tasks as we normally do, but instead need help with doing basic tasks just to hold our grounds.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 10
             }
@@ -257,7 +257,7 @@
         "message": "Take this shipment of 10 iron swords to the guard captain stationed in a tavern called 'The Foaming Flask', near a village called Vilegard.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 20
             }
@@ -338,7 +338,7 @@
         "message": "Excellent.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 21
             }
@@ -365,7 +365,7 @@
         "message": "Ok then.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 22
             }
@@ -382,12 +382,12 @@
         "message": "Here is the shipment that I want you to transport.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 25
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "feygard_shipment"
             }
         ],
@@ -433,7 +433,7 @@
         "message": "I would urge you to stay away from her at all costs. Whatever you do, do not speak to her about your mission with the shipment.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 26
             }
@@ -460,7 +460,7 @@
                 "nextPhraseID": "gandoren_deliver_y_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "50"
                     }
@@ -471,7 +471,7 @@
                 "nextPhraseID": "gandoren_deliver_n_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "60"
                     }
@@ -488,7 +488,7 @@
         "message": "Splendid! Feygard is in debt to you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 80
             }
@@ -505,7 +505,7 @@
         "message": "Splendid! Feygard is in debt to you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 81
             }
@@ -578,7 +578,7 @@
                 "nextPhraseID": "gandoren_tr_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "60"
                     }
@@ -604,7 +604,7 @@
         "message": "Go up in the lookout tower over there and talk to Minarra about equipment. She has our supply.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 18
             }

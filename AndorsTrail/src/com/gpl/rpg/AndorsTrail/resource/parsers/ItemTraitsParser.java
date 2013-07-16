@@ -63,7 +63,7 @@ public final class ItemTraitsParser {
 		} else {
 			return new ItemTraits_OnUse(
 					new StatsModifierTraits(
-							StatsModifierTraits.VISUAL_EFFECT_NONE
+						null
 						,boostCurrentHP
 						,boostCurrentAP
 					)

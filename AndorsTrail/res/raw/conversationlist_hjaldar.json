@@ -6,7 +6,7 @@
                 "nextPhraseID": "hjaldar_pots_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "61"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "hjaldar_r3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "60"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "hjaldar_r1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "45"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "hjaldar_7r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "40"
                     }
@@ -100,7 +100,7 @@
                 "nextPhraseID": "hjaldar_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "31"
                     }
@@ -123,7 +123,7 @@
         "message": "My supply of Lyson marrow extract has gone dry. Without some of that, I can't make potions that are useful for anything really.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 40
             }
@@ -202,7 +202,7 @@
         "message": "He even had gear for travelling through colder climates - snow and ice and that sort of thing.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 41
             }
@@ -223,7 +223,7 @@
         "message": "Good luck finding him. If you do find him, which I doubt you do, please say hello to him from me, and tell him that I am well.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 45
             }
@@ -238,7 +238,7 @@
                 "nextPhraseID": "hjaldar_r2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "lyson_marrow",
                         "value": 1
                     }
@@ -263,7 +263,7 @@
         "message": "Oh wow. Yes, this is indeed some of that marrow extract. Nice work finding it!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 60
             }
@@ -408,12 +408,12 @@
         "message": "Ah, that should do it. Here you go. One potion of accuracy focus and one potion of damage focus. I hope they will be useful to you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 61
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "hjaldar_pots",
                 "value": 0
             }

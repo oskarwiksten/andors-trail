@@ -1,6 +1,7 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
@@ -87,7 +88,7 @@ public final class ResourceParserUtils {
 			return null;
 		} else {
 			return new StatsModifierTraits(
-					o.optInt(JsonFieldNames.StatsModifierTraits.visualEffectID, StatsModifierTraits.VISUAL_EFFECT_NONE)
+					VisualEffectCollection.VisualEffectID.fromString(o.optString(JsonFieldNames.StatsModifierTraits.visualEffectID, null), null)
 					,boostCurrentHP
 					,boostCurrentAP
 			);

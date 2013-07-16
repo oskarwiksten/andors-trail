@@ -90,7 +90,7 @@
                 "nextPhraseID": "fallhaven_drunk_11",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fallhavendrunk",
                         "value": "100"
                     }
@@ -120,7 +120,7 @@
         "message": "Well then give it back! Or go buy me another mead.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fallhavendrunk",
                 "value": 10
             }
@@ -131,7 +131,7 @@
                 "nextPhraseID": "fallhaven_drunk_10",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "mead",
                         "value": 1
                     }
@@ -152,7 +152,7 @@
         "message": "I must have drunk it then. Could you get me a new mead do you think?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fallhavendrunk",
                 "value": 10
             }
@@ -163,7 +163,7 @@
                 "nextPhraseID": "fallhaven_drunk_10",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "mead",
                         "value": 1
                     }
@@ -204,7 +204,7 @@
         "message": "Yeah, me and Unnmir had good times. Go ask him yourself, he is usually in the barn to the east of here. I wonder *burps* where that treasure went.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fallhavendrunk",
                 "value": 100
             }

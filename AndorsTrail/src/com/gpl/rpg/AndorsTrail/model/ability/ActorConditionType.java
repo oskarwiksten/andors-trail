@@ -4,15 +4,14 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 
 public final class ActorConditionType {
-	public static final int ACTORCONDITIONTYPE_SPIRITUAL = 0;
-	public static final int ACTORCONDITIONTYPE_MENTAL = 1;
-	public static final int ACTORCONDITIONTYPE_PHYSICAL_CAPACITY = 2;
-	public static final int ACTORCONDITIONTYPE_BLOOD_DISORDER = 3;
-	
+	public static enum ConditionCategory {
+		spiritual, mental, physical, blood
+	}
+
 	public final String conditionTypeID;
 	public final String name;
 	public final int iconID;
-	public final int conditionCategory;
+	public final ConditionCategory conditionCategory;
 	public final boolean isStacking;
 	public final boolean isPositive;
 	public final StatsModifierTraits statsEffect_everyRound;
@@ -22,8 +21,8 @@ public final class ActorConditionType {
 	public ActorConditionType(
 			String conditionTypeID, 
 			String name, 
-			int iconID, 
-			int conditionCategory, 
+			int iconID,
+			ConditionCategory conditionCategory,
 			boolean isStacking,
 			boolean isPositive,
 			StatsModifierTraits statsEffect_everyRound, 

@@ -6,7 +6,7 @@
                 "nextPhraseID": "oluag_grave_16",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "80"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "oluag_grave_return",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "80"
                     }
@@ -182,7 +182,7 @@
                 "nextPhraseID": "oluag_grave_9",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "40"
                     }
@@ -255,7 +255,7 @@
         "message": "So, anyway. Now he is buried over there. Rest in peace.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "wrye",
                 "value": 80
             }

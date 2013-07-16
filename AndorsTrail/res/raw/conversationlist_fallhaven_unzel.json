@@ -12,7 +12,7 @@
                 "nextPhraseID": "unzel_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "40"
                     }
@@ -59,7 +59,7 @@
         "message": "Very well, let's fight then.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 53
             }
@@ -148,7 +148,7 @@
                 "nextPhraseID": "unzel_16_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "50"
                     }
@@ -204,7 +204,7 @@
         "message": "Either you side with Vacor and his rift spell, or side with the Shadow, and help me get rid of him. Who will you help?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 50
             }
@@ -225,7 +225,7 @@
         "message": "Thank you my friend. We will keep the Shadow safe from Vacor.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 51
             }
@@ -250,7 +250,7 @@
                 "nextPhraseID": "unzel_30",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "ring_vacor",
                         "value": 1
                     }
@@ -267,12 +267,12 @@
         "message": "You killed him? You have my thanks friend. Now we are safe from Vacor's rift spell. Here, take these coins for your help.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vacor",
                 "value": 61
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold200"
             }
         ],
@@ -296,12 +296,12 @@
                 "nextPhraseID": "unzel_msg1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "25"
                     },
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "kaverin_message",
                         "value": 1
                     }
@@ -316,7 +316,7 @@
                 "nextPhraseID": "unzel_msg_r0",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "30"
                     }
@@ -326,7 +326,7 @@
                 "nextPhraseID": "unzel_40",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "61"
                     }
@@ -336,7 +336,7 @@
                 "nextPhraseID": "unzel_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "51"
                     }

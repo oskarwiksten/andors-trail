@@ -242,7 +242,7 @@ var ATEditor = (function(ATEditor, model, FieldList, _) {
 				if (obj.requires_Progress) { 
 					result.requires = [];
 					result.requires.push({
-						requireType: 0,
+						requireType: 'questProgress',
 						requireID: obj.requires_Progress
 					});
 				}

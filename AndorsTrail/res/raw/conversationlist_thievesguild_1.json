@@ -74,7 +74,7 @@
                 "nextPhraseID": "thievesguild_select_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "20"
                     }
@@ -157,7 +157,7 @@
                 "nextPhraseID": "thievesguild_cook_10",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "25"
                     }
@@ -173,12 +173,12 @@
         "message": "There. This should do it. Here you go.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 25
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "sleepingmead"
             }
         ],

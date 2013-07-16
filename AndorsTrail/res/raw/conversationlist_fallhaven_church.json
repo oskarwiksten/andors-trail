@@ -20,7 +20,7 @@
                 "nextPhraseID": "thoronir_trade_bonemeal",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bonemeal",
                         "value": "100"
                     }
@@ -37,7 +37,7 @@
                 "nextPhraseID": "thoronir_tharal_select",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bonemeal",
                         "value": "30"
                     }
@@ -80,7 +80,7 @@
                 "nextPhraseID": "thoronir_trade_bonemeal",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bonemeal",
                         "value": "100"
                     }
@@ -110,7 +110,7 @@
                 "nextPhraseID": "thoronir_church_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bucus",
                         "value": "10"
                     }
@@ -127,7 +127,7 @@
         "message": "No one is allowed down in the catacombs, except for Athamyr, my apprentice. He is the only one that has been down there for years.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bucus",
                 "value": 20
             }
@@ -172,7 +172,7 @@
                 "nextPhraseID": "thoronir_tharal_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bone",
                         "value": 5
                     }
@@ -185,7 +185,7 @@
         "message": "Thank you, please come back soon. I heard there were some undead near an old abandoned house just north of Fallhaven. Maybe you can check for bones there?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bonemeal",
                 "value": 40
             }
@@ -202,7 +202,7 @@
         "message": "Thank you, these bones will do fine. Now I can start creating some bonemeal healing potions for you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bonemeal",
                 "value": 100
             }

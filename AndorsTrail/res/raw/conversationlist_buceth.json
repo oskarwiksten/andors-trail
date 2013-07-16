@@ -6,7 +6,7 @@
                 "nextPhraseID": "buceth_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "60"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "buceth_fight_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "50"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "buceth_story_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "45"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "buceth_follow_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "42"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "buceth_bribed_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "41"
                     }
@@ -86,7 +86,7 @@
                 "nextPhraseID": "buceth_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "35"
                     }
@@ -145,7 +145,7 @@
                 "nextPhraseID": "buceth_gold_no",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 10
                     }
@@ -156,7 +156,7 @@
                 "nextPhraseID": "buceth_gold_no",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 100
                     }
@@ -167,7 +167,7 @@
                 "nextPhraseID": "buceth_gold_no",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 250
                     }
@@ -178,7 +178,7 @@
                 "nextPhraseID": "buceth_gold_no",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 500
                     }
@@ -189,7 +189,7 @@
                 "nextPhraseID": "buceth_gold_yes",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 1000
                     }
@@ -200,7 +200,7 @@
                 "nextPhraseID": "buceth_gold_yes",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 2000
                     }
@@ -217,7 +217,7 @@
         "message": "You seem to realize the true value of the Shadow. Yes, this will do fine, thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 41
             }
@@ -536,7 +536,7 @@
         "message": "I am glad to hear that, but then again, I had a feeling all along that you would say that.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 42
             }
@@ -617,7 +617,7 @@
         "message": "They were sending a boy to do some business here, and I was assigned to make sure that the mission was successful.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "andor",
                 "value": 61
             }
@@ -644,7 +644,7 @@
         "message": "Apparently, the boy they sent was successful in his mission. The task that I did was also successful, if I may say so myself.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 45
             }
@@ -717,7 +717,7 @@
         "message": "Infidel, you will not defeat me! For the Shadow!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 50
             }
@@ -734,7 +734,7 @@
         "message": "Thank you, my friend.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 60
             }
@@ -751,7 +751,7 @@
         "message": "If you want to learn more about the Shadow, please visit the chapel custodian in Nor City. Tell them I sent you, and they will surely extend their gratitude towards you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 60
             }

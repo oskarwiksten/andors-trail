@@ -12,7 +12,7 @@
                 "nextPhraseID": "tharal_bonemeal_select",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bonemeal",
                         "value": "10"
                     }
@@ -31,7 +31,7 @@
                 "nextPhraseID": "tharal_bonemeal4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bonemeal",
                         "value": "30"
                     }
@@ -67,7 +67,7 @@
         "message": "Well if you really are that persistent. Bring me 5 insect wings that I can use for making potions and maybe we can talk more.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bonemeal",
                 "value": 20
             }
@@ -78,7 +78,7 @@
                 "nextPhraseID": "tharal_bonemeal3",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "insectwing",
                         "value": 5
                     }
@@ -95,7 +95,7 @@
         "message": "Thanks kid. I knew I could count on you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bonemeal",
                 "value": 30
             }
@@ -162,7 +162,8 @@
         "rewards": [
             {
                 "rewardID": "antifoodp",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

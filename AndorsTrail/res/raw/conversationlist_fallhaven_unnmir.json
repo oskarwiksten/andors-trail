@@ -6,7 +6,7 @@
                 "nextPhraseID": "unnmir_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nocmar",
                         "value": "10"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "unnmir_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fallhavendrunk",
                         "value": "100"
                     }
@@ -153,7 +153,7 @@
         "message": "Nice. I'll give you a hint, kid. *snickering*. Go see Nocmar over by the west side of town. Tell him I sent you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nocmar",
                 "value": 10
             }

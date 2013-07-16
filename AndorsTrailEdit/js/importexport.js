@@ -28,13 +28,7 @@ var ATEditor = (function(ATEditor, _) {
 		_.each(o.replies, function(reply) {
 			ATEditor.defaults.addDefaults('reply', reply);
 			if (reply.nextPhraseID && reply.nextPhraseID.length === 1) { reply.replyLeadsTo = reply.nextPhraseID; }
-			_.each(reply.requires, function(require) {
-				if (!require.requireType) { require.requireType = 0; }
-			});
 			reply.hasRequirements = ATEditor.utils.hasValues(reply.requires);
-		});
-		_.each(o.rewards, function(reward) {
-			if (!reward.rewardType) { reward.rewardType = 0; }
 		});
 	};
 	prep.monster = function(o) {

@@ -86,7 +86,8 @@ public final class TileManager {
 	
 	public TileCollection loadTilesFor(Inventory inventory, Resources r) {
 		HashSet<Integer> iconIDs = getTileIDsFor(inventory);
-		for(ItemType t : inventory.wear) {
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType t = inventory.getItemTypeInWearSlot(slot);
 			if (t != null) iconIDs.add(t.iconID);
 		}
 		return tileCache.loadTilesFor(iconIDs, r);
@@ -217,7 +218,7 @@ public final class TileManager {
 				
 				HashSet<String> adjacentMapNames = new HashSet<String>();
 				for (MapObject o : nextMap.eventObjects) {
-					if (o.type != MapObject.MAPEVENT_NEWMAP) continue;
+					if (o.type != MapObject.MapObjectType.newmap) continue;
 					if (o.map == null) continue;
 					adjacentMapNames.add(o.map);
 				}

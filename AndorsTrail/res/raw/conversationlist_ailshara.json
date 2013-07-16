@@ -6,7 +6,7 @@
                 "nextPhraseID": "ailshara_completed_y_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "82"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "ailshara_completed_n_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "80"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "ailshara_deliver_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "35"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "ailshara_interested_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "25"
                     }
@@ -186,7 +186,7 @@
         "message": "Any help we can bring to Nor City in this matter is welcome. These items that Gandoren gave you would be useful to our people in the southern lands.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 30
             }
@@ -223,7 +223,7 @@
         "message": "If you indeed are walking in the Shadow, then deliver these items to the smith in Vilegard. He will be able to make good use of them. He might also have some other task for you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 35
             }
@@ -256,7 +256,7 @@
                 "nextPhraseID": "ailshara_deliver_2_s",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "55"
                     }
@@ -287,7 +287,7 @@
                 "nextPhraseID": "ailshara_deliver_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "81"
                     }
@@ -307,7 +307,7 @@
         "message": "Excellent! You do indeed walk with the Shadow my friend. I am glad to hear that there are at least a few decent folk still around.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 82
             }

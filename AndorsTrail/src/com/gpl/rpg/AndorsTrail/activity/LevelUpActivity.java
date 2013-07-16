@@ -48,7 +48,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(ActorStatsController.LEVELUP_HEALTH);
+				levelup(ActorStatsController.LevelUpSelection.health);
 			}
 		});
         b.setText(getString(R.string.levelup_add_health, Constants.LEVELUP_EFFECT_HEALTH));
@@ -57,7 +57,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(ActorStatsController.LEVELUP_ATTACK_CHANCE);
+				levelup(ActorStatsController.LevelUpSelection.attackChance);
 			}
 		});
         b.setText(getString(R.string.levelup_add_attackchance, Constants.LEVELUP_EFFECT_ATK_CH));
@@ -66,7 +66,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(ActorStatsController.LEVELUP_ATTACK_DAMAGE);
+				levelup(ActorStatsController.LevelUpSelection.attackDamage);
 			}
 		});
         b.setText(getString(R.string.levelup_add_attackdamage, Constants.LEVELUP_EFFECT_ATK_DMG));
@@ -75,7 +75,7 @@ public final class LevelUpActivity extends Activity {
         b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				levelup(ActorStatsController.LEVELUP_BLOCK_CHANCE);
+				levelup(ActorStatsController.LevelUpSelection.blockChance);
 			}
 		});
         b.setText(getString(R.string.levelup_add_blockchance, Constants.LEVELUP_EFFECT_DEF_CH));
@@ -100,7 +100,7 @@ public final class LevelUpActivity extends Activity {
         }
     }
 
-    public void levelup(int selectionID) {
+    public void levelup(ActorStatsController.LevelUpSelection selectionID) {
     	if (LevelUpActivity.this.isFinishing()) return;
     	
     	controllers.actorStatsController.addLevelupEffect(player, selectionID);

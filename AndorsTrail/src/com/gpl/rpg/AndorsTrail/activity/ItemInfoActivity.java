@@ -17,13 +17,10 @@ import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import java.util.Collections;
 
 public final class ItemInfoActivity extends Activity {
-	
-	public static final int ITEMACTION_NONE = 1;
-	public static final int ITEMACTION_USE = 2;
-	public static final int ITEMACTION_EQUIP = 3;
-	public static final int ITEMACTION_UNEQUIP = 4;
-	public static final int ITEMACTION_BUY = 5;
-	public static final int ITEMACTION_SELL = 6;
+
+	public static enum ItemInfoAction {
+		none, use, equip, unequip, buy, sell
+	}
 
 	@Override
     public void onCreate(Bundle savedInstanceState) {
@@ -107,6 +104,13 @@ public final class ItemInfoActivity extends Activity {
     }
     
     public static String getDisplayTypeString(Resources res, ItemType itemType) {
-    	return res.getStringArray(R.array.iteminfo_displaytypes)[itemType.displayType];
+		switch (itemType.displayType) {
+			case rare: return res.getString(R.string.iteminfo_displaytypes_rare);
+			case extraordinary: return res.getString(R.string.iteminfo_displaytypes_extraordinary);
+			case legendary: return res.getString(R.string.iteminfo_displaytypes_legendary);
+			case ordinary: return res.getString(R.string.iteminfo_displaytypes_ordinary);
+			case quest: return res.getString(R.string.iteminfo_displaytypes_quest);
+			default: return "";
+		}
     }
 }

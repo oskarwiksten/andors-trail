@@ -195,8 +195,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		controllers.monsterSpawnController.remove(world.model.currentMap, killedMonster);
 		controllers.effectController.addSplatter(world.model.currentMap, killedMonster);
 		
-		controllers.actorStatsController.addActorAP(player, player.getSkillLevel(SkillCollection.SKILL_CLEAVE) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP);
-		controllers.actorStatsController.addActorHealth(player, player.getSkillLevel(SkillCollection.SKILL_EATER) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH);
+		controllers.actorStatsController.addActorAP(player, player.getSkillLevel(SkillCollection.SkillID.cleave) * SkillCollection.PER_SKILLPOINT_INCREASE_CLEAVE_AP);
+		controllers.actorStatsController.addActorHealth(player, player.getSkillLevel(SkillCollection.SkillID.eater) * SkillCollection.PER_SKILLPOINT_INCREASE_EATER_HEALTH);
 		
 		world.model.statistics.addMonsterKill(killedMonster.getMonsterTypeID());
 		controllers.actorStatsController.addExperience(loot.exp);
@@ -254,7 +254,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (dest == null) return;
 		if (!useAPs(world.model.player.getMoveCost())) return;
 
-		int fleeChanceBias = world.model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
+		int fleeChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_FLEE_CHANCE_PERCENTAGE;
 		if (Constants.roll100(Constants.FLEE_FAIL_CHANCE_PERCENT - fleeChanceBias)) {
 			fleeingFailed();
 			return;
@@ -329,15 +329,15 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		return true;
 	}
 	private static boolean shouldMoveMonsterInCombat(Monster m, MonsterSpawnArea a, Coord playerPosition) {
-		final int movementAggressionType = m.getMovementAggressionType();
-		if (movementAggressionType == MonsterType.AGGRESSIONTYPE_NONE) return false;
+		final MonsterType.AggressionType movementAggressionType = m.getMovementAggressionType();
+		if (movementAggressionType == MonsterType.AggressionType.none) return false;
 		
 		if (!m.hasAPs(m.getMoveCost())) return false;
 		if (m.position.isAdjacentTo(playerPosition)) return false;
 		
-		if (movementAggressionType == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
+		if (movementAggressionType == MonsterType.AggressionType.protectSpawn) {
 			if (a.area.contains(playerPosition)) return true;
-		} else if (movementAggressionType == MonsterType.AGGRESSIONTYPE_HELP_OTHERS) {
+		} else if (movementAggressionType == MonsterType.AggressionType.helpOthers) {
 			for (Monster o : a.monsters) {
 				if (o == m) continue;
 				if (o.rectPosition.isAdjacentTo(playerPosition)) return true;
@@ -418,7 +418,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 		controllers.effectController.startEffect(
 				position
-				, VisualEffectCollection.EFFECT_BLOOD
+				, VisualEffectCollection.VisualEffectID.redSplash
 				, attack.damage
 				, callback
 				, callbackValue);

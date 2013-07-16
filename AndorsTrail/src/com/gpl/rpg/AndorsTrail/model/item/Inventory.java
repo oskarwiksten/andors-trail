@@ -9,20 +9,26 @@ import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContai
 
 public final class Inventory extends ItemContainer {
 
-	public static final int WEARSLOT_WEAPON = 0;
-	public static final int WEARSLOT_SHIELD = 1;
-	public static final int WEARSLOT_HEAD = 2;
-	public static final int WEARSLOT_BODY = 3;
-	public static final int WEARSLOT_HAND = 4;
-	public static final int WEARSLOT_FEET = 5;
-	public static final int WEARSLOT_NECK = 6;
-	public static final int WEARSLOT_LEFTRING = 7;
-	public static final int WEARSLOT_RIGHTRING = 8;
-	
+	public static enum WearSlot {
+		weapon
+		,shield
+		,head
+		,body
+		,hand
+		,feet
+		,neck
+		,leftring
+		,rightring;
+		public static WearSlot fromString(String s, WearSlot default_) {
+			if (s == null) return default_;
+			return valueOf(s);
+		}
+	}
+
 	public int gold = 0;
-	public static final int NUM_WORN_SLOTS = WEARSLOT_RIGHTRING+1; // +1 for 0 based index.
+	private static final int NUM_WORN_SLOTS = WearSlot.values().length;
 	public static final int NUM_QUICK_SLOTS = 3;
-	public final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
+	private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
 	public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
 	
 	public Inventory() { }
@@ -39,8 +45,15 @@ public final class Inventory extends ItemContainer {
 		this.add(loot.items);
 	}
 	
-	public boolean isEmptySlot(int slot) {
-		return wear[slot] == null;
+	public boolean isEmptySlot(WearSlot slot) {
+		return wear[slot.ordinal()] == null;
+	}
+
+	public ItemType getItemTypeInWearSlot(WearSlot slot) {
+		return wear[slot.ordinal()];
+	}
+	public void setItemTypeInWearSlot(WearSlot slot, ItemType type) {
+		wear[slot.ordinal()] = type;
 	}
 
 	public boolean isWearing(String itemTypeID) {
@@ -51,12 +64,17 @@ public final class Inventory extends ItemContainer {
 		return false;
 	}
 	
-	public static boolean isArmorSlot(int slot) {
-		if (slot == WEARSLOT_HEAD) return true;
-		else if (slot == WEARSLOT_BODY) return true;
-		else if (slot == WEARSLOT_HAND) return true;
-		else if (slot == WEARSLOT_FEET) return true;
-		else return false;
+	public static boolean isArmorSlot(WearSlot slot) {
+		if (slot == null) return false;
+		switch (slot) {
+			case head:
+			case body:
+			case hand:
+			case feet:
+				return true;
+			default:
+				return false;
+		}
 	}
 	
 	

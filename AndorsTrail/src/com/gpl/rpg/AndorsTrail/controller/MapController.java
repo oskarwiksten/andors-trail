@@ -28,17 +28,17 @@ public final class MapController {
     
     public void handleMapEvent(MapObject o, Coord position) {
 		switch (o.type) {
-		case MapObject.MAPEVENT_SIGN:
+		case sign:
 			if (o.id == null || o.id.length() <= 0) return;
 			worldEventListeners.onPlayerSteppedOnMapSignArea(o);
 			break;
-		case MapObject.MAPEVENT_NEWMAP:
+		case newmap:
 			if (o.map == null || o.place == null) return;
 			int offset_x = position.x - o.position.topLeft.x;
 			int offset_y = position.y - o.position.topLeft.y;
-			controllers.movementController.placePlayerAsyncAt(MapObject.MAPEVENT_NEWMAP, o.map, o.place, offset_x, offset_y);
+			controllers.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, o.map, o.place, offset_x, offset_y);
 			break;
-		case MapObject.MAPEVENT_REST:
+		case rest:
 			steppedOnRestArea(o);
 			break;
 		}
@@ -69,7 +69,7 @@ public final class MapController {
 		controllers.combatController.exitCombat(false);
 		final Player player = world.model.player;
 		int lostExp = player.getCurrentLevelExperience() * Constants.PERCENT_EXP_LOST_WHEN_DIED / 100;
-		lostExp -= lostExp * player.getSkillLevel(SkillCollection.SKILL_LOWER_EXPLOSS) * SkillCollection.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT / 100;
+		lostExp -= lostExp * player.getSkillLevel(SkillCollection.SkillID.lowerExploss) * SkillCollection.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT / 100;
 		
 		if (lostExp < 0) lostExp = 0;
 		controllers.actorStatsController.addExperience(-lostExp);

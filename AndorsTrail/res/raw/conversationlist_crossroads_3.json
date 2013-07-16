@@ -6,7 +6,7 @@
                 "nextPhraseID": "crossroads_sleepguard_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nondisplay",
                         "value": "17"
                     }
@@ -42,7 +42,7 @@
                 "nextPhraseID": "crossroads_sleepguard_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "90"
                     }
@@ -72,7 +72,7 @@
         "message": "I knew I had heard about you somewhere. You are always welcome by us guards. You can use that second bed over there to the left if you need to rest.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 17
             }
@@ -215,7 +215,7 @@
                 "nextPhraseID": "R",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 800
                     }

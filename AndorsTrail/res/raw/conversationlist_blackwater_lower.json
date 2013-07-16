@@ -6,7 +6,7 @@
                 "nextPhraseID": "laede_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "240"
                     }
@@ -22,7 +22,7 @@
         "message": "You are welcome to rest here if you want. Pick any bed you wish.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 16
             }
@@ -49,7 +49,7 @@
                 "nextPhraseID": "iducus_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "240"
                     }
@@ -165,7 +165,7 @@
                 "nextPhraseID": "blackwater_bossguard_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "90"
                     }
@@ -191,7 +191,7 @@
                 "nextPhraseID": "blackwater_throneguard_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "240"
                     }
@@ -201,7 +201,7 @@
                 "nextPhraseID": "blackwater_throneguard_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "140"
                     }
@@ -221,7 +221,7 @@
                 "nextPhraseID": "blackwater_throneguard_3",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bwm_permit",
                         "value": 1
                     }
@@ -248,7 +248,7 @@
         "message": "A permit you say? Let me see that.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 140
             }

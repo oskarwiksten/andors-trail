@@ -20,7 +20,9 @@ import com.gpl.rpg.AndorsTrail.activity.*;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
@@ -213,13 +215,13 @@ public final class Dialogs {
 		});
 	}
 
-	public static Intent getIntentForItemInfo(final Context ctx, String itemTypeID, int actionType, String buttonText, boolean buttonEnabled, int inventorySlot) {
+	public static Intent getIntentForItemInfo(final Context ctx, String itemTypeID, ItemInfoActivity.ItemInfoAction actionType, String buttonText, boolean buttonEnabled, Inventory.WearSlot inventorySlot) {
 		Intent intent = new Intent(ctx, ItemInfoActivity.class);
 		intent.putExtra("buttonText", buttonText);
 		intent.putExtra("buttonEnabled", buttonEnabled);
 		intent.putExtra("itemTypeID", itemTypeID);
-		intent.putExtra("actionType", actionType);
-		intent.putExtra("inventorySlot", inventorySlot);
+		intent.putExtra("actionType", actionType.name());
+		if (inventorySlot != null) intent.putExtra("inventorySlot", inventorySlot.name());
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/iteminfo/" + itemTypeID));
 		return intent;
 	}
@@ -287,28 +289,28 @@ public final class Dialogs {
 	}
 	
 	public static Intent getIntentForBulkBuyingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
-		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_BUY);
+		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType.buy);
 	}
 	
 	public static Intent getIntentForBulkSellingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
-		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_SELL);
+		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType.sell);
 	}
 	
 	public static Intent getIntentForBulkDroppingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
-		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BULK_INTERFACE_DROP);
+		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType.drop);
 	}
 
-    private static Intent getIntentForBulkSelectionInterface(final Context ctx, String itemTypeID, int totalAvailableAmount, int interfaceType) {
+    private static Intent getIntentForBulkSelectionInterface(final Context ctx, String itemTypeID, int totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType interfaceType) {
 		Intent intent = new Intent(ctx, BulkSelectionInterface.class);
 		intent.putExtra("itemTypeID", itemTypeID);
 		intent.putExtra("totalAvailableAmount", totalAvailableAmount);
-		intent.putExtra("interfaceType", interfaceType);
+		intent.putExtra("interfaceType", interfaceType.name());
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/bulkselection/" + itemTypeID));
 		return intent;
 	}
-	public static Intent getIntentForSkillInfo(final Context ctx, int skillID) {
+	public static Intent getIntentForSkillInfo(final Context ctx, SkillCollection.SkillID skillID) {
 		Intent intent = new Intent(ctx, SkillInfoActivity.class);
-		intent.putExtra("skillID", skillID);
+		intent.putExtra("skillID", skillID.name());
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/showskillinfo/" + skillID));
 		return intent;
 	}

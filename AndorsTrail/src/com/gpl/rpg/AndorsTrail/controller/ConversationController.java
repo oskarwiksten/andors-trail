@@ -9,10 +9,7 @@ import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Requirement;
 import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
-import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
+import com.gpl.rpg.AndorsTrail.model.ability.*;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
@@ -57,19 +54,19 @@ public final class ConversationController {
 		final PhraseRewards result = new PhraseRewards();
 		for (Reward reward : phrase.rewards) {
 			switch (reward.rewardType) {
-			case Reward.REWARD_TYPE_ACTOR_CONDITION:
+			case actorCondition:
 				addActorConditionReward(player, reward.rewardID, reward.value, result);
 				break;
-			case Reward.REWARD_TYPE_SKILL_INCREASE:
-				addSkillReward(player, Integer.parseInt(reward.rewardID), result);
+			case skillIncrease:
+				addSkillReward(player, SkillCollection.SkillID.valueOf(reward.rewardID), result);
 				break;
-			case Reward.REWARD_TYPE_DROPLIST:
+			case dropList:
 				addDropListReward(player, reward.rewardID, result);
 				break;
-			case Reward.REWARD_TYPE_QUEST_PROGRESS:
+			case questProgress:
 				addQuestProgressReward(player, reward.rewardID, reward.value, result);
 				break;
-			case Reward.REWARD_TYPE_ALIGNMENT_CHANGE:
+			case alignmentChange:
 				player.addAlignment(reward.rewardID, reward.value);
 				break;
 			}
@@ -99,7 +96,7 @@ public final class ConversationController {
 		world.dropLists.getDropList(droplistID).createRandomLoot(result.loot, player);
 	}
 
-	private void addSkillReward(Player player, int skillID, PhraseRewards result) {
+	private void addSkillReward(Player player, SkillCollection.SkillID skillID, PhraseRewards result) {
 		SkillInfo skill = world.skills.getSkill(skillID);
 		boolean addedSkill = controllers.skillController.levelUpSkillByQuest(player, skill);
 		if (addedSkill) {
@@ -123,7 +120,7 @@ public final class ConversationController {
 		if (!reply.hasRequirements()) return;
 
 		for (Requirement requirement : reply.requires) {
-			if (requirement.requireType == Requirement.REQUIREMENT_TYPE_INVENTORY_REMOVE) {
+			if (requirement.requireType == Requirement.RequirementType.inventoryRemove) {
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
 					player.inventory.gold -= requirement.value;
 				} else {
@@ -145,20 +142,20 @@ public final class ConversationController {
 	private static boolean playerSatisfiesRequirement(final WorldContext world, final Requirement requirement) {
 		Player player = world.model.player;
 		switch (requirement.requireType) {
-			case Requirement.REQUIREMENT_TYPE_QUEST_PROGRESS:
+			case questProgress:
 				return player.hasExactQuestProgress(requirement.requireID, requirement.value);
-			case Requirement.REQUIREMENT_TYPE_WEAR_KEEP:
+			case wear:
 				return player.inventory.isWearing(requirement.requireID);
-			case Requirement.REQUIREMENT_TYPE_INVENTORY_KEEP:
-			case Requirement.REQUIREMENT_TYPE_INVENTORY_REMOVE:
+			case inventoryKeep:
+			case inventoryRemove:
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
 					return player.inventory.gold >= requirement.value;
 				} else {
 					return player.inventory.hasItem(requirement.requireID, requirement.value);
 				}
-			case Requirement.REQUIREMENT_TYPE_SKILL_LEVEL:
-				return player.getSkillLevel(Integer.parseInt(requirement.requireID)) >= requirement.value;
-			case Requirement.REQUIREMENT_TYPE_KILLED_MONSTER:
+			case skillLevel:
+				return player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
+			case killedMonster:
 				return world.model.statistics.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
 			default:
 				return true;

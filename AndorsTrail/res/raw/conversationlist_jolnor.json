@@ -6,7 +6,7 @@
                 "nextPhraseID": "jolnor_default_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vilegard",
                         "value": "30"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "jolnor_default_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vilegard",
                         "value": "20"
                     }
@@ -40,7 +40,7 @@
                 "nextPhraseID": "jolnor_suspicious_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vilegard",
                         "value": "10"
                     }
@@ -115,7 +115,7 @@
                 "nextPhraseID": "S",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vilegard",
                         "value": "30"
                     }
@@ -195,7 +195,7 @@
                 "nextPhraseID": "jolnor_gaintrust_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vilegard",
                         "value": "30"
                     }
@@ -205,7 +205,7 @@
                 "nextPhraseID": "jolnor_gaintrust_return",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vilegard",
                         "value": "20"
                     }
@@ -251,7 +251,7 @@
         "message": "First, there is Kaori. She lives up in the northern part of Vilegard. Ask her if she wants help with anything.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaori",
                 "value": 5
             }
@@ -278,7 +278,7 @@
         "message": "She recently lost her son in a tragic way. If you can gain her trust, you will have a strong ally here.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "wrye",
                 "value": 10
             }
@@ -369,7 +369,7 @@
         "message": "I want you to make sure the guard disappears somehow. How you do that is purely up to you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "jolnor",
                 "value": 10
             }
@@ -414,7 +414,7 @@
         "message": "So, in order to gain our trust here in Vilegard, I would suggest you help Kaori, Wrye and me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vilegard",
                 "value": 20
             }
@@ -457,7 +457,7 @@
                 "nextPhraseID": "jolnor_quests_select_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jolnor",
                         "value": "30"
                     }
@@ -476,7 +476,7 @@
                 "nextPhraseID": "jolnor_guard_completed",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jolnor",
                         "value": "30"
                     }
@@ -496,7 +496,7 @@
                 "nextPhraseID": "jolnor_guard_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jolnor",
                         "value": "20"
                     }
@@ -507,7 +507,7 @@
                 "nextPhraseID": "jolnor_guard_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "ffguard_qitem",
                         "value": 1
                     }
@@ -534,7 +534,7 @@
         "message": "Very good. Thank you for your help.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "jolnor",
                 "value": 30
             }
@@ -553,7 +553,7 @@
                 "nextPhraseID": "jolnor_quests_select_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaori",
                         "value": "20"
                     }
@@ -581,7 +581,7 @@
                 "nextPhraseID": "jolnor_quests_completed",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "90"
                     }
@@ -607,7 +607,7 @@
         "message": "Good. You helped all three of us.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vilegard",
                 "value": 30
             }

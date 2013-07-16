@@ -6,7 +6,7 @@
                 "nextPhraseID": "fallhaven_oldman_complete_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "calomyran",
                         "value": "100"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "fallhaven_oldman_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "calomyran",
                         "value": "10"
                     }
@@ -90,7 +90,7 @@
         "message": "I have no idea where it might be. You could go ask Arcir, he seems very fond of his books. *points at the house to the south*",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "calomyran",
                 "value": 10
             }
@@ -111,7 +111,7 @@
                 "nextPhraseID": "fallhaven_oldman_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "calomyran_secrets",
                         "value": 1
                     }
@@ -132,12 +132,12 @@
         "message": "My book! Thank you, thank you! Where was it? No, don't tell me. Here, take these coins for your trouble.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "calomyran",
                 "value": 100
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold51"
             }
         ],

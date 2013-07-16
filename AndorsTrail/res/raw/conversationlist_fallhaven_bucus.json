@@ -20,7 +20,7 @@
                 "nextPhraseID": "bucus_umar_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bucus",
                         "value": "100"
                     }
@@ -52,7 +52,7 @@
                 "nextPhraseID": "bucus_thieves_complete_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bucus",
                         "value": "100"
                     }
@@ -62,7 +62,7 @@
                 "nextPhraseID": "bucus_thieves_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bucus",
                         "value": "10"
                     }
@@ -80,7 +80,7 @@
                 "nextPhraseID": "bucus_thieves_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "40"
                     }
@@ -120,7 +120,7 @@
         "message": "Anyway, that's all I know. You should go talk to Umar, he probably knows more. Down that hatch over there.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "andor",
                 "value": 50
             }
@@ -175,7 +175,7 @@
         "message": "Bring me the key of Luthor and we can talk more. I don't know anything about the key itself, but rumor has it that it is located somewhere in the catacombs beneath Fallhaven Church.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bucus",
                 "value": 10
             }
@@ -200,7 +200,7 @@
                 "nextPhraseID": "bucus_thieves_complete_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "key_luthor",
                         "value": 1
                     }
@@ -217,7 +217,7 @@
         "message": "Wow, you actually got the key of Luthor? I didn't think you would make it out of there.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bucus",
                 "value": 100
             }

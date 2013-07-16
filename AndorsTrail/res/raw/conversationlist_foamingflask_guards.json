@@ -36,7 +36,7 @@
                 "nextPhraseID": "ff_guard_rincel_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "41"
                     }
@@ -91,12 +91,12 @@
                 "nextPhraseID": "ff_captain_vg_items_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "56"
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "fg_ironsword_d",
                         "value": 10
                     }
@@ -107,12 +107,12 @@
                 "nextPhraseID": "ff_captain_fg_items_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "feygard_shipment",
                         "value": "25"
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "fg_ironsword",
                         "value": 10
                     }
@@ -127,7 +127,7 @@
                 "nextPhraseID": "ff_captain_rincel_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "41"
                     }
@@ -198,7 +198,7 @@
         "message": "I noticed he left to the west heading out of the Foaming Flask tavern.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "wrye",
                 "value": 42
             }

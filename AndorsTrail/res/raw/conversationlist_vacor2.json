@@ -4,7 +4,7 @@
         "message": "What's that in your hands?! ... I recognize that seal!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 70
             }
@@ -89,7 +89,7 @@
                 "nextPhraseID": "vacor_msg_8",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "kaverin_message",
                         "value": 1
                     }
@@ -120,7 +120,7 @@
                 "nextPhraseID": "vacor_msg_8",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "kaverin_message",
                         "value": 1
                     }
@@ -133,11 +133,11 @@
         "message": "Here, take this map as compensation for your troubles.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "vacor_map"
             },
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 75
             }
@@ -164,7 +164,7 @@
         "message": "(The map shows a location to the northwest of the former prison of Flagstone.)",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 90
             }

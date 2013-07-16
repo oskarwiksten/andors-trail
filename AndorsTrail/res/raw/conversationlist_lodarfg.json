@@ -5,7 +5,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar",
                         "value": "51"
                     }
@@ -15,7 +15,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar",
                         "value": "50"
                     }
@@ -174,7 +174,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 50
+                "value": 50,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -228,7 +229,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 51
+                "value": 51,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

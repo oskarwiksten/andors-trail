@@ -6,7 +6,7 @@
                 "nextPhraseID": "bwm_agent_4_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "40"
                     }
@@ -70,7 +70,7 @@
         "message": "Meet me further up the mountain, and we will talk more.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 40
             }

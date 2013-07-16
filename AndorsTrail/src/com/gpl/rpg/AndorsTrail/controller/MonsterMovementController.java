@@ -42,7 +42,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	    		if (!m.isAgressive()) continue;
 	    		if (!m.isAdjacentTo(world.model.player)) continue;
 	    		
-	    		int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SKILL_EVASION) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
+	    		int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
 	    		if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
 	    			monsterMovementListeners.onMonsterSteppedOnPlayer(m);
 	    			controllers.combatController.monsterSteppedOnPlayer(m);
@@ -59,8 +59,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		if (map.getMonsterAt(p) != null) return false;
 		MapObject m = map.getEventObjectAt(p.topLeft);
 		if (m != null) {
-			if (m.type == MapObject.MAPEVENT_NEWMAP) return false;
-			if (m.type == MapObject.MAPEVENT_KEYAREA) return false;
+			if (m.type == MapObject.MapObjectType.newmap) return false;
+			if (m.type == MapObject.MapObjectType.keyarea) return false;
 		}
     	return true;
 	}
@@ -101,7 +101,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
     
     private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-        if (m.getMovementAggressionType() == MonsterType.AGGRESSIONTYPE_PROTECT_SPAWN) {
+        if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn) {
     		if (area.area.contains(playerPosition)) {
     			if (findPathFor(m, playerPosition)) return;
     		}

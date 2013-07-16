@@ -22,7 +22,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		@Override
 		protected Requirement parseObject(JSONObject o) throws JSONException {
 			return new Requirement(
-					o.optInt(JsonFieldNames.ReplyRequires.requireType, Requirement.REQUIREMENT_TYPE_QUEST_PROGRESS)
+					Requirement.RequirementType.valueOf(o.getString(JsonFieldNames.ReplyRequires.requireType))
 					,o.getString(JsonFieldNames.ReplyRequires.requireID)
 					,o.optInt(JsonFieldNames.ReplyRequires.value, 0)
 			);
@@ -44,7 +44,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		@Override
 		protected Reward parseObject(JSONObject o) throws JSONException {
 			return new Reward(
-					o.optInt(JsonFieldNames.PhraseReward.rewardType, Reward.REWARD_TYPE_QUEST_PROGRESS)
+					Reward.RewardType.valueOf(o.getString(JsonFieldNames.PhraseReward.rewardType))
 					,o.getString(JsonFieldNames.PhraseReward.rewardID)
 					,o.optInt(JsonFieldNames.PhraseReward.value, 0)
 			);

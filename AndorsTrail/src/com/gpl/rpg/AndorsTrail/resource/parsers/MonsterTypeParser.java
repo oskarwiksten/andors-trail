@@ -61,8 +61,8 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 				, o.optString(JsonFieldNames.Monster.phraseID, null)
 				, o.optInt(JsonFieldNames.Monster.unique, 0) > 0
 				, o.optString(JsonFieldNames.Monster.faction, null)
-				, o.optInt(JsonFieldNames.Monster.monsterClass, MonsterType.MONSTERCLASS_HUMANOID)
-				, o.optInt(JsonFieldNames.Monster.movementAggressionType, MonsterType.AGGRESSIONTYPE_NONE)
+				, MonsterType.MonsterClass.fromString(o.optString(JsonFieldNames.Monster.monsterClass, null), MonsterType.MonsterClass.humanoid)
+				, MonsterType.AggressionType.fromString(o.optString(JsonFieldNames.Monster.movementAggressionType, null), MonsterType.AggressionType.none)
 				, ResourceParserUtils.parseSize(o.optString(JsonFieldNames.Monster.size, null), size1x1) //TODO: This could be loaded from the tileset size instead.
 				, ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.Monster.iconID))
 				, maxAP

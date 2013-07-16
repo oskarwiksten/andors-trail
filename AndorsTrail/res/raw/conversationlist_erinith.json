@@ -6,7 +6,7 @@
                 "nextPhraseID": "erinith_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "50"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "erinith_givenpotion_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "40"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "erinith_givenpotion_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "41"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "erinith_givenpotion_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "42"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "erinith_needspotions_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "30"
                     }
@@ -56,7 +56,7 @@
                 "nextPhraseID": "erinith_needsbook_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "20"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "erinith_needsbook_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "21"
                     }
@@ -96,7 +96,7 @@
         "message": "I was setting up camp here during the night, and was attacked by some bandits while asleep.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 10
             }
@@ -171,7 +171,7 @@
         "message": "You would? Oh thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 20
             }
@@ -214,7 +214,7 @@
         "message": "Make it quick.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 21
             }
@@ -239,7 +239,7 @@
                 "nextPhraseID": "erinith_needsbook_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "erinith_book",
                         "value": 1
                     }
@@ -251,7 +251,7 @@
         "id": "erinith_needsbook_2",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 30
             }
@@ -261,7 +261,7 @@
                 "nextPhraseID": "erinith_needsbook_3_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "erinith",
                         "value": "21"
                     }
@@ -287,7 +287,7 @@
         "message": "You found it! Oh thank you so much. In return, here is the gold I promised you.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold200"
             }
         ],
@@ -353,7 +353,7 @@
         "message": "One of those would surely do. Otherwise, I think four regular potions of health would be enough.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 31
             }
@@ -368,7 +368,7 @@
                 "nextPhraseID": "erinith_gavepotion_bm_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bonemeal_potion",
                         "value": 1
                     }
@@ -379,7 +379,7 @@
                 "nextPhraseID": "erinith_gavepotion_major_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "health_major2",
                         "value": 1
                     }
@@ -390,7 +390,7 @@
                 "nextPhraseID": "erinith_gavepotion_major_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "health_major",
                         "value": 1
                     }
@@ -401,7 +401,7 @@
                 "nextPhraseID": "erinith_gavepotion_reg_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "health",
                         "value": 4
                     }
@@ -418,7 +418,7 @@
         "message": "Bonemeal potion? But.. but.. We are not allowed to use them since they are prohibited by Lord Geomyr.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 40
             }
@@ -449,7 +449,7 @@
         "message": "Thank you for bringing me one. *drinks potion*",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 41
             }
@@ -466,7 +466,7 @@
         "message": "Thank you for bringing them to me. *drinks all four potions*",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 42
             }
@@ -493,7 +493,7 @@
         "message": "Thank you my friend for your help. My book is safe and my wound is healing. I hope our paths will cross again.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "erinith",
                 "value": 50
             }

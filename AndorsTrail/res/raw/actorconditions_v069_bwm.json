@@ -3,7 +3,7 @@
         "id": "speed_minor",
         "iconID": "actorconditions_1:87",
         "name": "Minor speed",
-        "category": 2,
+        "category": "physical",
         "isPositive": 1,
         "abilityEffect": {
             "increaseMaxAP": 2
@@ -13,7 +13,7 @@
         "id": "fatigue_minor",
         "iconID": "actorconditions_1:14",
         "name": "Minor fatigue",
-        "category": 2,
+        "category": "physical",
         "abilityEffect": {
             "increaseMoveCost": 2,
             "increaseAttackCost": 2,
@@ -27,7 +27,7 @@
         "id": "feebleness_minor",
         "iconID": "actorconditions_1:74",
         "name": "Minor weapon feebleness",
-        "category": 1,
+        "category": "mental",
         "abilityEffect": {
             "increaseAttackDamage": {
                 "min": -3,
@@ -39,10 +39,10 @@
         "id": "bleeding_wound",
         "iconID": "actorconditions_2:0",
         "name": "Bleeding wound",
-        "category": 3,
+        "category": "blood",
         "isStacking": 1,
         "roundEffect": {
-            "visualEffectID": 0,
+            "visualEffectID": "redSplash",
             "increaseCurrentHP": {
                 "min": -1,
                 "max": -1
@@ -53,7 +53,7 @@
         "id": "rage_minor",
         "iconID": "actorconditions_1:90",
         "name": "Minor berserker rage",
-        "category": 1,
+        "category": "mental",
         "isPositive": 1,
         "abilityEffect": {
             "increaseMaxHP": 35,
@@ -66,7 +66,7 @@
         "id": "blackwater_misery",
         "iconID": "actorconditions_1:58",
         "name": "Blackwater misery",
-        "category": 3,
+        "category": "blood",
         "abilityEffect": {
             "increaseAttackCost": 1,
             "increaseAttackChance": -50,
@@ -77,7 +77,7 @@
         "id": "intoxicated",
         "iconID": "actorconditions_2:1",
         "name": "Intoxicated",
-        "category": 1,
+        "category": "mental",
         "isPositive": 1,
         "abilityEffect": {
             "increaseMaxHP": 15,
@@ -93,7 +93,7 @@
         "id": "dazed",
         "iconID": "actorconditions_1:65",
         "name": "Dazed",
-        "category": 1,
+        "category": "mental",
         "abilityEffect": {
             "increaseBlockChance": -40
         }

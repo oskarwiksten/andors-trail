@@ -38,7 +38,7 @@
                 "nextPhraseID": "arngyr_back_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nondisplay",
                         "value": "19"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "arngyr_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "55"
                     }
@@ -82,7 +82,7 @@
         "message": "Oh no, not at all. Go ahead. After all you have done for us here in Loneford, it would be a privilege to be able to give something back to you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 19
             }
@@ -103,7 +103,7 @@
                 "nextPhraseID": "arngyr_5",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 600
                     }
@@ -120,7 +120,7 @@
         "message": "Thank you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 19
             }
@@ -151,7 +151,7 @@
                 "nextPhraseID": "arngyr_5",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 600
                     }

@@ -31,16 +31,16 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 public final class BulkSelectionInterface extends Activity implements TextWatcher {
 	
 	// class variables
-	public static final int BULK_INTERFACE_BUY = 0;
-	public static final int BULK_INTERFACE_SELL = 1;
-	public static final int BULK_INTERFACE_DROP = 2;
+	public static enum BulkInterfaceType {
+		buy, sell, drop
+	}
 
 	private static final int BUTTON_REPEAT_FIRST_TIME = 300;		// Delay after the touch before the counting starts
 	private static final int BUTTON_REPEAT_FURTHER_TIMES = 50;		// Delay between two count events
 	private static final int BUTTON_REPEAT_DOUBLE_AFTER = 10;       // after how many count events the countValue doubles?
 		
 	private WorldContext world;
-	private int interfaceType; 					    				// the type of interface either: BULK_INTERFACE_BUY, BULK_INTERFACE_SELL or BULK_INTERFACE_DROP
+	private BulkInterfaceType interfaceType;
 	private ItemType itemType;
 	private int totalAvailableAmount;
 	private int pricePerUnit;
@@ -49,7 +49,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 	private EditText bulkselection_amount_taken;					// the amount we're going to take from the totalAmount
 	private SeekBar bulkselection_slider;
 	private Button okButton;
-	
+
 	private final Handler timedEventHandler = new Handler();		// variables to count up or down on long presses on the buttons
 	private int countValue;
 	private int countTime;
@@ -76,20 +76,20 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
         if (!app.isInitialized()) { finish(); return; }
         this.world = app.getWorld();
         app.setWindowParameters(this);
-        
+
         final Resources res = getResources();
-        
+
         final Intent intent = getIntent();
         Bundle params = intent.getExtras();
         String itemTypeID = params.getString("itemTypeID");
         itemType = world.itemTypes.getItemType(itemTypeID);
         totalAvailableAmount = params.getInt("totalAvailableAmount");
-        interfaceType = params.getInt("interfaceType");
-        
+        interfaceType = BulkInterfaceType.valueOf(params.getString("interfaceType"));
+
 		int intialSelection = 1;
-		
+
         setContentView(R.layout.bulkselection);
-		
+
 		// initialize UI variables
         TextView bulkselection_action_type = (TextView)findViewById(R.id.bulkselection_action_type);
 		bulkselection_amount_taken = (EditText)findViewById(R.id.bulkselection_amount_taken);
@@ -106,15 +106,15 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
         itemName.setText(itemType.getName(world.model.player));
         world.tileManager.setImageViewTileForSingleItemType(res, itemName, itemType);
-        
+
         int actionTextResourceID = 0;
-		if (interfaceType == BULK_INTERFACE_BUY) {
+		if (interfaceType == BulkInterfaceType.buy) {
         	pricePerUnit = ItemController.getBuyingPrice(world.model.player, itemType);
         	actionTextResourceID = R.string.shop_buy;
-        } else if (interfaceType == BULK_INTERFACE_SELL) {
+        } else if (interfaceType == BulkInterfaceType.sell) {
         	pricePerUnit = ItemController.getSellingPrice(world.model.player, itemType);
         	actionTextResourceID = R.string.shop_sell;
-        } else if (interfaceType == BULK_INTERFACE_DROP) {
+        } else if (interfaceType == BulkInterfaceType.drop) {
         	pricePerUnit = 0;
         	actionTextResourceID = R.string.inventory_drop;
         	bulkselection_summary_totalgold.setVisibility(View.GONE);
@@ -211,7 +211,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 	 		}
 
 			private boolean requiresConfirmation() {
-				if (interfaceType != BULK_INTERFACE_SELL) return false;
+				if (interfaceType != BulkInterfaceType.sell) return false;
 				if (itemType.isOrdinaryItem()) return false;
 				return true;
 			}
@@ -255,7 +255,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		if (amount <= 0) return false;
 		if (amount > totalAvailableAmount) return false;
 		
-		if (interfaceType == BULK_INTERFACE_BUY) {
+		if (interfaceType == BulkInterfaceType.buy) {
 			if (amount * pricePerUnit > world.model.player.getGold()) return false;
 		}
 		
@@ -276,9 +276,9 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		if (newAmount != oldSliderAmount) bulkselection_slider.setProgress(newAmount - 1);                  // change the amount taken/text
 
 		// display buying/selling information if not dropping
-		if (interfaceType == BULK_INTERFACE_BUY) {
+		if (interfaceType == BulkInterfaceType.buy) {
 			bulkselection_summary_totalgold.setText(getResources().getString(R.string.bulkselection_totalcost_buy, newAmount * pricePerUnit));
-		} else if (interfaceType == BULK_INTERFACE_SELL) {
+		} else if (interfaceType == BulkInterfaceType.sell) {
 			bulkselection_summary_totalgold.setText(getResources().getString(R.string.bulkselection_totalcost_sell, newAmount * pricePerUnit));
 		} 
 		

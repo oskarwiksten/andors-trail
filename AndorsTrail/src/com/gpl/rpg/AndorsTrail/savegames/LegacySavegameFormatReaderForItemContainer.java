@@ -33,8 +33,8 @@ public final class LegacySavegameFormatReaderForItemContainer {
 	private static boolean isRefundableItem(ItemType itemType) {
 		if (itemType.hasManualPrice) return false;
 		if (itemType.isQuestItem()) return false;
-		if (itemType.displayType == ItemType.DISPLAYTYPE_EXTRAORDINARY) return false;
-		if (itemType.displayType == ItemType.DISPLAYTYPE_LEGENDARY) return false;
+		if (itemType.displayType == ItemType.DisplayType.extraordinary) return false;
+		if (itemType.displayType == ItemType.DisplayType.legendary) return false;
 		return itemType.baseMarketCost > itemType.fixedBaseMarketCost;
 	}
 }

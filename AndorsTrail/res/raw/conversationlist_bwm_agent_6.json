@@ -6,7 +6,7 @@
                 "nextPhraseID": "bwm_agent_6_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "60"
                     }
@@ -70,7 +70,7 @@
         "message": "You should go down these stairs and talk to our battle master, Harlenn. He can usually be found at the third level down.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 60
             }

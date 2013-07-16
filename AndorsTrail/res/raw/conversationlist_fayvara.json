@@ -5,7 +5,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "91"
                     }
@@ -15,7 +15,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "92"
                     }
@@ -25,7 +25,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "93"
                     }
@@ -35,7 +35,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "94"
                     }
@@ -102,7 +102,8 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 90
+                "value": 90,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -158,11 +159,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 91
+                "value": 91,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 32,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyShield",
                 "value": 1
             }
         ],
@@ -203,11 +205,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 92
+                "value": 92,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 34,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyLight",
                 "value": 1
             }
         ],
@@ -248,11 +251,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 93
+                "value": 93,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 35,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyHeavy",
                 "value": 1
             }
         ],
@@ -293,11 +297,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 94
+                "value": 94,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 33,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyUnarmored",
                 "value": 1
             }
         ],
@@ -345,7 +350,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "70"
                     }
@@ -363,7 +368,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "71"
                     }
@@ -381,7 +386,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "72"
                     }
@@ -399,7 +404,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "73"
                     }
@@ -417,7 +422,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "74"
                     }
@@ -435,7 +440,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "75"
                     }
@@ -452,7 +457,8 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 110
+                "value": 110,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -476,7 +482,8 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 100
+                "value": 100,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -491,7 +498,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "oegyth",
                         "value": 2
                     }
@@ -502,7 +509,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "oegyth",
                         "value": 2
                     }
@@ -523,7 +530,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "gold",
                         "value": 6000
                     }
@@ -581,7 +588,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "91"
                     }
@@ -610,12 +617,12 @@
                 "text": "Sounds good. Teach me about shields. Here are two Oegyth crystals and 6000 gold as payment.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "oegyth",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 6000
                     }
@@ -634,11 +641,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 91
+                "value": 91,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 32,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyShield",
                 "value": 1
             }
         ],
@@ -656,7 +664,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "92"
                     }
@@ -685,12 +693,12 @@
                 "text": "Sounds good. Teach me about light armors. Here are two Oegyth crystals and 6000 gold as payment.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "oegyth",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 6000
                     }
@@ -709,11 +717,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 92
+                "value": 92,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 34,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyLight",
                 "value": 1
             }
         ],
@@ -731,7 +740,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "93"
                     }
@@ -760,12 +769,12 @@
                 "text": "Sounds good. Teach me about heavy armors. Here are two Oegyth crystals and 6000 gold as payment.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "oegyth",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 6000
                     }
@@ -784,11 +793,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 93
+                "value": 93,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 35,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyHeavy",
                 "value": 1
             }
         ],
@@ -806,7 +816,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "94"
                     }
@@ -835,12 +845,12 @@
                 "text": "Sounds good. Teach me about unarmored combat. Here are two Oegyth crystals and 6000 gold as payment.",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "oegyth",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 6000
                     }
@@ -859,11 +869,12 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 94
+                "value": 94,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 2,
-                "rewardID": 33,
+                "rewardType": "skillIncrease",
+                "rewardID": "armorProficiencyUnarmored",
                 "value": 1
             }
         ],

@@ -12,7 +12,7 @@
                 "nextPhraseID": "fallhaven_warden_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "20"
                     }
@@ -23,7 +23,7 @@
                 "nextPhraseID": "fallhaven_warden_20",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "30"
                     }
@@ -88,12 +88,12 @@
                 "nextPhraseID": "fallhaven_warden_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "25"
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "sleepingmead",
                         "value": 1
                     }
@@ -110,7 +110,7 @@
         "message": "Oh sweet drinks of joy. I really shouldn't have this while on duty though.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 32
             }
@@ -155,7 +155,7 @@
                 "nextPhraseID": "fallhaven_warden_9",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 500
                     }
@@ -180,7 +180,7 @@
                 "nextPhraseID": "fallhaven_warden_9",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 400
                     }
@@ -201,7 +201,7 @@
         "message": "Wow, that much gold? I'm sure I could even get away with this without being fined. Then I could have the gold AND a nice drink of mead at the same time.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 60
             }
@@ -224,7 +224,7 @@
                 "nextPhraseID": "fallhaven_warden_11",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "60"
                     }
@@ -234,7 +234,7 @@
                 "nextPhraseID": "fallhaven_warden_35",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "90"
                     }
@@ -252,7 +252,7 @@
                 "nextPhraseID": "fallhaven_warden_30",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "50"
                     }
@@ -262,7 +262,7 @@
                 "nextPhraseID": "fallhaven_warden_12",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "32"
                     }
@@ -316,7 +316,7 @@
         "message": "Tonight? Thank you for this information. We will make sure to increase the security tonight then, but in such a way that they won't notice.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 40
             }
@@ -363,7 +363,7 @@
         "message": "Good. Report back to me when you have told them.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 50
             }
@@ -394,12 +394,12 @@
         "message": "Great. Thank you for your help. Here, take these coins as a token of our appreciation.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 90
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold200"
             }
         ],

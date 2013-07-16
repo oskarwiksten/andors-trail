@@ -49,7 +49,7 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
     			, itemTypeName
                 , description
 	        	, itemCategories.getItemCategory(o.getString(JsonFieldNames.ItemType.category))
-    			, o.optInt(JsonFieldNames.ItemType.displaytype, ItemType.DISPLAYTYPE_ORDINARY)
+    			, ItemType.DisplayType.fromString(o.optString(JsonFieldNames.ItemType.displaytype, null), ItemType.DisplayType.ordinary)
     			, hasManualPrice
     			, baseMarketCost
     			, equipEffect

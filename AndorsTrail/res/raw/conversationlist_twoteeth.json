@@ -5,7 +5,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lowyna",
                         "value": "40"
                     }
@@ -15,7 +15,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lowyna",
                         "value": "10"
                     }
@@ -154,7 +154,8 @@
         "rewards": [
             {
                 "rewardID": "lowyna",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "message": "Good. Tell her two-teeth sent you."
@@ -207,7 +208,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "drink_lowyn3",
                         "value": 1
                     }
@@ -232,7 +233,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "drink_lowyn3",
                         "value": 1
                     }
@@ -252,7 +253,8 @@
         "rewards": [
             {
                 "rewardID": "lowyna",
-                "value": 40
+                "value": 40,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

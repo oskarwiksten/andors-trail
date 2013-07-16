@@ -38,7 +38,7 @@
         "message": "Ah, another mortal. Prepare to become part of my undead army!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "flagstone",
                 "value": 31
             }
@@ -73,7 +73,7 @@
         "message": "What, a mortal in here that is not marked by my touch?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "flagstone",
                 "value": 50
             }
@@ -116,7 +116,7 @@
                 "nextPhraseID": "flagstone_sentry_return4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "flagstone",
                         "value": "60"
                     }
@@ -126,7 +126,7 @@
                 "nextPhraseID": "flagstone_sentry_return3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "flagstone",
                         "value": "40"
                     }
@@ -144,7 +144,7 @@
                 "nextPhraseID": "flagstone_sentry_return2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "flagstone",
                         "value": "30"
                     }
@@ -154,7 +154,7 @@
                 "nextPhraseID": "flagstone_sentry_return1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "flagstone",
                         "value": "10"
                     }
@@ -314,7 +314,7 @@
         "message": "Return here if you need my advice.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "flagstone",
                 "value": 10
             }
@@ -339,7 +339,7 @@
                 "nextPhraseID": "flagstone_sentry_20",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "flagstone",
                         "value": "20"
                     }
@@ -382,7 +382,7 @@
         "message": "If you find the warden and retrieve the necklace, then please return here and I will help you decipher any message that we might find on it.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "flagstone",
                 "value": 30
             }
@@ -393,7 +393,7 @@
                 "nextPhraseID": "flagstone_sentry_40",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "necklace_flagstone",
                         "value": 1
                     }
@@ -428,7 +428,7 @@
         "message": "You found the necklace? Good. Here, give it to me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "flagstone",
                 "value": 40
             }
@@ -495,7 +495,7 @@
                 "nextPhraseID": "narael_9",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "flagstone",
                         "value": "60"
                     }
@@ -581,7 +581,7 @@
         "message": "Now leave me to my fate. I do not have the strength to leave this place.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "flagstone",
                 "value": 60
             }

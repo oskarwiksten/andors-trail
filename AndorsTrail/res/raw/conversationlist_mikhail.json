@@ -6,7 +6,7 @@
                 "nextPhraseID": "mikhail_start_select2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_bread",
                         "value": "100"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "mikhail_bread_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_bread",
                         "value": "10"
                     }
@@ -34,7 +34,7 @@
                 "nextPhraseID": "mikhail_start_select_default",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_rats",
                         "value": "100"
                     }
@@ -44,7 +44,7 @@
                 "nextPhraseID": "mikhail_rats_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_rats",
                         "value": "10"
                     }
@@ -62,7 +62,7 @@
                 "nextPhraseID": "mikhail_visited",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "1"
                     }
@@ -88,7 +88,7 @@
         "message": "I can't seem to find your brother Andor anywhere. He hasn't been back since he left yesterday.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "andor",
                 "value": 1
             }
@@ -169,7 +169,7 @@
                 "nextPhraseID": "mikhail_bread_complete2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_bread",
                         "value": "100"
                     }
@@ -179,7 +179,7 @@
                 "nextPhraseID": "mikhail_bread_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_bread",
                         "value": "10"
                     }
@@ -195,7 +195,7 @@
         "message": "Oh, I almost forgot. If you have time, please go see Mara at the town hall and buy me some more bread.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "mikhail_bread",
                 "value": 10
             }
@@ -216,7 +216,7 @@
                 "nextPhraseID": "mikhail_bread_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bread",
                         "value": 1
                     }
@@ -233,12 +233,12 @@
         "message": "Thanks a lot, now I can make my breakfast. Here, take these coins for your help.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "mikhail_bread",
                 "value": 100
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold20"
             }
         ],
@@ -266,7 +266,7 @@
                 "nextPhraseID": "mikhail_rats_complete2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_rats",
                         "value": "100"
                     }
@@ -276,7 +276,7 @@
                 "nextPhraseID": "mikhail_rats_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "mikhail_rats",
                         "value": "10"
                     }
@@ -292,7 +292,7 @@
         "message": "I saw some rats out back in our garden earlier. Could you please go kill any rats that you see out there.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "mikhail_rats",
                 "value": 10
             }
@@ -303,7 +303,7 @@
                 "nextPhraseID": "mikhail_rats_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "tail_trainingrat",
                         "value": 2
                     }
@@ -344,7 +344,7 @@
                 "nextPhraseID": "mikhail_rats_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "tail_trainingrat",
                         "value": 2
                     }
@@ -361,7 +361,7 @@
         "message": "Oh you did? Wow, thanks a lot for your help!\n\nIf you are hurt, use your bed over there to rest and regain your strength.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "mikhail_rats",
                 "value": 100
             }

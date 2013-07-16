@@ -5,7 +5,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 60
+                "value": 60,
+                "rewardType": "questProgress"
             }
         ]
     },
@@ -15,7 +16,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "50"
                     }
@@ -33,7 +34,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 80
+                "value": 80,
+                "rewardType": "questProgress"
             }
         ]
     },
@@ -47,7 +49,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "50"
                     }
@@ -65,7 +67,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 90
+                "value": 90,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -108,7 +111,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 100
+                "value": 100,
+                "rewardType": "questProgress"
             }
         ],
         "message": "As you try to step further into the cave, you feel your steps becoming more and more heavy.",
@@ -125,7 +129,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar2",
                         "value": "35"
                     }
@@ -135,7 +139,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "lodarstone",
                         "value": 1
                     }
@@ -156,7 +160,8 @@
         "rewards": [
             {
                 "rewardID": "lodar2",
-                "value": 35
+                "value": 35,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

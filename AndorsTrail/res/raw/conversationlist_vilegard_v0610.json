@@ -4,7 +4,7 @@
         "message": "Oh, this is most unexpected but very welcome. I will not question how you acquired these items, but instead express my gratitude for bringing them to me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 55
             }
@@ -71,12 +71,12 @@
         "message": "Take these items and deliver them to wherever you were supposed to deliver the items you gave me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 56
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "vg_smith_fg_items"
             }
         ]
@@ -85,7 +85,7 @@
         "id": "ff_captain_vg_items_1",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 60
             }
@@ -100,7 +100,7 @@
         "id": "ff_captain_fg_items_1",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "feygard_shipment",
                 "value": 50
             }

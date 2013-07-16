@@ -45,8 +45,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
     
     private ItemType lastSelectedItem; // Workaround android bug #7139
 	
-	private final ImageView[] wornItemImage = new ImageView[Inventory.NUM_WORN_SLOTS];
-	private final int[] defaultWornItemImageResourceIDs = new int[Inventory.NUM_WORN_SLOTS];
+	private final ImageView[] wornItemImage = new ImageView[Inventory.WearSlot.values().length];
+	private final int[] defaultWornItemImageResourceIDs = new int[Inventory.WearSlot.values().length];
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -80,15 +80,15 @@ public final class HeroinfoActivity_Inventory extends Fragment {
         heroinfo_stats_attack = (TextView) v.findViewById(R.id.heroinfo_stats_attack);
         heroinfo_stats_defense = (TextView) v.findViewById(R.id.heroinfo_stats_defense);
         
-        setWearSlot(v, Inventory.WEARSLOT_WEAPON, R.id.heroinfo_worn_weapon, R.drawable.equip_weapon);
-        setWearSlot(v, Inventory.WEARSLOT_SHIELD, R.id.heroinfo_worn_shield, R.drawable.equip_shield);
-        setWearSlot(v, Inventory.WEARSLOT_HEAD, R.id.heroinfo_worn_head, R.drawable.equip_head);
-        setWearSlot(v, Inventory.WEARSLOT_BODY, R.id.heroinfo_worn_body, R.drawable.equip_body);
-        setWearSlot(v, Inventory.WEARSLOT_FEET, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
-        setWearSlot(v, Inventory.WEARSLOT_NECK, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
-        setWearSlot(v, Inventory.WEARSLOT_HAND, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
-        setWearSlot(v, Inventory.WEARSLOT_LEFTRING, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
-        setWearSlot(v, Inventory.WEARSLOT_RIGHTRING, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
+        setWearSlot(v, Inventory.WearSlot.weapon, R.id.heroinfo_worn_weapon, R.drawable.equip_weapon);
+        setWearSlot(v, Inventory.WearSlot.shield, R.id.heroinfo_worn_shield, R.drawable.equip_shield);
+        setWearSlot(v, Inventory.WearSlot.head, R.id.heroinfo_worn_head, R.drawable.equip_head);
+        setWearSlot(v, Inventory.WearSlot.body, R.id.heroinfo_worn_body, R.drawable.equip_body);
+        setWearSlot(v, Inventory.WearSlot.feet, R.id.heroinfo_worn_feet, R.drawable.equip_feet);
+        setWearSlot(v, Inventory.WearSlot.neck, R.id.heroinfo_worn_neck, R.drawable.equip_neck);
+        setWearSlot(v, Inventory.WearSlot.hand, R.id.heroinfo_worn_hand, R.drawable.equip_hand);
+        setWearSlot(v, Inventory.WearSlot.leftring, R.id.heroinfo_worn_ringleft, R.drawable.equip_ring);
+        setWearSlot(v, Inventory.WearSlot.rightring, R.id.heroinfo_worn_ringright, R.drawable.equip_ring);
 
 		return v;
     }
@@ -99,16 +99,16 @@ public final class HeroinfoActivity_Inventory extends Fragment {
     	update();
     }
 
-	private void setWearSlot(final View v, final int inventorySlot, int viewId, int resourceId) {
+	private void setWearSlot(final View v, final Inventory.WearSlot inventorySlot, int viewId, int resourceId) {
     	final ImageView imageView = (ImageView) v.findViewById(viewId);
-    	wornItemImage[inventorySlot] = imageView;
-    	defaultWornItemImageResourceIDs[inventorySlot] = resourceId;
+    	wornItemImage[inventorySlot.ordinal()] = imageView;
+    	defaultWornItemImageResourceIDs[inventorySlot.ordinal()] = resourceId;
     	imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				if (player.inventory.isEmptySlot(inventorySlot)) return;
 				imageView.setClickable(false); // Will be enabled again on update()
-				showEquippedItemInfo(player.inventory.wear[inventorySlot], inventorySlot);
+				showEquippedItemInfo(player.inventory.getItemTypeInWearSlot(inventorySlot), inventorySlot);
 			}
 		});
 	}
@@ -121,13 +121,14 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			if (resultCode != Activity.RESULT_OK) break;
 			
 			ItemType itemType = world.itemTypes.getItemType(data.getExtras().getString("itemTypeID"));
-			int actionType = data.getExtras().getInt("actionType");
-			if (actionType == ItemInfoActivity.ITEMACTION_UNEQUIP) {
-	        	controllers.itemController.unequipSlot(itemType, data.getExtras().getInt("inventorySlot"));
-	        } else  if (actionType == ItemInfoActivity.ITEMACTION_EQUIP) {
-	    		int slot = suggestInventorySlot(itemType);
+			ItemInfoActivity.ItemInfoAction actionType = ItemInfoActivity.ItemInfoAction.valueOf(data.getExtras().getString("actionType"));
+			if (actionType == ItemInfoActivity.ItemInfoAction.unequip) {
+				Inventory.WearSlot slot = Inventory.WearSlot.valueOf(data.getExtras().getString("inventorySlot"));
+	        	controllers.itemController.unequipSlot(itemType, slot);
+	        } else  if (actionType == ItemInfoActivity.ItemInfoAction.equip) {
+				Inventory.WearSlot slot = suggestInventorySlot(itemType);
 	        	controllers.itemController.equipItem(itemType, slot);
-	        } else  if (actionType == ItemInfoActivity.ITEMACTION_USE) {
+	        } else  if (actionType == ItemInfoActivity.ItemInfoAction.use) {
 				controllers.itemController.useItem(itemType);
 			}
 			break;
@@ -142,15 +143,15 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		update();
 	}
 
-	private int suggestInventorySlot(ItemType itemType) {
-		int slot = itemType.category.inventorySlot;
+	private Inventory.WearSlot suggestInventorySlot(ItemType itemType) {
+		Inventory.WearSlot slot = itemType.category.inventorySlot;
 		if (player.inventory.isEmptySlot(slot)) return slot;
 		
-		if (slot == Inventory.WEARSLOT_LEFTRING) return Inventory.WEARSLOT_RIGHTRING;
+		if (slot == Inventory.WearSlot.leftring) return Inventory.WearSlot.rightring;
 		if (itemType.isOffhandCapableWeapon()) {
-			ItemType mainWeapon = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+			ItemType mainWeapon = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 			if (mainWeapon != null && mainWeapon.isTwohandWeapon()) return slot;
-			else if (player.inventory.isEmptySlot(Inventory.WEARSLOT_SHIELD)) return Inventory.WEARSLOT_SHIELD;
+			else if (player.inventory.isEmptySlot(Inventory.WearSlot.shield)) return Inventory.WearSlot.shield;
 		}
 		return slot;
 	}
@@ -185,8 +186,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
     }
 
     private void updateWorn() {
-    	for(int slot = 0; slot < Inventory.NUM_WORN_SLOTS; ++slot) {
-    		updateWornImage(wornItemImage[slot], defaultWornItemImageResourceIDs[slot], player.inventory.wear[slot]);
+    	for(Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+    		updateWornImage(wornItemImage[slot.ordinal()], defaultWornItemImageResourceIDs[slot.ordinal()], player.inventory.getItemTypeInWearSlot(slot));
     	}
     }
 
@@ -218,7 +219,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			if (type.isEquippable()) {
 				menu.findItem(R.id.inv_menu_equip).setVisible(true);
 				if (type.isOffhandCapableWeapon()) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
-				else if (type.category.inventorySlot == Inventory.WEARSLOT_LEFTRING) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
+				else if (type.category.inventorySlot == Inventory.WearSlot.leftring) menu.findItem(R.id.inv_menu_equip_offhand).setVisible(true);
 			}
 			break;
 		}
@@ -253,7 +254,11 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			break;
 		case R.id.inv_menu_equip_offhand:
 			itemType = getSelectedItemType(info);
-			controllers.itemController.equipItem(itemType, itemType.category.inventorySlot + 1);
+			if (itemType.category.inventorySlot == Inventory.WearSlot.weapon) {
+				controllers.itemController.equipItem(itemType, Inventory.WearSlot.shield);
+			} else if (itemType.category.inventorySlot == Inventory.WearSlot.leftring) {
+				controllers.itemController.equipItem(itemType, Inventory.WearSlot.rightring);
+			}
 			break;
 		/*case R.id.inv_menu_unequip:
 			context.mapController.unequipItem(this, getSelectedItemType(info));
@@ -286,7 +291,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		return true;
     }
 
-	private void showEquippedItemInfo(ItemType itemType, int inventorySlot) {
+	private void showEquippedItemInfo(ItemType itemType, Inventory.WearSlot inventorySlot) {
     	String text;
     	boolean enabled = true;
     	
@@ -299,7 +304,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
     	} else {
     		text = getResources().getString(R.string.iteminfo_action_unequip);
     	}
-		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ITEMACTION_UNEQUIP, text, enabled, inventorySlot);
+		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ItemInfoAction.unequip, text, enabled, inventorySlot);
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
     }
     private void showInventoryItemInfo(String itemTypeID) { 
@@ -309,7 +314,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
     	String text = "";
         int ap = 0;
         boolean enabled = true;
-        int action = ItemInfoActivity.ITEMACTION_NONE;
+		ItemInfoActivity.ItemInfoAction action = ItemInfoActivity.ItemInfoAction.none;
         final boolean isInCombat = world.model.uiSelections.isInCombat;
     	if (itemType.isEquippable()) {
     		if (isInCombat) {
@@ -318,7 +323,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
         	} else {
         		text = getResources().getString(R.string.iteminfo_action_equip);
         	}
-    		action = ItemInfoActivity.ITEMACTION_EQUIP;
+    		action = ItemInfoActivity.ItemInfoAction.equip;
         } else if (itemType.isUsable()) {
         	if (isInCombat) {
         		ap = world.model.player.getUseItemCost();
@@ -326,13 +331,13 @@ public final class HeroinfoActivity_Inventory extends Fragment {
         	} else {
         		text = getResources().getString(R.string.iteminfo_action_use);
     		}
-    		action = ItemInfoActivity.ITEMACTION_USE;
+    		action = ItemInfoActivity.ItemInfoAction.use;
         }
     	if (isInCombat && ap > 0) {
     		enabled = world.model.player.hasAPs(ap);
     	}
 
-		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, action, text, enabled, -1);
+		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, action, text, enabled, null);
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
     }
 }

@@ -6,7 +6,7 @@
                 "nextPhraseID": "toszylae_10",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "toszylae",
                         "value": "50"
                     }
@@ -72,17 +72,17 @@
         "message": "(As if having swallowed a thousand needles, you are suddenly stricken with a cascading series of spikes of pain throughout your stomach.)",
         "rewards": [
             {
-                "rewardType": 3,
+                "rewardType": "actorCondition",
                 "rewardID": "rotworm",
                 "value": 999
             },
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "maggots",
                 "value": 10
             },
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "toszylae",
                 "value": 50
             }
@@ -141,7 +141,7 @@
                 "nextPhraseID": "sign_toszylae_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "darkprotector",
                         "value": "10"
                     }
@@ -157,12 +157,12 @@
         "message": "(Among the remains of the lich 'Toszylae' that you defeated, you find a strange looking helmet.)",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "darkprotector",
                 "value": 10
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "sign_toszylae",
                 "value": 0
             }

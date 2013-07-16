@@ -12,7 +12,7 @@
                 "nextPhraseID": "kazaul_guardian_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "40"
                     }
@@ -39,7 +39,7 @@
         "message": "(You see the burning eyes of the guardian instantly turn into a dark red haze)",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 50
             }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "sign_kazaul_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kazaul",
                         "value": "60"
                     }
@@ -114,7 +114,7 @@
                 "nextPhraseID": "sign_kazaul_5",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "q_kazaul_vial",
                         "value": 1
                     }
@@ -127,7 +127,7 @@
         "message": "You gently pour the contents of the vial onto the formation.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kazaul",
                 "value": 60
             }

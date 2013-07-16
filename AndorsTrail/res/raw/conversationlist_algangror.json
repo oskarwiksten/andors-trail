@@ -6,7 +6,7 @@
                 "nextPhraseID": "algangror_fight_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "35"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "algangror_fight_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "30"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "algangror_return_d1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "100"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "algangror_cmp5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "70"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "algangror_cmp1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "61"
                     }
@@ -56,7 +56,7 @@
                 "nextPhraseID": "algangror_story1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "51"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "algangror_task2_ret1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "37"
                     }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "algangror_task2_7",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "20"
                     }
@@ -86,7 +86,7 @@
                 "nextPhraseID": "algangror_return_d1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "101"
                     }
@@ -96,7 +96,7 @@
                 "nextPhraseID": "algangror_return_d1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "100"
                     }
@@ -106,7 +106,7 @@
                 "nextPhraseID": "algangror_return_c1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "21"
                     }
@@ -116,7 +116,7 @@
                 "nextPhraseID": "algangror_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "20"
                     }
@@ -126,7 +126,7 @@
                 "nextPhraseID": "algangror_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "15"
                     }
@@ -142,7 +142,7 @@
         "message": "Oh my, a child. He he, how nice. Tell me, what brings you here?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 10
             }
@@ -169,7 +169,7 @@
                 "nextPhraseID": "algangror_fight_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "21"
                     }
@@ -302,7 +302,7 @@
         "message": "That's where you come in. Would you be willing to .. ahem .. handle those rodents for me?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 11
             }
@@ -327,7 +327,7 @@
         "message": "Ah yes. After all, you are just a child and I can understand such a task would be too much for you. He he.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 100
             }
@@ -338,7 +338,7 @@
         "message": "Splendid. Return to me with some proof that they have been dealt with.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 15
             }
@@ -353,7 +353,7 @@
                 "nextPhraseID": "algangror_return_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "algangror_rat",
                         "value": 6
                     }
@@ -376,7 +376,7 @@
                 "nextPhraseID": "algangror_fight_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "21"
                     }
@@ -389,7 +389,7 @@
         "message": "He he. I bet you sure showed them. Excellent. Thank you for .. ahem .. helping me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 20
             }
@@ -442,7 +442,7 @@
                 "nextPhraseID": "algangror_told_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "10"
                     }
@@ -452,7 +452,7 @@
                 "nextPhraseID": "algangror_return_c4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard",
                         "value": "75"
                     }
@@ -554,7 +554,7 @@
         "message": "Under no circumstances.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 21
             }
@@ -579,7 +579,7 @@
                 "nextPhraseID": "algangror_fight_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "21"
                     }
@@ -602,7 +602,7 @@
                 "nextPhraseID": "algangror_fight_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "100"
                     }
@@ -612,7 +612,7 @@
                 "nextPhraseID": "algangror_fight_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "101"
                     }
@@ -622,7 +622,7 @@
                 "nextPhraseID": "algangror_fight_1a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "10"
                     }
@@ -637,7 +637,7 @@
         "id": "algangror_fight_1a",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 101
             }
@@ -655,7 +655,7 @@
                 "nextPhraseID": "algangror_fight_2a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "10"
                     }
@@ -670,7 +670,7 @@
         "id": "algangror_fight_2a",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 100
             }
@@ -686,7 +686,7 @@
         "message": "Jhaeld, the fool. He hides behind his guards and his stone walls. Such a pitiful man he is. Yes, I made those people disappear, but they were all worth it. I will have my revenge!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "remgard2",
                 "value": 30
             }
@@ -722,7 +722,7 @@
         "id": "algangror_fight_6",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "remgard2",
                 "value": 35
             }
@@ -740,7 +740,7 @@
                 "nextPhraseID": "algangror_told_1a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "algangror",
                         "value": "10"
                     }
@@ -755,7 +755,7 @@
         "id": "algangror_told_1a",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 101
             }
@@ -829,7 +829,7 @@
         "message": "The world around you seems to move a bit slower when you wear it.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 10
             }
@@ -880,7 +880,7 @@
         "message": "Ah yes. After all, you are just a child and I can understand that all of this must be too much for you. He he.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "algangror",
                 "value": 100
             }
@@ -915,7 +915,7 @@
         "message": "Good, good.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 20
             }
@@ -962,7 +962,7 @@
         "message": "Remember, it is of utmost importance that you be as discreet as possible about this. The idols must not be found once you have placed them, and no one must notice that you place the idols.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 30
             }
@@ -979,7 +979,7 @@
         "message": "So, the first person that I want you to visit is Jhaeld. I hear that he spends most of his time in the Remgard tavern these days.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 31
             }
@@ -996,7 +996,7 @@
         "message": "Secondly, I want you to visit one of the farmers named Larni. He lives with his wife Caeda here in Remgard in one of the northern cabins.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 32
             }
@@ -1013,7 +1013,7 @@
         "message": "The third person is Arnal the weapon-smith, that lives in the northwest of Remgard.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 33
             }
@@ -1030,7 +1030,7 @@
         "message": "Fourth is Emerei, that can probably be found in his house to the southeast of Remgard.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 34
             }
@@ -1047,7 +1047,7 @@
         "message": "The fifth person is the farmer Carthe. Carthe lives on the eastern shore of Remgard, near the tavern.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 35
             }
@@ -1086,7 +1086,7 @@
                 "nextPhraseID": "algangror_task2_19",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "37"
                     }
@@ -1102,11 +1102,11 @@
         "message": "Here are the idols.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "fiveidols"
             },
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 37
             }
@@ -1143,7 +1143,7 @@
                 "nextPhraseID": "algangror_task2_done1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fiveidols",
                         "value": "50"
                     }
@@ -1188,7 +1188,7 @@
         "message": "Good. Thank you again for helping me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 51
             }
@@ -1399,7 +1399,7 @@
         "message": "I had little chance to argue, however. The guards led me out of the city. They did not even let me gather my things. All my books, all my notes and all my findings - gone. I lost everything.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 60
             }
@@ -1496,7 +1496,7 @@
         "message": "So, that's my story. Thank you for listening to it.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 61
             }
@@ -1561,12 +1561,12 @@
         "message": "Here you go.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fiveidols",
                 "value": 70
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "marrowtaint"
             }
         ],

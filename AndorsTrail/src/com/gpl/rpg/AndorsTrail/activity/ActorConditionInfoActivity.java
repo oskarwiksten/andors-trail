@@ -54,7 +54,7 @@ public final class ActorConditionInfoActivity extends Activity {
         TextView tv;
         
         tv = (TextView) findViewById(R.id.actorconditioninfo_category);
-        final String categoryName = res.getStringArray(R.array.actorcondition_categories)[conditionType.conditionCategory];
+        final String categoryName = res.getString(getConditionCategoryNameResId(conditionType.conditionCategory));
         tv.setText(res.getString(R.string.actorconditioninfo_category, categoryName));
         
         ((AbilityModifierInfoView) findViewById(R.id.actorconditioninfo_constant_effect_abilitymodifierinfo)).update(conditionType.abilityEffect, false);
@@ -83,5 +83,15 @@ public final class ActorConditionInfoActivity extends Activity {
         } else {
         	tv.setVisibility(View.GONE);
         }
+	}
+
+	private int getConditionCategoryNameResId(ActorConditionType.ConditionCategory conditionCategory) {
+		switch (conditionCategory) {
+			case physical: return R.string.actorcondition_categories_physical;
+			case mental: return R.string.actorcondition_categories_mental;
+			case blood: return R.string.actorcondition_categories_blood;
+			case spiritual: return R.string.actorcondition_categories_spiritual;
+		}
+		return 0;
 	}
 }

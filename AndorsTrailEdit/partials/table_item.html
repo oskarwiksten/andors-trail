@@ -124,11 +124,11 @@
 			</td>
 			<td ng-ds-fade="settings.displaytype">
 				<select ng-model="item.displaytype">
-					<option value="0">Ordinary item</option>
-					<option value="1">Quest item (yellow)</option>
-					<option value="2">Legendary (green)</option>
-					<option value="3">Extraordinary (blue)</option>
-					<option value="4">Rare (purple)</option>
+					<option value="ordinary">Ordinary item</option>
+					<option value="quest">Quest item (yellow)</option>
+					<option value="legendary">Legendary (green)</option>
+					<option value="extraordinary">Extraordinary (blue)</option>
+					<option value="rare">Rare (purple)</option>
 				</select>
 			</td>
 			<td ng-ds-fade="settings.hasManualPrice"><input type="checkbox" ng-model="item.hasManualPrice" ng-true-value="1" ng-false-value="0" ng-change="updateCost(item)" /></td>

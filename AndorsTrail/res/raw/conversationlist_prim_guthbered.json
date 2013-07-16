@@ -6,7 +6,7 @@
                 "nextPhraseID": "guthbered_sentbybwm_leave",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "131"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "guthbered_sentbybwm_fight",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "130"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "guthbered_sentbybwm_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "120"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "guthbered_reject",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "251"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "guthbered_reject",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "250"
                     }
@@ -56,7 +56,7 @@
                 "nextPhraseID": "guthbered_completed",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "100"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "guthbered_killharl_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "99"
                     }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "guthbered_workingforbwm_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "95"
                     }
@@ -86,7 +86,7 @@
                 "nextPhraseID": "guthbered_killharl_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "80"
                     }
@@ -96,7 +96,7 @@
                 "nextPhraseID": "guthbered_lookforsigns_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "50"
                     }
@@ -106,7 +106,7 @@
                 "nextPhraseID": "guthbered_return_1_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "25"
                     }
@@ -126,7 +126,7 @@
                 "nextPhraseID": "guthbered_attacks",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "70"
                     }
@@ -149,7 +149,7 @@
         "message": "That's completely insane. We!? Stop OUR attacks?! You tell him that we have nothing to do with what happens up there. They have brought their own misfortune upon themselves.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 80
             }
@@ -176,7 +176,7 @@
                 "nextPhraseID": "guthbered_talkedto_harl_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "30"
                     }
@@ -187,7 +187,7 @@
                 "nextPhraseID": "guthbered_attacks",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "70"
                     }
@@ -212,7 +212,7 @@
                 "nextPhraseID": "guthbered_20",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "11"
                     }
@@ -223,7 +223,7 @@
                 "nextPhraseID": "guthbered_attacks",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "70"
                     }
@@ -356,7 +356,7 @@
         "message": "On top of that, there are the attacks from the monsters that we have to deal with.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 11
             }
@@ -385,7 +385,7 @@
                 "nextPhraseID": "guthbered_20",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "11"
                     }
@@ -458,7 +458,7 @@
         "message": "Those evil bastards up in the Blackwater Mountain settlement probably summoned them to attack us. They would rather see us perish.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 20
             }
@@ -499,7 +499,7 @@
         "message": "We used to trade with them up there, but that all changed once they got greedy.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 25
             }
@@ -602,7 +602,7 @@
         "message": "I want you to go up there to their settlement and ask their battle master, Harlenn, why they are doing this to us.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 25
             }
@@ -619,7 +619,7 @@
         "message": "Thank you friend.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 25
             }
@@ -650,7 +650,7 @@
         "message": "But I am sure they are! As false as they are, they must be. Always lying and deceiving. Causing destruction and turmoil.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 40
             }
@@ -699,7 +699,7 @@
                 "nextPhraseID": "guthbered_talkedto_harl_7",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "70"
                     }
@@ -736,7 +736,7 @@
         "message": "Fine. You should leave now while you still can, traitor.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 250
             }
@@ -787,7 +787,7 @@
         "message": "Thank you, friend. Report back to me with your findings.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 50
             }
@@ -810,7 +810,7 @@
                 "nextPhraseID": "guthbered_lookforsigns_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "60"
                     }
@@ -843,7 +843,7 @@
         "message": "Thank you for finding this information for us.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 70
             }
@@ -904,7 +904,7 @@
         "message": "Excellent. Return to me once you are done.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 80
             }
@@ -939,7 +939,7 @@
         "message": "It is, of course, your choice. But if you are working for them, you are not welcome here in Prim. You should leave quickly, while you still can.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 251
             }
@@ -960,7 +960,7 @@
         "message": "I am sure everyone here in Prim will want to talk to you now.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 240
             }
@@ -977,7 +977,7 @@
         "message": "Thank you again for your help.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 250
             }
@@ -1002,7 +1002,7 @@
         "message": "I had hoped it would not come to this. You will not survive this encounter I am afraid. Yet another life on my hands.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 130
             }
@@ -1081,7 +1081,7 @@
         "message": "Thank you friend, for talking some sense into me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 131
             }
@@ -1110,7 +1110,7 @@
                 "nextPhraseID": "guthbered_killharl_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "harlenn_id",
                         "value": 1
                     }
@@ -1121,7 +1121,7 @@
                 "nextPhraseID": "guthbered_killharl_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "91"
                     }
@@ -1134,7 +1134,7 @@
         "message": "While I am grateful for this news in knowing that he is dead, I am also saddened that it had to come to this.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 99
             }
@@ -1181,12 +1181,12 @@
         "message": "Here, please accept these few items as some form of compensation for your help. Also, take this piece of paper that we have acquired.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 100
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "guthbered_reward"
             }
         ],

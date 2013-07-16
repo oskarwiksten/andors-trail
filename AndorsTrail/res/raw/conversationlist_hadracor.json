@@ -36,7 +36,7 @@
                 "nextPhraseID": "hadracor_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "hadracor",
                         "value": "30"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "hadracor_gaveitems_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "hadracor",
                         "value": "21"
                     }
@@ -56,7 +56,7 @@
                 "nextPhraseID": "hadracor_gaveitems_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "hadracor",
                         "value": "20"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "hadracor_wantsitems_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "hadracor",
                         "value": "10"
                     }
@@ -226,7 +226,7 @@
                 "nextPhraseID": "hadracor_accept_1_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "hadracor",
                         "value": "10"
                     }
@@ -306,7 +306,7 @@
         "message": "Good, hurry back once you are done.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "hadracor",
                 "value": 10
             }
@@ -333,7 +333,7 @@
                 "nextPhraseID": "hadracor_wantsitems_3",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hadracor_waspwing",
                         "value": 6
                     }
@@ -344,7 +344,7 @@
                 "nextPhraseID": "hadracor_wantsitems_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hadracor_waspwing",
                         "value": 5
                     }
@@ -357,7 +357,7 @@
         "message": "Wow, you actually killed those things?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "hadracor",
                 "value": 20
             }
@@ -374,12 +374,12 @@
         "message": "Wow, you actually killed six of those things? I thought there were only five, so I guess I should be even more grateful. Here, take these gloves as thanks.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "hadracor",
                 "value": 21
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "hadracor_reward"
             }
         ],
@@ -415,7 +415,7 @@
         "message": "As a token of our appreciation, we are willing to trade some of our equipment with you if you want.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "hadracor",
                 "value": 30
             }

@@ -6,7 +6,7 @@
                 "nextPhraseID": "ingus_r1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "10"
                     }
@@ -82,7 +82,7 @@
                 "nextPhraseID": "ingus_4b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "remgard2",
                         "value": "45"
                     }
@@ -162,7 +162,7 @@
                 "nextPhraseID": "ingus_q1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "71"
                     }
@@ -198,7 +198,7 @@
         "message": "They live in one of the cabins on the southern shore. *Ingus points to the south*.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 10
             }

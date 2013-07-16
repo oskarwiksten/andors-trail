@@ -48,7 +48,7 @@
                 "nextPhraseID": "torilo_rincel_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "41"
                     }
@@ -91,7 +91,7 @@
                 "nextPhraseID": "torilo_rincel_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "wrye",
                         "value": "41"
                     }
@@ -116,7 +116,7 @@
                 "nextPhraseID": "torilo_rest_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nondisplay",
                         "value": "10"
                     }
@@ -166,7 +166,7 @@
                 "nextPhraseID": "torilo_rest_6",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 250
                     }
@@ -177,7 +177,7 @@
                 "nextPhraseID": "torilo_rest_6",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 250
                     }
@@ -204,7 +204,7 @@
         "message": "Thank you. The room is now rented to you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "nondisplay",
                 "value": 10
             }

@@ -6,7 +6,7 @@
                 "nextPhraseID": "minarra_completed_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "60"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "minarra_completing_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "55"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "minarra_completing_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "50"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "minarra_look_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "20"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "minarra_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "10"
                     }
@@ -124,7 +124,7 @@
                 "nextPhraseID": "minarra_first_4_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "60"
                     }
@@ -264,7 +264,7 @@
         "message": "I am sure that those were the men. If we were to catch and kill them, the people of Feygard would be much safer.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 10
             }
@@ -309,7 +309,7 @@
         "message": "They have stolen three pieces of a very valuable painting from Feygard, from the report that I have read. For their crimes and the savageness of their way, they are wanted dead by the Feygard patrol.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 20
             }
@@ -346,7 +346,7 @@
         "message": "I urge you not to listen to their lies. Their crimes must be punished in order to uphold the law.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 21
             }
@@ -371,12 +371,12 @@
                 "nextPhraseID": "minarra_look_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "40"
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "rogorn_qitem",
                         "value": 3
                     }
@@ -387,7 +387,7 @@
                 "nextPhraseID": "minarra_look_5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "rogorn",
                         "value": "45"
                     }
@@ -404,7 +404,7 @@
         "message": "That is excellent news indeed! I knew that we could trust you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 50
             }
@@ -441,7 +441,7 @@
         "message": "I guess I will have to take your word for it.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 55
             }
@@ -458,7 +458,7 @@
         "message": "Thank you for helping me investigate this matter.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "rogorn",
                 "value": 60
             }
@@ -495,7 +495,7 @@
                 "nextPhraseID": "minarra_trade_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "nondisplay",
                         "value": "18"
                     }

@@ -138,7 +138,7 @@
         "message": "Their attacks are getting more and more clever.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 11
             }
@@ -155,7 +155,7 @@
         "message": "You should talk to Guthbered. He is usually in the main hall. Look for a stone house in the center of the village.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_hunt",
                 "value": 15
             }
@@ -168,7 +168,7 @@
                 "nextPhraseID": "prim_cook_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_innquest",
                         "value": "50"
                     }
@@ -178,7 +178,7 @@
                 "nextPhraseID": "prim_cook_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_innquest",
                         "value": "10"
                     }
@@ -252,7 +252,7 @@
         "message": "I don't know where he is now, but I do know that he used to be part of the mining effort in our mine to the southwest.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_innquest",
                 "value": 10
             }
@@ -305,7 +305,7 @@
                 "nextPhraseID": "prim_cook_return_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_innquest",
                         "value": "40"
                     }
@@ -342,7 +342,7 @@
         "message": "Really, he did? Well then, go ahead. I'm just glad the back room is being used.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_innquest",
                 "value": 50
             }

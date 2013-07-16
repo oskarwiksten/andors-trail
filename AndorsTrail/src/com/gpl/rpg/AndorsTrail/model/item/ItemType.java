@@ -5,13 +5,20 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class ItemType {
-	
-	public static final int DISPLAYTYPE_ORDINARY = 0;
-	public static final int DISPLAYTYPE_QUEST = 1;
-	public static final int DISPLAYTYPE_LEGENDARY = 2;
-	public static final int DISPLAYTYPE_EXTRAORDINARY = 3;
-	public static final int DISPLAYTYPE_RARE = 4;
-	
+
+	public static enum DisplayType {
+		ordinary
+		,quest
+		,legendary
+		,extraordinary
+		,rare;
+
+		public static DisplayType fromString(String s, DisplayType default_) {
+			if (s == null) return default_;
+			return valueOf(s);
+		}
+	}
+
 	public final String id;
 	public final int iconID;
 	private final String name;
@@ -21,7 +28,7 @@ public final class ItemType {
 	public final boolean hasManualPrice;
 	public final int baseMarketCost;
 	public final int fixedBaseMarketCost;
-	public final int displayType;
+	public final DisplayType displayType;
 	
 	public final ItemTraits_OnEquip effects_equip;
 	public final ItemTraits_OnUse effects_use;
@@ -34,7 +41,7 @@ public final class ItemType {
 			String name, 
 			String description,
 			ItemCategory category,
-			int displayType, 
+			DisplayType displayType,
 			boolean hasManualPrice, 
 			int fixedBaseMarketCost, 
 			ItemTraits_OnEquip effects_equip, 
@@ -59,8 +66,8 @@ public final class ItemType {
 	
 	public boolean isEquippable() { return category.isEquippable(); }
 	public boolean isUsable() { return category.isUsable(); }
-	public boolean isQuestItem() { return displayType == DISPLAYTYPE_QUEST; }
-	public boolean isOrdinaryItem() { return displayType == DISPLAYTYPE_ORDINARY; }
+	public boolean isQuestItem() { return displayType == DisplayType.quest; }
+	public boolean isOrdinaryItem() { return displayType == DisplayType.ordinary; }
 	public boolean isWeapon() { return category.isWeapon(); }
 	public boolean isArmor() { return category.isArmor(); }
 	public boolean isShield() { return category.isShield(); }
@@ -80,13 +87,13 @@ public final class ItemType {
 
     public int getOverlayTileID() {
 		switch (displayType) {
-		case ItemType.DISPLAYTYPE_QUEST:
+		case quest:
 			return TileManager.iconID_selection_yellow;
-		case ItemType.DISPLAYTYPE_LEGENDARY:
+		case legendary:
 			return TileManager.iconID_selection_green;
-		case ItemType.DISPLAYTYPE_EXTRAORDINARY:
+		case extraordinary:
 			return TileManager.iconID_selection_blue;
-		case ItemType.DISPLAYTYPE_RARE:
+		case rare:
 			return TileManager.iconID_selection_purple;
 		}
 		return -1;

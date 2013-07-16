@@ -6,7 +6,7 @@
                 "nextPhraseID": "herec_q5",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_wyrms",
                         "value": "30"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "herec_q3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_wyrms",
                         "value": "20"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "herec_q1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_wyrms",
                         "value": "10"
                     }
@@ -148,7 +148,7 @@
         "message": "Good. Thank you. Please hurry back so I can continue my research on these beasts.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_wyrms",
                 "value": 10
             }
@@ -175,7 +175,7 @@
                 "nextPhraseID": "herec_q2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bwm_claws",
                         "value": 5
                     }
@@ -188,7 +188,7 @@
         "message": "Very well done my friend! These will be very valuable in my research.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_wyrms",
                 "value": 20
             }
@@ -219,7 +219,7 @@
         "message": "Now I am able to create effective potions that contain some essence of the white wyrms. These potions will be very useful in future dealings with these monsters.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_wyrms",
                 "value": 30
             }

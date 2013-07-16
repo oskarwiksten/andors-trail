@@ -6,7 +6,7 @@
                 "nextPhraseID": "kaverin_decline2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "21"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "kaverin_fight_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "60"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "kaverin_done_ret",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "90"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "kaverin_done3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "45"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "kaverin_done1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "40"
                     }
@@ -56,7 +56,7 @@
                 "nextPhraseID": "kaverin_return1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "25"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "kaverin_accept2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "22"
                     }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "kaverin_8r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "20"
                     }
@@ -122,7 +122,7 @@
         "message": "You wouldn't by any chance have met him, would you?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 10
             }
@@ -137,7 +137,7 @@
                 "nextPhraseID": "kaverin_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "60"
                     }
@@ -148,7 +148,7 @@
                 "nextPhraseID": "kaverin_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "60"
                     }
@@ -159,7 +159,7 @@
                 "nextPhraseID": "kaverin_7",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "vacor",
                         "value": "61"
                     }
@@ -196,7 +196,7 @@
         "message": "Oh yes, I can feel it. You work for Vacor! He must be stopped!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 60
             }
@@ -233,7 +233,7 @@
         "message": "Would you be willing to deliver a message to him?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 20
             }
@@ -268,7 +268,7 @@
         "message": "That is unfortunate, you seemed like such a bright boy too.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 21
             }
@@ -283,7 +283,7 @@
         "message": "Good, that's exactly what I wanted to hear.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 22
             }
@@ -310,11 +310,11 @@
         "message": "(He gives you a sealed message.)",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "kaverin_message"
             },
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 25
             }
@@ -339,7 +339,7 @@
                 "nextPhraseID": "kaverin_done1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaverin",
                         "value": "30"
                     }
@@ -360,7 +360,7 @@
         "message": "Thank you, my friend. May you walk in the glow of the Shadow.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 40
             }
@@ -377,11 +377,11 @@
         "message": "Take this map as compensation for a job well done.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "vacor_map"
             },
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 45
             }
@@ -418,7 +418,7 @@
         "message": "According to the map, the hideout should be just to the northwest of the former prison of Flagstone. Feel free to take whatever is left in there.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 90
             }

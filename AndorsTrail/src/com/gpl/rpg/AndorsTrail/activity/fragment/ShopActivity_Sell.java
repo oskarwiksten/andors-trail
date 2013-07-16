@@ -25,7 +25,7 @@ public final class ShopActivity_Sell extends ShopActivityFragment {
 		int price = ItemController.getSellingPrice(player, itemType);
 		boolean enableButton = ItemController.maySellItem(player, itemType);
 		String text = getResources().getString(R.string.shop_sellitem, price);
-		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ITEMACTION_SELL, text, enableButton, -1);
+		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ItemInfoAction.sell, text, enableButton, null);
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
 	}
 

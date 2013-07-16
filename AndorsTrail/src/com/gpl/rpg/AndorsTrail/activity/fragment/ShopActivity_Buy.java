@@ -25,7 +25,7 @@ public final class ShopActivity_Buy extends ShopActivityFragment {
 		int price = ItemController.getBuyingPrice(player, itemType);
 		boolean enableButton = ItemController.canAfford(player, price);
 		String text = getResources().getString(R.string.shop_buyitem, price);
-		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ITEMACTION_BUY, text, enableButton, -1);
+		Intent intent = Dialogs.getIntentForItemInfo(getActivity(), itemType.id, ItemInfoActivity.ItemInfoAction.buy, text, enableButton, null);
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
 	}
 	

@@ -5,14 +5,15 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 30
+                "value": 30,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar",
                         "value": "20"
                     }
@@ -38,7 +39,8 @@
         "rewards": [
             {
                 "rewardID": "lodar",
-                "value": 31
+                "value": 31,
+                "rewardType": "questProgress"
             }
         ]
     },

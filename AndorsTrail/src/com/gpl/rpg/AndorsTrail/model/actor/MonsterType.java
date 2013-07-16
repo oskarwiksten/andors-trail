@@ -6,16 +6,23 @@ import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MonsterType {
-	public static final int MONSTERCLASS_HUMANOID = 0;
-	public static final int MONSTERCLASS_INSECT = 1;
-	public static final int MONSTERCLASS_DEMON = 2;
-	public static final int MONSTERCLASS_CONSTRUCT = 3;
-	public static final int MONSTERCLASS_ANIMAL = 4;
-	public static final int MONSTERCLASS_GIANT = 5;
-	public static final int MONSTERCLASS_UNDEAD = 6;
-	public static final int MONSTERCLASS_REPTILE = 7;
-	public static final int MONSTERCLASS_GHOST = 8;
-	
+	public static enum MonsterClass {
+		humanoid
+		,insect
+		,demon
+		,construct
+		,animal
+		,giant
+		,undead
+		,reptile
+		,ghost;
+
+		public static MonsterClass fromString(String s, MonsterClass default_) {
+			if (s == null) return default_;
+			return valueOf(s);
+		}
+	}
+
 	public final String id;
 	public final String name;
 	public final String spawnGroup;
@@ -24,8 +31,8 @@ public final class MonsterType {
 	public final String phraseID;
 	public final boolean isUnique; // Unique monsters are not respawned.
 	public final String faction;
-	public final int monsterClass;
-	public final int aggressionType;
+	public final MonsterClass monsterClass;
+	public final AggressionType aggressionType;
 
 	public final Size tileSize;
 	public final int iconID;
@@ -50,8 +57,8 @@ public final class MonsterType {
 			String phraseID,
 			boolean isUnique,
 			String faction,
-			int monsterClass,
-			int aggressionType,
+			MonsterClass monsterClass,
+			AggressionType aggressionType,
 			Size tileSize,
 			int iconID,
 			int maxAP,
@@ -89,34 +96,22 @@ public final class MonsterType {
 		this.damageResistance = damageResistance;
 		this.onHitEffects = onHitEffects;
 	}
-	
-	public static final int AGGRESSIONTYPE_NONE = 0;
-	public static final int AGGRESSIONTYPE_HELP_OTHERS = 1; // Will move to help if the player attacks some other monster in the same spawn.
-	public static final int AGGRESSIONTYPE_PROTECT_SPAWN = 2; // Will move to attack if the player stands inside the spawn.
 
-	private static int getSuggestedAggressionType(int monsterClass) {
-		switch (monsterClass) {
-		case MONSTERCLASS_CONSTRUCT:
-		case MONSTERCLASS_GIANT:
-		case MONSTERCLASS_GHOST:
-			return AGGRESSIONTYPE_NONE;
-		case MONSTERCLASS_DEMON:
-		case MONSTERCLASS_ANIMAL:
-		case MONSTERCLASS_REPTILE:
-		case MONSTERCLASS_INSECT:
-			return AGGRESSIONTYPE_PROTECT_SPAWN;
-		case MONSTERCLASS_UNDEAD:
-		case MONSTERCLASS_HUMANOID:
-			return AGGRESSIONTYPE_HELP_OTHERS;
-		default:
-			return AGGRESSIONTYPE_NONE;
+	public static enum AggressionType {
+		none
+		,helpOthers     // Will move to help if the player attacks some other monster in the same spawn.
+		,protectSpawn;  // Will move to attack if the player stands inside the spawn.
+
+		public static AggressionType fromString(String s, AggressionType default_) {
+			if (s == null) return default_;
+			return valueOf(s);
 		}
 	}
 
 	public boolean isImmuneToCriticalHits() {
-		if (monsterClass == MONSTERCLASS_GHOST) return true;
-		if (monsterClass == MONSTERCLASS_CONSTRUCT) return true;
-		if (monsterClass == MONSTERCLASS_DEMON) return true;
+		if (monsterClass == MonsterClass.ghost) return true;
+		if (monsterClass == MonsterClass.construct) return true;
+		if (monsterClass == MonsterClass.demon) return true;
 		return false;
 	}
 	

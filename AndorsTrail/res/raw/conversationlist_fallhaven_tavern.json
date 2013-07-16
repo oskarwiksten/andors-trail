@@ -22,7 +22,7 @@
                 "nextPhraseID": "bela_room_2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 10
                     }
@@ -39,7 +39,7 @@
         "message": "Thanks. Take the last room down at the end of the hall.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "fallhaventavern",
                 "value": 10
             }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "bela_room_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "fallhaventavern",
                         "value": "10"
                     }
@@ -100,7 +100,7 @@
                 "nextPhraseID": "ganos_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "andor",
                         "value": "30"
                     }

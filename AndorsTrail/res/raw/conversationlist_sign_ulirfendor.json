@@ -6,7 +6,7 @@
                 "nextPhraseID": "sign_ulirfendor_r",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "darkprotector",
                         "value": "70"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "sign_ulirfendor_8",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "darkprotector",
                         "value": "66"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "sign_ulirfendor_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "darkprotector",
                         "value": "65"
                     }
@@ -72,7 +72,7 @@
         "message": "The ritual itself would require the heart of a lich, and from the text surrounding the ritual in the book, it could surely restore the helmet to its former glory.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "darkprotector",
                 "value": 55
             }
@@ -93,7 +93,7 @@
         "message": "You place yourself in front of the shrine, kneeling like the drawings in the book show.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "darkprotector",
                 "value": 60
             }
@@ -104,7 +104,7 @@
                 "nextPhraseID": "sign_ulirfendor_6",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "helm_protector0",
                         "value": 1
                     }
@@ -117,7 +117,7 @@
         "message": "You place the helmet on the ground in front of you, leaning it slightly against the shrine.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "darkprotector",
                 "value": 65
             }
@@ -128,7 +128,7 @@
                 "nextPhraseID": "sign_ulirfendor_7",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "toszylae_heart",
                         "value": 1
                     }
@@ -141,7 +141,7 @@
         "message": "You place the heart of the lich beside the helmet in front of the shrine.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "darkprotector",
                 "value": 66
             }
@@ -218,12 +218,12 @@
         "message": "You take the helmet, and examine it more closely.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "darkprotector",
                 "value": 70
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "sign_ulirfendor",
                 "value": 0
             }

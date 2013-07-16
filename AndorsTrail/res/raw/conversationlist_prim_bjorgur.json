@@ -6,7 +6,7 @@
                 "nextPhraseID": "bjorgur_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "50"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "bjorgur_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "15"
                     }
@@ -44,7 +44,7 @@
                 "nextPhraseID": "bjorgur_return_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "60"
                     }
@@ -59,7 +59,7 @@
                 "nextPhraseID": "bjorgur_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "40"
                     }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "bjorgur_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "30"
                     }
@@ -137,7 +137,7 @@
         "message": "Now I fear something has happened to the grave. I have not been sleeping well the last couple of nights, and I am sure this must be the cause.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 10
             }
@@ -166,7 +166,7 @@
                 "nextPhraseID": "bjorgur_complete_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bjorgur_grave",
                         "value": "40"
                     }
@@ -179,7 +179,7 @@
         "message": "Thank you. Please see if anything has happened to the grave, and what could be the cause of my nightly anxiety.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 15
             }
@@ -224,7 +224,7 @@
         "message": "Thank you again. I'm afraid I can't give you anything except my gratitude. You should go see my relatives in Feygard if you get the chance to travel up there.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bjorgur_grave",
                 "value": 50
             }

@@ -16,7 +16,7 @@
                 "nextPhraseID": "odair_complete2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "odair",
                         "value": "100"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "odair_continue",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "odair",
                         "value": "10"
                     }
@@ -84,7 +84,7 @@
         "message": "I need you to get into that cave and kill the large rat, that way maybe we can stop the rat infestation in the cave and start using it as our old supply cave again.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "odair",
                 "value": 10
             }
@@ -119,7 +119,7 @@
                 "nextPhraseID": "odair_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "tail_caverat",
                         "value": 1
                     }
@@ -140,12 +140,12 @@
         "message": "Thanks a lot for your help kid! Maybe you and that brother of yours aren't as cowardly as I thought. Here, take these coins for your help.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "odair",
                 "value": 100
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold20"
             }
         ],

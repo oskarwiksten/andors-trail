@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Range;
@@ -114,7 +115,8 @@ public final class LegacySavegameFormatReaderForPlayer {
 	private static void correctActorConditionsFromItemsPre0611b1(Player player, String conditionTypeID, WorldContext world, ControllerContext controllers, String itemTypeIDWithCondition) {
 		if (!player.hasCondition(conditionTypeID)) return;
 		boolean hasItemWithCondition = false;
-		for (ItemType t : player.inventory.wear) {
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
 			if (t == null) continue;
 			if (t.effects_equip == null) continue;
 			if (t.effects_equip.addedConditions == null) continue;

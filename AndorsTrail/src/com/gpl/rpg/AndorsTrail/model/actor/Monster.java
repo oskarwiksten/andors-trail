@@ -57,12 +57,12 @@ public final class Monster extends Actor {
 	public String getPhraseID() { return monsterType.phraseID; }
 	public String getMonsterTypeID() { return monsterType.id; }
 	public String getFaction() { return monsterType.faction; }
-	public int getMonsterClass() { return monsterType.monsterClass; }
-	public int getMovementAggressionType() { return monsterType.aggressionType; }
+	public MonsterType.MonsterClass getMonsterClass() { return monsterType.monsterClass; }
+	public MonsterType.AggressionType getMovementAggressionType() { return monsterType.aggressionType; }
 
 	public void createLoot(Loot container, Player player) {
 		int exp = this.getExp();
-		exp += exp * player.getSkillLevel(SkillCollection.SKILL_MORE_EXP) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
+		exp += exp * player.getSkillLevel(SkillCollection.SkillID.moreExp) * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_EXP_PERCENT / 100;
 		container.exp += exp;
 		DropList dropList = getDropList();
 		if (dropList == null) return;

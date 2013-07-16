@@ -6,7 +6,7 @@
                 "nextPhraseID": "kaori_default_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaori",
                         "value": "20"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "kaori_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaori",
                         "value": "10"
                     }
@@ -40,7 +40,7 @@
                 "nextPhraseID": "kaori_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "kaori",
                         "value": "5"
                     }
@@ -53,7 +53,7 @@
         "message": "I don't want to talk to you. Go talk to Jolnor in the chapel if you want to help us.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "vilegard",
                 "value": 10
             }
@@ -170,7 +170,7 @@
         "message": "I would really like to have a few more of those. If you can bring me 10 Bonemeal potions, I might consider trusting you a bit more.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaori",
                 "value": 10
             }
@@ -189,7 +189,7 @@
                 "nextPhraseID": "kaori_20",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bonemeal_potion",
                         "value": 10
                     }
@@ -210,7 +210,7 @@
                 "nextPhraseID": "kaori_20",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "bonemeal_potion",
                         "value": 10
                     }
@@ -235,7 +235,7 @@
         "message": "Good. Give them to me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaori",
                 "value": 20
             }

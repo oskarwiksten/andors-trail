@@ -8,7 +8,7 @@
                 "nextPhraseID": "athamyr_select",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bucus",
                         "value": "20"
                     }
@@ -51,7 +51,7 @@
         "message": "Bring me some of that delicious cooked meat from the tavern and I will give you my permission to enter the catacombs of Fallhaven Church.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bucus",
                 "value": 30
             }
@@ -62,7 +62,7 @@
                 "nextPhraseID": "athamyr_complete",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "meat_cooked",
                         "value": 1
                     }
@@ -79,7 +79,7 @@
         "message": "You have my permission to enter the catacombs of Fallhaven Church.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bucus",
                 "value": 50
             }
@@ -92,7 +92,7 @@
                 "nextPhraseID": "athamyr_complete_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bucus",
                         "value": "40"
                     }
@@ -108,7 +108,7 @@
         "message": "Thanks, this will do nicely.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bucus",
                 "value": 40
             }

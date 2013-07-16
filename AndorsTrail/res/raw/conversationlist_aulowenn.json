@@ -5,7 +5,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar13_rest",
                         "value": "31"
                     }
@@ -15,7 +15,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar13_rest",
                         "value": "60"
                     }
@@ -25,7 +25,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar13_rest",
                         "value": "40"
                     }
@@ -35,7 +35,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar13_rest",
                         "value": "11"
                     }
@@ -53,7 +53,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar13_rest",
                         "value": "30"
                     }
@@ -70,7 +70,8 @@
         "rewards": [
             {
                 "rewardID": "lodar13_rest",
-                "value": 65
+                "value": 65,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -84,7 +85,8 @@
         "rewards": [
             {
                 "rewardID": "lodar13_rest",
-                "value": 31
+                "value": 31,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -188,7 +190,8 @@
         "rewards": [
             {
                 "rewardID": "lodar13_rest",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -308,7 +311,8 @@
         "rewards": [
             {
                 "rewardID": "lodar13_rest",
-                "value": 11
+                "value": 11,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -335,7 +339,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "tiqui",
                         "value": 1
                     }
@@ -368,7 +372,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "tiqui",
                         "value": 1
                     }
@@ -393,7 +397,7 @@
                 "nextPhraseID": "aulowenn_tq0",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar13_rest",
                         "value": "22"
                     }
@@ -407,7 +411,8 @@
         "rewards": [
             {
                 "rewardID": "lodar13_rest",
-                "value": 40
+                "value": 40,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -423,7 +428,8 @@
         "rewards": [
             {
                 "rewardID": "lodar13_rest",
-                "value": 60
+                "value": 60,
+                "rewardType": "questProgress"
             }
         ],
         "message": "In return, you are very welcome to use my bed to rest whenever you wish."

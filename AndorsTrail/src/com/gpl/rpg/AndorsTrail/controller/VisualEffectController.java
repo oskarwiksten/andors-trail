@@ -33,17 +33,16 @@ public final class VisualEffectController {
 		this.effectTypes = world.visualEffectTypes;
 	}
 
-	public void startEffect(Coord position, int effectID, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
+	public void startEffect(Coord position, VisualEffectCollection.VisualEffectID effectID, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
 		++effectCount;
-		(new VisualEffectAnimation(effectTypes.effects[effectID], position, displayValue, callback, callbackValue))
+		(new VisualEffectAnimation(effectTypes.getVisualEffect(effectID), position, displayValue, callback, callbackValue))
 		.start();
 	}
 
-	private static final int NO_ENQUEUED_EFFECT = -1;
-	private int enqueuedEffectID = NO_ENQUEUED_EFFECT;
+	private VisualEffectCollection.VisualEffectID enqueuedEffectID = null;
 	private int enqueuedEffectValue = 0;
-	public void enqueueEffect(int effectID, int displayValue) {
-		if (enqueuedEffectID == NO_ENQUEUED_EFFECT) {
+	public void enqueueEffect(VisualEffectCollection.VisualEffectID effectID, int displayValue) {
+		if (enqueuedEffectID == null) {
 			enqueuedEffectID = effectID;
 		} else if (Math.abs(displayValue) > Math.abs(enqueuedEffectValue)) {
 			enqueuedEffectID = effectID;
@@ -51,9 +50,9 @@ public final class VisualEffectController {
 		enqueuedEffectValue += displayValue;
 	}
 	public void startEnqueuedEffect(Coord position) {
-		if (enqueuedEffectID == NO_ENQUEUED_EFFECT) return;
+		if (enqueuedEffectID == null) return;
 		startEffect(position, enqueuedEffectID, enqueuedEffectValue, null, 0);
-		enqueuedEffectID = NO_ENQUEUED_EFFECT;
+		enqueuedEffectID = null;
 		enqueuedEffectValue = 0;
 	}
 
@@ -167,19 +166,19 @@ public final class VisualEffectController {
 		}
 	}
 	
-	private static int getSplatterIconFromMonsterClass(int monsterClass) {
+	private static int getSplatterIconFromMonsterClass(MonsterType.MonsterClass monsterClass) {
 		switch (monsterClass) {
-		case MonsterType.MONSTERCLASS_INSECT: 
-		case MonsterType.MONSTERCLASS_UNDEAD: 
-		case MonsterType.MONSTERCLASS_REPTILE: 
+		case insect:
+		case undead:
+		case reptile:
 			return TileManager.iconID_splatter_brown_1a + Constants.rnd.nextInt(2) * 2;
-		case MonsterType.MONSTERCLASS_HUMANOID:
-		case MonsterType.MONSTERCLASS_ANIMAL:
-		case MonsterType.MONSTERCLASS_GIANT:
+		case humanoid:
+		case animal:
+		case giant:
 			return TileManager.iconID_splatter_red_1a + Constants.rnd.nextInt(2) * 2;
-		case MonsterType.MONSTERCLASS_DEMON:
-		case MonsterType.MONSTERCLASS_CONSTRUCT:
-		case MonsterType.MONSTERCLASS_GHOST:
+		case demon:
+		case construct:
+		case ghost:
 			return TileManager.iconID_splatter_white_1a;
 		default:
 			return -1;

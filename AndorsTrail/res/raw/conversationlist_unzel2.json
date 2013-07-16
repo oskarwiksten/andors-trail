@@ -8,7 +8,7 @@
                 "nextPhraseID": "unzel_msg2",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "kaverin_message",
                         "value": 1
                     }
@@ -21,7 +21,7 @@
         "message": "Hmmm, yes... Let's see... (Unzel opens the sealed message and reads it)",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "kaverin",
                 "value": 30
             }

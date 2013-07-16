@@ -26,7 +26,7 @@ public final class ActorConditionsTypeParser extends JsonCollectionParserFor<Act
 				conditionTypeID
 				,translationLoader.translateActorConditionName(o.getString(JsonFieldNames.ActorCondition.name))
 				,ResourceParserUtils.parseImageID(tileLoader, o.getString(JsonFieldNames.ActorCondition.iconID))
-				,o.getInt(JsonFieldNames.ActorCondition.category)
+				,ActorConditionType.ConditionCategory.valueOf(o.getString(JsonFieldNames.ActorCondition.category))
 				,o.optInt(JsonFieldNames.ActorCondition.isStacking) > 0
 				,o.optInt(JsonFieldNames.ActorCondition.isPositive) > 0
 				,ResourceParserUtils.parseStatsModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.roundEffect))

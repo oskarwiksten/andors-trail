@@ -112,7 +112,7 @@
         "message": "I guess I can trust you with this secret. We are planning a mission tonight to help him out of jail.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 10
             }
@@ -165,7 +165,7 @@
         "message": "Whatever, they wouldn't believe you anyway.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 30
             }
@@ -276,7 +276,7 @@
         "message": "Good. Report back to me when you have gotten the guard captain to drink that special mead.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 20
             }
@@ -301,7 +301,7 @@
                 "nextPhraseID": "farrik_26",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "50"
                     }
@@ -312,7 +312,7 @@
                 "nextPhraseID": "farrik_24",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "60"
                     }
@@ -327,7 +327,7 @@
                 "nextPhraseID": "farrik_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "70"
                     }
@@ -337,7 +337,7 @@
                 "nextPhraseID": "farrik_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "80"
                     }
@@ -355,7 +355,7 @@
                 "nextPhraseID": "farrik_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "farrik",
                         "value": "20"
                     }
@@ -371,7 +371,7 @@
         "message": "That is good news! Now we should be able to get our friend out from jail tonight.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 70
             }
@@ -388,7 +388,7 @@
         "message": "Thank you for your help my friend. Take these coins as a token of our appreciation.",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "gold200"
             }
         ],
@@ -412,7 +412,7 @@
         "message": "Oh you did? Well done. You have my thanks, friend.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "farrik",
                 "value": 80
             }

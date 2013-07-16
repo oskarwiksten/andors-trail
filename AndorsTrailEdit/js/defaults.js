@@ -4,8 +4,8 @@ var ATEditor = (function(ATEditor, _) {
 		actorcondition: {
 			isStacking: 0
 			,isPositive: 0
-			,roundEffect: { visualEffectID: -1, increaseCurrentHP: {}, increaseCurrentAP: {} }
-			,fullRoundEffect: { visualEffectID: -1, increaseCurrentHP: {}, increaseCurrentAP: {} }
+			,roundEffect: { increaseCurrentHP: {}, increaseCurrentAP: {} }
+			,fullRoundEffect: { increaseCurrentHP: {}, increaseCurrentAP: {} }
 			,abilityEffect: { increaseAttackDamage: {} }
 		}
 		,quest: {
@@ -13,7 +13,7 @@ var ATEditor = (function(ATEditor, _) {
 			,stages: []
 		}
 		,item: {
-			displaytype: 0
+			displaytype: 'ordinary'
 			,hasManualPrice: 0
 			,equipEffect: { increaseAttackDamage: {}, addedConditions: [] }
 			,useEffect: { increaseCurrentHP: {}, increaseCurrentAP: {}, conditionsSource: [], conditionsTarget: [] }
@@ -33,15 +33,14 @@ var ATEditor = (function(ATEditor, _) {
 			,maxAP: 10
 			,moveCost: 10
 			,unique: 0
-			,monsterClass: 0
-			,movementAggressionType: 0
+			,monsterClass: 'humanoid'
+			,movementAggressionType: 'none'
 			,attackDamage: {}
 			,hitEffect: { increaseCurrentHP: {}, increaseCurrentAP: {}, conditionsSource: [], conditionsTarget: [] }
 		}
 		,itemcategory: {
-			actionType: 0
-			,inventorySlot: -1
-			,size: 0
+			actionType: 'none'
+			,size: 'none'
 		}
 		,reply: {
 			requires: []

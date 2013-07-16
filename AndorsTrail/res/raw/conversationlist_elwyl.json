@@ -6,7 +6,7 @@
                 "nextPhraseID": "elwel_4",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "71"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "elwel_3",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "20"
                     }
@@ -50,7 +50,7 @@
         "message": "I saw you talking to that cursed sister of mine. Don't listen to her, she always tries her best to portray me in the worst way possible.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 21
             }
@@ -61,7 +61,7 @@
         "message": "Now look what you did!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 21
             }
@@ -80,7 +80,7 @@
                 "nextPhraseID": "elwyl_cmp_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "71"
                     }
@@ -90,7 +90,7 @@
                 "nextPhraseID": "elwyl_res_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "70"
                     }
@@ -100,7 +100,7 @@
                 "nextPhraseID": "elwyl_pot_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "31"
                     }
@@ -110,7 +110,7 @@
                 "nextPhraseID": "elwyl_12",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "20"
                     }
@@ -200,7 +200,7 @@
                 "nextPhraseID": "elwyl_10",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "10"
                     }
@@ -227,7 +227,7 @@
         "message": "She doesn't stop either. I can't remember for how long this has been going on, it almost feels like forever.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 20
             }
@@ -274,7 +274,7 @@
         "message": "I can't understand why she would make such a big deal out of it, when the potion was clearly blue. I remember it distinctly. Argh, how stubborn she is! She wouldn't even admit that she is wrong!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 30
             }
@@ -361,7 +361,7 @@
         "message": "Good. Maybe when you bring that potion, she will agree to being wrong for once!",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 31
             }
@@ -380,7 +380,7 @@
                 "nextPhraseID": "elwyl_res_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "pot_focus_ac",
                         "value": 1
                     }
@@ -391,7 +391,7 @@
                 "nextPhraseID": "elwyl_res_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "pot_focus_ac2",
                         "value": 1
                     }
@@ -406,7 +406,7 @@
                 "nextPhraseID": "elwyl_10",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "sisterfight",
                         "value": "10"
                     }
@@ -419,7 +419,7 @@
         "message": "Oh good. Give me that.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 70
             }
@@ -490,7 +490,7 @@
         "message": "Hey Elwel, you were wrong all along! Why won't you ever admit it when you are clearly wrong?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "sisterfight",
                 "value": 71
             }

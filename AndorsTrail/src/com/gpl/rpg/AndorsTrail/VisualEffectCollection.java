@@ -5,19 +5,28 @@ import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class VisualEffectCollection {
-	public static final int EFFECT_BLOOD = 0;
-	public static final int EFFECT_RESTORE_HP = 1;
-	public static final int EFFECT_RESTORE_AP = EFFECT_RESTORE_HP;
-	public static final int EFFECT_POISON = 2;
-	
-	public static final int NUM_EFFECTS = EFFECT_POISON + 1;
-	
-	public final VisualEffect[] effects = new VisualEffect[NUM_EFFECTS];
+
+	public static enum VisualEffectID {
+		redSplash
+		,blueSwirl
+		,greenSplash;
+
+		public static VisualEffectID fromString(String s, VisualEffectID default_) {
+			if (s == null) return default_;
+			return valueOf(s);
+		}
+	}
+
+	private final VisualEffect[] effects = new VisualEffect[VisualEffectID.values().length];
 	
 	public void initialize(DynamicTileLoader loader) {
-		effects[EFFECT_BLOOD] = createEffect(loader, R.drawable.effect_blood4, new ConstRange(14, 0), 400, Color.RED);
-		effects[EFFECT_RESTORE_HP] = createEffect(loader, R.drawable.effect_heal2, new ConstRange(16, 0), 400, Color.rgb(150, 150, 255));
-		effects[EFFECT_POISON] = createEffect(loader, R.drawable.effect_poison1, new ConstRange(16, 0), 400, Color.GREEN);
+		effects[VisualEffectID.redSplash.ordinal()] = createEffect(loader, R.drawable.effect_blood4, new ConstRange(14, 0), 400, Color.RED);
+		effects[VisualEffectID.blueSwirl.ordinal()] = createEffect(loader, R.drawable.effect_heal2, new ConstRange(16, 0), 400, Color.rgb(150, 150, 255));
+		effects[VisualEffectID.greenSplash.ordinal()] = createEffect(loader, R.drawable.effect_poison1, new ConstRange(16, 0), 400, Color.GREEN);
+	}
+
+	public VisualEffect getVisualEffect(VisualEffectID effectID) {
+		return effects[effectID.ordinal()];
 	}
 
 	private static VisualEffect createEffect(DynamicTileLoader loader, int drawableID, ConstRange frameRange, int duration, int textColor) {

@@ -5,7 +5,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lleglaris",
                         "value": "30"
                     }
@@ -15,7 +15,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lleglaris",
                         "value": "15"
                     }
@@ -25,7 +25,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lleglaris",
                         "value": "10"
                     }
@@ -79,7 +79,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "toszylae",
                         "value": "70"
                     }
@@ -90,7 +90,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 3,
+                        "requireType": "wear",
                         "requireID": "marrowtaint",
                         "value": 1
                     }
@@ -101,7 +101,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 3,
+                        "requireType": "wear",
                         "requireID": "ring_shadow0",
                         "value": 1
                     }
@@ -112,7 +112,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "54"
                     }
@@ -123,7 +123,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_hunt",
                         "value": "240"
                     }
@@ -134,7 +134,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "240"
                     }
@@ -260,7 +260,8 @@
         "rewards": [
             {
                 "rewardID": "lleglaris",
-                "value": 10
+                "value": 10,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -276,7 +277,8 @@
         "rewards": [
             {
                 "rewardID": "lleglaris",
-                "value": 15
+                "value": 15,
+                "rewardType": "questProgress"
             }
         ],
         "message": "Go look just east of my cabin here. You probably need to take the path north when you exit the cabin, and then head east."
@@ -291,7 +293,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "lleglaris",
                         "value": 1
                     }
@@ -315,7 +317,8 @@
         "rewards": [
             {
                 "rewardID": "lleglaris",
-                "value": 30
+                "value": 30,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -351,7 +354,8 @@
         "rewards": [
             {
                 "rewardID": "lleglaris",
-                "value": 40
+                "value": 40,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

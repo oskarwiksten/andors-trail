@@ -6,7 +6,7 @@
                 "nextPhraseID": "bwm_agent_5_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "bwm_agent",
                         "value": "50"
                     }
@@ -72,7 +72,7 @@
         "message": "Now hurry. We are almost there. Follow the snowy path to the north, and you should reach the settlement in no time.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "bwm_agent",
                 "value": 50
             }

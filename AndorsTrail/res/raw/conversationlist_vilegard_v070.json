@@ -65,7 +65,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "xulviir0",
                         "value": 1
                     }
@@ -85,7 +85,8 @@
         "rewards": [
             {
                 "rewardID": "xulviir",
-                "value": 30
+                "value": 30,
+                "rewardType": "questProgress"
             }
         ],
         "message": "Into the smelting pit with it. Good. See how it bubbles and flares? That's the lives of countless people thanking you for destroying it."
@@ -96,7 +97,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "xulviir0",
                         "value": 1
                     }
@@ -127,7 +128,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "xulviir0",
                         "value": 1
                     }
@@ -186,7 +187,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 2,
+                        "requireType": "inventoryKeep",
                         "requireID": "oegyth",
                         "value": 3
                     }
@@ -207,12 +208,12 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "oegyth",
                         "value": 3
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "xulviir0",
                         "value": 1
                     }
@@ -223,7 +224,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "xulviir0",
                         "value": 1
                     }
@@ -239,10 +240,11 @@
         "rewards": [
             {
                 "rewardID": "xulviir",
-                "value": 20
+                "value": 20,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "xulviir",
                 "value": 1
             }

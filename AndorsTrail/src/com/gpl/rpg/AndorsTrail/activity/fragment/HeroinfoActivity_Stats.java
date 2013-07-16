@@ -16,7 +16,6 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
@@ -156,8 +155,8 @@ public final class HeroinfoActivity_Stats extends Fragment {
         
         ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
 		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
-		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
-			ItemType type = player.inventory.wear[i];
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
 			if (type == null) continue;
 			if (type.effects_hit != null) effects_hit.add(type.effects_hit);
 			if (type.effects_kill != null) effects_kill.add(type.effects_kill);
@@ -184,9 +183,6 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		updateStatsTableRow(s, textView, tableRow, 0);
 	}
 
-	private void updateStatsTableRow(String value, int textView, int tableRow) {
-		updateStatsTableRow(value, textView, tableRow, 0);
-	}
 	private void updateStatsTableRow(String value, int textView, int tableRow1, int tableRow2) {
 		TextView tv = (TextView) view.findViewById(textView);
 		TableRow tr1 = (TableRow) view.findViewById(tableRow1);

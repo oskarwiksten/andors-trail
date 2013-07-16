@@ -6,7 +6,7 @@
                 "nextPhraseID": "thorin_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "40"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "thorin_search_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -204,7 +204,7 @@
         "message": "Excellent. Bring me back the remains of all six of them. I would go search myself if those nasty bugs weren't there.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 20
             }
@@ -237,7 +237,7 @@
                 "nextPhraseID": "thorin_search_c_1",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "thorin_bone",
                         "value": 6
                     }
@@ -264,7 +264,7 @@
                 "nextPhraseID": "thorin_rest_y",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "40"
                     }
@@ -296,7 +296,7 @@
                 "nextPhraseID": "thorin_trade_y",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "40"
                     }
@@ -342,7 +342,7 @@
         "message": "Thank you. I would have gone myself if those nasty bugs weren't there. This turned out to be much easier though.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 40
             }

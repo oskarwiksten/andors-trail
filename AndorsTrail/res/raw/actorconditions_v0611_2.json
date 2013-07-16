@@ -3,7 +3,7 @@
         "id": "rotworm",
         "iconID": "actorconditions_1:82",
         "name": "Kazaul rotworms",
-        "category": 2,
+        "category": "physical",
         "abilityEffect": {
             "increaseMaxHP": -15,
             "increaseMaxAP": -3,
@@ -14,7 +14,7 @@
         "id": "shadowbless_str",
         "iconID": "actorconditions_1:70",
         "name": "Blessing of Shadow strength",
-        "category": 0,
+        "category": "spiritual",
         "isPositive": 1,
         "abilityEffect": {
             "increaseAttackDamage": {
@@ -27,10 +27,10 @@
         "id": "shadowbless_heal",
         "iconID": "actorconditions_1:35",
         "name": "Blessing of Shadow regeneration",
-        "category": 0,
+        "category": "spiritual",
         "isPositive": 1,
         "roundEffect": {
-            "visualEffectID": 1,
+            "visualEffectID": "blueSwirl",
             "increaseCurrentHP": {
                 "min": 1,
                 "max": 1
@@ -41,7 +41,7 @@
         "id": "shadowbless_acc",
         "iconID": "actorconditions_1:98",
         "name": "Blessing of Shadow accuracy",
-        "category": 0,
+        "category": "spiritual",
         "isPositive": 1,
         "abilityEffect": {
             "increaseAttackChance": 30
@@ -51,7 +51,7 @@
         "id": "shadowbless_guard",
         "iconID": "actorconditions_1:91",
         "name": "Shadow guardian blessing",
-        "category": 0,
+        "category": "spiritual",
         "isPositive": 1,
         "abilityEffect": {
             "increaseMaxHP": 30,
@@ -62,7 +62,7 @@
         "id": "crit1",
         "iconID": "actorconditions_1:89",
         "name": "Internal bleeding",
-        "category": 2,
+        "category": "physical",
         "isStacking": 1,
         "abilityEffect": {
             "increaseAttackCost": 1,
@@ -77,7 +77,7 @@
         "id": "crit2",
         "iconID": "actorconditions_1:89",
         "name": "Fracture",
-        "category": 2,
+        "category": "physical",
         "isStacking": 1,
         "abilityEffect": {
             "increaseBlockChance": -50,
@@ -88,7 +88,7 @@
         "id": "concussion",
         "iconID": "actorconditions_1:80",
         "name": "Concussion",
-        "category": 2,
+        "category": "physical",
         "isStacking": 1,
         "abilityEffect": {
             "increaseAttackChance": -30

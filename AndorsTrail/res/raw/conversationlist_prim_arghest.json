@@ -6,7 +6,7 @@
                 "nextPhraseID": "arghest_return_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_innquest",
                         "value": "40"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "arghest_return_2",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_innquest",
                         "value": "30"
                     }
@@ -44,7 +44,7 @@
                 "nextPhraseID": "arghest_8",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "prim_innquest",
                         "value": "10"
                     }
@@ -151,7 +151,7 @@
                 "nextPhraseID": "arghest_return_4",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "milk",
                         "value": 5
                     }
@@ -162,7 +162,7 @@
                 "nextPhraseID": "arghest_return_4",
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "milk",
                         "value": 5
                     }
@@ -185,7 +185,7 @@
         "message": "Thank you my friend! Now I can restock my supply.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_innquest",
                 "value": 40
             }
@@ -260,7 +260,7 @@
         "message": "Well, I would like to still keep the option of using it. But I guess someone else could rest there now that I'm not actively using it.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_innquest",
                 "value": 20
             }
@@ -301,7 +301,7 @@
         "message": "Bring me 5 bottles of milk. That should be enough.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "prim_innquest",
                 "value": 30
             }

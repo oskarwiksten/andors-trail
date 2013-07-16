@@ -15,7 +15,7 @@
                 "text": "I was told that I can get some Spotted Hornbeam fungus from you.",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar_pots",
                         "value": "10"
                     }
@@ -30,7 +30,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "lodar_pots",
                         "value": "20"
                     }
@@ -57,10 +57,11 @@
         "rewards": [
             {
                 "rewardID": "lodar_pots",
-                "value": 20
+                "value": 20,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "hornbeam",
                 "value": 1
             }
@@ -83,7 +84,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "antifoodp",
                         "value": "40"
                     }
@@ -93,7 +94,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "antifoodp",
                         "value": "35"
                     }
@@ -103,7 +104,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "antifoodp",
                         "value": "30"
                     }
@@ -113,7 +114,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "antifoodp",
                         "value": "20"
                     }
@@ -130,7 +131,8 @@
         "rewards": [
             {
                 "rewardID": "antifoodp",
-                "value": 15
+                "value": 15,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -164,7 +166,8 @@
         "rewards": [
             {
                 "rewardID": "antifoodp",
-                "value": 20
+                "value": 20,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -179,17 +182,17 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gland",
                         "value": 1
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hair",
                         "value": 2
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 50
                     }
@@ -200,22 +203,22 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gland",
                         "value": 5
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hair",
                         "value": 10
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 250
                     },
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "antifoodp",
                         "value": 35
                     }
@@ -226,22 +229,22 @@
             {
                 "requires": [
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gland",
                         "value": 10
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "hair",
                         "value": 20
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "gold",
                         "value": 500
                     },
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "antifoodp",
                         "value": 35
                     }
@@ -285,7 +288,8 @@
         "rewards": [
             {
                 "rewardID": "antifoodp",
-                "value": 30
+                "value": 30,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -311,10 +315,11 @@
         "rewards": [
             {
                 "rewardID": "antifoodp",
-                "value": 35
+                "value": 35,
+                "rewardType": "questProgress"
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "antifoodp",
                 "value": 1
             }
@@ -331,7 +336,7 @@
         "id": "fallhaven_pot_antifp_q3x5",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "antifoodp_x5"
             }
         ],
@@ -347,7 +352,7 @@
         "id": "fallhaven_pot_antifp_q3x10",
         "rewards": [
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "antifoodp_x10"
             }
         ],
@@ -364,7 +369,8 @@
         "rewards": [
             {
                 "rewardID": "antifoodp",
-                "value": 40
+                "value": 40,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [

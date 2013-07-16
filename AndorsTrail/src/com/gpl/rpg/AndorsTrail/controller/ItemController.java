@@ -31,7 +31,7 @@ public final class ItemController {
 		world.model.currentMap.itemDropped(type, quantity, world.model.player.position);
     }
 
-	public void equipItem(ItemType type, int slot) {
+	public void equipItem(ItemType type, Inventory.WearSlot slot) {
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
     	if (world.model.uiSelections.isInCombat) {
@@ -42,18 +42,18 @@ public final class ItemController {
 		if (!player.inventory.removeItem(type.id, 1)) return;
 		
 		unequipSlot(player, slot);
-		if (type.isTwohandWeapon()) unequipSlot(player, Inventory.WEARSLOT_SHIELD);
-		else if (slot == Inventory.WEARSLOT_SHIELD) {
-			ItemType currentWeapon = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
-			if (currentWeapon != null && currentWeapon.isTwohandWeapon()) unequipSlot(player, Inventory.WEARSLOT_WEAPON);
+		if (type.isTwohandWeapon()) unequipSlot(player, Inventory.WearSlot.shield);
+		else if (slot == Inventory.WearSlot.shield) {
+			ItemType currentWeapon = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+			if (currentWeapon != null && currentWeapon.isTwohandWeapon()) unequipSlot(player, Inventory.WearSlot.weapon);
 		}
 			
-		player.inventory.wear[slot] = type;
+		player.inventory.setItemTypeInWearSlot(slot, type);
 		controllers.actorStatsController.addConditionsFromEquippedItem(player, type);
 		controllers.actorStatsController.recalculatePlayerStats(player);
     }
 
-   	public void unequipSlot(ItemType type, int slot) {
+   	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
@@ -67,11 +67,11 @@ public final class ItemController {
 		controllers.actorStatsController.recalculatePlayerStats(player);
     }
 
-   	private void unequipSlot(Player player, int slot) {
-   		ItemType removedItemType = player.inventory.wear[slot];
+   	private void unequipSlot(Player player, Inventory.WearSlot slot) {
+   		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
    		if (removedItemType == null) return;
 		player.inventory.addItem(removedItemType);
-		player.inventory.wear[slot] = null;
+		player.inventory.setItemTypeInWearSlot(slot, null);
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
     }
     
@@ -142,31 +142,31 @@ public final class ItemController {
 			player.criticalMultiplier = weapon.effects_equip.stats.setCriticalMultiplier;
 		}
 		
-		applyInventoryEffects(player, Inventory.WEARSLOT_WEAPON);
-		applyInventoryEffects(player, Inventory.WEARSLOT_SHIELD);
+		applyInventoryEffects(player, Inventory.WearSlot.weapon);
+		applyInventoryEffects(player, Inventory.WearSlot.shield);
 		SkillController.applySkillEffectsFromFightingStyles(player);
-		applyInventoryEffects(player, Inventory.WEARSLOT_HEAD);
-		applyInventoryEffects(player, Inventory.WEARSLOT_BODY);
-		applyInventoryEffects(player, Inventory.WEARSLOT_HAND);
-		applyInventoryEffects(player, Inventory.WEARSLOT_FEET);
-		applyInventoryEffects(player, Inventory.WEARSLOT_NECK);
-		applyInventoryEffects(player, Inventory.WEARSLOT_LEFTRING);
-		applyInventoryEffects(player, Inventory.WEARSLOT_RIGHTRING);
+		applyInventoryEffects(player, Inventory.WearSlot.head);
+		applyInventoryEffects(player, Inventory.WearSlot.body);
+		applyInventoryEffects(player, Inventory.WearSlot.hand);
+		applyInventoryEffects(player, Inventory.WearSlot.feet);
+		applyInventoryEffects(player, Inventory.WearSlot.neck);
+		applyInventoryEffects(player, Inventory.WearSlot.leftring);
+		applyInventoryEffects(player, Inventory.WearSlot.rightring);
 		SkillController.applySkillEffectsFromItemProficiencies(player);
 	}
 	public static ItemType getMainWeapon(Player player) {
-		ItemType itemType = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+		ItemType itemType = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 		if (itemType != null) return itemType;
-		itemType = player.inventory.wear[Inventory.WEARSLOT_SHIELD];
+		itemType = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
 		if (itemType != null && itemType.isWeapon()) return itemType;
 		return null;
 	}
 
-	private void applyInventoryEffects(Player player, int slot) {
-		ItemType type = player.inventory.wear[slot];
+	private void applyInventoryEffects(Player player, Inventory.WearSlot slot) {
+		ItemType type = player.inventory.getItemTypeInWearSlot(slot);
 		if (type == null) return;
-		if (slot == Inventory.WEARSLOT_SHIELD) {
-			ItemType mainHandItem = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
+		if (slot == Inventory.WearSlot.shield) {
+			ItemType mainHandItem = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 			// The stats for off-hand weapons will be added later in SkillController.applySkillEffectsFromFightingStyles
 			if (SkillController.isDualWielding(mainHandItem, type)) return;
 		}
@@ -176,8 +176,8 @@ public final class ItemController {
 	
 	public static void recalculateHitEffectsFromWornItems(Player player) {
 		ArrayList<ItemTraits_OnUse> effects = null;
-		for (int i = 0; i < Inventory.NUM_WORN_SLOTS; ++i) {
-			ItemType type = player.inventory.wear[i];
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
+			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
 			if (type == null) continue;
 			ItemTraits_OnUse e = type.effects_hit;
 			if (e == null) continue;
@@ -235,7 +235,7 @@ public final class ItemController {
 	
 	private static int getMarketPriceFactor(Player player) {
 		return Constants.MARKET_PRICEFACTOR_PERCENT 
-			- player.getSkillLevel(SkillCollection.SKILL_BARTER) * SkillCollection.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE;
+			- player.getSkillLevel(SkillCollection.SkillID.barter) * SkillCollection.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE;
 	}
 	public static int getBuyingPrice(Player player, ItemType itemType) {
 		return itemType.baseMarketCost + itemType.baseMarketCost * getMarketPriceFactor(player) / 100;

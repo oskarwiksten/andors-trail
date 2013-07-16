@@ -6,7 +6,7 @@
                 "nextPhraseID": "ff_outsideguard_trouble_24",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jolnor",
                         "value": "20"
                     }
@@ -54,7 +54,7 @@
                 "nextPhraseID": "ff_outsideguard_trouble_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "jolnor",
                         "value": "10"
                     }
@@ -253,7 +253,7 @@
         "message": "I will go inside in a minute. Will you stand watch while I go inside?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "jolnor",
                 "value": 20
             }
@@ -327,7 +327,7 @@
         "id": "ff_outsideguard_shadow_5",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "jolnor",
                 "value": 21
             }

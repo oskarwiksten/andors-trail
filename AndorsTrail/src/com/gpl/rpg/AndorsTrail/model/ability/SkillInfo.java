@@ -4,15 +4,17 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 
 public final class SkillInfo {
 	public static final int MAXLEVEL_NONE = -1;
-	public static final int LEVELUP_TYPE_ALWAYS_SHOWN = 0; 
-	public static final int LEVELUP_TYPE_ONLY_BY_QUESTS = 1;
-	public static final int LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST = 2;
-	
-	public final int id;
+	public static enum LevelUpType {
+		alwaysShown
+		,onlyByQuests
+		,firstLevelRequiresQuest
+	}
+
+	public final SkillCollection.SkillID id;
 	public final int maxLevel;
-	public final int levelupVisibility;
+	public final LevelUpType levelupVisibility;
 	public final SkillLevelRequirement[] levelupRequirements;
-	public SkillInfo(int id, int maxLevel, int levelupVisibility, SkillLevelRequirement[] levelupRequirements) {
+	public SkillInfo(SkillCollection.SkillID id, int maxLevel, LevelUpType levelupVisibility, SkillLevelRequirement[] levelupRequirements) {
 		this.id = id;
 		this.maxLevel = maxLevel;
 		this.levelupVisibility = levelupVisibility;
@@ -38,33 +40,31 @@ public final class SkillInfo {
 	}
 	
 	public static final class SkillLevelRequirement {
-		public static final int REQUIREMENT_TYPE_SKILL_LEVEL = 0;
-		public static final int REQUIREMENT_TYPE_EXPERIENCE_LEVEL = 1;
-		public static final int REQUIREMENT_TYPE_COMBAT_STAT = 2;
-		public static final int REQUIREMENT_TYPE_ACTOR_STAT = 3;
-		public final int requirementType;
-		public final int skillOrStatID;
+		public static enum RequirementType {
+			skillLevel
+			,experienceLevel
+			,playerStat
+		}
+		public final RequirementType requirementType;
+		public final String skillOrStatID;
 		public final int everySkillLevelRequiresThisAmount;
 		public final int initialRequiredAmount;
 		
-		private SkillLevelRequirement(int requirementType, int everySkillLevelRequiresThisAmount, int initialRequiredAmount, int skillOrStatID) {
+		private SkillLevelRequirement(RequirementType requirementType, int everySkillLevelRequiresThisAmount, int initialRequiredAmount, String skillOrStatID) {
 			this.requirementType = requirementType;
 			this.skillOrStatID = skillOrStatID;
 			this.everySkillLevelRequiresThisAmount = everySkillLevelRequiresThisAmount;
 			this.initialRequiredAmount = initialRequiredAmount;
 		}
 		
-		public static SkillLevelRequirement requireOtherSkill(int skillID, int everySkillLevelRequiresThisAmount) {
-			return new SkillLevelRequirement(REQUIREMENT_TYPE_SKILL_LEVEL, everySkillLevelRequiresThisAmount, 0, skillID);
+		public static SkillLevelRequirement requireOtherSkill(SkillCollection.SkillID skillID, int everySkillLevelRequiresThisAmount) {
+			return new SkillLevelRequirement(RequirementType.skillLevel, everySkillLevelRequiresThisAmount, 0, skillID.name());
 		}
 		public static SkillLevelRequirement requireExperienceLevels(int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
-			return new SkillLevelRequirement(REQUIREMENT_TYPE_EXPERIENCE_LEVEL, everySkillLevelRequiresThisAmount, initialRequiredAmount, 0);
+			return new SkillLevelRequirement(RequirementType.experienceLevel, everySkillLevelRequiresThisAmount, initialRequiredAmount, null);
 		}
-		public static SkillLevelRequirement requireCombatStats(int statID, int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
-			return new SkillLevelRequirement(REQUIREMENT_TYPE_COMBAT_STAT, everySkillLevelRequiresThisAmount, initialRequiredAmount, statID);
-		}
-		public static SkillLevelRequirement requireActorStats(int statID, int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
-			return new SkillLevelRequirement(REQUIREMENT_TYPE_ACTOR_STAT, everySkillLevelRequiresThisAmount, initialRequiredAmount, statID);
+		public static SkillLevelRequirement requirePlayerStats(Player.StatID statID, int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
+			return new SkillLevelRequirement(RequirementType.playerStat, everySkillLevelRequiresThisAmount, initialRequiredAmount, statID.name());
 		}
 		
 		public boolean isSatisfiedByPlayer(Player player, int requestedSkillLevel) {
@@ -80,10 +80,9 @@ public final class SkillInfo {
 		
 		private int getRequirementActualValue(Player player) {
 			switch (requirementType) {
-			case REQUIREMENT_TYPE_SKILL_LEVEL: return player.getSkillLevel(skillOrStatID);
-			case REQUIREMENT_TYPE_EXPERIENCE_LEVEL: return player.getLevel();
-			case REQUIREMENT_TYPE_COMBAT_STAT: return player.getCombatStats(skillOrStatID);
-			case REQUIREMENT_TYPE_ACTOR_STAT: return player.getActorStats(skillOrStatID);
+			case skillLevel: return player.getSkillLevel(SkillCollection.SkillID.valueOf(skillOrStatID));
+			case experienceLevel: return player.getLevel();
+			case playerStat: return player.getStatValue(Player.StatID.valueOf(skillOrStatID));
 			default: return 0;
 			}
 		}

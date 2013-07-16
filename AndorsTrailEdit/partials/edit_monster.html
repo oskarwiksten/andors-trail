@@ -33,15 +33,15 @@
 	<div class="fieldWithLabel">
 		<label for="monsterClass">Monster class:</label>
 		<select class="field" id="monsterClass" ng-model="obj.monsterClass">
-			<option value="0">Humanoid</option>
-			<option value="1">Insect</option>
-			<option value="2">Demon</option>
-			<option value="3">Construct</option>
-			<option value="4">Animal</option>
-			<option value="5">Giant</option>
-			<option value="6">Undead</option>
-			<option value="7">Reptile</option>
-			<option value="8">Ghost</option>
+			<option value="humanoid">Humanoid</option>
+			<option value="insect">Insect</option>
+			<option value="demon">Demon</option>
+			<option value="construct">Construct</option>
+			<option value="animal">Animal</option>
+			<option value="giant">Giant</option>
+			<option value="undead">Undead</option>
+			<option value="reptile">Reptile</option>
+			<option value="ghost">Ghost</option>
 		</select>
 	</div>
 	<div class="fieldWithLabel">
@@ -68,9 +68,9 @@
 	<div class="fieldWithLabel" ng-ds-fade="obj.showAdvanced">
 		<label for="movementAggressionType">Movement in combat:</label>
 		<select class="field" id="movementAggressionType" ng-model="obj.movementAggressionType">
-			<option value="0">Does not move in combat</option>
-			<option value="1">Help others in same spawn area</option>
-			<option value="2">Move towards player if inside spawn area</option>
+			<option value="none">Does not move in combat</option>
+			<option value="helpOthers">Help others in same spawn area</option>
+			<option value="protectSpawn">Move towards player if inside spawn area</option>
 		</select>
 	</div>
 	<div class="fieldWithLabel">

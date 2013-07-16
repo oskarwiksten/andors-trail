@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
+import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection.SkillID;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -29,20 +30,20 @@ public final class SkillController {
 	}
 
 	public void applySkillEffects(Player player) {
-		player.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE * player.getSkillLevel(SkillCollection.SKILL_WEAPON_CHANCE);
-		player.damagePotential.addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX * player.getSkillLevel(SkillCollection.SKILL_WEAPON_DMG));
-		player.damagePotential.add(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN * player.getSkillLevel(SkillCollection.SKILL_WEAPON_DMG), false);
-		player.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_DODGE * player.getSkillLevel(SkillCollection.SKILL_DODGE);
-		player.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN * player.getSkillLevel(SkillCollection.SKILL_BARKSKIN);
+		player.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE * player.getSkillLevel(SkillID.weaponChance);
+		player.damagePotential.addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX * player.getSkillLevel(SkillID.weaponDmg));
+		player.damagePotential.add(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN * player.getSkillLevel(SkillID.weaponDmg), false);
+		player.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_DODGE * player.getSkillLevel(SkillID.dodge);
+		player.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN * player.getSkillLevel(SkillID.barkSkin);
 		if (player.hasCriticalSkillEffect()) {
 			if (player.criticalSkill > 0) {
-				player.criticalSkill += player.criticalSkill * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT * player.getSkillLevel(SkillCollection.SKILL_MORE_CRITICALS) / 100;
+				player.criticalSkill += player.criticalSkill * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT * player.getSkillLevel(SkillID.moreCriticals) / 100;
 			}
 		}
 		if (player.hasCriticalMultiplierEffect()) {
-			player.criticalMultiplier += player.criticalMultiplier * SkillCollection.PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT * player.getSkillLevel(SkillCollection.SKILL_BETTER_CRITICALS) / 100;
+			player.criticalMultiplier += player.criticalMultiplier * SkillCollection.PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT * player.getSkillLevel(SkillID.betterCriticals) / 100;
 		}
-		controllers.actorStatsController.addActorMaxAP(player, SkillCollection.PER_SKILLPOINT_INCREASE_SPEED * player.getSkillLevel(SkillCollection.SKILL_SPEED), false);
+		controllers.actorStatsController.addActorMaxAP(player, SkillCollection.PER_SKILLPOINT_INCREASE_SPEED * player.getSkillLevel(SkillID.speed), false);
 		/*final int berserkLevel = player.getSkillLevel(Skills.SKILL_BERSERKER);
 		if (berserkLevel > 0) {
 			final int berserkHealth = player.health.max * Skills.BERSERKER_STARTS_AT_HEALTH_PERCENT / 100;
@@ -59,9 +60,9 @@ public final class SkillController {
 		if (player == null) return 0;
 		
 		if (ItemTypeCollection.isGoldItemType(item.itemType.id)) {
-			return getRollBias(item, player, SkillCollection.SKILL_COINFINDER, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_CHANCE_PERCENT);
+			return getRollBias(item, player, SkillID.coinfinder, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_CHANCE_PERCENT);
 		} else if (!item.itemType.isOrdinaryItem()) {
-			return getRollBias(item, player, SkillCollection.SKILL_MAGICFINDER, SkillCollection.PER_SKILLPOINT_INCREASE_MAGICFINDER_CHANCE_PERCENT);
+			return getRollBias(item, player, SkillID.magicfinder, SkillCollection.PER_SKILLPOINT_INCREASE_MAGICFINDER_CHANCE_PERCENT);
 		} else {
 			return 0;
 		}
@@ -71,14 +72,14 @@ public final class SkillController {
 		if (player == null) return 0;
 		if (!ItemTypeCollection.isGoldItemType(item.itemType.id)) return 0;
 		
-		return getRollBias(item, player, SkillCollection.SKILL_COINFINDER, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_QUANTITY_PERCENT);
+		return getRollBias(item, player, SkillID.coinfinder, SkillCollection.PER_SKILLPOINT_INCREASE_COINFINDER_QUANTITY_PERCENT);
 	}
 	
-	private static int getRollBias(DropItem item, Player player, int skill, int perSkillpointIncrease) {
+	private static int getRollBias(DropItem item, Player player, SkillID skill, int perSkillpointIncrease) {
 		return getRollBias(item.chance, player, skill, perSkillpointIncrease);
 	}
 	
-	private static int getRollBias(ConstRange chance, Player player, int skill, int perSkillpointIncrease) {
+	private static int getRollBias(ConstRange chance, Player player, SkillID skill, int perSkillpointIncrease) {
 		int skillLevel = player.getSkillLevel(skill);
 		if (skillLevel <= 0) return 0;
 		return chance.current * skillLevel * perSkillpointIncrease / 100;
@@ -96,8 +97,8 @@ public final class SkillController {
 	public static boolean canLevelupSkillManually(Player player, SkillInfo skill) {
 		if (!player.hasAvailableSkillpoints()) return false;
 		if (!canLevelupSkillWithQuest(player, skill)) return false;
-		if (skill.levelupVisibility == SkillInfo.LEVELUP_TYPE_ONLY_BY_QUESTS) return false;
-		if (skill.levelupVisibility == SkillInfo.LEVELUP_TYPE_FIRST_LEVEL_REQUIRES_QUEST) {
+		if (skill.levelupVisibility == SkillInfo.LevelUpType.onlyByQuests) return false;
+		if (skill.levelupVisibility == SkillInfo.LevelUpType.firstLevelRequiresQuest) {
 			if (!player.hasSkill(skill.id)) return false;
 		}
 		return true;
@@ -113,9 +114,9 @@ public final class SkillController {
 		return true;
 	}
 
-	public void addSkillLevel(int skillID) {
+	public void addSkillLevel(SkillID skillID) {
 		Player player = world.model.player;
-		player.skillLevels.put(skillID, player.skillLevels.get(skillID) + 1);
+		player.addSkillLevel(skillID);
 		controllers.actorStatsController.recalculatePlayerStats(player);
 	}
 	
@@ -124,19 +125,19 @@ public final class SkillController {
 		
 		int result = 0;
 		result += getActorConditionEffectChanceRollBiasFromResistanceSkills(effect, player);
-		result += getActorConditionEffectChanceRollBias(effect, player, SkillCollection.SKILL_SHADOW_BLESS, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS);
+		result += getActorConditionEffectChanceRollBias(effect, player, SkillID.shadowBless, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_SHADOW_BLESS);
 		return result;
 	}
 	
 	private static int getActorConditionEffectChanceRollBiasFromResistanceSkills(ActorConditionEffect effect, Player player) {
-		int skill;
+		SkillID skill;
 		switch (effect.conditionType.conditionCategory) {
-		case ActorConditionType.ACTORCONDITIONTYPE_MENTAL:
-			skill = SkillCollection.SKILL_RESISTANCE_MENTAL; break;
-		case ActorConditionType.ACTORCONDITIONTYPE_PHYSICAL_CAPACITY:
-			skill = SkillCollection.SKILL_RESISTANCE_PHYSICAL_CAPACITY; break;
-		case ActorConditionType.ACTORCONDITIONTYPE_BLOOD_DISORDER:
-			skill = SkillCollection.SKILL_RESISTANCE_BLOOD_DISORDER; break;
+		case mental:
+			skill = SkillID.resistanceMental; break;
+		case physical:
+			skill = SkillID.resistancePhysical; break;
+		case blood:
+			skill = SkillID.resistanceBlood; break;
 		default:
 			return 0;
 		}
@@ -144,12 +145,12 @@ public final class SkillController {
 		return getActorConditionEffectChanceRollBias(effect, player, skill, SkillCollection.PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT);
 	}
 	
-	private static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player, int skill, int chanceIncreasePerSkillLevel) {
+	private static int getActorConditionEffectChanceRollBias(ActorConditionEffect effect, Player player, SkillID skill, int chanceIncreasePerSkillLevel) {
 		// Note that the bias should be negative, making it less likely that the chance roll will succeed
 		return getRollBias(effect.chance, player, skill, -chanceIncreasePerSkillLevel);
 	}
 	
-	public static boolean rollForSkillChance(Player player, int skill, int chancePerSkillLevel) {
+	public static boolean rollForSkillChance(Player player, SkillID skill, int chancePerSkillLevel) {
 		int skillLevel = player.getSkillLevel(skill);
 		if (skillLevel <= 0) return false;
 		return Constants.roll100(chancePerSkillLevel * skillLevel);
@@ -166,17 +167,17 @@ public final class SkillController {
 		Player player = world.model.player;
 		
 		if (player.getAttackChance() - monster.getBlockChance() > SkillCollection.CONCUSSION_THRESHOLD) {
-			if (rollForSkillChance(player, SkillCollection.SKILL_CONCUSSION, SkillCollection.PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE)) {
+			if (rollForSkillChance(player, SkillID.concussion, SkillCollection.PER_SKILLPOINT_INCREASE_CONCUSSION_CHANCE)) {
 				addConditionToActor(monster, "concussion", 1, 5);
 			}
 		}
 		
 		if (result.isCriticalHit) {
-			if (rollForSkillChance(player, SkillCollection.SKILL_CRIT2, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2_CHANCE)) {
+			if (rollForSkillChance(player, SkillID.crit2, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT2_CHANCE)) {
 				addConditionToActor(monster, "crit2", 1, 5);
 			}
 			
-			if (rollForSkillChance(player, SkillCollection.SKILL_CRIT1, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1_CHANCE)) {
+			if (rollForSkillChance(player, SkillID.crit1, SkillCollection.PER_SKILLPOINT_INCREASE_CRIT1_CHANCE)) {
 				addConditionToActor(monster, "crit1", 1, 5);
 			}
 		}
@@ -184,7 +185,7 @@ public final class SkillController {
 	
 	public void applySkillEffectsFromMonsterAttack(AttackResult result, Monster monster) {
 		if (!result.isHit) {
-			if (rollForSkillChance(world.model.player, SkillCollection.SKILL_TAUNT, SkillCollection.PER_SKILLPOINT_INCREASE_TAUNT_CHANCE)) {
+			if (rollForSkillChance(world.model.player, SkillID.taunt, SkillCollection.PER_SKILLPOINT_INCREASE_TAUNT_CHANCE)) {
 				controllers.actorStatsController.changeActorAP(monster, -SkillCollection.TAUNT_AP_LOSS, false, false);
 			}
 		}
@@ -201,7 +202,7 @@ public final class SkillController {
 			addPercentCriticalSkill(player, mainWeapon, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_PROF_CS_PERCENT * skillLevel, 0);
 		}
 		
-		final int unarmedLevel = player.getSkillLevel(SkillCollection.SKILL_WEAPON_PROFICIENCY_UNARMED);
+		final int unarmedLevel = player.getSkillLevel(SkillID.weaponProficiencyUnarmed);
 		if (unarmedLevel > 0) {
 			if (isUnarmed(player)) {
 				playerTraits.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_AC * unarmedLevel;
@@ -211,33 +212,33 @@ public final class SkillController {
 			}
 		}
 		
-		ItemType shield = player.inventory.wear[Inventory.WEARSLOT_SHIELD];
+		ItemType shield = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
 		if (shield != null && shield.isShield()) {
 			playerTraits.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_SHIELD_PROF_DR * getSkillLevelForItemType(player, shield);
 		}
 		
-		final int unarmoredLevel = player.getSkillLevel(SkillCollection.SKILL_ARMOR_PROFICIENCY_UNARMORED);
+		final int unarmoredLevel = player.getSkillLevel(SkillID.armorProficiencyUnarmored);
 		if (unarmoredLevel > 0) {
 			if (isUnarmored(player)) {
 				playerTraits.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_UNARMORED_BC * unarmoredLevel;
 			}
 		}
 		
-		int skillLevelLightArmor = player.getSkillLevel(SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT);
-		int skillLevelHeavyArmor = player.getSkillLevel(SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY);
-		for (int slot = 0; slot < Inventory.NUM_WORN_SLOTS; ++slot) {
+		int skillLevelLightArmor = player.getSkillLevel(SkillID.armorProficiencyLight);
+		int skillLevelHeavyArmor = player.getSkillLevel(SkillID.armorProficiencyHeavy);
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			if (!Inventory.isArmorSlot(slot)) continue;
 			
-			ItemType itemType = player.inventory.wear[slot];
+			ItemType itemType = player.inventory.getItemTypeInWearSlot(slot);
 			if (itemType == null) continue;
 			if (itemType.effects_equip == null) continue;
 			
-			int skill = getProficiencySkillForItemCategory(itemType.category);
-			if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT) {
+			SkillID skill = getProficiencySkillForItemCategory(itemType.category);
+			if (skill == SkillID.armorProficiencyLight) {
 				if (skillLevelLightArmor > 0) {
 					addPercentBlockChance(player, itemType, SkillCollection.PER_SKILLPOINT_INCREASE_LIGHT_ARMOR_BC_PERCENT * skillLevelLightArmor, 0);
 				}
-			} else if (skill == SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY) { 
+			} else if (skill == SkillID.armorProficiencyHeavy) {
 				if (skillLevelHeavyArmor > 0) {
 					addPercentBlockChance(player, itemType, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT * skillLevelHeavyArmor, 0);
 					playerTraits.moveCost -= getPercentage(itemType.effects_equip.stats.increaseMoveCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT * skillLevelHeavyArmor, 0);
@@ -248,71 +249,71 @@ public final class SkillController {
 	}
 	
 	private static boolean isUnarmed(Player player) {
-		if (hasItemWithWeight(player, Inventory.WEARSLOT_WEAPON)) return false;
-		if (hasItemWithWeight(player, Inventory.WEARSLOT_SHIELD)) return false;
+		if (hasItemWithWeight(player, Inventory.WearSlot.weapon)) return false;
+		if (hasItemWithWeight(player, Inventory.WearSlot.shield)) return false;
 		return true;
 	}
 	private static boolean isUnarmored(Player player) {
-		for (int slot = 0; slot < Inventory.NUM_WORN_SLOTS; ++slot) {
+		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			if (!Inventory.isArmorSlot(slot)) continue;
 			if (hasItemWithWeight(player, slot)) return false;
 		}
 		return true;
 	}
-	private static boolean hasItemWithWeight(Player player, int slot) {
-		ItemType itemType = player.inventory.wear[slot];
+	private static boolean hasItemWithWeight(Player player, Inventory.WearSlot slot) {
+		ItemType itemType = player.inventory.getItemTypeInWearSlot(slot);
 		if (itemType == null) return false;
-		if (itemType.category.getSize() == ItemCategory.SIZE_NONE) return false;
+		if (itemType.category.getSize() == ItemCategory.ItemCategorySize.none) return false;
 		return true;
 	}
 
 	private static int getSkillLevelForItemType(final Player player, ItemType itemType) {
-		int skill = getProficiencySkillForItemCategory(itemType.category);
-		if (skill == -1) return 0;
+		SkillID skill = getProficiencySkillForItemCategory(itemType.category);
+		if (skill == null) return 0;
 		return player.getSkillLevel(skill);
 	}
 	
-	public static int getProficiencySkillForItemCategory(ItemCategory category) {
+	public static SkillID getProficiencySkillForItemCategory(ItemCategory category) {
 		final String itemCategoryID = category.id;
 		if (category.isWeapon()) {
 			if (itemCategoryID.equals("dagger") || itemCategoryID.equals("ssword")) 
-				return SkillCollection.SKILL_WEAPON_PROFICIENCY_DAGGER;
+				return SkillID.weaponProficiencyDagger;
 			else if (itemCategoryID.equals("lsword") || itemCategoryID.equals("bsword") || itemCategoryID.equals("rapier"))
-				return SkillCollection.SKILL_WEAPON_PROFICIENCY_1HSWORD;
+				return SkillID.weaponProficiency1hsword;
 			else if (itemCategoryID.equals("2hsword")) 
-				return SkillCollection.SKILL_WEAPON_PROFICIENCY_2HSWORD;
+				return SkillID.weaponProficiency2hsword;
 			else if (itemCategoryID.equals("axe") || itemCategoryID.equals("axe2h")) 
-				return SkillCollection.SKILL_WEAPON_PROFICIENCY_AXE;
+				return SkillID.weaponProficiencyAxe;
 			else if (itemCategoryID.equals("club") || itemCategoryID.equals("staff") || itemCategoryID.equals("mace")
 					|| itemCategoryID.equals("scepter") || itemCategoryID.equals("hammer") || itemCategoryID.equals("hammer2h"))
-				return SkillCollection.SKILL_WEAPON_PROFICIENCY_BLUNT;
+				return SkillID.weaponProficiencyBlunt;
 		} else if (category.isShield()) { 
-			return SkillCollection.SKILL_ARMOR_PROFICIENCY_SHIELD;
+			return SkillID.armorProficiencyShield;
 		} else if (category.isArmor()) {
-			int size = category.getSize();
-			if (size == ItemCategory.SIZE_LIGHT) return SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT;
-			if (size == ItemCategory.SIZE_STD) return SkillCollection.SKILL_ARMOR_PROFICIENCY_LIGHT;
-			if (size == ItemCategory.SIZE_LARGE) return SkillCollection.SKILL_ARMOR_PROFICIENCY_HEAVY;
+			ItemCategory.ItemCategorySize size = category.getSize();
+			if (size == ItemCategory.ItemCategorySize.light) return SkillID.armorProficiencyLight;
+			if (size == ItemCategory.ItemCategorySize.std) return SkillID.armorProficiencyLight;
+			if (size == ItemCategory.ItemCategorySize.large) return SkillID.armorProficiencyHeavy;
 		}
-		return -1;
+		return null;
 	}
 
 	public static void applySkillEffectsFromFightingStyles(Player player) {
 		Player playerTraits = player;
-		ItemType mainHandItem = player.inventory.wear[Inventory.WEARSLOT_WEAPON];
-		ItemType offHandItem = player.inventory.wear[Inventory.WEARSLOT_SHIELD];
+		ItemType mainHandItem = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+		ItemType offHandItem = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
 		
 		if (isWielding2HandItem(mainHandItem, offHandItem)) {
-			int skillLevelFightStyle = player.getSkillLevel(SkillCollection.SKILL_FIGHTSTYLE_2HAND);
-			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_2HAND);
+			int skillLevelFightStyle = player.getSkillLevel(SkillID.fightstyle2hand);
+			int skillLevelSpecialization = player.getSkillLevel(SkillID.specialization2hand);
 			addPercentDamage(playerTraits, mainHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_2HAND_DMG_PERCENT, 0);
 			addPercentDamage(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_DMG_PERCENT, 0);
 			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_2HAND_AC_PERCENT, 0);
 		}
 		
 		if (isWieldingWeaponAndShield(mainHandItem, offHandItem)) {
-			int skillLevelFightStyle = player.getSkillLevel(SkillCollection.SKILL_FIGHTSTYLE_WEAPON_SHIELD);
-			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_WEAPON_SHIELD);
+			int skillLevelFightStyle = player.getSkillLevel(SkillID.fightstyleWeaponShield);
+			int skillLevelSpecialization = player.getSkillLevel(SkillID.specializationWeaponShield);
 			addPercentAttackChance(playerTraits, mainHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_WEAPON_AC_PERCENT, 0);
 			addPercentBlockChance(playerTraits, offHandItem, skillLevelFightStyle * SkillCollection.PER_SKILLPOINT_INCREASE_FIGHTSTYLE_SHIELD_BC_PERCENT, 0);
 			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_WEAPON_AC_PERCENT, 0);
@@ -320,7 +321,7 @@ public final class SkillController {
 		}
 		
 		if (isDualWielding(mainHandItem, offHandItem)) {
-			int skillLevelFightStyle = player.getSkillLevel(SkillCollection.SKILL_FIGHTSTYLE_DUAL_WIELD);
+			int skillLevelFightStyle = player.getSkillLevel(SkillID.fightstyleDualWield);
 			if (offHandItem.effects_equip != null) {
 				int attackCostMainHand = mainHandItem.effects_equip.stats.increaseAttackCost;
 				int attackCostOffHand = offHandItem.effects_equip.stats.increaseAttackCost;
@@ -347,7 +348,7 @@ public final class SkillController {
 				addPercentCriticalSkill(player, offHandItem, percent, 100);
 			}
 			
-			int skillLevelSpecialization = player.getSkillLevel(SkillCollection.SKILL_SPECIALIZATION_DUAL_WIELD);
+			int skillLevelSpecialization = player.getSkillLevel(SkillID.specializationDualWield);
 			addPercentAttackChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT, 0);
 			addPercentBlockChance(playerTraits, mainHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_BC_PERCENT, 0);
 			addPercentAttackChance(playerTraits, offHandItem, skillLevelSpecialization * SkillCollection.PER_SKILLPOINT_INCREASE_SPECIALIZATION_DUALWIELD_AC_PERCENT, 0);

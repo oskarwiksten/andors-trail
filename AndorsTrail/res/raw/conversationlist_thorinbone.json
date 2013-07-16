@@ -10,7 +10,7 @@
                 "nextPhraseID": "remains_mcave_a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "31"
                     }
@@ -20,7 +20,7 @@
                 "nextPhraseID": "remains_mcave_1b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -38,7 +38,7 @@
                 "nextPhraseID": "remains_mcave_a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "32"
                     }
@@ -48,7 +48,7 @@
                 "nextPhraseID": "remains_mcave_2b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -66,7 +66,7 @@
                 "nextPhraseID": "remains_mcave_a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "33"
                     }
@@ -76,7 +76,7 @@
                 "nextPhraseID": "remains_mcave_3b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -94,7 +94,7 @@
                 "nextPhraseID": "remains_mcave_a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "34"
                     }
@@ -104,7 +104,7 @@
                 "nextPhraseID": "remains_mcave_4b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -122,7 +122,7 @@
                 "nextPhraseID": "remains_mcave_a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "35"
                     }
@@ -132,7 +132,7 @@
                 "nextPhraseID": "remains_mcave_5b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -150,7 +150,7 @@
                 "nextPhraseID": "remains_mcave_a",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "36"
                     }
@@ -160,7 +160,7 @@
                 "nextPhraseID": "remains_mcave_6b",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "thorin",
                         "value": "20"
                     }
@@ -260,12 +260,12 @@
         "message": "You pick up one of the bones. It seems to have been severely damaged by something corrosive.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 31
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "thorin_bone"
             }
         ]
@@ -275,12 +275,12 @@
         "message": "You pick up one of the bones. It seems to have been severely damaged by something corrosive.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 32
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "thorin_bone"
             }
         ]
@@ -290,12 +290,12 @@
         "message": "You pick up one of the bones. It seems to have been severely damaged by something corrosive.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 33
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "thorin_bone"
             }
         ]
@@ -305,12 +305,12 @@
         "message": "You pick up one of the bones. It seems to have been severely damaged by something corrosive.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 34
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "thorin_bone"
             }
         ]
@@ -320,12 +320,12 @@
         "message": "You pick up one of the bones. It seems to have been severely damaged by something corrosive.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 35
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "thorin_bone"
             }
         ]
@@ -335,12 +335,12 @@
         "message": "You pick up one of the bones. It seems to have been severely damaged by something corrosive.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "thorin",
                 "value": 36
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "thorin_bone"
             }
         ]

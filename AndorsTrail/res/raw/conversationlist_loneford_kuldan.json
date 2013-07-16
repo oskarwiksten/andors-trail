@@ -6,7 +6,7 @@
                 "nextPhraseID": "kuldan_c_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "55"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "kuldan_bc_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "54"
                     }
@@ -36,12 +36,12 @@
                 "nextPhraseID": "kuldan_bc_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "loneford",
                         "value": "50"
                     },
                     {
-                        "requireType": 1,
+                        "requireType": "inventoryRemove",
                         "requireID": "buceth_vial",
                         "value": 1
                     }
@@ -76,7 +76,7 @@
         "message": "What is this? This smells like Narwood poison. You say you retrieved this from Buceth?",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 54
             }
@@ -173,7 +173,7 @@
         "message": "For the glory of Feygard, the people of Loneford may live on thanks to your help.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "loneford",
                 "value": 55
             }

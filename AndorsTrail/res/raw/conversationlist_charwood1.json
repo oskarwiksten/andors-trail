@@ -4,14 +4,15 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 19
+                "value": 19,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "35"
                     }
@@ -38,7 +39,8 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 35
+                "value": 35,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
@@ -59,7 +61,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "30"
                     }
@@ -92,7 +94,7 @@
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "30"
                     }
@@ -108,14 +110,15 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 19
+                "value": 19,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "50"
                     }
@@ -140,14 +143,15 @@
         "rewards": [
             {
                 "rewardID": "charwood1",
-                "value": 19
+                "value": 19,
+                "rewardType": "questProgress"
             }
         ],
         "replies": [
             {
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "charwood1",
                         "value": "50"
                     }

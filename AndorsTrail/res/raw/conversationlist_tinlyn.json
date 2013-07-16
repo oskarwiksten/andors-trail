@@ -6,7 +6,7 @@
                 "nextPhraseID": "tinlyn_killedsheep_0",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "21"
                     }
@@ -16,7 +16,7 @@
                 "nextPhraseID": "tinlyn_killedsheep_0",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "60"
                     }
@@ -26,7 +26,7 @@
                 "nextPhraseID": "tinlyn_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "31"
                     }
@@ -36,7 +36,7 @@
                 "nextPhraseID": "tinlyn_complete_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "30"
                     }
@@ -46,7 +46,7 @@
                 "nextPhraseID": "tinlyn_look_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "15"
                     }
@@ -64,7 +64,7 @@
                 "nextPhraseID": "tinlyn_killedsheep_0_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "10"
                     }
@@ -79,7 +79,7 @@
         "id": "tinlyn_killedsheep_0_1",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "tinlyn",
                 "value": 60
             }
@@ -103,7 +103,7 @@
                 "nextPhraseID": "tinlyn_benbyr_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "10"
                     }
@@ -136,7 +136,7 @@
         "message": "The thing is, I have lost four of them. Now I won't dare leave the ones I still have in my sight to go look for the lost ones.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "tinlyn",
                 "value": 10
             }
@@ -155,7 +155,7 @@
                 "nextPhraseID": "tinlyn_story_6",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "15"
                     }
@@ -211,12 +211,12 @@
         "message": "Good, thank you. Please put these bells around their necks so I can hear them. Return to me once you have placed bells around the neck of each of the four missing sheep.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "tinlyn",
                 "value": 15
             },
             {
-                "rewardType": 1,
+                "rewardType": "dropList",
                 "rewardID": "tinlyn_bells"
             }
         ],
@@ -240,7 +240,7 @@
                 "nextPhraseID": "tinlyn_found_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "tinlyn",
                         "value": "25"
                     }
@@ -259,7 +259,7 @@
                 "nextPhraseID": "tinlyn_benbyr_1",
                 "requires": [
                     {
-                        "requireType": 0,
+                        "requireType": "questProgress",
                         "requireID": "benbyr",
                         "value": "10"
                     }
@@ -286,7 +286,7 @@
         "message": "I am sorry, but I am a simple shepherd. I have no wealth or magical trinkets to give you.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "tinlyn",
                 "value": 31
             }
@@ -297,7 +297,7 @@
         "message": "Thank you for helping me.",
         "rewards": [
             {
-                "rewardType": 0,
+                "rewardType": "questProgress",
                 "rewardID": "tinlyn",
                 "value": 30
             }
