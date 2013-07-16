@@ -143,22 +143,23 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 			updateMonsterHealth(selectedMonster);
 	        currentMonster = selectedMonster;
 		}
+		updateAttackMoveButtonText(selectedMonster != null);
 	}
-	
+
 	private void updateAttackMoveButtonText() {
-		if (world.model.uiSelections.selectedMonster != null) {
+		updateAttackMoveButtonText(world.model.uiSelections.selectedMonster != null);
+	}
+	private void updateAttackMoveButtonText(boolean hasSelectedMonster) {
+		if (hasSelectedMonster) {
 			attackMoveButton.setText(res.getString(R.string.combat_attack, player.getAttackCost()));
-		} else if (world.model.uiSelections.selectedPosition != null) {
-			attackMoveButton.setText(res.getString(R.string.combat_move, player.getMoveCost()));
 		} else {
-			attackMoveButton.setText(res.getString(R.string.combat_attack, player.getAttackCost()));
+			attackMoveButton.setText(res.getString(R.string.combat_move, player.getMoveCost()));
 		}
 	}
 
 	public void updateStatus() {
 		updatePlayerAP();
 		updateSelectedMonster(world.model.uiSelections.selectedMonster);
-		updateAttackMoveButtonText();
 	}
 
 	private void show() {
