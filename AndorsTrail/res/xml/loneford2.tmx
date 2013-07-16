@@ -130,7 +130,7 @@
  </layer>
  <layer name="Objects" width="30" height="26">
   <data encoding="base64" compression="zlib">
-   eJzVls1OwkAQx1cKREOLZC/qG+h7eBEMnDFBTiQKZ/QJlIMnTz6CT4DBxDPx4BNQeAPxpp5M3LE7yXQ621I/Dk7yz7Rld3+d2dkp1UCpKlOjptR+kC0YtxHEdb2WfAbjdoK4OHPpK9URuPB8Fa4kyoV1JC6oXVaqnqFGOVrvIGPcUXm1eEEDM/a3bPCPuKNS5Mda9twmOhLMm+gkF/cWuXAvcW8sd6plD/bmKfXuRdePOhLM+/J+tFYnR7zrFaWOzfg60SG7dwnGtYxuDffUUW8u7tDo0mhkdGF0bvOVZngOoNb5O3NxJpx7V10Bd+67uTDvzvx+b8fAtetM5qlnGu9YJ+sOufDuM+Mndn+bK8RLubg2+IUf5051su6kvcS+UQjiSqtnXBvXhfkzkme43y6a+jTaLbpzz7mQDyn3faOTTaWuKtEc8MgZsjrbM7zQvstC2HvKhfiQLZ0B1730W4vVON0bV7wF9g3AXg9jaT6XJt4XG/vSiwtzj7HyvXFxeb11a3I9N+1vH15c0jntkhxQ7rMf58LzNttfek5DP7tnuCwt3oYjRmpZPeMvuWgPWvZgvVKkvFxejxL3ScsebGjmnn2Dy+sRbG73N/zjPEs1hM/ge/tqJVmvFr+mXOhTaVzpbOT59nZJDbrixXNJuVskn9gPsI/07Jo0Zt4fQzLHxcX8uf4X/FR9gQt9+hOwx9JA
+   eJzVls1OAjEQx6sLRMMukl7UN9D38CIYOGOCnEgUzugTqAdPnnwEnwCDiWfiwSdg4Q3Em3oysUM7ybQ73WVVDk7yz+xH29/OdDpQiYSoOKpXhTiIsgXjNiNbt2vJZzBuN7LlMuehEG2GC8+X4XKiXFiH44JaJSFqGaqX9HqHGeOOS8vFC+qrsX9l/X/EvS5qP5S8d20ktWDeSCa5uLfIhXuOe2e4Y8l7sI9AiM9AXz9LLZi38KFeq50j3o2yECdqfI3oyLn3CcY1le4V98xTbz7uQOlK6VrpUunC5CvN8BxArbvf7Mplwrn31RVwp6GfC/Me1PtHMwaufWcyTz3TeIcyWXfIhW+fKD8y+9tYIl7KxbXBz0KbO5bJuuP2EvvGemQrrZ5xbVwX5k9InuF+p6DqU2mv4M+9y4V8cLnvKZ1uCXFT1nPAI2fg1Nm+4sXmW2bM3lMuxIds7gz47rl3TafG6d744l1wmV4PY2k+5yreNxP7PLCFucdY3b3xcd1661T5em6Yd1+BLe6cdkgOKPc1tLnwvOXsLz2ncZjdM3yWFm/dEyO1rJ6xSi7ak+Q9WLeolZfr1iPHfZG8Bxuouec/4Lr1CDY1+xuvOM9cDeEz+L19N+KsW7WvKRf6VBqXOxt5fns7pAbzxLtN8on9APtI16xJY3b7Y0zmZHF9/wt+qx7DhT79DZZf0qE=
   </data>
  </layer>
  <layer name="Above" width="30" height="26">
@@ -140,7 +140,7 @@
  </layer>
  <layer name="Walkable" width="30" height="26">
   <data encoding="base64" compression="zlib">
-   eJxzFWBgcB3Fo3gEYBCgpz6YXkoBNf1PrHnUchOpeqjl38FkLzXjEJe7ibGXGu5Atg9XmsLnJkrTHamAWv4kFI7Y7CXWfmLcjEuOEn8TUkeNcBy1l7r2UhK/2PhDyV5iwhGbHdQApIQLPjPQ1eNTQ6q99MAAhLnLNQ==
+   eJxzFWBgcB3Fo3gEYBCgpz6YXkoBNf1PrHnUchOpeqjl38FkLzXjEJe7ibGXGu5Atg9XmsLnJkrTHamAWv4kFI7Y7CXWfmLcjEuOEn8TUkeNcBy1l7r2UhK/2PhDyV5iwhGbHdQApPoXlxno5uFTQ6q99MAA/CHL3w==
   </data>
  </layer>
  <objectgroup name="Mapevents" width="30" height="26">
@@ -150,7 +150,7 @@
     <property name="place" value="east"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="0" y="800" width="64" height="32">
+  <object name="south" type="mapchange" x="32" y="800" width="32" height="32">
    <properties>
     <property name="map" value="loneford1"/>
     <property name="place" value="north"/>

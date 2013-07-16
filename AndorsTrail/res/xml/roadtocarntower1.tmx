@@ -125,25 +125,25 @@
  </tileset>
  <layer name="Ground" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcHQUw/EpXsL4BTMqpoa9t3gJ4x/MCEwte2F++owFw+SQ1YPsvgrEzyi0H+YnZj5MDJOjRfwuEGJgWCREuhyleD3Q3I04zMYnN4pH8SgexcRiJkEGhk8C1FOHC4P0gszAxSdWHcwd2PTiMosSmhKzcIUhPnkAeO7PtQ==
+   eJw7ysbAcHQUw/EpXsL4BTMqpoa9t3gJ4x/MCEwte2F++owFw+SQ1YPsvgrEzyi0H+YnZj5MDJOjRfwuEGJgWCREuhyleD3Q3I04zMYnN4pH8SgexcRiJkEGhk8C1FOHC4P0gszAxSdWHcwd2PTiMosSmhKzcIUhvrAEAHvZ0G0=
   </data>
  </layer>
  <layer name="Objects" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJy9VbFKxEAQzXEnClnPBCJoIRZa+C0eKNjYKRzYCDb3ucnlOrU5RQu1NUMy5uXt3MZY+GDZye7MvJnZnU22G3lYOX/tL+u8p3IGnBnxF+SrdF1b5lqS/9LZe+xrTf6El2MZArVVfznkKryal/IuN+QTws6k+32XhPUxf4kjH8CFOKh4D6txFuDH2u0Hank0sdf74MguN+5VSF/wPG7l657a7TU+j6v5I27PTbA27pXWWnlfKpvXuJa/gPdkGkWn01rWeSiwto+xraN13nb1YMyqmK7G9YyyQnJcOb8fOQad+VxLstOaCccceOfAyzYM7mfLv6Bw/hkJxwJ4F5SvvglYW7xX/A5ZvRSK77dAv3K2GM9FdWfPYTwkm20FReDO3jc+LhNf/ylu85W1WaBX2C9+8xuA8alP1PmMuzVUncLwafU858//BvSJ2HLdut5CbJyfogzcFQs3dHY6QsjdsP9DlLbiqJGt/sU+G6X+fkcnBZ10s/5QvCdRJ97/gsT/1lP3kO1PDYzYrf1vE5tkAw==
+   eJy9VcFKxDAQ7bIrCo1rCxX0IB704Le4oODFm8KCF8HLfm673Zt6WUUP6tUM7diXl2xqPfggZJrMzJuZZNJiN/GwMv7aX9Z5T+UCOAvir8hXbVxb5lqS/9qE99jXmvwJL8cyBGqr/krIVXg1L+Vdbsgnhp2J+32XxfUxf4mjHMCFOLC8h3acRfixdvuRWh5Nwut9MGRXBu5VTF/wPO7k657a7bU+j+38kXbnJlgH7pXWWnlfrM1r2shfwHsyTZLTaSPrPBRY28c0rKN13jbNYMxsTFfjZkZZITmujN+PHIPOfK412WnNhGMOvHPgZRsG93PIv6Ay/hkJxwJ4F5SvvglYW7xX/A6FeikW32+BfuVsMZ4Le2fPYTxkm20FVeTO3rc+LjNf/ynt8pW1WaRX2C9+8xuA8alP1PlM3RqqThXwGep5zp//DegTsWXcut5CbJyfoo7clRBu6Ox0xFCaYf+HJO/EUSuH+hf7bJT7+45ODjr5Zv2heM8SJ97/gsT/1lP3mO1PDQKx877M3xPSZBU=
   </data>
  </layer>
  <layer name="Above" width="30" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFMPCVlTh134hURywQZSNOnRhQHScL9eylp3/PcjMwnOOGsEnxL6XgLtDOe9yY4sZ8DAzCfKg0DIQLUG4vLpAGNVuZD5VGlqMXiMUSLvQAEUj2hg+QG0bBKKAV+ADMxx8FEDQ+QKw6ZDW42MTqp8S9MPXo7kfn4xLHB9D14jJrKAEA9x4v4Q==
+   eJxjYBgFMPCVlTh134hURywQZSNOnRhQHScL9eylp3/PcjMwnOOGsEnxL6XgLtDOe9yY4sZ8DAzCfKg0DIQLUG4vLpAGNVuZD5VGlqMXiMUSLvQAEUj2hg+QG0bBKKAV+ADMxx8FEDQ+QKw6ZDW42MTqp8S9MPXo7kfn4xLHB9D14jKLEnCJCuYQawZIHQCEPTKH
   </data>
  </layer>
- <layer name="Walkable" width="30" height="20">
+ <layer name="Walkable" width="30" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJxzFWCgO3AVwM4eaAByCzkYpheXmbSym1S/UdPP6Oahxymh8KDEfHL9SyjssMUnqWGNTR+utEKpHehsQu4gxxxCbiCU/qltLyWAlHAbDICcfE4te+llDqlpgRbhQW5aGExpBQRIqR9IVYePjY2PS5yS+oySumqgMABegzoc
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="20">
+ <objectgroup name="Mapevents" width="30" height="20" visible="0">
   <object name="east1" type="mapchange" x="928" y="32" width="32" height="96">
    <properties>
     <property name="map" value="roadtocarntower0"/>
@@ -193,7 +193,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20">
+ <objectgroup name="Spawn" width="30" height="20" visible="0">
   <object name="hadracor" type="spawn" x="384" y="224" width="32" height="32"/>
   <object name="woodcutter_0" type="spawn" x="576" y="160" width="32" height="32"/>
   <object name="woodcutter_2" type="spawn" x="704" y="192" width="32" height="32"/>
@@ -203,5 +203,5 @@
   <object name="fox1" type="spawn" x="192" y="480" width="480" height="128"/>
   <object name="fieldwasp_0" type="spawn" x="800" y="64" width="96" height="320"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="20"/>
+ <objectgroup name="Keys" width="30" height="20" visible="0"/>
 </map>
