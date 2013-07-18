@@ -135,15 +135,20 @@
  </layer>
  <layer name="Above" width="20" height="20">
   <data encoding="base64" compression="zlib">
-   eJxjYKA9SBegjnqYeBqJ5oHUfwDij0j6QGYhm4MuTyoIR7LjA5HmHMejNpwEtxATvjDzSFFLSA16GMKAOy8qn1B8wcwhxc+E3IZMg4Ai0E1KvNjVw8B0RuziaXj8CgJHgeLHoHKXiPADLrMuQMWuAulrOMxxwOIH9HB7DuU/wGLGOx4GBhcC4UBqPLzhQbAZeTHDAGbeBSRxfPntNQ92cULuYxREsN9CzQDF6QUC/pFlQuVfJMH/zgTCcrgDAM/nKg4=
+   eJxjYKA9SBegjnqYeBqJ5oHUfwDij0j6QGYhm4MuTyoIR7LjA5HmHMejNpwEtxATvjDz0NU+ZSHPbpAa9DAEga9A89x5UcUIxRfMHFL8TMhtyDQIKALdpMSLXT0MTGfELp6Gw68wcBQofgwqd4kIP+Ay6wJU7CqQvobDHAcsfkAPt+dQ/gMsZrzjYWBwIRAOpMbDGx4Em5EXMwxg5l1AEseX317zYBcn5D5GQQT7LdQMUJxeIOAfWSZU/kUS/O9MICyHOwAAgwcr8A==
   </data>
  </layer>
- <layer name="Walkable" width="20" height="20">
+ <layer name="Above_opened" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+  </data>
+ </layer>
+ <layer name="Walkable" width="20" height="20" visible="0">
   <data encoding="base64" compression="zlib">
    eJxzFWBgcMWDYQCfGlLwYDQPG6DUHHxmk2sXsnpc7IEOU1z6yDEPlzvICTd0NrnxQCygRtrD5lZi/YqNxmY2JX4lNU5w+Ydc83DFLy59pIYjPv9SkpYpNYuUOKQ1BgAtFmLz
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents" width="20" height="20" visible="0">
   <object name="north" type="mapchange" x="256" y="0" width="64" height="32">
    <properties>
     <property name="map" value="waytolostmine3"/>
@@ -157,7 +162,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn" width="20" height="20" visible="0">
   <object name="charwdg3" type="spawn" x="256" y="64" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
@@ -182,10 +187,17 @@
   </object>
   <object name="mazarth1" type="spawn" x="128" y="320" width="384" height="256"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20">
+ <objectgroup name="Keys" width="20" height="20" visible="0">
   <object name="charwood2:15" type="key" x="224" y="224" width="96" height="32">
    <properties>
     <property name="phrase" value="sign_lostmine0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Replace" width="20" height="20">
+  <object name="charwood2:15" type="replace" x="256" y="192" width="32" height="64">
+   <properties>
+    <property name="above" value="Above_opened"/>
    </properties>
   </object>
  </objectgroup>
