@@ -30,8 +30,8 @@ public final class TranslationLoader {
 
     private static BinaryMoFileParser createParser(AssetManager mgr, String translationFilename) {
         try {
-            InputStream is = mgr.open(translationFilename);
-            return new BinaryMoFileParser(is);
+			InputStream is = mgr.open(translationFilename, AssetManager.ACCESS_RANDOM);
+			return new BinaryMoFileParser(is);
         } catch (IOException e) {
             L.log("ERROR: Reading from translation asset \"" + translationFilename + "\" failed: " + e.toString());
             return null;
@@ -78,7 +78,7 @@ public final class TranslationLoader {
 
         public BinaryMoFileParser(InputStream is) throws IOException {
             this.is = is;
-            this.reader = new BufferedInputStream(is);
+            this.reader = new BufferedInputStream(is, is.available());
             this.reader.mark(9999999);
             int magic = readIntLE();
             if (magic != 0x950412de) throw new IOException("Invalid magic in MO file");
