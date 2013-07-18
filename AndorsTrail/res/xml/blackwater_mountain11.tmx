@@ -135,7 +135,7 @@
  </layer>
  <layer name="Above" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzFVs1Kw0AQXolNwRQTFkwvnvVQT76H4K0nf07to4jPpHcFUR+gtHortKQ3fw4KzrIZsm5mstkk6AdLyOZLvvnbmQhR4HpLkFgm+roaCDFO3HwK2aDe3orYU5jkumvr+TIpc9uCsqsJl4rPW6+8907sIcaEf1V8Oz4beH8YCrEXlrlpyNszIXQ5PmfTkOAjj7NH4UbqdZVzVQwoPr6zD2sKnCwpdG1+at2rb7+AxqssYvwg9UKYMTD5aJPSNfPD+fsMnL6Rlzl8YyHpGFNAPtpE6br87QKULgJzdRrr62MkxFP0+/0P4Hx6rK+eWxeBsZyD5iIqP+fqloLK2ZSJs40+1dcCvbhzR+F4V+eMq6s6+A70OgD+CeRhlp8hl+/KX596dmGd16rL9yp/29bzTPJXpeWKM9bzWcxrUHlB36nrpIYuwuwNd5DT+6C4PwT+yGMdOeoq3eZ9bAuuX/0FuqrnLnS5evaZp010EVjPl3k9V81T317pU8/ncTFH7Rlct1einb51Zc5RcwZfWDYpmLPeNffxPO40qGvTpltJ26hAnSNbf2TpU72giY2U7sbzv9u3Z5l96z9Q99+MA/6LZh3Y7xvrNvgBTH6SZA==
+   eJzFVs1Kw0AQXolNwRQTAqYXzyrqyfcQvPWk9pQ+ivhMelcQ9QFKq7dCS3rz56DgLJsh62Ymm02CfrCEbL7km7+diRAFrjcEiUWkrsuBEKPIzqeQDertLYk9iTTXXRnPF1GZ2xaUXU24VHzeeuW9d2IPMSL8q+Kb8VnD+0NfiB2/zE183p6U0OX4nE1Dgo88zh6Jm1itq5wrY0Dx8Z1dWBPgZFGha/IT415++wU0XuMixg+xWgg9BjofbZK6en44f5+B09fyMoNvzGM6xhSQjzZRujZ/uwCli8BcnYXq+hgI8RT8fv8DOJ8O66tn10VgLGegOQ/Kz7m6pSBzNmHibKJP9TVPLe7cUTjZVjnj6qoOvj219oB/CnmY5mfI5rv016WebVjltWrzvcrftvU8jfmr1LLFGev5POQ1qLyg79Q1raGL0HvDHeT03ivu94F/5LCOLXWVbPI+tgXXr/4CXdVzF7pcPbvM0ya6CKzncV7PVfPUtVe61PNFWMxRcwbX7ZVop2td6XNUn8GXhk0S+qy3zX08j1sN6lq36TambZSgzpGpf2DoHxK9oImNlO7a8b/btWfpfes/UPffjAP+i2Yd2O8a6zb4AUN+kmA=
   </data>
  </layer>
  <layer name="Walkable" width="30" height="30" visible="0">
@@ -208,26 +208,11 @@
   <object name="sign_prim_s" type="sign" x="256" y="736" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Spawn" width="30" height="30">
-  <object name="prim_commoner1" type="spawn" x="288" y="768" width="608" height="96">
-   <properties>
-   </properties>
-  </object>
-  <object name="prim_commoner2" type="spawn" x="288" y="576" width="352" height="96">
-   <properties>
-   </properties>
-  </object>
-  <object name="prim_commoner3" type="spawn" x="224" y="256" width="128" height="160">
-   <properties>
-   </properties>
-  </object>
-  <object name="prim_commoner4" type="spawn" x="416" y="160" width="480" height="192">
-   <properties>
-   </properties>
-  </object>
-  <object name="moyra" type="spawn" x="64" y="192" width="32" height="32">
-   <properties>
-   </properties>
-  </object>
+  <object name="prim_commoner1" type="spawn" x="288" y="768" width="608" height="96"/>
+  <object name="prim_commoner2" type="spawn" x="288" y="576" width="352" height="96"/>
+  <object name="prim_commoner3" type="spawn" x="224" y="256" width="128" height="160"/>
+  <object name="prim_commoner4" type="spawn" x="416" y="160" width="480" height="192"/>
+  <object name="moyra" type="spawn" x="64" y="192" width="32" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="30"/>
 </map>
