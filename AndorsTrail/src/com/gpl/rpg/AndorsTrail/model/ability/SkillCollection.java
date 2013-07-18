@@ -55,8 +55,6 @@ public final class SkillCollection {
 		,specializationWeaponShield
 	}
 	
-	public static final int NUM_SKILLS = SkillID.specializationWeaponShield.ordinal() + 1;
-	
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 2;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN = 0;
