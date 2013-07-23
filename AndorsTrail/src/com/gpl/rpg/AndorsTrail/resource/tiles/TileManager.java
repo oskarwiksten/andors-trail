@@ -104,9 +104,15 @@ public final class TileManager {
 	
 	public HashSet<Integer> getTileIDsFor(PredefinedMap map, LayeredTileMap tileMap, WorldContext world) {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
-		for(MonsterSpawnArea a : map.spawnAreas) {
-			for(String monsterTypeID : a.monsterTypeIDs) {
+		for (MonsterSpawnArea a : map.spawnAreas) {
+			for (String monsterTypeID : a.monsterTypeIDs) {
 				iconIDs.add(world.monsterTypes.getMonsterType(monsterTypeID).iconID);
+			}
+			// Add icons for monsters that are already spawned, but that do not belong to the group of
+			// monsters that usually spawn here. This could happen if we change the contents of spawn-
+			// areas in a later release,
+			for (Monster m : a.monsters) {
+				iconIDs.add(m.iconID);
 			}
 		}
 		iconIDs.addAll(tileMap.usedTileIDs);
