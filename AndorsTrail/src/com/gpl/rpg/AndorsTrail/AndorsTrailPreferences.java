@@ -48,6 +48,7 @@ public final class AndorsTrailPreferences {
 	public boolean dpadMinimizeable = true;
 	public boolean optimizedDrawing = false;
 	public boolean enableUiAnimations = true;
+	public boolean disableMusic = false; 
 	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 	public int quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 	public boolean showQuickslotsWhenToolboxIsVisible = false;
@@ -67,6 +68,7 @@ public final class AndorsTrailPreferences {
 			dest.dpadMinimizeable = prefs.getBoolean("dpadMinimizeable", true);
 			dest.optimizedDrawing = prefs.getBoolean("optimized_drawing", false);
 			dest.enableUiAnimations = prefs.getBoolean("enableUiAnimations", true);
+			dest.disableMusic = prefs.getBoolean("disableMusic", false);
 			dest.displayOverwriteSavegame = Integer.parseInt(prefs.getString("display_overwrite_savegame", Integer.toString(CONFIRM_OVERWRITE_SAVEGAME_ALWAYS)));
 			dest.quickslotsPosition = Integer.parseInt(prefs.getString("quickslots_placement", Integer.toString(QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM)));
 			dest.showQuickslotsWhenToolboxIsVisible = prefs.getBoolean("showQuickslotsWhenToolboxIsVisible", false);
@@ -86,6 +88,7 @@ public final class AndorsTrailPreferences {
 			dest.dpadMinimizeable = true;
 			dest.optimizedDrawing = false;
 			dest.enableUiAnimations = true;
+			dest.disableMusic = false; 
 			dest.displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 			dest.quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 			dest.showQuickslotsWhenToolboxIsVisible = false;

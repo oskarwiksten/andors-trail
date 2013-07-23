@@ -32,12 +32,18 @@ import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.view.*;
 import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
+import android.content.SharedPreferences;
+import android.media.MediaPlayer;
+import android.preference.PreferenceManager;
 
 import java.lang.ref.WeakReference;
 import java.util.Collection;
 
 public final class MainActivity extends Activity implements PlayerMovementListener, CombatActionListener, CombatTurnListener, WorldEventListener {
 
+	MediaPlayer menuMusic;
+    int musicLength;
+	
 	public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
 	public static final int INTENTREQUEST_CONVERSATION = 4;
 	public static final int INTENTREQUEST_SAVEGAME = 8;
@@ -60,6 +66,10 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		menuMusic = MediaPlayer.create(MainActivity.this, R.raw.nowornever);
+		//menuMusic.start();
+		//menuMusic.setLooping(true);
+		
 		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
 		if (!app.isInitialized()) { finish(); return; }
 		AndorsTrailPreferences preferences = app.getPreferences();
@@ -67,6 +77,15 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		this.controllers = app.getControllerContext();
 		app.setWindowParameters(this);
 
+		SharedPreferences musicPreference = PreferenceManager.getDefaultSharedPreferences(this);
+		        if (musicPreference.getBoolean("disableMusic", false)) {
+		             menuMusic.setVolume(0,0);
+		        } else {
+		             menuMusic.setVolume(1,1);
+		             menuMusic.start();
+		             menuMusic.setLooping(true);
+		        }
+		
 		setContentView(R.layout.main);
 		mainview = (MainView) findViewById(R.id.main_mainview);
 		statusview = (StatusView) findViewById(R.id.main_statusview);
@@ -154,6 +173,9 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		controllers.gameRoundController.pause();
 		controllers.movementController.stopMovement();
 
+		menuMusic.pause();
+		musicLength = menuMusic.getCurrentPosition();
+		
 		save(Savegames.SLOT_QUICKSAVE);
 	}
 
@@ -162,6 +184,21 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		super.onResume();
 		if (!AndorsTrailApplication.getApplicationFromActivity(this).getWorldSetup().isSceneReady) return;
 
+		//menuMusic.seekTo(musicLength);
+		//menuMusic.start();
+		//menuMusic.setLooping(true);
+		       
+		SharedPreferences musicPreference = PreferenceManager.getDefaultSharedPreferences(this);
+		        if (musicPreference.getBoolean("disableMusic", false)) {
+		    menuMusic.setVolume(0,0);
+		        } else {
+		    menuMusic.setVolume(1,1);
+		    menuMusic.seekTo(musicLength);
+		    menuMusic.start();
+		    menuMusic.setLooping(true);
+		        }
+		       
+		
 		controllers.gameRoundController.resume();
 
 		if (world.model.uiSelections.isInCombat) {

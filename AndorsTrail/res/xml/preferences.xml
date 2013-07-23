@@ -99,4 +99,12 @@
 			android:summary="@string/preferences_ui_show_quickslots_when_toolbox_is_visible"
 			android:key="showQuickslotsWhenToolboxIsVisible" />
 	</PreferenceCategory>
+	<PreferenceCategory
+       android:title="@string/preferences_music">
+       <CheckBoxPreference
+           android:title="@string/preferences_music_title"
+           android:defaultValue="true"
+           android:summary="@string/preferences_music_disable_music"
+           android:key="disableMusic" />
+   </PreferenceCategory> 
 </PreferenceScreen>
