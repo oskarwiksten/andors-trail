@@ -133,9 +133,19 @@
    eJydVktuE0EQ7bGy7BE9q6zhDNwA7ziChyskK5BASViwi5wtR+AqnACQ4li2AlIkj4kSlpGF6EpXMa9rqseIkkZt91TXq3r16XGNc1V83P+uLCvv3K/g3KTpV9p7GZIu7mv9W5/2ntbOPatte4KJdqyV9B4xnX1e2xmLrYs+3AUbX+u9MuI8ietpfNbx/aUfcraLe02Mdxqf7/H3fejxJqD3F8+xHZCfPsclOQsJW57TkGMv/H5+0M9H4b2Fz/fEz63y64xxl77Pr1UHYu8hru8Mv+XsFeiRnXl8d8zxvuaa+VD1uCTXgc8ZuCSE9551O5/7jYJ1eR4SNuJT7HKuU/xg3VBNz6LOl/h85bNTttvy/xvI1TqkGEQ2PuEfw57gUv0sVA7Ezoz1ictPdZ+rVvm74nqXmhK5A9xD4KlUXzvl58cqrUfx/wXkVNffEnJl2UGx8kQyU3st8q3qQPrtHt6RVHWO+6Yu4z74vCbmHONzOFOaW/IOe03Xl3AnuJTjNcy3rE8be27sm5ckkhOJe6v6QXJjzSFt7/MIHvqHgnx3Pue5Ai5vjX6m/H0L++OkXjqoc56sfjoJwznUFXDH7hWqjZswnLeIK7OrND8XBVzaX+r7yaX9Ddw3eC9Y8ZJsGPsH8L4q4E4Uf29rNxDkXbB1j8yDPcf0eblzdJzXPBt1PWAeSBrwb1oPeW9H5gLmS+6f8yfcC87Wl+8B9OHS53OJMPW9XeoTqqEX9ZAX3b/iH+IK5taP81u6H4vfBy7NoB3f7WuYDbq+/oVfqRONIz2xgd6QutcisdKsbo049/Es868D+785ti3PXM2Hzqn4/QeGDx8W
   </data>
  </layer>
+ <layer name="Objects_after" width="29" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjBSQxjvQLhgFo2AUjIJRMAqGJwAAXWAAdA==
+  </data>
+ </layer>
  <layer name="Above" width="29" height="25">
   <data encoding="base64" compression="zlib">
    eJy9VcsNwyAMJb0jkVm6a48doVu0vaJcskVVNmiqBMlybbDB5V0gfPzsZ+M4t+MdnEvBscj7pRGDs4fPS+1p0Hv/n6C05vSj1mu5kvpQwvPYv3p6XYtFUB/r8X3z9LoVEojtvs0fyD6MOWsdAx2DlhfGdgFzHDOENt/4PMzZa6rfyeNpbq+zb85w7UC9a/Un5cWxYh1LujbzbrpM8z6N4dePs5fljOp7UpT0s+ifFn5wSOAtWfSyVozkxf+70eh5yxyyvQXls4fXsm6TUY1Rd6V+WvGW+CKxx/FK/B7ZP1oQBX1T478kRxp7H80cc9c=
+  </data>
+ </layer>
+ <layer name="Above_after" width="29" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BwgVTegXYB7QAuv9HLz+8Y6WPPQAH0cBzOaWkUjIJRMApGweACAJsXAyo=
   </data>
  </layer>
  <layer name="Walkable" width="29" height="25" visible="0">
@@ -192,4 +202,37 @@
   <object name="forestwolf2" type="spawn" x="640" y="384" width="128" height="96"/>
  </objectgroup>
  <objectgroup name="Keys" width="29" height="25" visible="0"/>
+ <objectgroup name="Replace" width="29" height="25">
+  <object name="lodar2:50" type="replace" x="736" y="192" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="640" y="128" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="544" y="192" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="576" y="288" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="704" y="288" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="640" y="224" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+    <property name="Objects" value="Objects_after"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

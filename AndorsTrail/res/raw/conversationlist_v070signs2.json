@@ -1,6 +1,28 @@
 [
     {
         "id": "sign_lodar4",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "sign_lodar4_r"
+            },
+            {
+                "nextPhraseID": "sign_lodar4_0"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodar4_r",
+        "message": "The formation of rocks seems to have sunken somewhat into the ground."
+    },
+    {
+        "id": "sign_lodar4_0",
         "message": "On the ledge, you notice another formation of rocks that seem out of place compared to the surroundings.",
         "rewards": [
             {

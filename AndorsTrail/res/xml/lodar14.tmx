@@ -133,12 +133,22 @@
    eJx9VUtuE0EQ7R5vu6W2OAHZcJDkDlnAGikHMFIiWERRFkGwwAsQHCBn4AbZZxMpseWYTaTYnuCwIyZQ5a5Kv6kZU9KoPT31efXqdds552bBrW0s65zWT1X+7frO+X7+WdP+BL/J94qe++Q67VZyaswN+f2WvZ3o3B/Jx/s/U87D+bB+JfX3yf86ZF+1vVhqXNG6CG1cXvJpfn6fit/M9iM2ov2T2OyT45ap+a42EN9nsZlPsQ3Mfu0zviXyBr3qLD77HNej+FUo+8rpF/r+6AserYFcsm3HzA/bAe2/leddKjwc+4L5GucGXFbQ8yX5vJT4U8r/ymiA86xg1jwbxKWzUI7e0/sHeT7Sc+cLtq++mZtrP80AeBsBdrS/FH/iM45d0IH6Mq5lavNWG30Mq6wdxYO+rOWr0OZLa7EtJN+wKn3MO2K077VBn7wOQPNzWb3oT/uxtW0fI+CoJ+fqIuWaNcytC9cYtSEYfske88La/gbzYs7fxG5cjT5d6YvtdcraPje6mm3gS+8Vxr4dC9/DqnD3I2XcS5PzCQ9oqR8LNr1zvtP7i1jumftUeGB/je/S0tzocldyomY4ju8Qnef/tIQ86f4YcKHfwwZdKG+qSf1u71HLF+sH87D/LfCOfPJq6ytnHHPkmzw9BuBK4p9T3q1YdGv70PmsDC7low5NHtQwD/ZZmzpqFzizLj7NWVV+p6E9R8xr4/mMHwpHPfgfUq101UMcHDsJ5V5j4/tpZvqfhNL3WWre0cgr7i0gh+1HfZinMdzRzOdh1T4TqoFNOp9KHOPegXO3xtVva5lrPnTk+wdO3+2/
   </data>
  </layer>
+ <layer name="Objects_after" width="19" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxXUCFDPrDRe6pk1CkbBKBgFo2AUUAsAAMwVAQA=
+  </data>
+ </layer>
  <layer name="Above" width="19" height="30">
   <data encoding="base64" compression="zlib">
    eJy9lc0NgCAMhcGzJDodG+gcLuHREVzDEdyC6AaixIQ0RVp+fCe09Osr1SBEeR2dEGeXx4D5ubxaKtErFMbb7LtFleHt9nm1rFmlMX2eaR3DSMfM1eNLuvXo1bnXsbMOxe7cwYsdxHlhvBDnj28A04bso/aXopiv8SPO8UWZN9WXBjHoA/MV4mlk/rLn++P29yVKP1xOjq9QfQqfUpfbH/xH3nPncE5kXrH8qYnv5fooIb//GnOm6s87/QJ2OUb3
   </data>
  </layer>
- <layer name="Walkable" width="19" height="30">
+ <layer name="Above_after" width="19" height="30">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFIxGk8lLXvHeM1DGT2u4aBaNgFIyCUTCyAQAUiQJG
+  </data>
+ </layer>
+ <layer name="Walkable" width="19" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJy1k1EOgDAIQz3CLrX7X8nfuZTxCpNkMcpsS4E5HhlzfE/0XZ0ML+PKMJ0cwexgUd8cbRFmxTcHT0WnF1Qv4brhtcq596McrdP1kfRThcu9PomuvfZb+3Gq+5RXPCccZ44zL6u6CT+dpT94Kr44POr+HpW9cHaFzsX6nv3fnQvVA4czq6mLRXS7mjo4BO8FMdl2ig==
   </data>
@@ -182,7 +192,7 @@
   </object>
   <object name="sign_lodar14" type="sign" x="480" y="224" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="30">
+ <objectgroup name="Spawn" width="19" height="30" visible="0">
   <object name="yjacket2" type="spawn" x="448" y="352" width="128" height="192">
    <properties>
     <property name="quantity" value="3"/>
@@ -240,4 +250,22 @@
   <object name="zortaks" type="spawn" x="352" y="64" width="64" height="32"/>
  </objectgroup>
  <objectgroup name="Keys" width="19" height="30" visible="0"/>
+ <objectgroup name="Replace" width="19" height="30">
+  <object name="lodar2:50" type="replace" x="448" y="192" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="416" y="192" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+    <property name="Objects" value="Objects_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="384" y="160" width="32" height="128">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

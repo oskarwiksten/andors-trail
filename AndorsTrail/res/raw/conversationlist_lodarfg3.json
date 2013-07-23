@@ -3,6 +3,28 @@
         "id": "lodar_fg3",
         "replies": [
             {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "lodar_fg3_a"
+            },
+            {
+                "nextPhraseID": "lodar_fg3_0"
+            }
+        ]
+    },
+    {
+        "id": "lodar_fg3_a",
+        "message": "A child, here? I must be seeing things again."
+    },
+    {
+        "id": "lodar_fg3_0",
+        "replies": [
+            {
                 "text": "N",
                 "nextPhraseID": "lodar_fg3_1"
             }

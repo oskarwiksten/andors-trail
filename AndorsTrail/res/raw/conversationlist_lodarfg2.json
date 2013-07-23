@@ -3,6 +3,28 @@
         "id": "lodar_fg2",
         "replies": [
             {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "lodar_fg2_a"
+            },
+            {
+                "nextPhraseID": "lodar_fg2_0"
+            }
+        ]
+    },
+    {
+        "id": "lodar_fg2_a",
+        "message": "Ouch, my head. It hurts so much."
+    },
+    {
+        "id": "lodar_fg2_0",
+        "replies": [
+            {
                 "text": "I'm $playername.",
                 "nextPhraseID": "lodar_fg2_1"
             },

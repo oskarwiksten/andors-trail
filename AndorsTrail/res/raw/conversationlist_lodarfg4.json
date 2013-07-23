@@ -3,6 +3,28 @@
         "id": "lodar_fg4",
         "replies": [
             {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "lodar_fg4_a"
+            },
+            {
+                "nextPhraseID": "lodar_fg4_0"
+            }
+        ]
+    },
+    {
+        "id": "lodar_fg4_a",
+        "message": "I seem to have lost track of where I am. I was looking for something."
+    },
+    {
+        "id": "lodar_fg4_0",
+        "replies": [
+            {
                 "text": "N",
                 "nextPhraseID": "lodar_fg4_1"
             }

@@ -133,12 +133,22 @@
    eJyVVs1uE0EMng03NCvtigNneJX2LeiVRyhSED2gnEDlwKWIPgAS78IVKuVHRBQp0jaJoDlRogg7azNex540I61m12PP57/5Zm+rEHp1CLcHzjxuYgizKsl/w/yrsuf3vWRX4B61j+GtFwL7Pvo8M3a/JGNn7yvy18L8G3ftpJx9kPMyJuwG3o/L3T0wN5ZPPEYxv76A9Rr2fVQm2TySX6Erk/7Jeul4f1TJ50L5jOsTkH8p2vqz3qxKWNpP1tvqOLlnHRnHUPjM8jXgbkj3dY/8C61PVp/+jO0aDr3+XeUI64V5uiP5NHb9v6IYuafRHm1yZ0Tnzqvjf/Wym8ttzLGN1aqbt2cTbX3PV84Rxo/1R7wbkR9drxWsfTZ6Q+pnz3GdsO9EPV/C+it4zoxe0bwi/R858Xr9zr4uCfsZyD5BPCeV3Su53C0NbvDO1leYv4nz9Rbez+F5p+It7om9NrC9XkT+GVO8yIWN7P865eQQHs71N37rM8RjTt8XBfVRyOeO45hKbiOfF+qbOWGjMD8C1iU8j0mO3NA459eLl+MYFO2M+RwKHM7pirj/g+Ar5jC2lTmzcjchfkHeeQC28yKdFR4yN0dluuOuSe8NYXGfc7zMMdg/U3k3hG6tMLax8DfXXxNhNxLvfVVfHMckm4taoN7UiW8ff6LdKe35gvbBONaxa48co/9NBj2qkXOOLD7B+QngPCVM7kHZCxrT2nfA/0VGD2i/ue8xZ9hLGN8qdnOf89njUvSB/01kfIi5EPGsjfsyV6N9907uf1HzdLOnL/BMm/9umbx69xLO/dLH4r2el917ed89leOWU+rZPw93MXUu/wFex1AX
   </data>
  </layer>
+ <layer name="Objects_after" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRAAJpvANjb4/AwNg7CkbBKBgFo2BoAQDOrQEQ
+  </data>
+ </layer>
  <layer name="Above" width="30" height="25">
   <data encoding="base64" compression="zlib">
    eJzNlMsNgCAQRLUAEmzexIsl2IV6txLtQIkhEoL7E1bmgodhH4vDNo1Mh32+d/vuC+V8B9G7Ij4q06vteH6qqP1Ia29AfQrbeTj3XkIl2Fg+UuxUZkreD7UmdAbo/4cajIwN+UfzrNz3xvHH7Oni9eZepTUomq89S7TP9/zl/BJxepWwqb44R7XpzznmBM0dzTnrWWFOc7x5jJmrFuZP9ZeLrSXuzKyZCWVbs09OLnIytYUxTzuhREg=
   </data>
  </layer>
- <layer name="Walkable" width="30" height="25">
+ <layer name="Above_after" width="30" height="25">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjILBA1J5UemRAEaSX0fBKBgFo2AUkA8AJfgBVw==
+  </data>
+ </layer>
+ <layer name="Walkable" width="30" height="25" visible="0">
   <data encoding="base64" compression="zlib">
    eJzNk1EOwCAIQz3CLuX9r7QvE2MKlKJuJMs+Bn2tsv601sVnlDr/BVedteYivfFtriyTYSMOKiWzx157UD/LRzqeFpOH6c/UfNa7ds3jZLJW9rzC2sm+xbR2ruJfYaP3idzofq07Z30obMTN5Lc8r/NeNuQju6dMeXvGci3/XjbEsriMDuPX688yWGZ0JhkN9f+Ldk/VUz2cYlbv6AT/JvNv+V6NTqqr
   </data>
@@ -176,7 +186,7 @@
   </object>
   <object name="sign_lodar4" type="sign" x="768" y="384" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25">
+ <objectgroup name="Spawn" width="30" height="25" visible="0">
   <object name="forestfly1" type="spawn" x="64" y="96" width="64" height="96"/>
   <object name="hanklbit1" type="spawn" x="128" y="160" width="160" height="192">
    <properties>
@@ -227,4 +237,17 @@
   <object name="brtender1" type="spawn" x="256" y="448" width="224" height="192"/>
  </objectgroup>
  <objectgroup name="Keys" width="30" height="25" visible="0"/>
+ <objectgroup name="Replace" width="30" height="25">
+  <object name="lodar2:50" type="replace" x="736" y="256" width="96" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+   </properties>
+  </object>
+  <object name="lodar2:50" type="replace" x="768" y="320" width="32" height="64">
+   <properties>
+    <property name="Above" value="Above_after"/>
+    <property name="Objects" value="Objects_after"/>
+   </properties>
+  </object>
+ </objectgroup>
 </map>

@@ -1,6 +1,24 @@
 [
     {
         "id": "sign_roadbeforecrossroads1",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "sign_rbfcr1_r"
+            },
+            {
+                "nextPhraseID": "sign_rbfcr1_1"
+            }
+        ]
+    },
+    {
+        "id": "sign_rbfcr1_1",
         "message": "You notice that these rocks seem out of place compared to the surroundings. Maybe they are meant to symbolize something?",
         "rewards": [
             {
@@ -22,6 +40,10 @@
                 "nextPhraseID": "sign_rbfcr1_2"
             }
         ]
+    },
+    {
+        "id": "sign_rbfcr1_r",
+        "message": "The formation of rocks seems to have sunken somewhat into the ground."
     },
     {
         "id": "sign_rbfcr1_2",
