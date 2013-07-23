@@ -190,7 +190,7 @@ public final class PredefinedMap {
 			for(int i = 0; i < loadedSpawnAreas; ++i) {
 				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 					if (i >= this.spawnAreas.length) {
-						L.log("WARNING: Trying to load monsters in map " + this.name + " for spawn #" + i + ". This will totally fail.");
+						L.log("WARNING: Trying to load monsters from savegame in map " + this.name + " for spawn #" + i + ". This will totally fail.");
 					}
 				}
 				this.spawnAreas[i].readFromParcel(src, world, fileversion);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="17" height="11" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="17" height="12" tilewidth="32" tileheight="32">
  <properties>
   <property name="outside" value="1"/>
  </properties>
@@ -123,47 +123,47 @@
  <tileset firstgid="4917" name="map_window_2" tilewidth="32" tileheight="32">
   <image source="../drawable/map_window_2.png" width="512" height="256"/>
  </tileset>
- <layer name="Ground" width="17" height="11">
+ <layer name="Ground" width="17" height="12">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcHQUj+IRgAHWeZRK
+   eJw7ysbA8EmAgYFJEEEfZUNgdDl8arFhQvoJmQOSRxeD6cPGx2Y+MeYSUo/LX+Tqx+YPUu0kxnx8cUGsXaTYiS98STUD3V5s7iCUntDjhdj0iCsdAQDsRo+y
   </data>
  </layer>
- <layer name="Objects" width="17" height="11">
+ <layer name="Objects" width="17" height="12">
   <data encoding="base64" compression="zlib">
-   eJyVUkEKAjEMHPfcxe2b9DM+wINP8Ed+Y6/q4lFYQVyP4sGkbdw0tIgDYUg60ySl8MCCAoYfHfCkaPxvvnZRPxnmc3u3+Gxe68e6wQHbFgEHN9f7gq+0y+ii955Y9FPNnzA4ZHhLXtgjY8KRtPslcDY9GTcX30zrT1RbtXOvRtW1X98TRiHPhmKtvF9NmrPXvQzLjjzvqHqJ5qLemzUvip3qZRHm9fn7Sm5R+0+l83/+Y40/tQtOqA==
+   eJx7xcOAFdzBIY4OboPUCTIwMApioUkAzwVwy6GbjS5OCIDU3QW6s5QXwt/BgxC/iMVebH55BdXzjohwQfb7XTT1f2B8LP5ApkHuugVU28mPPS5e80DDDCmsQXHhzIup9jYBNwsC9WQCsQsWvTB3XkS2C42G+RHk3ldIdsHU3EcKb5CaX0Bcic0uZPeixyuJ6YkWAOR+AJVSHZ8=
   </data>
  </layer>
- <layer name="Above" width="17" height="11">
+ <layer name="Above" width="17" height="12">
   <data encoding="base64" compression="zlib">
-   eJxjYBha4IMA/fWD9HwkQR+6WmQ7CZmDbBeMxuZmXOaQopYY/bjCC+ZOdBofQFdPSB21AQBL4xwO
+   eJz7IMCAAT5CxT5gkcOlFhsgRj+6epB5yDSp+slRR4k9xLoT5idiAbpadDuJtQtfXOIyhxS1xOjHFT7Y4hvdHvTwJTZ9YJMnNZ6xAQBXFS0U
   </data>
  </layer>
- <layer name="Walkable" width="17" height="11">
+ <layer name="Walkable" width="17" height="12">
   <data encoding="base64" compression="zlib">
-   eJxzFWBgcB3kGBlQqp8YMwgBSuzEZgYuO/DZSYpaUv1KbriQqp+QOmqnIwD/uSuA
+   eJxzFWBgcB0BGBlQqp8YMwgBSuzEZgYuO/DZSYpaUv1KbriQqp+QOmqnIwBJSzEl
   </data>
  </layer>
- <objectgroup name="Mapevents" width="17" height="11">
-  <object name="east" type="mapchange" x="512" y="160" width="32" height="32">
+ <objectgroup name="Mapevents" width="17" height="12">
+  <object name="east" type="mapchange" x="512" y="192" width="32" height="32">
    <properties>
     <property name="map" value="lodar0"/>
     <property name="place" value="west"/>
    </properties>
   </object>
-  <object name="down lodar1" type="mapchange" x="64" y="160" width="32" height="32">
+  <object name="down lodar1" type="mapchange" x="64" y="192" width="32" height="32">
    <properties>
     <property name="map" value="lodar1cave0"/>
     <property name="place" value="up lodar1cave0"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="17" height="11">
-  <object name="forestfly1" type="spawn" x="128" y="64" width="352" height="256">
+ <objectgroup name="Spawn" width="17" height="12">
+  <object name="forestfly1" type="spawn" x="128" y="96" width="352" height="256">
    <properties>
     <property name="quantity" value="5"/>
    </properties>
   </object>
-  <object name="mudfiend" type="spawn" x="32" y="128" width="96" height="96"/>
+  <object name="mudfiend" type="spawn" x="32" y="160" width="96" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="17" height="11" visible="0"/>
+ <objectgroup name="Keys" width="17" height="12" visible="0"/>
 </map>
