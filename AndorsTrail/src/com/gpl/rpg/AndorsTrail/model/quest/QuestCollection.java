@@ -9,9 +9,9 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
 import com.gpl.rpg.AndorsTrail.util.L;
 
-public final class QuestCollection  {
+public final class QuestCollection {
 	private final HashMap<String, Quest> quests = new HashMap<String, Quest>();
-	
+
 	public Collection<Quest> getAllQuests() {
 		ArrayList<Quest> quests = new ArrayList<Quest>(this.quests.values());
 		Collections.sort(quests);

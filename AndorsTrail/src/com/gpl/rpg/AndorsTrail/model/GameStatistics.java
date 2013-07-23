@@ -16,8 +16,8 @@ import java.util.Map.Entry;
 
 public final class GameStatistics {
 	private int deaths = 0;
-    private final HashMap<String, Integer> killedMonsters = new HashMap<String, Integer>();
-    private final HashMap<String, Integer> usedItems = new HashMap<String, Integer>();
+	private final HashMap<String, Integer> killedMonsters = new HashMap<String, Integer>();
+	private final HashMap<String, Integer> usedItems = new HashMap<String, Integer>();
 	private int spentGold = 0;
 
 	public GameStatistics() { }
@@ -147,7 +147,7 @@ public final class GameStatistics {
 			this.killedMonsters.put(id, value);
 		}
 		if (fileversion <= 17) return;
-		
+
 		final int numItems = src.readInt();
 		for(int i = 0; i < numItems; ++i) {
 			final String name = src.readUTF();
@@ -156,7 +156,7 @@ public final class GameStatistics {
 		}
 		this.spentGold = src.readInt();
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(deaths);
 		Set<Entry<String, Integer> > set = killedMonsters.entrySet();

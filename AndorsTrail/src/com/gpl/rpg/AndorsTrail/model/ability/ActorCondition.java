@@ -9,22 +9,22 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 public final class ActorCondition {
 	public static final int MAGNITUDE_REMOVE_ALL = -99;
 	public static final int DURATION_FOREVER = 999;
-	
+
 	public final ActorConditionType conditionType;
 	public int magnitude;
 	public int duration;
-	
+
 	public ActorCondition(ActorConditionType conditionType, int magnitude, int duration) {
 		this.conditionType = conditionType;
 		this.magnitude = magnitude;
 		this.duration = duration;
 	}
-	
+
 	public boolean isTemporaryEffect() { return isTemporaryEffect(duration); }
 	public static boolean isTemporaryEffect(int duration) {
 		return duration != DURATION_FOREVER;
 	}
-	
+
 
 	// ====== PARCELABLE ===================================================================
 
@@ -34,7 +34,7 @@ public final class ActorCondition {
 		this.magnitude = src.readInt();
 		this.duration = src.readInt();
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeUTF(conditionType.conditionTypeID);
 		dest.writeInt(magnitude);

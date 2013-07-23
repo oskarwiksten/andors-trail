@@ -20,25 +20,25 @@ public final class SkillInfo {
 		this.levelupVisibility = levelupVisibility;
 		this.levelupRequirements = levelupRequirements;
 	}
-	
+
 	public boolean hasMaxLevel() {
 		if (maxLevel == MAXLEVEL_NONE) return false;
 		else return true;
 	}
-	
+
 	public boolean hasLevelupRequirements() {
 		return levelupRequirements != null;
 	}
-	
+
 	public boolean canLevelUpSkillTo(Player player, int requestedSkillLevel) {
 		if (!hasLevelupRequirements()) return true;
-		
+
 		for (SkillLevelRequirement requirement : levelupRequirements) {
 			if (!requirement.isSatisfiedByPlayer(player, requestedSkillLevel)) return false;
 		}
 		return true;
 	}
-	
+
 	public static final class SkillLevelRequirement {
 		public static enum RequirementType {
 			skillLevel
@@ -49,14 +49,14 @@ public final class SkillInfo {
 		public final String skillOrStatID;
 		public final int everySkillLevelRequiresThisAmount;
 		public final int initialRequiredAmount;
-		
+
 		private SkillLevelRequirement(RequirementType requirementType, int everySkillLevelRequiresThisAmount, int initialRequiredAmount, String skillOrStatID) {
 			this.requirementType = requirementType;
 			this.skillOrStatID = skillOrStatID;
 			this.everySkillLevelRequiresThisAmount = everySkillLevelRequiresThisAmount;
 			this.initialRequiredAmount = initialRequiredAmount;
 		}
-		
+
 		public static SkillLevelRequirement requireOtherSkill(SkillCollection.SkillID skillID, int everySkillLevelRequiresThisAmount) {
 			return new SkillLevelRequirement(RequirementType.skillLevel, everySkillLevelRequiresThisAmount, 0, skillID.name());
 		}
@@ -66,18 +66,18 @@ public final class SkillInfo {
 		public static SkillLevelRequirement requirePlayerStats(Player.StatID statID, int everySkillLevelRequiresThisAmount, int initialRequiredAmount) {
 			return new SkillLevelRequirement(RequirementType.playerStat, everySkillLevelRequiresThisAmount, initialRequiredAmount, statID.name());
 		}
-		
+
 		public boolean isSatisfiedByPlayer(Player player, int requestedSkillLevel) {
 			final int minimumValueRequired = getRequiredValue(requestedSkillLevel);
 			final int playerValue = getRequirementActualValue(player);
 			if (playerValue >= minimumValueRequired) return true;
 			return false;
 		}
-		
+
 		public int getRequiredValue(int requestedSkillLevel) {
 			return requestedSkillLevel * everySkillLevelRequiresThisAmount + initialRequiredAmount;
 		}
-		
+
 		private int getRequirementActualValue(Player player) {
 			switch (requirementType) {
 			case skillLevel: return player.getSkillLevel(SkillCollection.SkillID.valueOf(skillOrStatID));

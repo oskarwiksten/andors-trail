@@ -21,7 +21,7 @@ public final class WorldMapParser {
 	public static void read(Resources r, int xmlResourceId, final MapCollection maps) {
 		read(r.getXml(xmlResourceId), maps);
 	}
-	
+
 	private static void read(XmlResourceParser xrp, final MapCollection maps) {
 		try {
 			int eventType;
@@ -31,10 +31,10 @@ public final class WorldMapParser {
 					if (s.equals("segment")) {
 						WorldMapSegment segment = parseSegment(xrp, maps);
 						maps.worldMapSegments.put(segment.name, segment);
-					} 
+					}
 				}
-            }
-            xrp.close();
+			}
+			xrp.close();
 		} catch (Exception e) {
 			L.log("Error reading worldmap: " + e.toString());
 		}
@@ -43,7 +43,7 @@ public final class WorldMapParser {
 	private static WorldMapSegment parseSegment(XmlResourceParser xrp, final MapCollection maps) throws XmlPullParserException, IOException {
 		String segmentName = xrp.getAttributeValue(null, "id");
 		final WorldMapSegment segment = new WorldMapSegment(segmentName);
-		
+
 		final ArrayList<Pair<String, String>> mapsInNamedAreas = new ArrayList<Pair<String,String>>();
 		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
 			@Override
@@ -57,7 +57,7 @@ public final class WorldMapParser {
 						);
 					WorldMapSegmentMap map = new WorldMapSegmentMap(mapName, mapPosition);
 					segment.maps.put(mapName, map);
-					
+
 					String namedArea = xrp.getAttributeValue(null, "area");
 					if (namedArea != null) mapsInNamedAreas.add(new Pair<String, String>(mapName, namedArea));
 				} else if (tagName.equals("namedarea")) {
@@ -68,11 +68,11 @@ public final class WorldMapParser {
 				}
 			}
 		});
-		
+
 		for (Pair<String, String> m : mapsInNamedAreas) {
 			segment.namedAreas.get(m.second).mapNames.add(m.first);
 		}
-		
+
 		return segment;
 	}
 

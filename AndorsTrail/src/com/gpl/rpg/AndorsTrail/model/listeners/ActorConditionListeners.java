@@ -21,7 +21,7 @@ public final class ActorConditionListeners extends ListOfListeners<ActorConditio
 	private final Function2<ActorConditionListener, Actor, ActorCondition> onActorConditionRoundEffectApplied = new Function2<ActorConditionListener, Actor, ActorCondition>() {
 		@Override public void call(ActorConditionListener listener, Actor actor, ActorCondition condition) { listener.onActorConditionRoundEffectApplied(actor, condition); }
 	};
-	
+
 	@Override
 	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
 		callAllListeners(this.onActorConditionAdded, actor, condition);

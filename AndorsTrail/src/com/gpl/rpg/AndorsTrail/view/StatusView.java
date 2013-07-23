@@ -23,11 +23,11 @@ import android.widget.RelativeLayout;
 import android.widget.ImageButton;
 
 public final class StatusView extends RelativeLayout implements PlayerStatsListener, ActorStatsListener {
-	
+
 	private final ControllerContext controllers;
 	private final WorldContext world;
 	private final Player player;
-	
+
 	private final RangeBar healthBar;
 	private final RangeBar expBar;
 	private final ImageButton heroImage;
@@ -36,19 +36,19 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 
 	public StatusView(final Context context, AttributeSet attr) {
 		super(context, attr);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.controllers = app.getControllerContext();
-        this.world = app.getWorld();
-        this.player = world.model.player;
-        
-        setFocusable(false);
-        inflate(context, R.layout.statusview, this);
-        this.setBackgroundResource(R.drawable.ui_gradientshape);
-        
-        heroImage = (ImageButton) findViewById(R.id.status_image);
-        showingLevelup = true;
-        
-        heroImage.setOnClickListener(new OnClickListener() {
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
+		this.controllers = app.getControllerContext();
+		this.world = app.getWorld();
+		this.player = world.model.player;
+
+		setFocusable(false);
+		inflate(context, R.layout.statusview, this);
+		this.setBackgroundResource(R.drawable.ui_gradientshape);
+
+		heroImage = (ImageButton) findViewById(R.id.status_image);
+		showingLevelup = true;
+
+		heroImage.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				context.startActivity(new Intent(context, HeroinfoActivity.class));
@@ -56,20 +56,20 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		});
 		healthBar = (RangeBar) findViewById(R.id.statusview_health);
 		healthBar.init(R.drawable.ui_progress_health, R.string.status_hp);
-        
+
 		expBar = (RangeBar) findViewById(R.id.statusview_exp);
 		expBar.init(R.drawable.ui_progress_exp, R.string.status_exp);
 
-        Resources res = getResources();
-        levelupDrawable = new LayerDrawable(new Drawable[] {
+		Resources res = getResources();
+		levelupDrawable = new LayerDrawable(new Drawable[] {
 				new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(player.iconID))
 				,new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
 		});
 
 		updateStatus();
-        updateIcon(player.canLevelup());
-    }
-	
+		updateIcon(player.canLevelup());
+	}
+
 	public void registerToolboxViews(ToolboxView toolbox, QuickitemView quickitemView) {
 		toolbox.registerToolboxViews((ImageButton) findViewById(R.id.toolbox_toggle), quickitemView);
 	}
@@ -78,7 +78,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		updateHealth();
 		updateExperience();
 	}
-	
+
 	public void subscribe() {
 		controllers.actorStatsController.actorStatsListeners.add(this);
 		controllers.actorStatsController.playerStatsListeners.add(this);
@@ -87,7 +87,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		controllers.actorStatsController.playerStatsListeners.remove(this);
 		controllers.actorStatsController.actorStatsListeners.remove(this);
 	}
-	
+
 	private void updateHealth() {
 		healthBar.update(player.getMaxHP(), player.getCurrentHP());
 	}
@@ -104,7 +104,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 		if (canLevelUp) {
 			heroImage.setImageDrawable(levelupDrawable);
 		} else {
-			world.tileManager.setImageViewTile(heroImage, player);			
+			world.tileManager.setImageViewTile(heroImage, player);
 		}
 	}
 

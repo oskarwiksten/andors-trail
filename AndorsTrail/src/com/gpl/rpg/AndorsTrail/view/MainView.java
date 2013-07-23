@@ -32,36 +32,36 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 
-public final class MainView extends SurfaceView 
-	implements SurfaceHolder.Callback, 
-		PlayerMovementListener, 
-		CombatSelectionListener, 
-		MonsterSpawnListener, 
+public final class MainView extends SurfaceView
+	implements SurfaceHolder.Callback,
+		PlayerMovementListener,
+		CombatSelectionListener,
+		MonsterSpawnListener,
 		MonsterMovementListener,
 		MapLayoutListener,
 		VisualEffectFrameListener,
 		GameRoundListener {
 
 	private final int tileSize;
-    private float scale;
-    private int scaledTileSize;
+	private float scale;
+	private int scaledTileSize;
 
-    private Size screenSizeTileCount = null;
-    private final Coord screenOffset = new Coord(); // pixel offset where the image begins
-    private final Coord mapTopLeft = new Coord(); // Map coords of visible map
-    private CoordRect mapViewArea; // Area in mapcoordinates containing the visible map. topleft == this.topleft
-    
-    private final ModelContainer model;
-    private final WorldContext world;
+	private Size screenSizeTileCount = null;
+	private final Coord screenOffset = new Coord(); // pixel offset where the image begins
+	private final Coord mapTopLeft = new Coord(); // Map coords of visible map
+	private CoordRect mapViewArea; // Area in mapcoordinates containing the visible map. topleft == this.topleft
+
+	private final ModelContainer model;
+	private final WorldContext world;
 	private final ControllerContext controllers;
 	private final InputController inputController;
 	private final AndorsTrailPreferences preferences;
-	
-    private final SurfaceHolder holder;
-    private final Paint mPaint = new Paint();
+
+	private final SurfaceHolder holder;
+	private final Paint mPaint = new Paint();
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
-	
+
 	private PredefinedMap currentMap;
 	private LayeredTileMap currentTileMap;
 	private TileCollection tiles;
@@ -72,39 +72,39 @@ public final class MainView extends SurfaceView
 	public MainView(Context context, AttributeSet attr) {
 		super(context, attr);
 		this.holder = getHolder();
-		
-		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.controllers = app.getControllerContext();
-        this.world = app.getWorld();
-    	this.model = world.model;
-    	this.tileSize = world.tileManager.tileSize;
-    	this.inputController = controllers.inputController;
-    	this.preferences = app.getPreferences();
 
-    	holder.addCallback(this);
-    	
-        setFocusable(true);
-        requestFocus();
-        setOnClickListener(this.inputController);
-        setOnLongClickListener(this.inputController);
-    }
-    
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent msg) {
-    	if (!canAcceptInput()) return true;
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
+		this.controllers = app.getControllerContext();
+		this.world = app.getWorld();
+		this.model = world.model;
+		this.tileSize = world.tileManager.tileSize;
+		this.inputController = controllers.inputController;
+		this.preferences = app.getPreferences();
+
+		holder.addCallback(this);
+
+		setFocusable(true);
+		requestFocus();
+		setOnClickListener(this.inputController);
+		setOnLongClickListener(this.inputController);
+	}
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent msg) {
+		if (!canAcceptInput()) return true;
 
 		if (inputController.onKeyboardAction(keyCode)) return true;
 		else return super.onKeyDown(keyCode, msg);
-    }
-    
-    @Override
-    public boolean onKeyUp(int keyCode, KeyEvent msg) {
+	}
+
+	@Override
+	public boolean onKeyUp(int keyCode, KeyEvent msg) {
 		if (!canAcceptInput()) return true;
-		
+
 		inputController.onKeyboardCancel();
-		
-    	return super.onKeyUp(keyCode, msg);
-    }
+
+		return super.onKeyUp(keyCode, msg);
+	}
 
 	@Override
 	public void surfaceChanged(SurfaceHolder sh, int format, int w, int h) {
@@ -118,12 +118,12 @@ public final class MainView extends SurfaceView
 				(int) Math.floor(w / scaledTileSize)
 				,(int) Math.floor(h / scaledTileSize)
 			);
-		
-    	if (model.currentMap != null) {
-    		onPlayerEnteredNewMap(model.currentMap, model.player.position);
-    	} else {
-    		redrawAll(REDRAW_ALL_SURFACE_CHANGED);
-    	}
+
+		if (model.currentMap != null) {
+			onPlayerEnteredNewMap(model.currentMap, model.player.position);
+		} else {
+			redrawAll(REDRAW_ALL_SURFACE_CHANGED);
+		}
 	}
 
 	@Override
@@ -138,8 +138,8 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
-        if (!canAcceptInput()) return true;
-		
+		if (!canAcceptInput()) return true;
+
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
@@ -155,7 +155,7 @@ public final class MainView extends SurfaceView
 		}
 		return super.onTouchEvent(event);
 	}
-    
+
 	private boolean canAcceptInput() {
 		if (!model.uiSelections.isMainActivityVisible) return false;
 		if (!hasSurface) return false;
@@ -165,14 +165,14 @@ public final class MainView extends SurfaceView
 	private static final int REDRAW_ALL_SURFACE_CHANGED = 1;
 	private static final int REDRAW_ALL_MAP_CHANGED = 2;
 	private static final int REDRAW_ALL_PLAYER_MOVED = 3;
-    private static final int REDRAW_AREA_MONSTER_MOVED = 4;
-    private static final int REDRAW_AREA_MONSTER_KILLED = 10;
-    private static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
-    private static final int REDRAW_AREA_MONSTER_SPAWNED = 11;
-    private static final int REDRAW_TILE_SELECTION_REMOVED = 7;
-    private static final int REDRAW_TILE_SELECTION_ADDED = 8;
-    private static final int REDRAW_TILE_BAG = 9;
-    private static final int REDRAW_TILE_SPLATTER = 12;
+	private static final int REDRAW_AREA_MONSTER_MOVED = 4;
+	private static final int REDRAW_AREA_MONSTER_KILLED = 10;
+	private static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
+	private static final int REDRAW_AREA_MONSTER_SPAWNED = 11;
+	private static final int REDRAW_TILE_SELECTION_REMOVED = 7;
+	private static final int REDRAW_TILE_SELECTION_ADDED = 8;
+	private static final int REDRAW_TILE_BAG = 9;
+	private static final int REDRAW_TILE_SPLATTER = 12;
 
 	private void redrawAll(int why) {
 		redrawArea_(mapViewArea);
@@ -194,22 +194,22 @@ public final class MainView extends SurfaceView
 		calculateRedrawRect(area);
 		Canvas c = null;
 		try {
-	        c = holder.lockCanvas(redrawRect);
-	        synchronized (holder) { synchronized (tiles) {
-	        	c.translate(screenOffset.x, screenOffset.y);
-	        	c.scale(scale, scale);
-	        	doDrawRect(c, area);
-	        } }
-	    } finally {
-	        // do this in a finally so that if an exception is thrown
-	        // during the above, we don't leave the Surface in an
-	        // inconsistent state
-	        if (c != null) {
-	        	holder.unlockCanvasAndPost(c);
-	        }
-	    }
+			c = holder.lockCanvas(redrawRect);
+			synchronized (holder) { synchronized (tiles) {
+				c.translate(screenOffset.x, screenOffset.y);
+				c.scale(scale, scale);
+				doDrawRect(c, area);
+			} }
+		} finally {
+			// do this in a finally so that if an exception is thrown
+			// during the above, we don't leave the Surface in an
+			// inconsistent state
+			if (c != null) {
+				holder.unlockCanvasAndPost(c);
+			}
+		}
 	}
-	
+
 	private boolean shouldRedrawEverythingForVisualEffect() {
 		if (preferences.optimizedDrawing) return false;
 		if (model.uiSelections.isInCombat) return false; // Discard the "optimized drawing" setting while in combat.
@@ -220,85 +220,85 @@ public final class MainView extends SurfaceView
 		CoordRect area = effect.area;
 		if (!hasSurface) return;
 		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;
-		
+
 		if (currentMap.isOutside(area)) return;
 		if (!mapViewArea.intersects(area)) return;
-		
+
 		calculateRedrawRect(area);
 		Canvas c = null;
 		try {
-	        c = holder.lockCanvas(redrawRect);
-	        synchronized (holder) { synchronized (tiles) {
-	        	c.translate(screenOffset.x, screenOffset.y);
-	        	c.scale(scale, scale);
-	        	doDrawRect(c, area);
-	        	drawFromMapPosition(c, area, effect.position, tileID);
-    			if (effect.displayText != null) {
-    				drawEffectText(c, area, effect, textYOffset, effect.textPaint);
-    			}
-	        } }
-	    } finally {
-	        // do this in a finally so that if an exception is thrown
-	        // during the above, we don't leave the Surface in an
-	        // inconsistent state
-	        if (c != null) {
-	        	holder.unlockCanvasAndPost(c);
-	        }
-	    }
+			c = holder.lockCanvas(redrawRect);
+			synchronized (holder) { synchronized (tiles) {
+				c.translate(screenOffset.x, screenOffset.y);
+				c.scale(scale, scale);
+				doDrawRect(c, area);
+				drawFromMapPosition(c, area, effect.position, tileID);
+				if (effect.displayText != null) {
+					drawEffectText(c, area, effect, textYOffset, effect.textPaint);
+				}
+			} }
+		} finally {
+			// do this in a finally so that if an exception is thrown
+			// during the above, we don't leave the Surface in an
+			// inconsistent state
+			if (c != null) {
+				holder.unlockCanvasAndPost(c);
+			}
+		}
 	}
 	private void clearCanvas() {
 		if (!hasSurface) return;
 		Canvas c = null;
 		try {
 			c = holder.lockCanvas(null);
-	        synchronized (holder) {
-	        	c.drawColor(Color.BLACK);
-	        }
-	    } finally {
-	        // do this in a finally so that if an exception is thrown
-	        // during the above, we don't leave the Surface in an
-	        // inconsistent state
-	        if (c != null) {
-	        	holder.unlockCanvasAndPost(c);
-	        }
-	    }
+			synchronized (holder) {
+				c.drawColor(Color.BLACK);
+			}
+		} finally {
+			// do this in a finally so that if an exception is thrown
+			// during the above, we don't leave the Surface in an
+			// inconsistent state
+			if (c != null) {
+				holder.unlockCanvasAndPost(c);
+			}
+		}
 	}
-	
+
 	private void calculateRedrawRect(final CoordRect area) {
 		worldCoordsToScreenCords(area, redrawRect);
 	}
-	
+
 	private void worldCoordsToScreenCords(final CoordRect worldArea, Rect destScreenRect) {
 		destScreenRect.left = screenOffset.x + (worldArea.topLeft.x - mapViewArea.topLeft.x) * scaledTileSize;
 		destScreenRect.top = screenOffset.y + (worldArea.topLeft.y - mapViewArea.topLeft.y) * scaledTileSize;
 		destScreenRect.right = destScreenRect.left + worldArea.size.width * scaledTileSize;
 		destScreenRect.bottom = destScreenRect.top + worldArea.size.height * scaledTileSize;
 	}
-	
+
 	private void doDrawRect(Canvas canvas, CoordRect area) {
-		
-    	drawMapLayer(canvas, area, currentTileMap.currentLayout.layerGround);
-        tryDrawMapLayer(canvas, area, currentTileMap.currentLayout.layerObjects);
-        
-        for (BloodSplatter splatter : currentMap.splatters) {
-    		drawFromMapPosition(canvas, area, splatter.position, splatter.iconID);
-        }
-        
-        for (Loot l : currentMap.groundBags) {
-        	if (l.isVisible) {
-        		drawFromMapPosition(canvas, area, l.position, TileManager.iconID_groundbag);
-        	}
+
+		drawMapLayer(canvas, area, currentTileMap.currentLayout.layerGround);
+		tryDrawMapLayer(canvas, area, currentTileMap.currentLayout.layerObjects);
+
+		for (BloodSplatter splatter : currentMap.splatters) {
+			drawFromMapPosition(canvas, area, splatter.position, splatter.iconID);
 		}
-        
+
+		for (Loot l : currentMap.groundBags) {
+			if (l.isVisible) {
+				drawFromMapPosition(canvas, area, l.position, TileManager.iconID_groundbag);
+			}
+		}
+
 		drawFromMapPosition(canvas, area, playerPosition, model.player.iconID);
 		for (MonsterSpawnArea a : currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
 				drawFromMapPosition(canvas, area, m.rectPosition, m.iconID);
 			}
 		}
-		
+
 		tryDrawMapLayer(canvas, area, currentTileMap.currentLayout.layerAbove);
-        
+
 		if (model.uiSelections.selectedPosition != null) {
 			if (model.uiSelections.selectedMonster != null) {
 				drawFromMapPosition(canvas, area, model.uiSelections.selectedPosition, TileManager.iconID_attackselect);
@@ -306,57 +306,57 @@ public final class MainView extends SurfaceView
 				drawFromMapPosition(canvas, area, model.uiSelections.selectedPosition, TileManager.iconID_moveselect);
 			}
 		}
-    }
-    
+	}
+
 	private void tryDrawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
-    	if (layer != null) drawMapLayer(canvas, area, layer);
-    }
-    
-    private void drawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
-    	int my = area.topLeft.y;
-    	int py = (area.topLeft.y - mapViewArea.topLeft.y) * tileSize;
-    	int px0 = (area.topLeft.x - mapViewArea.topLeft.x) * tileSize;
+		if (layer != null) drawMapLayer(canvas, area, layer);
+	}
+
+	private void drawMapLayer(Canvas canvas, final CoordRect area, final MapLayer layer) {
+		int my = area.topLeft.y;
+		int py = (area.topLeft.y - mapViewArea.topLeft.y) * tileSize;
+		int px0 = (area.topLeft.x - mapViewArea.topLeft.x) * tileSize;
 		for (int y = 0; y < area.size.height; ++y, ++my, py += tileSize) {
-        	int mx = area.topLeft.x;
-        	int px = px0;
-        	for (int x = 0; x < area.size.width; ++x, ++mx, px += tileSize) {
-        		final int tile = layer.tiles[mx][my];
-        		if (tile == 0) continue;
-    			tiles.drawTile(canvas, tile, px, py, mPaint);
-            }
-        }
-    }
+			int mx = area.topLeft.x;
+			int px = px0;
+			for (int x = 0; x < area.size.width; ++x, ++mx, px += tileSize) {
+				final int tile = layer.tiles[mx][my];
+				if (tile == 0) continue;
+				tiles.drawTile(canvas, tile, px, py, mPaint);
+			}
+		}
+	}
 
 	private void drawFromMapPosition(Canvas canvas, final CoordRect area, final Coord p, final int tile) {
 		if (!area.contains(p)) return;
 		_drawFromMapPosition(canvas, area, p.x, p.y, tile);
-    }
+	}
 	private void drawFromMapPosition(Canvas canvas, final CoordRect area, final CoordRect p, final int tile) {
 		if (!area.intersects(p)) return;
 		_drawFromMapPosition(canvas, area, p.topLeft.x, p.topLeft.y, tile);
-    }
+	}
 	private void _drawFromMapPosition(Canvas canvas, final CoordRect area, int x, int y, final int tile) {
-    	x -= mapViewArea.topLeft.x;
-    	y -= mapViewArea.topLeft.y;
+		x -= mapViewArea.topLeft.x;
+		y -= mapViewArea.topLeft.y;
 		if (	   (x >= 0 && x < mapViewArea.size.width)
 				&& (y >= 0 && y < mapViewArea.size.height)) {
 			tiles.drawTile(canvas, tile, x * tileSize, y * tileSize, mPaint);
 		}
-    }
-	
+	}
+
 	private void drawEffectText(Canvas canvas, final CoordRect area, final VisualEffectAnimation e, int textYOffset, Paint textPaint) {
-    	int x = (e.position.x - mapViewArea.topLeft.x) * tileSize + tileSize/2;
-    	int y = (e.position.y - mapViewArea.topLeft.y) * tileSize + tileSize/2 + textYOffset;
+		int x = (e.position.x - mapViewArea.topLeft.x) * tileSize + tileSize/2;
+		int y = (e.position.y - mapViewArea.topLeft.y) * tileSize + tileSize/2 + textYOffset;
 		canvas.drawText(e.displayText, x, y, textPaint);
-    }
-    
+	}
+
 	@Override
 	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) {
 		synchronized (holder) {
 			currentMap = map;
 			currentTileMap = model.currentTileMap;
 			tiles = world.tileManager.currentMapTiles;
-			
+
 			Size visibleNumberOfTiles = new Size(
 					Math.min(screenSizeTileCount.width, currentMap.size.width)
 					,Math.min(screenSizeTileCount.height, currentMap.size.height)
@@ -370,26 +370,26 @@ public final class MainView extends SurfaceView
 
 			currentTileMap.setColorFilter(this.mPaint);
 		}
-		
+
 		clearCanvas();
-	    
+
 		recalculateMapTopLeft(model.player.position);
 		redrawAll(REDRAW_ALL_MAP_CHANGED);
 	}
 
 	private void recalculateMapTopLeft(Coord playerPosition) {
-		synchronized (holder) {	
+		synchronized (holder) {
 			this.playerPosition.set(playerPosition);
 			mapTopLeft.set(0, 0);
-			
-	    	if (currentMap.size.width > screenSizeTileCount.width) {
-	    		mapTopLeft.x = Math.max(0, playerPosition.x - mapViewArea.size.width/2);
-	    		mapTopLeft.x = Math.min(mapTopLeft.x, currentMap.size.width - mapViewArea.size.width);
-	    	}
-	    	if (currentMap.size.height > screenSizeTileCount.height) {
-	    		mapTopLeft.y = Math.max(0, playerPosition.y - mapViewArea.size.height/2);
-	    		mapTopLeft.y = Math.min(mapTopLeft.y, currentMap.size.height - mapViewArea.size.height);
-	    	}
+
+			if (currentMap.size.width > screenSizeTileCount.width) {
+				mapTopLeft.x = Math.max(0, playerPosition.x - mapViewArea.size.width/2);
+				mapTopLeft.x = Math.min(mapTopLeft.x, currentMap.size.width - mapViewArea.size.width);
+			}
+			if (currentMap.size.height > screenSizeTileCount.height) {
+				mapTopLeft.y = Math.max(0, playerPosition.y - mapViewArea.size.height/2);
+				mapTopLeft.y = Math.min(mapTopLeft.y, currentMap.size.height - mapViewArea.size.height);
+			}
 		}
 	}
 
@@ -437,15 +437,15 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public void onMonsterSpawned(PredefinedMap map, Monster m) {
-        if (map != currentMap) return;
+		if (map != currentMap) return;
 		if (!mapViewArea.intersects(m.rectPosition)) return;
 		redrawNextTick = true;
 	}
 
 	@Override
 	public void onMonsterRemoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
-        if (map != currentMap) return;
-        redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
+		if (map != currentMap) return;
+		redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
 	}
 
 	@Override
@@ -454,7 +454,7 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public void onMonsterMoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
-        if (map != currentMap) return;
+		if (map != currentMap) return;
 		if (!mapViewArea.intersects(m.rectPosition) && !mapViewArea.intersects(previousPosition)) return;
 		if (model.uiSelections.isInCombat) {
 			redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
@@ -466,35 +466,35 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public void onSplatterAdded(PredefinedMap map, Coord p) {
-        if (map != currentMap) return;
+		if (map != currentMap) return;
 		if (!mapViewArea.contains(p)) return;
 		redrawNextTick = true;
 	}
 
 	@Override
 	public void onSplatterChanged(PredefinedMap map, Coord p) {
-        if (map != currentMap) return;
+		if (map != currentMap) return;
 		if (!mapViewArea.contains(p)) return;
 		redrawNextTick = true;
 	}
 
 	@Override
 	public void onSplatterRemoved(PredefinedMap map, Coord p) {
-        if (map != currentMap) return;
+		if (map != currentMap) return;
 		if (!mapViewArea.contains(p)) return;
 		redrawNextTick = true;
 	}
 
 	@Override
 	public void onLootBagCreated(PredefinedMap map, Coord p) {
-        if (map != currentMap) return;
-        redrawTile(p, REDRAW_TILE_BAG);
+		if (map != currentMap) return;
+		redrawTile(p, REDRAW_TILE_BAG);
 	}
 
 	@Override
 	public void onLootBagRemoved(PredefinedMap map, Coord p) {
-        if (map != currentMap) return;
-        redrawTile(p, REDRAW_TILE_BAG);
+		if (map != currentMap) return;
+		redrawTile(p, REDRAW_TILE_BAG);
 	}
 
 	@Override

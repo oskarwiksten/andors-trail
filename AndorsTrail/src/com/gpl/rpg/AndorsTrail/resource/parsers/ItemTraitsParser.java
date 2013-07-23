@@ -43,15 +43,15 @@ public final class ItemTraitsParser {
 			}
 		};
 	}
-	
+
 	public ItemTraits_OnUse parseItemTraits_OnUse(JSONObject o) throws JSONException {
 		if (o == null) return null;
-		
+
 		ConstRange boostCurrentHP = ResourceParserUtils.parseConstRange(o.optJSONObject(JsonFieldNames.ItemTraits_OnUse.increaseCurrentHP));
 		ConstRange boostCurrentAP = ResourceParserUtils.parseConstRange(o.optJSONObject(JsonFieldNames.ItemTraits_OnUse.increaseCurrentAP));
 		ActorConditionEffect[] addedConditions_source = actorConditionEffectParser_withDuration.parseArray(o.optJSONArray(JsonFieldNames.ItemTraits_OnUse.conditionsSource));
 		ActorConditionEffect[] addedConditions_target = actorConditionEffectParser_withDuration.parseArray(o.optJSONArray(JsonFieldNames.ItemTraits_OnUse.conditionsTarget));
-		if (       boostCurrentHP == null
+		if (	   boostCurrentHP == null
 				&& boostCurrentAP == null
 				&& addedConditions_source == null
 				&& addedConditions_target == null
@@ -72,10 +72,10 @@ public final class ItemTraitsParser {
 					);
 		}
 	}
-	
+
 	public ItemTraits_OnEquip parseItemTraits_OnEquip(JSONObject o) throws JSONException {
 		if (o == null) return null;
-		
+
 		AbilityModifierTraits stats = ResourceParserUtils.parseAbilityModifierTraits(o);
 		ActorConditionEffect[] addedConditions = actorConditionEffectParser_withoutDuration.parseArray(o.optJSONArray(JsonFieldNames.ItemTraits_OnEquip.addedConditions));
 

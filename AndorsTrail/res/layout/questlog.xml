@@ -6,14 +6,14 @@
 	android:padding="@dimen/dialog_margin"
 	android:orientation="vertical"
 	>
-	
-	<Spinner 
+
+	<Spinner
 		android:id="@+id/questlog_includecompleted"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:prompt="@string/questlog_includecompleted_prompt"
 		/>
-	
+
 	<ExpandableListView
 		android:id="@+id/questlog_contents"
 		android:layout_width="match_parent"

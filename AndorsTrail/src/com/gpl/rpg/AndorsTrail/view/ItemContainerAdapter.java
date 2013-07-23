@@ -19,7 +19,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	private final TileManager tileManager;
 	private final TileCollection tileCollection;
 	private final Player player;
-	
+
 	public ItemContainerAdapter(Context context, TileManager tileManager, ItemContainer items, Player player) {
 		this(context, tileManager, items, player, tileManager.loadTilesFor(items, context.getResources()));
 	}
@@ -33,7 +33,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final ItemEntry item = getItem(position);
-		
+
 		View result = convertView;
 		if (result == null) {
 			result = View.inflate(getContext(), R.layout.inventoryitemview, null);
@@ -44,7 +44,7 @@ public final class ItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		tv.setText(ItemController.describeItemForListView(item, player));
 		return result;
 	}
-	
+
 	@Override
 	public long getItemId(int position) {
 		return getItem(position).itemType.id.hashCode();

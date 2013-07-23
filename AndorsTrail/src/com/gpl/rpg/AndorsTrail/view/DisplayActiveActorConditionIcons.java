@@ -24,7 +24,7 @@ import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class DisplayActiveActorConditionIcons implements ActorConditionListener {
-	
+
 	private final AndorsTrailPreferences preferences;
 	private final TileManager tileManager;
 	private final ControllerContext controllers;
@@ -32,11 +32,11 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 	private final RelativeLayout activeConditions;
 	private final ArrayList<ActiveConditionIcon> currentConditionIcons = new ArrayList<ActiveConditionIcon>();
 	private final WeakReference<Context> androidContext;
-	
+
 	public DisplayActiveActorConditionIcons(
 			final ControllerContext controllers,
-			final WorldContext world, 
-			Context androidContext, 
+			final WorldContext world,
+			Context androidContext,
 			RelativeLayout activeConditions) {
 		this.controllers = controllers;
 		this.world = world;
@@ -103,7 +103,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 		private final Animation onNewIconAnimation;
 		private final Animation onRemovedIconAnimation;
 		private final Animation onAppliedEffectAnimation;
-		
+
 		public ActiveConditionIcon(Context context, int id) {
 			this.id = id;
 			this.image = new ImageView(context);
@@ -113,13 +113,13 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 			this.onRemovedIconAnimation = AnimationUtils.loadAnimation(context, R.anim.scaledown);
 			this.onAppliedEffectAnimation = AnimationUtils.loadAnimation(context, R.anim.scalebeat);
 			this.onRemovedIconAnimation.setAnimationListener(this);
-			
+
 			final Resources res = context.getResources();
-			
+
 			text.setTextColor(res.getColor(android.R.color.white));
 			text.setShadowLayer(1, 1, 1, res.getColor(android.R.color.black));
 		}
-		
+
 		private void setActiveCondition(ActorCondition condition) {
 			this.condition = condition;
 			tileManager.setImageViewTile(image, condition.conditionType);
@@ -136,7 +136,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 				text.setVisibility(View.GONE);
 			}
 		}
-		
+
 		public void hide(boolean useAnimation) {
 			if (useAnimation) {
 				if (preferences.enableUiAnimations) {
@@ -155,28 +155,28 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 			image.startAnimation(onNewIconAnimation);
 			if (text.getVisibility() == View.VISIBLE) text.startAnimation(onNewIconAnimation);
 		}
-		
+
 		public void pulseAnimate() {
 			if (!preferences.enableUiAnimations) return;
 			image.startAnimation(onAppliedEffectAnimation);
 		}
-		
+
 		public boolean isVisible() {
 			return condition != null;
 		}
-		
+
 		@Override
-		public void onAnimationEnd(Animation animation) { 
+		public void onAnimationEnd(Animation animation) {
 			if (animation == this.onRemovedIconAnimation) {
 				hide(false);
 				rearrangeIconsLeftOf(this);
 			}
 		}
-		
+
 		@Override public void onAnimationRepeat(Animation animation) { }
 		@Override public void onAnimationStart(Animation animation) { }
 	}
-	
+
 	private void rearrangeIconsLeftOf(ActiveConditionIcon icon) {
 		int i = currentConditionIcons.indexOf(icon);
 		currentConditionIcons.remove(i);
@@ -185,7 +185,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 			currentConditionIcons.get(i).image.setLayoutParams(getLayoutParamsForIconIndex(i));
 		}
 	}
-	
+
 	private ActiveConditionIcon getIconFor(ActorCondition condition) {
 		for (ActiveConditionIcon icon : currentConditionIcons) {
 			if (icon.condition == condition) return icon;
@@ -198,7 +198,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 		}
 		return addNewActiveConditionIcon();
 	}
-	
+
 	private RelativeLayout.LayoutParams getLayoutParamsForIconIndex(int index) {
 		RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		layout.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
@@ -212,18 +212,18 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 
 	private ActiveConditionIcon addNewActiveConditionIcon() {
 		int index = currentConditionIcons.size();
-				
+
 		ActiveConditionIcon icon = new ActiveConditionIcon(androidContext.get(), index+1);
-		
+
 		activeConditions.addView(icon.image, getLayoutParamsForIconIndex(index));
-		
+
 		RelativeLayout.LayoutParams layout = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		layout.addRule(RelativeLayout.ALIGN_RIGHT, icon.id);
 		layout.addRule(RelativeLayout.ALIGN_BOTTOM, icon.id);
 		activeConditions.addView(icon.text, layout);
-		
+
 		currentConditionIcons.add(icon);
-		
+
 		return icon;
 	}
 }

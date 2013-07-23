@@ -10,14 +10,14 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class ActorConditionsTypeParser extends JsonCollectionParserFor<ActorConditionType> {
-	
-	private final DynamicTileLoader tileLoader;
-    private final TranslationLoader translationLoader;
 
-    public ActorConditionsTypeParser(final DynamicTileLoader tileLoader, TranslationLoader translationLoader) {
+	private final DynamicTileLoader tileLoader;
+	private final TranslationLoader translationLoader;
+
+	public ActorConditionsTypeParser(final DynamicTileLoader tileLoader, TranslationLoader translationLoader) {
 		this.tileLoader = tileLoader;
-        this.translationLoader = translationLoader;
-    }
+		this.translationLoader = translationLoader;
+	}
 
 	@Override
 	protected Pair<String, ActorConditionType> parseObject(JSONObject o) throws JSONException {

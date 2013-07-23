@@ -15,18 +15,18 @@ import com.gpl.rpg.AndorsTrail.model.map.ReplaceableMapSection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class MapController {
-    
-    private final ControllerContext controllers;
-    private final WorldContext world;
-    public final WorldEventListeners worldEventListeners = new WorldEventListeners();
+
+	private final ControllerContext controllers;
+	private final WorldContext world;
+	public final WorldEventListeners worldEventListeners = new WorldEventListeners();
 	public final MapLayoutListeners mapLayoutListeners = new MapLayoutListeners();
 
 	public MapController(ControllerContext controllers, WorldContext world) {
-    	this.controllers = controllers;
-    	this.world = world;
-    }
-    
-    public void handleMapEvent(MapObject o, Coord position) {
+		this.controllers = controllers;
+		this.world = world;
+	}
+
+	public void handleMapEvent(MapObject o, Coord position) {
 		switch (o.type) {
 		case sign:
 			if (o.id == null || o.id.length() <= 0) return;
@@ -43,14 +43,14 @@ public final class MapController {
 			break;
 		}
 	}
-    
-    private void steppedOnRestArea(MapObject area) {
-    	if (controllers.preferences.confirmRest) {
+
+	private void steppedOnRestArea(MapObject area) {
+		if (controllers.preferences.confirmRest) {
 			worldEventListeners.onPlayerSteppedOnRestArea(area);
 		} else {
 			rest(area);
 		}
-    }
+	}
 
 	public void steppedOnMonster(Monster m, Coord p) {
 		if (m.isAgressive()) {
@@ -70,7 +70,7 @@ public final class MapController {
 		final Player player = world.model.player;
 		int lostExp = player.getCurrentLevelExperience() * Constants.PERCENT_EXP_LOST_WHEN_DIED / 100;
 		lostExp -= lostExp * player.getSkillLevel(SkillCollection.SkillID.lowerExploss) * SkillCollection.PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT / 100;
-		
+
 		if (lostExp < 0) lostExp = 0;
 		controllers.actorStatsController.addExperience(-lostExp);
 		world.model.statistics.addPlayerDeath(lostExp);
@@ -78,7 +78,7 @@ public final class MapController {
 		lotsOfTimePassed();
 		worldEventListeners.onPlayerDied(lostExp);
 	}
-	
+
 	public void lotsOfTimePassed() {
 		final Player player = world.model.player;
 		controllers.actorStatsController.removeAllTemporaryConditions(player);
@@ -97,7 +97,7 @@ public final class MapController {
 		world.model.player.setSpawnPlace(world.model.currentMap.name, area.id);
 		worldEventListeners.onPlayerRested();
 	}
-	
+
 	public boolean canEnterKeyArea(MapObject area) {
 		if (world.model.player.hasExactQuestProgress(area.requireQuestProgress)) return true;
 		worldEventListeners.onPlayerSteppedOnKeyArea(area);
@@ -110,7 +110,7 @@ public final class MapController {
 			if (m.isRecentlyVisited()) continue;
 			if (m.hasResetTemporaryData()) continue;
 			m.resetTemporaryData();
-    	}
+		}
 	}
 
 	public void applyCurrentMapReplacements(final Resources res, boolean updateWorldmap) {

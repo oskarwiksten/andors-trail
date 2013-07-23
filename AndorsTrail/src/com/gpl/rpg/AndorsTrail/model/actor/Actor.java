@@ -21,7 +21,7 @@ public class Actor {
 	public final boolean isPlayer;
 	private final boolean isImmuneToCriticalHits;
 	protected String name;
-	
+
 	// TODO: Should be privates
 	public final Range ap = new Range();
 	public final Range health = new Range();
@@ -35,14 +35,14 @@ public class Actor {
 	public int blockChance;
 	public int damageResistance;
 	public ItemTraits_OnUse[] onHitEffects;
-	
+
 	public Actor(Size tileSize, boolean isPlayer, boolean isImmuneToCriticalHits) {
 		this.tileSize = tileSize;
 		this.rectPosition = new CoordRect(this.position, this.tileSize);
 		this.isPlayer = isPlayer;
 		this.isImmuneToCriticalHits = isImmuneToCriticalHits;
 	}
-	
+
 	public boolean isImmuneToCriticalHits() { return isImmuneToCriticalHits; }
 	public String getName() { return name; }
 	public int getCurrentAP() { return ap.current; }
@@ -59,11 +59,11 @@ public class Actor {
 	public int getDamageResistance() { return damageResistance; }
 	public ItemTraits_OnUse[] getOnHitEffects() { return onHitEffects; }
 	public List<ItemTraits_OnUse> getOnHitEffectsAsList() { return onHitEffects == null ? null : Arrays.asList(onHitEffects); }
-	
+
 	public boolean hasCriticalSkillEffect() { return getCriticalSkill() != 0; }
 	public boolean hasCriticalMultiplierEffect() { float m = getCriticalMultiplier(); return m != 0 && m != 1; }
 	public boolean hasCriticalAttacks() { return hasCriticalSkillEffect() && hasCriticalMultiplierEffect(); }
-	
+
 	public int getAttacksPerTurn() { return (int) Math.floor(getMaxAP() / getAttackCost()); }
 	public int getEffectiveCriticalChance() { return getEffectiveCriticalChance(getCriticalSkill()); }
 	public static int getEffectiveCriticalChance(int criticalSkill) {
@@ -72,15 +72,15 @@ public class Actor {
 		if (v < 0) return 0;
 		return v;
 	}
-	
+
 	public boolean isDead() {
 		return health.current <= 0;
 	}
-	
+
 	public boolean hasAPs(int cost) {
 		return ap.current >= cost;
 	}
-	
+
 	public boolean hasCondition(final String conditionTypeID) {
 		for (ActorCondition c : conditions) {
 			if (c.conditionType.conditionTypeID.equals(conditionTypeID)) return true;

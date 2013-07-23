@@ -15,10 +15,10 @@ public final class AbilityModifierTraits {
 	public final int increaseCriticalSkill;
 	public final float setCriticalMultiplier;
 	public final int increaseDamageResistance;
-	
+
 	public AbilityModifierTraits(
-			int increaseMaxHP, 
-			int increaseMaxAP, 
+			int increaseMaxHP,
+			int increaseMaxAP,
 			int increaseMoveCost,
 			int increaseUseItemCost,
 			int increaseReequipCost,
@@ -45,7 +45,7 @@ public final class AbilityModifierTraits {
 		this.setCriticalMultiplier = setCriticalMultiplier;
 		this.increaseDamageResistance = increaseDamageResistance;
 	}
-	
+
 	public int calculateCost(boolean isWeapon) {
 		final int costBC = (int) (3*Math.pow(Math.max(0, increaseBlockChance), 2.5) + 28*increaseBlockChance);
 		final int costAC = (int) (0.4*Math.pow(Math.max(0,increaseAttackChance), 2.5) - 6*Math.pow(Math.abs(Math.min(0,increaseAttackChance)),2.7));
@@ -61,7 +61,7 @@ public final class AbilityModifierTraits {
 				:(int) (2*Math.pow(Math.max(0, increaseMaxDamage), 3) + increaseMaxDamage*20);
 		final int costCS = (int) (2.2*Math.pow(increaseCriticalSkill, 3));
 		final int costCM = (int) (50*Math.pow(Math.max(0, setCriticalMultiplier), 2));
-				
+
 		final int costMaxHP = (int) (30*Math.pow(Math.max(0,increaseMaxHP), 1.2) + 70*increaseMaxHP);
 		final int costMaxAP = (int) (50*Math.pow(Math.max(0,increaseMaxAP), 3) + 750*increaseMaxAP);
 		final int costMovement = (int) (510*Math.pow(Math.max(0,-increaseMoveCost), 2.5) - 350*increaseMoveCost);

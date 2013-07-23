@@ -7,7 +7,7 @@ import java.io.IOException;
 public final class Range {
 	public int max;
 	public int current;
-	
+
 	public Range() { }
 	public Range(Range r) { set(r); }
 	public Range(ConstRange r) { set(r); }
@@ -15,16 +15,16 @@ public final class Range {
 		this.max = max;
 		this.current = current;
 	}
-	
+
 	public boolean equals(Range r) {
 		if (r == null) return false;
 		return max == r.max && current == r.current;
 	}
-    public boolean equals(ConstRange r) {
+	public boolean equals(ConstRange r) {
 		if (r == null) return false;
-        return max == r.max && current == r.current;
-    }
-	
+		return max == r.max && current == r.current;
+	}
+
 	public void set(Range r) {
 		this.max = r.max;
 		this.current = r.current;
@@ -69,11 +69,11 @@ public final class Range {
 		this.max += r.max;
 		this.current += r.current;
 	}
-	
+
 	public String toString() { return current + "/" + max; }
 	public String toMinMaxString() {
 		if (isMax()) return Integer.toString(max);
-		else return current + "-" + max; 
+		else return current + "-" + max;
 	}
 	public boolean isMax() { return current >= max;	}
 	public void setMax() { current = max; }
@@ -83,7 +83,7 @@ public final class Range {
 	public float averagef() {
 		return ((float) max + current) / 2f;
 	}
-	
+
 
 	// ====== PARCELABLE ===================================================================
 
@@ -94,7 +94,7 @@ public final class Range {
 		this.max = src.readInt();
 		this.current = src.readInt();
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(max);
 		dest.writeInt(current);

@@ -23,35 +23,35 @@ public final class AbilityModifierInfoView extends LinearLayout {
 	private final TextView abilitymodifierinfo_change_critical_multiplier;
 	private final TextView abilitymodifierinfo_change_block_chance;
 	private final TextView abilitymodifierinfo_change_damage_resistance;
-	
+
 	public AbilityModifierInfoView(Context context, AttributeSet attr) {
 		super(context, attr);
-        setFocusable(false);
-        setOrientation(LinearLayout.VERTICAL);
-        inflate(context, R.layout.abilitymodifierview, this);
-        
-        abilitymodifierinfo_change_maxap = (TextView) findViewById(R.id.abilitymodifierinfo_change_maxap);
-        abilitymodifierinfo_change_maxhp = (TextView) findViewById(R.id.abilitymodifierinfo_change_maxhp);
-        abilitymodifierinfo_change_movecost = (TextView) findViewById(R.id.abilitymodifierinfo_change_movecost);
-        abilitymodifierinfo_change_use_cost = (TextView) findViewById(R.id.abilitymodifierinfo_change_use_cost);
-        abilitymodifierinfo_change_reequip_cost = (TextView) findViewById(R.id.abilitymodifierinfo_change_reequip_cost);
-        abilitymodifierinfo_change_attack_cost = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_cost);
-        abilitymodifierinfo_change_attack_chance = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_chance);
-        abilitymodifierinfo_change_attack_damage = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_damage);
-        abilitymodifierinfo_change_critical_skill = (TextView) findViewById(R.id.abilitymodifierinfo_change_critical_skill);
-        abilitymodifierinfo_change_critical_multiplier = (TextView) findViewById(R.id.abilitymodifierinfo_change_critical_multiplier);
-        abilitymodifierinfo_change_block_chance = (TextView) findViewById(R.id.abilitymodifierinfo_change_block_chance);
-        abilitymodifierinfo_change_damage_resistance = (TextView) findViewById(R.id.abilitymodifierinfo_change_damage_resistance);
-    }
+		setFocusable(false);
+		setOrientation(LinearLayout.VERTICAL);
+		inflate(context, R.layout.abilitymodifierview, this);
+
+		abilitymodifierinfo_change_maxap = (TextView) findViewById(R.id.abilitymodifierinfo_change_maxap);
+		abilitymodifierinfo_change_maxhp = (TextView) findViewById(R.id.abilitymodifierinfo_change_maxhp);
+		abilitymodifierinfo_change_movecost = (TextView) findViewById(R.id.abilitymodifierinfo_change_movecost);
+		abilitymodifierinfo_change_use_cost = (TextView) findViewById(R.id.abilitymodifierinfo_change_use_cost);
+		abilitymodifierinfo_change_reequip_cost = (TextView) findViewById(R.id.abilitymodifierinfo_change_reequip_cost);
+		abilitymodifierinfo_change_attack_cost = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_cost);
+		abilitymodifierinfo_change_attack_chance = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_chance);
+		abilitymodifierinfo_change_attack_damage = (TextView) findViewById(R.id.abilitymodifierinfo_change_attack_damage);
+		abilitymodifierinfo_change_critical_skill = (TextView) findViewById(R.id.abilitymodifierinfo_change_critical_skill);
+		abilitymodifierinfo_change_critical_multiplier = (TextView) findViewById(R.id.abilitymodifierinfo_change_critical_multiplier);
+		abilitymodifierinfo_change_block_chance = (TextView) findViewById(R.id.abilitymodifierinfo_change_block_chance);
+		abilitymodifierinfo_change_damage_resistance = (TextView) findViewById(R.id.abilitymodifierinfo_change_damage_resistance);
+	}
 
 	public void update(AbilityModifierTraits traits, boolean isWeapon) {
 		for(int i = 0; i < getChildCount(); ++i) {
 			getChildAt(i).setVisibility(View.GONE);
 		}
 		if (traits == null) return;
-		
+
 		final Resources res = getResources();
-		
+
 		displayIfNonZero(traits.increaseMaxHP, abilitymodifierinfo_change_maxhp, R.string.iteminfo_effect_increase_max_hp, R.string.iteminfo_effect_decrease_max_hp);
 		displayIfNonZero(traits.increaseMaxAP, abilitymodifierinfo_change_maxap, R.string.iteminfo_effect_increase_max_ap, R.string.iteminfo_effect_decrease_max_ap);
 		displayIfNonZero(traits.increaseMoveCost, abilitymodifierinfo_change_movecost, R.string.iteminfo_effect_increase_movecost, R.string.iteminfo_effect_decrease_movecost);
@@ -60,12 +60,12 @@ public final class AbilityModifierInfoView extends LinearLayout {
 		displayIfNonZero(traits.increaseCriticalSkill, abilitymodifierinfo_change_critical_skill, R.string.iteminfo_effect_increase_critical_skill, R.string.iteminfo_effect_decrease_critical_skill);
 		displayIfNonZero(traits.increaseBlockChance, abilitymodifierinfo_change_block_chance, R.string.iteminfo_effect_increase_block_chance, R.string.iteminfo_effect_decrease_block_chance);
 		displayIfNonZero(traits.increaseDamageResistance, abilitymodifierinfo_change_damage_resistance, R.string.iteminfo_effect_increase_damage_resistance, R.string.iteminfo_effect_decrease_damage_resistance);
-		
+
 		if (isWeapon) {
 			abilitymodifierinfo_change_attack_cost.setText(res.getString(R.string.iteminfo_effect_weapon_attack_cost, traits.increaseAttackCost));
 			abilitymodifierinfo_change_attack_cost.setVisibility(View.VISIBLE);
 			displayIfNonZero(traits.increaseAttackChance, abilitymodifierinfo_change_attack_chance, R.string.iteminfo_effect_weapon_attack_chance, R.string.iteminfo_effect_decrease_attack_chance);
-			
+
 			if (traits.setCriticalMultiplier != 0) {
 				abilitymodifierinfo_change_critical_multiplier.setText(res.getString(R.string.iteminfo_effect_critical_multiplier, Math.abs(traits.setCriticalMultiplier)));
 				abilitymodifierinfo_change_critical_multiplier.setVisibility(View.VISIBLE);
@@ -74,7 +74,7 @@ public final class AbilityModifierInfoView extends LinearLayout {
 			displayIfNonZero(traits.increaseAttackCost, abilitymodifierinfo_change_attack_cost, R.string.iteminfo_effect_increase_attack_cost, R.string.iteminfo_effect_decrease_attack_cost);
 			displayIfNonZero(traits.increaseAttackChance, abilitymodifierinfo_change_attack_chance, R.string.iteminfo_effect_increase_attack_chance, R.string.iteminfo_effect_decrease_attack_chance);
 		}
-		
+
 		if (traits.increaseMinDamage != 0 || traits.increaseMaxDamage != 0) {
 			if (traits.increaseMinDamage == traits.increaseMaxDamage) {
 				int label = R.string.iteminfo_effect_increase_attack_damage;
@@ -93,7 +93,7 @@ public final class AbilityModifierInfoView extends LinearLayout {
 
 	private void displayIfNonZero(int statChange, TextView textView, int stringresource_increase, int stringresource_decrease) {
 		if (statChange == 0) return;
-		
+
 		final int label = statChange > 0 ? stringresource_increase : stringresource_decrease;
 		textView.setText(getResources().getString(label, Math.abs(statChange)));
 		textView.setVisibility(View.VISIBLE);

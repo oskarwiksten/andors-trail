@@ -13,7 +13,7 @@ public final class ConversationCollection {
 	public static final String PHRASE_ATTACK = "F";
 	public static final String PHRASE_REMOVE = "R";
 	public static final String REPLY_NEXT = "N";
-	
+
 	private final HashMap<String, Phrase> phrases = new HashMap<String, Phrase>();
 
 	public boolean hasPhrase(String id) {
@@ -28,7 +28,7 @@ public final class ConversationCollection {
 		}
 		return phrases.get(id);
 	}
-	
+
 	public Collection<String> initialize(ConversationListParser parser, String input) {
 		return parser.parseRows(input, phrases);
 	}

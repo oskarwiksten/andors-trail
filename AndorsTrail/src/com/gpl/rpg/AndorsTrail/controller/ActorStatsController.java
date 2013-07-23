@@ -32,9 +32,9 @@ public final class ActorStatsController {
 	public final PlayerStatsListeners playerStatsListeners = new PlayerStatsListeners();
 
 	public ActorStatsController(ControllerContext controllers, WorldContext world) {
-    	this.controllers = controllers;
-    	this.world = world;
-    }
+		this.controllers = controllers;
+		this.world = world;
+	}
 
 	public void addConditionsFromEquippedItem(Player player, ItemType itemType) {
 		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
@@ -64,7 +64,7 @@ public final class ActorStatsController {
 			ActorCondition c = actor.conditions.get(i);
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
 			if (c.duration != duration) continue;
-			
+
 			if (c.magnitude > magnitude) {
 				c.magnitude -= magnitude;
 				actorConditionListeners.onActorConditionMagnitudeChanged(actor, c);
@@ -80,7 +80,7 @@ public final class ActorStatsController {
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
 			if (t == null) continue;
-		
+
 			ItemTraits_OnEquip equipEffects = t.effects_equip;
 			if (equipEffects == null) continue;
 			if (equipEffects.addedConditions == null) continue;
@@ -93,7 +93,7 @@ public final class ActorStatsController {
 		}
 		removeStackableActorCondition(player, type, magnitude, duration);
 	}
-	
+
 	public void applyActorCondition(Actor actor, ActorConditionEffect e) { applyActorCondition(actor, e, e.duration); }
 	private void applyActorCondition(Actor actor, ActorConditionEffect e, int duration) {
 		if (e.isRemovalEffect()) {
@@ -111,7 +111,7 @@ public final class ActorStatsController {
 	private void addStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
 		final ActorConditionType type = e.conditionType;
 		int magnitude = e.magnitude;
-		
+
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.conditions.get(i);
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
@@ -128,7 +128,7 @@ public final class ActorStatsController {
 	}
 	private void addNonStackableActorCondition(Actor actor, ActorConditionEffect e, int duration) {
 		final ActorConditionType type = e.conditionType;
-		
+
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.conditions.get(i);
 			if (!type.conditionTypeID.equals(c.conditionType.conditionTypeID)) continue;
@@ -140,7 +140,7 @@ public final class ActorStatsController {
 			actor.conditions.remove(i);
 			actorConditionListeners.onActorConditionRemoved(actor, c);
 		}
-		
+
 		ActorCondition c = e.createCondition(duration);
 		actor.conditions.add(c);
 		actorConditionListeners.onActorConditionAdded(actor, c);
@@ -154,7 +154,7 @@ public final class ActorStatsController {
 			actorConditionListeners.onActorConditionRemoved(actor, c);
 		}
 	}
-	
+
 	private void removeAllConditionsOfType(final Actor actor, final String conditionTypeID) {
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
 			ActorCondition c = actor.conditions.get(i);
@@ -163,19 +163,19 @@ public final class ActorStatsController {
 			actorConditionListeners.onActorConditionRemoved(actor, c);
 		}
 	}
-	
+
 	private void applyEffectsFromCurrentConditions(Actor actor) {
 		for (ActorCondition c : actor.conditions) {
 			applyAbilityEffects(actor, c.conditionType.abilityEffect, c.magnitude);
 		}
 	}
-	
+
 	public void applyAbilityEffects(Actor actor, AbilityModifierTraits effects, int multiplier) {
 		if (effects == null) return;
-		
+
 		addActorMaxHealth(actor, effects.increaseMaxHP * multiplier, false);
 		addActorMaxAP(actor, effects.increaseMaxAP * multiplier, false);
-		
+
 		addActorMoveCost(actor, effects.increaseMoveCost * multiplier);
 		addActorAttackCost(actor, effects.increaseAttackCost * multiplier);
 		//criticalMultiplier should not be increased. It is always defined by the weapon in use.
@@ -185,12 +185,12 @@ public final class ActorStatsController {
 		actor.damagePotential.addToMax(effects.increaseMaxDamage * multiplier);
 		actor.blockChance += effects.increaseBlockChance * multiplier;
 		actor.damageResistance += effects.increaseDamageResistance * multiplier;
-		
+
 		if (actor.attackChance < 0) actor.attackChance = 0;
 		if (actor.damagePotential.max < 0) actor.damagePotential.set(0, 0);
 	}
-	
-	public void recalculatePlayerStats(Player player) { 
+
+	public void recalculatePlayerStats(Player player) {
 		player.resetStatsToBaseTraits();
 		player.recalculateLevelExperience();
 		controllers.itemController.applyInventoryEffects(player);
@@ -200,7 +200,7 @@ public final class ActorStatsController {
 		capActorHealthAtMax(player);
 		capActorAPAtMax(player);
 	}
-	public void recalculateMonsterCombatTraits(Monster monster) { 
+	public void recalculateMonsterCombatTraits(Monster monster) {
 		monster.resetStatsToBaseTraits();
 		applyEffectsFromCurrentConditions(monster);
 		capActorHealthAtMax(monster);
@@ -214,7 +214,7 @@ public final class ActorStatsController {
 	public void applyConditionsToPlayer(Player player, boolean isFullRound) {
 		if (player.conditions.isEmpty()) return;
 		if (!isFullRound) removeConditionsFromSkillEffects(player);
-		
+
 		applyStatsEffects(player, isFullRound);
 		if (player.isDead()) {
 			controllers.mapController.handlePlayerDeath();
@@ -251,7 +251,7 @@ public final class ActorStatsController {
 			potentialConditions.add(i);
 		}
 		if (potentialConditions.isEmpty()) return -1;
-		
+
 		return potentialConditions.get(Constants.rnd.nextInt(potentialConditions.size()));
 	}
 
@@ -272,7 +272,7 @@ public final class ActorStatsController {
 			controllers.combatController.playerKilledMonster(monster);
 			return;
 		}
-		
+
 		decreaseDurationAndRemoveConditions(monster);
 	}
 
@@ -291,7 +291,7 @@ public final class ActorStatsController {
 		boolean hasEffect = applyStatsModifierEffect(actor, effect, c.magnitude);
 		if (hasEffect) actorConditionListeners.onActorConditionRoundEffectApplied(actor, c);
 	}
-	
+
 	private void decreaseDurationAndRemoveConditions(Actor actor) {
 		boolean removedAnyConditions = false;
 		for(int i = actor.conditions.size() - 1; i >= 0; --i) {
@@ -310,10 +310,10 @@ public final class ActorStatsController {
 			recalculateActorCombatTraits(actor);
 		}
 	}
-	
+
 	public void applyUseEffect(Actor source, Actor target, ItemTraits_OnUse effect) {
 		if (effect == null) return;
-		
+
 		if (effect.addedConditions_source != null) {
 			for (ActorConditionEffect e : effect.addedConditions_source) {
 				rollForConditionEffect(source, e);
@@ -335,7 +335,7 @@ public final class ActorStatsController {
 	private void rollForConditionEffect(Actor actor, ActorConditionEffect conditionEffect) {
 		int chanceRollBias = 0;
 		if (actor.isPlayer) chanceRollBias = SkillController.getActorConditionEffectChanceRollBias(conditionEffect, (Player) actor);
-		
+
 		if (!Constants.rollResult(conditionEffect.chance, chanceRollBias)) return;
 		applyActorCondition(actor, conditionEffect);
 	}
@@ -374,12 +374,12 @@ public final class ActorStatsController {
 		}
 		return hasUpdatedStats;
 	}
-	
+
 	public void applyKillEffectsToPlayer(Player player) {
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
 			if (type == null) continue;
-			
+
 			applyUseEffect(player, null, type.effects_kill);
 		}
 	}
@@ -401,42 +401,42 @@ public final class ActorStatsController {
 		,blockChance
 	}
 
-    public void addLevelupEffect(Player player, LevelUpSelection selectionID) {
-    	int hpIncrease = 0;
-    	switch (selectionID) {
-    	case health:
-    		hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
-    		break;
-    	case attackChance:
-    		player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
-    		break;
-    	case attackDamage:
-    		player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
-    		break;
-    	case blockChance:
-    		player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
-    		break;
-    	}
-    	if (player.nextLevelAddsNewSkillpoint()) {
-    		player.availableSkillIncreases++;
-    	}
-    	player.level++;
-    	
-    	hpIncrease += player.getSkillLevel(SkillCollection.SkillID.fortitude) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
-    	addActorMaxHealth(player, hpIncrease, true);
+	public void addLevelupEffect(Player player, LevelUpSelection selectionID) {
+		int hpIncrease = 0;
+		switch (selectionID) {
+		case health:
+			hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
+			break;
+		case attackChance:
+			player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
+			break;
+		case attackDamage:
+			player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
+			player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
+			break;
+		case blockChance:
+			player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
+			break;
+		}
+		if (player.nextLevelAddsNewSkillpoint()) {
+			player.availableSkillIncreases++;
+		}
+		player.level++;
+
+		hpIncrease += player.getSkillLevel(SkillCollection.SkillID.fortitude) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
+		addActorMaxHealth(player, hpIncrease, true);
 		player.baseTraits.maxHP += hpIncrease;
-		
-    	recalculatePlayerStats(player);
-    }
-	
+
+		recalculatePlayerStats(player);
+	}
+
 	public void healAllMonsters(MonsterSpawnArea area) {
 		for (Monster m : area.monsters) {
 			removeAllTemporaryConditions(m);
 			setActorMaxHealth(m);
 		}
 	}
-	
+
 	public void addExperience(int exp) {
 		if (exp == 0) return;
 		Player p = world.model.player;
@@ -457,15 +457,15 @@ public final class ActorStatsController {
 		actorStatsListeners.onActorAttackCostChanged(actor, actor.attackCost);
 	}
 
-	public void setActorMaxHealth(Actor actor) { 
+	public void setActorMaxHealth(Actor actor) {
 		if (actor.health.isMax()) return;
 		actor.health.setMax();
 		actorStatsListeners.onActorHealthChanged(actor);
 	}
-	public void capActorHealthAtMax(Actor actor) { 
+	public void capActorHealthAtMax(Actor actor) {
 		if (actor.health.capAtMax()) actorStatsListeners.onActorHealthChanged(actor);
 	}
-	public boolean addActorHealth(Actor actor, int amount) { return changeActorHealth(actor, amount, false, false); } 
+	public boolean addActorHealth(Actor actor, int amount) { return changeActorHealth(actor, amount, false, false); }
 	public boolean removeActorHealth(Actor actor, int amount) { return changeActorHealth(actor, -amount, false, false); }
 	public boolean changeActorHealth(Actor actor, int deltaAmount, boolean mayUnderflow, boolean mayOverflow) {
 		final boolean changed = actor.health.change(deltaAmount, mayUnderflow, mayOverflow);
@@ -478,13 +478,13 @@ public final class ActorStatsController {
 		if (affectCurrentHealth) actor.health.add(amount, false);
 		actorStatsListeners.onActorHealthChanged(actor);
 	}
-	
-	public void setActorMaxAP(Actor actor) { 
+
+	public void setActorMaxAP(Actor actor) {
 		if (actor.ap.isMax()) return;
 		actor.ap.setMax();
 		actorStatsListeners.onActorAPChanged(actor);
 	}
-	public void capActorAPAtMax(Actor actor) { 
+	public void capActorAPAtMax(Actor actor) {
 		if (actor.ap.capAtMax()) actorStatsListeners.onActorAPChanged(actor);
 	}
 	public boolean addActorAP(Actor actor, int amount) { return changeActorAP(actor, amount, false, false); }

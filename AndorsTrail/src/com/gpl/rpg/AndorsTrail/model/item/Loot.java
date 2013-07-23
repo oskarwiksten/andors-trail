@@ -15,7 +15,7 @@ public final class Loot {
 	public final ItemContainer items;
 	public final Coord position;
 	public final boolean isVisible;
-	
+
 	public Loot() {
 		this.items = new ItemContainer();
 		this.position = new Coord();
@@ -27,12 +27,12 @@ public final class Loot {
 		this.isVisible = isVisible;
 	}
 
-    private void add(Loot l) {
+	private void add(Loot l) {
 		this.exp += l.exp;
 		this.gold += l.gold;
 		this.items.add(l.items);
 	}
-	
+
 	public boolean hasItemsOrExp() {
 		return exp != 0 || hasItemsOrGold();
 	}
@@ -67,8 +67,8 @@ public final class Loot {
 		gold = 0;
 		items.items.clear();
 	}
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public Loot(DataInputStream src, WorldContext world, int fileversion) throws IOException {
@@ -76,7 +76,7 @@ public final class Loot {
 		this.gold = src.readInt();
 		this.items = new ItemContainer(src, world, fileversion);
 		if (fileversion < 23) LegacySavegameFormatReaderForItemContainer.refundUpgradedItems(this);
-		
+
 		this.position = new Coord(src, fileversion);
 		if (fileversion <= 15) {
 			this.isVisible = true;
@@ -84,7 +84,7 @@ public final class Loot {
 		}
 		this.isVisible = src.readBoolean();
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(exp);
 		dest.writeInt(gold);

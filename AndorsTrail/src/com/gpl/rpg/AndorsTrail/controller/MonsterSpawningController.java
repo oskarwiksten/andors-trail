@@ -15,13 +15,13 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 public final class MonsterSpawningController {
 	private final ControllerContext controllers;
 	private final WorldContext world;
-    public final MonsterSpawnListeners monsterSpawnListeners = new MonsterSpawnListeners();
+	public final MonsterSpawnListeners monsterSpawnListeners = new MonsterSpawnListeners();
 
 	public MonsterSpawningController(ControllerContext controllers, WorldContext world) {
-    	this.controllers = controllers;
-    	this.world = world;
-    }
-	
+		this.controllers = controllers;
+		this.world = world;
+	}
+
 	public void spawnAllInArea(PredefinedMap map, LayeredTileMap tileMap, MonsterSpawnArea area, boolean respawnUniqueMonsters) {
 		while (area.isSpawnable(respawnUniqueMonsters)) {
 			final boolean wasAbleToSpawn = spawnInArea(map, tileMap, area, null);
@@ -29,7 +29,7 @@ public final class MonsterSpawningController {
 		}
 		controllers.actorStatsController.healAllMonsters(area);
 	}
-	
+
 	public void maybeSpawn(PredefinedMap map, LayeredTileMap tileMap) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			if (!a.isSpawnable(false)) continue;
@@ -37,7 +37,7 @@ public final class MonsterSpawningController {
 			spawnInArea(map, tileMap, a, world.model.player.position);
 		}
 	}
-	
+
 	public void spawnAll(PredefinedMap map, LayeredTileMap tileMap) {
 		boolean respawnUniqueMonsters = false;
 		if (!map.visited) respawnUniqueMonsters = true;
@@ -45,7 +45,7 @@ public final class MonsterSpawningController {
 			spawnAllInArea(map, tileMap, a, respawnUniqueMonsters);
 		}
 	}
-	
+
 	private boolean spawnInArea(PredefinedMap map, LayeredTileMap tileMap, MonsterSpawnArea a, Coord playerPosition) {
 		return spawnInArea(map, tileMap, a, a.getRandomMonsterType(world), playerPosition);
 	}
@@ -57,7 +57,7 @@ public final class MonsterSpawningController {
 		monsterSpawnListeners.onMonsterSpawned(map, m);
 		return true;
 	}
-	
+
 	public static Coord getRandomFreePosition(PredefinedMap map, LayeredTileMap tileMap, CoordRect area, Size requiredSize, Coord playerPosition) {
 		CoordRect p = new CoordRect(requiredSize);
 		for(int i = 0; i < 100; ++i) {
@@ -67,10 +67,10 @@ public final class MonsterSpawningController {
 			if (!MonsterMovementController.monsterCanMoveTo(map, tileMap, p)) continue;
 			if (playerPosition != null && p.contains(playerPosition)) continue;
 			return p.topLeft;
-		} 
+		}
 		return null; // Couldn't find a free spot.
 	}
-	
+
 	public void remove(PredefinedMap map, Monster m) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			a.remove(m);

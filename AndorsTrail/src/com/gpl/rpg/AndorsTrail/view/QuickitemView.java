@@ -35,10 +35,10 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 
 	public QuickitemView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-	    AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-	    this.world = app.getWorld();
-        this.controllers = app.getControllerContext();
-        setFocusable(false);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
+		this.world = app.getWorld();
+		this.controllers = app.getControllerContext();
+		setFocusable(false);
 
 		int position = app.getPreferences().quickslotsPosition;
 		switch(position) {
@@ -55,7 +55,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 				break;
 		}
 
-        Resources res = getResources();
+		Resources res = getResources();
 		this.setBackgroundColor(res.getColor(color.transparent));
 
 		for(int i = 0; i < NUM_QUICK_SLOTS; ++i) {
@@ -67,7 +67,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 			addView(item);
 		}
 	}
-	
+
 	public boolean isQuickButtonId(int id){
 		for(QuickButton item: buttons){
 			if(item.getId()==id)
@@ -75,7 +75,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 		}
 		return false;
 	}
-	
+
 	@Override
 	public void onClick(View v) {
 		QuickButton button = (QuickButton)v;
@@ -83,23 +83,23 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 			return;
 		controllers.itemController.quickitemUse(button.getIndex());
 	}
-	
+
 	@Override
 	public void setVisibility(int visibility) {
 		if(visibility==VISIBLE)
 			refreshQuickitems();
 		super.setVisibility(visibility);
 	}
-	
+
 	public void refreshQuickitems() {
 		loadItemTypeImages();
-		
+
 		for (int i = 0; i < NUM_QUICK_SLOTS; ++i){
 			ItemType type = world.model.player.inventory.quickitem[i];
 			buttons[i].setItemType(type, world, tiles);
 		}
 	}
-	
+
 	private void loadItemTypeImages() {
 		boolean shouldLoadImages = false;
 		for (ItemType type : world.model.player.inventory.quickitem) {
@@ -110,14 +110,14 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 			}
 		}
 		if (!shouldLoadImages) return;
-		
+
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
-		
+
 		for (ItemType type : world.model.player.inventory.quickitem) {
 			if (type == null) continue;
 			iconIDs.add(type.iconID);
 		}
-		
+
 		loadedTileIDs.clear();
 		loadedTileIDs.addAll(iconIDs);
 		tiles = world.tileManager.loadTilesFor(iconIDs, getResources());

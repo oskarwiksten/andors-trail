@@ -17,43 +17,43 @@ public final class HeroinfoActivity extends FragmentActivity {
 
 	private FragmentTabHost tabHost;
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        if (!app.isInitialized()) { finish(); return; }
-        this.world = app.getWorld();
-        
-        app.setWindowParameters(this);
-        
-        setContentView(R.layout.tabbedlayout);
-        
-        Resources res = getResources();
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		if (!app.isInitialized()) { finish(); return; }
+		this.world = app.getWorld();
 
-        tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
+		app.setWindowParameters(this);
+
+		setContentView(R.layout.tabbedlayout);
+
+		Resources res = getResources();
+
+		tabHost = (FragmentTabHost) findViewById(android.R.id.tabhost);
 		tabHost.setup(this, getSupportFragmentManager(), R.id.realtabcontent);
 
-        tabHost.addTab(tabHost.newTabSpec("char")
-        		.setIndicator(res.getString(R.string.heroinfo_char), res.getDrawable(R.drawable.char_hero))
+		tabHost.addTab(tabHost.newTabSpec("char")
+				.setIndicator(res.getString(R.string.heroinfo_char), res.getDrawable(R.drawable.char_hero))
 				,HeroinfoActivity_Stats.class, null);
-        tabHost.addTab(tabHost.newTabSpec("quests")
-        		.setIndicator(res.getString(R.string.heroinfo_quests), res.getDrawable(R.drawable.ui_icon_quest))
+		tabHost.addTab(tabHost.newTabSpec("quests")
+				.setIndicator(res.getString(R.string.heroinfo_quests), res.getDrawable(R.drawable.ui_icon_quest))
 				,HeroinfoActivity_Quests.class, null);
-        tabHost.addTab(tabHost.newTabSpec("skills")
-        		.setIndicator(res.getString(R.string.heroinfo_skill), res.getDrawable(R.drawable.ui_icon_skill))
+		tabHost.addTab(tabHost.newTabSpec("skills")
+				.setIndicator(res.getString(R.string.heroinfo_skill), res.getDrawable(R.drawable.ui_icon_skill))
 				,HeroinfoActivity_Skills.class, null);
-        tabHost.addTab(tabHost.newTabSpec("inv")
-        		.setIndicator(res.getString(R.string.heroinfo_inv), res.getDrawable(R.drawable.ui_icon_equipment))
+		tabHost.addTab(tabHost.newTabSpec("inv")
+				.setIndicator(res.getString(R.string.heroinfo_inv), res.getDrawable(R.drawable.ui_icon_equipment))
 				,HeroinfoActivity_Inventory.class, null);
-        String t = world.model.uiSelections.selectedTabHeroInfo;
-        if (t != null && t.length() > 0) {
-        	tabHost.setCurrentTabByTag(t);
-        }
-    }
+		String t = world.model.uiSelections.selectedTabHeroInfo;
+		if (t != null && t.length() > 0) {
+			tabHost.setCurrentTabByTag(t);
+		}
+	}
 
 	@Override
-    protected void onPause() {
-        super.onPause();
-        world.model.uiSelections.selectedTabHeroInfo = tabHost.getCurrentTabTag();
-    }
+	protected void onPause() {
+		super.onPause();
+		world.model.uiSelections.selectedTabHeroInfo = tabHost.getCurrentTabTag();
+	}
 }

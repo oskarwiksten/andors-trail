@@ -13,7 +13,7 @@ import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
 import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 
 public final class WorldSetup {
-	
+
 	private final WorldContext world;
 	private final ControllerContext controllers;
 	private final WeakReference<Context> androidContext;
@@ -28,7 +28,7 @@ public final class WorldSetup {
 	public boolean isSceneReady = false;
 	public String newHeroName;
 	private int loadResult;
-	
+
 	public WorldSetup(WorldContext world, ControllerContext controllers, Context androidContext) {
 		this.world = world;
 		this.controllers = controllers;
@@ -45,19 +45,19 @@ public final class WorldSetup {
 			onResourcesLoadedListener = new WeakReference<WorldSetup.OnResourcesLoadedListener>(listener);
 		}
 	}
-	
+
 	public void startResourceLoader(final Resources r) {
 		if (isResourcesInitialized) return;
-		
+
 		synchronized (this) {
 			if (isInitializingResources) return;
 			isInitializingResources = true;
 		}
-		
+
 		(new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... arg0) {
-		        ResourceLoader.loadResources(world, r);
+				ResourceLoader.loadResources(world, r);
 				return null;
 			}
 
@@ -67,7 +67,7 @@ public final class WorldSetup {
 				synchronized (WorldSetup.this) {
 					isResourcesInitialized = true;
 					isInitializingResources = false;
-					
+
 					if (onResourcesLoadedListener == null) return;
 					WorldSetup.OnResourcesLoadedListener listener = onResourcesLoadedListener.get();
 					onResourcesLoadedListener = null;
@@ -75,9 +75,9 @@ public final class WorldSetup {
 					listener.onResourcesLoaded();
 				}
 			}
-        }).execute();
+		}).execute();
 	}
-	
+
 	public void startCharacterSetup(final OnSceneLoadedListener listener) {
 		synchronized (WorldSetup.this) {
 			this.onSceneLoadedListener = new WeakReference<OnSceneLoadedListener>(listener);
@@ -90,7 +90,7 @@ public final class WorldSetup {
 			if (this.onSceneLoadedListener.get() == listener) this.onSceneLoadedListener = null;
 		}
 	}
-	
+
 	private final Object onlyOneThreadAtATimeMayLoadSavegames = new Object();
 	private void startSceneLoader() {
 		isSceneReady = false;
@@ -98,7 +98,7 @@ public final class WorldSetup {
 		synchronized (WorldSetup.this) {
 			sceneLoaderId = thisLoaderId;
 		}
-		
+
 		(new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... arg0) {
@@ -112,7 +112,7 @@ public final class WorldSetup {
 					}
 					createNewCharacter = false;
 				}
-		    	return null;
+				return null;
 			}
 
 			@Override
@@ -121,12 +121,12 @@ public final class WorldSetup {
 				synchronized (WorldSetup.this) {
 					if (sceneLoaderId != thisLoaderId) return; // Some other thread has started after we started.
 					isSceneReady = true;
-					
+
 					if (onSceneLoadedListener == null) return;
 					OnSceneLoadedListener o = onSceneLoadedListener.get();
 					onSceneLoadedListener = null;
 					if (o == null) return;
-					
+
 					if (loadResult == Savegames.LOAD_RESULT_SUCCESS) {
 						o.onSceneLoaded();
 					} else {
@@ -134,30 +134,30 @@ public final class WorldSetup {
 					}
 				}
 			}
-        }).execute();
+		}).execute();
 	}
-	
+
 	private int continueWorld() {
 		Context ctx = androidContext.get();
 		return Savegames.loadWorld(world, controllers, ctx, loadFromSlot);
 	}
-	
+
 	private void createNewWorld() {
 		Context ctx = androidContext.get();
 		world.model = new ModelContainer();
 		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
-		
+
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
 		controllers.movementController.respawnPlayer(ctx.getResources());
 		controllers.mapController.lotsOfTimePassed();
 	}
 
 
-    public interface OnSceneLoadedListener {
-    	void onSceneLoaded();
-    	void onSceneLoadFailed(int loadResult);
-    }
-    public interface OnResourcesLoadedListener {
-    	void onResourcesLoaded();
-    }
+	public interface OnSceneLoadedListener {
+		void onSceneLoaded();
+		void onSceneLoadFailed(int loadResult);
+	}
+	public interface OnResourcesLoadedListener {
+		void onResourcesLoaded();
+	}
 }

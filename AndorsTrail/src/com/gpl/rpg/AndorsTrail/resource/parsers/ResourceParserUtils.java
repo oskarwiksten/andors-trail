@@ -13,21 +13,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public final class ResourceParserUtils {
-	
+
 	public static int parseImageID(DynamicTileLoader tileLoader, String s) {
-	   	String[] parts = s.split(":");
-	   	return tileLoader.prepareTileID(parts[0], Integer.parseInt(parts[1]));
+		String[] parts = s.split(":");
+		return tileLoader.prepareTileID(parts[0], Integer.parseInt(parts[1]));
 	}
 
 	private static final Size size1x1 = new Size(1, 1);
 	public static Size parseSize(String s, final Size defaultSize) {
 		if (s == null || s.length() <= 0) return defaultSize;
 		if (s.equals("1x1")) return size1x1;
-	   	String[] parts = s.split("x");
-	   	if (parts.length < 2) return defaultSize;
-	   	return new Size(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
+		String[] parts = s.split("x");
+		if (parts.length < 2) return defaultSize;
+		return new Size(Integer.parseInt(parts[0]), Integer.parseInt(parts[1]));
 	}
-	
+
 	public static int parseInt(String s, int defaultValue) {
 		if (s == null || s.length() <= 0) return defaultValue;
 		return Integer.parseInt(s);

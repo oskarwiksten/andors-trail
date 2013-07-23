@@ -20,7 +20,7 @@ public final class MonsterSpawnArea {
 	public final String[] monsterTypeIDs;
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
-	
+
 	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique) {
 		this.area = area;
 		this.quantity = quantity;
@@ -61,11 +61,11 @@ public final class MonsterSpawnArea {
 		quantity.current++;
 		return m;
 	}
-	
+
 	public void remove(Monster m) {
 		if (monsters.remove(m)) quantity.current--;
 	}
-	
+
 	public boolean isSpawnable(boolean includeUniqueMonsters) {
 		if (isUnique && !includeUniqueMonsters) return false;
 		return quantity.current < quantity.max;
@@ -85,8 +85,8 @@ public final class MonsterSpawnArea {
 			m.resetShopItems();
 		}
 	}
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
@@ -96,7 +96,7 @@ public final class MonsterSpawnArea {
 			monsters.add(Monster.readFromParcel(src, world, fileversion));
 		}
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(monsters.size());
 		for (Monster m : monsters) {

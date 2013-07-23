@@ -47,13 +47,13 @@ public final class MonsterType {
 	public final int blockChance;
 	public final int damageResistance;
 	public final ItemTraits_OnUse[] onHitEffects;
-	
+
 	public MonsterType(
-			String id, 
+			String id,
 			String name,
-			String spawnGroup, 
-			int exp, 
-			DropList dropList, 
+			String spawnGroup,
+			int exp,
+			DropList dropList,
 			String phraseID,
 			boolean isUnique,
 			String faction,
@@ -99,8 +99,8 @@ public final class MonsterType {
 
 	public static enum AggressionType {
 		none
-		,helpOthers     // Will move to help if the player attacks some other monster in the same spawn.
-		,protectSpawn;  // Will move to attack if the player stands inside the spawn.
+		,helpOthers		// Will move to help if the player attacks some other monster in the same spawn.
+		,protectSpawn;	// Will move to attack if the player stands inside the spawn.
 
 		public static AggressionType fromString(String s, AggressionType default_) {
 			if (s == null) return default_;
@@ -114,9 +114,9 @@ public final class MonsterType {
 		if (monsterClass == MonsterClass.demon) return true;
 		return false;
 	}
-	
+
 	public boolean hasCombatStats() {
-		if (attackCost != 10) return true; 
+		if (attackCost != 10) return true;
 		if (attackChance != 0) return true;
 		if (criticalSkill != 0) return true;
 		if (criticalMultiplier != 0) return true;

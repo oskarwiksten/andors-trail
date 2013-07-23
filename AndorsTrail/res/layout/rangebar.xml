@@ -4,7 +4,7 @@
 	android:layout_width="match_parent"
 	android:layout_height="wrap_content"
 	>
-	<TextView 
+	<TextView
 		android:id="@+id/rangebar_label"
 		android:layout_width="30sp"
 		android:layout_height="wrap_content"
@@ -15,17 +15,17 @@
 		android:shadowRadius="1"
 		android:shadowColor="#000"
 		/>
-			
+
 	<ProgressBar android:id="@+id/rangebar_progress"
 		style="?android:attr/progressBarStyleHorizontal"
-       	android:progressDrawable="@drawable/ui_progress_health"
+		android:progressDrawable="@drawable/ui_progress_health"
 		android:layout_width="match_parent"
 		android:layout_height="@dimen/healthbar_height"
 		android:layout_toRightOf="@id/rangebar_label"
 		android:layout_centerVertical="true"
 		android:layout_marginRight="3sp"
 		/>
-	
+
 	<TextView android:id="@+id/rangebar_text"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"

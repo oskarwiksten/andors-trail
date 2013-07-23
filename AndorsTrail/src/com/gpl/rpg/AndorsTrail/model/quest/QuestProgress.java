@@ -11,7 +11,7 @@ public final class QuestProgress {
 		this.questID = questID;
 		this.progress = progress;
 	}
-	
+
 	public static QuestProgress parseQuestProgress(String v) {
 		if (v == null || v.length() <= 0) return null;
 		String[] parts = v.split(":");
@@ -24,7 +24,7 @@ public final class QuestProgress {
 		final String requiresQuestID = parts[0];
 		return new QuestProgress(requiresQuestID, requiresQuestProgress);
 	}
-	
+
 	@Override
 	public String toString() {
 		return questID + ":" + progress;

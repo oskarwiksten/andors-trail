@@ -24,7 +24,7 @@ import android.widget.TextView;
 public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 	private final Resources r;
 	private final Player player;
-	
+
 	public SkillListAdapter(Context context, Collection<SkillInfo> skills, Player player) {
 		super(context, 0, filterNondisplayedSkills(skills, player));
 		this.r = context.getResources();
@@ -37,7 +37,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 			if (shouldDisplaySkill(skill, player)) result.add(skill);
 		}
 		Collections.sort(result, new Comparator<SkillInfo>() {
-    		@Override
+			@Override
 			public int compare(SkillInfo a, SkillInfo b) {
 				return a.id.ordinal() - b.id.ordinal();
 			}
@@ -55,16 +55,16 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final SkillInfo skill = getItem(position);
 		final SkillCollection.SkillID skillID = skill.id;
-		
+
 		View result = convertView;
 		if (result == null) {
 			result = View.inflate(getContext(), R.layout.skill_listentry_view, null);
 		}
-		
+
 		final ImageView icon = (ImageView) result.findViewById(R.id.skillentry_icon);
 		final TextView title = (TextView) result.findViewById(R.id.skillentry_title);
 		final TextView description = (TextView) result.findViewById(R.id.skillentry_description);
-		
+
 		String skillTitle = r.getString(SkillInfoActivity.getSkillTitleResourceID(skillID));
 		final int skillLevel = player.getSkillLevel(skillID);
 		if (skillLevel > 0) {
@@ -72,7 +72,7 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		}
 		title.setText(skillTitle);
 		description.setText(getSkillShortDescriptionResourceID(skillID));
-		
+
 		boolean enabled;
 		if (player.hasAvailableSkillpoints()) {
 			enabled = SkillController.canLevelupSkillManually(player, skill);
@@ -82,15 +82,15 @@ public final class SkillListAdapter extends ArrayAdapter<SkillInfo> {
 		icon.setEnabled(enabled);
 		title.setEnabled(enabled);
 		description.setEnabled(enabled);
-		
+
 		return result;
 	}
-	
+
 	@Override
 	public long getItemId(int position) {
 		return getItem(position).id.ordinal();
 	}
-	
+
 	private static int getSkillShortDescriptionResourceID(SkillCollection.SkillID skill) {
 		switch (skill) {
 		case weaponChance: return R.string.skill_shortdescription_weapon_chance;

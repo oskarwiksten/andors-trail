@@ -5,7 +5,7 @@
 	android:layout_height="wrap_content"
 	android:orientation="vertical"
 	>
-	
+
 	<ListView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -25,22 +25,22 @@
 		android:gravity="center_vertical"
 		style="@android:style/ButtonBar"
 		>
-			
-		<Button 
+
+		<Button
 			android:id="@+id/conversation_next"
 			android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="@string/conversation_next"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/conversation_next"
 			/>
-			
-		<Button 
+
+		<Button
 			android:id="@+id/conversation_leave"
 			android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="@string/conversation_leave"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/conversation_leave"
 			/>
 	</LinearLayout>
-	
+
 </LinearLayout>

@@ -32,23 +32,23 @@ public final class HeroinfoActivity_Skills extends Fragment {
 	private TextView listskills_number_of_increases;
 
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(getActivity());
-        if (!app.isInitialized()) return;
-        this.world = app.getWorld();
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(getActivity());
+		if (!app.isInitialized()) return;
+		this.world = app.getWorld();
 		this.controllers = app.getControllerContext();
-        this.player = world.model.player;
+		this.player = world.model.player;
 	}
 
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.heroinfo_skill_list, container, false);
 
 		final Activity ctx = getActivity();
-        skillListAdapter = new SkillListAdapter(ctx, world.skills.getAllSkills(), player);
-        ListView skillList = (ListView) v.findViewById(R.id.heroinfo_listskills_list);
-        skillList.setAdapter(skillListAdapter);
-        skillList.setOnItemClickListener(new OnItemClickListener() {
+		skillListAdapter = new SkillListAdapter(ctx, world.skills.getAllSkills(), player);
+		ListView skillList = (ListView) v.findViewById(R.id.heroinfo_listskills_list);
+		skillList.setAdapter(skillListAdapter);
+		skillList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 				Intent intent = Dialogs.getIntentForSkillInfo(ctx, skillListAdapter.getItem(position).id);
@@ -57,7 +57,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 		});
 		listskills_number_of_increases = (TextView) v.findViewById(R.id.heroinfo_listskills_number_of_increases);
 		return v;
-    }
+	}
 
 	@Override
 	public void onStart() {
@@ -84,7 +84,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 	}
 
 	private void updateSkillList() {
-        int numberOfSkillIncreases = player.getAvailableSkillIncreases();
+		int numberOfSkillIncreases = player.getAvailableSkillIncreases();
 		if (numberOfSkillIncreases > 0) {
 			if (numberOfSkillIncreases == 1) {
 				listskills_number_of_increases.setText(R.string.skill_number_of_increases_one);

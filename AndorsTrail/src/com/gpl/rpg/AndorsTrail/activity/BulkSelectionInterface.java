@@ -29,7 +29,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
  * Creates the BulkSelectionInterface dialog that allows for buy/drop/selling
  */
 public final class BulkSelectionInterface extends Activity implements TextWatcher {
-	
+
 	// class variables
 	public static enum BulkInterfaceType {
 		buy, sell, drop
@@ -37,8 +37,8 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 
 	private static final int BUTTON_REPEAT_FIRST_TIME = 300;		// Delay after the touch before the counting starts
 	private static final int BUTTON_REPEAT_FURTHER_TIMES = 50;		// Delay between two count events
-	private static final int BUTTON_REPEAT_DOUBLE_AFTER = 10;       // after how many count events the countValue doubles?
-		
+	private static final int BUTTON_REPEAT_DOUBLE_AFTER = 10;		// after how many count events the countValue doubles?
+
 	private WorldContext world;
 	private BulkInterfaceType interfaceType;
 	private ItemType itemType;
@@ -70,28 +70,28 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 	 * @param p_money - the total amount of money available - only necessary when buying
 	 */
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        if (!app.isInitialized()) { finish(); return; }
-        this.world = app.getWorld();
-        app.setWindowParameters(this);
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		if (!app.isInitialized()) { finish(); return; }
+		this.world = app.getWorld();
+		app.setWindowParameters(this);
 
-        final Resources res = getResources();
+		final Resources res = getResources();
 
-        final Intent intent = getIntent();
-        Bundle params = intent.getExtras();
-        String itemTypeID = params.getString("itemTypeID");
-        itemType = world.itemTypes.getItemType(itemTypeID);
-        totalAvailableAmount = params.getInt("totalAvailableAmount");
-        interfaceType = BulkInterfaceType.valueOf(params.getString("interfaceType"));
+		final Intent intent = getIntent();
+		Bundle params = intent.getExtras();
+		String itemTypeID = params.getString("itemTypeID");
+		itemType = world.itemTypes.getItemType(itemTypeID);
+		totalAvailableAmount = params.getInt("totalAvailableAmount");
+		interfaceType = BulkInterfaceType.valueOf(params.getString("interfaceType"));
 
 		int intialSelection = 1;
 
-        setContentView(R.layout.bulkselection);
+		setContentView(R.layout.bulkselection);
 
 		// initialize UI variables
-        TextView bulkselection_action_type = (TextView)findViewById(R.id.bulkselection_action_type);
+		TextView bulkselection_action_type = (TextView)findViewById(R.id.bulkselection_action_type);
 		bulkselection_amount_taken = (EditText)findViewById(R.id.bulkselection_amount_taken);
 		TextView bulkselection_amount_available = (TextView) findViewById(R.id.bulkselection_amount_available);
 		bulkselection_slider = (SeekBar)findViewById(R.id.bulkselection_slider);
@@ -104,29 +104,29 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 
 		// change image and name of the item
 		final TextView itemName = (TextView)findViewById(R.id.bulkselection_itemname);
-        itemName.setText(itemType.getName(world.model.player));
-        world.tileManager.setImageViewTileForSingleItemType(res, itemName, itemType);
+		itemName.setText(itemType.getName(world.model.player));
+		world.tileManager.setImageViewTileForSingleItemType(res, itemName, itemType);
 
-        int actionTextResourceID = 0;
+		int actionTextResourceID = 0;
 		if (interfaceType == BulkInterfaceType.buy) {
-        	pricePerUnit = ItemController.getBuyingPrice(world.model.player, itemType);
-        	actionTextResourceID = R.string.shop_buy;
-        } else if (interfaceType == BulkInterfaceType.sell) {
-        	pricePerUnit = ItemController.getSellingPrice(world.model.player, itemType);
-        	actionTextResourceID = R.string.shop_sell;
-        } else if (interfaceType == BulkInterfaceType.drop) {
-        	pricePerUnit = 0;
-        	actionTextResourceID = R.string.inventory_drop;
-        	bulkselection_summary_totalgold.setVisibility(View.GONE);
-        }
+			pricePerUnit = ItemController.getBuyingPrice(world.model.player, itemType);
+			actionTextResourceID = R.string.shop_buy;
+		} else if (interfaceType == BulkInterfaceType.sell) {
+			pricePerUnit = ItemController.getSellingPrice(world.model.player, itemType);
+			actionTextResourceID = R.string.shop_sell;
+		} else if (interfaceType == BulkInterfaceType.drop) {
+			pricePerUnit = 0;
+			actionTextResourceID = R.string.inventory_drop;
+			bulkselection_summary_totalgold.setVisibility(View.GONE);
+		}
 		String actionText = res.getString(actionTextResourceID);
-		
+
 		// initialize the visual components visuals
 		okButton.setText(actionText);
 		bulkselection_action_type.setText(actionText + ' ');
 		bulkselection_amount_available.setText(Integer.toString(totalAvailableAmount));
 		bulkselection_slider.setMax(totalAvailableAmount - 1);
-		
+
 		// hide Slider and Buttons when there is only 1 item available
 		if(totalAvailableAmount == 1){
 			decrementButton.setVisibility(View.GONE);
@@ -134,7 +134,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 			selectAllButton.setVisibility(View.GONE);
 			bulkselection_slider.setVisibility(View.GONE);
 		}
-		
+
 		updateControls(intialSelection);
 
 		OnTouchListener incrementDecrementListener = new OnTouchListener() {
@@ -149,20 +149,20 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 					break;
 				case MotionEvent.ACTION_UP:
 				case MotionEvent.ACTION_CANCEL:
-				case MotionEvent.ACTION_OUTSIDE: 
+				case MotionEvent.ACTION_OUTSIDE:
 					timedEventHandler.removeCallbacks(countEvent);
 					break;
 			}
 			return false;
 			}
 		};
-		
+
 		// setup decrement button
 		decrementButton.setOnTouchListener(incrementDecrementListener);
 
 		// setup increment button
 		incrementButton.setOnTouchListener(incrementDecrementListener);
-		
+
 		// setup EditText listeners
 		bulkselection_amount_taken.setOnKeyListener(new View.OnKeyListener() {
 			@Override
@@ -173,9 +173,9 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 				return false;
 			}
 		});
-		
+
 		bulkselection_amount_taken.addTextChangedListener(this);
-		
+
 		// setup slider event listeners
 		bulkselection_slider.setOnTouchListener(new View.OnTouchListener() {
 			@Override
@@ -184,7 +184,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 				return false;
 			}
 		});
-		
+
 		// setup OK button
 		okButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -192,19 +192,19 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 				if (requiresConfirmation()) {
 					final String displayType = ItemInfoActivity.getDisplayTypeString(res, itemType).toLowerCase();
 					final String message = res.getString(R.string.bulkselection_sell_confirmation, itemType.getName(world.model.player), displayType);
-					
+
 					new AlertDialog.Builder(v.getContext())
-				        .setIcon(android.R.drawable.ic_dialog_info)
-				        .setTitle(R.string.bulkselection_sell_confirmation_title)
-				        .setMessage(message)
-				        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-				            @Override
-				            public void onClick(DialogInterface dialog, int which) {
-				            	itemsResult(intent);
+						.setIcon(android.R.drawable.ic_dialog_info)
+						.setTitle(R.string.bulkselection_sell_confirmation_title)
+						.setMessage(message)
+						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								itemsResult(intent);
 							}
-							        })
-				        .setNegativeButton(android.R.string.no, null)
-				        .show();
+									})
+						.setNegativeButton(android.R.string.no, null)
+						.show();
 				} else {
 					itemsResult(intent);
 				}
@@ -216,7 +216,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 				return true;
 			}
 	 	});
-		
+
 		// setup cancel button
 		cancelButton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -225,7 +225,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 				finish();
 			}
 		});
-		
+
 		selectAllButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -233,7 +233,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 			}
 		});
 	}
-	
+
 	private void itemsResult(Intent intent){
 		Intent result = new Intent();
 		result.putExtras(intent);
@@ -241,47 +241,47 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		setResult(RESULT_OK, result);
 		BulkSelectionInterface.this.finish();
 	}
-	
+
 	private void incrementValueAndRepeat(int repeatAfterInterval) {
 		if(++countTime % BUTTON_REPEAT_DOUBLE_AFTER == 0) countValue *= 2;
 		int newAmount = getTextboxAmount() + countValue;
 		updateControls(newAmount);
-		if (newAmount <= 1 || newAmount >= totalAvailableAmount) return; // Do not repeat if we have reached the end of the scale. 
+		if (newAmount <= 1 || newAmount >= totalAvailableAmount) return; // Do not repeat if we have reached the end of the scale.
 		timedEventHandler.postDelayed(countEvent, repeatAfterInterval);
 	}
-	
+
 	private boolean canSelectFinalizeButton() {
 		int amount = getTextboxAmount();
 		if (amount <= 0) return false;
 		if (amount > totalAvailableAmount) return false;
-		
+
 		if (interfaceType == BulkInterfaceType.buy) {
 			if (amount * pricePerUnit > world.model.player.getGold()) return false;
 		}
-		
+
 		return true;
 	}
-	
+
 	// adjusts the amount to the possible interval / synchronizes changes between controls
 	private void updateControls(int newAmount) {
 		int oldSliderAmount = bulkselection_slider.getProgress() + 1;
 		int oldEditboxAmount = getTextboxAmount();
-		
+
 		// adjust amount
 		if (newAmount < 1) newAmount = 1;
 		if (newAmount > totalAvailableAmount) newAmount = totalAvailableAmount;
-		
+
 		// update controls
-		if (newAmount != oldEditboxAmount) bulkselection_amount_taken.setText(Integer.toString(newAmount)); // change the amount taken/text
-		if (newAmount != oldSliderAmount) bulkselection_slider.setProgress(newAmount - 1);                  // change the amount taken/text
+		if (newAmount != oldEditboxAmount) bulkselection_amount_taken.setText(Integer.toString(newAmount));	// change the amount taken/text
+		if (newAmount != oldSliderAmount) bulkselection_slider.setProgress(newAmount - 1);					// change the amount taken/text
 
 		// display buying/selling information if not dropping
 		if (interfaceType == BulkInterfaceType.buy) {
 			bulkselection_summary_totalgold.setText(getResources().getString(R.string.bulkselection_totalcost_buy, newAmount * pricePerUnit));
 		} else if (interfaceType == BulkInterfaceType.sell) {
 			bulkselection_summary_totalgold.setText(getResources().getString(R.string.bulkselection_totalcost_sell, newAmount * pricePerUnit));
-		} 
-		
+		}
+
 		okButton.setEnabled(canSelectFinalizeButton());
 	}
 
@@ -293,7 +293,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		} catch (NumberFormatException e) {	}
 		return 0;
 	}
-	
+
 	@Override
 	public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) { }
 
@@ -305,5 +305,5 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		if (bulkselection_amount_taken.getText().toString().equals("")) return;
 		int newAmount = getTextboxAmount();
 		updateControls(newAmount);
-    }
+	}
 }

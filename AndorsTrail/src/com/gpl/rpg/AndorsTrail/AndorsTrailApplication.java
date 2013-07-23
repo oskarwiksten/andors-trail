@@ -30,20 +30,20 @@ public final class AndorsTrailApplication extends Application {
 	public WorldSetup getWorldSetup() { return setup; }
 	public AndorsTrailPreferences getPreferences() { return preferences; }
 	public ControllerContext getControllerContext() { return controllers; }
-	
+
 	public static AndorsTrailApplication getApplicationFromActivity(Activity activity) {
 		return ((AndorsTrailApplication) activity.getApplication());
 	}
 	public static AndorsTrailApplication getApplicationFromActivityContext(Context context) {
-		return getApplicationFromActivity(getActivityFromActivityContext(context)); 
+		return getApplicationFromActivity(getActivityFromActivityContext(context));
 	}
-    private static Activity getActivityFromActivityContext(Context context) {
+	private static Activity getActivityFromActivityContext(Context context) {
 		return (Activity) context;
 	}
-	
+
 	public boolean isInitialized() { return world.model != null; }
-	
-	public void setWindowParameters(Activity activity) { 
+
+	public void setWindowParameters(Activity activity) {
 		activity.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		if (preferences.fullscreen) {
 			activity.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);

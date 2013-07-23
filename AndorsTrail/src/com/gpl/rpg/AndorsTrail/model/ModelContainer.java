@@ -11,14 +11,14 @@ import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 
 public final class ModelContainer {
-	
+
 	public final Player player;
 	public final InterfaceData uiSelections;
 	public final CombatLog combatLog = new CombatLog();
 	public final GameStatistics statistics;
 	public PredefinedMap currentMap;
 	public LayeredTileMap currentTileMap;
-	
+
 	public ModelContainer() {
 		player = new Player();
 		uiSelections = new InterfaceData();
@@ -37,7 +37,7 @@ public final class ModelContainer {
 		this.statistics = new GameStatistics(src, world, fileversion);
 		this.currentTileMap = null;
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		player.writeToParcel(dest, flags);
 		dest.writeUTF(currentMap.name);

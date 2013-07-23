@@ -29,9 +29,9 @@ public final class ShopActivity_Sell extends ShopActivityFragment {
 		startActivityForResult(intent, INTENTREQUEST_ITEMINFO);
 	}
 
-    @Override
+	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-    	super.onActivityResult(requestCode, resultCode, data);
+		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode != Activity.RESULT_OK) return;
 
 		ItemType itemType = world.itemTypes.getItemType(data.getExtras().getString("itemTypeID"));
@@ -47,7 +47,7 @@ public final class ShopActivity_Sell extends ShopActivityFragment {
 		update();
 	}
 
-    private void showSellingInterface(ItemType itemType) {
+	private void showSellingInterface(ItemType itemType) {
 		Intent intent = Dialogs.getIntentForBulkSellingInterface(getActivity(), itemType.id, player.inventory.getItemQuantity(itemType.id));
 		startActivityForResult(intent, INTENTREQUEST_BULKSELECT);
 	}

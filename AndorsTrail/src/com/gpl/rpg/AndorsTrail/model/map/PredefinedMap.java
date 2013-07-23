@@ -20,7 +20,7 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class PredefinedMap {
 	private static final long VISIT_RESET = 0;
-	
+
 	public final int xmlResourceId;
 	public final String name;
 	public final Size size;
@@ -45,62 +45,62 @@ public final class PredefinedMap {
 		this.isOutdoors = isOutdoors;
 	}
 
-    public final boolean isOutside(final Coord p) { return isOutside(p.x, p.y); }
-    public final boolean isOutside(final int x, final int y) {
-    	if (x < 0) return true;
-    	if (y < 0) return true;
-    	if (x >= size.width) return true;
-    	if (y >= size.height) return true;
-    	return false;
-    }
-    public final boolean isOutside(final CoordRect area) {
-    	if (isOutside(area.topLeft)) return true;
-    	if (area.topLeft.x + area.size.width > size.width) return true;
-    	if (area.topLeft.y + area.size.height > size.height) return true;
-    	return false;
-    }
-    
-    public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
-    	for (MapObject o : eventObjects) {
-    		if (o.type == objectType && name.equals(o.id)) return o;
-    	}
-    	return null;
-    }
-    public MapObject getEventObjectAt(final Coord p) {
-    	for (MapObject o : eventObjects) {
-    		if (o.position.contains(p)) {
-    			return o;
-    		}
-    	}
-		return null;
-	}
-    public boolean hasContainerAt(final Coord p) {
-    	for (MapObject o : eventObjects) {
-    		if (o.type == MapObject.MapObjectType.container) {
-	    		if (o.position.contains(p)) {
-	    			return true;
-	    		}
-    		}
-    	}
+	public final boolean isOutside(final Coord p) { return isOutside(p.x, p.y); }
+	public final boolean isOutside(final int x, final int y) {
+		if (x < 0) return true;
+		if (y < 0) return true;
+		if (x >= size.width) return true;
+		if (y >= size.height) return true;
 		return false;
 	}
-    
-    public Monster getMonsterAt(final CoordRect p) {
-    	for (MonsterSpawnArea a : spawnAreas) {
-			Monster m = a.getMonsterAt(p);
-			if (m != null) return m;
-		}	
+	public final boolean isOutside(final CoordRect area) {
+		if (isOutside(area.topLeft)) return true;
+		if (area.topLeft.x + area.size.width > size.width) return true;
+		if (area.topLeft.y + area.size.height > size.height) return true;
+		return false;
+	}
+
+	public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
+		for (MapObject o : eventObjects) {
+			if (o.type == objectType && name.equals(o.id)) return o;
+		}
 		return null;
 	}
-    public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
+	public MapObject getEventObjectAt(final Coord p) {
+		for (MapObject o : eventObjects) {
+			if (o.position.contains(p)) {
+				return o;
+			}
+		}
+		return null;
+	}
+	public boolean hasContainerAt(final Coord p) {
+		for (MapObject o : eventObjects) {
+			if (o.type == MapObject.MapObjectType.container) {
+				if (o.position.contains(p)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	public Monster getMonsterAt(final CoordRect p) {
+		for (MonsterSpawnArea a : spawnAreas) {
+			Monster m = a.getMonsterAt(p);
+			if (m != null) return m;
+		}
+		return null;
+	}
+	public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
 	public Monster getMonsterAt(final int x, final int y) {
 		for (MonsterSpawnArea a : spawnAreas) {
 			Monster m = a.getMonsterAt(x, y);
 			if (m != null) return m;
-		}	
+		}
 		return null;
 	}
-	
+
 	public Loot getBagAt(final Coord p) {
 		for (Loot l : groundBags) {
 			if (l.position.equals(p)) return l;
@@ -169,15 +169,15 @@ public final class PredefinedMap {
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {
-    		if (o.type == MapObject.MapObjectType.container) {
-	    		Loot bag = getBagOrCreateAt(o.position.topLeft);
-	    		o.dropList.createRandomLoot(bag, null);
-    		}
-    	}
+			if (o.type == MapObject.MapObjectType.container) {
+				Loot bag = getBagOrCreateAt(o.position.topLeft);
+				o.dropList.createRandomLoot(bag, null);
+			}
+		}
 	}
 
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {

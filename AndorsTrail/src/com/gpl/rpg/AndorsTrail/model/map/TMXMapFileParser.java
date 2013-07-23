@@ -19,11 +19,11 @@ public final class TMXMapFileParser {
 	public static TMXObjectMap readObjectMap(Resources r, int xmlResourceId, String name) {
 		return readObjectMap(r.getXml(xmlResourceId), xmlResourceId, name);
 	}
-	
+
 	public static TMXLayerMap readLayerMap(Resources r, int xmlResourceId, String name) {
 		return readLayerMap(r.getXml(xmlResourceId), name);
 	}
-	
+
 	private static TMXObjectMap readObjectMap(XmlResourceParser xrp, int xmlResourceId, String name) {
 		final TMXObjectMap map = new TMXObjectMap();
 		map.xmlResourceId = xmlResourceId;
@@ -48,10 +48,10 @@ public final class TMXMapFileParser {
 								}
 							}
 						});
-					} 
+					}
 				}
-            }
-            xrp.close();
+			}
+			xrp.close();
 		} catch (XmlPullParserException e) {
 			L.log("Error reading map \"" + name + "\": XmlPullParserException : " + e.toString());
 		} catch (IOException e) {
@@ -59,7 +59,7 @@ public final class TMXMapFileParser {
 		}
 		return map;
 	}
-	
+
 
 	private static TMXLayerMap readLayerMap(XmlResourceParser xrp, final String name) {
 		final TMXLayerMap map = new TMXLayerMap();
@@ -89,12 +89,12 @@ public final class TMXMapFileParser {
 								}
 							}
 						});
-					} 
+					}
 				}
-            }
-            xrp.close();
-            map.layers = layers.toArray(new TMXLayer[layers.size()]);
-            map.tileSets = tileSets.toArray(new TMXTileSet[tileSets.size()]);
+			}
+			xrp.close();
+			map.layers = layers.toArray(new TMXLayer[layers.size()]);
+			map.tileSets = tileSets.toArray(new TMXTileSet[tileSets.size()]);
 		} catch (XmlPullParserException e) {
 			L.log("Error reading layered map \"" + name + "\": XmlPullParserException : " + e.toString());
 		} catch (IOException e) {
@@ -115,7 +115,7 @@ public final class TMXMapFileParser {
 				if (tagName.equals("image")) {
 					ts.imageSource = xrp.getAttributeValue(null, "source");
 					ts.imageName = ts.imageSource;
-					
+
 					int v = ts.imageName.lastIndexOf('/');
 					if (v >= 0) ts.imageName = ts.imageName.substring(v+1);
 				}
@@ -123,7 +123,7 @@ public final class TMXMapFileParser {
 		});
 		return ts;
 	}
-	
+
 	private static TMXObjectGroup readTMXObjectGroup(XmlResourceParser xrp) throws XmlPullParserException, IOException {
 		final TMXObjectGroup group = new TMXObjectGroup();
 		group.name = xrp.getAttributeValue(null, "name");
@@ -138,7 +138,7 @@ public final class TMXMapFileParser {
 		});
 		return group;
 	}
-	
+
 	private static TMXObject readTMXObject(XmlResourceParser xrp) throws XmlPullParserException, IOException {
 		final TMXObject object = new TMXObject();
 		object.name = xrp.getAttributeValue(null, "name");
@@ -156,7 +156,7 @@ public final class TMXMapFileParser {
 		});
 		return object;
 	}
-	
+
 	private static TMXLayer readTMXMapLayer(XmlResourceParser xrp) throws XmlPullParserException, IOException {
 		final TMXLayer layer = new TMXLayer();
 		layer.name = xrp.getAttributeValue(null, "name");
@@ -172,16 +172,16 @@ public final class TMXMapFileParser {
 		});
 		return layer;
 	}
-	
+
 	private static void readTMXMapLayerData(XmlResourceParser xrp, final TMXLayer layer) throws XmlPullParserException, IOException {
 		String compressionMethod = xrp.getAttributeValue(null, "compression");
 		xrp.next();
 		String data = xrp.getText().replaceAll("\\s", "");
 		final int len = layer.width * layer.height * 4;
-		
+
 		ByteArrayInputStream bi = new ByteArrayInputStream(Base64.decode(data));
 		if (compressionMethod == null) compressionMethod = "none";
-		
+
 		InflaterInputStream zi;
 		if (compressionMethod.equalsIgnoreCase("zlib")) {
 			zi = new InflaterInputStream(bi);
@@ -190,10 +190,10 @@ public final class TMXMapFileParser {
 		} else {
 			throw new IOException("Unhandled compression method \"" + compressionMethod + "\" for map layer " + layer.name);
 		}
-		
+
 		byte[] buffer = new byte[len];
 		copyStreamToBuffer(zi, buffer, len);
-		
+
 		zi.close();
 		bi.close();
 		int i = 0;
@@ -212,14 +212,14 @@ public final class TMXMapFileParser {
 			throw new IOException("Failed to create layout hash for map layer " + layer.name);
 		}
 	}
-	
+
 	private static TMXProperty readTMXProperty(XmlResourceParser xrp) {
 		final TMXProperty property = new TMXProperty();
 		property.name = xrp.getAttributeValue(null, "name");
 		property.value = xrp.getAttributeValue(null, "value");
 		return property;
 	}
-	
+
 	private static void copyStreamToBuffer(InflaterInputStream zi, byte[] buffer, int len) throws IOException {
 		int offset = 0;
 		int bytesToRead = len;
@@ -230,7 +230,7 @@ public final class TMXMapFileParser {
 			offset += b;
 		}
 	}
-	
+
 	/*
 	private static String getHexString(byte v) {
 		String result = Integer.toHexString(v & 0xff);
@@ -238,9 +238,9 @@ public final class TMXMapFileParser {
 		return result;
 	}
 	private static String getHexString(byte[] buffer, int offset) {
-		return getHexString(buffer[offset]) 
-			+ getHexString(buffer[offset+1]) 
-			+ getHexString(buffer[offset+2]) 
+		return getHexString(buffer[offset])
+			+ getHexString(buffer[offset+1])
+			+ getHexString(buffer[offset+2])
 			+ getHexString(buffer[offset+3]);
 	}
 	*/
@@ -250,7 +250,7 @@ public final class TMXMapFileParser {
 				(buffer[offset + 2] << 16) & 0x00ff0000 |
 				(buffer[offset + 3] << 24) & 0xff000000;
 	}
-	
+
 	public static final class TMXObjectMap extends TMXMap {
 		public int xmlResourceId;
 		public final ArrayList<TMXObjectGroup> objectGroups = new ArrayList<TMXObjectGroup>();
@@ -303,7 +303,7 @@ public final class TMXMapFileParser {
 		public String value;
 	}
 	/*
-	 
+
 	 <map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
 		 <tileset firstgid="1" name="tiles" tilewidth="32" tileheight="32">
 	  		<image source="tilesets/tiles.png"/>

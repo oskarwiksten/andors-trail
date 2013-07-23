@@ -7,7 +7,7 @@ public final class StatsModifierTraits {
 	public final VisualEffectCollection.VisualEffectID visualEffectID;
 	public final ConstRange currentHPBoost;
 	public final ConstRange currentAPBoost;
-	
+
 	public StatsModifierTraits(
 			VisualEffectCollection.VisualEffectID visualEffectID
 			, ConstRange currentHPBoost
@@ -16,11 +16,11 @@ public final class StatsModifierTraits {
 		this.currentHPBoost = currentHPBoost;
 		this.currentAPBoost = currentAPBoost;
 	}
-	
+
 	public int calculateUseCost() {
 		final float averageHPBoost = currentHPBoost == null ? 0 : currentHPBoost.averagef();
 		if (averageHPBoost == 0) return 0;
-		
+
 		final int costBoostHP = (int) (0.1*Math.signum(averageHPBoost)*Math.pow(Math.abs(averageHPBoost), 2) + 3*averageHPBoost);
 		return costBoostHP;
 	}

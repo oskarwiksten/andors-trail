@@ -8,9 +8,9 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ItemTypeCollection {
 	private static final String ITEMTYPE_GOLD = "gold";
-	
+
 	private final HashMap<String, ItemType> itemTypes = new HashMap<String, ItemType>();
-	
+
 	public ItemType getItemType(String id) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!itemTypes.containsKey(id)) {
@@ -25,7 +25,7 @@ public final class ItemTypeCollection {
 		if (itemTypeID == null) return false;
 		return itemTypeID.equals(ITEMTYPE_GOLD);
 	}
-	
+
 	public void initialize(final ItemTypeParser parser, String input) {
 		parser.parseRows(input, itemTypes);
 	}
@@ -35,4 +35,3 @@ public final class ItemTypeCollection {
 		return itemTypes;
 	}
 }
-  

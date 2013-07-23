@@ -22,24 +22,24 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 	private final ActorConditionEffectList itemeffect_onuse_conditions_target;
 	private final TextView itemeffect_onuse_conditions_source_title;
 	private final TextView itemeffect_onuse_conditions_target_title;
-	
+
 	public ItemEffectsView_OnUse(Context context, AttributeSet attr) {
 		super(context, attr);
-        setFocusable(false);
-        setOrientation(LinearLayout.VERTICAL);
-        inflate(context, R.layout.itemeffectview_onuse, this);
-        
-        itemeffect_onuse_list = (LinearLayout) findViewById(R.id.itemeffect_onuse_list);
-        itemeffect_onuse_conditions_source_title = (TextView) findViewById(R.id.itemeffect_onuse_conditions_source_title);
-        itemeffect_onuse_conditions_target_title = (TextView) findViewById(R.id.itemeffect_onuse_conditions_target_title);
-        itemeffect_onuse_conditions_source = (ActorConditionEffectList) findViewById(R.id.itemeffect_onuse_conditions_source);
-        itemeffect_onuse_conditions_target = (ActorConditionEffectList) findViewById(R.id.itemeffect_onuse_conditions_target);
-    }
+		setFocusable(false);
+		setOrientation(LinearLayout.VERTICAL);
+		inflate(context, R.layout.itemeffectview_onuse, this);
+
+		itemeffect_onuse_list = (LinearLayout) findViewById(R.id.itemeffect_onuse_list);
+		itemeffect_onuse_conditions_source_title = (TextView) findViewById(R.id.itemeffect_onuse_conditions_source_title);
+		itemeffect_onuse_conditions_target_title = (TextView) findViewById(R.id.itemeffect_onuse_conditions_target_title);
+		itemeffect_onuse_conditions_source = (ActorConditionEffectList) findViewById(R.id.itemeffect_onuse_conditions_source);
+		itemeffect_onuse_conditions_target = (ActorConditionEffectList) findViewById(R.id.itemeffect_onuse_conditions_target);
+	}
 
 	public void update(Collection<ItemTraits_OnUse> effects) {
 		ArrayList<ActorConditionEffect> sourceEffects = new ArrayList<ActorConditionEffect>();
 		ArrayList<ActorConditionEffect> targetEffects = new ArrayList<ActorConditionEffect>();
-		
+
 		itemeffect_onuse_list.removeAllViews();
 		if (effects != null) {
 			final Context context = getContext();
@@ -47,7 +47,7 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 			for (ItemTraits_OnUse t : effects) {
 				if (t.addedConditions_source != null) sourceEffects.addAll(Arrays.asList(t.addedConditions_source));
 				if (t.addedConditions_target != null) targetEffects.addAll(Arrays.asList(t.addedConditions_target));
-				
+
 				describeStatsModifierTraits(t.changedStats, context, res, itemeffect_onuse_list);
 			}
 		}
@@ -64,10 +64,10 @@ public final class ItemEffectsView_OnUse extends LinearLayout {
 			itemeffect_onuse_conditions_target_title.setVisibility(View.VISIBLE);
 		}
 	}
-	
+
 	public static void describeStatsModifierTraits(StatsModifierTraits traits, Context context, Resources res, LinearLayout listView) {
 		LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-		
+
 		if (traits.currentAPBoost != null) {
 			final int label = traits.currentAPBoost.max > 0 ? R.string.iteminfo_effect_increase_current_ap : R.string.iteminfo_effect_decrease_current_ap;
 			final TextView tv = new TextView(context);

@@ -20,7 +20,7 @@ public final class Monster extends Actor {
 	public Coord movementDestination = null;
 	public long nextActionTime = 0;
 	public final CoordRect nextPosition;
-	
+
 	private boolean forceAggressive = false;
 	private ItemContainer shopItems = null;
 
@@ -29,7 +29,7 @@ public final class Monster extends Actor {
 	public Monster(MonsterType monsterType) {
 		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
 		this.monsterType = monsterType;
-        this.iconID = monsterType.iconID;
+		this.iconID = monsterType.iconID;
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
 		this.ap.setMax();
@@ -81,7 +81,7 @@ public final class Monster extends Actor {
 	public boolean isAdjacentTo(Player p) {
 		return this.rectPosition.isAdjacentTo(p.position);
 	}
-	
+
 	public boolean isAgressive() {
 		return getPhraseID() == null || forceAggressive;
 	}
@@ -89,8 +89,8 @@ public final class Monster extends Actor {
 	public void forceAggressive() {
 		forceAggressive = true;
 	}
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public static Monster readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
@@ -99,15 +99,15 @@ public final class Monster extends Actor {
 			monsterTypeId = monsterTypeId.replace(' ', '_').replace("\\'", "").toLowerCase();
 		}
 		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
-		
+
 		if (fileversion < 25) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v25(src, fileversion, monsterType);
-		
+
 		return new Monster(src, world, fileversion, monsterType);
 	}
 
 	private Monster(DataInputStream src, WorldContext world, int fileversion, MonsterType monsterType) throws IOException {
 		this(monsterType);
-		
+
 		boolean readCombatTraits = true;
 		if (fileversion >= 25) readCombatTraits = src.readBoolean();
 		if (readCombatTraits) {
@@ -123,7 +123,7 @@ public final class Monster extends Actor {
 			this.blockChance = src.readInt();
 			this.damageResistance = src.readInt();
 		}
-		
+
 		this.ap.readFromParcel(src, fileversion);
 		this.health.readFromParcel(src, fileversion);
 		this.position.readFromParcel(src, fileversion);
@@ -133,7 +133,7 @@ public final class Monster extends Actor {
 				conditions.add(new ActorCondition(src, world, fileversion));
 			}
 		}
-		
+
 		if (fileversion >= 34) {
 			this.moveCost = src.readInt();
 		}
@@ -175,7 +175,7 @@ public final class Monster extends Actor {
 			c.writeToParcel(dest, flags);
 		}
 		dest.writeInt(moveCost);
-		
+
 		dest.writeBoolean(forceAggressive);
 		if (shopItems != null) {
 			dest.writeBoolean(true);

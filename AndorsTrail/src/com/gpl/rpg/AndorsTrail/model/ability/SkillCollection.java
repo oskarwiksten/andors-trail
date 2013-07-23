@@ -18,19 +18,19 @@ public final class SkillCollection {
 		,barkSkin
 		,moreCriticals
 		,betterCriticals
-		,speed 			// Raises max ap
+		,speed				// Raises max ap
 		,coinfinder
 		,moreExp
-		,cleave 			// +10ap on kill
-		,eater 			// +1hp per kill
-		,fortitude 		// +N hp per levelup
-		,evasion 		// increase successful flee chance & reduce chance of monster attack
-		,regeneration 	// +N hp per round
+		,cleave				// +10ap on kill
+		,eater				// +1hp per kill
+		,fortitude			// +N hp per levelup
+		,evasion			// increase successful flee chance & reduce chance of monster attack
+		,regeneration		// +N hp per round
 		,lowerExploss
 		,magicfinder
-		,resistanceMental      // lowers chance to get negative active conditions by monsters (Mental like Dazed)
-		,resistancePhysical    // lowers chance to get negative active conditions by monsters (Physical Capacity like Minor fatigue)
-		,resistanceBlood       // lowers chance to get negative active conditions by monsters (Blood Disorder like Weak Poison)
+		,resistanceMental	// lowers chance to get negative active conditions by monsters (Mental like Dazed)
+		,resistancePhysical	// lowers chance to get negative active conditions by monsters (Physical Capacity like Minor fatigue)
+		,resistanceBlood	// lowers chance to get negative active conditions by monsters (Blood Disorder like Weak Poison)
 		,shadowBless
 		,crit1			// lowers atk ability
 		,crit2			// lowers def ability ,rejuvenation	// Reduces magnitudes of conditions
@@ -54,7 +54,7 @@ public final class SkillCollection {
 		,specialization2hand
 		,specializationWeaponShield
 	}
-	
+
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_CHANCE = 12;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX = 2;
 	public static final int PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN = 0;
@@ -119,7 +119,7 @@ public final class SkillCollection {
 			);
 	public static final int MAX_LEVEL_LOWER_EXPLOSS = 100 / PER_SKILLPOINT_INCREASE_EXPLOSS_PERCENT;
 	public static final int MAX_LEVEL_RESISTANCE = 70 / PER_SKILLPOINT_INCREASE_RESISTANCE_CHANCE_PERCENT;
-	
+
 	private final SparseArray<SkillInfo> skills = new SparseArray<SkillInfo>();
 	private void initializeSkill(SkillInfo skill) {
 		skills.put(skill.id.ordinal(), skill);
@@ -130,7 +130,7 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SkillID.barter, MAX_LEVEL_BARTER, SkillInfo.LevelUpType.alwaysShown, null));
 		initializeSkill(new SkillInfo(SkillID.dodge, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
 		initializeSkill(new SkillInfo(SkillID.barkSkin, MAX_LEVEL_BARKSKIN, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
-			SkillLevelRequirement.requireExperienceLevels(10, 0) 
+			SkillLevelRequirement.requireExperienceLevels(10, 0)
 			,SkillLevelRequirement.requirePlayerStats(Player.StatID.blockChance, 15, 0)
 		}));
 		initializeSkill(new SkillInfo(SkillID.moreCriticals, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
@@ -138,7 +138,7 @@ public final class SkillCollection {
 			SkillLevelRequirement.requireOtherSkill(SkillID.moreCriticals, 1)
 		}));
 		initializeSkill(new SkillInfo(SkillID.speed, MAX_LEVEL_SPEED, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
-			SkillLevelRequirement.requireExperienceLevels(15, 0) 
+			SkillLevelRequirement.requireExperienceLevels(15, 0)
 		}));
 		initializeSkill(new SkillInfo(SkillID.coinfinder, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
 		initializeSkill(new SkillInfo(SkillID.moreExp, SkillInfo.MAXLEVEL_NONE, SkillInfo.LevelUpType.alwaysShown, null));
@@ -197,13 +197,13 @@ public final class SkillCollection {
 		initializeSkill(new SkillInfo(SkillID.armorProficiencyLight, 3, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
 		initializeSkill(new SkillInfo(SkillID.armorProficiencyHeavy, 4, SkillInfo.LevelUpType.firstLevelRequiresQuest, null));
 		initializeSkill(new SkillInfo(SkillID.fightstyleDualWield, 2, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
-				SkillLevelRequirement.requireExperienceLevels(15, 0) 
+				SkillLevelRequirement.requireExperienceLevels(15, 0)
 			}));
 		initializeSkill(new SkillInfo(SkillID.fightstyle2hand, 2, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
-				SkillLevelRequirement.requireExperienceLevels(15, 0) 
+				SkillLevelRequirement.requireExperienceLevels(15, 0)
 			}));
 		initializeSkill(new SkillInfo(SkillID.fightstyleWeaponShield, 2, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
-				SkillLevelRequirement.requireExperienceLevels(15, 0) 
+				SkillLevelRequirement.requireExperienceLevels(15, 0)
 			}));
 		initializeSkill(new SkillInfo(SkillID.specializationDualWield, 1, SkillInfo.LevelUpType.alwaysShown, new SkillLevelRequirement[] {
 				SkillLevelRequirement.requireExperienceLevels(45, 0)
@@ -222,7 +222,7 @@ public final class SkillCollection {
 	public SkillInfo getSkill(SkillID skillID) {
 		return skills.get(skillID.ordinal());
 	}
-	
+
 	public Collection<SkillInfo> getAllSkills() {
 		ArrayList<SkillInfo> result = new ArrayList<SkillInfo>(skills.size());
 		for(int i = 0; i < skills.size(); ++i) result.add(skills.valueAt(i));

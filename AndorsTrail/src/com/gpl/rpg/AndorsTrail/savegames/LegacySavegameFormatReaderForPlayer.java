@@ -17,7 +17,7 @@ import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
 public final class LegacySavegameFormatReaderForPlayer {
-	
+
 	public static void readQuestProgressPreV13(Player player, DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		final int size1 = src.readInt();
 		for(int i = 0; i < size1; ++i) {
@@ -66,9 +66,9 @@ public final class LegacySavegameFormatReaderForPlayer {
 	private static void addQuestProgress(Player player, String questID, int progress) {
 		player.addQuestProgress(new QuestProgress(questID, progress));
 	}
-	
+
 	public static void upgradeSavegame(Player player, WorldContext world, ControllerContext controllers, int fileversion) {
-		
+
 		if (fileversion <= 12) {
 			player.useItemCost = 5;
 			player.health.max += 5;
@@ -83,18 +83,18 @@ public final class LegacySavegameFormatReaderForPlayer {
 			}
 			player.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(player.getLevel()) - assignedSkillpoints;
 		}
-		
+
 		if (fileversion <= 21) {
 			if (player.hasExactQuestProgress("prim_hunt", 240)) player.addQuestProgress(new QuestProgress("bwm_agent", 250));
 			if (player.hasExactQuestProgress("bwm_agent", 240)) player.addQuestProgress(new QuestProgress("prim_hunt", 250));
 		}
-		
+
 		if (fileversion <= 27) {
 			correctActorConditionsFromItemsPre0611b1(player, "bless", world, controllers, "elytharan_redeemer");
 			correctActorConditionsFromItemsPre0611b1(player, "blackwater_misery", world, controllers, "bwm_dagger");
 			correctActorConditionsFromItemsPre0611b1(player, "regen", world, controllers, "ring_shadow0");
 		}
-		
+
 		if (fileversion <= 30) {
 			player.baseTraits.attackCost = Player.DEFAULT_PLAYER_ATTACKCOST;
 		}
@@ -105,7 +105,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 			}
 		}
 	}
-	
+
 	public static int getExpectedNumberOfSkillpointsForLevel(int level) {
 		level -= Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL;
 		if (level < 0) return 0;
@@ -127,7 +127,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 			}
 		}
 		if (hasItemWithCondition) return;
-		
+
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
 	}
 
@@ -135,7 +135,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		if (fileversion >= 25) {
 			if (!src.readBoolean()) return;
 		}
-		
+
 		/*attackCost = */src.readInt();
 		/*attackChance = */src.readInt();
 		/*criticalSkill = */src.readInt();

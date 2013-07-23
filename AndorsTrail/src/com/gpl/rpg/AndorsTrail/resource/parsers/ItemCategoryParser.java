@@ -11,14 +11,14 @@ import org.json.JSONObject;
 
 public final class ItemCategoryParser extends JsonCollectionParserFor<ItemCategory> {
 
-    private final TranslationLoader translationLoader;
+	private final TranslationLoader translationLoader;
 
-    public ItemCategoryParser(TranslationLoader translationLoader) {
+	public ItemCategoryParser(TranslationLoader translationLoader) {
 
-        this.translationLoader = translationLoader;
-    }
+		this.translationLoader = translationLoader;
+	}
 
-    @Override
+	@Override
 	protected Pair<String, ItemCategory> parseObject(JSONObject o) throws JSONException {
 		final String id = o.getString(JsonFieldNames.ItemCategory.itemCategoryID);
 		ItemCategory result = new ItemCategory(

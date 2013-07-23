@@ -19,7 +19,7 @@ import com.gpl.rpg.AndorsTrail.controller.InputController;
 public final class VirtualDpadView extends ImageView implements OnClickListener {
 	private final WorldContext world;
 	private final InputController inputController;
-	
+
 	private int one_third_width;
 	private int two_thirds_width;
 	private int full_width;
@@ -30,59 +30,59 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 	private int lastTouchPosition_dx;
 	private int lastTouchPosition_dy;
 	private boolean isMinimizeable = true;
-	
+
 	public VirtualDpadView(final Context context, AttributeSet attr) {
 		super(context, attr);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.getWorld();
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
+		this.world = app.getWorld();
 		final ControllerContext controllers = app.getControllerContext();
-        this.inputController = controllers.inputController;
+		this.inputController = controllers.inputController;
 
-        setImageResource(R.drawable.ui_dpad);
-        setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-        setFocusable(false);
-        setOnClickListener(this);
-        
-        setAdjustViewBounds(true);
-    }
+		setImageResource(R.drawable.ui_dpad);
+		setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+		setFocusable(false);
+		setOnClickListener(this);
+
+		setAdjustViewBounds(true);
+	}
 
 	@Override
 	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
 		if (!isMinimized) {
-		    one_third_width = w / 3;
-	        two_thirds_width = w * 2 / 3;
-	        full_width = w;
-	        one_third_height = h / 3;
-	        two_thirds_height = h * 2 / 3;
-	        full_height = h;
+			one_third_width = w / 3;
+			two_thirds_width = w * 2 / 3;
+			full_width = w;
+			one_third_height = h / 3;
+			two_thirds_height = h * 2 / 3;
+			full_height = h;
 		}
-		
-        super.onSizeChanged(w, h, oldw, oldh);
+
+		super.onSizeChanged(w, h, oldw, oldh);
 	}
 
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if (isMinimized) return super.onTouchEvent(event);
-		
+
 		if (!world.model.uiSelections.isMainActivityVisible) return true;
-		
+
 		switch (event.getAction()) {
 		case MotionEvent.ACTION_DOWN:
 		case MotionEvent.ACTION_MOVE:
-			
+
 			final int x = (int)event.getX();
 			lastTouchPosition_dx = 0;
 			if (x < one_third_width) lastTouchPosition_dx = -1;
 			else if (x >= two_thirds_width) lastTouchPosition_dx = 1;
-			
+
 			final int y = (int)event.getY();
 			lastTouchPosition_dy = 0;
 			if (y < one_third_height) lastTouchPosition_dy = -1;
 			else if (y >= two_thirds_height) lastTouchPosition_dy = 1;
-			
+
 			// Minimize the dpad if enabled in options - otherwise attack or move(0, 0)
 			if (isMinimizeable && lastTouchPosition_dx == 0 && lastTouchPosition_dy == 0) break;
-			
+
 			this.inputController.onRelativeMovement(lastTouchPosition_dx, lastTouchPosition_dy);
 			return true;
 		case MotionEvent.ACTION_UP:
@@ -93,17 +93,17 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 		}
 		return super.onTouchEvent(event);
 	}
-	
+
 	public void updateVisibility(AndorsTrailPreferences preferences) {
 		int dpadPosition = preferences.dpadPosition;
 		if (dpadPosition == AndorsTrailPreferences.DPAD_POSITION_DISABLED) {
 			setVisibility(View.GONE);
 			return;
 		}
-		
+
 		setVisibility(View.VISIBLE);
 		isMinimizeable = preferences.dpadMinimizeable;
-		
+
 		RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
 		switch (dpadPosition) {
 			case AndorsTrailPreferences.DPAD_POSITION_LOWER_RIGHT:
@@ -139,7 +139,7 @@ public final class VirtualDpadView extends ImageView implements OnClickListener 
 				params.addRule(RelativeLayout.CENTER_VERTICAL);
 				break;
 		}
-		
+
 		setLayoutParams(params);
 	}
 

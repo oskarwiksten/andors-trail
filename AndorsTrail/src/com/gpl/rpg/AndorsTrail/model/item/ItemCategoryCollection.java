@@ -8,7 +8,7 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ItemCategoryCollection {
 	private final HashMap<String, ItemCategory> itemCategories = new HashMap<String, ItemCategory>();
-	
+
 	public ItemCategory getItemCategory(String id) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!itemCategories.containsKey(id)) {
@@ -17,7 +17,7 @@ public final class ItemCategoryCollection {
 		}
 		return itemCategories.get(id);
 	}
-	
+
 	public void initialize(final ItemCategoryParser parser, String input) {
 		parser.parseRows(input, itemCategories);
 	}
@@ -27,4 +27,3 @@ public final class ItemCategoryCollection {
 		return itemCategories;
 	}
 }
-  

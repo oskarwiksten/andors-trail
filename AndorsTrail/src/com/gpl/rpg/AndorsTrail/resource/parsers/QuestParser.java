@@ -14,9 +14,9 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 public final class QuestParser extends JsonCollectionParserFor<Quest> {
-    private final TranslationLoader translationLoader;
-    private int sortOrder = 0;
-	
+	private final TranslationLoader translationLoader;
+	private int sortOrder = 0;
+
 	private final JsonArrayParserFor<QuestLogEntry> questLogEntryParser = new JsonArrayParserFor<QuestLogEntry>(QuestLogEntry.class) {
 		@Override
 		protected QuestLogEntry parseObject(JSONObject o) throws JSONException {
@@ -35,11 +35,11 @@ public final class QuestParser extends JsonCollectionParserFor<Quest> {
 		}
 	};
 
-    public QuestParser(TranslationLoader translationLoader) {
-        this.translationLoader = translationLoader;
-    }
+	public QuestParser(TranslationLoader translationLoader) {
+		this.translationLoader = translationLoader;
+	}
 
-    @Override
+	@Override
 	protected Pair<String, Quest> parseObject(JSONObject o) throws JSONException {
 		final String id = o.getString(JsonFieldNames.Quest.questID);
 

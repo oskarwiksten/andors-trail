@@ -29,24 +29,24 @@ public final class ItemType {
 	public final int baseMarketCost;
 	public final int fixedBaseMarketCost;
 	public final DisplayType displayType;
-	
+
 	public final ItemTraits_OnEquip effects_equip;
 	public final ItemTraits_OnUse effects_use;
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
 
 	public ItemType(
-			String id, 
-			int iconID, 
-			String name, 
+			String id,
+			int iconID,
+			String name,
 			String description,
 			ItemCategory category,
 			DisplayType displayType,
-			boolean hasManualPrice, 
-			int fixedBaseMarketCost, 
-			ItemTraits_OnEquip effects_equip, 
-			ItemTraits_OnUse effects_use, 
-			ItemTraits_OnUse effects_hit, 
+			boolean hasManualPrice,
+			int fixedBaseMarketCost,
+			ItemTraits_OnEquip effects_equip,
+			ItemTraits_OnUse effects_use,
+			ItemTraits_OnUse effects_hit,
 			ItemTraits_OnUse effects_kill) {
 		this.id = id;
 		this.iconID = iconID;
@@ -63,7 +63,7 @@ public final class ItemType {
 		this.effects_kill = effects_kill;
 		this.hasPersonalizedName = name.contains(Constants.PLACEHOLDER_PLAYERNAME);
 	}
-	
+
 	public boolean isEquippable() { return category.isEquippable(); }
 	public boolean isUsable() { return category.isUsable(); }
 	public boolean isQuestItem() { return displayType == DisplayType.quest; }
@@ -79,13 +79,13 @@ public final class ItemType {
 		return true;
 	}
 
-    public String getDescription() { return description; }
-    public String getName(Player p) {
+	public String getDescription() { return description; }
+	public String getName(Player p) {
 		if (!hasPersonalizedName) return name;
-		else return name.replace(Constants.PLACEHOLDER_PLAYERNAME, p.getName());		
+		else return name.replace(Constants.PLACEHOLDER_PLAYERNAME, p.getName());
 	}
 
-    public int getOverlayTileID() {
+	public int getOverlayTileID() {
 		switch (displayType) {
 		case quest:
 			return TileManager.iconID_selection_yellow;
@@ -99,7 +99,7 @@ public final class ItemType {
 		return -1;
 	}
 
-    private static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
+	private static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {
 		final int costEquipStats = effects_equip == null ? 0 : effects_equip.calculateEquipCost(category.isWeapon());
 		final int costUse = effects_use == null ? 0 : effects_use.calculateUseCost();
 		final int costHit = effects_hit == null ? 0 : effects_hit.calculateHitCost();

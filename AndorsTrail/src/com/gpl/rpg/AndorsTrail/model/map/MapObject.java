@@ -20,7 +20,7 @@ public final class MapObject {
 	public final String place;
 	public final QuestProgress requireQuestProgress;
 	public final DropList dropList;
-	
+
 	private MapObject(
 			final CoordRect position
 			, final MapObjectType type
@@ -37,7 +37,7 @@ public final class MapObject {
 		this.requireQuestProgress = requireQuestProgress;
 		this.dropList = dropList;
 	}
-	
+
 	public static MapObject createMapSignEvent(final CoordRect position, final String phraseID) {
 		return new MapObject(position, MapObjectType.sign, phraseID, null, null, null, null);
 	}

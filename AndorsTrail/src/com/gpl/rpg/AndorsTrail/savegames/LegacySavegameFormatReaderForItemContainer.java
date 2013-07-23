@@ -15,7 +15,7 @@ public final class LegacySavegameFormatReaderForItemContainer {
 	public static void refundUpgradedItems(Loot loot) {
 		loot.gold += getRefundForUpgradedItems(loot.items);
 	}
-	
+
 	private static int getRefundForUpgradedItems(ItemContainer container) {
 		int removedCost = 0;
 		for (ItemEntry e : container.items) {

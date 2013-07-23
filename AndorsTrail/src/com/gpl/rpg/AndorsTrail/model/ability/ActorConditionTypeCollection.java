@@ -8,7 +8,7 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class ActorConditionTypeCollection {
 	private final HashMap<String, ActorConditionType> conditionTypes = new HashMap<String, ActorConditionType>();
-	
+
 	public ActorConditionType getActorConditionType(String conditionTypeID) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!conditionTypes.containsKey(conditionTypeID)) {
@@ -17,7 +17,7 @@ public final class ActorConditionTypeCollection {
 		}
 		return conditionTypes.get(conditionTypeID);
 	}
-	
+
 	public void initialize(final ActorConditionsTypeParser parser, String input) {
 		parser.parseRows(input, conditionTypes);
 	}

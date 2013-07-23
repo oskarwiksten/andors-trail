@@ -30,7 +30,7 @@ public final class ConversationController {
 		this.controllers = controllers;
 		this.world = world;
 	}
-	
+
 	private static final ConstRange always = new ConstRange(1, 1);
 
 	public static final class PhraseRewards {
@@ -39,18 +39,18 @@ public final class ConversationController {
 		public final ArrayList<SkillInfo> skillIncrease = new ArrayList<SkillInfo>();
 		public final ArrayList<QuestProgress> questProgress = new ArrayList<QuestProgress>();
 
-        public boolean isEmpty() {
-            if (loot.hasItemsOrExp()) return false;
-            if (!actorConditions.isEmpty()) return false;
-            if (!skillIncrease.isEmpty()) return false;
-            if (!questProgress.isEmpty()) return false;
-            return true;
-        }
-    }
+		public boolean isEmpty() {
+			if (loot.hasItemsOrExp()) return false;
+			if (!actorConditions.isEmpty()) return false;
+			if (!skillIncrease.isEmpty()) return false;
+			if (!questProgress.isEmpty()) return false;
+			return true;
+		}
+	}
 
 	private PhraseRewards applyPhraseRewards(final Player player, final Phrase phrase) {
 		if (phrase.rewards == null || phrase.rewards.length == 0) return null;
-		
+
 		final PhraseRewards result = new PhraseRewards();
 		for (Reward reward : phrase.rewards) {
 			switch (reward.rewardType) {
@@ -72,7 +72,7 @@ public final class ConversationController {
 			}
 		}
 
-        if (result.isEmpty()) return null;
+		if (result.isEmpty()) return null;
 
 		player.inventory.add(result.loot);
 		controllers.actorStatsController.addExperience(result.loot.exp);
@@ -137,8 +137,8 @@ public final class ConversationController {
 			if (!playerSatisfiesRequirement(world, requirement)) return false;
 		}
 		return true;
-    }
-	
+	}
+
 	private static boolean playerSatisfiesRequirement(final WorldContext world, final Requirement requirement) {
 		Player player = world.model.player;
 		switch (requirement.requireType) {
@@ -160,11 +160,11 @@ public final class ConversationController {
 			default:
 				return true;
 		}
-    }
-	
+	}
+
 	private static String getDisplayMessage(Phrase phrase, Player player) { return replacePlayerName(phrase.message, player); }
 	private static String getDisplayMessage(Reply reply, Player player) { return replacePlayerName(reply.text, player); }
-    private static String replacePlayerName(String s, Player player) {
+	private static String replacePlayerName(String s, Player player) {
 		return s.replace(Constants.PLACEHOLDER_PLAYERNAME, player.getName());
 	}
 
@@ -227,10 +227,10 @@ public final class ConversationController {
 				listener.onConversationEndedWithShop(npc);
 				return;
 			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_ATTACK)) {
-                endConversationWithCombat();
+				endConversationWithCombat();
 				return;
 			} else if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_REMOVE)) {
-                endConversationWithRemovingNPC();
+				endConversationWithRemovingNPC();
 				return;
 			}
 
@@ -256,19 +256,19 @@ public final class ConversationController {
 			requestReplies();
 		}
 
-        private void endConversationWithRemovingNPC() {
-            controllers.monsterSpawnController.remove(world.model.currentMap, npc);
-            listener.onConversationEndedWithRemoval(npc);
-        }
+		private void endConversationWithRemovingNPC() {
+			controllers.monsterSpawnController.remove(world.model.currentMap, npc);
+			listener.onConversationEndedWithRemoval(npc);
+		}
 
-        private void endConversationWithCombat() {
-            npc.forceAggressive();
-            controllers.combatController.setCombatSelection(npc);
-            controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
-            listener.onConversationEndedWithCombat(npc);
-        }
+		private void endConversationWithCombat() {
+			npc.forceAggressive();
+			controllers.combatController.setCombatSelection(npc);
+			controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+			listener.onConversationEndedWithCombat(npc);
+		}
 
-        private void requestReplies() {
+		private void requestReplies() {
 			if (hasOnlyOneNextReply()) {
 				listener.onConversationCanProceedWithNext();
 				return;

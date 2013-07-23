@@ -12,14 +12,14 @@ public final class InterfaceData {
 	public boolean isMainActivityVisible = false;
 	public boolean isInCombat = false;
 	public boolean isPlayersCombatTurn = false;
-    public Monster selectedMonster;
+	public Monster selectedMonster;
 	public Coord selectedPosition;
 	public String selectedTabHeroInfo = "";
 	public int selectedQuestFilter = 0; // Should not be parceled
-	
+
 	public InterfaceData() { }
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public InterfaceData(DataInputStream src, WorldContext world, int fileversion) throws IOException {
@@ -33,7 +33,7 @@ public final class InterfaceData {
 		}
 		this.selectedTabHeroInfo = src.readUTF();
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeBoolean(isMainActivityVisible);
 		dest.writeBoolean(isInCombat);

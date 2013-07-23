@@ -55,27 +55,27 @@ public final class TileManager {
 	public static final int iconID_splatter_white_1a = 18;
 	public static final int iconID_splatter_white_1b = 19;
 
-    public int tileSize;
+	public int tileSize;
 
 	public int viewTileSize;
-    public float scale;
+	public float scale;
 
-    
-    public final TileCache tileCache = new TileCache();
+
+	public final TileCache tileCache = new TileCache();
 	public final TileCollection preloadedTiles = new TileCollection(97);
 	public TileCollection currentMapTiles;
 	public TileCollection adjacentMapTiles;
 	private final HashSet<Integer> preloadedTileIDs = new HashSet<Integer>();
-	
-	
+
+
 	public TileCollection loadTilesFor(HashSet<Integer> tileIDs, Resources r) {
 		return tileCache.loadTilesFor(tileIDs, r);
 	}
-	
+
 	public TileCollection loadTilesFor(ItemContainer container, Resources r) {
 		return tileCache.loadTilesFor(getTileIDsFor(container), r);
 	}
-	
+
 	public HashSet<Integer> getTileIDsFor(ItemContainer container) {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 		for(ItemEntry i : container.items) {
@@ -83,7 +83,7 @@ public final class TileManager {
 		}
 		return iconIDs;
 	}
-	
+
 	public TileCollection loadTilesFor(Inventory inventory, Resources r) {
 		HashSet<Integer> iconIDs = getTileIDsFor(inventory);
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
@@ -92,7 +92,7 @@ public final class TileManager {
 		}
 		return tileCache.loadTilesFor(iconIDs, r);
 	}
-	
+
 	public TileCollection loadTilesFor(PredefinedMap map, LayeredTileMap tileMap, WorldContext world, Resources r) {
 		HashSet<Integer> iconIDs = getTileIDsFor(map, tileMap, world);
 		TileCollection result = tileCache.loadTilesFor(iconIDs, r);
@@ -101,7 +101,7 @@ public final class TileManager {
 		}
 		return result;
 	}
-	
+
 	public HashSet<Integer> getTileIDsFor(PredefinedMap map, LayeredTileMap tileMap, WorldContext world) {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 		for (MonsterSpawnArea a : map.spawnAreas) {
@@ -118,19 +118,19 @@ public final class TileManager {
 		iconIDs.addAll(tileMap.usedTileIDs);
 		return iconIDs;
 	}
-	
+
 	public void setDensity(Resources r) {
-        float density = r.getDisplayMetrics().density;
+		float density = r.getDisplayMetrics().density;
 		tileSize = (int) (32 * density);
 	}
-	
+
 	public void updatePreferences(AndorsTrailPreferences prefs) {
 		scale = prefs.scalingFactor;
-        viewTileSize = (int) (tileSize * prefs.scalingFactor);
+		viewTileSize = (int) (tileSize * prefs.scalingFactor);
 	}
-	
-	
-	
+
+
+
 	public void setImageViewTile(Resources res, TextView textView, Monster monster) { setImageViewTileForMonster(res, textView, monster.iconID); }
 	public void setImageViewTile(Resources res, TextView textView, Player player) { setImageViewTileForPlayer(res, textView, player.iconID); }
 	public void setImageViewTileForMonster(Resources res, TextView textView, int iconID) { setImageViewTile(res, textView, currentMapTiles.getBitmap(iconID)); }
@@ -160,7 +160,7 @@ public final class TileManager {
 			setImageViewTile(res, textView, icon);
 		}
 	}
-	
+
 	public void setImageViewTile(ImageView imageView, Monster monster) { setImageViewTileForMonster(imageView, monster.iconID); }
 	public void setImageViewTile(ImageView imageView, Player player) { setImageViewTileForPlayer(imageView, player.iconID); }
 	public void setImageViewTileForMonster(ImageView imageView, int iconID) { imageView.setImageBitmap(currentMapTiles.getBitmap(iconID)); }
@@ -198,10 +198,10 @@ public final class TileManager {
 				throw new IndexOutOfBoundsException("ERROR: TileManager.preloadedTiles needs to be initialized with at least " + maxTileID + " slots. Application will crash now.");
 			}
 		}
-        for(int i = TileManager.CHAR_HERO; i <= maxTileID; ++i) {
-        	preloadedTileIDs.add(i);
-        }
-        tileCache.loadTilesFor(preloadedTileIDs, r, preloadedTiles);
+		for(int i = TileManager.CHAR_HERO; i <= maxTileID; ++i) {
+			preloadedTileIDs.add(i);
+		}
+		tileCache.loadTilesFor(preloadedTileIDs, r, preloadedTiles);
 	}
 
 	private final HashMap<String, HashSet<Integer>> tileIDsPerMap = new HashMap<String, HashSet<Integer>>();
@@ -217,23 +217,23 @@ public final class TileManager {
 		dest.addAll(cachedTileIDs);
 	}
 	public void cacheAdjacentMaps(final Resources res, final WorldContext world, final PredefinedMap nextMap) {
-		(new AsyncTask<Void, Void, Void>()  {
+		(new AsyncTask<Void, Void, Void>() {
 			@Override
 			protected Void doInBackground(Void... arg0) {
 				adjacentMapTiles = null;
-				
+
 				HashSet<String> adjacentMapNames = new HashSet<String>();
 				for (MapObject o : nextMap.eventObjects) {
 					if (o.type != MapObject.MapObjectType.newmap) continue;
 					if (o.map == null) continue;
 					adjacentMapNames.add(o.map);
 				}
-				
+
 				HashSet<Integer> tileIDs = new HashSet<Integer>();
 				for (String mapName : adjacentMapNames) {
 					addTileIDsFor(tileIDs, mapName, res, world);
 				}
-				
+
 				adjacentMapTiles = tileCache.loadTilesFor(tileIDs, res);
 				return null;
 			}

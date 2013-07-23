@@ -53,7 +53,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 
 	private StatementContainerAdapter listAdapter;
 	private Button nextButton;
-    private ListView statementList;
+	private ListView statementList;
 	private RadioGroup replyGroup;
 	private OnCheckedChangeListener radioButtonListener;
 
@@ -98,9 +98,9 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 				nextButtonClicked();
 			}
 		});
-        nextButton.setEnabled(false);
+		nextButton.setEnabled(false);
 
-        statementList.setOnKeyListener(this);
+		statementList.setOnKeyListener(this);
 
 		statementList.setSelected(false);
 		statementList.setFocusable(false);
@@ -118,22 +118,22 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 			conversationState.proceedToPhrase(phraseID);
 		}
 	}
-    
-    @Override
+
+	@Override
 	protected void onResume() {
 		super.onResume();
-    	nextButton.requestFocus();
+		nextButton.requestFocus();
 	}
 
 	private int getSelectedReplyIndex() {
-    	for (int i = 0; i < replyGroup.getChildCount(); ++i) {
+		for (int i = 0; i < replyGroup.getChildCount(); ++i) {
 			final View v = replyGroup.getChildAt(i);
 			if (v == null) continue;
 			final RadioButton rb = (RadioButton) v;
 			if (rb.isChecked()) return i;
-    	}
-    	return -1;
-    }
+		}
+		return -1;
+	}
 
 	private void setSelectedReplyIndex(int i) {
 		int replyCount = replyGroup.getChildCount();
@@ -146,13 +146,13 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		RadioButton rb = (RadioButton) v;
 		rb.setChecked(true);
 	}
- 
-    @Override
+
+	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (handleKeypress(keyCode, event)) return true;
 		else return super.onKeyDown(keyCode, event);
-    }
-    
+	}
+
 	@Override
 	public boolean onKey(View arg0, int keyCode, KeyEvent event) {
 		if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
@@ -187,7 +187,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		default: return false;
 		}
 	}
-	
+
 	private RadioButton getSelectedReplyButton() {
 		for (int i = 0; i < replyGroup.getChildCount(); ++i) {
 			final View v = replyGroup.getChildAt(i);
@@ -199,12 +199,12 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		}
 		return null; // No reply was found. This is probably an error.
 	}
-	
+
 	private void nextButtonClicked() {
-        RadioButton rb = getSelectedReplyButton();
+		RadioButton rb = getSelectedReplyButton();
 		replyGroup.removeAllViews();
-        nextButton.setEnabled(false);
-        if (conversationState.hasOnlyOneNextReply()) {
+		nextButton.setEnabled(false);
+		if (conversationState.hasOnlyOneNextReply()) {
 			conversationState.playerSelectedNextStep();
 		} else {
 			if (rb == null) return;
@@ -215,40 +215,40 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 
 	private void addConversationStatement(Actor actor, String text, int textColor) {
-    	ConversationStatement s = new ConversationStatement();
-    	if (actor != null) {
-	    	s.iconID = actor.iconID;
-	    	s.actorName = actor.getName();
-    	} else {
-    		s.iconID = ConversationStatement.NO_ICON;
-    	}
-    	s.text = text;
+		ConversationStatement s = new ConversationStatement();
+		if (actor != null) {
+			s.iconID = actor.iconID;
+			s.actorName = actor.getName();
+		} else {
+			s.iconID = ConversationStatement.NO_ICON;
+		}
+		s.text = text;
 		s.nameColor = actor == player ? playerNameColor : NPCNameColor;
 		s.textColor = textColor;
-    	s.isPlayerActor = actor != null && actor == player;
-    	conversationHistory.add(s);
-    	statementList.clearFocus();
+		s.isPlayerActor = actor != null && actor == player;
+		conversationHistory.add(s);
+		statementList.clearFocus();
 		listAdapter.notifyDataSetChanged();
 		statementList.requestLayout();
 	}
-    
-    @Override
+
+	@Override
 	public void onSaveInstanceState(Bundle outState) {
-    	outState.putString("phraseID", conversationState.getCurrentPhraseID());
-    	outState.putParcelableArrayList("conversationHistory", conversationHistory);
+		outState.putString("phraseID", conversationState.getCurrentPhraseID());
+		outState.putParcelableArrayList("conversationHistory", conversationHistory);
 		Dialogs.addMonsterIdentifiers(outState, conversationState.getCurrentNPC());
-    }
+	}
 
 	private static final class ConversationStatement implements Parcelable {
 		public static final int NO_ICON = -1;
-		
+
 		public String actorName;
 		public String text;
 		public int iconID;
 		public int nameColor;
 		public int textColor;
 		public boolean isPlayerActor;
-		
+
 		public boolean hasActor() {
 			return iconID != NO_ICON;
 		}
@@ -265,35 +265,35 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 			dest.writeInt(textColor);
 			dest.writeByte((byte) (isPlayerActor ? 1 : 0));
 		}
-		
+
 		@SuppressWarnings("unused")
 		public static final Parcelable.Creator<ConversationStatement> CREATOR = new Parcelable.Creator<ConversationStatement>() {
-		    public ConversationStatement createFromParcel(Parcel in) {
-		    	ConversationStatement result = new ConversationStatement();
-		    	result.actorName = in.readString();
-		    	result.text = in.readString();
-		    	result.iconID = in.readInt();
-		    	result.nameColor = in.readInt();
+			public ConversationStatement createFromParcel(Parcel in) {
+				ConversationStatement result = new ConversationStatement();
+				result.actorName = in.readString();
+				result.text = in.readString();
+				result.iconID = in.readInt();
+				result.nameColor = in.readInt();
 				result.textColor = in.readInt();
-		    	result.isPlayerActor = in.readByte() == 1;
-		        return result;
-		    }
-		
-		    public ConversationStatement[] newArray(int size) {
-		        return new ConversationStatement[size];
-		    }
+				result.isPlayerActor = in.readByte() == 1;
+				return result;
+			}
+
+			public ConversationStatement[] newArray(int size) {
+				return new ConversationStatement[size];
+			}
 		};
 	}
 
-    private static final class StatementContainerAdapter extends ArrayAdapter<ConversationStatement> {
+	private static final class StatementContainerAdapter extends ArrayAdapter<ConversationStatement> {
 
-    	private final TileManager tileManager;
-    	
+		private final TileManager tileManager;
+
 		public StatementContainerAdapter(Context context, ArrayList<ConversationStatement> items, TileManager tileManager) {
 			super(context, 0, items);
 			this.tileManager = tileManager;
 		}
-		
+
 		@Override
 		public View getView(final int position, View convertView, ViewGroup parent) {
 			final ConversationStatement statement = getItem(position);
@@ -301,30 +301,30 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 			if (result == null) {
 				result = View.inflate(getContext(), R.layout.conversation_statement, null);
 			}
-			
+
 			final TextView tv = (TextView) result.findViewById(R.id.conversation_text);
-	        if (statement.hasActor()) {
-                final Resources res = getContext().getResources();
-                if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(res, tv, statement.iconID);
-	        	else tileManager.setImageViewTileForMonster(res, tv, statement.iconID);
-				
-	    		tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);
-		        Spannable sp = (Spannable) tv.getText();
-		        sp.setSpan(new ForegroundColorSpan(statement.nameColor), 0, statement.actorName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+			if (statement.hasActor()) {
+				final Resources res = getContext().getResources();
+				if (statement.isPlayerActor) tileManager.setImageViewTileForPlayer(res, tv, statement.iconID);
+				else tileManager.setImageViewTileForMonster(res, tv, statement.iconID);
+
+				tv.setText(statement.actorName + ": " + statement.text, BufferType.SPANNABLE);
+				Spannable sp = (Spannable) tv.getText();
+				sp.setSpan(new ForegroundColorSpan(statement.nameColor), 0, statement.actorName.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 				if (statement.textColor != 0) {
 					sp.setSpan(new ForegroundColorSpan(statement.textColor), statement.actorName.length()+1, sp.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 				}
-	        } else {
-	        	tv.setCompoundDrawables(null, null, null, null);
-	    		if (statement.textColor == 0) {
+			} else {
+				tv.setCompoundDrawables(null, null, null, null);
+				if (statement.textColor == 0) {
 					tv.setText(statement.text);
 				} else {
 					tv.setText(statement.text, BufferType.SPANNABLE);
 					Spannable sp = (Spannable) tv.getText();
 					sp.setSpan(new ForegroundColorSpan(statement.textColor), 0, statement.text.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 				}
-		    }
-			
+			}
+
 			return result;
 		}
 
@@ -337,7 +337,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		public boolean isEnabled(int position) {
 			return false;
 		}
-    }
+	}
 
 	@Override
 	public void onTextPhraseReached(String message, Actor actor) {

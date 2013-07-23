@@ -18,7 +18,7 @@ public final class VisualEffectCollection {
 	}
 
 	private final VisualEffect[] effects = new VisualEffect[VisualEffectID.values().length];
-	
+
 	public void initialize(DynamicTileLoader loader) {
 		effects[VisualEffectID.redSplash.ordinal()] = createEffect(loader, R.drawable.effect_blood4, new ConstRange(14, 0), 400, Color.RED);
 		effects[VisualEffectID.blueSwirl.ordinal()] = createEffect(loader, R.drawable.effect_heal2, new ConstRange(16, 0), 400, Color.rgb(150, 150, 255));
@@ -48,7 +48,7 @@ public final class VisualEffectCollection {
 		public final int millisecondPerFrame;
 		public final int totalFrames;
 		public final int lastFrame;
-		
+
 		public VisualEffect(int[] frameIconIDs, int duration, int textColor) {
 			this.frameIconIDs = frameIconIDs;
 			this.duration = duration;

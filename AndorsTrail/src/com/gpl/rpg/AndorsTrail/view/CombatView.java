@@ -36,7 +36,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	private final View monsterBar;
 	private final View actionBar;
 	private final TextView monsterActionText;
-	
+
 	private final WorldContext world;
 	private final ControllerContext controllers;
 	private final Resources res;
@@ -46,74 +46,74 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	private final Animation hideAnimation;
 
 	private Monster currentMonster;
-	
+
 	public CombatView(final Context context, AttributeSet attr) {
 		super(context, attr);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
-        this.world = app.getWorld();
-        this.player = world.model.player;
-        this.controllers = app.getControllerContext();
-        this.preferences = app.getPreferences();
-        this.res = getResources();
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivityContext(context);
+		this.world = app.getWorld();
+		this.player = world.model.player;
+		this.controllers = app.getControllerContext();
+		this.preferences = app.getPreferences();
+		this.res = getResources();
 
-        setFocusable(false);
-        inflate(context, R.layout.combatview, this);
-        this.setBackgroundResource(R.drawable.ui_gradientshape_translucent);
-        
-        final CombatController c = controllers.combatController;
-        attackMoveButton = (Button) findViewById(R.id.combatview_moveattack);
-        attackMoveButton.setOnClickListener(new OnClickListener() {
+		setFocusable(false);
+		inflate(context, R.layout.combatview, this);
+		this.setBackgroundResource(R.drawable.ui_gradientshape_translucent);
+
+		final CombatController c = controllers.combatController;
+		attackMoveButton = (Button) findViewById(R.id.combatview_moveattack);
+		attackMoveButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				c.executeMoveAttack(0, 0);
 			}
 		});
-        
-        Button endTurnButton = (Button) findViewById(R.id.combatview_endturn);
-        endTurnButton.setOnClickListener(new OnClickListener() {
+
+		Button endTurnButton = (Button) findViewById(R.id.combatview_endturn);
+		endTurnButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				c.beginMonsterTurn(false);
 			}
 		});
-        Button fleeButton = (Button) findViewById(R.id.combatview_flee);
-        fleeButton.setOnClickListener(new OnClickListener() {
+		Button fleeButton = (Button) findViewById(R.id.combatview_flee);
+		fleeButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				c.startFlee();
 			}
 		});
-        
-        statusTextView = (TextView) findViewById(R.id.combatview_status);
-        
-        monsterInfo = (ImageButton) findViewById(R.id.combatview_monsterinfo);
-        monsterInfo.setOnClickListener(new OnClickListener() {
+
+		statusTextView = (TextView) findViewById(R.id.combatview_status);
+
+		monsterInfo = (ImageButton) findViewById(R.id.combatview_monsterinfo);
+		monsterInfo.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				Dialogs.showMonsterInfo(context, currentMonster);
 			}
 		});
-        
-        monsterHealth = (RangeBar) findViewById(R.id.combatview_monsterhealth);
-        monsterHealth.init(R.drawable.ui_progress_health, R.string.combat_monsterhealth);
-        monsterBar = findViewById(R.id.combatview_monsterbar);
-        actionBar = findViewById(R.id.combatview_actionbar);
-        monsterActionText = (TextView) findViewById(R.id.combatview_monsterismoving);
-        
-        monsterBar.setBackgroundColor(res.getColor(color.transparent));
-        actionBar.setBackgroundColor(res.getColor(color.transparent));
-        
-        displayAnimation = AnimationUtils.loadAnimation(context, R.anim.showcombatbar);
-        hideAnimation = AnimationUtils.loadAnimation(context, R.anim.hidecombatbar);
-        hideAnimation.setAnimationListener(new AnimationListener() {
+
+		monsterHealth = (RangeBar) findViewById(R.id.combatview_monsterhealth);
+		monsterHealth.init(R.drawable.ui_progress_health, R.string.combat_monsterhealth);
+		monsterBar = findViewById(R.id.combatview_monsterbar);
+		actionBar = findViewById(R.id.combatview_actionbar);
+		monsterActionText = (TextView) findViewById(R.id.combatview_monsterismoving);
+
+		monsterBar.setBackgroundColor(res.getColor(color.transparent));
+		actionBar.setBackgroundColor(res.getColor(color.transparent));
+
+		displayAnimation = AnimationUtils.loadAnimation(context, R.anim.showcombatbar);
+		hideAnimation = AnimationUtils.loadAnimation(context, R.anim.hidecombatbar);
+		hideAnimation.setAnimationListener(new AnimationListener() {
 			@Override public void onAnimationStart(Animation animation) {}
 			@Override public void onAnimationRepeat(Animation animation) {}
 			@Override public void onAnimationEnd(Animation arg0) {
 				CombatView.this.setVisibility(View.GONE);
 			}
 		});
-    }
-	
+	}
+
 	private void updateTurnInfo(Monster currentActiveMonster) {
 		if (currentActiveMonster != null) {
 			actionBar.setVisibility(View.INVISIBLE);
@@ -126,14 +126,14 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	}
 
 	private void updateMonsterHealth(Monster m) {
-	    monsterHealth.update(m.getMaxHP(), m.getCurrentHP());
+		monsterHealth.update(m.getMaxHP(), m.getCurrentHP());
 	}
 	private void updatePlayerAP() {
 		statusTextView.setText(res.getString(R.string.combat_status_ap, player.getCurrentAP()));
 	}
 	private void updateSelectedMonster(Monster selectedMonster) {
 		if (currentMonster != null && currentMonster == selectedMonster) return;
-		
+
 		attackMoveButton.setEnabled(true);
 		monsterBar.setVisibility(View.INVISIBLE);
 		currentMonster = null;
@@ -141,7 +141,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 			monsterBar.setVisibility(View.VISIBLE);
 			world.tileManager.setImageViewTile(monsterInfo, selectedMonster);
 			updateMonsterHealth(selectedMonster);
-	        currentMonster = selectedMonster;
+			currentMonster = selectedMonster;
 		}
 		updateAttackMoveButtonText(selectedMonster != null);
 	}
@@ -165,10 +165,10 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 	private void show() {
 		updateStatus();
 		setVisibility(View.VISIBLE);
-    	bringToFront();
-    	if (preferences.enableUiAnimations) {
-    		startAnimation(displayAnimation);
-    	}
+		bringToFront();
+		if (preferences.enableUiAnimations) {
+			startAnimation(displayAnimation);
+		}
 	}
 
 	private void hide() {

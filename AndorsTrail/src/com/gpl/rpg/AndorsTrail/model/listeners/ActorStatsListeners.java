@@ -8,11 +8,11 @@ public final class ActorStatsListeners extends ListOfListeners<ActorStatsListene
 	private final Function1<ActorStatsListener, Actor> onActorHealthChanged = new Function1<ActorStatsListener, Actor>() {
 		@Override public void call(ActorStatsListener listener, Actor actor) { listener.onActorHealthChanged(actor); }
 	};
-	
+
 	private final Function1<ActorStatsListener, Actor> onActorAPChanged = new Function1<ActorStatsListener, Actor>() {
 		@Override public void call(ActorStatsListener listener, Actor actor) { listener.onActorAPChanged(actor); }
 	};
-	
+
 	private final Function2<ActorStatsListener, Actor, Integer> onActorAttackCostChanged = new Function2<ActorStatsListener, Actor, Integer>() {
 		@Override public void call(ActorStatsListener listener, Actor actor, Integer newAttackCost) { listener.onActorAttackCostChanged(actor, newAttackCost); }
 	};

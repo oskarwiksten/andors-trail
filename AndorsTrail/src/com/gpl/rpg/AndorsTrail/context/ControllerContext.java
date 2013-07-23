@@ -33,10 +33,10 @@ public final class ControllerContext {
 	public final ActorStatsController actorStatsController;
 	public final InputController inputController;
 	public final SkillController skillController;
-	
+
 	public final AndorsTrailPreferences preferences;
 	private final WeakReference<AndorsTrailApplication> app;
-	
+
 	public ControllerContext(AndorsTrailApplication app, WorldContext world) {
 		this.app = new WeakReference<AndorsTrailApplication>(app);
 		this.preferences = app.getPreferences();
@@ -54,7 +54,7 @@ public final class ControllerContext {
 		this.inputController = new InputController(this, world);
 		this.skillController = new SkillController(this, world);
 	}
-	
+
 	public Resources getResources() {
 		return app.get().getResources();
 	}

@@ -5,30 +5,30 @@
 	android:layout_height="wrap_content"
 	>
 
-	<TextView 
-		android:text="@string/iteminfo_effect_works_when_equipped" 
-		android:id="@+id/itemeffect_onequip_title" 
+	<TextView
+		android:text="@string/iteminfo_effect_works_when_equipped"
+		android:id="@+id/itemeffect_onequip_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
-		
+
 		<com.gpl.rpg.AndorsTrail.view.AbilityModifierInfoView
 			android:id="@+id/itemeffect_onequip_abilitymodifierinfo"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10sp"
 			/>
-			
+
 		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
 			android:id="@+id/itemeffect_onequip_conditions"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10sp"
 			/>
-	
-	<TextView 
-		android:text="@string/iteminfo_effect_works_when_used" 
-		android:id="@+id/itemeffect_onuse_title" 
+
+	<TextView
+		android:text="@string/iteminfo_effect_works_when_used"
+		android:id="@+id/itemeffect_onuse_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
@@ -39,9 +39,9 @@
 			android:layout_marginLeft="10sp"
 			/>
 
-	<TextView 
-		android:text="@string/iteminfo_effect_works_when_hitting_target" 
-		android:id="@+id/itemeffect_onhit_title" 
+	<TextView
+		android:text="@string/iteminfo_effect_works_when_hitting_target"
+		android:id="@+id/itemeffect_onhit_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
@@ -52,9 +52,9 @@
 			android:layout_marginLeft="10sp"
 			/>
 
-	<TextView 
-		android:text="@string/iteminfo_effect_works_when_killing_target" 
-		android:id="@+id/itemeffect_onkill_title" 
+	<TextView
+		android:text="@string/iteminfo_effect_works_when_killing_target"
+		android:id="@+id/itemeffect_onkill_title"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		/>
@@ -64,5 +64,5 @@
 			android:layout_height="wrap_content"
 			android:layout_marginLeft="10sp"
 			/>
-	
+
 </merge>

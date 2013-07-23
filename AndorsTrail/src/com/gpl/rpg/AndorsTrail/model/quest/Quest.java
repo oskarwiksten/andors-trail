@@ -10,7 +10,7 @@ public final class Quest implements Comparable<Quest> {
 	public final QuestLogEntry[] stages; //Must be sorted in ascending stage order
 	public final boolean showInLog;
 	public final int sortOrder;
-	
+
 	public Quest(String questID, String name, QuestLogEntry[] stages, boolean showInLog, int sortOrder) {
 		this.questID = questID;
 		this.name = name;

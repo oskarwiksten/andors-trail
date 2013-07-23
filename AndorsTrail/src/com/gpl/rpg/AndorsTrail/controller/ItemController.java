@@ -15,83 +15,83 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public final class ItemController {
-	
+
 	private final ControllerContext controllers;
-    private final WorldContext world;
-    public final QuickSlotListeners quickSlotListeners = new QuickSlotListeners();
+	private final WorldContext world;
+	public final QuickSlotListeners quickSlotListeners = new QuickSlotListeners();
 
 	public ItemController(ControllerContext controllers, WorldContext world) {
-    	this.controllers = controllers;
-    	this.world = world;
-    }
-	
+		this.controllers = controllers;
+		this.world = world;
+	}
+
 	public void dropItem(ItemType type, int quantity) {
 		if (world.model.player.inventory.getItemQuantity(type.id) < quantity) return;
 		world.model.player.inventory.removeItem(type.id, quantity);
 		world.model.currentMap.itemDropped(type, quantity, world.model.player.position);
-    }
+	}
 
 	public void equipItem(ItemType type, Inventory.WearSlot slot) {
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
-    	if (world.model.uiSelections.isInCombat) {
-    		boolean changed = controllers.actorStatsController.useAPs(player, player.getReequipCost());
-    		if (!changed) return;
-    	}
-		
+		if (world.model.uiSelections.isInCombat) {
+			boolean changed = controllers.actorStatsController.useAPs(player, player.getReequipCost());
+			if (!changed) return;
+		}
+
 		if (!player.inventory.removeItem(type.id, 1)) return;
-		
+
 		unequipSlot(player, slot);
 		if (type.isTwohandWeapon()) unequipSlot(player, Inventory.WearSlot.shield);
 		else if (slot == Inventory.WearSlot.shield) {
 			ItemType currentWeapon = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 			if (currentWeapon != null && currentWeapon.isTwohandWeapon()) unequipSlot(player, Inventory.WearSlot.weapon);
 		}
-			
+
 		player.inventory.setItemTypeInWearSlot(slot, type);
 		controllers.actorStatsController.addConditionsFromEquippedItem(player, type);
 		controllers.actorStatsController.recalculatePlayerStats(player);
-    }
+	}
 
-   	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
+	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
-    	
+
 		if (world.model.uiSelections.isInCombat) {
 			boolean changed = controllers.actorStatsController.useAPs(player, player.getReequipCost());
-    		if (!changed) return;
-    	}
-    	
+			if (!changed) return;
+		}
+
 		unequipSlot(player, slot);
 		controllers.actorStatsController.recalculatePlayerStats(player);
-    }
+	}
 
-   	private void unequipSlot(Player player, Inventory.WearSlot slot) {
-   		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
-   		if (removedItemType == null) return;
+	private void unequipSlot(Player player, Inventory.WearSlot slot) {
+		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
+		if (removedItemType == null) return;
 		player.inventory.addItem(removedItemType);
 		player.inventory.setItemTypeInWearSlot(slot, null);
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
-    }
-    
-    public void useItem(ItemType type) {
-    	if (!type.isUsable()) return;
-    	final Player player = world.model.player;
-    	if (world.model.uiSelections.isInCombat) {
-    		boolean changed = controllers.actorStatsController.useAPs(player, player.getUseItemCost());
-    		if (!changed) return;
-    	}
-    	
-    	if (!player.inventory.removeItem(type.id, 1)) return;
-    	
-    	controllers.actorStatsController.applyUseEffect(player, null, type.effects_use);
-    	world.model.statistics.addItemUsage(type);
-		
-    	//TODO: provide feedback that the item has been used.
-    	//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
-    }
-    
+	}
+
+	public void useItem(ItemType type) {
+		if (!type.isUsable()) return;
+		final Player player = world.model.player;
+		if (world.model.uiSelections.isInCombat) {
+			boolean changed = controllers.actorStatsController.useAPs(player, player.getUseItemCost());
+			if (!changed) return;
+		}
+
+		if (!player.inventory.removeItem(type.id, 1)) return;
+
+		controllers.actorStatsController.applyUseEffect(player, null, type.effects_use);
+		world.model.statistics.addItemUsage(type);
+
+		//TODO: provide feedback that the item has been used.
+		//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
+	}
+
 	public void playerSteppedOnLootBag(Loot loot) {
 		if (pickupLootBagWithoutConfirmation(loot)) {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpGroundLoot(loot);
@@ -102,7 +102,7 @@ public final class ItemController {
 			consumeNonItemLoot(loot);
 		}
 	}
-	
+
 	public void lootMonsterBags(Collection<Loot> killedMonsterBags, int totalExpThisFight) {
 		if (pickupLootBagsWithoutConfirmation(killedMonsterBags)) {
 			controllers.mapController.worldEventListeners.onPlayerPickedUpMonsterLoot(killedMonsterBags, totalExpThisFight);
@@ -141,7 +141,7 @@ public final class ItemController {
 			player.attackCost = 0;
 			player.criticalMultiplier = weapon.effects_equip.stats.setCriticalMultiplier;
 		}
-		
+
 		applyInventoryEffects(player, Inventory.WearSlot.weapon);
 		applyInventoryEffects(player, Inventory.WearSlot.shield);
 		SkillController.applySkillEffectsFromFightingStyles(player);
@@ -173,7 +173,7 @@ public final class ItemController {
 		if (type.effects_equip != null && type.effects_equip.stats != null)
 		controllers.actorStatsController.applyAbilityEffects(player, type.effects_equip.stats, 1);
 	}
-	
+
 	public static void recalculateHitEffectsFromWornItems(Player player) {
 		ArrayList<ItemTraits_OnUse> effects = null;
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
@@ -181,11 +181,11 @@ public final class ItemController {
 			if (type == null) continue;
 			ItemTraits_OnUse e = type.effects_hit;
 			if (e == null) continue;
-			
+
 			if (effects == null) effects = new ArrayList<ItemTraits_OnUse>();
 			effects.add(e);
 		}
-		
+
 		if (effects != null) {
 			ItemTraits_OnUse[] effects_ = new ItemTraits_OnUse[effects.size()];
 			effects_ = effects.toArray(effects_);
@@ -194,7 +194,7 @@ public final class ItemController {
 			player.onHitEffects = null;
 		}
 	}
-	
+
 	public void consumeNonItemLoot(Loot loot) {
 		// Experience will be given as soon as the monster is killed.
 		world.model.player.inventory.gold += loot.gold;
@@ -210,7 +210,7 @@ public final class ItemController {
 	public void pickupAll(Loot loot) {
 		world.model.player.inventory.add(loot.items);
 		consumeNonItemLoot(loot);
-    	loot.clear();
+		loot.clear();
 	}
 	public void pickupAll(Iterable<Loot> lootBags) {
 		for(Loot l : lootBags) {
@@ -224,7 +224,7 @@ public final class ItemController {
 		controllers.mapController.mapLayoutListeners.onLootBagRemoved(world.model.currentMap, loot.position);
 		return true; // The bag was removed.
 	}
-	
+
 	public boolean removeLootBagIfEmpty(final Iterable<Loot> lootBags) {
 		boolean isEmpty = true;
 		for (Loot l : lootBags) {
@@ -232,9 +232,9 @@ public final class ItemController {
 		}
 		return isEmpty;
 	}
-	
+
 	private static int getMarketPriceFactor(Player player) {
-		return Constants.MARKET_PRICEFACTOR_PERCENT 
+		return Constants.MARKET_PRICEFACTOR_PERCENT
 			- player.getSkillLevel(SkillCollection.SkillID.barter) * SkillCollection.PER_SKILLPOINT_INCREASE_BARTER_PRICEFACTOR_PERCENTAGE;
 	}
 	public static int getBuyingPrice(Player player, ItemType itemType) {
@@ -271,14 +271,14 @@ public final class ItemController {
 		model.statistics.addGoldSpent(price);
 		return true;
 	}
-	
+
 
 	public static String describeItemForListView(ItemEntry item, Player player) {
 		StringBuilder sb = new StringBuilder(item.itemType.getName(player));
 		if (item.quantity > 1) {
 			sb.append(" (");
 			sb.append(item.quantity);
-			sb.append(')'); 
+			sb.append(')');
 		}
 		if (item.itemType.effects_equip != null) {
 			AbilityModifierTraits t = item.itemType.effects_equip.stats;
@@ -333,7 +333,7 @@ public final class ItemController {
 			addSpace = true;
 		}
 	}
-	
+
 	public static void describeBlockEffect(int blockChance, int damageResistance, StringBuilder sb) {
 		if (blockChance != 0) {
 			sb.append(blockChance);
@@ -341,7 +341,7 @@ public final class ItemController {
 		}
 		if (damageResistance != 0) {
 			sb.append('/');
-			sb.append(damageResistance);	
+			sb.append(damageResistance);
 		}
 	}
 

@@ -34,13 +34,13 @@ import java.util.Collection;
 import java.util.Collections;
 
 public final class Dialogs {
-	
+
 	private static void showDialogAndPause(Dialog d, final ControllerContext context) {
 		showDialogAndPause(d, context, null);
 	}
 	private static void showDialogAndPause(Dialog d, final ControllerContext context, final OnDismissListener onDismiss) {
 		context.gameRoundController.pause();
-    	d.setOnDismissListener(new OnDismissListener() {
+		d.setOnDismissListener(new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
 				if (onDismiss != null) onDismiss.onDismiss(arg0);
@@ -53,11 +53,11 @@ public final class Dialogs {
 	public static void showKeyArea(final MainActivity currentActivity, final ControllerContext context, String phraseID) {
 		showConversation(currentActivity, context, phraseID, null);
 	}
-	
+
 	public static void showMapSign(final MainActivity currentActivity, final ControllerContext context, String phraseID) {
 		showConversation(currentActivity, context, phraseID, null);
 	}
-	
+
 	public static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
@@ -67,15 +67,15 @@ public final class Dialogs {
 	}
 
 	public static void addMonsterIdentifiers(Intent intent, Monster monster) {
-        if (monster == null) return;
-        intent.putExtra("x", monster.position.x);
-        intent.putExtra("y", monster.position.y);
+		if (monster == null) return;
+		intent.putExtra("x", monster.position.x);
+		intent.putExtra("y", monster.position.y);
 	}
 	public static void addMonsterIdentifiers(Bundle bundle, Monster monster) {
-        if (monster == null) return;
-        bundle.putInt("x", monster.position.x);
-        bundle.putInt("y", monster.position.y);
-    }
+		if (monster == null) return;
+		bundle.putInt("x", monster.position.x);
+		bundle.putInt("y", monster.position.y);
+	}
 
 	public static Monster getMonsterFromIntent(Intent intent, final WorldContext world) {
 		return getMonsterFromBundle(intent.getExtras(), world);
@@ -84,10 +84,10 @@ public final class Dialogs {
 		if (params == null) return null;
 		if (!params.containsKey("x")) return null;
 		int x = params.getInt("x");
-        int y = params.getInt("y");
-        return world.model.currentMap.getMonsterAt(x, y);
+		int y = params.getInt("y");
+		return world.model.currentMap.getMonsterAt(x, y);
 	}
-	
+
 	public static void showMonsterEncounter(final MainActivity currentActivity, final ControllerContext context, final Monster monster) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, MonsterEncounterActivity.class);
@@ -102,7 +102,7 @@ public final class Dialogs {
 		addMonsterIdentifiers(intent, monster);
 		context.startActivity(intent);
 	}
-	
+
 	public static String getGroundLootFoundMessage(final Context ctx, final Loot loot) {
 		StringBuilder sb = new StringBuilder(60);
 		if (!loot.items.isEmpty()) {
@@ -152,7 +152,7 @@ public final class Dialogs {
 			sb.append(ctx.getString(R.string.dialog_loot_pickedupitems, numItems));
 		}
 	}
-	
+
 	public static void showMonsterLoot(final MainActivity mainActivity, final ControllerContext controllers, final WorldContext world, final Collection<Loot> lootBags, final Loot combinedLoot, final String msg) {
 		// CombatController will do killedMonsterBags.clear() after this method has been called,
 		// so we need to keep the list of objects. Therefore, we create a shallow copy of the list of bags.
@@ -163,7 +163,7 @@ public final class Dialogs {
 	public static void showGroundLoot(final MainActivity mainActivity, final ControllerContext controllers, final WorldContext world, final Loot loot, final String msg) {
 		showLoot(mainActivity, controllers, world, loot, Collections.singletonList(loot), R.string.dialog_groundloot_title, msg);
  	}
-	
+
 	private static void showLoot(final MainActivity mainActivity, final ControllerContext controllers, final WorldContext world, final Loot combinedLoot, final Iterable<Loot> lootBags, final int title, final String msg) {
 		final ListView itemList = new ListView(mainActivity);
 		itemList.setLayoutParams(new ListView.LayoutParams(ListView.LayoutParams.MATCH_PARENT, ListView.LayoutParams.WRAP_CONTENT));
@@ -171,7 +171,7 @@ public final class Dialogs {
 		itemList.setOnItemClickListener(new OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-				
+
 				final String itemTypeID = ((ItemContainerAdapter) parent.getAdapter()).getItem(position).itemType.id;
 				boolean removeFromCombinedLoot = true;
 				for (Loot l : lootBags) {
@@ -188,25 +188,25 @@ public final class Dialogs {
 			}
 		});
 		itemList.setAdapter(new ItemContainerAdapter(mainActivity, world.tileManager, combinedLoot.items, world.model.player));
-		
+
 		AlertDialog.Builder db = new AlertDialog.Builder(mainActivity)
-        .setTitle(title)
-        .setMessage(msg)
-        .setIcon(new BitmapDrawable(mainActivity.getResources(), world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_groundbag)))
-        .setNegativeButton(R.string.dialog_close, null)
-        .setView(itemList);
-		
+		.setTitle(title)
+		.setMessage(msg)
+		.setIcon(new BitmapDrawable(mainActivity.getResources(), world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_groundbag)))
+		.setNegativeButton(R.string.dialog_close, null)
+		.setView(itemList);
+
 		if (!combinedLoot.items.isEmpty()) {
 			db.setPositiveButton(R.string.dialog_loot_pickall, new DialogInterface.OnClickListener() {
-	            @Override
-	            public void onClick(DialogInterface dialog, int which) {
-	            	controllers.itemController.pickupAll(lootBags);
-	            }
-	        });
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					controllers.itemController.pickupAll(lootBags);
+				}
+			});
 		}
-		
+
 		final Dialog d = db.create();
-		
+
 		showDialogAndPause(d, controllers, new OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface arg0) {
@@ -233,74 +233,74 @@ public final class Dialogs {
 
 	public static void showConfirmRest(final Activity currentActivity, final ControllerContext controllerContext, final MapObject area) {
 		Dialog d = new AlertDialog.Builder(currentActivity)
-        .setTitle(R.string.dialog_rest_title)
-        .setMessage(R.string.dialog_rest_confirm_message)
-        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            	controllerContext.mapController.rest(area);
-            }
-        })
-        .setNegativeButton(android.R.string.no, null)
-        .create();
+		.setTitle(R.string.dialog_rest_title)
+		.setMessage(R.string.dialog_rest_confirm_message)
+		.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				controllerContext.mapController.rest(area);
+			}
+		})
+		.setNegativeButton(android.R.string.no, null)
+		.create();
 
-    	showDialogAndPause(d, controllerContext);
+		showDialogAndPause(d, controllerContext);
 	}
 	public static void showRested(final Activity currentActivity, final ControllerContext controllerContext) {
 		Dialog d = new AlertDialog.Builder(currentActivity)
-        .setTitle(R.string.dialog_rest_title)
-        .setMessage(R.string.dialog_rest_message)
-        .setNeutralButton(android.R.string.ok, null)
-        .create();
+		.setTitle(R.string.dialog_rest_title)
+		.setMessage(R.string.dialog_rest_message)
+		.setNeutralButton(android.R.string.ok, null)
+		.create();
 
-    	showDialogAndPause(d, controllerContext);
+		showDialogAndPause(d, controllerContext);
 	}
 
 	public static void showNewVersion(final Activity currentActivity) {
 		new AlertDialog.Builder(currentActivity)
-        .setTitle(R.string.dialog_newversion_title)
-        .setMessage(R.string.dialog_newversion_message)
-        .setNeutralButton(android.R.string.ok, null)
-        .show();
+		.setTitle(R.string.dialog_newversion_title)
+		.setMessage(R.string.dialog_newversion_message)
+		.setNeutralButton(android.R.string.ok, null)
+		.show();
 	}
-	
+
 	public static boolean showSave(final Activity mainActivity, final ControllerContext controllerContext, final WorldContext world) {
 		if (world.model.uiSelections.isInCombat) {
 			Toast.makeText(mainActivity, R.string.menu_save_saving_not_allowed_in_combat, Toast.LENGTH_SHORT).show();
 			return false;
 		}
 		controllerContext.gameRoundController.pause();
-    	Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
-    	intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
-    	mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
+		Intent intent = new Intent(mainActivity, LoadSaveActivity.class);
+		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/save"));
+		mainActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_SAVEGAME);
 		return true;
 	}
-	
+
 	public static void showLoad(final Activity currentActivity) {
 		Intent intent = new Intent(currentActivity, LoadSaveActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/load"));
 		currentActivity.startActivityForResult(intent, StartScreenActivity.INTENTREQUEST_LOADGAME);
 	}
-	
+
 	public static void showActorConditionInfo(final Context context, ActorConditionType conditionType) {
 		Intent intent = new Intent(context, ActorConditionInfoActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/actorconditioninfo/" + conditionType.conditionTypeID));
 		context.startActivity(intent);
 	}
-	
+
 	public static Intent getIntentForBulkBuyingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
 		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType.buy);
 	}
-	
+
 	public static Intent getIntentForBulkSellingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
 		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType.sell);
 	}
-	
+
 	public static Intent getIntentForBulkDroppingInterface(final Context ctx, String itemTypeID, int totalAvailableAmount) {
 		return getIntentForBulkSelectionInterface(ctx, itemTypeID, totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType.drop);
 	}
 
-    private static Intent getIntentForBulkSelectionInterface(final Context ctx, String itemTypeID, int totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType interfaceType) {
+	private static Intent getIntentForBulkSelectionInterface(final Context ctx, String itemTypeID, int totalAvailableAmount, BulkSelectionInterface.BulkInterfaceType interfaceType) {
 		Intent intent = new Intent(ctx, BulkSelectionInterface.class);
 		intent.putExtra("itemTypeID", itemTypeID);
 		intent.putExtra("totalAvailableAmount", totalAvailableAmount);

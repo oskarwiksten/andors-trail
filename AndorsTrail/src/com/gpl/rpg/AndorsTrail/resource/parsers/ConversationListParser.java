@@ -16,7 +16,7 @@ import org.json.JSONObject;
 
 public final class ConversationListParser extends JsonCollectionParserFor<Phrase> {
 
-    private final TranslationLoader translationLoader;
+	private final TranslationLoader translationLoader;
 
 	private final JsonArrayParserFor<Requirement> requirementParser = new JsonArrayParserFor<Requirement>(Requirement.class) {
 		@Override
@@ -29,17 +29,17 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		}
 	};
 
-    private final JsonArrayParserFor<Reply> replyParser = new JsonArrayParserFor<Reply>(Reply.class) {
+	private final JsonArrayParserFor<Reply> replyParser = new JsonArrayParserFor<Reply>(Reply.class) {
 		@Override
 		protected Reply parseObject(JSONObject o) throws JSONException {
 			return new Reply(
-                    translationLoader.translateConversationReply(o.optString(JsonFieldNames.Reply.text, ""))
+					translationLoader.translateConversationReply(o.optString(JsonFieldNames.Reply.text, ""))
 					,o.getString(JsonFieldNames.Reply.nextPhraseID)
 					,requirementParser.parseArray(o.optJSONArray(JsonFieldNames.Reply.requires))
 			);
 		}
 	};
-	
+
 	private final JsonArrayParserFor<Reward> rewardParser = new JsonArrayParserFor<Reward>(Reward.class) {
 		@Override
 		protected Reward parseObject(JSONObject o) throws JSONException {
@@ -51,11 +51,11 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		}
 	};
 
-    public ConversationListParser(TranslationLoader translationLoader) {
-        this.translationLoader = translationLoader;
-    }
+	public ConversationListParser(TranslationLoader translationLoader) {
+		this.translationLoader = translationLoader;
+	}
 
-    @Override
+	@Override
 	protected Pair<String, Phrase> parseObject(JSONObject o) throws JSONException {
 		final String id = o.getString(JsonFieldNames.Phrase.phraseID);
 
@@ -71,7 +71,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		}
 
 		return new Pair<String, Phrase>(id, new Phrase(
-                translationLoader.translateConversationPhrase(o.optString(JsonFieldNames.Phrase.message, null))
+				translationLoader.translateConversationPhrase(o.optString(JsonFieldNames.Phrase.message, null))
 				, _replies
 				, _rewards
 		));

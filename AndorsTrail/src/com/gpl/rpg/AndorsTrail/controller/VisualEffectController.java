@@ -24,9 +24,9 @@ public final class VisualEffectController {
 	private final ControllerContext controllers;
 	private final WorldContext world;
 	private final VisualEffectCollection effectTypes;
-	
+
 	public final VisualEffectFrameListeners visualEffectFrameListeners = new VisualEffectFrameListeners();
-	
+
 	public VisualEffectController(ControllerContext controllers, WorldContext world) {
 		this.controllers = controllers;
 		this.world = world;
@@ -67,34 +67,34 @@ public final class VisualEffectController {
 				postDelayed(this, effect.millisecondPerFrame);
 			}
 		}
-	      
-	    private void update() {
-        	++currentFrame;
-        	int frame = currentFrame;
-        	
-    		int tileID = effect.frameIconIDs[frame];
+
+		private void update() {
+			++currentFrame;
+			int frame = currentFrame;
+
+			int tileID = effect.frameIconIDs[frame];
 			int textYOffset = -2 * (frame);
 			if (frame >= beginFadeAtFrame && displayText != null) {
-				this.textPaint.setAlpha(255 * (effect.lastFrame - frame) / (effect.lastFrame - beginFadeAtFrame)); 
+				this.textPaint.setAlpha(255 * (effect.lastFrame - frame) / (effect.lastFrame - beginFadeAtFrame));
 			}
 			area.topLeft.y = position.y - 1;
 			visualEffectFrameListeners.onNewAnimationFrame(this, tileID, textYOffset);
 		}
 
 		private void onCompleted() {
-    		--effectCount;
-    		visualEffectFrameListeners.onAnimationCompleted(this);
+			--effectCount;
+			visualEffectFrameListeners.onAnimationCompleted(this);
 			if (callback != null) callback.onVisualEffectCompleted(callbackValue);
 		}
-		
+
 		public void start() {
 			postDelayed(this, 0);
 		}
 
 		private int currentFrame = 0;
-		
+
 		private final VisualEffect effect;
-		
+
 		public final Coord position;
 		public final String displayText;
 		public final CoordRect area;
@@ -102,7 +102,7 @@ public final class VisualEffectController {
 		private final int beginFadeAtFrame;
 		private final VisualEffectCompletedCallback callback;
 		private final int callbackValue;
-		
+
 		public VisualEffectAnimation(VisualEffect effect, Coord position, int displayValue, VisualEffectCompletedCallback callback, int callbackValue) {
 			this.position = position;
 			this.callback = callback;
@@ -118,7 +118,7 @@ public final class VisualEffectController {
 			this.beginFadeAtFrame = effect.lastFrame / 2;
 		}
 	}
-	
+
 	public static interface VisualEffectCompletedCallback {
 		public void onVisualEffectCompleted(int callbackValue);
 	}
@@ -126,7 +126,7 @@ public final class VisualEffectController {
 	public boolean isRunningVisualEffect() {
 		return effectCount > 0;
 	}
-	
+
 
 	public static final class BloodSplatter {
 		public final long removeAfter;
@@ -142,7 +142,7 @@ public final class VisualEffectController {
 			reduceIconAfter = now + Constants.SPLATTER_DURATION_MS / 2;
 		}
 	}
-	
+
 	public void updateSplatters(PredefinedMap map) {
 		long now = System.currentTimeMillis();
 		for (int i = map.splatters.size() - 1; i >= 0; --i) {
@@ -157,7 +157,7 @@ public final class VisualEffectController {
 			}
 		}
 	}
-	
+
 	public void addSplatter(PredefinedMap map, Monster m) {
 		int iconID = getSplatterIconFromMonsterClass(m.getMonsterClass());
 		if (iconID > 0) {
@@ -165,7 +165,7 @@ public final class VisualEffectController {
 			controllers.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(map, m.position);
 		}
 	}
-	
+
 	private static int getSplatterIconFromMonsterClass(MonsterType.MonsterClass monsterClass) {
 		switch (monsterClass) {
 		case insect:

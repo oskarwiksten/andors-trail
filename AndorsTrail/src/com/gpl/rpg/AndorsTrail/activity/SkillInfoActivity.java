@@ -22,70 +22,70 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 public final class SkillInfoActivity extends Activity {
 
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
-        if (!app.isInitialized()) { finish(); return; }
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		if (!app.isInitialized()) { finish(); return; }
 		final WorldContext world = app.getWorld();
 		final Player player = world.model.player;
-        
-        app.setWindowParameters(this);
-        
-        setContentView(R.layout.skill_info_view);
 
-        final Resources res = getResources();
-        final Intent intent = getIntent();
-        final SkillCollection.SkillID skillID = SkillCollection.SkillID.valueOf(intent.getExtras().getString("skillID"));
-        SkillInfo skill = world.skills.getSkill(skillID);
-        
-        TextView skillinfo_title = (TextView) findViewById(R.id.skillinfo_title);
-        skillinfo_title.setText(getSkillTitleResourceID(skillID));
-        
-        TextView skillinfo_longdescription = (TextView) findViewById(R.id.skillinfo_longdescription);
-        skillinfo_longdescription.setText(getSkillLongDescription(skillID, res));
-        
-        TextView skillinfo_currentlevel = (TextView) findViewById(R.id.skillinfo_currentlevel);
-        final int playerSkillLevel = player.getSkillLevel(skillID);
-        final int nextSkillLevel = playerSkillLevel + 1;
-        if (skill.hasMaxLevel()) {
-        	skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level_with_maximum, playerSkillLevel, skill.maxLevel));
-        } else if (player.hasSkill(skillID)) {
-            skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level, playerSkillLevel));
-        } else {
-            skillinfo_currentlevel.setVisibility(View.GONE);
-        }
-        
-        
-        TextView skillinfo_requirement = (TextView) findViewById(R.id.skillinfo_requirement);
-        LayoutParams requirementParams = skillinfo_requirement.getLayoutParams();
-        ViewGroup requirementList = (ViewGroup) skillinfo_requirement.getParent();
-        requirementList.removeView(skillinfo_requirement);
-        if (shouldShowSkillRequirements(skill, playerSkillLevel)) {
-        	for (SkillLevelRequirement requirement : skill.levelupRequirements) {
-        		TextView tv = new TextView(this);
-        		tv.setLayoutParams(requirementParams);
-        		
-        		int requiredValue = requirement.getRequiredValue(nextSkillLevel);
-        		tv.setText(getRequirementDescription(requirement, requiredValue, res));
-        		boolean satisfiesRequirement = requirement.isSatisfiedByPlayer(player, nextSkillLevel);
-        		tv.setEnabled(!satisfiesRequirement);
-        		
-        		requirementList.addView(tv, requirementParams);
-        	}	
-        }
-        
+		app.setWindowParameters(this);
 
-        Button b = (Button) findViewById(R.id.skillinfoinfo_close);
-        b.setOnClickListener(new OnClickListener() {
+		setContentView(R.layout.skill_info_view);
+
+		final Resources res = getResources();
+		final Intent intent = getIntent();
+		final SkillCollection.SkillID skillID = SkillCollection.SkillID.valueOf(intent.getExtras().getString("skillID"));
+		SkillInfo skill = world.skills.getSkill(skillID);
+
+		TextView skillinfo_title = (TextView) findViewById(R.id.skillinfo_title);
+		skillinfo_title.setText(getSkillTitleResourceID(skillID));
+
+		TextView skillinfo_longdescription = (TextView) findViewById(R.id.skillinfo_longdescription);
+		skillinfo_longdescription.setText(getSkillLongDescription(skillID, res));
+
+		TextView skillinfo_currentlevel = (TextView) findViewById(R.id.skillinfo_currentlevel);
+		final int playerSkillLevel = player.getSkillLevel(skillID);
+		final int nextSkillLevel = playerSkillLevel + 1;
+		if (skill.hasMaxLevel()) {
+			skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level_with_maximum, playerSkillLevel, skill.maxLevel));
+		} else if (player.hasSkill(skillID)) {
+			skillinfo_currentlevel.setText(res.getString(R.string.skill_current_level, playerSkillLevel));
+		} else {
+			skillinfo_currentlevel.setVisibility(View.GONE);
+		}
+
+
+		TextView skillinfo_requirement = (TextView) findViewById(R.id.skillinfo_requirement);
+		LayoutParams requirementParams = skillinfo_requirement.getLayoutParams();
+		ViewGroup requirementList = (ViewGroup) skillinfo_requirement.getParent();
+		requirementList.removeView(skillinfo_requirement);
+		if (shouldShowSkillRequirements(skill, playerSkillLevel)) {
+			for (SkillLevelRequirement requirement : skill.levelupRequirements) {
+				TextView tv = new TextView(this);
+				tv.setLayoutParams(requirementParams);
+
+				int requiredValue = requirement.getRequiredValue(nextSkillLevel);
+				tv.setText(getRequirementDescription(requirement, requiredValue, res));
+				boolean satisfiesRequirement = requirement.isSatisfiedByPlayer(player, nextSkillLevel);
+				tv.setEnabled(!satisfiesRequirement);
+
+				requirementList.addView(tv, requirementParams);
+			}
+		}
+
+
+		Button b = (Button) findViewById(R.id.skillinfoinfo_close);
+		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				setResult(RESULT_CANCELED);
 				SkillInfoActivity.this.finish();
 			}
 		});
-        
-        b = (Button) findViewById(R.id.skillinfoinfo_action);
-        b.setOnClickListener(new OnClickListener() {
+
+		b = (Button) findViewById(R.id.skillinfoinfo_action);
+		b.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				Intent result = new Intent();
@@ -94,16 +94,16 @@ public final class SkillInfoActivity extends Activity {
 				SkillInfoActivity.this.finish();
 			}
 		});
-        b.setEnabled(SkillController.canLevelupSkillManually(player, skill));
-    }
-	
+		b.setEnabled(SkillController.canLevelupSkillManually(player, skill));
+	}
+
 	private static boolean shouldShowSkillRequirements(SkillInfo skill, int playerSkillLevel) {
 		if (!skill.hasLevelupRequirements()) return false;
 		if (!skill.hasMaxLevel()) return true;
 		if (playerSkillLevel >= skill.maxLevel) return false;
 		return true;
 	}
-	
+
 	public static int getSkillTitleResourceID(SkillCollection.SkillID skill) {
 		switch (skill) {
 		case weaponChance: return R.string.skill_title_weapon_chance;
@@ -152,7 +152,7 @@ public final class SkillInfoActivity extends Activity {
 			return -1;
 		}
 	}
-	
+
 	private static String getSkillLongDescription(final SkillCollection.SkillID skill, final Resources res) {
 		switch (skill) {
 		case weaponChance: return res.getString(R.string.skill_longdescription_weapon_chance, SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE);
@@ -201,7 +201,7 @@ public final class SkillInfoActivity extends Activity {
 			return "";
 		}
 	}
-	
+
 	private static String getRequirementDescription(SkillLevelRequirement requirement, int requiredValue, final Resources res) {
 		switch (requirement.requirementType) {
 		case skillLevel:
@@ -215,7 +215,7 @@ public final class SkillInfoActivity extends Activity {
 		}
 		return "";
 	}
-	
+
 	private static int getRequirementPlayerStatsResourceID(String statID) {
 		return getRequirementPlayerStatsResourceID(Player.StatID.valueOf(statID));
 	}

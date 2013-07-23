@@ -11,7 +11,7 @@ public final class XmlResourceParserUtils {
 	public static interface TagHandler {
 		void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException;
 	}
-	
+
 	public static void readCurrentTagUntilEnd(XmlResourceParser xrp, TagHandler handler) throws XmlPullParserException, IOException {
 		String outerTagName = xrp.getName();
 		String tagName;

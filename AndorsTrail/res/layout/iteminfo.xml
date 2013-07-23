@@ -5,7 +5,7 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	>
-	
+
 	<ScrollView
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -21,20 +21,20 @@
 				android:id="@+id/iteminfo_title"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
-				android:text="@string/inventory_info" 
+				android:text="@string/inventory_info"
 				style="@style/titleWithIcon"
 				android:drawableLeft="@drawable/equip_weapon"
 				/>
 
-            <TextView
-                android:id="@+id/iteminfo_description"
-                android:textStyle="italic"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/section_margin"
-                />
-		
-			<TextView 
+			<TextView
+				android:id="@+id/iteminfo_description"
+				android:textStyle="italic"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/section_margin"
+				/>
+
+			<TextView
 				android:id="@+id/iteminfo_displaytype"
 				android:layout_width="match_parent"
 				android:layout_height="wrap_content"
@@ -47,18 +47,18 @@
 				android:gravity="center_vertical"
 				android:layout_marginBottom="@dimen/section_margin"
 				>
-				<TextView 
-					android:text="@string/iteminfo_category" 
+				<TextView
+					android:text="@string/iteminfo_category"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					/>
-				<TextView 
+				<TextView
 					android:id="@+id/iteminfo_category"
 					android:layout_width="wrap_content"
 					android:layout_height="wrap_content"
 					/>
 			</LinearLayout>
-			
+
 			<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
 				android:id="@+id/iteminfo_effects"
 				android:layout_width="match_parent"
@@ -68,28 +68,28 @@
 	</ScrollView>
 
 	<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
-	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />  
-	
+	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />
+
 	<LinearLayout
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:orientation="horizontal"
 		style="@android:style/ButtonBar"
 		>
-		<Button 
+		<Button
 			android:id="@+id/iteminfo_action"
 			android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="@string/iteminfo_action_use"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/iteminfo_action_use"
 			/>
-			
-		<Button 
+
+		<Button
 			android:id="@+id/iteminfo_close"
 			android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-	        android:layout_weight="1"
-	        android:text="@string/dialog_close"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/dialog_close"
 			/>
 	</LinearLayout>
 </LinearLayout>

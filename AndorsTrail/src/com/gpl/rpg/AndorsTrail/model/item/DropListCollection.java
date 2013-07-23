@@ -8,12 +8,12 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class DropListCollection {
 	public static final String DROPLIST_STARTITEMS = "startitems";
-	
+
 	private final HashMap<String, DropList> droplists = new HashMap<String, DropList>();
-	
+
 	public DropList getDropList(String droplistID) {
 		if (droplistID == null || droplistID.length() <= 0) return null;
-		
+
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			if (!droplists.containsKey(droplistID)) {
 				L.log("WARNING: Cannot find droplist \"" + droplistID + "\".");
@@ -21,7 +21,7 @@ public final class DropListCollection {
 		}
 		return droplists.get(droplistID);
 	}
-	
+
 	public void initialize(final DropListParser parser, String input) {
 		parser.parseRows(input, droplists);
 	}

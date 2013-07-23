@@ -11,14 +11,14 @@
 		android:gravity="center_vertical"
 		android:orientation="horizontal"
 		>
-               
+
 		<Button android:id="@+id/combatview_moveattack"
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/smalltext_buttonheight"
 			android:textSize="@dimen/actionbar_text"
 			android:text="@string/combat_attack"
 			/>
-	 
+
 		<TextView android:id="@+id/combatview_status"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -38,7 +38,7 @@
 			android:textSize="@dimen/actionbar_text"
 			android:text="@string/combat_endturn"
 			/>
-	
+
 		<Button android:id="@+id/combatview_flee"
 			android:layout_width="wrap_content"
 			android:layout_height="@dimen/smalltext_buttonheight"
@@ -47,7 +47,7 @@
 			/>
 
 	</LinearLayout>
-	
+
 	<TextView android:id="@+id/combatview_monsterismoving"
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
 		android:text="@string/combat_monsteraction"
 		android:gravity="center"
 		/>
-	
+
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:id="@+id/combatview_monsterbar"
 		android:layout_width="match_parent"
@@ -77,13 +77,13 @@
 			android:layout_marginRight="5sp"
 			android:contentDescription="@string/dialog_monsterencounter_info"
 			/>
-		
+
 		<com.gpl.rpg.AndorsTrail.view.RangeBar
 			android:id="@+id/combatview_monsterhealth"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-	        />
-		 
+			/>
+
 	</LinearLayout>
-	
+
 </merge>

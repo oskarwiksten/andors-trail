@@ -31,11 +31,11 @@ import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class Savegames {
 	public static final int SLOT_QUICKSAVE = 0;
-	
+
 	public static final int LOAD_RESULT_SUCCESS = 0;
 	public static final int LOAD_RESULT_UNKNOWN_ERROR = 1;
 	public static final int LOAD_RESULT_FUTURE_VERSION = 2;
-	
+
 	public static boolean saveWorld(WorldContext world, Context androidContext, int slot, String displayInfo) {
 		try {
 			// Create the savegame in a temporary memorystream first to ensure that the savegame can
@@ -44,7 +44,7 @@ public final class Savegames {
 			saveWorld(world, bos, displayInfo);
 			byte[] savegame = bos.toByteArray();
 			bos.close();
-			
+
 			FileOutputStream fos = getOutputFile(androidContext, slot);
 			fos.write(savegame);
 			fos.close();
@@ -71,7 +71,7 @@ public final class Savegames {
 			return LOAD_RESULT_UNKNOWN_ERROR;
 		}
 	}
-	
+
 	private static FileOutputStream getOutputFile(Context androidContext, int slot) throws IOException {
 		if (slot == SLOT_QUICKSAVE) {
 			return androidContext.openFileOutput(Constants.FILENAME_SAVEGAME_QUICKSAVE, Context.MODE_PRIVATE);
@@ -96,12 +96,12 @@ public final class Savegames {
 		File root = getSavegameDirectory();
 		return new File(root, Constants.FILENAME_SAVEGAME_FILENAME_PREFIX + slot);
 	}
-	
+
 	private static File getSavegameDirectory() {
 		File root = Environment.getExternalStorageDirectory();
 		return new File(root, Constants.FILENAME_SAVEGAME_DIRECTORY);
 	}
-	
+
 	public static void saveWorld(WorldContext world, OutputStream outStream, String displayInfo) throws IOException {
 		DataOutputStream dest = new DataOutputStream(outStream);
 		final int flags = 0;
@@ -110,28 +110,28 @@ public final class Savegames {
 		world.model.writeToParcel(dest, flags);
 		dest.close();
 	}
-	
+
 	public static int loadWorld(Resources res, WorldContext world, ControllerContext controllers, InputStream inState) throws IOException {
 		DataInputStream src = new DataInputStream(inState);
 		final FileHeader header = new FileHeader(src);
 		if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
-		
+
 		world.maps.readFromParcel(src, world, controllers, header.fileversion);
 		world.model = new ModelContainer(src, world, controllers, header.fileversion);
 		src.close();
-		
+
 		onWorldLoaded(res, world, controllers);
-		
+
 		return LOAD_RESULT_SUCCESS;
 	}
-	
+
 	private static void onWorldLoaded(Resources res, WorldContext world, ControllerContext controllers) {
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
 		controllers.mapController.resetMapsNotRecentlyVisited();
 		controllers.movementController.prepareMapAsCurrentMap(world.model.currentMap, res, false);
 		controllers.gameRoundController.resetRoundTimers();
 	}
-	
+
 	public static FileHeader quickload(Context androidContext, int slot) {
 		try {
 			if (slot != SLOT_QUICKSAVE) {
@@ -148,7 +148,7 @@ public final class Savegames {
 			return null;
 		}
 	}
-	
+
 	private static final Pattern savegameFilenamePattern = Pattern.compile(Constants.FILENAME_SAVEGAME_FILENAME_PREFIX + "(\\d+)");
 	public static List<Integer> getUsedSavegameSlots(Context androidContext) {
 		try {
@@ -170,23 +170,23 @@ public final class Savegames {
 			return null;
 		}
 	}
-	
+
 	public static final class FileHeader {
 		public final int fileversion;
 		public final String playerName;
 		public final String displayInfo;
-		
+
 		public FileHeader(String playerName, String displayInfo) {
 			this.fileversion = AndorsTrailApplication.CURRENT_VERSION;
 			this.playerName = playerName;
 			this.displayInfo = displayInfo;
 		}
-		
+
 		public String describe() {
 			return playerName + ", " + displayInfo;
 		}
 
-			
+
 		// ====== PARCELABLE ===================================================================
 
 		public FileHeader(DataInputStream src) throws IOException {
@@ -201,7 +201,7 @@ public final class Savegames {
 				this.displayInfo = null;
 			}
 		}
-		
+
 		public static void writeToParcel(DataOutputStream dest, String playerName, String displayInfo) throws IOException {
 			dest.writeInt(AndorsTrailApplication.CURRENT_VERSION);
 			dest.writeUTF(playerName);

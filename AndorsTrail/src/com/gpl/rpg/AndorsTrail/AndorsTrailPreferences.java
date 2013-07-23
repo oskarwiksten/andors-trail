@@ -51,7 +51,7 @@ public final class AndorsTrailPreferences {
 	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 	public int quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 	public boolean showQuickslotsWhenToolboxIsVisible = false;
-	
+
 	public void read(final Context androidContext) {
 		AndorsTrailPreferences dest = this;
 		try {

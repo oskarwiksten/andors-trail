@@ -9,19 +9,19 @@ import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class DropList {
 	private final DropItem[] items;
-	
+
 	public DropList(DropItem[] items) {
 		this.items = items;
 	}
 	public void createRandomLoot(Loot loot, Player player) {
 		for (DropItem item : items) {
-			
+
 			final int chanceRollBias = SkillController.getDropChanceRollBias(item, player);
 			if (Constants.rollResult(item.chance, chanceRollBias)) {
-				
+
 				final int quantityRollBias = SkillController.getDropQuantityRollBias(item, player);
 				int quantity = Constants.rollValue(item.quantity, quantityRollBias);
-				
+
 				if (quantity != 0) {
 					if (ItemTypeCollection.isGoldItemType(item.itemType.id)) {
 						loot.gold += quantity;
@@ -37,7 +37,7 @@ public final class DropList {
 	public DropItem[] UNITTEST_getAllDropItems() {
 		return items;
 	}
-	
+
 	public static class DropItem {
 		public final ItemType itemType;
 		public final ConstRange chance;

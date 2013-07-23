@@ -8,27 +8,27 @@ import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import java.util.Collection;
 
 public final class WorldEventListeners extends ListOfListeners<WorldEventListener> implements WorldEventListener {
-	
+
 	private final Function2<WorldEventListener, Monster, String> onPlayerStartedConversation = new Function2<WorldEventListener, Monster, String>() {
 		@Override public void call(WorldEventListener listener, Monster m, String phraseID) { listener.onPlayerStartedConversation(m, phraseID); }
 	};
-	
+
 	private final Function1<WorldEventListener, Monster> onPlayerSteppedOnMonster = new Function1<WorldEventListener, Monster>() {
 		@Override public void call(WorldEventListener listener, Monster m) { listener.onPlayerSteppedOnMonster(m); }
 	};
-	
+
 	private final Function1<WorldEventListener, MapObject> onPlayerSteppedOnMapSignArea = new Function1<WorldEventListener, MapObject>() {
 		@Override public void call(WorldEventListener listener, MapObject area) { listener.onPlayerSteppedOnMapSignArea(area); }
 	};
-	
+
 	private final Function1<WorldEventListener, MapObject> onPlayerSteppedOnKeyArea = new Function1<WorldEventListener, MapObject>() {
 		@Override public void call(WorldEventListener listener, MapObject area) { listener.onPlayerSteppedOnKeyArea(area); }
 	};
-	
+
 	private final Function1<WorldEventListener, MapObject> onPlayerSteppedOnRestArea = new Function1<WorldEventListener, MapObject>() {
 		@Override public void call(WorldEventListener listener, MapObject area) { listener.onPlayerSteppedOnRestArea(area); }
 	};
-	
+
 	private final Function1<WorldEventListener, Loot> onPlayerSteppedOnGroundLoot = new Function1<WorldEventListener, Loot>() {
 		@Override public void call(WorldEventListener listener, Loot loot) { listener.onPlayerSteppedOnGroundLoot(loot); }
 	};
@@ -36,7 +36,7 @@ public final class WorldEventListeners extends ListOfListeners<WorldEventListene
 	private final Function1<WorldEventListener, Loot> onPlayerPickedUpGroundLoot = new Function1<WorldEventListener, Loot>() {
 		@Override public void call(WorldEventListener listener, Loot loot) { listener.onPlayerPickedUpGroundLoot(loot); }
 	};
-	
+
 	private final Function2<WorldEventListener, Collection<Loot>, Integer> onPlayerFoundMonsterLoot = new Function2<WorldEventListener, Collection<Loot>, Integer>() {
 		@Override public void call(WorldEventListener listener, Collection<Loot> loot, Integer exp) { listener.onPlayerFoundMonsterLoot(loot, exp); }
 	};

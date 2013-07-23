@@ -13,34 +13,34 @@ public final class ResourceFileTileset {
 	public final Size numTiles;
 	public Size sourceTileSize;
 	public Matrix scale;
-	
+
 	public ResourceFileTileset(int resourceID, String tilesetName, Size numTiles, Size destinationTileSize) {
 		this.resourceID = resourceID;
 		this.tilesetName = tilesetName;
 		this.destinationTileSize = destinationTileSize;
 		this.numTiles = numTiles;
 	}
-	
+
 	@Override public int hashCode() { return resourceID; }
-	
+
 	public void calculateFromSourceImageSize(final int sourceWidth, final int sourceHeight) {
 		sourceTileSize = new Size(
-        		sourceWidth / numTiles.width
-        		,sourceHeight / numTiles.height
-    		);
-		
+				sourceWidth / numTiles.width
+				,sourceHeight / numTiles.height
+			);
+
 		if (destinationTileSize.width == sourceTileSize.width && destinationTileSize.height == sourceTileSize.height) {
 			scale = null;
 		} else {
-	        scale = new Matrix();
-	        scale.postScale(
-	        		((float) destinationTileSize.width) / sourceTileSize.width
-	    			,((float) destinationTileSize.height) / sourceTileSize.height
+			scale = new Matrix();
+			scale.postScale(
+					((float) destinationTileSize.width) / sourceTileSize.width
+					,((float) destinationTileSize.height) / sourceTileSize.height
 				);
-        
-	        if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-		        //L.log("OPTIMIZE: Tileset " + tilesetName + " will be resized from " + sourceTileSize.toString() + " to " + destinationTileSize.toString());
-	        }
+
+			if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				//L.log("OPTIMIZE: Tileset " + tilesetName + " will be resized from " + sourceTileSize.toString() + " to " + destinationTileSize.toString());
+			}
 		}
 	}
 

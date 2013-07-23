@@ -16,7 +16,7 @@ public final class ItemCategory {
 	public final Inventory.WearSlot inventorySlot;
 	private final ActionType actionType;
 	private final ItemCategorySize size;
-	
+
 	public ItemCategory(
 			String id
 			, String displayName

@@ -11,23 +11,23 @@
 		android:layout_height="wrap_content"
 		android:orientation="vertical"
 		>
-	
+
 		<TextView
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
-			android:id="@+id/levelup_title" 
-			android:text="@string/levelup_title" 
+			android:id="@+id/levelup_title"
+			android:text="@string/levelup_title"
 			style="@style/titleWithIcon"
 			android:drawableLeft="@drawable/char_hero"
 			/>
-		
-		<TextView 
+
+		<TextView
 			android:id="@+id/levelup_description"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			android:text="@string/levelup_description"
 			/>
-			
+
 		<Button
 			android:id="@+id/levelup_add_health"
 			android:layout_width="match_parent"
@@ -52,8 +52,8 @@
 			android:layout_height="wrap_content"
 			android:text="@string/levelup_add_blockchance"
 			/>
-		
-		<TextView 
+
+		<TextView
 			android:id="@+id/levelup_adds_new_skillpoint"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
@@ -63,8 +63,8 @@
 			/>
 
 		<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
-		<ListView android:layout_width="match_parent" android:layout_height="1dp" />  
-	
+		<ListView android:layout_width="match_parent" android:layout_height="1dp" />
+
 	</LinearLayout>
 
 </ScrollView>

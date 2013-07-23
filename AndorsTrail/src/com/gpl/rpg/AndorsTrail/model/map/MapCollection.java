@@ -38,15 +38,15 @@ public final class MapCollection {
 			}
 		}
 		return predefinedMaps.get(name);
-    }
+	}
 
 	public void reset() {
 		for (PredefinedMap m : getAllMaps()) {
-    		m.reset();
-    	}
+			m.reset();
+		}
 		worldMapRequiresUpdate = true;
 	}
-	
+
 	public String getWorldMapSegmentNameForMap(String mapName) {
 		for (WorldMapSegment segment : worldMapSegments.values()) {
 			if (segment.containsMap(mapName)) return segment.name;

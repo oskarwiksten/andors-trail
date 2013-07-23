@@ -18,7 +18,7 @@ public final class Base64 {
 
 	/**
 	 * encode the input data producong a base 64 encoded byte array.
-	 * 
+	 *
 	 * @return a byte array containing the base 64 encoded data.
 	 */
 	public static byte[] encode(byte[] data) {
@@ -95,7 +95,7 @@ public final class Base64 {
 
 	/**
 	 * decode the base 64 encoded input data.
-	 * 
+	 *
 	 * @return a byte array representing the decoded data.
 	 */
 	public static byte[] decode(byte[] data) {
@@ -141,7 +141,7 @@ public final class Base64 {
 
 	/**
 	 * decode the base 64 encoded String data.
-	 * 
+	 *
 	 * @return a byte array representing the decoded data.
 	 */
 	public static byte[] decode(String data) {

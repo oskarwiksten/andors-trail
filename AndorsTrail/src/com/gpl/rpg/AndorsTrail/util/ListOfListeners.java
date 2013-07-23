@@ -7,7 +7,7 @@ import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 
 public class ListOfListeners<T> {
 	private final ArrayList<WeakReference<T>> listeners = new ArrayList<WeakReference<T>>();
-	
+
 	public final void add(T listener) {
 		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 			for (WeakReference<T> ref : listeners) {
@@ -26,10 +26,10 @@ public class ListOfListeners<T> {
 			}
 		}
 	}
-    public final void clear() {
-        listeners.clear();
-    }
-	
+	public final void clear() {
+		listeners.clear();
+	}
+
 	protected final void callAllListeners(Function<T> e) {
 		for (int i = listeners.size()-1; i >= 0; --i) {
 			T listener = listeners.get(i).get();
@@ -58,7 +58,7 @@ public class ListOfListeners<T> {
 			else e.call(listener, arg1, arg2, arg3);
 		}
 	}
-	
+
 	protected static interface Function<Listener> {
 		public void call(Listener listener);
 	}

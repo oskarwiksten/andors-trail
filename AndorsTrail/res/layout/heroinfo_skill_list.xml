@@ -4,20 +4,20 @@
 	android:layout_width="match_parent"
 	android:layout_height="match_parent"
 	>
-	<TextView  
-		android:layout_width="match_parent" 
-		android:layout_height="wrap_content" 
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
 		android:text="@string/skill_number_of_increases_several"
-		android:id="@+id/heroinfo_listskills_number_of_increases" 
+		android:id="@+id/heroinfo_listskills_number_of_increases"
 		android:layout_marginBottom="@dimen/section_margin"
 		android:layout_marginTop="@dimen/section_margin"
 		android:layout_gravity="center_horizontal"
 		/>
-	
-	<ListView 
-		android:layout_width="match_parent" 
-		android:layout_height="wrap_content" 
-		android:id="@+id/heroinfo_listskills_list" 
+
+	<ListView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:id="@+id/heroinfo_listskills_list"
 		/>
 
 </LinearLayout>

@@ -26,7 +26,7 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	private final boolean isSelling;
 	private final Resources r;
 	private final Player player;
-	
+
 	public ShopItemContainerAdapter(Context context, TileCollection tileCollection, TileManager tileManager, Player player, ItemContainer items, OnContainerItemClickedListener clickListener, boolean isSelling) {
 		super(context, 0, items.items);
 		this.tileManager = tileManager;
@@ -41,12 +41,12 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		final ItemEntry item = getItem(position);
 		final ItemType itemType = item.itemType;
-		
+
 		View result = convertView;
 		if (result == null) {
 			result = View.inflate(getContext(), R.layout.shopitemview, null);
 		}
-		
+
 		tileManager.setImageViewTile(r, (ImageView) result.findViewById(R.id.shopitem_image), itemType, tileCollection);
 		((TextView) result.findViewById(R.id.shopitem_text)).setText(ItemController.describeItemForListView(item, player));
 		Button b = (Button) result.findViewById(R.id.shopitem_shopbutton);
@@ -73,12 +73,12 @@ public final class ShopItemContainerAdapter extends ArrayAdapter<ItemEntry> {
 		});
 		return result;
 	}
-	
+
 	@Override
 	public long getItemId(int position) {
 		return getItem(position).itemType.id.hashCode();
 	}
-	
+
 	public static interface OnContainerItemClickedListener {
 		void onItemActionClicked(int position, ItemType itemType);
 		void onItemInfoClicked(int position, ItemType itemType);

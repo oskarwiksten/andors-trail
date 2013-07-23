@@ -9,35 +9,35 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 	private final Function2<CombatActionListener, Monster, AttackResult> onPlayerAttackMissed = new Function2<CombatActionListener, Monster, AttackResult>() {
 		@Override public void call(CombatActionListener listener, Monster target, AttackResult attackResult) { listener.onPlayerAttackMissed(target, attackResult); }
 	};
-	
+
 	private final Function2<CombatActionListener, Monster, AttackResult> onPlayerAttackSuccess = new Function2<CombatActionListener, Monster, AttackResult>() {
 		@Override public void call(CombatActionListener listener, Monster target, AttackResult attackResult) { listener.onPlayerAttackSuccess(target, attackResult); }
 	};
-	
+
 	private final Function2<CombatActionListener, Monster, AttackResult> onMonsterAttackMissed = new Function2<CombatActionListener, Monster, AttackResult>() {
 		@Override public void call(CombatActionListener listener, Monster attacker, AttackResult attackResult) { listener.onMonsterAttackMissed(attacker, attackResult); }
 	};
-	
+
 	private final Function2<CombatActionListener, Monster, AttackResult> onMonsterAttackSuccess = new Function2<CombatActionListener, Monster, AttackResult>() {
 		@Override public void call(CombatActionListener listener, Monster attacker, AttackResult attackResult) { listener.onMonsterAttackSuccess(attacker, attackResult); }
 	};
 
-    private final Function1<CombatActionListener, Monster> onMonsterMovedDuringCombat = new Function1<CombatActionListener, Monster>() {
-        @Override public void call(CombatActionListener listener, Monster m) { listener.onMonsterMovedDuringCombat(m); }
-    };
+	private final Function1<CombatActionListener, Monster> onMonsterMovedDuringCombat = new Function1<CombatActionListener, Monster>() {
+		@Override public void call(CombatActionListener listener, Monster m) { listener.onMonsterMovedDuringCombat(m); }
+	};
 
-    private final Function1<CombatActionListener, Monster> onPlayerKilledMonster = new Function1<CombatActionListener, Monster>() {
+	private final Function1<CombatActionListener, Monster> onPlayerKilledMonster = new Function1<CombatActionListener, Monster>() {
 		@Override public void call(CombatActionListener listener, Monster target) { listener.onPlayerKilledMonster(target); }
 	};
-	
+
 	private final Function<CombatActionListener> onPlayerStartedFleeing = new Function<CombatActionListener>() {
 		@Override public void call(CombatActionListener listener) { listener.onPlayerStartedFleeing(); }
 	};
-	
+
 	private final Function<CombatActionListener> onPlayerFailedFleeing = new Function<CombatActionListener>() {
 		@Override public void call(CombatActionListener listener) { listener.onPlayerFailedFleeing(); }
 	};
-	
+
 	private final Function<CombatActionListener> onPlayerDoesNotHaveEnoughAP = new Function<CombatActionListener>() {
 		@Override public void call(CombatActionListener listener) { listener.onPlayerDoesNotHaveEnoughAP(); }
 	};
@@ -62,10 +62,10 @@ public final class CombatActionListeners extends ListOfListeners<CombatActionLis
 		callAllListeners(this.onMonsterAttackSuccess, attacker, attackResult);
 	}
 
-    @Override
-    public void onMonsterMovedDuringCombat(Monster m) {
-        callAllListeners(this.onMonsterMovedDuringCombat, m);
-    }
+	@Override
+	public void onMonsterMovedDuringCombat(Monster m) {
+		callAllListeners(this.onMonsterMovedDuringCombat, m);
+	}
 
 	@Override
 	public void onPlayerKilledMonster(Monster target) {

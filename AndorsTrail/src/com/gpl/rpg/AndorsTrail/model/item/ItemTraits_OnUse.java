@@ -7,7 +7,7 @@ public final class ItemTraits_OnUse {
 	public final StatsModifierTraits changedStats;
 	public final ActorConditionEffect[] addedConditions_source;
 	public final ActorConditionEffect[] addedConditions_target;
-	
+
 	public ItemTraits_OnUse(StatsModifierTraits changedStats, ActorConditionEffect[] addedConditions_source, ActorConditionEffect[] addedConditions_target) {
 		this.changedStats = changedStats;
 		this.addedConditions_source = addedConditions_source;

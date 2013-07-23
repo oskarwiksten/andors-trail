@@ -35,28 +35,28 @@ public final class HeroinfoActivity_Stats extends Fragment {
 
 	private View view;
 	private Button levelUpButton;
-    private TextView heroinfo_ap;
-    private TextView heroinfo_reequip_cost;
-    private TextView heroinfo_useitem_cost;
-    private TextView heroinfo_level;
-    private TextView heroinfo_totalexperience;
-    private TextView basetraitsinfo_max_hp;
-    private TextView basetraitsinfo_max_ap;
-    private TextView heroinfo_base_reequip_cost;
-    private TextView heroinfo_base_useitem_cost;
-    private RangeBar rangebar_hp;
-    private RangeBar rangebar_exp;
-    private ItemEffectsView actorinfo_onhiteffects;
-    private TableLayout heroinfo_basestats_table;
-    private ViewGroup heroinfo_container;
+	private TextView heroinfo_ap;
+	private TextView heroinfo_reequip_cost;
+	private TextView heroinfo_useitem_cost;
+	private TextView heroinfo_level;
+	private TextView heroinfo_totalexperience;
+	private TextView basetraitsinfo_max_hp;
+	private TextView basetraitsinfo_max_ap;
+	private TextView heroinfo_base_reequip_cost;
+	private TextView heroinfo_base_useitem_cost;
+	private RangeBar rangebar_hp;
+	private RangeBar rangebar_exp;
+	private ItemEffectsView actorinfo_onhiteffects;
+	private TableLayout heroinfo_basestats_table;
+	private ViewGroup heroinfo_container;
 
 	@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this.getActivity());
-        if (!app.isInitialized()) return;
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this.getActivity());
+		if (!app.isInitialized()) return;
 		this.world = app.getWorld();
-        this.player = world.model.player;
+		this.player = world.model.player;
 	}
 
 	@Override
@@ -64,50 +64,50 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		View v = inflater.inflate(R.layout.heroinfo_stats, container, false);
 		view = v;
 
-        TextView tv = (TextView) v.findViewById(R.id.heroinfo_title);
-        tv.setText(player.getName());
-        world.tileManager.setImageViewTile(getResources(), tv, player);
-        
-        heroinfo_container = (ViewGroup) v.findViewById(R.id.heroinfo_container);
-        heroinfo_ap = (TextView) v.findViewById(R.id.heroinfo_ap);
-        heroinfo_reequip_cost = (TextView) v.findViewById(R.id.heroinfo_reequip_cost);
-        heroinfo_useitem_cost = (TextView) v.findViewById(R.id.heroinfo_useitem_cost);
-        basetraitsinfo_max_hp = (TextView) v.findViewById(R.id.basetraitsinfo_max_hp);
-        basetraitsinfo_max_ap = (TextView) v.findViewById(R.id.basetraitsinfo_max_ap);
-        heroinfo_base_reequip_cost = (TextView) v.findViewById(R.id.heroinfo_base_reequip_cost);
-        heroinfo_base_useitem_cost = (TextView) v.findViewById(R.id.heroinfo_base_useitem_cost);
-        heroinfo_level = (TextView) v.findViewById(R.id.heroinfo_level);
-        heroinfo_totalexperience = (TextView) v.findViewById(R.id.heroinfo_totalexperience);
+		TextView tv = (TextView) v.findViewById(R.id.heroinfo_title);
+		tv.setText(player.getName());
+		world.tileManager.setImageViewTile(getResources(), tv, player);
+
+		heroinfo_container = (ViewGroup) v.findViewById(R.id.heroinfo_container);
+		heroinfo_ap = (TextView) v.findViewById(R.id.heroinfo_ap);
+		heroinfo_reequip_cost = (TextView) v.findViewById(R.id.heroinfo_reequip_cost);
+		heroinfo_useitem_cost = (TextView) v.findViewById(R.id.heroinfo_useitem_cost);
+		basetraitsinfo_max_hp = (TextView) v.findViewById(R.id.basetraitsinfo_max_hp);
+		basetraitsinfo_max_ap = (TextView) v.findViewById(R.id.basetraitsinfo_max_ap);
+		heroinfo_base_reequip_cost = (TextView) v.findViewById(R.id.heroinfo_base_reequip_cost);
+		heroinfo_base_useitem_cost = (TextView) v.findViewById(R.id.heroinfo_base_useitem_cost);
+		heroinfo_level = (TextView) v.findViewById(R.id.heroinfo_level);
+		heroinfo_totalexperience = (TextView) v.findViewById(R.id.heroinfo_totalexperience);
 		actorinfo_onhiteffects = (ItemEffectsView) v.findViewById(R.id.actorinfo_onhiteffects);
 		heroinfo_basestats_table = (TableLayout) v.findViewById(R.id.heroinfo_basestats_table);
 
-        rangebar_hp = (RangeBar) v.findViewById(R.id.heroinfo_healthbar);
-        rangebar_hp.init(R.drawable.ui_progress_health, R.string.status_hp);
-        rangebar_exp = (RangeBar) v.findViewById(R.id.heroinfo_expbar);
-        rangebar_exp.init(R.drawable.ui_progress_exp, R.string.status_exp);
-        
-        levelUpButton = (Button) v.findViewById(R.id.heroinfo_levelup);
-        levelUpButton.setOnClickListener(new OnClickListener() {
+		rangebar_hp = (RangeBar) v.findViewById(R.id.heroinfo_healthbar);
+		rangebar_hp.init(R.drawable.ui_progress_health, R.string.status_hp);
+		rangebar_exp = (RangeBar) v.findViewById(R.id.heroinfo_expbar);
+		rangebar_exp.init(R.drawable.ui_progress_exp, R.string.status_exp);
+
+		levelUpButton = (Button) v.findViewById(R.id.heroinfo_levelup);
+		levelUpButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
 				Intent intent = Dialogs.getIntentForLevelUp(getActivity());
 				startActivityForResult(intent, INTENTREQUEST_LEVELUP);
-				// We disable the button temporarily, so that there is no possibility 
-				//  of clicking it again before the levelup activity has started.
+				// We disable the button temporarily, so that there is no possibility
+				// of clicking it again before the levelup activity has started.
 				// See issue:
-				//  http://code.google.com/p/andors-trail/issues/detail?id=42
+				// http://code.google.com/p/andors-trail/issues/detail?id=42
 				levelUpButton.setEnabled(false);
 			}
 		});
 
 		return v;
-    }
+	}
 
-    @Override
+	@Override
 	public void onStart() {
 		super.onStart();
 		update();
-    }
+	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -122,8 +122,8 @@ public final class HeroinfoActivity_Stats extends Fragment {
 
 	private void updateLevelup() {
 		levelUpButton.setEnabled(player.canLevelup());
-    }
-    
+	}
+
 	private void updateTraits() {
 		final Resources res = getResources();
 
@@ -136,24 +136,24 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		basetraitsinfo_max_ap.setText(Integer.toString(player.baseTraits.maxAP));
 		heroinfo_base_reequip_cost.setText(Integer.toString(player.baseTraits.reequipCost));
 		heroinfo_base_useitem_cost.setText(Integer.toString(player.baseTraits.useItemCost));
-        rangebar_hp.update(player.getMaxHP(), player.getCurrentHP());
-        rangebar_exp.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
-        
-        TraitsInfoView.update(heroinfo_container, player);
-        TraitsInfoView.updateTraitsTable(
-    		heroinfo_basestats_table
-    		, player.baseTraits.moveCost
-    		, player.baseTraits.attackCost
-    		, player.baseTraits.attackChance
-    		, player.baseTraits.damagePotential
-    		, player.baseTraits.criticalSkill
-    		, player.baseTraits.criticalMultiplier
-    		, player.baseTraits.blockChance
-    		, player.baseTraits.damageResistance
+		rangebar_hp.update(player.getMaxHP(), player.getCurrentHP());
+		rangebar_exp.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
+
+		TraitsInfoView.update(heroinfo_container, player);
+		TraitsInfoView.updateTraitsTable(
+			heroinfo_basestats_table
+			, player.baseTraits.moveCost
+			, player.baseTraits.attackCost
+			, player.baseTraits.attackChance
+			, player.baseTraits.damagePotential
+			, player.baseTraits.criticalSkill
+			, player.baseTraits.criticalMultiplier
+			, player.baseTraits.blockChance
+			, player.baseTraits.damageResistance
 			, false
 		);
-        
-        ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
+
+		ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
 		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
@@ -176,7 +176,7 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		updateStatsTableRow(world.model.statistics.getMostCommonlyUsedItem(world, res), R.id.heroinfo_gamestats_fav_item, R.id.heroinfo_gamestats_fav_item_row1, R.id.heroinfo_gamestats_fav_item_row2);
 		updateStatsTableRow(world.model.statistics.getMostPowerfulKilledMonster(world), R.id.heroinfo_gamestats_top_boss, R.id.heroinfo_gamestats_top_boss_row1, R.id.heroinfo_gamestats_top_boss_row2);
 		updateStatsTableRow(world.model.statistics.getTop5MostCommonlyKilledMonsters(world, res), R.id.heroinfo_gamestats_fav_monsters, R.id.heroinfo_gamestats_fav_monsters_row1, R.id.heroinfo_gamestats_fav_monsters_row2);
-    }
+	}
 
 	private void updateStatsTableRow(int value, int textView, int tableRow) {
 		String s = (value > 0) ? Integer.toString(value) : null;

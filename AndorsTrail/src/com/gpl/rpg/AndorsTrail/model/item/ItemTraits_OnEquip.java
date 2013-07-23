@@ -6,9 +6,9 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 public final class ItemTraits_OnEquip {
 	public final AbilityModifierTraits stats;
 	public final ActorConditionEffect[] addedConditions;
-	
+
 	public ItemTraits_OnEquip(
-			AbilityModifierTraits stats, 
+			AbilityModifierTraits stats,
 			ActorConditionEffect[] addedConditions) {
 		this.stats = stats;
 		this.addedConditions = addedConditions;

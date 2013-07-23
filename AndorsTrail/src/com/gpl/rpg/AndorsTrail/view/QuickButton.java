@@ -16,37 +16,38 @@ import android.widget.Button;
 
 public final class QuickButton extends Button {
 	private final ColorFilter grayScaleFilter = new ColorMatrixColorFilter(
-			new float[] { 0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
-                          0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
-                          0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
-                          0.00f, 0.00f, 0.00f, 1.0f, 0.0f
+			new float[] {
+				0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
+				0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
+				0.30f, 0.59f, 0.11f, 0.0f, 0.0f,
+				0.00f, 0.00f, 0.00f, 1.0f, 0.0f
 			});
 	private boolean empty;
 	private final QuickButtonContextMenuInfo menuInfo;
 	private final int textPadding;
-	
+
 	public QuickButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		menuInfo = new QuickButtonContextMenuInfo();
 		textPadding = getResources().getDimensionPixelSize(R.dimen.boxshape_margin);
 	}
-	
+
 	public void setIndex(int index){
 		menuInfo.index = index;
 	}
-	
+
 	public int getIndex(){
 		return menuInfo.index;
 	}
-	
+
 	@Override
 	protected ContextMenu.ContextMenuInfo getContextMenuInfo() {
 		return menuInfo;
 	}
-	
+
 	private String currentItemID = "unassigned";
 	public void setItemType(ItemType type, WorldContext world, TileCollection tiles) {
-        final Resources res = getContext().getResources();
+		final Resources res = getContext().getResources();
 
 		if (type == null) {
 			if (currentItemID == null) return;
@@ -68,11 +69,11 @@ public final class QuickButton extends Button {
 			setText(Integer.toString(quantity));
 		}
 	}
-	
+
 	private void setGrayScale(boolean useGrayscale) {
 		getCompoundDrawables()[0].setColorFilter(useGrayscale ? grayScaleFilter : null);
 	}
-	
+
 	public boolean isEmpty() {
 		return empty;
 	}

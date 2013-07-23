@@ -29,7 +29,7 @@ public final class CoordRect {
 		if (y - topLeft.y >= size.height) return false;
 		return true;
 	}
-	
+
 	/*
 	public static boolean contains(final int x, final int y, final Size size, final Coord p) {
 		if (p.x < x) return false;
@@ -47,7 +47,7 @@ public final class CoordRect {
 		if (topLeft.y >= a.topLeft.y + a.size.height) return false;
 		return true;
 	}
-	
+
 	public boolean isAdjacentTo(Coord p) {
 		final int dx = p.x - topLeft.x;
 		final int dy = p.y - topLeft.y;
@@ -68,7 +68,7 @@ public final class CoordRect {
 		center.y += size.height / 2;
 		return center;
 	}
-	
+
 	public String toString() {
 		return '{' + topLeft.toString() + ", " + size.toString() + '}';
 	}

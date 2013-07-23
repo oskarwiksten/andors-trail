@@ -25,17 +25,17 @@ public final class Constants {
 
 	public static final int MONSTER_MOVEMENT_TURN_DURATION_MS = 1200;
 	public static final int ATTACK_ANIMATION_FPS = 10;
-	
+
 	public static final int TICK_DELAY = 500;
 	private static final int ROUND_DURATION = 6000;
 	private static final int FULLROUND_DURATION = 25000;
 	public static final int TICKS_PER_ROUND = ROUND_DURATION / TICK_DELAY;
 	public static final int TICKS_PER_FULLROUND = FULLROUND_DURATION / TICK_DELAY;
 	public static final int SPLATTER_DURATION_MS = 20000;
-	
+
 	public static final ConstRange monsterWaitTurns = new ConstRange(30,4);
 	public static final long MAP_UNVISITED_RESPAWN_DURATION_MS = 3 * 60 * 1000; // 3 min in milliseconds
-	
+
 	public static final String PREFERENCE_MODEL_LASTRUNVERSION = "lastversion";
 	public static final String FILENAME_SAVEGAME_QUICKSAVE = "savegame";
 	public static final String FILENAME_SAVEGAME_DIRECTORY = "andors-trail";
@@ -44,12 +44,12 @@ public final class Constants {
 	public static final String FILENAME_WORLDMAP_HTMLFILE_SUFFIX = ".html";
 	public static final String FILENAME_SAVEGAME_FILENAME_PREFIX = "savegame";
 	public static final String PLACEHOLDER_PLAYERNAME = "$playername";
-	
+
 	public static final Random rnd = new Random();
 	public static int rollValue(final ConstRange r) { return rollValue(r.max, r.current); }
 	public static int rollValue(final ConstRange r, int bias) { return rollValue(r.max, r.current + bias); }
 	public static int rollValue(final Range r) { return rollValue(r.max, r.current); }
-	private static int rollValue(final int max, final int min) { 
+	private static int rollValue(final int max, final int min) {
 		if (max <= min) return max;
 		else return rnd.nextInt(max - min + 1) + min;
 	}

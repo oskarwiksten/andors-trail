@@ -31,7 +31,7 @@ public final class WorldContext {
 	//Model
 	public final MapCollection maps;
 	public ModelContainer model;
-	
+
 	public WorldContext() {
 		this.conversationLoader = new ConversationLoader();
 		this.itemTypes = new ItemTypeCollection();

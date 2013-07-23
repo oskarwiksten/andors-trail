@@ -17,15 +17,15 @@ public final class ActorConditionType {
 	public final StatsModifierTraits statsEffect_everyRound;
 	public final StatsModifierTraits statsEffect_everyFullRound;
 	public final AbilityModifierTraits abilityEffect;
-	
+
 	public ActorConditionType(
-			String conditionTypeID, 
-			String name, 
+			String conditionTypeID,
+			String name,
 			int iconID,
 			ConditionCategory conditionCategory,
 			boolean isStacking,
 			boolean isPositive,
-			StatsModifierTraits statsEffect_everyRound, 
+			StatsModifierTraits statsEffect_everyRound,
 			StatsModifierTraits statsEffect_everyFullRound,
 			AbilityModifierTraits abilityEffect) {
 		this.conditionTypeID = conditionTypeID;

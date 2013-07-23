@@ -9,13 +9,13 @@ public final class WorldMapSegment {
 	public final String name;
 	public final HashMap<String, WorldMapSegmentMap> maps = new HashMap<String, WorldMapSegmentMap>();
 	public final HashMap<String, NamedWorldMapArea> namedAreas = new HashMap<String, NamedWorldMapArea>();
-	
+
 	public WorldMapSegment(String name) {
 		this.name = name;
 	}
-	
+
 	public boolean containsMap(String mapName) { return maps.containsKey(mapName); }
-	
+
 	public static final class WorldMapSegmentMap {
 		public final String mapName;
 		public final Coord worldPosition;
@@ -24,7 +24,7 @@ public final class WorldMapSegment {
 			this.worldPosition = worldPosition;
 		}
 	}
-	
+
 	// Towns, cities, villages, taverns, named dungeons
 	public static final class NamedWorldMapArea {
 		public final String id;

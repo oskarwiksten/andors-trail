@@ -9,12 +9,12 @@ public final class TileCutter {
 	private final ResourceFileTileset sourceFile;
 	private final Bitmap tilesetImage;
 	private boolean recycle = true;
-	
+
 	public TileCutter(ResourceFileTileset sourceFile, Resources r) {
 		this.sourceFile = sourceFile;
 		this.tilesetImage = createTilesetImage(r);
 	}
-	
+
 	private Bitmap createTilesetImage(Resources r) {
 		//return BitmapFactory.decodeResource(r, b.resourceId);
 		Options o = new Options();
@@ -39,7 +39,7 @@ public final class TileCutter {
 		if (result == tilesetImage) recycle = false;
 		return result;
 	}
-	
+
 	public void recycle() {
 		if (recycle) tilesetImage.recycle();
 	}

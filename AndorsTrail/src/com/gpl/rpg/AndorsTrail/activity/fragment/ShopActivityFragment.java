@@ -36,37 +36,37 @@ public abstract class ShopActivityFragment extends Fragment implements OnContain
 
 	protected abstract boolean isSellingInterface();
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        
-        final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(getActivity());
-        if (!app.isInitialized()) return;
-        this.world = app.getWorld();
-        this.player = world.model.player;
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(getActivity());
+		if (!app.isInitialized()) return;
+		this.world = app.getWorld();
+		this.player = world.model.player;
 	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.shoplist, container, false);
-        
-        final Monster npc = Dialogs.getMonsterFromIntent(getActivity().getIntent(), world);
 
-        final Resources res = getResources();
+		final Monster npc = Dialogs.getMonsterFromIntent(getActivity().getIntent(), world);
 
-        shop_gc = (TextView) v.findViewById(R.id.shop_gc);
+		final Resources res = getResources();
+
+		shop_gc = (TextView) v.findViewById(R.id.shop_gc);
 
 		ListView shoplist = (ListView) v.findViewById(R.id.shop_list);
 
 		shopInventory = npc.getShopItems(player);
-        
-        HashSet<Integer> iconIDs = world.tileManager.getTileIDsFor(shopInventory);
-        iconIDs.addAll(world.tileManager.getTileIDsFor(player.inventory));
-        TileCollection tiles = world.tileManager.loadTilesFor(iconIDs, res);
+
+		HashSet<Integer> iconIDs = world.tileManager.getTileIDsFor(shopInventory);
+		iconIDs.addAll(world.tileManager.getTileIDsFor(player.inventory));
+		TileCollection tiles = world.tileManager.loadTilesFor(iconIDs, res);
 		final boolean isSelling = isSellingInterface();
 		listAdapter = new ShopItemContainerAdapter(getActivity(), tiles, world.tileManager, player, isSelling ? player.inventory : shopInventory, this, isSelling);
-        shoplist.setAdapter(listAdapter);
-        return v;
+		shoplist.setAdapter(listAdapter);
+		return v;
 	}
 
 	@Override
@@ -85,12 +85,12 @@ public abstract class ShopActivityFragment extends Fragment implements OnContain
 		lastToast.show();
 		update();
 	}
-	
+
 	@Override
-    public void onPause() {
+	public void onPause() {
 		super.onPause();
-    	lastToast = null;
-    }
+		lastToast = null;
+	}
 
 	protected void update() {
 		listAdapter.notifyDataSetChanged();

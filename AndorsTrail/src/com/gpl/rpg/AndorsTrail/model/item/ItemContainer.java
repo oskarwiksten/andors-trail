@@ -9,9 +9,9 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
 public class ItemContainer {
 	public final ArrayList<ItemEntry> items = new ArrayList<ItemEntry>();
-	
+
 	public ItemContainer() {}
-	
+
 	public int countItems() {
 		int result = 0;
 		for (ItemEntry i : items) {
@@ -19,7 +19,7 @@ public class ItemContainer {
 		}
 		return result;
 	}
-	
+
 	public static final class ItemEntry {
 		public final ItemType itemType;
 		public int quantity;
@@ -27,20 +27,20 @@ public class ItemContainer {
 			this.itemType = itemType;
 			this.quantity = initialQuantity;
 		}
-		
+
 		// ====== PARCELABLE ===================================================================
 
 		public ItemEntry(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-			this.itemType = world.itemTypes.getItemType(src.readUTF()); 
+			this.itemType = world.itemTypes.getItemType(src.readUTF());
 			this.quantity = src.readInt();
 		}
-		
+
 		public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 			dest.writeUTF(itemType.id);
 			dest.writeInt(quantity);
 		}
 	}
-	
+
 	public void addItem(ItemType itemType, int quantity) {
 		ItemEntry e = findItem(itemType.id);
 		if (e != null) {
@@ -56,7 +56,7 @@ public class ItemContainer {
 		}
 	}
 	public boolean isEmpty() { return items.isEmpty(); }
-	
+
 	public boolean removeItem(String itemTypeID) { return removeItem(itemTypeID, 1); }
 	public boolean removeItem(String itemTypeID, int quantity) {
 		int index = -1;
@@ -78,7 +78,7 @@ public class ItemContainer {
 		}
 		return true;
 	}
-	
+
 	public ItemEntry findItem(String itemTypeID) {
 		for (ItemEntry e : items) {
 			if (e.itemType.id.equals(itemTypeID)) return e;
@@ -92,11 +92,11 @@ public class ItemContainer {
 		return -1;
 	}
 	public boolean hasItem(String itemTypeID) { return findItem(itemTypeID) != null; }
-	public boolean hasItem(String itemTypeID, int minimumQuantity) { 
+	public boolean hasItem(String itemTypeID, int minimumQuantity) {
 		return getItemQuantity(itemTypeID) >= minimumQuantity;
 	}
-	
-	public int getItemQuantity(String itemTypeID) { 
+
+	public int getItemQuantity(String itemTypeID) {
 		ItemEntry e = findItem(itemTypeID);
 		if (e == null) return 0;
 		return e.quantity;
@@ -113,14 +113,14 @@ public class ItemContainer {
 		if (i < 0) return;
 		items.add(items.remove(i));
 	}
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public ItemContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		readFromParcel(src, world, fileversion);
 	}
-	
+
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		items.clear();
 		final int size = src.readInt();
@@ -129,7 +129,7 @@ public class ItemContainer {
 			if (entry.itemType != null) items.add(entry);
 		}
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		dest.writeInt(items.size());
 		for (ItemEntry e : items) {

@@ -30,7 +30,7 @@ public final class Inventory extends ItemContainer {
 	public static final int NUM_QUICK_SLOTS = 3;
 	private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
 	public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
-	
+
 	public Inventory() { }
 
 	public void clear() {
@@ -39,12 +39,12 @@ public final class Inventory extends ItemContainer {
 		gold = 0;
 		items.clear();
 	}
-	
+
 	public void add(final Loot loot) {
 		this.gold += loot.gold;
 		this.add(loot.items);
 	}
-	
+
 	public boolean isEmptySlot(WearSlot slot) {
 		return wear[slot.ordinal()] == null;
 	}
@@ -63,7 +63,7 @@ public final class Inventory extends ItemContainer {
 		}
 		return false;
 	}
-	
+
 	public static boolean isArmorSlot(WearSlot slot) {
 		if (slot == null) return false;
 		switch (slot) {
@@ -76,8 +76,8 @@ public final class Inventory extends ItemContainer {
 				return false;
 		}
 	}
-	
-	
+
+
 	// ====== PARCELABLE ===================================================================
 
 	public Inventory(DataInputStream src, WorldContext world, int fileversion) throws IOException {
@@ -86,9 +86,9 @@ public final class Inventory extends ItemContainer {
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		super.readFromParcel(src, world, fileversion);
 		gold = src.readInt();
-		
+
 		if (fileversion < 23) LegacySavegameFormatReaderForItemContainer.refundUpgradedItems(this);
-		
+
 		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
 			wear[i] = null;
 		}
@@ -110,7 +110,7 @@ public final class Inventory extends ItemContainer {
 			}
 		}
 	}
-	
+
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
 		super.writeToParcel(dest, flags);
 		dest.writeInt(gold);

@@ -14,11 +14,11 @@ import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class DynamicTileLoader {
 	private final TileCache tileCache;
-	
+
 	private final SparseArray<ResourceFileTilesetLoadList> preparedTilesetsByResourceId = new SparseArray<ResourceFileTilesetLoadList>();
 	private final HashMap<String, ResourceFileTilesetLoadList> preparedTilesetsByResourceName = new HashMap<String, ResourceFileTilesetLoadList>();
 	private int currentTileStoreIndex;
-	
+
 	private static final class ResourceFileTilesetLoadList {
 		public final ResourceFileTileset tileset;
 		public final SparseIntArray tileIDsToLoadPerLocalID = new SparseIntArray();
@@ -26,18 +26,18 @@ public final class DynamicTileLoader {
 			this.tileset = tileset;
 		}
 	}
-	
+
 	public DynamicTileLoader(TileCache tileCache) {
 		this.tileCache = tileCache;
 		initialize();
 	}
-	
+
 	private void initialize() {
 		preparedTilesetsByResourceId.clear();
 		preparedTilesetsByResourceName.clear();
 		currentTileStoreIndex = tileCache.getMaxTileID();
 	}
-	
+
 	public void prepareTileset(int resourceId, String tilesetName, Size numTiles, Size destinationTileSize) {
 		ResourceFileTileset b = new ResourceFileTileset(resourceId, tilesetName, numTiles, destinationTileSize);
 		ResourceFileTilesetLoadList loadList = new ResourceFileTilesetLoadList(b);
@@ -62,7 +62,7 @@ public final class DynamicTileLoader {
 		}
 		return preparedTilesetsByResourceName.get(tilesetName);
 	}
-	
+
 	public int prepareTileID(int tilesetImageResourceID, int localID) {
 		ResourceFileTilesetLoadList b = getTilesetBitmap(tilesetImageResourceID);
 		return prepareTileID(b, localID);
@@ -76,7 +76,7 @@ public final class DynamicTileLoader {
 		ResourceFileTilesetLoadList b = getTilesetBitmap(tilesetName);
 		return b.tileset.destinationTileSize;
 	}
-	
+
 	private int prepareTileID(ResourceFileTilesetLoadList tileset, int localID) {
 		int tileID = tileset.tileIDsToLoadPerLocalID.get(localID);
 		if (tileID == 0) {
@@ -97,9 +97,9 @@ public final class DynamicTileLoader {
 			}
 		}
 	}
-	
+
 	public void flush() {
-		tileCache.allocateMaxTileID(currentTileStoreIndex);	
+		tileCache.allocateMaxTileID(currentTileStoreIndex);
 		for (int i = 0; i < preparedTilesetsByResourceId.size(); ++i) {
 			ResourceFileTilesetLoadList e = preparedTilesetsByResourceId.valueAt(i);
 			ResourceFileTileset tileset = e.tileset;

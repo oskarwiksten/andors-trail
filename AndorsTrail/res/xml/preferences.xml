@@ -86,17 +86,17 @@
 			android:defaultValue="true"
 			android:summary="@string/preferences_ui_enable_animations"
 			android:key="enableUiAnimations" />
-        <ListPreference
-            android:title="@string/preferences_quickslots_placement"
-            android:summary="@string/preferences_quickslots_placement_summary"
-            android:key="quickslots_placement"
-            android:defaultValue="0"
-            android:entries="@array/preferences_quickslots_placements"
-            android:entryValues="@array/preferences_quickslots_placements_values" />
-        <CheckBoxPreference
-            android:title="@string/preferences_ui_show_quickslots_when_toolbox_is_visible_title"
-            android:defaultValue="false"
-            android:summary="@string/preferences_ui_show_quickslots_when_toolbox_is_visible"
-            android:key="showQuickslotsWhenToolboxIsVisible" />
-    </PreferenceCategory>
+		<ListPreference
+			android:title="@string/preferences_quickslots_placement"
+			android:summary="@string/preferences_quickslots_placement_summary"
+			android:key="quickslots_placement"
+			android:defaultValue="0"
+			android:entries="@array/preferences_quickslots_placements"
+			android:entryValues="@array/preferences_quickslots_placements_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_ui_show_quickslots_when_toolbox_is_visible_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_ui_show_quickslots_when_toolbox_is_visible"
+			android:key="showQuickslotsWhenToolboxIsVisible" />
+	</PreferenceCategory>
 </PreferenceScreen>

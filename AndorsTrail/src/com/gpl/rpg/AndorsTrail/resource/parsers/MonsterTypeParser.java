@@ -22,15 +22,15 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 	private final DropListCollection droplists;
 	private final ItemTraitsParser itemTraitsParser;
 	private final DynamicTileLoader tileLoader;
-    private final TranslationLoader translationLoader;
+	private final TranslationLoader translationLoader;
 
-    public MonsterTypeParser(
-            final DropListCollection droplists,
-            final ActorConditionTypeCollection actorConditionTypes,
-            final DynamicTileLoader tileLoader,
-            final TranslationLoader translationLoader) {
-        this.translationLoader = translationLoader;
-        this.itemTraitsParser = new ItemTraitsParser(actorConditionTypes);
+	public MonsterTypeParser(
+			final DropListCollection droplists,
+			final ActorConditionTypeCollection actorConditionTypes,
+			final DynamicTileLoader tileLoader,
+			final TranslationLoader translationLoader) {
+		this.translationLoader = translationLoader;
+		this.itemTraitsParser = new ItemTraitsParser(actorConditionTypes);
 		this.droplists = droplists;
 		this.tileLoader = tileLoader;
 	}
@@ -78,7 +78,7 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 				, hitEffect == null ? null : new ItemTraits_OnUse[] { hitEffect }
 		));
 	}
-	
+
 	private static float div100(int v) {
 		return (float) v / 100f;
 	}
@@ -90,11 +90,11 @@ public final class MonsterTypeParser extends JsonCollectionParserFor<MonsterType
 			float criticalMultiplier,
 			int blockChance,
 			int damageResistance,
-			ItemTraits_OnUse hitEffect, 
-			final int maxHP, 
+			ItemTraits_OnUse hitEffect,
+			final int maxHP,
 			final int maxAP) {
 		final float averageDamage = damagePotential != null ? damagePotential.averagef() : 0;
-		final float avgAttackHP  = getAttacksPerTurn(maxAP, attackCost) * div100(attackChance) * averageDamage * (1 + div100(criticalSkill) * criticalMultiplier);
+		final float avgAttackHP = getAttacksPerTurn(maxAP, attackCost) * div100(attackChance) * averageDamage * (1 + div100(criticalSkill) * criticalMultiplier);
 		final float avgDefenseHP = maxHP * (1 + div100(blockChance)) + Constants.EXP_FACTOR_DAMAGERESISTANCE * damageResistance;
 		int attackConditionBonus = 0;
 		if (hitEffect != null && hitEffect.addedConditions_target != null && hitEffect.addedConditions_target.length > 0) {

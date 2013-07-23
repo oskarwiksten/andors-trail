@@ -5,12 +5,12 @@ import android.util.FloatMath;
 public final class ConstRange {
 	public final int max;
 	public final int current;
-	
-	public ConstRange(Range r) { 
+
+	public ConstRange(Range r) {
 		this.max = r.max;
 		this.current = r.current;
 	}
-	public ConstRange(ConstRange r) { 
+	public ConstRange(ConstRange r) {
 		this.max = r.max;
 		this.current = r.current;
 	}
@@ -18,15 +18,15 @@ public final class ConstRange {
 		this.max = max;
 		this.current = current;
 	}
-	
+
 	public String toString() { return current + "/" + max; }
 	public String toMinMaxString() {
 		if (isMax()) return Integer.toString(max);
-		else return current + "-" + max; 
+		else return current + "-" + max;
 	}
 	public String toMinMaxAbsString() {
 		if (isMax()) return Integer.toString(Math.abs(max));
-		else return Math.abs(current) + "-" + Math.abs(max); 
+		else return Math.abs(current) + "-" + Math.abs(max);
 	}
 	public boolean isMax() { return max == current;	}
 	public int average() {

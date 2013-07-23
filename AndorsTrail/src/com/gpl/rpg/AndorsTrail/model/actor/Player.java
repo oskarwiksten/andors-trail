@@ -31,7 +31,7 @@ public final class Player extends Actor {
 	public static final int DEFAULT_PLAYER_ATTACKCOST = 4;
 	public final Coord lastPosition;
 	public final Coord nextPosition;
-	
+
 	// TODO: Should be privates
 	public int level;
 	public final PlayerBaseTraits baseTraits = new PlayerBaseTraits();
@@ -42,7 +42,7 @@ public final class Player extends Actor {
 	public int useItemCost;
 	public int reequipCost;
 	public int totalExperience;
-	
+
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	private String spawnMap;
 	private String spawnPlace;
@@ -80,7 +80,7 @@ public final class Player extends Actor {
 		this.useItemCost = this.baseTraits.useItemCost;
 		this.reequipCost = this.baseTraits.reequipCost;
 	}
-	
+
 	public Player() {
 		super(
 			new Size(1, 1)
@@ -92,7 +92,7 @@ public final class Player extends Actor {
 		this.levelExperience = new Range();
 		this.inventory = new Inventory();
 	}
-	
+
 	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
 		baseTraits.iconID = TileManager.CHAR_HERO;
 		baseTraits.maxAP = 10;
@@ -118,11 +118,11 @@ public final class Player extends Actor {
 		this.ap.set(baseTraits.maxAP, baseTraits.maxAP);
 		this.health.set(baseTraits.maxHP, baseTraits.maxHP);
 		this.conditions.clear();
-		
+
 		Loot startItems = new Loot();
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
 		inventory.add(startItems);
-		
+
 		if (AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES) {
 			this.spawnMap = "debugmap";
 			this.spawnPlace = "start";
@@ -131,11 +131,11 @@ public final class Player extends Actor {
 			this.spawnPlace = "rest";
 		}
 	}
-	
+
 	public boolean hasExactQuestProgress(QuestProgress progress) { return hasExactQuestProgress(progress.questID, progress.progress); }
 	public boolean hasExactQuestProgress(String questID, int progress) {
 		if (!questProgress.containsKey(questID)) return false;
-		return questProgress.get(questID).contains(progress); 
+		return questProgress.get(questID).contains(progress);
 	}
 	public boolean hasAnyQuestProgress(String questID) {
 		return questProgress.containsKey(questID);
@@ -143,7 +143,7 @@ public final class Player extends Actor {
 	public boolean addQuestProgress(QuestProgress progress) {
 		if (hasExactQuestProgress(progress.questID, progress.progress)) return false;
 		if (!questProgress.containsKey(progress.questID)) questProgress.put(progress.questID, new HashSet<Integer>());
-		questProgress.get(progress.questID).add(progress.progress); 
+		questProgress.get(progress.questID).add(progress.progress);
 		return true; //Progress was added.
 	}
 
@@ -151,7 +151,7 @@ public final class Player extends Actor {
 		int experienceRequiredToReachThisLevel = getRequiredExperience(level);
 		levelExperience.set(getRequiredExperienceForNextLevel(level), totalExperience - experienceRequiredToReachThisLevel);
 	}
-	
+
 	private static int getRequiredExperience(int currentLevel) {
 		int v = 0;
 		for(int i = 1; i < currentLevel; ++i) {
@@ -180,10 +180,10 @@ public final class Player extends Actor {
 		return getSkillLevel(skillID) > 0;
 	}
 	public boolean nextLevelAddsNewSkillpoint() {
-    	return thisLevelAddsNewSkillpoint(level + 1);
+		return thisLevelAddsNewSkillpoint(level + 1);
 	}
 	private static boolean thisLevelAddsNewSkillpoint(int level) {
-    	return ((level - Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL) % Constants.NEW_SKILL_POINT_EVERY_N_LEVELS == 0);
+		return ((level - Constants.FIRST_SKILL_POINT_IS_GIVEN_AT_LEVEL) % Constants.NEW_SKILL_POINT_EVERY_N_LEVELS == 0);
 	}
 	public boolean hasAvailableSkillpoints() {
 		return availableSkillIncreases > 0;
@@ -207,7 +207,7 @@ public final class Player extends Actor {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public int getReequipCost() { return reequipCost; }
 	public int getUseItemCost() { return useItemCost; }
 	public int getAvailableSkillIncreases() { return availableSkillIncreases; }
@@ -250,7 +250,7 @@ public final class Player extends Actor {
 		}
 		return 0;
 	}
-	
+
 	// ====== PARCELABLE ===================================================================
 
 	public static Player readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
@@ -258,19 +258,19 @@ public final class Player extends Actor {
 		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, controllers, fileversion);
 		return player;
 	}
-	
+
 	public Player(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this();
-		
+
 		if (fileversion <= 33) LegacySavegameFormatReaderForPlayer.readCombatTraitsPreV034(src, fileversion);
-		
+
 		this.baseTraits.iconID = src.readInt();
 		if (fileversion <= 33) /*this.tileSize = */new Size(src, fileversion);
 		this.baseTraits.maxAP = src.readInt();
 		this.baseTraits.maxHP = src.readInt();
 		this.name = src.readUTF();
 		this.moveCost = src.readInt();
-		
+
 		this.baseTraits.attackCost = src.readInt();
 		this.baseTraits.attackChance = src.readInt();
 		this.baseTraits.criticalSkill = src.readInt();
@@ -282,13 +282,13 @@ public final class Player extends Actor {
 		this.baseTraits.damagePotential.readFromParcel(src, fileversion);
 		this.baseTraits.blockChance = src.readInt();
 		this.baseTraits.damageResistance = src.readInt();
-		
+
 		if (fileversion <= 16) {
 			this.baseTraits.moveCost = this.moveCost;
 		} else {
 			this.baseTraits.moveCost = src.readInt();
 		}
-				
+
 		this.ap.set(new Range(src, fileversion));
 		this.health.set(new Range(src, fileversion));
 		this.position.set(new Coord(src, fileversion));
@@ -298,13 +298,13 @@ public final class Player extends Actor {
 				this.conditions.add(new ActorCondition(src, world, fileversion));
 			}
 		}
-		
+
 		this.lastPosition.readFromParcel(src, fileversion);
 		this.nextPosition.readFromParcel(src, fileversion);
 		this.level = src.readInt();
 		this.totalExperience = src.readInt();
 		this.inventory.readFromParcel(src, world, fileversion);
-		
+
 		if (fileversion <= 13) LegacySavegameFormatReaderForPlayer.readQuestProgressPreV13(this, src, world, fileversion);
 
 		this.baseTraits.useItemCost = src.readInt();
@@ -333,12 +333,12 @@ public final class Player extends Actor {
 				}
 			}
 		}
-		
+
 		this.availableSkillIncreases = 0;
 		if (fileversion > 21) {
 			this.availableSkillIncreases = src.readInt();
 		}
-		
+
 		if (fileversion >= 26) {
 			final int numAlignments = src.readInt();
 			for(int i = 0; i < numAlignments; ++i) {
@@ -363,7 +363,7 @@ public final class Player extends Actor {
 		dest.writeInt(baseTraits.blockChance);
 		dest.writeInt(baseTraits.damageResistance);
 		dest.writeInt(baseTraits.moveCost);
-		
+
 		ap.writeToParcel(dest, flags);
 		health.writeToParcel(dest, flags);
 		position.writeToParcel(dest, flags);
