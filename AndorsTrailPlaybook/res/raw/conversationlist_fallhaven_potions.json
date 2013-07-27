@@ -1,0 +1,388 @@
+[
+    {
+        "id": "fallhaven_potions",
+        "message": "Welcome to my shop. Please browse my fine selection of everyday potions.",
+        "replies": [
+            {
+                "text": "Let me see what potions you have available.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Do you have anything to help against food-poisoning?",
+                "nextPhraseID": "fallhaven_pot_antifoodp1"
+            },
+            {
+                "text": "I was told that I can get some Spotted Hornbeam fungus from you.",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar_pots",
+                        "value": "10"
+                    }
+                ],
+                "nextPhraseID": "fallhaven_potions1"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_potions1",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar_pots",
+                        "value": "20"
+                    }
+                ],
+                "nextPhraseID": "fallhaven_potions4"
+            },
+            {
+                "nextPhraseID": "fallhaven_potions2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_potions2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_potions3"
+            }
+        ],
+        "message": "Oh yes. Really disgusting smell, they have. But good for making potions."
+    },
+    {
+        "id": "fallhaven_potions3",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 20,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "hornbeam",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "Here, have some. I don't have that much, so don't lose it!"
+    },
+    {
+        "id": "fallhaven_potions4",
+        "message": "I already gave you some, before. Don't tell me you lost it?"
+    },
+    {
+        "id": "fallhaven_pot_antifoodp1",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "antifoodp",
+                        "value": "40"
+                    }
+                ],
+                "nextPhraseID": "fallhaven_pot_antifoodp5"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "antifoodp",
+                        "value": "35"
+                    }
+                ],
+                "nextPhraseID": "fallhaven_pot_antifp_q4"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "antifoodp",
+                        "value": "30"
+                    }
+                ],
+                "nextPhraseID": "fallhaven_pot_antifp_q2"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "antifoodp",
+                        "value": "20"
+                    }
+                ],
+                "nextPhraseID": "fallhaven_pot_antifoodp5"
+            },
+            {
+                "nextPhraseID": "fallhaven_pot_antifoodp2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_pot_antifoodp2",
+        "rewards": [
+            {
+                "rewardID": "antifoodp",
+                "value": 15,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Sounds good, what do you need from me?",
+                "nextPhraseID": "fallhaven_pot_antifoodp3"
+            }
+        ],
+        "message": "Oh yes, I have a recipe for a mixture that helps against food poisoning. If you want, I could create some of that for you."
+    },
+    {
+        "id": "fallhaven_pot_antifoodp3",
+        "replies": [
+            {
+                "text": "No way, I'm not running your errands.",
+                "nextPhraseID": "fallhaven_pot_antifoodp4"
+            },
+            {
+                "text": "What ingredients are needed?",
+                "nextPhraseID": "fallhaven_pot_antifoodp5"
+            }
+        ],
+        "message": "I am all out of the ingredients required for it. Maybe you could help me gather some of them?"
+    },
+    {
+        "id": "fallhaven_pot_antifoodp4",
+        "message": "Fair enough. Welcome back if you change your mind."
+    },
+    {
+        "id": "fallhaven_pot_antifoodp5",
+        "rewards": [
+            {
+                "rewardID": "antifoodp",
+                "value": 20,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I'll be right back with those ingredients.",
+                "nextPhraseID": "fallhaven_pot_antifoodp6"
+            },
+            {
+                "text": "Any ideas where I can find those ingredients?",
+                "nextPhraseID": "fallhaven_pot_antifoodp7"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gland",
+                        "value": 1
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "hair",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 50
+                    }
+                ],
+                "text": "I have those ingredients for you.",
+                "nextPhraseID": "fallhaven_pot_antifp_q1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gland",
+                        "value": 5
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "hair",
+                        "value": 10
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 250
+                    },
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "antifoodp",
+                        "value": 35
+                    }
+                ],
+                "text": "Here, I have enough of those ingredients for five potions.",
+                "nextPhraseID": "fallhaven_pot_antifp_q3x5"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gland",
+                        "value": 10
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "hair",
+                        "value": 20
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 500
+                    },
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "antifoodp",
+                        "value": 35
+                    }
+                ],
+                "text": "Here, I have enough of those ingredients for ten potions.",
+                "nextPhraseID": "fallhaven_pot_antifp_q3x10"
+            }
+        ],
+        "message": "To make the potion against food-poisoning, I would need one poison gland and two pieces of animal hair. I will also require 50 gold for the work required."
+    },
+    {
+        "id": "fallhaven_pot_antifoodp6",
+        "message": "Excellent."
+    },
+    {
+        "id": "fallhaven_pot_antifoodp7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifoodp8"
+            }
+        ],
+        "message": "Well, animal hair can probably be found on any beast here outside of Fallhaven. I heard some hunters found a pack of wolves a bit south of here."
+    },
+    {
+        "id": "fallhaven_pot_antifoodp8",
+        "replies": [
+            {
+                "text": "I'll be right back with those ingredients for you.",
+                "nextPhraseID": "fallhaven_pot_antifoodp6"
+            },
+            {
+                "text": "Phew, that sounds like a lot of work. I don't know if I'll do it.",
+                "nextPhraseID": "fallhaven_pot_antifoodp4"
+            }
+        ],
+        "message": "Poison glands however, can be a bit trickier to find. I don't know really, but any poisonous creature might do. Maybe some snakes around here are poisonous?"
+    },
+    {
+        "id": "fallhaven_pot_antifp_q1",
+        "rewards": [
+            {
+                "rewardID": "antifoodp",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q2"
+            }
+        ],
+        "message": "Good. Give me a minute to prepare that antidote for you."
+    },
+    {
+        "id": "fallhaven_pot_antifp_q2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q3"
+            }
+        ],
+        "message": "[mixes the ingredients]"
+    },
+    {
+        "id": "fallhaven_pot_antifp_q3",
+        "rewards": [
+            {
+                "rewardID": "antifoodp",
+                "value": 35,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "antifoodp",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q4"
+            }
+        ],
+        "message": "There. One potion against food-poisoning for you."
+    },
+    {
+        "id": "fallhaven_pot_antifp_q3x5",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "antifoodp_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q4"
+            }
+        ],
+        "message": "There. Five potions against food-poisoning for you."
+    },
+    {
+        "id": "fallhaven_pot_antifp_q3x10",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "antifoodp_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fallhaven_pot_antifp_q4"
+            }
+        ],
+        "message": "There. Ten potions against food-poisoning for you."
+    },
+    {
+        "id": "fallhaven_pot_antifp_q4",
+        "rewards": [
+            {
+                "rewardID": "antifoodp",
+                "value": 40,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "I sure hope this mixture of your works.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "I can create more of those potions if you want. You'll have to bring me more of those ingredients then."
+    }
+]

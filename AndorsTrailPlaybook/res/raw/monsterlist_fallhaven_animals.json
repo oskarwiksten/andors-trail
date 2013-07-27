@@ -1,0 +1,292 @@
+[
+    {
+        "id": "lost_spirit",
+        "iconID": "monsters_rltiles2:45",
+        "name": "Lost spirit",
+        "spawnGroup": "minorhaunt1",
+        "monsterClass": "ghost",
+        "maxHP": 15,
+        "attackCost": 10,
+        "attackChance": 50,
+        "blockChance": 10,
+        "damageResistance": 3,
+        "droplistID": "haunt",
+        "phraseID": "haunt",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "lost_soul",
+        "iconID": "monsters_rltiles2:45",
+        "name": "Lost soul",
+        "spawnGroup": "minorhaunt2",
+        "monsterClass": "ghost",
+        "maxHP": 15,
+        "attackCost": 10,
+        "attackChance": 50,
+        "blockChance": 10,
+        "damageResistance": 4,
+        "droplistID": "haunt",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "haunting",
+        "iconID": "monsters_ghost1:0",
+        "name": "Haunting",
+        "spawnGroup": "haunt3",
+        "monsterClass": "ghost",
+        "maxHP": 31,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 30,
+        "damageResistance": 1,
+        "droplistID": "haunt",
+        "attackDamage": {
+            "min": 1,
+            "max": 5
+        }
+    },
+    {
+        "id": "skeletal_warrior",
+        "iconID": "monsters_skeleton1:0",
+        "name": "Skeletal warrior",
+        "spawnGroup": "skeleton1",
+        "monsterClass": "construct",
+        "maxHP": 52,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 5,
+        "attackChance": 60,
+        "blockChance": 40,
+        "damageResistance": 1,
+        "droplistID": "skeleton",
+        "attackDamage": {
+            "min": 1,
+            "max": 3
+        }
+    },
+    {
+        "id": "skeletal_master",
+        "iconID": "monsters_skeleton2:0",
+        "name": "Skeletal master",
+        "spawnGroup": "skeletonmaster",
+        "monsterClass": "construct",
+        "maxHP": 52,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 5,
+        "attackChance": 70,
+        "blockChance": 30,
+        "damageResistance": 2,
+        "droplistID": "skeleton",
+        "attackDamage": {
+            "min": 1,
+            "max": 3
+        }
+    },
+    {
+        "id": "skeleton",
+        "iconID": "monsters_skeleton1:0",
+        "name": "Skeleton",
+        "spawnGroup": "skeleton1",
+        "monsterClass": "construct",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 60,
+        "blockChance": 40,
+        "droplistID": "skeleton",
+        "attackDamage": {
+            "min": 1,
+            "max": 4
+        }
+    },
+    {
+        "id": "guardian_of_the_catacombs",
+        "iconID": "monsters_rltiles2:45",
+        "name": "Guardian of the catacombs",
+        "spawnGroup": "catacombguard1",
+        "monsterClass": "ghost",
+        "unique": 1,
+        "maxHP": 6,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 10,
+        "blockChance": 10,
+        "damageResistance": 3,
+        "droplistID": "catacombguard",
+        "phraseID": "catacombguard",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        }
+    },
+    {
+        "id": "catacomb_rat",
+        "iconID": "monsters_rats:0",
+        "name": "Catacomb rat",
+        "spawnGroup": "catacombrat1",
+        "monsterClass": "animal",
+        "maxHP": 15,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 3,
+        "attackChance": 60,
+        "blockChance": 40,
+        "droplistID": "catacombrat",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "large_catacomb_rat",
+        "iconID": "monsters_rats:3",
+        "name": "Large catacomb rat",
+        "spawnGroup": "catacombrat1",
+        "monsterClass": "animal",
+        "maxHP": 21,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 3,
+        "attackChance": 60,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 40,
+        "droplistID": "catacombrat",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "ghostly_visage",
+        "iconID": "monsters_ghost1:0",
+        "name": "Ghostly visage",
+        "spawnGroup": "catacombguard2",
+        "monsterClass": "ghost",
+        "maxHP": 16,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 5,
+        "attackChance": 20,
+        "blockChance": 20,
+        "damageResistance": 2,
+        "droplistID": "catacombguard",
+        "attackDamage": {
+            "min": 1,
+            "max": 4
+        }
+    },
+    {
+        "id": "spectre",
+        "iconID": "monsters_rltiles2:45",
+        "name": "Spectre",
+        "spawnGroup": "catacombguard2",
+        "monsterClass": "ghost",
+        "maxHP": 15,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 3,
+        "attackChance": 50,
+        "blockChance": 60,
+        "damageResistance": 2,
+        "droplistID": "catacombguard",
+        "attackDamage": {
+            "min": 1,
+            "max": 5
+        }
+    },
+    {
+        "id": "apparition",
+        "iconID": "monsters_rltiles2:45",
+        "name": "Apparition",
+        "spawnGroup": "catacombguard3",
+        "monsterClass": "ghost",
+        "maxHP": 17,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 3,
+        "blockChance": 70,
+        "damageResistance": 2,
+        "droplistID": "catacombguard",
+        "attackDamage": {
+            "min": 1,
+            "max": 5
+        }
+    },
+    {
+        "id": "shade",
+        "iconID": "monsters_ghost1:0",
+        "name": "Shade",
+        "spawnGroup": "catacombguard3",
+        "monsterClass": "ghost",
+        "maxHP": 16,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 5,
+        "attackChance": 20,
+        "blockChance": 20,
+        "damageResistance": 3,
+        "droplistID": "catacombguard",
+        "attackDamage": {
+            "min": 1,
+            "max": 4
+        }
+    },
+    {
+        "id": "young_gargoyle",
+        "iconID": "monsters_misc:2",
+        "name": "Young gargoyle",
+        "spawnGroup": "catacombguard3",
+        "monsterClass": "construct",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 110,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "damageResistance": 1,
+        "droplistID": "catacombguard",
+        "attackDamage": {
+            "min": 2,
+            "max": 5
+        }
+    },
+    {
+        "id": "ghost_of_luthor",
+        "iconID": "monsters_liches:2",
+        "name": "Ghost of Luthor",
+        "spawnGroup": "luthor",
+        "monsterClass": "ghost",
+        "unique": 1,
+        "maxHP": 86,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 50,
+        "damageResistance": 3,
+        "droplistID": "luthor",
+        "phraseID": "luthor",
+        "attackDamage": {
+            "min": 2,
+            "max": 5
+        }
+    }
+]

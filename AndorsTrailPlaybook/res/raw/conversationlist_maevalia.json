@@ -1,0 +1,967 @@
+[
+    {
+        "id": "maevalia",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 19,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "maevalia_q1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood2",
+                        "value": "40"
+                    }
+                ],
+                "nextPhraseID": "maevalia_h5"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood2",
+                        "value": "15"
+                    }
+                ],
+                "nextPhraseID": "maevalia_h2"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "115"
+                    }
+                ],
+                "nextPhraseID": "maevalia_d1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "60"
+                    }
+                ],
+                "nextPhraseID": "maevalia_s1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r5"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "30"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "20"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r0"
+            },
+            {
+                "nextPhraseID": "maevalia0"
+            }
+        ]
+    },
+    {
+        "id": "maevalia0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia1"
+            }
+        ],
+        "message": "You there! This is no place for children!"
+    },
+    {
+        "id": "maevalia_q1",
+        "replies": [
+            {
+                "text": "Can I rest here?",
+                "nextPhraseID": "maevalia_d2"
+            }
+        ],
+        "message": "Thank you for all your help!"
+    },
+    {
+        "id": "maevalia_h2",
+        "replies": [
+            {
+                "text": "Can I rest here?",
+                "nextPhraseID": "maevalia_d2"
+            },
+            {
+                "text": "No, not yet.",
+                "nextPhraseID": "maevalia_d9"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood2",
+                        "value": "30"
+                    }
+                ],
+                "text": "Yes. I encountered a dragon-like creature in the fiery depths of the mine.",
+                "nextPhraseID": "maevalia_h3"
+            }
+        ],
+        "message": "Hello again. Did you reach the lower parts of the Charwood mine?"
+    },
+    {
+        "id": "maevalia_d1",
+        "replies": [
+            {
+                "text": "Can I rest here?",
+                "nextPhraseID": "maevalia_d2"
+            },
+            {
+                "text": "Where do you think the monsters came from?",
+                "nextPhraseID": "maevalia_d3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood2",
+                        "value": "10"
+                    }
+                ],
+                "text": "I talked to Kantya about what happened in the mine.",
+                "nextPhraseID": "maevalia_d4"
+            }
+        ],
+        "message": "It's good to see that Falothen and Fayvara are well. Anything else that I can help you with?"
+    },
+    {
+        "id": "maevalia_s1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_r7"
+            }
+        ],
+        "message": "Hello again."
+    },
+    {
+        "id": "maevalia_r1",
+        "replies": [
+            {
+                "text": "Can you tell me the story about what happened here, again?",
+                "nextPhraseID": "maevalia3"
+            },
+            {
+                "text": "What was I supposed to do again?",
+                "nextPhraseID": "maevalia25"
+            },
+            {
+                "text": "Who were the people that I was supposed to look for, again?",
+                "nextPhraseID": "maevalia17"
+            },
+            {
+                "text": "Yeah, about those people.",
+                "nextPhraseID": "maevalia_r2a"
+            }
+        ],
+        "message": "Hello again. Did you find our missing people?"
+    },
+    {
+        "id": "maevalia_r0",
+        "replies": [
+            {
+                "text": "Can you tell me the story about what happened here, again?",
+                "nextPhraseID": "maevalia3"
+            },
+            {
+                "text": "What now?",
+                "nextPhraseID": "maevalia16"
+            }
+        ],
+        "message": "You again."
+    },
+    {
+        "id": "maevalia1",
+        "replies": [
+            {
+                "text": "I can handle myself.",
+                "nextPhraseID": "maevalia2"
+            },
+            {
+                "text": "What has happened here?",
+                "nextPhraseID": "maevalia3"
+            }
+        ],
+        "message": "The Charwood area has become a dangerous place as of late. You should leave at once unless you want to get killed .. or worse."
+    },
+    {
+        "id": "maevalia2",
+        "replies": [
+            {
+                "text": "What has happened here?",
+                "nextPhraseID": "maevalia3"
+            }
+        ],
+        "message": "For your sake, I urge you to leave. While we need all the help we can get, we can't take responsibility for the dangers that has befell our mining town of Charwood."
+    },
+    {
+        "id": "maevalia3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia4"
+            }
+        ],
+        "message": "We were attacked. We didn't stand a chance, they were too many and we are no fighters."
+    },
+    {
+        "id": "maevalia4",
+        "replies": [
+            {
+                "text": "Who were?",
+                "nextPhraseID": "maevalia5"
+            }
+        ],
+        "message": "They started pouring out of the mine and the surrounding hills."
+    },
+    {
+        "id": "maevalia5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia6"
+            }
+        ],
+        "message": "The monsters. Disgusting, foul smelling monsters. Nothing like we've ever seen before."
+    },
+    {
+        "id": "maevalia6",
+        "replies": [
+            {
+                "text": "What did you do?",
+                "nextPhraseID": "maevalia7"
+            }
+        ],
+        "message": "They ransacked our whole mining camp. Even burnt down the wooden carving that Morenavia had created last year."
+    },
+    {
+        "id": "maevalia7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia8"
+            }
+        ],
+        "message": "We did the only thing we can, seeing as none of us were equipped to fight. We ran."
+    },
+    {
+        "id": "maevalia8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia9"
+            }
+        ],
+        "message": "We ran down the mountain, leaving behind our mining settlement of Charwood. Some of us made it here to our former cabin."
+    },
+    {
+        "id": "maevalia9",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia10"
+            }
+        ],
+        "message": "The few of us that's left have been able to hold them off from here, at least for now."
+    },
+    {
+        "id": "maevalia10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia11"
+            }
+        ],
+        "message": "Our mining town up in the Charwood hills is completely overrun, however. All our belongings are back there."
+    },
+    {
+        "id": "maevalia11",
+        "replies": [
+            {
+                "text": "What do you think has happened to them?",
+                "nextPhraseID": "maevalia12"
+            }
+        ],
+        "message": "There are also several of us that haven't made it down the hill. Many of our friends and relatives from the mining town have not been accounted for yet."
+    },
+    {
+        "id": "maevalia12",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia13"
+            }
+        ],
+        "message": "I don't want to think about that. Either they've been killed by the foul monsters, or worse."
+    },
+    {
+        "id": "maevalia13",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia14"
+            }
+        ],
+        "message": "You know, we saw one monster carrying around what looked like a net of some sort, instead of weapons like the other ones."
+    },
+    {
+        "id": "maevalia14",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia15"
+            }
+        ],
+        "message": "He shoved the other monsters around, and they all seemed to look up to him, like he was some sort of leader."
+    },
+    {
+        "id": "maevalia15",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 20,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "What now?",
+                "nextPhraseID": "maevalia16"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "30"
+                    }
+                ],
+                "text": "As I said, I'll try to find out what happened to them.",
+                "nextPhraseID": "maevalia28"
+            }
+        ],
+        "message": "I don't know what that net was for though. I wonder if he was supposed to capture some of us."
+    },
+    {
+        "id": "maevalia16",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia17"
+            }
+        ],
+        "message": "I sure hope that the people that we are missing are all alive at least."
+    },
+    {
+        "id": "maevalia17",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia18"
+            }
+        ],
+        "message": "In particular, I'm worried about what happened to Morenavia - our leader. None of us that made it back to this cabin saw what happened to her."
+    },
+    {
+        "id": "maevalia18",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia19"
+            }
+        ],
+        "message": "I sure hope she's still alive. We could use some of her wisdom and leadership right now to guide us."
+    },
+    {
+        "id": "maevalia19",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia20"
+            }
+        ],
+        "message": "I'm also worried about Falothen, our weapons trainer. As I ran down the hills myself, I thought I heard him call for help."
+    },
+    {
+        "id": "maevalia20",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 21,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "What are you going to do?",
+                "nextPhraseID": "maevalia21s"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "30"
+                    }
+                ],
+                "text": "As I said, I'll try to find out what happened to them.",
+                "nextPhraseID": "maevalia28"
+            }
+        ],
+        "message": "There's also Ayell, our healer, and Fayvara, our armorer. They always stayed together, those two. We don't know what happened to them or where they are."
+    },
+    {
+        "id": "maevalia21s",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "30"
+                    }
+                ],
+                "nextPhraseID": "maevalia21a"
+            },
+            {
+                "nextPhraseID": "maevalia21"
+            }
+        ]
+    },
+    {
+        "id": "maevalia21a",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia25"
+            }
+        ],
+        "message": "With your help, we might at least get somewhere."
+    },
+    {
+        "id": "maevalia21",
+        "replies": [
+            {
+                "text": "Maybe I can help?",
+                "nextPhraseID": "maevalia23"
+            },
+            {
+                "text": "Tough luck. They're probably dead. You should move on with your lives.",
+                "nextPhraseID": "maevalia22"
+            }
+        ],
+        "message": "I honestly don't know. We've sent out runners to try to find help. So far, none have returned with help."
+    },
+    {
+        "id": "maevalia22",
+        "message": "Yes, I guess so. Thank you for listening to our story."
+    },
+    {
+        "id": "maevalia23",
+        "replies": [
+            {
+                "text": "I can handle myself.",
+                "nextPhraseID": "maevalia24"
+            },
+            {
+                "text": "I might be able to sneak by the monsters undetected.",
+                "nextPhraseID": "maevalia24"
+            },
+            {
+                "text": "A few puny monsters won't stop me!",
+                "nextPhraseID": "maevalia24"
+            }
+        ],
+        "message": "Well, I wouldn't want to be responsible for putting you into any trouble."
+    },
+    {
+        "id": "maevalia24",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia25"
+            }
+        ],
+        "message": "Ok. Frankly, I don't know what else we can do. We really need the help."
+    },
+    {
+        "id": "maevalia25",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia26"
+            }
+        ],
+        "message": "I would be very grateful for knowing what happened to the people we are missing."
+    },
+    {
+        "id": "maevalia26",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia27"
+            }
+        ],
+        "message": "Head up to our mining town of Charwood heights, and look for the missing people."
+    },
+    {
+        "id": "maevalia27",
+        "replies": [
+            {
+                "text": "Ok, I'll try to find your missing people.",
+                "nextPhraseID": "maevalia28"
+            }
+        ],
+        "message": "Please, try to be safe! If you spot any danger, or if those foul monsters are too much for you, don't hesitate to retreat back here."
+    },
+    {
+        "id": "maevalia28",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Thank you. The path up to Charwood heights is just east of here."
+    },
+    {
+        "id": "maevalia_r2a",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "41"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r2b"
+            },
+            {
+                "nextPhraseID": "maevalia_r3"
+            }
+        ]
+    },
+    {
+        "id": "maevalia_r2b",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "42"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r2c"
+            },
+            {
+                "nextPhraseID": "maevalia_r3"
+            }
+        ]
+    },
+    {
+        "id": "maevalia_r2c",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "43"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r2d"
+            },
+            {
+                "nextPhraseID": "maevalia_r3"
+            }
+        ]
+    },
+    {
+        "id": "maevalia_r2d",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "44"
+                    }
+                ],
+                "nextPhraseID": "maevalia_r4"
+            },
+            {
+                "nextPhraseID": "maevalia_r3"
+            }
+        ]
+    },
+    {
+        "id": "maevalia_r3",
+        "replies": [
+            {
+                "text": "I'm still trying to find out what happened to all four of them.",
+                "nextPhraseID": "maevalia_r3b"
+            }
+        ],
+        "message": "Yes, what about them?"
+    },
+    {
+        "id": "maevalia_r3b",
+        "message": "Thank you for helping us."
+    },
+    {
+        "id": "maevalia_r4",
+        "replies": [
+            {
+                "text": "Yes, Falothen and Fayvara were alive. Morenavia and Ayell had been killed by the monsters.",
+                "nextPhraseID": "maevalia_r5"
+            }
+        ],
+        "message": "Yes, what about them? I saw that Falothen and Fayvara have returned."
+    },
+    {
+        "id": "maevalia_r5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_r6"
+            }
+        ],
+        "message": "While I am very happy to hear that Falothen and Fayvara are alive and well, it saddens me to hear that we've lost not only Ayell, but also Morenavia."
+    },
+    {
+        "id": "maevalia_r6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_r7"
+            }
+        ],
+        "message": "Morenavia was truly a great leader for us. Now, how will we ever be able to find the right paths?"
+    },
+    {
+        "id": "maevalia_r7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_r8"
+            }
+        ],
+        "message": "Things will never be the same again for us."
+    },
+    {
+        "id": "maevalia_r8",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 50,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_r9"
+            }
+        ],
+        "message": "It is at least some comfort to know that we still have Falothen and Fayvara with us."
+    },
+    {
+        "id": "maevalia_r9",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 60,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok, I'll go see them in the basement.",
+                "nextPhraseID": "X"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "65"
+                    },
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "90"
+                    }
+                ],
+                "text": "I've spoken to them both.",
+                "nextPhraseID": "maevalia_r10"
+            }
+        ],
+        "message": "I hear they are both anxious to talk to you now that they're safe. You should go meet them downstairs in the basement."
+    },
+    {
+        "id": "maevalia_r10",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 115,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_d1"
+            }
+        ],
+        "message": "Good. We are truly grateful for the help that you have provided to us from the Charwood heights."
+    },
+    {
+        "id": "maevalia_d2",
+        "message": "Absolutely. Pick any bed you want over there."
+    },
+    {
+        "id": "maevalia_d3",
+        "message": "I have my guesses. Go talk to Kantya about it. I hear she has the full story, and some interesting theories."
+    },
+    {
+        "id": "maevalia_d4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_d5"
+            }
+        ],
+        "message": "Good. Did she tell you about that marking on the ground? I saw it myself. Nothing like I've ever seen before."
+    },
+    {
+        "id": "maevalia_d5",
+        "replies": [
+            {
+                "text": "I can go look down there if you want.",
+                "nextPhraseID": "maevalia_d7"
+            },
+            {
+                "text": "This all sounds too dangerous for me. I better not get involved.",
+                "nextPhraseID": "maevalia_d6"
+            }
+        ],
+        "message": "I wonder what is down there, in the deeper parts of the mine. I bet that whatever is controlling those monsters is still down there."
+    },
+    {
+        "id": "maevalia_d6",
+        "message": "Can't say I blame you. Thank you for the help you've provided so far."
+    },
+    {
+        "id": "maevalia_d7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_d8"
+            }
+        ],
+        "message": "You would do that for us? Thank you. I don't know what we would do without your help."
+    },
+    {
+        "id": "maevalia_d8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_d9"
+            }
+        ],
+        "message": "Please try to be safe, and be on the lookout for the dangerous monsters that inhabit the mine."
+    },
+    {
+        "id": "maevalia_d9",
+        "replies": [
+            {
+                "text": "I'll go down into the Charwood mine and investigate.",
+                "nextPhraseID": "maevalia_d10"
+            }
+        ],
+        "message": "Whatever lurks down there, I'm sure it's not happy to get any visitors."
+    },
+    {
+        "id": "maevalia_d10",
+        "rewards": [
+            {
+                "rewardID": "charwood2",
+                "value": 15,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Thank you."
+    },
+    {
+        "id": "maevalia_h3",
+        "replies": [
+            {
+                "text": "I haven't killed the creature yet though.",
+                "nextPhraseID": "maevalia_d9"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "thukuzun",
+                        "value": 1
+                    }
+                ],
+                "text": "Whatever that thing was, it won't bother you any more now that I've killed it. Here is one of the bones from its corpse.",
+                "nextPhraseID": "maevalia_h5"
+            }
+        ],
+        "message": "None of us ever dared to venture that deep."
+    },
+    {
+        "id": "maevalia_h5",
+        "rewards": [
+            {
+                "rewardID": "charwood2",
+                "value": 40,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_h6"
+            }
+        ],
+        "message": "You actually killed it?"
+    },
+    {
+        "id": "maevalia_h6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_h7"
+            }
+        ],
+        "message": "You are truly a hero to us."
+    },
+    {
+        "id": "maevalia_h7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_h8"
+            }
+        ],
+        "message": "Not only did you manage to find our missing people, but you also freed us from the creature that caused all this trouble."
+    },
+    {
+        "id": "maevalia_h8",
+        "replies": [
+            {
+                "text": "I'm just happy to help.",
+                "nextPhraseID": "maevalia_h9"
+            },
+            {
+                "text": "How about some gold for all my troubles?",
+                "nextPhraseID": "maevalia_h10"
+            },
+            {
+                "text": "I think that one of your most precious items will suffice as payment.",
+                "nextPhraseID": "maevalia_h11"
+            }
+        ],
+        "message": "We are forever in your debt. What can we do to ever repay you?"
+    },
+    {
+        "id": "maevalia_h9",
+        "rewards": [
+            {
+                "rewardID": "charwood2",
+                "value": 50,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "You are truly our hero. Thank you yet again."
+    },
+    {
+        "id": "maevalia_h10",
+        "rewards": [
+            {
+                "rewardID": "charwood2",
+                "value": 50,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "charwood2g",
+                "value": 1
+            }
+        ],
+        "message": "Certainly. Here is what we can spare. Thank you yet again."
+    },
+    {
+        "id": "maevalia_h11",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "maevalia_h12"
+            }
+        ],
+        "message": "After helping us, you still want to deprive us of more things that we cherish?"
+    },
+    {
+        "id": "maevalia_h12",
+        "rewards": [
+            {
+                "rewardID": "charwood2",
+                "value": 50,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "charwood2i",
+                "value": 1
+            }
+        ],
+        "message": "I guess we have no choice but to agree. Here, take these. They used to belong to my mother."
+    }
+]

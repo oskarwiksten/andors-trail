@@ -1,0 +1,225 @@
+[
+    {
+        "id": "sign_lodar4",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "sign_lodar4_r"
+            },
+            {
+                "nextPhraseID": "sign_lodar4_0"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodar4_r",
+        "message": "The formation of rocks seems to have sunken somewhat into the ground."
+    },
+    {
+        "id": "sign_lodar4_0",
+        "message": "On the ledge, you notice another formation of rocks that seem out of place compared to the surroundings.",
+        "rewards": [
+            {
+                "rewardID": "lodar",
+                "value": 60,
+                "rewardType": "questProgress"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodar14",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "sign_lodar14_r"
+            },
+            {
+                "nextPhraseID": "sign_lodar14_0"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodar14_0",
+        "message": "On the ledge, you notice another formation of rocks that seem out of place compared to the surroundings. The rocks almost seem to have a faint pulsating glow coming from within them.",
+        "rewards": [
+            {
+                "rewardID": "lodar",
+                "value": 80,
+                "rewardType": "questProgress"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodar14_r",
+        "message": "The rocks in this formation no longer seem to give off that pulsating glow that they did before."
+    },
+    {
+        "id": "sign_lodarcave0",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "sign_lodarcave0_r"
+            },
+            {
+                "nextPhraseID": "sign_lodarcave0_0"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodarcave0_0",
+        "message": "The rocks in this formation give off a distinct pulsating glow.",
+        "rewards": [
+            {
+                "rewardID": "lodar",
+                "value": 90,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave0_1"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodarcave0_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave0_2"
+            }
+        ],
+        "message": "You begin to wonder if the glow is stronger because they're closer to whatever is causing them to glow, or because of the dim conditions in this damp cave."
+    },
+    {
+        "id": "sign_lodarcave0_2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave0_3"
+            }
+        ],
+        "message": "This formation looks somewhat similar to the other rocky formations that you've encountered before."
+    },
+    {
+        "id": "sign_lodarcave0_3",
+        "message": "However, you also notice several piles of chewed bones around these rocks."
+    },
+    {
+        "id": "sign_lodarcave0_r",
+        "message": "The rocks in this formation do not seem to give off any pulsating glow any more."
+    },
+    {
+        "id": "sign_lodarcave4a",
+        "rewards": [
+            {
+                "rewardID": "lodar",
+                "value": 100,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "As you try to step further into the cave, you feel your steps becoming more and more heavy.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave4a1"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodarcave4a1",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "35"
+                    }
+                ],
+                "nextPhraseID": "sign_lodarcave4a2"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "lodarstone",
+                        "value": 1
+                    }
+                ],
+                "nextPhraseID": "sign_lodarcave4a3"
+            },
+            {
+                "nextPhraseID": "sign_lodarcave4a4"
+            }
+        ]
+    },
+    {
+        "id": "sign_lodarcave4a2",
+        "message": "The smell of the damp cave air fills your nostrils as you push forward."
+    },
+    {
+        "id": "sign_lodarcave4a3",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 35,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave4a5"
+            }
+        ],
+        "message": "From the stone that Lodar gave you, you start hearing cracking noises."
+    },
+    {
+        "id": "sign_lodarcave4a4",
+        "message": "Something must be affecting you, making you unable to proceed further into the cave."
+    },
+    {
+        "id": "sign_lodarcave4a5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave4a6"
+            }
+        ],
+        "message": "The cracks get more frequent, until the stone finally crumbles to a fine powder in your hand, like a dried leaf."
+    },
+    {
+        "id": "sign_lodarcave4a6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "sign_lodarcave4a2"
+            }
+        ],
+        "message": "You feel the weight that was weighing down your steps previously becoming slightly lighter, allowing you to proceed further into the cave."
+    },
+    {
+        "id": "sign_lodar5cave2",
+        "message": "A massive stone lid with strange runes seals the grave. Between some cracks in the stone, you can feel a cold breeze coming out of it."
+    }
+]

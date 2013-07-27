@@ -1,0 +1,118 @@
+[
+    {
+        "id": "leta1",
+        "message": "Hey, this is my house, get out of here!",
+        "replies": [
+            {
+                "text": "But I was just...",
+                "nextPhraseID": "leta2"
+            },
+            {
+                "text": "What about your husband Oromir?",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta2",
+        "message": "Beat it kid, get out of my house!",
+        "replies": [
+            {
+                "text": "What about your husband Oromir?",
+                "nextPhraseID": "leta_oromir_select"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_select",
+        "replies": [
+            {
+                "nextPhraseID": "leta_oromir_complete2",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "leta",
+                        "value": "100"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "leta_oromir1"
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir1",
+        "message": "Do you know anything about my husband? He should be here helping me with the farm today, but he seems to be missing as usual.\nSigh.",
+        "replies": [
+            {
+                "text": "I have no idea.",
+                "nextPhraseID": "leta_oromir2"
+            },
+            {
+                "text": "Yes, I found him. He is hiding among some trees to the east.",
+                "nextPhraseID": "leta_oromir_complete",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "leta",
+                        "value": "20"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir2",
+        "message": "If you see him, tell him to hurry back here and help me with the housework.\nNow get out of here!",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "leta",
+                "value": 10
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete",
+        "message": "Hiding is he? That's not surprising. I'll go let him know who's the boss around here.\nThanks for letting me know though.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "leta",
+                "value": 100
+            }
+        ]
+    },
+    {
+        "id": "leta_oromir_complete2",
+        "message": "Thanks for telling me about Oromir earlier. I will go get him in just a minute."
+    },
+    {
+        "id": "oromir1",
+        "message": "Oh you startled me.\nHello.",
+        "replies": [
+            {
+                "text": "Hello",
+                "nextPhraseID": "oromir2"
+            }
+        ]
+    },
+    {
+        "id": "oromir2",
+        "message": "I'm hiding here from my wife Leta. She is always getting angry at me for not helping out on the farm. Please don't tell her that I'm here.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "leta",
+                "value": 20
+            }
+        ],
+        "replies": [
+            {
+                "text": "Ok.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

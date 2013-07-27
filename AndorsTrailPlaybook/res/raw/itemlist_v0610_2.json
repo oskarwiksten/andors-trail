@@ -1,0 +1,190 @@
+[
+    {
+        "id": "erinith_book",
+        "iconID": "items_books:0",
+        "name": "Erinith's book",
+        "category": "other",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "hadracor_waspwing",
+        "iconID": "items_misc:52",
+        "name": "Giant wasp wing",
+        "category": "animal",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "tinlyn_bells",
+        "iconID": "items_necklaces_1:10",
+        "name": "Tinlyn's sheep bell",
+        "category": "other",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "tinlyn_sheep_meat",
+        "iconID": "items_consumables:25",
+        "name": "Meat from Tinlyn's sheep",
+        "category": "animal",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "rogorn_qitem",
+        "iconID": "items_books:7",
+        "name": "Piece of painting",
+        "category": "other",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "fg_ironsword",
+        "iconID": "items_weapons:0",
+        "name": "Feygard iron sword",
+        "category": "lsword",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 10,
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 5
+            }
+        }
+    },
+    {
+        "id": "fg_ironsword_d",
+        "iconID": "items_weapons:0",
+        "name": "Degraded Feygard iron sword",
+        "category": "lsword",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackCost": 5,
+            "increaseAttackChance": -50
+        }
+    },
+    {
+        "id": "buceth_vial",
+        "iconID": "items_consumables:47",
+        "name": "Buceth's vial of green liquid",
+        "category": "other",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "chaosreaper",
+        "iconID": "items_weapons:49",
+        "name": "Chaosreaper",
+        "category": "scepter",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 339,
+        "equipEffect": {
+            "increaseAttackCost": 4,
+            "increaseAttackChance": -30,
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 2
+            }
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 5,
+                    "duration": 3,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "izthiel_claw",
+        "iconID": "items_misc:47",
+        "name": "Izthiel claw",
+        "category": "animal_e",
+        "hasManualPrice": 1,
+        "baseMarketCost": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "food",
+                    "magnitude": 3,
+                    "duration": 6,
+                    "chance": 100
+                },
+                {
+                    "condition": "foodp",
+                    "magnitude": 3,
+                    "duration": 10,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_pendant",
+        "iconID": "items_necklaces_1:2",
+        "name": "Iqhan pendant",
+        "category": "neck",
+        "hasManualPrice": 1,
+        "baseMarketCost": 10,
+        "equipEffect": {
+            "increaseAttackChance": 6
+        }
+    },
+    {
+        "id": "shadowfang",
+        "iconID": "items_weapons_3:41",
+        "name": "Shadowfang",
+        "category": "ssword",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 512,
+        "equipEffect": {
+            "increaseMaxHP": -20,
+            "increaseAttackCost": 4,
+            "increaseAttackChance": 40,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 5
+            }
+        },
+        "hitEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "gloves_life",
+        "iconID": "items_armours_2:1",
+        "name": "Gloves of life force",
+        "category": "hnd_lthr",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 390,
+        "equipEffect": {
+            "increaseMaxHP": 9,
+            "increaseAttackChance": 5,
+            "increaseBlockChance": 3
+        }
+    }
+]
