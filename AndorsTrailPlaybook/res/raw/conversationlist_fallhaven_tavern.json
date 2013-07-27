@@ -1,0 +1,115 @@
+[
+    {
+        "id": "bela",
+        "message": "Welcome to Fallhaven Tavern. Have a seat anywhere.",
+        "replies": [
+            {
+                "text": "Let me see what food and drinks you have available",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Are there any rooms available?",
+                "nextPhraseID": "bela_room_select"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_1",
+        "message": "A room will cost you only 10 gold.",
+        "replies": [
+            {
+                "text": "Buy [10 gold]",
+                "nextPhraseID": "bela_room_2",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 10
+                    }
+                ]
+            },
+            {
+                "text": "No thanks.",
+                "nextPhraseID": "bela"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_2",
+        "message": "Thanks. Take the last room down at the end of the hall.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "fallhaventavern",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. There was something else I wanted to talk about.",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Thanks, bye.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_3",
+        "message": "I hope the room suits your needs. It's the last room down at the end of the hall.",
+        "replies": [
+            {
+                "text": "Thank you. There was something else I wanted to talk about.",
+                "nextPhraseID": "bela"
+            },
+            {
+                "text": "Thanks, bye.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "bela_room_select",
+        "replies": [
+            {
+                "nextPhraseID": "bela_room_3",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "fallhaventavern",
+                        "value": "10"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "bela_room_1"
+            }
+        ]
+    },
+    {
+        "id": "ganos",
+        "message": "You seem familiar somehow.",
+        "replies": [
+            {
+                "text": "Do you have anything to trade?",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Do you know anything about the Thieves' Guild?",
+                "nextPhraseID": "ganos_1",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "andor",
+                        "value": "30"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "id": "ganos_1",
+        "message": "Thieves' Guild? How would I know? Do I look like a thief to you?! Hrmpf."
+    }
+]

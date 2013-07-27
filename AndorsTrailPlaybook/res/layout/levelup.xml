@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:padding="@dimen/dialog_margin"
+	>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		>
+
+		<TextView
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:id="@+id/levelup_title"
+			android:text="@string/levelup_title"
+			style="@style/titleWithIcon"
+			android:drawableLeft="@drawable/char_hero"
+			/>
+
+		<TextView
+			android:id="@+id/levelup_description"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_description"
+			/>
+
+		<Button
+			android:id="@+id/levelup_add_health"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_add_health"
+			/>
+		<Button
+			android:id="@+id/levelup_add_attackchance"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_add_attackchance"
+			/>
+		<Button
+			android:id="@+id/levelup_add_attackdamage"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_add_attackdamage"
+			/>
+		<Button
+			android:id="@+id/levelup_add_blockchance"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_add_blockchance"
+			/>
+
+		<TextView
+			android:id="@+id/levelup_adds_new_skillpoint"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="@string/levelup_adds_new_skillpoint"
+			style="@style/textWithIcon"
+			android:drawableLeft="@drawable/ui_icon_skill"
+			/>
+
+		<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+		<ListView android:layout_width="match_parent" android:layout_height="1dp" />
+
+	</LinearLayout>
+
+</ScrollView>

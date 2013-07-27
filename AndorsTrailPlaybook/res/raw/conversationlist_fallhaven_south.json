@@ -1,0 +1,52 @@
+[
+    {
+        "id": "fallhaven_lumberjack",
+        "message": "Hi, I'm Jakrar.",
+        "replies": [
+            {
+                "text": "Are you a woodcutter?",
+                "nextPhraseID": "fallhaven_lumberjack_2"
+            }
+        ]
+    },
+    {
+        "id": "fallhaven_lumberjack_2",
+        "message": "Yes, I'm Fallhaven's woodcutter. Need anything done in the finest of woods? I have probably got it."
+    },
+    {
+        "id": "alaun",
+        "message": "Hello. I'm Alaun. How can I help you?",
+        "replies": [
+            {
+                "text": "Have you seen my brother Andor? He looks similar to me.",
+                "nextPhraseID": "alaun_2"
+            }
+        ]
+    },
+    {
+        "id": "alaun_2",
+        "message": "You are looking for your brother you say? Looks like you? Hm.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "alaun_3"
+            }
+        ]
+    },
+    {
+        "id": "alaun_3",
+        "message": "No, I cannot recall seeing anyone by that description. Maybe you should try in Crossglen village west of here."
+    },
+    {
+        "id": "fallhaven_farmer1",
+        "message": "Hello there. Please do not bother me, I have a lot of work to do."
+    },
+    {
+        "id": "fallhaven_farmer2",
+        "message": "Hello. Could you please move out of the way? I am trying to work here."
+    },
+    {
+        "id": "khorand",
+        "message": "Hey you, don't even think of touching any of the crates. I am watching you!"
+    }
+]

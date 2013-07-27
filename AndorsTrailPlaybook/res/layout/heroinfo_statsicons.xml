@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="right"
+	android:orientation="vertical" >
+
+	<TextView
+		android:id="@+id/heroinfo_stats_gold"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:drawableLeft="@drawable/ui_icon_coins"
+		android:text="@string/shop_yourgold"
+		/>
+
+	<TextView
+		android:id="@+id/heroinfo_stats_attack"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:drawableLeft="@drawable/equip_weapon"
+		android:text="@string/actorinfo_attack"
+		/>
+
+	<TextView
+		android:id="@+id/heroinfo_stats_defense"
+		style="@style/statsBoxStyle"
+		android:layout_width="@dimen/boxshape_width"
+		android:layout_height="wrap_content"
+		android:drawableLeft="@drawable/equip_shield"
+		android:text="@string/actorinfo_defense"
+		/>
+
+</LinearLayout>

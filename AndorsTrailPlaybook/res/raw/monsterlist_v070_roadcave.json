@@ -1,0 +1,180 @@
+[
+    {
+        "id": "jelly1",
+        "iconID": "monsters_tometik2:4",
+        "name": "Olive Ooze",
+        "spawnGroup": "jelly1",
+        "monsterClass": "construct",
+        "maxHP": 20,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 35,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 5,
+            "max": 9
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "slime",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 40
+                }
+            ]
+        },
+        "droplistID": "jelly"
+    },
+    {
+        "id": "jelly2",
+        "iconID": "monsters_tometik2:4",
+        "name": "Emerald Jelly",
+        "spawnGroup": "jelly1",
+        "monsterClass": "construct",
+        "maxHP": 35,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 95,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 45,
+        "attackDamage": {
+            "min": 7,
+            "max": 8
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "slime",
+                    "magnitude": 1,
+                    "duration": 4,
+                    "chance": 40
+                }
+            ]
+        },
+        "droplistID": "jelly"
+    },
+    {
+        "id": "jelly3",
+        "iconID": "monsters_tometik2:0",
+        "name": "Poisonous Ooze",
+        "spawnGroup": "jelly2",
+        "monsterClass": "construct",
+        "maxHP": 45,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 140,
+        "criticalSkill": 15,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 5,
+            "max": 9
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "slime",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 40
+                }
+            ]
+        },
+        "droplistID": "jelly"
+    },
+    {
+        "id": "jelly4",
+        "iconID": "monsters_tometik2:0",
+        "name": "Ochre Jelly",
+        "spawnGroup": "jelly2",
+        "monsterClass": "construct",
+        "maxHP": 50,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "blockChance": 45,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 10,
+            "max": 14
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "slime",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 40
+                }
+            ]
+        },
+        "droplistID": "jelly"
+    },
+    {
+        "id": "jelly5",
+        "iconID": "monsters_tometik2:1",
+        "name": "Crimson Jelly",
+        "spawnGroup": "jelly3",
+        "monsterClass": "construct",
+        "maxHP": 65,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 115,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 8,
+            "max": 12
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "slime",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 40
+                }
+            ]
+        },
+        "droplistID": "jelly"
+    },
+    {
+        "id": "jelly6",
+        "iconID": "monsters_tometik2:2",
+        "name": "Emerald Ooze",
+        "spawnGroup": "jelly_b",
+        "monsterClass": "construct",
+        "maxHP": 131,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 115,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "damageResistance": 7,
+        "attackDamage": {
+            "min": 8,
+            "max": 12
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "slime",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 40
+                }
+            ]
+        },
+        "unique": 1,
+        "droplistID": "jelly_b"
+    }
+]

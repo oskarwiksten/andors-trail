@@ -1,0 +1,101 @@
+[
+    {
+        "id": "speed_minor",
+        "iconID": "actorconditions_1:87",
+        "name": "Minor speed",
+        "category": "physical",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseMaxAP": 2
+        }
+    },
+    {
+        "id": "fatigue_minor",
+        "iconID": "actorconditions_1:14",
+        "name": "Minor fatigue",
+        "category": "physical",
+        "abilityEffect": {
+            "increaseMoveCost": 2,
+            "increaseAttackCost": 2,
+            "increaseAttackDamage": {
+                "min": -1,
+                "max": -1
+            }
+        }
+    },
+    {
+        "id": "feebleness_minor",
+        "iconID": "actorconditions_1:74",
+        "name": "Minor weapon feebleness",
+        "category": "mental",
+        "abilityEffect": {
+            "increaseAttackDamage": {
+                "min": -3,
+                "max": -3
+            }
+        }
+    },
+    {
+        "id": "bleeding_wound",
+        "iconID": "actorconditions_2:0",
+        "name": "Bleeding wound",
+        "category": "blood",
+        "isStacking": 1,
+        "roundEffect": {
+            "visualEffectID": "redSplash",
+            "increaseCurrentHP": {
+                "min": -1,
+                "max": -1
+            }
+        }
+    },
+    {
+        "id": "rage_minor",
+        "iconID": "actorconditions_1:90",
+        "name": "Minor berserker rage",
+        "category": "mental",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseMaxHP": 35,
+            "increaseAttackChance": 60,
+            "increaseBlockChance": -90,
+            "increaseDamageResistance": -1
+        }
+    },
+    {
+        "id": "blackwater_misery",
+        "iconID": "actorconditions_1:58",
+        "name": "Blackwater misery",
+        "category": "blood",
+        "abilityEffect": {
+            "increaseAttackCost": 1,
+            "increaseAttackChance": -50,
+            "increaseCriticalSkill": -50
+        }
+    },
+    {
+        "id": "intoxicated",
+        "iconID": "actorconditions_2:1",
+        "name": "Intoxicated",
+        "category": "mental",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseMaxHP": 15,
+            "increaseAttackCost": 1,
+            "increaseAttackChance": -30,
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 4
+            }
+        }
+    },
+    {
+        "id": "dazed",
+        "iconID": "actorconditions_1:65",
+        "name": "Dazed",
+        "category": "mental",
+        "abilityEffect": {
+            "increaseBlockChance": -40
+        }
+    }
+]

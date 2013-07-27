@@ -1,0 +1,383 @@
+[
+    {
+        "id": "lleglaris",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lleglaris",
+                        "value": "30"
+                    }
+                ],
+                "nextPhraseID": "lleglaris_r4"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lleglaris",
+                        "value": "15"
+                    }
+                ],
+                "nextPhraseID": "lleglaris_r1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lleglaris",
+                        "value": "10"
+                    }
+                ],
+                "nextPhraseID": "lleglaris15"
+            },
+            {
+                "nextPhraseID": "lleglaris0"
+            }
+        ]
+    },
+    {
+        "id": "lleglaris0",
+        "replies": [
+            {
+                "text": "Watch it. Do you even know who you're talking to?",
+                "nextPhraseID": "lleglaris2"
+            },
+            {
+                "text": "Fine. I'll leave.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Hey, no need to be rude.",
+                "nextPhraseID": "lleglaris1"
+            },
+            {
+                "text": "Hey, those look like some nice items you have there. Care to trade?",
+                "nextPhraseID": "lleglaris_rej"
+            }
+        ],
+        "message": "Are you sure you should be here? Maybe you should go play with .. your toys or something?"
+    },
+    {
+        "id": "lleglaris1",
+        "replies": [
+            {
+                "text": "Whatever.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Watch it. Do you even know who you're talking to?",
+                "nextPhraseID": "lleglaris2"
+            }
+        ],
+        "message": "Ha ha. I can be as rude as I want!"
+    },
+    {
+        "id": "lleglaris2",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "toszylae",
+                        "value": "70"
+                    }
+                ],
+                "text": "I was the one who slew the lich Toszylae between Loneford and Brimhaven.",
+                "nextPhraseID": "lleglaris3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "wear",
+                        "requireID": "marrowtaint",
+                        "value": 1
+                    }
+                ],
+                "text": "See this amulet that I'm wearing? This is Marrowtaint.",
+                "nextPhraseID": "lleglaris4"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "wear",
+                        "requireID": "ring_shadow0",
+                        "value": 1
+                    }
+                ],
+                "text": "See this ring that I am wearing? This is the Ring of lesser Shadow.",
+                "nextPhraseID": "lleglaris4"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "loneford",
+                        "value": "54"
+                    }
+                ],
+                "text": "I was the one who helped solve the mystery in Loneford.",
+                "nextPhraseID": "lleglaris3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "prim_hunt",
+                        "value": "240"
+                    }
+                ],
+                "text": "I saved the settlement of Prim from the attacks from Blackwater Mountain.",
+                "nextPhraseID": "lleglaris3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "bwm_agent",
+                        "value": "240"
+                    }
+                ],
+                "text": "I helped the Blackwater Mountain settlement make the attacks from Prim stop.",
+                "nextPhraseID": "lleglaris3"
+            },
+            {
+                "text": "I am the son of an ordinary farmer in a minor settlement called Crossglen, not far west from here! I've even killed a rat or two!",
+                "nextPhraseID": "lleglaris5"
+            },
+            {
+                "text": "Never mind.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "Hah! Please enlighten me."
+    },
+    {
+        "id": "lleglaris3",
+        "message": "That was you? Hah! And you expect me to believe that?",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris7"
+            }
+        ]
+    },
+    {
+        "id": "lleglaris4",
+        "message": "Good for you. It looks just like any other trinket to me.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris7"
+            }
+        ]
+    },
+    {
+        "id": "lleglaris5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris6"
+            }
+        ],
+        "message": "Ha ha! Now, that's funny!"
+    },
+    {
+        "id": "lleglaris6",
+        "message": "You have my best wishes, kid. Hope you'll get to see the world some day."
+    },
+    {
+        "id": "lleglaris7",
+        "replies": [
+            {
+                "text": "What task?",
+                "nextPhraseID": "lleglaris8"
+            }
+        ],
+        "message": "If you're such an experienced adventurer, I'm sure a small task of mine wouldn't be any problem for you?"
+    },
+    {
+        "id": "lleglaris8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris9"
+            }
+        ],
+        "message": "I've lost an amulet of mine. I was out in the woods around the cabin here and heard a noise coming from the east."
+    },
+    {
+        "id": "lleglaris9",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris10"
+            }
+        ],
+        "message": "Tired as I was, I didn't notice the things coming out from behind the trees fast enough."
+    },
+    {
+        "id": "lleglaris10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris11"
+            }
+        ],
+        "message": "Undead things. Yuck, that smell."
+    },
+    {
+        "id": "lleglaris11",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris12"
+            }
+        ],
+        "message": "I saw this hole in the ground that they seemed to come out of. The ground had been completely corrupted around it."
+    },
+    {
+        "id": "lleglaris12",
+        "replies": [
+            {
+                "text": "I'll go look for your amulet.",
+                "nextPhraseID": "lleglaris14"
+            },
+            {
+                "text": "Undead? No way, I'm out.",
+                "nextPhraseID": "lleglaris13"
+            }
+        ],
+        "message": "Anyway, I ran away and my amulet must have gotten stuck on a branch or something like that."
+    },
+    {
+        "id": "lleglaris13",
+        "message": "Yeah, that's what I though as well."
+    },
+    {
+        "id": "lleglaris14",
+        "rewards": [
+            {
+                "rewardID": "lleglaris",
+                "value": 10,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris15"
+            }
+        ],
+        "message": "Good."
+    },
+    {
+        "id": "lleglaris15",
+        "rewards": [
+            {
+                "rewardID": "lleglaris",
+                "value": 15,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Go look just east of my cabin here. You probably need to take the path north when you exit the cabin, and then head east."
+    },
+    {
+        "id": "lleglaris_r1",
+        "replies": [
+            {
+                "text": "Can you tell me your story again?",
+                "nextPhraseID": "lleglaris8"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "lleglaris",
+                        "value": 1
+                    }
+                ],
+                "text": "Yes, here it is.",
+                "nextPhraseID": "lleglaris_r3"
+            },
+            {
+                "text": "Still looking for it.",
+                "nextPhraseID": "lleglaris_r2"
+            }
+        ],
+        "message": "Hi again. Did you find my amulet?"
+    },
+    {
+        "id": "lleglaris_r2",
+        "message": "Ok then. I won't keep you."
+    },
+    {
+        "id": "lleglaris_r3",
+        "rewards": [
+            {
+                "rewardID": "lleglaris",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris_r4"
+            }
+        ],
+        "message": "Yes, that's the one. It's good to see it back in my hands again."
+    },
+    {
+        "id": "lleglaris_r4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris_r5"
+            }
+        ],
+        "message": "Thank you for finding my amulet."
+    },
+    {
+        "id": "lleglaris_r5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lleglaris_r6"
+            }
+        ],
+        "message": "Maybe you really are an experienced adventurer after all."
+    },
+    {
+        "id": "lleglaris_r6",
+        "rewards": [
+            {
+                "rewardID": "lleglaris",
+                "value": 40,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Let me see what you have.",
+                "nextPhraseID": "S"
+            }
+        ],
+        "message": "Anyway, see this table here? It's just some old trinkets that I've gathered along the years. Maybe some of them could come in handy for you?"
+    },
+    {
+        "id": "lleglaris_rej",
+        "replies": [
+            {
+                "text": "Watch it. Do you even know who you're talking to?",
+                "nextPhraseID": "lleglaris2"
+            },
+            {
+                "text": "Fine. Maybe later them.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "With you? No way. You look way to inexperienced."
+    }
+]

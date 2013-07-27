@@ -1,0 +1,386 @@
+[
+    {
+        "id": "mikhail_start_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select2",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_bread",
+                        "value": "100"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_bread",
+                        "value": "10"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_start_select2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select2",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_start_select_default",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_rats",
+                        "value": "100"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_rats",
+                        "value": "10"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_start_select_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_start_select_default",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_visited",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "andor",
+                        "value": "1"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_gamestart"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_gamestart",
+        "message": "Oh good, you are awake.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_visited"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_visited",
+        "message": "I can't seem to find your brother Andor anywhere. He hasn't been back since he left yesterday.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "andor",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail3",
+        "message": "Never mind, he will probably be back soon.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_default",
+        "message": "Anything else I can help you with?",
+        "replies": [
+            {
+                "text": "Do you have any tasks for me?",
+                "nextPhraseID": "mikhail_tasks"
+            },
+            {
+                "text": "Is there anything else you can tell me about Andor?",
+                "nextPhraseID": "mikhail_andor1"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_tasks",
+        "message": "Oh yes, there were some things I need help with, bread and rats. Which one would you like to talk about?",
+        "replies": [
+            {
+                "text": "What about the bread?",
+                "nextPhraseID": "mikhail_bread_select"
+            },
+            {
+                "text": "What about the rats?",
+                "nextPhraseID": "mikhail_rats_select"
+            },
+            {
+                "text": "Never mind, let's talk about the other things.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor1",
+        "message": "As I said, Andor went out yesterday and hasn't been back since. I'm starting to worry about him. Please go look for your brother, he said he would only be out a short while.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_andor2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_andor2",
+        "message": "Maybe he went into that supply cave again and got stuck. Or maybe he's in Leta's basement training with that wooden sword again. Please go look for him in town.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_bread_complete2",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_bread",
+                        "value": "100"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_bread_continue",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_bread",
+                        "value": "10"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_bread_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_start",
+        "message": "Oh, I almost forgot. If you have time, please go see Mara at the town hall and buy me some more bread.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "mikhail_bread",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_continue",
+        "message": "Did you get my bread from Mara at the town hall yet?",
+        "replies": [
+            {
+                "text": "Yes, here you go.",
+                "nextPhraseID": "mikhail_bread_complete",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "bread",
+                        "value": 1
+                    }
+                ]
+            },
+            {
+                "text": "No, not yet.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete",
+        "message": "Thanks a lot, now I can make my breakfast. Here, take these coins for your help.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "mikhail_bread",
+                "value": 100
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "gold20"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_bread_complete2",
+        "message": "Thanks for the bread earlier.",
+        "replies": [
+            {
+                "text": "You're welcome.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_select",
+        "replies": [
+            {
+                "nextPhraseID": "mikhail_rats_complete2",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_rats",
+                        "value": "100"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_rats_continue",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "mikhail_rats",
+                        "value": "10"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "mikhail_rats_start"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start",
+        "message": "I saw some rats out back in our garden earlier. Could you please go kill any rats that you see out there.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "mikhail_rats",
+                "value": 10
+            }
+        ],
+        "replies": [
+            {
+                "text": "I have already dealt with the rats.",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "tail_trainingrat",
+                        "value": 2
+                    }
+                ]
+            },
+            {
+                "text": "Ok, I'll go check out in our garden.",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start2",
+        "message": "If you get hurt by the rats, come back here and rest in your bed. That way you can regain your strength.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_rats_start3"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_start3",
+        "message": "Also, don't forget to check your inventory. You probably still have that old ring I gave you. Make sure you wear it.",
+        "replies": [
+            {
+                "text": "Ok, I understand. I can rest here if I get hurt, and I should check my inventory for useful items.",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_continue",
+        "message": "Did you kill those two rats in our garden?",
+        "replies": [
+            {
+                "text": "Yes, I have dealt with the rats now.",
+                "nextPhraseID": "mikhail_rats_complete",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "tail_trainingrat",
+                        "value": 2
+                    }
+                ]
+            },
+            {
+                "text": "No, not yet.",
+                "nextPhraseID": "mikhail_rats_start2"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete",
+        "message": "Oh you did? Wow, thanks a lot for your help!\n\nIf you are hurt, use your bed over there to rest and regain your strength.",
+        "rewards": [
+            {
+                "rewardType": "questProgress",
+                "rewardID": "mikhail_rats",
+                "value": 100
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    },
+    {
+        "id": "mikhail_rats_complete2",
+        "message": "Thanks for your help with the rats earlier.\n\nIf you are hurt, use your bed over there to rest and regain your strength.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "mikhail_default"
+            }
+        ]
+    }
+]

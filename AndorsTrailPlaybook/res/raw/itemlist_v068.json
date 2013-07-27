@@ -1,0 +1,191 @@
+[
+    {
+        "id": "armor_chain1",
+        "iconID": "items_armours:17",
+        "name": "Rusty chain mail",
+        "category": "chmail",
+        "baseMarketCost": 3629,
+        "equipEffect": {
+            "increaseAttackChance": -9,
+            "increaseBlockChance": 20
+        }
+    },
+    {
+        "id": "armor_chain2",
+        "iconID": "items_armours:17",
+        "name": "Ordinary chain mail",
+        "category": "chmail",
+        "baseMarketCost": 4191,
+        "equipEffect": {
+            "increaseAttackChance": -10,
+            "increaseBlockChance": 22
+        }
+    },
+    {
+        "id": "hat_leather1",
+        "iconID": "items_armours:24",
+        "name": "Ordinary leather cap",
+        "category": "hd_lthr",
+        "baseMarketCost": 261,
+        "equipEffect": {
+            "increaseAttackChance": -2,
+            "increaseBlockChance": 7
+        }
+    },
+    {
+        "id": "sleepingmead",
+        "iconID": "items_consumables:51",
+        "name": "Prepared sleepy mead",
+        "category": "other",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "ffguard_qitem",
+        "iconID": "items_jewelry:0",
+        "name": "Feygard patrol ring",
+        "category": "other",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0
+    },
+    {
+        "id": "shield6",
+        "iconID": "items_armours:3",
+        "name": "Wooden tower shield",
+        "category": "shld_twr",
+        "baseMarketCost": 952,
+        "equipEffect": {
+            "increaseAttackChance": -6,
+            "increaseBlockChance": 12
+        }
+    },
+    {
+        "id": "shield7",
+        "iconID": "items_armours:3",
+        "name": "Strong wooden tower shield",
+        "category": "shld_twr",
+        "baseMarketCost": 1538,
+        "equipEffect": {
+            "increaseAttackChance": -6,
+            "increaseBlockChance": 14
+        }
+    },
+    {
+        "id": "club_wood1",
+        "iconID": "items_weapons:44",
+        "name": "Heavy iron club",
+        "category": "mace",
+        "baseMarketCost": 950,
+        "equipEffect": {
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 15,
+            "increaseCriticalSkill": 5,
+            "setCriticalMultiplier": 3,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 11
+            }
+        }
+    },
+    {
+        "id": "club_wood2",
+        "iconID": "items_weapons:44",
+        "name": "Balanced heavy iron club",
+        "category": "mace",
+        "baseMarketCost": 2194,
+        "equipEffect": {
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 10,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 3,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 11
+            }
+        }
+    },
+    {
+        "id": "gloves_grip",
+        "iconID": "items_armours:35",
+        "name": "Gloves of better grip",
+        "category": "hnd_lthr",
+        "baseMarketCost": 471,
+        "equipEffect": {
+            "increaseAttackChance": 9,
+            "increaseBlockChance": 1
+        }
+    },
+    {
+        "id": "gloves_fancy",
+        "iconID": "items_armours:35",
+        "name": "Fancy gloves",
+        "category": "hnd_cloth",
+        "baseMarketCost": 78,
+        "equipEffect": {
+            "increaseAttackChance": 5
+        }
+    },
+    {
+        "id": "ring_crit1",
+        "iconID": "items_jewelry:0",
+        "name": "Ring of strike",
+        "category": "ring",
+        "displaytype": "rare",
+        "baseMarketCost": 2921,
+        "equipEffect": {
+            "increaseCriticalSkill": 5
+        }
+    },
+    {
+        "id": "ring_crit2",
+        "iconID": "items_jewelry:0",
+        "name": "Ring of vicious strike",
+        "category": "ring",
+        "displaytype": "rare",
+        "baseMarketCost": 3455,
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseCriticalSkill": 7
+        }
+    },
+    {
+        "id": "armor_stone",
+        "iconID": "items_armours:17",
+        "name": "Stone Cuirass",
+        "category": "bdy_hv",
+        "displaytype": "extraordinary",
+        "baseMarketCost": 52,
+        "equipEffect": {
+            "increaseAttackCost": 2,
+            "increaseBlockChance": 22,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "ring_shadow0",
+        "iconID": "items_jewelry:2",
+        "name": "Ring of lesser Shadow",
+        "category": "ring",
+        "displaytype": "legendary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackChance": 25,
+            "increaseCriticalSkill": 6,
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 7
+            },
+            "increaseBlockChance": 5,
+            "addedConditions": [
+                {
+                    "condition": "regen",
+                    "magnitude": 1
+                }
+            ]
+        },
+        "description": "The glow of the Shadow guides my path. It follows me wherever I go, and aids me against the dangers that others might not see. I am Shadow, and Shadow is in me."
+    }
+]

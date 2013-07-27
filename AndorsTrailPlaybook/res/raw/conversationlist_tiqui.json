@@ -1,0 +1,393 @@
+[
+    {
+        "id": "tiqui",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar13_rest",
+                        "value": "30"
+                    }
+                ],
+                "nextPhraseID": "tiqui_atk"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar13_rest",
+                        "value": "60"
+                    }
+                ],
+                "nextPhraseID": "tiqui_wb0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar13_rest",
+                        "value": "41"
+                    }
+                ],
+                "nextPhraseID": "tiqui_r1"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar13_rest",
+                        "value": "22"
+                    }
+                ],
+                "nextPhraseID": "tiqui_r0"
+            },
+            {
+                "nextPhraseID": "tiqui0"
+            }
+        ]
+    },
+    {
+        "id": "tiqui0",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar13_rest",
+                        "value": "11"
+                    }
+                ],
+                "nextPhraseID": "tiqui1",
+                "text": "I am sent here by Aulowenn to take care of you."
+            }
+        ],
+        "message": "You not belong here. You leave now."
+    },
+    {
+        "id": "tiqui_atk",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar13_rest",
+                        "value": "31"
+                    }
+                ],
+                "nextPhraseID": "tiqui_atk1"
+            },
+            {
+                "nextPhraseID": "tiqui_atk0"
+            }
+        ]
+    },
+    {
+        "id": "tiqui_atk1",
+        "rewards": [
+            {
+                "rewardID": "lodar13_rest",
+                "value": 65,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "tiqui_atk0"
+            }
+        ]
+    },
+    {
+        "id": "tiqui_atk0",
+        "rewards": [
+            {
+                "rewardID": "lodar13_rest",
+                "value": 24,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardID": "lodar13_rest",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Attack!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Sorry, I wasn't listening since I was so distracted by your hideous appearance and your foul smell. Here, let me fix your face with my dagger.",
+                "nextPhraseID": "F"
+            }
+        ],
+        "message": "No, you die now! You one of them! Tiqui angry!"
+    },
+    {
+        "id": "lodar13_rest",
+        "message": "You are not allowed to use Aulowenn's bed."
+    },
+    {
+        "id": "tiqui_wb0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui_r2"
+            }
+        ],
+        "message": "My helping friend! Thank you, thank you!"
+    },
+    {
+        "id": "tiqui1",
+        "rewards": [
+            {
+                "rewardID": "lodar13_rest",
+                "value": 20,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I won't listen to any of your lies. You'll die now!",
+                "nextPhraseID": "tiqui_atk"
+            },
+            {
+                "text": "They killed your friends?",
+                "nextPhraseID": "tiqui2"
+            }
+        ],
+        "message": "Tiqui not want fight. Tiqui angry that  men who smell bad kill his friends."
+    },
+    {
+        "id": "tiqui2",
+        "replies": [
+            {
+                "nextPhraseID": "tiqui_atk",
+                "text": "I won't listen to any of your lies. You'll die now!"
+            },
+            {
+                "text": "I'll listen to your story.",
+                "nextPhraseID": "tiqui3"
+            }
+        ],
+        "message": "They did. Men who smell bad do not belong here. Everything quiet before they came."
+    },
+    {
+        "id": "tiqui3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui4"
+            }
+        ],
+        "message": "You can smell them from far away even. We sense something bad would happen when we first noticed them."
+    },
+    {
+        "id": "tiqui4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui5"
+            }
+        ],
+        "message": "First we try stay away from them. They notice us, but we stay away. They trespass deeper."
+    },
+    {
+        "id": "tiqui5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui6"
+            }
+        ],
+        "message": "One smelly man walked into snake trap. Snake trap not meant for smelly man."
+    },
+    {
+        "id": "tiqui6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui7"
+            }
+        ],
+        "message": "Other smelly men angry at snake trap. Tiqui not understand. Smelly men should be angry at stupid man who walk into snake trap."
+    },
+    {
+        "id": "tiqui7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui8"
+            }
+        ],
+        "message": "After, smelly men angry at us. Hunt us. Kill us."
+    },
+    {
+        "id": "tiqui8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui9"
+            }
+        ],
+        "message": "Much fight. Much blood on ground. But blood good for trees."
+    },
+    {
+        "id": "tiqui9",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui10"
+            }
+        ],
+        "message": "Tiqui head of clan. Tiqui make decision of revenge."
+    },
+    {
+        "id": "tiqui10",
+        "replies": [
+            {
+                "text": "The smelly men you speak of must be the guards from Feygard. They've been killing you off?",
+                "nextPhraseID": "tiqui11"
+            },
+            {
+                "text": "I won't listen to any more of your lies. You'll die now!",
+                "nextPhraseID": "tiqui_atk"
+            }
+        ],
+        "message": "Smelly men hunt us down. Kill many."
+    },
+    {
+        "id": "tiqui11",
+        "replies": [
+            {
+                "text": "I won't listen to any more of your lies. You'll die now!",
+                "nextPhraseID": "tiqui_atk"
+            },
+            {
+                "text": "What can I do to help?",
+                "nextPhraseID": "tiqui12"
+            }
+        ],
+        "message": "Yes. Smelly men kill us when they see us."
+    },
+    {
+        "id": "tiqui12",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui13"
+            }
+        ],
+        "message": "You help Tiqui? Tiqui want revenge for dead friends."
+    },
+    {
+        "id": "tiqui13",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui14"
+            }
+        ],
+        "message": "Tiqui knows smelly person with crates. [points in the direction to where Aulowenn is]"
+    },
+    {
+        "id": "tiqui14",
+        "rewards": [
+            {
+                "rewardID": "lodar13_rest",
+                "value": 22,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I won't listen to any more of your lies. You'll die now!",
+                "nextPhraseID": "tiqui_atk"
+            },
+            {
+                "text": "I will gladly kill more of those Feygard scum.",
+                "nextPhraseID": "tiqui15"
+            },
+            {
+                "text": "No, I think I'll find your village and take whatever riches you have instead.",
+                "nextPhraseID": "tiqui_atk"
+            },
+            {
+                "text": "Ok. I will help you.",
+                "nextPhraseID": "tiqui15"
+            },
+            {
+                "text": "It sounds like they have been wrongfully killing you. I will help you.",
+                "nextPhraseID": "tiqui15"
+            }
+        ],
+        "message": "You go take care of last smelly person. Tiqui can be friend to you. Tiqui can have revenge."
+    },
+    {
+        "id": "tiqui15",
+        "message": "You friend of Tiqui."
+    },
+    {
+        "id": "tiqui_r0",
+        "replies": [
+            {
+                "text": "I won't listen to any more of your lies. You'll die now!",
+                "nextPhraseID": "tiqui_atk"
+            },
+            {
+                "text": "Can you tell me your story again?",
+                "nextPhraseID": "tiqui3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "aulowenn",
+                        "value": 1
+                    }
+                ],
+                "text": "I've dealt with Aulowenn for you.",
+                "nextPhraseID": "tiqui_r1"
+            }
+        ],
+        "message": "Hello, friend of Tiqui. Can Tiqui have revenge for friends?"
+    },
+    {
+        "id": "tiqui_r1",
+        "rewards": [
+            {
+                "rewardID": "lodar13_rest",
+                "value": 41,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tiqui_r2"
+            }
+        ],
+        "message": "Yes! Yes! The smell is gone. You friend of Tiqui now! Tiqui help you when we meet again!"
+    },
+    {
+        "id": "tiqui_r2",
+        "rewards": [
+            {
+                "rewardID": "lodar13_rest",
+                "value": 60,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. I'll feel much safer now that I know you'll watch over me when I rest in Aulowenn's old bed.",
+                "nextPhraseID": "tiqui_r3"
+            }
+        ],
+        "message": "You also use bed of smelly men, and Tiqui keep you safe."
+    },
+    {
+        "id": "tiqui_r3",
+        "message": "You good friend of Tiqui!"
+    }
+]

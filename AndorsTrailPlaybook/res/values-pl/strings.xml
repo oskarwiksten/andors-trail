@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Translated by toudi5-bełchatów
+	-->
+
+<resources>
+	<string name="app_name">Andor\'s Trail</string>
+	<string name="app_description">Quest-driven fantasy RPG</string>
+
+	<string name="exit">Wyjście</string>
+	<string name="exit_to_menu">Wyjście do menu</string>
+	<string name="menu_pause">Pauza</string>
+	<string name="menu_settings">Opcje</string>
+	<string name="menu_save">Zapisz</string>
+	<string name="menu_load">Wczytaj</string>
+	<string name="menu_save_gamesaved">Gra została zapisana na slocie %1$d</string>
+	<string name="menu_save_failed">Błąd zapisu! Czy karta sd jest zamontowana i zapisywalna?</string>
+
+	<string name="loadsave_title_save">Zapisz Grę</string>
+	<string name="loadsave_title_load">Wczytaj Grę</string>
+	<string name="loadsave_selectslot">Wybierz slot</string>
+	<string name="loadsave_slot_empty">(pusty)</string>
+	<string name="savegame_currenthero_displayinfo">poziom %1$d, %2$d dośw, %3$d złoto</string>
+
+	<string name="dialog_loading_message">Wczytywanie zasobów...</string>
+	<string name="dialog_loading_failed_title">Błąd wczytywania</string>
+	<string name="dialog_loading_failed_message">Andor\'s Trail nie mógł wczytać zapisanej gry.\n\n:(\n\nPlik jest uszkodzony lub niekompletny.</string>
+	<string name="dialog_loading_failed_incorrectversion">Andor\'s Trail nie mógł wczytać zapisanej gry. Plik zapisu gry został utworzony w nowszej wersji niż używana aktualnie.</string>
+
+	<string name="dialog_close">Zamknij</string>
+
+	<string name="dialog_confirmexit_title">Wyjście</string>
+	<string name="dialog_confirmexit_message">Czy na pewno chcesz wyjść?</string>
+
+	<string name="dialog_paused_title">Pauza</string>
+	<string name="dialog_paused_message">Gra wstrzymana</string>
+	<string name="dialog_paused_resume">Kontynuuj</string>
+
+	<string name="dialog_monsterencounter_title">Potyczka</string>
+	<string name="dialog_monsterencounter_message">Czy chcesz zaatakować?\nTrudność: %1$s</string>
+	<string name="dialog_monsterencounter_info">Info</string>
+
+	<string name="status_hp">PŻ:</string>
+	<string name="status_mp">PM:</string>
+	<string name="status_ap">WT:</string>
+	<string name="status_exp">Poziom:</string>
+
+	<string name="heroinfo_char">Przegląd</string>
+	<string name="heroinfo_inv">Inwentarz</string>
+	<string name="heroinfo_wear">Wyposażenie</string>
+	<string name="heroinfo_skill">Umiejętności</string>
+	<string name="heroinfo_spell">Czary</string>
+	<string name="heroinfo_levelup">Nowy Poziom</string>
+	<string name="heroinfo_level">Poziom</string>
+	<string name="heroinfo_totalexperience">Doświadczenie całkowite</string>
+	<string name="heroinfo_wornequipment">Używany Ekwipunek</string>
+	<string name="heroinfo_inventory">Inwentarz</string>
+	<string name="heroinfo_gold">Złoto: %1$d</string>
+	<string name="heroinfo_actionpoints">Punkty Wytrzymałości (WT):</string>
+	<string name="heroinfo_quests">Zadania</string>
+
+	<string name="combat_attack">Atak (%1$d WT)</string>
+	<string name="combat_move">Ruch (%1$d WT)</string>
+	<string name="combat_use">Użyj przedmiotu</string>
+	<string name="combat_spell">Czary</string>
+	<string name="combat_endturn">Koniec tury</string>
+	<!-- <string name="combat_endcombat">End combat</string>-->
+	<string name="combat_flee">Ucieknij</string>
+	<string name="combat_begin_flee">Możesz uciec z pola walki klikając w kierunku w którym chcesz się ruszyć.</string>
+	<string name="combat_flee_failed">Nie udało ci się uciec!</string>
+	<string name="combat_status_ap">WT: %1$d</string>
+	<string name="combat_monsterhealth">PŻ:</string>
+	<string name="combat_monsteraction">%1$s atakuje.</string>
+	<!-- <string name="combat_cannotexitcombat">You cannot exit combat since there are adjacent monsters. You first have to move by long-clicking a place with no adjacent monster, before you may end the combat.</string> -->
+	<string name="combat_result_monstermiss">%1$s nie trafił!</string>
+	<string name="combat_result_monsterhit">%1$s odebrał %2$d pż!</string>
+	<string name="combat_result_monsterhitcritical">%1$s uderza ciosem krytycznym za %2$d pż!</string>
+	<string name="combat_result_heromiss">Nie trafiłeś.</string>
+	<string name="combat_result_herohit">Uderzasz %1$s za %2$d pż!</string>
+	<string name="combat_result_herohitcritical">Uderzasz ciosem krytycznym %1$s za %2$d pż!</string>
+	<string name="combat_result_herokillsmonster">%1$s umiera!</string>
+	<string name="combat_not_enough_ap">Za mało WT na tę rundę.</string>
+	<string name="combat_hero_dies">Upadasz nieprzytomny, ale na szczęście budzisz się żywy, oszołomiony i poobijany. Tracisz %1$d doświadczenia.</string>
+
+	<string name="inventory_info">Info</string>
+	<string name="inventory_equip">Załóż</string>
+	<string name="inventory_unequip">Zdejmij</string>
+	<string name="inventory_use">Użyj</string>
+	<string name="inventory_drop">Upuść</string>
+	<string name="inventory_item_used">Użyłeś %1$s.</string>
+	<string name="inventory_item_dropped">Upuściłeś %1$s.</string>
+	<string name="inventory_item_equipped">Założyłeś %1$s.</string>
+
+	<string name="dialog_loot_pickall">Zbierz wszystko</string>
+	<string name="dialog_loot_foundgold">Znalazłeś złota: %1$d. </string>
+	<string name="dialog_loot_pickedupitem">Podniosłeś przedmiot. </string>
+	<string name="dialog_loot_pickedupitems">Podniosłeś %1$d przedmiotów. </string>
+	<string name="dialog_groundloot_title">Przedmioty</string>
+	<string name="dialog_groundloot_message">Znalazłeś parę przedmiotów. </string>
+	<string name="dialog_monsterloot_title">Zwycięstwo</string>
+	<string name="dialog_monsterloot_message">Przeżyłeś potyczkę. </string>
+	<string name="dialog_monsterloot_gainedexp">Zdobyłeś %1$d doświadczenia. </string>
+
+	<string name="monster_difficulty_veryeasy">Bardzo łatwy</string>
+	<string name="monster_difficulty_easy">Łatwy</string>
+	<string name="monster_difficulty_normal">Średni</string>
+	<string name="monster_difficulty_hard">Trudny</string>
+	<string name="monster_difficulty_veryhard">Bardzo trudny</string>
+	<string name="monster_difficulty_impossible">Niemożliwy</string>
+
+	<string name="actorinfo_class">Klasa:</string>
+	<string name="actorinfo_difficulty">Trudność:</string>
+	<string name="actorinfo_health">Życia:</string>
+	<string name="actorinfo_attacksperturn">Atak/tura:</string>
+	<string name="actorinfo_movesperturn">Ruch/tura:</string>
+	<string name="actorinfo_attack">Atak:</string>
+	<string name="actorinfo_criticalhit">Cios krytyczny:</string>
+	<string name="actorinfo_defense">Obrona:</string>
+	<string name="actorinfo_movecost">Koszt ruchu (WT):</string>
+	<string name="actorinfo_basetraits">Podstawowe statystyki walki (bez ekwipunku i umiejętności)</string>
+	<string name="actorinfo_currenttraits">Statystyki walki (obecne)</string>
+
+	<string name="traitsinfo_attack_cost">Koszt ataku (WT):</string>
+	<string name="traitsinfo_attack_chance">Szansa ataku:</string>
+	<string name="traitsinfo_attack_damage">Obrażenia ataku:</string>
+	<string name="traitsinfo_criticalhit_skill">Umiejętność ciosu krytycznego:</string>
+	<string name="traitsinfo_criticalhit_multiplier">Mnożnik krytyka:</string>
+	<string name="traitsinfo_defense_chance">Szansa bloku:</string>
+	<string name="traitsinfo_defense_damageresist">Odporność na obrażenia:</string>
+
+	<!-- <string name="key_required">A specific key is required to pass.</string> -->
+
+	<string name="iteminfo_category">Kategoria: </string>
+	<string name="iteminfo_action_use">Użyj</string>
+	<string name="iteminfo_action_equip">Załóż</string>
+	<string name="iteminfo_action_unequip">Zdejmij</string>
+	<string name="iteminfo_action_use_ap">Użyj (%1$d WT)</string>
+	<string name="iteminfo_action_equip_ap">Załóż (%1$d WT)</string>
+	<string name="iteminfo_action_unequip_ap">Zdejmij (%1$d WT)</string>
+
+	<string name="itemcategory_money">Pieniądze</string>
+	<string name="itemcategory_weapon">Broń</string>
+	<string name="itemcategory_shield">Tarcza</string>
+	<string name="itemcategory_wearable_head">Można założyć (głowa)</string>
+	<string name="itemcategory_wearable_body">Można założyć (ciało)</string>
+	<string name="itemcategory_wearable_hand">Można założyć (ręce)</string>
+	<string name="itemcategory_wearable_feet">Można założyć (stopy)</string>
+	<string name="itemcategory_wearable_neck">Można założyć (szyja)</string>
+	<string name="itemcategory_wearable_ring">Można założyć (pierścień)</string>
+	<string name="itemcategory_potion">Napój</string>
+	<string name="itemcategory_other">Inne</string>
+
+	<string name="startscreen_continue">Kontynuuj obecną gre</string>
+	<string name="startscreen_newgame">Nowa Gra</string>
+	<string name="startscreen_newgame_confirm">Stracisz obecny stan gry i postać, na pewno chcesz zacząć nową gre?</string>
+	<string name="startscreen_about">O grze/pomoc</string>
+	<string name="startscreen_enterheroname">Wpisz imię bohatera</string>
+	<string name="startscreen_load">Wczytaj</string>
+
+	<!-- <string name="conversation_title">%1$s says</string> -->
+	<string name="conversation_rewardexp"> [Zdobyłeś %1$d doświadczenia]</string>
+	<string name="conversation_rewardgold"> [Zdobyłeś %1$d złota]</string>
+	<string name="conversation_lostgold"> [Straciłeś %1$d złota]</string>
+	<string name="conversation_rewarditem"> [Zdobyłeś przedmiot]</string>
+	<string name="conversation_rewarditems"> [Zdobyłeś %1$d przedmiotów]</string>
+	<string name="conversation_next">Dalej</string>
+	<string name="conversation_leave">Opuść</string>
+
+	<string name="shop_buy">Kup</string>
+	<string name="shop_sell">Sprzedaj</string>
+	<string name="shop_infoitem">Info</string>
+	<string name="shop_buyitem">Kup (%1$d złota)</string>
+	<string name="shop_sellitem">Sprzedaj (%1$d złota)</string>
+	<string name="shop_yourgold">Twoje złoto: %1$d</string>
+	<string name="shop_item_bought">%1$s kupione.</string>
+	<string name="shop_item_sold">%1$s sprzedane.</string>
+
+	<string name="levelup_title">Nowy Poziom</string>
+	<string name="levelup_description">Witaj na poziomie %1$d!</string>
+	<string name="levelup_buttontext">Nowy poziom</string>
+	<string name="levelup_add_health">Zwiększ punkty życia (+%1$d PŻ)</string>
+	<string name="levelup_add_health_description">Dodaje %1$d do twojego maksymalnego zdrowia.</string>
+	<string name="levelup_add_attackchance">Zwiększ szanse ataku (+%1$d %%)</string>
+	<string name="levelup_add_attackchance_description">Dodaje %1$d%% do szansy trafienia.</string>
+	<string name="levelup_add_attackdamage">Zwiększ obrażenia ataku (+%1$d)</string>
+	<string name="levelup_add_attackdamage_description">Dodaje %1$d do obrażenia ataku.</string>
+	<string name="levelup_add_blockchance">Zwiększ szanse blokowania (+%1$d %%)</string>
+	<string name="levelup_add_blockchance_description">Dodaje %1$d%% do szansy zablokowania.</string>
+
+	<string name="dialog_rest_title">Odpocznij</string>
+	<string name="dialog_rest_confirm_message">Chcesz tutaj odpocząć?</string>
+	<string name="dialog_rest_message">Odpocząłeś i odzyskałeś pełne zdrowie.</string>
+
+	<string name="about_button1">Pomoc</string>
+	<string name="about_button2">Autorzy</string>
+	<string name="about_button3">Licencja</string>
+	<string name="about_contents1">
+		Witaj w Andor\'s Trail, otwartej grze na Androida.&lt;br /&gt;
+		&lt;br /&gt;
+		&lt;a href="http://andorstrail.com/"&gt;Forum gry na andorstrail.com pytania i dyskusje o grze.&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		&lt;a href="http://code.google.com/p/andors-trail/"&gt;Strona projektu code.google.com dla deweloperów.&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		Zachęcamy do wchodzenia na forum i dyskutowania z innymi graczami.&lt;br /&gt;
+	</string>
+
+	<!--
+		This is the GNU GPL v2 text, originally from
+			http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+		For translation of this text, you might be able to find a version in your language here:
+			http://www.gnu.org/licenses/old-licenses/gpl-2.0-translations.html
+	-->
+	<string name="about_contents3">
+		This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) any later version.&lt;br /&gt;
+		&lt;br /&gt;
+		This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.&lt;br /&gt;
+		&lt;br /&gt;
+		You should have received a copy of the GNU General Public License along with this program; if not, see &lt;a href="http://www.gnu.org/licenses"&gt;http://www.gnu.org/licenses&lt;/a&gt;&lt;br /&gt;
+		&lt;br /&gt;
+		For source code and feature requests, please visit the project page at &lt;a href="http://code.google.com/p/andors-trail/"&gt;http://code.google.com/p/andors-trail/&lt;/a&gt;&lt;br /&gt;
+	</string>
+
+	<string name="dialog_newversion_title">Witamy</string>
+	<string name="dialog_newversion_message">
+		Dziękujemy za ściągnięcie Andor\'s Trail!\n\n
+		Proszę zwrócić uwagę że Andor\'s Trail jest w TRAKCIE PRODUKCJI, co oznacza, że nie wszystkie poziomy są skończone.\n
+		Proszę odwiedzić forum w celu dyskutowania o grze z innymi graczami lub pomóc w ulepszaniu tej gry jeszcze bardziej ("O grze").\n
+		\n
+		Dziękujemy za całe wasze wsparcie!
+	</string>
+
+	<string name="questlog_title">Zadania</string>
+	<string name="questlog_includecompleted_prompt">Wybierz zadanie, żeby rozwinąć</string>
+	<string name="questlog_includecompleted_hidecompleted">Schowaj ukończone zadania</string>
+	<string name="questlog_includecompleted_includecompleted">Pokazuj ukończone zadania</string>
+	<string name="questlog_includecompleted_onlycompleted">Tylko ukończone zadania</string>
+	<string name="questlog_queststatus">Status: %1$s</string>
+	<string name="questlog_queststatus_inprogress">W trakcie</string>
+	<string name="questlog_queststatus_completed">Zakończone</string>
+
+	<string name="preferences_display_category">Wyświetlacz</string>
+	<string name="preferences_display_fullscreen_title">Pełny ekran</string>
+	<string name="preferences_display_fullscreen">Włącza grę w pełnym ekranie. (Wymaga ponownego uruchomienia gry)</string>
+	<string name="preferences_dialog_category">Potwierdzenie dialogów</string>
+	<string name="preferences_dialog_confirmrest_title">Potwierdzenie odpoczynku</string>
+	<string name="preferences_dialog_confirmrest">Potwierdzenie odpoczynku będzie wyświetlane lub odbędzie się automatycznie bez potwierdzenia.</string>
+	<string name="preferences_dialog_confirmattack_title">Potwierdź atak</string>
+	<string name="preferences_dialog_confirmattack">Włącza \'Czy chcesz zaatakować..?\' okienko przy atakowaniu potworów.</string>
+	<string name="preferences_dialog_monsterloot_title">Wyświetla przedmioty zdobyte z potworów</string>
+	<string name="preferences_dialog_monsterloot">Wybierz jak mają być pokazywane wyniki walk (złoto, doświadczenie, przedmioty).</string>
+	<string name="preferences_combat_category">Walka</string>
+	<string name="preferences_combat_speed_title">Prędkość walk</string>
+	<string name="preferences_combat_speed">Jak szybko mają atakować potwory.</string>
+
+	<string name="preferences_display_loot_dialog">Pokaż okienko zdobytych przedmiotów</string>
+	<string name="preferences_display_loot_toast">Pokaż krótką informacje</string>
+	<string name="preferences_display_loot_never">Nie wyświetlaj</string>
+	<string name="preferences_attackspeed_instant">Natychmiastowe (bez animacji)</string>
+	<string name="preferences_attackspeed_fast">Szybkie</string>
+	<string name="preferences_attackspeed_normal">Normalne</string>
+	<string name="preferences_attackspeed_slow">Wolne</string>
+
+	<string name="preferences_movement_category">Ruch</string>
+	<string name="preferences_movementmethod_title">Metoda poruszania się</string>
+	<string name="preferences_movementmethod">Metoda poruszania się i omijania obiektów.</string>
+	<string name="preferences_movementmethods_straight">Prosta (oryginalna)</string>
+	<string name="preferences_movementmethods_avoid">Omijanie obiektów</string>
+
+
+	<!-- =========================================== -->
+	<!-- Added in v0.6.9 -->
+
+	<string name="actorinfo_currentconditions">Tymczasowe efekty</string> <!-- Translated as: affliction / statuseffect / temporary effect -->
+	<string name="actorcondition_info_removes_all">Usuwa wszystkie %1$s</string>
+	<string name="iteminfo_effect_chance_of">%1$s szansa %2$s</string>
+	<string name="iteminfo_effect_duration">(%1$d rundy)</string>
+
+	<string name="iteminfo_effect_works_on_source">na siebie</string>
+	<string name="iteminfo_effect_works_on_target">na cel</string>
+	<string name="iteminfo_effect_works_when_hitting_target">Kiedy uderzy w cel</string>
+	<string name="iteminfo_effect_works_when_killing_target">Kiedy zabijesz cel</string>
+	<string name="iteminfo_effect_works_when_used">Kiedy użyty</string>
+	<string name="iteminfo_effect_works_when_equipped">Kiedy założony</string>
+
+	<string name="iteminfo_effect_decrease_current_hp">Wysysa %1$s PŻ</string>
+	<string name="iteminfo_effect_increase_current_hp">Przywraca %1$s PŻ</string>
+	<string name="iteminfo_effect_decrease_current_ap">Wysysa %1$s WT</string>
+	<string name="iteminfo_effect_increase_current_ap">Przywraca %1$s WT</string>
+
+	<string name="iteminfo_effect_increase_max_hp">Zwiększa maks PŻ o +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_hp">Zmniejsza maks PŻ o %1$d</string>
+	<string name="iteminfo_effect_increase_max_ap">Zwiększa maks WT o +%1$d</string>
+	<string name="iteminfo_effect_decrease_max_ap">Zmniejsza maks WT o %1$d</string>
+	<string name="iteminfo_effect_increase_movecost">Koszt ruchu wzrasta o +%1$d AP</string>
+	<string name="iteminfo_effect_decrease_movecost">Zmniejsza koszt ruchu o %1$d AP</string>
+
+	<string name="preferences_display_scaling_factor_title">Skalowanie obrazu</string>
+	<string name="preferences_display_scaling_factor">Sprawia, że gra będzie wyświetlana w powiększeniu.</string>
+	<string name="preferences_display_scaling_factor_normal">Normalny rozmiar</string>
+	<string name="preferences_display_scaling_factor_50_percent_larger">1.5x powiększony</string>
+	<string name="preferences_display_scaling_factor_double">Podwójnie powiększony</string>
+
+	<string name="inventory_assign">Przypisz szybki slot</string>
+	<string name="inventory_assign_slot1">Slot 1</string>
+	<string name="inventory_assign_slot2">Slot 2</string>
+	<string name="inventory_assign_slot3">Slot 3</string>
+	<string name="inventory_unassign">Un-assign quick slot</string>
+
+	<!-- =========================================== -->
+	<!-- Added in v0.6.10 -->
+
+	<string name="preferences_movement_dpad_position_title">Wirtualny pad</string>
+	<string name="preferences_movement_dpad_position">Włącza wirtualny pad do poruszania się.</string>
+	<string name="preferences_movement_dpad_minimizeable_title">Minimalizuj w-pad</string>
+	<string name="preferences_movement_dpad_minimizeable">Kiedy wirtualny pad jest włączony, ta opcja pozwala go zminimalizować.</string>
+
+	<string name="preferences_movement_dpad_positions_disabled">Wyłączony</string>
+	<string name="preferences_movement_dpad_positions_lower_right">Prawy dolny róg</string>
+	<string name="preferences_movement_dpad_positions_lower_left">Lewy dolny róg</string>
+	<string name="preferences_movement_dpad_positions_center_bottom">Na dole po środku</string>
+	<string name="preferences_movement_dpad_positions_center_left">Środek po lewej</string>
+	<string name="preferences_movement_dpad_positions_center_right">Środek po prawej</string>
+	<string name="preferences_movement_dpad_positions_upper_left">Lewy górny róg</string>
+	<string name="preferences_movement_dpad_positions_upper_right">Prawy górny róg</string>
+	<string name="preferences_movement_dpad_positions_center_top">Na górze po środku</string>
+
+	<string name="actorconditioninfo_constant_effect">Stały efekt</string>
+	<string name="actorconditioninfo_effect_every_round">Co turę</string>
+	<string name="actorconditioninfo_effect_every_full_round">Co pełną turę</string>
+	<string name="bulkselection_totalcost_buy">Całkowity koszt: %1$d złota</string>
+	<string name="bulkselection_totalcost_sell">Całkowity zysk: %1$d złota</string>
+	<string name="bulkselection_select_all">Wszystko</string>
+	<string name="bulkselection_sell_confirmation_title">Na pewno?</string>
+	<string name="bulkselection_sell_confirmation">Na pewno chcesz sprzedać %1$s? Ten przedmiot jest %2$s i możesz go już nie odzyskać.</string>
+
+	<string name="skill_title_weapon_chance">Celność</string>
+	<string name="skill_title_weapon_dmg">Twarde uderzenie</string>
+	<string name="skill_title_barter">Kupiec</string>
+	<string name="skill_title_dodge">Unik</string>
+	<string name="skill_title_barkskin">Kamienna Skóra</string>
+	<string name="skill_title_more_criticals">Częstszy Krytyk</string>
+	<string name="skill_title_better_criticals">Mocniejszy Krytyk</string>
+	<string name="skill_title_speed">Wytrzymałość</string>
+	<string name="skill_title_coinfinder">Poszukiwacz Skarbów</string>
+	<string name="skill_title_more_exp">Szybki Uczeń</string>
+	<string name="skill_title_cleave">Wytrzymały</string>
+	<string name="skill_title_eater">Zjadacz Ciał</string>
+	<string name="skill_title_fortitude">Żywotność</string>
+	<string name="skill_title_evasion">Szczurek</string>
+	<string name="skill_title_regeneration">Regeneracja</string>
+	<string name="skill_title_lower_exploss">Śmierć Dusigrosza</string>
+	<string name="skill_title_magicfinder">Szczęście Macieja</string>
+	<string name="skill_title_resistance_mental">Kaszpir</string>
+	<string name="skill_title_resistance_physical_capacity">Hardkorowy</string>
+	<string name="skill_title_resistance_blood_disorder">Nieskażony</string>
+
+	<string name="skill_shortdescription_weapon_chance">Zwiększona szansa ataku</string>
+	<string name="skill_shortdescription_weapon_dmg">Zwiększone obrażenia ataku</string>
+	<string name="skill_shortdescription_barter">Niższe ceny w sklepie</string>
+	<string name="skill_shortdescription_dodge">Zwiększona szansa bloku</string>
+	<string name="skill_shortdescription_barkskin">Odporność na ataki</string>
+	<string name="skill_shortdescription_more_criticals">Zwiększona umiejętność krytyka</string>
+	<string name="skill_shortdescription_better_criticals">Zwiększone obrażenia krytyka</string>
+	<string name="skill_shortdescription_speed">Zwiększona ilość WT</string>
+	<string name="skill_shortdescription_coinfinder">Większa szansa znalezienia złota</string>
+	<string name="skill_shortdescription_more_exp">Więcej doświadczenia z potworów</string>
+	<string name="skill_shortdescription_cleave">Odzyskuj punkty wytrzymałości po każdym zabiciu potwora</string>
+	<string name="skill_shortdescription_eater">Odzyskuj punkty zdrowia po każdym zabiciu wroga</string>
+	<string name="skill_shortdescription_fortitude">Odzyskuj zdrowie po każdym zdobytym poziomie</string>
+	<string name="skill_shortdescription_evasion">Zwiększona szansa ucieczki</string>
+	<string name="skill_shortdescription_regeneration">Odzyskuj zdrowie po każdej rundzie</string>
+	<string name="skill_shortdescription_lower_exploss">Zmniejsza utracone doświadczenie, po śmierci bohatera</string>
+	<string name="skill_shortdescription_magicfinder">Zwiększona szansa na znalezienie magicznych przedmiotów</string>
+	<string name="skill_shortdescription_resistance_mental">Odporność na obrażenia psychiczne</string>
+	<string name="skill_shortdescription_resistance_physical_capacity">Odporność na obrażenia fizyczne</string>
+	<string name="skill_shortdescription_resistance_blood_disorder">Odporność na obrażenia przeciw skażeniu krwi</string>
+
+	<string name="skill_longdescription_weapon_chance">Zwiększa szanse ataku o %1$d na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_weapon_dmg">Zwiększa min i maks obrażenia %1$d na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_barter">Na każdy poziom umiejętności, sprzedaż i kupno są bardziej opłacalne o %1$d procent.</string>
+	<string name="skill_longdescription_dodge">Zwiększona szansa blokowania o %1$d na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_barkskin">Zwiększa odporność na obrażenia o %1$d na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_more_criticals">Zwiększa istniejący krytyk z założonej broni o %1$d %% na każdy poziom umiejętności (procent posiadanych umiejętności krytycznych, ale nie procent ogólny).</string>
+	<string name="skill_longdescription_better_criticals">Increases any existing critical multiplier given by equipment by %1$d %% for each skill level.</string>
+	<string name="skill_longdescription_speed">Zwiększa maksimum wytrzymałości (WT) o %1$d na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_coinfinder">Zwiększa szanse znalezienia złota w potworze o %1$d %%, oraz zwiększa wartość tego złota o %2$d %% na każdy poziom umiejętności (do maksimum jakie dany potwór może mieć najwięcej).</string>
+	<string name="skill_longdescription_more_exp">Zwiększa otrzymywane doświadczenie po zabiciu potwora o %1$d %% na każdy poziom umiejętności</string>
+	<string name="skill_longdescription_cleave">Daje +%1$d punkt wytrzymałości (WT) na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_eater">Daje +%1$d punkt życia (PŻ) za każdego zabitego potwora (zależy od poziomu umiejętności).</string>
+	<string name="skill_longdescription_fortitude">Na każdy kolejny nowy poziom, maks PŻ będzie rosło o %1$d na każdy poziom umiejętności. Tylko z nowymi poziomami.</string>
+	<string name="skill_longdescription_evasion">Zmniejsz szanse porażki na ucieczkę z pola walki o %1$d %% i szansę, że podczas porażki w ucieczce potwór zaatakuje o %2$d %%.</string>
+	<string name="skill_longdescription_regeneration">Daje +%1$d punkt życia (PŻ) po każdej walce, na każdy poziom, gdy żaden z potworów do nas nie przylega.</string>
+	<string name="skill_longdescription_lower_exploss">Na każdy poziom umiejętności, redukuje ilość straconego doświadczenia o %1$d %% (procentów dośw. które w danym momencie posiadamy, nie ogólnych procentów). %2$d usunie wszystkie straty wyrządzone przez śmierć.</string>
+	<string name="skill_longdescription_magicfinder">Zwiększa szanse na znalezienie magicznych przedmiotów o %1$d %% na każdy poziom umiejętności.</string>
+	<string name="skill_longdescription_resistance_mental">Zmniejsza szanse na obrażenia psychiczne o %1$d %% na każdy poziom umiejętności, do maks. %2$d %%. Dotyczy potworów, które używają takie ataki jak oszołomienie czy osłabienie broni.</string>
+	<string name="skill_longdescription_resistance_physical_capacity">Zmniejsza szansę na obrażenia fizyczne o %1$d %% na każdy poziom umiejętności, do maks. %2$d %%. Dotyczy potworów, które używają takie ataki jak zmęcznie.</string>
+	<string name="skill_longdescription_resistance_blood_disorder">Zmniejsza szansę skażenia krwi o %1$d %% na każdy poziom umiejętności, do maks. %2$d %%. Dotyczy potworów, które używają takie ataki jak trucizna czy krwawienie.</string>
+
+	<string name="skillinfo_action_levelup">Nowy Poziom</string>
+	<string name="skill_current_level">Poziom: %1$d</string>
+	<string name="skill_current_level_with_maximum">Poziom: %1$d / %2$d</string>
+	<string name="skill_prerequisite_other_skill">Do awansu tej umiejętności potrzebujesz przynajmniej poziomu %1$d z %2$s umiejętności.</string>
+	<string name="skill_prerequisite_level">Do awansu tej umiejętności potrzebujesz poziomu %1$d.</string>
+	<string name="skill_prerequisite_stat">Do awansu tej umiejętności potrzebujesz przynajmniej %1$d %2$s (podstawowe dane).</string>
+	<string name="skill_number_of_increases_one">Możesz zaznaczyć jedną umiejętność do awansu.</string>
+	<string name="skill_number_of_increases_several">Możesz zaznaczyć %1$d umiejętność do awansu.</string>
+	<string name="levelup_adds_new_skillpoint">Zdobyłeś punkt umiejętności!</string>
+
+	<string name="loadsave_save_to_new_slot">Stwórz nowy slot zapisu</string>
+	<string name="loadsave_save_overwrite_confirmation_title">Nadpisać grę?</string>
+	<string name="loadsave_save_overwrite_confirmation">Ten zapis posiada bohatera o innym imieniu (%1$s) niż ten którym grasz obecnie (%2$s). Na pewno chcesz nadpisać grę?</string>
+
+	<string name="iteminfo_displaytypes_ordinary">Zwykły</string>
+	<string name="iteminfo_displaytypes_quest">Przedmiot do zadania</string>
+	<string name="iteminfo_displaytypes_legendary">Legendarny</string>
+	<string name="iteminfo_displaytypes_extraordinary">Niezwykły</string>
+	<string name="iteminfo_displaytypes_rare">Rzadki</string>
+
+	<string name="actorconditioninfo_category">Kategoria: %1$s</string>
+	<string name="actorcondition_categories_spiritual">Duchowy</string>
+	<string name="actorcondition_categories_mental">Psychiczny</string>
+	<string name="actorcondition_categories_physical">Fizyczny</string>
+	<string name="actorcondition_categories_blood">Skażający krew</string>
+
+	<string name="traitsinfo_base_max_hp">Maks PŻ:</string>
+	<string name="traitsinfo_base_max_ap">Maks WT:</string>
+	<string name="menu_save_saving_not_allowed_in_combat">Nie można zapisać gry, gdy walczysz.</string>
+
+	<string name="preferences_optimized_drawing_title">Zoptymalizowane rysowanie</string>
+	<string name="preferences_optimized_drawing">Wyłącz to jeśli masz problemy z grafiką. Włączenie tej opcji spowoduje przerysowanie tylko niektórych części co klatkę.</string>
+
+	<!-- =========================================== -->
+	<!-- Added in v0.6.11 -->
+
+	<string name="skill_title_shadow_bless">Mroczne błogosławieństwo Cieni</string>
+	<string name="skill_shortdescription_shadow_bless">Odporność na dodatkowe ataki wrogów</string>
+	<string name="skill_longdescription_shadow_bless">Zmniejsza prawdopodobieństwo na dodatkowe ataki wrogów o %1$d %%. To dotyczy wszystkich dodatkowych ataków przez potwory takie jak: oszołomienie, zmęczenie, trucizna.</string>
+
+	<string name="inventory_movetop">Idź w górę</string>
+	<string name="inventory_movebottom">Idź w dół</string>
+	<string name="actorinfo_immune_criticals">Odporność na trafienia krytyka</string>
+	<string name="traitsinfo_criticalhit_effectivechance">efektywność ciosu krytycznego:</string>
+
+	<string name="skill_title_crit1">Krwawienie wewnętrzne</string>
+	<string name="skill_shortdescription_crit1">Szansa na krwawienie</string>
+	<string name="skill_longdescription_crit1">Za każdy udany krytyk, jest %1$d %% szansy, że uderzenie rozpocznie krwawienie wroga \'Krwawienie wewnętrzne\'. Krwawienie osłabia ofensywę wroga, pogarszając jego celność.</string>
+	<string name="skill_title_crit2">Złamanie</string>
+	<string name="skill_shortdescription_crit2">Szansa na złamanie kości</string>
+	<string name="skill_longdescription_crit2">Za każdy udany krytyk, jest %1$d %% szansy na złamanie kości wroga \'Złamanie\' To osłabi defensywę wroga, które będzie bardziej podatny na ataki.</string>
+	<string name="skill_title_rejuvenation">Odmłodzenie</string>
+	<string name="skill_shortdescription_rejuvenation">Szansa na usunięcie efektu</string>
+	<string name="skill_longdescription_rejuvenation">Co rundę (6 sekund), jest %1$d %% szansy, że jeden z negatywnych efektów zostanie obniżony o jeden. To dotyczy wszystkich tymczasowych efektów jakimi są; psychiczne obrażenia takie jak oszołomienie, fizyczne obrażenia takie jak zmęczenie i również skażenia krwi takie jak trucizna.</string>
+	<string name="skill_title_taunt">Kpina</string>
+	<string name="skill_shortdescription_taunt">Atakujący traci WT jeśli chybi</string>
+	<string name="skill_longdescription_taunt">Kiedy atakujący wykona atak i chybi, jest %1$d %% szansy, że atakujący straci %2$d punktów wytrzymałości (WT). To dotyczy wszystkich ataków wręcz przeciw tobie.</string>
+	<string name="skill_title_concussion">Wstrząs</string>
+	<string name="skill_shortdescription_concussion">Szansa na wstrząs</string>
+	<string name="skill_longdescription_concussion">Kiedy atakujesz na cel, którego szanse na blok (SB) jest %1$d niższa niż twoja szansa na trafienie (SA), jest %2$d %% szansy, że uderzenie skończy się wstrząsem dla wroga. Wstrząs osłabi zdolności ofensywne wroga, który będzie częściej chybiał.</string>
+
+	<string name="about_button4">O grze</string>
+
+	<!-- =========================================== -->
+	<!-- Added in v0.6.12 -->
+
+	<string name="preferences_ui_category">Interfejs</string>
+	<string name="preferences_ui_enable_animations_title">Włącz animacje</string>
+	<string name="preferences_ui_enable_animations">Pokazuje animacje różnych części interfejsu np. pasek walki.</string>
+	<string name="menu_button_worldmap">Mapa</string>
+	<string name="menu_button_worldmap_failed">Mapa nie może być wyświetlona.</string>
+	<string name="display_worldmap_not_available">Mapa nie może być wyświetlona w tym miejscu.</string>
+	<string name="display_worldmap_title">Mapa</string>
+
+	<string name="inventory_equip_offhand">Załóż (od ręki)</string>
+
+	<string name="iteminfo_effect_weapon_attack_cost">Koszt Ataku: %1$d WT</string>
+	<string name="iteminfo_effect_increase_attack_cost">Zwiększa koszt ataku o %1$d WT</string>
+	<string name="iteminfo_effect_decrease_attack_cost">Zmniejsza koszt ataku o %1$d WT</string>
+	<string name="iteminfo_effect_weapon_attack_chance">Szansa na atak: %1$d %%</string>
+	<string name="iteminfo_effect_increase_attack_chance">Zwiększa szanse na atak o %1$d %%</string>
+	<string name="iteminfo_effect_decrease_attack_chance">Zmniejsza szanse na atak o %1$d %%</string>
+	<string name="iteminfo_effect_weapon_attack_damage">Obrażenia Ataku: %1$d</string>
+	<string name="iteminfo_effect_weapon_attack_damage_minmax">Obrażenia ataku: %1$d-%2$d</string>
+	<string name="iteminfo_effect_increase_attack_damage">Zwiększa obrażenia od ataku o %1$d</string>
+	<string name="iteminfo_effect_increase_attack_damage_minmax">Zwiększa obrażenia od ataku o %1$d-%2$d</string>
+	<string name="iteminfo_effect_decrease_attack_damage">Zmniejsza obrażenia od ataku o %1$d</string>
+	<string name="iteminfo_effect_decrease_attack_damage_minmax">Zmniejsza obrażenia od ataku o %1$d-%2$d</string>
+	<string name="iteminfo_effect_increase_critical_skill">Zwiększa krytyka o %1$d</string>
+	<string name="iteminfo_effect_decrease_critical_skill">Zmniejsza krytyka o %1$d</string>
+	<string name="iteminfo_effect_critical_multiplier">Aktywuje mnożnik krytyka o x%1$.1f</string>
+	<string name="iteminfo_effect_increase_block_chance">Zwiększa szanse na blok o %1$d %%</string>
+	<string name="iteminfo_effect_decrease_block_chance">Zmniejsza szanse na blok o %1$d %%</string>
+	<string name="iteminfo_effect_increase_damage_resistance">Zwiększa odporność na obrażenia o %1$d</string>
+	<string name="iteminfo_effect_decrease_damage_resistance">Zmniejsza odporność na obrażenia o %1$d</string>
+	<string name="iteminfo_effect_increase_use_cost">Zwiększa koszt WT używania przedmiotów w walce o %1$d AP</string>
+	<string name="iteminfo_effect_decrease_use_cost">Zmniejsza koszt WT używania przedmiotów w walce o %1$d AP</string>
+	<string name="iteminfo_effect_increase_reequip_cost">Zwiększa koszt WT zakładanych przedmiotów w walce o %1$d AP</string>
+	<string name="iteminfo_effect_decrease_reequip_cost">Zwiększa koszt WT zakładanych przedmiotów w walce o %1$d AP</string>
+
+	<string name="loadsave_save_overwrite_confirmation_all">Jesteś pewny, że chcesz nadpisać grę?</string>
+	<string name="loadsave_save_overwrite_confirmation_slot">(slot %1$d)</string>
+	<string name="preferences_display_overwrite_savegame_entries_always_confirm">Zawsze pokazuj okienko potwierdzeń</string>
+	<string name="preferences_display_overwrite_savegame_entries_confirm_overwrite">Pokazuj tylko, gdy nadpisuję plik z innym imieniem bohatera</string>
+	<string name="preferences_display_overwrite_savegame_entries_never_confirm">Nigdy nie pokazuj okienka potwierdzeń</string>
+	<string name="preferences_dialog_overwrite_savegame_title">Potwierdź nadpisanie gry</string>
+	<string name="preferences_dialog_overwrite_savegame">Zadaje pytanie zawsze, gdy chcesz nadpisać grę na slocie, który jest już zajęty.</string>
+
+
+	<!-- =========================================== -->
+	<!-- Added in v0.7.0 -->
+
+	<string name="localize_resources_from_mo_filename">pl.mo</string>
+
+</resources>

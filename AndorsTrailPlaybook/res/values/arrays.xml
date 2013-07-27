@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+	<string-array name="questlog_includecompleted">
+		<item>@string/questlog_includecompleted_hidecompleted</item>
+		<item>@string/questlog_includecompleted_includecompleted</item>
+		<item>@string/questlog_includecompleted_onlycompleted</item>
+	</string-array>
+
+	<string-array name="preferences_display_loot">
+		<item>@string/preferences_display_loot_dialog</item>
+		<item>@string/preferences_display_loot_dialog_on_items</item>
+		<item>@string/preferences_display_loot_dialog_on_items_or_toast</item>
+		<item>@string/preferences_display_loot_toast</item>
+		<item>@string/preferences_display_loot_toast_on_items</item>
+		<item>@string/preferences_display_loot_never</item>
+	</string-array>
+	<string-array name="preferences_display_loot_values">
+		<item>0</item>
+		<item>3</item>
+		<item>4</item>
+		<item>1</item>
+		<item>5</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="preferences_attackspeed">
+		<item>@string/preferences_attackspeed_instant</item>
+		<item>@string/preferences_attackspeed_fast</item>
+		<item>@string/preferences_attackspeed_normal</item>
+		<item>@string/preferences_attackspeed_slow</item>
+	</string-array>
+	<string-array name="preferences_attackspeed_values">
+		<item>0</item>
+		<item>400</item>
+		<item>1000</item>
+		<item>1500</item>
+	</string-array>
+
+	<string-array name="preferences_movementmethods">
+		<item>@string/preferences_movementmethods_straight</item>
+		<item>@string/preferences_movementmethods_avoid</item>
+	</string-array>
+	<string-array name="preferences_movementmethod_values">
+		<item>0</item>
+		<item>1</item>
+	</string-array>
+
+
+	<string-array name="preferences_display_scaling_factor">
+		<item>@string/preferences_display_scaling_factor_normal</item>
+		<item>@string/preferences_display_scaling_factor_50_percent_larger</item>
+		<item>@string/preferences_display_scaling_factor_double</item>
+	</string-array>
+	<string-array name="preferences_display_scaling_factor_values">
+		<item>1.0f</item>
+		<item>1.5f</item>
+		<item>2.0f</item>
+	</string-array>
+
+	<string-array name="preferences_movement_dpad_positions">
+		<item>@string/preferences_movement_dpad_positions_disabled</item>
+		<item>@string/preferences_movement_dpad_positions_lower_right</item>
+		<item>@string/preferences_movement_dpad_positions_lower_left</item>
+		<item>@string/preferences_movement_dpad_positions_center_bottom</item>
+		<item>@string/preferences_movement_dpad_positions_center_left</item>
+		<item>@string/preferences_movement_dpad_positions_center_right</item>
+		<item>@string/preferences_movement_dpad_positions_upper_left</item>
+		<item>@string/preferences_movement_dpad_positions_upper_right</item>
+		<item>@string/preferences_movement_dpad_positions_center_top</item>
+	</string-array>
+	<string-array name="preferences_movement_dpad_positions_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+		<item>7</item>
+		<item>8</item>
+	</string-array>
+
+	<string-array name="preferences_display_overwrite_savegame_entries">
+		<item>@string/preferences_display_overwrite_savegame_entries_always_confirm</item>
+		<item>@string/preferences_display_overwrite_savegame_entries_confirm_overwrite</item>
+		<item>@string/preferences_display_overwrite_savegame_entries_never_confirm</item>
+	</string-array>
+	<string-array name="preferences_display_overwrite_savegame_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+	</string-array>
+
+	<string-array name="preferences_quickslots_placements">
+		<item>@string/preferences_quickslots_placements_horizontal_center_bottom</item>
+		<item>@string/preferences_quickslots_placements_vertical_center_left</item>
+		<item>@string/preferences_quickslots_placements_vertical_center_right</item>
+		<item>@string/preferences_quickslots_placements_vertical_bottom_left</item>
+		<item>@string/preferences_quickslots_placements_horizontal_bottom_left</item>
+		<item>@string/preferences_quickslots_placements_horizontal_bottom_right</item>
+		<item>@string/preferences_quickslots_placements_vertical_bottom_right</item>
+	</string-array>
+	<string-array name="preferences_quickslots_placements_values">
+		<item>0</item>
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+		<item>6</item>
+	</string-array>
+
+</resources>

@@ -1,0 +1,469 @@
+[
+    {
+        "id": "tiny_rat",
+        "iconID": "monsters_rats:0",
+        "name": "Tiny rat",
+        "spawnGroup": "trainingrat",
+        "monsterClass": "animal",
+        "unique": 1,
+        "maxHP": 2,
+        "attackCost": 10,
+        "attackChance": 50,
+        "droplistID": "trainingrat",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "cave_rat",
+        "iconID": "monsters_rats:1",
+        "name": "Cave rat",
+        "spawnGroup": "crossglen_caverat",
+        "monsterClass": "animal",
+        "maxHP": 5,
+        "attackCost": 10,
+        "attackChance": 90,
+        "droplistID": "rat",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        }
+    },
+    {
+        "id": "tough_cave_rat",
+        "iconID": "monsters_rats:1",
+        "name": "Tough cave rat",
+        "spawnGroup": "crossglen_caverat2",
+        "monsterClass": "animal",
+        "maxHP": 5,
+        "attackCost": 5,
+        "attackChance": 90,
+        "droplistID": "rat",
+        "attackDamage": {
+            "min": 3,
+            "max": 3
+        }
+    },
+    {
+        "id": "strong_cave_rat",
+        "iconID": "monsters_rats:3",
+        "name": "Strong cave rat",
+        "spawnGroup": "crossglen_caveboss",
+        "monsterClass": "animal",
+        "unique": 1,
+        "maxHP": 20,
+        "attackCost": 5,
+        "attackChance": 100,
+        "blockChance": 10,
+        "droplistID": "caveratboss",
+        "attackDamage": {
+            "min": 2,
+            "max": 4
+        }
+    },
+    {
+        "id": "black_ant",
+        "iconID": "monsters_insects:0",
+        "name": "Black ant",
+        "spawnGroup": "crossglen_ant",
+        "monsterClass": "insect",
+        "maxHP": 3,
+        "attackCost": 10,
+        "attackChance": 70,
+        "droplistID": "insect",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "small_wasp",
+        "iconID": "monsters_insects:1",
+        "name": "Small wasp",
+        "spawnGroup": "crossglen_wasp",
+        "monsterClass": "insect",
+        "maxHP": 4,
+        "attackCost": 10,
+        "attackChance": 70,
+        "droplistID": "wasp",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "beetle",
+        "iconID": "monsters_insects:4",
+        "name": "Beetle",
+        "spawnGroup": "crossglen_beetle",
+        "monsterClass": "insect",
+        "maxHP": 4,
+        "attackCost": 10,
+        "attackChance": 70,
+        "droplistID": "insect",
+        "attackDamage": {
+            "min": 3,
+            "max": 3
+        }
+    },
+    {
+        "id": "forest_wasp",
+        "iconID": "monsters_insects:1",
+        "name": "Forest wasp",
+        "spawnGroup": "forestwasp",
+        "monsterClass": "insect",
+        "maxHP": 6,
+        "attackCost": 10,
+        "attackChance": 70,
+        "droplistID": "wasp",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "forest_ant",
+        "iconID": "monsters_insects:0",
+        "name": "Forest ant",
+        "spawnGroup": "forestant",
+        "monsterClass": "insect",
+        "maxHP": 4,
+        "attackCost": 10,
+        "attackChance": 90,
+        "blockChance": 10,
+        "droplistID": "insect",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "yellow_forest_ant",
+        "iconID": "monsters_insects:2",
+        "name": "Yellow forest ant",
+        "spawnGroup": "forestant",
+        "monsterClass": "insect",
+        "maxHP": 5,
+        "attackCost": 10,
+        "attackChance": 100,
+        "blockChance": 15,
+        "droplistID": "insect",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        }
+    },
+    {
+        "id": "small_rabid_dog",
+        "iconID": "monsters_dogs:1",
+        "name": "Small rabid dog",
+        "spawnGroup": "forestdog",
+        "monsterClass": "animal",
+        "maxHP": 6,
+        "attackCost": 10,
+        "attackChance": 90,
+        "droplistID": "canine",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        }
+    },
+    {
+        "id": "forest_snake",
+        "iconID": "monsters_snakes:1",
+        "name": "Forest Snake",
+        "spawnGroup": "forestsnake",
+        "monsterClass": "reptile",
+        "maxHP": 7,
+        "attackCost": 10,
+        "attackChance": 110,
+        "blockChance": 10,
+        "droplistID": "snake",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "young_cave_snake",
+        "iconID": "monsters_snakes:3",
+        "name": "Young Cave Snake",
+        "spawnGroup": "cavesnake1",
+        "monsterClass": "reptile",
+        "maxHP": 8,
+        "attackCost": 5,
+        "attackChance": 110,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 10,
+        "droplistID": "snake",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        }
+    },
+    {
+        "id": "cave_snake",
+        "iconID": "monsters_snakes:3",
+        "name": "Cave Snake",
+        "spawnGroup": "cavesnake1",
+        "monsterClass": "reptile",
+        "maxHP": 12,
+        "attackCost": 5,
+        "attackChance": 110,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 15,
+        "droplistID": "snake",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        }
+    },
+    {
+        "id": "venomous_cave_snake",
+        "iconID": "monsters_snakes:3",
+        "name": "Venomous Cave Snake",
+        "spawnGroup": "cavesnake2",
+        "monsterClass": "reptile",
+        "maxHP": 15,
+        "maxAP": 10,
+        "attackCost": 5,
+        "attackChance": 110,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 10,
+        "droplistID": "snake",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 1,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "tough_cave_snake",
+        "iconID": "monsters_snakes:3",
+        "name": "Tough Cave Snake",
+        "spawnGroup": "cavesnake2",
+        "monsterClass": "reptile",
+        "maxHP": 21,
+        "attackCost": 5,
+        "attackChance": 110,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 15,
+        "droplistID": "snake",
+        "attackDamage": {
+            "min": 2,
+            "max": 2
+        }
+    },
+    {
+        "id": "basilisk",
+        "iconID": "monsters_rats:4",
+        "name": "Basilisk",
+        "spawnGroup": "cavesnake2_boss",
+        "monsterClass": "reptile",
+        "maxHP": 40,
+        "attackCost": 7,
+        "attackChance": 40,
+        "blockChance": 50,
+        "damageResistance": 2,
+        "droplistID": "cavecritter",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "snake_servant",
+        "iconID": "monsters_liches:0",
+        "name": "Snake servant",
+        "spawnGroup": "cavesnake3",
+        "monsterClass": "undead",
+        "maxHP": 35,
+        "attackCost": 5,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 3,
+        "blockChance": 10,
+        "damageResistance": 1,
+        "droplistID": "lich1",
+        "attackDamage": {
+            "min": 2,
+            "max": 3
+        }
+    },
+    {
+        "id": "snake_master",
+        "iconID": "monsters_liches:1",
+        "name": "Snake master",
+        "spawnGroup": "cavesnake3_boss",
+        "monsterClass": "undead",
+        "unique": 1,
+        "maxHP": 55,
+        "attackCost": 5,
+        "attackChance": 60,
+        "criticalSkill": 200,
+        "criticalMultiplier": 3,
+        "blockChance": 10,
+        "damageResistance": 4,
+        "droplistID": "snakemaster",
+        "phraseID": "snakemaster",
+        "attackDamage": {
+            "min": 1,
+            "max": 4
+        }
+    },
+    {
+        "id": "rabid_boar",
+        "iconID": "monsters_dogs:6",
+        "name": "Rabid Boar",
+        "spawnGroup": "forestboar",
+        "monsterClass": "animal",
+        "maxHP": 20,
+        "attackCost": 5,
+        "attackChance": 110,
+        "blockChance": 30,
+        "droplistID": "canineboss",
+        "attackDamage": {
+            "min": 3,
+            "max": 3
+        }
+    },
+    {
+        "id": "rabid_fox",
+        "iconID": "monsters_dogs:3",
+        "name": "Rabid Fox",
+        "spawnGroup": "fox1",
+        "monsterClass": "animal",
+        "maxHP": 25,
+        "attackCost": 5,
+        "attackChance": 100,
+        "blockChance": 50,
+        "droplistID": "canine",
+        "attackDamage": {
+            "min": 3,
+            "max": 3
+        }
+    },
+    {
+        "id": "yellow_cave_ant",
+        "iconID": "monsters_insects:2",
+        "name": "Yellow cave ant",
+        "spawnGroup": "pitcave1",
+        "monsterClass": "insect",
+        "maxHP": 20,
+        "attackCost": 3,
+        "attackChance": 30,
+        "blockChance": 80,
+        "droplistID": "insect",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "young_teeth_critter",
+        "iconID": "monsters_misc:0",
+        "name": "Young teeth critter",
+        "spawnGroup": "pitcave2",
+        "monsterClass": "reptile",
+        "maxHP": 15,
+        "attackCost": 2,
+        "attackChance": 50,
+        "blockChance": 70,
+        "droplistID": "cavecritter",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "teeth_critter",
+        "iconID": "monsters_misc:0",
+        "name": "Teeth critter",
+        "spawnGroup": "pitcave2",
+        "monsterClass": "reptile",
+        "maxHP": 25,
+        "attackCost": 2,
+        "attackChance": 60,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 70,
+        "droplistID": "cavecritter",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "young_minotaur",
+        "iconID": "monsters_misc:5",
+        "name": "Young minotaur",
+        "spawnGroup": "pitcave2",
+        "monsterClass": "giant",
+        "maxHP": 45,
+        "attackCost": 6,
+        "attackChance": 20,
+        "criticalSkill": 40,
+        "criticalMultiplier": 3,
+        "blockChance": 50,
+        "damageResistance": 2,
+        "droplistID": "cavemonster",
+        "attackDamage": {
+            "min": 4,
+            "max": 4
+        }
+    },
+    {
+        "id": "strong_minotaur",
+        "iconID": "monsters_misc:5",
+        "name": "Strong minotaur",
+        "spawnGroup": "pitcave2_boss",
+        "monsterClass": "giant",
+        "maxHP": 53,
+        "attackCost": 6,
+        "attackChance": 40,
+        "criticalSkill": 50,
+        "criticalMultiplier": 3,
+        "blockChance": 50,
+        "damageResistance": 2,
+        "droplistID": "cavemonster",
+        "attackDamage": {
+            "min": 5,
+            "max": 5
+        }
+    },
+    {
+        "id": "irogotu",
+        "iconID": "monsters_liches:0",
+        "name": "Irogotu",
+        "spawnGroup": "pitcave_boss",
+        "monsterClass": "undead",
+        "unique": 1,
+        "maxHP": 61,
+        "attackCost": 3,
+        "attackChance": 50,
+        "criticalSkill": 40,
+        "criticalMultiplier": 3,
+        "blockChance": 70,
+        "damageResistance": 4,
+        "droplistID": "irogotu",
+        "phraseID": "irogotu",
+        "attackDamage": {
+            "min": 2,
+            "max": 5
+        }
+    }
+]
