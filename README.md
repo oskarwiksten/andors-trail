@@ -8,6 +8,7 @@ Uncover the truths about your home village and the dissapearance of your brother
 
 ## News:
 
+>     29 Jul 2013: uzahoor10: Over 19260 downloads on Appworld!
 >     25 Jul 2013: uzahoor10: Update 0.7.0 of Andor's Trail released to Appworld.
 >     23 Jul 2013: oskar: Update 0.7.0 of Andor's Trail released to Google Play.
 >     23 Apr 2013: uzahoor10: Update 0.6.12 of Andor's Trail released to Appworld.
