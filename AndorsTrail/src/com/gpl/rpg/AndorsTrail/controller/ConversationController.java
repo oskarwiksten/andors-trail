@@ -264,7 +264,7 @@ public final class ConversationController {
 		private void endConversationWithCombat() {
 			npc.forceAggressive();
 			controllers.combatController.setCombatSelection(npc);
-			controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			listener.onConversationEndedWithCombat(npc);
 		}
 

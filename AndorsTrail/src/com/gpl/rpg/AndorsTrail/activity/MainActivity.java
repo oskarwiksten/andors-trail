@@ -109,7 +109,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		switch (requestCode) {
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
-				controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			} else {
 				controllers.combatController.exitCombat(false);
 			}
@@ -166,7 +166,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
 		if (world.model.uiSelections.isInCombat) {
 			controllers.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
-			controllers.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.continueLastTurn);
 		}
 		updateStatus();
 	}

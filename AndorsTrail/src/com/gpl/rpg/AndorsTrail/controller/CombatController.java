@@ -40,16 +40,16 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		this.world = world;
 	}
 
-	public static final int BEGIN_TURN_PLAYER = 0;
-	public static final int BEGIN_TURN_MONSTERS = 1;
-	public static final int BEGIN_TURN_CONTINUE = 2;
+	public static enum BeginTurnAs {
+		player, monsters, continueLastTurn
+	}
 
-	public void enterCombat(int beginTurnAs) {
+	public void enterCombat(BeginTurnAs whoseTurn) {
 		world.model.uiSelections.isInCombat = true;
 		killedMonsterBags.clear();
 		combatTurnListeners.onCombatStarted();
-		if (beginTurnAs == BEGIN_TURN_PLAYER) newPlayerTurn(true);
-		else if (beginTurnAs == BEGIN_TURN_MONSTERS) beginMonsterTurn(true);
+		if (whoseTurn == BeginTurnAs.player) newPlayerTurn(true);
+		else if (whoseTurn == BeginTurnAs.monsters) beginMonsterTurn(true);
 		else continueTurn();
 	}
 	public void exitCombat(boolean pickupLootBags) {
@@ -299,12 +299,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		handleNextMonsterAction();
 	}
 
-	private static final int ACTION_NONE = 0;
-	private static final int ACTION_ATTACK = 1;
-	private static final int ACTION_MOVE = 2;
-	private int determineNextMonsterAction(Coord playerPosition) {
+	private static enum MonsterAction {
+		none, attack, move
+	}
+	private MonsterAction determineNextMonsterAction(Coord playerPosition) {
 		if (currentActiveMonster != null) {
-			if (shouldAttackWithMonsterInCombat(currentActiveMonster, playerPosition)) return ACTION_ATTACK;
+			if (shouldAttackWithMonsterInCombat(currentActiveMonster, playerPosition)) return MonsterAction.attack;
 		}
 
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
@@ -313,14 +313,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 				if (shouldAttackWithMonsterInCombat(m, playerPosition)) {
 					currentActiveMonster = m;
-					return ACTION_ATTACK;
+					return MonsterAction.attack;
 				} else if (shouldMoveMonsterInCombat(m, a, playerPosition)) {
 					currentActiveMonster = m;
-					return ACTION_MOVE;
+					return MonsterAction.move;
 				}
 			}
 		}
-		return ACTION_NONE;
+		return MonsterAction.none;
 	}
 
 	private static boolean shouldAttackWithMonsterInCombat(Monster m, Coord playerPosition) {
@@ -349,12 +349,12 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	private void handleNextMonsterAction() {
 		if (!world.model.uiSelections.isMainActivityVisible) return;
 
-		int nextMonsterAction = determineNextMonsterAction(world.model.player.position);
-		if (nextMonsterAction == ACTION_NONE) {
+		MonsterAction nextMonsterAction = determineNextMonsterAction(world.model.player.position);
+		if (nextMonsterAction == MonsterAction.none) {
 			endMonsterTurn();
-		} else if (nextMonsterAction == ACTION_ATTACK) {
+		} else if (nextMonsterAction == MonsterAction.attack) {
 			attackWithCurrentMonster();
-		} else if (nextMonsterAction == ACTION_MOVE) {
+		} else if (nextMonsterAction == MonsterAction.move) {
 			moveCurrentMonster();
 		}
 	}
@@ -531,7 +531,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	public void monsterSteppedOnPlayer(Monster m) {
 		setCombatSelection(m);
-		enterCombat(BEGIN_TURN_MONSTERS);
+		enterCombat(BeginTurnAs.monsters);
 	}
 
 	public void startFlee() {

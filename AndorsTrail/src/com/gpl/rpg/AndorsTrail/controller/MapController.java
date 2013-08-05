@@ -58,7 +58,7 @@ public final class MapController {
 			if (controllers.preferences.confirmAttack) {
 				worldEventListeners.onPlayerSteppedOnMonster(m);
 			} else {
-				controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			}
 		} else {
 			worldEventListeners.onPlayerStartedConversation(m, m.getPhraseID());
