@@ -46,7 +46,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	public void enterCombat(BeginTurnAs whoseTurn) {
 		world.model.uiSelections.isInCombat = true;
-		killedMonsterBags.clear();
+		resetCombatState();
 		combatTurnListeners.onCombatStarted();
 		if (whoseTurn == BeginTurnAs.player) newPlayerTurn(true);
 		else if (whoseTurn == BeginTurnAs.monsters) beginMonsterTurn(true);
@@ -56,7 +56,6 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		setCombatSelection(null, null);
 		world.model.uiSelections.isInCombat = false;
 		combatTurnListeners.onCombatEnded();
-		currentActiveMonster = null;
 		world.model.uiSelections.selectedPosition = null;
 		world.model.uiSelections.selectedMonster = null;
 		controllers.gameRoundController.resetRoundTimers();
@@ -65,12 +64,13 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		} else {
 			controllers.gameRoundController.resume();
 		}
-		killedMonsterBags.clear();
-		totalExpThisFight = 0;
+		resetCombatState();
 	}
 
-	public boolean isMonsterTurn() {
-		return currentActiveMonster != null;
+	private void resetCombatState() {
+		killedMonsterBags.clear();
+		totalExpThisFight = 0;
+		currentActiveMonster = null;
 	}
 
 	public void setCombatSelection(Monster selectedMonster) {
@@ -126,7 +126,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 
 	public void executeMoveAttack(int dx, int dy) {
-		if (isMonsterTurn()) return;
+		if (!world.model.uiSelections.isPlayersCombatTurn) return;
 
 		if (world.model.uiSelections.selectedMonster != null) {
 			executePlayerAttack();
@@ -245,7 +245,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	private void continueTurn() {
 		if (world.model.uiSelections.isPlayersCombatTurn) return;
-		if (playerHasApLeft()) return;
+		if (playerHasApLeft()) {
+			world.model.uiSelections.isPlayersCombatTurn = true;
+			return;
+		}
 		handleNextMonsterAction();
 	}
 
