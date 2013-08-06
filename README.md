@@ -36,3 +36,13 @@ The forums are located at http://andorstrail.com/ , for gameplay discussions and
 ## Download
 
 The game is open source (GPLv2) and totally free. You can download the latest version (BlackBerry) [here](appworld.blackberry.com/webstore/content/19996368/?lang=en), or from Android Market [here](https://play.google.com/store/apps/details?id=com.gpl.rpg.AndorsTrail). See [License](http://code.google.com/p/andors-trail/wiki/License) for details about the game license. 
+
+## Gameplay
+
+Most of the interface should be easy to understand, but there are a few areas that might require explanations:
+
+    [Combat system](http://code.google.com/p/andors-trail/wiki/combat)
+    [Fleeing a fight](http://code.google.com/p/andors-trail/wiki/flee)
+    [Equipment & inventory](http://code.google.com/p/andors-trail/wiki/items)
+    [Experience & levels] (http://code.google.com/p/andors-trail/wiki/experience)
+    
