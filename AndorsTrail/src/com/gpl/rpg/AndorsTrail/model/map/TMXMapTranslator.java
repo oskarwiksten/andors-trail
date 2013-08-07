@@ -147,8 +147,8 @@ public final class TMXMapTranslator {
 									evaluateWhen = MapObject.MapObjectEvaluationType.whenEntering;
 								} else if (p.value.equalsIgnoreCase("step")) {
 									evaluateWhen = MapObject.MapObjectEvaluationType.onEveryStep;
-								} else if (p.value.equalsIgnoreCase("turn")) {
-									evaluateWhen = MapObject.MapObjectEvaluationType.afterEveryTurn;
+								} else if (p.value.equalsIgnoreCase("round")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.afterEveryRound;
 								} else if (p.value.equalsIgnoreCase("always")) {
 									evaluateWhen = MapObject.MapObjectEvaluationType.continuously;
 								} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {

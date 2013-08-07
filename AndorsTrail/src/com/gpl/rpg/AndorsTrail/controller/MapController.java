@@ -29,7 +29,31 @@ public final class MapController {
 		this.world = world;
 	}
 
-	public void handleMapEvent(MapObject o, Coord position) {
+	public void handleMapEventsAfterMovement(PredefinedMap currentMap, Coord newPosition, Coord lastPosition) {
+		// We don't allow event objects to overlap, so there can only be one object returned here.
+		MapObject mapObject = currentMap.getEventObjectAt(newPosition);
+		if (mapObject == null) return;
+
+		switch (mapObject.evaluateWhen) {
+			case afterEveryRound:
+				return;
+			case whenEntering:
+				// Do not trigger event if the player already was on the same MapObject before.
+				if (mapObject.position.contains(lastPosition)) return;
+				break;
+		}
+		handleMapEvent(mapObject, newPosition);
+	}
+
+	public void handleMapEvents(PredefinedMap currentMap, Coord position, MapObject.MapObjectEvaluationType evaluationType) {
+		MapObject mapObject = currentMap.getEventObjectAt(position);
+		if (mapObject == null) return;
+		if (mapObject.evaluateWhen != evaluationType) return;
+		handleMapEvent(mapObject, position);
+	}
+
+	private void handleMapEvent(MapObject o, Coord position) {
+		if (!shouldHandleMapEvent(o)) return;
 		switch (o.type) {
 		case sign:
 			if (o.id == null || o.id.length() <= 0) return;
@@ -46,11 +70,22 @@ public final class MapController {
 			break;
 		case script:
 			runScriptArea(o);
+			break;
 		}
 	}
 
+	private boolean shouldHandleMapEvent(MapObject mapObject) {
+		if (world.model.uiSelections.isInCombat) {
+			// Only "script" events may run while in combat.
+			if (mapObject.type != MapObject.MapObjectType.script) return false;
+		}
+		return true;
+	}
+
 	private void runScriptArea(MapObject o) {
-		mapScriptExecutor.proceedToPhrase(controllers.getResources(), o.id, true, true);
+		Resources res = controllers.getResources();
+		mapScriptExecutor.proceedToPhrase(res, o.id, true, true);
+		controllers.mapController.applyCurrentMapReplacements(res, true);
 	}
 
 	private void steppedOnRestArea(MapObject area) {

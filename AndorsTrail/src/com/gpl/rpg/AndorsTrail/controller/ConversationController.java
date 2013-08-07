@@ -14,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
+import com.gpl.rpg.AndorsTrail.util.L;
 
 import java.util.ArrayList;
 
@@ -268,11 +269,21 @@ public final class ConversationController {
 		}
 
 		private void endConversationWithRemovingNPC() {
+			if (npc == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("Tried to remove NPC from conversation without having a valid npc target!");
+				listener.onConversationEnded();
+				return;
+			}
 			controllers.monsterSpawnController.remove(world.model.currentMap, npc);
 			listener.onConversationEndedWithRemoval(npc);
 		}
 
 		private void endConversationWithCombat() {
+			if (npc == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("Tried to enter combat from conversation without having a valid npc target!");
+				listener.onConversationEnded();
+				return;
+			}
 			npc.forceAggressive();
 			controllers.combatController.setCombatSelection(npc);
 			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);

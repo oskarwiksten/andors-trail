@@ -263,7 +263,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 
 		world.model.player.nextPosition.set(dest);
-		controllers.movementController.moveToNextIfPossible(false);
+		controllers.movementController.moveToNextIfPossible();
 
 		playerActionCompleted();
 	}

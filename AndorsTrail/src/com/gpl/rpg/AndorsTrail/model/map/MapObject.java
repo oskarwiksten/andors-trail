@@ -17,7 +17,7 @@ public final class MapObject {
 	public static enum MapObjectEvaluationType {
 		whenEntering
 		,onEveryStep
-		,afterEveryTurn
+		,afterEveryRound
 		,continuously
 	}
 
