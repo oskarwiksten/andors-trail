@@ -96,6 +96,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 		controllers.mapController.applyCurrentMapReplacements(res, false);
+		controllers.mapController.prepareScriptsOnCurrentMap();
 		newMap.visited = true;
 		newMap.updateLastVisitTime();
 		moveBlockedActors(newMap, model.currentTileMap);

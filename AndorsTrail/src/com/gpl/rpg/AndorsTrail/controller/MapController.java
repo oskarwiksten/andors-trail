@@ -5,7 +5,9 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListeners;
+import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
@@ -20,6 +22,7 @@ public final class MapController {
 	private final WorldContext world;
 	public final WorldEventListeners worldEventListeners = new WorldEventListeners();
 	public final MapLayoutListeners mapLayoutListeners = new MapLayoutListeners();
+	private ConversationController.ConversationStatemachine mapScriptExecutor;
 
 	public MapController(ControllerContext controllers, WorldContext world) {
 		this.controllers = controllers;
@@ -41,7 +44,13 @@ public final class MapController {
 		case rest:
 			steppedOnRestArea(o);
 			break;
+		case script:
+			runScriptArea(o);
 		}
+	}
+
+	private void runScriptArea(MapObject o) {
+		mapScriptExecutor.proceedToPhrase(controllers.getResources(), o.id, true, true);
 	}
 
 	private void steppedOnRestArea(MapObject area) {
@@ -138,5 +147,22 @@ public final class MapController {
 
 	public boolean satisfiesCondition(ReplaceableMapSection replacement) {
 		return world.model.player.hasExactQuestProgress(replacement.requireQuestStage);
+	}
+
+	private final ConversationController.ConversationStatemachine.ConversationStateListener conversationStateListener = new ConversationController.ConversationStatemachine.ConversationStateListener() {
+		@Override
+		public void onTextPhraseReached(String message, Actor actor, String phraseID) {
+			worldEventListeners.onScriptAreaStartedConversation(phraseID);
+		}
+		@Override public void onPlayerReceivedRewards(ConversationController.PhraseRewards phraseRewards) { }
+		@Override public void onConversationEnded() { }
+		@Override public void onConversationEndedWithShop(Monster npc) { }
+		@Override public void onConversationEndedWithCombat(Monster npc) { }
+		@Override public void onConversationEndedWithRemoval(Monster npc) { }
+		@Override public void onConversationCanProceedWithNext() { }
+		@Override public void onConversationHasReply(Phrase.Reply r, String message) { }
+	};
+	public void prepareScriptsOnCurrentMap() {
+		mapScriptExecutor = new ConversationController.ConversationStatemachine(world, controllers, conversationStateListener);
 	}
 }

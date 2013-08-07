@@ -63,7 +63,7 @@ public final class ConversationController {
 				addQuestProgressReward(player, reward.rewardID, reward.value, result);
 				break;
 			case alignmentChange:
-				player.addAlignment(reward.rewardID, reward.value);
+				addAlignmentReward(player, reward.rewardID, reward.value);
 				break;
 			}
 		}
@@ -76,16 +76,20 @@ public final class ConversationController {
 		return result;
 	}
 
+	private void addAlignmentReward(Player player, String faction, int delta) {
+		player.addAlignment(faction, delta);
+		MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
+	}
+
 	private void addQuestProgressReward(Player player, String questID, int questProgress, PhraseRewards result) {
 		QuestProgress progress = new QuestProgress(questID, questProgress);
 		boolean added = player.addQuestProgress(progress);
 		if (!added) return; // Only apply exp reward if the quest stage was reached just now (and not re-reached)
 
 		QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
-		if (stage != null) {
-			result.loot.exp += stage.rewardExperience;
-			result.questProgress.add(progress);
-		}
+		if (stage == null) return;
+		result.loot.exp += stage.rewardExperience;
+		result.questProgress.add(progress);
 	}
 
 	private void addDropListReward(Player player, String droplistID, PhraseRewards result) {
@@ -169,17 +173,15 @@ public final class ConversationController {
 		private final WorldContext world;
 		private final ControllerContext controllers;
 		private final Player player;
-		private final Resources res;
 		private String phraseID;
 		private Phrase currentPhrase;
 		private Monster npc;
 		public ConversationStateListener listener;
 
-		public ConversationStatemachine(WorldContext world, ControllerContext controllers, Resources res, ConversationStateListener listener) {
+		public ConversationStatemachine(WorldContext world, ControllerContext controllers, ConversationStateListener listener) {
 			this.world = world;
 			this.player = world.model.player;
 			this.controllers = controllers;
-			this.res = res;
 			this.listener = listener;
 		}
 
@@ -187,17 +189,17 @@ public final class ConversationController {
 		public Monster getCurrentNPC() { return npc; }
 		public String getCurrentPhraseID() { return phraseID; }
 
-		public void playerSelectedReply(Reply r) {
+		public void playerSelectedReply(final Resources res, Reply r) {
 			applyReplyEffect(player, r);
-			proceedToPhrase(r.nextPhrase);
+			proceedToPhrase(res, r.nextPhrase, true, true);
 		}
 
-		public void playerSelectedNextStep() {
-			playerSelectedReply(currentPhrase.replies[0]);
+		public void playerSelectedNextStep(final Resources res) {
+			playerSelectedReply(res, currentPhrase.replies[0]);
 		}
 
 		public interface ConversationStateListener {
-			void onTextPhraseReached(String message, Actor actor);
+			void onTextPhraseReached(String message, Actor actor, String phraseID);
 			void onConversationEnded();
 			void onConversationEndedWithShop(Monster npc);
 			void onConversationEndedWithCombat(Monster npc);
@@ -207,7 +209,7 @@ public final class ConversationController {
 			void onConversationHasReply(Reply r, String message);
 		}
 
-		private void setCurrentPhrase(String phraseID) {
+		private void setCurrentPhrase(final Resources res, String phraseID) {
 			this.phraseID = phraseID;
 			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
@@ -218,7 +220,7 @@ public final class ConversationController {
 			}
 		}
 
-		public void proceedToPhrase(String phraseID) {
+		public void proceedToPhrase(final Resources res, String phraseID, boolean giveRewards, boolean displayPhraseMessage) {
 			if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
 				listener.onConversationEnded();
 				return;
@@ -233,26 +235,36 @@ public final class ConversationController {
 				return;
 			}
 
-			setCurrentPhrase(phraseID);
+			setCurrentPhrase(res, phraseID);
 
-			ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
-			if (phraseRewards != null) {
-				listener.onPlayerReceivedRewards(phraseRewards);
+			if (giveRewards) {
+				ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
+				if (phraseRewards != null) {
+					listener.onPlayerReceivedRewards(phraseRewards);
+				}
 			}
 
 			if (currentPhrase.message == null) {
 				for (Reply r : currentPhrase.replies) {
 					if (!canSelectReply(world, r)) continue;
 					applyReplyEffect(player, r);
-					proceedToPhrase(r.nextPhrase);
+					proceedToPhrase(res, r.nextPhrase, giveRewards, displayPhraseMessage);
 					return;
 				}
+			} else if (displayPhraseMessage) {
+				String message = getDisplayMessage(currentPhrase, player);
+				listener.onTextPhraseReached(message, npc, phraseID);
 			}
 
-			String message = getDisplayMessage(currentPhrase, player);
-			listener.onTextPhraseReached(message, npc);
+			if (hasOnlyOneNextReply()) {
+				listener.onConversationCanProceedWithNext();
+				return;
+			}
 
-			requestReplies();
+			for (Reply r : currentPhrase.replies) {
+				if (!canSelectReply(world, r)) continue;
+				listener.onConversationHasReply(r, getDisplayMessage(r, player));
+			}
 		}
 
 		private void endConversationWithRemovingNPC() {
@@ -265,23 +277,6 @@ public final class ConversationController {
 			controllers.combatController.setCombatSelection(npc);
 			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			listener.onConversationEndedWithCombat(npc);
-		}
-
-		private void requestReplies() {
-			if (hasOnlyOneNextReply()) {
-				listener.onConversationCanProceedWithNext();
-				return;
-			}
-
-			for (Reply r : currentPhrase.replies) {
-				if (!canSelectReply(world, r)) continue;
-				listener.onConversationHasReply(r, getDisplayMessage(r, player));
-			}
-		}
-
-		public void proceedToRestoredState(String phraseID) {
-			setCurrentPhrase(phraseID);
-			requestReplies();
 		}
 
 		public boolean hasOnlyOneNextReply() {
