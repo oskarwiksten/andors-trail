@@ -101,7 +101,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
 
 	private void determineMonsterNextPosition(Monster m, MonsterSpawnArea area, Coord playerPosition) {
-		if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn) {
+		if (m.getMovementAggressionType() == MonsterType.AggressionType.protectSpawn && m.isAgressive()) {
 			if (area.area.contains(playerPosition)) {
 				if (findPathFor(m, playerPosition)) return;
 			}
