@@ -100,7 +100,9 @@ public final class MonsterType {
 	public static enum AggressionType {
 		none
 		,helpOthers		// Will move to help if the player attacks some other monster in the same spawn.
-		,protectSpawn;	// Will move to attack if the player stands inside the spawn.
+		,protectSpawn	// Will move to attack if the player stands inside the spawn.
+		,wholeMap		// Will move to attack even outside its spawn area
+		;
 
 		public static AggressionType fromString(String s, AggressionType default_) {
 			if (s == null) return default_;

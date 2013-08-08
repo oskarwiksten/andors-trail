@@ -66,11 +66,12 @@
 		<input type="text" size="30" id="faction" ng-model="obj.faction" class="field at-input-id"/>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="obj.showAdvanced">
-		<label for="movementAggressionType">Movement in combat:</label>
+		<label for="movementAggressionType">Movement in combat (only when aggressive):</label>
 		<select class="field" id="movementAggressionType" ng-model="obj.movementAggressionType">
 			<option value="none">Does not move in combat</option>
 			<option value="helpOthers">Help others in same spawn area</option>
 			<option value="protectSpawn">Move towards player if inside spawn area</option>
+			<option value="wholeMap">Move towards player even outside its spawn area</option>
 		</select>
 	</div>
 	<div class="fieldWithLabel">

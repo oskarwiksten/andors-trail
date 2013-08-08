@@ -337,6 +337,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 		if (!m.hasAPs(m.getMoveCost())) return false;
 		if (m.position.isAdjacentTo(playerPosition)) return false;
+		if (!m.isAgressive()) return false;
 
 		if (movementAggressionType == MonsterType.AggressionType.protectSpawn) {
 			if (a.area.contains(playerPosition)) return true;
@@ -345,6 +346,8 @@ public final class CombatController implements VisualEffectCompletedCallback {
 				if (o == m) continue;
 				if (o.rectPosition.isAdjacentTo(playerPosition)) return true;
 			}
+		} else if (movementAggressionType == MonsterType.AggressionType.wholeMap) {
+			return true;
 		}
 		return false;
 	}
