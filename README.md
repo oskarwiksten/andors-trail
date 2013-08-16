@@ -1,6 +1,6 @@
 # Andor's Trail - BlackBerry
 
-http://andorstrail.github.io/andors-trail/
+http://andorstrail.github.io/andors-trail-blackberry/
 
 Open source roguelike RPG on Android and BlackBerry.
 
