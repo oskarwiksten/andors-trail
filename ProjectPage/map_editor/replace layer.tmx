@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="11" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
  </tileset>
@@ -120,45 +120,70 @@
  <tileset firstgid="4917" name="map_window_2" tilewidth="32" tileheight="32">
   <image source="../drawable/map_window_2.png" width="512" height="256"/>
  </tileset>
- <layer name="Ground" width="15" height="11">
+ <layer name="Ground" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJzTY2Jg0EPCDmhYjwgMUucIxEFo2J6AWTA9wUCcgoYDsZgF06ePpOcEG3aMbpY9kl5cenBhkH5dNL28nAwM/JyYbGwYXa8uUK0+JyYbl149Et38nhlC65Hh5//MCDv18Ngtg0McW/rAJS+DhJHFAftMUDQ=
+   eJw7ysbAcHQUDxoMAJTST00=
   </data>
  </layer>
- <layer name="Objects" width="15" height="11">
+ <layer name="layer3" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAemMbIwNDOCGF3MpKmdxJUfQUPA8NMKPsdkM5gxW3WdKC4DhOC3wHUu5KZgUEbKPYPKFfBijALGcD0vAKq38aDEEdmw4A2EyrfnAVCI5uL7r43MHNYMPWX8iLYBbwIc+5jsduUBcEOF8CURwfIZkszYcq/Q7LDBai2Daq+GeqG10D5OVjCSxZqVi0vqtkgcXMkN2KzE1k/Lnl0AAC/DhgZ
+   eJxjYKAO+MFOJYNGOAAASFABAA==
   </data>
  </layer>
- <layer name="Above" width="15" height="11">
+ <layer name="Objects" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAeCBcgX08aiXrTBbDraWUk3k5yACl60d1Cib2yTOTrHWoAAMYJBJI=
+   eJxjYCAeXBTALXcej9woIB4AAFgqAcE=
   </data>
  </layer>
- <layer name="Walkable" width="15" height="11">
+ <layer name="layer1" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxzFWBgcB3iGAawiROjBxsbl5no5qKz8elFF0dXQ6x+QgCff9HVEaMXXR2x4U9sXKBjAOyuJoU=
+   eJxjYCAdZPFDGSxkaB4FeAEAq0kAfg==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="11"/>
- <objectgroup name="Spawn" width="15" height="11">
-  <object name="cavesnake2_boss" type="spawn" x="224" y="160" width="192" height="160">
+ <layer name="Above" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwkAAAGQAAE=
+  </data>
+ </layer>
+ <layer name="layer2" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYKAMpApQaMAoQAEAmxAAdg==
+  </data>
+ </layer>
+ <layer name="Walkable" width="10" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYCAeuAqQoHgUkAUAd7QAVg==
+  </data>
+ </layer>
+ <objectgroup name="Mapevents" width="10" height="10"/>
+ <objectgroup name="Spawn" width="10" height="10"/>
+ <objectgroup name="Keys" width="10" height="10"/>
+ <objectgroup name="Replace" width="10" height="10">
+  <object name="quest:queststage" type="replace" x="32" y="32" width="32" height="32">
    <properties>
-    <property name="quantity" value="2"/>
+    <property name="Objects" value="layer1"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="320" y="96" width="32" height="32">
+  <object name="quest:queststage" type="replace" x="96" y="32" width="32" height="32">
    <properties>
-    <property name="map" value="scarydungeon2"/>
-    <property name="place" value="south"/>
+    <property name="Objects" value="layer1"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="128" y="320" width="32" height="32">
+  <object name="quest:queststage" type="replace" x="160" y="32" width="32" height="32">
    <properties>
-    <property name="map" value="mapname"/>
-    <property name="place" value="entrance"/>
+    <property name="Objects" value="layer1"/>
+   </properties>
+  </object>
+  <object name="quest:queststage" type="replace" x="192" y="32" width="32" height="32">
+   <properties>
+    <property name="Above" value="layer2"/>
+   </properties>
+  </object>
+  <object name="quest:queststage" type="replace" x="256" y="32" width="32" height="32">
+   <properties>
+    <property name="Ground" value="layer3"/>
+    <property name="Objects" value="layer1"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="11"/>
 </map>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="15" height="11" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
  </tileset>
@@ -120,45 +120,62 @@
  <tileset firstgid="4917" name="map_window_2" tilewidth="32" tileheight="32">
   <image source="../drawable/map_window_2.png" width="512" height="256"/>
  </tileset>
- <layer name="Ground" width="15" height="11">
+ <layer name="Ground" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJzTY2Jg0EPCDmhYjwgMUucIxEFo2J6AWTA9wUCcgoYDsZgF06ePpOcEG3aMbpY9kl5cenBhkH5dNL28nAwM/JyYbGwYXa8uUK0+JyYbl149Et38nhlC65Hh5//MCDv18Ngtg0McW/rAJS+DhJHFAftMUDQ=
+   eJxjYBgFgwkAAAGQAAE=
   </data>
  </layer>
- <layer name="Objects" width="15" height="11">
+ <layer name="Objects" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAemMbIwNDOCGF3MpKmdxJUfQUPA8NMKPsdkM5gxW3WdKC4DhOC3wHUu5KZgUEbKPYPKFfBijALGcD0vAKq38aDEEdmw4A2EyrfnAVCI5uL7r43MHNYMPWX8iLYBbwIc+5jsduUBcEOF8CURwfIZkszYcq/Q7LDBai2Daq+GeqG10D5OVjCSxZqVi0vqtkgcXMkN2KzE1k/Lnl0AAC/DhgZ
+   eJxjYBgFgwkAAAGQAAE=
   </data>
  </layer>
- <layer name="Above" width="15" height="11">
+ <layer name="Above" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYKAeCBcgX08aiXrTBbDraWUk3k5yACl60d1Cib2yTOTrHWoAAMYJBJI=
+   eJxjYBgFgwkAAAGQAAE=
   </data>
  </layer>
- <layer name="Walkable" width="15" height="11">
+ <layer name="Walkable" width="10" height="10">
   <data encoding="base64" compression="zlib">
-   eJxzFWBgcB3iGAawiROjBxsbl5no5qKz8elFF0dXQ6x+QgCff9HVEaMXXR2x4U9sXKBjAOyuJoU=
+   eJxjYBgFgwkAAAGQAAE=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="11"/>
- <objectgroup name="Spawn" width="15" height="11">
-  <object name="cavesnake2_boss" type="spawn" x="224" y="160" width="192" height="160">
+ <objectgroup name="Mapevents" width="10" height="10">
+  <object name="internal quest id:queststage" type="key" x="0" y="64" width="96" height="32">
    <properties>
-    <property name="quantity" value="2"/>
+    <property name="phrase" value="phrase_id"/>
    </properties>
   </object>
-  <object name="north" type="mapchange" x="320" y="96" width="32" height="32">
+  <object name="spawngroup" type="spawn" x="0" y="96" width="64" height="32">
    <properties>
-    <property name="map" value="scarydungeon2"/>
-    <property name="place" value="south"/>
+    <property name="quantity" value="number"/>
    </properties>
   </object>
-  <object name="south" type="mapchange" x="128" y="320" width="32" height="32">
+  <object name="cardinal point" type="mapchange" x="0" y="128" width="32" height="32">
    <properties>
     <property name="map" value="mapname"/>
-    <property name="place" value="entrance"/>
+    <property name="place" value="opposite cardinal point"/>
+   </properties>
+  </object>
+  <object name="droplist internal id" type="container" x="32" y="128" width="32" height="32"/>
+  <object name="phrase_id" type="sign" x="64" y="128" width="32" height="32"/>
+  <object name="phrase_id" type="script" x="96" y="128" width="32" height="32">
+   <properties>
+    <property name="when" value="enter"/>
+    <property name="when*" value="always"/>
+    <property name="when**" value="round"/>
+    <property name="when***" value="step"/>
+   </properties>
+  </object>
+  <object name="rest1" type="rest" x="128" y="128" width="32" height="32"/>
+ </objectgroup>
+ <objectgroup name="Spawn" width="10" height="10"/>
+ <objectgroup name="Keys" width="10" height="10"/>
+ <objectgroup name="Replace" width="10" height="10">
+  <object name="internal quest id :queststage" type="replace" x="0" y="32" width="96" height="32">
+   <properties>
+    <property name="layer_beforehand" value="layer_changed"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="11"/>
 </map>
