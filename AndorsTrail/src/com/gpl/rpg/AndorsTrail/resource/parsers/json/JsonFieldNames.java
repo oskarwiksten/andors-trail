@@ -63,6 +63,7 @@ public final class JsonFieldNames {
 		public static final String message = "message";
 		public static final String rewards = "rewards";
 		public static final String replies = "replies";
+		public static final String switchToNPC = "switchToNPC";
 	}
 
 	public static final class Reply {

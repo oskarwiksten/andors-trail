@@ -43,6 +43,13 @@ public final class MonsterSpawnArea {
 		return null;
 	}
 
+	public Monster findSpawnedMonster(String monsterTypeID) {
+		for (Monster m : monsters) {
+			if (m.getMonsterTypeID().equals(monsterTypeID)) return m;
+		}
+		return null;
+	}
+
 	public void spawn(Coord p, WorldContext context) {
 		final String monsterTypeID = monsterTypeIDs[Constants.rnd.nextInt(monsterTypeIDs.length)];
 		spawn(p, monsterTypeID, context);

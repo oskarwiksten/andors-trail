@@ -74,6 +74,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 				translationLoader.translateConversationPhrase(o.optString(JsonFieldNames.Phrase.message, null))
 				, _replies
 				, _rewards
+				, o.optString(JsonFieldNames.Phrase.switchToNPC, null)
 		));
 	}
 }

@@ -215,7 +215,10 @@ public final class ConversationController {
 			this.phraseID = phraseID;
 			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-				if (currentPhrase == null) currentPhrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null);
+				if (currentPhrase == null) currentPhrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null, null);
+			}
+			if (this.currentPhrase.switchToNPC != null) {
+				setCurrentNPC(world.model.currentMap.findSpawnedMonster(this.currentPhrase.switchToNPC));
 			}
 		}
 

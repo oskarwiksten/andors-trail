@@ -101,6 +101,14 @@ public final class PredefinedMap {
 		return null;
 	}
 
+	public Monster findSpawnedMonster(final String monsterTypeID) {
+		for (MonsterSpawnArea a : spawnAreas) {
+			Monster m = a.findSpawnedMonster(monsterTypeID);
+			if (m != null) return m;
+		}
+		return null;
+	}
+
 	public Loot getBagAt(final Coord p) {
 		for (Loot l : groundBags) {
 			if (l.position.equals(p)) return l;
