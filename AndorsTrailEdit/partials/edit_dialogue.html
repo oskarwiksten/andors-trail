@@ -55,6 +55,13 @@
 		</table>
 		<button ng-click="addReward(phrase)" class="btn" title="Add reward"><i class="icon-plus-sign"></i> Add reward</button>
 	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="showAdvanced" ng-model="phrase.showAdvanced" />Show advanced properties</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="phrase.showAdvanced">
+		<label for="switchToNPC"><span class="hint  hint--top" data-hint="Id of a NPC that speaks this phrase. All subsequent phrases will be spoken by this NPC.">Switch active NPC to:</span></label>
+		<input type="text" size="30" id="switchToNPC" class="field at-input-id" ng-model="phrase.switchToNPC" />
+	</div>
 </fieldset>
 
 <fieldset id="dialoguePhraseReplies">

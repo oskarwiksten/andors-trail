@@ -30,6 +30,7 @@ var ATEditor = (function(ATEditor, _) {
 			if (reply.nextPhraseID && reply.nextPhraseID.length === 1) { reply.replyLeadsTo = reply.nextPhraseID; }
 			reply.hasRequirements = ATEditor.utils.hasValues(reply.requires);
 		});
+		o.showAdvanced = _.toBool(o.switchToNPC);
 	};
 	prep.monster = function(o) {
 		o.hasConversation = _.toBool(o.phraseID);
@@ -94,6 +95,10 @@ var ATEditor = (function(ATEditor, _) {
 		if (o.hasOnlyNextReply) {
 			o.replies = [ { text: "N", nextPhraseID: o.nextPhraseID } ];
 		}
+		if (!o.showAdvanced) {
+			delete o.switchToNPC;
+		}
+		delete o.showAdvanced;
 		delete o.nextPhraseID;
 		delete o.hasOnlyNextReply;
 		delete o.tree;
