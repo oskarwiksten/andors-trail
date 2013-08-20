@@ -179,6 +179,17 @@
         "replies": [
             {
                 "text": "N",
+                "nextPhraseID": "elwyl_7"
+            }
+        ]
+    },
+    {
+        "id": "elwyl_7",
+        "message": "Ahem. As I've told you several times, Elwyl, since it's YOU that is causing all the trouble, I think it would be best for both our sakes if YOU moved out.",
+        "switchToNPC": "elwel",
+        "replies": [
+            {
+                "text": "N",
                 "nextPhraseID": "elwyl_8"
             }
         ]
@@ -186,6 +197,7 @@
     {
         "id": "elwyl_8",
         "message": "Argh. I am so upset at her!",
+        "switchToNPC": "elwyl",
         "replies": [
             {
                 "text": "Good luck with that. I'll leave you to your fighting.",
