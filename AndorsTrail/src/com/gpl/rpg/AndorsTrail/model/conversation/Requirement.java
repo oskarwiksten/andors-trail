@@ -8,6 +8,7 @@ public final class Requirement {
 		,wear				// Player must be wearing item(s). Items will NOT be removed when selecting reply.
 		,skillLevel			// Player needs to have a specific skill equal to or above a certain level
 		,killedMonster
+		,timerElapsed
 	}
 
 	public final RequirementType requireType;

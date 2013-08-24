@@ -133,6 +133,7 @@ public final class MapController {
 			m.resetTemporaryData();
 		}
 		controllers.monsterSpawnController.spawnAll(world.model.currentMap, world.model.currentTileMap);
+		world.model.worldData.tickWorldTime(20);
 		controllers.gameRoundController.resetRoundTimers();
 	}
 

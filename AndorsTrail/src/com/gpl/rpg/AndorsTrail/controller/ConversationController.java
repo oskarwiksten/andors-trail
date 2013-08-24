@@ -69,6 +69,9 @@ public final class ConversationController {
 			case giveItem:
 				addItemReward(reward.rewardID, reward.value, result);
 				break;
+			case createTimer:
+				world.model.worldData.createTimer(reward.rewardID);
+				break;
 			}
 		}
 
@@ -165,6 +168,8 @@ public final class ConversationController {
 				return player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
 			case killedMonster:
 				return world.model.statistics.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
+			case timerElapsed:
+				return world.model.worldData.hasTimerElapsed(requirement.requireID, requirement.value);
 			default:
 				return true;
 		}

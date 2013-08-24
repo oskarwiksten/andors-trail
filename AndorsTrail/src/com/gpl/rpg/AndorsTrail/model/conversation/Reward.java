@@ -8,6 +8,7 @@ public final class Reward {
 		,actorCondition
 		,alignmentChange
 		,giveItem
+		,createTimer
 	}
 
 	public final RewardType rewardType;

@@ -80,6 +80,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		gameRoundListeners.onNewRound();
 	}
 	public void onNewPlayerRound() {
+		world.model.worldData.tickWorldTime();
 		controllers.actorStatsController.applyConditionsToPlayer(world.model.player, false);
 		controllers.actorStatsController.applySkillEffectsForNewRound(world.model.player, world.model.currentMap);
 		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.position, MapObject.MapObjectEvaluationType.afterEveryRound);
