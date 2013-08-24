@@ -135,15 +135,15 @@
  </layer>
  <layer name="Above" width="30" height="30">
   <data encoding="base64" compression="zlib">
-   eJzFljsOwjAMhoN4iAWpC71aT0CPwFU4EiwsnKRFojPKYMmyHP/Oo/BtlZPUr99JCHlMXQhzl7mp8VnvU3r/Z1/vFzpjYXby4Xyw91yFfWJ+UwzojJ7ZW8TpZWC+Ih8JGW8JI/vvL+MlJkddETwPMifx27Jr/CMPkdo8cEi/iEGZDS30voA9Y2ImzQU64PTKnhY6IVK5QPFKP3J8Ou7SudDi5bwq7xEUb24+vPcRiteyS817QHnSdOK1y7p7tRlJ6cSyx/xamvX0aimWZq1ere1TC1S7tRhBHQhZD+qPVE48GvLMzliPnHdYq54aHHc+9coFrEXzT/7Xs+a+DeGxLT9L2jSN3jZ4jQZfJ+ecPEPOnZb34FrkvuVqvjnPhjMCzfcvlbNNKQ==
+   eJzFVsENwjAMDCogPkj90NU6AR2BVRgJPnyYpEWibxQJS5bl5OwmhftUrRPHPvuchuDD2IYwtc5NlX29jun97115XMjHzOwUw2mf33MR9pHFTTkgHx2z18jTip7FimIkyHyXYGDn/jJfwmioKwLnQXIS33N2Df/gIaKUBw7SL0KvzIYaep/BniExk6YFOuDolD01dEJIcYHylXF4Yjps01xo+XI8C+8RlK+XD+t9hPLN2aXmLUA8aTrR7Bofsu5WbUakdCLtnI/Ib06zll61Qp6T02yuV7196pkNqHZrYQB1IMh6UH+kOLFoyMJPrIfnP6xWT/WGO5965QzWovknz7WsuTUh3JvlvqRN0/B1g9do4OvknJM+5NypeQ+uBe+/XMk7x+PLnaYt+lbr+QGwMmRf
   </data>
  </layer>
- <layer name="Walkable" width="30" height="30">
+ <layer name="Walkable" width="30" height="30" visible="0">
   <data encoding="base64" compression="zlib">
    eJzlk1EOwCAIQz3CLuX9r7Tsg8QsKBSK27Im+1HHK1L70Vr/6XfpCabovlbN0xiVbKtfWWPztZ49qr7rqtwxhXh9CzebScRThjvW8LwTZD+Tkcg9e30whN59pDfUDzJb5juOclFvctbDHc9mM8vWV7izjDO5477XZ5Yb8cl4S9EcspgrrsZg9jurh3Jl3ZqvVSsy99U/O7UzL+h8K+qewOLCkw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents" width="30" height="30" visible="0">
   <object name="east2" type="mapchange" x="928" y="864" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_ne"/>
@@ -224,13 +224,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys" width="30" height="30" visible="0"/>
  <objectgroup name="Citizens" width="30" height="30" visible="0">
   <object name="fallhaven_citizen1" type="spawn" x="32" y="256" width="737" height="317"/>
   <object name="fallhaven_citizen2" type="spawn" x="160" y="256" width="480" height="448"/>
   <object name="fallhaven_citizen4" type="spawn" x="544" y="320" width="352" height="384"/>
  </objectgroup>
- <objectgroup name="NPCs" width="30" height="30">
+ <objectgroup name="NPCs" width="30" height="30" visible="0">
   <object name="fallhaven_oldman" type="spawn" x="864" y="608" width="32" height="32"/>
   <object name="fallhaven_guard" type="spawn" x="448" y="832" width="32" height="32"/>
   <object name="fallhaven_drunk" type="spawn" x="320" y="480" width="32" height="32"/>
