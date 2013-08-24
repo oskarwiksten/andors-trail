@@ -42,6 +42,8 @@ public class ItemContainer {
 	}
 
 	public void addItem(ItemType itemType, int quantity) {
+		if (quantity == 0) return;
+
 		ItemEntry e = findItem(itemType.id);
 		if (e != null) {
 			e.quantity += quantity;

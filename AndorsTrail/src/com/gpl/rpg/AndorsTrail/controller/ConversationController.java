@@ -66,6 +66,9 @@ public final class ConversationController {
 			case alignmentChange:
 				addAlignmentReward(player, reward.rewardID, reward.value);
 				break;
+			case giveItem:
+				addItemReward(reward.rewardID, reward.value, result);
+				break;
 			}
 		}
 
@@ -95,6 +98,10 @@ public final class ConversationController {
 
 	private void addDropListReward(Player player, String droplistID, PhraseRewards result) {
 		world.dropLists.getDropList(droplistID).createRandomLoot(result.loot, player);
+	}
+
+	private void addItemReward(String itemTypeID, int quantity, PhraseRewards result) {
+		result.loot.add(world.itemTypes.getItemType(itemTypeID), quantity);
 	}
 
 	private void addSkillReward(Player player, SkillCollection.SkillID skillID, PhraseRewards result) {

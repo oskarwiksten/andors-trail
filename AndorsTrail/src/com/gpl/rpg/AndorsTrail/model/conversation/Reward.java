@@ -7,6 +7,7 @@ public final class Reward {
 		,skillIncrease
 		,actorCondition
 		,alignmentChange
+		,giveItem
 	}
 
 	public final RewardType rewardType;

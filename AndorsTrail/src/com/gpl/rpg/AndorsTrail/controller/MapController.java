@@ -5,11 +5,11 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListeners;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.conversation.Reply;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
@@ -195,7 +195,7 @@ public final class MapController {
 		@Override public void onConversationEndedWithCombat(Monster npc) { }
 		@Override public void onConversationEndedWithRemoval(Monster npc) { }
 		@Override public void onConversationCanProceedWithNext() { }
-		@Override public void onConversationHasReply(Phrase.Reply r, String message) { }
+		@Override public void onConversationHasReply(Reply r, String message) { }
 	};
 	public void prepareScriptsOnCurrentMap() {
 		mapScriptExecutor = new ConversationController.ConversationStatemachine(world, controllers, conversationStateListener);
