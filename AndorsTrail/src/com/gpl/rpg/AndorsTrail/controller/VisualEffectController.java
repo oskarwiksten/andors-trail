@@ -4,15 +4,14 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.os.Handler;
-
-import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
-import com.gpl.rpg.AndorsTrail.VisualEffectCollection.VisualEffect;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.VisualEffectFrameListeners;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
+import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection.VisualEffect;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;

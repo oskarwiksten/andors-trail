@@ -1,18 +1,17 @@
 package com.gpl.rpg.AndorsTrail.resource.tiles;
 
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import com.gpl.rpg.AndorsTrail.util.LruCache;
+
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map.Entry;
-
-import com.gpl.rpg.AndorsTrail.util.LruCache;
-
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
 
 public final class TileCache {
 

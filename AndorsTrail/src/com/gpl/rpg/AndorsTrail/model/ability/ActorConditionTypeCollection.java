@@ -1,10 +1,10 @@
 package com.gpl.rpg.AndorsTrail.model.ability;
 
-import java.util.HashMap;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ActorConditionsTypeParser;
 import com.gpl.rpg.AndorsTrail.util.L;
+
+import java.util.HashMap;
 
 public final class ActorConditionTypeCollection {
 	private final HashMap<String, ActorConditionType> conditionTypes = new HashMap<String, ActorConditionType>();

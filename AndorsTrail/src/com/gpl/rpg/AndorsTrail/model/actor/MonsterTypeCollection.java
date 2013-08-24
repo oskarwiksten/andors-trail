@@ -1,11 +1,11 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.parsers.MonsterTypeParser;
 import com.gpl.rpg.AndorsTrail.util.L;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public final class MonsterTypeCollection {
 	private final HashMap<String, MonsterType> monsterTypesById = new HashMap<String, MonsterType>();

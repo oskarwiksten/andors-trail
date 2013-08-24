@@ -1,18 +1,14 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import android.content.res.Resources;
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Requirement;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.ability.*;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.conversation.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;

@@ -1,10 +1,10 @@
 package com.gpl.rpg.AndorsTrail.resource.parsers;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Requirement;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
+import com.gpl.rpg.AndorsTrail.model.conversation.Phrase;
+import com.gpl.rpg.AndorsTrail.model.conversation.Reply;
+import com.gpl.rpg.AndorsTrail.model.conversation.Requirement;
+import com.gpl.rpg.AndorsTrail.model.conversation.Reward;
 import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonArrayParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;

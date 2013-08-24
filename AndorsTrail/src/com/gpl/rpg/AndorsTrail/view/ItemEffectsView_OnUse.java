@@ -1,20 +1,19 @@
 package com.gpl.rpg.AndorsTrail.view;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-
-import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
-import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
-import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
+import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 
 public final class ItemEffectsView_OnUse extends LinearLayout {
 	private final LinearLayout itemeffect_onuse_list;

@@ -12,20 +12,19 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.Dialogs;
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorStatsListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatSelectionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.listeners.ActorStatsListener;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class CombatView extends RelativeLayout implements CombatSelectionListener, CombatTurnListener, ActorStatsListener {

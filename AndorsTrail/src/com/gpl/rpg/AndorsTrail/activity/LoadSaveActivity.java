@@ -1,8 +1,5 @@
 package com.gpl.rpg.AndorsTrail.activity;
 
-import java.util.Collections;
-import java.util.List;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -14,13 +11,15 @@ import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.savegames.Savegames.FileHeader;
-import com.gpl.rpg.AndorsTrail.model.ModelContainer;
+
+import java.util.Collections;
+import java.util.List;
 
 public final class LoadSaveActivity extends Activity implements OnClickListener {
 	private boolean isLoading = true;

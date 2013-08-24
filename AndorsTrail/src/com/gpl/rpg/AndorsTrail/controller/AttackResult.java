@@ -1,4 +1,4 @@
-package com.gpl.rpg.AndorsTrail.model;
+package com.gpl.rpg.AndorsTrail.controller;
 
 public final class AttackResult {
 	public final boolean isHit;

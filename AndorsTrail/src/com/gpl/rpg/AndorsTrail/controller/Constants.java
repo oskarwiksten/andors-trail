@@ -1,10 +1,10 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import java.util.Random;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.Range;
+
+import java.util.Random;
 
 public final class Constants {
 	public static final int PERCENT_EXP_LOST_WHEN_DIED = 30;

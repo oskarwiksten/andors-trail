@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.controller.listeners;
 
-import com.gpl.rpg.AndorsTrail.model.AttackResult;
+import com.gpl.rpg.AndorsTrail.controller.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 

@@ -1,8 +1,8 @@
 package com.gpl.rpg.AndorsTrail.controller.listeners;
 
-import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.ListOfListeners;
 
 public final class PlayerMovementListeners extends ListOfListeners<PlayerMovementListener> implements PlayerMovementListener {
 

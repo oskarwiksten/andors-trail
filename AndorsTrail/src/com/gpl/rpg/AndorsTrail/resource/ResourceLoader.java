@@ -5,7 +5,7 @@ import android.content.res.TypedArray;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
+import com.gpl.rpg.AndorsTrail.model.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.resource.parsers.*;
 import com.gpl.rpg.AndorsTrail.util.L;

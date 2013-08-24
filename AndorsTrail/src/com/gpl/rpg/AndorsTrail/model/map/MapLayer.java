@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class MapLayer {

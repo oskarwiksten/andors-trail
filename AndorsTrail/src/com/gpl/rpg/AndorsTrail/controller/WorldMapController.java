@@ -1,11 +1,5 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.*;
-
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -16,12 +10,14 @@ import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.widget.Toast;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.activity.DisplayWorldMapActivity;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.map.*;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.NamedWorldMapArea;
 import com.gpl.rpg.AndorsTrail.model.map.WorldMapSegment.WorldMapSegmentMap;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
@@ -29,6 +25,14 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 
 public final class WorldMapController {
 

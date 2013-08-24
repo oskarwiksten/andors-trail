@@ -1,31 +1,19 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
-
+import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXLayer;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXLayerMap;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXMap;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObjectMap;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObject;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObjectGroup;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXProperty;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXTileSet;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.*;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
-import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.CoordRect;
-import com.gpl.rpg.AndorsTrail.util.L;
-import com.gpl.rpg.AndorsTrail.util.Range;
-import com.gpl.rpg.AndorsTrail.util.Size;
+import com.gpl.rpg.AndorsTrail.util.*;
 
-import android.content.res.Resources;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.*;
 
 public final class TMXMapTranslator {
 	private final ArrayList<TMXObjectMap> maps = new ArrayList<TMXObjectMap>();

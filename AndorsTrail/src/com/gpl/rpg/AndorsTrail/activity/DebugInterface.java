@@ -7,14 +7,11 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-
-import java.lang.ref.WeakReference;
 
 @SuppressWarnings("unused")
 public final class DebugInterface {
@@ -46,8 +43,7 @@ public final class DebugInterface {
 			/*,new DebugButton("dmg=1", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					world.model.player.traits.combatTraits.set(1, 1);
-					mainActivity.updateStatus();
+					world.model.player.damagePotential.set(1, 1);
 					showToast(mainActivity, "DEBUG: damagePotential=1", Toast.LENGTH_SHORT);
 				}
 			})*/
@@ -67,53 +63,19 @@ public final class DebugInterface {
 					world.model.player.inventory.addItem(world.itemTypes.getItemType("bwm_leather_cap"));
 					world.model.player.inventory.addItem(world.itemTypes.getItemType("chaosreaper"));
 
-					mainActivity.updateStatus();
 					showToast(mainActivity, "DEBUG: added items", Toast.LENGTH_SHORT);
-				}
-			})*/
-			/*new DebugButton("skills++", new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					int N = 1;
-					world.model.player.availableSkillIncreases += N * SkillCollection.NUM_SKILLS;
-					for(int j = 0; j < N; ++j) {
-						for(int i = 0; i < SkillCollection.NUM_SKILLS; ++i) {
-							world.model.player.addSkillLevel(i);
-						}
-					}
-					ActorStatsController.recalculatePlayerCombatTraits(world.model.player);
-					updateStatus();
-					showToast(mainActivity, "DEBUG: all skills raised " + N + " levels", Toast.LENGTH_SHORT);
-				}
-			})*/
-			/*,new DebugButton("bwm", new OnClickListener() {
-				@Override
-				public void onClick(View arg0) {
-					Player player = world.model.player;
-					player.addQuestProgress(new QuestProgress("bwm_agent", 1));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 5));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 10));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 20));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 25));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 30));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 40));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 50));
-					player.addQuestProgress(new QuestProgress("bwm_agent", 60));
-
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain45", "south", 0, 0);
 				}
 			})*/
 			/*,new DebugButton("prim", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "blackwater_mountain29", "south", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "blackwater_mountain29", "south", 0, 0);
 				}
 			})*/
 			/*,new DebugButton("exp+=10000", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					world.model.player.addExperience(10000);
-					mainActivity.updateStatus();
+					controllerContext.actorStatsController.addExperience(10000);
 					showToast(mainActivity, "DEBUG: given 10000 exp", Toast.LENGTH_SHORT);
 				}
 			})*/
@@ -140,41 +102,40 @@ public final class DebugInterface {
 			,new DebugButton("cg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "crossglen", "hall", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "crossglen", "hall", 0, 0);
 				}
 			})
 			,new DebugButton("vg", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "vilegard_s", "tavern", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "vilegard_s", "tavern", 0, 0);
 				}
 			})
 			,new DebugButton("cr", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "houseatcrossroads4", "down", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "houseatcrossroads4", "down", 0, 0);
 				}
 			})
 			,new DebugButton("lf", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "loneford9", "south", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "loneford9", "south", 0, 0);
 				}
 			})
 			,new DebugButton("fh", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "fallhaven_ne", "clothes", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "fallhaven_ne", "clothes", 0, 0);
 				}
 			})
 			,new DebugButton("rc", new OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					controllerContext.movementController.placePlayerAt(MapObject.MAPEVENT_NEWMAP, "roadtocarntower1", "left3", 0, 0);
+					controllerContext.movementController.placePlayerAsyncAt(MapObject.MapObjectType.newmap, "roadtocarntower1", "left3", 0, 0);
 				}
 			})
 			*/
-
 		});
 	}
 
