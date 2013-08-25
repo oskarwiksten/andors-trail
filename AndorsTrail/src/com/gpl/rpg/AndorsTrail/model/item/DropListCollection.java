@@ -1,10 +1,10 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
-import java.util.HashMap;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.parsers.DropListParser;
 import com.gpl.rpg.AndorsTrail.util.L;
+
+import java.util.HashMap;
 
 public final class DropListCollection {
 	public static final String DROPLIST_STARTITEMS = "startitems";

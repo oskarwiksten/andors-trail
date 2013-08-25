@@ -1,8 +1,5 @@
 package com.gpl.rpg.AndorsTrail.resource.tiles;
 
-import java.util.HashMap;
-import java.util.HashSet;
-
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -11,7 +8,6 @@ import android.graphics.drawable.LayerDrawable;
 import android.os.AsyncTask;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -20,14 +16,13 @@ import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
-import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
-import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
-import com.gpl.rpg.AndorsTrail.model.map.MapObject;
-import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
+import com.gpl.rpg.AndorsTrail.model.map.*;
 import com.gpl.rpg.AndorsTrail.util.L;
+
+import java.util.HashMap;
+import java.util.HashSet;
 
 public final class TileManager {
 	public static final int CHAR_HERO = 1;

@@ -15,13 +15,13 @@ import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.AttackResult;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
 import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListener;
-import com.gpl.rpg.AndorsTrail.model.AttackResult;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
@@ -128,7 +128,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 		switch (requestCode) {
 		case INTENTREQUEST_MONSTERENCOUNTER:
 			if (resultCode == Activity.RESULT_OK) {
-				controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			} else {
 				controllers.combatController.exitCombat(false);
 			}
@@ -203,7 +203,7 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 
 		if (world.model.uiSelections.isInCombat) {
 			controllers.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
-			controllers.combatController.enterCombat(CombatController.BEGIN_TURN_CONTINUE);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.continueLastTurn);
 		}
 		updateStatus();
 	}

@@ -5,16 +5,15 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.DialogInterface.OnDismissListener;
+import android.content.Intent;
 import android.os.Bundle;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 import com.gpl.rpg.AndorsTrail.WorldSetup;
 import com.gpl.rpg.AndorsTrail.WorldSetup.OnResourcesLoadedListener;
 import com.gpl.rpg.AndorsTrail.WorldSetup.OnSceneLoadedListener;
+import com.gpl.rpg.AndorsTrail.savegames.Savegames;
 
 public final class LoadingActivity extends Activity implements OnResourcesLoadedListener, OnSceneLoadedListener {
 

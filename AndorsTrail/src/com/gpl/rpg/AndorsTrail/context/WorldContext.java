@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.context;
 
-import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
-import com.gpl.rpg.AndorsTrail.conversation.ConversationLoader;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
@@ -11,6 +9,8 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemCategoryCollection;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.map.MapCollection;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestCollection;
+import com.gpl.rpg.AndorsTrail.resource.ConversationLoader;
+import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class WorldContext {

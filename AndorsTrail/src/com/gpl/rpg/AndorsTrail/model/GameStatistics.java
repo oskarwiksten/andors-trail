@@ -98,6 +98,7 @@ public final class GameStatistics {
 	public int getNumberOfCompletedQuests(WorldContext world) {
 		int result = 0;
 		for (Quest q : world.quests.getAllQuests()) {
+			if (!q.showInLog) continue;
 			if (q.isCompleted(world.model.player)) ++result;
 		}
 		return result;

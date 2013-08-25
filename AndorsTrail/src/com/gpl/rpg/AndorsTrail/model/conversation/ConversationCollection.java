@@ -1,11 +1,11 @@
-package com.gpl.rpg.AndorsTrail.conversation;
-
-import java.util.Collection;
-import java.util.HashMap;
+package com.gpl.rpg.AndorsTrail.model.conversation;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.parsers.ConversationListParser;
 import com.gpl.rpg.AndorsTrail.util.L;
+
+import java.util.Collection;
+import java.util.HashMap;
 
 public final class ConversationCollection {
 	public static final String PHRASE_CLOSE = "X";

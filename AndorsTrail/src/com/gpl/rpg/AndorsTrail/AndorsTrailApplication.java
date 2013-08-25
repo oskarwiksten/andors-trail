@@ -1,13 +1,12 @@
 package com.gpl.rpg.AndorsTrail;
 
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.view.Window;
 import android.view.WindowManager;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
 
 public final class AndorsTrailApplication extends Application {
 

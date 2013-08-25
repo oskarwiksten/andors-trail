@@ -1,16 +1,15 @@
 package com.gpl.rpg.AndorsTrail.resource;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import android.util.SparseArray;
 import android.util.SparseIntArray;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.resource.tiles.ResourceFileTileset;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public final class DynamicTileLoader {
 	private final TileCache tileCache;

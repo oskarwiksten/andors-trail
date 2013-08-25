@@ -1,13 +1,13 @@
 package com.gpl.rpg.AndorsTrail.model.quest;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
+import com.gpl.rpg.AndorsTrail.util.L;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
-
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.resource.parsers.QuestParser;
-import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class QuestCollection {
 	private final HashMap<String, Quest> quests = new HashMap<String, Quest>();

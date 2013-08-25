@@ -1,5 +1,15 @@
 package com.gpl.rpg.AndorsTrail.view;
 
+import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.util.AttributeSet;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
@@ -12,25 +22,14 @@ import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapLayer;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
-
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.util.AttributeSet;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 
 public final class MainView extends SurfaceView
 	implements SurfaceHolder.Callback,
@@ -61,6 +60,7 @@ public final class MainView extends SurfaceView
 	private final Paint mPaint = new Paint();
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
+	private boolean forceRedrawAll = false;
 
 	private PredefinedMap currentMap;
 	private LayeredTileMap currentTileMap;
@@ -122,8 +122,9 @@ public final class MainView extends SurfaceView
 		if (model.currentMap != null) {
 			onPlayerEnteredNewMap(model.currentMap, model.player.position);
 		} else {
-			redrawAll(REDRAW_ALL_SURFACE_CHANGED);
+			redrawAll(RedrawAllDebugReason.SurfaceChanged);
 		}
+		forceRedrawAll = true;
 	}
 
 	@Override
@@ -162,31 +163,29 @@ public final class MainView extends SurfaceView
 		return true;
 	}
 
-	private static final int REDRAW_ALL_SURFACE_CHANGED = 1;
-	private static final int REDRAW_ALL_MAP_CHANGED = 2;
-	private static final int REDRAW_ALL_PLAYER_MOVED = 3;
-	private static final int REDRAW_AREA_MONSTER_MOVED = 4;
-	private static final int REDRAW_AREA_MONSTER_KILLED = 10;
-	private static final int REDRAW_AREA_EFFECT_COMPLETED = 6;
-	private static final int REDRAW_AREA_MONSTER_SPAWNED = 11;
-	private static final int REDRAW_TILE_SELECTION_REMOVED = 7;
-	private static final int REDRAW_TILE_SELECTION_ADDED = 8;
-	private static final int REDRAW_TILE_BAG = 9;
-	private static final int REDRAW_TILE_SPLATTER = 12;
+	private static enum RedrawAllDebugReason {
+		SurfaceChanged, MapChanged, PlayerMoved
+	}
+	private static enum RedrawAreaDebugReason {
+		MonsterMoved, MonsterKilled, EffectCompleted
+	}
+	private static enum RedrawTileDebugReason {
+		SelectionRemoved, SelectionAdded, Bag
+	}
 
-	private void redrawAll(int why) {
-		redrawArea_(mapViewArea);
+	private void redrawAll(RedrawAllDebugReason why) {
+		redrawArea_(mapViewArea, null, 0, 0);
 	}
-	private void redrawTile(final Coord p, int why) {
+	private void redrawTile(final Coord p, RedrawTileDebugReason why) {
 		p1x1.topLeft.set(p);
-		redrawArea_(p1x1);
+		redrawArea_(p1x1, null, 0, 0);
 	}
-	private void redrawArea(final CoordRect area, int why) {
-		redrawArea_(area);
+	private void redrawArea(final CoordRect area, RedrawAreaDebugReason why) {
+		redrawArea_(area, null, 0, 0);
 	}
-	private void redrawArea_(CoordRect area) {
+	private void redrawArea_(CoordRect area, final VisualEffectAnimation effect, int tileID, int textYOffset) {
 		if (!hasSurface) return;
-		//if (!preferences.optimizedDrawing) area = mapViewArea;
+		if (forceRedrawAll) area = mapViewArea;
 
 		if (currentMap.isOutside(area)) return;
 		if (!mapViewArea.intersects(area)) return;
@@ -199,15 +198,17 @@ public final class MainView extends SurfaceView
 				c.translate(screenOffset.x, screenOffset.y);
 				c.scale(scale, scale);
 				doDrawRect(c, area);
+				if (effect != null) {
+					drawFromMapPosition(c, area, effect.position, tileID);
+					if (effect.displayText != null) {
+						drawEffectText(c, area, effect, textYOffset, effect.textPaint);
+					}
+				}
 			} }
 		} finally {
-			// do this in a finally so that if an exception is thrown
-			// during the above, we don't leave the Surface in an
-			// inconsistent state
-			if (c != null) {
-				holder.unlockCanvasAndPost(c);
-			}
+			if (c != null) holder.unlockCanvasAndPost(c);
 		}
+		forceRedrawAll = false;
 	}
 
 	private boolean shouldRedrawEverythingForVisualEffect() {
@@ -218,33 +219,8 @@ public final class MainView extends SurfaceView
 	private final Rect redrawRect = new Rect();
 	private void redrawAreaWithEffect(final VisualEffectAnimation effect, int tileID, int textYOffset) {
 		CoordRect area = effect.area;
-		if (!hasSurface) return;
 		if (shouldRedrawEverythingForVisualEffect()) area = mapViewArea;
-
-		if (currentMap.isOutside(area)) return;
-		if (!mapViewArea.intersects(area)) return;
-
-		calculateRedrawRect(area);
-		Canvas c = null;
-		try {
-			c = holder.lockCanvas(redrawRect);
-			synchronized (holder) { synchronized (tiles) {
-				c.translate(screenOffset.x, screenOffset.y);
-				c.scale(scale, scale);
-				doDrawRect(c, area);
-				drawFromMapPosition(c, area, effect.position, tileID);
-				if (effect.displayText != null) {
-					drawEffectText(c, area, effect, textYOffset, effect.textPaint);
-				}
-			} }
-		} finally {
-			// do this in a finally so that if an exception is thrown
-			// during the above, we don't leave the Surface in an
-			// inconsistent state
-			if (c != null) {
-				holder.unlockCanvasAndPost(c);
-			}
-		}
+		redrawArea_(area, effect, tileID, textYOffset);
 	}
 	private void clearCanvas() {
 		if (!hasSurface) return;
@@ -255,12 +231,7 @@ public final class MainView extends SurfaceView
 				c.drawColor(Color.BLACK);
 			}
 		} finally {
-			// do this in a finally so that if an exception is thrown
-			// during the above, we don't leave the Surface in an
-			// inconsistent state
-			if (c != null) {
-				holder.unlockCanvasAndPost(c);
-			}
+			if (c != null) holder.unlockCanvasAndPost(c);
 		}
 	}
 
@@ -374,7 +345,7 @@ public final class MainView extends SurfaceView
 		clearCanvas();
 
 		recalculateMapTopLeft(model.player.position);
-		redrawAll(REDRAW_ALL_MAP_CHANGED);
+		redrawAll(RedrawAllDebugReason.MapChanged);
 	}
 
 	private void recalculateMapTopLeft(Coord playerPosition) {
@@ -396,7 +367,7 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onPlayerMoved(Coord newPosition, Coord previousPosition) {
 		recalculateMapTopLeft(newPosition);
-		redrawAll(REDRAW_ALL_PLAYER_MOVED);
+		redrawAll(RedrawAllDebugReason.PlayerMoved);
 	}
 
 	public void subscribe() {
@@ -420,19 +391,19 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public void onMonsterSelected(Monster m, Coord selectedPosition, Coord previousSelection) {
-		if (previousSelection != null) redrawTile(previousSelection, REDRAW_TILE_SELECTION_REMOVED);
-		redrawTile(selectedPosition, REDRAW_TILE_SELECTION_ADDED);
+		if (previousSelection != null) redrawTile(previousSelection, RedrawTileDebugReason.SelectionRemoved);
+		redrawTile(selectedPosition, RedrawTileDebugReason.SelectionAdded);
 	}
 
 	@Override
 	public void onMovementDestinationSelected(Coord selectedPosition, Coord previousSelection) {
-		if (previousSelection != null) redrawTile(previousSelection, REDRAW_TILE_SELECTION_REMOVED);
-		redrawTile(selectedPosition, REDRAW_TILE_SELECTION_ADDED);
+		if (previousSelection != null) redrawTile(previousSelection, RedrawTileDebugReason.SelectionRemoved);
+		redrawTile(selectedPosition, RedrawTileDebugReason.SelectionAdded);
 	}
 
 	@Override
 	public void onCombatSelectionCleared(Coord previousSelection) {
-		redrawTile(previousSelection, REDRAW_TILE_SELECTION_REMOVED);
+		redrawTile(previousSelection, RedrawTileDebugReason.SelectionRemoved);
 	}
 
 	@Override
@@ -445,7 +416,7 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterRemoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
 		if (map != currentMap) return;
-		redrawArea(previousPosition, REDRAW_AREA_MONSTER_KILLED);
+		redrawArea(previousPosition, RedrawAreaDebugReason.MonsterKilled);
 	}
 
 	@Override
@@ -457,8 +428,8 @@ public final class MainView extends SurfaceView
 		if (map != currentMap) return;
 		if (!mapViewArea.intersects(m.rectPosition) && !mapViewArea.intersects(previousPosition)) return;
 		if (model.uiSelections.isInCombat) {
-			redrawArea(previousPosition, REDRAW_AREA_MONSTER_MOVED);
-			redrawArea(m.rectPosition, REDRAW_AREA_MONSTER_MOVED);
+			redrawArea(previousPosition, RedrawAreaDebugReason.MonsterMoved);
+			redrawArea(m.rectPosition, RedrawAreaDebugReason.MonsterMoved);
 		} else {
 			redrawNextTick = true;
 		}
@@ -488,19 +459,19 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onLootBagCreated(PredefinedMap map, Coord p) {
 		if (map != currentMap) return;
-		redrawTile(p, REDRAW_TILE_BAG);
+		redrawTile(p, RedrawTileDebugReason.Bag);
 	}
 
 	@Override
 	public void onLootBagRemoved(PredefinedMap map, Coord p) {
 		if (map != currentMap) return;
-		redrawTile(p, REDRAW_TILE_BAG);
+		redrawTile(p, RedrawTileDebugReason.Bag);
 	}
 
 	@Override
 	public void onMapTilesChanged(PredefinedMap map, LayeredTileMap tileMap) {
 		if (map != currentMap) return;
-		redrawAll(REDRAW_ALL_MAP_CHANGED);
+		redrawAll(RedrawAllDebugReason.MapChanged);
 	}
 
 	@Override
@@ -510,14 +481,14 @@ public final class MainView extends SurfaceView
 
 	@Override
 	public void onAnimationCompleted(VisualEffectAnimation animation) {
-		redrawArea(animation.area, REDRAW_AREA_EFFECT_COMPLETED);
+		redrawArea(animation.area, RedrawAreaDebugReason.EffectCompleted);
 	}
 
 	@Override
 	public void onNewTick() {
 		if (!redrawNextTick) return;
 
-		redrawAll(REDRAW_ALL_PLAYER_MOVED);
+		redrawAll(RedrawAllDebugReason.PlayerMoved);
 
 		redrawNextTick = false;
 	}

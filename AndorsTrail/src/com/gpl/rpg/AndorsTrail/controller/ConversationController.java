@@ -1,18 +1,14 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
 import android.content.res.Resources;
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.conversation.ConversationCollection;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reply;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Requirement;
-import com.gpl.rpg.AndorsTrail.conversation.Phrase.Reward;
 import com.gpl.rpg.AndorsTrail.model.ability.*;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.conversation.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
@@ -215,7 +211,10 @@ public final class ConversationController {
 			this.phraseID = phraseID;
 			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
-				if (currentPhrase == null) currentPhrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null);
+				if (currentPhrase == null) currentPhrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null, null);
+			}
+			if (this.currentPhrase.switchToNPC != null) {
+				setCurrentNPC(world.model.currentMap.findSpawnedMonster(this.currentPhrase.switchToNPC));
 			}
 		}
 
@@ -264,7 +263,7 @@ public final class ConversationController {
 		private void endConversationWithCombat() {
 			npc.forceAggressive();
 			controllers.combatController.setCombatSelection(npc);
-			controllers.combatController.enterCombat(CombatController.BEGIN_TURN_PLAYER);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
 			listener.onConversationEndedWithCombat(npc);
 		}
 

@@ -1,7 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model.item;
 
-import java.util.Collection;
-
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.controller.SkillController;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;

@@ -2,7 +2,6 @@ package com.gpl.rpg.AndorsTrail.resource.parsers.json;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;

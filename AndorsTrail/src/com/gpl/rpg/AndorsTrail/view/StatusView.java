@@ -1,26 +1,25 @@
 package com.gpl.rpg.AndorsTrail.view;
 
-import android.content.res.Resources;
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.listeners.PlayerStatsListener;
-import com.gpl.rpg.AndorsTrail.model.actor.Actor;
-import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.listeners.ActorStatsListener;
-import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
-
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.RelativeLayout;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.activity.HeroinfoActivity;
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorStatsListener;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerStatsListener;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 public final class StatusView extends RelativeLayout implements PlayerStatsListener, ActorStatsListener {
 

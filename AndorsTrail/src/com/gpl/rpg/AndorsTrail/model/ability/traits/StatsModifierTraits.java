@@ -1,6 +1,6 @@
 package com.gpl.rpg.AndorsTrail.model.ability.traits;
 
-import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
+import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class StatsModifierTraits {

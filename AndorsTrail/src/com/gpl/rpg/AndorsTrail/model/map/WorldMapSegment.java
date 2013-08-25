@@ -1,9 +1,9 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import com.gpl.rpg.AndorsTrail.util.Coord;
+
 import java.util.HashMap;
 import java.util.HashSet;
-
-import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class WorldMapSegment {
 	public final String name;

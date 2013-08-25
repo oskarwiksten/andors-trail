@@ -1,14 +1,13 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import java.util.Collection;
-
 import android.graphics.ColorFilter;
 import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
-
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Size;
+
+import java.util.Collection;
 
 public final class LayeredTileMap {
 	private static final ColorFilter colorFilterBlack20 = createGrayScaleColorFilter(0.2f);

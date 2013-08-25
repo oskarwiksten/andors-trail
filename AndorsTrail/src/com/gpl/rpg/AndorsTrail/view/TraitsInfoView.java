@@ -1,14 +1,13 @@
 package com.gpl.rpg.AndorsTrail.view;
 
-import com.gpl.rpg.AndorsTrail.R;
-import com.gpl.rpg.AndorsTrail.model.actor.Actor;
-import com.gpl.rpg.AndorsTrail.util.Range;
-
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import com.gpl.rpg.AndorsTrail.R;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.util.Range;
 
 public final class TraitsInfoView {
 

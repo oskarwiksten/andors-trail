@@ -1,10 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.util.ArrayList;
-
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -17,6 +12,11 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public final class PredefinedMap {
 	private static final long VISIT_RESET = 0;
@@ -96,6 +96,14 @@ public final class PredefinedMap {
 	public Monster getMonsterAt(final int x, final int y) {
 		for (MonsterSpawnArea a : spawnAreas) {
 			Monster m = a.getMonsterAt(x, y);
+			if (m != null) return m;
+		}
+		return null;
+	}
+
+	public Monster findSpawnedMonster(final String monsterTypeID) {
+		for (MonsterSpawnArea a : spawnAreas) {
+			Monster m = a.findSpawnedMonster(monsterTypeID);
 			if (m != null) return m;
 		}
 		return null;

@@ -1,11 +1,10 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
-import java.util.ArrayList;
-
-import com.gpl.rpg.AndorsTrail.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.listeners.PlayerStatsListeners;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListeners;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorStatsListeners;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerStatsListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionType;
@@ -19,10 +18,11 @@ import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
-import com.gpl.rpg.AndorsTrail.model.listeners.ActorConditionListeners;
-import com.gpl.rpg.AndorsTrail.model.listeners.ActorStatsListeners;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
+
+import java.util.ArrayList;
 
 public final class ActorStatsController {
 	private final ControllerContext controllers;

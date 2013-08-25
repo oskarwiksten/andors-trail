@@ -1,10 +1,6 @@
 package com.gpl.rpg.AndorsTrail.savegames;
 
-import java.io.DataInputStream;
-import java.io.IOException;
-
 import android.util.FloatMath;
-
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
@@ -15,6 +11,9 @@ import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Range;
+
+import java.io.DataInputStream;
+import java.io.IOException;
 
 public final class LegacySavegameFormatReaderForPlayer {
 

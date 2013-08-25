@@ -1,17 +1,13 @@
 package com.gpl.rpg.AndorsTrail.view;
 
-import java.util.HashSet;
-
 import android.R.color;
 import android.content.Context;
 import android.content.res.Resources;
-import android.content.res.TypedArray;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
 import android.widget.RelativeLayout;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
@@ -23,6 +19,8 @@ import com.gpl.rpg.AndorsTrail.controller.listeners.QuickSlotListener;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+
+import java.util.HashSet;
 
 public final class QuickitemView extends LinearLayout implements OnClickListener, QuickSlotListener {
 	private static final int NUM_QUICK_SLOTS = Inventory.NUM_QUICK_SLOTS;

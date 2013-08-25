@@ -1,17 +1,16 @@
 package com.gpl.rpg.AndorsTrail.model.actor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import android.util.FloatMath;
-
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.Range;
 import com.gpl.rpg.AndorsTrail.util.Size;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class Actor {
 	public int iconID;
