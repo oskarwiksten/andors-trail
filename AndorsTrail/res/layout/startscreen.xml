@@ -5,12 +5,12 @@
 	android:layout_height="match_parent"
 	android:orientation="vertical"
 	android:gravity="center_horizontal"
-	android:background="@drawable/ui_startbackground"
+	android:background="@drawable/title_background"
 	>
 
 	<RelativeLayout
 		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
+		android:layout_height="0dp"
 		android:layout_weight="1"
 		>
 		<LinearLayout
@@ -20,17 +20,19 @@
 			android:orientation="vertical"
 			android:gravity="center_horizontal"
 			>
+
 			<ImageView
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:src="@drawable/andors_trail_logo"
-				/>
+			    android:layout_width="wrap_content"
+			    android:layout_height="200dp"
+			    android:src="@drawable/andors_trail_logo_new" />
+
 			<TextView
-				android:id="@+id/startscreen_currenthero"
-				android:layout_width="wrap_content"
-				android:layout_height="wrap_content"
-				android:text="Hero name"
-				/>
+			    android:id="@+id/startscreen_currenthero"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:text="Hero name"
+			    android:textColor="@color/translucent_black" />
+
 			<EditText
 				android:id="@+id/startscreen_enterheroname"
 				android:layout_width="match_parent"
@@ -52,13 +54,14 @@
 		</LinearLayout>
 
 		<TextView
-			android:id="@+id/startscreen_version"
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
-			android:layout_alignParentTop="true"
-			android:layout_alignParentRight="true"
-			android:text="v0.0.1"
-			/>
+		    android:id="@+id/startscreen_version"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_alignParentTop="true"
+		    android:text="v0.0.1"
+		    android:textColor="@color/translucent_black" />
+
 	</RelativeLayout>
 
 	<Button
@@ -66,20 +69,23 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="@string/startscreen_continue"
+		android:background="@drawable/title_button_current_game_light"
 		/>
 
 	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		>
+	    android:layout_width="match_parent"
+	    android:layout_height="40dp"
+	    android:gravity="center_vertical"
+	    android:orientation="horizontal" >
+
 		<Button
 			android:id="@+id/startscreen_newgame"
 			android:layout_width="0dip"
 			android:layout_weight="1"
 			android:layout_height="wrap_content"
 			android:text="@string/startscreen_newgame"
+			android:background="@drawable/title_button_new_game"
+			android:textColor="#000000"
 			/>
 		<Button
 			android:id="@+id/startscreen_load"
@@ -87,21 +93,25 @@
 			android:layout_weight="1"
 			android:layout_height="wrap_content"
 			android:text="@string/startscreen_load"
+			android:background="@drawable/title_button_load"
+			android:textColor="#000000"
 			/>
 	</LinearLayout>
 
 	<LinearLayout
-		android:layout_width="match_parent"
-		android:layout_height="wrap_content"
-		android:orientation="horizontal"
-		android:gravity="center_vertical"
-		>
+	    android:layout_width="match_parent"
+	    android:layout_height="40dp"
+	    android:gravity="center_vertical"
+	    android:orientation="horizontal" >
+
 		<Button
 			android:id="@+id/startscreen_preferences"
 			android:layout_width="0dip"
 			android:layout_weight="1"
 			android:layout_height="wrap_content"
 			android:text="@string/menu_settings"
+			android:background="@drawable/title_button_preferences"
+			android:textColor="#000000"
 			/>
 		<Button
 			android:id="@+id/startscreen_about"
@@ -109,6 +119,8 @@
 			android:layout_weight="1"
 			android:layout_height="wrap_content"
 			android:text="@string/startscreen_about"
+			android:textColor="#000000"
+			android:background="@drawable/title_button_about"
 			/>
 	</LinearLayout>
 </LinearLayout>
