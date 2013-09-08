@@ -3,10 +3,14 @@ package com.gpl.rpg.AndorsTrail;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.view.Window;
 import android.view.WindowManager;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+
+import java.util.Locale;
 
 public final class AndorsTrailApplication extends Application {
 
@@ -49,5 +53,18 @@ public final class AndorsTrailApplication extends Application {
 		} else {
 			activity.getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
+		setLocale(activity);
+	}
+
+	public boolean setLocale(Activity context) {
+		Resources res = context.getResources();
+		Configuration conf = res.getConfiguration();
+		final Locale targetLocale = preferences.useLocalizedResources ? Locale.getDefault() : Locale.US;
+		if (targetLocale.equals(conf.locale)) return false;
+
+		conf.locale = targetLocale;
+		res.updateConfiguration(conf, res.getDisplayMetrics());
+		this.getResources().updateConfiguration(conf, res.getDisplayMetrics());
+		return true;
 	}
 }
