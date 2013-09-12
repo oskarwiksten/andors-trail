@@ -42,7 +42,10 @@ The game is open source (GPLv2) and totally free. You can download the latest ve
 Most of the interface should be easy to understand, but there are a few areas that might require explanations:
 
 [Combat system](http://code.google.com/p/andors-trail/wiki/combat)
+
 [Fleeing a fight](http://code.google.com/p/andors-trail/wiki/flee)
+
 [Equipment & inventory](http://code.google.com/p/andors-trail/wiki/items)
+
 [Experience & levels] (http://code.google.com/p/andors-trail/wiki/experience)
     
