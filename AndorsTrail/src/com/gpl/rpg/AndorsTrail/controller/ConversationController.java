@@ -9,10 +9,10 @@ import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.conversation.*;
-import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -131,13 +131,7 @@ public final class ConversationController {
 		if (!reply.hasRequirements()) return;
 
 		for (Requirement requirement : reply.requires) {
-			if (requirement.requireType == Requirement.RequirementType.inventoryRemove) {
-				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
-					player.inventory.gold -= requirement.value;
-				} else {
-					player.inventory.removeItem(requirement.requireID, requirement.value);
-				}
-			}
+			requirement.requirementFulfilled(player);
 		}
 	}
 
@@ -145,34 +139,9 @@ public final class ConversationController {
 		if (!reply.hasRequirements()) return true;
 
 		for (Requirement requirement : reply.requires) {
-			if (!playerSatisfiesRequirement(world, requirement)) return false;
+			if (!requirement.canFulfillRequirement(world)) return false;
 		}
 		return true;
-	}
-
-	private static boolean playerSatisfiesRequirement(final WorldContext world, final Requirement requirement) {
-		Player player = world.model.player;
-		switch (requirement.requireType) {
-			case questProgress:
-				return player.hasExactQuestProgress(requirement.requireID, requirement.value);
-			case wear:
-				return player.inventory.isWearing(requirement.requireID);
-			case inventoryKeep:
-			case inventoryRemove:
-				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
-					return player.inventory.gold >= requirement.value;
-				} else {
-					return player.inventory.hasItem(requirement.requireID, requirement.value);
-				}
-			case skillLevel:
-				return player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
-			case killedMonster:
-				return world.model.statistics.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
-			case timerElapsed:
-				return world.model.worldData.hasTimerElapsed(requirement.requireID, requirement.value);
-			default:
-				return true;
-		}
 	}
 
 	private static String getDisplayMessage(Phrase phrase, Player player) { return replacePlayerName(phrase.message, player); }

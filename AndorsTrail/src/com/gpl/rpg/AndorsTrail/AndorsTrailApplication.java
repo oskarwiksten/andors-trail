@@ -14,10 +14,10 @@ import java.util.Locale;
 
 public final class AndorsTrailApplication extends Application {
 
-	public static final boolean DEVELOPMENT_DEBUGRESOURCES = false;
+	public static final boolean DEVELOPMENT_DEBUGRESOURCES = true;
 	public static final boolean DEVELOPMENT_FORCE_STARTNEWGAME = false;
 	public static final boolean DEVELOPMENT_FORCE_CONTINUEGAME = false;
-	public static final boolean DEVELOPMENT_DEBUGBUTTONS = false;
+	public static final boolean DEVELOPMENT_DEBUGBUTTONS = true;
 	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = true;
 	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES || DEVELOPMENT_DEBUGBUTTONS || true;
