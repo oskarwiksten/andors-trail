@@ -52,6 +52,7 @@ public final class AndorsTrailPreferences {
 	public int displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 	public int quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 	public boolean showQuickslotsWhenToolboxIsVisible = false;
+	public boolean useLocalizedResources = true;
 
 	public void read(final Context androidContext) {
 		AndorsTrailPreferences dest = this;
@@ -72,6 +73,7 @@ public final class AndorsTrailPreferences {
 			dest.displayOverwriteSavegame = Integer.parseInt(prefs.getString("display_overwrite_savegame", Integer.toString(CONFIRM_OVERWRITE_SAVEGAME_ALWAYS)));
 			dest.quickslotsPosition = Integer.parseInt(prefs.getString("quickslots_placement", Integer.toString(QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM)));
 			dest.showQuickslotsWhenToolboxIsVisible = prefs.getBoolean("showQuickslotsWhenToolboxIsVisible", false);
+			dest.useLocalizedResources = prefs.getBoolean("useLocalizedResources", true);
 
 			// This might be implemented as a skill in the future.
 			//dest.movementAggressiveness = Integer.parseInt(prefs.getString("movementaggressiveness", Integer.toString(MOVEMENTAGGRESSIVENESS_NORMAL)));
@@ -92,6 +94,7 @@ public final class AndorsTrailPreferences {
 			dest.displayOverwriteSavegame = CONFIRM_OVERWRITE_SAVEGAME_ALWAYS;
 			dest.quickslotsPosition = QUICKSLOTS_POSITION_HORIZONTAL_CENTER_BOTTOM;
 			dest.showQuickslotsWhenToolboxIsVisible = false;
+			dest.useLocalizedResources = true;
 		}
 	}
 }

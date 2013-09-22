@@ -37,6 +37,10 @@ public final class StartScreenActivity extends Activity {
 		super.onCreate(savedInstanceState);
 
 		final AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
+		final Resources res = getResources();
+		TileManager tileManager = app.getWorld().tileManager;
+		tileManager.setDensity(res);
+		updatePreferences(false);
 		app.setWindowParameters(this);
 
 		setContentView(R.layout.startscreen);
@@ -102,10 +106,6 @@ public final class StartScreenActivity extends Activity {
 			development_version.setVisibility(View.VISIBLE);
 		}
 
-		final Resources res = getResources();
-		TileManager tileManager = app.getWorld().tileManager;
-		tileManager.setDensity(res);
-		updatePreferences();
 		app.getWorldSetup().startResourceLoader(res);
 
 		if (AndorsTrailApplication.DEVELOPMENT_FORCE_STARTNEWGAME) {
@@ -119,10 +119,19 @@ public final class StartScreenActivity extends Activity {
 		}
 	}
 
-	private void updatePreferences() {
+	private void updatePreferences(boolean alreadyStartedLoadingResources) {
 		AndorsTrailApplication app = AndorsTrailApplication.getApplicationFromActivity(this);
 		AndorsTrailPreferences preferences = app.getPreferences();
 		preferences.read(this);
+		if (app.setLocale(this)) {
+			if (alreadyStartedLoadingResources) {
+				// Changing the locale after having loaded the game requires resources to
+				// be re-loaded. Therefore, we just exit here.
+				Toast.makeText(this, R.string.change_locale_requires_restart, Toast.LENGTH_LONG).show();
+				this.finish();
+				return;
+			}
+		}
 		app.getWorld().tileManager.updatePreferences(preferences);
 	}
 
@@ -166,7 +175,7 @@ public final class StartScreenActivity extends Activity {
 			continueGame(false, slot, null);
 			break;
 		case INTENTREQUEST_PREFERENCES:
-			updatePreferences();
+			updatePreferences(true);
 			break;
 		}
 	}

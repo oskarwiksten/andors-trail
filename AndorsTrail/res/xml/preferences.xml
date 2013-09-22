@@ -98,6 +98,11 @@
 			android:defaultValue="false"
 			android:summary="@string/preferences_ui_show_quickslots_when_toolbox_is_visible"
 			android:key="showQuickslotsWhenToolboxIsVisible" />
+		<CheckBoxPreference
+			android:title="@string/preferences_ui_use_localized_resources_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_ui_use_localized_resources"
+			android:key="useLocalizedResources" />
 	</PreferenceCategory>
 	<PreferenceCategory
        android:title="@string/preferences_music">

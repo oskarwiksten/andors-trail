@@ -3,10 +3,14 @@ package com.gpl.rpg.AndorsTrail;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.view.Window;
 import android.view.WindowManager;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+
+import java.util.Locale;
 
 public final class AndorsTrailApplication extends Application {
 
@@ -17,7 +21,7 @@ public final class AndorsTrailApplication extends Application {
 	public static final boolean DEVELOPMENT_VALIDATEDATA = true;
 	public static final boolean DEVELOPMENT_DEBUGMESSAGES = true;
 	public static final boolean DEVELOPMENT_INCOMPATIBLE_SAVEGAMES = DEVELOPMENT_DEBUGRESOURCES || DEVELOPMENT_DEBUGBUTTONS || true;
-	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 39;
+	public static final int CURRENT_VERSION = DEVELOPMENT_INCOMPATIBLE_SAVEGAMES ? 999 : 40;
 	public static final String CURRENT_VERSION_DISPLAY = "0.7.1dev";
 	public static final boolean IS_RELEASE_VERSION = !CURRENT_VERSION_DISPLAY.matches(".*[a-d].*");
 
@@ -49,5 +53,18 @@ public final class AndorsTrailApplication extends Application {
 		} else {
 			activity.getWindow().setFlags(0, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		}
+		setLocale(activity);
+	}
+
+	public boolean setLocale(Activity context) {
+		Resources res = context.getResources();
+		Configuration conf = res.getConfiguration();
+		final Locale targetLocale = preferences.useLocalizedResources ? Locale.getDefault() : Locale.US;
+		if (targetLocale.equals(conf.locale)) return false;
+
+		conf.locale = targetLocale;
+		res.updateConfiguration(conf, res.getDisplayMetrics());
+		this.getResources().updateConfiguration(conf, res.getDisplayMetrics());
+		return true;
 	}
 }

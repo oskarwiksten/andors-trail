@@ -72,7 +72,7 @@ public final class CombatView extends RelativeLayout implements CombatSelectionL
 		endTurnButton.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View arg0) {
-				c.beginMonsterTurn(false);
+				c.endPlayerTurn();
 			}
 		});
 		Button fleeButton = (Button) findViewById(R.id.combatview_flee);

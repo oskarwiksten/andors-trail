@@ -16,6 +16,7 @@ public final class ModelContainer {
 	public final InterfaceData uiSelections;
 	public final CombatLog combatLog = new CombatLog();
 	public final GameStatistics statistics;
+	public final WorldData worldData;
 	public PredefinedMap currentMap;
 	public LayeredTileMap currentTileMap;
 
@@ -23,6 +24,7 @@ public final class ModelContainer {
 		player = new Player();
 		uiSelections = new InterfaceData();
 		statistics = new GameStatistics();
+		worldData = new WorldData();
 	}
 
 	// ====== PARCELABLE ===================================================================
@@ -36,6 +38,11 @@ public final class ModelContainer {
 		}
 		this.statistics = new GameStatistics(src, world, fileversion);
 		this.currentTileMap = null;
+		if (fileversion >= 40) {
+			this.worldData = new WorldData(src, fileversion);
+		} else {
+			this.worldData = new WorldData();
+		}
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
@@ -43,5 +50,6 @@ public final class ModelContainer {
 		dest.writeUTF(currentMap.name);
 		uiSelections.writeToParcel(dest, flags);
 		statistics.writeToParcel(dest, flags);
+		worldData.writeToParcel(dest, flags);
 	}
 }
