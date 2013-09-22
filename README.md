@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Andor's Trail - BlackBerry
 
 http://andorstrail.github.io/andors-trail-blackberry/
@@ -99,4 +99,3 @@ Most of the interface should be easy to understand, but there are a few areas th
 
 [Experience & levels] (http://code.google.com/p/andors-trail/wiki/experience)
     
->>>>>>> branch 'master' of git@github.com:AndorsTrail/andors-trail-blackberry.git
