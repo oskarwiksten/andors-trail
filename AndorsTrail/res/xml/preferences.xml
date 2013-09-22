@@ -104,12 +104,4 @@
 			android:summary="@string/preferences_ui_use_localized_resources"
 			android:key="useLocalizedResources" />
 	</PreferenceCategory>
-	<PreferenceCategory
-       android:title="@string/preferences_music">
-       <CheckBoxPreference
-           android:title="@string/preferences_music_title"
-           android:defaultValue="true"
-           android:summary="@string/preferences_music_disable_music"
-           android:key="disableMusic" />
-   </PreferenceCategory> 
 </PreferenceScreen>
