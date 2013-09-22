@@ -7,4 +7,4 @@ Starting local content editor at http://localhost:8080/AndorsTrailEdit/editor.ht
 ============
 
 END
-weborf --port 8080 --mime --basedir "$(dirname $0)/../"
+webfsd -F -p 8080 -r "$(dirname $0)/../"

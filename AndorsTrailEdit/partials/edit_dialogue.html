@@ -26,34 +26,65 @@
 		<label class="checkbox"><input type="checkbox" id="hasRewards" ng-model="phrase.hasRewards" />Reaching this phrase gives rewards</label>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="phrase.hasRewards">
-		<label for="rewards">Rewards</label>
-		<table class="field" id="rewards">
-			<thead><tr>
-				<th>Type</th>
-				<th><span class="hint  hint--top" data-hint="Id of the quest, droplist, skill, condition or faction to be affected.">ID</span></th>
-				<th><span class="hint  hint--top" data-hint="For quest rewards: quest stage to reward. For skill rewards: how many skill levels to reward. For conditions: duration of added effetct. For alignment: amount of faction change. Not used for droplists.">
-					Value
-				</span></th>
-				<th></th>
-			</tr></thead>
-			<tbody>
-				<tr ng-repeat="reward in phrase.rewards">
-					<td>
-						<select class="field" id="rewardType" ng-model="reward.rewardType">
-							<option value="questProgress">Quest progress</option>
-							<option value="dropList">Droplist</option>
-							<option value="skillIncrease">Skill increase</option>
-							<option value="actorCondition">Actor condition</option>
-							<option value="alignmentChange">Alignment/faction change</option>
-						</select>
-					</td>
-					<td><input type="text" size="30" ng-model="reward.rewardID" id="rewardID" class="at-input-id"/></td>
-					<td><input type="text" size="3" ng-model="reward.value" class="at-input-quantity" /></td>
-					<td><a ng-click="removeReward(phrase, reward)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
-				</tr>
-			</tbody>
-		</table>
-		<button ng-click="addReward(phrase)" class="btn" title="Add reward"><i class="icon-plus-sign"></i> Add reward</button>
+		<div ng-repeat="reward in phrase.rewards" class="phrase-reward at-box">
+			<div class="fieldWithLabel">
+				<label for="rewardType">Reward Type:</label>
+				<select class="field" id="rewardType" ng-model="reward.rewardType">
+					<option value="questProgress">Quest progress</option>
+					<option value="dropList">Droplist</option>
+					<option value="skillIncrease">Skill increase</option>
+					<option value="actorCondition">Actor condition</option>
+					<option value="alignmentChange">Alignment/faction change</option>
+				</select>
+			</div>
+			<div ng-show="reward.rewardType=='questProgress'">
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Quest ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Stage:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='dropList'">
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Droplist ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='skillIncrease'">
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Skill ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='actorCondition'">
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Actor Condition ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Duration:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='alignmentChange'">
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Faction ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Delta:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<button ng-click="removeReward(phrase, reward)" class="btn pull-right" title="Remove reward"><i class="icon-trash"></i> Remove reward</button>
+			<div class="clearfix"></div>
+		</div>
+		<div>
+			<button ng-click="addReward(phrase)" class="btn" title="Add reward"><i class="icon-plus-sign"></i> Add reward</button>
+		</div>
 	</div>
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="showAdvanced" ng-model="phrase.showAdvanced" />Show advanced properties</label>
@@ -132,34 +163,77 @@
 		<label class="checkbox"><input type="checkbox" id="hasRequirements" ng-model="reply.hasRequirements" />Player must fulfill requirements to select this reply</label>
 	</div>
 	<div class="fieldWithLabel" ng-ds-fade="reply.hasRequirements">
-		<label for="rewards">Requirements</label>
-		<table class="field" id="requirements">
-			<thead><tr>
-				<th>Type</th>
-				<th><span class="hint  hint--top" data-hint="Id of the item or quest to be required.">ID</span></th>
-				<th><span class="hint  hint--left" data-hint="For item requirements: how many items to require. For quest progress: which quest stage to require.">
-					Value
-				</span></th>
-				<th></th>
-			</tr></thead>
-			<tbody>
-				<tr ng-repeat="require in reply.requires">
-					<td>
-						<select class="field" id="requireType" ng-model="require.requireType">
-							<option value="questProgress">Quest progress</option>
-							<option value="inventoryRemove">Inventory &amp; item will be removed</option>
-							<option value="inventoryKeep">Inventory</option>
-							<option value="wear">Worn equipment</option>
-							<option value="skillLevel">Skill level</option>
-							<option value="killedMonster">Killed monster</option>
-						</select>
-					</td>
-					<td><input type="text" size="30" ng-model="require.requireID" id="requireID" class="at-input-id"/></td>
-					<td><input type="text" size="3" ng-model="require.value" class="at-input-quantity" /></td>
-					<td><a ng-click="removeRequirement(reply, require)" class="btn btn-mini" title="Remove row"><i class="icon-trash"></i></a></td>
-				</tr>
-			</tbody>
-		</table>
+		<div ng-repeat="require in reply.requires" class="reply-requirement at-box">
+			<div class="fieldWithLabel">
+				<label for="requireType">Require:</label>
+				<select class="field" id="requireType" ng-model="require.requireType">
+					<option value="questProgress">Quest progress</option>
+					<option value="inventoryRemove">Inventory &amp; item will be removed</option>
+					<option value="inventoryKeep">Inventory</option>
+					<option value="wear">Worn equipment</option>
+					<option value="skillLevel">Skill level</option>
+					<option value="killedMonster">Killed monster</option>
+				</select>
+			</div>
+			<div ng-show="require.requireType=='questProgress'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Quest ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Stage:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='inventoryRemove'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Item ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='inventoryKeep'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Item ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='wear'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Item ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='skillLevel'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Skill ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Level:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='killedMonster'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Monster ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<button ng-click="removeRequirement(reply, require)" class="btn pull-right" title="Remove requirement"><i class="icon-trash"></i> Remove requirement</button>
+			<div class="clearfix"></div>
+		</div>
 		<button ng-click="addRequirement(reply)" class="btn" title="Add requirement"><i class="icon-plus-sign"></i> Add requirement</button>
 	</div>
 	

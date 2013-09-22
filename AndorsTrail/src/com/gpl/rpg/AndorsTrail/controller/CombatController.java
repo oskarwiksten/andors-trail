@@ -240,7 +240,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 			exitCombat(true);
 			return;
 		}
-		if (!playerHasApLeft()) beginMonsterTurn(false);
+		if (!playerHasApLeft()) endPlayerTurn();
 	}
 	private void continueTurn() {
 		if (world.model.uiSelections.isPlayersCombatTurn) return;
@@ -270,7 +270,7 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	private void fleeingFailed() {
 		combatActionListeners.onPlayerFailedFleeing();
-		beginMonsterTurn(false);
+		endPlayerTurn();
 	}
 
 	private final Handler monsterTurnHandler = new Handler() {
@@ -288,7 +288,10 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		}
 	}
 
-	public void beginMonsterTurn(boolean isFirstRound) {
+	public void endPlayerTurn() {
+		beginMonsterTurn(false);
+	}
+	private void beginMonsterTurn(boolean isFirstRound) {
 		controllers.actorStatsController.setActorMinAP(world.model.player);
 		world.model.uiSelections.isPlayersCombatTurn = false;
 		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
