@@ -29,6 +29,13 @@ public final class CoordRect {
 		if (y - topLeft.y >= size.height) return false;
 		return true;
 	}
+	public boolean contains(final CoordRect a) {
+		if (a.topLeft.x < topLeft.x) return false;
+		if (a.topLeft.y < topLeft.y) return false;
+		if (a.size.width + a.topLeft.x > topLeft.x + size.width) return false;
+		if (a.size.height + a.topLeft.y > topLeft.y + size.height) return false;
+		return true;
+	}
 
 	/*
 	public static boolean contains(final int x, final int y, final Size size, final Coord p) {

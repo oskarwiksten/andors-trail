@@ -78,6 +78,7 @@ public final class MapController {
 		if (world.model.uiSelections.isInCombat) {
 			// Only "script" events may run while in combat.
 			if (mapObject.type != MapObject.MapObjectType.script) return false;
+			if (!mapObject.isActive) return false;
 		}
 		return true;
 	}

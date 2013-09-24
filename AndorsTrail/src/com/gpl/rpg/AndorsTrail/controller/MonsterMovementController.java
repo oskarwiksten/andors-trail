@@ -59,8 +59,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		if (map.getMonsterAt(p) != null) return false;
 		MapObject m = map.getEventObjectAt(p.topLeft);
 		if (m != null) {
-			if (m.type == MapObject.MapObjectType.newmap) return false;
-			if (m.type == MapObject.MapObjectType.keyarea) return false;
+			if (m.type == MapObject.MapObjectType.newmap && m.isActive) return false;
+			if (m.type == MapObject.MapObjectType.keyarea && m.isActive) return false;
 		}
 		return true;
 	}

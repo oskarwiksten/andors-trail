@@ -257,6 +257,7 @@ public final class ActorStatsController {
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {
 		for (MonsterSpawnArea a : map.spawnAreas) {
+			//Don't filter the disabled area, as living monsters may still be in it...
 			// Iterate the array backwards, since monsters may get removed from the array inside applyConditionsToMonster.
 			for (int i = a.monsters.size()-1; i >= 0; --i) {
 				final Monster m = a.monsters.get(i);
@@ -431,6 +432,7 @@ public final class ActorStatsController {
 	}
 
 	public void healAllMonsters(MonsterSpawnArea area) {
+		//Don't filter the disabled area, as living monsters may still be in it...
 		for (Monster m : area.monsters) {
 			removeAllTemporaryConditions(m);
 			setActorMaxHealth(m);

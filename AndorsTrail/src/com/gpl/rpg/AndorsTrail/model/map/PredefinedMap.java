@@ -17,6 +17,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public final class PredefinedMap {
 	private static final long VISIT_RESET = 0;
@@ -25,6 +26,7 @@ public final class PredefinedMap {
 	public final String name;
 	public final Size size;
 	public final MapObject[] eventObjects;
+	public final MapObjectReplace[] eventObjectReplaces;
 	public final MonsterSpawnArea[] spawnAreas;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
 	public boolean visited = false;
@@ -34,11 +36,12 @@ public final class PredefinedMap {
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
-	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
+	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MapObjectReplace[] eventObjectReplaces, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
 		this.eventObjects = eventObjects;
+		this.eventObjectReplaces = eventObjectReplaces;
 		this.spawnAreas = spawnAreas;
 		assert(size.width > 0);
 		assert(size.height > 0);
@@ -259,5 +262,44 @@ public final class PredefinedMap {
 			dest.writeBoolean(false);
 		}
 		dest.writeUTF(lastSeenLayoutHash);
+	}
+
+	public List<MonsterSpawnArea> applyObjectReplace(MapObjectReplace replace) {
+		//Should be verified earlier (and currently is). Those asserts can be removed for performance...
+		assert(replace.isActive);
+		assert(!replace.isApplied);
+
+		
+		for (MapObject obj : eventObjects) {
+			if (obj.group.equals(replace.sourceGroup) && replace.position.contains(obj.position)) {
+				obj.isActive = false;
+			} else if (obj.group.equals(replace.targetGroup) && replace.position.contains(obj.position)) {
+				obj.isActive = true;
+			}
+		}
+		
+		// MonsterSpawnAreas added to this list are marked as needing a full clean up (Spawn, or reset). 
+		// This depends on the replace strategy.
+		List<MonsterSpawnArea> triggerSpawn = null;
+		for (MonsterSpawnArea area : spawnAreas) {
+			if (area.group.equals(replace.sourceGroup) && replace.position.contains(area.area)) {
+				area.isActive = false;
+				//This strategy requires immediate deletion of all monsters.
+				if (replace.strategy.equals(MapObjectReplace.SpawnStrategy.clean_up_all)) {
+					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
+					triggerSpawn.add(area);
+				}
+			} else if (area.group.equals(replace.targetGroup) && replace.position.contains(area.area)) {
+				area.isActive = true;
+				//Both other strategies require auto-spawning all monsters in the area.
+				if (!replace.strategy.equals(MapObjectReplace.SpawnStrategy.do_nothing)) {
+					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
+					triggerSpawn.add(area);
+				}
+			}
+		}
+		replace.isApplied = true;
+		
+		return triggerSpawn;
 	}
 }

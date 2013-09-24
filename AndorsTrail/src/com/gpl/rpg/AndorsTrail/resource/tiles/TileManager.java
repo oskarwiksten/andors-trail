@@ -100,6 +100,7 @@ public final class TileManager {
 	public HashSet<Integer> getTileIDsFor(PredefinedMap map, LayeredTileMap tileMap, WorldContext world) {
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 		for (MonsterSpawnArea a : map.spawnAreas) {
+			//Don't filter the disabled area, as it is bound to change someday, and we need the tiles....
 			for (String monsterTypeID : a.monsterTypeIDs) {
 				iconIDs.add(world.monsterTypes.getMonsterType(monsterTypeID).iconID);
 			}
