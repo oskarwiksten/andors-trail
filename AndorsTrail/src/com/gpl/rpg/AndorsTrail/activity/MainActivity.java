@@ -361,7 +361,7 @@ public final class MainActivity
 
 	@Override
 	public void onPlayerSteppedOnKeyArea(MapObject area) {
-		Dialogs.showKeyArea(this, controllers, area.id);
+		controllers.mapController.runAreaScript(area.id);
 	}
 
 	@Override

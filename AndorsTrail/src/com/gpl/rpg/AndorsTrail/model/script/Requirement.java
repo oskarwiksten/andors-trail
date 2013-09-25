@@ -18,17 +18,12 @@ public final class Requirement {
 		,skillLevel			// Player needs to have a specific skill equal to or above a certain level
 		,killedMonster
 		,timerElapsed
+		,consumedLess
+		,consumedMore
+		,bonemealsLess
+		,bonemealsMore
 	}
 	
-	public static final String QUEST_PROGRESS = "qp";
-	public static final String QUEST_LATEST_PROGRESS = "qm";
-	public static final String INVENTORY_REMOVE = "ir";
-	public static final String INVENTORY_KEEP = "ik";
-	public static final String WEAR = "iw";
-	public static final String SKILL_LEVEL = "sl";
-	public static final String KILLED_MONSTER = "km";
-	public static final String TIMER_ELAPSED = "te";
-
 	public final RequirementType requireType;
 	public final String requireID;
 	public final int value;
@@ -76,6 +71,20 @@ public final class Requirement {
 		case skillLevel : return p.getSkillLevel(SkillCollection.SkillID.valueOf(requireID)) >= value;
 		case killedMonster : return w.model.statistics.getNumberOfKillsForMonsterType(requireID) >= value;
 		case timerElapsed : return w.model.worldData.hasTimerElapsed(requireID, value);
+		case consumedLess : 
+			if (ItemTypeCollection.isGoldItemType(requireID)) {
+				return w.model.statistics.getSpentGold() <= value;
+			} else {
+				return  w.model.statistics.getNumberOfUsedItem(requireID) <= value;
+			}
+		case consumedMore :
+			if (ItemTypeCollection.isGoldItemType(requireID)) {
+				return w.model.statistics.getSpentGold() >= value;
+			} else {
+				return  w.model.statistics.getNumberOfUsedItem(requireID) >= value;
+			}
+		case bonemealsLess : return w.model.statistics.getNumberOfUsedBonemealPotions() <= value;
+		case bonemealsMore : return w.model.statistics.getNumberOfUsedBonemealPotions() >= value;
 		default : return false;
 		}
 	}
