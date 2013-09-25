@@ -140,6 +140,14 @@ public final class Player extends Actor {
 	public boolean hasAnyQuestProgress(String questID) {
 		return questProgress.containsKey(questID);
 	}
+	public boolean isLatestQuestProgress(String questID, int progress) {
+		if (!questProgress.containsKey(questID)) return false;
+		if (!questProgress.get(questID).contains(progress)) return false;
+		for (int i : questProgress.get(questID)) {
+			if (i > progress) return false;
+		}
+		return true;
+	}
 	public boolean addQuestProgress(QuestProgress progress) {
 		if (hasExactQuestProgress(progress.questID, progress.progress)) return false;
 		if (!questProgress.containsKey(progress.questID)) questProgress.put(progress.questID, new HashSet<Integer>());
