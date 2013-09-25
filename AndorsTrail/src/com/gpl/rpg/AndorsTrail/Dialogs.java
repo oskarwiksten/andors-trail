@@ -65,6 +65,7 @@ public final class Dialogs {
 	public static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc) {
 		showConversation(currentActivity, context, phraseID, npc, true);
 	}
+
 	private static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc, boolean giveRewardsForFirstPhrase) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
