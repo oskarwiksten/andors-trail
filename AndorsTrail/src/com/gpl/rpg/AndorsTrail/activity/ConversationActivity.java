@@ -36,10 +36,11 @@ import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
 
 import java.util.ArrayList;
 
-public final class ConversationActivity extends Activity implements OnKeyListener
+public final class ConversationActivity
+		extends Activity
+		implements OnKeyListener
 		, ConversationController.ConversationStatemachine.ConversationStateListener {
-	public static final int ACTIVITYRESULT_ATTACK = Activity.RESULT_FIRST_USER + 1;
-	public static final int ACTIVITYRESULT_REMOVE = Activity.RESULT_FIRST_USER + 2;
+
 	private static final int playerNameColor = Color.argb(255, 0xbb, 0x22, 0x22);
 	private static final int NPCNameColor = Color.argb(255, 0xbb, 0xbb, 0x22);
 	private static final int playerPhraseColor = 0;
@@ -64,7 +65,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		if (!app.isInitialized()) { finish(); return; }
 		this.world = app.getWorld();
 		this.player = world.model.player;
-		this.conversationState = new ConversationController.ConversationStatemachine(world, app.getControllerContext(), getResources(), this);
+		this.conversationState = new ConversationController.ConversationStatemachine(world, app.getControllerContext(), this);
 
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 
@@ -106,17 +107,22 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		statementList.setFocusable(false);
 		statementList.setFocusableInTouchMode(false);
 
+		String phraseID;
+		boolean giveRewardsForFirstPhrase;
+		boolean displayLastMessage = true;
 		if (savedInstanceState != null) {
 			conversationState.setCurrentNPC(Dialogs.getMonsterFromBundle(savedInstanceState, world));
 			ArrayList<ConversationStatement> savedConversationHistory = savedInstanceState.getParcelableArrayList("conversationHistory");
 			if (savedConversationHistory != null) conversationHistory.addAll(savedConversationHistory);
-			final String phraseID = savedInstanceState.getString("phraseID");
-			conversationState.proceedToRestoredState(phraseID);
+			phraseID = savedInstanceState.getString("phraseID");
+			giveRewardsForFirstPhrase = false;
+			displayLastMessage = false;
 		} else {
 			conversationState.setCurrentNPC(Dialogs.getMonsterFromIntent(getIntent(), world));
-			final String phraseID = getIntent().getData().getLastPathSegment();
-			conversationState.proceedToPhrase(phraseID);
+			phraseID = getIntent().getData().getLastPathSegment();
+			giveRewardsForFirstPhrase = getIntent().getBooleanExtra("giveRewardsForFirstPhrase", true);
 		}
+		conversationState.proceedToPhrase(getResources(), phraseID, giveRewardsForFirstPhrase, displayLastMessage);
 	}
 
 	@Override
@@ -205,12 +211,12 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 		replyGroup.removeAllViews();
 		nextButton.setEnabled(false);
 		if (conversationState.hasOnlyOneNextReply()) {
-			conversationState.playerSelectedNextStep();
+			conversationState.playerSelectedNextStep(getResources());
 		} else {
 			if (rb == null) return;
 			Reply r = (Reply) rb.getTag();
 			addConversationStatement(player, rb.getText().toString(), playerPhraseColor);
-			conversationState.playerSelectedReply(r);
+			conversationState.playerSelectedReply(getResources(), r);
 		}
 	}
 
@@ -340,7 +346,7 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 	}
 
 	@Override
-	public void onTextPhraseReached(String message, Actor actor) {
+	public void onTextPhraseReached(String message, Actor actor, String phraseID) {
 		addConversationStatement(actor, message, NPCPhraseColor);
 	}
 
@@ -395,13 +401,11 @@ public final class ConversationActivity extends Activity implements OnKeyListene
 
 	@Override
 	public void onConversationEndedWithCombat(Monster npc) {
-		ConversationActivity.this.setResult(ACTIVITYRESULT_ATTACK);
 		ConversationActivity.this.finish();
 	}
 
 	@Override
 	public void onConversationEndedWithRemoval(Monster npc) {
-		ConversationActivity.this.setResult(ACTIVITYRESULT_REMOVE);
 		ConversationActivity.this.finish();
 	}
 

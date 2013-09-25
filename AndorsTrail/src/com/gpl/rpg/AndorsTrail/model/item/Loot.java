@@ -33,6 +33,14 @@ public final class Loot {
 		this.items.add(l.items);
 	}
 
+	public void add(ItemType itemType, int quantity) {
+		if (ItemTypeCollection.isGoldItemType(itemType.id)) {
+			gold += quantity;
+		} else {
+			items.addItem(itemType, quantity);
+		}
+	}
+
 	public boolean hasItemsOrExp() {
 		return exp != 0 || hasItemsOrGold();
 	}
@@ -60,7 +68,6 @@ public final class Loot {
 		}
 		return false;
 	}
-
 
 	public void clear() {
 		exp = 0;

@@ -17,7 +17,6 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.AttackResult;
 import com.gpl.rpg.AndorsTrail.controller.CombatController;
-import com.gpl.rpg.AndorsTrail.controller.MovementController;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatActionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.CombatTurnListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
@@ -36,7 +35,13 @@ import com.gpl.rpg.AndorsTrail.view.QuickButton.QuickButtonContextMenuInfo;
 import java.lang.ref.WeakReference;
 import java.util.Collection;
 
-public final class MainActivity extends Activity implements PlayerMovementListener, CombatActionListener, CombatTurnListener, WorldEventListener {
+public final class MainActivity
+		extends Activity
+		implements
+		PlayerMovementListener
+		, CombatActionListener
+		, CombatTurnListener
+		, WorldEventListener {
 
 	public static final int INTENTREQUEST_MONSTERENCOUNTER = 2;
 	public static final int INTENTREQUEST_CONVERSATION = 4;
@@ -115,7 +120,6 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 			}
 			break;
 		case INTENTREQUEST_CONVERSATION:
-			MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
 			controllers.mapController.applyCurrentMapReplacements(getResources(), true);
 			break;
 		case INTENTREQUEST_SAVEGAME:
@@ -338,6 +342,11 @@ public final class MainActivity extends Activity implements PlayerMovementListen
 	@Override
 	public void onPlayerStartedConversation(Monster m, String phraseID) {
 		Dialogs.showConversation(this, controllers, phraseID, m);
+	}
+
+	@Override
+	public void onScriptAreaStartedConversation(String phraseID) {
+		Dialogs.showMapScriptMessage(this, controllers, phraseID);
 	}
 
 	@Override

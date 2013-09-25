@@ -14,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
+import com.gpl.rpg.AndorsTrail.util.L;
 
 import java.util.ArrayList;
 
@@ -63,7 +64,13 @@ public final class ConversationController {
 				addQuestProgressReward(player, reward.rewardID, reward.value, result);
 				break;
 			case alignmentChange:
-				player.addAlignment(reward.rewardID, reward.value);
+				addAlignmentReward(player, reward.rewardID, reward.value);
+				break;
+			case giveItem:
+				addItemReward(reward.rewardID, reward.value, result);
+				break;
+			case createTimer:
+				world.model.worldData.createTimer(reward.rewardID);
 				break;
 			}
 		}
@@ -76,20 +83,28 @@ public final class ConversationController {
 		return result;
 	}
 
+	private void addAlignmentReward(Player player, String faction, int delta) {
+		player.addAlignment(faction, delta);
+		MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
+	}
+
 	private void addQuestProgressReward(Player player, String questID, int questProgress, PhraseRewards result) {
 		QuestProgress progress = new QuestProgress(questID, questProgress);
 		boolean added = player.addQuestProgress(progress);
 		if (!added) return; // Only apply exp reward if the quest stage was reached just now (and not re-reached)
 
 		QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
-		if (stage != null) {
-			result.loot.exp += stage.rewardExperience;
-			result.questProgress.add(progress);
-		}
+		if (stage == null) return;
+		result.loot.exp += stage.rewardExperience;
+		result.questProgress.add(progress);
 	}
 
 	private void addDropListReward(Player player, String droplistID, PhraseRewards result) {
 		world.dropLists.getDropList(droplistID).createRandomLoot(result.loot, player);
+	}
+
+	private void addItemReward(String itemTypeID, int quantity, PhraseRewards result) {
+		result.loot.add(world.itemTypes.getItemType(itemTypeID), quantity);
 	}
 
 	private void addSkillReward(Player player, SkillCollection.SkillID skillID, PhraseRewards result) {
@@ -153,6 +168,8 @@ public final class ConversationController {
 				return player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
 			case killedMonster:
 				return world.model.statistics.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
+			case timerElapsed:
+				return world.model.worldData.hasTimerElapsed(requirement.requireID, requirement.value);
 			default:
 				return true;
 		}
@@ -169,17 +186,15 @@ public final class ConversationController {
 		private final WorldContext world;
 		private final ControllerContext controllers;
 		private final Player player;
-		private final Resources res;
 		private String phraseID;
 		private Phrase currentPhrase;
 		private Monster npc;
 		public ConversationStateListener listener;
 
-		public ConversationStatemachine(WorldContext world, ControllerContext controllers, Resources res, ConversationStateListener listener) {
+		public ConversationStatemachine(WorldContext world, ControllerContext controllers, ConversationStateListener listener) {
 			this.world = world;
 			this.player = world.model.player;
 			this.controllers = controllers;
-			this.res = res;
 			this.listener = listener;
 		}
 
@@ -187,17 +202,17 @@ public final class ConversationController {
 		public Monster getCurrentNPC() { return npc; }
 		public String getCurrentPhraseID() { return phraseID; }
 
-		public void playerSelectedReply(Reply r) {
+		public void playerSelectedReply(final Resources res, Reply r) {
 			applyReplyEffect(player, r);
-			proceedToPhrase(r.nextPhrase);
+			proceedToPhrase(res, r.nextPhrase, true, true);
 		}
 
-		public void playerSelectedNextStep() {
-			playerSelectedReply(currentPhrase.replies[0]);
+		public void playerSelectedNextStep(final Resources res) {
+			playerSelectedReply(res, currentPhrase.replies[0]);
 		}
 
 		public interface ConversationStateListener {
-			void onTextPhraseReached(String message, Actor actor);
+			void onTextPhraseReached(String message, Actor actor, String phraseID);
 			void onConversationEnded();
 			void onConversationEndedWithShop(Monster npc);
 			void onConversationEndedWithCombat(Monster npc);
@@ -207,7 +222,7 @@ public final class ConversationController {
 			void onConversationHasReply(Reply r, String message);
 		}
 
-		private void setCurrentPhrase(String phraseID) {
+		private void setCurrentPhrase(final Resources res, String phraseID) {
 			this.phraseID = phraseID;
 			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
@@ -218,7 +233,7 @@ public final class ConversationController {
 			}
 		}
 
-		public void proceedToPhrase(String phraseID) {
+		public void proceedToPhrase(final Resources res, String phraseID, boolean giveRewards, boolean displayPhraseMessage) {
 			if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
 				listener.onConversationEnded();
 				return;
@@ -233,41 +248,27 @@ public final class ConversationController {
 				return;
 			}
 
-			setCurrentPhrase(phraseID);
+			setCurrentPhrase(res, phraseID);
 
-			ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
-			if (phraseRewards != null) {
-				listener.onPlayerReceivedRewards(phraseRewards);
+			if (giveRewards) {
+				ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
+				if (phraseRewards != null) {
+					listener.onPlayerReceivedRewards(phraseRewards);
+				}
 			}
 
 			if (currentPhrase.message == null) {
 				for (Reply r : currentPhrase.replies) {
 					if (!canSelectReply(world, r)) continue;
 					applyReplyEffect(player, r);
-					proceedToPhrase(r.nextPhrase);
+					proceedToPhrase(res, r.nextPhrase, giveRewards, displayPhraseMessage);
 					return;
 				}
+			} else if (displayPhraseMessage) {
+				String message = getDisplayMessage(currentPhrase, player);
+				listener.onTextPhraseReached(message, npc, phraseID);
 			}
 
-			String message = getDisplayMessage(currentPhrase, player);
-			listener.onTextPhraseReached(message, npc);
-
-			requestReplies();
-		}
-
-		private void endConversationWithRemovingNPC() {
-			controllers.monsterSpawnController.remove(world.model.currentMap, npc);
-			listener.onConversationEndedWithRemoval(npc);
-		}
-
-		private void endConversationWithCombat() {
-			npc.forceAggressive();
-			controllers.combatController.setCombatSelection(npc);
-			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
-			listener.onConversationEndedWithCombat(npc);
-		}
-
-		private void requestReplies() {
 			if (hasOnlyOneNextReply()) {
 				listener.onConversationCanProceedWithNext();
 				return;
@@ -279,9 +280,26 @@ public final class ConversationController {
 			}
 		}
 
-		public void proceedToRestoredState(String phraseID) {
-			setCurrentPhrase(phraseID);
-			requestReplies();
+		private void endConversationWithRemovingNPC() {
+			if (npc == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("Tried to remove NPC from conversation without having a valid npc target!");
+				listener.onConversationEnded();
+				return;
+			}
+			controllers.monsterSpawnController.remove(world.model.currentMap, npc);
+			listener.onConversationEndedWithRemoval(npc);
+		}
+
+		private void endConversationWithCombat() {
+			if (npc == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("Tried to enter combat from conversation without having a valid npc target!");
+				listener.onConversationEnded();
+				return;
+			}
+			npc.forceAggressive();
+			controllers.combatController.setCombatSelection(npc);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
+			listener.onConversationEndedWithCombat(npc);
 		}
 
 		public boolean hasOnlyOneNextReply() {

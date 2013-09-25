@@ -8,6 +8,7 @@ import java.util.Collection;
 
 public interface WorldEventListener {
 	void onPlayerStartedConversation(Monster m, String phraseID);
+	void onScriptAreaStartedConversation(String phraseID);
 	void onPlayerSteppedOnMonster(Monster m);
 	void onPlayerSteppedOnMapSignArea(MapObject area);
 	void onPlayerSteppedOnKeyArea(MapObject area);

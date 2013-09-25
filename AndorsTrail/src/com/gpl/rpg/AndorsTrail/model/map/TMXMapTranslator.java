@@ -71,7 +71,7 @@ public final class TMXMapTranslator {
 							else if(p.name.equalsIgnoreCase("place")) place = p.value;
 							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createNewMapEvent(position, object.name, map, place));
+						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
 						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
 						int maxQuantity = 1;
@@ -129,15 +129,36 @@ public final class TMXMapTranslator {
 							}
 						}
 
-						mapObjects.add(MapObject.createNewKeyArea(position, phraseID, requireQuestStage));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, requireQuestStage));
 					} else if (object.type.equals("rest")) {
-						mapObjects.add(MapObject.createNewRest(position, object.name));
+						mapObjects.add(MapObject.createRestArea(position, object.name));
 					} else if (object.type.equals("container")) {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;
-						mapObjects.add(MapObject.createNewContainerArea(position, dropList));
+						mapObjects.add(MapObject.createContainerArea(position, dropList));
 					} else if (object.type.equals("replace")) {
 						// Do nothing. Will be handled when reading map layers instead.
+					} else if (object.type.equalsIgnoreCase("script")) {
+						String phraseID = object.name;
+						MapObject.MapObjectEvaluationType evaluateWhen = MapObject.MapObjectEvaluationType.whenEntering;
+						for (TMXProperty p : object.properties) {
+							if (p.name.equalsIgnoreCase("when")) {
+								if (p.value.equalsIgnoreCase("enter")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.whenEntering;
+								} else if (p.value.equalsIgnoreCase("step")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.onEveryStep;
+								} else if (p.value.equalsIgnoreCase("round")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.afterEveryRound;
+								} else if (p.value.equalsIgnoreCase("always")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.continuously;
+								} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+									L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized value for \"when\" property: \"" + p.value + "\".");
+								}
+							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+								L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
+							}
+						}
+						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}
