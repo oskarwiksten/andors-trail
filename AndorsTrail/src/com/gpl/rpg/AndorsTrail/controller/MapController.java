@@ -151,7 +151,7 @@ public final class MapController {
 
 	public boolean canEnterKeyArea(MapObject area) {
 		if (area.enteringRequirement.canFulfillRequirement(world)) {
-			area.enteringRequirement.requirementFulfilled(world.model.player);
+			area.enteringRequirement.requirementFulfilled(world);
 			return true;
 		}
 		worldEventListeners.onPlayerSteppedOnKeyArea(area);

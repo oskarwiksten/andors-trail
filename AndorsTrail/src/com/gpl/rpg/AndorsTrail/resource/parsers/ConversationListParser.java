@@ -24,7 +24,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 			return new Requirement(
 					Requirement.RequirementType.valueOf(o.getString(JsonFieldNames.ReplyRequires.requireType))
 					,o.getString(JsonFieldNames.ReplyRequires.requireID)
-					,o.optInt(JsonFieldNames.ReplyRequires.value, 0)
+					,o.optInt(JsonFieldNames.ReplyRequires.value, 1)
 			);
 		}
 	};

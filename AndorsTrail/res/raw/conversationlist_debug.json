@@ -124,8 +124,62 @@
         "id": "debugrequireskey",
         "message": "This tile requires a quest progress."
     },
-    {
-        "id": "debugrequies10gold",
-        "message": "This tile cost 10 gold."
-    }
+   {
+    "id": "debugrequires10gold",
+    "replies": [
+      {
+        "text": "Too bad.",
+        "nextPhraseID": "X"
+      },
+      {
+        "text": "Well, gimme 10 gold then !",
+        "nextPhraseID": "debugrequires10gold_1"
+      }
+    ],
+    "message": "This tile costs 10 gold !"
+  },
+  {
+    "id": "debugrequires10gold_1",
+    "replies": [
+      {
+        "requires": [
+          {
+            "requireType": "consumedMore",
+            "requireID": "gold",
+            "value": 100
+          }
+        ],
+        "nextPhraseID": "debugrequires10gold_3"
+      },
+      {
+        "nextPhraseID": "debugrequires10gold_2"
+      }
+    ]
+  },
+  {
+    "id": "debugrequires10gold_2",
+    "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "debugrequires10gold_droplist"
+            }
+    ],
+    "replies": [
+      {
+        "text": "When I come to debugmap, I always feel like a star.",
+        "nextPhraseID": "X"
+      }
+    ],
+    "message": "Okay. But only because it's you M. Coder."
+  },
+  {
+    "id": "debugrequires10gold_3",
+    "replies": [
+      {
+        "text": "Damn.",
+        "nextPhraseID": "X"
+      }
+    ],
+    "message": "Sorry. You already spent 100 gold..."
+  }
 ]

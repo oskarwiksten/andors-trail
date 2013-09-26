@@ -127,11 +127,11 @@ public final class ConversationController {
 		result.actorConditions.add(e);
 	}
 
-	private static void applyReplyEffect(final Player player, final Reply reply) {
+	private static void applyReplyEffect(final WorldContext world, final Reply reply) {
 		if (!reply.hasRequirements()) return;
 
 		for (Requirement requirement : reply.requires) {
-			requirement.requirementFulfilled(player);
+			requirement.requirementFulfilled(world);
 		}
 	}
 
@@ -172,7 +172,7 @@ public final class ConversationController {
 		public String getCurrentPhraseID() { return phraseID; }
 
 		public void playerSelectedReply(final Resources res, Reply r) {
-			applyReplyEffect(player, r);
+			applyReplyEffect(world, r);
 			proceedToPhrase(res, r.nextPhrase, true, true);
 		}
 
@@ -229,7 +229,7 @@ public final class ConversationController {
 			if (currentPhrase.message == null) {
 				for (Reply r : currentPhrase.replies) {
 					if (!canSelectReply(world, r)) continue;
-					applyReplyEffect(player, r);
+					applyReplyEffect(world, r);
 					proceedToPhrase(res, r.nextPhrase, giveRewards, displayPhraseMessage);
 					return;
 				}

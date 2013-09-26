@@ -1,12 +1,9 @@
 package com.gpl.rpg.AndorsTrail.model.script;
 
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ResourceParserUtils;
-import com.gpl.rpg.AndorsTrail.util.L;
 
 public final class Requirement {
 	public static enum RequirementType {
@@ -33,28 +30,7 @@ public final class Requirement {
 		this.requireID = requireID;
 		this.value = value;
 	}
-	
-	public static Requirement fromString(String s) {
-		String[] fields = s.split(":");
-		if (fields.length == 2) {
-			int value = ResourceParserUtils.parseInt(fields[1],0);
-			return new Requirement(RequirementType.questProgress, fields[0], value);
-		} else if (fields.length == 3) {
-			int value = ResourceParserUtils.parseInt(fields[2],0);
-			RequirementType type = RequirementType.valueOf(fields[0]);
-			if (type != null) {
-				return new Requirement(type, fields[1], value);
-			} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-				L.log("WARNING : Requirement type \""+fields[0]+"\" unknown for Requirement \""+s+"\"");
-			}
-		} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			L.log("WARNING: Requirement \"" + s + "\" does not match expected format.");
-			
-		}
 		
-		return null;
-	}
-	
 	public boolean canFulfillRequirement(WorldContext w) {
 		Player p = w.model.player;
 		switch (this.requireType) {
@@ -89,12 +65,13 @@ public final class Requirement {
 		}
 	}
 	
-	public void requirementFulfilled(Player p) {
-		L.log("Entering requirement applying");
+	public void requirementFulfilled(WorldContext w) {
+		Player p = w.model.player;
 		switch (requireType) {
 		case inventoryRemove : 
 			if (ItemTypeCollection.isGoldItemType(requireID)) {
 				p.inventory.gold -= value;
+				w.model.statistics.addGoldSpent(value);
 			} else {
 				p.inventory.removeItem(requireID, value);
 			}
