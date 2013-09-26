@@ -3,8 +3,8 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.model.conversation.Reply;
-import com.gpl.rpg.AndorsTrail.model.conversation.Requirement;
 import com.gpl.rpg.AndorsTrail.model.conversation.Reward;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonArrayParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
@@ -24,7 +24,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 			return new Requirement(
 					Requirement.RequirementType.valueOf(o.getString(JsonFieldNames.ReplyRequires.requireType))
 					,o.getString(JsonFieldNames.ReplyRequires.requireID)
-					,o.optInt(JsonFieldNames.ReplyRequires.value, 0)
+					,o.optInt(JsonFieldNames.ReplyRequires.value, 1)
 			);
 		}
 	};

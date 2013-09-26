@@ -63,6 +63,14 @@ public final class Inventory extends ItemContainer {
 		}
 		return false;
 	}
+	
+	public boolean isWearing(String itemTypeID, int minNumber) {
+		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {
+			if (wear[i] == null) continue;
+			if (wear[i].id.equals(itemTypeID)) minNumber--;
+		}
+		return minNumber <= 0;
+	}
 
 	public static boolean isArmorSlot(WearSlot slot) {
 		if (slot == null) return false;

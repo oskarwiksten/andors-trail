@@ -8,6 +8,9 @@ import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.*;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement.RequirementType;
+import com.gpl.rpg.AndorsTrail.resource.parsers.ResourceParserUtils;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
 import com.gpl.rpg.AndorsTrail.util.*;
 
@@ -113,23 +116,21 @@ public final class TMXMapTranslator {
 						);
 						spawnAreas.add(area);
 					} else if (object.type.equalsIgnoreCase("key")) {
-						QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(object.name);
-						if (requireQuestStage == null) {
-							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + " contains key area at " + topLeft.toString() + " that cannot be parsed as a quest stage.");
-							}
-							continue;
-						}
 						String phraseID = "";
 						for (TMXProperty p : object.properties) {
 							if (p.name.equalsIgnoreCase("phrase")) {
 								phraseID = p.value;
+							} else if (p.name.equalsIgnoreCase("requireType")) {
+								continue;
+							} else if (p.name.equalsIgnoreCase("requireId")) {
+								continue;
+							} else if (p.name.equalsIgnoreCase("requireValue")) {
+								continue;
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-
-						mapObjects.add(MapObject.createKeyArea(position, phraseID, requireQuestStage));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, parseAreaRequirement(object)));
 					} else if (object.type.equals("rest")) {
 						mapObjects.add(MapObject.createRestArea(position, object.name));
 					} else if (object.type.equals("container")) {
@@ -175,6 +176,40 @@ public final class TMXMapTranslator {
 		return result;
 	}
 
+	private static Requirement parseAreaRequirement(TMXObject object) {
+		Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
+		String requireId = null;
+		int requireValue = 1;
+		for (TMXProperty p : object.properties) {
+			if (p.value.equalsIgnoreCase("enter")) {
+				continue;
+			} else if (p.name.equalsIgnoreCase("requireType")) {
+				requireType = Requirement.RequirementType.valueOf(p.value);
+			} else if (p.name.equalsIgnoreCase("requireId")) {
+				requireId = p.value;
+			} else if (p.name.equalsIgnoreCase("requireValue")) {
+				requireValue = Integer.parseInt(p.value);
+			}
+		}
+		
+		if (requireId == null) {
+			String[] fields = object.name.split(":");
+			if (fields.length == 2) {
+				requireValue = ResourceParserUtils.parseInt(fields[1],0);
+				requireId = fields[0];
+			} else if (fields.length == 3) {
+				requireValue = ResourceParserUtils.parseInt(fields[2],0);
+				requireType = RequirementType.valueOf(fields[0]);
+				requireId = fields[1];
+			} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+				L.log("WARNING: Requirement \"" + object.name + "\" does not match expected format.");
+				
+			}
+		}
+
+		return new Requirement(requireType, requireId, requireValue);
+	}
+	
 	private static CoordRect getTMXObjectPosition(TMXObject object, TMXMap m) {
 		final Coord topLeft = new Coord(
 				Math.round(((float)object.x) / m.tilewidth)

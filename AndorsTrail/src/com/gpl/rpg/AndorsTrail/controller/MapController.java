@@ -87,6 +87,12 @@ public final class MapController {
 		mapScriptExecutor.proceedToPhrase(res, o.id, true, true);
 		controllers.mapController.applyCurrentMapReplacements(res, true);
 	}
+	
+	public void runAreaScript(String scriptId) {
+		Resources res = controllers.getResources();
+		mapScriptExecutor.proceedToPhrase(res, scriptId, true, true);
+		controllers.mapController.applyCurrentMapReplacements(res, true);
+	}
 
 	private void steppedOnRestArea(MapObject area) {
 		if (controllers.preferences.confirmRest) {
@@ -144,7 +150,10 @@ public final class MapController {
 	}
 
 	public boolean canEnterKeyArea(MapObject area) {
-		if (world.model.player.hasExactQuestProgress(area.requireQuestProgress)) return true;
+		if (area.enteringRequirement.canFulfillRequirement(world)) {
+			area.enteringRequirement.requirementFulfilled(world);
+			return true;
+		}
 		worldEventListeners.onPlayerSteppedOnKeyArea(area);
 		return false;
 	}
