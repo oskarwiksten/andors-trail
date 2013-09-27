@@ -172,7 +172,7 @@ public final class TMXMapTranslator {
 								}
 							}
 						}
-						
+
 						for (TMXProperty p : object.properties) {
 							// Do nothing when only graphics layers are impacted. Those will be handled in the map rendering.
 							if (!TMXMapTranslator.isGraphicsMapLayer(p.name) && !"spawn_strategy".equals(p.name)) {

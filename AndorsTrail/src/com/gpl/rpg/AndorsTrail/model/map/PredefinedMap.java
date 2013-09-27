@@ -69,13 +69,15 @@ public final class PredefinedMap {
 		}
 		return null;
 	}
-	public MapObject getEventObjectAt(final Coord p) {
+	public List<MapObject> getEventObjectsAt(final Coord p) {
+		List<MapObject> result = new ArrayList<MapObject>();
 		for (MapObject o : eventObjects) {
+			if (!o.isActive) continue;
 			if (o.position.contains(p)) {
-				return o;
+				result.add(o);
 			}
 		}
-		return null;
+		return result;
 	}
 	public boolean hasContainerAt(final Coord p) {
 		for (MapObject o : eventObjects) {
@@ -265,15 +267,17 @@ public final class PredefinedMap {
 	}
 
 	public List<MonsterSpawnArea> applyObjectReplace(MapObjectReplace replace) {
-		//Should be verified earlier (and currently is). Those asserts can be removed for performance...
-		assert(replace.isActive);
-		assert(!replace.isApplied);
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (!replace.isActive) throw new RuntimeException("Trying to apply an inactive replace area. Should be checked in the code before. Check your stack trace !");
+			if (replace.isApplied) throw new RuntimeException("Trying to reapply an applied replace area. Should be checked in the code before. Check your stack trace !");
+		}
 
 		
 		for (MapObject obj : eventObjects) {
-			if (obj.group.equals(replace.sourceGroup) && replace.position.contains(obj.position)) {
+			if (!replace.position.contains(obj.position)) continue;
+			if (obj.group.equals(replace.sourceGroup)) {
 				obj.isActive = false;
-			} else if (obj.group.equals(replace.targetGroup) && replace.position.contains(obj.position)) {
+			} else if (obj.group.equals(replace.targetGroup)) {
 				obj.isActive = true;
 			}
 		}
@@ -282,14 +286,15 @@ public final class PredefinedMap {
 		// This depends on the replace strategy.
 		List<MonsterSpawnArea> triggerSpawn = null;
 		for (MonsterSpawnArea area : spawnAreas) {
-			if (area.group.equals(replace.sourceGroup) && replace.position.contains(area.area)) {
+			if (!replace.position.contains(area.area)) continue;
+			if (area.group.equals(replace.sourceGroup)) {
 				area.isActive = false;
 				//This strategy requires immediate deletion of all monsters.
 				if (replace.strategy.equals(MapObjectReplace.SpawnStrategy.clean_up_all)) {
 					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
 					triggerSpawn.add(area);
 				}
-			} else if (area.group.equals(replace.targetGroup) && replace.position.contains(area.area)) {
+			} else if (area.group.equals(replace.targetGroup)) {
 				area.isActive = true;
 				//Both other strategies require auto-spawning all monsters in the area.
 				if (!replace.strategy.equals(MapObjectReplace.SpawnStrategy.do_nothing)) {
