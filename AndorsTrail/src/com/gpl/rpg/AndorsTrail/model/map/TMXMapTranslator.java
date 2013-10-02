@@ -118,7 +118,7 @@ public final class TMXMapTranslator {
 					} else if (object.type.equalsIgnoreCase("key")) {
 						Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
 						String requireId = null;
-						int requireValue = 1;
+						int requireValue = 0;
 						String phraseID = "";
 						for (TMXProperty p : object.properties) {
 							if (p.name.equalsIgnoreCase("phrase")) {
