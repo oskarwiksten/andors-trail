@@ -1,7 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MapObject {
@@ -26,7 +26,7 @@ public final class MapObject {
 	public final String id; //placeName on this map or phraseID
 	public final String map;
 	public final String place;
-	public final QuestProgress requireQuestProgress;
+	public final Requirement enteringRequirement;
 	public final DropList dropList;
 	public final MapObjectEvaluationType evaluateWhen;
 
@@ -36,7 +36,7 @@ public final class MapObject {
 			, final String id
 			, final String map
 			, final String place
-			, final QuestProgress requireQuestProgress
+			, final Requirement enteringRequirement
 			, final DropList dropList
 			, final MapObjectEvaluationType evaluateWhen
 			) {
@@ -45,7 +45,7 @@ public final class MapObject {
 		this.id = id;
 		this.map = map;
 		this.place = place;
-		this.requireQuestProgress = requireQuestProgress;
+		this.enteringRequirement = enteringRequirement;
 		this.dropList = dropList;
 		this.evaluateWhen = evaluateWhen;
 	}
@@ -59,8 +59,8 @@ public final class MapObject {
 	public static MapObject createRestArea(final CoordRect position, final String placeId) {
 		return new MapObject(position, MapObjectType.rest, placeId, null, null, null, null, MapObjectEvaluationType.whenEntering);
 	}
-	public static MapObject createKeyArea(final CoordRect position, final String phraseID, final QuestProgress requireQuestStage) {
-		return new MapObject(position, MapObjectType.keyarea, phraseID, null, null, requireQuestStage, null, MapObjectEvaluationType.whenEntering);
+	public static MapObject createKeyArea(final CoordRect position, final String phraseID, final Requirement enteringRequirement) {
+		return new MapObject(position, MapObjectType.keyarea, phraseID, null, null, enteringRequirement, null, MapObjectEvaluationType.whenEntering);
 	}
 	public static MapObject createContainerArea(final CoordRect position, final DropList dropList) {
 		return new MapObject(position, MapObjectType.container, null, null, null, null, dropList, MapObjectEvaluationType.whenEntering);

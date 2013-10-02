@@ -186,15 +186,29 @@
 				<label for="requireType">Require:</label>
 				<select class="field" id="requireType" ng-model="require.requireType">
 					<option value="questProgress">Quest progress</option>
+					<option value="questLatestProgress">Exact quest progress</option>
 					<option value="inventoryRemove">Inventory &amp; item will be removed</option>
 					<option value="inventoryKeep">Inventory</option>
 					<option value="wear">Worn equipment</option>
 					<option value="skillLevel">Skill level</option>
 					<option value="killedMonster">Killed monster</option>
 					<option value="timerElapsed">Timer elapsed</option>
+					<option value="usedItem">Used items (greater or equals)</option>
+					<option value="spentGold">Gold spent (greater or equals)/option>
+					<option value="consumedBonemeals">Bonemeals consumed (greater or equals)</option>
 				</select>
 			</div>
 			<div ng-show="require.requireType=='questProgress'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Quest ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Stage:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='questLatestProgress'">
 				<div class="fieldWithLabel">
 					<label for="requireID" >Quest ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
@@ -229,6 +243,10 @@
 					<label for="requireID" >Item ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity (optional):</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
 			</div>
 			<div ng-show="require.requireType=='skillLevel'">
 				<div class="fieldWithLabel">
@@ -257,6 +275,28 @@
 				</div>
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Number of rounds:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='usedItem'">
+				<div class="fieldWithLabel">
+					<label for="requireID" >Item ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='spentGold'">
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='consumedBonemeals'">
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
 			</div>

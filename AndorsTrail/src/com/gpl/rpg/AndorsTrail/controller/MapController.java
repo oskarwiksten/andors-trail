@@ -144,7 +144,10 @@ public final class MapController {
 	}
 
 	public boolean canEnterKeyArea(MapObject area) {
-		if (world.model.player.hasExactQuestProgress(area.requireQuestProgress)) return true;
+		if (ConversationController.canFulfillRequirement(world, area.enteringRequirement)) {
+			ConversationController.requirementFulfilled(world, area.enteringRequirement);
+			return true;
+		}
 		worldEventListeners.onPlayerSteppedOnKeyArea(area);
 		return false;
 	}
