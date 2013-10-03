@@ -188,7 +188,8 @@ public final class MapController {
 		if (tileMap.replacements != null) {
 			for(ReplaceableMapSection replacement : tileMap.replacements) {
 				if (replacement.isApplied) continue;
-				if (!satisfiesCondition(replacement.requireQuestStage)) continue;
+				if (!ConversationController.canFulfillRequirement(world, replacement.replacementRequirement)) continue;
+				ConversationController.requirementFulfilled(world, replacement.replacementRequirement);
 				tileMap.applyReplacement(replacement);
 				hasUpdated = true;
 			}
@@ -199,7 +200,8 @@ public final class MapController {
 			for (MapObjectReplace replace : map.eventObjectReplaces) {
 				if (replace.isApplied) continue;
 				if (!replace.isActive) continue;
-				if (!satisfiesCondition(replace.questProgress)) continue;
+				if (!ConversationController.canFulfillRequirement(world, replace.replacementRequirement)) continue;
+				ConversationController.requirementFulfilled(world, replace.replacementRequirement);
 				triggerSpawn.addAll(map.applyObjectReplace(replace));
 				hasUpdated = true;
 			}

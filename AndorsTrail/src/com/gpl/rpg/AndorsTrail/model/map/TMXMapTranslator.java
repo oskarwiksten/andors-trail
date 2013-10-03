@@ -152,40 +152,42 @@ public final class TMXMapTranslator {
 						if (dropList == null) continue;
 						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name));
 					} else if (object.type.equals("replace")) {
-						QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(object.name);
-						if (requireQuestStage == null) {
-							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + " contains replace area at " + topLeft.toString() + " that cannot be parsed as a quest stage.");
-							}
-							continue;
-						}
-						//First pass, to find out spawn strategy
+						Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
+						String requireId = null;
+						int requireValue = 0;
+						//First pass, to find out spawn strategy and Requirement
 						MapObjectReplace.SpawnStrategy strategy = MapObjectReplace.SpawnStrategy.do_nothing;
 						for (TMXProperty p : object.properties) {
-							if ("spawn_strategy".equals(p.name)) {
-								if ("spawn_all_new".equals(p.value)) {
-									strategy = MapObjectReplace.SpawnStrategy.spawn_all_new; 
-								} else if ("clean_up_all".equals(p.value)){
-									strategy = MapObjectReplace.SpawnStrategy.clean_up_all;
-								} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA && !"do_nothing".equals(p.value)) {
-									L.log("OPTIMIZE: Map " + m.name + ", replace object " + object.name + "@" + topLeft.toString() + " uses unkown strategy value \"" + p.name + "\".");
-								}
+							if ("spawnStrategy".equals(p.name)) {
+								strategy = MapObjectReplace.SpawnStrategy.valueOf(p.value);  
+							} else if (p.name.equalsIgnoreCase("requireType")) {
+								requireType = Requirement.RequirementType.valueOf(p.value);
+							} else if (p.name.equalsIgnoreCase("requireId")) {
+								requireId = p.value;
+							} else if (p.name.equalsIgnoreCase("requireValue")) {
+								requireValue = Integer.parseInt(p.value);
 							}
 						}
 
 						for (TMXProperty p : object.properties) {
+							//Ignore the already parsed properties
+							if (p.name.equalsIgnoreCase("spawnStrategy")) continue;
+							if (p.name.equalsIgnoreCase("requireType")) continue;
+							if (p.name.equalsIgnoreCase("requireId")) continue;
+							if (p.name.equalsIgnoreCase("requireValue")) continue;
+								
 							// Do nothing when only graphics layers are impacted. Those will be handled in the map rendering.
-							if (!TMXMapTranslator.isGraphicsMapLayer(p.name) && !"spawn_strategy".equals(p.name)) {
-								mapObjectReplaces.add(new MapObjectReplace(position, p.name, p.value, group.name, strategy, requireQuestStage));
-								//Consider all objects/spawns that are part of a group that is a "replace" target as disabled initially.
-								objectsGroupsToDisable.add(p.value);
-								if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-									if (!objectGroupsNames.contains(p.name)) {
-										L.log("OPTIMIZE: Map " + m.name + ", replace object " + object.name + "@" + topLeft.toString() + " tries to replace unkown Object group \"" + p.name + "\".");
-									}
-									if (!objectGroupsNames.contains(p.value)) {
-										L.log("OPTIMIZE: Map " + m.name + ", replace object " + object.name + "@" + topLeft.toString() + " tries to replace by unkown Object group \"" + p.name + "\".");
-									}
+							if (TMXMapTranslator.isGraphicsMapLayer(p.name) ) continue;
+
+							mapObjectReplaces.add(new MapObjectReplace(position, p.name, p.value, group.name, strategy, new Requirement(requireType, requireId, requireValue)));
+							//Consider all objects/spawns that are part of a group that is a "replace" target as disabled initially.
+							objectsGroupsToDisable.add(p.value);
+							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+								if (!objectGroupsNames.contains(p.name)) {
+									L.log("OPTIMIZE: Map " + m.name + ", replace object " + object.name + "@" + topLeft.toString() + " tries to replace unkown Object group \"" + p.name + "\".");
+								}
+								if (!objectGroupsNames.contains(p.value)) {
+									L.log("OPTIMIZE: Map " + m.name + ", replace object " + object.name + "@" + topLeft.toString() + " tries to replace by unkown Object group \"" + p.name + "\".");
 								}
 							}
 						}
@@ -301,16 +303,31 @@ public final class TMXMapTranslator {
 		for (TMXObjectGroup objectGroup : map.objectGroups) {
 			for(TMXObject obj : objectGroup.objects) {
 				if ("replace".equals(obj.type)) {
+					
+					Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
+					String requireId = null;
+					int requireValue = 0;
+					//First pass, to find out spawn strategy and Requirement
+						
+					
 					final CoordRect position = getTMXObjectPosition(obj, map);
 					SetOfLayerNames layerNames = new SetOfLayerNames();
 					for (TMXProperty prop : obj.properties) {
-						if (prop.name.equalsIgnoreCase(LAYERNAME_GROUND)) layerNames.groundLayerName = prop.value;
+						if ("spawnStrategy".equals(prop.name)) continue;
+						else if (prop.name.equalsIgnoreCase("requireType")) {
+							requireType = Requirement.RequirementType.valueOf(prop.value);
+						} else if (prop.name.equalsIgnoreCase("requireId")) {
+							requireId = prop.value;
+						} else if (prop.name.equalsIgnoreCase("requireValue")) {
+							requireValue = Integer.parseInt(prop.value);
+						} else if (prop.name.equalsIgnoreCase(LAYERNAME_GROUND)) layerNames.groundLayerName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_OBJECTS)) layerNames.objectsLayerName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_ABOVE)) layerNames.aboveLayersName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_WALKABLE)) layerNames.walkableLayersName = prop.value;
 						else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 							L.log("OPTIMIZE: Map " + map.name + " contains replace area with unknown property \"" + prop.name + "\".");
 						}
+						
 					}
 					//Don't create the Replaceable sections if this replace has no graphics impacts.
 					if (layerNames.aboveLayersName != null 
@@ -318,14 +335,7 @@ public final class TMXMapTranslator {
 							|| layerNames.objectsLayerName != null
 							|| layerNames.walkableLayersName != null) {
 						MapSection replacementSection = transformMapSection(map, tileCache, position, layersPerLayerName, usedTileIDs, layerNames);
-						QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(obj.name);
-						if (requireQuestStage == null) {
-							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("WARNING: Map " + map.name + " contains replace area that cannot be parsed as a quest stage.");
-							}
-							continue;
-						}
-						replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requireQuestStage));
+						replaceableSections.add(new ReplaceableMapSection(position, replacementSection, new Requirement(requireType, requireId, requireValue)));
 					}
 				}
 			}
