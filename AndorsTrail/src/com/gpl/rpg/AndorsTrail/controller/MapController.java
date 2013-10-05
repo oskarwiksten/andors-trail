@@ -225,10 +225,6 @@ public final class MapController {
 		return hasUpdated;
 	}
 
-	public boolean satisfiesCondition(QuestProgress requireQuestStage) {
-		return world.model.player.hasExactQuestProgress(requireQuestStage);
-	}
-
 	private final ConversationController.ConversationStatemachine.ConversationStateListener conversationStateListener = new ConversationController.ConversationStatemachine.ConversationStateListener() {
 		@Override
 		public void onTextPhraseReached(String message, Actor actor, String phraseID) {

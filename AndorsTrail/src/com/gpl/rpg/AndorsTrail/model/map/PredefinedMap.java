@@ -290,14 +290,14 @@ public final class PredefinedMap {
 			if (area.group.equals(replace.sourceGroup)) {
 				area.isActive = false;
 				//This strategy requires immediate deletion of all monsters.
-				if (replace.strategy.equals(MapObjectReplace.SpawnStrategy.clean_up_all)) {
+				if (replace.strategy.equals(MapObjectReplace.SpawnStrategy.cleanUpAll)) {
 					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
 					triggerSpawn.add(area);
 				}
 			} else if (area.group.equals(replace.targetGroup)) {
 				area.isActive = true;
 				//Both other strategies require auto-spawning all monsters in the area.
-				if (!replace.strategy.equals(MapObjectReplace.SpawnStrategy.do_nothing)) {
+				if (!replace.strategy.equals(MapObjectReplace.SpawnStrategy.doNothing)) {
 					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
 					triggerSpawn.add(area);
 				}

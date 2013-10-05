@@ -1,15 +1,14 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 
 public final class MapObjectReplace {
 
 	public static enum SpawnStrategy {
-		do_nothing,
-		spawn_all_new,
-		clean_up_all
+		doNothing,
+		spawnAllNew,
+		cleanUpAll
 	}
 	
 	public final CoordRect position;

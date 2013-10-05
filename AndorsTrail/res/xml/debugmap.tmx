@@ -215,10 +215,13 @@
  <objectgroup name="Replace_spawns" width="10" height="10">
   <object name="debugquest:10" type="replace" x="96" y="128" width="224" height="192">
    <properties>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireId" value="debugquest"/>
+    <property name="requireValue" value="10"/>
     <property name="Ground" value="Ground_replace"/>
     <property name="Objects" value="Objects_replace"/>
     <property name="Spawn" value="Spawn_replacements"/>
-    <property name="spawn_strategy" value="clean_up_all"/>
+    <property name="spawnStrategy" value="cleanUpAll"/>
    </properties>
   </object>
  </objectgroup>

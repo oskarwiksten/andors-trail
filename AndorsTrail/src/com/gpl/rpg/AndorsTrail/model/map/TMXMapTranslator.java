@@ -1,22 +1,35 @@
 package com.gpl.rpg.AndorsTrail.model.map;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.HashSet;
+
 import android.content.res.Resources;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterType;
 import com.gpl.rpg.AndorsTrail.model.actor.MonsterTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
-import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.*;
-import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXLayer;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXLayerMap;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXMap;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObject;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObjectGroup;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXObjectMap;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXProperty;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.TMXTileSet;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
-import com.gpl.rpg.AndorsTrail.model.script.Requirement.RequirementType;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ResourceParserUtils;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
-import com.gpl.rpg.AndorsTrail.util.*;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.*;
+import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.CoordRect;
+import com.gpl.rpg.AndorsTrail.util.L;
+import com.gpl.rpg.AndorsTrail.util.Range;
+import com.gpl.rpg.AndorsTrail.util.Size;
 
 public final class TMXMapTranslator {
 	private final ArrayList<TMXObjectMap> maps = new ArrayList<TMXObjectMap>();
@@ -152,34 +165,25 @@ public final class TMXMapTranslator {
 						if (dropList == null) continue;
 						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name));
 					} else if (object.type.equals("replace")) {
-						Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
-						String requireId = null;
-						int requireValue = 0;
-						//First pass, to find out spawn strategy and Requirement
-						MapObjectReplace.SpawnStrategy strategy = MapObjectReplace.SpawnStrategy.do_nothing;
+						//Externalized as used twice.
+						Requirement requirement = parseRequirement(object);
+						//First pass, to find out spawn strategy
+						MapObjectReplace.SpawnStrategy strategy = MapObjectReplace.SpawnStrategy.doNothing;
 						for (TMXProperty p : object.properties) {
 							if ("spawnStrategy".equals(p.name)) {
 								strategy = MapObjectReplace.SpawnStrategy.valueOf(p.value);  
-							} else if (p.name.equalsIgnoreCase("requireType")) {
-								requireType = Requirement.RequirementType.valueOf(p.value);
-							} else if (p.name.equalsIgnoreCase("requireId")) {
-								requireId = p.value;
-							} else if (p.name.equalsIgnoreCase("requireValue")) {
-								requireValue = Integer.parseInt(p.value);
 							}
 						}
 
 						for (TMXProperty p : object.properties) {
 							//Ignore the already parsed properties
 							if (p.name.equalsIgnoreCase("spawnStrategy")) continue;
-							if (p.name.equalsIgnoreCase("requireType")) continue;
-							if (p.name.equalsIgnoreCase("requireId")) continue;
-							if (p.name.equalsIgnoreCase("requireValue")) continue;
+							if (isRequirementProperty(p)) continue;
 								
 							// Do nothing when only graphics layers are impacted. Those will be handled in the map rendering.
 							if (TMXMapTranslator.isGraphicsMapLayer(p.name) ) continue;
 
-							mapObjectReplaces.add(new MapObjectReplace(position, p.name, p.value, group.name, strategy, new Requirement(requireType, requireId, requireValue)));
+							mapObjectReplaces.add(new MapObjectReplace(position, p.name, p.value, group.name, strategy, requirement));
 							//Consider all objects/spawns that are part of a group that is a "replace" target as disabled initially.
 							objectsGroupsToDisable.add(p.value);
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -298,33 +302,33 @@ public final class TMXMapTranslator {
 				layersPerLayerName,
 				usedTileIDs,
 				defaultLayerNames);
-
+		
+		ArrayList<String> objectGroupsNames = null;
+		//Just used for logging unknown properties.
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			objectGroupsNames = new ArrayList<String>();
+			for (TMXObjectGroup group : map.objectGroups) {
+				objectGroupsNames.add(group.name);
+			}
+		}
+		
 		ArrayList<ReplaceableMapSection> replaceableSections = new ArrayList<ReplaceableMapSection>();
 		for (TMXObjectGroup objectGroup : map.objectGroups) {
 			for(TMXObject obj : objectGroup.objects) {
 				if ("replace".equals(obj.type)) {
-					
-					Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
-					String requireId = null;
-					int requireValue = 0;
-					//First pass, to find out spawn strategy and Requirement
-						
-					
+					Requirement requirement = parseRequirement(obj);
+
 					final CoordRect position = getTMXObjectPosition(obj, map);
 					SetOfLayerNames layerNames = new SetOfLayerNames();
 					for (TMXProperty prop : obj.properties) {
 						if ("spawnStrategy".equals(prop.name)) continue;
-						else if (prop.name.equalsIgnoreCase("requireType")) {
-							requireType = Requirement.RequirementType.valueOf(prop.value);
-						} else if (prop.name.equalsIgnoreCase("requireId")) {
-							requireId = prop.value;
-						} else if (prop.name.equalsIgnoreCase("requireValue")) {
-							requireValue = Integer.parseInt(prop.value);
-						} else if (prop.name.equalsIgnoreCase(LAYERNAME_GROUND)) layerNames.groundLayerName = prop.value;
+						if (isRequirementProperty(prop)) continue;
+						else if (prop.name.equalsIgnoreCase(LAYERNAME_GROUND)) layerNames.groundLayerName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_OBJECTS)) layerNames.objectsLayerName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_ABOVE)) layerNames.aboveLayersName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_WALKABLE)) layerNames.walkableLayersName = prop.value;
 						else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+							if (objectGroupsNames.contains(prop.name)) continue;
 							L.log("OPTIMIZE: Map " + map.name + " contains replace area with unknown property \"" + prop.name + "\".");
 						}
 						
@@ -335,7 +339,7 @@ public final class TMXMapTranslator {
 							|| layerNames.objectsLayerName != null
 							|| layerNames.walkableLayersName != null) {
 						MapSection replacementSection = transformMapSection(map, tileCache, position, layersPerLayerName, usedTileIDs, layerNames);
-						replaceableSections.add(new ReplaceableMapSection(position, replacementSection, new Requirement(requireType, requireId, requireValue)));
+						replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requirement));
 					}
 				}
 			}
@@ -348,6 +352,31 @@ public final class TMXMapTranslator {
 		return new LayeredTileMap(mapSize, defaultLayout, replaceableSections_, colorFilter, usedTileIDs);
 	}
 
+	private static Requirement parseRequirement(TMXObject object) {
+		Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
+		String requireId = null;
+		int requireValue = 0;
+			
+		for (TMXProperty prop : object.properties) {
+			if (prop.name.equalsIgnoreCase("requireType")) {
+				requireType = Requirement.RequirementType.valueOf(prop.value);
+			} else if (prop.name.equalsIgnoreCase("requireId")) {
+				requireId = prop.value;
+			} else if (prop.name.equalsIgnoreCase("requireValue")) {
+				requireValue = Integer.parseInt(prop.value);
+			}
+		}
+		
+		return new Requirement(requireType, requireId, requireValue);
+	}
+	
+	private static boolean isRequirementProperty(TMXProperty prop) {
+		if (prop.name.equalsIgnoreCase("requireType")) return true;
+		if (prop.name.equalsIgnoreCase("requireId")) return true;
+		if (prop.name.equalsIgnoreCase("requireValue")) return true;
+		return false;
+	}
+	
 	private static MapSection transformMapSection(
 			TMXLayerMap srcMap,
 			TileCache tileCache,
