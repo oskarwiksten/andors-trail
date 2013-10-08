@@ -58,10 +58,19 @@ public final class Dialogs {
 		showConversation(currentActivity, context, phraseID, null);
 	}
 
+	public static void showMapScriptMessage(final MainActivity currentActivity, final ControllerContext context, String phraseID) {
+		showConversation(currentActivity, context, phraseID, null, false);
+	}
+
 	public static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc) {
+		showConversation(currentActivity, context, phraseID, npc, true);
+	}
+
+	private static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc, boolean giveRewardsForFirstPhrase) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID));
+		intent.putExtra("giveRewardsForFirstPhrase", giveRewardsForFirstPhrase);
 		addMonsterIdentifiers(intent, npc);
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
 	}

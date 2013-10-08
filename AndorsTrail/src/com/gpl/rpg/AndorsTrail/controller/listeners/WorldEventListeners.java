@@ -13,6 +13,10 @@ public final class WorldEventListeners extends ListOfListeners<WorldEventListene
 		@Override public void call(WorldEventListener listener, Monster m, String phraseID) { listener.onPlayerStartedConversation(m, phraseID); }
 	};
 
+	private final Function1<WorldEventListener, String> onScriptAreaStartedConversation = new Function1<WorldEventListener, String>() {
+		@Override public void call(WorldEventListener listener, String phraseID) { listener.onScriptAreaStartedConversation(phraseID); }
+	};
+
 	private final Function1<WorldEventListener, Monster> onPlayerSteppedOnMonster = new Function1<WorldEventListener, Monster>() {
 		@Override public void call(WorldEventListener listener, Monster m) { listener.onPlayerSteppedOnMonster(m); }
 	};
@@ -56,6 +60,11 @@ public final class WorldEventListeners extends ListOfListeners<WorldEventListene
 	@Override
 	public void onPlayerStartedConversation(Monster m, String phraseID) {
 		callAllListeners(this.onPlayerStartedConversation, m, phraseID);
+	}
+
+	@Override
+	public void onScriptAreaStartedConversation(String phraseID) {
+		callAllListeners(this.onScriptAreaStartedConversation, phraseID);
 	}
 
 	@Override

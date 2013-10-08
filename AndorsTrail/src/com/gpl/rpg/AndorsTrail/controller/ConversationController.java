@@ -4,6 +4,7 @@ import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.GameStatistics;
 import com.gpl.rpg.AndorsTrail.model.ability.*;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
@@ -13,7 +14,9 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
+import com.gpl.rpg.AndorsTrail.util.L;
 
 import java.util.ArrayList;
 
@@ -63,7 +66,13 @@ public final class ConversationController {
 				addQuestProgressReward(player, reward.rewardID, reward.value, result);
 				break;
 			case alignmentChange:
-				player.addAlignment(reward.rewardID, reward.value);
+				addAlignmentReward(player, reward.rewardID, reward.value);
+				break;
+			case giveItem:
+				addItemReward(reward.rewardID, reward.value, result);
+				break;
+			case createTimer:
+				world.model.worldData.createTimer(reward.rewardID);
 				break;
 			}
 		}
@@ -76,20 +85,28 @@ public final class ConversationController {
 		return result;
 	}
 
+	private void addAlignmentReward(Player player, String faction, int delta) {
+		player.addAlignment(faction, delta);
+		MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
+	}
+
 	private void addQuestProgressReward(Player player, String questID, int questProgress, PhraseRewards result) {
 		QuestProgress progress = new QuestProgress(questID, questProgress);
 		boolean added = player.addQuestProgress(progress);
 		if (!added) return; // Only apply exp reward if the quest stage was reached just now (and not re-reached)
 
 		QuestLogEntry stage = world.quests.getQuestLogEntry(progress);
-		if (stage != null) {
-			result.loot.exp += stage.rewardExperience;
-			result.questProgress.add(progress);
-		}
+		if (stage == null) return;
+		result.loot.exp += stage.rewardExperience;
+		result.questProgress.add(progress);
 	}
 
 	private void addDropListReward(Player player, String droplistID, PhraseRewards result) {
 		world.dropLists.getDropList(droplistID).createRandomLoot(result.loot, player);
+	}
+
+	private void addItemReward(String itemTypeID, int quantity, PhraseRewards result) {
+		result.loot.add(world.itemTypes.getItemType(itemTypeID), quantity);
 	}
 
 	private void addSkillReward(Player player, SkillCollection.SkillID skillID, PhraseRewards result) {
@@ -112,17 +129,11 @@ public final class ConversationController {
 		result.actorConditions.add(e);
 	}
 
-	private static void applyReplyEffect(final Player player, final Reply reply) {
+	private static void applyReplyEffect(final WorldContext world, final Reply reply) {
 		if (!reply.hasRequirements()) return;
 
 		for (Requirement requirement : reply.requires) {
-			if (requirement.requireType == Requirement.RequirementType.inventoryRemove) {
-				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
-					player.inventory.gold -= requirement.value;
-				} else {
-					player.inventory.removeItem(requirement.requireID, requirement.value);
-				}
-			}
+			requirementFulfilled(world, requirement);
 		}
 	}
 
@@ -130,18 +141,21 @@ public final class ConversationController {
 		if (!reply.hasRequirements()) return true;
 
 		for (Requirement requirement : reply.requires) {
-			if (!playerSatisfiesRequirement(world, requirement)) return false;
+			if (!canFulfillRequirement(world, requirement)) return false;
 		}
 		return true;
 	}
 
-	private static boolean playerSatisfiesRequirement(final WorldContext world, final Requirement requirement) {
+	public static boolean canFulfillRequirement(WorldContext world, Requirement requirement) {
 		Player player = world.model.player;
+		GameStatistics stats = world.model.statistics;
 		switch (requirement.requireType) {
 			case questProgress:
 				return player.hasExactQuestProgress(requirement.requireID, requirement.value);
+			case questLatestProgress:
+				return player.isLatestQuestProgress(requirement.requireID, requirement.value);
 			case wear:
-				return player.inventory.isWearing(requirement.requireID);
+				return player.inventory.isWearing(requirement.requireID, requirement.value);
 			case inventoryKeep:
 			case inventoryRemove:
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
@@ -152,9 +166,30 @@ public final class ConversationController {
 			case skillLevel:
 				return player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
 			case killedMonster:
-				return world.model.statistics.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
+				return stats.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
+			case timerElapsed:
+				return world.model.worldData.hasTimerElapsed(requirement.requireID, requirement.value);
+			case usedItem:
+				return stats.getNumberOfTimesItemHasBeenUsed(requirement.requireID) >= requirement.value;
+			case spentGold:
+				return stats.getSpentGold() >= requirement.value;
+			case consumedBonemeals:
+				return stats.getNumberOfUsedBonemealPotions() >= requirement.value;
 			default:
 				return true;
+		}
+	}
+
+	public static void requirementFulfilled(WorldContext world, Requirement requirement) {
+		Player p = world.model.player;
+		switch (requirement.requireType) {
+			case inventoryRemove:
+				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
+					p.inventory.gold -= requirement.value;
+					world.model.statistics.addGoldSpent(requirement.value);
+				} else {
+					p.inventory.removeItem(requirement.requireID, requirement.value);
+				}
 		}
 	}
 
@@ -169,17 +204,15 @@ public final class ConversationController {
 		private final WorldContext world;
 		private final ControllerContext controllers;
 		private final Player player;
-		private final Resources res;
 		private String phraseID;
 		private Phrase currentPhrase;
 		private Monster npc;
 		public ConversationStateListener listener;
 
-		public ConversationStatemachine(WorldContext world, ControllerContext controllers, Resources res, ConversationStateListener listener) {
+		public ConversationStatemachine(WorldContext world, ControllerContext controllers, ConversationStateListener listener) {
 			this.world = world;
 			this.player = world.model.player;
 			this.controllers = controllers;
-			this.res = res;
 			this.listener = listener;
 		}
 
@@ -187,17 +220,17 @@ public final class ConversationController {
 		public Monster getCurrentNPC() { return npc; }
 		public String getCurrentPhraseID() { return phraseID; }
 
-		public void playerSelectedReply(Reply r) {
-			applyReplyEffect(player, r);
-			proceedToPhrase(r.nextPhrase);
+		public void playerSelectedReply(final Resources res, Reply r) {
+			applyReplyEffect(world, r);
+			proceedToPhrase(res, r.nextPhrase, true, true);
 		}
 
-		public void playerSelectedNextStep() {
-			playerSelectedReply(currentPhrase.replies[0]);
+		public void playerSelectedNextStep(final Resources res) {
+			playerSelectedReply(res, currentPhrase.replies[0]);
 		}
 
 		public interface ConversationStateListener {
-			void onTextPhraseReached(String message, Actor actor);
+			void onTextPhraseReached(String message, Actor actor, String phraseID);
 			void onConversationEnded();
 			void onConversationEndedWithShop(Monster npc);
 			void onConversationEndedWithCombat(Monster npc);
@@ -207,7 +240,7 @@ public final class ConversationController {
 			void onConversationHasReply(Reply r, String message);
 		}
 
-		private void setCurrentPhrase(String phraseID) {
+		private void setCurrentPhrase(final Resources res, String phraseID) {
 			this.phraseID = phraseID;
 			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
@@ -218,7 +251,7 @@ public final class ConversationController {
 			}
 		}
 
-		public void proceedToPhrase(String phraseID) {
+		public void proceedToPhrase(final Resources res, String phraseID, boolean giveRewards, boolean displayPhraseMessage) {
 			if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
 				listener.onConversationEnded();
 				return;
@@ -233,41 +266,27 @@ public final class ConversationController {
 				return;
 			}
 
-			setCurrentPhrase(phraseID);
+			setCurrentPhrase(res, phraseID);
 
-			ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
-			if (phraseRewards != null) {
-				listener.onPlayerReceivedRewards(phraseRewards);
+			if (giveRewards) {
+				ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
+				if (phraseRewards != null) {
+					listener.onPlayerReceivedRewards(phraseRewards);
+				}
 			}
 
 			if (currentPhrase.message == null) {
 				for (Reply r : currentPhrase.replies) {
 					if (!canSelectReply(world, r)) continue;
-					applyReplyEffect(player, r);
-					proceedToPhrase(r.nextPhrase);
+					applyReplyEffect(world, r);
+					proceedToPhrase(res, r.nextPhrase, giveRewards, displayPhraseMessage);
 					return;
 				}
+			} else if (displayPhraseMessage) {
+				String message = getDisplayMessage(currentPhrase, player);
+				listener.onTextPhraseReached(message, npc, phraseID);
 			}
 
-			String message = getDisplayMessage(currentPhrase, player);
-			listener.onTextPhraseReached(message, npc);
-
-			requestReplies();
-		}
-
-		private void endConversationWithRemovingNPC() {
-			controllers.monsterSpawnController.remove(world.model.currentMap, npc);
-			listener.onConversationEndedWithRemoval(npc);
-		}
-
-		private void endConversationWithCombat() {
-			npc.forceAggressive();
-			controllers.combatController.setCombatSelection(npc);
-			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
-			listener.onConversationEndedWithCombat(npc);
-		}
-
-		private void requestReplies() {
 			if (hasOnlyOneNextReply()) {
 				listener.onConversationCanProceedWithNext();
 				return;
@@ -279,9 +298,26 @@ public final class ConversationController {
 			}
 		}
 
-		public void proceedToRestoredState(String phraseID) {
-			setCurrentPhrase(phraseID);
-			requestReplies();
+		private void endConversationWithRemovingNPC() {
+			if (npc == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("Tried to remove NPC from conversation without having a valid npc target!");
+				listener.onConversationEnded();
+				return;
+			}
+			controllers.monsterSpawnController.remove(world.model.currentMap, npc);
+			listener.onConversationEndedWithRemoval(npc);
+		}
+
+		private void endConversationWithCombat() {
+			if (npc == null) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("Tried to enter combat from conversation without having a valid npc target!");
+				listener.onConversationEnded();
+				return;
+			}
+			npc.forceAggressive();
+			controllers.combatController.setCombatSelection(npc);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);
+			listener.onConversationEndedWithCombat(npc);
 		}
 
 		public boolean hasOnlyOneNextReply() {

@@ -150,9 +150,12 @@
   </object>
  </objectgroup>
  <objectgroup name="keys" width="10" height="8">
-  <object name="crossglen_smith:0" type="key" x="160" y="96" width="32" height="32">
+  <object name="nondisplay:5" type="key" x="160" y="96" width="32" height="32">
    <properties>
     <property name="phrase" value="keyarea_crossglen_smith"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireId" value="nondisplay"/>
+    <property name="requireValue" value="5"/>
    </properties>
   </object>
  </objectgroup>

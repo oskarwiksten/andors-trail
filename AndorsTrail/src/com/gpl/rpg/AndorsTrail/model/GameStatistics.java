@@ -118,6 +118,11 @@ public final class GameStatistics {
 		return result;
 	}
 
+	public int getNumberOfTimesItemHasBeenUsed(String itemId) {
+		if (!usedItems.containsKey(itemId)) return 0;
+		return usedItems.get(itemId);
+	}
+
 	public int getNumberOfKilledMonsters() {
 		int result = 0;
 		for (int v : killedMonsters.values()) result += v;

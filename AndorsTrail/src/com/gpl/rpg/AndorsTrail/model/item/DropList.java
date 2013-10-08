@@ -20,13 +20,7 @@ public final class DropList {
 				final int quantityRollBias = SkillController.getDropQuantityRollBias(item, player);
 				int quantity = Constants.rollValue(item.quantity, quantityRollBias);
 
-				if (quantity != 0) {
-					if (ItemTypeCollection.isGoldItemType(item.itemType.id)) {
-						loot.gold += quantity;
-					} else {
-						loot.items.addItem(item.itemType, quantity);
-					}
-				}
+				loot.add(item.itemType, quantity);
 			}
 		}
 	}

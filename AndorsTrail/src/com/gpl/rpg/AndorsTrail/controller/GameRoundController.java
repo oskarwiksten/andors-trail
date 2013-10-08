@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.controller;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.GameRoundListeners;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
 public final class GameRoundController implements TimedMessageTask.Callback {
@@ -79,8 +80,10 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		gameRoundListeners.onNewRound();
 	}
 	public void onNewPlayerRound() {
+		world.model.worldData.tickWorldTime();
 		controllers.actorStatsController.applyConditionsToPlayer(world.model.player, false);
 		controllers.actorStatsController.applySkillEffectsForNewRound(world.model.player, world.model.currentMap);
+		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.position, MapObject.MapObjectEvaluationType.afterEveryRound);
 	}
 	public void onNewMonsterRound() {
 		controllers.actorStatsController.applyConditionsToMonsters(world.model.currentMap, false);
@@ -91,6 +94,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		controllers.monsterSpawnController.maybeSpawn(world.model.currentMap, world.model.currentTileMap);
 		controllers.monsterMovementController.attackWithAgressiveMonsters();
 		controllers.effectController.updateSplatters(world.model.currentMap);
+		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.position, MapObject.MapObjectEvaluationType.continuously);
 		gameRoundListeners.onNewTick();
 	}
 }

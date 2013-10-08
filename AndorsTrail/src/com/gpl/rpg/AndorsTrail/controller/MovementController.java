@@ -96,6 +96,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 		controllers.mapController.applyCurrentMapReplacements(res, false);
+		controllers.mapController.prepareScriptsOnCurrentMap();
 		newMap.visited = true;
 		newMap.updateLastVisitTime();
 		moveBlockedActors(newMap, model.currentTileMap);
@@ -120,7 +121,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			return;
 		}
 
-		moveToNextIfPossible(true);
+		moveToNextIfPossible();
 	}
 
 	private boolean findWalkablePosition(int dx, int dy) {
@@ -206,7 +207,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		else return -v;
 	}
 
-	public void moveToNextIfPossible(boolean handleEvents) {
+	public void moveToNextIfPossible() {
 		final Player player = world.model.player;
 		final PredefinedMap currentMap = world.model.currentMap;
 		final Coord newPosition = player.nextPosition;
@@ -224,14 +225,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 		controllers.combatController.setCombatSelection(null, null);
 		playerMovementListeners.onPlayerMoved(newPosition, player.lastPosition);
 
-		if (handleEvents) {
-			MapObject o = currentMap.getEventObjectAt(newPosition);
-			if (o != null) {
-				if (!o.position.contains(player.lastPosition)) { // Do not trigger event if the player already was on the same MapObject before.
-					controllers.mapController.handleMapEvent(o, newPosition);
-				}
-			}
+		controllers.mapController.handleMapEventsAfterMovement(currentMap, newPosition, player.lastPosition);
 
+		if (!world.model.uiSelections.isInCombat) {
 			Loot loot = currentMap.getBagAt(newPosition);
 			if (loot != null) controllers.itemController.playerSteppedOnLootBag(loot);
 		}

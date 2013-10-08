@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.model.conversation;
 
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
+
 public final class Reply {
 	public final String text;
 	public final String nextPhrase;

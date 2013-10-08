@@ -8,6 +8,9 @@ import com.gpl.rpg.AndorsTrail.model.item.DropList;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.*;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement;
+import com.gpl.rpg.AndorsTrail.model.script.Requirement.RequirementType;
+import com.gpl.rpg.AndorsTrail.resource.parsers.ResourceParserUtils;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
 import com.gpl.rpg.AndorsTrail.util.*;
 
@@ -71,7 +74,7 @@ public final class TMXMapTranslator {
 							else if(p.name.equalsIgnoreCase("place")) place = p.value;
 							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createNewMapEvent(position, object.name, map, place));
+						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
 						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
 						int maxQuantity = 1;
@@ -113,31 +116,53 @@ public final class TMXMapTranslator {
 						);
 						spawnAreas.add(area);
 					} else if (object.type.equalsIgnoreCase("key")) {
-						QuestProgress requireQuestStage = QuestProgress.parseQuestProgress(object.name);
-						if (requireQuestStage == null) {
-							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-								L.log("OPTIMIZE: Map " + m.name + " contains key area at " + topLeft.toString() + " that cannot be parsed as a quest stage.");
-							}
-							continue;
-						}
+						Requirement.RequirementType requireType = Requirement.RequirementType.questProgress;
+						String requireId = null;
+						int requireValue = 0;
 						String phraseID = "";
 						for (TMXProperty p : object.properties) {
 							if (p.name.equalsIgnoreCase("phrase")) {
 								phraseID = p.value;
+							} else if (p.name.equalsIgnoreCase("requireType")) {
+								requireType = Requirement.RequirementType.valueOf(p.value);
+							} else if (p.name.equalsIgnoreCase("requireId")) {
+								requireId = p.value;
+							} else if (p.name.equalsIgnoreCase("requireValue")) {
+								requireValue = Integer.parseInt(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-
-						mapObjects.add(MapObject.createNewKeyArea(position, phraseID, requireQuestStage));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue)));
 					} else if (object.type.equals("rest")) {
-						mapObjects.add(MapObject.createNewRest(position, object.name));
+						mapObjects.add(MapObject.createRestArea(position, object.name));
 					} else if (object.type.equals("container")) {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;
-						mapObjects.add(MapObject.createNewContainerArea(position, dropList));
+						mapObjects.add(MapObject.createContainerArea(position, dropList));
 					} else if (object.type.equals("replace")) {
 						// Do nothing. Will be handled when reading map layers instead.
+					} else if (object.type.equalsIgnoreCase("script")) {
+						String phraseID = object.name;
+						MapObject.MapObjectEvaluationType evaluateWhen = MapObject.MapObjectEvaluationType.whenEntering;
+						for (TMXProperty p : object.properties) {
+							if (p.name.equalsIgnoreCase("when")) {
+								if (p.value.equalsIgnoreCase("enter")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.whenEntering;
+								} else if (p.value.equalsIgnoreCase("step")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.onEveryStep;
+								} else if (p.value.equalsIgnoreCase("round")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.afterEveryRound;
+								} else if (p.value.equalsIgnoreCase("always")) {
+									evaluateWhen = MapObject.MapObjectEvaluationType.continuously;
+								} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+									L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized value for \"when\" property: \"" + p.value + "\".");
+								}
+							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+								L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
+							}
+						}
+						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}
