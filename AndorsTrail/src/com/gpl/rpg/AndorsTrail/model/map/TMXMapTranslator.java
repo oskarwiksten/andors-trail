@@ -303,14 +303,12 @@ public final class TMXMapTranslator {
 				usedTileIDs,
 				defaultLayerNames);
 		
-		ArrayList<String> objectGroupsNames = null;
-		//Just used for logging unknown properties.
-		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-			objectGroupsNames = new ArrayList<String>();
-			for (TMXObjectGroup group : map.objectGroups) {
-				objectGroupsNames.add(group.name);
-			}
+		ArrayList<String> objectGroupsNames = new ArrayList<String>();
+		for (TMXObjectGroup group : map.objectGroups) {
+			objectGroupsNames.add(group.name);
 		}
+		
+		ArrayList<String> replacementsToDisable = new ArrayList<String>();
 		
 		ArrayList<ReplaceableMapSection> replaceableSections = new ArrayList<ReplaceableMapSection>();
 		for (TMXObjectGroup objectGroup : map.objectGroups) {
@@ -327,8 +325,8 @@ public final class TMXMapTranslator {
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_OBJECTS)) layerNames.objectsLayerName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_ABOVE)) layerNames.aboveLayersName = prop.value;
 						else if (prop.name.equalsIgnoreCase(LAYERNAME_WALKABLE)) layerNames.walkableLayersName = prop.value;
+						else if (objectGroupsNames.contains(prop.name)) replacementsToDisable.add(prop.value);
 						else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
-							if (objectGroupsNames.contains(prop.name)) continue;
 							L.log("OPTIMIZE: Map " + map.name + " contains replace area with unknown property \"" + prop.name + "\".");
 						}
 						
@@ -339,10 +337,16 @@ public final class TMXMapTranslator {
 							|| layerNames.objectsLayerName != null
 							|| layerNames.walkableLayersName != null) {
 						MapSection replacementSection = transformMapSection(map, tileCache, position, layersPerLayerName, usedTileIDs, layerNames);
-						replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requirement));
+						replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requirement, objectGroup.name));
 					}
 				}
 			}
+		}
+		
+		//Disable map replacements that are part of another replace's target groups
+		for (ReplaceableMapSection replacement : replaceableSections) {
+			if (!replacementsToDisable.contains(replacement.group)) continue;
+			replacement.isActive = false;
 		}
 
 		ReplaceableMapSection[] replaceableSections_ = null;

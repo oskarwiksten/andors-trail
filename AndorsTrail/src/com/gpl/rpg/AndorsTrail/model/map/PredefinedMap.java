@@ -282,23 +282,33 @@ public final class PredefinedMap {
 			}
 		}
 		
+
+		for (MapObjectReplace obj : eventObjectReplaces) {
+			if (!replace.position.contains(obj.position)) continue;
+			if (obj.group.equals(replace.sourceGroup)) {
+				obj.isActive = false;
+				obj.isApplied = false; //Once disabled, cannot be considered as applied anymore.
+			} else if (obj.group.equals(replace.targetGroup)) {
+				obj.isActive = true;
+				obj.isApplied = false;
+			}
+		}
+		
 		// MonsterSpawnAreas added to this list are marked as needing a full clean up (Spawn, or reset). 
 		// This depends on the replace strategy.
-		List<MonsterSpawnArea> triggerSpawn = null;
+		List<MonsterSpawnArea> triggerSpawn =  new ArrayList<MonsterSpawnArea>();;
 		for (MonsterSpawnArea area : spawnAreas) {
 			if (!replace.position.contains(area.area)) continue;
 			if (area.group.equals(replace.sourceGroup)) {
 				area.isActive = false;
 				//This strategy requires immediate deletion of all monsters.
 				if (replace.strategy.equals(MapObjectReplace.SpawnStrategy.cleanUpAll)) {
-					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
 					triggerSpawn.add(area);
 				}
 			} else if (area.group.equals(replace.targetGroup)) {
 				area.isActive = true;
 				//Both other strategies require auto-spawning all monsters in the area.
 				if (!replace.strategy.equals(MapObjectReplace.SpawnStrategy.doNothing)) {
-					if (triggerSpawn == null) triggerSpawn = new ArrayList<MonsterSpawnArea>();
 					triggerSpawn.add(area);
 				}
 			}

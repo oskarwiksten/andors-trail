@@ -181,5 +181,120 @@
       }
     ],
     "message": "Sorry. You already spent 100 gold..."
+  },
+  {
+    "id": "fireplace_off_use",
+    "replies": [
+      {
+        "requires": [
+          {
+            "requireType": "inventoryRemove",
+            "requireID": "wood",
+            "value": 3
+          }
+        ],
+        "text": "Light it up (costs 3 Wood)",
+        "nextPhraseID": "fireplace_off_light_up"
+      },
+      {
+        "text": "Too bad.",
+        "nextPhraseID": "X"
+      }
+    ],
+    "message": "The fireplace is not lit."
+  },
+  {
+    "id": "fireplace_off_light_up",
+    "rewards": [
+      {
+        "rewardType": "createTimer",
+        "rewardID": "fireplace_lit"
+      }
+    ],
+    "message": "It won't last long."
+  },
+  {
+    "id": "fireplace_burning",
+    "replies": [
+      {
+        "requires": [
+          {
+            "requireType": "inventoryRemove",
+            "requireID": "raw_meat",
+            "value": 1
+          }
+        ],
+        "text": "I'll cook one piece of meat",
+        "nextPhraseID": "fireplace_burning_cook_1"
+      },
+      {
+        "requires": [
+          {
+            "requireType": "inventoryRemove",
+            "requireID": "raw_meat",
+            "value": 5
+          }
+        ],
+        "text": "I'll cook 5 pieces of meat",
+        "nextPhraseID": "fireplace_burning_cook_5"
+      }
+    ],
+    "message": "The fireplace is burning. You can cook your meat here."
+  },
+  {
+    "id": "fireplace_burning_cook_1",
+    "rewards": [
+      {
+        "rewardType": "giveItem",
+        "rewardID": "cooked_meat",
+        "value": 1
+      }
+    ],
+    "replies": [
+      {
+        "text": "N",
+        "nextPhraseID": "X"
+      }
+    ],
+    "message": "You cooked it well !"
+  },
+  {
+    "id": "fireplace_burning_cook_5",
+    "rewards": [
+      {
+        "rewardType": "giveItem",
+        "rewardID": "cooked_meat",
+        "value": 5
+      }
+    ],
+    "replies": [
+      {
+        "text": "N",
+        "nextPhraseID": "X"
+      }
+    ],
+    "message": "Well cooked chef !"
+  },
+  {
+    "id": "get_wood",
+    "rewards": [
+      {
+        "rewardType": "giveItem",
+        "rewardID": "wood",
+        "value": 5
+      }
+    ],
+    "message": "Here is 5 wood"
+  },
+  {
+    "id": "get_meat",
+    "rewards": [
+      {
+        "rewardType": "giveItem",
+        "rewardID": "raw_meat",
+        "value": 5
+      }
+    ],
+    "message": "Here is 5 raw meat"
   }
 ]

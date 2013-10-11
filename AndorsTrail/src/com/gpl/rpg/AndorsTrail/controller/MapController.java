@@ -188,6 +188,7 @@ public final class MapController {
 		if (tileMap.replacements != null) {
 			for(ReplaceableMapSection replacement : tileMap.replacements) {
 				if (replacement.isApplied) continue;
+				if (!replacement.isActive) continue;
 				if (!ConversationController.canFulfillRequirement(world, replacement.replacementRequirement)) continue;
 				ConversationController.requirementFulfilled(world, replacement.replacementRequirement);
 				tileMap.applyReplacement(replacement);
@@ -203,6 +204,18 @@ public final class MapController {
 				if (!ConversationController.canFulfillRequirement(world, replace.replacementRequirement)) continue;
 				ConversationController.requirementFulfilled(world, replace.replacementRequirement);
 				triggerSpawn.addAll(map.applyObjectReplace(replace));
+				if (tileMap.replacements != null) {
+					for(ReplaceableMapSection replacement : tileMap.replacements) {
+						if (!replace.position.contains(replacement.replacementArea)) continue;
+						if (replace.sourceGroup.equals(replacement.group)) {
+							replacement.isActive = false;
+							replacement.isApplied = false;
+						} else if (replace.targetGroup.equals(replacement.group)) {
+							replacement.isActive = true;
+							replacement.isApplied = false;
+						}
+					}
+				}
 				hasUpdated = true;
 			}
 		}

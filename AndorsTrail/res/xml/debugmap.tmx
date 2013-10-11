@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" width="10" height="10" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" width="13" height="10" tilewidth="32" tileheight="32">
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
  </tileset>
@@ -120,37 +120,47 @@
  <tileset firstgid="4917" name="map_window_2" tilewidth="32" tileheight="32">
   <image source="../drawable/map_window_2.png" width="512" height="256"/>
  </tileset>
- <layer name="Ground" width="10" height="10">
+ <layer name="Ground" width="13" height="10">
   <data encoding="base64" compression="zlib">
-   eJw7ysbAcHSQ4ydUNOsEEqalultkmgcAw35PpQ==
+   eJw7ysbAcHSY4Sd0sOMEEh4IPbeobA8Awztnbw==
   </data>
  </layer>
- <layer name="Ground_replace" width="10" height="10">
+ <layer name="Ground_replace" width="13" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBg6QIMdNx5s6hTJNA8AfYcHsA==
+   eJxjYBi+QIMdNx7qehSpbA8AwUIHsA==
   </data>
  </layer>
- <layer name="Objects" width="10" height="10">
+ <layer name="Objects" width="13" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYMAOktlxSNAYSFDRXlsm6plFLwAA6HwAyQ==
+   eJxjYMAOktlxSJABGrioZxYISOBw23du6tlhy4RbLpyK9gwWAAClqQK3
   </data>
  </layer>
- <layer name="Objects_replace" width="10" height="10">
+ <layer name="Objects_replace" width="13" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBi+YBbXQLuAdAAAdNYApQ==
+   eJxjYBgF2MAsroF2AX0BAJu+AKU=
   </data>
  </layer>
- <layer name="Above" width="10" height="10">
+ <layer name="Objects_fireplace_burning" width="13" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFgwkAAAGQAAE=
+   eJxjYKA9qOCigyWjgCIAANdGAIM=
   </data>
  </layer>
- <layer name="Walkable" width="10" height="10">
+ <layer name="Objects_fireplace_off" width="13" height="10">
   <data encoding="base64" compression="zlib">
-   eJxjYBi+wFVgoF1AOgAAPUQAVg==
+   eJxjYKA9aOCigyWjgCIAAORmAIs=
   </data>
  </layer>
- <objectgroup name="Object Layer 1" width="10" height="10">
+ <layer name="Above" width="13" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo4CBAQACCAAB
+  </data>
+ </layer>
+ <layer name="Walkable" width="13" height="10">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgF2ICrwEC7gL4AAFGoAFY=
+  </data>
+ </layer>
+ <objectgroup name="Object Layer 1" width="13" height="10" visible="0">
   <object name="debugsign" type="sign" x="192" y="96" width="32" height="32"/>
   <object name="start" type="rest" x="96" y="64" width="32" height="32"/>
   <object name="Unopenable key area" type="key" x="32" y="128" width="32" height="32">
@@ -190,8 +200,46 @@
     <property name="requireValue" value="10"/>
    </properties>
   </object>
+  <object name="Fireplace initial" type="key" x="384" y="32" width="32" height="32">
+   <properties>
+    <property name="phrase" value="fireplace_off_use"/>
+    <property name="requireId" value="no_quest"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireValue" value="100"/>
+   </properties>
+  </object>
+  <object name="Free wood !" type="key" x="384" y="96" width="32" height="32">
+   <properties>
+    <property name="phrase" value="get_wood"/>
+    <property name="requireId" value="no_quest"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireValue" value="10"/>
+   </properties>
+  </object>
+  <object name="Free meat ! " type="key" x="384" y="160" width="32" height="32">
+   <properties>
+    <property name="phrase" value="get_meat"/>
+    <property name="requireId" value="no_quest"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireValue" value="10"/>
+   </properties>
+  </object>
+  <object name="Fireplace first light up !" type="replace" x="384" y="32" width="32" height="32">
+   <properties>
+    <property name="Object Layer 1" value="Fireplace_burning"/>
+    <property name="Objects" value="Objects_fireplace_burning"/>
+    <property name="requireId" value="fireplace_lit"/>
+    <property name="requireType" value="timerElapsed"/>
+    <property name="requireValue" value="0"/>
+   </properties>
+  </object>
+  <object name="X" type="script" x="0" y="0" width="416" height="320">
+   <properties>
+    <property name="when" value="round"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="10">
+ <objectgroup name="Spawn" width="13" height="10" visible="0">
   <object name="insect" type="spawn" x="96" y="128" width="192" height="160">
    <properties>
     <property name="quantity" value="2"/>
@@ -205,23 +253,61 @@
   <object name="debugNPC1" type="spawn" x="288" y="0" width="32" height="32"/>
   <object name="debugNPC2" type="spawn" x="256" y="0" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn_replacements" width="10" height="10">
+ <objectgroup name="Spawn_replacements" width="13" height="10" visible="0">
   <object name="insect" type="spawn" x="192" y="192" width="96" height="64">
    <properties>
     <property name="quantity" value="6"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Replace_spawns" width="10" height="10">
+ <objectgroup name="Replace_spawns" width="13" height="10" visible="0">
   <object name="debugquest:10" type="replace" x="96" y="128" width="224" height="192">
    <properties>
-    <property name="requireType" value="questProgress"/>
-    <property name="requireId" value="debugquest"/>
-    <property name="requireValue" value="10"/>
     <property name="Ground" value="Ground_replace"/>
     <property name="Objects" value="Objects_replace"/>
     <property name="Spawn" value="Spawn_replacements"/>
+    <property name="requireId" value="debugquest"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireValue" value="10"/>
     <property name="spawnStrategy" value="cleanUpAll"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Fireplace_off" width="13" height="10">
+  <object name="Fireplace dead" type="key" x="384" y="32" width="32" height="32">
+   <properties>
+    <property name="phrase" value="fireplace_off_use"/>
+    <property name="requireId" value="no_quest"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireValue" value="100"/>
+   </properties>
+  </object>
+  <object name="Fireplace light up again !" type="replace" x="384" y="32" width="32" height="32">
+   <properties>
+    <property name="Fireplace_off" value="Fireplace_burning"/>
+    <property name="Objects" value="Objects_fireplace_burning"/>
+    <property name="requireId" value="fireplace_lit"/>
+    <property name="requireType" value="timerElapsed"/>
+    <property name="requireValue" value="-1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Fireplace_burning" width="13" height="10">
+  <object name="Cooking time." type="key" x="384" y="32" width="32" height="32">
+   <properties>
+    <property name="phrase" value="fireplace_burning"/>
+    <property name="requireId" value="no_quest"/>
+    <property name="requireType" value="questProgress"/>
+    <property name="requireValue" value="10"/>
+   </properties>
+  </object>
+  <object name="Dead fire..." type="replace" x="384" y="32" width="32" height="32">
+   <properties>
+    <property name="Fireplace_burning" value="Fireplace_off"/>
+    <property name="Objects" value="Objects_fireplace_off"/>
+    <property name="requireId" value="fireplace_lit"/>
+    <property name="requireType" value="timerElapsed"/>
+    <property name="requireValue" value="5"/>
    </properties>
   </object>
  </objectgroup>
