@@ -60,7 +60,6 @@ public final class MainView extends SurfaceView
 	private final Paint mPaint = new Paint();
 	private final CoordRect p1x1 = new CoordRect(new Coord(), new Size(1,1));
 	private boolean hasSurface = false;
-	private boolean forceRedrawAll = false;
 
 	private PredefinedMap currentMap;
 	private LayeredTileMap currentTileMap;
@@ -124,7 +123,6 @@ public final class MainView extends SurfaceView
 		} else {
 			redrawAll(RedrawAllDebugReason.SurfaceChanged);
 		}
-		forceRedrawAll = true;
 	}
 
 	@Override
@@ -185,7 +183,6 @@ public final class MainView extends SurfaceView
 	}
 	private void redrawArea_(CoordRect area, final VisualEffectAnimation effect, int tileID, int textYOffset) {
 		if (!hasSurface) return;
-		if (forceRedrawAll) area = mapViewArea;
 
 		if (currentMap.isOutside(area)) return;
 		if (!mapViewArea.intersects(area)) return;
@@ -194,6 +191,13 @@ public final class MainView extends SurfaceView
 		Canvas c = null;
 		try {
 			c = holder.lockCanvas(redrawRect);
+			// lockCanvas sometimes changes redrawRect, when the double-buffer has not been
+			// sufficiently filled beforehand. In those cases, we need to redraw the whole scene.
+			if (area != mapViewArea) {
+				if (isRedrawRectWholeScreen(redrawRect)) {
+					area = mapViewArea;
+				}
+			}
 			synchronized (holder) { synchronized (tiles) {
 				c.translate(screenOffset.x, screenOffset.y);
 				c.scale(scale, scale);
@@ -208,7 +212,12 @@ public final class MainView extends SurfaceView
 		} finally {
 			if (c != null) holder.unlockCanvasAndPost(c);
 		}
-		forceRedrawAll = false;
+	}
+
+	private boolean isRedrawRectWholeScreen(Rect redrawRect) {
+		if (redrawRect.width() < mapViewArea.size.width * scaledTileSize) return false;
+		if (redrawRect.height() < mapViewArea.size.height * scaledTileSize) return false;
+		return true;
 	}
 
 	private boolean shouldRedrawEverythingForVisualEffect() {
@@ -226,7 +235,7 @@ public final class MainView extends SurfaceView
 		if (!hasSurface) return;
 		Canvas c = null;
 		try {
-			c = holder.lockCanvas(null);
+			c = holder.lockCanvas();
 			synchronized (holder) {
 				c.drawColor(Color.BLACK);
 			}
