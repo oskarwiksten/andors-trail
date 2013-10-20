@@ -247,7 +247,7 @@ public final class TMXMapTranslator {
 						}
 						continue;
 					}
-					replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requireQuestStage));
+					replaceableSections.add(new ReplaceableMapSection(position, replacementSection, requireQuestStage, objectGroup.name));
 				}
 			}
 		}
