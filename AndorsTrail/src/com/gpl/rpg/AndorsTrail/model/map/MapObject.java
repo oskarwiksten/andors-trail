@@ -26,9 +26,11 @@ public final class MapObject {
 	public final String id; //placeName on this map or phraseID
 	public final String map;
 	public final String place;
+	public final String group;
 	public final Requirement enteringRequirement;
 	public final DropList dropList;
 	public final MapObjectEvaluationType evaluateWhen;
+	public boolean isActive = true;
 
 	private MapObject(
 			final CoordRect position
@@ -36,6 +38,7 @@ public final class MapObject {
 			, final String id
 			, final String map
 			, final String place
+			, final String group
 			, final Requirement enteringRequirement
 			, final DropList dropList
 			, final MapObjectEvaluationType evaluateWhen
@@ -45,27 +48,28 @@ public final class MapObject {
 		this.id = id;
 		this.map = map;
 		this.place = place;
+		this.group = group;
 		this.enteringRequirement = enteringRequirement;
 		this.dropList = dropList;
 		this.evaluateWhen = evaluateWhen;
 	}
 
-	public static MapObject createMapSignEvent(final CoordRect position, final String phraseID) {
-		return new MapObject(position, MapObjectType.sign, phraseID, null, null, null, null, MapObjectEvaluationType.whenEntering);
+	public static MapObject createMapSignEvent(final CoordRect position, final String phraseID, final String group) {
+		return new MapObject(position, MapObjectType.sign, phraseID, null, null, group, null, null, MapObjectEvaluationType.whenEntering);
 	}
-	public static MapObject createMapChangeArea(final CoordRect position, final String thisMapTitle, final String destinationMap, final String destinationPlace) {
-		return new MapObject(position, MapObjectType.newmap, thisMapTitle, destinationMap, destinationPlace, null, null, MapObjectEvaluationType.whenEntering);
+	public static MapObject createMapChangeArea(final CoordRect position, final String thisMapTitle, final String destinationMap, final String destinationPlace, final String group) {
+		return new MapObject(position, MapObjectType.newmap, thisMapTitle, destinationMap, destinationPlace, group, null, null, MapObjectEvaluationType.whenEntering);
 	}
-	public static MapObject createRestArea(final CoordRect position, final String placeId) {
-		return new MapObject(position, MapObjectType.rest, placeId, null, null, null, null, MapObjectEvaluationType.whenEntering);
+	public static MapObject createRestArea(final CoordRect position, final String placeId, final String group) {
+		return new MapObject(position, MapObjectType.rest, placeId, null, null, group, null, null, MapObjectEvaluationType.whenEntering);
 	}
-	public static MapObject createKeyArea(final CoordRect position, final String phraseID, final Requirement enteringRequirement) {
-		return new MapObject(position, MapObjectType.keyarea, phraseID, null, null, enteringRequirement, null, MapObjectEvaluationType.whenEntering);
+	public static MapObject createKeyArea(final CoordRect position, final String phraseID, final Requirement enteringRequirement, final String group) {
+		return new MapObject(position, MapObjectType.keyarea, phraseID, null, null, group, enteringRequirement, null, MapObjectEvaluationType.whenEntering);
 	}
-	public static MapObject createContainerArea(final CoordRect position, final DropList dropList) {
-		return new MapObject(position, MapObjectType.container, null, null, null, null, dropList, MapObjectEvaluationType.whenEntering);
+	public static MapObject createContainerArea(final CoordRect position, final DropList dropList, final String group) {
+		return new MapObject(position, MapObjectType.container, null, null, null, group, null, dropList, MapObjectEvaluationType.whenEntering);
 	}
-	public static MapObject createScriptArea(final CoordRect position, final String phraseID, final MapObjectEvaluationType evaluateWhen) {
-		return new MapObject(position, MapObjectType.script, phraseID, null, null, null, null, evaluateWhen);
+	public static MapObject createScriptArea(final CoordRect position, final String phraseID, final MapObjectEvaluationType evaluateWhen, final String group) {
+		return new MapObject(position, MapObjectType.script, phraseID, null, null, group, null, null, evaluateWhen);
 	}
 }

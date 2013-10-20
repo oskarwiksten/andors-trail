@@ -17,6 +17,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public final class PredefinedMap {
 	private static final long VISIT_RESET = 0;
@@ -25,6 +26,7 @@ public final class PredefinedMap {
 	public final String name;
 	public final Size size;
 	public final MapObject[] eventObjects;
+	public final MapObjectReplace[] eventObjectReplaces;
 	public final MonsterSpawnArea[] spawnAreas;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
 	public boolean visited = false;
@@ -34,11 +36,12 @@ public final class PredefinedMap {
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
-	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
+	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MapObjectReplace[] eventObjectReplaces, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
 		this.eventObjects = eventObjects;
+		this.eventObjectReplaces = eventObjectReplaces;
 		this.spawnAreas = spawnAreas;
 		assert(size.width > 0);
 		assert(size.height > 0);
@@ -66,13 +69,15 @@ public final class PredefinedMap {
 		}
 		return null;
 	}
-	public MapObject getEventObjectAt(final Coord p) {
+	public List<MapObject> getEventObjectsAt(final Coord p) {
+		List<MapObject> result = new ArrayList<MapObject>();
 		for (MapObject o : eventObjects) {
+			if (!o.isActive) continue;
 			if (o.position.contains(p)) {
-				return o;
+				result.add(o);
 			}
 		}
-		return null;
+		return result;
 	}
 	public boolean hasContainerAt(final Coord p) {
 		for (MapObject o : eventObjects) {
@@ -259,5 +264,57 @@ public final class PredefinedMap {
 			dest.writeBoolean(false);
 		}
 		dest.writeUTF(lastSeenLayoutHash);
+	}
+
+	public List<MonsterSpawnArea> applyObjectReplace(MapObjectReplace replace) {
+		if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+			if (!replace.isActive) throw new RuntimeException("Trying to apply an inactive replace area. Should be checked in the code before. Check your stack trace !");
+			if (replace.isApplied) throw new RuntimeException("Trying to reapply an applied replace area. Should be checked in the code before. Check your stack trace !");
+		}
+
+		
+		for (MapObject obj : eventObjects) {
+			if (!replace.position.contains(obj.position)) continue;
+			if (obj.group.equals(replace.sourceGroup)) {
+				obj.isActive = false;
+			} else if (obj.group.equals(replace.targetGroup)) {
+				obj.isActive = true;
+			}
+		}
+		
+
+		for (MapObjectReplace obj : eventObjectReplaces) {
+			if (!replace.position.contains(obj.position)) continue;
+			if (obj.group.equals(replace.sourceGroup)) {
+				obj.isActive = false;
+				obj.isApplied = false; //Once disabled, cannot be considered as applied anymore.
+			} else if (obj.group.equals(replace.targetGroup)) {
+				obj.isActive = true;
+				obj.isApplied = false;
+			}
+		}
+		
+		// MonsterSpawnAreas added to this list are marked as needing a full clean up (Spawn, or reset). 
+		// This depends on the replace strategy.
+		List<MonsterSpawnArea> triggerSpawn =  new ArrayList<MonsterSpawnArea>();;
+		for (MonsterSpawnArea area : spawnAreas) {
+			if (!replace.position.contains(area.area)) continue;
+			if (area.group.equals(replace.sourceGroup)) {
+				area.isActive = false;
+				//This strategy requires immediate deletion of all monsters.
+				if (replace.strategy.equals(MapObjectReplace.SpawnStrategy.cleanUpAll)) {
+					triggerSpawn.add(area);
+				}
+			} else if (area.group.equals(replace.targetGroup)) {
+				area.isActive = true;
+				//Both other strategies require auto-spawning all monsters in the area.
+				if (!replace.strategy.equals(MapObjectReplace.SpawnStrategy.doNothing)) {
+					triggerSpawn.add(area);
+				}
+			}
+		}
+		replace.isApplied = true;
+		
+		return triggerSpawn;
 	}
 }

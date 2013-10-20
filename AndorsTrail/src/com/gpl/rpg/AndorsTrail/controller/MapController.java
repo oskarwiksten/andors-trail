@@ -1,6 +1,10 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.res.Resources;
+
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
@@ -12,8 +16,11 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.conversation.Reply;
 import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
 import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.MapObjectReplace;
+import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.ReplaceableMapSection;
+import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 public final class MapController {
@@ -31,25 +38,30 @@ public final class MapController {
 
 	public void handleMapEventsAfterMovement(PredefinedMap currentMap, Coord newPosition, Coord lastPosition) {
 		// We don't allow event objects to overlap, so there can only be one object returned here.
-		MapObject mapObject = currentMap.getEventObjectAt(newPosition);
-		if (mapObject == null) return;
+		// ^--Not true anymore. Can have several replaceable layers !
+		List<MapObject> objects = currentMap.getEventObjectsAt(newPosition);
+		for (MapObject mapObject : objects) {
+			if (mapObject == null) return;
 
-		switch (mapObject.evaluateWhen) {
+			switch (mapObject.evaluateWhen) {
 			case afterEveryRound:
 				return;
 			case whenEntering:
 				// Do not trigger event if the player already was on the same MapObject before.
 				if (mapObject.position.contains(lastPosition)) return;
 				break;
+			}
+			handleMapEvent(mapObject, newPosition);
 		}
-		handleMapEvent(mapObject, newPosition);
 	}
 
 	public void handleMapEvents(PredefinedMap currentMap, Coord position, MapObject.MapObjectEvaluationType evaluationType) {
-		MapObject mapObject = currentMap.getEventObjectAt(position);
-		if (mapObject == null) return;
-		if (mapObject.evaluateWhen != evaluationType) return;
-		handleMapEvent(mapObject, position);
+		List<MapObject> objects = currentMap.getEventObjectsAt(position);
+		for (MapObject mapObject : objects) {
+			if (mapObject == null) return;
+			if (mapObject.evaluateWhen != evaluationType) return;
+			handleMapEvent(mapObject, position);
+		}
 	}
 
 	private void handleMapEvent(MapObject o, Coord position) {
@@ -78,6 +90,7 @@ public final class MapController {
 		if (world.model.uiSelections.isInCombat) {
 			// Only "script" events may run while in combat.
 			if (mapObject.type != MapObject.MapObjectType.script) return false;
+			if (!mapObject.isActive) return false;
 		}
 		return true;
 	}
@@ -175,17 +188,54 @@ public final class MapController {
 		if (tileMap.replacements != null) {
 			for(ReplaceableMapSection replacement : tileMap.replacements) {
 				if (replacement.isApplied) continue;
-				if (!satisfiesCondition(replacement)) continue;
+				if (!replacement.isActive) continue;
+				if (!ConversationController.canFulfillRequirement(world, replacement.replacementRequirement)) continue;
+				ConversationController.requirementFulfilled(world, replacement.replacementRequirement);
 				tileMap.applyReplacement(replacement);
 				hasUpdated = true;
 			}
 		}
+		
+		List<MonsterSpawnArea> triggerSpawn = new ArrayList<MonsterSpawnArea>();
+		if (map.eventObjectReplaces != null) {
+			for (MapObjectReplace replace : map.eventObjectReplaces) {
+				if (replace.isApplied) continue;
+				if (!replace.isActive) continue;
+				if (!ConversationController.canFulfillRequirement(world, replace.replacementRequirement)) continue;
+				ConversationController.requirementFulfilled(world, replace.replacementRequirement);
+				triggerSpawn.addAll(map.applyObjectReplace(replace));
+				if (tileMap.replacements != null) {
+					for(ReplaceableMapSection replacement : tileMap.replacements) {
+						if (!replace.position.contains(replacement.replacementArea)) continue;
+						if (replace.sourceGroup.equals(replacement.group)) {
+							replacement.isActive = false;
+							replacement.isApplied = false;
+						} else if (replace.targetGroup.equals(replacement.group)) {
+							replacement.isActive = true;
+							replacement.isApplied = false;
+						}
+					}
+				}
+				hasUpdated = true;
+			}
+		}
+		
+		if (!triggerSpawn.isEmpty()) {
+			//Never declare a variable in a loop... prevents mallocs and stack growth.
+			List<Monster> monsters;
+			for (MonsterSpawnArea area : triggerSpawn) {
+				if (area.isActive) {
+					controllers.monsterSpawnController.spawnAllInArea(map, tileMap, area, false);
+				} else {
+					monsters = new ArrayList<Monster>(area.monsters);
+					for (Monster m : monsters) {
+						controllers.monsterSpawnController.remove(map, m);
+					}
+				}
+			}
+		}
 		map.lastSeenLayoutHash = tileMap.getCurrentLayoutHash();
 		return hasUpdated;
-	}
-
-	public boolean satisfiesCondition(ReplaceableMapSection replacement) {
-		return world.model.player.hasExactQuestProgress(replacement.requireQuestStage);
 	}
 
 	private final ConversationController.ConversationStatemachine.ConversationStateListener conversationStateListener = new ConversationController.ConversationStatemachine.ConversationStateListener() {
@@ -204,4 +254,5 @@ public final class MapController {
 	public void prepareScriptsOnCurrentMap() {
 		mapScriptExecutor = new ConversationController.ConversationStatemachine(world, controllers, conversationStateListener);
 	}
+	
 }
