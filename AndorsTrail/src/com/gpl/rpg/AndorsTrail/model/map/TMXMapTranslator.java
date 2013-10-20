@@ -65,7 +65,7 @@ public final class TMXMapTranslator {
 						for (TMXProperty p : object.properties) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapSignEvent(position, phraseID));
+						mapObjects.add(MapObject.createMapSignEvent(position, phraseID, group.name));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
 						String map = null;
 						String place = null;
@@ -74,7 +74,7 @@ public final class TMXMapTranslator {
 							else if(p.name.equalsIgnoreCase("place")) place = p.value;
 							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place));
+						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place, group.name));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
 						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
 						int maxQuantity = 1;
@@ -113,6 +113,7 @@ public final class TMXMapTranslator {
 								,new Range(1000, spawnChance)
 								,monsterTypeIDs
 								,isUnique
+								,group.name
 						);
 						spawnAreas.add(area);
 					} else if (object.type.equalsIgnoreCase("key")) {
@@ -133,13 +134,13 @@ public final class TMXMapTranslator {
 								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue)));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue), group.name));
 					} else if (object.type.equals("rest")) {
-						mapObjects.add(MapObject.createRestArea(position, object.name));
+						mapObjects.add(MapObject.createRestArea(position, object.name, group.name));
 					} else if (object.type.equals("container")) {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;
-						mapObjects.add(MapObject.createContainerArea(position, dropList));
+						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name));
 					} else if (object.type.equals("replace")) {
 						// Do nothing. Will be handled when reading map layers instead.
 					} else if (object.type.equalsIgnoreCase("script")) {
@@ -162,7 +163,7 @@ public final class TMXMapTranslator {
 								L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen));
+						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen, group.name));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}

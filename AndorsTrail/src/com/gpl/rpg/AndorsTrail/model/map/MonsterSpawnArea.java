@@ -20,13 +20,15 @@ public final class MonsterSpawnArea {
 	public final String[] monsterTypeIDs;
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
+	public final String group;
 
-	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique) {
+	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique, String group) {
 		this.area = area;
 		this.quantity = quantity;
 		this.spawnChance = spawnChance;
 		this.monsterTypeIDs = monsterTypeIDs;
 		this.isUnique = isUnique;
+		this.group = group;
 	}
 
 	public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
