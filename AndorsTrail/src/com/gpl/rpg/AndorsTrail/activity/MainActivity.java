@@ -168,10 +168,6 @@ public final class MainActivity
 
 		controllers.gameRoundController.resume();
 
-		if (world.model.uiSelections.isInCombat) {
-			controllers.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
-			controllers.combatController.enterCombat(CombatController.BeginTurnAs.continueLastTurn);
-		}
 		updateStatus();
 	}
 

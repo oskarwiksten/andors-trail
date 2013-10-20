@@ -52,6 +52,11 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 	public void resume() {
 		world.model.uiSelections.isMainActivityVisible = true;
 		roundTimer.start();
+
+		if (world.model.uiSelections.isInCombat) {
+			controllers.combatController.setCombatSelection(world.model.uiSelections.selectedMonster, world.model.uiSelections.selectedPosition);
+			controllers.combatController.enterCombat(CombatController.BeginTurnAs.continueLastTurn);
+		}
 	}
 
 	private void restartWaitForNextFullRound() {
