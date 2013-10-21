@@ -8,14 +8,17 @@ public final class ReplaceableMapSection {
 	public final CoordRect replacementArea;
 	public final MapSection replaceLayersWith;
 	public final QuestProgress requireQuestStage;
+	public final String group;
 
 	public ReplaceableMapSection(
 			CoordRect replacementArea,
 			MapSection replaceLayersWith,
-			QuestProgress requireQuestStage) {
+			QuestProgress requireQuestStage,
+			String group) {
 		this.replacementArea = replacementArea;
 		this.replaceLayersWith = replaceLayersWith;
 		this.requireQuestStage = requireQuestStage;
+		this.group = group;
 	}
 
 	public void apply(MapSection dest) {
