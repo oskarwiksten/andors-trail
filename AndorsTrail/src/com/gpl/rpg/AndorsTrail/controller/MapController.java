@@ -1,5 +1,8 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.content.res.Resources;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -31,25 +34,30 @@ public final class MapController {
 
 	public void handleMapEventsAfterMovement(PredefinedMap currentMap, Coord newPosition, Coord lastPosition) {
 		// We don't allow event objects to overlap, so there can only be one object returned here.
-		MapObject mapObject = currentMap.getEventObjectAt(newPosition);
-		if (mapObject == null) return;
+		// ^--Not true anymore. Can have several replaceable layers !
+		List<MapObject> objects = currentMap.getEventObjectsAt(newPosition);
+		for (MapObject mapObject : objects) {
+			if (mapObject == null) return;
 
-		switch (mapObject.evaluateWhen) {
+			switch (mapObject.evaluateWhen) {
 			case afterEveryRound:
 				return;
 			case whenEntering:
 				// Do not trigger event if the player already was on the same MapObject before.
 				if (mapObject.position.contains(lastPosition)) return;
 				break;
+			}
+			handleMapEvent(mapObject, newPosition);
 		}
-		handleMapEvent(mapObject, newPosition);
 	}
 
 	public void handleMapEvents(PredefinedMap currentMap, Coord position, MapObject.MapObjectEvaluationType evaluationType) {
-		MapObject mapObject = currentMap.getEventObjectAt(position);
-		if (mapObject == null) return;
-		if (mapObject.evaluateWhen != evaluationType) return;
-		handleMapEvent(mapObject, position);
+		List<MapObject> objects = currentMap.getEventObjectsAt(position);
+		for (MapObject mapObject : objects) {
+			if (mapObject == null) return;
+			if (mapObject.evaluateWhen != evaluationType) return;
+			handleMapEvent(mapObject, position);
+		}
 	}
 
 	private void handleMapEvent(MapObject o, Coord position) {
@@ -78,6 +86,7 @@ public final class MapController {
 		if (world.model.uiSelections.isInCombat) {
 			// Only "script" events may run while in combat.
 			if (mapObject.type != MapObject.MapObjectType.script) return false;
+			if (!mapObject.isActive) return false;
 		}
 		return true;
 	}
