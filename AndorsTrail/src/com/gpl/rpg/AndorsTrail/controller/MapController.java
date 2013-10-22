@@ -33,15 +33,12 @@ public final class MapController {
 	}
 
 	public void handleMapEventsAfterMovement(PredefinedMap currentMap, Coord newPosition, Coord lastPosition) {
-		// We don't allow event objects to overlap, so there can only be one object returned here.
-		// ^--Not true anymore. Can have several replaceable layers !
+		// Several map objects can now overlap. Inactive one won't be returned by getEventObjectsAt()
 		List<MapObject> objects = currentMap.getEventObjectsAt(newPosition);
+		if (objects == null) return;
 		for (MapObject mapObject : objects) {
-			if (mapObject == null) return;
 
 			switch (mapObject.evaluateWhen) {
-			case afterEveryRound:
-				return;
 			case whenEntering:
 				// Do not trigger event if the player already was on the same MapObject before.
 				if (mapObject.position.contains(lastPosition)) return;
