@@ -21,6 +21,7 @@ public final class MonsterSpawnArea {
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
 	public final String group;
+	public boolean isActive = true;
 
 	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique, String group) {
 		this.area = area;
@@ -77,6 +78,7 @@ public final class MonsterSpawnArea {
 
 	public boolean isSpawnable(boolean includeUniqueMonsters) {
 		if (isUnique && !includeUniqueMonsters) return false;
+		if (!isActive) return false;
 		return quantity.current < quantity.max;
 	}
 
