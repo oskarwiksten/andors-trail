@@ -76,6 +76,7 @@ public final class JsonFieldNames {
 		public static final String requireType = "requireType";
 		public static final String requireID = "requireID";
 		public static final String value = "value";
+		public static final String negate = "negate";
 	}
 
 	public static final class PhraseReward {
