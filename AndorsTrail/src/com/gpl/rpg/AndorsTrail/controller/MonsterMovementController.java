@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.List;
+
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.PathFinder.EvaluateWalkable;
@@ -57,10 +59,13 @@ public final class MonsterMovementController implements EvaluateWalkable {
 			if (!tilemap.isWalkable(p)) return false;
 		}
 		if (map.getMonsterAt(p) != null) return false;
-		MapObject m = map.getEventObjectAt(p.topLeft);
-		if (m != null) {
-			if (m.type == MapObject.MapObjectType.newmap) return false;
-			if (m.type == MapObject.MapObjectType.keyarea) return false;
+		//There can be several objects at the same place !
+		List<MapObject> objects = map.getEventObjectsAt(p.topLeft);
+		for (MapObject m : objects) {
+			if (m != null) {
+				if (m.type == MapObject.MapObjectType.newmap) return false;
+				if (m.type == MapObject.MapObjectType.keyarea) return false;
+			}
 		}
 		return true;
 	}

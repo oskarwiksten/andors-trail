@@ -30,6 +30,7 @@ public final class MapObject {
 	public final Requirement enteringRequirement;
 	public final DropList dropList;
 	public final MapObjectEvaluationType evaluateWhen;
+	public boolean isActive = true;
 
 	private MapObject(
 			final CoordRect position
