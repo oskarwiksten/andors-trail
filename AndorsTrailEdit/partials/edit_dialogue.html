@@ -198,6 +198,9 @@
 					<option value="consumedBonemeals">Bonemeals consumed (greater or equals)</option>
 				</select>
 			</div>
+			<div class="filedWithLabel">
+				<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
+			</div>
 			<div ng-show="require.requireType=='questProgress'">
 				<div class="fieldWithLabel">
 					<label for="requireID" >Quest ID:</label>
@@ -206,9 +209,6 @@
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Stage:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
 				</div>
 			</div>
 			<div ng-show="require.requireType=='questLatestProgress'">
@@ -220,9 +220,6 @@
 					<label for="requirevalue">Stage:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
-				</div>
 			</div>
 			<div ng-show="require.requireType=='inventoryRemove'">
 				<div class="fieldWithLabel">
@@ -232,9 +229,6 @@
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
 				</div>
 			</div>
 			<div ng-show="require.requireType=='inventoryKeep'">
@@ -246,9 +240,6 @@
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
-				</div>
 			</div>
 			<div ng-show="require.requireType=='wear'">
 				<div class="fieldWithLabel">
@@ -258,9 +249,6 @@
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity (optional):</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
 				</div>
 			</div>
 			<div ng-show="require.requireType=='skillLevel'">
@@ -272,9 +260,6 @@
 					<label for="requirevalue">Level:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
-				</div>
 			</div>
 			<div ng-show="require.requireType=='killedMonster'">
 				<div class="fieldWithLabel">
@@ -284,9 +269,6 @@
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
 				</div>
 			</div>
 			<div ng-show="require.requireType=='timerElapsed'">
@@ -298,9 +280,6 @@
 					<label for="requirevalue">Number of rounds:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
-				</div>
 			</div>
 			<div ng-show="require.requireType=='usedItem'">
 				<div class="fieldWithLabel">
@@ -311,26 +290,17 @@
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
-				</div>
 			</div>
 			<div ng-show="require.requireType=='spentGold'">
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
-				</div>
 			</div>
 			<div ng-show="require.requireType=='consumedBonemeals'">
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-				<div class="filedWithLabel">
-					<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
 				</div>
 			</div>
 			<button ng-click="removeRequirement(reply, require)" class="btn pull-right" title="Remove requirement"><i class="icon-trash"></i> Remove requirement</button>
