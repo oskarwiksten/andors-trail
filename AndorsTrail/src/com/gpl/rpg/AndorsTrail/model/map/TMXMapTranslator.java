@@ -121,6 +121,7 @@ public final class TMXMapTranslator {
 						String requireId = null;
 						int requireValue = 0;
 						String phraseID = "";
+						boolean requireNegation = false;
 						for (TMXProperty p : object.properties) {
 							if (p.name.equalsIgnoreCase("phrase")) {
 								phraseID = p.value;
@@ -130,11 +131,13 @@ public final class TMXMapTranslator {
 								requireId = p.value;
 							} else if (p.name.equalsIgnoreCase("requireValue")) {
 								requireValue = Integer.parseInt(p.value);
+							} else if (p.name.equalsIgnoreCase("requireNegation")) {
+								requireNegation = Boolean.parseBoolean(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue), group.name));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue, requireNegation), group.name));
 					} else if (object.type.equals("rest")) {
 						mapObjects.add(MapObject.createRestArea(position, object.name, group.name));
 					} else if (object.type.equals("container")) {

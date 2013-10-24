@@ -17,6 +17,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public final class PredefinedMap {
 	private static final long VISIT_RESET = 0;
@@ -62,20 +63,25 @@ public final class PredefinedMap {
 
 	public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
 		for (MapObject o : eventObjects) {
+			if (!o.isActive) continue;
 			if (o.type == objectType && name.equals(o.id)) return o;
 		}
 		return null;
 	}
-	public MapObject getEventObjectAt(final Coord p) {
+	public List<MapObject> getActiveEventObjectsAt(final Coord p) {
+		List<MapObject> result = null;
 		for (MapObject o : eventObjects) {
+			if (!o.isActive) continue;
 			if (o.position.contains(p)) {
-				return o;
+				if (result == null) result = new ArrayList<MapObject>();
+				result.add(o);
 			}
 		}
-		return null;
+		return result;
 	}
 	public boolean hasContainerAt(final Coord p) {
 		for (MapObject o : eventObjects) {
+			if (!o.isActive) continue;
 			if (o.type == MapObject.MapObjectType.container) {
 				if (o.position.contains(p)) {
 					return true;
@@ -177,6 +183,8 @@ public final class PredefinedMap {
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {
+			//TODO : Don't forget to create loot on container activation once implemented
+			if (!o.isActive) continue;
 			if (o.type == MapObject.MapObjectType.container) {
 				Loot bag = getBagOrCreateAt(o.position.topLeft);
 				o.dropList.createRandomLoot(bag, null);

@@ -65,6 +65,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 			L.log("Cannot find place " + placeName + " of type " + objectType + " in map " + mapName);
 			return;
 		}
+		if (!place.isActive) {
+			L.log("Place " + placeName + " of type " + objectType + " in map " + mapName + " cannot be used as it is inactive");
+			return;
+		}
 		final ModelContainer model = world.model;
 
 		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
@@ -90,12 +94,13 @@ public final class MovementController implements TimedMessageTask.Callback {
 		final ModelContainer model = world.model;
 		model.currentMap = newMap;
 		cacheCurrentMapData(res, newMap);
+		//Apply replacements before spawning, so that MonsterSpawnArea's isActive variable is up to date.
+		controllers.mapController.applyCurrentMapReplacements(res, false);
 		if (spawnMonsters) {
 			if (!newMap.isRecentlyVisited()) {
 				controllers.monsterSpawnController.spawnAll(newMap, model.currentTileMap);
 			}
 		}
-		controllers.mapController.applyCurrentMapReplacements(res, false);
 		controllers.mapController.prepareScriptsOnCurrentMap();
 		newMap.visited = true;
 		newMap.updateLastVisitTime();
@@ -213,6 +218,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 		final Coord newPosition = player.nextPosition;
 
 		for (MapObject o : currentMap.eventObjects) {
+			if (!o.isActive) continue;
 			if (o.type == MapObject.MapObjectType.keyarea) {
 				if (o.position.contains(newPosition)) {
 					if (!controllers.mapController.canEnterKeyArea(o)) return;
@@ -278,6 +284,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	private static Coord getFirstMapChangeAreaPosition(PredefinedMap map) {
 		for (MapObject o : map.eventObjects) {
+			if (!o.isActive) continue;
 			if (o.type == MapObject.MapObjectType.newmap) return o.position.topLeft;
 		}
 		return null;

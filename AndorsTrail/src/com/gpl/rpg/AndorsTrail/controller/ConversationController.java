@@ -149,35 +149,47 @@ public final class ConversationController {
 	public static boolean canFulfillRequirement(WorldContext world, Requirement requirement) {
 		Player player = world.model.player;
 		GameStatistics stats = world.model.statistics;
+		boolean result = false;
 		switch (requirement.requireType) {
 			case questProgress:
-				return player.hasExactQuestProgress(requirement.requireID, requirement.value);
+				result = player.hasExactQuestProgress(requirement.requireID, requirement.value);
+				break;
 			case questLatestProgress:
-				return player.isLatestQuestProgress(requirement.requireID, requirement.value);
+				result = player.isLatestQuestProgress(requirement.requireID, requirement.value);
+				break;
 			case wear:
-				return player.inventory.isWearing(requirement.requireID, requirement.value);
+				result =  player.inventory.isWearing(requirement.requireID, requirement.value);
+				break;
 			case inventoryKeep:
 			case inventoryRemove:
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
-					return player.inventory.gold >= requirement.value;
+					result =  player.inventory.gold >= requirement.value;
 				} else {
-					return player.inventory.hasItem(requirement.requireID, requirement.value);
+					result =  player.inventory.hasItem(requirement.requireID, requirement.value);
 				}
+				break;
 			case skillLevel:
-				return player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
+				result =  player.getSkillLevel(SkillCollection.SkillID.valueOf(requirement.requireID)) >= requirement.value;
+				break;
 			case killedMonster:
-				return stats.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
+				result =  stats.getNumberOfKillsForMonsterType(requirement.requireID) >= requirement.value;
+				break;
 			case timerElapsed:
-				return world.model.worldData.hasTimerElapsed(requirement.requireID, requirement.value);
+				result =  world.model.worldData.hasTimerElapsed(requirement.requireID, requirement.value);
+				break;
 			case usedItem:
-				return stats.getNumberOfTimesItemHasBeenUsed(requirement.requireID) >= requirement.value;
+				result =  stats.getNumberOfTimesItemHasBeenUsed(requirement.requireID) >= requirement.value;
+				break;
 			case spentGold:
-				return stats.getSpentGold() >= requirement.value;
+				result =  stats.getSpentGold() >= requirement.value;
+				break;
 			case consumedBonemeals:
-				return stats.getNumberOfUsedBonemealPotions() >= requirement.value;
+				result =  stats.getNumberOfUsedBonemealPotions() >= requirement.value;
+				break;
 			default:
-				return true;
+				result =  true;
 		}
+		return requirement.negate ? !result : result;
 	}
 
 	public static void requirementFulfilled(WorldContext world, Requirement requirement) {

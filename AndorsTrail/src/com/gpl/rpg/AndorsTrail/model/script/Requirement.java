@@ -18,11 +18,13 @@ public final class Requirement {
 	public final RequirementType requireType;
 	public final String requireID;
 	public final int value;
+	public final boolean negate;
 
-	public Requirement(RequirementType requireType, String requireID, int value) {
+	public Requirement(RequirementType requireType, String requireID, int value, boolean negate) {
 		this.requireType = requireType;
 		this.requireID = requireID;
 		this.value = value;
+		this.negate = negate;
 	}
 
 	public String toString() {
@@ -30,6 +32,7 @@ public final class Requirement {
 		buf.append("--");
 		buf.append(requireID);
 		buf.append("--");
+		if (negate) buf.append("!");
 		buf.append(value);
 		return buf.toString();
 	}

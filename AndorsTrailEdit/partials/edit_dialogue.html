@@ -198,6 +198,9 @@
 					<option value="consumedBonemeals">Bonemeals consumed (greater or equals)</option>
 				</select>
 			</div>
+			<div class="filedWithLabel">
+				<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
+			</div>
 			<div ng-show="require.requireType=='questProgress'">
 				<div class="fieldWithLabel">
 					<label for="requireID" >Quest ID:</label>
