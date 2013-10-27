@@ -71,7 +71,9 @@ public final class PredefinedMap {
 	public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
 		for (MapObject o : eventObjects) {
 			if (!o.isActive) continue;
-			if (o.type == objectType && name.equals(o.id)) return o;
+			if (o.type != objectType) continue;
+			if (!name.equals(o.id)) continue;
+			return o;
 		}
 		return null;
 	}
@@ -79,21 +81,18 @@ public final class PredefinedMap {
 		List<MapObject> result = null;
 		for (MapObject o : eventObjects) {
 			if (!o.isActive) continue;
-			if (o.position.contains(p)) {
-				if (result == null) result = new ArrayList<MapObject>();
-				result.add(o);
-			}
+			if (!o.position.contains(p)) continue;
+			if (result == null) result = new ArrayList<MapObject>();
+			result.add(o);
 		}
 		return result;
 	}
 	public boolean hasContainerAt(final Coord p) {
 		for (MapObject o : eventObjects) {
 			if (!o.isActive) continue;
-			if (o.type == MapObject.MapObjectType.container) {
-				if (o.position.contains(p)) {
-					return true;
-				}
-			}
+			if (o.type != MapObject.MapObjectType.container) continue;
+			if (!o.position.contains(p)) continue;
+			return true;
 		}
 		return false;
 	}
