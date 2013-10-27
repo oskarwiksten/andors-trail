@@ -59,7 +59,7 @@ public final class WorldContext {
 		this.actorConditionsTypes = copy.actorConditionsTypes;
 		this.skills = copy.skills;
 	}
-	public void reset() {
-		maps.reset();
+	public void resetForNewGame() {
+		maps.resetForNewGame();
 	}
 }

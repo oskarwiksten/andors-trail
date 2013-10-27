@@ -86,7 +86,7 @@ public final class MonsterSpawnArea {
 		return Constants.rollResult(spawnChance);
 	}
 
-	public void reset() {
+	public void removeAllMonsters() {
 		monsters.clear();
 		quantity.current = 0;
 	}
@@ -95,6 +95,10 @@ public final class MonsterSpawnArea {
 		for (Monster m : monsters) {
 			m.resetShopItems();
 		}
+	}
+
+	public void resetForNewGame() {
+		removeAllMonsters();
 	}
 
 

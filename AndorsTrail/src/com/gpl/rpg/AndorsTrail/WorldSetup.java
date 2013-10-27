@@ -102,7 +102,7 @@ public final class WorldSetup {
 			@Override
 			protected Void doInBackground(Void... arg0) {
 				synchronized (onlyOneThreadAtATimeMayLoadSavegames) {
-					if (world.model != null) world.reset();
+					if (world.model != null) world.resetForNewGame();
 					if (createNewCharacter) {
 						createNewWorld();
 						loadResult = Savegames.LOAD_RESULT_SUCCESS;

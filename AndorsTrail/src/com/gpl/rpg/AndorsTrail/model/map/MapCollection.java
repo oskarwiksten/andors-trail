@@ -40,9 +40,9 @@ public final class MapCollection {
 		return predefinedMaps.get(name);
 	}
 
-	public void reset() {
+	public void resetForNewGame() {
 		for (PredefinedMap m : getAllMaps()) {
-			m.reset();
+			m.resetForNewGame();
 		}
 		worldMapRequiresUpdate = true;
 	}

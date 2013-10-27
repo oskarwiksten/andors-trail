@@ -143,11 +143,11 @@ public final class PredefinedMap {
 	public void removeGroundLoot(Loot loot) {
 		groundBags.remove(loot);
 	}
-	public void reset() {
-		resetTemporaryData();
+	public void resetForNewGame() {
 		for(MonsterSpawnArea a : spawnAreas) {
-			a.reset();
+			a.resetForNewGame();
 		}
+		resetTemporaryData();
 		groundBags.clear();
 		visited = false;
 		lastSeenLayoutHash = "";
@@ -163,7 +163,7 @@ public final class PredefinedMap {
 	public void resetTemporaryData() {
 		for(MonsterSpawnArea a : spawnAreas) {
 			if (a.isUnique) a.resetShops();
-			else a.reset();
+			else a.removeAllMonsters();
 		}
 		splatters.clear();
 		lastVisitTime = VISIT_RESET;
@@ -247,7 +247,7 @@ public final class PredefinedMap {
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
 			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, null, area, true);
-			else area.reset();
+			else area.resetForNewGame();
 		}
 	}
 
