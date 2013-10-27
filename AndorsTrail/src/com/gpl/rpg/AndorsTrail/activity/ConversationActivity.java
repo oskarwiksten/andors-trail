@@ -108,21 +108,21 @@ public final class ConversationActivity
 		statementList.setFocusableInTouchMode(false);
 
 		String phraseID;
-		boolean giveRewardsForFirstPhrase;
+		boolean applyScriptEffectsForFirstPhrase;
 		boolean displayLastMessage = true;
 		if (savedInstanceState != null) {
 			conversationState.setCurrentNPC(Dialogs.getMonsterFromBundle(savedInstanceState, world));
 			ArrayList<ConversationStatement> savedConversationHistory = savedInstanceState.getParcelableArrayList("conversationHistory");
 			if (savedConversationHistory != null) conversationHistory.addAll(savedConversationHistory);
 			phraseID = savedInstanceState.getString("phraseID");
-			giveRewardsForFirstPhrase = false;
+			applyScriptEffectsForFirstPhrase = false;
 			displayLastMessage = false;
 		} else {
 			conversationState.setCurrentNPC(Dialogs.getMonsterFromIntent(getIntent(), world));
 			phraseID = getIntent().getData().getLastPathSegment();
-			giveRewardsForFirstPhrase = getIntent().getBooleanExtra("giveRewardsForFirstPhrase", true);
+			applyScriptEffectsForFirstPhrase = getIntent().getBooleanExtra("applyScriptEffectsForFirstPhrase", true);
 		}
-		conversationState.proceedToPhrase(getResources(), phraseID, giveRewardsForFirstPhrase, displayLastMessage);
+		conversationState.proceedToPhrase(getResources(), phraseID, applyScriptEffectsForFirstPhrase, displayLastMessage);
 	}
 
 	@Override
@@ -351,10 +351,10 @@ public final class ConversationActivity
 	}
 
 	@Override
-	public void onPlayerReceivedRewards(ConversationController.PhraseRewards phraseRewards) {
-		Loot loot = phraseRewards.loot;
+	public void onScriptEffectsApplied(ConversationController.ScriptEffectResult scriptEffectResult) {
+		Loot loot = scriptEffectResult.loot;
 
-		for (QuestProgress reward : phraseRewards.questProgress) {
+		for (QuestProgress reward : scriptEffectResult.questProgress) {
 			Quest q = world.quests.getQuest(reward.questID);
 			if (!q.showInLog) continue;
 			QuestLogEntry logEntry = q.getQuestLogEntry(reward.progress);

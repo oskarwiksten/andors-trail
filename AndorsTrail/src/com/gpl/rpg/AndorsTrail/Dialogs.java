@@ -66,11 +66,11 @@ public final class Dialogs {
 		showConversation(currentActivity, context, phraseID, npc, true);
 	}
 
-	private static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc, boolean giveRewardsForFirstPhrase) {
+	private static void showConversation(final MainActivity currentActivity, final ControllerContext context, final String phraseID, final Monster npc, boolean applyScriptEffectsForFirstPhrase) {
 		context.gameRoundController.pause();
 		Intent intent = new Intent(currentActivity, ConversationActivity.class);
 		intent.setData(Uri.parse("content://com.gpl.rpg.AndorsTrail/conversation/" + phraseID));
-		intent.putExtra("giveRewardsForFirstPhrase", giveRewardsForFirstPhrase);
+		intent.putExtra("applyScriptEffectsForFirstPhrase", applyScriptEffectsForFirstPhrase);
 		addMonsterIdentifiers(intent, npc);
 		currentActivity.startActivityForResult(intent, MainActivity.INTENTREQUEST_CONVERSATION);
 	}

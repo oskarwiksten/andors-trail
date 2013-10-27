@@ -201,7 +201,7 @@ public final class MapController {
 		public void onTextPhraseReached(String message, Actor actor, String phraseID) {
 			worldEventListeners.onScriptAreaStartedConversation(phraseID);
 		}
-		@Override public void onPlayerReceivedRewards(ConversationController.PhraseRewards phraseRewards) { }
+		@Override public void onScriptEffectsApplied(ConversationController.ScriptEffectResult scriptEffectResult) { }
 		@Override public void onConversationEnded() { }
 		@Override public void onConversationEndedWithShop(Monster npc) { }
 		@Override public void onConversationEndedWithCombat(Monster npc) { }

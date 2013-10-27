@@ -3,7 +3,7 @@ package com.gpl.rpg.AndorsTrail.resource.parsers;
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.model.conversation.Phrase;
 import com.gpl.rpg.AndorsTrail.model.conversation.Reply;
-import com.gpl.rpg.AndorsTrail.model.conversation.Reward;
+import com.gpl.rpg.AndorsTrail.model.script.ScriptEffect;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonArrayParserFor;
@@ -41,11 +41,11 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		}
 	};
 
-	private final JsonArrayParserFor<Reward> rewardParser = new JsonArrayParserFor<Reward>(Reward.class) {
+	private final JsonArrayParserFor<ScriptEffect> scriptEffectParser = new JsonArrayParserFor<ScriptEffect>(ScriptEffect.class) {
 		@Override
-		protected Reward parseObject(JSONObject o) throws JSONException {
-			return new Reward(
-					Reward.RewardType.valueOf(o.getString(JsonFieldNames.PhraseReward.rewardType))
+		protected ScriptEffect parseObject(JSONObject o) throws JSONException {
+			return new ScriptEffect(
+					ScriptEffect.ScriptEffectType.valueOf(o.getString(JsonFieldNames.PhraseReward.rewardType))
 					,o.getString(JsonFieldNames.PhraseReward.rewardID)
 					,o.optInt(JsonFieldNames.PhraseReward.value, 0)
 			);
@@ -61,10 +61,10 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		final String id = o.getString(JsonFieldNames.Phrase.phraseID);
 
 		Reply[] _replies = null;
-		Reward[] _rewards = null;
+		ScriptEffect[] _scriptEffects = null;
 		try {
 			_replies = replyParser.parseArray(o.optJSONArray(JsonFieldNames.Phrase.replies));
-			_rewards = rewardParser.parseArray(o.optJSONArray(JsonFieldNames.Phrase.rewards));
+			_scriptEffects = scriptEffectParser.parseArray(o.optJSONArray(JsonFieldNames.Phrase.rewards));
 		} catch (JSONException e) {
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
 				L.log("ERROR: parsing phrase " + id + " : " + e.getMessage());
@@ -74,7 +74,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 		return new Pair<String, Phrase>(id, new Phrase(
 				translationLoader.translateConversationPhrase(o.optString(JsonFieldNames.Phrase.message, null))
 				, _replies
-				, _rewards
+				, _scriptEffects
 				, o.optString(JsonFieldNames.Phrase.switchToNPC, null)
 		));
 	}
