@@ -10,6 +10,8 @@ import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.*;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 import com.gpl.rpg.AndorsTrail.util.*;
 
 import java.security.MessageDigest;
@@ -41,8 +43,15 @@ public final class TMXMapTranslator {
 			assert(m.height > 0);
 
 			boolean isOutdoors = false;
+			List<Script> scripts = new ArrayList<Script>();
 			for (TMXProperty p : m.properties) {
 				if(p.name.equalsIgnoreCase("outdoors")) isOutdoors = (Integer.parseInt(p.value) != 0);
+				else if (p.name.equalsIgnoreCase("script")) {
+					String[] names = p.value.split(";");
+					for (String name : names) {
+						scripts.add(ScriptEngine.instantiateScript(name));
+					}
+				}
 				else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + " has unrecognized property \"" + p.name + "\".");
 			}
 
@@ -185,8 +194,10 @@ public final class TMXMapTranslator {
 			_eventObjects = mapObjects.toArray(_eventObjects);
 			MonsterSpawnArea[] _spawnAreas = new MonsterSpawnArea[spawnAreas.size()];
 			_spawnAreas = spawnAreas.toArray(_spawnAreas);
+			Script[] _scripts = new Script[scripts.size()];
+			_scripts = scripts.toArray(_scripts);
 
-			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, _eventObjects, _spawnAreas, isOutdoors));
+			result.add(new PredefinedMap(m.xmlResourceId, m.name, mapSize, _eventObjects, _spawnAreas, _scripts, isOutdoors));
 		}
 
 		return result;

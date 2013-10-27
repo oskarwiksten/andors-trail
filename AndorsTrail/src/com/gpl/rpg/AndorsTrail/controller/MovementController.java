@@ -12,6 +12,8 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.*;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
@@ -82,6 +84,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 
 		prepareMapAsCurrentMap(newMap, res, true);
+		
+		ScriptEngine.mapEntered(newMap, world);
 	}
 
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
@@ -91,8 +95,21 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	public void prepareMapAsCurrentMap(PredefinedMap newMap, Resources res, boolean spawnMonsters) {
 		final ModelContainer model = world.model;
+
+		if (model.currentMap != null) {
+			ScriptEngine.mapLeft(model.currentMap, world);
+			for (Script s : model.currentMap.scripts) {
+				ScriptEngine.deactivateScript(s);
+			}
+		}
+		
 		model.currentMap = newMap;
 		cacheCurrentMapData(res, newMap);
+		
+		for (Script s : model.currentMap.scripts) {
+			ScriptEngine.activateScript(s);
+		}
+		
 		//Apply replacements before spawning, so that MonsterSpawnArea's isActive variable is up to date.
 		controllers.mapController.applyCurrentMapReplacements(res, false);
 		if (spawnMonsters) {

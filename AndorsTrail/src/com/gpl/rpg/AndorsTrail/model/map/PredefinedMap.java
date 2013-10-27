@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.BloodSplatter;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.CoordRect;
 import com.gpl.rpg.AndorsTrail.util.L;
@@ -27,6 +28,7 @@ public final class PredefinedMap {
 	public final Size size;
 	public final MapObject[] eventObjects;
 	public final MonsterSpawnArea[] spawnAreas;
+	public final Script[] scripts;
 	public final ArrayList<Loot> groundBags = new ArrayList<Loot>();
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
@@ -41,6 +43,7 @@ public final class PredefinedMap {
 			, Size size
 			, MapObject[] eventObjects
 			, MonsterSpawnArea[] spawnAreas
+			, Script[] scripts
 			, boolean isOutdoors
 	) {
 		this.xmlResourceId = xmlResourceId;
@@ -48,6 +51,7 @@ public final class PredefinedMap {
 		this.size = size;
 		this.eventObjects = eventObjects;
 		this.spawnAreas = spawnAreas;
+		this.scripts = scripts;
 		assert(size.width > 0);
 		assert(size.height > 0);
 		this.isOutdoors = isOutdoors;

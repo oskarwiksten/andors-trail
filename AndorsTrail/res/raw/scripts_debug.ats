@@ -1,0 +1,15 @@
+"map_boostAC" map.onEnter [
+	if (map.outdoor) {
+		player.ac = player.ac * 2;
+	} else {
+		player.bc = player.bc * 2;
+	}
+]
+
+"map_unboostAC" map.onLeave [
+	if (map.outdoor) {
+		player.ac = player.ac / 2;
+	} else {
+		player.bc = player.bc / 2;
+	}
+]

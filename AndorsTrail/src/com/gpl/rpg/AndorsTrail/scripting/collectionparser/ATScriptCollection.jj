@@ -1,0 +1,132 @@
+/**
+ * JavaCC template file created by SF JavaCC plugin 1.5.17+ wizard for JavaCC 1.5.0+
+ */
+options {
+	JDK_VERSION = "1.5";
+
+	static = false;
+}
+
+PARSER_BEGIN(ATCollectionParser)
+package com.gpl.rpg.AndorsTrail.scripting.collectionparser;
+
+import java.io.BufferedReader;
+import java.io.StringReader;
+
+import java.util.Map;
+import java.util.HashMap;
+
+import com.gpl.rpg.AndorsTrail.scripting.Script;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptTrigger;
+
+public class ATCollectionParser {
+	public static Map < String, Script > parseCollection(String scriptCollection) throws ParseException {
+		StringReader reader = new StringReader(scriptCollection);
+		BufferedReader scriptCollectionReader = new BufferedReader(reader);
+		
+		Map < String, Script > scripts = new HashMap < String, Script > ();
+		ATCollectionParser parser = new ATCollectionParser(scriptCollectionReader);
+		try {
+			parser.scriptCollection(scripts);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} catch (Error e) {
+			e.printStackTrace();
+		}
+		return scripts;
+	}
+}
+
+PARSER_END(ATCollectionParser)
+
+SKIP : {
+	" "
+|	"\r"
+|	"\t"
+|	"\n"
+}
+
+TOKEN : {
+	< DQUO : "\"" >
+|	< DOT : "." >
+|	< LBRAC : "[" > : SCRIPT_CODE
+|	< MAP : "map" >
+|	< ON_ENTER : "onEnter" >
+|	< ON_LEAVE : "onLeave" >
+|	< ATTACK : "attack" >
+|	< ON_HIT : "onHit" >
+|	< ON_MISS : "onMiss" >
+|	< SCRIPT_ID : [ "a"-"z", "A"-"Z" ] ([ "a"-"z", "A"-"Z", "0"-"9", "_", "-" ])* >
+}
+
+< SCRIPT_CODE >
+TOKEN : {
+	< RBRAC : "]" > : DEFAULT
+|	< CODE : (~[ "]" ])+ >
+}
+
+void scriptCollection(Map < String, Script > scripts) : {
+	Script s;
+} {
+	s = script()
+	(
+		scriptCollection(scripts)
+	)
+	{
+		scripts.put(s.id, s);
+	}
+|	< EOF >
+}
+
+Script script() : {
+	Token id;
+	Token code = null;
+	ScriptTrigger trigger;
+} {
+	< DQUO > id = < SCRIPT_ID > < DQUO > trigger = trigger() < LBRAC > (code = < CODE >)? < RBRAC >
+	{
+		if (code != null) {			return new Script(id.image, trigger, code.image);
+		} else {
+			return new Script(id.image, trigger, "");		}
+	}
+}
+
+ScriptTrigger trigger() : {
+	Token category;
+	String event;
+} {
+	category = < MAP > < DOT > event = mapEvents()
+	{
+		return new ScriptTrigger(category.image, event);
+	}
+|	category = < ATTACK > < DOT > event = attackEvents()
+	{
+		return new ScriptTrigger(category.image, event);
+	}
+}
+
+String mapEvents() : {
+	Token event;
+} {
+	event = < ON_ENTER >
+	{
+		return event.image;
+	}
+|	event = < ON_LEAVE >
+	{
+		return event.image;
+	}
+}
+
+String attackEvents() : {
+	Token event;
+} {
+	event = < ON_HIT >
+	{
+		return event.image;
+	}
+|	event = < ON_MISS >
+	{
+		return event.image;
+	}
+}

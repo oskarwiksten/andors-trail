@@ -8,6 +8,9 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.conversation.ConversationCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.resource.parsers.*;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
+import com.gpl.rpg.AndorsTrail.scripting.collectionparser.ATCollectionParser;
+import com.gpl.rpg.AndorsTrail.scripting.collectionparser.ParseException;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
 
@@ -27,6 +30,7 @@ public final class ResourceLoader {
 	private static final int conversationsListsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_conversationlists_debug : R.array.loadresource_conversationlists;
 	private static final int monstersResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_monsters_debug : R.array.loadresource_monsters;
 	private static final int mapsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_maps_debug : R.array.loadresource_maps;
+	private static final int scriptsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_scripts_debug : R.array.loadresource_scripts;
 
 	private static long taskStart;
 	private static void timingCheckpoint(String loaderName) {
@@ -65,6 +69,21 @@ public final class ResourceLoader {
 		}
 
 
+		// ========================================================================
+		// Load scripts
+		final TypedArray scriptsToLoad = r.obtainTypedArray(scriptsResourceId);
+		for (int i = 0; i < scriptsToLoad.length(); ++i) {
+			try {
+				ScriptEngine.LIBRARY.putAll(ATCollectionParser.parseCollection(readStringFromRaw(r, scriptsToLoad, i)));
+			} catch (ParseException e) {
+				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+					L.log("Error loading script collection file");
+					e.printStackTrace();
+				}
+			}
+		}
+		if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) timingCheckpoint("ScriptsLoader");
+		
 		// ========================================================================
 		// Load effects
 		world.visualEffectTypes.initialize(loader);

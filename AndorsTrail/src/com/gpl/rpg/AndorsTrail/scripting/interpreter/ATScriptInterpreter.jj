@@ -1,0 +1,310 @@
+/**
+ * JavaCC template file created by SF JavaCC plugin 1.5.17+ wizard for JavaCC 1.5.0+
+ */options {  JDK_VERSION = "1.5";  static = false;}PARSER_BEGIN(ATScriptInterpreter)package com.gpl.rpg.AndorsTrail.scripting.interpreter;
+
+import java.io.BufferedReader;
+import java.io.StringReader;
+
+import java.util.Map;
+
+import java.lang.reflect.Field;
+
+import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+
+public class ATScriptInterpreter {	public static void runScript(String script, Map < String, Object > context) throws ParseException {		StringReader reader = new StringReader(script);
+		BufferedReader scriptReader = new BufferedReader(reader);
+		ATScriptInterpreter interpreter = new ATScriptInterpreter(scriptReader);		try {			interpreter.runScript(context);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}	}}PARSER_END(ATScriptInterpreter)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
+|	<LPAR : "(">
+|	<RPAR : ")">
+|	<LBRAC : "{">
+|	<RBRAC : "}">
+|	<SCOL : ";">
+|	<IF : "if">
+|	<ELSE : "else">
+|	<EXCLAM : "!">
+|	<GOE : ">=">
+|	<LOE : "<=">
+|	<GT : ">">
+|	<LT : "<">
+|	<EQ : "==">
+|	<PLUS : "+">
+|	<MINUS : "-">
+|	<MULTIPLY : "*">
+|	<DIVIDE : "/">
+|	<EQUALS : "=">
+|	<DQUO : "\""> : LITERAL
+|	<NUMBER : (["-"])?(["0"-"9"])+(["."](["0"-"9"])+)?>
+|	<MAP : "map">
+|	<WORLD : "world">
+|	<ATTACK : "attack">
+|	<PLAYER : "player">
+|	<ACTOR : "actor">
+|	<OUTDOOR : "outdoor">
+|	<MIN : "min">
+|	<MAX : "max">
+|	<CURRENT : "current">
+|	<SOURCE : "source">
+|	<TARGET : "target">
+|	<DAMAGE : "damage">
+|	<HP : "hp">
+|	<AP : "ap">
+|	<AC : "ac">
+|	<AD : "ad">
+|	<BC : "bc">
+|	<DR : "dr">
+|	<CC : "cc">
+|	<CM : "cm">
+|	<BOOL : "bool">
+|	<NUM : "num">
+|	<IDENTIFIER : ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","-","_"])*>}
+
+<LITERAL>
+TOKEN : {
+	<ESCAPED_DQUO : "\\\"">
+|	<DQUOBIS : "\""> : DEFAULT
+|	<LITERAL_VALUE : (~["\"","\\"])+>
+}
+void runScript(Map<String, Object> context) : {
+} {
+	construct(context) runScript(context)
+|	<EOF>
+}
+
+void construct(Map<String, Object> context) : {
+} {
+	association(context)
+|	ifElseConstruct(context)
+}
+
+void association(Map<String, Object> context) : {
+	ValueReference assignee;
+	Object value;
+} {
+	assignee = reference(context) <EQUALS> value = value(context) <SCOL>
+	{
+		assignee.set(value);
+	} 
+}
+
+ValueReference reference(Map<String, Object> context) : {
+	ValueReference assignee;
+} {
+	assignee = localVarDeclaration(context)
+	{
+		return assignee;
+	}
+|	assignee = contextVarReference(context)
+	{
+		return assignee;
+	}
+}
+
+ValueReference localVarDeclaration(Map<String, Object> context) : {
+	Token id;
+} {
+	<BOOL> id = <IDENTIFIER>
+	{
+		return new LocalVariable(context, "localvar_"+id.image);
+	}
+|	<NUM> id = <IDENTIFIER>
+	{
+		return new LocalVariable(context, "localvar_"+id.image);
+	}
+}
+
+ValueReference contextVarReference(Map<String, Object> context) : {
+	ValueReference reference;
+	Token id;
+} {
+	<MAP> <DOT> reference = mapReference(context)
+	{
+		return reference;
+	}
+|	<ATTACK> <DOT> reference = attackReference(context)
+	{
+		return reference;
+	}
+|	<PLAYER> <DOT> reference = playerReference(context)
+	{
+		return reference;
+	}
+|	<ACTOR>	<DOT> reference = actorReference(context)
+	{
+		return reference;
+	}
+|	<WORLD>	<DOT> reference = worldReference(context)
+	{
+		return reference;
+	}
+|	id = <IDENTIFIER>
+	{
+		return new LocalVariable(context, "localvar_"+id.image);
+	}
+}
+
+void ifElseConstruct(Map<String, Object> context) : {
+	String ifBlock, elseBlock=null;
+	Object ifCondition;
+} {
+	<IF> <LPAR> ifCondition = value(context) <RPAR> <LBRAC> ifBlock = code() ( <ELSE> <LBRAC> elseBlock = code())?
+	{
+		if (((Boolean)ifCondition).booleanValue()) {
+			ATScriptInterpreter.runScript(ifBlock, context);
+		} else if (elseBlock != null) {
+			ATScriptInterpreter.runScript(elseBlock, context);
+		}
+	}
+}
+
+String code() : {
+} {
+	{
+		Token t = getNextToken();
+		StringBuffer sb = new StringBuffer();
+		int nestedLevel = 1;
+		while (true) {
+			if (t.image.equals("{")) {
+				nestedLevel++;
+			} else if (t.image.equals("}")) {
+				nestedLevel--;
+				if (nestedLevel == 0) break;
+			} 
+			sb.append(t.image);
+			t = getNextToken();
+		}
+		return sb.toString();
+	}
+}
+
+Object value(Map<String, Object> context) : {
+	ValueReference reference;
+	ValueOperation operation = null;
+	Object value;
+	Token numeral;
+} {
+	reference = reference(context) (operation = valueOp(context)) ?
+	{
+		if (operation != null) {
+			return operation.apply(reference.get());
+		} else {
+			return reference.get();
+		}
+	}
+|	numeral = <NUMBER> (operation = valueOp(context))?
+	{
+		if (operation != null) {
+			return operation.apply(new Double(numeral.image));
+		} else {
+			return new Double(numeral.image);
+		}
+	}
+|	<LPAR> value = value(context) <RPAR>
+	{
+		return value;
+	}
+|	<EXCLAM> value = value(context)
+	{
+		return !((Boolean)value);
+	}
+}
+
+
+ValueOperation valueOp(Map<String, Object> context) : {
+	Object value;
+} {
+	<GT> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.gt, value);
+	}
+|	<LT> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.lt, value);
+	}
+|	<GOE> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.goe, value);
+	}
+|	<LOE> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.loe, value);
+	}
+|	<EQ> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.eq, value);
+	}
+|	<PLUS> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.plus, value);
+	}
+|	<MINUS> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.minus, value);
+	}
+|	<MULTIPLY> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.multiply, value);
+	}
+|	<DIVIDE> value = value(context)
+	{
+		return new ValueOperation(ValueOperation.Operators.divide, value);
+	}
+}
+
+
+ValueReference mapReference(Map<String, Object> context) : {
+} {
+	<OUTDOOR>
+	{
+		try {			Field f = PredefinedMap.class.getField("isOutdoors");
+			return new ObjectField(((PredefinedMap)context.get("map")), f);
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+ValueReference attackReference(Map<String, Object> context) : {
+} {
+	{
+		return null;
+	}
+}
+
+ValueReference playerReference(Map<String, Object> context) : {
+} {
+	<AC>
+	{
+		try {
+			Field f = Actor.class.getField("attackChance");
+			return new ObjectField(((WorldContext)context.get("world")).model.player, f);
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		}
+	}
+|	<BC>
+	{
+		try {
+			Field f = Actor.class.getField("blockChance");
+			return new ObjectField(((WorldContext)context.get("world")).model.player, f);
+		} catch (NoSuchFieldException e) {
+			e.printStackTrace();
+		}
+	}
+}
+
+ValueReference actorReference(Map<String, Object> context) : {
+} {
+	{
+		return null;
+	}
+}
+
+ValueReference worldReference(Map<String, Object> context) : {
+} {
+	{
+		return null;
+	}
+}
