@@ -1,27 +1,27 @@
-package com.gpl.rpg.AndorsTrail.model.conversation;
+package com.gpl.rpg.AndorsTrail.model.script;
 
-public final class Reward {
-	public static enum RewardType {
+public final class ScriptEffect {
+	public static enum ScriptEffectType {
 		questProgress
-		,dropList
-		,skillIncrease
-		,actorCondition
-		,alignmentChange
-		,giveItem
-		,createTimer
+		, dropList
+		, skillIncrease
+		, actorCondition
+		, alignmentChange
+		, giveItem
+		, createTimer
 	}
 
-	public final RewardType rewardType;
-	public final String rewardID;
+	public final ScriptEffectType type;
+	public final String effectID;
 	public final int value;
 
-	public Reward(
-			RewardType rewardType
-			, String rewardID
+	public ScriptEffect(
+			ScriptEffectType type
+			, String effectID
 			, int value
 	) {
-		this.rewardType = rewardType;
-		this.rewardID = rewardID;
+		this.type = type;
+		this.effectID = effectID;
 		this.value = value;
 	}
 }

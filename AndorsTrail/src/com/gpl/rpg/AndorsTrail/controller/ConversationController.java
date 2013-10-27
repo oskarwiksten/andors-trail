@@ -15,6 +15,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
+import com.gpl.rpg.AndorsTrail.model.script.ScriptEffect;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 
@@ -32,7 +33,7 @@ public final class ConversationController {
 
 	private static final ConstRange always = new ConstRange(1, 1);
 
-	public static final class PhraseRewards {
+	public static final class ScriptEffectResult {
 		public final Loot loot = new Loot();
 		public final ArrayList<ActorConditionEffect> actorConditions = new ArrayList<ActorConditionEffect>();
 		public final ArrayList<SkillInfo> skillIncrease = new ArrayList<SkillInfo>();
@@ -47,32 +48,32 @@ public final class ConversationController {
 		}
 	}
 
-	private PhraseRewards applyPhraseRewards(final Player player, final Phrase phrase) {
-		if (phrase.rewards == null || phrase.rewards.length == 0) return null;
+	private ScriptEffectResult applyScriptEffectsForPhrase(final Player player, final Phrase phrase) {
+		if (phrase.scriptEffects == null || phrase.scriptEffects.length == 0) return null;
 
-		final PhraseRewards result = new PhraseRewards();
-		for (Reward reward : phrase.rewards) {
-			switch (reward.rewardType) {
+		final ScriptEffectResult result = new ScriptEffectResult();
+		for (ScriptEffect effect : phrase.scriptEffects) {
+			switch (effect.type) {
 			case actorCondition:
-				addActorConditionReward(player, reward.rewardID, reward.value, result);
+				addActorConditionReward(player, effect.effectID, effect.value, result);
 				break;
 			case skillIncrease:
-				addSkillReward(player, SkillCollection.SkillID.valueOf(reward.rewardID), result);
+				addSkillReward(player, SkillCollection.SkillID.valueOf(effect.effectID), result);
 				break;
 			case dropList:
-				addDropListReward(player, reward.rewardID, result);
+				addDropListReward(player, effect.effectID, result);
 				break;
 			case questProgress:
-				addQuestProgressReward(player, reward.rewardID, reward.value, result);
+				addQuestProgressReward(player, effect.effectID, effect.value, result);
 				break;
 			case alignmentChange:
-				addAlignmentReward(player, reward.rewardID, reward.value);
+				addAlignmentReward(player, effect.effectID, effect.value);
 				break;
 			case giveItem:
-				addItemReward(reward.rewardID, reward.value, result);
+				addItemReward(effect.effectID, effect.value, result);
 				break;
 			case createTimer:
-				world.model.worldData.createTimer(reward.rewardID);
+				world.model.worldData.createTimer(effect.effectID);
 				break;
 			}
 		}
@@ -90,7 +91,7 @@ public final class ConversationController {
 		MovementController.refreshMonsterAggressiveness(world.model.currentMap, world.model.player);
 	}
 
-	private void addQuestProgressReward(Player player, String questID, int questProgress, PhraseRewards result) {
+	private void addQuestProgressReward(Player player, String questID, int questProgress, ScriptEffectResult result) {
 		QuestProgress progress = new QuestProgress(questID, questProgress);
 		boolean added = player.addQuestProgress(progress);
 		if (!added) return; // Only apply exp reward if the quest stage was reached just now (and not re-reached)
@@ -101,15 +102,15 @@ public final class ConversationController {
 		result.questProgress.add(progress);
 	}
 
-	private void addDropListReward(Player player, String droplistID, PhraseRewards result) {
+	private void addDropListReward(Player player, String droplistID, ScriptEffectResult result) {
 		world.dropLists.getDropList(droplistID).createRandomLoot(result.loot, player);
 	}
 
-	private void addItemReward(String itemTypeID, int quantity, PhraseRewards result) {
+	private void addItemReward(String itemTypeID, int quantity, ScriptEffectResult result) {
 		result.loot.add(world.itemTypes.getItemType(itemTypeID), quantity);
 	}
 
-	private void addSkillReward(Player player, SkillCollection.SkillID skillID, PhraseRewards result) {
+	private void addSkillReward(Player player, SkillCollection.SkillID skillID, ScriptEffectResult result) {
 		SkillInfo skill = world.skills.getSkill(skillID);
 		boolean addedSkill = controllers.skillController.levelUpSkillByQuest(player, skill);
 		if (addedSkill) {
@@ -117,7 +118,7 @@ public final class ConversationController {
 		}
 	}
 
-	private void addActorConditionReward(Player player, String conditionTypeID, int value, PhraseRewards result) {
+	private void addActorConditionReward(Player player, String conditionTypeID, int value, ScriptEffectResult result) {
 		int magnitude = 1;
 		int duration = value;
 		if (value == ActorCondition.DURATION_FOREVER) duration = ActorCondition.DURATION_FOREVER;
@@ -149,7 +150,7 @@ public final class ConversationController {
 	public static boolean canFulfillRequirement(WorldContext world, Requirement requirement) {
 		Player player = world.model.player;
 		GameStatistics stats = world.model.statistics;
-		boolean result = false;
+		boolean result;
 		switch (requirement.requireType) {
 			case questProgress:
 				result = player.hasExactQuestProgress(requirement.requireID, requirement.value);
@@ -247,7 +248,7 @@ public final class ConversationController {
 			void onConversationEndedWithShop(Monster npc);
 			void onConversationEndedWithCombat(Monster npc);
 			void onConversationEndedWithRemoval(Monster npc);
-			void onPlayerReceivedRewards(ConversationController.PhraseRewards phraseRewards);
+			void onScriptEffectsApplied(ScriptEffectResult scriptEffectResult);
 			void onConversationCanProceedWithNext();
 			void onConversationHasReply(Reply r, String message);
 		}
@@ -263,7 +264,7 @@ public final class ConversationController {
 			}
 		}
 
-		public void proceedToPhrase(final Resources res, String phraseID, boolean giveRewards, boolean displayPhraseMessage) {
+		public void proceedToPhrase(final Resources res, String phraseID, boolean applyScriptEffects, boolean displayPhraseMessage) {
 			if (phraseID.equalsIgnoreCase(ConversationCollection.PHRASE_CLOSE)) {
 				listener.onConversationEnded();
 				return;
@@ -280,10 +281,10 @@ public final class ConversationController {
 
 			setCurrentPhrase(res, phraseID);
 
-			if (giveRewards) {
-				ConversationController.PhraseRewards phraseRewards = controllers.conversationController.applyPhraseRewards(player, currentPhrase);
-				if (phraseRewards != null) {
-					listener.onPlayerReceivedRewards(phraseRewards);
+			if (applyScriptEffects) {
+				ScriptEffectResult scriptEffectResult = controllers.conversationController.applyScriptEffectsForPhrase(player, currentPhrase);
+				if (scriptEffectResult != null) {
+					listener.onScriptEffectsApplied(scriptEffectResult);
 				}
 			}
 
@@ -291,7 +292,7 @@ public final class ConversationController {
 				for (Reply r : currentPhrase.replies) {
 					if (!canSelectReply(world, r)) continue;
 					applyReplyEffect(world, r);
-					proceedToPhrase(res, r.nextPhrase, giveRewards, displayPhraseMessage);
+					proceedToPhrase(res, r.nextPhrase, applyScriptEffects, displayPhraseMessage);
 					return;
 				}
 			} else if (displayPhraseMessage) {
