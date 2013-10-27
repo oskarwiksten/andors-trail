@@ -12,6 +12,10 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.conversation.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestLogEntry;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
@@ -53,7 +57,19 @@ public final class ConversationController {
 
 		final ScriptEffectResult result = new ScriptEffectResult();
 		for (ScriptEffect effect : phrase.scriptEffects) {
-			switch (effect.type) {
+			applyScriptEffect(player, effect, result);
+		}
+
+		if (result.isEmpty()) return null;
+
+		player.inventory.add(result.loot);
+		controllers.actorStatsController.addExperience(result.loot.exp);
+
+		return result;
+	}
+
+	private void applyScriptEffect(Player player, ScriptEffect effect, ScriptEffectResult result) {
+		switch (effect.type) {
 			case actorCondition:
 				addActorConditionReward(player, effect.effectID, effect.value, result);
 				break;
@@ -75,15 +91,59 @@ public final class ConversationController {
 			case createTimer:
 				world.model.worldData.createTimer(effect.effectID);
 				break;
-			}
+			case spawnAll:
+				spawnAll(effect.mapName, effect.effectID);
+				break;
+			case removeSpawnArea:
+				deactivateSpawnArea(effect.mapName, effect.effectID, true);
+				break;
+			case deactivateSpawnArea:
+				deactivateSpawnArea(effect.mapName, effect.effectID, false);
+				break;
+			case activateMapChangeArea:
+				activateMapChangeArea(effect.mapName, effect.effectID);
+				break;
+			case deactivateMapChangeArea:
+				deactivateMapChangeArea(effect.mapName, effect.effectID);
+				break;
 		}
+	}
 
-		if (result.isEmpty()) return null;
+	private void deactivateMapChangeArea(String mapName, String mapObjectID) {
+		PredefinedMap map = findMapForScriptEffect(mapName);
+		MapObject o = map.findEventObject(MapObject.MapObjectType.newmap, mapObjectID);
+		controllers.mapController.deactivateMapObject(o);
+	}
 
-		player.inventory.add(result.loot);
-		controllers.actorStatsController.addExperience(result.loot.exp);
+	private PredefinedMap findMapForScriptEffect(String mapName) {
+		if (mapName == null || mapName.length() == 0) return world.model.currentMap;
+		return world.maps.findPredefinedMap(mapName);
+	}
 
-		return result;
+	private void activateMapChangeArea(String mapName, String mapObjectID) {
+		PredefinedMap map = findMapForScriptEffect(mapName);
+		MapObject o = map.findEventObject(MapObject.MapObjectType.newmap, mapObjectID);
+		controllers.mapController.activateMapObject(map, o);
+	}
+
+	private void spawnAll(String mapName, String monsterTypeSpawnGroup) {
+		PredefinedMap map = findMapForScriptEffect(mapName);
+		LayeredTileMap tileMap = null;
+		if (map == world.model.currentMap) {
+			tileMap = world.model.currentTileMap;
+		}
+		for (MonsterSpawnArea area : map.spawnAreas) {
+			if (!area.monsterTypeSpawnGroup.equals(monsterTypeSpawnGroup)) continue;
+			controllers.monsterSpawnController.activateSpawnArea(map, tileMap, area, true);
+		}
+	}
+
+	private void deactivateSpawnArea(String mapName, String monsterTypeSpawnGroup, boolean removeAllMonsters) {
+		PredefinedMap map = findMapForScriptEffect(mapName);
+		for (MonsterSpawnArea area : map.spawnAreas) {
+			if (!area.monsterTypeSpawnGroup.equals(monsterTypeSpawnGroup)) continue;
+			controllers.monsterSpawnController.deactivateSpawnArea(area, removeAllMonsters);
+		}
 	}
 
 	private void addAlignmentReward(Player player, String faction, int delta) {

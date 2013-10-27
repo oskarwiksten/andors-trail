@@ -78,16 +78,18 @@ public final class MonsterSpawningController {
 		monsterSpawnListeners.onMonsterRemoved(map, m, m.rectPosition);
 	}
 
-	public void activateSpawnArea(PredefinedMap map, LayeredTileMap tileMap, MonsterSpawnArea spawnArea, boolean spawnAll) {
-		spawnArea.isActive = true;
-		if (spawnAll) {
+	public void activateSpawnArea(PredefinedMap map, LayeredTileMap tileMap, MonsterSpawnArea spawnArea, boolean spawnAllMonsters) {
+		spawnArea.isSpawning = true;
+		if (spawnAllMonsters) {
 			boolean respawnUniqueMonsters = true;
 			spawnAllInArea(map, tileMap, spawnArea, respawnUniqueMonsters);
 		}
 	}
 
-	public void deactivateSpawnArea(MonsterSpawnArea spawnArea) {
-		spawnArea.isActive = false;
-		spawnArea.removeAllMonsters();
+	public void deactivateSpawnArea(MonsterSpawnArea spawnArea, boolean removeAllMonsters) {
+		spawnArea.isSpawning = false;
+		if (removeAllMonsters) {
+			spawnArea.removeAllMonsters();
+		}
 	}
 }

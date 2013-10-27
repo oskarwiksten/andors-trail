@@ -70,7 +70,6 @@ public final class PredefinedMap {
 
 	public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
 		for (MapObject o : eventObjects) {
-			if (!o.isActive) continue;
 			if (o.type != objectType) continue;
 			if (!name.equals(o.id)) continue;
 			return o;
@@ -259,7 +258,7 @@ public final class PredefinedMap {
 		if (!groundBags.isEmpty()) return true;
 		for (MonsterSpawnArea a : spawnAreas) {
 			if (this.visited && a.isUnique) return true;
-			if (a.isActive != a.isActiveForNewGame) return true;
+			if (a.isSpawning != a.isSpawningForNewGame) return true;
 		}
 		for (MapObject o : eventObjects) {
 			if (o.isActive != o.isActiveForNewGame) return true;
