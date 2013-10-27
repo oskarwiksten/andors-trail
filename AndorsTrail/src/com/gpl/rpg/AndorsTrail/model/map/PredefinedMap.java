@@ -178,7 +178,7 @@ public final class PredefinedMap {
 	public boolean hasResetTemporaryData() {
 		return lastVisitTime == VISIT_RESET;
 	}
-	public boolean hasPersistentData(WorldContext world) {
+	private boolean shouldSaveMapData(WorldContext world) {
 		if (!hasResetTemporaryData()) return true;
 		if (this == world.model.currentMap) return true;
 		if (!groundBags.isEmpty()) return true;
@@ -204,11 +204,11 @@ public final class PredefinedMap {
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
-		boolean shouldLoadPersistentData = true;
-		if (fileversion >= 37) shouldLoadPersistentData = src.readBoolean();
+		boolean shouldLoadMapData = true;
+		if (fileversion >= 37) shouldLoadMapData = src.readBoolean();
 
 		int loadedSpawnAreas = 0;
-		if (shouldLoadPersistentData) {
+		if (shouldLoadMapData) {
 			loadedSpawnAreas = src.readInt();
 			for(int i = 0; i < loadedSpawnAreas; ++i) {
 				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -259,7 +259,7 @@ public final class PredefinedMap {
 	}
 
 	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
-		if (this.hasPersistentData(world)) {
+		if (shouldSaveMapData(world)) {
 			dest.writeBoolean(true);
 			dest.writeInt(spawnAreas.length);
 			for(MonsterSpawnArea a : spawnAreas) {
