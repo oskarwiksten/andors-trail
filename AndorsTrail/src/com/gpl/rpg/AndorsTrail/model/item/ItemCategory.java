@@ -22,7 +22,8 @@ public final class ItemCategory {
 			, String displayName
 			, ActionType actionType
 			, Inventory.WearSlot inventorySlot
-			, ItemCategorySize size) {
+			, ItemCategorySize size
+	) {
 		this.id = id;
 		this.displayName = displayName;
 		this.inventorySlot = inventorySlot;

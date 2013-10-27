@@ -17,19 +17,19 @@ public final class AbilityModifierTraits {
 	public final int increaseDamageResistance;
 
 	public AbilityModifierTraits(
-			int increaseMaxHP,
-			int increaseMaxAP,
-			int increaseMoveCost,
-			int increaseUseItemCost,
-			int increaseReequipCost,
-			int increaseAttackCost,
-			int increaseAttackChance,
-			int increaseBlockChance,
-			int increaseMinDamage,
-			int increaseMaxDamage,
-			int increaseCriticalSkill,
-			float setCriticalMultiplier,
-			int increaseDamageResistance
+			int increaseMaxHP
+			, int increaseMaxAP
+			, int increaseMoveCost
+			, int increaseUseItemCost
+			, int increaseReequipCost
+			, int increaseAttackCost
+			, int increaseAttackChance
+			, int increaseBlockChance
+			, int increaseMinDamage
+			, int increaseMaxDamage
+			, int increaseCriticalSkill
+			, float setCriticalMultiplier
+			, int increaseDamageResistance
 			) {
 		this.increaseMaxHP = increaseMaxHP;
 		this.increaseMaxAP = increaseMaxAP;

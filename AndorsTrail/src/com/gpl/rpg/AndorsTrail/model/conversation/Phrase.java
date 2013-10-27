@@ -10,9 +10,9 @@ public final class Phrase {
 
 	public Phrase(
 			String message
-			,Reply[] replies
-			,Reward[] rewards
-			,String switchToNPC
+			, Reply[] replies
+			, Reward[] rewards
+			, String switchToNPC
 	) {
 		this.message = message;
 		if (replies == null || replies.length == 0) replies = NO_REPLIES;

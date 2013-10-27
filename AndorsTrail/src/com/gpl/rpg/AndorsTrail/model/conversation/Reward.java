@@ -15,7 +15,11 @@ public final class Reward {
 	public final String rewardID;
 	public final int value;
 
-	public Reward(RewardType rewardType, String rewardID, int value) {
+	public Reward(
+			RewardType rewardType
+			, String rewardID
+			, int value
+	) {
 		this.rewardType = rewardType;
 		this.rewardID = rewardID;
 		this.value = value;

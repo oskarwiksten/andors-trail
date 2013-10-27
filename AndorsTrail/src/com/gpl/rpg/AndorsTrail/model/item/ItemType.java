@@ -36,18 +36,19 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_kill;
 
 	public ItemType(
-			String id,
-			int iconID,
-			String name,
-			String description,
-			ItemCategory category,
-			DisplayType displayType,
-			boolean hasManualPrice,
-			int fixedBaseMarketCost,
-			ItemTraits_OnEquip effects_equip,
-			ItemTraits_OnUse effects_use,
-			ItemTraits_OnUse effects_hit,
-			ItemTraits_OnUse effects_kill) {
+			String id
+			, int iconID
+			, String name
+			, String description
+			, ItemCategory category
+			, DisplayType displayType
+			, boolean hasManualPrice
+			, int fixedBaseMarketCost
+			, ItemTraits_OnEquip effects_equip
+			, ItemTraits_OnUse effects_use
+			, ItemTraits_OnUse effects_hit
+			, ItemTraits_OnUse effects_kill
+	) {
 		this.id = id;
 		this.iconID = iconID;
 		this.name = name;

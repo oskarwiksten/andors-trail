@@ -11,11 +11,12 @@ public final class MapSection {
 	private final byte[] layoutHash;
 
 	public MapSection(
-			MapLayer layerGround,
-			MapLayer layerObjects,
-			MapLayer layerAbove,
-			boolean[][] isWalkable,
-			byte[] layoutHash) {
+			MapLayer layerGround
+			, MapLayer layerObjects
+			, MapLayer layerAbove
+			, boolean[][] isWalkable
+			, byte[] layoutHash
+	) {
 		this.layerGround = layerGround;
 		this.layerObjects = layerObjects;
 		this.layerAbove = layerAbove;

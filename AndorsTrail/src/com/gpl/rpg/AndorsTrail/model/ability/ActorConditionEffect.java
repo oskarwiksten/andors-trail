@@ -8,7 +8,12 @@ public final class ActorConditionEffect {
 	public final int duration;
 	public final ConstRange chance;
 
-	public ActorConditionEffect(ActorConditionType conditionType, int magnitude, int duration, ConstRange chance) {
+	public ActorConditionEffect(
+			ActorConditionType conditionType
+			, int magnitude
+			, int duration
+			, ConstRange chance
+	) {
 		this.conditionType = conditionType;
 		this.magnitude = magnitude;
 		this.duration = duration;

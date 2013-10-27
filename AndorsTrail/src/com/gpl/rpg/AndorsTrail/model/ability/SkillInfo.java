@@ -14,7 +14,12 @@ public final class SkillInfo {
 	public final int maxLevel;
 	public final LevelUpType levelupVisibility;
 	public final SkillLevelRequirement[] levelupRequirements;
-	public SkillInfo(SkillCollection.SkillID id, int maxLevel, LevelUpType levelupVisibility, SkillLevelRequirement[] levelupRequirements) {
+	public SkillInfo(
+			SkillCollection.SkillID id
+			, int maxLevel
+			, LevelUpType levelupVisibility
+			, SkillLevelRequirement[] levelupRequirements
+	) {
 		this.id = id;
 		this.maxLevel = maxLevel;
 		this.levelupVisibility = levelupVisibility;

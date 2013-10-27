@@ -11,7 +11,8 @@ public final class StatsModifierTraits {
 	public StatsModifierTraits(
 			VisualEffectCollection.VisualEffectID visualEffectID
 			, ConstRange currentHPBoost
-			, ConstRange currentAPBoost) {
+			, ConstRange currentAPBoost
+	) {
 		this.visualEffectID = visualEffectID;
 		this.currentHPBoost = currentHPBoost;
 		this.currentAPBoost = currentAPBoost;

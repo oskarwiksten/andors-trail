@@ -22,11 +22,12 @@ public final class LayeredTileMap {
 	public final String colorFilter;
 	public final Collection<Integer> usedTileIDs;
 	public LayeredTileMap(
-			Size size,
-			MapSection layout,
-			ReplaceableMapSection[] replacements,
-			String colorFilter,
-			Collection<Integer> usedTileIDs) {
+			Size size
+			, MapSection layout
+			, ReplaceableMapSection[] replacements
+			, String colorFilter
+			, Collection<Integer> usedTileIDs
+	) {
 		this.size = size;
 		this.currentLayout = layout;
 		this.replacements = replacements;

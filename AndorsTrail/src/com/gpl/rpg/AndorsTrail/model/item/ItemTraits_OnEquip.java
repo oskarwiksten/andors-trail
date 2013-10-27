@@ -8,8 +8,9 @@ public final class ItemTraits_OnEquip {
 	public final ActorConditionEffect[] addedConditions;
 
 	public ItemTraits_OnEquip(
-			AbilityModifierTraits stats,
-			ActorConditionEffect[] addedConditions) {
+			AbilityModifierTraits stats
+			, ActorConditionEffect[] addedConditions
+	) {
 		this.stats = stats;
 		this.addedConditions = addedConditions;
 	}

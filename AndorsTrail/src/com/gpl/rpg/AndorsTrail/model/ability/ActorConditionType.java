@@ -19,15 +19,16 @@ public final class ActorConditionType {
 	public final AbilityModifierTraits abilityEffect;
 
 	public ActorConditionType(
-			String conditionTypeID,
-			String name,
-			int iconID,
-			ConditionCategory conditionCategory,
-			boolean isStacking,
-			boolean isPositive,
-			StatsModifierTraits statsEffect_everyRound,
-			StatsModifierTraits statsEffect_everyFullRound,
-			AbilityModifierTraits abilityEffect) {
+			String conditionTypeID
+			, String name
+			, int iconID
+			, ConditionCategory conditionCategory
+			, boolean isStacking
+			, boolean isPositive
+			, StatsModifierTraits statsEffect_everyRound
+			, StatsModifierTraits statsEffect_everyFullRound
+			, AbilityModifierTraits abilityEffect
+	) {
 		this.conditionTypeID = conditionTypeID;
 		this.name = name;
 		this.iconID = iconID;

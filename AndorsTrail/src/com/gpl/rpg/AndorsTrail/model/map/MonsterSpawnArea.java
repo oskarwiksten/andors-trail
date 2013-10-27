@@ -23,7 +23,14 @@ public final class MonsterSpawnArea {
 	public final String group;
 	public boolean isActive = true;
 
-	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique, String group) {
+	public MonsterSpawnArea(
+			CoordRect area
+			, Range quantity
+			, Range spawnChance
+			, String[] monsterTypeIDs
+			, boolean isUnique
+			, String group
+	) {
 		this.area = area;
 		this.quantity = quantity;
 		this.spawnChance = spawnChance;

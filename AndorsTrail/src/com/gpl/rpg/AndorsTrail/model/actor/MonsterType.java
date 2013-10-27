@@ -49,29 +49,30 @@ public final class MonsterType {
 	public final ItemTraits_OnUse[] onHitEffects;
 
 	public MonsterType(
-			String id,
-			String name,
-			String spawnGroup,
-			int exp,
-			DropList dropList,
-			String phraseID,
-			boolean isUnique,
-			String faction,
-			MonsterClass monsterClass,
-			AggressionType aggressionType,
-			Size tileSize,
-			int iconID,
-			int maxAP,
-			int maxHP,
-			int moveCost,
-			int attackCost,
-			int attackChance,
-			int criticalSkill,
-			float criticalMultiplier,
-			ConstRange damagePotential,
-			int blockChance,
-			int damageResistance,
-			ItemTraits_OnUse[] onHitEffects) {
+			String id
+			, String name
+			, String spawnGroup
+			, int exp
+			, DropList dropList
+			, String phraseID
+			, boolean isUnique
+			, String faction
+			, MonsterClass monsterClass
+			, AggressionType aggressionType
+			, Size tileSize
+			, int iconID
+			, int maxAP
+			, int maxHP
+			, int moveCost
+			, int attackCost
+			, int attackChance
+			, int criticalSkill
+			, float criticalMultiplier
+			, ConstRange damagePotential
+			, int blockChance
+			, int damageResistance
+			, ItemTraits_OnUse[] onHitEffects
+	) {
 		this.id = id;
 		this.name = name;
 		this.spawnGroup = spawnGroup;

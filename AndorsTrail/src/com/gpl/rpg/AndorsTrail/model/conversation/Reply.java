@@ -11,7 +11,11 @@ public final class Reply {
 		return requires != null;
 	}
 
-	public Reply(String text, String nextPhrase, Requirement[] requires) {
+	public Reply(
+			String text
+			, String nextPhrase
+			, Requirement[] requires
+	) {
 		this.text = text;
 		this.nextPhrase = nextPhrase;
 		this.requires = requires;

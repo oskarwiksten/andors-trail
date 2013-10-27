@@ -14,7 +14,11 @@ public final class ActorCondition {
 	public int magnitude;
 	public int duration;
 
-	public ActorCondition(ActorConditionType conditionType, int magnitude, int duration) {
+	public ActorCondition(
+			ActorConditionType conditionType
+			, int magnitude
+			, int duration
+	) {
 		this.conditionType = conditionType;
 		this.magnitude = magnitude;
 		this.duration = duration;

@@ -35,7 +35,14 @@ public final class PredefinedMap {
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
-	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
+	public PredefinedMap(
+			int xmlResourceId
+			, String name
+			, Size size
+			, MapObject[] eventObjects
+			, MonsterSpawnArea[] spawnAreas
+			, boolean isOutdoors
+	) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
@@ -144,7 +151,7 @@ public final class PredefinedMap {
 		groundBags.remove(loot);
 	}
 	public void resetForNewGame() {
-		for(MonsterSpawnArea a : spawnAreas) {
+		for (MonsterSpawnArea a : spawnAreas) {
 			a.resetForNewGame();
 		}
 		resetTemporaryData();

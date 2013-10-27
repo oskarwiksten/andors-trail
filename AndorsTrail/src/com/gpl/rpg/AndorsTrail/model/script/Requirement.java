@@ -20,7 +20,12 @@ public final class Requirement {
 	public final int value;
 	public final boolean negate;
 
-	public Requirement(RequirementType requireType, String requireID, int value, boolean negate) {
+	public Requirement(
+			RequirementType requireType
+			, String requireID
+			, int value
+			, boolean negate
+	) {
 		this.requireType = requireType;
 		this.requireID = requireID;
 		this.value = value;
