@@ -84,7 +84,7 @@ public final class MapCollection {
 
 	private static boolean shouldSaveMap(WorldContext world, PredefinedMap map) {
 		if (map.visited) return true;
-		if (map == world.model.currentMap) return true;
+		if (map.shouldSaveMapData(world)) return true;
 		return false;
 	}
 

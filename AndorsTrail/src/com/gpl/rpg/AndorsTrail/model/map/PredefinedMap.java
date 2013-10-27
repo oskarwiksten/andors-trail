@@ -181,19 +181,6 @@ public final class PredefinedMap {
 	public boolean hasResetTemporaryData() {
 		return lastVisitTime == VISIT_RESET;
 	}
-	private boolean shouldSaveMapData(WorldContext world) {
-		if (!hasResetTemporaryData()) return true;
-		if (this == world.model.currentMap) return true;
-		if (!groundBags.isEmpty()) return true;
-		for (MonsterSpawnArea a : spawnAreas) {
-			if (a.isUnique) return true;
-			if (a.isActive != a.isActiveForNewGame) return true;
-		}
-		for (MapObject o : eventObjects) {
-			if (o.isActive != o.isActiveForNewGame) return true;
-		}
-		return false;
-	}
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {
@@ -265,6 +252,20 @@ public final class PredefinedMap {
 			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, null, area, true);
 			else area.resetForNewGame();
 		}
+	}
+
+	public boolean shouldSaveMapData(WorldContext world) {
+		if (!hasResetTemporaryData()) return true;
+		if (this == world.model.currentMap) return true;
+		if (!groundBags.isEmpty()) return true;
+		for (MonsterSpawnArea a : spawnAreas) {
+			if (this.visited && a.isUnique) return true;
+			if (a.isActive != a.isActiveForNewGame) return true;
+		}
+		for (MapObject o : eventObjects) {
+			if (o.isActive != o.isActiveForNewGame) return true;
+		}
+		return false;
 	}
 
 	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
