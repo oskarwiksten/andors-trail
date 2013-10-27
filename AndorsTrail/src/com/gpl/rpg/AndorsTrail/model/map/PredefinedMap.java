@@ -154,6 +154,9 @@ public final class PredefinedMap {
 		for (MonsterSpawnArea a : spawnAreas) {
 			a.resetForNewGame();
 		}
+		for (MapObject o : eventObjects) {
+			o.resetForNewGame();
+		}
 		resetTemporaryData();
 		groundBags.clear();
 		visited = false;
@@ -184,19 +187,25 @@ public final class PredefinedMap {
 		if (!groundBags.isEmpty()) return true;
 		for (MonsterSpawnArea a : spawnAreas) {
 			if (a.isUnique) return true;
+			if (a.isActive != a.isActiveForNewGame) return true;
+		}
+		for (MapObject o : eventObjects) {
+			if (o.isActive != o.isActiveForNewGame) return true;
 		}
 		return false;
 	}
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {
-			//TODO : Don't forget to create loot on container activation once implemented
 			if (!o.isActive) continue;
-			if (o.type == MapObject.MapObjectType.container) {
-				Loot bag = getBagOrCreateAt(o.position.topLeft);
-				o.dropList.createRandomLoot(bag, null);
-			}
+			if (o.type != MapObject.MapObjectType.container) continue;
+			createContainerLoot(o);
 		}
+	}
+
+	public void createContainerLoot(MapObject container) {
+		Loot bag = getBagOrCreateAt(container.position.topLeft);
+		container.dropList.createRandomLoot(bag, null);
 	}
 
 
