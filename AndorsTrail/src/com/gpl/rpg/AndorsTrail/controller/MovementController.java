@@ -33,10 +33,11 @@ public final class MovementController implements TimedMessageTask.Callback {
 	public void placePlayerAsyncAt(final MapObject.MapObjectType objectType, final String mapName, final String placeName, final int offset_x, final int offset_y) {
 
 		AsyncTask<Void, Void, Void> task = new AsyncTask<Void, Void, Void>() {
+			PredefinedMap oldMap;
 			@Override
 			protected Void doInBackground(Void... arg0) {
 				stopMovement();
-
+				oldMap = world.model.currentMap;
 				placePlayerAt(controllers.getResources(), objectType, mapName, placeName, offset_x, offset_y);
 
 				return null;
@@ -46,7 +47,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
 				stopMovement();
-				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
+				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position, oldMap);
 				controllers.gameRoundController.resume();
 			}
 
@@ -84,8 +85,6 @@ public final class MovementController implements TimedMessageTask.Callback {
 		}
 
 		prepareMapAsCurrentMap(newMap, res, true);
-		
-		ScriptEngine.mapEntered(newMap, world);
 	}
 
 	private void playerVisitsMapFirstTime(PredefinedMap m) {
@@ -95,20 +94,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	public void prepareMapAsCurrentMap(PredefinedMap newMap, Resources res, boolean spawnMonsters) {
 		final ModelContainer model = world.model;
-
-		if (model.currentMap != null) {
-			ScriptEngine.mapLeft(model.currentMap, world);
-			for (Script s : model.currentMap.scripts) {
-				ScriptEngine.deactivateScript(s);
-			}
-		}
-		
+	
 		model.currentMap = newMap;
 		cacheCurrentMapData(res, newMap);
-		
-		for (Script s : model.currentMap.scripts) {
-			ScriptEngine.activateScript(s);
-		}
 		
 		//Apply replacements before spawning, so that MonsterSpawnArea's isActive variable is up to date.
 		controllers.mapController.applyCurrentMapReplacements(res, false);
@@ -256,8 +244,9 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
 
 	public void respawnPlayer(Resources res) {
+		PredefinedMap oldMap = world.model.currentMap;
 		placePlayerAt(res, MapObject.MapObjectType.rest, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
-		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
+		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position, oldMap);
 	}
 	public void respawnPlayerAsync() {
 		placePlayerAsyncAt(MapObject.MapObjectType.rest, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);

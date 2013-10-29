@@ -1,15 +1,17 @@
 "map_boostAC" map.onEnter [
-	if (map.outdoor) {
+	if (map.outside) {
 		player.ac = player.ac * 2;
 	} else {
 		player.bc = player.bc * 2;
 	}
+	player.addActorCondition("chaotic_grip",5, 2, 50);
 ]
 
 "map_unboostAC" map.onLeave [
-	if (map.outdoor) {
+	if (map.outside) {
 		player.ac = player.ac / 2;
 	} else {
 		player.bc = player.bc / 2;
 	}
+	player.clearActorCondition("chaotic_grip");
 ]

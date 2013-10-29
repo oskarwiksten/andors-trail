@@ -8,12 +8,34 @@ import java.util.Map;
 
 import java.lang.reflect.Field;
 
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public class ATScriptInterpreter implements ATScriptInterpreterConstants {
+
+        public static final Field MAP_OUTDOOR_FIELD;
+
+        public static final Field ACTOR_ATTACKCHANCE_FIELD;
+        public static final Field ACTOR_BLOCKCHANCE_FIELD;
+
+        static {
+                try {
+                        MAP_OUTDOOR_FIELD = PredefinedMap.class.getField("isOutdoors");
+
+                        ACTOR_ATTACKCHANCE_FIELD = Actor.class.getField("attackChance");
+                        ACTOR_BLOCKCHANCE_FIELD = Actor.class.getField("blockChance");
+                } catch (NoSuchFieldException nsfe) {
+                        throw new RuntimeException(nsfe);
+                }
+        }
+
+
         public static void runScript(String script, Map < String, Object > context) throws ParseException {
                 StringReader reader = new StringReader(script);
                 BufferedReader scriptReader = new BufferedReader(reader);
@@ -61,7 +83,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     case BOOL:
     case NUM:
     case IDENTIFIER:
-      association(context);
+      associationOrMethodCall(context);
       break;
     case IF:
       ifElseConstruct(context);
@@ -73,14 +95,23 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     }
   }
 
-  final public void association(Map<String, Object> context) throws ParseException {
+  final public void associationOrMethodCall(Map<String, Object> context) throws ParseException {
         ValueReference assignee;
-        Object value;
+        Object value = null;
     assignee = reference(context);
-    jj_consume_token(EQUALS);
-    value = value(context);
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case EQUALS:
+      jj_consume_token(EQUALS);
+      value = value(context);
+      break;
+    default:
+      jj_la1[2] = jj_gen;
+      ;
+    }
     jj_consume_token(SCOL);
-                assignee.set(value);
+                if (value != null) {
+                        assignee.set(value);
+                }
   }
 
   final public ValueReference reference(Map<String, Object> context) throws ParseException {
@@ -101,7 +132,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
                 {if (true) return assignee;}
       break;
     default:
-      jj_la1[2] = jj_gen;
+      jj_la1[3] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -122,7 +153,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
                 {if (true) return new LocalVariable(context, "localvar_"+id.image);}
       break;
     default:
-      jj_la1[3] = jj_gen;
+      jj_la1[4] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -154,7 +185,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     case ACTOR:
       jj_consume_token(ACTOR);
       jj_consume_token(DOT);
-      reference = actorReference(context);
+      reference = actorReference(context, ((Actor)context.get("actor")));
                 {if (true) return reference;}
       break;
     case WORLD:
@@ -168,7 +199,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
                 {if (true) return new LocalVariable(context, "localvar_"+id.image);}
       break;
     default:
-      jj_la1[4] = jj_gen;
+      jj_la1[5] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -191,7 +222,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
       elseBlock = code();
       break;
     default:
-      jj_la1[5] = jj_gen;
+      jj_la1[6] = jj_gen;
       ;
     }
                 if (((Boolean)ifCondition).booleanValue()) {
@@ -223,7 +254,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
         ValueReference reference;
         ValueOperation operation = null;
         Object value;
-        Token numeral;
+        Token tok;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case MAP:
     case WORLD:
@@ -247,7 +278,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
         operation = valueOp(context);
         break;
       default:
-        jj_la1[6] = jj_gen;
+        jj_la1[7] = jj_gen;
         ;
       }
                 if (operation != null) {
@@ -257,7 +288,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
                 }
       break;
     case NUMBER:
-      numeral = jj_consume_token(NUMBER);
+      tok = jj_consume_token(NUMBER);
       switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
       case GOE:
       case LOE:
@@ -271,13 +302,13 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
         operation = valueOp(context);
         break;
       default:
-        jj_la1[7] = jj_gen;
+        jj_la1[8] = jj_gen;
         ;
       }
                 if (operation != null) {
-                        {if (true) return operation.apply(new Double(numeral.image));}
+                        {if (true) return operation.apply(new Double(tok.image));}
                 } else {
-                        {if (true) return new Double(numeral.image);}
+                        {if (true) return new Double(tok.image);}
                 }
       break;
     case LPAR:
@@ -291,8 +322,14 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
       value = value(context);
                 {if (true) return !((Boolean)value);}
       break;
+    case DQUO:
+      jj_consume_token(DQUO);
+      tok = jj_consume_token(LITERAL_VALUE);
+      jj_consume_token(DQUOBIS);
+                {if (true) return tok.image;}
+      break;
     default:
-      jj_la1[8] = jj_gen;
+      jj_la1[9] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -348,7 +385,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
                 {if (true) return new ValueOperation(ValueOperation.Operators.divide, value);}
       break;
     default:
-      jj_la1[9] = jj_gen;
+      jj_la1[10] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -356,13 +393,8 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
   }
 
   final public ValueReference mapReference(Map<String, Object> context) throws ParseException {
-    jj_consume_token(OUTDOOR);
-                try {
-                        Field f = PredefinedMap.class.getField("isOutdoors");
-                        {if (true) return new ObjectField(((PredefinedMap)context.get("map")), f);}
-                } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
-                }
+    jj_consume_token(OUTSIDE);
+                {if (true) return new ObjectField(((PredefinedMap)context.get("map")), MAP_OUTDOOR_FIELD);}
     throw new Error("Missing return statement in function");
   }
 
@@ -372,35 +404,50 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
   }
 
   final public ValueReference playerReference(Map<String, Object> context) throws ParseException {
-    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
-    case AC:
-      jj_consume_token(AC);
-                try {
-                        Field f = Actor.class.getField("attackChance");
-                        {if (true) return new ObjectField(((WorldContext)context.get("world")).model.player, f);}
-                } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
-                }
-      break;
-    case BC:
-      jj_consume_token(BC);
-                try {
-                        Field f = Actor.class.getField("blockChance");
-                        {if (true) return new ObjectField(((WorldContext)context.get("world")).model.player, f);}
-                } catch (NoSuchFieldException e) {
-                        e.printStackTrace();
-                }
-      break;
-    default:
-      jj_la1[10] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
-    }
+        ValueReference ref;
+    ref = actorReference(context, ((WorldContext)context.get("world")).model.player);
+                {if (true) return ref;}
     throw new Error("Missing return statement in function");
   }
 
-  final public ValueReference actorReference(Map<String, Object> context) throws ParseException {
-                {if (true) return null;}
+  final public ValueReference actorReference(Map<String, Object> context, Actor target) throws ParseException {
+        Object condId, condMagnitude, condDuration, condChance;
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case AC:
+      jj_consume_token(AC);
+                {if (true) return new ObjectField(((WorldContext)context.get("world")).model.player, ACTOR_ATTACKCHANCE_FIELD);}
+      break;
+    case BC:
+      jj_consume_token(BC);
+                {if (true) return new ObjectField(((WorldContext)context.get("world")).model.player, ACTOR_BLOCKCHANCE_FIELD);}
+      break;
+    case ADDCONDITION:
+      jj_consume_token(ADDCONDITION);
+      jj_consume_token(LPAR);
+      condId = value(context);
+      jj_consume_token(COMA);
+      condMagnitude = value(context);
+      jj_consume_token(COMA);
+      condDuration = value(context);
+      jj_consume_token(COMA);
+      condChance = value(context);
+      jj_consume_token(RPAR);
+                ((ControllerContext)context.get("controllers")).actorStatsController.rollForConditionEffect(target, new ActorConditionEffect(((WorldContext)context.get("world")).actorConditionsTypes.getActorConditionType((String)condId), ((Double)condMagnitude).intValue(), ((Double)condDuration).intValue(), new ConstRange(100, ((Double)condChance).intValue()) ));
+                {if (true) return ValueReference.VOID_REFERENCE;}
+      break;
+    case CLEARCONDITION:
+      jj_consume_token(CLEARCONDITION);
+      jj_consume_token(LPAR);
+      condId = value(context);
+      jj_consume_token(RPAR);
+                ((ControllerContext)context.get("controllers")).actorStatsController.rollForConditionEffect(target, new ActorConditionEffect(((WorldContext)context.get("world")).actorConditionsTypes.getActorConditionType((String)condId), ActorCondition.MAGNITUDE_REMOVE_ALL, 1, new ConstRange(100, 100) ));
+                {if (true) return ValueReference.VOID_REFERENCE;}
+      break;
+    default:
+      jj_la1[11] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
     throw new Error("Missing return statement in function");
   }
 
@@ -418,7 +465,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[11];
+  final private int[] jj_la1 = new int[12];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static {
@@ -426,10 +473,10 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x7c000801,0x7c000800,0x7c000000,0x0,0x7c000000,0x1000,0x7fc000,0x7fc000,0x7e002040,0x7fc000,0x0,};
+      jj_la1_0 = new int[] {0xf8001001,0xf8001000,0x1000000,0xf8000000,0x0,0xf8000000,0x2000,0xff8000,0xff8000,0xfe004040,0xff8000,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x1c000,0x1c000,0x1c000,0xc000,0x10000,0x0,0x0,0x0,0x1c000,0x0,0x500,};
+      jj_la1_1 = new int[] {0xe0000,0xe0000,0x0,0xe0000,0x60000,0x80000,0x0,0x0,0x0,0xe0000,0x0,0x2980,};
    }
 
   /** Constructor with InputStream. */
@@ -443,7 +490,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -457,7 +504,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -467,7 +514,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -477,7 +524,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -486,7 +533,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -495,7 +542,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 11; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -546,12 +593,12 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[52];
+    boolean[] la1tokens = new boolean[55];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 11; i++) {
+    for (int i = 0; i < 12; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -563,7 +610,7 @@ public class ATScriptInterpreter implements ATScriptInterpreterConstants {
         }
       }
     }
-    for (int i = 0; i < 52; i++) {
+    for (int i = 0; i < 55; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

@@ -10,8 +10,8 @@ public final class PlayerMovementListeners extends ListOfListeners<PlayerMovemen
 		@Override public void call(PlayerMovementListener listener, Coord newPosition, Coord previousPosition) { listener.onPlayerMoved(newPosition, previousPosition); }
 	};
 
-	private final Function2<PlayerMovementListener, PredefinedMap, Coord> onPlayerEnteredNewMap = new Function2<PlayerMovementListener, PredefinedMap, Coord>() {
-		@Override public void call(PlayerMovementListener listener, PredefinedMap map, Coord p) { listener.onPlayerEnteredNewMap(map, p); }
+	private final Function3<PlayerMovementListener, PredefinedMap, Coord, PredefinedMap> onPlayerEnteredNewMap = new Function3<PlayerMovementListener, PredefinedMap, Coord, PredefinedMap>() {
+		@Override public void call(PlayerMovementListener listener, PredefinedMap map, Coord p, PredefinedMap oldMap) { listener.onPlayerEnteredNewMap(map, p, oldMap); }
 	};
 
 	@Override
@@ -20,7 +20,7 @@ public final class PlayerMovementListeners extends ListOfListeners<PlayerMovemen
 	}
 
 	@Override
-	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) {
-		callAllListeners(this.onPlayerEnteredNewMap, map, p);
+	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p, PredefinedMap oldMap) {
+		callAllListeners(this.onPlayerEnteredNewMap, map, p, oldMap);
 	}
 }

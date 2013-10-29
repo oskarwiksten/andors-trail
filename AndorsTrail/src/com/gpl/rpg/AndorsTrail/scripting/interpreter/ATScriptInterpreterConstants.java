@@ -23,87 +23,93 @@ public interface ATScriptInterpreterConstants {
   /** RegularExpression Id. */
   int SCOL = 10;
   /** RegularExpression Id. */
-  int IF = 11;
+  int COMA = 11;
   /** RegularExpression Id. */
-  int ELSE = 12;
+  int IF = 12;
   /** RegularExpression Id. */
-  int EXCLAM = 13;
+  int ELSE = 13;
   /** RegularExpression Id. */
-  int GOE = 14;
+  int EXCLAM = 14;
   /** RegularExpression Id. */
-  int LOE = 15;
+  int GOE = 15;
   /** RegularExpression Id. */
-  int GT = 16;
+  int LOE = 16;
   /** RegularExpression Id. */
-  int LT = 17;
+  int GT = 17;
   /** RegularExpression Id. */
-  int EQ = 18;
+  int LT = 18;
   /** RegularExpression Id. */
-  int PLUS = 19;
+  int EQ = 19;
   /** RegularExpression Id. */
-  int MINUS = 20;
+  int PLUS = 20;
   /** RegularExpression Id. */
-  int MULTIPLY = 21;
+  int MINUS = 21;
   /** RegularExpression Id. */
-  int DIVIDE = 22;
+  int MULTIPLY = 22;
   /** RegularExpression Id. */
-  int EQUALS = 23;
+  int DIVIDE = 23;
   /** RegularExpression Id. */
-  int DQUO = 24;
+  int EQUALS = 24;
   /** RegularExpression Id. */
-  int NUMBER = 25;
+  int DQUO = 25;
   /** RegularExpression Id. */
-  int MAP = 26;
+  int NUMBER = 26;
   /** RegularExpression Id. */
-  int WORLD = 27;
+  int MAP = 27;
   /** RegularExpression Id. */
-  int ATTACK = 28;
+  int WORLD = 28;
   /** RegularExpression Id. */
-  int PLAYER = 29;
+  int ATTACK = 29;
   /** RegularExpression Id. */
-  int ACTOR = 30;
+  int PLAYER = 30;
   /** RegularExpression Id. */
-  int OUTDOOR = 31;
+  int ACTOR = 31;
   /** RegularExpression Id. */
-  int MIN = 32;
+  int OUTSIDE = 32;
   /** RegularExpression Id. */
-  int MAX = 33;
+  int MIN = 33;
   /** RegularExpression Id. */
-  int CURRENT = 34;
+  int MAX = 34;
   /** RegularExpression Id. */
-  int SOURCE = 35;
+  int CURRENT = 35;
   /** RegularExpression Id. */
-  int TARGET = 36;
+  int SOURCE = 36;
   /** RegularExpression Id. */
-  int DAMAGE = 37;
+  int TARGET = 37;
   /** RegularExpression Id. */
-  int HP = 38;
+  int DAMAGE = 38;
   /** RegularExpression Id. */
-  int AP = 39;
+  int ADDCONDITION = 39;
   /** RegularExpression Id. */
-  int AC = 40;
+  int CLEARCONDITION = 40;
   /** RegularExpression Id. */
-  int AD = 41;
+  int HP = 41;
   /** RegularExpression Id. */
-  int BC = 42;
+  int AP = 42;
   /** RegularExpression Id. */
-  int DR = 43;
+  int AC = 43;
   /** RegularExpression Id. */
-  int CC = 44;
+  int AD = 44;
   /** RegularExpression Id. */
-  int CM = 45;
+  int BC = 45;
   /** RegularExpression Id. */
-  int BOOL = 46;
+  int DR = 46;
   /** RegularExpression Id. */
-  int NUM = 47;
+  int CC = 47;
   /** RegularExpression Id. */
-  int IDENTIFIER = 48;
+  int CM = 48;
   /** RegularExpression Id. */
-  int ESCAPED_DQUO = 49;
+  int BOOL = 49;
   /** RegularExpression Id. */
-  int DQUOBIS = 50;
+  int NUM = 50;
   /** RegularExpression Id. */
-  int LITERAL_VALUE = 51;
+  int IDENTIFIER = 51;
+  /** RegularExpression Id. */
+  int ESCAPED_DQUO = 52;
+  /** RegularExpression Id. */
+  int DQUOBIS = 53;
+  /** RegularExpression Id. */
+  int LITERAL_VALUE = 54;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -123,6 +129,7 @@ public interface ATScriptInterpreterConstants {
     "\"{\"",
     "\"}\"",
     "\";\"",
+    "\",\"",
     "\"if\"",
     "\"else\"",
     "\"!\"",
@@ -143,13 +150,15 @@ public interface ATScriptInterpreterConstants {
     "\"attack\"",
     "\"player\"",
     "\"actor\"",
-    "\"outdoor\"",
+    "\"outside\"",
     "\"min\"",
     "\"max\"",
     "\"current\"",
     "\"source\"",
     "\"target\"",
     "\"damage\"",
+    "\"addActorCondition\"",
+    "\"clearActorCondition\"",
     "\"hp\"",
     "\"ap\"",
     "\"ac\"",

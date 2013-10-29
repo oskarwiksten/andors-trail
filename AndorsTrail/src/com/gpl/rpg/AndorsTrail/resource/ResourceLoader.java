@@ -74,7 +74,9 @@ public final class ResourceLoader {
 		final TypedArray scriptsToLoad = r.obtainTypedArray(scriptsResourceId);
 		for (int i = 0; i < scriptsToLoad.length(); ++i) {
 			try {
-				ScriptEngine.LIBRARY.putAll(ATCollectionParser.parseCollection(readStringFromRaw(r, scriptsToLoad, i)));
+				InputStream is = r.openRawResource(scriptsToLoad.getResourceId(i, -1));
+				BufferedReader br = new BufferedReader(new InputStreamReader(is));
+				ScriptEngine.LIBRARY.putAll(ATCollectionParser.parseCollection(br));
 			} catch (ParseException e) {
 				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 					L.log("Error loading script collection file");

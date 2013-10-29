@@ -5,16 +5,31 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATScriptInterpreter;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ParseException;
+import com.gpl.rpg.AndorsTrail.util.Coord;
 import com.gpl.rpg.AndorsTrail.util.L;
 
 
-public class ScriptEngine {
+public class ScriptEngine implements PlayerMovementListener {
 
 	public static final Map<String, Script> LIBRARY = new HashMap<String, Script>();
+	
+	public static final ScriptEngine instance = new ScriptEngine();
+
+	public ControllerContext controllers = null;
+	public WorldContext world = null;
+	
+	public static void initializeEngine(ControllerContext controllers, WorldContext world) {
+		ScriptEngine.instance.controllers = controllers;
+		ScriptEngine.instance.world = world;
+		controllers.movementController.playerMovementListeners.add(instance);
+	}
+	
 	public static Script instantiateScript(String scriptId) {
 		if (!LIBRARY.containsKey(scriptId)) {
 			//TODO log error
@@ -23,21 +38,21 @@ public class ScriptEngine {
 		return LIBRARY.get(scriptId).clone();
 	}
 	
-	public static void activateScript(Script s) {
+	public void activateScript(Script s) {
 		for (List<Script> listenerList : getListenersListsForScript(s)) {
 			if (listenerList.contains(s)) continue;
 			listenerList.add(s);
 		}
 	}
 	
-	public static void deactivateScript(Script s) {
+	public void deactivateScript(Script s) {
 		for (List<Script> listenerList : getListenersListsForScript(s)) {
 			if (!listenerList.contains(s)) continue;
 			listenerList.remove(s);
 		}
 	}
 	
-	private static List<List<Script>> getListenersListsForScript(Script s) {
+	private List<List<Script>> getListenersListsForScript(Script s) {
 		List<List<Script>> result = new ArrayList<List<Script>>();
 		switch (s.trigger.category) {
 		case map : 
@@ -58,9 +73,27 @@ public class ScriptEngine {
 	 * MAPS
 	 */
 	
-	private static final List<Script> mapOnEnter = new ArrayList<Script>();
-	public static void mapEntered(PredefinedMap map, WorldContext world) {
-		Map<String, Object> context = new HashMap<String, Object>();
+	public void onPlayerEnteredNewMap(PredefinedMap map, com.gpl.rpg.AndorsTrail.util.Coord p, PredefinedMap oldMap) {
+		if (oldMap != null) {
+			mapLeft(oldMap, world);
+		
+			for (Script s : oldMap.scripts) {
+				deactivateScript(s);
+			}
+		}
+		
+		for (Script s: map.scripts) {
+			activateScript(s);
+		}
+		mapEntered(map, world);
+	}
+	public void onPlayerMoved(Coord newPosition, Coord previousPosition) {
+		
+	}
+	
+	private final List<Script> mapOnEnter = new ArrayList<Script>();
+	private void mapEntered(PredefinedMap map, WorldContext world) {
+		Map<String, Object> context = prepareContext();
 		context.put("map", map);
 		context.put("world", world);
 		for (Script script : mapOnEnter) {
@@ -74,9 +107,9 @@ public class ScriptEngine {
 	
 	}
 	
-	private static final List<Script> mapOnLeave = new ArrayList<Script>();
-	public static void mapLeft(PredefinedMap map, WorldContext world) {
-		Map<String, Object> context = new HashMap<String, Object>();
+	private final List<Script> mapOnLeave = new ArrayList<Script>();
+	public void mapLeft(PredefinedMap map, WorldContext world) {
+		Map<String, Object> context = prepareContext();
 		context.put("map", map);
 		context.put("world", world);
 		for (Script script : mapOnLeave) {
@@ -89,5 +122,14 @@ public class ScriptEngine {
 		}
 	
 	}
+	
+	private Map<String, Object> prepareContext() {
+		Map<String, Object> context = new HashMap<String, Object>();
+		context.put("controllers", controllers);
+		
+		return context;
+	}
+	
+	
 	
 }

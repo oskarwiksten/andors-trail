@@ -275,7 +275,7 @@ public final class MainActivity
 	public void onPlayerMoved(Coord newPosition, Coord previousPosition) { }
 
 	@Override
-	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) { }
+	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p, PredefinedMap oldMap) { }
 
 	@Override
 	public void onCombatStarted() {

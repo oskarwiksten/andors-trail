@@ -119,7 +119,7 @@ public final class MainView extends SurfaceView
 			);
 
 		if (model.currentMap != null) {
-			onPlayerEnteredNewMap(model.currentMap, model.player.position);
+			onPlayerEnteredNewMap(model.currentMap, model.player.position, null);
 		} else {
 			redrawAll(RedrawAllDebugReason.SurfaceChanged);
 		}
@@ -331,7 +331,7 @@ public final class MainView extends SurfaceView
 	}
 
 	@Override
-	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p) {
+	public void onPlayerEnteredNewMap(PredefinedMap map, Coord p, PredefinedMap oldMap) {
 		synchronized (holder) {
 			currentMap = map;
 			currentTileMap = model.currentTileMap;

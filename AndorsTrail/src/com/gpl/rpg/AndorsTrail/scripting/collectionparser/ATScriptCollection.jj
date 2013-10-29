@@ -10,8 +10,8 @@ options {
 PARSER_BEGIN(ATCollectionParser)
 package com.gpl.rpg.AndorsTrail.scripting.collectionparser;
 
-import java.io.BufferedReader;
-import java.io.StringReader;
+
+import java.io.Reader;
 
 import java.util.Map;
 import java.util.HashMap;
@@ -20,10 +20,7 @@ import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.scripting.ScriptTrigger;
 
 public class ATCollectionParser {
-	public static Map < String, Script > parseCollection(String scriptCollection) throws ParseException {
-		StringReader reader = new StringReader(scriptCollection);
-		BufferedReader scriptCollectionReader = new BufferedReader(reader);
-		
+	public static Map < String, Script > parseCollection(Reader scriptCollectionReader) throws ParseException {
 		Map < String, Script > scripts = new HashMap < String, Script > ();
 		ATCollectionParser parser = new ATCollectionParser(scriptCollectionReader);
 		try {

@@ -9,12 +9,34 @@ import java.util.Map;
 
 import java.lang.reflect.Field;
 
+import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
-public class ATScriptInterpreter {	public static void runScript(String script, Map < String, Object > context) throws ParseException {		StringReader reader = new StringReader(script);
+public class ATScriptInterpreter {
+
+	public static final Field MAP_OUTDOOR_FIELD;
+	
+	public static final Field ACTOR_ATTACKCHANCE_FIELD;
+	public static final Field ACTOR_BLOCKCHANCE_FIELD;
+
+	static {
+		try {
+			MAP_OUTDOOR_FIELD = PredefinedMap.class.getField("isOutdoors");
+		
+			ACTOR_ATTACKCHANCE_FIELD = Actor.class.getField("attackChance");
+			ACTOR_BLOCKCHANCE_FIELD = Actor.class.getField("blockChance");
+		} catch (NoSuchFieldException nsfe) {
+			throw new RuntimeException(nsfe);
+		}
+	}
+
+	public static void runScript(String script, Map < String, Object > context) throws ParseException {		StringReader reader = new StringReader(script);
 		BufferedReader scriptReader = new BufferedReader(reader);
 		ATScriptInterpreter interpreter = new ATScriptInterpreter(scriptReader);		try {			interpreter.runScript(context);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}	}}PARSER_END(ATScriptInterpreter)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
 |	<LPAR : "(">
@@ -22,6 +44,7 @@ public class ATScriptInterpreter {	public static void runScript(String script, 
 |	<LBRAC : "{">
 |	<RBRAC : "}">
 |	<SCOL : ";">
+|	<COMA : ",">
 |	<IF : "if">
 |	<ELSE : "else">
 |	<EXCLAM : "!">
@@ -42,13 +65,15 @@ public class ATScriptInterpreter {	public static void runScript(String script, 
 |	<ATTACK : "attack">
 |	<PLAYER : "player">
 |	<ACTOR : "actor">
-|	<OUTDOOR : "outdoor">
+|	<OUTSIDE : "outside">
 |	<MIN : "min">
 |	<MAX : "max">
 |	<CURRENT : "current">
 |	<SOURCE : "source">
 |	<TARGET : "target">
 |	<DAMAGE : "damage">
+|	<ADDCONDITION : "addActorCondition">
+|	<CLEARCONDITION : "clearActorCondition">
 |	<HP : "hp">
 |	<AP : "ap">
 |	<AC : "ac">
@@ -75,17 +100,19 @@ TOKEN : {
 
 void construct(Map<String, Object> context) : {
 } {
-	association(context)
+	associationOrMethodCall(context)
 |	ifElseConstruct(context)
 }
 
-void association(Map<String, Object> context) : {
+void associationOrMethodCall(Map<String, Object> context) : {
 	ValueReference assignee;
-	Object value;
+	Object value = null;
 } {
-	assignee = reference(context) <EQUALS> value = value(context) <SCOL>
+	assignee = reference(context) (<EQUALS> value = value(context))? <SCOL>
 	{
-		assignee.set(value);
+		if (value != null) {
+			assignee.set(value);
+		}
 	} 
 }
 
@@ -131,7 +158,7 @@ ValueReference contextVarReference(Map<String, Object> context) : {
 	{
 		return reference;
 	}
-|	<ACTOR>	<DOT> reference = actorReference(context)
+|	<ACTOR>	<DOT> reference = actorReference(context, ((Actor)context.get("actor")))
 	{
 		return reference;
 	}
@@ -183,7 +210,7 @@ Object value(Map<String, Object> context) : {
 	ValueReference reference;
 	ValueOperation operation = null;
 	Object value;
-	Token numeral;
+	Token tok;
 } {
 	reference = reference(context) (operation = valueOp(context)) ?
 	{
@@ -193,12 +220,12 @@ Object value(Map<String, Object> context) : {
 			return reference.get();
 		}
 	}
-|	numeral = <NUMBER> (operation = valueOp(context))?
+|	tok = <NUMBER> (operation = valueOp(context))?
 	{
 		if (operation != null) {
-			return operation.apply(new Double(numeral.image));
+			return operation.apply(new Double(tok.image));
 		} else {
-			return new Double(numeral.image);
+			return new Double(tok.image);
 		}
 	}
 |	<LPAR> value = value(context) <RPAR>
@@ -208,6 +235,10 @@ Object value(Map<String, Object> context) : {
 |	<EXCLAM> value = value(context)
 	{
 		return !((Boolean)value);
+	}
+|	<DQUO> tok=<LITERAL_VALUE> <DQUOBIS>
+	{
+		return tok.image;
 	}
 }
 
@@ -256,13 +287,9 @@ ValueOperation valueOp(Map<String, Object> context) : {
 
 ValueReference mapReference(Map<String, Object> context) : {
 } {
-	<OUTDOOR>
+	<OUTSIDE>
 	{
-		try {			Field f = PredefinedMap.class.getField("isOutdoors");
-			return new ObjectField(((PredefinedMap)context.get("map")), f);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		}
+		return new ObjectField(((PredefinedMap)context.get("map")), MAP_OUTDOOR_FIELD);
 	}
 }
 
@@ -274,31 +301,34 @@ ValueReference attackReference(Map<String, Object> context) : {
 }
 
 ValueReference playerReference(Map<String, Object> context) : {
+	ValueReference ref;
 } {
-	<AC>
+	ref = actorReference(context, ((WorldContext)context.get("world")).model.player)
 	{
-		try {
-			Field f = Actor.class.getField("attackChance");
-			return new ObjectField(((WorldContext)context.get("world")).model.player, f);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		}
-	}
-|	<BC>
-	{
-		try {
-			Field f = Actor.class.getField("blockChance");
-			return new ObjectField(((WorldContext)context.get("world")).model.player, f);
-		} catch (NoSuchFieldException e) {
-			e.printStackTrace();
-		}
+		return ref;
 	}
 }
 
-ValueReference actorReference(Map<String, Object> context) : {
+ValueReference actorReference(Map<String, Object> context, Actor target) : {
+	Object condId, condMagnitude, condDuration, condChance;
 } {
+	<AC>
 	{
-		return null;
+		return new ObjectField(((WorldContext)context.get("world")).model.player, ACTOR_ATTACKCHANCE_FIELD);
+	}
+|	<BC>
+	{
+		return new ObjectField(((WorldContext)context.get("world")).model.player, ACTOR_BLOCKCHANCE_FIELD);
+	}
+|	<ADDCONDITION> <LPAR> condId = value(context) <COMA> condMagnitude = value(context) <COMA> condDuration = value(context) <COMA> condChance = value(context) <RPAR>
+	{
+		((ControllerContext)context.get("controllers")).actorStatsController.rollForConditionEffect(target, new ActorConditionEffect(((WorldContext)context.get("world")).actorConditionsTypes.getActorConditionType((String)condId), ((Double)condMagnitude).intValue(), ((Double)condDuration).intValue(), new ConstRange(100, ((Double)condChance).intValue()) ));
+		return ValueReference.VOID_REFERENCE;
+	}
+|	<CLEARCONDITION> <LPAR> condId = value(context) <RPAR>
+	{
+		((ControllerContext)context.get("controllers")).actorStatsController.rollForConditionEffect(target, new ActorConditionEffect(((WorldContext)context.get("world")).actorConditionsTypes.getActorConditionType((String)condId), ActorCondition.MAGNITUDE_REMOVE_ALL, 1, new ConstRange(100, 100) ));
+		return ValueReference.VOID_REFERENCE;
 	}
 }
 

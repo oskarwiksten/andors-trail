@@ -8,6 +8,7 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.resource.ResourceLoader;
 import com.gpl.rpg.AndorsTrail.savegames.Savegames;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 
 import java.lang.ref.WeakReference;
 
@@ -31,6 +32,7 @@ public final class WorldSetup {
 	public WorldSetup(WorldContext world, ControllerContext controllers, Context androidContext) {
 		this.world = world;
 		this.controllers = controllers;
+		ScriptEngine.initializeEngine(controllers, world);
 		this.androidContext = new WeakReference<Context>(androidContext);
 	}
 
