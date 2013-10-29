@@ -9,8 +9,6 @@ import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.map.TMXMapFileParser.*;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.model.script.Requirement;
-import com.gpl.rpg.AndorsTrail.model.script.Requirement.RequirementType;
-import com.gpl.rpg.AndorsTrail.resource.parsers.ResourceParserUtils;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCache;
 import com.gpl.rpg.AndorsTrail.util.*;
 
@@ -56,6 +54,7 @@ public final class TMXMapTranslator {
 				for (TMXObject object : group.objects) {
 					final CoordRect position = getTMXObjectPosition(object, m);
 					final Coord topLeft = position.topLeft;
+					boolean isActiveForNewGame = true;
 
 					if (object.type == null) {
 						if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA)
@@ -65,7 +64,7 @@ public final class TMXMapTranslator {
 						for (TMXProperty p : object.properties) {
 							if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", sign " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapSignEvent(position, phraseID, group.name));
+						mapObjects.add(MapObject.createMapSignEvent(position, phraseID, group.name, isActiveForNewGame));
 					} else if (object.type.equalsIgnoreCase("mapchange")) {
 						String map = null;
 						String place = null;
@@ -74,7 +73,7 @@ public final class TMXMapTranslator {
 							else if(p.name.equalsIgnoreCase("place")) place = p.value;
 							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 						}
-						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place, group.name));
+						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place, group.name, isActiveForNewGame));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
 						ArrayList<MonsterType> types = monsterTypes.getMonsterTypesFromSpawnGroup(object.name);
 						int maxQuantity = 1;
@@ -114,6 +113,7 @@ public final class TMXMapTranslator {
 								,monsterTypeIDs
 								,isUnique
 								,group.name
+								,isActiveForNewGame
 						);
 						spawnAreas.add(area);
 					} else if (object.type.equalsIgnoreCase("key")) {
@@ -137,13 +137,13 @@ public final class TMXMapTranslator {
 								L.log("OPTIMIZE: Map " + m.name + ", key " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue, requireNegation), group.name));
+						mapObjects.add(MapObject.createKeyArea(position, phraseID, new Requirement(requireType, requireId, requireValue, requireNegation), group.name, isActiveForNewGame));
 					} else if (object.type.equals("rest")) {
-						mapObjects.add(MapObject.createRestArea(position, object.name, group.name));
+						mapObjects.add(MapObject.createRestArea(position, object.name, group.name, isActiveForNewGame));
 					} else if (object.type.equals("container")) {
 						DropList dropList = dropLists.getDropList(object.name);
 						if (dropList == null) continue;
-						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name));
+						mapObjects.add(MapObject.createContainerArea(position, dropList, group.name, isActiveForNewGame));
 					} else if (object.type.equals("replace")) {
 						// Do nothing. Will be handled when reading map layers instead.
 					} else if (object.type.equalsIgnoreCase("script")) {
@@ -166,7 +166,7 @@ public final class TMXMapTranslator {
 								L.log("OPTIMIZE: Map " + m.name + ", script " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
 						}
-						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen, group.name));
+						mapObjects.add(MapObject.createScriptArea(position, phraseID, evaluateWhen, group.name, isActiveForNewGame));
 					} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 						L.log("OPTIMIZE: Map " + m.name + ", has unrecognized object type \"" + object.type + "\" for name \"" + object.name + "\".");
 					}

@@ -35,7 +35,14 @@ public final class PredefinedMap {
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
-	public PredefinedMap(int xmlResourceId, String name, Size size, MapObject[] eventObjects, MonsterSpawnArea[] spawnAreas, boolean isOutdoors) {
+	public PredefinedMap(
+			int xmlResourceId
+			, String name
+			, Size size
+			, MapObject[] eventObjects
+			, MonsterSpawnArea[] spawnAreas
+			, boolean isOutdoors
+	) {
 		this.xmlResourceId = xmlResourceId;
 		this.name = name;
 		this.size = size;
@@ -64,7 +71,9 @@ public final class PredefinedMap {
 	public MapObject findEventObject(MapObject.MapObjectType objectType, String name) {
 		for (MapObject o : eventObjects) {
 			if (!o.isActive) continue;
-			if (o.type == objectType && name.equals(o.id)) return o;
+			if (o.type != objectType) continue;
+			if (!name.equals(o.id)) continue;
+			return o;
 		}
 		return null;
 	}
@@ -72,21 +81,18 @@ public final class PredefinedMap {
 		List<MapObject> result = null;
 		for (MapObject o : eventObjects) {
 			if (!o.isActive) continue;
-			if (o.position.contains(p)) {
-				if (result == null) result = new ArrayList<MapObject>();
-				result.add(o);
-			}
+			if (!o.position.contains(p)) continue;
+			if (result == null) result = new ArrayList<MapObject>();
+			result.add(o);
 		}
 		return result;
 	}
 	public boolean hasContainerAt(final Coord p) {
 		for (MapObject o : eventObjects) {
 			if (!o.isActive) continue;
-			if (o.type == MapObject.MapObjectType.container) {
-				if (o.position.contains(p)) {
-					return true;
-				}
-			}
+			if (o.type != MapObject.MapObjectType.container) continue;
+			if (!o.position.contains(p)) continue;
+			return true;
 		}
 		return false;
 	}
@@ -143,11 +149,14 @@ public final class PredefinedMap {
 	public void removeGroundLoot(Loot loot) {
 		groundBags.remove(loot);
 	}
-	public void reset() {
-		resetTemporaryData();
-		for(MonsterSpawnArea a : spawnAreas) {
-			a.reset();
+	public void resetForNewGame() {
+		for (MonsterSpawnArea a : spawnAreas) {
+			a.resetForNewGame();
 		}
+		for (MapObject o : eventObjects) {
+			o.resetForNewGame();
+		}
+		resetTemporaryData();
 		groundBags.clear();
 		visited = false;
 		lastSeenLayoutHash = "";
@@ -163,7 +172,7 @@ public final class PredefinedMap {
 	public void resetTemporaryData() {
 		for(MonsterSpawnArea a : spawnAreas) {
 			if (a.isUnique) a.resetShops();
-			else a.reset();
+			else a.removeAllMonsters();
 		}
 		splatters.clear();
 		lastVisitTime = VISIT_RESET;
@@ -171,25 +180,18 @@ public final class PredefinedMap {
 	public boolean hasResetTemporaryData() {
 		return lastVisitTime == VISIT_RESET;
 	}
-	public boolean hasPersistentData(WorldContext world) {
-		if (!hasResetTemporaryData()) return true;
-		if (this == world.model.currentMap) return true;
-		if (!groundBags.isEmpty()) return true;
-		for (MonsterSpawnArea a : spawnAreas) {
-			if (a.isUnique) return true;
-		}
-		return false;
-	}
 
 	public void createAllContainerLoot() {
 		for (MapObject o : eventObjects) {
-			//TODO : Don't forget to create loot on container activation once implemented
 			if (!o.isActive) continue;
-			if (o.type == MapObject.MapObjectType.container) {
-				Loot bag = getBagOrCreateAt(o.position.topLeft);
-				o.dropList.createRandomLoot(bag, null);
-			}
+			if (o.type != MapObject.MapObjectType.container) continue;
+			createContainerLoot(o);
 		}
+	}
+
+	public void createContainerLoot(MapObject container) {
+		Loot bag = getBagOrCreateAt(container.position.topLeft);
+		container.dropList.createRandomLoot(bag, null);
 	}
 
 
@@ -197,11 +199,11 @@ public final class PredefinedMap {
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
-		boolean shouldLoadPersistentData = true;
-		if (fileversion >= 37) shouldLoadPersistentData = src.readBoolean();
+		boolean shouldLoadMapData = true;
+		if (fileversion >= 37) shouldLoadMapData = src.readBoolean();
 
 		int loadedSpawnAreas = 0;
-		if (shouldLoadPersistentData) {
+		if (shouldLoadMapData) {
 			loadedSpawnAreas = src.readInt();
 			for(int i = 0; i < loadedSpawnAreas; ++i) {
 				if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
@@ -247,12 +249,26 @@ public final class PredefinedMap {
 		for(int i = loadedSpawnAreas; i < spawnAreas.length; ++i) {
 			MonsterSpawnArea area = this.spawnAreas[i];
 			if (area.isUnique && visited) controllers.monsterSpawnController.spawnAllInArea(this, null, area, true);
-			else area.reset();
+			else area.resetForNewGame();
 		}
 	}
 
+	public boolean shouldSaveMapData(WorldContext world) {
+		if (!hasResetTemporaryData()) return true;
+		if (this == world.model.currentMap) return true;
+		if (!groundBags.isEmpty()) return true;
+		for (MonsterSpawnArea a : spawnAreas) {
+			if (this.visited && a.isUnique) return true;
+			if (a.isActive != a.isActiveForNewGame) return true;
+		}
+		for (MapObject o : eventObjects) {
+			if (o.isActive != o.isActiveForNewGame) return true;
+		}
+		return false;
+	}
+
 	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
-		if (this.hasPersistentData(world)) {
+		if (shouldSaveMapData(world)) {
 			dest.writeBoolean(true);
 			dest.writeInt(spawnAreas.length);
 			for(MonsterSpawnArea a : spawnAreas) {

@@ -6,7 +6,12 @@ public final class QuestLogEntry {
 	public final int rewardExperience;
 	public final boolean finishesQuest;
 
-	public QuestLogEntry(int progress, String logtext, int rewardExperience, boolean finishesQuest) {
+	public QuestLogEntry(
+			int progress
+			, String logtext
+			, int rewardExperience
+			, boolean finishesQuest
+	) {
 		this.progress = progress;
 		this.logtext = logtext;
 		this.rewardExperience = rewardExperience;

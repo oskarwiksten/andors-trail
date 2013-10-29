@@ -11,7 +11,13 @@ public final class Quest implements Comparable<Quest> {
 	public final boolean showInLog;
 	public final int sortOrder;
 
-	public Quest(String questID, String name, QuestLogEntry[] stages, boolean showInLog, int sortOrder) {
+	public Quest(
+			String questID
+			, String name
+			, QuestLogEntry[] stages
+			, boolean showInLog
+			, int sortOrder
+	) {
 		this.questID = questID;
 		this.name = name;
 		this.stages = stages;

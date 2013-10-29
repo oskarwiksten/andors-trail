@@ -40,9 +40,9 @@ public final class MapCollection {
 		return predefinedMaps.get(name);
 	}
 
-	public void reset() {
+	public void resetForNewGame() {
 		for (PredefinedMap m : getAllMaps()) {
-			m.reset();
+			m.resetForNewGame();
 		}
 		worldMapRequiresUpdate = true;
 	}
@@ -82,9 +82,9 @@ public final class MapCollection {
 		}
 	}
 
-	private static boolean shouldSaveMap(WorldContext world, PredefinedMap map) {
+	public static boolean shouldSaveMap(WorldContext world, PredefinedMap map) {
 		if (map.visited) return true;
-		if (map == world.model.currentMap) return true;
+		if (map.shouldSaveMapData(world)) return true;
 		return false;
 	}
 

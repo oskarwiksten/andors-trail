@@ -11,10 +11,11 @@ public final class ReplaceableMapSection {
 	public final String group;
 
 	public ReplaceableMapSection(
-			CoordRect replacementArea,
-			MapSection replaceLayersWith,
-			QuestProgress requireQuestStage,
-			String group) {
+			CoordRect replacementArea
+			, MapSection replaceLayersWith
+			, QuestProgress requireQuestStage
+			, String group
+	) {
 		this.replacementArea = replacementArea;
 		this.replaceLayersWith = replaceLayersWith;
 		this.requireQuestStage = requireQuestStage;

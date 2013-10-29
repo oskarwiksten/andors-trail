@@ -17,9 +17,7 @@ public final class Loot {
 	public final boolean isVisible;
 
 	public Loot() {
-		this.items = new ItemContainer();
-		this.position = new Coord();
-		this.isVisible = true;
+		this(true);
 	}
 	public Loot(boolean isVisible) {
 		this.items = new ItemContainer();

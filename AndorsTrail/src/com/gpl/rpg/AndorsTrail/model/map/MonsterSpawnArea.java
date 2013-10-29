@@ -21,15 +21,26 @@ public final class MonsterSpawnArea {
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
 	public final String group;
-	public boolean isActive = true;
+	public boolean isActive;
+	public final boolean isActiveForNewGame;
 
-	public MonsterSpawnArea(CoordRect area, Range quantity, Range spawnChance, String[] monsterTypeIDs, boolean isUnique, String group) {
+	public MonsterSpawnArea(
+			CoordRect area
+			, Range quantity
+			, Range spawnChance
+			, String[] monsterTypeIDs
+			, boolean isUnique
+			, String group
+			, boolean isActiveForNewGame
+	) {
 		this.area = area;
 		this.quantity = quantity;
 		this.spawnChance = spawnChance;
 		this.monsterTypeIDs = monsterTypeIDs;
 		this.isUnique = isUnique;
 		this.group = group;
+		this.isActiveForNewGame = isActiveForNewGame;
+		this.isActive = isActiveForNewGame;
 	}
 
 	public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
@@ -86,7 +97,7 @@ public final class MonsterSpawnArea {
 		return Constants.rollResult(spawnChance);
 	}
 
-	public void reset() {
+	public void removeAllMonsters() {
 		monsters.clear();
 		quantity.current = 0;
 	}
@@ -97,21 +108,39 @@ public final class MonsterSpawnArea {
 		}
 	}
 
+	public void resetForNewGame() {
+		removeAllMonsters();
+		isActive = isActiveForNewGame;
+	}
+
 
 	// ====== PARCELABLE ===================================================================
 
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		monsters.clear();
-		quantity.current = src.readInt();
-		for(int i = 0; i < quantity.current; ++i) {
-			monsters.add(Monster.readFromParcel(src, world, fileversion));
+		boolean shouldReadListOfMonsters;
+		if (fileversion >= 41) {
+			isActive = src.readBoolean();
+			shouldReadListOfMonsters = isActive;
+		} else {
+			isActive = isActiveForNewGame;
+			shouldReadListOfMonsters = true;
+		}
+		if (shouldReadListOfMonsters) {
+			quantity.current = src.readInt();
+			for(int i = 0; i < quantity.current; ++i) {
+				monsters.add(Monster.readFromParcel(src, world, fileversion));
+			}
 		}
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeInt(monsters.size());
-		for (Monster m : monsters) {
-			m.writeToParcel(dest, flags);
+		dest.writeBoolean(isActive);
+		if (isActive) {
+			dest.writeInt(monsters.size());
+			for (Monster m : monsters) {
+				m.writeToParcel(dest, flags);
+			}
 		}
 	}
 }

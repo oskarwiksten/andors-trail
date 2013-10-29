@@ -35,7 +35,11 @@ public class Actor {
 	public int damageResistance;
 	public ItemTraits_OnUse[] onHitEffects;
 
-	public Actor(Size tileSize, boolean isPlayer, boolean isImmuneToCriticalHits) {
+	public Actor(
+			Size tileSize
+			, boolean isPlayer
+			, boolean isImmuneToCriticalHits
+	) {
 		this.tileSize = tileSize;
 		this.rectPosition = new CoordRect(this.position, this.tileSize);
 		this.isPlayer = isPlayer;
