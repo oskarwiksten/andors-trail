@@ -9,10 +9,8 @@ import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATScriptInterpreter;
-import com.gpl.rpg.AndorsTrail.scripting.interpreter.ParseException;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ScriptContext;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.L;
 
 
 public class ScriptEngine implements PlayerMovementListener {
@@ -93,42 +91,38 @@ public class ScriptEngine implements PlayerMovementListener {
 	
 	private final List<Script> mapOnEnter = new ArrayList<Script>();
 	private void mapEntered(PredefinedMap map, WorldContext world) {
-		Map<String, Object> context = prepareContext();
-		context.put("map", map);
-		context.put("world", world);
 		for (Script script : mapOnEnter) {
-			try {
-				ATScriptInterpreter.runScript(script.scriptCode, context);
-			} catch (ParseException e) {
-				L.log("Error running script "+script.id+" on map "+map.name);
-				e.printStackTrace();
-			}
+			ScriptContext context = new ScriptContext(
+					script.localNumsSize,
+					script.localBoolsSize,
+					script.localStringsSize,
+					world,
+					map,
+					world.model.player,
+					null,
+					controllers);
+			script.scriptASTRoot.evaluate(context);
 		}
 	
 	}
 	
 	private final List<Script> mapOnLeave = new ArrayList<Script>();
 	public void mapLeft(PredefinedMap map, WorldContext world) {
-		Map<String, Object> context = prepareContext();
-		context.put("map", map);
-		context.put("world", world);
 		for (Script script : mapOnLeave) {
-			try {
-				ATScriptInterpreter.runScript(script.scriptCode, context);
-			} catch (ParseException e) {
-				L.log("Error running script "+script.id+" on map "+map.name);
-				e.printStackTrace();
-			}
+			ScriptContext context = new ScriptContext(
+					script.localNumsSize,
+					script.localBoolsSize,
+					script.localStringsSize,
+					world,
+					map,
+					world.model.player,
+					null,
+					controllers);
+			script.scriptASTRoot.evaluate(context);
 		}
 	
 	}
 	
-	private Map<String, Object> prepareContext() {
-		Map<String, Object> context = new HashMap<String, Object>();
-		context.put("controllers", controllers);
-		
-		return context;
-	}
 	
 	
 	

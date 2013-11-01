@@ -10,6 +10,11 @@ import java.util.HashMap;
 import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.scripting.ScriptTrigger;
 
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATScriptParser;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSNode;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSReturnStatement;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSConstantReference;
+
 public class ATCollectionParser implements ATCollectionParserConstants {
         public static Map < String, Script > parseCollection(Reader scriptCollectionReader) throws ParseException {
                 Map < String, Script > scripts = new HashMap < String, Script > ();
@@ -24,13 +29,17 @@ public class ATCollectionParser implements ATCollectionParserConstants {
                 return scripts;
         }
 
-  final public void scriptCollection(Map < String, Script > scripts) throws ParseException {
+  final public void scriptCollection(Map < String, Script > scripts) throws ParseException, com.gpl.rpg.AndorsTrail.scripting.interpreter.ParseException {
         Script s;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case DQUO:
       s = script();
       scriptCollection(scripts);
                 scripts.put(s.id, s);
+      break;
+    case WHITESPACE:
+      jj_consume_token(WHITESPACE);
+      scriptCollection(scripts);
       break;
     case 0:
       jj_consume_token(0);
@@ -42,28 +51,59 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     }
   }
 
-  final public Script script() throws ParseException {
+  final public Script script() throws ParseException, com.gpl.rpg.AndorsTrail.scripting.interpreter.ParseException {
         Token id;
         Token code = null;
         ScriptTrigger trigger;
     jj_consume_token(DQUO);
     id = jj_consume_token(SCRIPT_ID);
     jj_consume_token(DQUO);
+    label_1:
+    while (true) {
+      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+      case WHITESPACE:
+        ;
+        break;
+      default:
+        jj_la1[1] = jj_gen;
+        break label_1;
+      }
+      jj_consume_token(WHITESPACE);
+    }
     trigger = trigger();
+    label_2:
+    while (true) {
+      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+      case WHITESPACE:
+        ;
+        break;
+      default:
+        jj_la1[2] = jj_gen;
+        break label_2;
+      }
+      jj_consume_token(WHITESPACE);
+    }
     jj_consume_token(LBRAC);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case CODE:
       code = jj_consume_token(CODE);
       break;
     default:
-      jj_la1[1] = jj_gen;
+      jj_la1[3] = jj_gen;
       ;
     }
     jj_consume_token(RBRAC);
                 if (code != null) {
-                        {if (true) return new Script(id.image, trigger, code.image);}
+                        Map<String, Object> localVarsRefHelp = new HashMap<String, Object>();
+                        localVarsRefHelp.put(ATScriptParser.LOCALINT_COUNT_KEY, new Integer(0));
+                        localVarsRefHelp.put(ATScriptParser.LOCALBOOL_COUNT_KEY, new Integer(0));
+                        localVarsRefHelp.put(ATScriptParser.LOCALSTRING_COUNT_KEY, new Integer(0));
+                        ATSNode scriptASTRoot = ATScriptParser.parseScript(code.image, localVarsRefHelp);
+                        {if (true) return new Script(id.image, trigger, scriptASTRoot, (Integer)localVarsRefHelp.get(ATScriptParser.LOCALINT_COUNT_KEY), (Integer)localVarsRefHelp.get(ATScriptParser.LOCALBOOL_COUNT_KEY), (Integer)localVarsRefHelp.get(ATScriptParser.LOCALSTRING_COUNT_KEY));}
                 } else {
-                        {if (true) return new Script(id.image, trigger, "");}
+                        //Dummy script returning 0;
+                        ATSNode scriptASTRoot = new ATSReturnStatement(new ATSConstantReference(0));
+                        {if (true) return new Script(id.image, trigger, scriptASTRoot, 0, 0, 0);}
                 }
     throw new Error("Missing return statement in function");
   }
@@ -85,7 +125,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
                 {if (true) return new ScriptTrigger(category.image, event);}
       break;
     default:
-      jj_la1[2] = jj_gen;
+      jj_la1[4] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -104,7 +144,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
                 {if (true) return event.image;}
       break;
     default:
-      jj_la1[3] = jj_gen;
+      jj_la1[5] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -123,7 +163,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
                 {if (true) return event.image;}
       break;
     default:
-      jj_la1[4] = jj_gen;
+      jj_la1[6] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -139,13 +179,13 @@ public class ATCollectionParser implements ATCollectionParserConstants {
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[5];
+  final private int[] jj_la1 = new int[7];
   static private int[] jj_la1_0;
   static {
       jj_la1_init_0();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x21,0x10000,0x900,0x600,0x3000,};
+      jj_la1_0 = new int[] {0x803,0x800,0x800,0x2000,0x90,0x60,0x300,};
    }
 
   /** Constructor with InputStream. */
@@ -159,7 +199,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 5; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 7; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -173,7 +213,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 5; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 7; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -183,7 +223,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 5; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 7; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -193,7 +233,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 5; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 7; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -202,7 +242,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 5; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 7; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -211,7 +251,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 5; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 7; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -262,12 +302,12 @@ public class ATCollectionParser implements ATCollectionParserConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[17];
+    boolean[] la1tokens = new boolean[14];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 5; i++) {
+    for (int i = 0; i < 7; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -276,7 +316,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
         }
       }
     }
-    for (int i = 0; i < 17; i++) {
+    for (int i = 0; i < 14; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

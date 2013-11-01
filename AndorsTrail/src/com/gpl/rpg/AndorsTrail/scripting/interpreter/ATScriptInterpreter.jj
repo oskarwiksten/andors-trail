@@ -1,44 +1,22 @@
 /**
  * JavaCC template file created by SF JavaCC plugin 1.5.17+ wizard for JavaCC 1.5.0+
- */options {  JDK_VERSION = "1.5";  static = false;}PARSER_BEGIN(ATScriptInterpreter)package com.gpl.rpg.AndorsTrail.scripting.interpreter;
+ */options {  JDK_VERSION = "1.5";  static = false;}PARSER_BEGIN(ATScriptParser)package com.gpl.rpg.AndorsTrail.scripting.interpreter;
 
 import java.io.BufferedReader;
 import java.io.StringReader;
 
 import java.util.Map;
 
-import java.lang.reflect.Field;
+public class ATScriptParser {
 
-import com.gpl.rpg.AndorsTrail.context.ControllerContext;
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
-import com.gpl.rpg.AndorsTrail.model.ability.ActorConditionEffect;
-import com.gpl.rpg.AndorsTrail.model.actor.Actor;
-import com.gpl.rpg.AndorsTrail.model.actor.Player;
-import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
-import com.gpl.rpg.AndorsTrail.util.ConstRange;
-
-public class ATScriptInterpreter {
-
-	public static final Field MAP_OUTDOOR_FIELD;
-	
-	public static final Field ACTOR_ATTACKCHANCE_FIELD;
-	public static final Field ACTOR_BLOCKCHANCE_FIELD;
-
-	static {
-		try {
-			MAP_OUTDOOR_FIELD = PredefinedMap.class.getField("isOutdoors");
-		
-			ACTOR_ATTACKCHANCE_FIELD = Actor.class.getField("attackChance");
-			ACTOR_BLOCKCHANCE_FIELD = Actor.class.getField("blockChance");
-		} catch (NoSuchFieldException nsfe) {
-			throw new RuntimeException(nsfe);
-		}
-	}
-
-	public static void runScript(String script, Map < String, Object > context) throws ParseException {		StringReader reader = new StringReader(script);
+	public static final String LOCALINT_COUNT_KEY = "localIntCount";
+	public static final String LOCALBOOL_COUNT_KEY = "localBoolCount";
+	public static final String LOCALSTRING_COUNT_KEY = "localStringCount";
+	public static final String LOCALVAR_TYPE_KEY_SUFFIX = "__localVarType";
+	public static ATSNode parseScript(String script, Map<String, Object> localVarRefHelp) throws ParseException {		StringReader reader = new StringReader(script);
 		BufferedReader scriptReader = new BufferedReader(reader);
-		ATScriptInterpreter interpreter = new ATScriptInterpreter(scriptReader);		try {			interpreter.runScript(context);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}	}}PARSER_END(ATScriptInterpreter)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
+		ATScriptParser parser = new ATScriptParser(scriptReader);		try {			return parser.parseScript(localVarRefHelp);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}
+		return null;	}}PARSER_END(ATScriptParser)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
 |	<LPAR : "(">
 |	<RPAR : ")">
 |	<LBRAC : "{">
@@ -47,6 +25,10 @@ public class ATScriptInterpreter {
 |	<COMA : ",">
 |	<IF : "if">
 |	<ELSE : "else">
+|	<WHILE : "while">
+|	<RETURN : "return">
+|	<TRUE : "true">
+|	<FALSE : "false">
 |	<EXCLAM : "!">
 |	<GOE : ">=">
 |	<LOE : "<=">
@@ -57,6 +39,8 @@ public class ATScriptInterpreter {
 |	<MINUS : "-">
 |	<MULTIPLY : "*">
 |	<DIVIDE : "/">
+|	<AND : "&&">
+|	<OR : "||">
 |	<EQUALS : "=">
 |	<DQUO : "\""> : LITERAL
 |	<NUMBER : (["-"])?(["0"-"9"])+(["."](["0"-"9"])+)?>
@@ -84,6 +68,7 @@ public class ATScriptInterpreter {
 |	<CM : "cm">
 |	<BOOL : "bool">
 |	<NUM : "num">
+|	<STRING : "string">
 |	<IDENTIFIER : ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","-","_"])*>}
 
 <LITERAL>
@@ -92,247 +77,324 @@ TOKEN : {
 |	<DQUOBIS : "\""> : DEFAULT
 |	<LITERAL_VALUE : (~["\"","\\"])+>
 }
-void runScript(Map<String, Object> context) : {
+ATSExpression parseScript(Map<String, Object> localVars) : {
+	ATSExpression scriptRoot, next;
 } {
-	construct(context) runScript(context)
+	scriptRoot = construct(localVars) next = parseScript(localVars)
+	{
+		scriptRoot.next = next;
+		return scriptRoot;
+	}
 |	<EOF>
+	{
+		return null;
+	}
+|	<RBRAC>
+	{
+		return null;
+	}
 }
 
-void construct(Map<String, Object> context) : {
+ATSExpression construct(Map<String, Object> localVars) : {
+	ATSExpression construct;
 } {
-	associationOrMethodCall(context)
-|	ifElseConstruct(context)
+	construct = associationOrMethodCall(localVars) 
+	{
+		return construct;
+	}
+|	construct = ifElseConstruct(localVars) 
+	{
+		return construct;
+	}
+|	construct = whileConstruct(localVars) 
+	{
+		return construct;
+	}
+|	construct = returnConstruct(localVars) 
+	{
+		return construct;
+	}
 }
 
-void associationOrMethodCall(Map<String, Object> context) : {
-	ValueReference assignee;
-	Object value = null;
+ATSExpression associationOrMethodCall(Map<String, Object> localVars) : {
+	ATSValueReference assignee;
+	ATSValueReference value = null;
 } {
-	assignee = reference(context) (<EQUALS> value = value(context))? <SCOL>
+	assignee = reference(localVars) (<EQUALS> value = value(localVars))? <SCOL>
 	{
 		if (value != null) {
-			assignee.set(value);
+			return new ATSAssociation(assignee, value);
+		} else {
+			//Method call...
+			return assignee;
 		}
 	} 
 }
 
-ValueReference reference(Map<String, Object> context) : {
-	ValueReference assignee;
+ATSValueReference reference(Map<String, Object> localVars) : {
+	ATSValueReference assignee;
 } {
-	assignee = localVarDeclaration(context)
+	assignee = localVarDeclaration(localVars)
 	{
 		return assignee;
 	}
-|	assignee = contextVarReference(context)
+|	assignee = contextVarReference(localVars)
 	{
 		return assignee;
 	}
 }
 
-ValueReference localVarDeclaration(Map<String, Object> context) : {
+ATSValueReference localVarDeclaration(Map<String, Object> localVars) : {
 	Token id;
+	int index;
 } {
 	<BOOL> id = <IDENTIFIER>
 	{
-		return new LocalVariable(context, "localvar_"+id.image);
+		if (localVars.get(id.image)!=null) {
+			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
+		}
+		index = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
+		localVars.put(LOCALBOOL_COUNT_KEY, index + 1);
+		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.bool);
+		return new ATSLocalVarReference(ATSLocalVarReference.VarType.bool, index);
 	}
 |	<NUM> id = <IDENTIFIER>
 	{
-		return new LocalVariable(context, "localvar_"+id.image);
+		if (localVars.get(id.image)!=null) {
+			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
+		}
+		index = (Integer)localVars.get(LOCALINT_COUNT_KEY);
+		localVars.put(LOCALINT_COUNT_KEY, index + 1);
+		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.num);
+		return new ATSLocalVarReference(ATSLocalVarReference.VarType.num, index);
+	}
+|	<STRING> id = <IDENTIFIER>
+	{
+		if (localVars.get(id.image)!=null) {
+			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
+		}
+		index = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
+		localVars.put(LOCALSTRING_COUNT_KEY, index + 1);
+		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.string);
+		return new ATSLocalVarReference(ATSLocalVarReference.VarType.string, index);
 	}
 }
 
-ValueReference contextVarReference(Map<String, Object> context) : {
-	ValueReference reference;
+ATSValueReference contextVarReference(Map<String, Object> localVars) : {
+	ATSValueReference reference;
 	Token id;
 } {
-	<MAP> <DOT> reference = mapReference(context)
+	<MAP> <DOT> reference = mapReference(localVars)
 	{
 		return reference;
 	}
-|	<ATTACK> <DOT> reference = attackReference(context)
+|	<ATTACK> <DOT> reference = attackReference(localVars)
 	{
 		return reference;
 	}
-|	<PLAYER> <DOT> reference = playerReference(context)
+|	<PLAYER> <DOT> reference = playerReference(localVars)
 	{
 		return reference;
 	}
-|	<ACTOR>	<DOT> reference = actorReference(context, ((Actor)context.get("actor")))
+|	<ACTOR>	<DOT> reference = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.actor))
 	{
 		return reference;
 	}
-|	<WORLD>	<DOT> reference = worldReference(context)
+|	<WORLD>	<DOT> reference = worldReference(localVars)
 	{
 		return reference;
 	}
 |	id = <IDENTIFIER>
 	{
-		return new LocalVariable(context, "localvar_"+id.image);
-	}
-}
-
-void ifElseConstruct(Map<String, Object> context) : {
-	String ifBlock, elseBlock=null;
-	Object ifCondition;
-} {
-	<IF> <LPAR> ifCondition = value(context) <RPAR> <LBRAC> ifBlock = code() ( <ELSE> <LBRAC> elseBlock = code())?
-	{
-		if (((Boolean)ifCondition).booleanValue()) {
-			ATScriptInterpreter.runScript(ifBlock, context);
-		} else if (elseBlock != null) {
-			ATScriptInterpreter.runScript(elseBlock, context);
+		if (!localVars.containsKey(id.image)) {
+			throw new ParseException("Undeclared variable "+id.image+" at line"+id.beginLine+" column "+id.beginColumn);
 		}
+		return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image));
 	}
 }
 
-String code() : {
+ATSExpression whileConstruct(Map<String, Object> localVars) : {
+	ATSExpression block;
+	ATSValueReference condition;
 } {
+	<WHILE> <LPAR> condition = value(localVars) <RPAR> <LBRAC> block = parseScript(localVars)
 	{
-		Token t = getNextToken();
-		StringBuffer sb = new StringBuffer();
-		int nestedLevel = 1;
-		while (true) {
-			if (t.image.equals("{")) {
-				nestedLevel++;
-			} else if (t.image.equals("}")) {
-				nestedLevel--;
-				if (nestedLevel == 0) break;
-			} 
-			sb.append(t.image);
-			t = getNextToken();
-		}
-		return sb.toString();
+		return new ATSWhileLoop(condition, block);
 	}
 }
 
-Object value(Map<String, Object> context) : {
-	ValueReference reference;
-	ValueOperation operation = null;
-	Object value;
+ATSExpression ifElseConstruct(Map<String, Object> localVars) : {
+	ATSExpression ifBlock, elseBlock=null;
+	ATSValueReference ifCondition;
+} {
+	<IF> <LPAR> ifCondition = value(localVars) <RPAR> <LBRAC> ifBlock = parseScript(localVars) ( <ELSE> elseBlock = elseBlock(localVars))?
+	{
+		return new ATSFlowControl(ifCondition,ifBlock,elseBlock);
+	}
+}
+
+ATSExpression elseBlock(Map<String, Object> localVars) : {
+	ATSExpression block;
+} {
+	<LBRAC> block = parseScript(localVars)
+	{
+		return block;
+	}
+|	block = ifElseConstruct(localVars)
+	{
+		return block;
+	}
+}
+
+ATSExpression returnConstruct(Map<String, Object> localVars) : {
+	ATSValueReference value;
+} {
+	<RETURN> value = value(localVars)
+	{
+		return new ATSReturnStatement(value);
+	}
+}
+
+ATSValueReference value(Map<String, Object> localVars) : {
+	ATSValueReference reference;
+	ATSPrimitiveOperation operation = null;
 	Token tok;
 } {
-	reference = reference(context) (operation = valueOp(context)) ?
+	reference = reference(localVars) (operation = valueOp(localVars, reference)) ?
 	{
 		if (operation != null) {
-			return operation.apply(reference.get());
+			return operation;
 		} else {
-			return reference.get();
+			return reference;
 		}
 	}
-|	tok = <NUMBER> (operation = valueOp(context))?
+|	tok = <NUMBER> (operation = valueOp(localVars, new ATSConstantReference(new Double(tok.image)))) ?
 	{
 		if (operation != null) {
-			return operation.apply(new Double(tok.image));
+			return operation;
 		} else {
-			return new Double(tok.image);
+			return new ATSConstantReference(new Double(tok.image));
 		}
 	}
-|	<LPAR> value = value(context) <RPAR>
+|	<LPAR> reference = value(localVars) <RPAR>
 	{
-		return value;
+		return reference;
 	}
-|	<EXCLAM> value = value(context)
+|	<EXCLAM> reference = value(localVars)
 	{
-		return !((Boolean)value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.not, null, reference);
+	}
+|	<TRUE>
+	{
+		return new ATSConstantReference(Boolean.TRUE);
+	}
+|	<FALSE>
+	{
+		return new ATSConstantReference(Boolean.FALSE);
 	}
 |	<DQUO> tok=<LITERAL_VALUE> <DQUOBIS>
 	{
-		return tok.image;
+		return new ATSConstantReference(tok.image);
 	}
 }
 
 
-ValueOperation valueOp(Map<String, Object> context) : {
-	Object value;
+ATSPrimitiveOperation valueOp(Map<String, Object> localVars, ATSValueReference leftHand) : {
+	ATSValueReference value;
 } {
-	<GT> value = value(context)
+	<GT> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.gt, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.gt, leftHand, value);
 	}
-|	<LT> value = value(context)
+|	<LT> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.lt, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.lt, leftHand, value);
 	}
-|	<GOE> value = value(context)
+|	<GOE> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.goe, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.goe, leftHand, value);
 	}
-|	<LOE> value = value(context)
+|	<LOE> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.loe, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.loe, leftHand, value);
 	}
-|	<EQ> value = value(context)
+|	<EQ> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.eq, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.eq, leftHand, value);
 	}
-|	<PLUS> value = value(context)
+|	<PLUS> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.plus, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.plus, leftHand, value);
 	}
-|	<MINUS> value = value(context)
+|	<MINUS> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.minus, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.minus, leftHand, value);
 	}
-|	<MULTIPLY> value = value(context)
+|	<MULTIPLY> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.multiply, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.multiply, leftHand, value);
 	}
-|	<DIVIDE> value = value(context)
+|	<DIVIDE> value = value(localVars)
 	{
-		return new ValueOperation(ValueOperation.Operators.divide, value);
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.divide, leftHand, value);
+	}
+|	<AND> value = value(localVars)
+	{
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.and, leftHand, value);
+	}
+|	<OR> value = value(localVars)
+	{
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.or, leftHand, value);
 	}
 }
 
 
-ValueReference mapReference(Map<String, Object> context) : {
+ATSValueReference mapReference(Map<String, Object> localVars) : {
 } {
 	<OUTSIDE>
 	{
-		return new ObjectField(((PredefinedMap)context.get("map")), MAP_OUTDOOR_FIELD);
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.mapOutdoor, null);
 	}
 }
 
-ValueReference attackReference(Map<String, Object> context) : {
+ATSValueReference attackReference(Map<String, Object> localVars) : {
 } {
 	{
 		return null;
 	}
 }
 
-ValueReference playerReference(Map<String, Object> context) : {
-	ValueReference ref;
+ATSValueReference playerReference(Map<String, Object> localVars) : {
+	ATSValueReference ref;
 } {
-	ref = actorReference(context, ((WorldContext)context.get("world")).model.player)
+	ref = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player))
 	{
 		return ref;
 	}
 }
 
-ValueReference actorReference(Map<String, Object> context, Actor target) : {
-	Object condId, condMagnitude, condDuration, condChance;
+ATSValueReference actorReference(Map<String, Object> localVars, ATSContextObjectReference targetInstance) : {
+	ATSValueReference condId, condMagnitude, condDuration, condChance;
 } {
 	<AC>
 	{
-		return new ObjectField(((WorldContext)context.get("world")).model.player, ACTOR_ATTACKCHANCE_FIELD);
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorAc, targetInstance);
 	}
 |	<BC>
 	{
-		return new ObjectField(((WorldContext)context.get("world")).model.player, ACTOR_BLOCKCHANCE_FIELD);
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorBc, targetInstance);
 	}
-|	<ADDCONDITION> <LPAR> condId = value(context) <COMA> condMagnitude = value(context) <COMA> condDuration = value(context) <COMA> condChance = value(context) <RPAR>
+|	<ADDCONDITION> <LPAR> condId = value(localVars) <COMA> condMagnitude = value(localVars) <COMA> condDuration = value(localVars) <COMA> condChance = value(localVars) <RPAR>
 	{
-		((ControllerContext)context.get("controllers")).actorStatsController.rollForConditionEffect(target, new ActorConditionEffect(((WorldContext)context.get("world")).actorConditionsTypes.getActorConditionType((String)condId), ((Double)condMagnitude).intValue(), ((Double)condDuration).intValue(), new ConstRange(100, ((Double)condChance).intValue()) ));
-		return ValueReference.VOID_REFERENCE;
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.actorAddCondition, new ATSValueReference[]{condId, condMagnitude, condDuration, condChance}, targetInstance);
 	}
-|	<CLEARCONDITION> <LPAR> condId = value(context) <RPAR>
+|	<CLEARCONDITION> <LPAR> condId = value(localVars)  <COMA> condChance = value(localVars) <RPAR>
 	{
-		((ControllerContext)context.get("controllers")).actorStatsController.rollForConditionEffect(target, new ActorConditionEffect(((WorldContext)context.get("world")).actorConditionsTypes.getActorConditionType((String)condId), ActorCondition.MAGNITUDE_REMOVE_ALL, 1, new ConstRange(100, 100) ));
-		return ValueReference.VOID_REFERENCE;
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.actorClearCondition, new ATSValueReference[]{condId, condChance}, targetInstance);
 	}
 }
 
-ValueReference worldReference(Map<String, Object> context) : {
+ATSValueReference worldReference(Map<String, Object> localVars) : {
 } {
 	{
 		return null;

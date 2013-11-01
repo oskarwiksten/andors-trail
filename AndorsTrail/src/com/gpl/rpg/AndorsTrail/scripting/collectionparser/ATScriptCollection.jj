@@ -19,6 +19,11 @@ import java.util.HashMap;
 import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.scripting.ScriptTrigger;
 
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATScriptParser;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSNode;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSReturnStatement;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSConstantReference;
+
 public class ATCollectionParser {
 	public static Map < String, Script > parseCollection(Reader scriptCollectionReader) throws ParseException {
 		Map < String, Script > scripts = new HashMap < String, Script > ();
@@ -36,13 +41,6 @@ public class ATCollectionParser {
 
 PARSER_END(ATCollectionParser)
 
-SKIP : {
-	" "
-|	"\r"
-|	"\t"
-|	"\n"
-}
-
 TOKEN : {
 	< DQUO : "\"" >
 |	< DOT : "." >
@@ -54,6 +52,7 @@ TOKEN : {
 |	< ON_HIT : "onHit" >
 |	< ON_MISS : "onMiss" >
 |	< SCRIPT_ID : [ "a"-"z", "A"-"Z" ] ([ "a"-"z", "A"-"Z", "0"-"9", "_", "-" ])* >
+|	< WHITESPACE : [" ","\r","\t","\n"] >
 }
 
 < SCRIPT_CODE >
@@ -62,29 +61,35 @@ TOKEN : {
 |	< CODE : (~[ "]" ])+ >
 }
 
-void scriptCollection(Map < String, Script > scripts) : {
+void scriptCollection(Map < String, Script > scripts) throws com.gpl.rpg.AndorsTrail.scripting.interpreter.ParseException : {
 	Script s;
 } {
-	s = script()
-	(
-		scriptCollection(scripts)
-	)
+	s = script() (scriptCollection(scripts))
 	{
 		scripts.put(s.id, s);
 	}
+|	<WHITESPACE> scriptCollection(scripts)
 |	< EOF >
 }
 
-Script script() : {
+Script script() throws com.gpl.rpg.AndorsTrail.scripting.interpreter.ParseException : {
 	Token id;
 	Token code = null;
 	ScriptTrigger trigger;
 } {
-	< DQUO > id = < SCRIPT_ID > < DQUO > trigger = trigger() < LBRAC > (code = < CODE >)? < RBRAC >
+	< DQUO > id = < SCRIPT_ID > < DQUO > (<WHITESPACE>)* trigger = trigger() (<WHITESPACE>)* < LBRAC > (code = < CODE >)? < RBRAC >
 	{
-		if (code != null) {			return new Script(id.image, trigger, code.image);
+		if (code != null) {
+			Map<String, Object> localVarsRefHelp = new HashMap<String, Object>();
+			localVarsRefHelp.put(ATScriptParser.LOCALINT_COUNT_KEY, new Integer(0));
+			localVarsRefHelp.put(ATScriptParser.LOCALBOOL_COUNT_KEY, new Integer(0));
+			localVarsRefHelp.put(ATScriptParser.LOCALSTRING_COUNT_KEY, new Integer(0));
+			ATSNode scriptASTRoot = ATScriptParser.parseScript(code.image, localVarsRefHelp);
+			return new Script(id.image, trigger, scriptASTRoot, (Integer)localVarsRefHelp.get(ATScriptParser.LOCALINT_COUNT_KEY), (Integer)localVarsRefHelp.get(ATScriptParser.LOCALBOOL_COUNT_KEY), (Integer)localVarsRefHelp.get(ATScriptParser.LOCALSTRING_COUNT_KEY));
 		} else {
-			return new Script(id.image, trigger, "");		}
+			//Dummy script returning 0;
+			ATSNode scriptASTRoot = new ATSReturnStatement(new ATSConstantReference(0));
+			return new Script(id.image, trigger, scriptASTRoot, 0, 0, 0);		}
 	}
 }
 

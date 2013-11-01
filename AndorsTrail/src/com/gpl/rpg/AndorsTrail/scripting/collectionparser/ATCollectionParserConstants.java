@@ -11,29 +11,31 @@ public interface ATCollectionParserConstants {
   /** End of File. */
   int EOF = 0;
   /** RegularExpression Id. */
-  int DQUO = 5;
+  int DQUO = 1;
   /** RegularExpression Id. */
-  int DOT = 6;
+  int DOT = 2;
   /** RegularExpression Id. */
-  int LBRAC = 7;
+  int LBRAC = 3;
   /** RegularExpression Id. */
-  int MAP = 8;
+  int MAP = 4;
   /** RegularExpression Id. */
-  int ON_ENTER = 9;
+  int ON_ENTER = 5;
   /** RegularExpression Id. */
-  int ON_LEAVE = 10;
+  int ON_LEAVE = 6;
   /** RegularExpression Id. */
-  int ATTACK = 11;
+  int ATTACK = 7;
   /** RegularExpression Id. */
-  int ON_HIT = 12;
+  int ON_HIT = 8;
   /** RegularExpression Id. */
-  int ON_MISS = 13;
+  int ON_MISS = 9;
   /** RegularExpression Id. */
-  int SCRIPT_ID = 14;
+  int SCRIPT_ID = 10;
   /** RegularExpression Id. */
-  int RBRAC = 15;
+  int WHITESPACE = 11;
   /** RegularExpression Id. */
-  int CODE = 16;
+  int RBRAC = 12;
+  /** RegularExpression Id. */
+  int CODE = 13;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -43,10 +45,6 @@ public interface ATCollectionParserConstants {
   /** Literal token values. */
   String[] tokenImage = {
     "<EOF>",
-    "\" \"",
-    "\"\\r\"",
-    "\"\\t\"",
-    "\"\\n\"",
     "\"\\\"\"",
     "\".\"",
     "\"[\"",
@@ -57,6 +55,7 @@ public interface ATCollectionParserConstants {
     "\"onHit\"",
     "\"onMiss\"",
     "<SCRIPT_ID>",
+    "<WHITESPACE>",
     "\"]\"",
     "<CODE>",
   };

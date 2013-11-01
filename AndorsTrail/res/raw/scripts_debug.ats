@@ -13,5 +13,5 @@
 	} else {
 		player.bc = player.bc / 2;
 	}
-	player.clearActorCondition("chaotic_grip");
+	player.clearActorCondition("chaotic_grip", 50);
 ]
