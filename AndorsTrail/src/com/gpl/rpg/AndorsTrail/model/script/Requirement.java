@@ -13,6 +13,7 @@ public final class Requirement {
 		,usedItem
 		,spentGold
 		,consumedBonemeals
+		,hasActorCondition
 	}
 
 	public final RequirementType requireType;

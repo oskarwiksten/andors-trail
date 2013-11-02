@@ -48,6 +48,7 @@ public final class ConversationListParser extends JsonCollectionParserFor<Phrase
 					ScriptEffect.ScriptEffectType.valueOf(o.getString(JsonFieldNames.PhraseReward.rewardType))
 					,o.getString(JsonFieldNames.PhraseReward.rewardID)
 					,o.optInt(JsonFieldNames.PhraseReward.value, 0)
+					,o.optString(JsonFieldNames.PhraseReward.mapName, null)
 			);
 		}
 	};

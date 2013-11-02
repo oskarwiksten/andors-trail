@@ -69,9 +69,15 @@ public final class TMXMapTranslator {
 						String map = null;
 						String place = null;
 						for (TMXProperty p : object.properties) {
-							if(p.name.equalsIgnoreCase("map")) map = p.value;
-							else if(p.name.equalsIgnoreCase("place")) place = p.value;
-							else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
+							if (p.name.equalsIgnoreCase("map")) {
+								map = p.value;
+							} else if (p.name.equalsIgnoreCase("place")) {
+								place = p.value;
+							} else if (p.name.equalsIgnoreCase("active")) {
+								isActiveForNewGame = Boolean.parseBoolean(p.value);
+							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
+								L.log("OPTIMIZE: Map " + m.name + ", mapchange " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
+							}
 						}
 						mapObjects.add(MapObject.createMapChangeArea(position, object.name, map, place, group.name, isActiveForNewGame));
 					} else if (object.type.equalsIgnoreCase("spawn")) {
@@ -89,6 +95,8 @@ public final class TMXMapTranslator {
 								maxQuantity = Integer.parseInt(p.value);
 							} else if (p.name.equalsIgnoreCase("spawnchance")) {
 								spawnChance = Integer.parseInt(p.value);
+							} else if (p.name.equalsIgnoreCase("active")) {
+								isActiveForNewGame = Boolean.parseBoolean(p.value);
 							} else if (AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) {
 								L.log("OPTIMIZE: Map " + m.name + ", spawn " + object.name + "@" + topLeft.toString() + " has unrecognized property \"" + p.name + "\".");
 							}
@@ -110,6 +118,7 @@ public final class TMXMapTranslator {
 								position
 								,new Range(maxQuantity, 0)
 								,new Range(1000, spawnChance)
+								,object.name
 								,monsterTypeIDs
 								,isUnique
 								,group.name

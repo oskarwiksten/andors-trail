@@ -83,6 +83,7 @@ public final class JsonFieldNames {
 		public static final String rewardType = "rewardType";
 		public static final String rewardID = "rewardID";
 		public static final String value = "value";
+		public static final String mapName = "mapName";
 	}
 
 	public static final class Quest {

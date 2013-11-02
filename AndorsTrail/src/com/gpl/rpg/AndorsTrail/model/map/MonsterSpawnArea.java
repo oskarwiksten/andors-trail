@@ -17,30 +17,33 @@ public final class MonsterSpawnArea {
 	public final CoordRect area;
 	public final Range quantity;
 	private final Range spawnChance;
+	public final String monsterTypeSpawnGroup;
 	public final String[] monsterTypeIDs;
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
 	public final String group;
-	public boolean isActive;
-	public final boolean isActiveForNewGame;
+	public boolean isSpawning;
+	public final boolean isSpawningForNewGame;
 
 	public MonsterSpawnArea(
 			CoordRect area
 			, Range quantity
 			, Range spawnChance
+			, String monsterTypeSpawnGroup
 			, String[] monsterTypeIDs
 			, boolean isUnique
 			, String group
-			, boolean isActiveForNewGame
+			, boolean isSpawningForNewGame
 	) {
 		this.area = area;
 		this.quantity = quantity;
 		this.spawnChance = spawnChance;
+		this.monsterTypeSpawnGroup = monsterTypeSpawnGroup;
 		this.monsterTypeIDs = monsterTypeIDs;
 		this.isUnique = isUnique;
 		this.group = group;
-		this.isActiveForNewGame = isActiveForNewGame;
-		this.isActive = isActiveForNewGame;
+		this.isSpawningForNewGame = isSpawningForNewGame;
+		this.isSpawning = isSpawningForNewGame;
 	}
 
 	public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
@@ -88,8 +91,8 @@ public final class MonsterSpawnArea {
 	}
 
 	public boolean isSpawnable(boolean includeUniqueMonsters) {
+		if (!isSpawning) return false;
 		if (isUnique && !includeUniqueMonsters) return false;
-		if (!isActive) return false;
 		return quantity.current < quantity.max;
 	}
 
@@ -110,7 +113,7 @@ public final class MonsterSpawnArea {
 
 	public void resetForNewGame() {
 		removeAllMonsters();
-		isActive = isActiveForNewGame;
+		isSpawning = isSpawningForNewGame;
 	}
 
 
@@ -118,29 +121,19 @@ public final class MonsterSpawnArea {
 
 	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		monsters.clear();
-		boolean shouldReadListOfMonsters;
-		if (fileversion >= 41) {
-			isActive = src.readBoolean();
-			shouldReadListOfMonsters = isActive;
-		} else {
-			isActive = isActiveForNewGame;
-			shouldReadListOfMonsters = true;
-		}
-		if (shouldReadListOfMonsters) {
-			quantity.current = src.readInt();
-			for(int i = 0; i < quantity.current; ++i) {
-				monsters.add(Monster.readFromParcel(src, world, fileversion));
-			}
+		isSpawning = isSpawningForNewGame;
+		if (fileversion >= 41) isSpawning = src.readBoolean();
+		quantity.current = src.readInt();
+		for(int i = 0; i < quantity.current; ++i) {
+			monsters.add(Monster.readFromParcel(src, world, fileversion));
 		}
 	}
 
 	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		dest.writeBoolean(isActive);
-		if (isActive) {
-			dest.writeInt(monsters.size());
-			for (Monster m : monsters) {
-				m.writeToParcel(dest, flags);
-			}
+		dest.writeBoolean(isSpawning);
+		dest.writeInt(monsters.size());
+		for (Monster m : monsters) {
+			m.writeToParcel(dest, flags);
 		}
 	}
 }

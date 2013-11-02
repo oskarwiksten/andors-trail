@@ -37,11 +37,36 @@
 					<option value="alignmentChange">Alignment/faction change</option>
 					<option value="giveItem">Item</option>
 					<option value="createTimer">Create timer</option>
+					<option value="spawnAll">Spawn monsters</option>
+					<option value="removeSpawnArea">Remove monsters</option>
+					<option value="deactivateSpawnArea">Stop spawning</option>
+					<option value="activateMapChangeArea">Activate mapchange</option>
+					<option value="deactivateMapChangeArea">Deactivate mapchange</option>
 				</select>
+			</div>
+			<div ng-show="reward.rewardType=='spawnAll' || reward.rewardType=='removeSpawnArea' || reward.rewardType=='deactivateSpawnArea'">
+				<div class="fieldWithLabel">
+					<label for="mapName">Map name:</label>
+					<input type="text" size="30" id="mapName" class="field at-input-id" ng-model="reward.mapName" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardID">Monster spawngroup:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='activateMapChangeArea' || reward.rewardType=='deactivateMapChangeArea'">
+				<div class="fieldWithLabel">
+					<label for="mapName">Map name:</label>
+					<input type="text" size="30" id="mapName" class="field at-input-id" ng-model="reward.mapName" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardID">Area name:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
 			</div>
 			<div ng-show="reward.rewardType=='questProgress'">
 				<div class="fieldWithLabel">
-					<label for="rewardID" >Quest ID:</label>
+					<label for="rewardID">Quest ID:</label>
 					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -51,19 +76,19 @@
 			</div>
 			<div ng-show="reward.rewardType=='dropList'">
 				<div class="fieldWithLabel">
-					<label for="rewardID" >Droplist ID:</label>
+					<label for="rewardID">Droplist ID:</label>
 					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
 				</div>
 			</div>
 			<div ng-show="reward.rewardType=='skillIncrease'">
 				<div class="fieldWithLabel">
-					<label for="rewardID" >Skill ID:</label>
+					<label for="rewardID">Skill ID:</label>
 					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
 				</div>
 			</div>
 			<div ng-show="reward.rewardType=='actorCondition'">
 				<div class="fieldWithLabel">
-					<label for="rewardID" >Actor Condition ID:</label>
+					<label for="rewardID">Actor Condition ID:</label>
 					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -73,7 +98,7 @@
 			</div>
 			<div ng-show="reward.rewardType=='alignmentChange'">
 				<div class="fieldWithLabel">
-					<label for="rewardID" >Faction ID:</label>
+					<label for="rewardID">Faction ID:</label>
 					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -83,7 +108,7 @@
 			</div>
 			<div ng-show="reward.rewardType=='giveItem'">
 				<div class="fieldWithLabel">
-					<label for="rewardID" >Item ID:</label>
+					<label for="rewardID">Item ID:</label>
 					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -196,14 +221,15 @@
 					<option value="usedItem">Used items (greater or equals)</option>
 					<option value="spentGold">Gold spent (greater or equals)/option>
 					<option value="consumedBonemeals">Bonemeals consumed (greater or equals)</option>
+					<option value="hasActorCondition">Has actor condition</option>
 				</select>
 			</div>
 			<div class="filedWithLabel">
 				<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
 			</div>
-			<div ng-show="require.requireType=='questProgress'">
+			<div ng-show="require.requireType=='questProgress' || require.requireType=='questLatestProgress'">
 				<div class="fieldWithLabel">
-					<label for="requireID" >Quest ID:</label>
+					<label for="requireID">Quest ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -211,29 +237,9 @@
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
 			</div>
-			<div ng-show="require.requireType=='questLatestProgress'">
+			<div ng-show="require.requireType=='inventoryRemove' || require.requireType=='inventoryKeep' || require.requireType=='usedItem'">
 				<div class="fieldWithLabel">
-					<label for="requireID" >Quest ID:</label>
-					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
-				</div>
-				<div class="fieldWithLabel">
-					<label for="requirevalue">Stage:</label>
-					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-			</div>
-			<div ng-show="require.requireType=='inventoryRemove'">
-				<div class="fieldWithLabel">
-					<label for="requireID" >Item ID:</label>
-					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
-				</div>
-				<div class="fieldWithLabel">
-					<label for="requirevalue">Quantity:</label>
-					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-			</div>
-			<div ng-show="require.requireType=='inventoryKeep'">
-				<div class="fieldWithLabel">
-					<label for="requireID" >Item ID:</label>
+					<label for="requireID">Item ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -243,7 +249,7 @@
 			</div>
 			<div ng-show="require.requireType=='wear'">
 				<div class="fieldWithLabel">
-					<label for="requireID" >Item ID:</label>
+					<label for="requireID">Item ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -253,7 +259,7 @@
 			</div>
 			<div ng-show="require.requireType=='skillLevel'">
 				<div class="fieldWithLabel">
-					<label for="requireID" >Skill ID:</label>
+					<label for="requireID">Skill ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -263,7 +269,7 @@
 			</div>
 			<div ng-show="require.requireType=='killedMonster'">
 				<div class="fieldWithLabel">
-					<label for="requireID" >Monster ID:</label>
+					<label for="requireID">Monster ID:</label>
 					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
 				<div class="fieldWithLabel">
@@ -281,16 +287,6 @@
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
 				</div>
 			</div>
-			<div ng-show="require.requireType=='usedItem'">
-				<div class="fieldWithLabel">
-					<label for="requireID" >Item ID:</label>
-					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
-				</div>
-				<div class="fieldWithLabel">
-					<label for="requirevalue">Quantity:</label>
-					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
-				</div>
-			</div>
 			<div ng-show="require.requireType=='spentGold'">
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity:</label>
@@ -301,6 +297,12 @@
 				<div class="fieldWithLabel">
 					<label for="requirevalue">Quantity:</label>
 					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='hasActorCondition'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Actor Condition ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
 				</div>
 			</div>
 			<button ng-click="removeRequirement(reply, require)" class="btn pull-right" title="Remove requirement"><i class="icon-trash"></i> Remove requirement</button>
