@@ -116,7 +116,7 @@ public final class ConversationController {
 	}
 
 	private PredefinedMap findMapForScriptEffect(String mapName) {
-		if (mapName == null || mapName.length() == 0) return world.model.currentMap;
+		if (mapName == null) return world.model.currentMap;
 		return world.maps.findPredefinedMap(mapName);
 	}
 
@@ -246,6 +246,9 @@ public final class ConversationController {
 				break;
 			case consumedBonemeals:
 				result =  stats.getNumberOfUsedBonemealPotions() >= requirement.value;
+				break;
+			case hasActorCondition:
+				result =  player.hasCondition(requirement.requireID);
 				break;
 			default:
 				result =  true;
