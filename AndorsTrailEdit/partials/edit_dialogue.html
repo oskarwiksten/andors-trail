@@ -37,7 +37,32 @@
 					<option value="alignmentChange">Alignment/faction change</option>
 					<option value="giveItem">Item</option>
 					<option value="createTimer">Create timer</option>
+					<option value="spawnAll">Spawn monsters</option>
+					<option value="removeSpawnArea">Remove monsters</option>
+					<option value="deactivateSpawnArea">Stop spawning</option>
+					<option value="activateMapChangeArea">Activate mapchange</option>
+					<option value="deactivateMapChangeArea">Deactivate mapchange</option>
 				</select>
+			</div>
+			<div ng-show="reward.rewardType=='spawnAll' || reward.rewardType=='removeSpawnArea' || reward.rewardType=='deactivateSpawnArea'">
+				<div class="fieldWithLabel">
+					<label for="mapName" >Map name:</label>
+					<input type="text" size="30" id="mapName" class="field at-input-id" ng-model="reward.mapName" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Monster spawngroup:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='activateMapChangeArea' || reward.rewardType=='deactivateMapChangeArea'">
+				<div class="fieldWithLabel">
+					<label for="mapName" >Map name:</label>
+					<input type="text" size="30" id="mapName" class="field at-input-id" ng-model="reward.mapName" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardID" >Area name:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
 			</div>
 			<div ng-show="reward.rewardType=='questProgress'">
 				<div class="fieldWithLabel">
