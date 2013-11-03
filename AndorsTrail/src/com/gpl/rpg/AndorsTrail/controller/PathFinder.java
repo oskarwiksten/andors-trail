@@ -11,7 +11,6 @@ public class PathFinder {
 	private final boolean visited[];
 	private final ListOfCoords visitQueue;
 	private final EvaluateWalkable map;
-	public int iterations = 0;
 
 	public PathFinder(int maxWidth, int maxHeight, EvaluateWalkable map) {
 		this.maxWidth = maxWidth;
@@ -26,7 +25,7 @@ public class PathFinder {
 	}
 
 	public boolean findPathBetween(final CoordRect from, final Coord to, CoordRect nextStep) {
-		iterations = 0;
+		int iterations = 0;
 		if (from.equals(to)) return false;
 
 		Coord measureDistanceTo = from.topLeft;

@@ -140,7 +140,7 @@ public final class Savegames {
 	}
 
 	private static final Pattern savegameFilenamePattern = Pattern.compile(Constants.FILENAME_SAVEGAME_FILENAME_PREFIX + "(\\d+)");
-	public static List<Integer> getUsedSavegameSlots(Context androidContext) {
+	public static List<Integer> getUsedSavegameSlots() {
 		try {
 			final List<Integer> result = new ArrayList<Integer>();
 			getSavegameDirectory().listFiles(new FilenameFilter() {
@@ -165,12 +165,6 @@ public final class Savegames {
 		public final int fileversion;
 		public final String playerName;
 		public final String displayInfo;
-
-		public FileHeader(String playerName, String displayInfo) {
-			this.fileversion = AndorsTrailApplication.CURRENT_VERSION;
-			this.playerName = playerName;
-			this.displayInfo = displayInfo;
-		}
 
 		public String describe() {
 			return playerName + ", " + displayInfo;
