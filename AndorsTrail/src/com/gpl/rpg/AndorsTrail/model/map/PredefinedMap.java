@@ -240,7 +240,10 @@ public final class PredefinedMap {
 				}
 			}
 		}
-		if (fileversion >= 37) visited = true;
+		if (fileversion >= 37) {
+			if (fileversion < 41) visited = true;
+			else visited = src.readBoolean();
+		}
 
 		if (fileversion < 36) lastSeenLayoutHash = "";
 		else lastSeenLayoutHash = src.readUTF();
@@ -281,6 +284,7 @@ public final class PredefinedMap {
 		} else {
 			dest.writeBoolean(false);
 		}
+		dest.writeBoolean(visited);
 		dest.writeUTF(lastSeenLayoutHash);
 	}
 }
