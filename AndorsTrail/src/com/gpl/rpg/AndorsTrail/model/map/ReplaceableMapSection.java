@@ -8,7 +8,7 @@ public final class ReplaceableMapSection {
 	public final CoordRect replacementArea;
 	public final MapSection replaceLayersWith;
 	public final QuestProgress requireQuestStage;
-	public final String group;
+	private final String group;
 
 	public ReplaceableMapSection(
 			CoordRect replacementArea

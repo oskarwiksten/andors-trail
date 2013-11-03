@@ -55,9 +55,9 @@ public final class LoadingActivity extends Activity implements OnResourcesLoaded
 	}
 
 	@Override
-	public void onSceneLoadFailed(int loadResult) {
+	public void onSceneLoadFailed(Savegames.LoadSavegameResult loadResult) {
 		progressDialog.dismiss();
-		if (loadResult == Savegames.LOAD_RESULT_FUTURE_VERSION) {
+		if (loadResult == Savegames.LoadSavegameResult.savegameIsFromAFutureVersion) {
 			showLoadingFailedDialog(R.string.dialog_loading_failed_incorrectversion);
 		} else {
 			showLoadingFailedDialog(R.string.dialog_loading_failed_message);

@@ -4,19 +4,15 @@
 	<string name="app_name">Andor\'s Trail</string>
 	<string name="app_description">Quest-driven fantasy RPG</string>
 
-	<string name="exit">Exit</string>
 	<string name="exit_to_menu">Exit to menu</string>
-	<string name="menu_pause">Pause</string>
 	<string name="menu_settings">Preferences</string>
 	<string name="menu_save">Save</string>
-	<string name="menu_load">Load</string>
 	<string name="menu_save_gamesaved">Game was saved to slot %1$d</string>
 	<string name="menu_save_failed">Failed to save game! Is the SD card mounted and writable?</string>
 
 	<string name="loadsave_title_save">Save game</string>
 	<string name="loadsave_title_load">Load saved game</string>
 	<string name="loadsave_selectslot">Select slot</string>
-	<string name="loadsave_slot_empty">(empty)</string>
 	<string name="savegame_currenthero_displayinfo">level %1$d, %2$d exp, %3$d gold</string>
 
 	<string name="dialog_loading_message">Loading resources…</string>
@@ -26,27 +22,17 @@
 
 	<string name="dialog_close">Close</string>
 
-	<string name="dialog_confirmexit_title">Exit</string>
-	<string name="dialog_confirmexit_message">Are you sure you want to exit?</string>
-
-	<string name="dialog_paused_title">Paused</string>
-	<string name="dialog_paused_message">Game is paused</string>
-	<string name="dialog_paused_resume">Resume</string>
-
 	<string name="dialog_monsterencounter_title">Encounter</string>
 	<string name="dialog_monsterencounter_message">Do you want to attack?\nDifficulty: %1$s</string>
 	<string name="dialog_monsterencounter_info">Info</string>
 
 	<string name="status_hp">HP:</string>
-	<string name="status_mp">MP:</string>
 	<string name="status_ap">AP:</string>
 	<string name="status_exp">Level:</string>
 
 	<string name="heroinfo_char">Overview</string>
 	<string name="heroinfo_inv">Items</string>
-	<string name="heroinfo_wear">Equipped</string>
 	<string name="heroinfo_skill">Skills</string>
-	<string name="heroinfo_spell">Spells</string>
 	<string name="heroinfo_levelup">Level up</string>
 	<string name="heroinfo_level">Level</string>
 	<string name="heroinfo_totalexperience">Total experience</string>
@@ -59,7 +45,6 @@
 	<string name="combat_attack">Attack (%1$d AP)</string>
 	<string name="combat_move">Move (%1$d AP)</string>
 	<string name="combat_use">Use item</string>
-	<string name="combat_spell">Spell</string>
 	<string name="combat_endturn">End turn</string>
 	<!-- <string name="combat_endcombat">End combat</string>-->
 	<string name="combat_flee">Flee</string>
@@ -108,10 +93,7 @@
 	<string name="actorinfo_class">Class:</string>
 	<string name="actorinfo_difficulty">Difficulty:</string>
 	<string name="actorinfo_health">Health:</string>
-	<string name="actorinfo_attacksperturn">Attacks/turn:</string>
-	<string name="actorinfo_movesperturn">Movement/turn:</string>
 	<string name="actorinfo_attack">Attack:</string>
-	<string name="actorinfo_criticalhit">Critical hit:</string>
 	<string name="actorinfo_defense">Defense:</string>
 	<string name="actorinfo_movecost">Move cost (AP):</string>
 	<string name="actorinfo_basetraits">Base combat statistics (without equipment and skills)</string>
@@ -134,18 +116,6 @@
 	<string name="iteminfo_action_use_ap">Use (%1$d AP)</string>
 	<string name="iteminfo_action_equip_ap">Equip (%1$d AP)</string>
 	<string name="iteminfo_action_unequip_ap">Unequip (%1$d AP)</string>
-
-	<string name="itemcategory_money">Money</string>
-	<string name="itemcategory_weapon">Weapon</string>
-	<string name="itemcategory_shield">Shield</string>
-	<string name="itemcategory_wearable_head">Wearable (head)</string>
-	<string name="itemcategory_wearable_body">Wearable (body)</string>
-	<string name="itemcategory_wearable_hand">Wearable (hands)</string>
-	<string name="itemcategory_wearable_feet">Wearable (feet)</string>
-	<string name="itemcategory_wearable_neck">Wearable (neck)</string>
-	<string name="itemcategory_wearable_ring">Wearable (ring)</string>
-	<string name="itemcategory_potion">Potion</string>
-	<string name="itemcategory_other">Other</string>
 
 	<string name="startscreen_continue">Continue current game</string>
 	<string name="startscreen_newgame">New game</string>
@@ -228,7 +198,6 @@
 		Thanks for all the feedback!
 	</string>
 
-	<string name="questlog_title">Quests</string>
 	<string name="questlog_includecompleted_prompt">Select quests to show</string>
 	<string name="questlog_includecompleted_hidecompleted">Hide completed quests</string>
 	<string name="questlog_includecompleted_includecompleted">Include completed quests</string>

@@ -163,10 +163,6 @@ public final class TileManager {
 	public void setImageViewTile(ImageView imageView, ActorConditionType conditionType) { imageView.setImageBitmap(preloadedTiles.getBitmap(conditionType.iconID)); }
 	public void setImageViewTileForUIIcon(ImageView imageView, int iconID) { imageView.setImageBitmap(preloadedTiles.getBitmap(iconID)); }
 
-	public void setImageViewTileForSingleItemType(Resources res, ImageView imageView, ItemType itemType) {
-		final Bitmap icon = tileCache.loadSingleTile(itemType.iconID, res);
-		setImageViewTile(res, imageView, itemType, icon);
-	}
 	public void setImageViewTile(Resources res, ImageView imageView, ItemType itemType, TileCollection itemTileCollection) {
 		final Bitmap icon = itemTileCollection.getBitmap(itemType.iconID);
 		setImageViewTile(res, imageView, itemType, icon);

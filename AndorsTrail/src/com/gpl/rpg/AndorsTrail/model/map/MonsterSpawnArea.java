@@ -21,7 +21,7 @@ public final class MonsterSpawnArea {
 	public final String[] monsterTypeIDs;
 	public final ArrayList<Monster> monsters = new ArrayList<Monster>();
 	public final boolean isUnique; // unique == non-respawnable
-	public final String group;
+	private final String group;
 	public boolean isSpawning;
 	public final boolean isSpawningForNewGame;
 
