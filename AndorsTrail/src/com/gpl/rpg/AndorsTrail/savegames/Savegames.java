@@ -20,9 +20,11 @@ import java.util.regex.Pattern;
 public final class Savegames {
 	public static final int SLOT_QUICKSAVE = 0;
 
-	public static final int LOAD_RESULT_SUCCESS = 0;
-	public static final int LOAD_RESULT_UNKNOWN_ERROR = 1;
-	public static final int LOAD_RESULT_FUTURE_VERSION = 2;
+	public static enum LoadSavegameResult {
+		success
+		, unknownError
+		, savegameIsFromAFutureVersion
+	}
 
 	public static boolean saveWorld(WorldContext world, Context androidContext, int slot, String displayInfo) {
 		try {
@@ -42,10 +44,10 @@ public final class Savegames {
 			return false;
 		}
 	}
-	public static int loadWorld(WorldContext world, ControllerContext controllers, Context androidContext, int slot) {
+	public static LoadSavegameResult loadWorld(WorldContext world, ControllerContext controllers, Context androidContext, int slot) {
 		try {
 			FileInputStream fos = getInputFile(androidContext, slot);
-			int result = loadWorld(androidContext.getResources(), world, controllers, fos);
+			LoadSavegameResult result = loadWorld(androidContext.getResources(), world, controllers, fos);
 			fos.close();
 			return result;
 		} catch (IOException e) {
@@ -56,7 +58,7 @@ public final class Savegames {
 				e.printStackTrace(pw);
 				L.log("Load error: " + sw.toString());
 			}
-			return LOAD_RESULT_UNKNOWN_ERROR;
+			return LoadSavegameResult.unknownError;
 		}
 	}
 
@@ -99,10 +101,10 @@ public final class Savegames {
 		dest.close();
 	}
 
-	public static int loadWorld(Resources res, WorldContext world, ControllerContext controllers, InputStream inState) throws IOException {
+	public static LoadSavegameResult loadWorld(Resources res, WorldContext world, ControllerContext controllers, InputStream inState) throws IOException {
 		DataInputStream src = new DataInputStream(inState);
 		final FileHeader header = new FileHeader(src);
-		if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LOAD_RESULT_FUTURE_VERSION;
+		if (header.fileversion > AndorsTrailApplication.CURRENT_VERSION) return LoadSavegameResult.savegameIsFromAFutureVersion;
 
 		world.maps.readFromParcel(src, world, controllers, header.fileversion);
 		world.model = new ModelContainer(src, world, controllers, header.fileversion);
@@ -110,7 +112,7 @@ public final class Savegames {
 
 		onWorldLoaded(res, world, controllers);
 
-		return LOAD_RESULT_SUCCESS;
+		return LoadSavegameResult.success;
 	}
 
 	private static void onWorldLoaded(Resources res, WorldContext world, ControllerContext controllers) {

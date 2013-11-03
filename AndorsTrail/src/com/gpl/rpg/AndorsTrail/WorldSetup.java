@@ -26,7 +26,7 @@ public final class WorldSetup {
 	public int loadFromSlot = Savegames.SLOT_QUICKSAVE;
 	public boolean isSceneReady = false;
 	public String newHeroName;
-	private int loadResult;
+	private Savegames.LoadSavegameResult loadResult;
 
 	public WorldSetup(WorldContext world, ControllerContext controllers, Context androidContext) {
 		this.world = world;
@@ -105,7 +105,7 @@ public final class WorldSetup {
 					if (world.model != null) world.resetForNewGame();
 					if (createNewCharacter) {
 						createNewWorld();
-						loadResult = Savegames.LOAD_RESULT_SUCCESS;
+						loadResult = Savegames.LoadSavegameResult.success;
 					} else {
 						loadResult = continueWorld();
 					}
@@ -126,7 +126,7 @@ public final class WorldSetup {
 					onSceneLoadedListener = null;
 					if (o == null) return;
 
-					if (loadResult == Savegames.LOAD_RESULT_SUCCESS) {
+					if (loadResult == Savegames.LoadSavegameResult.success) {
 						o.onSceneLoaded();
 					} else {
 						o.onSceneLoadFailed(loadResult);
@@ -136,7 +136,7 @@ public final class WorldSetup {
 		}).execute();
 	}
 
-	private int continueWorld() {
+	private Savegames.LoadSavegameResult continueWorld() {
 		Context ctx = androidContext.get();
 		return Savegames.loadWorld(world, controllers, ctx, loadFromSlot);
 	}
@@ -154,7 +154,7 @@ public final class WorldSetup {
 
 	public interface OnSceneLoadedListener {
 		void onSceneLoaded();
-		void onSceneLoadFailed(int loadResult);
+		void onSceneLoadFailed(Savegames.LoadSavegameResult loadResult);
 	}
 	public interface OnResourcesLoadedListener {
 		void onResourcesLoaded();

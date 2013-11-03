@@ -161,7 +161,7 @@ public final class StartScreenActivity extends Activity {
 			Dialogs.showNewVersion(this);
 		}
 
-		boolean hasSavegames = !Savegames.getUsedSavegameSlots(this).isEmpty();
+		boolean hasSavegames = !Savegames.getUsedSavegameSlots().isEmpty();
 		startscreen_load.setEnabled(hasSavegames);
 	}
 
