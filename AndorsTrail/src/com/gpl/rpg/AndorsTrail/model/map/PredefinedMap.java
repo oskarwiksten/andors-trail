@@ -31,7 +31,7 @@ public final class PredefinedMap {
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
 	public String lastSeenLayoutHash = "";
-	private final boolean isOutdoors;
+	public final boolean isOutdoors;
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
