@@ -43,7 +43,6 @@ public final class TMXMapTranslator {
 			assert(m.height > 0);
 
 			boolean isOutdoors = false;
-			List<Script> scripts = new ArrayList<Script>();
 			final List<Script> scripts = new ArrayList<Script>();
 			for (TMXProperty p : m.properties) {
 				if(p.name.equalsIgnoreCase("outdoors")) isOutdoors = (Integer.parseInt(p.value) != 0);
