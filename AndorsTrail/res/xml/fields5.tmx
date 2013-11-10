@@ -144,7 +144,7 @@
    eJzl00EOgCAMRFGO4KW4/5VckRgjOO18gcQmLkyA15ZSj1Lqj78W6jplrXLG9Zzev+uN7JFJ9/atPtJU75XuLTlr5FmUGb0v1+0FdReqp7jZWnuO4pKmWnPGpILuK+nRtX4Vzrty54gwo/bTzEZtN1aYO7hZ081jxVvd2cy+l5mumptjZvOJuE7N972z+9viBATso7I=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="288" y="928" width="672" height="32">
    <properties>
     <property name="map" value="fields2"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="fieldcritter_1" type="spawn" x="256" y="704" width="352" height="192"/>
   <object name="fieldcritter_0" type="spawn" x="512" y="800" width="352" height="96"/>
   <object name="fieldcritter_1" type="spawn" x="640" y="224" width="256" height="192"/>
@@ -168,5 +168,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

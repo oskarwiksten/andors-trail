@@ -143,7 +143,7 @@
    eJzNk1EOgDAIQ3cEL7X7X8kvE7MA7YBOSfhwcTzKyrzGmE3JRhdv5TI9WHc6tHrs59y7W+Gib6t+lr0b6J0UXGZeCq1r7YxO5OPIX1U/ZzQq9SKt753KsBHHY+/MpNtXGZ63AyeY0bysuqgXpa//FF/qrbCZfrwdVGRUX6WZmWc3V8Vk/le8L9LD1K3q9aLTK+wMTjHZvAFxxaC1
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="26" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="north1" type="mapchange" x="928" y="32" width="32" height="128">
    <properties>
     <property name="map" value="roadtocarntower1"/>
@@ -175,19 +175,19 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="30" height="26" visible="0">
+ <objectgroup name="Spawn uniques" visible="0">
   <object name="fieldwasp_unique" type="spawn" x="544" y="64" width="352" height="384"/>
   <object name="rogorn" type="spawn" x="160" y="608" width="32" height="32"/>
   <object name="rogorn_henchman" type="spawn" x="160" y="640" width="32" height="32"/>
   <object name="rogorn_henchman" type="spawn" x="128" y="640" width="32" height="32"/>
   <object name="rivertroll" type="spawn" x="384" y="480" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="30" height="26" visible="0">
+ <objectgroup name="Spawn monsters" visible="0">
   <object name="fieldwasp_2" type="spawn" x="544" y="64" width="352" height="384">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="26" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

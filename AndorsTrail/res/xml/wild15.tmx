@@ -143,7 +143,7 @@
    eJxzFWBgcKUBhgF0Pi4xbPK4zMSnB8YmpIYagBy/Iasb6gA5vIlJC8j6cMUVpekMn33UMJPWZhHyC7bwx+dXYgGxeRefXlxuoCYGAJIMLyc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="160" width="32" height="96">
    <properties>
     <property name="map" value="wild14"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="beetle2" type="spawn" x="64" y="96" width="96" height="352">
    <properties>
     <property name="quantity" value="2"/>
@@ -175,5 +175,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

@@ -141,7 +141,7 @@
    eJxzFWBgcB1AjAvgU4MuhkstPnXIcuhsQu5F5gMA/BQSmQ==
   </data>
  </layer>
- <objectgroup name="mapevents" width="10" height="8">
+ <objectgroup name="mapevents">
   <object name="entrance" type="mapchange" x="192" y="223" width="32" height="32">
    <properties>
     <property name="map" value="crossglen"/>
@@ -149,7 +149,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="keys" width="10" height="8">
+ <objectgroup name="keys">
   <object name="nondisplay:5" type="key" x="160" y="96" width="32" height="32">
    <properties>
     <property name="phrase" value="keyarea_crossglen_smith"/>
@@ -159,7 +159,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="spawn" width="10" height="8" visible="0">
+ <objectgroup name="spawn" visible="0">
   <object name="Audir" type="spawn" x="160" y="96" width="128" height="128"/>
  </objectgroup>
 </map>

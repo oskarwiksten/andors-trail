@@ -141,7 +141,7 @@
    eJxzFWBgcB3FGBgZkKIenznkmIeuBxcgxSxCZpBjHr4wI8Y8aogTE6a0No+Y+CAn/VCSZkhJ0/gAKWmKlHxALCDWP+SYRW7aIRcPF/MABFJh9A==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="320" y="608" width="32" height="32">
    <properties>
     <property name="map" value="wild2"/>
@@ -155,7 +155,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="cavesnake1" type="spawn" x="288" y="384" width="288" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -182,5 +182,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

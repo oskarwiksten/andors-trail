@@ -143,7 +143,7 @@
    eJxzFWBgcB1ADAPU0IMNEGsWqQCbfnLNJMY9uPxOjJm43Elp3BBjL6l2DWUzSbUDXR26XnLMJtZN5LiZHEBJGJBjHqkYANAcPRk=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="16" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="128" width="32" height="64">
    <properties>
     <property name="map" value="wild13"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="16" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="caveboar1" type="spawn" x="160" y="96" width="384" height="96">
    <properties>
     <property name="quantity" value="2"/>
@@ -176,5 +176,5 @@
   </object>
   <object name="forestwolf1" type="spawn" x="288" y="384" width="288" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="16" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

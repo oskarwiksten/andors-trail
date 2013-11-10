@@ -140,7 +140,7 @@
    eJxzFWBgcB0BGAbQ2ch8bGK4zMKlDtkOQmpoYRY2gE8Om1pS1BNjHrrZuOIGlxpC+snBAFL/KS0=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="10">
+ <objectgroup name="Mapevents">
   <object name="up" type="mapchange" x="576" y="224" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_church"/>
@@ -158,11 +158,11 @@
   <object name="sign_catacombs1_grave3" type="sign" x="320" y="96" width="32" height="32"/>
   <object name="sign_catacombs1_grave4" type="sign" x="448" y="96" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="19" height="10"/>
- <objectgroup name="Spawn" width="19" height="10">
+ <objectgroup name="Keys"/>
+ <objectgroup name="Spawn">
   <object name="catacombguard1" type="spawn" x="224" y="224" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn_rats" width="19" height="10">
+ <objectgroup name="Spawn_rats">
   <object name="catacombrat1" type="spawn" x="96" y="128" width="448" height="160">
    <properties>
     <property name="quantity" value="4"/>

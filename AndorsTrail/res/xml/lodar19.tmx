@@ -143,7 +143,7 @@
    eJy9k8sNwCAMQxmhS7H/Sj1VilDcGOcTiQOf8IxJ9rPWbho2uhiId8Yk0653Mj3OpN8Vf53VGnHRv6hamXw1mLsyem/1TdYMw6zUFPEqvPjyPO/ZelE88PLtHDHOtfM8epsSbM9Ee3915OWznjE5ivaqXkC1jDxQ+0B9e/beDL+beTNeGH+Hzg==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="20">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="448" width="32" height="64">
    <properties>
     <property name="map" value="lodar16"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20">
+ <objectgroup name="Spawn">
   <object name="vscale3" type="spawn" x="608" y="64" width="192" height="64">
    <properties>
     <property name="quantity" value="2"/>
@@ -223,5 +223,5 @@
   </object>
   <object name="brtender2" type="spawn" x="64" y="352" width="128" height="224"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

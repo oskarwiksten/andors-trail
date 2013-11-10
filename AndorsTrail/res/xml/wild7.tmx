@@ -143,7 +143,7 @@
    eJy1lMENACAIxBzBpdh/Jb/GBCwHXOJPmkJQ22sZPHdoDeVVmROsrp6jVNw8dpebyuromXhRJnF672ScVOdMredViTIrdedoPWWqmWb93ms054n/ReVSxgFKkkkN
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="352" width="32" height="96">
    <properties>
     <property name="map" value="wild8"/>
@@ -158,7 +158,7 @@
   </object>
   <object name="sign_wild7" type="sign" x="416" y="320" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="forestwolf1" type="spawn" x="224" y="64" width="352" height="224">
    <properties>
     <property name="quantity" value="2"/>
@@ -175,5 +175,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

@@ -143,7 +143,7 @@
    eJxzFWBgcMWCYYBUOVwYmx5sgBIz0c0h1TxCZpJjHrI7qGEWLvPINQvdPErMwRUP1DKPmmqpqY6a7iM13LABUuOdUvMIqUWWw6YOFyDH7+h2kZPWsNGjGDsGABg3aEM=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="north1" type="mapchange" x="192" y="0" width="64" height="32">
    <properties>
     <property name="map" value="lodar20"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="morkins" type="spawn" x="224" y="64" width="96" height="64"/>
   <object name="brtender1" type="spawn" x="416" y="384" width="96" height="96"/>
   <object name="hanklbit3" type="spawn" x="64" y="384" width="128" height="160">
@@ -185,5 +185,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

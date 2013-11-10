@@ -143,7 +143,7 @@
    eJxzFWBgcKUCBgFqmTOYzEIH1DCDHLMIAWqYQaxZpABK9eMyh1xAqX5s7qGGO8g1i5bxRIkfSU2PxOYVbObjs5ccd1LTHGq6ixoYAO8oQr4=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="320" width="32" height="160">
    <properties>
     <property name="map" value="fields11"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="frog_2" type="spawn" x="64" y="256" width="320" height="192">
    <properties>
     <property name="quantity" value="2"/>
@@ -174,5 +174,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="19" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

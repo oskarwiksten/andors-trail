@@ -141,7 +141,7 @@
    eJxzFWBgcB0CGARgNIxNiVnogFI9tDKPkB5i7URWQy4g5A5cbifGvZSaR0z4kgKIjTNKzCRkH6nhQ6xZhOwnxzxsZhBSQw4GAAa9OR0=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="96" y="448" width="32" height="32">
    <properties>
     <property name="map" value="crossglen"/>
@@ -154,7 +154,7 @@
   <object name="rest2" type="rest" x="512" y="96" width="32" height="32"/>
   <object name="rest1" type="rest" x="448" y="96" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15">
+ <objectgroup name="Spawn">
   <object name="Leonid" type="spawn" x="64" y="64" width="96" height="64"/>
   <object name="Mara" type="spawn" x="128" y="192" width="192" height="160"/>
   <object name="drunk" type="spawn" x="192" y="160" width="256" height="192">
@@ -166,5 +166,5 @@
   <object name="Tharal" type="spawn" x="512" y="384" width="32" height="32"/>
   <object name="Gruil" type="spawn" x="32" y="224" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15"/>
+ <objectgroup name="Keys"/>
 </map>

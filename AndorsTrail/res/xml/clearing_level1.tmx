@@ -141,7 +141,7 @@
    eJxzFWBgcB1iGBkQo5YYc7ABXOrxmUXIXGL9QSzAZRYuOXLchs0uQmFATHgTq28gzCMlHREyj9I0TKp5+ACpYYSsjhTzKYlDcs0iBwMAxLxFuw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="16">
+ <objectgroup name="Mapevents">
   <object name="up" type="mapchange" x="512" y="64" width="32" height="32">
    <properties>
     <property name="map" value="wild11_clearing"/>
@@ -155,7 +155,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="16">
+ <objectgroup name="Spawn">
   <object name="pack1" type="spawn" x="448" y="160" width="160" height="160">
    <properties>
     <property name="quantity" value="3"/>
@@ -184,5 +184,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="16"/>
+ <objectgroup name="Keys"/>
 </map>

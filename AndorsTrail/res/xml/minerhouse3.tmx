@@ -140,7 +140,7 @@
    eJxzFWBgcB3iGASQaWxyMDYywCWObB4ucXQ7COnDZRYhd6OrxSVGTPhgwwB8rx3j
   </data>
  </layer>
- <objectgroup name="Mapevents" width="16" height="8">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="288" y="224" width="32" height="32">
    <properties>
     <property name="map" value="waytolostmine1"/>
@@ -148,7 +148,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="8">
+ <objectgroup name="Spawn">
   <object name="charwdg1" type="spawn" x="32" y="96" width="96" height="128"/>
   <object name="charwdg2" type="spawn" x="128" y="128" width="32" height="32"/>
   <object name="charwdg2" type="spawn" x="192" y="160" width="32" height="64">
@@ -162,5 +162,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="16" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

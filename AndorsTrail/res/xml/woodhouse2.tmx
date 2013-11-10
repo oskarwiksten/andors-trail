@@ -140,7 +140,7 @@
    eJxzFWBgcB3iGB/AJg8TQ9aPzSxcdtFCPzmAlPDBJQcAaicdjg==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="16" height="8">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="288" y="224" width="32" height="32">
    <properties>
     <property name="map" value="woodsettlement0"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="8">
+ <objectgroup name="Spawn">
   <object name="smuggler1" type="spawn" x="32" y="96" width="96" height="96"/>
   <object name="smuggler2" type="spawn" x="128" y="96" width="96" height="128"/>
   <object name="lowyna" type="spawn" x="288" y="96" width="96" height="32"/>
@@ -164,5 +164,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="16" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -143,7 +143,7 @@
    eJxzFWBgcCUSwwCp6knVh0s/MeYQqxaXPDb9pNhJjJ/w6SXV7cSqJWQHMe4n1Z+kuHMwpDly9VHiP2rpH+z2weykt30D5U9a24tuNnpeo3ZcEwOoEQ6EzEemcZlPjL2E/ECqX3G5iZD51EpDxLhvqGEAHj6IeA==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="29" height="19">
+ <objectgroup name="Mapevents">
   <object name="north1" type="mapchange" x="352" y="0" width="64" height="32">
    <properties>
     <property name="map" value="lodar16"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="29" height="19">
+ <objectgroup name="Spawn">
   <object name="vscaleb2" type="spawn" x="128" y="64" width="128" height="128"/>
   <object name="vscale2" type="spawn" x="256" y="64" width="256" height="192">
    <properties>
@@ -200,5 +200,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="29" height="19" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

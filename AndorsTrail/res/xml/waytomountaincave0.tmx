@@ -144,7 +144,7 @@
    eJzFkt0JACEMgx2hS3X/leRAQY5ak/QOC33SL+mfW2s+8gk3Pmdk7wqP6K7BsBVfhEe4N7/rJeMjPab2yP8PLpuNWi9zmyx3m/9iPxHPcDudiDtpsPUirOqJ+Cp7qnAMq/iqc8pY9oarfZ7+dvtBYEs=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="29">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="96" y="0" width="32" height="32">
    <properties>
     <property name="map" value="waterway11_east"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="29">
+ <objectgroup name="Spawn">
   <object name="irdegh_2" type="spawn" x="192" y="320" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -175,12 +175,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="15" height="29" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="irdegh_spawn" type="spawn" x="32" y="64" width="384" height="800">
    <properties>
     <property name="quantity" value="8"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="29"/>
+ <objectgroup name="Keys"/>
 </map>

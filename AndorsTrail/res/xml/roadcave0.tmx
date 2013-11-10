@@ -140,7 +140,7 @@
    eJxzFWBgcB3FcIwMqGEGIUCOW3CZg89MfPaS40ZqmwfTR2yYEoorYuwjFJ7E+JUa6YNa6ZZQGJLjRmqYRSszcYUjobgkJgxJBcS4kZh0TMg8YsODmvGGDwMAu6JeTQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="up north" type="mapchange" x="512" y="480" width="32" height="32">
    <properties>
     <property name="map" value="roadbeforecrossroads1"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="jelly1" type="spawn" x="224" y="512" width="32" height="32"/>
   <object name="jelly1" type="spawn" x="64" y="224" width="96" height="32">
    <properties>
@@ -184,5 +184,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

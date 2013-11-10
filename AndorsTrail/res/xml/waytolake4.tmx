@@ -141,7 +141,7 @@
    eJzlklEKABAQRB3Bpdz/SvKhpBk72CKmhNi3s0uKIaQPRxGa67rds9j+PlJ/jliIx/KquRQe8sa4Kk/puRdPqYnVcAPzBP9mz+wfevtjTCv/SIhlxSBfjLWq2b5YsTO9brk7b+j9Z1/mZYYmeYc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="25">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="128" y="768" width="32" height="32">
    <properties>
     <property name="map" value="waytolake3"/>
@@ -155,7 +155,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25">
+ <objectgroup name="Spawn">
   <object name="plaguespider_3" type="spawn" x="128" y="704" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -237,5 +237,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="25"/>
+ <objectgroup name="Keys"/>
 </map>

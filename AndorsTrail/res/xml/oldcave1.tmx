@@ -140,7 +140,7 @@
    eJxzFWBgcB2hGASobR4yQBajxBxyAD4zcbmVkHuI9S+5YU+se+gVl8PVPHLSAKlplJS0Qox+fOmEVP2DOW5oYR66fmLNIzaOiTGPWLPwpRVC+rGZRaz9yGaQkw+oGd+UYAAu23yE
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="25">
+ <objectgroup name="Mapevents">
   <object name="up oldcave1" type="mapchange" x="96" y="96" width="32" height="32">
    <properties>
     <property name="map" value="oldcave0"/>
@@ -148,7 +148,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25">
+ <objectgroup name="Spawn">
   <object name="zombie3" type="spawn" x="32" y="160" width="128" height="128"/>
   <object name="zombie3" type="spawn" x="352" y="160" width="192" height="32">
    <properties>
@@ -200,5 +200,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="25"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -144,7 +144,7 @@
    eJzFktENACEIQx3Bpdh/JX/JBSzlBEj4MbGPFmSvJaqtkl3bt+pgWzN0+tVv1X4n9/z1OZF1h2dPuyPrCXaE+ZqLtPWNVd/V7day2hm/WTb6wzAZ9p+srL8RnRezRrRQNuyc3hyeLuJH9ogyYCqaL7s3hjHRBzd6jnI=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="20">
+ <objectgroup name="Mapevents">
   <object name="north1" type="mapchange" x="128" y="0" width="160" height="32">
    <properties>
     <property name="map" value="waytomountaincave1"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20">
+ <objectgroup name="Spawn">
   <object name="irdegh_4" type="spawn" x="608" y="544" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -190,12 +190,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="30" height="20" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="irdegh_spawn" type="spawn" x="64" y="64" width="800" height="544">
    <properties>
     <property name="quantity" value="8"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -140,7 +140,7 @@
    eJxzFWBgcB1kGASw0TA2DGATwwbwmUGMenS3EHIPLv9gwwBv+hWW
   </data>
  </layer>
- <objectgroup name="Mapevents" width="12" height="8">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="160" y="224" width="32" height="32">
    <properties>
     <property name="map" value="remgard4"/>
@@ -148,9 +148,9 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="12" height="8" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="elwel" type="spawn" x="192" y="96" width="160" height="128"/>
   <object name="elwyl" type="spawn" x="32" y="96" width="160" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="12" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

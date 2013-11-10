@@ -143,7 +143,7 @@
    eJy1kssNwCAMQxmhS7H/SlwRavwJJlIPlRLnYWd+Y8zH315pvarUWcbXYWZ6rh+sP+1v990pPTXH5P5kHmhf986cuao6fPs/ejPiU3jULFQtd9dfPytFT7kP1Je6b1eL8Vd5nTOqHwqDkwNjQOVq3bClMnilhTy7ZUn4ldQ67zfh/wLz+Yx0
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="30">
+ <objectgroup name="Mapevents">
   <object name="west4" type="mapchange" x="0" y="96" width="32" height="32">
    <properties>
     <property name="map" value="lodar11"/>
@@ -181,7 +181,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="30">
+ <objectgroup name="Spawn">
   <object name="morkin_cr" type="spawn" x="96" y="96" width="32" height="32"/>
   <object name="morkins" type="spawn" x="64" y="640" width="96" height="128"/>
   <object name="morkin1" type="spawn" x="64" y="768" width="224" height="128"/>
@@ -203,5 +203,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

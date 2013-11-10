@@ -140,7 +140,7 @@
    eJxzFWBgcB3FA4JBgFx9yIAU9ehi5NhJqvtI9SepgBrxQK55AMx6Occ=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="26" height="8">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="352" y="224" width="128" height="32">
    <properties>
     <property name="map" value="waytolostmine2"/>
@@ -149,7 +149,7 @@
   </object>
   <object name="morenavia" type="sign" x="160" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="26" height="8">
+ <objectgroup name="Spawn">
   <object name="ccentip" type="spawn" x="192" y="128" width="64" height="32">
    <properties>
     <property name="quantity" value="2"/>
@@ -167,5 +167,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="26" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -143,7 +143,7 @@
    eJxzFWBgcB0hGASoYQYyoJY5lJiHD1DDLGRxarmLVPOIBdQyhxjzyAGkpCt8fFLNo8R9lAB8+ZAUM3CZRykYCPNIEaem22hhHgBivUFq
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="608" y="64" width="32" height="544">
    <properties>
     <property name="map" value="fields2"/>
@@ -157,15 +157,15 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="20" height="20" visible="0">
+ <objectgroup name="Spawn uniques" visible="0">
   <object name="tinlyn_lostsheep3" type="spawn" x="64" y="64" width="512" height="512"/>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="20" height="20" visible="0">
+ <objectgroup name="Spawn monsters" visible="0">
   <object name="fieldcritter_2" type="spawn" x="96" y="96" width="480" height="480">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

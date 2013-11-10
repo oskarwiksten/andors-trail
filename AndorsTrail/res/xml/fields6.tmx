@@ -143,7 +143,7 @@
    eJxzFWBgcB3FdMf4AL3soaX92Mykh93EmE8L+6kBBspecuxH10fIXGrZTUswUPbicwc+NUMFkOrWoeC3gUgTQ9HsgQZDwW9DwY3YAD3cTUlbgtpgsNlLqXtoqZ+abaKBBADaIUsL
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="28">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="0" y="864" width="960" height="32">
    <properties>
     <property name="map" value="fields1"/>
@@ -164,7 +164,7 @@
   </object>
   <object name="sign_fields6" type="sign" x="480" y="768" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="28">
+ <objectgroup name="Spawn">
   <object name="tinlyn" type="spawn" x="384" y="640" width="32" height="32"/>
   <object name="tinlyn_sheep" type="spawn" x="192" y="416" width="256" height="224">
    <properties>
@@ -175,5 +175,5 @@
   <object name="fieldcritter_0" type="spawn" x="608" y="704" width="288" height="128"/>
   <object name="fieldcritter_0" type="spawn" x="512" y="256" width="160" height="192"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="28"/>
+ <objectgroup name="Keys"/>
 </map>

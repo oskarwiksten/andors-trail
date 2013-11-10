@@ -141,7 +141,7 @@
    eJxzFWBgcB2hGAZgbFLU45JHVoduPi5xYtyGTT0ueWxmYrMbl3n41OPyC6mAXPOIcR+6PLluxhf31DKPXEAojVLDLHx+x8amJB8SqxYA96k3dA==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="288" y="448" width="32" height="32">
    <properties>
     <property name="map" value="catacombs3"/>
@@ -151,7 +151,7 @@
   <object name="sign_catacombs4_grave1" type="sign" x="576" y="288" width="32" height="32"/>
   <object name="sign_catacombs4_grave2" type="sign" x="320" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15">
+ <objectgroup name="Spawn">
   <object name="catacombguard3" type="spawn" x="96" y="256" width="480" height="160">
    <properties>
     <property name="quantity" value="2"/>
@@ -162,5 +162,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15"/>
+ <objectgroup name="Keys"/>
 </map>

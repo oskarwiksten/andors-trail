@@ -140,7 +140,7 @@
    eJxzFWBgcB3BGAZgbGqYhQ2g24WuD59ZyGqIBcTYQQvziAljSs0j1s6RYh6uMMVmHzHxS8g8UtMMueahyxEbfrj0U9t9+PSR6z5quoEeGAAP5V73
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="up oldcave0" type="mapchange" x="544" y="128" width="32" height="32">
    <properties>
     <property name="map" value="roadbeforecrossroads9"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="zombie2" type="spawn" x="64" y="192" width="32" height="192">
    <properties>
     <property name="quantity" value="3"/>
@@ -181,5 +181,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

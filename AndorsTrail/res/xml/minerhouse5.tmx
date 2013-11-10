@@ -140,7 +140,7 @@
    eJxzFWBgcB0GGATQaRibWP3oANk8bGrwiRPiU+ImSsMIGQMAkOEgiw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="16" height="8">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="352" y="224" width="32" height="32">
    <properties>
     <property name="map" value="waytolostmine2"/>
@@ -149,7 +149,7 @@
   </object>
   <object name="ayell" type="sign" x="160" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="8">
+ <objectgroup name="Spawn">
   <object name="ccentip" type="spawn" x="32" y="96" width="128" height="96">
    <properties>
     <property name="quantity" value="2"/>
@@ -163,5 +163,5 @@
   </object>
   <object name="ccentip" type="spawn" x="288" y="192" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="16" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

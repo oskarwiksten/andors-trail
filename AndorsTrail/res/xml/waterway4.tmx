@@ -143,7 +143,7 @@
    eJzV1EsOgCAMRVGW4KbY/5aYEqLQz7sgTZyI8VBaWp9S6oGnj7d34xrhzuIvrmI/VpM4h2yctEffsx+1+7VG2kqX7gc66D7rDasbmSve7z3uqm8Urvc/1tg1TyIuUefdc/Qml7jThG25ixk7chYKN5J/1M3WmnQttaFtZb4rl8w322M3uhG7ATvRkBs=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="32" width="32" height="96">
    <properties>
     <property name="map" value="waterway2"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="frog_3" type="spawn" x="64" y="64" width="832" height="320">
    <properties>
     <property name="quantity" value="4"/>
@@ -190,5 +190,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

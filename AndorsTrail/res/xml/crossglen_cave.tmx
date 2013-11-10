@@ -141,7 +141,7 @@
    eJxzFWBgcB3FWAEleokFtLBjIMOCWHOpHW+0SAvUUotPDTnxSUicWICulxSz8KUTXOYT4wZizCNkDqn2YvM/NdLQSDAPABpAXvc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="64" y="608" width="32" height="32">
    <properties>
     <property name="map" value="crossglen"/>
@@ -150,7 +150,7 @@
   </object>
   <object name="sign_crossglen_cave" type="sign" x="256" y="320" width="64" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="crossglen_caverat" type="spawn" x="128" y="352" width="384" height="160">
    <properties>
     <property name="quantity" value="4"/>
@@ -171,5 +171,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

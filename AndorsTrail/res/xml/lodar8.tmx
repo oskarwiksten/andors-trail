@@ -143,7 +143,7 @@
    eJzFk8ERACEIAy3hmrL/lu7lzD2EBAgcM34UXCFxP2ttwbpFx53VUHGjb8xwmfzM7L0+FF6Y8Id1D+JU34BC4amp2UX/GDP/ry+nvFTRRaW/yidIL2Y/4jnlbKr9oJppNpt7chgtlExGy4jeiHurt2pUXK+v6iyZfjt8dvY9vSrMbKh9yzIifrZq1Fw2Mlzm7JyzXORbj8lom81Ds1AvZv6dvD+4yntfGljIjQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west3" type="mapchange" x="0" y="192" width="32" height="64">
    <properties>
     <property name="map" value="lodar7"/>
@@ -199,7 +199,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="lbridge" type="spawn" x="736" y="736" width="32" height="32"/>
   <object name="yjacket1" type="spawn" x="416" y="64" width="128" height="32">
    <properties>
@@ -266,5 +266,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

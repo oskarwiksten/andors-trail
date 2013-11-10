@@ -144,7 +144,7 @@
    eJztk10KgEAIhDtCl9r7X6mnIBZ3nR8NggTZl9FvNBvncYw/P5N3vNlrDpeH9InC5WV9Ig3Ljep33BXT2fWzNuMiftSdd91jRX0UncyZk32fqh3vQp1X8emw2ZqVnunDes2YXeydpou700XB3olyP6gOvU+GO78ZN/Ob+Wc9KjeK6FA24kmZA9Gqt1fxn1R5d+eNalFu9KpzMnM48zo7U7muXycruRfAidd+
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="352" y="928" width="96" height="32">
    <properties>
     <property name="map" value="mountainlake0"/>
@@ -159,7 +159,7 @@
   </object>
   <object name="sign_mountainlake1_grave" type="sign" x="160" y="672" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="maonit_1" type="spawn" x="512" y="512" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -197,12 +197,12 @@
   </object>
   <object name="maonit_cr" type="spawn" x="64" y="160" width="224" height="128"/>
  </objectgroup>
- <objectgroup name="Spawn2" width="30" height="30" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="mwolf_1" type="spawn" x="64" y="64" width="832" height="832">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

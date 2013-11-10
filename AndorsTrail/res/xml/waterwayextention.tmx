@@ -143,7 +143,7 @@
    eJxzFWBgcMWBQQCXHLo6QoAY/cSYRa79+Mwilk9IP6nuxCZOSnhTWz+pcU1t/YTMwKUOxsdlBro+fPbjAvjijxIMAOU8KS0=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="16" height="14">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="224" y="0" width="32" height="32">
    <properties>
     <property name="map" value="waterway2"/>
@@ -151,19 +151,19 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="14" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="izthiel_4" type="spawn" x="32" y="64" width="448" height="352">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="16" height="14" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="frog_3" type="spawn" x="32" y="64" width="448" height="352">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="16" height="14"/>
+ <objectgroup name="Keys"/>
 </map>

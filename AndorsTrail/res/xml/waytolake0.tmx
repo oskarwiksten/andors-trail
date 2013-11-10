@@ -144,7 +144,7 @@
    eJxzFWBgcB3FdMcgQKw6dEBIHps6dPX49OJzAzHuw2c/NnfgM48a4UwNc2hhHjX9SQvzqO1nYgE1/TuY45+W5g3GNEVJXBNr/mCJF2S91PAztcOO2vGACwx0PAw0BgC1FKSx
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="30">
+ <objectgroup name="Mapevents">
   <object name="down" type="mapchange" x="384" y="832" width="32" height="32">
    <properties>
     <property name="map" value="mountaincave1"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="30">
+ <objectgroup name="Spawn">
   <object name="scaradon_2" type="spawn" x="320" y="736" width="128" height="64">
    <properties>
     <property name="quantity" value="1"/>
@@ -200,5 +200,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

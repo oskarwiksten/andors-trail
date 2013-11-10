@@ -141,7 +141,7 @@
    eJxzFWBgcEXCMOAqgB8To2a4mYdPLbmAGPvw6SHGTGRxXGxsYYfLfej6ibUfn3nEmkUL80hJI7jY5JpJLTeSmp6Hm3nocYLPHlzylABi3YcuR0x6HswYAH0UWvs=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="nw" type="mapchange" x="128" y="0" width="64" height="32">
    <properties>
     <property name="map" value="gargoylecave3"/>
@@ -161,7 +161,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="shadowgarg1" type="spawn" x="512" y="512" width="32" height="32"/>
   <object name="shadowgarg2" type="spawn" x="224" y="512" width="32" height="32"/>
   <object name="shadowgarg3" type="spawn" x="32" y="128" width="256" height="288">
@@ -174,5 +174,5 @@
   <object name="shadowgarg3" type="spawn" x="416" y="128" width="128" height="160"/>
   <object name="shadowgarg2" type="spawn" x="288" y="480" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

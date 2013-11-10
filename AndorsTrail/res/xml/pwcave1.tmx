@@ -141,7 +141,7 @@
    eJzlklEKwDAIQ3uEXar3v9K+BmPUaUy0jAn9M3lVM48xZtO7qot3Z+7idjK/sONnL/PXKDdaVdzIX5T3RbhRttdr+a00CJuZ18sBy7X2ms1N5h5oP8tV9SO3yHJXGsaD0aFaK1uVu3r7N+PHzFrNR+oPzMr9Kry6uYiPcpeIl4LLZALReb3oHGyxeUHnrcqpKtcn+BHbJQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="864" y="0" width="64" height="32">
    <properties>
     <property name="map" value="pwcave2"/>
@@ -156,7 +156,7 @@
   </object>
   <object name="sign_pwcave1_grave" type="sign" x="352" y="576" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="iqhan_2" type="spawn" x="768" y="800" width="96" height="96">
    <properties>
     <property name="quantity" value="1"/>
@@ -208,5 +208,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

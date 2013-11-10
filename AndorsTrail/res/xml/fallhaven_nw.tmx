@@ -143,7 +143,7 @@
    eJzlk1EOwCAIQz3CLuX9r7Tsg8QsKBSK27Im+1HHK1L70Vr/6XfpCabovlbN0xiVbKtfWWPztZ49qr7rqtwxhXh9CzebScRThjvW8LwTZD+Tkcg9e30whN59pDfUDzJb5juOclFvctbDHc9mM8vWV7izjDO5477XZ5Yb8cl4S9EcspgrrsZg9jurh3Jl3ZqvVSsy99U/O7UzL+h8K+qewOLCkw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="east2" type="mapchange" x="928" y="864" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_ne"/>
@@ -224,13 +224,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30" visible="0"/>
- <objectgroup name="Citizens" width="30" height="30" visible="0">
+ <objectgroup name="Keys" visible="0"/>
+ <objectgroup name="Citizens" visible="0">
   <object name="fallhaven_citizen1" type="spawn" x="32" y="256" width="737" height="317"/>
   <object name="fallhaven_citizen2" type="spawn" x="160" y="256" width="480" height="448"/>
   <object name="fallhaven_citizen4" type="spawn" x="544" y="320" width="352" height="384"/>
  </objectgroup>
- <objectgroup name="NPCs" width="30" height="30" visible="0">
+ <objectgroup name="NPCs" visible="0">
   <object name="fallhaven_oldman" type="spawn" x="864" y="608" width="32" height="32"/>
   <object name="fallhaven_guard" type="spawn" x="448" y="832" width="32" height="32"/>
   <object name="fallhaven_drunk" type="spawn" x="320" y="480" width="32" height="32"/>

@@ -143,7 +143,7 @@
    eJxzFWBgcB3GGB1Qog8bwKeHFECpflLMJNUuUv2ITx0pYY0uT0wckBMXyHooNYsY92Gzl1yzKDGT3LyEzQ5q5ld88gAGZzIk
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="608" y="64" width="32" height="96">
    <properties>
     <property name="map" value="wild7"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15">
+ <objectgroup name="Spawn">
   <object name="forestserpent2" type="spawn" x="160" y="288" width="320" height="128"/>
   <object name="fox1" type="spawn" x="320" y="64" width="256" height="128">
    <properties>
@@ -170,5 +170,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

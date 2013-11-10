@@ -141,7 +141,7 @@
    eJxzFWBgcKUxBgFsbBgfF8BmDiF1hMwjRi8pfgMAHogRRQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="10" height="8">
+ <objectgroup name="Mapevents">
   <object name="stairs_up" type="mapchange" x="0" y="192" width="32" height="32">
    <properties>
     <property name="map" value="crossglen_farmhouse"/>
@@ -150,12 +150,12 @@
   </object>
   <object name="note_lodars" type="sign" x="224" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="8" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="crossglen_beetle" type="spawn" x="64" y="64" width="224" height="160">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="10" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

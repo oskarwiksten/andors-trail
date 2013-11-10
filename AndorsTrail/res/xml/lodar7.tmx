@@ -143,7 +143,7 @@
    eJztlMsNgEAIRC3Bpuy/Ja+GwPAYd+NFEg8uOm/46HUex/Vf4yvGV9wsdnGJl131Ej+7mavn/3zXYRJu1J9oUI4btK/q3mEQjWzHMt1JLdRvxXVmWzHInNWzq74DwlX+CJPU0Z3Fmt/URhnxfNLjSm/nPFUdnUfCVXm33spLxc1yziyz8+ihyqkdpN4zVjcTEkqv0nRZla7TB8rp9lIxprvccVU/1Y5M/hsTtqOhdtfxO2W7XldoreaSvenyN1covO4=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="736" width="32" height="32">
    <properties>
     <property name="map" value="lodar6"/>
@@ -187,7 +187,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="yjacket1" type="spawn" x="704" y="96" width="32" height="32"/>
   <object name="yjacket1" type="spawn" x="576" y="64" width="128" height="64">
    <properties>
@@ -262,5 +262,5 @@
   <object name="zortak1" type="spawn" x="832" y="416" width="64" height="192"/>
   <object name="zortak1" type="spawn" x="800" y="192" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

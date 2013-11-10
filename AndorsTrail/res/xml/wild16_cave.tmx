@@ -141,7 +141,7 @@
    eJxzFWBgcB3FcEANM9ABITXEmEeMHaTYS6k/SA0zbG4kxb+kug2fWlzmEzKPFDWkhA8xakhNh8PVPACl4Uq2
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="160" y="448" width="32" height="32">
    <properties>
     <property name="map" value="wild16"/>
@@ -154,6 +154,6 @@
   <object name="wild16_cave3" type="container" x="576" y="160" width="32" height="32"/>
   <object name="sign_wild16" type="sign" x="160" y="416" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15"/>
- <objectgroup name="Keys" width="20" height="15"/>
+ <objectgroup name="Spawn"/>
+ <objectgroup name="Keys"/>
 </map>

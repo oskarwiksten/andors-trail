@@ -140,7 +140,7 @@
    eJxzFWBgcB3kmBAgVi0uc3Hx0c2jhjqYOC6/AgB0fBc/
   </data>
  </layer>
- <objectgroup name="mapevents" width="10" height="10">
+ <objectgroup name="mapevents">
   <object name="entrance" type="mapchange" x="96" y="288" width="32" height="32">
    <properties>
     <property name="map" value="crossglen"/>
@@ -150,7 +150,7 @@
   <object name="rest" type="rest" x="32" y="128" width="32" height="32"/>
   <object name="startitems2" type="container" x="256" y="256" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="keys" width="10" height="10">
+ <objectgroup name="keys">
   <object name="andor:1" type="key" x="0" y="288" width="320" height="32">
    <properties>
     <property name="phrase" value="keyarea_andor1"/>
@@ -160,7 +160,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="spawn" width="10" height="10" visible="0">
+ <objectgroup name="spawn" visible="0">
   <object name="mikhail" type="spawn" x="224" y="128" width="32" height="32"/>
  </objectgroup>
 </map>

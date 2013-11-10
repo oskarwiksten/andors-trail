@@ -143,7 +143,7 @@
    eJy908ENgDAMQ1FGYKnuvxL3qmqc8G0kTiR6dUrW+zxLeLtP1aOYE1c519RVzlT1pjPTrlqbyrv3d1xy1pTb/ce6LpXZ6SrzSWdOuKf6qUvsFW1X9+pyE3mnttNVvzkz7zV7X2rWVN6uXe2D2/2zE4rRcZ2zpt3p7hCuulcnz5X55hJ5K/tWT7rkHdJ5E/YHqt+ZZw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="320" y="0" width="384" height="32">
    <properties>
     <property name="map" value="waterway4"/>
@@ -169,7 +169,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="izthiel_3" type="spawn" x="320" y="64" width="192" height="352">
    <properties>
     <property name="quantity" value="2"/>
@@ -193,5 +193,5 @@
   <object name="gylew" type="spawn" x="96" y="704" width="32" height="32"/>
   <object name="gylew_henchman" type="spawn" x="64" y="800" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

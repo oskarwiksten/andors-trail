@@ -140,7 +140,7 @@
    eJzlksENACAIAx3Bpdx/JV8mxiCUUl+S8D2vldFbG5/vmipjZ1WYFkPhdxsrh4Jv9aL0VvCqf3bmZO4Kzeaxblk8h+gtr6ssL/KMukE7RHpCeJneX/AyTMaB9WNYbCb0JhkPhmH5KbtS7ARe1H+B
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="25">
+ <objectgroup name="Mapevents">
   <object name="up south" type="mapchange" x="64" y="672" width="32" height="32">
    <properties>
     <property name="map" value="lodar12cave0"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25">
+ <objectgroup name="Spawn">
   <object name="cryptmist3" type="spawn" x="32" y="96" width="256" height="128"/>
   <object name="cryptmist2" type="spawn" x="288" y="512" width="32" height="64"/>
   <object name="cryptmist2" type="spawn" x="160" y="704" width="64" height="32"/>
@@ -168,12 +168,12 @@
   <object name="cryptmist3" type="spawn" x="64" y="384" width="96" height="96"/>
   <object name="cryptmist1" type="spawn" x="192" y="352" width="160" height="160"/>
  </objectgroup>
- <objectgroup name="Spawn_bats" width="20" height="25" visible="0">
+ <objectgroup name="Spawn_bats" visible="0">
   <object name="cavebat1" type="spawn" x="32" y="96" width="576" height="672">
    <properties>
     <property name="quantity" value="5"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="25"/>
+ <objectgroup name="Keys"/>
 </map>

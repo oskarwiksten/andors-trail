@@ -141,7 +141,7 @@
    eJxzFWBgcB0iGASwsSlRB5MnBNDV09o8dLW47MGlB12eGoCY+KGmPmx6iVWLLkas30ixlxT/EJNOiXUfqXmFFDly4ogc88jFAI/yPRk=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents">
   <object name="southeast" type="mapchange" x="512" y="352" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_ne"/>
@@ -161,7 +161,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="thoronir" type="spawn" x="288" y="96" width="32" height="32"/>
   <object name="chapelgoer" type="spawn" x="64" y="256" width="512" height="96">
    <properties>
@@ -169,7 +169,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15">
+ <objectgroup name="Keys">
   <object name="bucus:50" type="key" x="416" y="192" width="32" height="32">
    <properties>
     <property name="phrase" value="key_fallhavenchurch"/>

@@ -144,7 +144,7 @@
    eJxzFWBgcCUDowNyzCDFDlqYSQhQYj6MjUzjUkcNt1Mj7CjRM9TVk6qHFHXk2EFJeqCW+3HZQ4t4IFUPuWFKDTtw6afUTaQCavgbWZwS88nxCznmj2L8GAAyw4CA
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="20">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="448" y="0" width="128" height="32">
    <properties>
     <property name="map" value="mountainlake10"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20">
+ <objectgroup name="Spawn">
   <object name="mwolf_2" type="spawn" x="544" y="64" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -175,5 +175,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

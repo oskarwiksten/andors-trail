@@ -144,7 +144,7 @@
    eJxzFWBgcKUhhgFa2jFq79CzF5ceZPPQzUZnU9NeZDPR7ae2vdj0YwPUDmdcfkMWIyecifUPMYBUe8k1l1j1tMgvtDJ7oO3FF5b0Dm9i7BhKcUFu2KHHASl2YbOXmLgk1Y3E+pMa5tMbAwB58pUW
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="20">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="96" y="288" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain39"/>
@@ -166,7 +166,7 @@
   <object name="sign_blackwater30" type="sign" x="256" y="576" width="32" height="32"/>
   <object name="sign_bwm30_grave" type="sign" x="608" y="192" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="bwm_agent_5" type="spawn" x="192" y="320" width="32" height="32">
    <properties>
    </properties>
@@ -178,5 +178,5 @@
   <object name="wyrm_2" type="spawn" x="704" y="544" width="32" height="32"/>
   <object name="wyrm_2" type="spawn" x="320" y="512" width="352" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

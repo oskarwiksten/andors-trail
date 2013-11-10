@@ -141,7 +141,7 @@
    eJxzFWBgcB0kGASIFccHKFFLjHsImYluNjIfXR6XWlLMxWUmslpizCbWveSYic1sYtIDLdUS62Zqug0AKr4rKw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="11" height="20">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="256" y="608" width="64" height="32">
    <properties>
     <property name="map" value="gargoylecave2"/>
@@ -149,7 +149,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="11" height="20">
+ <objectgroup name="Spawn">
   <object name="maelveon" type="spawn" x="160" y="128" width="32" height="32">
    <properties>
    </properties>
@@ -163,5 +163,5 @@
   </object>
   <object name="shadowgarg4" type="spawn" x="128" y="544" width="96" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="11" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

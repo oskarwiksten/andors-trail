@@ -143,7 +143,7 @@
    eJzFUtsJACEMc4Rbyv1Xuq8DEdvmoV5AEEqbJk1/WuvCG6H0q+9vXqXP5XU92jGD3fe2Xw7vjBu8bo4z3mqmk8ksUwgvyp2B9VHRO8+M9GbcVc3JY1Zf1aKZkZ9qflbI7snyonqR/XbxMpla9UYzHK+qzEb/FRiPKzAZr7KG8M39jA4m32jelKf0MzsqPpzU7O58gjPLlqMX6R1rM6erF52x6x7j/rezgHrt3BPNTYUdehkvP7xCcd4i
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west3" type="mapchange" x="0" y="160" width="32" height="256">
    <properties>
     <property name="map" value="lodar4"/>
@@ -199,7 +199,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="hanklbit1" type="spawn" x="448" y="96" width="32" height="32"/>
   <object name="hanklbit1" type="spawn" x="448" y="160" width="32" height="32"/>
   <object name="forestfly2" type="spawn" x="384" y="352" width="128" height="288">
@@ -251,5 +251,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

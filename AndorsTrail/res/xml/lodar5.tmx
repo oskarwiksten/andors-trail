@@ -143,7 +143,7 @@
    eJxzFWBgcB3FNMcgMFD2IgNS9VDTDcS6kRw3k2s2uh3UdAMuvcSaSY7dxIY1NdMAsWFFrDwx5lE7DIn1Ay3igpp2D6R/hzIGAEkceoY=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="15">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="96" width="32" height="64">
    <properties>
     <property name="map" value="lodar0"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15">
+ <objectgroup name="Spawn">
   <object name="forestfly1" type="spawn" x="64" y="128" width="192" height="224">
    <properties>
     <property name="quantity" value="3"/>
@@ -184,5 +184,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="15" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

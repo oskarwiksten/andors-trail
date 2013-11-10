@@ -141,7 +141,7 @@
    eJxzFWBgcB3BGARgNDY2LjlkeXRxXACbflLMQ3czNveR435s9hMTbvjcR45/8cULMQCfeaT4g1LzsJmLy15y0ys+P+ALT0rDBJ+fKDWT1LDAFt6k+pXaGACEq0sL
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="17">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="512" y="352" width="32" height="32">
    <properties>
     <property name="map" value="flagstone0"/>
@@ -161,7 +161,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="17">
+ <objectgroup name="Spawn">
   <object name="prisoner2" type="spawn" x="512" y="96" width="96" height="96"/>
   <object name="prisoner1" type="spawn" x="384" y="96" width="96" height="96"/>
   <object name="undead1" type="spawn" x="352" y="256" width="32" height="32"/>
@@ -179,5 +179,5 @@
   </object>
   <object name="undead1" type="spawn" x="384" y="224" width="224" height="64"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="17"/>
+ <objectgroup name="Keys"/>
 </map>

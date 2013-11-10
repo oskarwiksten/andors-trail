@@ -144,7 +144,7 @@
    eJxzFWBgcCURUwOQaudgtJcUN5FjLynuo5Y5xPiRmDChR5zichs17SVWLTXDlxRArH3UyD/IZpATpqSmJVxmULM8oMQt9DaPVLOpHefkqiFFnpZhhs9+AGlaL9E=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="15">
+ <objectgroup name="Mapevents">
   <object name="east1" type="mapchange" x="928" y="32" width="32" height="64">
    <properties>
     <property name="map" value="fields8"/>
@@ -176,19 +176,19 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="30" height="15">
+ <objectgroup name="Spawn uniques">
   <object name="fieldwasp_unique" type="spawn" x="64" y="128" width="832" height="288">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="30" height="15" visible="0">
+ <objectgroup name="Spawn monsters" visible="0">
   <object name="fieldwasp_2" type="spawn" x="64" y="128" width="832" height="288">
    <properties>
     <property name="quantity" value="6"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="15"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -140,7 +140,7 @@
    eJxzFWBgcB0ADAK01IMOcMmRogefPaS6l1R7sLkPlxkDFeYDoYfUcCBWD75wxqUPlzpS44nc8EDHANfDPm0=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="13" height="19">
+ <objectgroup name="Mapevents">
   <object name="up lostmine8" type="mapchange" x="128" y="64" width="32" height="32">
    <properties>
     <property name="map" value="lostmine7"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="13" height="19" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="fire1" type="spawn" x="64" y="128" width="128" height="160">
    <properties>
     <property name="quantity" value="3"/>
@@ -173,5 +173,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="13" height="19"/>
+ <objectgroup name="Keys"/>
 </map>

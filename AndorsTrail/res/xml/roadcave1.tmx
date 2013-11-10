@@ -140,7 +140,7 @@
    eJztklEOwCAIQz3CLuX9r7T4ZwyUlqHZhyT8zMKjsP601m9KOULRKnqW4QXbh5lr7WtxGD7iMDWRT8aHwlX2iDxac35hMN/n3rsYqm/mX0D3qJg1u4+KHSJ91Z0qGRnff2ScvMf87nlD72oNo8/49hheP8sHYqwaKyoZUX92DqYm0u/KFyROoV8=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="25" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="up north" type="mapchange" x="64" y="96" width="32" height="32">
    <properties>
     <property name="map" value="roadcave0"/>
@@ -148,7 +148,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="25">
+ <objectgroup name="Spawn">
   <object name="jelly_b" type="spawn" x="608" y="128" width="160" height="96"/>
   <object name="jelly3" type="spawn" x="608" y="288" width="160" height="320">
    <properties>
@@ -188,5 +188,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="25" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

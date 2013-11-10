@@ -141,7 +141,7 @@
    eJxzFWBgcB3FYAwCyGx0QIx+UgGl5qCrx2cWIbOJDSNS3EZK2BPyA6VxSsg8SuxA1ktJOBATxtQ0jxx/EwMocSOtw5CcOKZWWhlu5gEAzbVfoQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="448" y="608" width="32" height="32">
    <properties>
     <property name="map" value="waytomountaincave2"/>
@@ -156,7 +156,7 @@
   </object>
   <object name="sign_mountaincave0_grave" type="sign" x="480" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="scaradon_1" type="spawn" x="448" y="544" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -178,5 +178,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

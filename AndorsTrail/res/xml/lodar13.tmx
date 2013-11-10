@@ -143,7 +143,7 @@
    eJxzFWBgcMWCYQCbHK0wOhgIu+lp52AIa3LVkBNPxOgh1k5S7SekD58Ypfbi8z8ynxjzCanB5U5iAbHhR2zckGMXJekGXR2MTaqdgwUDAAFDVqo=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="12">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="192" y="0" width="64" height="32">
    <properties>
     <property name="map" value="lodar6"/>
@@ -158,7 +158,7 @@
   </object>
   <object name="rest1" type="rest" x="448" y="192" width="32" height="64"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="12">
+ <objectgroup name="Spawn">
   <object name="aulowenn" type="spawn" x="480" y="128" width="32" height="32"/>
   <object name="erumen_f1" type="spawn" x="160" y="64" width="128" height="128"/>
   <object name="erumen_f1" type="spawn" x="128" y="192" width="256" height="160">
@@ -172,7 +172,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="12">
+ <objectgroup name="Keys">
   <object name="lodar13_rest:60" type="key" x="448" y="192" width="32" height="64">
    <properties>
     <property name="phrase" value="lodar13_rest"/>

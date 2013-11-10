@@ -143,7 +143,7 @@
    eJztUkEOgDAI2xP81P7/JeNhCTEbtAU5SUKMOlradV5jzL+hfqqTa1ddnNEeVTut+R2Ox2Xf2V0iDRFWhQeql1leRmf2fMX+FZwsVtZfO4fgrP/vZ9bTE/epFB93sx6Wyu2Vcr/sXXrYyv6ZvKreKXmq0KHkyvuu6GG5Uf3ozkgmoploR8YXe5bxsiMHak6+5IruOeuhqg/JDJI5RYOXIQS7gtvyM1hV3OxsNr/qHNo3cBfgyg==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="192" y="928" width="32" height="32">
    <properties>
     <property name="map" value="roadbeforecrossroads1"/>
@@ -169,7 +169,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="forestfly1" type="spawn" x="64" y="768" width="32" height="64">
    <properties>
     <property name="quantity" value="2"/>
@@ -223,5 +223,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

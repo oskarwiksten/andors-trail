@@ -143,7 +143,7 @@
    eJztldEJACEMQx3Bpdx/JX/lIJpe0xbBQP+kr8aoo7c2Xl1bJ0Vyq/b7uLVcxUwoo6i3Ks9/pfKU7aXmRnik5nrOZ52pgotmicyjh69i7NaeuN+cq8Vwrf2s7AplcNF5W/lorTXfHrEzsPdI5f+N79XOE8WfxPqfVdm86JrYhrWg
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="416" width="32" height="480">
    <properties>
     <property name="map" value="waterway13"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="erumen_2" type="spawn" x="64" y="416" width="288" height="512">
    <properties>
     <property name="quantity" value="4"/>
@@ -205,5 +205,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

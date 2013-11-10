@@ -143,7 +143,7 @@
    eJxzFWBgcB3FwwLjAoPFPHq5k9rhSat4orb9xKjHF07I4qSEJ6H4JCd+SAGUpjtizccmPlQAvvilxExqhwE14hFdLQDtXFtQ
   </data>
  </layer>
- <objectgroup name="Mapevents" width="21" height="21">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="0" y="352" width="32" height="224">
    <properties>
     <property name="map" value="crossroads"/>
@@ -163,11 +163,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="21" height="20">
+ <objectgroup name="Spawn">
   <object name="fox2" type="spawn" x="224" y="384" width="192" height="64"/>
   <object name="forestserpent1" type="spawn" x="512" y="480" width="96" height="32"/>
   <object name="forestserpent1" type="spawn" x="64" y="576" width="192" height="64"/>
   <object name="fox1" type="spawn" x="288" y="160" width="224" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="21" height="21" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

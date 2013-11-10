@@ -143,7 +143,7 @@
    eJxzFWBgcB0mGB2QqhedxgbIcQcuveh2UuI3UtxJrFpi1KHLEzKPkBg5gJCbyTWLXPeQ4r7BYB65bqCFGYTMxZZukNmUxje5ZQ2l5uHLU9Q0k1rmwTAAwNFHZA==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="256" width="32" height="224">
    <properties>
     <property name="map" value="roadbeforecrossroads6"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="beetle2" type="spawn" x="128" y="96" width="192" height="160">
    <properties>
     <property name="quantity" value="2"/>
@@ -171,5 +171,5 @@
   </object>
   <object name="forestboar3" type="spawn" x="256" y="416" width="128" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

@@ -143,7 +143,7 @@
    eJxzFWBgcKUxRgek6sVmFi4+OW4h1UxsegkBYswixjx87sNnJ7nuJFaOGLPwhS+6GKnuIyauiQXEpB9Kw4CccCTFfbTyKy47SHEfuXFDrfhFN3MgADFlHa78R8gcemIA4lBCFA==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="nw" type="mapchange" x="0" y="64" width="32" height="128">
    <properties>
     <property name="map" value="fallhaven_se"/>
@@ -164,7 +164,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="forestwasp" type="spawn" x="96" y="128" width="288" height="192">
    <properties>
     <property name="quantity" value="2"/>
@@ -182,5 +182,5 @@
   </object>
   <object name="fallhaven_bandit" type="spawn" x="544" y="96" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

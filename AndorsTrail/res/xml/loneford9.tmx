@@ -141,7 +141,7 @@
    eJxzFWBgcB3FVMMwQIwaUtTi00+seaQAZD2UmkXIXdQMXwC5dC1+
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="9">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="384" y="256" width="64" height="32">
    <properties>
     <property name="map" value="loneford2"/>
@@ -149,7 +149,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="9">
+ <objectgroup name="Spawn">
   <object name="Siola" type="spawn" x="128" y="128" width="32" height="32">
    <properties>
    </properties>
@@ -164,5 +164,5 @@
   </object>
   <object name="puny_warehouserat" type="spawn" x="64" y="192" width="320" height="64"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="9"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -153,7 +153,7 @@
    eJy9lNsNwCAIRR2hS7n/Sk3/GuKVg4AkTSMtHJ7OZ4zZ+HzS6V8xb3IVz4rS01iJnZLV9wiP6nZC6vN/W70673iES/xk7Gh9lQ1lkbjJjKz2l/DtLlCb05yVT8rI1DpaxwquzdG7f6rZ3r3WkesujtNcu/bZ251urmdXzaS2UYn2sGqus3lGZqyin6v/SO6US+fa42Z2NSOVrEh/Xn4GfNk=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="29" height="25">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="96" width="32" height="160">
    <properties>
     <property name="map" value="roadbeforecrossroads"/>
@@ -186,7 +186,7 @@
   </object>
   <object name="sign_roadbeforecrossroads1" type="sign" x="608" y="192" width="96" height="160"/>
  </objectgroup>
- <objectgroup name="Spawn" width="29" height="25" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="fox2" type="spawn" x="192" y="96" width="160" height="64"/>
   <object name="jelly1" type="spawn" x="160" y="448" width="192" height="288">
    <properties>
@@ -201,8 +201,8 @@
   <object name="forestfly1" type="spawn" x="768" y="128" width="128" height="192"/>
   <object name="forestwolf2" type="spawn" x="640" y="384" width="128" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="29" height="25" visible="0"/>
- <objectgroup name="Replace" width="29" height="25">
+ <objectgroup name="Keys" visible="0"/>
+ <objectgroup name="Replace">
   <object name="lodar2:50" type="replace" x="736" y="192" width="32" height="64">
    <properties>
     <property name="Above" value="Above_after"/>
