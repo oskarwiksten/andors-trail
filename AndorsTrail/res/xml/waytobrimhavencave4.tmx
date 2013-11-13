@@ -141,7 +141,7 @@
    eJztk1EKwDAIQ3uEXar3v9LYx2CUahK1HYMFpD/Rp871o7X+x+tx6fky/ltR3qiVebPccfYIG+UiD8NewbX24TGYWVSmxWd3pOxjfJl5KrjWHq1cVJPxIGVvkWVWzpuZGfWY4Xpsz8PWU9kV98pwmdvcwWWlcisUuS2vDsNDXIvN9p35T9B8K2MXJ7Obr3Mjt6jcStSn9qH4q1X9PbK73RknhkXZJw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="east" type="mapchange" x="928" y="800" width="32" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave1a"/>
@@ -150,7 +150,7 @@
   </object>
   <object name="sign_brimcave4" type="sign" x="480" y="352" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="erumen_3" type="spawn" x="192" y="672" width="640" height="256">
    <properties>
     <property name="quantity" value="3"/>
@@ -191,5 +191,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

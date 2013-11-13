@@ -49,7 +49,7 @@ public final class ConversationActivity
 
 	private WorldContext world;
 	private Player player;
-	private ArrayList<ConversationStatement> conversationHistory = new ArrayList<ConversationStatement>();
+	private final ArrayList<ConversationStatement> conversationHistory = new ArrayList<ConversationStatement>();
 	private ConversationController.ConversationStatemachine conversationState;
 
 	private StatementContainerAdapter listAdapter;

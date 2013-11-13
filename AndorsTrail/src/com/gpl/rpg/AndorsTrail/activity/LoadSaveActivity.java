@@ -58,7 +58,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 		slotList.removeView(slotTemplateButton);
 		slotList.removeView(createNewSlot);
 
-		addSavegameSlotButtons(slotList, params, Savegames.getUsedSavegameSlots(this));
+		addSavegameSlotButtons(slotList, params, Savegames.getUsedSavegameSlots());
 
 		if (!isLoading) {
 			Button b = new Button(this);
@@ -86,7 +86,7 @@ public final class LoadSaveActivity extends Activity implements OnClickListener 
 
 	public void loadsave(int slot) {
 		if (slot == SLOT_NUMBER_CREATE_NEW_SLOT) {
-			List<Integer> usedSlots = Savegames.getUsedSavegameSlots(this);
+			List<Integer> usedSlots = Savegames.getUsedSavegameSlots();
 			if (usedSlots.isEmpty()) slot = SLOT_NUMBER_FIRST_SLOT;
 			else slot = Collections.max(usedSlots) + 1;
 		}

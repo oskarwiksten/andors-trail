@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJy9klEKwDAIQ3uEXar3v9LYx6CIqUnVCjLorC+xzmeM2ZhfdPb/GUx0aTzhMrqsNlu73l+/Xl/bB7F3HjwtiMsE8hHV796MZXps7/7JrihcVSf6X8HN7GhUl/HL9lS0MfVsjaLfnjE8RZ/qt2rW0awqdkv1G91RZ42i0m/ERbP2+ivMTGb9ZrjMm9z2vuYLXfB72g==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="20">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="160" width="32" height="64">
    <properties>
     <property name="map" value="blackwater_mountain10"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="20">
+ <objectgroup name="Spawn">
   <object name="primwolf1" type="spawn" x="96" y="64" width="192" height="384">
    <properties>
     <property name="quantity" value="2"/>
@@ -185,5 +185,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

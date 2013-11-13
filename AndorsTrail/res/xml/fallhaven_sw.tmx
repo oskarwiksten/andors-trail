@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="20" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJy1lFEKwDAIQ3uEXar3v9LYx6CMJj6tC/RjNZpYnPMaY5rzwMX/Oq/uijXmsKulYk6XaKmajqPuIl+kD8VTvrt1ydvRufrWUe+l+s30QHJJTw50zgmIP9U79ed4kbcMKv91FI9mitSqeHZ3xHtF0/GVJ5KXzanuzy4oXTrPhFft6SS3G7uduot16tHdonJoXH07LtkZGf56bq5NTrI=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="north" type="mapchange" x="256" y="0" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_nw"/>
@@ -211,11 +211,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="20" visible="0"/>
- <objectgroup name="Citizens" width="30" height="20" visible="0">
+ <objectgroup name="Keys" visible="0"/>
+ <objectgroup name="Citizens" visible="0">
   <object name="fallhaven_citizen3" type="spawn" x="320" y="64" width="576" height="256"/>
  </objectgroup>
- <objectgroup name="NPCs, Monsters" width="30" height="20">
+ <objectgroup name="NPCs, Monsters">
   <object name="fallhaven_lumberjack" type="spawn" x="416" y="256" width="32" height="32"/>
   <object name="forestant" type="spawn" x="64" y="384" width="288" height="192">
    <properties>

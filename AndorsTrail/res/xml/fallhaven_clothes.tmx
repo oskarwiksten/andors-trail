@@ -141,7 +141,7 @@
    eJxzFWBgcB3FNMXIAJ2PLkeqmdjMo4Y7iTEP2X5c+ok1l1iAK0wJ+QWXO0kxDz3cscUFPjF85pKLAfkgOcc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="12">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="128" y="352" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_ne"/>
@@ -149,8 +149,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="12" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="fallhaven_clothes" type="spawn" x="160" y="96" width="384" height="224"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="12"/>
+ <objectgroup name="Keys"/>
 </map>

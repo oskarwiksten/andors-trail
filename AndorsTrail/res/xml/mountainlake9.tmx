@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJztklEKwDAIQ3uEXar3v9K+BmV0sdZEB5vQP+tLNP1orf/vdW8s1BNleHn32vUULRbDq9nLZWUgOoudPSU3k1nNVuRmx28WezZfwV3dK5OruiWao8iN5UPNRBpUu7X4Vj9rx2guk7uSraf/DL+MzERvXKnhK/5RZd/g0jPqqthD5e2t/hMjKexp
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="576" y="928" width="128" height="32">
    <properties>
     <property name="map" value="mountainlake8"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="mbrute_3" type="spawn" x="416" y="160" width="96" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -210,5 +210,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

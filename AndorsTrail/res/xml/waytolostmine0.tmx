@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJzNktEJACEMQx3hlnL/le7LnwN7TZNUC4Kg9pmk8xljGtYqR+8Mt5N9gnmD1hPcte/0T6H3rxzsiIOwGc3Vngw74rq8ZvXu3ld9QrSg3Exfx2zt7n8rOkMzRjxESsFE+Y75U/5dwWa5Ch9RbqY/wz05E1X/WL+r79mMGSart1NnVx4qbjezkskNHr9b/PEP
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="416" y="928" width="96" height="32">
    <properties>
     <property name="map" value="waytominingtown3"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="ccentip" type="spawn" x="448" y="800" width="128" height="96"/>
   <object name="ccentip" type="spawn" x="544" y="704" width="128" height="96"/>
   <object name="ccentip" type="spawn" x="576" y="640" width="32" height="32"/>
@@ -206,5 +206,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

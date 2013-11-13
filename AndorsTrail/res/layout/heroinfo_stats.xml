@@ -25,7 +25,7 @@
 				android:layout_height="wrap_content"
 				style="@style/titleWithIcon"
 				android:drawableLeft="@drawable/char_hero"
-				android:text="Name"
+				android:text="@android:string/unknownName"
 				/>
 
 			<TableLayout
@@ -35,12 +35,12 @@
 
 				<TableRow>
 					<TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_level" />
-					<TextView android:id="@+id/heroinfo_level" android:text="1" />
+					<TextView android:id="@+id/heroinfo_level" android:text="@android:string/unknownName" />
 				</TableRow>
 
 				<TableRow>
 					<TextView style="@style/traitsinfo_label" android:text="@string/heroinfo_totalexperience" />
-					<TextView android:id="@+id/heroinfo_totalexperience" android:text="1" />
+					<TextView android:id="@+id/heroinfo_totalexperience" android:text="@android:string/unknownName" />
 				</TableRow>
 			</TableLayout>
 

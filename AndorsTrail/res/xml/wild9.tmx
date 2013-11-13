@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="24" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJzdVUEOwCAI8wl+iv9/aZctWcyAlmK2rAk3aFGK2hzDzrjDJhdIzcrtgdG88j0Oj5PVRhHdJVrL5rM6DBc655VL6VvxHqKLeBP1HnPebk1vJru0lR6jfUV8X92NKBflROarQtndiK96p9mORj1n8/a0Ub5uML6KODrqFB++jS/tSeW96NbM3keGW9Gs/C9PvXVq/SUOUOlr6g==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="24" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="2" y="548" width="32" height="96">
    <properties>
     <property name="map" value="wild6"/>
@@ -199,7 +199,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="24" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="bandit1" type="spawn" x="64" y="512" width="832" height="96"/>
   <object name="fallhaven_bandit" type="spawn" x="416" y="288" width="32" height="32"/>
   <object name="forestwasp2" type="spawn" x="160" y="352" width="736" height="352">
@@ -224,5 +224,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="24" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

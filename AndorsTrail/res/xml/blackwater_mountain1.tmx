@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="20" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJy1k8EJADEIBFPCNZX+WzrucRBE3TExgg9Bx1V0PmNM4J+RPFvzm40tb80hPGJrTcSKYtWbzkr2qXiVebK+FfNmoizSK9NHd5Cxsr1E9YrV/R/dN73D8/ZQ+eEK61RnN29Hp8rrZFF9N+9T+QstvEe5
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="320" y="0" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain2"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="forestboar4" type="spawn" x="128" y="352" width="448" height="160">
    <properties>
     <property name="quantity" value="3"/>
@@ -171,5 +171,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

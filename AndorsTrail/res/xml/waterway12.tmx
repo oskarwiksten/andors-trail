@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztk8ENwCAMAxmhS7H/Sv2iKoAdjNVHkPwK5AwO/Wmtl0ql0mWhy8VReMn0yPKRvaxn5Xs5c2G4p/zobHYedz6QuvIvrPaMtW9PR9ZRvxvcVf+Znxn7JN8MUzXXTLZKPpMtwkXnOfLBcNl7s4zMW0d1B1fJQTN2yMn6i17tGsmM
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="416" width="32" height="480">
    <properties>
     <property name="map" value="waterway7"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="izthiel_2" type="spawn" x="64" y="320" width="256" height="160">
    <properties>
     <property name="quantity" value="1"/>
@@ -189,5 +189,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztU9sJADEI6wi3VPdfqV8HpWiM0f5VkIPzldg4vzHm8+eCI1NqKnVWPcrZv2wtyvfwZrAzln2XjvkVLbBxD3uXHlG/Cu+OHn+ewtnS2k2sUS+LF5vfMRPF9x1lZ7M7Q7OzvM98VGvFMvWellient3crTJLncn+79Cv2q9LS51clHeK8pB5us0auz+mTxWjgj8y5baU/myM0dWJQ72PbH3lXjzut+dG+/V8ARejtaA=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="736" width="32" height="128">
    <properties>
     <property name="map" value="waytominingtown0"/>
@@ -176,7 +176,7 @@
   </object>
   <object name="sign_waytominto1" type="sign" x="160" y="768" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="redft2" type="spawn" x="576" y="128" width="320" height="192">
    <properties>
     <property name="quantity" value="3"/>
@@ -213,5 +213,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

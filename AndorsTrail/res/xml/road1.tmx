@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="25" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJzdlNENACEIQx3Bpdh/JR1AoJRqLteED3OhT6qnzTFsVyabmvoKp8tC9Ze8XpzHiRWxT99YZX7ZmmWqPCr5M3c46kfy78wazXM7wxtSnw/LUUjxn1cZXl6eF8Lp3C+0x3u7UHXmYLxQBjtPlaHab8TIepA9KqrivwCmO1n8
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="25" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="224" width="32" height="128">
    <properties>
     <property name="map" value="wild15"/>
@@ -178,7 +178,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="25" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="ff_outsideguard" type="spawn" x="640" y="224" width="32" height="32"/>
   <object name="forestserpent2" type="spawn" x="128" y="544" width="224" height="224"/>
   <object name="beetle2" type="spawn" x="544" y="608" width="192" height="128"/>
@@ -188,5 +188,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="25" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

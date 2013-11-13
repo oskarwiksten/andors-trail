@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="27" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztksERwCAIBC0hTdl/S5l8HZFjRc1DZngJt9wl9Sml3r59oL/araeWyovMK1qeJ3InyS2aD7nF01c0rZnRbuuBZDnKYWVuRL/3RrhZ33c1V/H/Ry65c5ZL89nJ9WYIV9nP5PbmvcrKzvLb6kS4ajat3xP/FuUSNt3J0phlZ9w+w7XeX6DF1yk=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="27">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="928" y="160" width="32" height="128">
    <properties>
     <property name="map" value="waytolostmine2"/>
@@ -181,7 +181,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="27">
+ <objectgroup name="Spawn">
   <object name="charwdg1" type="spawn" x="672" y="640" width="128" height="160"/>
   <object name="charwdg1" type="spawn" x="672" y="576" width="64" height="32">
    <properties>
@@ -221,5 +221,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="27"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="27" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWAAA1cB6mFamIcPoKsjxSxS5YlxGy41pPiVUnfROi7IjTNapANapK/B4D5k/dRyHzXTB6XhREm6orZ5yGpJCWNc9g4XMBj9hCusSXErvfPyKIZgALJvc40=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="27">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="608" y="544" width="32" height="192">
    <properties>
     <property name="map" value="remgard2"/>
@@ -187,10 +187,10 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="27">
+ <objectgroup name="Spawn">
   <object name="reinkarr" type="spawn" x="192" y="160" width="32" height="32"/>
   <object name="duaina" type="spawn" x="320" y="224" width="256" height="128"/>
   <object name="remgard_villager7" type="spawn" x="64" y="544" width="512" height="192"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="27"/>
+ <objectgroup name="Keys"/>
 </map>

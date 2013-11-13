@@ -141,7 +141,7 @@
    eJzlkrsNACEMQxnhlmL/la6iieIXRyAaLKUxjkM+8xtjPh4Ljqajy7QKlWbxTr3omb3R/6peKp7mqmpnPWZQM6d9qDon/Nz7uunX9aQ5dP2UnrzoJiIfOcohUI7r5/TrcspnZ28n70rFDwKgXE8=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="224" y="608" width="32" height="32">
    <properties>
     <property name="map" value="road4_gargoylecave"/>
@@ -155,7 +155,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20">
+ <objectgroup name="Spawn">
   <object name="shadowgarg1" type="spawn" x="256" y="448" width="320" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -171,5 +171,5 @@
   </object>
   <object name="shadowgarg1" type="spawn" x="416" y="128" width="160" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

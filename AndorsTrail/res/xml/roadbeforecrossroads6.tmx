@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztlEsKwCAMRD1CL+X9r1S6KAQJmU9CVx0ICtGXMYr7Wmv/MRaP3hGJ5WX74n6VeXpVc8jnFDNyld6oayupd43uDPEZZb1hPKv1Uf+ZukxN9Q1NMis5zIrlMBlNntmpp3plWB2fXzFjLps73K7Yf6rD6/hFPNW3wuv8TS7vBmeYbzw=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="352" width="32" height="256">
    <properties>
     <property name="map" value="roadbeforecrossroads5"/>
@@ -165,7 +165,7 @@
   <object name="sign_rbfcr6" type="sign" x="480" y="704" width="32" height="32"/>
   <object name="sign_rbfcr6_grave1" type="sign" x="256" y="288" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="30">
+ <objectgroup name="Spawn">
   <object name="forestserpent2" type="spawn" x="352" y="256" width="128" height="288">
    <properties>
     <property name="quantity" value="2"/>
@@ -186,5 +186,5 @@
   </object>
   <object name="agthor_guard" type="spawn" x="224" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="30" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

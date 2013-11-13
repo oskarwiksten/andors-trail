@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="22" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJy9lMsNwCAMQxmhS3X/lXroBUXg2PlFygWShwPCa9XG+/xZHREuU3/jZmewXMuL3hPSuyfqV/ZYrqLXMru4+7rHinC79HoaFW40JrloPctleyu4Sl2HT1ZxmXdXzkD/EulFPuF5yDT31DfNRX3sHbA+w3IZlncOmtPW3SLisZlZ1LdU/gXLRdnF/QBp20W7
   </data>
  </layer>
- <objectgroup name="Mapevents" width="22" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="0" y="928" width="288" height="32">
    <properties>
     <property name="map" value="waterway6"/>
@@ -170,7 +170,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="22" height="30">
+ <objectgroup name="Spawn">
   <object name="burrower_1" type="spawn" x="64" y="64" width="320" height="832">
    <properties>
     <property name="quantity" value="3"/>
@@ -192,5 +192,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="22" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

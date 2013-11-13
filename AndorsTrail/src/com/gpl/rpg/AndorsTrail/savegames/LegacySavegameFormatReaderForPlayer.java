@@ -9,6 +9,8 @@ import com.gpl.rpg.AndorsTrail.model.ability.SkillInfo;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
+import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.util.Range;
 
@@ -102,6 +104,20 @@ public final class LegacySavegameFormatReaderForPlayer {
 			if (player.hasExactQuestProgress("lodar13_rest", 30) && player.hasExactQuestProgress("lodar13_rest", 31)) {
 				player.addQuestProgress(new QuestProgress("lodar13_rest", 65));
 			}
+		}
+
+		if (fileversion <= 40) {
+			if (player.hasExactQuestProgress("farrik", 70)) {
+				deactivateSpawnArea(world, controllers, "fallhaven_prison", "fallhaven_prisoner");
+			}
+		}
+	}
+
+	private static void deactivateSpawnArea(WorldContext world, ControllerContext controllers, String mapName, String monsterTypeSpawnGroup) {
+		PredefinedMap map = world.maps.findPredefinedMap(mapName);
+		for (MonsterSpawnArea area : map.spawnAreas) {
+			if (!area.monsterTypeSpawnGroup.equals(monsterTypeSpawnGroup)) continue;
+			controllers.monsterSpawnController.deactivateSpawnArea(area, true);
 		}
 	}
 

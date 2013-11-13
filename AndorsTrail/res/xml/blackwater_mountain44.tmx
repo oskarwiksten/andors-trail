@@ -140,7 +140,7 @@
    eJxzFWBgcB2BGAYIyeMDpKglxTyYmYTY2PiE/IqLTYp5w9F9hOKDlHRFK/Oole5JiRdq+pcQwGcnujixYUsr8/D5l1qAUvOokV4IpQMA2g1XqQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="576" y="96" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain43"/>
@@ -167,7 +167,7 @@
   <object name="rest1" type="rest" x="32" y="128" width="32" height="32"/>
   <object name="rest3" type="rest" x="32" y="256" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="blackwater_sleephall" type="spawn" x="64" y="96" width="32" height="32"/>
   <object name="herec" type="spawn" x="160" y="288" width="32" height="32"/>
   <object name="iducus" type="spawn" x="64" y="448" width="128" height="64"/>
@@ -176,7 +176,7 @@
   <object name="blackwater_guard1" type="spawn" x="448" y="128" width="96" height="32"/>
   <object name="blackwater_guard1" type="spawn" x="448" y="512" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20" visible="0">
+ <objectgroup name="Keys" visible="0">
   <object name="nondisplay:16" type="key" x="224" y="160" width="32" height="160">
    <properties>
     <property name="phrase" value="bwm_sleephall_1"/>

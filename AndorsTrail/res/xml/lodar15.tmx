@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="19" height="19" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWBgcCUBIwNS9BEyC5+ZyOLY1BJrDrlqqRUe1DSPWnYSGxb41JMSpsTEBznmUOofStMytrRKqTnUchtyPJEbJ+SGLy6/UArold5pbQ4xGACfx1RX
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="19">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="576" y="416" width="32" height="32">
    <properties>
     <property name="map" value="lodar17"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="19">
+ <objectgroup name="Spawn">
   <object name="yjacket4" type="spawn" x="384" y="192" width="192" height="128">
    <properties>
     <property name="quantity" value="3"/>
@@ -196,5 +196,5 @@
   </object>
   <object name="brtender1" type="spawn" x="64" y="416" width="96" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="19" height="19" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

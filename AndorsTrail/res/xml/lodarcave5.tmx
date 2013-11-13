@@ -140,7 +140,7 @@
    eJzdkssNwCAMQxmBpbL/SlxaiQNgPz5VBVJuJC92HDmleOp9kc/VbQyXU/+lPYrjvFUdrXmKQ/aoexx9PV9dHYRBbjG6r5pB5o8YOzNF2CSPvR2oB8rHvzOczFA2zYzaiTIox83uqp6Zvi8Ys161GAVLlHY1
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="20">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="96" y="0" width="64" height="32">
    <properties>
     <property name="map" value="lodarcave4"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20">
+ <objectgroup name="Spawn">
   <object name="hirathil0" type="spawn" x="416" y="96" width="128" height="96"/>
   <object name="hirathil1" type="spawn" x="576" y="96" width="192" height="192">
    <properties>
@@ -185,12 +185,12 @@
   <object name="hirathil1" type="spawn" x="544" y="128" width="32" height="32"/>
   <object name="hirathil1" type="spawn" x="608" y="512" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn_bats" width="25" height="20" visible="0">
+ <objectgroup name="Spawn_bats" visible="0">
   <object name="cavebat1" type="spawn" x="32" y="64" width="736" height="512">
    <properties>
     <property name="quantity" value="4"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

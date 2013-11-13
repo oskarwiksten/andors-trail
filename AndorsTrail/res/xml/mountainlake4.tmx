@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="25" height="16" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJxzFWBgcB1BGBmQqo9Us0mxixh1pAJS/Y1NDbmA3LDHZRY5duCzh5puI8VsQnrIdQd6WJGqF18aJtWdpIYPOfmOWuaTYze17aCHP2hlDwB3aWCg
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="16">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="64" y="480" width="64" height="32">
    <properties>
     <property name="map" value="mountainlake3"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="16">
+ <objectgroup name="Spawn">
   <object name="maonit_3" type="spawn" x="608" y="160" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -195,5 +195,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="16"/>
+ <objectgroup name="Keys"/>
 </map>

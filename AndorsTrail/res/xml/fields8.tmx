@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="30" height="15" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJxjYBhcwFVgoF1AOiDGzSA11MTEmjnQAJsbiHUXPnWDwW8gQKo7kNVji8ehDtD9gMtP2MKBEntIlaeWHmoCStISJeaQYwc17KOkbKCGXTBxEAYAE+cTQw==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="15">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="0" y="0" width="960" height="32">
    <properties>
     <property name="map" value="fields2"/>
@@ -188,18 +188,18 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="30" height="15">
+ <objectgroup name="Spawn uniques">
   <object name="fieldwasp_unique" type="spawn" x="64" y="128" width="832" height="288">
    <properties>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="30" height="15" visible="0">
+ <objectgroup name="Spawn monsters" visible="0">
   <object name="fieldwasp_1" type="spawn" x="64" y="128" width="832" height="288">
    <properties>
     <property name="quantity" value="6"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="15"/>
+ <objectgroup name="Keys"/>
 </map>

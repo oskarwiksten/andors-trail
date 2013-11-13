@@ -140,7 +140,7 @@
    eJxzFWBgcB0GGASw0cjy6ACfHDY1hOwnxQ5i/USqHlIxANGSIIs=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="16" height="8">
+ <objectgroup name="Mapevents">
   <object name="up woodhouse3" type="mapchange" x="448" y="96" width="32" height="32">
    <properties>
     <property name="map" value="woodhouse2"/>
@@ -148,7 +148,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="16" height="8">
+ <objectgroup name="Spawn">
   <object name="vermin" type="spawn" x="256" y="96" width="160" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -160,5 +160,5 @@
   <object name="rest3" type="rest" x="160" y="128" width="32" height="32"/>
   <object name="rest4" type="rest" x="224" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="16" height="8"/>
+ <objectgroup name="Keys"/>
 </map>

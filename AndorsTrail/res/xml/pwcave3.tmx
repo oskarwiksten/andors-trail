@@ -141,7 +141,7 @@
    eJztk0ESgDAIA32Cn+r/v+R4cKaHQkKC9SIzvVhgSYrjPI7xn0/PHdH3J7K7KAf1jHo4oepAeat81j/ke5aTMTI9jAaHu/KA6elyVS1vchmvK/9DB5fZyyyc3UFzK5rUerZvx/spe6lwI72Mjw6X1VtlMzWot8Lv4LL8VTj92FldLsNWZkVvsYPr1u2qVd6kwydnB+a6CreitRJIl8p156pwWf8qu97JVued2RdxWM3d
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="608" width="32" height="64">
    <properties>
     <property name="map" value="pwcave2"/>
@@ -155,7 +155,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="iqhan_4" type="spawn" x="64" y="512" width="128" height="160">
    <properties>
     <property name="quantity" value="1"/>
@@ -227,12 +227,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="30" height="30" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="iqhan_4" type="spawn" x="128" y="64" width="800" height="832">
    <properties>
     <property name="quantity" value="7"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

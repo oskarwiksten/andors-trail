@@ -283,7 +283,7 @@ public final class ConversationController {
 		private String phraseID;
 		private Phrase currentPhrase;
 		private Monster npc;
-		public ConversationStateListener listener;
+		public final ConversationStateListener listener;
 
 		public ConversationStatemachine(WorldContext world, ControllerContext controllers, ConversationStateListener listener) {
 			this.world = world;

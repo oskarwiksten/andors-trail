@@ -140,7 +140,7 @@
    eJztkkESwCAIA/uEfsr/f6nTQy+OgcSgXsoMh1pkA6bd19X+PJ5v9N/9Gbo3Cpb51UbB6HU1o38MNzqPtEW9RrqquFUalb3O+C+rQ8EyZ7nROzlcxFB7K1xFi8tldn1iXoeLdreKm4Wz+4w3e1/1WjaP6zW0s13cSIPrA3bvDgvNuoqbMSq56ntUc5n7o7osXK6ijdGD+inaFb9WeLsydzAc7gM2K94i
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="29">
+ <objectgroup name="Mapevents">
   <object name="up lodar5cave0" type="mapchange" x="256" y="96" width="32" height="32">
    <properties>
     <property name="map" value="lodar5"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="29">
+ <objectgroup name="Spawn">
   <object name="cavebat1" type="spawn" x="32" y="160" width="224" height="192">
    <properties>
     <property name="quantity" value="2"/>
@@ -232,5 +232,5 @@
   <object name="cavebat1" type="spawn" x="576" y="288" width="32" height="64"/>
   <object name="caveburr1" type="spawn" x="416" y="480" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="29"/>
+ <objectgroup name="Keys"/>
 </map>

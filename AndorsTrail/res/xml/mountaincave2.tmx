@@ -141,7 +141,7 @@
    eJztk7ERwCAMAxmBpbz/SklDw8VBkuVU4c6l9JKBmGPEPevE7Juf8eyze+3H4Y9wUObpnLpUGZU8iK7aWWUgHCSHO5NT4/Rn/4riv3SuP1dlqHuqMFjtFz26OQ7Gm17tvOsyvbJX9g0re2Uzon1RjuPunAwXJ/Pt6qK8YXVfrHeWt2tcWRnGBcXbpLE=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="672" y="928" width="96" height="32">
    <properties>
     <property name="map" value="mountaincave1"/>
@@ -160,7 +160,7 @@
   <object name="remains_mcave_4" type="sign" x="576" y="352" width="32" height="32"/>
   <object name="remains_mcave_5" type="sign" x="608" y="640" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="scaradon_3" type="spawn" x="352" y="288" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -192,5 +192,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

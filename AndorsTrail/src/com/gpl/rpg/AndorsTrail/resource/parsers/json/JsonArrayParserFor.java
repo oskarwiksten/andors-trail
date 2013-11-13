@@ -19,6 +19,11 @@ public abstract class JsonArrayParserFor<T> extends JsonParserFor<T> {
 		final ArrayList<T> arrayList = new ArrayList<T>(array.length());
 		parseRows(array, arrayList);
 		if (arrayList.isEmpty()) return null;
-		return arrayList.toArray((T[]) Array.newInstance(classType, arrayList.size()));
+		return arrayList.toArray(newArray(arrayList.size()));
+	}
+
+	@SuppressWarnings("unchecked")
+	private T[] newArray(int size) {
+		return (T[]) Array.newInstance(classType, size);
 	}
 }

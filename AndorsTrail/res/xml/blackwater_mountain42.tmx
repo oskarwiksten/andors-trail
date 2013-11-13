@@ -141,7 +141,7 @@
    eJztlFEOwCAIQz3CLuX9r7TfZbFQAatLZsLXkEehs1+t9T+kYZ3ZOqgey4tyI7VG/Sq4GeborsWdyY3qfc5y1X49fnYfjF60NysnqpfRgXpScNncr3BH81T5ytLr5avmnPEV8++e4ivLF7Nc7y1Q6I34ufK8+6v2M+Mt63uUy+r1jtrPFVz0Fpyg1+txNRflZrjoDarmol3vjBt+PqSx
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="896" y="352" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain41"/>
@@ -150,7 +150,7 @@
   </object>
   <object name="sign_kazaul" type="sign" x="96" y="224" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="kazaul_guardian" type="spawn" x="480" y="640" width="32" height="32">
    <properties>
    </properties>
@@ -176,5 +176,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJztVLkRwCAMYwSWYv+VUtHhRw9U8Z2LHLEkbKM1x1h/Urkj+r7BVYWb88QfaXp5Twe3Eu7eVj2t+Dv6nFFhIvwdfQyec8ZKDaOD0Y/uUIWD1DFaM87IdzKtaCj+wPKqvhT9y74hZs5IjdOHlT45/LCL4eQ8Yaoab83czRthoh7nmjl6rs4/26EM171v3XfE+pKio1OjBHP3zlzQt/QqP6ZfkRo=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="352" width="32" height="64">
    <properties>
     <property name="map" value="waytobrimhaven2"/>
@@ -161,7 +161,7 @@
   <object name="sign_waytobrim3_grave2" type="sign" x="864" y="640" width="32" height="32"/>
   <object name="sign_waytobrim3_grave3" type="sign" x="896" y="672" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="erumen_2" type="spawn" x="64" y="256" width="288" height="352">
    <properties>
     <property name="quantity" value="3"/>
@@ -193,5 +193,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -140,7 +140,7 @@
    eJxzFWBgcB3FODEIDJQdxNqNTx0ywCWHzxx0QKodtDADnzw2f5FrDjl2EOtXYuKSGDPItYPUsMLlV2LTJTHuJMUObO4ixw58fsMmR0xYYNNDSvhS0w5C8YMN4JMn1Q5qYACWx2uV
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="17">
+ <objectgroup name="Mapevents">
   <object name="north1" type="mapchange" x="192" y="160" width="32" height="32">
    <properties>
     <property name="map" value="lodar7"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="17">
+ <objectgroup name="Spawn">
   <object name="mudfiend" type="spawn" x="224" y="352" width="32" height="32"/>
   <object name="mudfiend" type="spawn" x="416" y="352" width="32" height="128">
    <properties>
@@ -192,7 +192,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn_bats" width="25" height="17" visible="0">
+ <objectgroup name="Spawn_bats" visible="0">
   <object name="cavebat1" type="spawn" x="32" y="192" width="256" height="320">
    <properties>
     <property name="quantity" value="2"/>
@@ -209,5 +209,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="17"/>
+ <objectgroup name="Keys"/>
 </map>

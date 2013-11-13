@@ -141,7 +141,7 @@
    eJxzFWBgcB2iGBlgE0MWx6cXmx58ZuAzlxQ1Q1UvrjAnxkxC4Y5LLzGAFDvw2YtLDTF6yMEAT+g2yg==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="15">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="64" y="96" width="32" height="32">
    <properties>
     <property name="map" value="waterway15"/>
@@ -150,7 +150,7 @@
   </object>
   <object name="sign_waterwaycave" type="sign" x="32" y="384" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="15">
+ <objectgroup name="Spawn">
   <object name="burrower_2" type="spawn" x="160" y="128" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -183,5 +183,5 @@
   </object>
   <object name="burrower_cr" type="spawn" x="192" y="288" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="15"/>
+ <objectgroup name="Keys"/>
 </map>

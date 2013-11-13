@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="25" height="20" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWBgcIViGHAVoC0m1x50QEgtJe4iRj89/IFPPSFzSLWHVPvI9T+t08lQt4fcsMWnh5L0Q6z78aUPfICUdEsNgMuPwxXQ02+0DlN86YDYtE5M2qc0j1PbXGIxAOzzXU4=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="20">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="320" width="32" height="256">
    <properties>
     <property name="map" value="road3"/>
@@ -163,7 +163,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20">
+ <objectgroup name="Spawn">
   <object name="forestboar3" type="spawn" x="640" y="352" width="64" height="64"/>
   <object name="forestserpent2" type="spawn" x="160" y="320" width="320" height="64"/>
   <object name="cavesnake2_boss" type="spawn" x="352" y="128" width="32" height="32"/>
@@ -171,5 +171,5 @@
   <object name="beetle2" type="spawn" x="544" y="64" width="192" height="128"/>
   <object name="shadowgarg1" type="spawn" x="128" y="64" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

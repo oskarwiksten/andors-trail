@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJzFlFEOgDAIQz3CLrX7X8kvE7cIbaGLJPxsjkcBmeNabI7V2TvVovco9ikuYu/av7zCfc6rNUV8JibqNctHs8Pk152vdz0Rp8pV9DHvqjXszJ6Dm8U+zc007t9lLMSN8qvMs7rb1Jl0vFX/v+6/yvQl6mfHlN3ttg6Xybt6p+SgnO9s1HN1Ryi7t+u71o5m1EtmJ7r0Rm9QPIdeNWamVz1X9UZzkOXU1avMPVMrJldlTk+zM70OPS7/g+1m3kaIhHw=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="320" y="928" width="64" height="32">
    <properties>
     <property name="map" value="wild0"/>
@@ -202,14 +202,14 @@
   <object name="sign_crossroads_s" type="sign" x="608" y="480" width="32" height="32"/>
   <object name="sign_crossroads_n" type="sign" x="640" y="128" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="30" height="30">
+ <objectgroup name="Spawn uniques">
   <object name="fieldwasp_unique" type="spawn" x="32" y="64" width="256" height="352"/>
   <object name="fanamor" type="spawn" x="64" y="736" width="32" height="32"/>
   <object name="benbyr" type="spawn" x="416" y="352" width="32" height="32"/>
   <object name="crossroads_guard" type="spawn" x="544" y="384" width="32" height="32"/>
   <object name="crossroads_guard" type="spawn" x="704" y="320" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="30" height="30">
+ <objectgroup name="Spawn monsters">
   <object name="forestboar3" type="spawn" x="64" y="800" width="160" height="96">
    <properties>
     <property name="quantity" value="2"/>
@@ -223,5 +223,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

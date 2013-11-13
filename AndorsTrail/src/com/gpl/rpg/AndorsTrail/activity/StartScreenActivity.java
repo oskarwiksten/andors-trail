@@ -22,7 +22,7 @@ import com.gpl.rpg.AndorsTrail.savegames.Savegames.FileHeader;
 
 public final class StartScreenActivity extends Activity {
 
-	public static final int INTENTREQUEST_PREFERENCES = 7;
+	private static final int INTENTREQUEST_PREFERENCES = 7;
 	public static final int INTENTREQUEST_LOADGAME = 9;
 
 	private boolean hasExistingGame = false;
@@ -161,7 +161,7 @@ public final class StartScreenActivity extends Activity {
 			Dialogs.showNewVersion(this);
 		}
 
-		boolean hasSavegames = !Savegames.getUsedSavegameSlots(this).isEmpty();
+		boolean hasSavegames = !Savegames.getUsedSavegameSlots().isEmpty();
 		startscreen_load.setEnabled(hasSavegames);
 	}
 

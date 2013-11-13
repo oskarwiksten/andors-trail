@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="15" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWBgcB3FGBgE6G0fPjBQYUDIblxqKHU/Lj2EwofSsEPXh0zjs5tYdxEb37jsQA+bgQD0spca4UYtd1DDbkryOS5zSHEXMemYlLyOSz817aSk3CLFXgAPf00J
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="15">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="160" width="32" height="192">
    <properties>
     <property name="map" value="roadbeforecrossroads2"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15">
+ <objectgroup name="Spawn">
   <object name="forestboar3" type="spawn" x="704" y="128" width="224" height="160">
    <properties>
     <property name="quantity" value="2"/>
@@ -170,5 +170,5 @@
   </object>
   <object name="highwayman1" type="spawn" x="96" y="256" width="608" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="15" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

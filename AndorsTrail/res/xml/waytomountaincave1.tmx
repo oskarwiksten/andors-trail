@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="15" height="19" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJxzFWBgcCUCIwNi1GPTR4xeZHXk6MMGaKGPkH5ahQ8l8YKshlg341JDrLtxyZOrn1R3kxtehPSTGp/UDC9i8g2x9hILyM0L2NQBANkNOhw=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="19">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="320" y="0" width="96" height="32">
    <properties>
     <property name="map" value="waytomountaincave0"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="19">
+ <objectgroup name="Spawn">
   <object name="irdegh_2" type="spawn" x="96" y="320" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -175,12 +175,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="15" height="19" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="irdegh_spawn" type="spawn" x="32" y="64" width="384" height="480">
    <properties>
     <property name="quantity" value="8"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="19"/>
+ <objectgroup name="Keys"/>
 </map>

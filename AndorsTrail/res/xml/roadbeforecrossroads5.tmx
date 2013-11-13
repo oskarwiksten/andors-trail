@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="20" height="22" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJzN0dEJACAIBNBGaCn3X6nfEE7P06Cgj8heJ9pey5Idrezta286GzInrZ/yTZi+ttMzqlfMqF7Nx+RhPVQ7ad5vOm6lZ8b094yDPPSXko/JX/E6c0YeMqNz5ikzyTzlL9VD+wAaMFEF
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="22">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="288" y="0" width="224" height="32">
    <properties>
     <property name="map" value="roadbeforecrossroads4"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="22">
+ <objectgroup name="Spawn">
   <object name="forestboar3" type="spawn" x="96" y="224" width="192" height="192">
    <properties>
     <property name="quantity" value="3"/>
@@ -171,5 +171,5 @@
   <object name="forestserpent2" type="spawn" x="512" y="352" width="64" height="96"/>
   <object name="forestboar2" type="spawn" x="352" y="544" width="64" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="22" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

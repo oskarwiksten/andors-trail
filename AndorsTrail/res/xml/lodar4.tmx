@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="25" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -153,7 +153,7 @@
    eJzNk1EOwCAIQz3CLuX9r7QvE2MKlKJuJMs+Bn2tsv601sVnlDr/BVedteYivfFtriyTYSMOKiWzx157UD/LRzqeFpOH6c/UfNa7ds3jZLJW9rzC2sm+xbR2ruJfYaP3idzofq07Z30obMTN5Lc8r/NeNuQju6dMeXvGci3/XjbEsriMDuPX688yWGZ0JhkN9f+Ldk/VUz2cYlbv6AT/JvNv+V6NTqqr
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="25">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="64" width="32" height="96">
    <properties>
     <property name="map" value="lodar2"/>
@@ -186,7 +186,7 @@
   </object>
   <object name="sign_lodar4" type="sign" x="768" y="384" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="forestfly1" type="spawn" x="64" y="96" width="64" height="96"/>
   <object name="hanklbit1" type="spawn" x="128" y="160" width="160" height="192">
    <properties>
@@ -236,8 +236,8 @@
   </object>
   <object name="brtender1" type="spawn" x="256" y="448" width="224" height="192"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="25" visible="0"/>
- <objectgroup name="Replace" width="30" height="25">
+ <objectgroup name="Keys" visible="0"/>
+ <objectgroup name="Replace">
   <object name="lodar2:50" type="replace" x="736" y="256" width="96" height="64">
    <properties>
     <property name="Above" value="Above_after"/>

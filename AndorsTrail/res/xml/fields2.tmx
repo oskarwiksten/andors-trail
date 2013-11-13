@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztlkEKACAIBH1Cn+r/X+peiAm7K5EDnrLGPIhzmM0gGLCd3hsVf428TFDO7J2ME9kDZW89L9NR4fVq2Z2KGjIOZC7Li6TK2/yNarYrUM/vpnkB9I7GPL/NaU4WHlYY6A==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="928" y="32" width="32" height="896">
    <properties>
     <property name="map" value="fields1"/>
@@ -169,22 +169,22 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn uniques" width="30" height="30">
+ <objectgroup name="Spawn uniques">
   <object name="tinlyn_lostsheep2" type="spawn" x="64" y="64" width="832" height="832"/>
  </objectgroup>
- <objectgroup name="Spawn monsters" width="30" height="30" visible="0">
+ <objectgroup name="Spawn monsters" visible="0">
   <object name="fieldcritter_1" type="spawn" x="64" y="64" width="832" height="832">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn monsters2" width="30" height="30" visible="0">
+ <objectgroup name="Spawn monsters2" visible="0">
   <object name="fieldcritter_3" type="spawn" x="64" y="64" width="832" height="832">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

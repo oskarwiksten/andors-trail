@@ -31,7 +31,7 @@ public final class PredefinedMap {
 	public boolean visited = false;
 	public long lastVisitTime = VISIT_RESET;
 	public String lastSeenLayoutHash = "";
-	private final boolean isOutdoors;
+	public final boolean isOutdoors;
 
 	public final ArrayList<BloodSplatter> splatters = new ArrayList<BloodSplatter>();
 
@@ -240,7 +240,10 @@ public final class PredefinedMap {
 				}
 			}
 		}
-		if (fileversion >= 37) visited = true;
+		if (fileversion >= 37) {
+			if (fileversion < 41) visited = true;
+			else visited = src.readBoolean();
+		}
 
 		if (fileversion < 36) lastSeenLayoutHash = "";
 		else lastSeenLayoutHash = src.readUTF();
@@ -281,6 +284,7 @@ public final class PredefinedMap {
 		} else {
 			dest.writeBoolean(false);
 		}
+		dest.writeBoolean(visited);
 		dest.writeUTF(lastSeenLayoutHash);
 	}
 }

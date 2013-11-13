@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJzt0ssNwCAMA1BG6FLsvxLXChWoY4efYoljeWlwflLKcdwPm1Uz3+D+3aPSRd6Rcd/ffjk92+pawrqnRdH3+q6W4eEi78B0lu18uHu6jG3tFNNJ1O2FnR2JauejPaDzzHK9/re2FQ7at3DDVbujThe0BOu/
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="256" width="32" height="160">
    <properties>
     <property name="map" value="waterway8"/>
@@ -183,7 +183,7 @@
   </object>
   <object name="sign_waterway9" type="sign" x="320" y="352" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="erumen_3" type="spawn" x="96" y="224" width="288" height="224">
    <properties>
     <property name="quantity" value="2"/>
@@ -245,5 +245,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

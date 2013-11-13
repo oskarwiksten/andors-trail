@@ -141,7 +141,7 @@
    eJxzFWBgcB3mGARwiSHLwQC55qHrJ2QeNj3o4uiAGLOINZNYMwiZRYqb8LmNUJgT4wdc8YPLPHLTD6E4JMduUs0hNh2Rqpcc8wjFDSlipNiHy82k+IuQfmIAKWmfVLNIdT8hc6iJAYfNVgA=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="20">
+ <objectgroup name="Mapevents">
   <object name="north" type="mapchange" x="544" y="64" width="32" height="32">
    <properties>
     <property name="map" value="catacombs4"/>
@@ -157,14 +157,14 @@
   <object name="sign_catacombs3_grave1" type="sign" x="224" y="96" width="32" height="32"/>
   <object name="sign_catacombs3_grave2" type="sign" x="448" y="416" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn rats" width="20" height="20" visible="0">
+ <objectgroup name="Spawn rats" visible="0">
   <object name="catacombrat1" type="spawn" x="64" y="128" width="544" height="480">
    <properties>
     <property name="quantity" value="2"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn guards" width="20" height="20" visible="0">
+ <objectgroup name="Spawn guards" visible="0">
   <object name="catacombguard3" type="spawn" x="288" y="320" width="32" height="32"/>
   <object name="catacombguard2" type="spawn" x="32" y="288" width="32" height="64"/>
   <object name="catacombguard2" type="spawn" x="64" y="128" width="224" height="128"/>
@@ -184,5 +184,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="20"/>
+ <objectgroup name="Keys"/>
 </map>

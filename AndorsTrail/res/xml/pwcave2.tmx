@@ -140,7 +140,7 @@
    eJztk1EOgDAIQ3cEL7X7X8n4uxjbQjs/lIQvgVfKnMcY80+YV6TnK5FiqXo6zK7eJBPNctU6d0hy39pXqVc5TzOcXq9zHZ6hXjbc90lx0U2USHGRlpTPyAcXU92XYbP11aj8OyqX8Z7Rxb45RuvdtwSze1d3fo2L7p7ur/QqUeVWZq69Xf1VL3e+nZV7ArgOzzE=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="south" type="mapchange" x="864" y="928" width="64" height="32">
    <properties>
     <property name="map" value="pwcave1"/>
@@ -160,7 +160,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="iqhan_2" type="spawn" x="768" y="832" width="64" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -232,5 +232,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

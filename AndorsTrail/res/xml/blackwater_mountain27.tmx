@@ -141,7 +141,7 @@
    eJxjYCAOhAsMnJpnLAwMz4H4BQtuNdjMTRPAzycGAAAH+QYY
   </data>
  </layer>
- <objectgroup name="mapevents" width="9" height="8">
+ <objectgroup name="mapevents">
   <object name="south" type="mapchange" x="192" y="224" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain11"/>
@@ -149,8 +149,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="keys" width="9" height="8"/>
- <objectgroup name="spawn" width="9" height="8">
+ <objectgroup name="keys"/>
+ <objectgroup name="spawn">
   <object name="prim_prisoner" type="spawn" x="32" y="96" width="96" height="96"/>
  </objectgroup>
 </map>

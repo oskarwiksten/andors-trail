@@ -141,7 +141,7 @@
    eJxzFWBgcB0EGB+AySOrJaSfGLXEmIvPDGLV4vPzSFeLLc6IUU9ttbjU43MfetrBlwZxpTN8crj4uNxEy7ikdZjjAvjMxqWOFmkYAHtlVAI=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="11" height="30">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="256" y="928" width="32" height="32">
    <properties>
     <property name="map" value="flagstone3"/>
@@ -156,7 +156,7 @@
   </object>
   <object name="flagstone_brokensteps" type="sign" x="224" y="256" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="11" height="30">
+ <objectgroup name="Spawn">
   <object name="flagstone_guard1" type="spawn" x="224" y="320" width="32" height="32">
    <properties>
    </properties>
@@ -170,7 +170,7 @@
   <object name="prisoner2" type="spawn" x="64" y="96" width="96" height="32"/>
   <object name="cavesnake2_boss" type="spawn" x="160" y="96" width="96" height="128"/>
  </objectgroup>
- <objectgroup name="Keys" width="11" height="30">
+ <objectgroup name="Keys">
   <object name="flagstone:40" type="key" x="224" y="288" width="32" height="32">
    <properties>
     <property name="phrase" value="flagstone_key_demon"/>

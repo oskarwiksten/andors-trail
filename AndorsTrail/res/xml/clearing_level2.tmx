@@ -141,7 +141,7 @@
    eJxzFWBgcB1ADALYxGCAkF50NdgAPr3I8rj4uOwgV4wUf+BTQ6p5xOolZBa5ekkJT3Tz8KnBJ07ITmx68ZmLz//kYgBp9TUh
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="15">
+ <objectgroup name="Mapevents">
   <object name="up" type="mapchange" x="64" y="64" width="32" height="32">
    <properties>
     <property name="map" value="clearing_level1"/>
@@ -149,7 +149,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="15">
+ <objectgroup name="Spawn">
   <object name="pack_boss" type="spawn" x="320" y="384" width="96" height="64">
    <properties>
    </properties>
@@ -182,5 +182,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="15"/>
+ <objectgroup name="Keys"/>
 </map>

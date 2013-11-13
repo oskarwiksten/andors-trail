@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="15" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJzVk0sOACEIQz3CXMr7X2m2hJTaoi5swgZ8/CLzG2MCi0JxZq+zMccqF2OcXirF+Atsjp9mmdg/WCnXrXw362bfzrxob92bcVm1Z2W37rzKO5Vl+dQe1b2gftxb7bBKLjRXZiremavLOv7KfuGYVFc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="south" type="mapchange" x="96" y="928" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain14"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="30">
+ <objectgroup name="Spawn">
   <object name="gornaud_2" type="spawn" x="96" y="864" width="32" height="32"/>
   <object name="gornaud_2" type="spawn" x="288" y="576" width="64" height="64"/>
   <object name="gornaud_1" type="spawn" x="32" y="224" width="128" height="544">
@@ -173,5 +173,5 @@
   </object>
   <object name="gornaud_1" type="spawn" x="192" y="64" width="96" height="64"/>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

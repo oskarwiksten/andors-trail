@@ -141,7 +141,7 @@
    eJxzFWBgcKUBBgFi1aEDQuqQ+dRQR8h+ctSRG24AKy0WlQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="10" height="10">
+ <objectgroup name="Mapevents">
   <object name="up" type="mapchange" x="64" y="64" width="32" height="32">
    <properties>
     <property name="map" value="jan_pitcave2"/>
@@ -149,11 +149,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="10" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="pitcave_boss" type="spawn" x="128" y="128" width="160" height="160">
    <properties>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="10" height="10"/>
+ <objectgroup name="Keys"/>
 </map>

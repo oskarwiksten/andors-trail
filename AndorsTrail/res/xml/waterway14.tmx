@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztk8sNwDAIQzNCl8r+K/VaRXxs6tBWKlIuhPDMJ/MYY370WNbNfaren6vL7+1Sds8yMk7Et3JZrDsci8nW4WmK4r0cmQ/Ry5rVy6j+KrfyB6L3UR0sU7WnLFM1t11cdiYKLhKn4qKx1v+ocNU638zdtQ8760V0MH2z3kU5GTart4vLakJ3z4tBfdXerT7GMm40F4WheViuSt+V3cVbuSdIRZ4N
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="288" width="32" height="640">
    <properties>
     <property name="map" value="waterway4"/>
@@ -164,7 +164,7 @@
   </object>
   <object name="sign_waterway14_hole" type="sign" x="608" y="640" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="burrower_1" type="spawn" x="352" y="640" width="576" height="256">
    <properties>
     <property name="quantity" value="3"/>
@@ -186,5 +186,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

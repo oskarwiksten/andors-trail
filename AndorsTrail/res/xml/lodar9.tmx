@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="25" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWBgcB3Fo5hGGAQGyl4YoJcfcdlHTTegA1x+JQTItY+QWdSwF58+YsXR5Uixl5z4ICfcSA0XYt1JDbuR5YhxJyn+oNTt+OzFpZ4YP5DqHkJpktw0RUyaJmQ2uXbSIo8MBTtxxSct/UMI0MouYsKAGvbRM37JNWMg0jM10hgAyabA6g==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="25">
+ <objectgroup name="Mapevents">
   <object name="west3" type="mapchange" x="0" y="288" width="32" height="64">
    <properties>
     <property name="map" value="lodar3"/>
@@ -175,7 +175,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25">
+ <objectgroup name="Spawn">
   <object name="khakin1" type="spawn" x="736" y="224" width="160" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -246,5 +246,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="25"/>
+ <objectgroup name="Keys"/>
 </map>

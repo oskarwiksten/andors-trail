@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="19" height="29" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJy9kssJwDAMQzNCl8r+K/VqQoq+1JCb/JAU72etDd4cpGVZKef0lTJv02Q5vHPPZX35UFkoD8tDM3WNXIwvpltGo9yl2ldDp3DYnC3vyk3/yWIzOCyHi6bBUb3NnVvGxFfyJ0w/bH+OLrkpxzvTSZpPYSWMF1hghNE=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="19" height="29">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="64" y="896" width="64" height="32">
    <properties>
     <property name="map" value="mountainlake5"/>
@@ -158,7 +158,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="19" height="29">
+ <objectgroup name="Spawn">
   <object name="maonit_2" type="spawn" x="64" y="608" width="224" height="256">
    <properties>
     <property name="quantity" value="1"/>
@@ -180,12 +180,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="19" height="29" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="mbrute_2" type="spawn" x="32" y="64" width="512" height="800">
    <properties>
     <property name="quantity" value="3"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="19" height="29"/>
+ <objectgroup name="Keys"/>
 </map>

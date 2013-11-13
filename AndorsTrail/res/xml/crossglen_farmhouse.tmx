@@ -141,7 +141,7 @@
    eJxjYCAehAsMDXWu3AwMPsy41aURaR4xAADwDQMZ
   </data>
  </layer>
- <objectgroup name="mapevents" width="10" height="8">
+ <objectgroup name="mapevents">
   <object name="entrance" type="mapchange" x="192" y="223" width="32" height="32">
    <properties>
     <property name="map" value="crossglen"/>
@@ -155,8 +155,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="keys" width="10" height="8"/>
- <objectgroup name="spawn" width="10" height="8" visible="0">
+ <objectgroup name="keys"/>
+ <objectgroup name="spawn" visible="0">
   <object name="Leta" type="spawn" x="32" y="96" width="256" height="128"/>
  </objectgroup>
 </map>

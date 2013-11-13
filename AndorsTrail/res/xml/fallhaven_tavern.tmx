@@ -141,7 +141,7 @@
    eJxzFWBgcB3BGATwsWEAnY3NHEoBsWbhshefH0k1j5QwI4VPrnkwMWLMI+RnQupISTO47CUlfsi1a7iaR2p8EOtGapmLLQ1R233UDFNkDADMyF34
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="19">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="160" y="320" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_nw"/>
@@ -151,7 +151,7 @@
   <object name="rest1" type="rest" x="576" y="320" width="32" height="32"/>
   <object name="rest2" type="rest" x="576" y="480" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="19" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="drunk" type="spawn" x="64" y="128" width="224" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -160,7 +160,7 @@
   <object name="Bela" type="spawn" x="416" y="128" width="64" height="64"/>
   <object name="Ganos" type="spawn" x="32" y="224" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="19">
+ <objectgroup name="Keys">
   <object name="fallhaventavern:20" type="key" x="448" y="288" width="32" height="32">
    <properties>
     <property name="phrase" value="fallhaven_tavern_room"/>

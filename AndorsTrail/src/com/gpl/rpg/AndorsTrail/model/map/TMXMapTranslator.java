@@ -42,7 +42,7 @@ public final class TMXMapTranslator {
 
 			boolean isOutdoors = false;
 			for (TMXProperty p : m.properties) {
-				if(p.name.equalsIgnoreCase("outside")) isOutdoors = (Integer.parseInt(p.value) != 0);
+				if(p.name.equalsIgnoreCase("outdoors")) isOutdoors = (Integer.parseInt(p.value) != 0);
 				else if(AndorsTrailApplication.DEVELOPMENT_VALIDATEDATA) L.log("OPTIMIZE: Map " + m.name + " has unrecognized property \"" + p.name + "\".");
 			}
 
@@ -367,7 +367,7 @@ public final class TMXMapTranslator {
 		for(int i = map.tileSets.length - 1; i >= 0; --i) {
 			TMXTileSet ts = map.tileSets[i];
 			if (ts.firstgid <= gid) {
-				dest.tilesetName = ts.imageName;
+				dest.tilesetName = ts.name;
 				dest.localId = (gid - ts.firstgid);
 				return true;
 			}

@@ -140,7 +140,7 @@
    eJxzFWBgcB3FVMXEAmrYAWMj0/jcQI4fCNmBzibHL+g0tcMOm/sJhSulYUWMe8jxA7n6KbFvqNtBLKDUHHx+w6eG2LRDqh3k+pOe/sBlHrF2EKOfWL+TGv+0TrukYgCmpn+B
   </data>
  </layer>
- <objectgroup name="Mapevents" width="25" height="20">
+ <objectgroup name="Mapevents">
   <object name="down" type="mapchange" x="736" y="480" width="32" height="32">
    <properties>
     <property name="map" value="remgard_tavern0"/>
@@ -150,7 +150,7 @@
   <object name="jhaeld_bed" type="sign" x="704" y="256" width="32" height="32"/>
   <object name="rest1" type="rest" x="256" y="544" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="25" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="jhaeld" type="spawn" x="480" y="128" width="256" height="96"/>
   <object name="remgard_guard" type="spawn" x="608" y="96" width="32" height="32"/>
   <object name="maelf" type="spawn" x="64" y="448" width="32" height="32"/>
@@ -159,7 +159,7 @@
   <object name="remgard_guard2" type="spawn" x="128" y="544" width="32" height="32"/>
   <object name="kaverin" type="spawn" x="320" y="96" width="64" height="96"/>
  </objectgroup>
- <objectgroup name="Keys" width="25" height="20">
+ <objectgroup name="Keys">
   <object name="nondisplay:21" type="key" x="448" y="480" width="32" height="32">
    <properties>
     <property name="phrase" value="remgard_tavern_room"/>

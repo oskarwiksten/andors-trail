@@ -141,7 +141,7 @@
    eJxzFWBgcB3CGAZIlcMljwvgkoeJ4dKLz15cZhHjZlL14vIHPn+RGg/IfAAP9yI0
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="10">
+ <objectgroup name="Mapevents">
   <object name="entrance" type="mapchange" x="352" y="288" width="32" height="32">
    <properties>
     <property name="map" value="fallhaven_se"/>
@@ -149,8 +149,8 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="10" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="khorand" type="spawn" x="32" y="96" width="416" height="160"/>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="10"/>
+ <objectgroup name="Keys"/>
 </map>

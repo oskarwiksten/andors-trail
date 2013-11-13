@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="15" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxjYCANuApQB5MKyNFDDbOoZS+pYUBt/1LTXlrEH63iF5e5MHFq2ksKoJW9pIQzNeORnvGLbB697SXW3OFoL7rZyGLULCex2YFPnNw6BRkAAIDnFkA=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="15" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="south" type="mapchange" x="224" y="448" width="96" height="32">
    <properties>
     <property name="map" value="crossroads"/>
@@ -187,9 +187,9 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="15" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="fieldwasp_0" type="spawn" x="64" y="160" width="64" height="256"/>
   <object name="rolwynn" type="spawn" x="416" y="32" width="512" height="416"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="15" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

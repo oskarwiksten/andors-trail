@@ -141,7 +141,7 @@
    eJxzFWBgcB3FWDEI4BLHBdDlSdGLzayB0IusH12MFHvJtZMU/dSIz4HWCwD0zTAm
   </data>
  </layer>
- <objectgroup name="Mapevents" width="15" height="15">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="224" y="448" width="32" height="32">
    <properties>
     <property name="map" value="blackwater_mountain4"/>
@@ -155,13 +155,13 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="15" height="15">
+ <objectgroup name="Spawn">
   <object name="bwm_agent_1" type="spawn" x="96" y="224" width="224" height="160">
    <properties>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="15" height="15">
+ <objectgroup name="Keys">
   <object name="bwm_agent:10" type="key" x="320" y="128" width="96" height="32">
    <properties>
     <property name="phrase" value="keyarea_bwm_agent_1"/>

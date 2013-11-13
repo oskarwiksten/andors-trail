@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="30" height="25" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJztklEOwCAIQz3CLuX9r7TsYwlZKKtQ+dmaGD9EXsXOY4z54XXJ7op+t9g6z4N3jnyzzIgfsZFUs7dMZk7KP1L1VGaji73rX5lZZ1kKdc66i+l56Gb+XJwDlUcmV08mm0GvDvVaVZYb9apw7Xl0FzErOWTfw8yJ8WR9vfXIKJvVHe/M1CruVdcq8wTos7ee
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="25">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="576" y="768" width="32" height="32">
    <properties>
     <property name="map" value="waytomountaincave0"/>
@@ -158,7 +158,7 @@
   </object>
   <object name="sign_waterway11e_grave" type="sign" x="768" y="64" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="25" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="erumen_4" type="spawn" x="128" y="320" width="64" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -190,5 +190,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="25"/>
+ <objectgroup name="Keys"/>
 </map>

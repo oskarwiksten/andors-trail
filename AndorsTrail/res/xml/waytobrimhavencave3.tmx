@@ -140,7 +140,7 @@
    eJztk8sNwDAIQzNCl8r+K/WUSyWwDabqoUhI/QSe+WRfa+3fX/PI1Pjz3OUiDZWYKE7RUtX7zN+dVaQZnXfUyrLR+UxzphX1k9Vf2VH2W5ep7oybq+yWk6nkneB27pSTm51h8lTZk/Oa6mNkVa5Sg1or2ik3m8np5iozUNgTNaC47P95V2tgdCCuylR1OWfL5P06V9XIzhLFOfpTMUfvnH4DEfPMiQ==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="160" width="32" height="32">
    <properties>
     <property name="map" value="waytobrimhavencave2"/>
@@ -154,7 +154,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="allaceph_2" type="spawn" x="608" y="192" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -166,7 +166,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="30" height="30" visible="0">
+ <objectgroup name="Spawn2" visible="0">
   <object name="allaceph_3" type="spawn" x="416" y="544" width="192" height="64">
    <properties>
     <property name="quantity" value="1"/>
@@ -239,5 +239,5 @@
   </object>
   <object name="allaceph_cr" type="spawn" x="96" y="576" width="96" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="20" height="25" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJy9klEKACAIQz1Cl/L+V+orCDHalib4o/kcLh9mHnJFrKvZwatiVfOyqGKdalXedGhG9e692/4bk92dzSE+MHPqvTKm4sVJj8pD9aJ/j/WY5SH91/c/eerNGW0qF/0fCp8Jhd1x28js5E2xAXiI
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="25">
+ <objectgroup name="Mapevents">
   <object name="south" type="mapchange" x="448" y="768" width="96" height="32">
    <properties>
     <property name="map" value="waytolake1"/>
@@ -159,7 +159,7 @@
   </object>
   <object name="sign_waytolake2_grave" type="sign" x="352" y="608" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="25" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="plaguespider_2" type="spawn" x="160" y="576" width="448" height="160">
    <properties>
     <property name="quantity" value="2"/>
@@ -206,5 +206,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="25"/>
+ <objectgroup name="Keys"/>
 </map>

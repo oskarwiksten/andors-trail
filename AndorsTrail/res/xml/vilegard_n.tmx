@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="21" height="20" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWBgcCUCgwAx6ogxBxegxDxsZpPrLmq6kxhzqBkO1DKXUvfQ2lxc/qR2usRmHz47KQUDFZ6UmklILTluxKYePU6QzSXGfGx+o0bcUAIGIm6pZR61zQQAskBg9Q==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="21" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="south" type="mapchange" x="64" y="608" width="64" height="32">
    <properties>
     <property name="map" value="vilegard_s"/>
@@ -176,10 +176,10 @@
   </object>
   <object name="sign_vilegard_n" type="sign" x="352" y="64" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="21" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="vilegard_villager_1" type="spawn" x="192" y="96" width="192" height="160"/>
   <object name="vilegard_villager_2" type="spawn" x="448" y="480" width="96" height="64"/>
   <object name="vilegard_villager_3" type="spawn" x="224" y="384" width="160" height="160"/>
  </objectgroup>
- <objectgroup name="Keys" width="21" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>

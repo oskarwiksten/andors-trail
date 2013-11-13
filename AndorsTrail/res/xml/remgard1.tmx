@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="30" height="30" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJztk8kNwCAMBCkhTdF/S3lFspDv9eaFJT6R2fEA2c9a+y51eTWV3WGjc3gZmVxkhq+/w+2yUV/rPtB++c3Ki3L+LgYXfbsINzvbZFW46LpcDlfu1TIZ3HPvFBetKKPiVP3/EWaHm30T0dzTXKuHyY2c0TceOTG43llNMzVfhpvnarkzXdlcmaFln4xJbsWJccao0wvpXL3t
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="256" width="32" height="128">
    <properties>
     <property name="map" value="remgard0"/>
@@ -182,11 +182,11 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30">
+ <objectgroup name="Spawn">
   <object name="remgard_villager2" type="spawn" x="96" y="256" width="352" height="128"/>
   <object name="remgard_villager4" type="spawn" x="448" y="288" width="160" height="256"/>
   <object name="remgard_farmer1" type="spawn" x="640" y="320" width="256" height="288"/>
   <object name="chael" type="spawn" x="480" y="800" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

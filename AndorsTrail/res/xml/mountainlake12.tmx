@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="29" height="21" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJxzFWBgcB3Fo3gQYRCgt13ogJb2odtDS7tJAdS2Excfm9to4WdC4UGuGfjSES3dRKr7sKkhJe7xAVLjHiaGj08MINadxLgfm5mE5MkNG3zyxOinR74ZxQODAe6Mo10=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="29" height="21">
+ <objectgroup name="Mapevents">
   <object name="east" type="mapchange" x="896" y="288" width="32" height="224">
    <properties>
     <property name="map" value="mountainlake11"/>
@@ -157,7 +157,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="29" height="21">
+ <objectgroup name="Spawn">
   <object name="mwolf_2" type="spawn" x="288" y="480" width="32" height="32">
    <properties>
     <property name="quantity" value="1"/>
@@ -169,12 +169,12 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn2" width="29" height="21">
+ <objectgroup name="Spawn2">
   <object name="mwolf_1" type="spawn" x="64" y="160" width="800" height="416">
    <properties>
     <property name="quantity" value="5"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="29" height="21"/>
+ <objectgroup name="Keys"/>
 </map>

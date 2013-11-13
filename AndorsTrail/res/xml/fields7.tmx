@@ -2,7 +2,7 @@
 <!DOCTYPE map SYSTEM "http://mapeditor.org/dtd/1.0/map.dtd">
 <map version="1.0" orientation="orthogonal" width="27" height="24" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png"/>
@@ -144,7 +144,7 @@
    eJxzFWBgcB3FgxojA1qYiQvQ0mxS7aGFmeSYS6pd1AaD2S5K3DCY/UXILHrZRcgNpNhFqf1DNb7w2UGMXdS2k9LyeTjaRQog1i5y/YnMH4z+orVdAG5IXvc=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="27" height="24">
+ <objectgroup name="Mapevents">
   <object name="west" type="mapchange" x="0" y="256" width="32" height="480">
    <properties>
     <property name="map" value="fields6"/>
@@ -164,7 +164,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="27" height="24">
+ <objectgroup name="Spawn">
   <object name="fieldcritter_1" type="spawn" x="64" y="320" width="576" height="384">
    <properties>
     <property name="quantity" value="3"/>
@@ -176,5 +176,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="27" height="24"/>
+ <objectgroup name="Keys"/>
 </map>

@@ -141,7 +141,7 @@
    eJzllGEKwCAIhTvCLtX9rzT2YxBh+t5TijEhBqZ+Vs/1q7X+8/XY+K2sudqzTOUgdawYhMla5qyrGJad6S9z314fFW+Pctl3Y9iRTz2DUqNiVrJ3sIOf5SJ6YLijH+kLNUW7Xv9oLXVuPHZl/JuD1JlrZnVi+TM6rNbol7mMTqK96jOz5jEQrtqfl6dwVU1Ye7MvYrKa8BhIbhU3shNcZQZ2/iOUnB3rBnLnsfk=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="30" height="30">
+ <objectgroup name="Mapevents">
   <object name="up" type="mapchange" x="832" y="64" width="32" height="32">
    <properties>
     <property name="map" value="jan_pitcave1"/>
@@ -156,7 +156,7 @@
   </object>
   <object name="sign_pitcave2" type="sign" x="864" y="768" width="32" height="32"/>
  </objectgroup>
- <objectgroup name="Spawn" width="30" height="30" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="pitcave1" type="spawn" x="544" y="96" width="256" height="96">
    <properties>
     <property name="quantity" value="2"/>
@@ -189,5 +189,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="30" height="30"/>
+ <objectgroup name="Keys"/>
 </map>

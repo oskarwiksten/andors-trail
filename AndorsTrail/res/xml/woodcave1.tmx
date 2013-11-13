@@ -141,7 +141,7 @@
    eJxzFWBgcKUDBgFC8siAkDyp6pDVEqOGFDuR1VIaTgDLjhZA
   </data>
  </layer>
- <objectgroup name="Mapevents" width="10" height="10">
+ <objectgroup name="Mapevents">
   <object name="up" type="mapchange" x="192" y="64" width="32" height="32">
    <properties>
     <property name="map" value="wild0"/>
@@ -149,7 +149,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="10" height="10">
+ <objectgroup name="Spawn">
   <object name="larva_2" type="spawn" x="64" y="128" width="224" height="128">
    <properties>
     <property name="quantity" value="2"/>
@@ -165,5 +165,5 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="10" height="10"/>
+ <objectgroup name="Keys"/>
 </map>

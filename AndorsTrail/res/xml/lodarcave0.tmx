@@ -150,7 +150,7 @@
    eJxzFWBgcB3BGB0Qo56QGcSaiU8dujg2tbjsIuRGYtyNTS8h84iVJ1WcXH30Mo/YsCA1LZHqblLUw/jE2EeKHdQwCx8GAI9SR2Q=
   </data>
  </layer>
- <objectgroup name="Mapevents" width="20" height="15">
+ <objectgroup name="Mapevents">
   <object name="up lodarcave0" type="mapchange" x="448" y="384" width="32" height="32">
    <properties>
     <property name="map" value="lodar3"/>
@@ -165,7 +165,7 @@
   </object>
   <object name="sign_lodarcave0" type="sign" x="256" y="192" width="160" height="224"/>
  </objectgroup>
- <objectgroup name="Spawn" width="20" height="15" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="hirathil0" type="spawn" x="64" y="160" width="96" height="224"/>
   <object name="hirathil0" type="spawn" x="32" y="96" width="160" height="160"/>
   <object name="hirathil0" type="spawn" x="448" y="160" width="32" height="32"/>
@@ -182,15 +182,15 @@
   </object>
   <object name="hirathil0" type="spawn" x="192" y="160" width="224" height="256"/>
  </objectgroup>
- <objectgroup name="Spawn_bats" width="20" height="15" visible="0">
+ <objectgroup name="Spawn_bats" visible="0">
   <object name="cavebat1" type="spawn" x="32" y="160" width="416" height="256">
    <properties>
     <property name="quantity" value="4"/>
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Keys" width="20" height="15"/>
- <objectgroup name="Replace" width="20" height="15">
+ <objectgroup name="Keys"/>
+ <objectgroup name="Replace">
   <object name="lodar2:50" type="replace" x="416" y="192" width="32" height="64">
    <properties>
     <property name="Above" value="Above_after"/>

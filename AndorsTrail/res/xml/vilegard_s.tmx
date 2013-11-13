@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" width="21" height="20" tilewidth="32" tileheight="32">
  <properties>
-  <property name="outside" value="1"/>
+  <property name="outdoors" value="1"/>
  </properties>
  <tileset firstgid="1" name="map_bed_1" tilewidth="32" tileheight="32">
   <image source="../drawable/map_bed_1.png" width="512" height="256"/>
@@ -143,7 +143,7 @@
    eJzVUckNACAIcwSWYv+V9ENCCIhCfdjED2jtwTQGryNgwh00p8bPOnfznY4Op7eXmd55iPjsvgvPi9boeej2GflEdP+S9+ZdVaed3XQR8Wao5PsqZ2Q3FY+nmdm7Vc/Zf4hssywmgalgoA==
   </data>
  </layer>
- <objectgroup name="Mapevents" width="21" height="20" visible="0">
+ <objectgroup name="Mapevents" visible="0">
   <object name="west" type="mapchange" x="0" y="544" width="32" height="32">
    <properties>
     <property name="map" value="vilegard_sw"/>
@@ -181,10 +181,10 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Spawn" width="21" height="20" visible="0">
+ <objectgroup name="Spawn" visible="0">
   <object name="fallhaven_priest" type="spawn" x="224" y="192" width="32" height="32"/>
   <object name="vilegard_villager_4" type="spawn" x="64" y="288" width="160" height="192"/>
   <object name="vilegard_villager_5" type="spawn" x="416" y="128" width="192" height="160"/>
  </objectgroup>
- <objectgroup name="Keys" width="21" height="20" visible="0"/>
+ <objectgroup name="Keys" visible="0"/>
 </map>
