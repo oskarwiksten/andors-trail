@@ -8,6 +8,7 @@ import android.widget.TextView;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnEquip;
 import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 
 import java.util.Arrays;
 import java.util.Collection;

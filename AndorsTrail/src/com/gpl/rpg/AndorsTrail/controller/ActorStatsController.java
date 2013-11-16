@@ -21,6 +21,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 
 import java.util.ArrayList;
 
@@ -197,6 +198,7 @@ public final class ActorStatsController {
 		controllers.skillController.applySkillEffects(player);
 		applyEffectsFromCurrentConditions(player);
 		ItemController.recalculateHitEffectsFromWornItems(player);
+		ScriptEngine.instance.onPlayerStatsUpdate(player, world);
 		capActorHealthAtMax(player);
 		capActorAPAtMax(player);
 	}

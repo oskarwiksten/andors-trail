@@ -1,17 +1,30 @@
 "map_boostAC" map.onEnter [
-	if (map.outside) {
-		player.ac = player.ac * 2;
-	} else {
-		player.bc = player.bc * 2;
-	}
 	player.addActorCondition("chaotic_grip",5, 2, 50);
 ]
 
 "map_unboostAC" map.onLeave [
-	if (map.outside) {
-		player.ac = player.ac / 2;
-	} else {
-		player.bc = player.bc / 2;
-	}
 	player.clearActorCondition("chaotic_grip", 50);
 ]
+
+"player_boostAC" player.statsUpdated [
+	player.ac = player.ac * 1.5;
+][Boosts your AC by 50% of current value.]
+
+"useless_one" map.onEnter [
+	num a = 5;
+	if (a < 3) {
+		bool b = true;
+		num c = 2;
+	} else if (a == 5 ) {
+		string d = "TestString";
+	} else {
+		num b = 12.3;
+		bool c = true;
+		while (c) {
+			a = a - 1;
+			if (a == 0) {
+				c = false;
+			}
+		}
+	}
+][Simple test of local variables scoping]

@@ -28,7 +28,7 @@ public final class Inventory extends ItemContainer {
 	public int gold = 0;
 	private static final int NUM_WORN_SLOTS = WearSlot.values().length;
 	public static final int NUM_QUICK_SLOTS = 3;
-	private final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
+	public final ItemType[] wear = new ItemType[NUM_WORN_SLOTS];
 	public final ItemType[] quickitem = new ItemType[NUM_QUICK_SLOTS];
 
 	public Inventory() { }

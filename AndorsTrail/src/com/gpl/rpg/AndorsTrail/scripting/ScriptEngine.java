@@ -8,6 +8,9 @@ import java.util.Map;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
+import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ScriptContext;
 import com.gpl.rpg.AndorsTrail.util.Coord;
@@ -63,6 +66,12 @@ public class ScriptEngine implements PlayerMovementListener {
 				break;
 			}
 			break;
+		case player :
+			switch (s.trigger.event) {
+			case statsUpdated :
+				result.add(playerStatsUpdated);
+				break;
+			}
 		}
 		return result;
 	}
@@ -91,39 +100,72 @@ public class ScriptEngine implements PlayerMovementListener {
 	
 	private final List<Script> mapOnEnter = new ArrayList<Script>();
 	private void mapEntered(PredefinedMap map, WorldContext world) {
+		ScriptContext context = new ScriptContext(world, controllers);
+		context.map = map;
+		context.player = world.model.player;
+		context.actor = world.model.player;
 		for (Script script : mapOnEnter) {
-			ScriptContext context = new ScriptContext(
-					script.localNumsSize,
-					script.localBoolsSize,
-					script.localStringsSize,
-					world,
-					map,
-					world.model.player,
-					null,
-					controllers);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
-	
 	}
 	
 	private final List<Script> mapOnLeave = new ArrayList<Script>();
-	public void mapLeft(PredefinedMap map, WorldContext world) {
+	private void mapLeft(PredefinedMap map, WorldContext world) {
+		ScriptContext context = new ScriptContext(world, controllers);
+		context.map = map;
+		context.player = world.model.player;
+		context.actor = world.model.player;
 		for (Script script : mapOnLeave) {
-			ScriptContext context = new ScriptContext(
-					script.localNumsSize,
-					script.localBoolsSize,
-					script.localStringsSize,
-					world,
-					map,
-					world.model.player,
-					null,
-					controllers);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 	
 	}
 	
+	/*
+	 * PLAYER
+	 */
 	
+	public void onPlayerStatsUpdate(Player p, WorldContext world) {
+		statsUpdated(p, world);
+	}
 	
+	private final List<Script> playerStatsUpdated = new ArrayList<Script>();
+	private void statsUpdated(Player p, WorldContext world) {
+		ScriptContext context = new ScriptContext(world, controllers);
+		context.map = world.model.currentMap;
+		context.player = p;
+		context.actor = p;
+		for (Script script : playerStatsUpdated) {
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			script.scriptASTRoot.evaluate(context);
+		}
+		
+		for (ActorCondition ac : p.conditions) {
+			if (ac.conditionType.private_scripts == null) continue;
+			for (Script script : ac.conditionType.private_scripts) {
+				if (script.trigger.category != ScriptTrigger.Categories.player) continue;
+				if (script.trigger.event != ScriptTrigger.Events.statsUpdated) continue;
+				context.ac = ac;
+				script.scriptASTRoot.evaluate(context);
+			}
+		}
+		context.ac = null;
+		
+		for (ItemType item : p.inventory.wear) {
+			if (item == null) continue;
+			if (item.private_scripts == null) continue;
+			for (Script script : item.private_scripts) {
+				if (script == null) continue;
+				if (script.trigger.category != ScriptTrigger.Categories.player) continue;
+				if (script.trigger.event != ScriptTrigger.Events.statsUpdated) continue;
+				context.item = item;
+				script.scriptASTRoot.evaluate(context);
+			}
+		}
+		context.item = null;
+	
+	}
 	
 }

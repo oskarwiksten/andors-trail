@@ -32,6 +32,8 @@ public final class ActorConditionsTypeParser extends JsonCollectionParserFor<Act
 				,ResourceParserUtils.parseStatsModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.roundEffect))
 				,ResourceParserUtils.parseStatsModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.fullRoundEffect))
 				,ResourceParserUtils.parseAbilityModifierTraits(o.optJSONObject(JsonFieldNames.ActorCondition.abilityEffect))
+				,ResourceParserUtils.parseScriptsReference(o.optJSONArray(JsonFieldNames.ActorCondition.scripts))
+				,ResourceParserUtils.parseScriptsReference(o.optJSONArray(JsonFieldNames.ActorCondition.privateScripts))
 		);
 		return new Pair<String, ActorConditionType>(conditionTypeID, result);
 	}

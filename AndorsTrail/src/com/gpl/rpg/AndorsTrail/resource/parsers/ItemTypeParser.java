@@ -9,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.TranslationLoader;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonCollectionParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.util.Pair;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +42,9 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.hitEffect));
 		final ItemTraits_OnUse killEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.killEffect));
 
+		final Script[] scripts = ResourceParserUtils.parseScriptsReference(o.optJSONArray(JsonFieldNames.ItemType.scripts));
+		final Script[] private_scripts = ResourceParserUtils.parseScriptsReference(o.optJSONArray(JsonFieldNames.ItemType.privateScripts));
+
 		final int baseMarketCost = o.optInt(JsonFieldNames.ItemType.baseMarketCost);
 		final boolean hasManualPrice = o.optInt(JsonFieldNames.ItemType.hasManualPrice, 0) > 0;
 		final ItemType itemType = new ItemType(
@@ -56,6 +60,8 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 				, useEffect
 				, hitEffect
 				, killEffect
+				, scripts
+				, private_scripts
 			);
 		return new Pair<String, ItemType>(id, itemType);
 	}

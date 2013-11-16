@@ -3,6 +3,7 @@ package com.gpl.rpg.AndorsTrail.model.item;
 import com.gpl.rpg.AndorsTrail.controller.Constants;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 
 public final class ItemType {
 
@@ -34,6 +35,8 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_use;
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
+	public final Script[] scripts;
+	public final Script[] private_scripts;
 
 	public ItemType(
 			String id
@@ -48,6 +51,8 @@ public final class ItemType {
 			, ItemTraits_OnUse effects_use
 			, ItemTraits_OnUse effects_hit
 			, ItemTraits_OnUse effects_kill
+			, Script[] scripts
+			, Script[] private_scripts
 	) {
 		this.id = id;
 		this.iconID = iconID;
@@ -62,6 +67,8 @@ public final class ItemType {
 		this.effects_use = effects_use;
 		this.effects_hit = effects_hit;
 		this.effects_kill = effects_kill;
+		this.scripts = scripts;
+		this.private_scripts = private_scripts;
 		this.hasPersonalizedName = name.contains(Constants.PLACEHOLDER_PLAYERNAME);
 	}
 

@@ -77,7 +77,7 @@ public interface ATScriptParserConstants {
   /** RegularExpression Id. */
   int ACTOR = 37;
   /** RegularExpression Id. */
-  int OUTSIDE = 38;
+  int OUTDOOR = 38;
   /** RegularExpression Id. */
   int MIN = 39;
   /** RegularExpression Id. */
@@ -170,7 +170,7 @@ public interface ATScriptParserConstants {
     "\"attack\"",
     "\"player\"",
     "\"actor\"",
-    "\"outside\"",
+    "\"outdoor\"",
     "\"min\"",
     "\"max\"",
     "\"current\"",

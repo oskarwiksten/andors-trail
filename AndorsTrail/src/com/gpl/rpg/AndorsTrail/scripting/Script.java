@@ -5,6 +5,7 @@ import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSNode;
 public class Script {
 
 	public final String id;
+	public final String description;
 	public final ScriptTrigger trigger;
 	public final ATSNode scriptASTRoot;
 	
@@ -12,8 +13,9 @@ public class Script {
 	public final int localBoolsSize;
 	public final int localStringsSize;
 	
-	public Script(String id, ScriptTrigger trigger, ATSNode scriptASTRoot, int localNumsSize, int localBoolsSize, int localStringsSize) {
+	public Script(String id, String description, ScriptTrigger trigger, ATSNode scriptASTRoot, int localNumsSize, int localBoolsSize, int localStringsSize) {
 		this.id = id;
+		this.description = description;
 		this.trigger = trigger;
 		this.scriptASTRoot = scriptASTRoot;
 		this.localNumsSize = localNumsSize;
@@ -22,6 +24,6 @@ public class Script {
 	}
 	
 	public Script clone() {
-		return new Script(id, trigger, scriptASTRoot, localNumsSize, localBoolsSize, localStringsSize);
+		return new Script(id, description, trigger, scriptASTRoot, localNumsSize, localBoolsSize, localStringsSize);
 	}
 }

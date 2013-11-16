@@ -5,20 +5,26 @@ import java.io.BufferedReader;
 import java.io.StringReader;
 
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ATScriptParser implements ATScriptParserConstants {
 
         public static final String LOCALINT_COUNT_KEY = "localIntCount";
         public static final String LOCALBOOL_COUNT_KEY = "localBoolCount";
         public static final String LOCALSTRING_COUNT_KEY = "localStringCount";
+        public static final String LOCALINT_SCOPECOUNT_KEY = "localIntScopeCount";
+        public static final String LOCALBOOL_SCOPECOUNT_KEY = "localBoolScopeCount";
+        public static final String LOCALSTRING_SCOPECOUNT_KEY = "localStringScopeCount";
         public static final String LOCALVAR_TYPE_KEY_SUFFIX = "__localVarType";
+        public static final String LOCALVAR_INDEX_KEY_SUFFIX = "__localVarIndex";
 
         public static ATSNode parseScript(String script, Map<String, Object> localVarRefHelp) throws ParseException {
                 StringReader reader = new StringReader(script);
                 BufferedReader scriptReader = new BufferedReader(reader);
                 ATScriptParser parser = new ATScriptParser(scriptReader);
                 try {
-                        return parser.parseScript(localVarRefHelp);
+                        return parser.parseScope(localVarRefHelp);
                 } catch (Exception e) {
                         e.printStackTrace();
                 } catch (Error e) {
@@ -26,6 +32,39 @@ public class ATScriptParser implements ATScriptParserConstants {
                 }
                 return null;
         }
+
+  final public ATSExpression parseScope(Map<String, Object> localVars) throws ParseException {
+        ATSExpression scriptRoot;
+        int prevScopeInt = (Integer)localVars.get(LOCALINT_COUNT_KEY);
+        int prevScopeBool = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
+        int prevScopeString = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
+        List<String> prevScopeLocalVarNames = new ArrayList<String>();
+        for (String key : localVars.keySet()) {
+                if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
+                        prevScopeLocalVarNames.add(key);
+                }
+        }
+    scriptRoot = parseScript(localVars);
+                localVars.put(LOCALINT_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALINT_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALINT_COUNT_KEY)));
+                localVars.put(LOCALBOOL_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALBOOL_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALBOOL_COUNT_KEY)));
+                localVars.put(LOCALSTRING_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALSTRING_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALSTRING_COUNT_KEY)));
+                localVars.put(LOCALINT_COUNT_KEY, prevScopeInt);
+                localVars.put(LOCALBOOL_COUNT_KEY, prevScopeBool);
+                localVars.put(LOCALSTRING_COUNT_KEY, prevScopeString);
+                List<String> newLocalVarNames = new ArrayList<String>();
+                for (String key : localVars.keySet()) {
+                        if (!prevScopeLocalVarNames.contains(key)) {
+                                if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
+                                        newLocalVarNames.add(key);
+                                }
+                        }
+                }
+                for (String key : newLocalVarNames) {
+                        localVars.remove(key);
+                }
+                {if (true) return scriptRoot;}
+    throw new Error("Missing return statement in function");
+  }
 
   final public ATSExpression parseScript(Map<String, Object> localVars) throws ParseException {
         ATSExpression scriptRoot, next;
@@ -160,6 +199,7 @@ public class ATScriptParser implements ATScriptParserConstants {
                 index = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
                 localVars.put(LOCALBOOL_COUNT_KEY, index + 1);
                 localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.bool);
+                localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
                 {if (true) return new ATSLocalVarReference(ATSLocalVarReference.VarType.bool, index);}
       break;
     case NUM:
@@ -171,6 +211,7 @@ public class ATScriptParser implements ATScriptParserConstants {
                 index = (Integer)localVars.get(LOCALINT_COUNT_KEY);
                 localVars.put(LOCALINT_COUNT_KEY, index + 1);
                 localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.num);
+                localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
                 {if (true) return new ATSLocalVarReference(ATSLocalVarReference.VarType.num, index);}
       break;
     case STRING:
@@ -182,6 +223,7 @@ public class ATScriptParser implements ATScriptParserConstants {
                 index = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
                 localVars.put(LOCALSTRING_COUNT_KEY, index + 1);
                 localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.string);
+                localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
                 {if (true) return new ATSLocalVarReference(ATSLocalVarReference.VarType.string, index);}
       break;
     default:
@@ -228,10 +270,10 @@ public class ATScriptParser implements ATScriptParserConstants {
       break;
     case IDENTIFIER:
       id = jj_consume_token(IDENTIFIER);
-                if (!localVars.containsKey(id.image)) {
+                if (!localVars.containsKey(id.image+LOCALVAR_TYPE_KEY_SUFFIX)) {
                         {if (true) throw new ParseException("Undeclared variable "+id.image+" at line"+id.beginLine+" column "+id.beginColumn);}
                 }
-                {if (true) return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image));}
+                {if (true) return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image+LOCALVAR_INDEX_KEY_SUFFIX));}
       break;
     default:
       jj_la1[5] = jj_gen;
@@ -249,7 +291,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     condition = value(localVars);
     jj_consume_token(RPAR);
     jj_consume_token(LBRAC);
-    block = parseScript(localVars);
+    block = parseScope(localVars);
                 {if (true) return new ATSWhileLoop(condition, block);}
     throw new Error("Missing return statement in function");
   }
@@ -262,7 +304,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     ifCondition = value(localVars);
     jj_consume_token(RPAR);
     jj_consume_token(LBRAC);
-    ifBlock = parseScript(localVars);
+    ifBlock = parseScope(localVars);
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case ELSE:
       jj_consume_token(ELSE);
@@ -281,7 +323,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LBRAC:
       jj_consume_token(LBRAC);
-      block = parseScript(localVars);
+      block = parseScope(localVars);
                 {if (true) return block;}
       break;
     case IF:
@@ -469,7 +511,7 @@ public class ATScriptParser implements ATScriptParserConstants {
   }
 
   final public ATSValueReference mapReference(Map<String, Object> localVars) throws ParseException {
-    jj_consume_token(OUTSIDE);
+    jj_consume_token(OUTDOOR);
                 {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.mapOutdoor, null);}
     throw new Error("Missing return statement in function");
   }

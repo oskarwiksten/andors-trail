@@ -3,6 +3,8 @@ package com.gpl.rpg.AndorsTrail.scripting.interpreter;
 import java.io.BufferedReader;
 import java.io.StringReader;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 /** Token Manager. */
 public class ATScriptParserTokenManager implements ATScriptParserConstants
@@ -542,6 +544,8 @@ private int jjMoveStringLiteralDfa3_0(long old0, long active0)
          return jjMoveStringLiteralDfa4_0(active0, 0x200000000000L);
       case 97:
          return jjMoveStringLiteralDfa4_0(active0, 0x500800000000L);
+      case 100:
+         return jjMoveStringLiteralDfa4_0(active0, 0x4000000000L);
       case 101:
          if ((active0 & 0x2000L) != 0L)
             return jjStartNfaWithStates_0(3, 13, 5);
@@ -561,7 +565,7 @@ private int jjMoveStringLiteralDfa3_0(long old0, long active0)
       case 114:
          return jjMoveStringLiteralDfa4_0(active0, 0x60000000000L);
       case 115:
-         return jjMoveStringLiteralDfa4_0(active0, 0x4000020000L);
+         return jjMoveStringLiteralDfa4_0(active0, 0x20000L);
       case 117:
          return jjMoveStringLiteralDfa4_0(active0, 0x8000L);
       case 121:
@@ -596,10 +600,10 @@ private int jjMoveStringLiteralDfa4_0(long old0, long active0)
          return jjMoveStringLiteralDfa5_0(active0, 0xa1000000000L);
       case 103:
          return jjMoveStringLiteralDfa5_0(active0, 0x100000000000L);
-      case 105:
-         return jjMoveStringLiteralDfa5_0(active0, 0x4000000000L);
       case 110:
          return jjMoveStringLiteralDfa5_0(active0, 0x200000000000000L);
+      case 111:
+         return jjMoveStringLiteralDfa5_0(active0, 0x4000000000L);
       case 114:
          if ((active0 & 0x2000000000L) != 0L)
             return jjStartNfaWithStates_0(4, 37, 5);
@@ -622,8 +626,6 @@ private int jjMoveStringLiteralDfa5_0(long old0, long active0)
    {
       case 65:
          return jjMoveStringLiteralDfa6_0(active0, 0x400000000000L);
-      case 100:
-         return jjMoveStringLiteralDfa6_0(active0, 0x4000000000L);
       case 101:
          if ((active0 & 0x40000000000L) != 0L)
             return jjStartNfaWithStates_0(5, 42, 5);
@@ -642,6 +644,8 @@ private int jjMoveStringLiteralDfa5_0(long old0, long active0)
          if ((active0 & 0x8000L) != 0L)
             return jjStartNfaWithStates_0(5, 15, 5);
          return jjMoveStringLiteralDfa6_0(active0, 0x20000000000L);
+      case 111:
+         return jjMoveStringLiteralDfa6_0(active0, 0x4000000000L);
       case 114:
          if ((active0 & 0x1000000000L) != 0L)
             return jjStartNfaWithStates_0(5, 36, 5);
@@ -668,12 +672,12 @@ private int jjMoveStringLiteralDfa6_0(long old0, long active0)
    {
       case 99:
          return jjMoveStringLiteralDfa7_0(active0, 0x400000000000L);
-      case 101:
+      case 111:
+         return jjMoveStringLiteralDfa7_0(active0, 0x200000000000L);
+      case 114:
          if ((active0 & 0x4000000000L) != 0L)
             return jjStartNfaWithStates_0(6, 38, 5);
          break;
-      case 111:
-         return jjMoveStringLiteralDfa7_0(active0, 0x200000000000L);
       case 116:
          if ((active0 & 0x20000000000L) != 0L)
             return jjStartNfaWithStates_0(6, 41, 5);
@@ -1046,7 +1050,7 @@ public static final String[] jjstrLiteralImages = {
 "\164\162\165\145", "\146\141\154\163\145", "\41", "\76\75", "\74\75", "\76", "\74", "\75\75", 
 "\53", "\55", "\52", "\57", "\46\46", "\174\174", "\75", "\42", null, "\155\141\160", 
 "\167\157\162\154\144", "\141\164\164\141\143\153", "\160\154\141\171\145\162", 
-"\141\143\164\157\162", "\157\165\164\163\151\144\145", "\155\151\156", "\155\141\170", 
+"\141\143\164\157\162", "\157\165\164\144\157\157\162", "\155\151\156", "\155\141\170", 
 "\143\165\162\162\145\156\164", "\163\157\165\162\143\145", "\164\141\162\147\145\164", 
 "\144\141\155\141\147\145", "\141\144\144\101\143\164\157\162\103\157\156\144\151\164\151\157\156", 
 "\143\154\145\141\162\101\143\164\157\162\103\157\156\144\151\164\151\157\156", "\150\160", "\141\160", "\141\143", "\141\144", "\142\143", "\144\162", 

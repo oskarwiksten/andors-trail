@@ -5,10 +5,15 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
 import com.gpl.rpg.AndorsTrail.resource.DynamicTileLoader;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
+import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonArrayParserFor;
 import com.gpl.rpg.AndorsTrail.resource.parsers.json.JsonFieldNames;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 import com.gpl.rpg.AndorsTrail.util.ConstRange;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.Size;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -124,5 +129,16 @@ public final class ResourceParserUtils {
 		if (min == 5 && max == 5) return five;
 		if (min == 10 && max == 10) return ten;
 		return parseConstRange(obj);
+	}
+
+	public static JsonArrayParserFor<Script> scriptParser = new JsonArrayParserFor<Script>(Script.class) {
+		@Override
+		protected Script parseObject(JSONObject o) throws JSONException {
+			return ScriptEngine.instantiateScript(o.getString(JsonFieldNames.Script.name));
+		}
+	};
+	
+	public static Script[] parseScriptsReference(JSONArray optJSONArray) throws JSONException {
+		return scriptParser.parseArray(optJSONArray);
 	}
 }

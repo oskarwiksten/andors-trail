@@ -6,8 +6,8 @@ public class ScriptTrigger {
 		map(new Events[]{Events.onEnter, Events.onLeave}),
 		attack(new Events[]{Events.onTry, Events.onHit, Events.onMiss}),
 		item(new Events[]{Events.onEquip, Events.onUse}),
-		player(new Events[]{Events.onReceivedHit, Events.onKilled, Events.onLevelUp, Events.onSkillUp, Events.onRewardReceived}),
-		actor(new Events[]{Events.onReceivedHit, Events.onKilled});
+		player(new Events[]{Events.onReceivedHit, Events.onKilled, Events.onLevelUp, Events.onSkillUp, Events.onRewardReceived, Events.statsUpdated}),
+		actor(new Events[]{Events.onReceivedHit, Events.onKilled, Events.statsUpdated});
 		
 		private final Events[] allowedEvents;
 		
@@ -37,6 +37,7 @@ public class ScriptTrigger {
 		onRewardReceived,
 		onReceivedHit,
 		onKilled,
+		statsUpdated,
 		
 	}
 	

@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.ability;
 
 import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.ability.traits.StatsModifierTraits;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 
 public final class ActorConditionType {
 	public static enum ConditionCategory {
@@ -17,6 +18,8 @@ public final class ActorConditionType {
 	public final StatsModifierTraits statsEffect_everyRound;
 	public final StatsModifierTraits statsEffect_everyFullRound;
 	public final AbilityModifierTraits abilityEffect;
+	public final Script[] scripts;
+	public final Script[] private_scripts;
 
 	public ActorConditionType(
 			String conditionTypeID
@@ -28,6 +31,8 @@ public final class ActorConditionType {
 			, StatsModifierTraits statsEffect_everyRound
 			, StatsModifierTraits statsEffect_everyFullRound
 			, AbilityModifierTraits abilityEffect
+			, Script[] scripts
+			, Script[] private_scripts
 	) {
 		this.conditionTypeID = conditionTypeID;
 		this.name = name;
@@ -38,5 +43,7 @@ public final class ActorConditionType {
 		this.statsEffect_everyRound = statsEffect_everyRound;
 		this.statsEffect_everyFullRound = statsEffect_everyFullRound;
 		this.abilityEffect = abilityEffect;
+		this.scripts = scripts;
+		this.private_scripts = private_scripts;
 	}
 }

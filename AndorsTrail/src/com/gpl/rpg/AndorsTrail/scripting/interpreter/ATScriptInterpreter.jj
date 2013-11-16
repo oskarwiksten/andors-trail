@@ -6,16 +6,22 @@ import java.io.BufferedReader;
 import java.io.StringReader;
 
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 public class ATScriptParser {
 
 	public static final String LOCALINT_COUNT_KEY = "localIntCount";
 	public static final String LOCALBOOL_COUNT_KEY = "localBoolCount";
 	public static final String LOCALSTRING_COUNT_KEY = "localStringCount";
+	public static final String LOCALINT_SCOPECOUNT_KEY = "localIntScopeCount";
+	public static final String LOCALBOOL_SCOPECOUNT_KEY = "localBoolScopeCount";
+	public static final String LOCALSTRING_SCOPECOUNT_KEY = "localStringScopeCount";
 	public static final String LOCALVAR_TYPE_KEY_SUFFIX = "__localVarType";
+	public static final String LOCALVAR_INDEX_KEY_SUFFIX = "__localVarIndex";
 	public static ATSNode parseScript(String script, Map<String, Object> localVarRefHelp) throws ParseException {		StringReader reader = new StringReader(script);
 		BufferedReader scriptReader = new BufferedReader(reader);
-		ATScriptParser parser = new ATScriptParser(scriptReader);		try {			return parser.parseScript(localVarRefHelp);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}
+		ATScriptParser parser = new ATScriptParser(scriptReader);		try {			return parser.parseScope(localVarRefHelp);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}
 		return null;	}}PARSER_END(ATScriptParser)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
 |	<LPAR : "(">
 |	<RPAR : ")">
@@ -49,7 +55,7 @@ public class ATScriptParser {
 |	<ATTACK : "attack">
 |	<PLAYER : "player">
 |	<ACTOR : "actor">
-|	<OUTSIDE : "outside">
+|	<OUTDOOR : "outdoor">
 |	<MIN : "min">
 |	<MAX : "max">
 |	<CURRENT : "current">
@@ -76,6 +82,41 @@ TOKEN : {
 	<ESCAPED_DQUO : "\\\"">
 |	<DQUOBIS : "\""> : DEFAULT
 |	<LITERAL_VALUE : (~["\"","\\"])+>
+}
+
+ATSExpression parseScope(Map<String, Object> localVars) : {
+	ATSExpression scriptRoot;
+	int prevScopeInt = (Integer)localVars.get(LOCALINT_COUNT_KEY);
+	int prevScopeBool = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
+	int prevScopeString = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
+	List<String> prevScopeLocalVarNames = new ArrayList<String>();
+	for (String key : localVars.keySet()) {
+		if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
+			prevScopeLocalVarNames.add(key);
+		}
+	}
+} {
+	scriptRoot = parseScript(localVars)
+	{
+		localVars.put(LOCALINT_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALINT_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALINT_COUNT_KEY)));
+		localVars.put(LOCALBOOL_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALBOOL_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALBOOL_COUNT_KEY)));
+		localVars.put(LOCALSTRING_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALSTRING_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALSTRING_COUNT_KEY)));
+		localVars.put(LOCALINT_COUNT_KEY, prevScopeInt);
+		localVars.put(LOCALBOOL_COUNT_KEY, prevScopeBool);
+		localVars.put(LOCALSTRING_COUNT_KEY, prevScopeString);
+		List<String> newLocalVarNames = new ArrayList<String>();
+		for (String key : localVars.keySet()) {
+			if (!prevScopeLocalVarNames.contains(key)) {
+				if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
+					newLocalVarNames.add(key);
+				}
+			}
+		}
+		for (String key : newLocalVarNames) {
+			localVars.remove(key);
+		}
+		return scriptRoot;
+	}
 }
 ATSExpression parseScript(Map<String, Object> localVars) : {
 	ATSExpression scriptRoot, next;
@@ -156,6 +197,7 @@ ATSValueReference localVarDeclaration(Map<String, Object> localVars) : {
 		index = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
 		localVars.put(LOCALBOOL_COUNT_KEY, index + 1);
 		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.bool);
+		localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
 		return new ATSLocalVarReference(ATSLocalVarReference.VarType.bool, index);
 	}
 |	<NUM> id = <IDENTIFIER>
@@ -166,6 +208,7 @@ ATSValueReference localVarDeclaration(Map<String, Object> localVars) : {
 		index = (Integer)localVars.get(LOCALINT_COUNT_KEY);
 		localVars.put(LOCALINT_COUNT_KEY, index + 1);
 		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.num);
+		localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
 		return new ATSLocalVarReference(ATSLocalVarReference.VarType.num, index);
 	}
 |	<STRING> id = <IDENTIFIER>
@@ -176,6 +219,7 @@ ATSValueReference localVarDeclaration(Map<String, Object> localVars) : {
 		index = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
 		localVars.put(LOCALSTRING_COUNT_KEY, index + 1);
 		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.string);
+		localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
 		return new ATSLocalVarReference(ATSLocalVarReference.VarType.string, index);
 	}
 }
@@ -206,10 +250,10 @@ ATSValueReference contextVarReference(Map<String, Object> localVars) : {
 	}
 |	id = <IDENTIFIER>
 	{
-		if (!localVars.containsKey(id.image)) {
+		if (!localVars.containsKey(id.image+LOCALVAR_TYPE_KEY_SUFFIX)) {
 			throw new ParseException("Undeclared variable "+id.image+" at line"+id.beginLine+" column "+id.beginColumn);
 		}
-		return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image));
+		return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image+LOCALVAR_INDEX_KEY_SUFFIX));
 	}
 }
 
@@ -217,7 +261,7 @@ ATSExpression whileConstruct(Map<String, Object> localVars) : {
 	ATSExpression block;
 	ATSValueReference condition;
 } {
-	<WHILE> <LPAR> condition = value(localVars) <RPAR> <LBRAC> block = parseScript(localVars)
+	<WHILE> <LPAR> condition = value(localVars) <RPAR> <LBRAC> block = parseScope(localVars)
 	{
 		return new ATSWhileLoop(condition, block);
 	}
@@ -227,7 +271,7 @@ ATSExpression ifElseConstruct(Map<String, Object> localVars) : {
 	ATSExpression ifBlock, elseBlock=null;
 	ATSValueReference ifCondition;
 } {
-	<IF> <LPAR> ifCondition = value(localVars) <RPAR> <LBRAC> ifBlock = parseScript(localVars) ( <ELSE> elseBlock = elseBlock(localVars))?
+	<IF> <LPAR> ifCondition = value(localVars) <RPAR> <LBRAC> ifBlock = parseScope(localVars) ( <ELSE> elseBlock = elseBlock(localVars))?
 	{
 		return new ATSFlowControl(ifCondition,ifBlock,elseBlock);
 	}
@@ -236,7 +280,7 @@ ATSExpression ifElseConstruct(Map<String, Object> localVars) : {
 ATSExpression elseBlock(Map<String, Object> localVars) : {
 	ATSExpression block;
 } {
-	<LBRAC> block = parseScript(localVars)
+	<LBRAC> block = parseScope(localVars)
 	{
 		return block;
 	}
@@ -351,7 +395,7 @@ ATSPrimitiveOperation valueOp(Map<String, Object> localVars, ATSValueReference l
 
 ATSValueReference mapReference(Map<String, Object> localVars) : {
 } {
-	<OUTSIDE>
+	<OUTDOOR>
 	{
 		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.mapOutdoor, null);
 	}

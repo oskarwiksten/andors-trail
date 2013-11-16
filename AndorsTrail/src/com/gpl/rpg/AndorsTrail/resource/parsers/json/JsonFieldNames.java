@@ -11,6 +11,8 @@ public final class JsonFieldNames {
 		public static final String roundEffect = "roundEffect";
 		public static final String fullRoundEffect = "fullRoundEffect";
 		public static final String abilityEffect = "abilityEffect";
+		public static final String scripts = "scripts";
+		public static final String privateScripts = "privateScripts";
 	}
 
 	public static final class StatsModifierTraits {
@@ -156,7 +158,12 @@ public final class JsonFieldNames {
 		public static final String useEffect = "useEffect";
 		public static final String hitEffect = "hitEffect";
 		public static final String killEffect = "killEffect";
+		public static final String scripts = "scripts";
+		public static final String privateScripts = "privateScripts";
 	}
 
+	public static final class Script {
+		public static final String name = "name";
+	}
 
 }
