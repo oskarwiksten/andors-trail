@@ -5,24 +5,21 @@
 import java.io.BufferedReader;
 import java.io.StringReader;
 
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-
 public class ATScriptParser {
 
-	public static final String LOCALINT_COUNT_KEY = "localIntCount";
-	public static final String LOCALBOOL_COUNT_KEY = "localBoolCount";
-	public static final String LOCALSTRING_COUNT_KEY = "localStringCount";
-	public static final String LOCALINT_SCOPECOUNT_KEY = "localIntScopeCount";
-	public static final String LOCALBOOL_SCOPECOUNT_KEY = "localBoolScopeCount";
-	public static final String LOCALSTRING_SCOPECOUNT_KEY = "localStringScopeCount";
-	public static final String LOCALVAR_TYPE_KEY_SUFFIX = "__localVarType";
-	public static final String LOCALVAR_INDEX_KEY_SUFFIX = "__localVarIndex";
-	public static ATSNode parseScript(String script, Map<String, Object> localVarRefHelp) throws ParseException {		StringReader reader = new StringReader(script);
+	public static ATSNode parseScript(String script, ATSLocalVarsHelper localVarRefHelp) throws ParseException {
+		StringReader reader = new StringReader(script);
 		BufferedReader scriptReader = new BufferedReader(reader);
-		ATScriptParser parser = new ATScriptParser(scriptReader);		try {			return parser.parseScope(localVarRefHelp);		} catch (Exception e) {			e.printStackTrace();		} catch (Error e) {			e.printStackTrace();		}
-		return null;	}}PARSER_END(ATScriptParser)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
+		ATScriptParser parser = new ATScriptParser(scriptReader);
+		try {
+			return parser.parseScope(localVarRefHelp);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} catch (Error e) {
+			e.printStackTrace();
+		}
+		return null;
+	}}PARSER_END(ATScriptParser)SKIP : {  " "| "\r"| "\t"| "\n"}TOKEN :  {	<DOT : ".">
 |	<LPAR : "(">
 |	<RPAR : ")">
 |	<LBRAC : "{">
@@ -45,6 +42,7 @@ public class ATScriptParser {
 |	<MINUS : "-">
 |	<MULTIPLY : "*">
 |	<DIVIDE : "/">
+|	<CONCAT : "%">
 |	<AND : "&&">
 |	<OR : "||">
 |	<EQUALS : "=">
@@ -84,41 +82,17 @@ TOKEN : {
 |	<LITERAL_VALUE : (~["\"","\\"])+>
 }
 
-ATSExpression parseScope(Map<String, Object> localVars) : {
+ATSExpression parseScope(ATSLocalVarsHelper localVars) : {
 	ATSExpression scriptRoot;
-	int prevScopeInt = (Integer)localVars.get(LOCALINT_COUNT_KEY);
-	int prevScopeBool = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
-	int prevScopeString = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
-	List<String> prevScopeLocalVarNames = new ArrayList<String>();
-	for (String key : localVars.keySet()) {
-		if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
-			prevScopeLocalVarNames.add(key);
-		}
-	}
+	localVars.pushScope();
 } {
 	scriptRoot = parseScript(localVars)
 	{
-		localVars.put(LOCALINT_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALINT_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALINT_COUNT_KEY)));
-		localVars.put(LOCALBOOL_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALBOOL_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALBOOL_COUNT_KEY)));
-		localVars.put(LOCALSTRING_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALSTRING_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALSTRING_COUNT_KEY)));
-		localVars.put(LOCALINT_COUNT_KEY, prevScopeInt);
-		localVars.put(LOCALBOOL_COUNT_KEY, prevScopeBool);
-		localVars.put(LOCALSTRING_COUNT_KEY, prevScopeString);
-		List<String> newLocalVarNames = new ArrayList<String>();
-		for (String key : localVars.keySet()) {
-			if (!prevScopeLocalVarNames.contains(key)) {
-				if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
-					newLocalVarNames.add(key);
-				}
-			}
-		}
-		for (String key : newLocalVarNames) {
-			localVars.remove(key);
-		}
+		localVars.popScope();
 		return scriptRoot;
 	}
 }
-ATSExpression parseScript(Map<String, Object> localVars) : {
+ATSExpression parseScript(ATSLocalVarsHelper localVars) : {
 	ATSExpression scriptRoot, next;
 } {
 	scriptRoot = construct(localVars) next = parseScript(localVars)
@@ -136,7 +110,7 @@ ATSExpression parseScope(Map<String, Object> localVars) : {
 	}
 }
 
-ATSExpression construct(Map<String, Object> localVars) : {
+ATSExpression construct(ATSLocalVarsHelper localVars) : {
 	ATSExpression construct;
 } {
 	construct = associationOrMethodCall(localVars) 
@@ -157,7 +131,7 @@ ATSExpression construct(Map<String, Object> localVars) : {
 	}
 }
 
-ATSExpression associationOrMethodCall(Map<String, Object> localVars) : {
+ATSExpression associationOrMethodCall(ATSLocalVarsHelper localVars) : {
 	ATSValueReference assignee;
 	ATSValueReference value = null;
 } {
@@ -172,7 +146,7 @@ ATSExpression associationOrMethodCall(Map<String, Object> localVars) : {
 	} 
 }
 
-ATSValueReference reference(Map<String, Object> localVars) : {
+ATSValueReference reference(ATSLocalVarsHelper localVars) : {
 	ATSValueReference assignee;
 } {
 	assignee = localVarDeclaration(localVars)
@@ -185,46 +159,34 @@ ATSValueReference reference(Map<String, Object> localVars) : {
 	}
 }
 
-ATSValueReference localVarDeclaration(Map<String, Object> localVars) : {
+ATSValueReference localVarDeclaration(ATSLocalVarsHelper localVars) : {
 	Token id;
 	int index;
 } {
 	<BOOL> id = <IDENTIFIER>
 	{
-		if (localVars.get(id.image)!=null) {
+		if (localVars.getLocalVar(id.image)!= null) {
 			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
 		}
-		index = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
-		localVars.put(LOCALBOOL_COUNT_KEY, index + 1);
-		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.bool);
-		localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
-		return new ATSLocalVarReference(ATSLocalVarReference.VarType.bool, index);
+		return localVars.newBoolVariable(id.image);
 	}
 |	<NUM> id = <IDENTIFIER>
 	{
-		if (localVars.get(id.image)!=null) {
+		if (localVars.getLocalVar(id.image)!= null) {
 			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
 		}
-		index = (Integer)localVars.get(LOCALINT_COUNT_KEY);
-		localVars.put(LOCALINT_COUNT_KEY, index + 1);
-		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.num);
-		localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
-		return new ATSLocalVarReference(ATSLocalVarReference.VarType.num, index);
+		return localVars.newNumVariable(id.image);
 	}
 |	<STRING> id = <IDENTIFIER>
 	{
-		if (localVars.get(id.image)!=null) {
+		if (localVars.getLocalVar(id.image)!=null) {
 			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
 		}
-		index = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
-		localVars.put(LOCALSTRING_COUNT_KEY, index + 1);
-		localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.string);
-		localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
-		return new ATSLocalVarReference(ATSLocalVarReference.VarType.string, index);
+		return localVars.newStringVariable(id.image);
 	}
 }
 
-ATSValueReference contextVarReference(Map<String, Object> localVars) : {
+ATSValueReference contextVarReference(ATSLocalVarsHelper localVars) : {
 	ATSValueReference reference;
 	Token id;
 } {
@@ -250,14 +212,15 @@ ATSValueReference contextVarReference(Map<String, Object> localVars) : {
 	}
 |	id = <IDENTIFIER>
 	{
-		if (!localVars.containsKey(id.image+LOCALVAR_TYPE_KEY_SUFFIX)) {
+		ATSLocalVarReference var = localVars.getLocalVar(id.image);
+		if (var == null) {
 			throw new ParseException("Undeclared variable "+id.image+" at line"+id.beginLine+" column "+id.beginColumn);
 		}
-		return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image+LOCALVAR_INDEX_KEY_SUFFIX));
+		return var;
 	}
 }
 
-ATSExpression whileConstruct(Map<String, Object> localVars) : {
+ATSExpression whileConstruct(ATSLocalVarsHelper localVars) : {
 	ATSExpression block;
 	ATSValueReference condition;
 } {
@@ -267,7 +230,7 @@ ATSExpression whileConstruct(Map<String, Object> localVars) : {
 	}
 }
 
-ATSExpression ifElseConstruct(Map<String, Object> localVars) : {
+ATSExpression ifElseConstruct(ATSLocalVarsHelper localVars) : {
 	ATSExpression ifBlock, elseBlock=null;
 	ATSValueReference ifCondition;
 } {
@@ -277,7 +240,7 @@ ATSExpression ifElseConstruct(Map<String, Object> localVars) : {
 	}
 }
 
-ATSExpression elseBlock(Map<String, Object> localVars) : {
+ATSExpression elseBlock(ATSLocalVarsHelper localVars) : {
 	ATSExpression block;
 } {
 	<LBRAC> block = parseScope(localVars)
@@ -290,7 +253,7 @@ ATSExpression elseBlock(Map<String, Object> localVars) : {
 	}
 }
 
-ATSExpression returnConstruct(Map<String, Object> localVars) : {
+ATSExpression returnConstruct(ATSLocalVarsHelper localVars) : {
 	ATSValueReference value;
 } {
 	<RETURN> value = value(localVars)
@@ -299,7 +262,7 @@ ATSExpression returnConstruct(Map<String, Object> localVars) : {
 	}
 }
 
-ATSValueReference value(Map<String, Object> localVars) : {
+ATSValueReference value(ATSLocalVarsHelper localVars) : {
 	ATSValueReference reference;
 	ATSPrimitiveOperation operation = null;
 	Token tok;
@@ -343,7 +306,7 @@ ATSValueReference value(Map<String, Object> localVars) : {
 }
 
 
-ATSPrimitiveOperation valueOp(Map<String, Object> localVars, ATSValueReference leftHand) : {
+ATSPrimitiveOperation valueOp(ATSLocalVarsHelper localVars, ATSValueReference leftHand) : {
 	ATSValueReference value;
 } {
 	<GT> value = value(localVars)
@@ -382,6 +345,10 @@ ATSPrimitiveOperation valueOp(Map<String, Object> localVars, ATSValueReference l
 	{
 		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.divide, leftHand, value);
 	}
+|	<CONCAT> value = value(localVars)
+	{
+		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.concat, leftHand, value);
+	}
 |	<AND> value = value(localVars)
 	{
 		return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.and, leftHand, value);
@@ -393,7 +360,7 @@ ATSPrimitiveOperation valueOp(Map<String, Object> localVars, ATSValueReference l
 }
 
 
-ATSValueReference mapReference(Map<String, Object> localVars) : {
+ATSValueReference mapReference(ATSLocalVarsHelper localVars) : {
 } {
 	<OUTDOOR>
 	{
@@ -401,14 +368,14 @@ ATSValueReference mapReference(Map<String, Object> localVars) : {
 	}
 }
 
-ATSValueReference attackReference(Map<String, Object> localVars) : {
+ATSValueReference attackReference(ATSLocalVarsHelper localVars) : {
 } {
 	{
 		return null;
 	}
 }
 
-ATSValueReference playerReference(Map<String, Object> localVars) : {
+ATSValueReference playerReference(ATSLocalVarsHelper localVars) : {
 	ATSValueReference ref;
 } {
 	ref = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player))
@@ -417,7 +384,7 @@ ATSValueReference playerReference(Map<String, Object> localVars) : {
 	}
 }
 
-ATSValueReference actorReference(Map<String, Object> localVars, ATSContextObjectReference targetInstance) : {
+ATSValueReference actorReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) : {
 	ATSValueReference condId, condMagnitude, condDuration, condChance;
 } {
 	<AC>
@@ -438,7 +405,7 @@ ATSValueReference actorReference(Map<String, Object> localVars, ATSContextObject
 	}
 }
 
-ATSValueReference worldReference(Map<String, Object> localVars) : {
+ATSValueReference worldReference(ATSLocalVarsHelper localVars) : {
 } {
 	{
 		return null;

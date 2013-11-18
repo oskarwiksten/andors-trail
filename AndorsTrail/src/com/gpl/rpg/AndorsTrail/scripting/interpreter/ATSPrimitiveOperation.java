@@ -62,6 +62,12 @@ public class ATSPrimitiveOperation extends ATSValueReference {
 			public Object evaluate(ScriptContext context, ATSValueReference leftHand, ATSValueReference rightHand) {
 				return ((Double)leftHand.evaluate(context)) / ((Double)rightHand.evaluate(context));
 			};
+		},
+		concat {
+			public Object evaluate(ScriptContext context, ATSValueReference leftHand, ATSValueReference rightHand) {
+				//Could be any object, including string and numbers. More flexible and efficient than a String cast.
+				return leftHand.evaluate(context).toString() + rightHand.evaluate(context).toString();
+			}
 		};
 		
 		public abstract Object evaluate(ScriptContext context, ATSValueReference leftHand, ATSValueReference rightHand);

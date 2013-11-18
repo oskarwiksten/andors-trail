@@ -14,6 +14,7 @@ import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATScriptParser;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSNode;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSReturnStatement;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSConstantReference;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSLocalVarsHelper;
 
 public class ATCollectionParser implements ATCollectionParserConstants {
         public static Map < String, Script > parseCollection(Reader scriptCollectionReader) throws ParseException {
@@ -150,15 +151,9 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     }
                 String description = desc == null ? null : desc.image;
                 if (code != null) {
-                        Map<String, Object> localVarsRefHelp = new HashMap<String, Object>();
-                        localVarsRefHelp.put(ATScriptParser.LOCALINT_COUNT_KEY, new Integer(0));
-                        localVarsRefHelp.put(ATScriptParser.LOCALBOOL_COUNT_KEY, new Integer(0));
-                        localVarsRefHelp.put(ATScriptParser.LOCALSTRING_COUNT_KEY, new Integer(0));
-                        localVarsRefHelp.put(ATScriptParser.LOCALINT_SCOPECOUNT_KEY, new Integer(0));
-                        localVarsRefHelp.put(ATScriptParser.LOCALBOOL_SCOPECOUNT_KEY, new Integer(0));
-                        localVarsRefHelp.put(ATScriptParser.LOCALSTRING_SCOPECOUNT_KEY, new Integer(0));
+                        ATSLocalVarsHelper localVarsRefHelp = new ATSLocalVarsHelper();
                         ATSNode scriptASTRoot = ATScriptParser.parseScript(code.image, localVarsRefHelp);
-                        {if (true) return new Script(id.image, description, trigger, scriptASTRoot, (Integer)localVarsRefHelp.get(ATScriptParser.LOCALINT_SCOPECOUNT_KEY), (Integer)localVarsRefHelp.get(ATScriptParser.LOCALBOOL_SCOPECOUNT_KEY), (Integer)localVarsRefHelp.get(ATScriptParser.LOCALSTRING_SCOPECOUNT_KEY));}
+                        {if (true) return new Script(id.image, description, trigger, scriptASTRoot, localVarsRefHelp.maxNumNeeded, localVarsRefHelp.maxBoolNeeded, localVarsRefHelp.maxStringNeeded);}
                 } else {
                         //Dummy script returning 0;
                         ATSNode scriptASTRoot = new ATSReturnStatement(new ATSConstantReference(0));

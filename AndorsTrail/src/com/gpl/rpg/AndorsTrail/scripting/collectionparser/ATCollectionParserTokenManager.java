@@ -9,6 +9,7 @@ import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATScriptParser;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSNode;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSReturnStatement;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSConstantReference;
+import com.gpl.rpg.AndorsTrail.scripting.interpreter.ATSLocalVarsHelper;
 
 /** Token Manager. */
 public class ATCollectionParserTokenManager implements ATCollectionParserConstants

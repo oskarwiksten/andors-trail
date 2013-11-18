@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -85,6 +86,7 @@ public final class ItemController {
 
 		if (!player.inventory.removeItem(type.id, 1)) return;
 
+		ScriptEngine.instance.onItemUse(type, world);
 		controllers.actorStatsController.applyUseEffect(player, null, type.effects_use);
 		world.model.statistics.addItemUsage(type);
 

@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
+
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
@@ -72,6 +74,14 @@ public class ScriptEngine implements PlayerMovementListener {
 				result.add(playerStatsUpdated);
 				break;
 			}
+			break;
+		case item :
+			switch (s.trigger.event) {
+			case onUse :
+				result.add(itemUsed);
+				break;
+			}
+			break;
 		}
 		return result;
 	}
@@ -167,5 +177,39 @@ public class ScriptEngine implements PlayerMovementListener {
 		context.item = null;
 	
 	}
+	
+	/*
+	 * ITEMS
+	 */
+	
+	public void onItemUse(ItemType item, WorldContext world) {
+		itemOnUse(item, world);
+	}
+	
+	private final List<Script> itemUsed = new ArrayList<Script>();
+	
+	private void itemOnUse(ItemType item, WorldContext world) {
+		ScriptContext context = new ScriptContext(world, controllers);
+		context.map = world.model.currentMap;
+		context.item = item;
+		context.player = world.model.player;
+		context.actor = world.model.player;
+		for (Script script : playerStatsUpdated) {
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			script.scriptASTRoot.evaluate(context);
+		}
+		
+		if (item.private_scripts != null) {
+			for (Script script : item.private_scripts) {
+				if (script == null) continue;
+				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
+				if (script.trigger.event != ScriptTrigger.Events.onUse) continue;
+				context.item = item;
+				script.scriptASTRoot.evaluate(context);
+			}
+		}
+	}
+	
+	
 	
 }

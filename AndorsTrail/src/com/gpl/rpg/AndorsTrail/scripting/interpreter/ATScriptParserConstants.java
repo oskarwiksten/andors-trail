@@ -57,73 +57,75 @@ public interface ATScriptParserConstants {
   /** RegularExpression Id. */
   int DIVIDE = 27;
   /** RegularExpression Id. */
-  int AND = 28;
+  int CONCAT = 28;
   /** RegularExpression Id. */
-  int OR = 29;
+  int AND = 29;
   /** RegularExpression Id. */
-  int EQUALS = 30;
+  int OR = 30;
   /** RegularExpression Id. */
-  int DQUO = 31;
+  int EQUALS = 31;
   /** RegularExpression Id. */
-  int NUMBER = 32;
+  int DQUO = 32;
   /** RegularExpression Id. */
-  int MAP = 33;
+  int NUMBER = 33;
   /** RegularExpression Id. */
-  int WORLD = 34;
+  int MAP = 34;
   /** RegularExpression Id. */
-  int ATTACK = 35;
+  int WORLD = 35;
   /** RegularExpression Id. */
-  int PLAYER = 36;
+  int ATTACK = 36;
   /** RegularExpression Id. */
-  int ACTOR = 37;
+  int PLAYER = 37;
   /** RegularExpression Id. */
-  int OUTDOOR = 38;
+  int ACTOR = 38;
   /** RegularExpression Id. */
-  int MIN = 39;
+  int OUTDOOR = 39;
   /** RegularExpression Id. */
-  int MAX = 40;
+  int MIN = 40;
   /** RegularExpression Id. */
-  int CURRENT = 41;
+  int MAX = 41;
   /** RegularExpression Id. */
-  int SOURCE = 42;
+  int CURRENT = 42;
   /** RegularExpression Id. */
-  int TARGET = 43;
+  int SOURCE = 43;
   /** RegularExpression Id. */
-  int DAMAGE = 44;
+  int TARGET = 44;
   /** RegularExpression Id. */
-  int ADDCONDITION = 45;
+  int DAMAGE = 45;
   /** RegularExpression Id. */
-  int CLEARCONDITION = 46;
+  int ADDCONDITION = 46;
   /** RegularExpression Id. */
-  int HP = 47;
+  int CLEARCONDITION = 47;
   /** RegularExpression Id. */
-  int AP = 48;
+  int HP = 48;
   /** RegularExpression Id. */
-  int AC = 49;
+  int AP = 49;
   /** RegularExpression Id. */
-  int AD = 50;
+  int AC = 50;
   /** RegularExpression Id. */
-  int BC = 51;
+  int AD = 51;
   /** RegularExpression Id. */
-  int DR = 52;
+  int BC = 52;
   /** RegularExpression Id. */
-  int CC = 53;
+  int DR = 53;
   /** RegularExpression Id. */
-  int CM = 54;
+  int CC = 54;
   /** RegularExpression Id. */
-  int BOOL = 55;
+  int CM = 55;
   /** RegularExpression Id. */
-  int NUM = 56;
+  int BOOL = 56;
   /** RegularExpression Id. */
-  int STRING = 57;
+  int NUM = 57;
   /** RegularExpression Id. */
-  int IDENTIFIER = 58;
+  int STRING = 58;
   /** RegularExpression Id. */
-  int ESCAPED_DQUO = 59;
+  int IDENTIFIER = 59;
   /** RegularExpression Id. */
-  int DQUOBIS = 60;
+  int ESCAPED_DQUO = 60;
   /** RegularExpression Id. */
-  int LITERAL_VALUE = 61;
+  int DQUOBIS = 61;
+  /** RegularExpression Id. */
+  int LITERAL_VALUE = 62;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -160,6 +162,7 @@ public interface ATScriptParserConstants {
     "\"-\"",
     "\"*\"",
     "\"/\"",
+    "\"%\"",
     "\"&&\"",
     "\"||\"",
     "\"=\"",

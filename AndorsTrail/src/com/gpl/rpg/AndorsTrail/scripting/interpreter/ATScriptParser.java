@@ -4,22 +4,9 @@ package com.gpl.rpg.AndorsTrail.scripting.interpreter;
 import java.io.BufferedReader;
 import java.io.StringReader;
 
-import java.util.Map;
-import java.util.List;
-import java.util.ArrayList;
-
 public class ATScriptParser implements ATScriptParserConstants {
 
-        public static final String LOCALINT_COUNT_KEY = "localIntCount";
-        public static final String LOCALBOOL_COUNT_KEY = "localBoolCount";
-        public static final String LOCALSTRING_COUNT_KEY = "localStringCount";
-        public static final String LOCALINT_SCOPECOUNT_KEY = "localIntScopeCount";
-        public static final String LOCALBOOL_SCOPECOUNT_KEY = "localBoolScopeCount";
-        public static final String LOCALSTRING_SCOPECOUNT_KEY = "localStringScopeCount";
-        public static final String LOCALVAR_TYPE_KEY_SUFFIX = "__localVarType";
-        public static final String LOCALVAR_INDEX_KEY_SUFFIX = "__localVarIndex";
-
-        public static ATSNode parseScript(String script, Map<String, Object> localVarRefHelp) throws ParseException {
+        public static ATSNode parseScript(String script, ATSLocalVarsHelper localVarRefHelp) throws ParseException {
                 StringReader reader = new StringReader(script);
                 BufferedReader scriptReader = new BufferedReader(reader);
                 ATScriptParser parser = new ATScriptParser(scriptReader);
@@ -33,40 +20,16 @@ public class ATScriptParser implements ATScriptParserConstants {
                 return null;
         }
 
-  final public ATSExpression parseScope(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression parseScope(ATSLocalVarsHelper localVars) throws ParseException {
         ATSExpression scriptRoot;
-        int prevScopeInt = (Integer)localVars.get(LOCALINT_COUNT_KEY);
-        int prevScopeBool = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
-        int prevScopeString = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
-        List<String> prevScopeLocalVarNames = new ArrayList<String>();
-        for (String key : localVars.keySet()) {
-                if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
-                        prevScopeLocalVarNames.add(key);
-                }
-        }
+        localVars.pushScope();
     scriptRoot = parseScript(localVars);
-                localVars.put(LOCALINT_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALINT_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALINT_COUNT_KEY)));
-                localVars.put(LOCALBOOL_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALBOOL_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALBOOL_COUNT_KEY)));
-                localVars.put(LOCALSTRING_SCOPECOUNT_KEY, Math.max((Integer)localVars.get(LOCALSTRING_SCOPECOUNT_KEY),(Integer)localVars.get(LOCALSTRING_COUNT_KEY)));
-                localVars.put(LOCALINT_COUNT_KEY, prevScopeInt);
-                localVars.put(LOCALBOOL_COUNT_KEY, prevScopeBool);
-                localVars.put(LOCALSTRING_COUNT_KEY, prevScopeString);
-                List<String> newLocalVarNames = new ArrayList<String>();
-                for (String key : localVars.keySet()) {
-                        if (!prevScopeLocalVarNames.contains(key)) {
-                                if (key.endsWith(LOCALVAR_TYPE_KEY_SUFFIX)) {
-                                        newLocalVarNames.add(key);
-                                }
-                        }
-                }
-                for (String key : newLocalVarNames) {
-                        localVars.remove(key);
-                }
+                localVars.popScope();
                 {if (true) return scriptRoot;}
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression parseScript(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression parseScript(ATSLocalVarsHelper localVars) throws ParseException {
         ATSExpression scriptRoot, next;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case IF:
@@ -102,7 +65,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression construct(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression construct(ATSLocalVarsHelper localVars) throws ParseException {
         ATSExpression construct;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case MAP:
@@ -137,7 +100,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression associationOrMethodCall(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression associationOrMethodCall(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference assignee;
         ATSValueReference value = null;
     assignee = reference(localVars);
@@ -160,7 +123,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference reference(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference reference(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference assignee;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case BOOL:
@@ -186,45 +149,33 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference localVarDeclaration(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference localVarDeclaration(ATSLocalVarsHelper localVars) throws ParseException {
         Token id;
         int index;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case BOOL:
       jj_consume_token(BOOL);
       id = jj_consume_token(IDENTIFIER);
-                if (localVars.get(id.image)!=null) {
+                if (localVars.getLocalVar(id.image)!= null) {
                         {if (true) throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);}
                 }
-                index = (Integer)localVars.get(LOCALBOOL_COUNT_KEY);
-                localVars.put(LOCALBOOL_COUNT_KEY, index + 1);
-                localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.bool);
-                localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
-                {if (true) return new ATSLocalVarReference(ATSLocalVarReference.VarType.bool, index);}
+                {if (true) return localVars.newBoolVariable(id.image);}
       break;
     case NUM:
       jj_consume_token(NUM);
       id = jj_consume_token(IDENTIFIER);
-                if (localVars.get(id.image)!=null) {
+                if (localVars.getLocalVar(id.image)!= null) {
                         {if (true) throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);}
                 }
-                index = (Integer)localVars.get(LOCALINT_COUNT_KEY);
-                localVars.put(LOCALINT_COUNT_KEY, index + 1);
-                localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.num);
-                localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
-                {if (true) return new ATSLocalVarReference(ATSLocalVarReference.VarType.num, index);}
+                {if (true) return localVars.newNumVariable(id.image);}
       break;
     case STRING:
       jj_consume_token(STRING);
       id = jj_consume_token(IDENTIFIER);
-                if (localVars.get(id.image)!=null) {
+                if (localVars.getLocalVar(id.image)!=null) {
                         {if (true) throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);}
                 }
-                index = (Integer)localVars.get(LOCALSTRING_COUNT_KEY);
-                localVars.put(LOCALSTRING_COUNT_KEY, index + 1);
-                localVars.put(id.image+LOCALVAR_TYPE_KEY_SUFFIX, ATSLocalVarReference.VarType.string);
-                localVars.put(id.image+LOCALVAR_INDEX_KEY_SUFFIX, index);
-                {if (true) return new ATSLocalVarReference(ATSLocalVarReference.VarType.string, index);}
+                {if (true) return localVars.newStringVariable(id.image);}
       break;
     default:
       jj_la1[4] = jj_gen;
@@ -234,7 +185,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference contextVarReference(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference contextVarReference(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference reference;
         Token id;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
@@ -270,10 +221,11 @@ public class ATScriptParser implements ATScriptParserConstants {
       break;
     case IDENTIFIER:
       id = jj_consume_token(IDENTIFIER);
-                if (!localVars.containsKey(id.image+LOCALVAR_TYPE_KEY_SUFFIX)) {
+                ATSLocalVarReference var = localVars.getLocalVar(id.image);
+                if (var == null) {
                         {if (true) throw new ParseException("Undeclared variable "+id.image+" at line"+id.beginLine+" column "+id.beginColumn);}
                 }
-                {if (true) return new ATSLocalVarReference((ATSLocalVarReference.VarType)localVars.get(id.image+LOCALVAR_TYPE_KEY_SUFFIX), (Integer)localVars.get(id.image+LOCALVAR_INDEX_KEY_SUFFIX));}
+                {if (true) return var;}
       break;
     default:
       jj_la1[5] = jj_gen;
@@ -283,7 +235,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression whileConstruct(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression whileConstruct(ATSLocalVarsHelper localVars) throws ParseException {
         ATSExpression block;
         ATSValueReference condition;
     jj_consume_token(WHILE);
@@ -296,7 +248,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression ifElseConstruct(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression ifElseConstruct(ATSLocalVarsHelper localVars) throws ParseException {
         ATSExpression ifBlock, elseBlock=null;
         ATSValueReference ifCondition;
     jj_consume_token(IF);
@@ -318,7 +270,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression elseBlock(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression elseBlock(ATSLocalVarsHelper localVars) throws ParseException {
         ATSExpression block;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case LBRAC:
@@ -338,7 +290,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSExpression returnConstruct(Map<String, Object> localVars) throws ParseException {
+  final public ATSExpression returnConstruct(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference value;
     jj_consume_token(RETURN);
     value = value(localVars);
@@ -346,7 +298,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference value(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference value(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference reference;
         ATSPrimitiveOperation operation = null;
         Token tok;
@@ -371,6 +323,7 @@ public class ATScriptParser implements ATScriptParserConstants {
       case MINUS:
       case MULTIPLY:
       case DIVIDE:
+      case CONCAT:
       case AND:
       case OR:
         operation = valueOp(localVars, reference);
@@ -397,6 +350,7 @@ public class ATScriptParser implements ATScriptParserConstants {
       case MINUS:
       case MULTIPLY:
       case DIVIDE:
+      case CONCAT:
       case AND:
       case OR:
         operation = valueOp(localVars, new ATSConstantReference(new Double(tok.image)));
@@ -444,7 +398,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSPrimitiveOperation valueOp(Map<String, Object> localVars, ATSValueReference leftHand) throws ParseException {
+  final public ATSPrimitiveOperation valueOp(ATSLocalVarsHelper localVars, ATSValueReference leftHand) throws ParseException {
         ATSValueReference value;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case GT:
@@ -492,6 +446,11 @@ public class ATScriptParser implements ATScriptParserConstants {
       value = value(localVars);
                 {if (true) return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.divide, leftHand, value);}
       break;
+    case CONCAT:
+      jj_consume_token(CONCAT);
+      value = value(localVars);
+                {if (true) return new ATSPrimitiveOperation(ATSPrimitiveOperation.Operator.concat, leftHand, value);}
+      break;
     case AND:
       jj_consume_token(AND);
       value = value(localVars);
@@ -510,25 +469,25 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference mapReference(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference mapReference(ATSLocalVarsHelper localVars) throws ParseException {
     jj_consume_token(OUTDOOR);
                 {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.mapOutdoor, null);}
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference attackReference(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference attackReference(ATSLocalVarsHelper localVars) throws ParseException {
                 {if (true) return null;}
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference playerReference(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference playerReference(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference ref;
     ref = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
                 {if (true) return ref;}
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference actorReference(Map<String, Object> localVars, ATSContextObjectReference targetInstance) throws ParseException {
+  final public ATSValueReference actorReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) throws ParseException {
         ATSValueReference condId, condMagnitude, condDuration, condChance;
     switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
     case AC:
@@ -569,7 +528,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
-  final public ATSValueReference worldReference(Map<String, Object> localVars) throws ParseException {
+  final public ATSValueReference worldReference(ATSLocalVarsHelper localVars) throws ParseException {
                 {if (true) return null;}
     throw new Error("Missing return statement in function");
   }
@@ -591,10 +550,10 @@ public class ATScriptParser implements ATScriptParserConstants {
       jj_la1_init_1();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0xd201,0xd000,0x40000000,0x0,0x0,0x0,0x2000,0x1100,0x3ff80000,0x3ff80000,0x80070040,0x3ff80000,0x0,};
+      jj_la1_0 = new int[] {0xd201,0xd000,0x80000000,0x0,0x0,0x0,0x2000,0x1100,0x7ff80000,0x7ff80000,0x70040,0x7ff80000,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x780003e,0x780003e,0x0,0x780003e,0x3800000,0x400003e,0x0,0x0,0x0,0x0,0x780003f,0x0,0xa6000,};
+      jj_la1_1 = new int[] {0xf00007c,0xf00007c,0x0,0xf00007c,0x7000000,0x800007c,0x0,0x0,0x0,0x0,0xf00007f,0x0,0x14c000,};
    }
 
   /** Constructor with InputStream. */
@@ -711,7 +670,7 @@ public class ATScriptParser implements ATScriptParserConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[62];
+    boolean[] la1tokens = new boolean[63];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -728,7 +687,7 @@ public class ATScriptParser implements ATScriptParserConstants {
         }
       }
     }
-    for (int i = 0; i < 62; i++) {
+    for (int i = 0; i < 63; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;
