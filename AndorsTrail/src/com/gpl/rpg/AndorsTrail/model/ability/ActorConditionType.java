@@ -18,8 +18,8 @@ public final class ActorConditionType {
 	public final StatsModifierTraits statsEffect_everyRound;
 	public final StatsModifierTraits statsEffect_everyFullRound;
 	public final AbilityModifierTraits abilityEffect;
-	public final Script[] scripts;
-	public final Script[] private_scripts;
+	public final String[] scripts;
+	public final String[] private_scripts;
 
 	public ActorConditionType(
 			String conditionTypeID
@@ -31,8 +31,8 @@ public final class ActorConditionType {
 			, StatsModifierTraits statsEffect_everyRound
 			, StatsModifierTraits statsEffect_everyFullRound
 			, AbilityModifierTraits abilityEffect
-			, Script[] scripts
-			, Script[] private_scripts
+			, String[] scripts
+			, String[] private_scripts
 	) {
 		this.conditionTypeID = conditionTypeID;
 		this.name = name;

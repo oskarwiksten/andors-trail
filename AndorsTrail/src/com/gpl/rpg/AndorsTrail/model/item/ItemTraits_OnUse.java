@@ -33,4 +33,18 @@ public final class ItemTraits_OnUse {
 		final int costStats = changedStats == null ? 0 : changedStats.calculateKillCost();
 		return costStats;
 	}
+	
+	public ItemTraits_OnUse clone() {
+		int i = addedConditions_source.length;
+		ActorConditionEffect[] addedToSource = new ActorConditionEffect[i];
+		while (i-- > 0) {
+			addedToSource[i] = addedConditions_source[i].clone();
+		}
+		i = addedConditions_target.length;
+		ActorConditionEffect[] addedToTarget = new ActorConditionEffect[i];
+		while (i-- > 0) {
+			addedToTarget[i] = addedConditions_target[i].clone();
+		}
+		return new ItemTraits_OnUse(changedStats.clone(), addedToSource, addedToTarget);
+	}
 }

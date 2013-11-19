@@ -40,6 +40,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     case ATTACK:
     case PLAYER:
     case ACTOR:
+    case ITEM:
     case BOOL:
     case NUM:
     case STRING:
@@ -73,6 +74,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     case ATTACK:
     case PLAYER:
     case ACTOR:
+    case ITEM:
     case BOOL:
     case NUM:
     case STRING:
@@ -137,6 +139,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     case ATTACK:
     case PLAYER:
     case ACTOR:
+    case ITEM:
     case IDENTIFIER:
       assignee = contextVarReference(localVars);
                 {if (true) return assignee;}
@@ -217,6 +220,12 @@ public class ATScriptParser implements ATScriptParserConstants {
       jj_consume_token(WORLD);
       jj_consume_token(DOT);
       reference = worldReference(localVars);
+                {if (true) return reference;}
+      break;
+    case ITEM:
+      jj_consume_token(ITEM);
+      jj_consume_token(DOT);
+      reference = itemReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.item));
                 {if (true) return reference;}
       break;
     case IDENTIFIER:
@@ -308,6 +317,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     case ATTACK:
     case PLAYER:
     case ACTOR:
+    case ITEM:
     case BOOL:
     case NUM:
     case STRING:
@@ -533,6 +543,132 @@ public class ATScriptParser implements ATScriptParserConstants {
     throw new Error("Missing return statement in function");
   }
 
+  final public ATSValueReference itemReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) throws ParseException {
+        ATSValueReference reference;
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case CATEGORY:
+      jj_consume_token(CATEGORY);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemCategory, targetInstance);}
+      break;
+    case ID:
+      jj_consume_token(ID);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemId, targetInstance);}
+      break;
+    case REWARD:
+      jj_consume_token(REWARD);
+      jj_consume_token(DOT);
+      reference = itemRewardReference(localVars, targetInstance);
+                {if (true) return reference;}
+      break;
+    default:
+      jj_la1[13] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+    throw new Error("Missing return statement in function");
+  }
+
+  final public ATSValueReference itemRewardReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) throws ParseException {
+    if (jj_2_1(3)) {
+      jj_consume_token(HP);
+      jj_consume_token(DOT);
+      jj_consume_token(MAX);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardHpMax, targetInstance);}
+    } else {
+      switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+      case HP:
+        jj_consume_token(HP);
+        jj_consume_token(DOT);
+        jj_consume_token(MIN);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardHpMin, targetInstance);}
+        break;
+      default:
+        jj_la1[14] = jj_gen;
+        if (jj_2_2(3)) {
+          jj_consume_token(AP);
+          jj_consume_token(DOT);
+          jj_consume_token(MAX);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardApMax, targetInstance);}
+        } else {
+          switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+          case AP:
+            jj_consume_token(AP);
+            jj_consume_token(DOT);
+            jj_consume_token(MIN);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardApMin, targetInstance);}
+            break;
+          default:
+            jj_la1[15] = jj_gen;
+            if (jj_2_3(3)) {
+              jj_consume_token(ACTORCONDITIONS);
+              jj_consume_token(DOT);
+              jj_consume_token(TOSOURCE);
+                //TODO : implement Array support
+                {if (true) return null;}
+            } else {
+              switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+              case ACTORCONDITIONS:
+                jj_consume_token(ACTORCONDITIONS);
+                jj_consume_token(DOT);
+                jj_consume_token(TOTARGET);
+                //TODO : implement Array support
+                {if (true) return null;}
+                break;
+              default:
+                jj_la1[16] = jj_gen;
+                jj_consume_token(-1);
+                throw new ParseException();
+              }
+            }
+          }
+        }
+      }
+    }
+    throw new Error("Missing return statement in function");
+  }
+
+  private boolean jj_2_1(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_1(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(0, xla); }
+  }
+
+  private boolean jj_2_2(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_2(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(1, xla); }
+  }
+
+  private boolean jj_2_3(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_3(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(2, xla); }
+  }
+
+  private boolean jj_3_3() {
+    if (jj_scan_token(ACTORCONDITIONS)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(TOSOURCE)) return true;
+    return false;
+  }
+
+  private boolean jj_3_1() {
+    if (jj_scan_token(HP)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(MAX)) return true;
+    return false;
+  }
+
+  private boolean jj_3_2() {
+    if (jj_scan_token(AP)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(MAX)) return true;
+    return false;
+  }
+
   /** Generated Token Manager. */
   public ATScriptParserTokenManager token_source;
   SimpleCharStream jj_input_stream;
@@ -541,20 +677,30 @@ public class ATScriptParser implements ATScriptParserConstants {
   /** Next token. */
   public Token jj_nt;
   private int jj_ntk;
+  private Token jj_scanpos, jj_lastpos;
+  private int jj_la;
   private int jj_gen;
-  final private int[] jj_la1 = new int[13];
+  final private int[] jj_la1 = new int[17];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
+  static private int[] jj_la1_2;
   static {
       jj_la1_init_0();
       jj_la1_init_1();
+      jj_la1_init_2();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0xd201,0xd000,0x80000000,0x0,0x0,0x0,0x2000,0x1100,0x7ff80000,0x7ff80000,0x70040,0x7ff80000,0x0,};
+      jj_la1_0 = new int[] {0xd201,0xd000,0x80000000,0x0,0x0,0x0,0x2000,0x1100,0x7ff80000,0x7ff80000,0x70040,0x7ff80000,0x0,0x0,0x0,0x0,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0xf00007c,0xf00007c,0x0,0xf00007c,0x7000000,0x800007c,0x0,0x0,0x0,0x0,0xf00007f,0x0,0x14c000,};
+      jj_la1_1 = new int[] {0x800000fc,0x800000fc,0x0,0x800000fc,0x80000000,0xfc,0x0,0x0,0x0,0x0,0x800000ff,0x0,0xa060000,0x418000,0x800000,0x1000000,0x80000,};
    }
+   private static void jj_la1_init_2() {
+      jj_la1_2 = new int[] {0x7,0x7,0x0,0x7,0x3,0x4,0x0,0x0,0x0,0x0,0x7,0x0,0x0,0x0,0x0,0x0,0x0,};
+   }
+  final private JJCalls[] jj_2_rtns = new JJCalls[3];
+  private boolean jj_rescan = false;
+  private int jj_gc = 0;
 
   /** Constructor with InputStream. */
   public ATScriptParser(java.io.InputStream stream) {
@@ -567,7 +713,8 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
   /** Reinitialise. */
@@ -581,7 +728,8 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
   /** Constructor. */
@@ -591,7 +739,8 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
   /** Reinitialise. */
@@ -601,7 +750,8 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
   /** Constructor with generated Token Manager. */
@@ -610,7 +760,8 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
   /** Reinitialise. */
@@ -619,7 +770,8 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -629,11 +781,44 @@ public class ATScriptParser implements ATScriptParserConstants {
     jj_ntk = -1;
     if (token.kind == kind) {
       jj_gen++;
+      if (++jj_gc > 100) {
+        jj_gc = 0;
+        for (int i = 0; i < jj_2_rtns.length; i++) {
+          JJCalls c = jj_2_rtns[i];
+          while (c != null) {
+            if (c.gen < jj_gen) c.first = null;
+            c = c.next;
+          }
+        }
+      }
       return token;
     }
     token = oldToken;
     jj_kind = kind;
     throw generateParseException();
+  }
+
+  static private final class LookaheadSuccess extends java.lang.Error { }
+  final private LookaheadSuccess jj_ls = new LookaheadSuccess();
+  private boolean jj_scan_token(int kind) {
+    if (jj_scanpos == jj_lastpos) {
+      jj_la--;
+      if (jj_scanpos.next == null) {
+        jj_lastpos = jj_scanpos = jj_scanpos.next = token_source.getNextToken();
+      } else {
+        jj_lastpos = jj_scanpos = jj_scanpos.next;
+      }
+    } else {
+      jj_scanpos = jj_scanpos.next;
+    }
+    if (jj_rescan) {
+      int i = 0; Token tok = token;
+      while (tok != null && tok != jj_scanpos) { i++; tok = tok.next; }
+      if (tok != null) jj_add_error_token(kind, i);
+    }
+    if (jj_scanpos.kind != kind) return true;
+    if (jj_la == 0 && jj_scanpos == jj_lastpos) throw jj_ls;
+    return false;
   }
 
 
@@ -666,16 +851,43 @@ public class ATScriptParser implements ATScriptParserConstants {
   private java.util.List<int[]> jj_expentries = new java.util.ArrayList<int[]>();
   private int[] jj_expentry;
   private int jj_kind = -1;
+  private int[] jj_lasttokens = new int[100];
+  private int jj_endpos;
+
+  private void jj_add_error_token(int kind, int pos) {
+    if (pos >= 100) return;
+    if (pos == jj_endpos + 1) {
+      jj_lasttokens[jj_endpos++] = kind;
+    } else if (jj_endpos != 0) {
+      jj_expentry = new int[jj_endpos];
+      for (int i = 0; i < jj_endpos; i++) {
+        jj_expentry[i] = jj_lasttokens[i];
+      }
+      jj_entries_loop: for (java.util.Iterator<?> it = jj_expentries.iterator(); it.hasNext();) {
+        int[] oldentry = (int[])(it.next());
+        if (oldentry.length == jj_expentry.length) {
+          for (int i = 0; i < jj_expentry.length; i++) {
+            if (oldentry[i] != jj_expentry[i]) {
+              continue jj_entries_loop;
+            }
+          }
+          jj_expentries.add(jj_expentry);
+          break jj_entries_loop;
+        }
+      }
+      if (pos != 0) jj_lasttokens[(jj_endpos = pos) - 1] = kind;
+    }
+  }
 
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[63];
+    boolean[] la1tokens = new boolean[70];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 13; i++) {
+    for (int i = 0; i < 17; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -684,16 +896,22 @@ public class ATScriptParser implements ATScriptParserConstants {
           if ((jj_la1_1[i] & (1<<j)) != 0) {
             la1tokens[32+j] = true;
           }
+          if ((jj_la1_2[i] & (1<<j)) != 0) {
+            la1tokens[64+j] = true;
+          }
         }
       }
     }
-    for (int i = 0; i < 63; i++) {
+    for (int i = 0; i < 70; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;
         jj_expentries.add(jj_expentry);
       }
     }
+    jj_endpos = 0;
+    jj_rescan_token();
+    jj_add_error_token(0, 0);
     int[][] exptokseq = new int[jj_expentries.size()][];
     for (int i = 0; i < jj_expentries.size(); i++) {
       exptokseq[i] = jj_expentries.get(i);
@@ -707,6 +925,43 @@ public class ATScriptParser implements ATScriptParserConstants {
 
   /** Disable tracing. */
   final public void disable_tracing() {
+  }
+
+  private void jj_rescan_token() {
+    jj_rescan = true;
+    for (int i = 0; i < 3; i++) {
+    try {
+      JJCalls p = jj_2_rtns[i];
+      do {
+        if (p.gen > jj_gen) {
+          jj_la = p.arg; jj_lastpos = jj_scanpos = p.first;
+          switch (i) {
+            case 0: jj_3_1(); break;
+            case 1: jj_3_2(); break;
+            case 2: jj_3_3(); break;
+          }
+        }
+        p = p.next;
+      } while (p != null);
+      } catch(LookaheadSuccess ls) { }
+    }
+    jj_rescan = false;
+  }
+
+  private void jj_save(int index, int xla) {
+    JJCalls p = jj_2_rtns[index];
+    while (p.gen > jj_gen) {
+      if (p.next == null) { p = p.next = new JJCalls(); break; }
+      p = p.next;
+    }
+    p.gen = jj_gen + xla - jj_la; p.first = token; p.arg = xla;
+  }
+
+  static final class JJCalls {
+    int gen;
+    Token first;
+    int arg;
+    JJCalls next;
   }
 
 }

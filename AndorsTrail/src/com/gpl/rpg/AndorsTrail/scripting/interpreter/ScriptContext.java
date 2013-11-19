@@ -5,8 +5,10 @@ import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.ItemTraits_OnUse;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.scripting.proxyobjects.Item;
 
 public class ScriptContext {
 	
@@ -18,7 +20,7 @@ public class ScriptContext {
 	public Player player;
 	public Actor actor;
 	public ActorCondition ac;
-	public ItemType item;
+	public Item item;
 	
 	public final WorldContext world;
 	public final ControllerContext controllers;

@@ -54,6 +54,9 @@ TOKEN : {
 |	< ON_MISS : "onMiss" >
 |	< PLAYER : "player" >
 |	< STATS_UPDATED : "statsUpdated" >
+|	< ITEM : "item" >
+|	< ON_USE : "onUse" >
+|	< ON_EQUIP : "onEquip" >
 |	< SCRIPT_ID : [ "a"-"z", "A"-"Z" ] ([ "a"-"z", "A"-"Z", "0"-"9", "_", "-" ])* >
 |	< WHITESPACE : [" ","\r","\t","\n"] >
 }
@@ -116,6 +119,10 @@ ScriptTrigger trigger() : {
 	{
 		return new ScriptTrigger(category.image, event);
 	}
+|	category = < ITEM > < DOT > event = itemEvents()
+	{
+		return new ScriptTrigger(category.image, event);
+	}
 }
 
 String mapEvents() : {
@@ -148,6 +155,19 @@ String playerEvents() : {
 	Token event;
 } {
 	event = < STATS_UPDATED >
+	{
+		return event.image;
+	}
+}
+
+String itemEvents() : {
+	Token event;
+} {
+	event = < ON_USE >
+	{
+		return event.image;
+	}
+|	event = < ON_EQUIP >
 	{
 		return event.image;
 	}

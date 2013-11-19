@@ -11,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
 import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
+import com.gpl.rpg.AndorsTrail.scripting.proxyobjects.Item;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -86,10 +87,12 @@ public final class ItemController {
 
 		if (!player.inventory.removeItem(type.id, 1)) return;
 
-		ScriptEngine.instance.onItemUse(type, world);
-		controllers.actorStatsController.applyUseEffect(player, null, type.effects_use);
+		//Let the scripting work on a copy of the effects, not altering the definition of the objects, only its effects.
+		Item scriptProxyItem = new Item(type, type.effects_use, null);
+		ScriptEngine.instance.onItemUse(scriptProxyItem, world);
+		controllers.actorStatsController.applyUseEffect(player, null, scriptProxyItem.reward.toUseEffect());
 		world.model.statistics.addItemUsage(type);
-
+		
 		//TODO: provide feedback that the item has been used.
 		//context.mainActivity.message(androidContext.getResources().getString(R.string.inventory_item_used, type.name));
 	}

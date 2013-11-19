@@ -43,7 +43,7 @@
         "id": "shadow_slayer",
         "iconID": "items_weapons:60",
         "name": "Shadow of the slayer",
-        "category": "sword",
+        "category": "ssword",
         "displaytype": "extraordinary",
         "hasManualPrice": 1,
         "baseMarketCost": 0,
@@ -59,6 +59,20 @@
             }
         },
         "killEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "health_minor",
+        "iconID": "items_consumables:35",
+        "name": "Minor vial of health",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 5,
+        "useEffect": {
             "increaseCurrentHP": {
                 "min": 1,
                 "max": 1

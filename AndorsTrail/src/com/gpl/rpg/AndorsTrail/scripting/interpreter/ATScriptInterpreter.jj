@@ -53,6 +53,7 @@ public class ATScriptParser {
 |	<ATTACK : "attack">
 |	<PLAYER : "player">
 |	<ACTOR : "actor">
+|	<ITEM : "item">
 |	<OUTDOOR : "outdoor">
 |	<MIN : "min">
 |	<MAX : "max">
@@ -60,8 +61,14 @@ public class ATScriptParser {
 |	<SOURCE : "source">
 |	<TARGET : "target">
 |	<DAMAGE : "damage">
+|	<CATEGORY : "category">
+|	<REWARD : "reward">
 |	<ADDCONDITION : "addActorCondition">
 |	<CLEARCONDITION : "clearActorCondition">
+|	<ACTORCONDITIONS : "actorConditions">
+|	<TOSOURCE : "toSource">
+|	<TOTARGET : "toTarget">
+|	<ID : "id">
 |	<HP : "hp">
 |	<AP : "ap">
 |	<AC : "ac">
@@ -207,6 +214,10 @@ ATSValueReference contextVarReference(ATSLocalVarsHelper localVars) : {
 		return reference;
 	}
 |	<WORLD>	<DOT> reference = worldReference(localVars)
+	{
+		return reference;
+	}
+|	<ITEM>	<DOT> reference = itemReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.item))
 	{
 		return reference;
 	}
@@ -408,6 +419,56 @@ ATSValueReference actorReference(ATSLocalVarsHelper localVars, ATSContextObjectR
 ATSValueReference worldReference(ATSLocalVarsHelper localVars) : {
 } {
 	{
+		return null;
+	}
+}
+
+ATSValueReference itemReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) : {
+	ATSValueReference reference;
+} {
+	<CATEGORY> 
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemCategory, targetInstance);
+	}
+|	<ID>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemId, targetInstance);
+	}
+|	<REWARD> <DOT> reference = itemRewardReference(localVars, targetInstance)
+	{
+		return reference;
+	}
+}
+
+ATSValueReference itemRewardReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) : {
+} {
+	LOOKAHEAD(3)
+	<HP> <DOT> <MAX>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardHpMax, targetInstance);
+	}
+|	<HP> <DOT> <MIN>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardHpMin, targetInstance);
+	}
+|	LOOKAHEAD(3)
+	<AP> <DOT> <MAX>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardApMax, targetInstance);
+	}
+|	<AP> <DOT> <MIN>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardApMin, targetInstance);
+	}
+|	LOOKAHEAD(3)
+	<ACTORCONDITIONS> <DOT> <TOSOURCE>
+	{
+		//TODO : implement Array support
+		return null;
+	}
+|	<ACTORCONDITIONS> <DOT> <TOTARGET>
+	{
+		//TODO : implement Array support
 		return null;
 	}
 }

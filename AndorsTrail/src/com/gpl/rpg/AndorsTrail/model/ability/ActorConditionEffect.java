@@ -28,4 +28,8 @@ public final class ActorConditionEffect {
 	public ActorCondition createCondition(final int duration) {
 		return new ActorCondition(conditionType, magnitude, duration);
 	}
+	
+	public ActorConditionEffect clone() {
+		return new ActorConditionEffect(conditionType, magnitude, duration, chance);
+	}
 }

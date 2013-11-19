@@ -1,0 +1,24 @@
+[
+     {
+        "id": "chaotic_grip",
+        "iconID": "actorconditions_1:96",
+        "name": "Chaotic grip",
+        "category": "mental",
+        "abilityEffect": {
+            "increaseBlockChance": -10,
+            "increaseDamageResistance": -1
+        }
+    },
+    {
+        "id": "scripted_potion_efficiency",
+        "iconID": "actorconditions_1:89",
+        "name": "Potion Scripter",
+        "category": "mental",
+        "isPositive" : 1,
+        "scripts": [
+       		{
+       			"name": "scripted_potion_boost"
+       		}
+        ]
+    }
+]

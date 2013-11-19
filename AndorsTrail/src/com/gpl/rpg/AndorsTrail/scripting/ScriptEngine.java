@@ -5,20 +5,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import android.speech.tts.TextToSpeech.OnUtteranceCompletedListener;
-
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.listeners.ActorConditionListener;
 import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
+import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ScriptContext;
+import com.gpl.rpg.AndorsTrail.scripting.proxyobjects.Item;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
 
-public class ScriptEngine implements PlayerMovementListener {
+public class ScriptEngine implements PlayerMovementListener, ActorConditionListener {
 
 	public static final Map<String, Script> LIBRARY = new HashMap<String, Script>();
 	
@@ -31,6 +32,7 @@ public class ScriptEngine implements PlayerMovementListener {
 		ScriptEngine.instance.controllers = controllers;
 		ScriptEngine.instance.world = world;
 		controllers.movementController.playerMovementListeners.add(instance);
+		controllers.actorStatsController.actorConditionListeners.add(instance);
 	}
 	
 	public static Script instantiateScript(String scriptId) {
@@ -154,7 +156,7 @@ public class ScriptEngine implements PlayerMovementListener {
 		
 		for (ActorCondition ac : p.conditions) {
 			if (ac.conditionType.private_scripts == null) continue;
-			for (Script script : ac.conditionType.private_scripts) {
+			for (Script script : ac.private_scripts) {
 				if (script.trigger.category != ScriptTrigger.Categories.player) continue;
 				if (script.trigger.event != ScriptTrigger.Events.statsUpdated) continue;
 				context.ac = ac;
@@ -170,7 +172,7 @@ public class ScriptEngine implements PlayerMovementListener {
 				if (script == null) continue;
 				if (script.trigger.category != ScriptTrigger.Categories.player) continue;
 				if (script.trigger.event != ScriptTrigger.Events.statsUpdated) continue;
-				context.item = item;
+				context.item = new Item(item, null, item.effects_equip);
 				script.scriptASTRoot.evaluate(context);
 			}
 		}
@@ -182,25 +184,25 @@ public class ScriptEngine implements PlayerMovementListener {
 	 * ITEMS
 	 */
 	
-	public void onItemUse(ItemType item, WorldContext world) {
+	public void onItemUse(Item item, WorldContext world) {
 		itemOnUse(item, world);
 	}
 	
 	private final List<Script> itemUsed = new ArrayList<Script>();
 	
-	private void itemOnUse(ItemType item, WorldContext world) {
+	private void itemOnUse(Item item, WorldContext world) {
 		ScriptContext context = new ScriptContext(world, controllers);
 		context.map = world.model.currentMap;
 		context.item = item;
 		context.player = world.model.player;
 		context.actor = world.model.player;
-		for (Script script : playerStatsUpdated) {
+		for (Script script : itemUsed) {
 			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 		
-		if (item.private_scripts != null) {
-			for (Script script : item.private_scripts) {
+		if (item.privateScripts != null) {
+			for (Script script : item.privateScripts) {
 				if (script == null) continue;
 				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
 				if (script.trigger.event != ScriptTrigger.Events.onUse) continue;
@@ -210,6 +212,36 @@ public class ScriptEngine implements PlayerMovementListener {
 		}
 	}
 	
+	/*
+	 * ACTOR CONDITIONS
+	 */
+	@Override
+	public void onActorConditionAdded(Actor actor, ActorCondition condition) {
+		for(Script s : condition.scripts) {
+			activateScript(s);
+		}
+	}
 	
+	@Override
+	public void onActorConditionDurationChanged(Actor actor, ActorCondition condition) {
+		//Do nothing		
+	}
+	
+	@Override
+	public void onActorConditionMagnitudeChanged(Actor actor, ActorCondition condition) {
+		//Do nothing		
+	}
+	
+	@Override
+	public void onActorConditionRemoved(Actor actor, ActorCondition condition) {
+		for(Script s : condition.scripts) {
+			deactivateScript(s);
+		}
+	}
+	
+	@Override
+	public void onActorConditionRoundEffectApplied(Actor actor, ActorCondition condition) {
+		//Do nothing
+	}
 	
 }

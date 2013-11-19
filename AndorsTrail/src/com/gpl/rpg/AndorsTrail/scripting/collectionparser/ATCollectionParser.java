@@ -184,6 +184,12 @@ public class ATCollectionParser implements ATCollectionParserConstants {
       event = playerEvents();
                 {if (true) return new ScriptTrigger(category.image, event);}
       break;
+    case ITEM:
+      category = jj_consume_token(ITEM);
+      jj_consume_token(DOT);
+      event = itemEvents();
+                {if (true) return new ScriptTrigger(category.image, event);}
+      break;
     default:
       jj_la1[9] = jj_gen;
       jj_consume_token(-1);
@@ -237,6 +243,25 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     throw new Error("Missing return statement in function");
   }
 
+  final public String itemEvents() throws ParseException {
+        Token event;
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case ON_USE:
+      event = jj_consume_token(ON_USE);
+                {if (true) return event.image;}
+      break;
+    case ON_EQUIP:
+      event = jj_consume_token(ON_EQUIP);
+                {if (true) return event.image;}
+      break;
+    default:
+      jj_la1[12] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+    throw new Error("Missing return statement in function");
+  }
+
   /** Generated Token Manager. */
   public ATCollectionParserTokenManager token_source;
   SimpleCharStream jj_input_stream;
@@ -246,13 +271,13 @@ public class ATCollectionParser implements ATCollectionParserConstants {
   public Token jj_nt;
   private int jj_ntk;
   private int jj_gen;
-  final private int[] jj_la1 = new int[12];
+  final private int[] jj_la1 = new int[13];
   static private int[] jj_la1_0;
   static {
       jj_la1_init_0();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x2000,0x3,0x2000,0x2000,0x8000,0x2000,0x8000,0x2000,0x8,0x490,0x60,0x300,};
+      jj_la1_0 = new int[] {0x10000,0x3,0x10000,0x10000,0x40000,0x10000,0x40000,0x10000,0x8,0x1490,0x60,0x300,0x6000,};
    }
 
   /** Constructor with InputStream. */
@@ -266,7 +291,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -280,7 +305,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
   }
 
   /** Constructor. */
@@ -290,7 +315,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -300,7 +325,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
   }
 
   /** Constructor with generated Token Manager. */
@@ -309,7 +334,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
   }
 
   /** Reinitialise. */
@@ -318,7 +343,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 12; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 13; i++) jj_la1[i] = -1;
   }
 
   private Token jj_consume_token(int kind) throws ParseException {
@@ -369,12 +394,12 @@ public class ATCollectionParser implements ATCollectionParserConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[16];
+    boolean[] la1tokens = new boolean[19];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 12; i++) {
+    for (int i = 0; i < 13; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -383,7 +408,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
         }
       }
     }
-    for (int i = 0; i < 16; i++) {
+    for (int i = 0; i < 19; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

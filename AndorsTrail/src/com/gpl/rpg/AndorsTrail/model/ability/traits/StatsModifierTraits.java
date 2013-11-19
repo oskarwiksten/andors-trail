@@ -5,8 +5,8 @@ import com.gpl.rpg.AndorsTrail.util.ConstRange;
 
 public final class StatsModifierTraits {
 	public final VisualEffectCollection.VisualEffectID visualEffectID;
-	public final ConstRange currentHPBoost;
-	public final ConstRange currentAPBoost;
+	public ConstRange currentHPBoost;
+	public ConstRange currentAPBoost;
 
 	public StatsModifierTraits(
 			VisualEffectCollection.VisualEffectID visualEffectID
@@ -44,5 +44,9 @@ public final class StatsModifierTraits {
 		final int costBoostHP = (int)(923*Math.pow(Math.max(0,averageHPBoost), 2.5) + 450*averageHPBoost);
 		final int costBoostAP = (int)(1033*Math.pow(Math.max(0,averageAPBoost), 2.5) + 300*averageAPBoost);
 		return costBoostHP + costBoostAP;
+	}
+	
+	public StatsModifierTraits clone() {
+		return new StatsModifierTraits(visualEffectID, new ConstRange(currentHPBoost), new ConstRange(currentAPBoost));
 	}
 }

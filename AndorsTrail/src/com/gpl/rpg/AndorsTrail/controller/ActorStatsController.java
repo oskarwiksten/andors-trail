@@ -21,6 +21,7 @@ import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 
 import java.util.ArrayList;

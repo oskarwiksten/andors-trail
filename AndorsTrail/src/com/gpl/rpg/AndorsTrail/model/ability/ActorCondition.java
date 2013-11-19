@@ -1,6 +1,8 @@
 package com.gpl.rpg.AndorsTrail.model.ability;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
+import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -13,6 +15,9 @@ public final class ActorCondition {
 	public final ActorConditionType conditionType;
 	public int magnitude;
 	public int duration;
+	
+	public Script[] scripts;
+	public Script[] private_scripts;
 
 	public ActorCondition(
 			ActorConditionType conditionType
@@ -22,6 +27,21 @@ public final class ActorCondition {
 		this.conditionType = conditionType;
 		this.magnitude = magnitude;
 		this.duration = duration;
+		int length;
+		if (conditionType.scripts != null) {
+			length = conditionType.scripts.length;
+			scripts = new Script[length];
+			while (length-->0) {
+				scripts[length] = ScriptEngine.instantiateScript(conditionType.scripts[length]);
+			}
+		}
+		if (conditionType.private_scripts != null) {
+			length = conditionType.private_scripts.length;
+			private_scripts = new Script[length];
+			while (length-->0) {
+				private_scripts[length] = ScriptEngine.instantiateScript(conditionType.private_scripts[length]);
+			}
+		}
 	}
 
 	public boolean isTemporaryEffect() { return isTemporaryEffect(duration); }

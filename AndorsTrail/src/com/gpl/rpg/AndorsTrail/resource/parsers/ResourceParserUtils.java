@@ -141,4 +141,16 @@ public final class ResourceParserUtils {
 	public static Script[] parseScriptsReference(JSONArray optJSONArray) throws JSONException {
 		return scriptParser.parseArray(optJSONArray);
 	}
+	
+
+	public static JsonArrayParserFor<String> scriptNameParser = new JsonArrayParserFor<String>(String.class) {
+		@Override
+		protected String parseObject(JSONObject o) throws JSONException {
+			return o.getString(JsonFieldNames.Script.name);
+		}
+	};
+	
+	public static String[] parseScriptsNamesReference(JSONArray optJSONArray) throws JSONException {
+		return scriptNameParser.parseArray(optJSONArray);
+	}
 }

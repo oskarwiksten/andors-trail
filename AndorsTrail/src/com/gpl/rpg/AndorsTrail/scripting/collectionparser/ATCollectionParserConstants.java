@@ -33,13 +33,19 @@ public interface ATCollectionParserConstants {
   /** RegularExpression Id. */
   int STATS_UPDATED = 11;
   /** RegularExpression Id. */
-  int SCRIPT_ID = 12;
+  int ITEM = 12;
   /** RegularExpression Id. */
-  int WHITESPACE = 13;
+  int ON_USE = 13;
   /** RegularExpression Id. */
-  int RBRAC = 14;
+  int ON_EQUIP = 14;
   /** RegularExpression Id. */
-  int CODE = 15;
+  int SCRIPT_ID = 15;
+  /** RegularExpression Id. */
+  int WHITESPACE = 16;
+  /** RegularExpression Id. */
+  int RBRAC = 17;
+  /** RegularExpression Id. */
+  int CODE = 18;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -60,6 +66,9 @@ public interface ATCollectionParserConstants {
     "\"onMiss\"",
     "\"player\"",
     "\"statsUpdated\"",
+    "\"item\"",
+    "\"onUse\"",
+    "\"onEquip\"",
     "<SCRIPT_ID>",
     "<WHITESPACE>",
     "\"]\"",

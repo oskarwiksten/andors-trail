@@ -26,6 +26,12 @@ public class ATSContextObjectReference extends ATSValueReference {
 			public Object evaluate(ScriptContext context) {
 				return context.actor;
 			}
+		},
+		item{
+			@Override
+			public Object evaluate(ScriptContext context) {
+				return context.item;
+			}
 		};
 		
 		public abstract Object evaluate(ScriptContext context);

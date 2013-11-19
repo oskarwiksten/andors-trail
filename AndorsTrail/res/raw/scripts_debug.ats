@@ -1,9 +1,9 @@
 "map_boostAC" map.onEnter [
-	player.addActorCondition("chaotic_grip",5, 2, 50);
+	player.addActorCondition("scripted_potion_efficiency",5, 2, 50);
 ]
 
 "map_unboostAC" map.onLeave [
-	player.clearActorCondition("chaotic_grip", 50);
+	player.clearActorCondition("scripted_potion_efficiency", 50);
 ]
 
 "player_boostAC" player.statsUpdated [
@@ -28,3 +28,10 @@
 		}
 	}
 ][Simple test of local variables scoping]
+
+"scripted_potion_boost" item.onUse [
+	if (item.category == "pot") {
+		item.reward.hp.max = item.reward.hp.max * 2;
+		item.reward.hp.min = item.reward.hp.min * 2;
+	}
+][Doubles the health gained by drinking potions]

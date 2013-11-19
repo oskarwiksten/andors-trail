@@ -23,7 +23,7 @@ import java.util.Collection;
 public final class ResourceLoader {
 
 	private static final int itemCategoriesResourceId = R.array.loadresource_itemcategories;
-	private static final int actorConditionsResourceId = R.array.loadresource_actorconditions;
+	private static final int actorConditionsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_actorconditions_debug : R.array.loadresource_actorconditions;
 	private static final int itemsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_items_debug : R.array.loadresource_items;
 	private static final int droplistsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_droplists_debug : R.array.loadresource_droplists;
 	private static final int questsResourceId = AndorsTrailApplication.DEVELOPMENT_DEBUGRESOURCES ? R.array.loadresource_quests_debug : R.array.loadresource_quests;
