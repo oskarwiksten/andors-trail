@@ -25,7 +25,7 @@
 				<th>Finishes quest</th>
 				<th></th>
 			</tr></thead>
-			<tbody>
+			<tbody ui:sortable ng:model="obj.stages">
 				<tr ng-repeat="stage in obj.stages">
 					<td><input type="text" size="3" ng-model="stage.progress" class="at-input-stat"/></td>
 					<td><textarea rows="2" cols="40" ng-model="stage.logText"></textarea></td>

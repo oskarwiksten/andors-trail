@@ -14,7 +14,7 @@
 				<th id="chance"><span class="hint  hint--top" data-hint="Percentage chance, integer value from 1 (very unlikely) to 100 (always).">Chance</span></th>
 				<th></th>
 			</tr></thead>
-			<tbody>
+			<tbody ui:sortable ng:model="obj.items">
 				<tr ng-repeat="dropItem in obj.items">
 					<td><input type="text" ng-model="dropItem.itemID" class="at-input-id" /></td>
 					<td>
