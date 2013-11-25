@@ -19,10 +19,14 @@ public final class StatsModifierTraits {
 	}
 
 	public int calculateUseCost() {
-		final float averageHPBoost = currentHPBoost == null ? 0 : currentHPBoost.averagef();
-		if (averageHPBoost == 0) return 0;
+		if (currentHPBoost == null) {
+			return (0);
+		}
 
-		final int costBoostHP = (int) (0.1*Math.signum(averageHPBoost)*Math.pow(Math.abs(averageHPBoost), 2) + 3*averageHPBoost);
+		final float averageHPBoost = currentHPBoost.averagef();
+		final int costBoostHP = (int) ((((averageHPBoost < 0 ? -1 : +1)
+				* averageHPBoost + 30) * averageHPBoost)) / 10;
+
 		return costBoostHP;
 	}
 

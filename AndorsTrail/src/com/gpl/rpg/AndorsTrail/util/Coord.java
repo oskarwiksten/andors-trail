@@ -23,14 +23,14 @@ public final class Coord {
 	public boolean contains(final Coord p) { return p.x == this.x && p.y == this.y; }
 	public boolean contains(final int x, final int y) { return x == this.x && y == this.y; }
 	public boolean isAdjacentTo(Coord p) {
-                final int dx = x - p.x;
-                final int dy = y - p.y;
-                if (dx == 0 && dy == 0) return false;
-                if (dx > 1) return false;
-                if (dy > 1) return false;
-                if (dx < -1) return false;
-                if (dy < -1) return false;
-                return true;
+		final int dx = x - p.x;
+		final int dy = y - p.y;
+		if (dx == 0 && dy == 0) return false;
+		if (dx > 1) return false;
+		if (dy > 1) return false;
+		if (dx < -1) return false;
+		if (dy < -1) return false;
+		return true;
 	}
 
 
