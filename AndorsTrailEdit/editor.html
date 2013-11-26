@@ -56,7 +56,7 @@
 							<button ng-click="editAsTable(section)" class="btn" ng-show="supportsTableEdit(section)"><i class="icon-list"></i> Table</button>
 							<button ng-click="clear(section)" class="btn"><i class="icon-trash"></i> Clear</button>
 						</div>
-						<ul class="itemlist">
+						<ul class="itemlist" ui:sortable ng:model="section.items">
 							<li ng-repeat="obj in section.items" ng-click="editObj(section, obj)" fadey>
 								<div style="float: left;">
 									<img ng-tile-image="obj.iconID" ng-tile-image-scale="0.7" ng-show="section.hasIcon()" />
@@ -101,8 +101,10 @@
 
 
 <script src="lib/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
 <script src="lib/underscore-min.js"></script>
 <script src="lib/angular.min.js"></script>
+<script src="lib/ng-sortable.js"></script>
 <script src="lib/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/settings.js"></script>

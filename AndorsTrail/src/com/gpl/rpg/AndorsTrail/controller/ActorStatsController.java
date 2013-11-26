@@ -242,17 +242,26 @@ public final class ActorStatsController {
 	}
 
 	private static int getRandomConditionForRejuvenate(Player player) {
-		ArrayList<Integer> potentialConditions = new ArrayList<Integer>();
-		for(int i = 0; i < player.conditions.size(); ++i) {
-			ActorCondition c = player.conditions.get(i);
-			if (!c.isTemporaryEffect()) continue;
-			if (c.conditionType.isPositive) continue;
-			if (c.conditionType.conditionCategory == ActorConditionType.ConditionCategory.spiritual) continue;
-			potentialConditions.add(i);
-		}
-		if (potentialConditions.isEmpty()) return -1;
+		int i = -1;
+		int count = 0;
+		int potentialConditions[] = new int[player.conditions.size()];
+		for (ActorCondition c : player.conditions) {
+			i++;
 
-		return potentialConditions.get(Constants.rnd.nextInt(potentialConditions.size()));
+			if (!c.isTemporaryEffect())
+				continue;
+			if (c.conditionType.isPositive)
+				continue;
+			if (c.conditionType.conditionCategory == ActorConditionType.ConditionCategory.spiritual)
+				continue;
+
+			potentialConditions[count++] = i;
+		}
+
+		if (count == 0)
+			return -1;
+
+		return potentialConditions[Constants.rnd.nextInt(count)];
 	}
 
 	public void applyConditionsToMonsters(PredefinedMap map, boolean isFullRound) {

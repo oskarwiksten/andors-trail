@@ -25,7 +25,7 @@
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="hasRewards" ng-model="phrase.hasRewards" />Reaching this phrase gives rewards</label>
 	</div>
-	<div class="fieldWithLabel" ng-ds-fade="phrase.hasRewards">
+	<div class="fieldWithLabel" ng-ds-fade="phrase.hasRewards" ui:sortable ng:model="phrase.rewards">
 		<div ng-repeat="reward in phrase.rewards" class="phrase-reward at-box">
 			<div class="fieldWithLabel">
 				<label for="rewardType">Reward Type:</label>
@@ -161,7 +161,7 @@
 				<th></th>
 				<th></th>
 			</tr></thead>
-			<tbody>
+			<tbody ui:sortable ng:model="phrase.replies">
 				<tr ng-repeat="reply in phrase.replies">
 					<td ng-click="selectReply(reply)" class="clickToEdit">
 						<span ng-show="reply.text">{{reply.text.substring(0, 40)}}</span>
@@ -205,7 +205,7 @@
 	<div class="fieldWithLabel">
 		<label class="checkbox"><input type="checkbox" id="hasRequirements" ng-model="reply.hasRequirements" />Player must fulfill requirements to select this reply</label>
 	</div>
-	<div class="fieldWithLabel" ng-ds-fade="reply.hasRequirements">
+	<div class="fieldWithLabel" ng-ds-fade="reply.hasRequirements" ui:sortable ng:model="reply.requires">
 		<div ng-repeat="require in reply.requires" class="reply-requirement at-box">
 			<div class="fieldWithLabel">
 				<label for="requireType">Require:</label>

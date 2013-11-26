@@ -114,7 +114,7 @@
 			<th></th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody ui:sortable ng:model="items">
 		<tr ng-repeat="item in items">
 			<td ng-ds-fade="settings.iconID"><div ng-tile-image="item.iconID" class="at-input-icon" ng-select-image="item" ng-select-image-dest="item.iconID"></div></td>
 			<td ng-ds-fade="settings.id"><input type="text" ng-model="item.id" class="at-input-id" /></td>

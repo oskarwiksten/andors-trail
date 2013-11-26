@@ -3,7 +3,7 @@ var ATEditor = (function(ATEditor, controllers) {
 	var htmldir = 'partials/';
 	
 	ATEditor.app = angular
-		.module('ateditor', [])
+		.module('ateditor', ['ui.sortable'])
 		.config(['$routeProvider', function($routeProvider) {
 			$routeProvider
 				.when('/actorcondition/edit/:id', {templateUrl: htmldir+'edit_actorcondition.html', controller: controllers.ActorConditionController})
