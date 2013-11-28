@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class PathFinder {
 	private final int maxWidth;
 	private final int maxHeight;
-	private final boolean visited[];
+	private final boolean visited[][];
 	private final ListOfCoords visitQueue;
 	private final EvaluateWalkable map;
 
@@ -16,7 +16,7 @@ public class PathFinder {
 		this.maxWidth = maxWidth;
 		this.maxHeight = maxHeight;
 		this.map = map;
-		this.visited = new boolean[maxWidth*maxHeight];
+		this.visited = new boolean[maxWidth][maxHeight];
 		this.visitQueue = new ListOfCoords(maxWidth*maxHeight);
 	}
 
@@ -24,18 +24,20 @@ public class PathFinder {
 		public boolean isWalkable(CoordRect r);
 	}
 
-	public boolean findPathBetween(final CoordRect from, final Coord to, CoordRect nextStep) {
+	public boolean findPathBetween(final CoordRect from, final Coord to, final CoordRect nextStep) {
 		int iterations = 0;
 		if (from.equals(to)) return false;
 
-		Coord measureDistanceTo = from.topLeft;
-		Coord p = nextStep.topLeft;
-		Arrays.fill(visited, false);
 		visitQueue.reset();
+		final Coord measureDistanceTo = from.topLeft;
+		for(int i=0; i<visited.length; i++)
+			for(int j=0; j<visited[i].length; j++)
+				visited[i][j] = false;
 
 		visitQueue.push(to.x, to.y, 0);
-		visited[(to.y * maxWidth) + to.x] = true;
+		visited[to.x][to.y] = true;
 
+		Coord p = nextStep.topLeft;
 		while (!visitQueue.isEmpty()) {
 			visitQueue.popFirst(p);
 			++iterations;
@@ -56,7 +58,7 @@ public class PathFinder {
 		return false;
 	}
 
-	private void visit(CoordRect r, Coord measureDistanceTo) {
+	private void visit(final CoordRect r, final Coord measureDistanceTo) {
 		final int x = r.topLeft.x;
 		final int y = r.topLeft.y;
 
@@ -65,9 +67,8 @@ public class PathFinder {
 		if (x >= maxWidth) return;
 		if (y >= maxHeight) return;
 
-		final int i = (y * maxWidth) + x;
-		if (visited[i]) return;
-		visited[i] = true;
+		if (visited[x][y]) return;
+		visited[x][y] = true;
 		if (!map.isWalkable(r)) return;
 
 		int dx = (measureDistanceTo.x - x);
