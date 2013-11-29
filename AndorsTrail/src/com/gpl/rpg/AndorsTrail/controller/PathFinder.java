@@ -77,7 +77,8 @@ public class PathFinder {
 	}
 
 	private static final class ListOfCoords {
-		private final int coords[];
+		private final int xCoords[];
+		private final int yCoords[];
 		private final int weights[];
 		private final int maxIndex;
 		private int lastIndex; // Index of the last coord that was inserted
@@ -85,26 +86,22 @@ public class PathFinder {
 		private static final int DISCARDED = -1;
 
 		public ListOfCoords(int maxSize) {
-			this.maxIndex = maxSize-1;
-			this.coords = new int[maxSize];
-			this.weights = new int[maxSize];
+			maxIndex = maxSize-1;
+			xCoords = new int[maxSize];
+			yCoords = new int[maxSize];
+			weights = new int[maxSize];
 		}
+		
 		public void reset() {
 			lastIndex = -1;
 			frontIndex = 0;
-		}
-		private static int coordsToInt(int x, int y) {
-			return ((y << 8) & 0xff00) | (x & 0xff);
-		}
-		private static void intToCoords(int c, Coord dest) {
-			dest.x = c & 0xff;
-			dest.y = (c >> 8) & 0xff;
 		}
 
 		public void push(int x, int y, int weight) {
 			if (lastIndex == maxIndex) return;
 			++lastIndex;
-			coords[lastIndex] = coordsToInt(x, y);
+			xCoords[lastIndex] = x;
+			yCoords[lastIndex] = y;
 			weights[lastIndex] = weight;
 		}
 
@@ -120,7 +117,8 @@ public class PathFinder {
 					lowestWeight = weights[i];
 				}
 			}
-			intToCoords(coords[lowestWeightIndex], dest);
+			dest.x = xCoords[lowestWeightIndex];
+			dest.y = yCoords[lowestWeightIndex];
 			weights[lowestWeightIndex] = DISCARDED;
 
 			// Increase frontIndex to the first index that is not discarded.
