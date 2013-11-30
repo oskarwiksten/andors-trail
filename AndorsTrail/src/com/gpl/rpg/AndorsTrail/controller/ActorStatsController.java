@@ -22,8 +22,6 @@ import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
 
-import java.util.ArrayList;
-
 public final class ActorStatsController {
 	private final ControllerContext controllers;
 	private final WorldContext world;

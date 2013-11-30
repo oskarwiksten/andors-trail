@@ -1,9 +1,9 @@
 package com.gpl.rpg.AndorsTrail.util;
 
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
+
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 
 public class ListOfListeners<T> {
 	private final ArrayList<WeakReference<T>> listeners = new ArrayList<WeakReference<T>>();

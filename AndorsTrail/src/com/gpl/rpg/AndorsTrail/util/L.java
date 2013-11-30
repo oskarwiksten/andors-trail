@@ -1,8 +1,7 @@
 package com.gpl.rpg.AndorsTrail.util;
 
-import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
-
 import android.util.Log;
+import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 
 public final class L {
 	private static final String TAG = "AndorsTrail";
