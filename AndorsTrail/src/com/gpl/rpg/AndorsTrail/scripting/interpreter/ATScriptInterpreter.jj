@@ -55,8 +55,6 @@ public class ATScriptParser {
 |	<ACTOR : "actor">
 |	<ITEM : "item">
 |	<OUTDOOR : "outdoor">
-|	<MIN : "min">
-|	<MAX : "max">
 |	<CURRENT : "current">
 |	<SOURCE : "source">
 |	<TARGET : "target">
@@ -68,6 +66,12 @@ public class ATScriptParser {
 |	<ACTORCONDITIONS : "actorConditions">
 |	<TOSOURCE : "toSource">
 |	<TOTARGET : "toTarget">
+|	<BASE : "base">
+|	<MAXHP : "maxHP">
+|	<MAXAP : "maxAP">
+|	<MOVECOST : "moveCost">
+|	<EQUIPCOST : "equipCost">
+|	<USECOST : "useCost">
 |	<ID : "id">
 |	<HP : "hp">
 |	<AP : "ap">
@@ -77,6 +81,9 @@ public class ATScriptParser {
 |	<DR : "dr">
 |	<CC : "cc">
 |	<CM : "cm">
+|	<MIN : "min">
+|	<MAX : "max">
+|	<CUR : "cur">
 |	<BOOL : "bool">
 |	<NUM : "num">
 |	<STRING : "string">
@@ -393,6 +400,44 @@ ATSValueReference playerReference(ATSLocalVarsHelper localVars) : {
 	{
 		return ref;
 	}
+|	<BASE> <DOT> ref = playerBaseReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player))
+	{
+		return ref;
+	}
+}
+
+ATSValueReference playerBaseReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) : {
+} {
+	
+	<MAXHP>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseMaxHP, targetInstance);
+	}
+|	<MAXAP>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseMaxAP, targetInstance);
+	}
+|	<MOVECOST>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseMoveCost, targetInstance);
+	}
+|	<EQUIPCOST>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseEquipCost, targetInstance);
+	}
+|	<USECOST>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseUseCost, targetInstance);
+	}
+|	LOOKAHEAD(3)
+	<AD> <DOT> <MIN>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseAdMin, targetInstance);
+	}
+|	<AD> <DOT> <MIN>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseAdMax, targetInstance);
+	}
 }
 
 ATSValueReference actorReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) : {
@@ -405,6 +450,33 @@ ATSValueReference actorReference(ATSLocalVarsHelper localVars, ATSContextObjectR
 |	<BC>
 	{
 		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorBc, targetInstance);
+	}
+|	LOOKAHEAD(3)
+	<HP> <DOT> <CUR>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorHpCur, targetInstance);
+	}
+|	<HP> <DOT> <MAX>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorHpMax, targetInstance);
+	}
+|	LOOKAHEAD(3)
+	<AP> <DOT> <CUR>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorApCur, targetInstance);
+	}
+|	<AP> <DOT> <MAX>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorApMax, targetInstance);
+	}
+|	LOOKAHEAD(3)
+	<AD> <DOT> <MIN>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorAdMin, targetInstance);
+	}
+|	<AD> <DOT> <MAX>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorAdMax, targetInstance);
 	}
 |	<ADDCONDITION> <LPAR> condId = value(localVars) <COMA> condMagnitude = value(localVars) <COMA> condDuration = value(localVars) <COMA> condChance = value(localVars) <RPAR>
 	{

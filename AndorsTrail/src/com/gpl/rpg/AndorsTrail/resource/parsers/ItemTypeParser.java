@@ -42,7 +42,7 @@ public final class ItemTypeParser extends JsonCollectionParserFor<ItemType> {
 		final ItemTraits_OnUse hitEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.hitEffect));
 		final ItemTraits_OnUse killEffect = itemTraitsParser.parseItemTraits_OnUse(o.optJSONObject(JsonFieldNames.ItemType.killEffect));
 
-		final Script[] scripts = ResourceParserUtils.parseScriptsReference(o.optJSONArray(JsonFieldNames.ItemType.scripts));
+		final String[] scripts = ResourceParserUtils.parseScriptsNamesReference(o.optJSONArray(JsonFieldNames.ItemType.scripts));
 		final Script[] private_scripts = ResourceParserUtils.parseScriptsReference(o.optJSONArray(JsonFieldNames.ItemType.privateScripts));
 
 		final int baseMarketCost = o.optInt(JsonFieldNames.ItemType.baseMarketCost);

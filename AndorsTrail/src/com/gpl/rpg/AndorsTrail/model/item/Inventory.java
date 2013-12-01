@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.item;
 
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.savegames.LegacySavegameFormatReaderForItemContainer;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -23,6 +24,7 @@ public final class Inventory extends ItemContainer {
 			if (s == null) return default_;
 			return valueOf(s);
 		}
+		public Script[] slotScripts;
 	}
 
 	public int gold = 0;

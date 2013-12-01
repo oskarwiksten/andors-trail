@@ -83,63 +83,77 @@ public interface ATScriptParserConstants {
   /** RegularExpression Id. */
   int OUTDOOR = 40;
   /** RegularExpression Id. */
-  int MIN = 41;
+  int CURRENT = 41;
   /** RegularExpression Id. */
-  int MAX = 42;
+  int SOURCE = 42;
   /** RegularExpression Id. */
-  int CURRENT = 43;
+  int TARGET = 43;
   /** RegularExpression Id. */
-  int SOURCE = 44;
+  int DAMAGE = 44;
   /** RegularExpression Id. */
-  int TARGET = 45;
+  int CATEGORY = 45;
   /** RegularExpression Id. */
-  int DAMAGE = 46;
+  int REWARD = 46;
   /** RegularExpression Id. */
-  int CATEGORY = 47;
+  int ADDCONDITION = 47;
   /** RegularExpression Id. */
-  int REWARD = 48;
+  int CLEARCONDITION = 48;
   /** RegularExpression Id. */
-  int ADDCONDITION = 49;
+  int ACTORCONDITIONS = 49;
   /** RegularExpression Id. */
-  int CLEARCONDITION = 50;
+  int TOSOURCE = 50;
   /** RegularExpression Id. */
-  int ACTORCONDITIONS = 51;
+  int TOTARGET = 51;
   /** RegularExpression Id. */
-  int TOSOURCE = 52;
+  int BASE = 52;
   /** RegularExpression Id. */
-  int TOTARGET = 53;
+  int MAXHP = 53;
   /** RegularExpression Id. */
-  int ID = 54;
+  int MAXAP = 54;
   /** RegularExpression Id. */
-  int HP = 55;
+  int MOVECOST = 55;
   /** RegularExpression Id. */
-  int AP = 56;
+  int EQUIPCOST = 56;
   /** RegularExpression Id. */
-  int AC = 57;
+  int USECOST = 57;
   /** RegularExpression Id. */
-  int AD = 58;
+  int ID = 58;
   /** RegularExpression Id. */
-  int BC = 59;
+  int HP = 59;
   /** RegularExpression Id. */
-  int DR = 60;
+  int AP = 60;
   /** RegularExpression Id. */
-  int CC = 61;
+  int AC = 61;
   /** RegularExpression Id. */
-  int CM = 62;
+  int AD = 62;
   /** RegularExpression Id. */
-  int BOOL = 63;
+  int BC = 63;
   /** RegularExpression Id. */
-  int NUM = 64;
+  int DR = 64;
   /** RegularExpression Id. */
-  int STRING = 65;
+  int CC = 65;
   /** RegularExpression Id. */
-  int IDENTIFIER = 66;
+  int CM = 66;
   /** RegularExpression Id. */
-  int ESCAPED_DQUO = 67;
+  int MIN = 67;
   /** RegularExpression Id. */
-  int DQUOBIS = 68;
+  int MAX = 68;
   /** RegularExpression Id. */
-  int LITERAL_VALUE = 69;
+  int CUR = 69;
+  /** RegularExpression Id. */
+  int BOOL = 70;
+  /** RegularExpression Id. */
+  int NUM = 71;
+  /** RegularExpression Id. */
+  int STRING = 72;
+  /** RegularExpression Id. */
+  int IDENTIFIER = 73;
+  /** RegularExpression Id. */
+  int ESCAPED_DQUO = 74;
+  /** RegularExpression Id. */
+  int DQUOBIS = 75;
+  /** RegularExpression Id. */
+  int LITERAL_VALUE = 76;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -189,8 +203,6 @@ public interface ATScriptParserConstants {
     "\"actor\"",
     "\"item\"",
     "\"outdoor\"",
-    "\"min\"",
-    "\"max\"",
     "\"current\"",
     "\"source\"",
     "\"target\"",
@@ -202,6 +214,12 @@ public interface ATScriptParserConstants {
     "\"actorConditions\"",
     "\"toSource\"",
     "\"toTarget\"",
+    "\"base\"",
+    "\"maxHP\"",
+    "\"maxAP\"",
+    "\"moveCost\"",
+    "\"equipCost\"",
+    "\"useCost\"",
     "\"id\"",
     "\"hp\"",
     "\"ap\"",
@@ -211,6 +229,9 @@ public interface ATScriptParserConstants {
     "\"dr\"",
     "\"cc\"",
     "\"cm\"",
+    "\"min\"",
+    "\"max\"",
+    "\"cur\"",
     "\"bool\"",
     "\"num\"",
     "\"string\"",

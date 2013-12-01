@@ -10,6 +10,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.traits.AbilityModifierTraits;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.*;
 import com.gpl.rpg.AndorsTrail.model.item.ItemContainer.ItemEntry;
+import com.gpl.rpg.AndorsTrail.scripting.Script;
 import com.gpl.rpg.AndorsTrail.scripting.ScriptEngine;
 import com.gpl.rpg.AndorsTrail.scripting.proxyobjects.Item;
 
@@ -51,7 +52,18 @@ public final class ItemController {
 		}
 
 		player.inventory.setItemTypeInWearSlot(slot, type);
-		controllers.actorStatsController.addConditionsFromEquippedItem(player, type);
+		
+		//Item public scripts activation
+		int scriptsCount = type.scripts == null ? 0 : type.scripts.length;
+		slot.slotScripts = new Script[scriptsCount];
+		while (scriptsCount-- >= 0) {
+			slot.slotScripts[scriptsCount] = ScriptEngine.instantiateScript(type.scripts[scriptsCount]);
+			ScriptEngine.instance.activateScript(slot.slotScripts[scriptsCount]);
+		}
+		
+		Item item = new Item(type, null, type.effects_equip);
+		ScriptEngine.instance.onItemEquip(item, slot);
+		controllers.actorStatsController.addConditionsFromEquippedItem(player, item.reward.toEquipEffect());
 		controllers.actorStatsController.recalculatePlayerStats(player);
 	}
 
@@ -74,7 +86,16 @@ public final class ItemController {
 		if (removedItemType == null) return;
 		player.inventory.addItem(removedItemType);
 		player.inventory.setItemTypeInWearSlot(slot, null);
-		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
+		
+		Item item = new Item(removedItemType, null, removedItemType.effects_equip);
+		ScriptEngine.instance.onItemUnequip(item, slot);
+		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType.effects_equip);
+
+		//Item public scripts deactivation
+		for (Script s : slot.slotScripts) {
+			ScriptEngine.instance.deactivateScript(s);
+		}
+		slot.slotScripts = null;
 	}
 
 	public void useItem(ItemType type) {
@@ -89,7 +110,7 @@ public final class ItemController {
 
 		//Let the scripting work on a copy of the effects, not altering the definition of the objects, only its effects.
 		Item scriptProxyItem = new Item(type, type.effects_use, null);
-		ScriptEngine.instance.onItemUse(scriptProxyItem, world);
+		ScriptEngine.instance.onItemUse(scriptProxyItem);
 		controllers.actorStatsController.applyUseEffect(player, null, scriptProxyItem.reward.toUseEffect());
 		world.model.statistics.addItemUsage(type);
 		

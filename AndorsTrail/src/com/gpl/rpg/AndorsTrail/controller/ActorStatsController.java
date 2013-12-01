@@ -38,16 +38,14 @@ public final class ActorStatsController {
 		this.world = world;
 	}
 
-	public void addConditionsFromEquippedItem(Player player, ItemType itemType) {
-		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
+	public void addConditionsFromEquippedItem(Player player, ItemTraits_OnEquip equipEffects) {
 		if (equipEffects == null) return;
 		if (equipEffects.addedConditions == null) return;
 		for (ActorConditionEffect e : equipEffects.addedConditions) {
 			applyActorCondition(player, e, ActorCondition.DURATION_FOREVER);
 		}
 	}
-	public void removeConditionsFromUnequippedItem(Player player, ItemType itemType) {
-		ItemTraits_OnEquip equipEffects = itemType.effects_equip;
+	public void removeConditionsFromUnequippedItem(Player player, ItemTraits_OnEquip equipEffects) {
 		if (equipEffects == null) return;
 		if (equipEffects.addedConditions == null) return;
 		for (ActorConditionEffect e : equipEffects.addedConditions) {
@@ -199,7 +197,7 @@ public final class ActorStatsController {
 		controllers.skillController.applySkillEffects(player);
 		applyEffectsFromCurrentConditions(player);
 		ItemController.recalculateHitEffectsFromWornItems(player);
-		ScriptEngine.instance.onPlayerStatsUpdate(player, world);
+		ScriptEngine.instance.onPlayerStatsUpdate(player);
 		capActorHealthAtMax(player);
 		capActorAPAtMax(player);
 	}

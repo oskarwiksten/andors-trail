@@ -35,7 +35,7 @@ public final class ItemType {
 	public final ItemTraits_OnUse effects_use;
 	public final ItemTraits_OnUse effects_hit;
 	public final ItemTraits_OnUse effects_kill;
-	public final Script[] scripts;
+	public final String[] scripts;
 	public final Script[] private_scripts;
 
 	public ItemType(
@@ -51,7 +51,7 @@ public final class ItemType {
 			, ItemTraits_OnUse effects_use
 			, ItemTraits_OnUse effects_hit
 			, ItemTraits_OnUse effects_kill
-			, Script[] scripts
+			, String[] scripts
 			, Script[] private_scripts
 	) {
 		this.id = id;

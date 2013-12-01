@@ -254,6 +254,10 @@ public class ATCollectionParser implements ATCollectionParserConstants {
       event = jj_consume_token(ON_EQUIP);
                 {if (true) return event.image;}
       break;
+    case ON_UNEQUIP:
+      event = jj_consume_token(ON_UNEQUIP);
+                {if (true) return event.image;}
+      break;
     default:
       jj_la1[12] = jj_gen;
       jj_consume_token(-1);
@@ -277,7 +281,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
       jj_la1_init_0();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0x10000,0x3,0x10000,0x10000,0x40000,0x10000,0x40000,0x10000,0x8,0x1490,0x60,0x300,0x6000,};
+      jj_la1_0 = new int[] {0x20000,0x3,0x20000,0x20000,0x80000,0x20000,0x80000,0x20000,0x8,0x1490,0x60,0x300,0xe000,};
    }
 
   /** Constructor with InputStream. */
@@ -394,7 +398,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[19];
+    boolean[] la1tokens = new boolean[20];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
@@ -408,7 +412,7 @@ public class ATCollectionParser implements ATCollectionParserConstants {
         }
       }
     }
-    for (int i = 0; i < 19; i++) {
+    for (int i = 0; i < 20; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;

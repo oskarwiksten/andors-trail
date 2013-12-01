@@ -57,6 +57,7 @@ TOKEN : {
 |	< ITEM : "item" >
 |	< ON_USE : "onUse" >
 |	< ON_EQUIP : "onEquip" >
+|	< ON_UNEQUIP : "onUnequip" >
 |	< SCRIPT_ID : [ "a"-"z", "A"-"Z" ] ([ "a"-"z", "A"-"Z", "0"-"9", "_", "-" ])* >
 |	< WHITESPACE : [" ","\r","\t","\n"] >
 }
@@ -168,6 +169,10 @@ String itemEvents() : {
 		return event.image;
 	}
 |	event = < ON_EQUIP >
+	{
+		return event.image;
+	}
+|	event = < ON_UNEQUIP >
 	{
 		return event.image;
 	}

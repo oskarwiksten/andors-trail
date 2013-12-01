@@ -12,6 +12,7 @@ import com.gpl.rpg.AndorsTrail.controller.listeners.PlayerMovementListener;
 import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.actor.Actor;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
+import com.gpl.rpg.AndorsTrail.model.item.Inventory;
 import com.gpl.rpg.AndorsTrail.model.item.ItemType;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.scripting.interpreter.ScriptContext;
@@ -82,6 +83,12 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 			case onUse :
 				result.add(itemUsed);
 				break;
+			case onEquip :
+				result.add(itemEquipped);
+				break;
+			case onUnequip :
+				result.add(itemUnequipped);
+				break;
 			}
 			break;
 		}
@@ -94,7 +101,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 	
 	public void onPlayerEnteredNewMap(PredefinedMap map, com.gpl.rpg.AndorsTrail.util.Coord p, PredefinedMap oldMap) {
 		if (oldMap != null) {
-			mapLeft(oldMap, world);
+			mapLeft(oldMap);
 		
 			for (Script s : oldMap.scripts) {
 				deactivateScript(s);
@@ -104,14 +111,14 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		for (Script s: map.scripts) {
 			activateScript(s);
 		}
-		mapEntered(map, world);
+		mapEntered(map);
 	}
 	public void onPlayerMoved(Coord newPosition, Coord previousPosition) {
 		
 	}
 	
 	private final List<Script> mapOnEnter = new ArrayList<Script>();
-	private void mapEntered(PredefinedMap map, WorldContext world) {
+	private void mapEntered(PredefinedMap map) {
 		ScriptContext context = new ScriptContext(world, controllers);
 		context.map = map;
 		context.player = world.model.player;
@@ -123,7 +130,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 	}
 	
 	private final List<Script> mapOnLeave = new ArrayList<Script>();
-	private void mapLeft(PredefinedMap map, WorldContext world) {
+	private void mapLeft(PredefinedMap map) {
 		ScriptContext context = new ScriptContext(world, controllers);
 		context.map = map;
 		context.player = world.model.player;
@@ -139,12 +146,12 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 	 * PLAYER
 	 */
 	
-	public void onPlayerStatsUpdate(Player p, WorldContext world) {
-		statsUpdated(p, world);
+	public void onPlayerStatsUpdate(Player p) {
+		statsUpdated(p);
 	}
 	
 	private final List<Script> playerStatsUpdated = new ArrayList<Script>();
-	private void statsUpdated(Player p, WorldContext world) {
+	private void statsUpdated(Player p) {
 		ScriptContext context = new ScriptContext(world, controllers);
 		context.map = world.model.currentMap;
 		context.player = p;
@@ -184,13 +191,13 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 	 * ITEMS
 	 */
 	
-	public void onItemUse(Item item, WorldContext world) {
-		itemOnUse(item, world);
+	public void onItemUse(Item item) {
+		itemOnUse(item);
 	}
 	
 	private final List<Script> itemUsed = new ArrayList<Script>();
 	
-	private void itemOnUse(Item item, WorldContext world) {
+	private void itemOnUse(Item item) {
 		ScriptContext context = new ScriptContext(world, controllers);
 		context.map = world.model.currentMap;
 		context.item = item;
@@ -207,6 +214,68 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
 				if (script.trigger.event != ScriptTrigger.Events.onUse) continue;
 				context.item = item;
+				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+				script.scriptASTRoot.evaluate(context);
+			}
+		}
+	}
+	
+	public void onItemEquip(Item item, Inventory.WearSlot slot) {
+		itemOnEquip(item, slot);
+	}
+	
+	private final List<Script> itemEquipped = new ArrayList<Script>();
+	
+	private void itemOnEquip(Item item, Inventory.WearSlot slot) {
+		ScriptContext context = new ScriptContext(world, controllers);
+		context.map = world.model.currentMap;
+		context.item = item;
+		context.player = world.model.player;
+		context.actor = world.model.player;
+		context.slot = slot.name();
+		for (Script script : itemEquipped) {
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			script.scriptASTRoot.evaluate(context);
+		}
+		
+		if (item.privateScripts != null) {
+			for (Script script : item.privateScripts) {
+				if (script == null) continue;
+				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
+				if (script.trigger.event != ScriptTrigger.Events.onEquip) continue;
+				context.item = item;
+				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+				script.scriptASTRoot.evaluate(context);
+			}
+		}
+	}
+	
+	
+	public void onItemUnequip(Item item, Inventory.WearSlot slot) {
+		itemOnUnequip(item, slot);
+	}
+	
+	private final List<Script> itemUnequipped = new ArrayList<Script>();
+	
+	private void itemOnUnequip(Item item, Inventory.WearSlot slot) {
+		ScriptContext context = new ScriptContext(world, controllers);
+		context.map = world.model.currentMap;
+		context.item = item;
+		context.player = world.model.player;
+		context.actor = world.model.player;
+		context.slot = slot.name();
+		for (Script script : itemUnequipped) {
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			script.scriptASTRoot.evaluate(context);
+		}
+		
+		if (item.privateScripts != null) {
+			for (Script script : item.privateScripts) {
+				if (script == null) continue;
+				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
+				if (script.trigger.event != ScriptTrigger.Events.onUnequip) continue;
+				context.item = item;
+				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
 				script.scriptASTRoot.evaluate(context);
 			}
 		}

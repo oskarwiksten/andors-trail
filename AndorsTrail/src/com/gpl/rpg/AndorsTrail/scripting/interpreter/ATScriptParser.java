@@ -492,8 +492,75 @@ public class ATScriptParser implements ATScriptParserConstants {
 
   final public ATSValueReference playerReference(ATSLocalVarsHelper localVars) throws ParseException {
         ATSValueReference ref;
-    ref = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case ADDCONDITION:
+    case CLEARCONDITION:
+    case HP:
+    case AP:
+    case AC:
+    case AD:
+    case BC:
+      ref = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
                 {if (true) return ref;}
+      break;
+    case BASE:
+      jj_consume_token(BASE);
+      jj_consume_token(DOT);
+      ref = playerBaseReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+                {if (true) return ref;}
+      break;
+    default:
+      jj_la1[12] = jj_gen;
+      jj_consume_token(-1);
+      throw new ParseException();
+    }
+    throw new Error("Missing return statement in function");
+  }
+
+  final public ATSValueReference playerBaseReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) throws ParseException {
+    switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+    case MAXHP:
+      jj_consume_token(MAXHP);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseMaxHP, targetInstance);}
+      break;
+    case MAXAP:
+      jj_consume_token(MAXAP);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseMaxAP, targetInstance);}
+      break;
+    case MOVECOST:
+      jj_consume_token(MOVECOST);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseMoveCost, targetInstance);}
+      break;
+    case EQUIPCOST:
+      jj_consume_token(EQUIPCOST);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseEquipCost, targetInstance);}
+      break;
+    case USECOST:
+      jj_consume_token(USECOST);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseUseCost, targetInstance);}
+      break;
+    default:
+      jj_la1[13] = jj_gen;
+      if (jj_2_1(3)) {
+        jj_consume_token(AD);
+        jj_consume_token(DOT);
+        jj_consume_token(MIN);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseAdMin, targetInstance);}
+      } else {
+        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+        case AD:
+          jj_consume_token(AD);
+          jj_consume_token(DOT);
+          jj_consume_token(MIN);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseAdMax, targetInstance);}
+          break;
+        default:
+          jj_la1[14] = jj_gen;
+          jj_consume_token(-1);
+          throw new ParseException();
+        }
+      }
+    }
     throw new Error("Missing return statement in function");
   }
 
@@ -508,32 +575,83 @@ public class ATScriptParser implements ATScriptParserConstants {
       jj_consume_token(BC);
                 {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorBc, targetInstance);}
       break;
-    case ADDCONDITION:
-      jj_consume_token(ADDCONDITION);
-      jj_consume_token(LPAR);
-      condId = value(localVars);
-      jj_consume_token(COMA);
-      condMagnitude = value(localVars);
-      jj_consume_token(COMA);
-      condDuration = value(localVars);
-      jj_consume_token(COMA);
-      condChance = value(localVars);
-      jj_consume_token(RPAR);
-                {if (true) return new ATSMethodCall(ATSMethodCall.ObjectMethod.actorAddCondition, new ATSValueReference[]{condId, condMagnitude, condDuration, condChance}, targetInstance);}
-      break;
-    case CLEARCONDITION:
-      jj_consume_token(CLEARCONDITION);
-      jj_consume_token(LPAR);
-      condId = value(localVars);
-      jj_consume_token(COMA);
-      condChance = value(localVars);
-      jj_consume_token(RPAR);
-                {if (true) return new ATSMethodCall(ATSMethodCall.ObjectMethod.actorClearCondition, new ATSValueReference[]{condId, condChance}, targetInstance);}
-      break;
     default:
-      jj_la1[12] = jj_gen;
-      jj_consume_token(-1);
-      throw new ParseException();
+      jj_la1[15] = jj_gen;
+      if (jj_2_2(3)) {
+        jj_consume_token(HP);
+        jj_consume_token(DOT);
+        jj_consume_token(CUR);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorHpCur, targetInstance);}
+      } else {
+        switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+        case HP:
+          jj_consume_token(HP);
+          jj_consume_token(DOT);
+          jj_consume_token(MAX);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorHpMax, targetInstance);}
+          break;
+        default:
+          jj_la1[16] = jj_gen;
+          if (jj_2_3(3)) {
+            jj_consume_token(AP);
+            jj_consume_token(DOT);
+            jj_consume_token(CUR);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorApCur, targetInstance);}
+          } else {
+            switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+            case AP:
+              jj_consume_token(AP);
+              jj_consume_token(DOT);
+              jj_consume_token(MAX);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorApMax, targetInstance);}
+              break;
+            default:
+              jj_la1[17] = jj_gen;
+              if (jj_2_4(3)) {
+                jj_consume_token(AD);
+                jj_consume_token(DOT);
+                jj_consume_token(MIN);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorAdMin, targetInstance);}
+              } else {
+                switch ((jj_ntk==-1)?jj_ntk():jj_ntk) {
+                case AD:
+                  jj_consume_token(AD);
+                  jj_consume_token(DOT);
+                  jj_consume_token(MAX);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.actorAdMax, targetInstance);}
+                  break;
+                case ADDCONDITION:
+                  jj_consume_token(ADDCONDITION);
+                  jj_consume_token(LPAR);
+                  condId = value(localVars);
+                  jj_consume_token(COMA);
+                  condMagnitude = value(localVars);
+                  jj_consume_token(COMA);
+                  condDuration = value(localVars);
+                  jj_consume_token(COMA);
+                  condChance = value(localVars);
+                  jj_consume_token(RPAR);
+                {if (true) return new ATSMethodCall(ATSMethodCall.ObjectMethod.actorAddCondition, new ATSValueReference[]{condId, condMagnitude, condDuration, condChance}, targetInstance);}
+                  break;
+                case CLEARCONDITION:
+                  jj_consume_token(CLEARCONDITION);
+                  jj_consume_token(LPAR);
+                  condId = value(localVars);
+                  jj_consume_token(COMA);
+                  condChance = value(localVars);
+                  jj_consume_token(RPAR);
+                {if (true) return new ATSMethodCall(ATSMethodCall.ObjectMethod.actorClearCondition, new ATSValueReference[]{condId, condChance}, targetInstance);}
+                  break;
+                default:
+                  jj_la1[18] = jj_gen;
+                  jj_consume_token(-1);
+                  throw new ParseException();
+                }
+              }
+            }
+          }
+        }
+      }
     }
     throw new Error("Missing return statement in function");
   }
@@ -561,7 +679,7 @@ public class ATScriptParser implements ATScriptParserConstants {
                 {if (true) return reference;}
       break;
     default:
-      jj_la1[13] = jj_gen;
+      jj_la1[19] = jj_gen;
       jj_consume_token(-1);
       throw new ParseException();
     }
@@ -569,7 +687,7 @@ public class ATScriptParser implements ATScriptParserConstants {
   }
 
   final public ATSValueReference itemRewardReference(ATSLocalVarsHelper localVars, ATSContextObjectReference targetInstance) throws ParseException {
-    if (jj_2_1(3)) {
+    if (jj_2_5(3)) {
       jj_consume_token(HP);
       jj_consume_token(DOT);
       jj_consume_token(MAX);
@@ -583,8 +701,8 @@ public class ATScriptParser implements ATScriptParserConstants {
                 {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardHpMin, targetInstance);}
         break;
       default:
-        jj_la1[14] = jj_gen;
-        if (jj_2_2(3)) {
+        jj_la1[20] = jj_gen;
+        if (jj_2_6(3)) {
           jj_consume_token(AP);
           jj_consume_token(DOT);
           jj_consume_token(MAX);
@@ -598,8 +716,8 @@ public class ATScriptParser implements ATScriptParserConstants {
                 {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.itemRewardApMin, targetInstance);}
             break;
           default:
-            jj_la1[15] = jj_gen;
-            if (jj_2_3(3)) {
+            jj_la1[21] = jj_gen;
+            if (jj_2_7(3)) {
               jj_consume_token(ACTORCONDITIONS);
               jj_consume_token(DOT);
               jj_consume_token(TOSOURCE);
@@ -615,7 +733,7 @@ public class ATScriptParser implements ATScriptParserConstants {
                 {if (true) return null;}
                 break;
               default:
-                jj_la1[16] = jj_gen;
+                jj_la1[22] = jj_gen;
                 jj_consume_token(-1);
                 throw new ParseException();
               }
@@ -648,24 +766,80 @@ public class ATScriptParser implements ATScriptParserConstants {
     finally { jj_save(2, xla); }
   }
 
+  private boolean jj_2_4(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_4(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(3, xla); }
+  }
+
+  private boolean jj_2_5(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_5(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(4, xla); }
+  }
+
+  private boolean jj_2_6(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_6(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(5, xla); }
+  }
+
+  private boolean jj_2_7(int xla) {
+    jj_la = xla; jj_lastpos = jj_scanpos = token;
+    try { return !jj_3_7(); }
+    catch(LookaheadSuccess ls) { return true; }
+    finally { jj_save(6, xla); }
+  }
+
   private boolean jj_3_3() {
-    if (jj_scan_token(ACTORCONDITIONS)) return true;
+    if (jj_scan_token(AP)) return true;
     if (jj_scan_token(DOT)) return true;
-    if (jj_scan_token(TOSOURCE)) return true;
+    if (jj_scan_token(CUR)) return true;
     return false;
   }
 
-  private boolean jj_3_1() {
+  private boolean jj_3_5() {
     if (jj_scan_token(HP)) return true;
     if (jj_scan_token(DOT)) return true;
     if (jj_scan_token(MAX)) return true;
     return false;
   }
 
-  private boolean jj_3_2() {
+  private boolean jj_3_4() {
+    if (jj_scan_token(AD)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(MIN)) return true;
+    return false;
+  }
+
+  private boolean jj_3_6() {
     if (jj_scan_token(AP)) return true;
     if (jj_scan_token(DOT)) return true;
     if (jj_scan_token(MAX)) return true;
+    return false;
+  }
+
+  private boolean jj_3_7() {
+    if (jj_scan_token(ACTORCONDITIONS)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(TOSOURCE)) return true;
+    return false;
+  }
+
+  private boolean jj_3_2() {
+    if (jj_scan_token(HP)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(CUR)) return true;
+    return false;
+  }
+
+  private boolean jj_3_1() {
+    if (jj_scan_token(AD)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(MIN)) return true;
     return false;
   }
 
@@ -680,7 +854,7 @@ public class ATScriptParser implements ATScriptParserConstants {
   private Token jj_scanpos, jj_lastpos;
   private int jj_la;
   private int jj_gen;
-  final private int[] jj_la1 = new int[17];
+  final private int[] jj_la1 = new int[23];
   static private int[] jj_la1_0;
   static private int[] jj_la1_1;
   static private int[] jj_la1_2;
@@ -690,15 +864,15 @@ public class ATScriptParser implements ATScriptParserConstants {
       jj_la1_init_2();
    }
    private static void jj_la1_init_0() {
-      jj_la1_0 = new int[] {0xd201,0xd000,0x80000000,0x0,0x0,0x0,0x2000,0x1100,0x7ff80000,0x7ff80000,0x70040,0x7ff80000,0x0,0x0,0x0,0x0,0x0,};
+      jj_la1_0 = new int[] {0xd201,0xd000,0x80000000,0x0,0x0,0x0,0x2000,0x1100,0x7ff80000,0x7ff80000,0x70040,0x7ff80000,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0x800000fc,0x800000fc,0x0,0x800000fc,0x80000000,0xfc,0x0,0x0,0x0,0x0,0x800000ff,0x0,0xa060000,0x418000,0x800000,0x1000000,0x80000,};
+      jj_la1_1 = new int[] {0xfc,0xfc,0x0,0xfc,0x0,0xfc,0x0,0x0,0x0,0x0,0xff,0x0,0xf8118000,0x3e00000,0x40000000,0xa0000000,0x8000000,0x10000000,0x40018000,0x4006000,0x8000000,0x10000000,0x20000,};
    }
    private static void jj_la1_init_2() {
-      jj_la1_2 = new int[] {0x7,0x7,0x0,0x7,0x3,0x4,0x0,0x0,0x0,0x0,0x7,0x0,0x0,0x0,0x0,0x0,0x0,};
+      jj_la1_2 = new int[] {0x3c0,0x3c0,0x0,0x3c0,0x1c0,0x200,0x0,0x0,0x0,0x0,0x3c0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
    }
-  final private JJCalls[] jj_2_rtns = new JJCalls[3];
+  final private JJCalls[] jj_2_rtns = new JJCalls[7];
   private boolean jj_rescan = false;
   private int jj_gc = 0;
 
@@ -713,7 +887,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -728,7 +902,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -739,7 +913,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -750,7 +924,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -760,7 +934,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -770,7 +944,7 @@ public class ATScriptParser implements ATScriptParserConstants {
     token = new Token();
     jj_ntk = -1;
     jj_gen = 0;
-    for (int i = 0; i < 17; i++) jj_la1[i] = -1;
+    for (int i = 0; i < 23; i++) jj_la1[i] = -1;
     for (int i = 0; i < jj_2_rtns.length; i++) jj_2_rtns[i] = new JJCalls();
   }
 
@@ -882,12 +1056,12 @@ public class ATScriptParser implements ATScriptParserConstants {
   /** Generate ParseException. */
   public ParseException generateParseException() {
     jj_expentries.clear();
-    boolean[] la1tokens = new boolean[70];
+    boolean[] la1tokens = new boolean[77];
     if (jj_kind >= 0) {
       la1tokens[jj_kind] = true;
       jj_kind = -1;
     }
-    for (int i = 0; i < 17; i++) {
+    for (int i = 0; i < 23; i++) {
       if (jj_la1[i] == jj_gen) {
         for (int j = 0; j < 32; j++) {
           if ((jj_la1_0[i] & (1<<j)) != 0) {
@@ -902,7 +1076,7 @@ public class ATScriptParser implements ATScriptParserConstants {
         }
       }
     }
-    for (int i = 0; i < 70; i++) {
+    for (int i = 0; i < 77; i++) {
       if (la1tokens[i]) {
         jj_expentry = new int[1];
         jj_expentry[0] = i;
@@ -929,7 +1103,7 @@ public class ATScriptParser implements ATScriptParserConstants {
 
   private void jj_rescan_token() {
     jj_rescan = true;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 7; i++) {
     try {
       JJCalls p = jj_2_rtns[i];
       do {
@@ -939,6 +1113,10 @@ public class ATScriptParser implements ATScriptParserConstants {
             case 0: jj_3_1(); break;
             case 1: jj_3_2(); break;
             case 2: jj_3_3(); break;
+            case 3: jj_3_4(); break;
+            case 4: jj_3_5(); break;
+            case 5: jj_3_6(); break;
+            case 6: jj_3_7(); break;
           }
         }
         p = p.next;

@@ -143,7 +143,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		}
 		if (hasItemWithCondition) return;
 
-		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition));
+		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, world.itemTypes.getItemType(itemTypeIDWithCondition).effects_equip);
 	}
 
 	public static void readCombatTraitsPreV034(DataInputStream src, int fileversion) throws IOException {

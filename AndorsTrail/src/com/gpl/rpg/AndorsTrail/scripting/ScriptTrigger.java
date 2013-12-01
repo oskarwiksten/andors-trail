@@ -5,7 +5,7 @@ public class ScriptTrigger {
 	public static enum Categories {
 		map(new Events[]{Events.onEnter, Events.onLeave}),
 		attack(new Events[]{Events.onTry, Events.onHit, Events.onMiss}),
-		item(new Events[]{Events.onEquip, Events.onUse}),
+		item(new Events[]{Events.onEquip, Events.onUnequip, Events.onUse}),
 		player(new Events[]{Events.onReceivedHit, Events.onKilled, Events.onLevelUp, Events.onSkillUp, Events.onRewardReceived, Events.statsUpdated}),
 		actor(new Events[]{Events.onReceivedHit, Events.onKilled, Events.statsUpdated});
 		
@@ -37,7 +37,8 @@ public class ScriptTrigger {
 		onRewardReceived,
 		onReceivedHit,
 		onKilled,
-		statsUpdated,
+		statsUpdated, 
+		onUnequip,
 		
 	}
 	
