@@ -539,6 +539,14 @@ public class ATScriptParser implements ATScriptParserConstants {
       jj_consume_token(USECOST);
                 {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseUseCost, targetInstance);}
       break;
+    case AC:
+      jj_consume_token(AC);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseAc, targetInstance);}
+      break;
+    case BC:
+      jj_consume_token(BC);
+                {if (true) return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseBc, targetInstance);}
+      break;
     default:
       jj_la1[13] = jj_gen;
       if (jj_2_1(3)) {
@@ -794,6 +802,20 @@ public class ATScriptParser implements ATScriptParserConstants {
     finally { jj_save(6, xla); }
   }
 
+  private boolean jj_3_2() {
+    if (jj_scan_token(HP)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(CUR)) return true;
+    return false;
+  }
+
+  private boolean jj_3_1() {
+    if (jj_scan_token(AD)) return true;
+    if (jj_scan_token(DOT)) return true;
+    if (jj_scan_token(MIN)) return true;
+    return false;
+  }
+
   private boolean jj_3_3() {
     if (jj_scan_token(AP)) return true;
     if (jj_scan_token(DOT)) return true;
@@ -829,20 +851,6 @@ public class ATScriptParser implements ATScriptParserConstants {
     return false;
   }
 
-  private boolean jj_3_2() {
-    if (jj_scan_token(HP)) return true;
-    if (jj_scan_token(DOT)) return true;
-    if (jj_scan_token(CUR)) return true;
-    return false;
-  }
-
-  private boolean jj_3_1() {
-    if (jj_scan_token(AD)) return true;
-    if (jj_scan_token(DOT)) return true;
-    if (jj_scan_token(MIN)) return true;
-    return false;
-  }
-
   /** Generated Token Manager. */
   public ATScriptParserTokenManager token_source;
   SimpleCharStream jj_input_stream;
@@ -867,7 +875,7 @@ public class ATScriptParser implements ATScriptParserConstants {
       jj_la1_0 = new int[] {0xd201,0xd000,0x80000000,0x0,0x0,0x0,0x2000,0x1100,0x7ff80000,0x7ff80000,0x70040,0x7ff80000,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};
    }
    private static void jj_la1_init_1() {
-      jj_la1_1 = new int[] {0xfc,0xfc,0x0,0xfc,0x0,0xfc,0x0,0x0,0x0,0x0,0xff,0x0,0xf8118000,0x3e00000,0x40000000,0xa0000000,0x8000000,0x10000000,0x40018000,0x4006000,0x8000000,0x10000000,0x20000,};
+      jj_la1_1 = new int[] {0xfc,0xfc,0x0,0xfc,0x0,0xfc,0x0,0x0,0x0,0x0,0xff,0x0,0xf8118000,0xa3e00000,0x40000000,0xa0000000,0x8000000,0x10000000,0x40018000,0x4006000,0x8000000,0x10000000,0x20000,};
    }
    private static void jj_la1_init_2() {
       jj_la1_2 = new int[] {0x3c0,0x3c0,0x0,0x3c0,0x1c0,0x200,0x0,0x0,0x0,0x0,0x3c0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,0x0,};

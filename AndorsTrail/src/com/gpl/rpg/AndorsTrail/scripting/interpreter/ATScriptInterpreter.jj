@@ -429,6 +429,14 @@ ATSValueReference playerBaseReference(ATSLocalVarsHelper localVars, ATSContextOb
 	{
 		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseUseCost, targetInstance);
 	}
+|	<AC>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseAc, targetInstance);
+	}
+|	<BC>
+	{
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.playerBaseBc, targetInstance);
+	}
 |	LOOKAHEAD(3)
 	<AD> <DOT> <MIN>
 	{
