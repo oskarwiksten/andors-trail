@@ -225,20 +225,20 @@ public final class ActorStatsController {
 	}
 
 	private void removeConditionsFromSkillEffects(Player player) {
-		if (SkillController.rollForSkillChance(player, SkillCollection.SkillID.rejuvenation, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) {
-			int i = getRandomConditionForRejuvenate(player);
-			if (i >= 0) {
-				ActorCondition c = player.conditions.get(i);
-				if (c.magnitude > 1) {
-					c.magnitude -= 1;
-					actorConditionListeners.onActorConditionMagnitudeChanged(player, c);
-				} else {
-					player.conditions.remove(i);
-					actorConditionListeners.onActorConditionRemoved(player, c);
-				}
-				recalculatePlayerStats(player);
-			}
+		if (!SkillController.rollForSkillChance(player, SkillCollection.SkillID.rejuvenation, SkillCollection.PER_SKILLPOINT_INCREASE_REJUVENATION_CHANCE)) return;
+		
+		int i = getRandomConditionForRejuvenate(player);
+		if (i < 0) return;
+
+		ActorCondition c = player.conditions.get(i);
+		if (c.magnitude > 1) {
+			c.magnitude -= 1;
+			actorConditionListeners.onActorConditionMagnitudeChanged(player, c);
+		} else {
+			player.conditions.remove(i);
+			actorConditionListeners.onActorConditionRemoved(player, c);
 		}
+		recalculatePlayerStats(player);
 	}
 
 	private static int getRandomConditionForRejuvenate(Player player) {
