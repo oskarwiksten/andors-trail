@@ -26,8 +26,10 @@ public final class Coord {
 		final int dx = x - p.x;
 		final int dy = y - p.y;
 		if (dx == 0 && dy == 0) return false;
-		if (Math.abs(dx) > 1) return false;
-		if (Math.abs(dy) > 1) return false;
+		if (dx > 1) return false;
+		if (dy > 1) return false;
+		if (dx < -1) return false;
+		if (dy < -1) return false;
 		return true;
 	}
 
