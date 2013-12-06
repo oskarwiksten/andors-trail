@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
+import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
 import com.gpl.rpg.AndorsTrail.view.ItemEffectsView;
 import com.gpl.rpg.AndorsTrail.view.RangeBar;
 import com.gpl.rpg.AndorsTrail.view.TraitsInfoView;
@@ -77,7 +79,7 @@ public final class MonsterInfoActivity extends Activity {
 	private void updateTitle(Monster monster) {
 		monsterinfo_title.setText(monster.getName());
 		world.tileManager.setImageViewTile(getResources(), monsterinfo_title, monster);
-		monsterinfo_difficulty.setText(getMonsterDifficultyResource(controllers, monster));
+		monsterinfo_difficulty.setText(getMonsterDifficulty(controllers, monster).getResourceID());
 	}
 
 	private void updateTraits(Monster monster) {
@@ -92,13 +94,7 @@ public final class MonsterInfoActivity extends Activity {
 		monsterinfo_max_ap.setText(Integer.toString(monster.getMaxAP()));
 	}
 
-	public static int getMonsterDifficultyResource(ControllerContext controllerContext, Monster monster) {
-		final int difficulty = controllerContext.combatController.getMonsterDifficulty(monster);
-		if (difficulty >= 80) return R.string.monster_difficulty_veryeasy;
-		if (difficulty >= 60) return R.string.monster_difficulty_easy;
-		if (difficulty >= 40) return R.string.monster_difficulty_normal;
-		if (difficulty >= 20) return R.string.monster_difficulty_hard;
-		if (difficulty == 0) return R.string.monster_difficulty_impossible;
-		return R.string.monster_difficulty_veryhard;
+	public static EncounterDifficulty getMonsterDifficulty(ControllerContext controllerContext, Monster monster) {
+		return controllerContext.combatController.getMonsterDifficulty(monster);
 	}
 }

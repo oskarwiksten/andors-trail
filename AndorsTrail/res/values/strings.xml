@@ -212,8 +212,6 @@
 	<string name="preferences_dialog_category">Dialog confirmation</string>
 	<string name="preferences_dialog_confirmrest_title">Confirm rest</string>
 	<string name="preferences_dialog_confirmrest">Gives a question about whether you want to rest when entering a bed. Otherwise, you will always automatically rest.</string>
-	<string name="preferences_dialog_confirmattack_title">Confirm attack</string>
-	<string name="preferences_dialog_confirmattack">Enables the \'Do you want to attack..?\' dialog box when attacking a monster.</string>
 	<string name="preferences_dialog_monsterloot_title">Display monster loot</string>
 	<string name="preferences_dialog_monsterloot">Choose how you want to show the results of a fight to be shown (gold, experience, items).</string>
 	<string name="preferences_combat_category">Combat</string>
@@ -580,5 +578,18 @@ Every skill level increases the attack chance of weapons with %1$d %% of their o
 	<string name="preferences_ui_use_localized_resources_title">Use localized resources</string>
 	<string name="preferences_ui_use_localized_resources">Use translation of interface and content, where available. (requires restart)</string>
 	<string name="change_locale_requires_restart">Changing locale requires restart. Andor\'s Trail has been closed.</string>
+	<string name="preferences_dialog_confirm_attack_threshold_title">Confirm attack</string>
+	<string name="preferences_dialog_confirm_attack_threshold">Enables the \'Do you want to attack..?\' dialog box when attacking a monster of a given difficulty.</string>
+	<string name="preferences_dialog_auto_attack_threshold_title">Auto-attack monster difficulty level</string>
+	<string name="preferences_dialog_auto_attack_threshold">Will attempt to auto-attack monsters as soon as you move next them based upon the challenge.</string>
+	<string name="preferences_attack_threshold_always">Always</string>
+	<string name="preferences_attack_threshold_never">Never</string>
+	<string name="preferences_attack_threshold_very_easy">Very Easy</string>
+	<string name="preferences_attack_threshold_easy">Easy</string>
+	<string name="preferences_attack_threshold_normal">Normal</string>
+	<string name="preferences_attack_threshold_hard">Hard</string>
+	<string name="preferences_attack_threshold_very_hard">Very Hard</string>
+	<string name="preferences_attack_threshold_impossible">Impossible</string>
+
 
 </resources>

@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.Dialogs;
 import com.gpl.rpg.AndorsTrail.R;
@@ -34,7 +35,7 @@ public final class MonsterEncounterActivity extends Activity {
 
 		setContentView(R.layout.monsterencounter);
 
-		CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficultyResource(controllers, monster));
+		CharSequence difficulty = getText(MonsterInfoActivity.getMonsterDifficulty(controllers, monster).getResourceID());
 
 		TextView tv = (TextView) findViewById(R.id.monsterencounter_title);
 		tv.setText(monster.getName());

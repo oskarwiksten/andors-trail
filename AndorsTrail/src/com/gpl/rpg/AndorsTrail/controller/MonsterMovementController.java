@@ -1,5 +1,7 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.PathFinder.EvaluateWalkable;
@@ -36,20 +38,23 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		}
 	}
 
-	public void attackWithAgressiveMonsters() {
-		for (MonsterSpawnArea a : world.model.currentMap.spawnAreas) {
-			for (Monster m : a.monsters) {
-				if (!m.isAgressive()) continue;
-				if (!m.isAdjacentTo(world.model.player)) continue;
+	public boolean attackWithAgressiveMonsters(ArrayList<Monster> monsters) {
+		for (Monster m : monsters) {
+			int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion)
+					* SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
 
-				int aggressionChanceBias = world.model.player.getSkillLevel(SkillCollection.SkillID.evasion) * SkillCollection.PER_SKILLPOINT_INCREASE_EVASION_MONSTER_ATTACK_CHANCE_PERCENTAGE;
-				if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
-					monsterMovementListeners.onMonsterSteppedOnPlayer(m);
-					controllers.combatController.monsterSteppedOnPlayer(m);
-					return;
-				}
+			if (Constants.roll100(Constants.MONSTER_AGGRESSION_CHANCE_PERCENT - aggressionChanceBias)) {
+				monsterMovementListeners.onMonsterSteppedOnPlayer(m);
+				controllers.combatController.monsterSteppedOnPlayer(m);
+				return true;
 			}
 		}
+		return false;
+	}
+
+	public boolean attackWithAgressiveMonsters() {
+		return attackWithAgressiveMonsters(MovementController.getAdjacentAggressiveMonsters(
+				world.model.currentMap, world.model.player));
 	}
 
 	public static boolean monsterCanMoveTo(final PredefinedMap map, final LayeredTileMap tilemap, final CoordRect p) {

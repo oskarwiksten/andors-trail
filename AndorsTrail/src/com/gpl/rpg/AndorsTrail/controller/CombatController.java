@@ -1,8 +1,11 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+
 import android.os.Handler;
 import android.os.Message;
 import android.util.FloatMath;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -20,8 +23,7 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-
-import java.util.ArrayList;
+import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
 
 public final class CombatController implements VisualEffectCompletedCallback {
 	private final ControllerContext controllers;
@@ -474,15 +476,14 @@ public final class CombatController implements VisualEffectCompletedCallback {
 		if (averageDamagePerTurn <= 0) return 100;
 		return (int) FloatMath.ceil(target.getMaxHP() / averageDamagePerTurn);
 	}
-	public int getMonsterDifficulty(Monster monster) {
+
+	public EncounterDifficulty getMonsterDifficulty(Monster monster) {
 		// returns [0..100) . 100 == easy.
 		int turnsToKillMonster = getTurnsToKillTarget(world.model.player, monster);
-		if (turnsToKillMonster >= 999) return 0;
+		if (turnsToKillMonster >= 999) return EncounterDifficulty.IMPOSSIBLE;
 		int turnsToKillPlayer = getTurnsToKillTarget(monster, world.model.player);
 		int result = 50 + (turnsToKillPlayer - turnsToKillMonster) * 2;
-		if (result <= 1) return 1;
-		if (result > 100) return 100;
-		return result;
+		return EncounterDifficulty.getByRating(result);
 	}
 
 	private AttackResult playerAttacks(Monster currentMonster) {

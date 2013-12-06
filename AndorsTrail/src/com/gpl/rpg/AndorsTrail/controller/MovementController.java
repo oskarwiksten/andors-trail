@@ -1,7 +1,10 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.ArrayList;
+
 import android.content.res.Resources;
 import android.os.AsyncTask;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -10,9 +13,14 @@ import com.gpl.rpg.AndorsTrail.model.ModelContainer;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.model.actor.Player;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
-import com.gpl.rpg.AndorsTrail.model.map.*;
+import com.gpl.rpg.AndorsTrail.model.map.LayeredTileMap;
+import com.gpl.rpg.AndorsTrail.model.map.MapObject;
+import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
+import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
+import com.gpl.rpg.AndorsTrail.model.map.TMXMapTranslator;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
+import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
 import com.gpl.rpg.AndorsTrail.util.L;
 import com.gpl.rpg.AndorsTrail.util.TimedMessageTask;
 
@@ -232,10 +240,38 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		controllers.mapController.handleMapEventsAfterMovement(currentMap, newPosition, player.lastPosition);
 
+		doAutoAttack();
+
 		if (!world.model.uiSelections.isInCombat) {
 			Loot loot = currentMap.getBagAt(newPosition);
 			if (loot != null) controllers.itemController.playerSteppedOnLootBag(loot);
 		}
+	}
+
+	public void doAutoAttack() {
+		EncounterDifficulty autoAttack = controllers.preferences.autoAttackThreshold;
+		if (world.model.uiSelections.isInCombat || autoAttack == null)
+			return;
+
+		ArrayList<Monster> targets = getAdjacentAggressiveMonsters(world.model.currentMap, world.model.player);
+
+		if (targets.isEmpty())
+			return;
+
+		// HACK: I can't figure out how to reliably assure monsters have had a chance to attack
+		// first since they run on separate timers. Thus, we'll explicitly run it here.
+		if (controllers.monsterMovementController.attackWithAgressiveMonsters(targets))
+			return;
+
+		// If any are greater than the specified difficulty threshold then exit
+		for (Monster m : targets) {
+			EncounterDifficulty diff = controllers.combatController.getMonsterDifficulty(m); 
+			if (diff.compareTo(autoAttack) > 0)
+				return;
+		}
+
+		Monster m = targets.get(Constants.rnd.nextInt(targets.size()));
+		controllers.mapController.steppedOnMonster(m, m.position);
 	}
 
 	public void respawnPlayer(Resources res) {
@@ -334,15 +370,24 @@ public final class MovementController implements TimedMessageTask.Callback {
 	}
 
 	public static boolean hasAdjacentAggressiveMonster(PredefinedMap map, Player player) {
-		return getAdjacentAggressiveMonster(map, player) != null;
+		ArrayList<Monster> monsters = getAdjacentAggressiveMonsters(map, player);
+		return !monsters.isEmpty();
 	}
+
 	public static Monster getAdjacentAggressiveMonster(PredefinedMap map, Player player) {
+		ArrayList<Monster> monsters = getAdjacentAggressiveMonsters(map, player);
+		return monsters.isEmpty() ? null : monsters.get(0);
+	}
+
+	public static ArrayList<Monster> getAdjacentAggressiveMonsters(PredefinedMap map, Player player) {
+		ArrayList<Monster> monsters = new ArrayList<Monster>();
+
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (!m.isAgressive()) continue;
-				if (m.isAdjacentTo(player)) return m;
+				if (m.isAgressive() && m.isAdjacentTo(player))
+					monsters.add(m);
 			}
 		}
-		return null;
+		return monsters;
 	}
 }

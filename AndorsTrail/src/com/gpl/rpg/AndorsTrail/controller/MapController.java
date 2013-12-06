@@ -1,6 +1,9 @@
 package com.gpl.rpg.AndorsTrail.controller;
 
+import java.util.List;
+
 import android.content.res.Resources;
+
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
@@ -15,8 +18,7 @@ import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.ReplaceableMapSection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-
-import java.util.List;
+import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
 
 public final class MapController {
 
@@ -106,8 +108,9 @@ public final class MapController {
 
 	public void steppedOnMonster(Monster m, Coord p) {
 		if (m.isAgressive()) {
+			EncounterDifficulty confirm = controllers.preferences.confirmAttackThreshold;
 			controllers.combatController.setCombatSelection(m, p);
-			if (controllers.preferences.confirmAttack) {
+			if (confirm == null || confirm.compareTo(controllers.combatController.getMonsterDifficulty(m)) <= 0) {
 				worldEventListeners.onPlayerSteppedOnMonster(m);
 			} else {
 				controllers.combatController.enterCombat(CombatController.BeginTurnAs.player);

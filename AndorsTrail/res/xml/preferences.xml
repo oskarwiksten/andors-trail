@@ -27,11 +27,20 @@
 			android:defaultValue="true"
 			android:summary="@string/preferences_dialog_confirmrest"
 			android:key="confirm_rest" />
-		<CheckBoxPreference
-			android:title="@string/preferences_dialog_confirmattack_title"
-			android:defaultValue="true"
-			android:summary="@string/preferences_dialog_confirmattack"
-			android:key="confirm_attack" />
+		<ListPreference
+			android:key="confirm_attack_threshold"
+			android:title="@string/preferences_dialog_confirm_attack_threshold_title"
+			android:summary="@string/preferences_dialog_confirm_attack_threshold"
+			android:entries="@array/preferences_confirm_attack_threshold"
+			android:entryValues="@array/preferences_confirm_attack_threshold_values"
+			android:defaultValue="0"/>
+		<ListPreference
+			android:key="auto_attack_threshold"
+			android:summary="@string/preferences_dialog_auto_attack_threshold"
+			android:title="@string/preferences_dialog_auto_attack_threshold_title"
+			android:entries="@array/preferences_auto_attack_threshold"
+			android:entryValues="@array/preferences_auto_attack_threshold_values"
+			android:defaultValue="0"/>
 		<ListPreference
 			android:title="@string/preferences_dialog_monsterloot_title"
 			android:summary="@string/preferences_dialog_monsterloot"
