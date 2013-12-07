@@ -26,7 +26,7 @@ public class PathFinder {
 
 	public boolean findPathBetween(final CoordRect from, final Coord to, CoordRect nextStep) {
 		int iterations = 0;
-		if (from.equals(to)) return false;
+		if (from.contains(to)) return false;
 
 		Coord measureDistanceTo = from.topLeft;
 		Coord p = nextStep.topLeft;
@@ -85,12 +85,12 @@ public class PathFinder {
 		private static final int DISCARDED = -1;
 
 		public ListOfCoords(int maxSize) {
-			maxIndex = maxSize-1;
-			xCoords = new int[maxSize];
-			yCoords = new int[maxSize];
-			weights = new int[maxSize];
+			this.maxIndex = maxSize-1;
+			this.xCoords = new int[maxSize];
+			this.yCoords = new int[maxSize];
+			this.weights = new int[maxSize];
 		}
-		
+
 		public void reset() {
 			lastIndex = -1;
 			frontIndex = 0;

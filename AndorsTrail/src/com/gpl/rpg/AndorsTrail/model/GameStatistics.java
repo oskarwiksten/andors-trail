@@ -61,7 +61,7 @@ public final class GameStatistics {
 			if (i++ >= 5) break;
 			MonsterType t = world.monsterTypes.getMonsterType(e.getKey());
 			if (t == null) continue;
-			sb.append(res.getString(R.string.heroinfo_gamestats_name_and_qty, t.name, e.getValue())).append("\n");
+			sb.append(res.getString(R.string.heroinfo_gamestats_name_and_qty, t.name, e.getValue())).append('\n');
 		}
 		return sb.toString();
 	}

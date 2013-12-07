@@ -160,7 +160,7 @@ public final class WorldMapController {
 	}
 	private static File getFileForMap(PredefinedMap map, boolean verifyFileExists) {
 		if (map.lastSeenLayoutHash.length() > 0) {
-			File fileWithHash = getPngFile(map.name + "." + map.lastSeenLayoutHash);
+			File fileWithHash = getPngFile(map.name + '.' + map.lastSeenLayoutHash);
 			if (!verifyFileExists) return fileWithHash;
 			else if (fileWithHash.exists()) return fileWithHash;
 		}

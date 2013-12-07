@@ -41,6 +41,7 @@ public final class HeroinfoActivity_Skills extends Fragment {
 		this.player = world.model.player;
 	}
 
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.heroinfo_skill_list, container, false);
 

@@ -229,7 +229,6 @@ public final class ResourceLoader {
 		final Size src_sz7x1 = new Size(7, 1);
 		final Size src_sz20x12 = new Size(20, 12);
 		final Size src_mapTileSize = new Size(16, 8);
-		final Size src_mapTileSize7 = new Size(16, 7);
 
 		loader.prepareTileset(R.drawable.char_hero, "char_hero", src_sz1x1, defaultTileSize);
 

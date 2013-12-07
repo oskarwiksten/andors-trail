@@ -34,11 +34,11 @@ public final class Requirement {
 	}
 
 	public String toString() {
-		StringBuffer buf = new StringBuffer(requireType.toString());
+		StringBuilder buf = new StringBuilder(requireType.toString());
 		buf.append("--");
 		buf.append(requireID);
 		buf.append("--");
-		if (negate) buf.append("!");
+		if (negate) buf.append('!');
 		buf.append(value);
 		return buf.toString();
 	}

@@ -136,6 +136,7 @@ public final class SkillController {
 			skill = SkillID.resistancePhysical; break;
 		case blood:
 			skill = SkillID.resistanceBlood; break;
+		case spiritual:
 		default:
 			return 0;
 		}

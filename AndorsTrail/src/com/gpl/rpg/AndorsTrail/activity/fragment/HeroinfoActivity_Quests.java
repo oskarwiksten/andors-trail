@@ -42,6 +42,7 @@ public final class HeroinfoActivity_Quests extends Fragment {
 		this.player = world.model.player;
 	}
 
+	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		View v = inflater.inflate(R.layout.questlog, container, false);
 

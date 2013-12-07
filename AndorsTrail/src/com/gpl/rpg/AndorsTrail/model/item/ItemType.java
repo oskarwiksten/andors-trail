@@ -96,8 +96,10 @@ public final class ItemType {
 			return TileManager.iconID_selection_blue;
 		case rare:
 			return TileManager.iconID_selection_purple;
+		case ordinary:
+		default:
+			return -1;
 		}
-		return -1;
 	}
 
 	private static int calculateCost(ItemCategory category, ItemTraits_OnEquip effects_equip, ItemTraits_OnUse effects_use, ItemTraits_OnUse effects_hit, ItemTraits_OnUse effects_kill) {

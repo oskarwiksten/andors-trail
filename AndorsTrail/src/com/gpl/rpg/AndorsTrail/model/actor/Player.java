@@ -10,7 +10,6 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
-import com.gpl.rpg.AndorsTrail.model.item.ItemTypeCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
@@ -49,7 +48,7 @@ public final class Player extends Actor {
 	private final HashMap<String, Integer> alignments = new HashMap<String, Integer>();
 
 	// Unequipped stats
-	public class PlayerBaseTraits {
+	public static final class PlayerBaseTraits {
 		public int iconID;
 		public int maxAP;
 		public int maxHP;
@@ -93,7 +92,7 @@ public final class Player extends Actor {
 		this.inventory = new Inventory();
 	}
 
-	public void initializeNewPlayer(ItemTypeCollection types, DropListCollection dropLists, String name) {
+	public void initializeNewPlayer(DropListCollection dropLists, String playerName) {
 		baseTraits.iconID = TileManager.CHAR_HERO;
 		baseTraits.maxAP = 10;
 		baseTraits.maxHP = 25;
@@ -107,7 +106,7 @@ public final class Player extends Actor {
 		baseTraits.damageResistance = 0;
 		baseTraits.useItemCost = 5;
 		baseTraits.reequipCost = 5;
-		this.name = name;
+		this.name = playerName;
 		this.level = 1;
 		this.totalExperience = 1;
 		this.inventory.clear();

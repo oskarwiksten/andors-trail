@@ -325,12 +325,10 @@ public final class ItemController {
 				sb.append('+');
 			}
 			sb.append(criticalSkill);
-			addSpace = true;
 		}
 		if (criticalMultiplier != 0 && criticalMultiplier != 1) {
 			sb.append('x');
 			sb.append(criticalMultiplier);
-			addSpace = true;
 		}
 	}
 

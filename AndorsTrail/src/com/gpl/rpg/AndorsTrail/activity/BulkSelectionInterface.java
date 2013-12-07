@@ -289,7 +289,7 @@ public final class BulkSelectionInterface extends Activity implements TextWatche
 		if (s.equals("")) return 0;
 		try {
 			return Integer.parseInt(s);
-		} catch (NumberFormatException e) {	}
+		} catch (NumberFormatException ignored) { }
 		return 0;
 	}
 

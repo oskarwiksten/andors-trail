@@ -144,7 +144,7 @@ public final class WorldSetup {
 	private void createNewWorld() {
 		Context ctx = androidContext.get();
 		world.model = new ModelContainer();
-		world.model.player.initializeNewPlayer(world.itemTypes, world.dropLists, newHeroName);
+		world.model.player.initializeNewPlayer(world.dropLists, newHeroName);
 
 		controllers.actorStatsController.recalculatePlayerStats(world.model.player);
 		controllers.movementController.respawnPlayer(ctx.getResources());
@@ -152,7 +152,7 @@ public final class WorldSetup {
 	}
 
 
-	public interface OnSceneLoadedListener {
+	public static interface OnSceneLoadedListener {
 		void onSceneLoaded();
 		void onSceneLoadFailed(Savegames.LoadSavegameResult loadResult);
 	}

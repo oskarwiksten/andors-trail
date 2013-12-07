@@ -84,9 +84,9 @@ public final class LayeredTileMap {
 	private static ColorMatrixColorFilter createGrayScaleColorFilter(float blackOpacity) {
 		final float f = blackOpacity;
 		return new ColorMatrixColorFilter(new float[] {
-			f,	 0.00f, 0.00f, 0.0f, 0.0f,
-			0.00f, f,	 0.00f, 0.0f, 0.0f,
-			0.00f, 0.00f, f,	 0.0f, 0.0f,
+			f,     0.00f, 0.00f, 0.0f, 0.0f,
+			0.00f, f,     0.00f, 0.0f, 0.0f,
+			0.00f, 0.00f, f,     0.0f, 0.0f,
 			0.00f, 0.00f, 0.00f, 1.0f, 0.0f
 		});
 	}

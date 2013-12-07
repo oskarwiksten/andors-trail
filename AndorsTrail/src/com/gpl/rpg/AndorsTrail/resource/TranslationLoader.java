@@ -56,7 +56,7 @@ public final class TranslationLoader {
 		if (parser == null) return;
 		try {
 			parser.close();
-		} catch (IOException e) { }
+		} catch (IOException ignored) { }
 	}
 
 	public String translateItemCategoryName(String s) { return tr(s); }

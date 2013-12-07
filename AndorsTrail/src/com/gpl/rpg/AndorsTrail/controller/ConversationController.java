@@ -282,7 +282,7 @@ public final class ConversationController {
 		private final WorldContext world;
 		private final ControllerContext controllers;
 		private final Player player;
-		private String phraseID;
+		private String currentPhraseID;
 		private Phrase currentPhrase;
 		private Monster npc;
 		public final ConversationStateListener listener;
@@ -296,7 +296,7 @@ public final class ConversationController {
 
 		public void setCurrentNPC(Monster currentNPC) { this.npc = currentNPC; }
 		public Monster getCurrentNPC() { return npc; }
-		public String getCurrentPhraseID() { return phraseID; }
+		public String getCurrentPhraseID() { return currentPhraseID; }
 
 		public void playerSelectedReply(final Resources res, Reply r) {
 			applyReplyEffect(world, r);
@@ -319,7 +319,7 @@ public final class ConversationController {
 		}
 
 		private void setCurrentPhrase(final Resources res, String phraseID) {
-			this.phraseID = phraseID;
+			this.currentPhraseID = phraseID;
 			this.currentPhrase = world.conversationLoader.loadPhrase(phraseID, conversationCollection, res);
 			if (AndorsTrailApplication.DEVELOPMENT_DEBUGMESSAGES) {
 				if (currentPhrase == null) currentPhrase = new Phrase("(phrase \"" + phraseID + "\" not implemented yet)", null, null, null);

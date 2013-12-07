@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public abstract class JsonArrayParserFor<T> extends JsonParserFor<T> {
 	private final Class<T> classType;
 
-	public JsonArrayParserFor(Class<T> classType) {
+	protected JsonArrayParserFor(Class<T> classType) {
 		if (classType == null) throw new IllegalArgumentException("classType for parseArray must not be null");
 		this.classType = classType;
 	}

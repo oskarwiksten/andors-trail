@@ -155,17 +155,17 @@ public final class ConversationActivity
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (handleKeypress(keyCode, event)) return true;
+		if (handleKeypress(keyCode)) return true;
 		else return super.onKeyDown(keyCode, event);
 	}
 
 	@Override
 	public boolean onKey(View arg0, int keyCode, KeyEvent event) {
 		if (event.getAction() != KeyEvent.ACTION_DOWN) return false;
-		return handleKeypress(keyCode, event);
+		return handleKeypress(keyCode);
 	}
 
-	public boolean handleKeypress(int keyCode, KeyEvent event) {
+	public boolean handleKeypress(int keyCode) {
 		int selectedReplyIndex = getSelectedReplyIndex();
 		switch (keyCode) {
 		case KeyEvent.KEYCODE_DPAD_UP:
@@ -274,6 +274,7 @@ public final class ConversationActivity
 
 		@SuppressWarnings("unused")
 		public static final Parcelable.Creator<ConversationStatement> CREATOR = new Parcelable.Creator<ConversationStatement>() {
+			@Override
 			public ConversationStatement createFromParcel(Parcel in) {
 				ConversationStatement result = new ConversationStatement();
 				result.actorName = in.readString();
@@ -285,6 +286,7 @@ public final class ConversationActivity
 				return result;
 			}
 
+			@Override
 			public ConversationStatement[] newArray(int size) {
 				return new ConversationStatement[size];
 			}

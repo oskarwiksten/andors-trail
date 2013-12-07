@@ -17,7 +17,7 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.InflaterInputStream;
 
 public final class TMXMapFileParser {
-	public static final int TILESIZE = 32;
+	private static final int TILESIZE = 32;
 
 	public static TMXObjectMap readObjectMap(Resources r, int xmlResourceId, String name) {
 		return readObjectMap(r.getXml(xmlResourceId), xmlResourceId, name);
@@ -39,6 +39,7 @@ public final class TMXMapFileParser {
 					if (s.equals("map")) {
 						readMapValues(xrp, name, map);
 						XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
+							@Override
 							public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 								if (tagName.equals("objectgroup")) {
 									map.objectGroups.add(readTMXObjectGroup(xrp));
@@ -90,6 +91,7 @@ public final class TMXMapFileParser {
 					if (s.equals("map")) {
 						readMapValues(xrp, name, map);
 						XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
+							@Override
 							public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 								if (tagName.equals("tileset")) {
 									tileSets.add(readTMXTileSet(xrp));
@@ -117,7 +119,7 @@ public final class TMXMapFileParser {
 	}
 
 
-	private static TMXTileSet readTMXTileSet(XmlResourceParser xrp) throws XmlPullParserException, IOException {
+	private static TMXTileSet readTMXTileSet(XmlResourceParser xrp) {
 		final TMXTileSet ts = new TMXTileSet();
 		ts.firstgid = xrp.getAttributeIntValue(null, "firstgid", 1);
 		ts.name = xrp.getAttributeValue(null, "name");
@@ -138,6 +140,7 @@ public final class TMXMapFileParser {
 		final TMXObjectGroup group = new TMXObjectGroup();
 		group.name = xrp.getAttributeValue(null, "name");
 		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
+			@Override
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("object")) {
 					group.objects.add(readTMXObject(xrp));
@@ -156,6 +159,7 @@ public final class TMXMapFileParser {
 		object.width = xrp.getAttributeIntValue(null, "width", -1);
 		object.height = xrp.getAttributeIntValue(null, "height", -1);
 		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
+			@Override
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("property")) {
 					object.properties.add(readTMXProperty(xrp));
@@ -170,6 +174,7 @@ public final class TMXMapFileParser {
 		layer.name = xrp.getAttributeValue(null, "name");
 		layer.gids = new int[width][height];
 		XmlResourceParserUtils.readCurrentTagUntilEnd(xrp, new XmlResourceParserUtils.TagHandler() {
+			@Override
 			public void handleTag(XmlResourceParser xrp, String tagName) throws XmlPullParserException, IOException {
 				if (tagName.equals("data")) {
 					readTMXMapLayerData(xrp, layer, width, height);

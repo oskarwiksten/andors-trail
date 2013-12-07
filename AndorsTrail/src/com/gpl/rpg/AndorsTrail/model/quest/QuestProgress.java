@@ -27,6 +27,6 @@ public final class QuestProgress {
 
 	@Override
 	public String toString() {
-		return questID + ":" + progress;
+		return questID + ':' + progress;
 	}
 }
