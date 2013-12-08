@@ -7,6 +7,7 @@ import android.os.Message;
 import android.util.FloatMath;
 
 import com.gpl.rpg.AndorsTrail.AndorsTrailPreferences;
+import com.gpl.rpg.AndorsTrail.R;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.controller.VisualEffectController.VisualEffectCompletedCallback;
@@ -23,7 +24,6 @@ import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.map.MonsterSpawnArea;
 import com.gpl.rpg.AndorsTrail.resource.VisualEffectCollection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
 
 public final class CombatController implements VisualEffectCompletedCallback {
 	private final ControllerContext controllers;
@@ -43,6 +43,57 @@ public final class CombatController implements VisualEffectCompletedCallback {
 
 	public static enum BeginTurnAs {
 		player, monsters, continueLastTurn
+	}
+
+	public static enum EncounterDifficulty {
+		VERY_EASY	(80, R.string.monster_difficulty_veryeasy),
+		EASY		(60, R.string.monster_difficulty_easy),
+		NORMAL		(40, R.string.monster_difficulty_normal),
+		HARD		(20, R.string.monster_difficulty_hard),
+		VERY_HARD	(1,  R.string.monster_difficulty_impossible),
+		IMPOSSIBLE	(0,  R.string.monster_difficulty_veryhard);
+
+		private static EncounterDifficulty all[];
+
+		static {
+			all = new EncounterDifficulty[6];
+			all[0] = VERY_EASY;
+			all[1] = EASY;
+			all[2] = HARD;
+			all[3] = VERY_HARD;
+			all[4] = NORMAL;
+			all[5] = IMPOSSIBLE;
+		}
+
+		public static EncounterDifficulty getByRating(int rating) {
+			for (EncounterDifficulty ed : all) {
+				if (rating >= ed.threshold)
+					return ed;
+			}
+			return IMPOSSIBLE;
+		}
+
+		public static EncounterDifficulty getByIndex(int index) {
+			if (index < 0 || index > 5)
+				return null;
+			return all[index];
+		}
+
+		private int resourceID;
+		private int threshold;
+
+		private EncounterDifficulty(int threshold, int resourceID) {
+			this.resourceID = resourceID;
+			this.threshold = threshold;
+		}
+
+		public int getResourceID() {
+			return resourceID;
+		}
+
+		public int getThreshold() {
+			return threshold;
+		}
 	}
 
 	public void enterCombat(BeginTurnAs whoseTurn) {

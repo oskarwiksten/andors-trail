@@ -6,6 +6,7 @@ import android.content.res.Resources;
 
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
+import com.gpl.rpg.AndorsTrail.controller.CombatController.EncounterDifficulty;
 import com.gpl.rpg.AndorsTrail.controller.listeners.MapLayoutListeners;
 import com.gpl.rpg.AndorsTrail.controller.listeners.WorldEventListeners;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
@@ -18,7 +19,6 @@ import com.gpl.rpg.AndorsTrail.model.map.MapObject;
 import com.gpl.rpg.AndorsTrail.model.map.PredefinedMap;
 import com.gpl.rpg.AndorsTrail.model.map.ReplaceableMapSection;
 import com.gpl.rpg.AndorsTrail.util.Coord;
-import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
 
 public final class MapController {
 

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import com.gpl.rpg.AndorsTrail.util.EncounterDifficulty;
+import com.gpl.rpg.AndorsTrail.controller.CombatController.EncounterDifficulty;
 
 public final class AndorsTrailPreferences {
 	public static final int DISPLAYLOOT_DIALOG_ALWAYS = 0;
