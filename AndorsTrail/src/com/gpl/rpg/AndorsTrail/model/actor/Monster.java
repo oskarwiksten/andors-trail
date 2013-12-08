@@ -93,14 +93,14 @@ public final class Monster extends Actor {
 
 	// ====== PARCELABLE ===================================================================
 
-	public static Monster readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	public static Monster newFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		String monsterTypeId = src.readUTF();
 		if (fileversion < 20) {
 			monsterTypeId = monsterTypeId.replace(' ', '_').replace("\\'", "").toLowerCase();
 		}
 		MonsterType monsterType = world.monsterTypes.getMonsterType(monsterTypeId);
 
-		if (fileversion < 25) return LegacySavegameFormatReaderForMonster.readFromParcel_pre_v25(src, fileversion, monsterType);
+		if (fileversion < 25) return LegacySavegameFormatReaderForMonster.newFromParcel_pre_v25(src, fileversion, monsterType);
 
 		return new Monster(src, world, fileversion, monsterType);
 	}
@@ -141,12 +141,12 @@ public final class Monster extends Actor {
 		this.forceAggressive = src.readBoolean();
 		if (fileversion >= 31) {
 			if (src.readBoolean()) {
-				this.shopItems = new ItemContainer(src, world, fileversion);
+				this.shopItems = ItemContainer.newFromParcel(src, world, fileversion);
 			}
 		}
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeUTF(getMonsterTypeID());
 		if (attackCost == monsterType.attackCost
 				&& attackChance == monsterType.attackChance
@@ -163,23 +163,23 @@ public final class Monster extends Actor {
 			dest.writeInt(attackChance);
 			dest.writeInt(criticalSkill);
 			dest.writeFloat(criticalMultiplier);
-			damagePotential.writeToParcel(dest, flags);
+			damagePotential.writeToParcel(dest);
 			dest.writeInt(blockChance);
 			dest.writeInt(damageResistance);
 		}
-		ap.writeToParcel(dest, flags);
-		health.writeToParcel(dest, flags);
-		position.writeToParcel(dest, flags);
+		ap.writeToParcel(dest);
+		health.writeToParcel(dest);
+		position.writeToParcel(dest);
 		dest.writeInt(conditions.size());
 		for (ActorCondition c : conditions) {
-			c.writeToParcel(dest, flags);
+			c.writeToParcel(dest);
 		}
 		dest.writeInt(moveCost);
 
 		dest.writeBoolean(forceAggressive);
 		if (shopItems != null) {
 			dest.writeBoolean(true);
-			shopItems.writeToParcel(dest, flags);
+			shopItems.writeToParcel(dest);
 		} else {
 			dest.writeBoolean(false);
 		}

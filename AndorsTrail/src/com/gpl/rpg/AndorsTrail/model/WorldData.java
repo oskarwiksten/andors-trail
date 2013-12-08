@@ -48,7 +48,7 @@ public final class WorldData {
 		}
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeLong(worldTime);
 		dest.writeInt(timers.size());
 		for(Map.Entry<String, Long> e : timers.entrySet()) {

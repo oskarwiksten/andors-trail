@@ -39,7 +39,7 @@ public final class ActorCondition {
 		this.duration = src.readInt();
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeUTF(conditionType.conditionTypeID);
 		dest.writeInt(magnitude);
 		dest.writeInt(duration);

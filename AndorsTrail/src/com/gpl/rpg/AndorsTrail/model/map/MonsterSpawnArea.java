@@ -125,15 +125,15 @@ public final class MonsterSpawnArea {
 		if (fileversion >= 41) isSpawning = src.readBoolean();
 		quantity.current = src.readInt();
 		for(int i = 0; i < quantity.current; ++i) {
-			monsters.add(Monster.readFromParcel(src, world, fileversion));
+			monsters.add(Monster.newFromParcel(src, world, fileversion));
 		}
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeBoolean(isSpawning);
 		dest.writeInt(monsters.size());
 		for (Monster m : monsters) {
-			m.writeToParcel(dest, flags);
+			m.writeToParcel(dest);
 		}
 	}
 }

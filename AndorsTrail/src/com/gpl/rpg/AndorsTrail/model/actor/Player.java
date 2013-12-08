@@ -260,7 +260,7 @@ public final class Player extends Actor {
 
 	// ====== PARCELABLE ===================================================================
 
-	public static Player readFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
+	public static Player newFromParcel(DataInputStream src, WorldContext world, ControllerContext controllers, int fileversion) throws IOException {
 		Player player = new Player(src, world, fileversion);
 		LegacySavegameFormatReaderForPlayer.upgradeSavegame(player, world, controllers, fileversion);
 		return player;
@@ -356,7 +356,7 @@ public final class Player extends Actor {
 		}
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeInt(baseTraits.iconID);
 		dest.writeInt(baseTraits.maxAP);
 		dest.writeInt(baseTraits.maxHP);
@@ -366,23 +366,23 @@ public final class Player extends Actor {
 		dest.writeInt(baseTraits.attackChance);
 		dest.writeInt(baseTraits.criticalSkill);
 		dest.writeFloat(baseTraits.criticalMultiplier);
-		baseTraits.damagePotential.writeToParcel(dest, flags);
+		baseTraits.damagePotential.writeToParcel(dest);
 		dest.writeInt(baseTraits.blockChance);
 		dest.writeInt(baseTraits.damageResistance);
 		dest.writeInt(baseTraits.moveCost);
 
-		ap.writeToParcel(dest, flags);
-		health.writeToParcel(dest, flags);
-		position.writeToParcel(dest, flags);
+		ap.writeToParcel(dest);
+		health.writeToParcel(dest);
+		position.writeToParcel(dest);
 		dest.writeInt(conditions.size());
 		for (ActorCondition c : conditions) {
-			c.writeToParcel(dest, flags);
+			c.writeToParcel(dest);
 		}
-		lastPosition.writeToParcel(dest, flags);
-		nextPosition.writeToParcel(dest, flags);
+		lastPosition.writeToParcel(dest);
+		nextPosition.writeToParcel(dest);
 		dest.writeInt(level);
 		dest.writeInt(totalExperience);
-		inventory.writeToParcel(dest, flags);
+		inventory.writeToParcel(dest);
 		dest.writeInt(baseTraits.useItemCost);
 		dest.writeInt(baseTraits.reequipCost);
 		dest.writeInt(skillLevels.size());

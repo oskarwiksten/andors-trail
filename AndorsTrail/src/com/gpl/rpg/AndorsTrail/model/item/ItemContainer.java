@@ -35,7 +35,7 @@ public class ItemContainer {
 			this.quantity = src.readInt();
 		}
 
-		public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+		public void writeToParcel(DataOutputStream dest) throws IOException {
 			dest.writeUTF(itemType.id);
 			dest.writeInt(quantity);
 		}
@@ -119,11 +119,13 @@ public class ItemContainer {
 
 	// ====== PARCELABLE ===================================================================
 
-	public ItemContainer(DataInputStream src, WorldContext world, int fileversion) throws IOException {
-		readFromParcel(src, world, fileversion);
+	public static ItemContainer newFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+		ItemContainer result = new ItemContainer();
+		result.readFromParcel(src, world, fileversion);
+		return result;
 	}
 
-	public void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	protected void readFromParcel(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		items.clear();
 		final int size = src.readInt();
 		for(int i = 0; i < size; ++i) {
@@ -132,10 +134,10 @@ public class ItemContainer {
 		}
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeInt(items.size());
 		for (ItemEntry e : items) {
-			e.writeToParcel(dest, flags);
+			e.writeToParcel(dest);
 		}
 	}
 }

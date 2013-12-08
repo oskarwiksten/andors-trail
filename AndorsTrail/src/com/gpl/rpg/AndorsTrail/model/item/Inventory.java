@@ -123,8 +123,8 @@ public final class Inventory extends ItemContainer {
 	}
 
 	@Override
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
-		super.writeToParcel(dest, flags);
+	public void writeToParcel(DataOutputStream dest) throws IOException {
+		super.writeToParcel(dest);
 		dest.writeInt(gold);
 		dest.writeInt(NUM_WORN_SLOTS);
 		for(int i = 0; i < NUM_WORN_SLOTS; ++i) {

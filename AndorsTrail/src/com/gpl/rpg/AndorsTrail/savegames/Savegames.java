@@ -94,10 +94,9 @@ public final class Savegames {
 
 	public static void saveWorld(WorldContext world, OutputStream outStream, String displayInfo) throws IOException {
 		DataOutputStream dest = new DataOutputStream(outStream);
-		final int flags = 0;
 		FileHeader.writeToParcel(dest, world.model.player.getName(), displayInfo);
-		world.maps.writeToParcel(dest, world, flags);
-		world.model.writeToParcel(dest, flags);
+		world.maps.writeToParcel(dest, world);
+		world.model.writeToParcel(dest);
 		dest.close();
 	}
 

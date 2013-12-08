@@ -43,7 +43,7 @@ public final class Coord {
 		this.y = src.readInt();
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeInt(x);
 		dest.writeInt(y);
 	}

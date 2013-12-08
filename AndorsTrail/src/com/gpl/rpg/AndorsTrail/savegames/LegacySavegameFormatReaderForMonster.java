@@ -8,7 +8,7 @@ import java.io.DataInputStream;
 import java.io.IOException;
 
 public final class LegacySavegameFormatReaderForMonster {
-	public static Monster readFromParcel_pre_v25(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
+	public static Monster newFromParcel_pre_v25(DataInputStream src, int fileversion, MonsterType monsterType) throws IOException {
 		Monster m = new Monster(monsterType);
 		m.position.set(new Coord(src, fileversion));
 		m.ap.current = src.readInt();

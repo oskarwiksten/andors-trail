@@ -163,7 +163,7 @@ public final class GameStatistics {
 		this.spentGold = src.readInt();
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeInt(deaths);
 		Set<Entry<String, Integer> > set = killedMonsters.entrySet();
 		dest.writeInt(set.size());

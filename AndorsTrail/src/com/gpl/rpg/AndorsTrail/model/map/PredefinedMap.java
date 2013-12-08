@@ -269,16 +269,16 @@ public final class PredefinedMap {
 		return false;
 	}
 
-	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest, WorldContext world) throws IOException {
 		if (shouldSaveMapData(world)) {
 			dest.writeBoolean(true);
 			dest.writeInt(spawnAreas.length);
 			for(MonsterSpawnArea a : spawnAreas) {
-				a.writeToParcel(dest, flags);
+				a.writeToParcel(dest);
 			}
 			dest.writeInt(groundBags.size());
 			for(Loot l : groundBags) {
-				l.writeToParcel(dest, flags);
+				l.writeToParcel(dest);
 			}
 			dest.writeLong(lastVisitTime);
 		} else {

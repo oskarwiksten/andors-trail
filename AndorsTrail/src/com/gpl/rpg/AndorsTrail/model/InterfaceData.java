@@ -1,6 +1,5 @@
 package com.gpl.rpg.AndorsTrail.model;
 
-import com.gpl.rpg.AndorsTrail.context.WorldContext;
 import com.gpl.rpg.AndorsTrail.model.actor.Monster;
 import com.gpl.rpg.AndorsTrail.util.Coord;
 
@@ -22,7 +21,7 @@ public final class InterfaceData {
 
 	// ====== PARCELABLE ===================================================================
 
-	public InterfaceData(DataInputStream src, WorldContext world, int fileversion) throws IOException {
+	public InterfaceData(DataInputStream src, int fileversion) throws IOException {
 		this.isMainActivityVisible = src.readBoolean();
 		this.isInCombat = src.readBoolean();
 		final boolean hasSelectedPosition = src.readBoolean();
@@ -34,12 +33,12 @@ public final class InterfaceData {
 		this.selectedTabHeroInfo = src.readUTF();
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeBoolean(isMainActivityVisible);
 		dest.writeBoolean(isInCombat);
 		if (selectedPosition != null) {
 			dest.writeBoolean(true);
-			selectedPosition.writeToParcel(dest, flags);
+			selectedPosition.writeToParcel(dest);
 		} else {
 			dest.writeBoolean(false);
 		}

@@ -7,7 +7,6 @@ import com.gpl.rpg.AndorsTrail.util.Coord;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.util.Collection;
 
 public final class Loot {
 	public int exp = 0;
@@ -58,14 +57,6 @@ public final class Loot {
 		}
 		return result;
 	}
-	public static boolean hasItems(Collection<Loot> lootBags) {
-		if (lootBags == null) return false;
-		if (lootBags.isEmpty()) return false;
-		for (Loot loot : lootBags) {
-			if (loot.hasItems()) return true;
-		}
-		return false;
-	}
 
 	public void clear() {
 		exp = 0;
@@ -79,7 +70,7 @@ public final class Loot {
 	public Loot(DataInputStream src, WorldContext world, int fileversion) throws IOException {
 		this.exp = src.readInt();
 		this.gold = src.readInt();
-		this.items = new ItemContainer(src, world, fileversion);
+		this.items = ItemContainer.newFromParcel(src, world, fileversion);
 		if (fileversion < 23) LegacySavegameFormatReaderForItemContainer.refundUpgradedItems(this);
 
 		this.position = new Coord(src, fileversion);
@@ -90,11 +81,11 @@ public final class Loot {
 		this.isVisible = src.readBoolean();
 	}
 
-	public void writeToParcel(DataOutputStream dest, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeInt(exp);
 		dest.writeInt(gold);
-		items.writeToParcel(dest, flags);
-		position.writeToParcel(dest, flags);
+		items.writeToParcel(dest);
+		position.writeToParcel(dest);
 		dest.writeBoolean(isVisible);
 	}
 }

@@ -88,7 +88,7 @@ public final class MapCollection {
 		return false;
 	}
 
-	public void writeToParcel(DataOutputStream dest, WorldContext world, int flags) throws IOException {
+	public void writeToParcel(DataOutputStream dest, WorldContext world) throws IOException {
 		List<PredefinedMap> mapsToExport = new ArrayList<PredefinedMap>();
 		for(PredefinedMap map : getAllMaps()) {
 			if (shouldSaveMap(world, map)) mapsToExport.add(map);
@@ -96,7 +96,7 @@ public final class MapCollection {
 		dest.writeInt(mapsToExport.size());
 		for(PredefinedMap map : mapsToExport) {
 			dest.writeUTF(map.name);
-			map.writeToParcel(dest, world, flags);
+			map.writeToParcel(dest, world);
 		}
 	}
 }
