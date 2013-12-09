@@ -240,38 +240,38 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		controllers.mapController.handleMapEventsAfterMovement(currentMap, newPosition, player.lastPosition);
 
-		doAutoAttack();
-
-		if (!world.model.uiSelections.isInCombat) {
+		if (!doAutoAttack() && !world.model.uiSelections.isInCombat) {
 			Loot loot = currentMap.getBagAt(newPosition);
 			if (loot != null) controllers.itemController.playerSteppedOnLootBag(loot);
 		}
 	}
 
-	public void doAutoAttack() {
+	public boolean doAutoAttack() {
 		EncounterDifficulty autoAttack = controllers.preferences.autoAttackThreshold;
 		if (world.model.uiSelections.isInCombat || autoAttack == null)
-			return;
+			return false;
 
 		ArrayList<Monster> targets = getAdjacentAggressiveMonsters(world.model.currentMap, world.model.player);
 
 		if (targets.isEmpty())
-			return;
+			return false;
 
 		// HACK: I can't figure out how to reliably assure monsters have had a chance to attack
 		// first since they run on separate timers. Thus, we'll explicitly run it here.
 		if (controllers.monsterMovementController.attackWithAgressiveMonsters(targets))
-			return;
+			return false;
 
 		// If any are greater than the specified difficulty threshold then exit
 		for (Monster m : targets) {
 			EncounterDifficulty diff = controllers.combatController.getMonsterDifficulty(m); 
 			if (diff.compareTo(autoAttack) > 0)
-				return;
+				return false;
 		}
 
 		Monster m = targets.get(Constants.rnd.nextInt(targets.size()));
 		controllers.mapController.steppedOnMonster(m, m.position);
+
+		return true;
 	}
 
 	public void respawnPlayer(Resources res) {

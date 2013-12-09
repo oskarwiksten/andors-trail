@@ -63,7 +63,7 @@ public final class AndorsTrailPreferences {
 			dest.confirmRest = prefs.getBoolean("confirm_rest", true);
 			dest.confirmAttackThreshold = EncounterDifficulty.getByIndex(Integer.parseInt(prefs.getString("confirm_attack_threshold", Integer.toString(0))) - 1);
 			dest.autoAttackThreshold = EncounterDifficulty.getByIndex(Integer.parseInt(prefs.getString("auto_attack_threshold", Integer.toString(0))) - 1);
-			dest.displayLoot = Integer.parseInt(prefs.getString("display_lootdialog",  Integer.toString(DISPLAYLOOT_DIALOG_ALWAYS)));
+			dest.displayLoot = Integer.parseInt(prefs.getString("display_lootdialog", Integer.toString(DISPLAYLOOT_DIALOG_ALWAYS)));
 			dest.fullscreen = prefs.getBoolean("fullscreen", true);
 			dest.attackspeed_milliseconds = Integer.parseInt(prefs.getString("attackspeed", "1000"));
 			dest.movementMethod = Integer.parseInt(prefs.getString("movementmethod", Integer.toString(MOVEMENTMETHOD_STRAIGHT)));
