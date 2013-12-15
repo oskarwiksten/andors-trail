@@ -9,10 +9,12 @@ public class ATSLocalVarsHelper {
 	public int maxNumNeeded = 0;
 	public int maxBoolNeeded = 0;
 	public int maxStringNeeded = 0;
+	public int maxObjectNeeded = 0;
 	
 	public Stack<Integer> numIndexInScope = new Stack<Integer>();
 	public Stack<Integer> boolIndexInScope = new Stack<Integer>();
 	public Stack<Integer> stringIndexInScope = new Stack<Integer>();
+	public Stack<Integer> objectIndexInScope = new Stack<Integer>();
 	
 	public Stack<Map<String, ATSLocalVarReference>> variablesInScope = new Stack<Map<String,ATSLocalVarReference>>();
 
@@ -20,6 +22,7 @@ public class ATSLocalVarsHelper {
 		numIndexInScope.push(maxNumNeeded);
 		boolIndexInScope.push(maxBoolNeeded);
 		stringIndexInScope.push(maxStringNeeded);
+		objectIndexInScope.push(maxObjectNeeded);
 		
 		variablesInScope.push(new HashMap<String, ATSLocalVarReference>());
 	}
@@ -28,6 +31,7 @@ public class ATSLocalVarsHelper {
 		numIndexInScope.push(numIndexInScope.peek());
 		boolIndexInScope.push(boolIndexInScope.peek());
 		stringIndexInScope.push(stringIndexInScope.peek());
+		objectIndexInScope.push(objectIndexInScope.peek());
 		
 		variablesInScope.push(new HashMap<String, ATSLocalVarReference>(variablesInScope.peek()));
 	}
@@ -36,6 +40,7 @@ public class ATSLocalVarsHelper {
 		maxNumNeeded = Math.max(maxNumNeeded, numIndexInScope.pop());
 		maxBoolNeeded = Math.max(maxBoolNeeded, boolIndexInScope.pop());
 		maxStringNeeded = Math.max(maxStringNeeded, stringIndexInScope.pop());
+		maxObjectNeeded = Math.max(maxObjectNeeded, objectIndexInScope.pop());
 		
 		variablesInScope.pop();
 	}
@@ -60,6 +65,14 @@ public class ATSLocalVarsHelper {
 		int index = stringIndexInScope.pop();
 		ATSLocalVarReference varRef = new ATSLocalVarReference(ATSLocalVarReference.VarType.string, index);
 		stringIndexInScope.push(++index);
+		variablesInScope.peek().put(name, varRef);
+		return varRef;
+	}
+
+	public ATSLocalVarReference newObjectVariable(String name) {
+		int index = stringIndexInScope.pop();
+		ATSLocalVarReference varRef = new ATSLocalVarReference(ATSLocalVarReference.VarType.object, index);
+		objectIndexInScope.push(++index);
 		variablesInScope.peek().put(name, varRef);
 		return varRef;
 	}

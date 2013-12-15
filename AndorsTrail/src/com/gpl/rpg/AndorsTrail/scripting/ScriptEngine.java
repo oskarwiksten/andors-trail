@@ -124,7 +124,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		context.player = world.model.player;
 		context.actor = world.model.player;
 		for (Script script : mapOnEnter) {
-			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 	}
@@ -136,7 +136,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		context.player = world.model.player;
 		context.actor = world.model.player;
 		for (Script script : mapOnLeave) {
-			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 	
@@ -157,7 +157,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		context.player = p;
 		context.actor = p;
 		for (Script script : playerStatsUpdated) {
-			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 		
@@ -204,7 +204,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		context.player = world.model.player;
 		context.actor = world.model.player;
 		for (Script script : itemUsed) {
-			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 		
@@ -214,7 +214,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
 				if (script.trigger.event != ScriptTrigger.Events.onUse) continue;
 				context.item = item;
-				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 				script.scriptASTRoot.evaluate(context);
 			}
 		}
@@ -234,7 +234,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		context.actor = world.model.player;
 		context.slot = slot.name();
 		for (Script script : itemEquipped) {
-			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 		
@@ -244,7 +244,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
 				if (script.trigger.event != ScriptTrigger.Events.onEquip) continue;
 				context.item = item;
-				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 				script.scriptASTRoot.evaluate(context);
 			}
 		}
@@ -265,7 +265,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 		context.actor = world.model.player;
 		context.slot = slot.name();
 		for (Script script : itemUnequipped) {
-			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+			context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 			script.scriptASTRoot.evaluate(context);
 		}
 		
@@ -275,7 +275,7 @@ public class ScriptEngine implements PlayerMovementListener, ActorConditionListe
 				if (script.trigger.category != ScriptTrigger.Categories.item) continue;
 				if (script.trigger.event != ScriptTrigger.Events.onUnequip) continue;
 				context.item = item;
-				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize);
+				context.initializeLocalVars(script.localBoolsSize, script.localNumsSize, script.localStringsSize, script.localObjectsSize);
 				script.scriptASTRoot.evaluate(context);
 			}
 		}

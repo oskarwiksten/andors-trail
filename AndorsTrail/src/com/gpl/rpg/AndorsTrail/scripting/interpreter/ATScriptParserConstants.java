@@ -83,77 +83,113 @@ public interface ATScriptParserConstants {
   /** RegularExpression Id. */
   int OUTDOOR = 40;
   /** RegularExpression Id. */
-  int CURRENT = 41;
+  int ACTIVATEGROUP = 41;
   /** RegularExpression Id. */
-  int SOURCE = 42;
+  int DEACTIVATEGROUP = 42;
   /** RegularExpression Id. */
-  int TARGET = 43;
+  int GETMAP = 43;
   /** RegularExpression Id. */
-  int DAMAGE = 44;
+  int CURRENT = 44;
   /** RegularExpression Id. */
-  int CATEGORY = 45;
+  int SOURCE = 45;
   /** RegularExpression Id. */
-  int REWARD = 46;
+  int TARGET = 46;
   /** RegularExpression Id. */
-  int ADDCONDITION = 47;
+  int DAMAGE = 47;
   /** RegularExpression Id. */
-  int CLEARCONDITION = 48;
+  int CATEGORY = 48;
   /** RegularExpression Id. */
-  int ACTORCONDITIONS = 49;
+  int REWARD = 49;
   /** RegularExpression Id. */
-  int TOSOURCE = 50;
+  int ADDCONDITION = 50;
   /** RegularExpression Id. */
-  int TOTARGET = 51;
+  int CLEARCONDITION = 51;
   /** RegularExpression Id. */
-  int BASE = 52;
+  int GETITEMCOUNT = 52;
   /** RegularExpression Id. */
-  int MAXHP = 53;
+  int GIVEITEM = 53;
   /** RegularExpression Id. */
-  int MAXAP = 54;
+  int REMOVEITEM = 54;
   /** RegularExpression Id. */
-  int MOVECOST = 55;
+  int GETITEMINSLOT = 55;
   /** RegularExpression Id. */
-  int EQUIPCOST = 56;
+  int EQUIPITEMINSLOT = 56;
   /** RegularExpression Id. */
-  int USECOST = 57;
+  int UNEQUIPSLOT = 57;
   /** RegularExpression Id. */
-  int ID = 58;
+  int HASQUESTPROGRESS = 58;
   /** RegularExpression Id. */
-  int HP = 59;
+  int ADDQUESTPROGRESS = 59;
   /** RegularExpression Id. */
-  int AP = 60;
+  int ACTORCONDITIONS = 60;
   /** RegularExpression Id. */
-  int AC = 61;
+  int TOSOURCE = 61;
   /** RegularExpression Id. */
-  int AD = 62;
+  int TOTARGET = 62;
   /** RegularExpression Id. */
-  int BC = 63;
+  int BASE = 63;
   /** RegularExpression Id. */
-  int DR = 64;
+  int MAXHP = 64;
   /** RegularExpression Id. */
-  int CC = 65;
+  int MAXAP = 65;
   /** RegularExpression Id. */
-  int CM = 66;
+  int MOVECOST = 66;
   /** RegularExpression Id. */
-  int MIN = 67;
+  int EQUIPCOST = 67;
   /** RegularExpression Id. */
-  int MAX = 68;
+  int USECOST = 68;
   /** RegularExpression Id. */
-  int CUR = 69;
+  int ADDEXPERIENCE = 69;
   /** RegularExpression Id. */
-  int BOOL = 70;
+  int LEVEL = 70;
   /** RegularExpression Id. */
-  int NUM = 71;
+  int TOTALEXP = 71;
   /** RegularExpression Id. */
-  int STRING = 72;
+  int CURRENTEXP = 72;
   /** RegularExpression Id. */
-  int IDENTIFIER = 73;
+  int ADDALIGNMENT = 73;
   /** RegularExpression Id. */
-  int ESCAPED_DQUO = 74;
+  int GETALIGNMENT = 74;
   /** RegularExpression Id. */
-  int DQUOBIS = 75;
+  int ID = 75;
   /** RegularExpression Id. */
-  int LITERAL_VALUE = 76;
+  int HP = 76;
+  /** RegularExpression Id. */
+  int AP = 77;
+  /** RegularExpression Id. */
+  int AC = 78;
+  /** RegularExpression Id. */
+  int AD = 79;
+  /** RegularExpression Id. */
+  int BC = 80;
+  /** RegularExpression Id. */
+  int DR = 81;
+  /** RegularExpression Id. */
+  int CC = 82;
+  /** RegularExpression Id. */
+  int CM = 83;
+  /** RegularExpression Id. */
+  int MIN = 84;
+  /** RegularExpression Id. */
+  int MAX = 85;
+  /** RegularExpression Id. */
+  int CUR = 86;
+  /** RegularExpression Id. */
+  int BOOL = 87;
+  /** RegularExpression Id. */
+  int NUM = 88;
+  /** RegularExpression Id. */
+  int STRING = 89;
+  /** RegularExpression Id. */
+  int OBJECT = 90;
+  /** RegularExpression Id. */
+  int IDENTIFIER = 91;
+  /** RegularExpression Id. */
+  int ESCAPED_DQUO = 92;
+  /** RegularExpression Id. */
+  int DQUOBIS = 93;
+  /** RegularExpression Id. */
+  int LITERAL_VALUE = 94;
 
   /** Lexical state. */
   int DEFAULT = 0;
@@ -203,6 +239,9 @@ public interface ATScriptParserConstants {
     "\"actor\"",
     "\"item\"",
     "\"outdoor\"",
+    "\"activateGroup\"",
+    "\"deactivateGroup\"",
+    "\"getMap\"",
     "\"current\"",
     "\"source\"",
     "\"target\"",
@@ -211,6 +250,14 @@ public interface ATScriptParserConstants {
     "\"reward\"",
     "\"addActorCondition\"",
     "\"clearActorCondition\"",
+    "\"getItemCount\"",
+    "\"giveItem\"",
+    "\"removeItem\"",
+    "\"getItemInSlot\"",
+    "\"equipItemInSlot\"",
+    "\"unequipSlot\"",
+    "\"hasQuestProgress\"",
+    "\"addQuestProgress\"",
     "\"actorConditions\"",
     "\"toSource\"",
     "\"toTarget\"",
@@ -220,6 +267,12 @@ public interface ATScriptParserConstants {
     "\"moveCost\"",
     "\"equipCost\"",
     "\"useCost\"",
+    "\"addExperience\"",
+    "\"level\"",
+    "\"totalExp\"",
+    "\"currentExp\"",
+    "\"addAlignment\"",
+    "\"getAlignment\"",
     "\"id\"",
     "\"hp\"",
     "\"ap\"",
@@ -235,6 +288,7 @@ public interface ATScriptParserConstants {
     "\"bool\"",
     "\"num\"",
     "\"string\"",
+    "\"object\"",
     "<IDENTIFIER>",
     "\"\\\\\\\"\"",
     "\"\\\"\"",

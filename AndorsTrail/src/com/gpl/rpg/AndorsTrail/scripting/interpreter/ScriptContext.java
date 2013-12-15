@@ -16,6 +16,7 @@ public class ScriptContext {
 	public Double[] localNums;
 	public Boolean[] localBools;
 	public String[] localStrings;
+	public Object[] localObjects;
 	
 	public PredefinedMap map;
 	public Player player;
@@ -34,10 +35,11 @@ public class ScriptContext {
 		this.controllers = controllers;
 	}
 	
-	public void initializeLocalVars(int localBoolsSize, int localNumsSize, int localStringsSize) {
+	public void initializeLocalVars(int localBoolsSize, int localNumsSize, int localStringsSize, int localObjectsSize) {
 		this.localNums = localNumsSize > 0 ? new Double[localNumsSize] : null;
 		this.localBools = localBoolsSize > 0 ? new Boolean[localBoolsSize] : null;
 		this.localStrings = localStringsSize > 0 ? new String[localStringsSize] : null;
+		this.localObjects = localObjectsSize > 0 ? new Object[localObjectsSize] : null;
 	}
 
 }

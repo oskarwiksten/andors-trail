@@ -55,6 +55,9 @@ public class ATScriptParser {
 |	<ACTOR : "actor">
 |	<ITEM : "item">
 |	<OUTDOOR : "outdoor">
+|	<ACTIVATEGROUP : "activateGroup">
+|	<DEACTIVATEGROUP : "deactivateGroup">
+|	<GETMAP : "getMap">
 |	<CURRENT : "current">
 |	<SOURCE : "source">
 |	<TARGET : "target">
@@ -63,7 +66,15 @@ public class ATScriptParser {
 |	<REWARD : "reward">
 |	<ADDCONDITION : "addActorCondition">
 |	<CLEARCONDITION : "clearActorCondition">
-|	<ACTORCONDITIONS : "actorConditions">
+|	<GETITEMCOUNT : "getItemCount">
+|	<GIVEITEM : "giveItem">
+|	<REMOVEITEM : "removeItem">
+|	<GETITEMINSLOT : "getItemInSlot">
+|	<EQUIPITEMINSLOT : "equipItemInSlot">
+|	<UNEQUIPSLOT : "unequipSlot">
+|	<HASQUESTPROGRESS : "hasQuestProgress">
+|	<ADDQUESTPROGRESS : "addQuestProgress">
+|	<ACTORCONDITIONS : "actorConditions"> //TODO
 |	<TOSOURCE : "toSource">
 |	<TOTARGET : "toTarget">
 |	<BASE : "base">
@@ -72,6 +83,12 @@ public class ATScriptParser {
 |	<MOVECOST : "moveCost">
 |	<EQUIPCOST : "equipCost">
 |	<USECOST : "useCost">
+|	<ADDEXPERIENCE : "addExperience">
+|	<LEVEL : "level">
+|	<TOTALEXP : "totalExp">
+|	<CURRENTEXP : "currentExp">
+|	<ADDALIGNMENT : "addAlignment">
+|	<GETALIGNMENT : "getAlignment">
 |	<ID : "id">
 |	<HP : "hp">
 |	<AP : "ap">
@@ -87,6 +104,7 @@ public class ATScriptParser {
 |	<BOOL : "bool">
 |	<NUM : "num">
 |	<STRING : "string">
+|	<OBJECT : "object">
 |	<IDENTIFIER : ["a"-"z","A"-"Z"](["a"-"z","A"-"Z","0"-"9","-","_"])*>}
 
 <LITERAL>
@@ -198,35 +216,47 @@ ATSValueReference localVarDeclaration(ATSLocalVarsHelper localVars) : {
 		}
 		return localVars.newStringVariable(id.image);
 	}
+|	<OBJECT> id = <IDENTIFIER>
+	{
+		if (localVars.getLocalVar(id.image)!=null) {
+			throw new ParseException("ATScript : Duplicate variable "+id.image+" at line "+id.beginLine+" column "+id.beginColumn);
+		}
+		return localVars.newObjectVariable(id.image);
+	}
 }
 
 ATSValueReference contextVarReference(ATSLocalVarsHelper localVars) : {
-	ATSValueReference reference;
+	ATSValueReference reference = null;
 	Token id;
 } {
-	<MAP> <DOT> reference = mapReference(localVars)
+	<MAP> (<DOT> reference = mapReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.map)))?
 	{
-		return reference;
+		if (reference != null) return reference;
+		return new ATSContextObjectReference(ATSContextObjectReference.ContextObject.map);
 	}
 |	<ATTACK> <DOT> reference = attackReference(localVars)
 	{
 		return reference;
 	}
-|	<PLAYER> <DOT> reference = playerReference(localVars)
+|	<PLAYER> (<DOT> reference = playerReference(localVars))?
 	{
-		return reference;
+		if (reference != null) return reference;
+		return new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player);
 	}
-|	<ACTOR>	<DOT> reference = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.actor))
+|	<ACTOR>	(<DOT> reference = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.actor)))?
 	{
-		return reference;
+		if (reference != null) return reference;
+		return new ATSContextObjectReference(ATSContextObjectReference.ContextObject.actor);
 	}
-|	<WORLD>	<DOT> reference = worldReference(localVars)
+|	<WORLD>	(<DOT> reference = worldReference(localVars))?
 	{
-		return reference;
+		if (reference != null) return reference;
+		return new ATSContextObjectReference(ATSContextObjectReference.ContextObject.world);
 	}
-|	<ITEM>	<DOT> reference = itemReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.item))
+|	<ITEM> (<DOT> reference = itemReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.item)))?
 	{
-		return reference;
+		if (reference != null) return reference;
+		return new ATSContextObjectReference(ATSContextObjectReference.ContextObject.item);
 	}
 |	id = <IDENTIFIER>
 	{
@@ -378,11 +408,20 @@ ATSPrimitiveOperation valueOp(ATSLocalVarsHelper localVars, ATSValueReference le
 }
 
 
-ATSValueReference mapReference(ATSLocalVarsHelper localVars) : {
+ATSValueReference mapReference(ATSLocalVarsHelper localVars, ATSValueReference targetInstance) : {
+	ATSValueReference param1;
 } {
 	<OUTDOOR>
 	{
-		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.mapOutdoor, null);
+		return new ATSObjectFieldReference(ATSObjectFieldReference.ObjectFields.mapOutdoor, targetInstance);
+	}
+|	<ACTIVATEGROUP> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.mapActivateGroup, new ATSValueReference[]{param1}, targetInstance);
+	}
+|	<DEACTIVATEGROUP> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.mapDeactivateGroup, new ATSValueReference[]{param1}, targetInstance);
 	}
 }
 
@@ -395,6 +434,7 @@ ATSValueReference attackReference(ATSLocalVarsHelper localVars) : {
 
 ATSValueReference playerReference(ATSLocalVarsHelper localVars) : {
 	ATSValueReference ref;
+	ATSValueReference param1, param2;
 } {
 	ref = actorReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player))
 	{
@@ -403,6 +443,50 @@ ATSValueReference playerReference(ATSLocalVarsHelper localVars) : {
 |	<BASE> <DOT> ref = playerBaseReference(localVars, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player))
 	{
 		return ref;
+	}
+|	<GETITEMCOUNT> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.getItemCount, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<GIVEITEM> <LPAR> param1 = value(localVars) <COMA> param2 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.giveItem, new ATSValueReference[]{param1, param2}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<REMOVEITEM> <LPAR> param1 = value(localVars) <COMA> param2 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.removeItem, new ATSValueReference[]{param1, param2}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<GETITEMINSLOT> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.getItemInSlot, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<EQUIPITEMINSLOT> <LPAR> param1 = value(localVars) <COMA> param2 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.equipItemInSlot, new ATSValueReference[]{param1, param2}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<UNEQUIPSLOT> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.unequipSlot, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<HASQUESTPROGRESS> <LPAR> param1 = value(localVars) <COMA> param2 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.hasQuestProgress, new ATSValueReference[]{param1, param2}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<ADDQUESTPROGRESS> <LPAR> param1 = value(localVars) <COMA> param2 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.addQuestProgress, new ATSValueReference[]{param1, param2}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<ADDEXPERIENCE> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.addExperience, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<ADDALIGNMENT> <LPAR> param1 = value(localVars) <COMA> param2 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.addAlignment, new ATSValueReference[]{param1, param2}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
+	}
+|	<GETALIGNMENT> <LPAR> param1 = value(localVars) <RPAR>
+	{
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.addAlignment, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.player));
 	}
 }
 
@@ -497,9 +581,12 @@ ATSValueReference actorReference(ATSLocalVarsHelper localVars, ATSContextObjectR
 }
 
 ATSValueReference worldReference(ATSLocalVarsHelper localVars) : {
+	ATSValueReference param1, objectCall = null;
 } {
+	<GETMAP> <LPAR> param1 = value(localVars) <RPAR> (<DOT> objectCall = mapReference(localVars, new ATSMethodCall(ATSMethodCall.ObjectMethod.worldGetMap, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.world))))?
 	{
-		return null;
+		if (objectCall != null) return objectCall;
+		return new ATSMethodCall(ATSMethodCall.ObjectMethod.worldGetMap, new ATSValueReference[]{param1}, new ATSContextObjectReference(ATSContextObjectReference.ContextObject.world));
 	}
 }
 

@@ -26,7 +26,7 @@ public final class MapObject {
 	public final String id; //placeName on this map or phraseID
 	public final String map;
 	public final String place;
-	private final String group;
+	public final String group;
 	public final Requirement enteringRequirement;
 	public final DropList dropList;
 	public final MapObjectEvaluationType evaluateWhen;

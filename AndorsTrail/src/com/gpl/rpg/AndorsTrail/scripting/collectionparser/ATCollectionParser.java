@@ -153,11 +153,11 @@ public class ATCollectionParser implements ATCollectionParserConstants {
                 if (code != null) {
                         ATSLocalVarsHelper localVarsRefHelp = new ATSLocalVarsHelper();
                         ATSNode scriptASTRoot = ATScriptParser.parseScript(code.image, localVarsRefHelp);
-                        {if (true) return new Script(id.image, description, trigger, scriptASTRoot, localVarsRefHelp.maxNumNeeded, localVarsRefHelp.maxBoolNeeded, localVarsRefHelp.maxStringNeeded);}
+                        {if (true) return new Script(id.image, description, trigger, scriptASTRoot, localVarsRefHelp.maxNumNeeded, localVarsRefHelp.maxBoolNeeded, localVarsRefHelp.maxStringNeeded, localVarsRefHelp.maxObjectNeeded);}
                 } else {
                         //Dummy script returning 0;
                         ATSNode scriptASTRoot = new ATSReturnStatement(new ATSConstantReference(0));
-                        {if (true) return new Script(id.image, description, trigger, scriptASTRoot, 0, 0, 0);}
+                        {if (true) return new Script(id.image, description, trigger, scriptASTRoot, 0, 0, 0, 0);}
                 }
     throw new Error("Missing return statement in function");
   }

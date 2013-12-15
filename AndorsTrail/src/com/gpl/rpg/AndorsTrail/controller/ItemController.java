@@ -68,7 +68,7 @@ public final class ItemController {
 	}
 
 	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
-		if (!type.isEquippable()) return;
+		if (!type.isEquippable()) return; // WTF ? Useless ? Checkable two lines below by acquiring ItemType from slot, and removing it from signature... 
 		final Player player = world.model.player;
 		if (player.inventory.isEmptySlot(slot)) return;
 

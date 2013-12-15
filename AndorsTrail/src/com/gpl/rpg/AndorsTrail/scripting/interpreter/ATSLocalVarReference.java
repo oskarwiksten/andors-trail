@@ -32,6 +32,16 @@ public class ATSLocalVarReference extends ATSValueReference {
 			public Object evaluate(ScriptContext context, int index) {
 				return context.localStrings[index];
 			}
+		}, 
+		object{
+			@Override
+			public void set(ScriptContext context, Object value, int index) {
+				context.localObjects[index] = value;
+			}
+			@Override
+			public Object evaluate(ScriptContext context, int index) {
+				return context.localObjects[index];
+			}
 		};
 		
 		public abstract void set(ScriptContext context, Object value, int index);
