@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class PathFinder {
 	private final int maxWidth;
 	private final int maxHeight;
-	private final boolean visited[];
+	private final boolean visited[][];
 	private final ListOfCoords visitQueue;
 	private final EvaluateWalkable map;
 
@@ -16,7 +16,7 @@ public class PathFinder {
 		this.maxWidth = maxWidth;
 		this.maxHeight = maxHeight;
 		this.map = map;
-		this.visited = new boolean[maxWidth*maxHeight];
+		this.visited = new boolean[maxWidth][maxHeight];
 		this.visitQueue = new ListOfCoords(maxWidth*maxHeight);
 	}
 
@@ -30,11 +30,15 @@ public class PathFinder {
 
 		Coord measureDistanceTo = from.topLeft;
 		Coord p = nextStep.topLeft;
-		Arrays.fill(visited, false);
+		for(int x=0; x<visited.length; x++) {
+			for(int y=0; y<visited[x].length; y++) {
+				visited[x][y] = false;
+			}
+		}
 		visitQueue.reset();
 
 		visitQueue.push(to.x, to.y, 0);
-		visited[(to.y * maxWidth) + to.x] = true;
+		visited[to.x][to.y] = true;
 
 		while (!visitQueue.isEmpty()) {
 			visitQueue.popFirst(p);
@@ -65,9 +69,8 @@ public class PathFinder {
 		if (x >= maxWidth) return;
 		if (y >= maxHeight) return;
 
-		final int i = (y * maxWidth) + x;
-		if (visited[i]) return;
-		visited[i] = true;
+		if (visited[x][y]) return;
+		visited[x][y] = true;
 		if (!map.isWalkable(r)) return;
 
 		int dx = (measureDistanceTo.x - x);
