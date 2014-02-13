@@ -351,9 +351,10 @@ public final class SkillController {
 				addPercentMaxHPBoost(player, offHandItem, percent, 100);
 				addPercentDamageResistance(player, offHandItem, percent, 100);
 				addPercentMaxAPBoost(player, offHandItem, percent, 100);
-				addPercentMoveCost(player, offHandItem, percent, 100);
-				addPercentReequipCost(player, offHandItem, percent, 100);
-				addPercentUseItemCost(player, offHandItem, percent, 100);
+				//Reversed parameters, as a positive value is a malus for these...
+				addPercentMoveCost(player, offHandItem, 100, percent);
+				addPercentReequipCost(player, offHandItem, 100, percent);
+				addPercentUseItemCost(player, offHandItem, 100, percent);
 				
 			}
 
