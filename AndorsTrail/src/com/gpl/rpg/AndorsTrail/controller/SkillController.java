@@ -349,6 +349,12 @@ public final class SkillController {
 				addPercentDamage(player, offHandItem, percent, 100);
 				addPercentCriticalSkill(player, offHandItem, percent, 100);
 				addPercentMaxHPBoost(player, offHandItem, percent, 100);
+				addPercentDamageResistance(player, offHandItem, percent, 100);
+				addPercentMaxAPBoost(player, offHandItem, percent, 100);
+				addPercentMoveCost(player, offHandItem, percent, 100);
+				addPercentReequipCost(player, offHandItem, percent, 100);
+				addPercentUseItemCost(player, offHandItem, percent, 100);
+				
 			}
 
 			int skillLevelSpecialization = player.getSkillLevel(SkillID.specializationDualWield);
@@ -383,6 +389,31 @@ public final class SkillController {
 	private static void addPercentMaxHPBoost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
 		player.health.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxHP, percentForPositiveValues, percentForNegativeValues));
+	}
+	
+	private static void addPercentDamageResistance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.damageResistance += getPercentage(itemType.effects_equip.stats.increaseDamageResistance, percentForPositiveValues, percentForNegativeValues);
+	}
+	
+	private static void addPercentMaxAPBoost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.ap.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxAP, percentForPositiveValues, percentForNegativeValues));
+	}
+	
+	private static void addPercentMoveCost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.moveCost += getPercentage(itemType.effects_equip.stats.increaseMoveCost, percentForPositiveValues, percentForNegativeValues);
+	}
+	
+	private static void addPercentUseItemCost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.useItemCost += getPercentage(itemType.effects_equip.stats.increaseUseItemCost, percentForPositiveValues, percentForNegativeValues);
+	}
+	
+	private static void addPercentReequipCost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.reequipCost += getPercentage(itemType.effects_equip.stats.increaseReequipCost, percentForPositiveValues, percentForNegativeValues);
 	}
 
 	private static int getPercentage(int originalValue, int percentForPositiveValues, int percentForNegativeValues) {
