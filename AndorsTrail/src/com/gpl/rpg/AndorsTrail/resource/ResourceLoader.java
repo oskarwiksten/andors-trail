@@ -360,6 +360,7 @@ public final class ResourceLoader {
 		loader.prepareTileset(R.drawable.map_transition_2, "map_transition_2", src_mapTileSize, defaultTileSize);
 		loader.prepareTileset(R.drawable.map_transition_3, "map_transition_3", src_mapTileSize, defaultTileSize);
 		loader.prepareTileset(R.drawable.map_transition_4, "map_transition_4", src_mapTileSize, defaultTileSize);
+		loader.prepareTileset(R.drawable.map_transition_5, "map_transition_5", src_mapTileSize, defaultTileSize);
 		loader.prepareTileset(R.drawable.map_tree_1, "map_tree_1", src_mapTileSize, defaultTileSize);
 		loader.prepareTileset(R.drawable.map_tree_2, "map_tree_2", src_mapTileSize, defaultTileSize);
 		loader.prepareTileset(R.drawable.map_wall_1, "map_wall_1", src_mapTileSize, defaultTileSize);
