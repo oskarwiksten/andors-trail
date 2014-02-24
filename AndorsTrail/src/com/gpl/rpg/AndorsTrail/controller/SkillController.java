@@ -328,12 +328,15 @@ public final class SkillController {
 				if (skillLevelFightStyle == 2) {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL2;
 					playerTraits.attackCost = Math.max(attackCostMainHand, attackCostOffHand);
+					playerTraits.criticalMultiplier = Math.max(mainHandItem.effects_equip.stats.setCriticalMultiplier, getPercentage(offHandItem.effects_equip.stats.setCriticalMultiplier, SkillCollection.DUALWIELD_EFFICIENCY_LEVEL2, 0));
 				} else if (skillLevelFightStyle == 1) {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL1;
 					playerTraits.attackCost = attackCostMainHand + getPercentage(attackCostOffHand, SkillCollection.DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT, 0);
+					playerTraits.criticalMultiplier = Math.max(mainHandItem.effects_equip.stats.setCriticalMultiplier, getPercentage(offHandItem.effects_equip.stats.setCriticalMultiplier, SkillCollection.DUALWIELD_EFFICIENCY_LEVEL1, 0));
 				} else {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL0;
 					playerTraits.attackCost = attackCostMainHand + attackCostOffHand;
+					playerTraits.criticalMultiplier = Math.max(mainHandItem.effects_equip.stats.setCriticalMultiplier, getPercentage(offHandItem.effects_equip.stats.setCriticalMultiplier, SkillCollection.DUALWIELD_EFFICIENCY_LEVEL0, 0));
 				}
 
 				final int skillLevel = getSkillLevelForItemType(player, offHandItem);
@@ -345,6 +348,14 @@ public final class SkillController {
 				addPercentBlockChance(player, offHandItem, percent, 100);
 				addPercentDamage(player, offHandItem, percent, 100);
 				addPercentCriticalSkill(player, offHandItem, percent, 100);
+				addPercentMaxHPBoost(player, offHandItem, percent, 100);
+				addPercentDamageResistance(player, offHandItem, percent, 100);
+				addPercentMaxAPBoost(player, offHandItem, percent, 100);
+				//Reversed parameters, as a positive value is a malus for these...
+				addPercentMoveCost(player, offHandItem, 100, percent);
+				addPercentReequipCost(player, offHandItem, 100, percent);
+				addPercentUseItemCost(player, offHandItem, 100, percent);
+				
 			}
 
 			int skillLevelSpecialization = player.getSkillLevel(SkillID.specializationDualWield);
@@ -375,6 +386,36 @@ public final class SkillController {
 		if (itemType.effects_equip == null) return;
 		player.criticalSkill += getPercentage(itemType.effects_equip.stats.increaseCriticalSkill, percentForPositiveValues, percentForNegativeValues);
 	}
+	
+	private static void addPercentMaxHPBoost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.health.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxHP, percentForPositiveValues, percentForNegativeValues));
+	}
+	
+	private static void addPercentDamageResistance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.damageResistance += getPercentage(itemType.effects_equip.stats.increaseDamageResistance, percentForPositiveValues, percentForNegativeValues);
+	}
+	
+	private static void addPercentMaxAPBoost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.ap.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxAP, percentForPositiveValues, percentForNegativeValues));
+	}
+	
+	private static void addPercentMoveCost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.moveCost += getPercentage(itemType.effects_equip.stats.increaseMoveCost, percentForPositiveValues, percentForNegativeValues);
+	}
+	
+	private static void addPercentUseItemCost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.useItemCost += getPercentage(itemType.effects_equip.stats.increaseUseItemCost, percentForPositiveValues, percentForNegativeValues);
+	}
+	
+	private static void addPercentReequipCost(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
+		if (itemType.effects_equip == null) return;
+		player.reequipCost += getPercentage(itemType.effects_equip.stats.increaseReequipCost, percentForPositiveValues, percentForNegativeValues);
+	}
 
 	private static int getPercentage(int originalValue, int percentForPositiveValues, int percentForNegativeValues) {
 		if (originalValue == 0) {
@@ -383,6 +424,16 @@ public final class SkillController {
 			return (int) FloatMath.floor(originalValue * percentForPositiveValues / 100.0f);
 		} else {
 			return (int) FloatMath.floor(originalValue * percentForNegativeValues / 100.0f);
+		}
+	}
+	
+	private static float getPercentage(float originalValue, int percentForPositiveValues, int percentForNegativeValues) {
+		if (originalValue == 0) {
+			return 0;
+		} else if (originalValue > 0) {
+			return originalValue * percentForPositiveValues / 100.0f;
+		} else {
+			return originalValue * percentForNegativeValues / 100.0f;
 		}
 	}
 
