@@ -71,7 +71,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 	public static void upgradeSavegame(Player player, WorldContext world, ControllerContext controllers, int fileversion) {
 
 		if (fileversion <= 12) {
-			player.useItemCost = 5;
+			player.setUseItemCost( 5 );
 			player.health.max += 5;
 			player.health.current += 5;
 			player.baseTraits.maxHP += 5;
@@ -82,7 +82,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 			for(SkillInfo skill : world.skills.getAllSkills()) {
 				assignedSkillpoints += player.getSkillLevel(skill.id);
 			}
-			player.availableSkillIncreases = getExpectedNumberOfSkillpointsForLevel(player.getLevel()) - assignedSkillpoints;
+			player.setAvailableSkillIncreases( getExpectedNumberOfSkillpointsForLevel(player.getLevel()) - assignedSkillpoints );
 		}
 
 		if (fileversion <= 21) {

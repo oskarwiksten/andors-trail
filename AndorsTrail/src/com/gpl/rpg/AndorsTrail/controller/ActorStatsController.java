@@ -426,9 +426,9 @@ public final class ActorStatsController {
 			break;
 		}
 		if (player.nextLevelAddsNewSkillpoint()) {
-			player.availableSkillIncreases++;
+			player.setAvailableSkillIncreases( player.getAvailableSkillIncreases()+1 );
 		}
-		player.level++;
+		player.setLevel( player.getLevel()+1 );
 
 		hpIncrease += player.getSkillLevel(SkillCollection.SkillID.fortitude) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
 		addActorMaxHealth(player, hpIncrease, true);
@@ -447,7 +447,7 @@ public final class ActorStatsController {
 	public void addExperience(int exp) {
 		if (exp == 0) return;
 		Player p = world.model.player;
-		p.totalExperience += exp;
+		p.setTotalExperience( p.getTotalExperience()+exp );
 		p.levelExperience.add(exp, true);
 		playerStatsListeners.onPlayerExperienceChanged(p);
 	}

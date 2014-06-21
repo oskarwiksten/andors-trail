@@ -31,16 +31,16 @@ public final class Player extends Actor {
 	public final Coord lastPosition;
 	public final Coord nextPosition;
 
+	private int level;
 	// TODO: Should be privates
-	public int level;
 	public final PlayerBaseTraits baseTraits = new PlayerBaseTraits();
 	public final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
 	public final Inventory inventory;
 	private final SparseIntArray skillLevels = new SparseIntArray();
-	public int availableSkillIncreases = 0;
-	public int useItemCost;
-	public int reequipCost;
-	public int totalExperience;
+	private int availableSkillIncreases = 0;
+	private int useItemCost;
+	private int reequipCost;
+	private int totalExperience;
 
 	private final HashMap<String, HashSet<Integer> > questProgress = new HashMap<String, HashSet<Integer> >();
 	private String spawnMap;
@@ -216,16 +216,20 @@ public final class Player extends Actor {
 	}
 
 	public int getReequipCost() { return reequipCost; }
+	public void setUseItemCost(int useItemCost) { this.useItemCost = useItemCost; }
 	public int getUseItemCost() { return useItemCost; }
+	public void setAvailableSkillIncreases(int availableSkillIncreases) { this.availableSkillIncreases = availableSkillIncreases; }
 	public int getAvailableSkillIncreases() { return availableSkillIncreases; }
+	public void setLevel(int level) { this.level=level; }
 	public int getLevel() { return level; }
+	public void setTotalExperience(int totalExperience) { this.totalExperience = totalExperience; }
 	public int getTotalExperience() { return totalExperience; }
+
 	public int getCurrentLevelExperience() { return levelExperience.current; }
 	public int getMaxLevelExperience() { return levelExperience.max; }
 	public int getGold() { return inventory.gold; }
 	public String getSpawnMap() { return spawnMap; }
 	public String getSpawnPlace() { return spawnPlace; }
-
 
 	public static enum StatID {
 		maxHP
