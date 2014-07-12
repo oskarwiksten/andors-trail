@@ -48,10 +48,10 @@ public class Actor {
 
 	public boolean isImmuneToCriticalHits() { return isImmuneToCriticalHits; }
 	public String getName() { return name; }
-	public int getCurrentAP() { return ap.current; }
-	public int getMaxAP() { return ap.max; }
-	public int getCurrentHP() { return health.current; }
-	public int getMaxHP() { return health.max; }
+	public int getCurrentAP() { return ap.getCurrent(); }
+	public int getMaxAP() { return ap.getMax(); }
+	public int getCurrentHP() { return health.getCurrent(); }
+	public int getMaxHP() { return health.getMax(); }
 	public int getMoveCost() { return moveCost; }
 	public int getAttackCost() { return attackCost; }
 	public int getAttackChance() { return attackChance; }
@@ -77,11 +77,11 @@ public class Actor {
 	}
 
 	public boolean isDead() {
-		return health.current <= 0;
+		return health.getCurrent() <= 0;
 	}
 
 	public boolean hasAPs(int cost) {
-		return ap.current >= cost;
+		return ap.getCurrent() >= cost;
 	}
 
 	public boolean hasCondition(final String conditionTypeID) {

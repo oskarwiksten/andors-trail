@@ -4,9 +4,10 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+//TODO Implement Range class to be immutable as String class.
 public final class Range {
-	public int max;
-	public int current;
+	private int max;
+	private int current;
 
 	public Range() { }
 	public Range(Range r) { set(r); }
@@ -23,6 +24,19 @@ public final class Range {
 	public boolean equals(ConstRange r) {
 		if (r == null) return false;
 		return max == r.max && current == r.current;
+	}
+
+	public int getMax() {
+		return max;
+	}
+	public void setMax(int max) {
+		this.max = max;
+	}
+	public int getCurrent() {
+		return current;
+	}
+	public void setCurrent(int current) {
+		this.current = current;
 	}
 
 	public void set(Range r) {

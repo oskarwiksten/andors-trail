@@ -185,7 +185,7 @@ public final class ActorStatsController {
 		actor.damageResistance += effects.increaseDamageResistance * multiplier;
 
 		if (actor.attackChance < 0) actor.attackChance = 0;
-		if (actor.damagePotential.max < 0) actor.damagePotential.set(0, 0);
+		if (actor.damagePotential.getMax() < 0) actor.damagePotential.set(0, 0);
 	}
 
 	public void recalculatePlayerStats(Player player) {
@@ -418,8 +418,8 @@ public final class ActorStatsController {
 			player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
 			break;
 		case attackDamage:
-			player.baseTraits.damagePotential.max += Constants.LEVELUP_EFFECT_ATK_DMG;
-			player.baseTraits.damagePotential.current += Constants.LEVELUP_EFFECT_ATK_DMG;
+			player.baseTraits.damagePotential.setMax( player.baseTraits.damagePotential.getMax() + Constants.LEVELUP_EFFECT_ATK_DMG);
+			player.baseTraits.damagePotential.setCurrent(player.baseTraits.damagePotential.getCurrent() + Constants.LEVELUP_EFFECT_ATK_DMG);
 			break;
 		case blockChance:
 			player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
@@ -501,7 +501,7 @@ public final class ActorStatsController {
 		return changed;
 	}
 	public boolean useAPs(Actor actor, int cost) {
-		if (actor.ap.current < cost) return false;
+		if (actor.ap.getCurrent() < cost) return false;
 		actor.ap.subtract(cost, false);
 		actorStatsListeners.onActorAPChanged(actor);
 		return true;
@@ -513,8 +513,8 @@ public final class ActorStatsController {
 		actorStatsListeners.onActorAPChanged(actor);
 	}
 	public void setActorMinAP(Actor actor) {
-		if (actor.ap.current == 0) return;
-		actor.ap.current = 0;
+		if (actor.ap.getCurrent() == 0) return;
+		actor.ap.setCurrent( 0 );
 		actorStatsListeners.onActorAPChanged(actor);
 	}
 }

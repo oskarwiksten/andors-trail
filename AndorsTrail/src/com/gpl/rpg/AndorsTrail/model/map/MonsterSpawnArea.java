@@ -82,18 +82,18 @@ public final class MonsterSpawnArea {
 		Monster m = new Monster(type);
 		m.position.set(p);
 		monsters.add(m);
-		quantity.current++;
+		quantity.setCurrent( quantity.getCurrent()+1 );
 		return m;
 	}
 
 	public void remove(Monster m) {
-		if (monsters.remove(m)) quantity.current--;
+		if (monsters.remove(m)) quantity.setCurrent( quantity.getCurrent()-1 );
 	}
 
 	public boolean isSpawnable(boolean includeUniqueMonsters) {
 		if (!isSpawning) return false;
 		if (isUnique && !includeUniqueMonsters) return false;
-		return quantity.current < quantity.max;
+		return quantity.getCurrent() < quantity.getMax();
 	}
 
 	public boolean rollShouldSpawn() {
@@ -102,7 +102,7 @@ public final class MonsterSpawnArea {
 
 	public void removeAllMonsters() {
 		monsters.clear();
-		quantity.current = 0;
+		quantity.setCurrent( 0 );
 	}
 
 	public void resetShops() {
@@ -123,8 +123,8 @@ public final class MonsterSpawnArea {
 		monsters.clear();
 		isSpawning = isSpawningForNewGame;
 		if (fileversion >= 41) isSpawning = src.readBoolean();
-		quantity.current = src.readInt();
-		for(int i = 0; i < quantity.current; ++i) {
+		quantity.setCurrent( src.readInt() );
+		for(int i = 0; i < quantity.getCurrent(); ++i) {
 			monsters.add(Monster.newFromParcel(src, world, fileversion));
 		}
 	}

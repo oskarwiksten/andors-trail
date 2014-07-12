@@ -7,8 +7,8 @@ public final class ConstRange {
 	public final int current;
 
 	public ConstRange(Range r) {
-		this.max = r.max;
-		this.current = r.current;
+		this.max = r.getMax();
+		this.current = r.getCurrent();
 	}
 	public ConstRange(ConstRange r) {
 		this.max = r.max;

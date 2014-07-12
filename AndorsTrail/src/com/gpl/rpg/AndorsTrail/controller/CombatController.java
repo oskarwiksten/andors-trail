@@ -465,9 +465,9 @@ public final class CombatController implements VisualEffectCompletedCallback {
 	}
 	private static int getTurnsToKillTarget(Actor attacker, Actor target) {
 		if (hasCriticalAttack(attacker, target)) {
-			if (attacker.getDamagePotential().max * attacker.getCriticalMultiplier() <= target.getDamageResistance()) return 999;
+			if (attacker.getDamagePotential().getMax() * attacker.getCriticalMultiplier() <= target.getDamageResistance()) return 999;
 		} else {
-			if (attacker.getDamagePotential().max <= target.getDamageResistance()) return 999;
+			if (attacker.getDamagePotential().getMax() <= target.getDamageResistance()) return 999;
 		}
 
 		float averageDamagePerTurn = getAverageDamagePerTurn(attacker, target);

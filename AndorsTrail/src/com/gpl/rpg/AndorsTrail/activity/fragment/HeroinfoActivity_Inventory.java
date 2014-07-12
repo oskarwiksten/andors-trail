@@ -173,8 +173,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		StringBuilder sb = new StringBuilder(10);
 		ItemController.describeAttackEffect(
 				player.getAttackChance(),
-				player.getDamagePotential().current,
-				player.getDamagePotential().max,
+				player.getDamagePotential().getCurrent(),
+				player.getDamagePotential().getMax(),
 				player.getCriticalSkill(),
 				player.getCriticalMultiplier(),
 				sb);

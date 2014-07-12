@@ -69,7 +69,7 @@ public final class TraitsInfoView {
 		}
 
 		row = (TableRow) group.findViewById(R.id.traitsinfo_attack_damage_row);
-		if (damagePotential != null && damagePotential.max != 0) {
+		if (damagePotential != null && damagePotential.getMax() != 0) {
 			row.setVisibility(View.VISIBLE);
 			tv = (TextView) group.findViewById(R.id.traitsinfo_attack_damage);
 			tv.setText(damagePotential.toMinMaxString());

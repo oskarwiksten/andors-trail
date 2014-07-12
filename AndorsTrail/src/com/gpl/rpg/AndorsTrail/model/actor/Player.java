@@ -66,8 +66,8 @@ public final class Player extends Actor {
 
 	public void resetStatsToBaseTraits() {
 		this.iconID = this.baseTraits.iconID;
-		this.ap.max = this.baseTraits.maxAP;
-		this.health.max = this.baseTraits.maxHP;
+		this.ap.setMax( this.baseTraits.maxAP );
+		this.health.setMax( this.baseTraits.maxHP );
 		this.moveCost = this.baseTraits.moveCost;
 		this.attackCost = this.baseTraits.attackCost;
 		this.attackChance = this.baseTraits.attackChance;
@@ -225,8 +225,8 @@ public final class Player extends Actor {
 	public void setTotalExperience(int totalExperience) { this.totalExperience = totalExperience; }
 	public int getTotalExperience() { return totalExperience; }
 
-	public int getCurrentLevelExperience() { return levelExperience.current; }
-	public int getMaxLevelExperience() { return levelExperience.max; }
+	public int getCurrentLevelExperience() { return levelExperience.getCurrent(); }
+	public int getMaxLevelExperience() { return levelExperience.getMax(); }
 	public int getGold() { return inventory.gold; }
 	public String getSpawnMap() { return spawnMap; }
 	public String getSpawnPlace() { return spawnPlace; }
@@ -254,8 +254,8 @@ public final class Player extends Actor {
 		case attackChance: return baseTraits.attackChance;
 		case criticalSkill: return baseTraits.criticalSkill;
 		case criticalMultiplier: return (int) FloatMath.floor(baseTraits.criticalMultiplier);
-		case damagePotentialMin: return baseTraits.damagePotential.current;
-		case damagePotentialMax: return baseTraits.damagePotential.max;
+		case damagePotentialMin: return baseTraits.damagePotential.getCurrent();
+		case damagePotentialMax: return baseTraits.damagePotential.getMax();
 		case blockChance: return baseTraits.blockChance;
 		case damageResistance: return baseTraits.damageResistance;
 		}

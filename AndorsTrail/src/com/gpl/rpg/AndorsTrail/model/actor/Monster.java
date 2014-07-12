@@ -38,8 +38,8 @@ public final class Monster extends Actor {
 
 	public void resetStatsToBaseTraits() {
 		this.name = monsterType.name;
-		this.ap.max = monsterType.maxAP;
-		this.health.max = monsterType.maxHP;
+		this.ap.setMax( monsterType.maxAP );
+		this.health.setMax( monsterType.maxHP );
 		this.moveCost = monsterType.moveCost;
 		this.attackCost = monsterType.attackCost;
 		this.attackChance = monsterType.attackChance;
