@@ -65,7 +65,7 @@ public final class Player extends Actor {
 	}
 
 	public void resetStatsToBaseTraits() {
-		this.iconID = this.baseTraits.iconID;
+		this.setIconID( this.baseTraits.iconID );
 		this.ap.setMax( this.baseTraits.maxAP );
 		this.health.setMax( this.baseTraits.maxHP );
 		this.moveCost = this.baseTraits.moveCost;

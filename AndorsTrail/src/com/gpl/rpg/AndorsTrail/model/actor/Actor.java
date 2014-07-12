@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Actor {
-	public int iconID;
+	private int iconID;
 	public final Size tileSize;
 	public final Coord position = new Coord();
 	public final CoordRect rectPosition;
@@ -47,6 +47,8 @@ public class Actor {
 	}
 
 	public boolean isImmuneToCriticalHits() { return isImmuneToCriticalHits; }
+	public int getIconID() { return iconID; }
+	public void setIconID(int iconID) { this.iconID = iconID; }
 	public String getName() { return name; }
 	public int getCurrentAP() { return ap.getCurrent(); }
 	public int getMaxAP() { return ap.getMax(); }

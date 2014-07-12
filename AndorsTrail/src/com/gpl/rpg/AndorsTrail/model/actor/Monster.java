@@ -29,7 +29,7 @@ public final class Monster extends Actor {
 	public Monster(MonsterType monsterType) {
 		super(monsterType.tileSize, false, monsterType.isImmuneToCriticalHits());
 		this.monsterType = monsterType;
-		this.iconID = monsterType.iconID;
+		this.setIconID( monsterType.iconID );
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
 		this.ap.setMax();

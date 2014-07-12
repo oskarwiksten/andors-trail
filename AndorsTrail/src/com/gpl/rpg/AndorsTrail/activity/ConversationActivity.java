@@ -223,7 +223,7 @@ public final class ConversationActivity
 	private void addConversationStatement(Actor actor, String text, int textColor) {
 		ConversationStatement s = new ConversationStatement();
 		if (actor != null) {
-			s.iconID = actor.iconID;
+			s.iconID = actor.getIconID();
 			s.actorName = actor.getName();
 		} else {
 			s.iconID = ConversationStatement.NO_ICON;

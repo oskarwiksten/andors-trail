@@ -61,7 +61,7 @@ public final class StatusView extends RelativeLayout implements PlayerStatsListe
 
 		Resources res = getResources();
 		levelupDrawable = new LayerDrawable(new Drawable[] {
-				new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(player.iconID))
+				new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(player.getIconID()))
 				,new BitmapDrawable(res, world.tileManager.preloadedTiles.getBitmap(TileManager.iconID_moveselect))
 		});
 

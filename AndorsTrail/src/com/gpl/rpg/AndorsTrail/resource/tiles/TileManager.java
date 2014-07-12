@@ -107,7 +107,7 @@ public final class TileManager {
 			// monsters that usually spawn here. This could happen if we change the contents of spawn-
 			// areas in a later release,
 			for (Monster m : a.monsters) {
-				iconIDs.add(m.iconID);
+				iconIDs.add(m.getIconID());
 			}
 		}
 		iconIDs.addAll(tileMap.usedTileIDs);
@@ -126,8 +126,8 @@ public final class TileManager {
 
 
 
-	public void setImageViewTile(Resources res, TextView textView, Monster monster) { setImageViewTileForMonster(res, textView, monster.iconID); }
-	public void setImageViewTile(Resources res, TextView textView, Player player) { setImageViewTileForPlayer(res, textView, player.iconID); }
+	public void setImageViewTile(Resources res, TextView textView, Monster monster) { setImageViewTileForMonster(res, textView, monster.getIconID()); }
+	public void setImageViewTile(Resources res, TextView textView, Player player) { setImageViewTileForPlayer(res, textView, player.getIconID()); }
 	public void setImageViewTileForMonster(Resources res, TextView textView, int iconID) { setImageViewTile(res, textView, currentMapTiles.getBitmap(iconID)); }
 	public void setImageViewTileForPlayer(Resources res, TextView textView, int iconID) { setImageViewTile(res, textView, preloadedTiles.getBitmap(iconID)); }
 	public void setImageViewTile(Resources res, TextView textView, ActorConditionType conditionType) { setImageViewTile(res, textView, preloadedTiles.getBitmap(conditionType.iconID)); }
@@ -156,8 +156,8 @@ public final class TileManager {
 		}
 	}
 
-	public void setImageViewTile(ImageView imageView, Monster monster) { setImageViewTileForMonster(imageView, monster.iconID); }
-	public void setImageViewTile(ImageView imageView, Player player) { setImageViewTileForPlayer(imageView, player.iconID); }
+	public void setImageViewTile(ImageView imageView, Monster monster) { setImageViewTileForMonster(imageView, monster.getIconID()); }
+	public void setImageViewTile(ImageView imageView, Player player) { setImageViewTileForPlayer(imageView, player.getIconID()); }
 	public void setImageViewTileForMonster(ImageView imageView, int iconID) { imageView.setImageBitmap(currentMapTiles.getBitmap(iconID)); }
 	public void setImageViewTileForPlayer(ImageView imageView, int iconID) { imageView.setImageBitmap(preloadedTiles.getBitmap(iconID)); }
 	public void setImageViewTile(ImageView imageView, ActorConditionType conditionType) { imageView.setImageBitmap(preloadedTiles.getBitmap(conditionType.iconID)); }

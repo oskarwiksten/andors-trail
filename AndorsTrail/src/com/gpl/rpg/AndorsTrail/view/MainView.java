@@ -270,10 +270,10 @@ public final class MainView extends SurfaceView
 			}
 		}
 
-		drawFromMapPosition(canvas, area, playerPosition, model.player.iconID);
+		drawFromMapPosition(canvas, area, playerPosition, model.player.getIconID());
 		for (MonsterSpawnArea a : currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				drawFromMapPosition(canvas, area, m.rectPosition, m.iconID);
+				drawFromMapPosition(canvas, area, m.rectPosition, m.getIconID());
 			}
 		}
 
