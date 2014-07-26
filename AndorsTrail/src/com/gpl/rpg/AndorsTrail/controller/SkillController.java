@@ -28,18 +28,18 @@ public final class SkillController {
 	}
 
 	public void applySkillEffects(Player player) {
-		player.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE * player.getSkillLevel(SkillID.weaponChance);
-		player.damagePotential.addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX * player.getSkillLevel(SkillID.weaponDmg));
-		player.damagePotential.add(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN * player.getSkillLevel(SkillID.weaponDmg), false);
+		player.setAttackChance(player.getAttackChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE * player.getSkillLevel(SkillID.weaponChance)));
+		player.getDamagePotential().addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX * player.getSkillLevel(SkillID.weaponDmg));
+		player.getDamagePotential().add(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN * player.getSkillLevel(SkillID.weaponDmg), false);
 		player.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_DODGE * player.getSkillLevel(SkillID.dodge);
 		player.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN * player.getSkillLevel(SkillID.barkSkin);
 		if (player.hasCriticalSkillEffect()) {
-			if (player.criticalSkill > 0) {
-				player.criticalSkill += player.criticalSkill * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT * player.getSkillLevel(SkillID.moreCriticals) / 100;
+			if (player.getCriticalSkill() > 0) {
+				player.setCriticalSkill(player.getCriticalSkill() + (player.getCriticalSkill() * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT * player.getSkillLevel(SkillID.moreCriticals) / 100));
 			}
 		}
 		if (player.hasCriticalMultiplierEffect()) {
-			player.criticalMultiplier += player.criticalMultiplier * SkillCollection.PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT * player.getSkillLevel(SkillID.betterCriticals) / 100;
+			player.setCriticalMultiplier(player.getCriticalMultiplier() + (player.getCriticalMultiplier() * SkillCollection.PER_SKILLPOINT_INCREASE_BETTER_CRITICALS_PERCENT * player.getSkillLevel(SkillID.betterCriticals) / 100));
 		}
 		controllers.actorStatsController.addActorMaxAP(player, SkillCollection.PER_SKILLPOINT_INCREASE_SPEED * player.getSkillLevel(SkillID.speed), false);
 		/*final int berserkLevel = player.getSkillLevel(Skills.SKILL_BERSERKER);
@@ -204,9 +204,9 @@ public final class SkillController {
 		final int unarmedLevel = player.getSkillLevel(SkillID.weaponProficiencyUnarmed);
 		if (unarmedLevel > 0) {
 			if (isUnarmed(player)) {
-				playerTraits.attackChance += SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_AC * unarmedLevel;
-				playerTraits.damagePotential.addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG * unarmedLevel);
-				playerTraits.damagePotential.add(SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG * unarmedLevel, false);
+				playerTraits.setAttackChance(playerTraits.getAttackChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_AC * unarmedLevel));
+				playerTraits.getDamagePotential().addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG * unarmedLevel);
+				playerTraits.getDamagePotential().add(SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG * unarmedLevel, false);
 				playerTraits.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_BC * unarmedLevel;
 			}
 		}
@@ -240,8 +240,8 @@ public final class SkillController {
 			} else if (skill == SkillID.armorProficiencyHeavy) {
 				if (skillLevelHeavyArmor > 0) {
 					addPercentBlockChance(player, itemType, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_BC_PERCENT * skillLevelHeavyArmor, 0);
-					playerTraits.moveCost -= getPercentage(itemType.effects_equip.stats.increaseMoveCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT * skillLevelHeavyArmor, 0);
-					playerTraits.attackCost -= getPercentage(itemType.effects_equip.stats.increaseAttackCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_ATKCOST_PERCENT * skillLevelHeavyArmor, 0);
+					playerTraits.setMoveCost( playerTraits.getMoveCost()- getPercentage(itemType.effects_equip.stats.increaseMoveCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_MOVECOST_PERCENT * skillLevelHeavyArmor, 0));
+					playerTraits.setAttackCost(playerTraits.getAttackCost() - getPercentage(itemType.effects_equip.stats.increaseAttackCost, SkillCollection.PER_SKILLPOINT_INCREASE_HEAVY_ARMOR_ATKCOST_PERCENT * skillLevelHeavyArmor, 0));
 				}
 			}
 		}
@@ -327,13 +327,13 @@ public final class SkillController {
 				int percent;
 				if (skillLevelFightStyle == 2) {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL2;
-					playerTraits.attackCost = Math.max(attackCostMainHand, attackCostOffHand);
+					playerTraits.setAttackCost( Math.max(attackCostMainHand, attackCostOffHand) );
 				} else if (skillLevelFightStyle == 1) {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL1;
-					playerTraits.attackCost = attackCostMainHand + getPercentage(attackCostOffHand, SkillCollection.DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT, 0);
+					playerTraits.setAttackCost( attackCostMainHand + getPercentage(attackCostOffHand, SkillCollection.DUALWIELD_LEVEL1_OFFHAND_AP_COST_PERCENT, 0) );
 				} else {
 					percent = SkillCollection.DUALWIELD_EFFICIENCY_LEVEL0;
-					playerTraits.attackCost = attackCostMainHand + attackCostOffHand;
+					playerTraits.setAttackCost( attackCostMainHand + attackCostOffHand );
 				}
 
 				final int skillLevel = getSkillLevelForItemType(player, offHandItem);
@@ -357,7 +357,7 @@ public final class SkillController {
 
 	private static void addPercentAttackChance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		player.attackChance += getPercentage(itemType.effects_equip.stats.increaseAttackChance, percentForPositiveValues, percentForNegativeValues);
+		player.setAttackChance(player.getAttackChance() + getPercentage(itemType.effects_equip.stats.increaseAttackChance, percentForPositiveValues, percentForNegativeValues));
 	}
 
 	private static void addPercentBlockChance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
@@ -367,13 +367,13 @@ public final class SkillController {
 
 	private static void addPercentDamage(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		player.damagePotential.addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxDamage, percentForPositiveValues, percentForNegativeValues));
-		player.damagePotential.add(getPercentage(itemType.effects_equip.stats.increaseMinDamage, percentForPositiveValues, percentForNegativeValues), false);
+		player.getDamagePotential().addToMax(getPercentage(itemType.effects_equip.stats.increaseMaxDamage, percentForPositiveValues, percentForNegativeValues));
+		player.getDamagePotential().add(getPercentage(itemType.effects_equip.stats.increaseMinDamage, percentForPositiveValues, percentForNegativeValues), false);
 	}
 
 	private static void addPercentCriticalSkill(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		player.criticalSkill += getPercentage(itemType.effects_equip.stats.increaseCriticalSkill, percentForPositiveValues, percentForNegativeValues);
+		player.setCriticalSkill(player.getCriticalSkill() + getPercentage(itemType.effects_equip.stats.increaseCriticalSkill, percentForPositiveValues, percentForNegativeValues));
 	}
 
 	private static int getPercentage(int originalValue, int percentForPositiveValues, int percentForNegativeValues) {

@@ -77,13 +77,13 @@ public final class Dialogs {
 
 	public static void addMonsterIdentifiers(Intent intent, Monster monster) {
 		if (monster == null) return;
-		intent.putExtra("x", monster.position.x);
-		intent.putExtra("y", monster.position.y);
+		intent.putExtra("x", monster.getPosition().x);
+		intent.putExtra("y", monster.getPosition().y);
 	}
 	public static void addMonsterIdentifiers(Bundle bundle, Monster monster) {
 		if (monster == null) return;
-		bundle.putInt("x", monster.position.x);
-		bundle.putInt("y", monster.position.y);
+		bundle.putInt("x", monster.getPosition().x);
+		bundle.putInt("y", monster.getPosition().y);
 	}
 
 	public static Monster getMonsterFromIntent(Intent intent, final WorldContext world) {

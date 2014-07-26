@@ -160,8 +160,8 @@ public final class VisualEffectController {
 	public void addSplatter(PredefinedMap map, Monster m) {
 		int iconID = getSplatterIconFromMonsterClass(m.getMonsterClass());
 		if (iconID > 0) {
-			map.splatters.add(new BloodSplatter(iconID, m.position));
-			controllers.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(map, m.position);
+			map.splatters.add(new BloodSplatter(iconID, m.getPosition()));
+			controllers.monsterSpawnController.monsterSpawnListeners.onSplatterAdded(map, m.getPosition());
 		}
 	}
 

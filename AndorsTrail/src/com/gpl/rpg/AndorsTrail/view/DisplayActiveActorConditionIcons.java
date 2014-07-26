@@ -88,7 +88,7 @@ public final class DisplayActiveActorConditionIcons implements ActorConditionLis
 
 	public void subscribe() {
 		for (ActiveConditionIcon icon : currentConditionIcons) icon.hide(false);
-		for (ActorCondition condition : world.model.player.conditions) {
+		for (ActorCondition condition : world.model.player.getConditions()) {
 			getFirstFreeIcon().setActiveCondition(condition);
 		}
 		controllers.actorStatsController.actorConditionListeners.add(this);

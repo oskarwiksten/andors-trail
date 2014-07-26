@@ -119,7 +119,7 @@ public final class MainView extends SurfaceView
 			);
 
 		if (model.currentMap != null) {
-			onPlayerEnteredNewMap(model.currentMap, model.player.position);
+			onPlayerEnteredNewMap(model.currentMap, model.player.getPosition());
 		} else {
 			redrawAll(RedrawAllDebugReason.SurfaceChanged);
 		}
@@ -273,7 +273,7 @@ public final class MainView extends SurfaceView
 		drawFromMapPosition(canvas, area, playerPosition, model.player.getIconID());
 		for (MonsterSpawnArea a : currentMap.spawnAreas) {
 			for (Monster m : a.monsters) {
-				drawFromMapPosition(canvas, area, m.rectPosition, m.getIconID());
+				drawFromMapPosition(canvas, area, m.getRectPosition(), m.getIconID());
 			}
 		}
 
@@ -353,7 +353,7 @@ public final class MainView extends SurfaceView
 
 		clearCanvas();
 
-		recalculateMapTopLeft(model.player.position);
+		recalculateMapTopLeft(model.player.getPosition());
 		redrawAll(RedrawAllDebugReason.MapChanged);
 	}
 
@@ -418,7 +418,7 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterSpawned(PredefinedMap map, Monster m) {
 		if (map != currentMap) return;
-		if (!mapViewArea.intersects(m.rectPosition)) return;
+		if (!mapViewArea.intersects(m.getRectPosition())) return;
 		redrawNextTick = true;
 	}
 
@@ -435,10 +435,10 @@ public final class MainView extends SurfaceView
 	@Override
 	public void onMonsterMoved(PredefinedMap map, Monster m, CoordRect previousPosition) {
 		if (map != currentMap) return;
-		if (!mapViewArea.intersects(m.rectPosition) && !mapViewArea.intersects(previousPosition)) return;
+		if (!mapViewArea.intersects(m.getRectPosition()) && !mapViewArea.intersects(previousPosition)) return;
 		if (model.uiSelections.isInCombat) {
 			redrawArea(previousPosition, RedrawAreaDebugReason.MonsterMoved);
-			redrawArea(m.rectPosition, RedrawAreaDebugReason.MonsterMoved);
+			redrawArea(m.getRectPosition(), RedrawAreaDebugReason.MonsterMoved);
 		} else {
 			redrawNextTick = true;
 		}

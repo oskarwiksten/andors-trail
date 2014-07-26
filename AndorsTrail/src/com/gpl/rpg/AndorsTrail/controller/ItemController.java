@@ -28,7 +28,7 @@ public final class ItemController {
 	public void dropItem(ItemType type, int quantity) {
 		if (world.model.player.inventory.getItemQuantity(type.id) < quantity) return;
 		world.model.player.inventory.removeItem(type.id, quantity);
-		world.model.currentMap.itemDropped(type, quantity, world.model.player.position);
+		world.model.currentMap.itemDropped(type, quantity, world.model.player.getPosition());
 	}
 
 	public void equipItem(ItemType type, Inventory.WearSlot slot) {
@@ -138,8 +138,8 @@ public final class ItemController {
 	public void applyInventoryEffects(Player player) {
 		ItemType weapon = getMainWeapon(player);
 		if (weapon != null) {
-			player.attackCost = 0;
-			player.criticalMultiplier = weapon.effects_equip.stats.setCriticalMultiplier;
+			player.setAttackCost( 0 );
+			player.setCriticalMultiplier( weapon.effects_equip.stats.setCriticalMultiplier );
 		}
 
 		applyInventoryEffects(player, Inventory.WearSlot.weapon);

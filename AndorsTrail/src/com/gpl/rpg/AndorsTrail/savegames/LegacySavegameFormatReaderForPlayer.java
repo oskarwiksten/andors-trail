@@ -72,8 +72,8 @@ public final class LegacySavegameFormatReaderForPlayer {
 
 		if (fileversion <= 12) {
 			player.setUseItemCost( 5 );
-			player.health.setMax(player.health.getMax() + 5);
-			player.health.setCurrent( player.health.getCurrent() + 5 );
+			player.getHealth().setMax(player.getHealth().getMax() + 5);
+			player.getHealth().setCurrent( player.getHealth().getCurrent() + 5 );
 			player.baseTraits.maxHP += 5;
 		}
 

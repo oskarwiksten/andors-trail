@@ -88,7 +88,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		world.model.worldData.tickWorldTime();
 		controllers.actorStatsController.applyConditionsToPlayer(world.model.player, false);
 		controllers.actorStatsController.applySkillEffectsForNewRound(world.model.player, world.model.currentMap);
-		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.position, MapObject.MapObjectEvaluationType.afterEveryRound);
+		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.getPosition(), MapObject.MapObjectEvaluationType.afterEveryRound);
 	}
 	public void onNewMonsterRound() {
 		controllers.actorStatsController.applyConditionsToMonsters(world.model.currentMap, false);
@@ -99,7 +99,7 @@ public final class GameRoundController implements TimedMessageTask.Callback {
 		controllers.monsterSpawnController.maybeSpawn(world.model.currentMap, world.model.currentTileMap);
 		controllers.monsterMovementController.attackWithAgressiveMonsters();
 		controllers.effectController.updateSplatters(world.model.currentMap);
-		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.position, MapObject.MapObjectEvaluationType.continuously);
+		controllers.mapController.handleMapEvents(world.model.currentMap, world.model.player.getPosition(), MapObject.MapObjectEvaluationType.continuously);
 		gameRoundListeners.onNewTick();
 	}
 }

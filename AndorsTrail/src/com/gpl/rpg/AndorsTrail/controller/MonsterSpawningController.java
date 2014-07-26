@@ -34,7 +34,7 @@ public final class MonsterSpawningController {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			if (!a.isSpawnable(false)) continue;
 			if (!a.rollShouldSpawn()) continue;
-			spawnInArea(map, tileMap, a, world.model.player.position);
+			spawnInArea(map, tileMap, a, world.model.player.getPosition());
 		}
 	}
 
@@ -75,7 +75,7 @@ public final class MonsterSpawningController {
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			a.remove(m);
 		}
-		monsterSpawnListeners.onMonsterRemoved(map, m, m.rectPosition);
+		monsterSpawnListeners.onMonsterRemoved(map, m, m.getRectPosition());
 	}
 
 	public void activateSpawnArea(PredefinedMap map, LayeredTileMap tileMap, MonsterSpawnArea spawnArea, boolean spawnAllMonsters) {

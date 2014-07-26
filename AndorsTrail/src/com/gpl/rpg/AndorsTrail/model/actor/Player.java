@@ -66,14 +66,14 @@ public final class Player extends Actor {
 
 	public void resetStatsToBaseTraits() {
 		this.setIconID( this.baseTraits.iconID );
-		this.ap.setMax( this.baseTraits.maxAP );
-		this.health.setMax( this.baseTraits.maxHP );
-		this.moveCost = this.baseTraits.moveCost;
-		this.attackCost = this.baseTraits.attackCost;
-		this.attackChance = this.baseTraits.attackChance;
-		this.criticalSkill = this.baseTraits.criticalSkill;
-		this.criticalMultiplier = this.baseTraits.criticalMultiplier;
-		this.damagePotential.set(this.baseTraits.damagePotential);
+		this.getAp().setMax( this.baseTraits.maxAP );
+		this.getHealth().setMax( this.baseTraits.maxHP );
+		this.setMoveCost( this.baseTraits.moveCost );
+		this.setAttackCost( this.baseTraits.attackCost );
+		this.setAttackChance( this.baseTraits.attackChance );
+		this.setCriticalSkill( this.baseTraits.criticalSkill );
+		this.setCriticalMultiplier( this.baseTraits.criticalMultiplier );
+		this.getDamagePotential().set(this.baseTraits.damagePotential);
 		this.blockChance = this.baseTraits.blockChance;
 		this.damageResistance = this.baseTraits.damageResistance;
 		this.useItemCost = this.baseTraits.useItemCost;
@@ -114,9 +114,9 @@ public final class Player extends Actor {
 		this.skillLevels.clear();
 		this.availableSkillIncreases = 0;
 		this.alignments.clear();
-		this.ap.set(baseTraits.maxAP, baseTraits.maxAP);
-		this.health.set(baseTraits.maxHP, baseTraits.maxHP);
-		this.conditions.clear();
+		this.getAp().set(baseTraits.maxAP, baseTraits.maxAP);
+		this.getHealth().set(baseTraits.maxHP, baseTraits.maxHP);
+		this.getConditions().clear();
 
 		Loot startItems = new Loot();
 		dropLists.getDropList(DropListCollection.DROPLIST_STARTITEMS).createRandomLoot(startItems, this);
@@ -280,7 +280,7 @@ public final class Player extends Actor {
 		this.baseTraits.maxAP = src.readInt();
 		this.baseTraits.maxHP = src.readInt();
 		this.name = src.readUTF();
-		this.moveCost = src.readInt();
+		this.setMoveCost( src.readInt() );
 
 		this.baseTraits.attackCost = src.readInt();
 		this.baseTraits.attackChance = src.readInt();
@@ -295,18 +295,18 @@ public final class Player extends Actor {
 		this.baseTraits.damageResistance = src.readInt();
 
 		if (fileversion <= 16) {
-			this.baseTraits.moveCost = this.moveCost;
+			this.baseTraits.moveCost = this.getMoveCost();
 		} else {
 			this.baseTraits.moveCost = src.readInt();
 		}
 
-		this.ap.set(new Range(src, fileversion));
-		this.health.set(new Range(src, fileversion));
-		this.position.set(new Coord(src, fileversion));
+		this.getAp().set(new Range(src, fileversion));
+		this.getHealth().set(new Range(src, fileversion));
+		this.getPosition().set(new Coord(src, fileversion));
 		if (fileversion > 16) {
 			final int numConditions = src.readInt();
 			for(int i = 0; i < numConditions; ++i) {
-				this.conditions.add(new ActorCondition(src, world, fileversion));
+				this.getConditions().add(new ActorCondition(src, world, fileversion));
 			}
 		}
 
@@ -365,7 +365,7 @@ public final class Player extends Actor {
 		dest.writeInt(baseTraits.maxAP);
 		dest.writeInt(baseTraits.maxHP);
 		dest.writeUTF(name);
-		dest.writeInt(moveCost); // TODO: Should we really write this?
+		dest.writeInt(getMoveCost()); // TODO: Should we really write this?
 		dest.writeInt(baseTraits.attackCost);
 		dest.writeInt(baseTraits.attackChance);
 		dest.writeInt(baseTraits.criticalSkill);
@@ -375,11 +375,11 @@ public final class Player extends Actor {
 		dest.writeInt(baseTraits.damageResistance);
 		dest.writeInt(baseTraits.moveCost);
 
-		ap.writeToParcel(dest);
-		health.writeToParcel(dest);
-		position.writeToParcel(dest);
-		dest.writeInt(conditions.size());
-		for (ActorCondition c : conditions) {
+		getAp().writeToParcel(dest);
+		getHealth().writeToParcel(dest);
+		getPosition().writeToParcel(dest);
+		dest.writeInt(getConditions().size());
+		for (ActorCondition c : getConditions()) {
 			c.writeToParcel(dest);
 		}
 		lastPosition.writeToParcel(dest);

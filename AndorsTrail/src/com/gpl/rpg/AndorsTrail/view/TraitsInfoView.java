@@ -28,13 +28,13 @@ public final class TraitsInfoView {
 
 		TextView actorinfo_currentconditions_title = (TextView) group.findViewById(R.id.actorinfo_currentconditions_title);
 		ActorConditionList actorinfo_currentconditions = (ActorConditionList) group.findViewById(R.id.actorinfo_currentconditions);
-		if (actor.conditions.isEmpty()) {
+		if (actor.getConditions().isEmpty()) {
 			actorinfo_currentconditions_title.setVisibility(View.GONE);
 			actorinfo_currentconditions.setVisibility(View.GONE);
 		} else {
 			actorinfo_currentconditions_title.setVisibility(View.VISIBLE);
 			actorinfo_currentconditions.setVisibility(View.VISIBLE);
-			actorinfo_currentconditions.update(actor.conditions);
+			actorinfo_currentconditions.update(actor.getConditions());
 		}
 	}
 

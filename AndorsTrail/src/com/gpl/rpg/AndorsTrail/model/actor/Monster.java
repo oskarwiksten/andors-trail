@@ -32,21 +32,21 @@ public final class Monster extends Actor {
 		this.setIconID( monsterType.iconID );
 		this.nextPosition = new CoordRect(new Coord(), monsterType.tileSize);
 		resetStatsToBaseTraits();
-		this.ap.setMax();
-		this.health.setMax();
+		this.getAp().setMax();
+		this.getHealth().setMax();
 	}
 
 	public void resetStatsToBaseTraits() {
 		this.name = monsterType.name;
-		this.ap.setMax( monsterType.maxAP );
-		this.health.setMax( monsterType.maxHP );
-		this.moveCost = monsterType.moveCost;
-		this.attackCost = monsterType.attackCost;
-		this.attackChance = monsterType.attackChance;
-		this.criticalSkill = monsterType.criticalSkill;
-		this.criticalMultiplier = monsterType.criticalMultiplier;
-		if (monsterType.damagePotential != null) this.damagePotential.set(monsterType.damagePotential);
-		else this.damagePotential.set(0, 0);
+		this.getAp().setMax( monsterType.maxAP );
+		this.getHealth().setMax( monsterType.maxHP );
+		this.setMoveCost( monsterType.moveCost );
+		this.setAttackCost( monsterType.attackCost );
+		this.setAttackChance( monsterType.attackChance );
+		this.setCriticalSkill( monsterType.criticalSkill );
+		this.setCriticalMultiplier( monsterType.criticalMultiplier );
+		if (monsterType.damagePotential != null) this.getDamagePotential().set(monsterType.damagePotential);
+		else this.getDamagePotential().set(0, 0);
 		this.blockChance = monsterType.blockChance;
 		this.damageResistance = monsterType.damageResistance;
 		this.onHitEffects = monsterType.onHitEffects;
@@ -79,7 +79,7 @@ public final class Monster extends Actor {
 		this.shopItems = null;
 	}
 	public boolean isAdjacentTo(Player p) {
-		return this.rectPosition.isAdjacentTo(p.position);
+		return this.getRectPosition().isAdjacentTo(p.getPosition());
 	}
 
 	public boolean isAgressive() {
@@ -111,31 +111,31 @@ public final class Monster extends Actor {
 		boolean readCombatTraits = true;
 		if (fileversion >= 25) readCombatTraits = src.readBoolean();
 		if (readCombatTraits) {
-			this.attackCost = src.readInt();
-			this.attackChance = src.readInt();
-			this.criticalSkill = src.readInt();
+			this.setAttackCost( src.readInt() );
+			this.setAttackChance( src.readInt() );
+			this.setCriticalSkill( src.readInt() );
 			if (fileversion <= 20) {
-				this.criticalMultiplier = src.readInt();
+				this.setCriticalMultiplier( src.readInt() );
 			} else {
-				this.criticalMultiplier = src.readFloat();
+				this.setCriticalMultiplier( src.readFloat() );
 			}
-			this.damagePotential.set(new Range(src, fileversion));
+			this.getDamagePotential().set(new Range(src, fileversion));
 			this.blockChance = src.readInt();
 			this.damageResistance = src.readInt();
 		}
 
-		this.ap.readFromParcel(src, fileversion);
-		this.health.readFromParcel(src, fileversion);
-		this.position.readFromParcel(src, fileversion);
+		this.getAp().readFromParcel(src, fileversion);
+		this.getHealth().readFromParcel(src, fileversion);
+		this.getPosition().readFromParcel(src, fileversion);
 		if (fileversion > 16) {
 			final int numConditions = src.readInt();
 			for(int i = 0; i < numConditions; ++i) {
-				conditions.add(new ActorCondition(src, world, fileversion));
+				getConditions().add(new ActorCondition(src, world, fileversion));
 			}
 		}
 
 		if (fileversion >= 34) {
-			this.moveCost = src.readInt();
+			this.setMoveCost( src.readInt() );
 		}
 
 		this.forceAggressive = src.readBoolean();
@@ -148,33 +148,33 @@ public final class Monster extends Actor {
 
 	public void writeToParcel(DataOutputStream dest) throws IOException {
 		dest.writeUTF(getMonsterTypeID());
-		if (attackCost == monsterType.attackCost
-				&& attackChance == monsterType.attackChance
-				&& criticalSkill == monsterType.criticalSkill
-				&& criticalMultiplier == monsterType.criticalMultiplier
-				&& damagePotential.equals(monsterType.damagePotential)
+		if (getAttackCost() == monsterType.attackCost
+				&& getAttackChance() == monsterType.attackChance
+				&& getCriticalSkill() == monsterType.criticalSkill
+				&& getCriticalMultiplier() == monsterType.criticalMultiplier
+				&& getDamagePotential().equals(monsterType.damagePotential)
 				&& blockChance == monsterType.blockChance
 				&& damageResistance == monsterType.damageResistance
 				) {
 			dest.writeBoolean(false);
 		} else {
 			dest.writeBoolean(true);
-			dest.writeInt(attackCost);
-			dest.writeInt(attackChance);
-			dest.writeInt(criticalSkill);
-			dest.writeFloat(criticalMultiplier);
-			damagePotential.writeToParcel(dest);
+			dest.writeInt(getAttackCost());
+			dest.writeInt(getAttackChance());
+			dest.writeInt(getCriticalSkill());
+			dest.writeFloat(getCriticalMultiplier());
+			getDamagePotential().writeToParcel(dest);
 			dest.writeInt(blockChance);
 			dest.writeInt(damageResistance);
 		}
-		ap.writeToParcel(dest);
-		health.writeToParcel(dest);
-		position.writeToParcel(dest);
-		dest.writeInt(conditions.size());
-		for (ActorCondition c : conditions) {
+		getAp().writeToParcel(dest);
+		getHealth().writeToParcel(dest);
+		getPosition().writeToParcel(dest);
+		dest.writeInt(getConditions().size());
+		for (ActorCondition c : getConditions()) {
 			c.writeToParcel(dest);
 		}
-		dest.writeInt(moveCost);
+		dest.writeInt(getMoveCost());
 
 		dest.writeBoolean(forceAggressive);
 		if (shopItems != null) {

@@ -77,23 +77,23 @@ public final class MonsterMovementController implements EvaluateWalkable {
 		m.nextActionTime += getMillisecondsPerMove(m);
 		if (m.movementDestination == null) {
 			// Monster has waited and should start to move again.
-			m.movementDestination = new Coord(m.position);
+			m.movementDestination = new Coord(m.getPosition());
 			if (Constants.rnd.nextBoolean()) {
 				m.movementDestination.x = area.area.topLeft.x + Constants.rnd.nextInt(area.area.size.width);
 			} else {
 				m.movementDestination.y = area.area.topLeft.y + Constants.rnd.nextInt(area.area.size.height);
 			}
-		} else if (m.position.equals(m.movementDestination)) {
+		} else if (m.getPosition().equals(m.movementDestination)) {
 			// Monster has been moving and arrived at the destination.
 			cancelCurrentMonsterMovement(m);
 		} else {
-			determineMonsterNextPosition(m, area, world.model.player.position);
+			determineMonsterNextPosition(m, area, world.model.player.getPosition());
 
 			if (!monsterCanMoveTo(map, tileMap, m.nextPosition)) {
 				cancelCurrentMonsterMovement(m);
 				return;
 			}
-			if (m.nextPosition.contains(world.model.player.position)) {
+			if (m.nextPosition.contains(world.model.player.getPosition())) {
 				if (!m.isAgressive()) {
 					cancelCurrentMonsterMovement(m);
 					return;
@@ -121,8 +121,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
 		// Monster is moving in a straight line.
 		m.nextPosition.topLeft.set(
-				m.position.x + sgn(m.movementDestination.x - m.position.x)
-				,m.position.y + sgn(m.movementDestination.y - m.position.y)
+				m.getPosition().x + sgn(m.movementDestination.x - m.getPosition().x)
+				,m.getPosition().y + sgn(m.movementDestination.y - m.getPosition().y)
 			);
 	}
 
@@ -143,7 +143,7 @@ public final class MonsterMovementController implements EvaluateWalkable {
 
 	private final PathFinder pathfinder = new PathFinder(Constants.MAX_MAP_WIDTH, Constants.MAX_MAP_HEIGHT, this);
 	public boolean findPathFor(Monster m, Coord to) {
-		return pathfinder.findPathBetween(m.rectPosition, to, m.nextPosition);
+		return pathfinder.findPathBetween(m.getRectPosition(), to, m.nextPosition);
 	}
 
 	@Override
@@ -152,8 +152,8 @@ public final class MonsterMovementController implements EvaluateWalkable {
 	}
 
 	public void moveMonsterToNextPosition(Monster m, PredefinedMap map) {
-		CoordRect previousPosition = new CoordRect(new Coord(m.position), m.rectPosition.size);
-		m.position.set(m.nextPosition.topLeft);
+		CoordRect previousPosition = new CoordRect(new Coord(m.getPosition()), m.getRectPosition().size);
+		m.getPosition().set(m.nextPosition.topLeft);
 		monsterMovementListeners.onMonsterMoved(map, m, previousPosition);
 	}
 }

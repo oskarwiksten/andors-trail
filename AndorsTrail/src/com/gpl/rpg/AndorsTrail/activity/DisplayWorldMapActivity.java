@@ -79,9 +79,9 @@ public final class DisplayWorldMapActivity extends Activity {
 		}
 
 		String url = "file://" + worldmap.getAbsolutePath() + '?'
-				+ (world.model.player.position.x + map.worldPosition.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE
+				+ (world.model.player.getPosition().x + map.worldPosition.x) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE
 				+ ','
-				+ (world.model.player.position.y + map.worldPosition.y-1) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE;
+				+ (world.model.player.getPosition().y + map.worldPosition.y-1) * WorldMapController.WORLDMAP_DISPLAY_TILESIZE;
 		L.log("Showing " + url);
 		displayworldmap_webview.loadUrl(url);
 	}

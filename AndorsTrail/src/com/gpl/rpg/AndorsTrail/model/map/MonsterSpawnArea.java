@@ -49,13 +49,13 @@ public final class MonsterSpawnArea {
 	public Monster getMonsterAt(final Coord p) { return getMonsterAt(p.x, p.y); }
 	public Monster getMonsterAt(final int x, final int y) {
 		for (Monster m : monsters) {
-			if (m.rectPosition.contains(x, y)) return m;
+			if (m.getRectPosition().contains(x, y)) return m;
 		}
 		return null;
 	}
 	public Monster getMonsterAt(final CoordRect p) {
 		for (Monster m : monsters) {
-			if (m.rectPosition.intersects(p)) return m;
+			if (m.getRectPosition().intersects(p)) return m;
 		}
 		return null;
 	}
@@ -80,7 +80,7 @@ public final class MonsterSpawnArea {
 	}
 	public Monster spawn(Coord p, MonsterType type) {
 		Monster m = new Monster(type);
-		m.position.set(p);
+		m.getPosition().set(p);
 		monsters.add(m);
 		quantity.setCurrent( quantity.getCurrent()+1 );
 		return m;

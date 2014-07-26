@@ -94,8 +94,8 @@ public final class InputController implements OnClickListener, OnLongClickListen
 
 	public boolean onTouchedTile(int tile_x, int tile_y) {
 		lastTouchPosition_tileCoords.set(tile_x, tile_y);
-		lastTouchPosition_dx = tile_x - world.model.player.position.x;
-		lastTouchPosition_dy = tile_y - world.model.player.position.y;
+		lastTouchPosition_dx = tile_x - world.model.player.getPosition().x;
+		lastTouchPosition_dy = tile_y - world.model.player.getPosition().y;
 
 		if (world.model.uiSelections.isInCombat) return false;
 

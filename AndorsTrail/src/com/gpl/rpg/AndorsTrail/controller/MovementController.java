@@ -44,7 +44,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 			protected void onPostExecute(Void result) {
 				super.onPostExecute(result);
 				stopMovement();
-				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
+				playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.getPosition());
 				controllers.gameRoundController.resume();
 			}
 
@@ -72,10 +72,10 @@ public final class MovementController implements TimedMessageTask.Callback {
 		final ModelContainer model = world.model;
 
 		if (model.currentMap != null) model.currentMap.updateLastVisitTime();
-		model.player.position.set(place.position.topLeft);
-		model.player.position.x += Math.min(offset_x, place.position.size.width-1);
-		model.player.position.y += Math.min(offset_y, place.position.size.height-1);
-		model.player.lastPosition.set(model.player.position);
+		model.player.getPosition().set(place.position.topLeft);
+		model.player.getPosition().x += Math.min(offset_x, place.position.size.width-1);
+		model.player.getPosition().y += Math.min(offset_y, place.position.size.height-1);
+		model.player.lastPosition.set(model.player.getPosition());
 
 		if (!newMap.visited) {
 			playerVisitsMapFirstTime(newMap);
@@ -180,8 +180,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 	private boolean tryWalkablePosition(int dx, int dy, int aggressiveness) {
 		final Player player = world.model.player;
 		player.nextPosition.set(
-				player.position.x + dx
-				,player.position.y + dy
+				player.getPosition().x + dx
+				,player.getPosition().y + dy
 			);
 
 		if (!world.model.currentTileMap.isWalkable(player.nextPosition)) return false;
@@ -225,8 +225,8 @@ public final class MovementController implements TimedMessageTask.Callback {
 			}
 		}
 
-		player.lastPosition.set(player.position);
-		player.position.set(newPosition);
+		player.lastPosition.set(player.getPosition());
+		player.getPosition().set(newPosition);
 		controllers.combatController.setCombatSelection(null, null);
 		playerMovementListeners.onPlayerMoved(newPosition, player.lastPosition);
 
@@ -240,7 +240,7 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 	public void respawnPlayer(Resources res) {
 		placePlayerAt(res, MapObject.MapObjectType.rest, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
-		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.position);
+		playerMovementListeners.onPlayerEnteredNewMap(world.model.currentMap, world.model.player.getPosition());
 	}
 	public void respawnPlayerAsync() {
 		placePlayerAsyncAt(MapObject.MapObjectType.rest, world.model.player.getSpawnMap(), world.model.player.getSpawnPlace(), 0, 0);
@@ -251,20 +251,20 @@ public final class MovementController implements TimedMessageTask.Callback {
 
 		// If the player somehow spawned on an unwalkable tile, we move the player to the first mapchange area.
 		// This could happen if we change some tile to non-walkable in a future version.
-		if (!tileMap.isWalkable(model.player.position)) {
+		if (!tileMap.isWalkable(model.player.getPosition())) {
 			Coord p = getFirstMapChangeAreaPosition(map);
-			if (p != null) model.player.position.set(p);
+			if (p != null) model.player.getPosition().set(p);
 		}
 
 		// If any monsters somehow spawned on an unwalkable tile, we move the monster to a new position on the spawnarea
 		// This could happen if we change some tile to non-walkable in a future version.
-		Coord playerPosition = model.player.position;
+		Coord playerPosition = model.player.getPosition();
 		for (MonsterSpawnArea a : map.spawnAreas) {
 			for (Monster m : a.monsters) {
-				if (tileMap.isWalkable(m.rectPosition)) continue;
-				Coord p = MonsterSpawningController.getRandomFreePosition(map, tileMap, a.area, m.tileSize, playerPosition);
+				if (tileMap.isWalkable(m.getRectPosition())) continue;
+				Coord p = MonsterSpawningController.getRandomFreePosition(map, tileMap, a.area, m.getTileSize(), playerPosition);
 				if (p == null) continue;
-				m.position.set(p);
+				m.getPosition().set(p);
 			}
 		}
 
