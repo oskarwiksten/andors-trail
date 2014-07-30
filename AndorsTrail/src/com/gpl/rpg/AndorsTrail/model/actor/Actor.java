@@ -32,7 +32,7 @@ public class Actor {
 	private float criticalMultiplier;
 	private final Range damagePotential = new Range();
 	// TODO: Should be privates
-	public int blockChance;
+	private int blockChance;
 	public int damageResistance;
 	public ItemTraits_OnUse[] onHitEffects;
 
@@ -74,6 +74,7 @@ public class Actor {
 	public void setCriticalMultiplier(float criticalMultiplier) { this.criticalMultiplier = criticalMultiplier; }
 	public Range getDamagePotential() { return damagePotential; }
 	public int getBlockChance() { return blockChance; }
+	public void setBlockChance(int blockChance) {this.blockChance = blockChance;}
 	public int getDamageResistance() { return damageResistance; }
 	public ItemTraits_OnUse[] getOnHitEffects() { return onHitEffects; }
 	public List<ItemTraits_OnUse> getOnHitEffectsAsList() { return onHitEffects == null ? null : Arrays.asList(onHitEffects); }

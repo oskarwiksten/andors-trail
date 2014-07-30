@@ -47,7 +47,7 @@ public final class Monster extends Actor {
 		this.setCriticalMultiplier( monsterType.criticalMultiplier );
 		if (monsterType.damagePotential != null) this.getDamagePotential().set(monsterType.damagePotential);
 		else this.getDamagePotential().set(0, 0);
-		this.blockChance = monsterType.blockChance;
+		this.setBlockChance(monsterType.blockChance);
 		this.damageResistance = monsterType.damageResistance;
 		this.onHitEffects = monsterType.onHitEffects;
 	}
@@ -120,7 +120,7 @@ public final class Monster extends Actor {
 				this.setCriticalMultiplier( src.readFloat() );
 			}
 			this.getDamagePotential().set(new Range(src, fileversion));
-			this.blockChance = src.readInt();
+			this.setBlockChance(src.readInt());
 			this.damageResistance = src.readInt();
 		}
 
@@ -153,7 +153,7 @@ public final class Monster extends Actor {
 				&& getCriticalSkill() == monsterType.criticalSkill
 				&& getCriticalMultiplier() == monsterType.criticalMultiplier
 				&& getDamagePotential().equals(monsterType.damagePotential)
-				&& blockChance == monsterType.blockChance
+				&& getBlockChance() == monsterType.blockChance
 				&& damageResistance == monsterType.damageResistance
 				) {
 			dest.writeBoolean(false);
@@ -164,7 +164,7 @@ public final class Monster extends Actor {
 			dest.writeInt(getCriticalSkill());
 			dest.writeFloat(getCriticalMultiplier());
 			getDamagePotential().writeToParcel(dest);
-			dest.writeInt(blockChance);
+			dest.writeInt(getBlockChance());
 			dest.writeInt(damageResistance);
 		}
 		getAp().writeToParcel(dest);

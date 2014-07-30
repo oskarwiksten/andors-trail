@@ -31,7 +31,7 @@ public final class SkillController {
 		player.setAttackChance(player.getAttackChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_CHANCE * player.getSkillLevel(SkillID.weaponChance)));
 		player.getDamagePotential().addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX * player.getSkillLevel(SkillID.weaponDmg));
 		player.getDamagePotential().add(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN * player.getSkillLevel(SkillID.weaponDmg), false);
-		player.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_DODGE * player.getSkillLevel(SkillID.dodge);
+		player.setBlockChance(player.getBlockChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_DODGE * player.getSkillLevel(SkillID.dodge)));
 		player.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN * player.getSkillLevel(SkillID.barkSkin);
 		if (player.hasCriticalSkillEffect()) {
 			if (player.getCriticalSkill() > 0) {
@@ -207,7 +207,7 @@ public final class SkillController {
 				playerTraits.setAttackChance(playerTraits.getAttackChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_AC * unarmedLevel));
 				playerTraits.getDamagePotential().addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG * unarmedLevel);
 				playerTraits.getDamagePotential().add(SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_DMG * unarmedLevel, false);
-				playerTraits.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_BC * unarmedLevel;
+				playerTraits.setBlockChance(playerTraits.getBlockChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_UNARMED_BC * unarmedLevel));
 			}
 		}
 
@@ -219,7 +219,7 @@ public final class SkillController {
 		final int unarmoredLevel = player.getSkillLevel(SkillID.armorProficiencyUnarmored);
 		if (unarmoredLevel > 0) {
 			if (isUnarmored(player)) {
-				playerTraits.blockChance += SkillCollection.PER_SKILLPOINT_INCREASE_UNARMORED_BC * unarmoredLevel;
+				playerTraits.setBlockChance(playerTraits.getBlockChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_UNARMORED_BC * unarmoredLevel));
 			}
 		}
 
@@ -362,7 +362,7 @@ public final class SkillController {
 
 	private static void addPercentBlockChance(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {
 		if (itemType.effects_equip == null) return;
-		player.blockChance += getPercentage(itemType.effects_equip.stats.increaseBlockChance, percentForPositiveValues, percentForNegativeValues);
+		player.setBlockChance (player.getBlockChance()+ getPercentage(itemType.effects_equip.stats.increaseBlockChance, percentForPositiveValues, percentForNegativeValues));
 	}
 
 	private static void addPercentDamage(Player player, ItemType itemType, int percentForPositiveValues, int percentForNegativeValues) {

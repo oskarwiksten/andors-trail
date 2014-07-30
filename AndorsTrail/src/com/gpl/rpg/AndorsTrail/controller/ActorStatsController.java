@@ -181,7 +181,7 @@ public final class ActorStatsController {
 		actor.setCriticalSkill(actor.getCriticalSkill() + (effects.increaseCriticalSkill * multiplier));
 		actor.getDamagePotential().add(effects.increaseMinDamage * multiplier, true);
 		actor.getDamagePotential().addToMax(effects.increaseMaxDamage * multiplier);
-		actor.blockChance += effects.increaseBlockChance * multiplier;
+		actor.setBlockChance(actor.getBlockChance() + effects.increaseBlockChance * multiplier);
 		actor.damageResistance += effects.increaseDamageResistance * multiplier;
 
 		if (actor.getAttackChance() < 0) actor.setAttackChance( 0 );
