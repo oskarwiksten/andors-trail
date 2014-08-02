@@ -132,31 +132,31 @@ public final class HeroinfoActivity_Stats extends Fragment {
 		heroinfo_ap.setText(player.getMaxAP() + "/" + player.getCurrentAP());
 		heroinfo_reequip_cost.setText(Integer.toString(player.getReequipCost()));
 		heroinfo_useitem_cost.setText(Integer.toString(player.getUseItemCost()));
-		basetraitsinfo_max_hp.setText(Integer.toString(player.baseTraits.maxHP));
-		basetraitsinfo_max_ap.setText(Integer.toString(player.baseTraits.maxAP));
-		heroinfo_base_reequip_cost.setText(Integer.toString(player.baseTraits.reequipCost));
-		heroinfo_base_useitem_cost.setText(Integer.toString(player.baseTraits.useItemCost));
+		basetraitsinfo_max_hp.setText(Integer.toString(player.getBaseTraits().maxHP));
+		basetraitsinfo_max_ap.setText(Integer.toString(player.getBaseTraits().maxAP));
+		heroinfo_base_reequip_cost.setText(Integer.toString(player.getBaseTraits().reequipCost));
+		heroinfo_base_useitem_cost.setText(Integer.toString(player.getBaseTraits().useItemCost));
 		rangebar_hp.update(player.getMaxHP(), player.getCurrentHP());
 		rangebar_exp.update(player.getMaxLevelExperience(), player.getCurrentLevelExperience());
 
 		TraitsInfoView.update(heroinfo_container, player);
 		TraitsInfoView.updateTraitsTable(
 			heroinfo_basestats_table
-			, player.baseTraits.moveCost
-			, player.baseTraits.attackCost
-			, player.baseTraits.attackChance
-			, player.baseTraits.damagePotential
-			, player.baseTraits.criticalSkill
-			, player.baseTraits.criticalMultiplier
-			, player.baseTraits.blockChance
-			, player.baseTraits.damageResistance
+			, player.getBaseTraits().moveCost
+			, player.getBaseTraits().attackCost
+			, player.getBaseTraits().attackChance
+			, player.getBaseTraits().damagePotential
+			, player.getBaseTraits().criticalSkill
+			, player.getBaseTraits().criticalMultiplier
+			, player.getBaseTraits().blockChance
+			, player.getBaseTraits().damageResistance
 			, false
 		);
 
 		ArrayList<ItemTraits_OnUse> effects_hit = new ArrayList<ItemTraits_OnUse>();
 		ArrayList<ItemTraits_OnUse> effects_kill = new ArrayList<ItemTraits_OnUse>();
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
+			ItemType type = player.getInventory().getItemTypeInWearSlot(slot);
 			if (type == null) continue;
 			if (type.effects_hit != null) effects_hit.add(type.effects_hit);
 			if (type.effects_kill != null) effects_kill.add(type.effects_kill);

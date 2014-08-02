@@ -211,7 +211,7 @@ public final class SkillController {
 			}
 		}
 
-		ItemType shield = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
+		ItemType shield = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.shield);
 		if (shield != null && shield.isShield()) {
 			playerTraits.setDamageResistance(playerTraits.getDamageResistance() + SkillCollection.PER_SKILLPOINT_INCREASE_SHIELD_PROF_DR * getSkillLevelForItemType(player, shield));
 		}
@@ -228,7 +228,7 @@ public final class SkillController {
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
 			if (!Inventory.isArmorSlot(slot)) continue;
 
-			ItemType itemType = player.inventory.getItemTypeInWearSlot(slot);
+			ItemType itemType = player.getInventory().getItemTypeInWearSlot(slot);
 			if (itemType == null) continue;
 			if (itemType.effects_equip == null) continue;
 
@@ -260,7 +260,7 @@ public final class SkillController {
 		return true;
 	}
 	private static boolean hasItemWithWeight(Player player, Inventory.WearSlot slot) {
-		ItemType itemType = player.inventory.getItemTypeInWearSlot(slot);
+		ItemType itemType = player.getInventory().getItemTypeInWearSlot(slot);
 		if (itemType == null) return false;
 		if (itemType.category.getSize() == ItemCategory.ItemCategorySize.none) return false;
 		return true;
@@ -299,8 +299,8 @@ public final class SkillController {
 
 	public static void applySkillEffectsFromFightingStyles(Player player) {
 		Player playerTraits = player;
-		ItemType mainHandItem = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
-		ItemType offHandItem = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
+		ItemType mainHandItem = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+		ItemType offHandItem = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.shield);
 
 		if (isWielding2HandItem(mainHandItem, offHandItem)) {
 			int skillLevelFightStyle = player.getSkillLevel(SkillID.fightstyle2hand);

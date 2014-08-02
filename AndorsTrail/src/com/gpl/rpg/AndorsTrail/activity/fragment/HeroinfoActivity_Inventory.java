@@ -71,8 +71,8 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 				showInventoryItemInfo(itemType.id);
 			}
 		});
-		ItemContainer inv = player.inventory;
-		wornTiles = world.tileManager.loadTilesFor(player.inventory, getResources());
+		ItemContainer inv = player.getInventory();
+		wornTiles = world.tileManager.loadTilesFor(player.getInventory(), getResources());
 		inventoryListAdapter = new ItemContainerAdapter(getActivity(), world.tileManager, inv, player, wornTiles);
 		inventoryList.setAdapter(inventoryListAdapter);
 
@@ -106,9 +106,9 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 		imageView.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				if (player.inventory.isEmptySlot(inventorySlot)) return;
+				if (player.getInventory().isEmptySlot(inventorySlot)) return;
 				imageView.setClickable(false); // Will be enabled again on update()
-				showEquippedItemInfo(player.inventory.getItemTypeInWearSlot(inventorySlot), inventorySlot);
+				showEquippedItemInfo(player.getInventory().getItemTypeInWearSlot(inventorySlot), inventorySlot);
 			}
 		});
 	}
@@ -145,13 +145,13 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 
 	private Inventory.WearSlot suggestInventorySlot(ItemType itemType) {
 		Inventory.WearSlot slot = itemType.category.inventorySlot;
-		if (player.inventory.isEmptySlot(slot)) return slot;
+		if (player.getInventory().isEmptySlot(slot)) return slot;
 
 		if (slot == Inventory.WearSlot.leftring) return Inventory.WearSlot.rightring;
 		if (itemType.isOffhandCapableWeapon()) {
-			ItemType mainWeapon = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+			ItemType mainWeapon = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 			if (mainWeapon != null && mainWeapon.isTwohandWeapon()) return slot;
-			else if (player.inventory.isEmptySlot(Inventory.WearSlot.shield)) return Inventory.WearSlot.shield;
+			else if (player.getInventory().isEmptySlot(Inventory.WearSlot.shield)) return Inventory.WearSlot.shield;
 		}
 		return slot;
 	}
@@ -168,7 +168,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 	}
 
 	private void updateTraits() {
-		heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.inventory.gold));
+		heroinfo_stats_gold.setText(getResources().getString(R.string.heroinfo_gold, player.getInventory().gold));
 
 		StringBuilder sb = new StringBuilder(10);
 		ItemController.describeAttackEffect(
@@ -187,7 +187,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 
 	private void updateWorn() {
 		for(Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			updateWornImage(wornItemImage[slot.ordinal()], defaultWornItemImageResourceIDs[slot.ordinal()], player.inventory.getItemTypeInWearSlot(slot));
+			updateWornImage(wornItemImage[slot.ordinal()], defaultWornItemImageResourceIDs[slot.ordinal()], player.getInventory().getItemTypeInWearSlot(slot));
 		}
 	}
 
@@ -240,7 +240,7 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			break;
 		case R.id.inv_menu_drop:
 			String itemTypeID = getSelectedItemType(info).id;
-			int quantity = player.inventory.getItemQuantity(itemTypeID);
+			int quantity = player.getInventory().getItemQuantity(itemTypeID);
 			if (quantity > 1) {
 				Intent intent = Dialogs.getIntentForBulkDroppingInterface(getActivity(), itemTypeID, quantity);
 				startActivityForResult(intent, INTENTREQUEST_BULKSELECT_DROP);
@@ -279,10 +279,10 @@ public final class HeroinfoActivity_Inventory extends Fragment {
 			controllers.itemController.setQuickItem(lastSelectedItem, 2);
 			break;
 		case R.id.inv_menu_movetop:
-			player.inventory.sortToTop(getSelectedItemType(info).id);
+			player.getInventory().sortToTop(getSelectedItemType(info).id);
 			break;
 		case R.id.inv_menu_movebottom:
-			player.inventory.sortToBottom(getSelectedItemType(info).id);
+			player.getInventory().sortToBottom(getSelectedItemType(info).id);
 			break;
 		default:
 			return super.onContextItemSelected(item);

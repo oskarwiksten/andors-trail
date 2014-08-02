@@ -93,14 +93,14 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 		loadItemTypeImages();
 
 		for (int i = 0; i < NUM_QUICK_SLOTS; ++i){
-			ItemType type = world.model.player.inventory.quickitem[i];
+			ItemType type = world.model.player.getInventory().quickitem[i];
 			buttons[i].setItemType(type, world, tiles);
 		}
 	}
 
 	private void loadItemTypeImages() {
 		boolean shouldLoadImages = false;
-		for (ItemType type : world.model.player.inventory.quickitem) {
+		for (ItemType type : world.model.player.getInventory().quickitem) {
 			if (type == null) continue;
 			if (!loadedTileIDs.contains(type.iconID)) {
 				shouldLoadImages = true;
@@ -111,7 +111,7 @@ public final class QuickitemView extends LinearLayout implements OnClickListener
 
 		HashSet<Integer> iconIDs = new HashSet<Integer>();
 
-		for (ItemType type : world.model.player.inventory.quickitem) {
+		for (ItemType type : world.model.player.getInventory().quickitem) {
 			if (type == null) continue;
 			iconIDs.add(type.iconID);
 		}

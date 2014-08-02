@@ -61,10 +61,10 @@ public abstract class ShopActivityFragment extends Fragment implements OnContain
 		shopInventory = npc.getShopItems(player);
 
 		HashSet<Integer> iconIDs = world.tileManager.getTileIDsFor(shopInventory);
-		iconIDs.addAll(world.tileManager.getTileIDsFor(player.inventory));
+		iconIDs.addAll(world.tileManager.getTileIDsFor(player.getInventory()));
 		TileCollection tiles = world.tileManager.loadTilesFor(iconIDs, res);
 		final boolean isSelling = isSellingInterface();
-		listAdapter = new ShopItemContainerAdapter(getActivity(), tiles, world.tileManager, player, isSelling ? player.inventory : shopInventory, this, isSelling);
+		listAdapter = new ShopItemContainerAdapter(getActivity(), tiles, world.tileManager, player, isSelling ? player.getInventory() : shopInventory, this, isSelling);
 		shoplist.setAdapter(listAdapter);
 		return v;
 	}

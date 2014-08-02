@@ -74,7 +74,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 			player.setUseItemCost( 5 );
 			player.getHealth().setMax(player.getHealth().getMax() + 5);
 			player.getHealth().setCurrent( player.getHealth().getCurrent() + 5 );
-			player.baseTraits.maxHP += 5;
+			player.getBaseTraits().maxHP += 5;
 		}
 
 		if (fileversion <= 21) {
@@ -97,7 +97,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		}
 
 		if (fileversion <= 30) {
-			player.baseTraits.attackCost = Player.DEFAULT_PLAYER_ATTACKCOST;
+			player.getBaseTraits().attackCost = Player.DEFAULT_PLAYER_ATTACKCOST;
 		}
 
 		if (fileversion <= 37) {
@@ -131,7 +131,7 @@ public final class LegacySavegameFormatReaderForPlayer {
 		if (!player.hasCondition(conditionTypeID)) return;
 		boolean hasItemWithCondition = false;
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
+			ItemType t = player.getInventory().getItemTypeInWearSlot(slot);
 			if (t == null) continue;
 			if (t.effects_equip == null) continue;
 			if (t.effects_equip.addedConditions == null) continue;

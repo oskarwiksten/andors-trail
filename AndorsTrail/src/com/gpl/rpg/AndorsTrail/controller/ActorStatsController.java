@@ -76,7 +76,7 @@ public final class ActorStatsController {
 
 	private void removeNonStackableActorCondition(Player player, ActorConditionType type, int magnitude, int duration) {
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			ItemType t = player.inventory.getItemTypeInWearSlot(slot);
+			ItemType t = player.getInventory().getItemTypeInWearSlot(slot);
 			if (t == null) continue;
 
 			ItemTraits_OnEquip equipEffects = t.effects_equip;
@@ -384,7 +384,7 @@ public final class ActorStatsController {
 
 	public void applyKillEffectsToPlayer(Player player) {
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
+			ItemType type = player.getInventory().getItemTypeInWearSlot(slot);
 			if (type == null) continue;
 
 			applyUseEffect(player, null, type.effects_kill);
@@ -415,14 +415,14 @@ public final class ActorStatsController {
 			hpIncrease = Constants.LEVELUP_EFFECT_HEALTH;
 			break;
 		case attackChance:
-			player.baseTraits.attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
+			player.getBaseTraits().attackChance += Constants.LEVELUP_EFFECT_ATK_CH;
 			break;
 		case attackDamage:
-			player.baseTraits.damagePotential.setMax( player.baseTraits.damagePotential.getMax() + Constants.LEVELUP_EFFECT_ATK_DMG);
-			player.baseTraits.damagePotential.setCurrent(player.baseTraits.damagePotential.getCurrent() + Constants.LEVELUP_EFFECT_ATK_DMG);
+			player.getBaseTraits().damagePotential.setMax( player.getBaseTraits().damagePotential.getMax() + Constants.LEVELUP_EFFECT_ATK_DMG);
+			player.getBaseTraits().damagePotential.setCurrent(player.getBaseTraits().damagePotential.getCurrent() + Constants.LEVELUP_EFFECT_ATK_DMG);
 			break;
 		case blockChance:
-			player.baseTraits.blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
+			player.getBaseTraits().blockChance += Constants.LEVELUP_EFFECT_DEF_CH;
 			break;
 		}
 		if (player.nextLevelAddsNewSkillpoint()) {
@@ -432,7 +432,7 @@ public final class ActorStatsController {
 
 		hpIncrease += player.getSkillLevel(SkillCollection.SkillID.fortitude) * SkillCollection.PER_SKILLPOINT_INCREASE_FORTITUDE_HEALTH;
 		addActorMaxHealth(player, hpIncrease, true);
-		player.baseTraits.maxHP += hpIncrease;
+		player.getBaseTraits().maxHP += hpIncrease;
 
 		recalculatePlayerStats(player);
 	}
@@ -448,7 +448,7 @@ public final class ActorStatsController {
 		if (exp == 0) return;
 		Player p = world.model.player;
 		p.setTotalExperience( p.getTotalExperience()+exp );
-		p.levelExperience.add(exp, true);
+		p.getLevelExperience().add(exp, true);
 		playerStatsListeners.onPlayerExperienceChanged(p);
 	}
 	public void addActorMoveCost(Actor actor, int amount) {

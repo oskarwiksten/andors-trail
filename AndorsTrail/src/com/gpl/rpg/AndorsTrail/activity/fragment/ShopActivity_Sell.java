@@ -48,7 +48,7 @@ public final class ShopActivity_Sell extends ShopActivityFragment {
 	}
 
 	private void showSellingInterface(ItemType itemType) {
-		Intent intent = Dialogs.getIntentForBulkSellingInterface(getActivity(), itemType.id, player.inventory.getItemQuantity(itemType.id));
+		Intent intent = Dialogs.getIntentForBulkSellingInterface(getActivity(), itemType.id, player.getInventory().getItemQuantity(itemType.id));
 		startActivityForResult(intent, INTENTREQUEST_BULKSELECT);
 	}
 

@@ -207,8 +207,8 @@ public final class MainActivity
 	private void createQuickButtonMenu(ContextMenu menu){
 		menu.add(Menu.NONE, R.id.quick_menu_unassign, Menu.NONE, R.string.inventory_unassign);
 		SubMenu assignMenu = menu.addSubMenu(Menu.NONE, R.id.quick_menu_assign, Menu.NONE, R.string.inventory_assign);
-		for(int i=0; i<world.model.player.inventory.items.size(); ++i){
-			ItemEntry itemEntry = world.model.player.inventory.items.get(i);
+		for(int i=0; i<world.model.player.getInventory().items.size(); ++i){
+			ItemEntry itemEntry = world.model.player.getInventory().items.get(i);
 			if(itemEntry.itemType.isUsable())
 				assignMenu.add(R.id.quick_menu_assign_group, i, Menu.NONE, itemEntry.itemType.getName(world.model.player));
 		}
@@ -219,7 +219,7 @@ public final class MainActivity
 		QuickButtonContextMenuInfo menuInfo;
 		if(item.getGroupId() == R.id.quick_menu_assign_group){
 			menuInfo = (QuickButtonContextMenuInfo) lastSelectedMenu;
-			controllers.itemController.setQuickItem(world.model.player.inventory.items.get(item.getItemId()).itemType, menuInfo.index);
+			controllers.itemController.setQuickItem(world.model.player.getInventory().items.get(item.getItemId()).itemType, menuInfo.index);
 			return true;
 		}
 		switch(item.getItemId()){

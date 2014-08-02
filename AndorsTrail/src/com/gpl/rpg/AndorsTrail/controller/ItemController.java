@@ -26,8 +26,8 @@ public final class ItemController {
 	}
 
 	public void dropItem(ItemType type, int quantity) {
-		if (world.model.player.inventory.getItemQuantity(type.id) < quantity) return;
-		world.model.player.inventory.removeItem(type.id, quantity);
+		if (world.model.player.getInventory().getItemQuantity(type.id) < quantity) return;
+		world.model.player.getInventory().removeItem(type.id, quantity);
 		world.model.currentMap.itemDropped(type, quantity, world.model.player.getPosition());
 	}
 
@@ -39,16 +39,16 @@ public final class ItemController {
 			if (!changed) return;
 		}
 
-		if (!player.inventory.removeItem(type.id, 1)) return;
+		if (!player.getInventory().removeItem(type.id, 1)) return;
 
 		unequipSlot(player, slot);
 		if (type.isTwohandWeapon()) unequipSlot(player, Inventory.WearSlot.shield);
 		else if (slot == Inventory.WearSlot.shield) {
-			ItemType currentWeapon = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+			ItemType currentWeapon = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 			if (currentWeapon != null && currentWeapon.isTwohandWeapon()) unequipSlot(player, Inventory.WearSlot.weapon);
 		}
 
-		player.inventory.setItemTypeInWearSlot(slot, type);
+		player.getInventory().setItemTypeInWearSlot(slot, type);
 		controllers.actorStatsController.addConditionsFromEquippedItem(player, type);
 		controllers.actorStatsController.recalculatePlayerStats(player);
 	}
@@ -56,7 +56,7 @@ public final class ItemController {
 	public void unequipSlot(ItemType type, Inventory.WearSlot slot) {
 		if (!type.isEquippable()) return;
 		final Player player = world.model.player;
-		if (player.inventory.isEmptySlot(slot)) return;
+		if (player.getInventory().isEmptySlot(slot)) return;
 
 		if (world.model.uiSelections.isInCombat) {
 			boolean changed = controllers.actorStatsController.useAPs(player, player.getReequipCost());
@@ -68,10 +68,10 @@ public final class ItemController {
 	}
 
 	private void unequipSlot(Player player, Inventory.WearSlot slot) {
-		ItemType removedItemType = player.inventory.getItemTypeInWearSlot(slot);
+		ItemType removedItemType = player.getInventory().getItemTypeInWearSlot(slot);
 		if (removedItemType == null) return;
-		player.inventory.addItem(removedItemType);
-		player.inventory.setItemTypeInWearSlot(slot, null);
+		player.getInventory().addItem(removedItemType);
+		player.getInventory().setItemTypeInWearSlot(slot, null);
 		controllers.actorStatsController.removeConditionsFromUnequippedItem(player, removedItemType);
 	}
 
@@ -83,7 +83,7 @@ public final class ItemController {
 			if (!changed) return;
 		}
 
-		if (!player.inventory.removeItem(type.id, 1)) return;
+		if (!player.getInventory().removeItem(type.id, 1)) return;
 
 		controllers.actorStatsController.applyUseEffect(player, null, type.effects_use);
 		world.model.statistics.addItemUsage(type);
@@ -155,18 +155,18 @@ public final class ItemController {
 		SkillController.applySkillEffectsFromItemProficiencies(player);
 	}
 	public static ItemType getMainWeapon(Player player) {
-		ItemType itemType = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+		ItemType itemType = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 		if (itemType != null) return itemType;
-		itemType = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
+		itemType = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.shield);
 		if (itemType != null && itemType.isWeapon()) return itemType;
 		return null;
 	}
 
 	private void applyInventoryEffects(Player player, Inventory.WearSlot slot) {
-		ItemType type = player.inventory.getItemTypeInWearSlot(slot);
+		ItemType type = player.getInventory().getItemTypeInWearSlot(slot);
 		if (type == null) return;
 		if (slot == Inventory.WearSlot.shield) {
-			ItemType mainHandItem = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.weapon);
+			ItemType mainHandItem = player.getInventory().getItemTypeInWearSlot(Inventory.WearSlot.weapon);
 			// The stats for off-hand weapons will be added later in SkillController.applySkillEffectsFromFightingStyles
 			if (SkillController.isDualWielding(mainHandItem, type)) return;
 		}
@@ -177,7 +177,7 @@ public final class ItemController {
 	public static void recalculateHitEffectsFromWornItems(Player player) {
 		ArrayList<ItemTraits_OnUse> effects = null;
 		for (Inventory.WearSlot slot : Inventory.WearSlot.values()) {
-			ItemType type = player.inventory.getItemTypeInWearSlot(slot);
+			ItemType type = player.getInventory().getItemTypeInWearSlot(slot);
 			if (type == null) continue;
 			ItemTraits_OnUse e = type.effects_hit;
 			if (e == null) continue;
@@ -197,7 +197,7 @@ public final class ItemController {
 
 	public void consumeNonItemLoot(Loot loot) {
 		// Experience will be given as soon as the monster is killed.
-		world.model.player.inventory.gold += loot.gold;
+		world.model.player.getInventory().gold += loot.gold;
 		loot.gold = 0;
 		removeLootBagIfEmpty(loot);
 	}
@@ -208,7 +208,7 @@ public final class ItemController {
 	}
 
 	public void pickupAll(Loot loot) {
-		world.model.player.inventory.add(loot.items);
+		world.model.player.getInventory().add(loot.items);
 		consumeNonItemLoot(loot);
 		loot.clear();
 	}
@@ -245,10 +245,10 @@ public final class ItemController {
 	}
 
 	public static boolean canAfford(Player player, ItemType itemType) {
-		return player.inventory.gold >= getBuyingPrice(player, itemType);
+		return player.getInventory().gold >= getBuyingPrice(player, itemType);
 	}
 	public static boolean canAfford(Player player, int price) {
-		return player.inventory.gold >= price;
+		return player.getInventory().gold >= price;
 	}
 	public static boolean maySellItem(Player player, ItemType itemType) {
 		if (!itemType.isSellable()) return false;
@@ -257,8 +257,8 @@ public final class ItemController {
 	public static boolean sell(Player player, ItemType itemType, ItemContainer merchant, int quantity) {
 		int price = getSellingPrice(player, itemType) * quantity;
 		if (!maySellItem(player, itemType)) return false;
-		if (!player.inventory.removeItem(itemType.id, quantity)) return false;
-		player.inventory.gold += price;
+		if (!player.getInventory().removeItem(itemType.id, quantity)) return false;
+		player.getInventory().gold += price;
 		merchant.addItem(itemType, quantity);
 		return true;
 	}
@@ -266,8 +266,8 @@ public final class ItemController {
 		int price = getBuyingPrice(player, itemType) * quantity;
 		if (!canAfford(player, price)) return false;
 		if (!merchant.removeItem(itemType.id, quantity)) return false;
-		player.inventory.gold -= price;
-		player.inventory.addItem(itemType, quantity);
+		player.getInventory().gold -= price;
+		player.getInventory().addItem(itemType, quantity);
 		model.statistics.addGoldSpent(price);
 		return true;
 	}
@@ -344,12 +344,12 @@ public final class ItemController {
 	}
 
 	public void quickitemUse(int quickSlotId) {
-		useItem(world.model.player.inventory.quickitem[quickSlotId]);
+		useItem(world.model.player.getInventory().quickitem[quickSlotId]);
 		quickSlotListeners.onQuickSlotUsed(quickSlotId);
 	}
 
 	public void setQuickItem(ItemType itemType, int quickSlotId) {
-		world.model.player.inventory.quickitem[quickSlotId] = itemType;
+		world.model.player.getInventory().quickitem[quickSlotId] = itemType;
 		quickSlotListeners.onQuickSlotChanged(quickSlotId);
 	}
 }

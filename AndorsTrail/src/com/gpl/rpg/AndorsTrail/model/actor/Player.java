@@ -2,6 +2,7 @@ package com.gpl.rpg.AndorsTrail.model.actor;
 
 import android.util.FloatMath;
 import android.util.SparseIntArray;
+
 import com.gpl.rpg.AndorsTrail.AndorsTrailApplication;
 import com.gpl.rpg.AndorsTrail.context.ControllerContext;
 import com.gpl.rpg.AndorsTrail.context.WorldContext;
@@ -10,6 +11,7 @@ import com.gpl.rpg.AndorsTrail.model.ability.ActorCondition;
 import com.gpl.rpg.AndorsTrail.model.ability.SkillCollection;
 import com.gpl.rpg.AndorsTrail.model.item.DropListCollection;
 import com.gpl.rpg.AndorsTrail.model.item.Inventory;
+import com.gpl.rpg.AndorsTrail.model.item.ItemContainer;
 import com.gpl.rpg.AndorsTrail.model.item.Loot;
 import com.gpl.rpg.AndorsTrail.model.quest.QuestProgress;
 import com.gpl.rpg.AndorsTrail.resource.tiles.TileManager;
@@ -32,10 +34,9 @@ public final class Player extends Actor {
 	public final Coord nextPosition;
 
 	private int level;
-	// TODO: Should be privates
-	public final PlayerBaseTraits baseTraits = new PlayerBaseTraits();
-	public final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
-	public final Inventory inventory;
+	private final PlayerBaseTraits baseTraits = new PlayerBaseTraits();
+	private final Range levelExperience; // ranges from 0 to the delta-amount of exp required for next level
+	private final Inventory inventory;
 	private final SparseIntArray skillLevels = new SparseIntArray();
 	private int availableSkillIncreases = 0;
 	private int useItemCost;
@@ -218,6 +219,9 @@ public final class Player extends Actor {
 	public int getReequipCost() { return reequipCost; }
 	public void setUseItemCost(int useItemCost) { this.useItemCost = useItemCost; }
 	public int getUseItemCost() { return useItemCost; }
+	public PlayerBaseTraits getBaseTraits() { return baseTraits; }
+	public Range getLevelExperience() { return levelExperience; }
+	public Inventory getInventory() { return inventory; }
 	public void setAvailableSkillIncreases(int availableSkillIncreases) { this.availableSkillIncreases = availableSkillIncreases; }
 	public int getAvailableSkillIncreases() { return availableSkillIncreases; }
 	public void setLevel(int level) { this.level=level; }

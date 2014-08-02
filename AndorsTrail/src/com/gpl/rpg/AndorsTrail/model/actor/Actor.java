@@ -31,7 +31,6 @@ public class Actor {
 	private int criticalSkill;
 	private float criticalMultiplier;
 	private final Range damagePotential = new Range();
-	// TODO: Should be privates
 	private int blockChance;
 	private int damageResistance;
 	private ItemTraits_OnUse[] onHitEffects;

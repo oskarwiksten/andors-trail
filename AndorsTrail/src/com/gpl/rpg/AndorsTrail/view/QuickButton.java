@@ -57,7 +57,7 @@ public final class QuickButton extends Button {
 			setText("");
 			setCompoundDrawablePadding(0);
 		} else {
-			int quantity = world.model.player.inventory.getItemQuantity(type.id);
+			int quantity = world.model.player.getInventory().getItemQuantity(type.id);
 			empty = quantity == 0;
 			if (!type.id.equals(currentItemID)) {
 				world.tileManager.setImageViewTile(res, this, type, tiles);

@@ -64,7 +64,7 @@ public final class ConversationController {
 
 		if (result.isEmpty()) return null;
 
-		player.inventory.add(result.loot);
+		player.getInventory().add(result.loot);
 		controllers.actorStatsController.addExperience(result.loot.exp);
 
 		return result;
@@ -221,14 +221,14 @@ public final class ConversationController {
 				result = player.isLatestQuestProgress(requirement.requireID, requirement.value);
 				break;
 			case wear:
-				result =  player.inventory.isWearing(requirement.requireID, requirement.value);
+				result =  player.getInventory().isWearing(requirement.requireID, requirement.value);
 				break;
 			case inventoryKeep:
 			case inventoryRemove:
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
-					result =  player.inventory.gold >= requirement.value;
+					result =  player.getInventory().gold >= requirement.value;
 				} else {
-					result =  player.inventory.hasItem(requirement.requireID, requirement.value);
+					result =  player.getInventory().hasItem(requirement.requireID, requirement.value);
 				}
 				break;
 			case skillLevel:
@@ -263,10 +263,10 @@ public final class ConversationController {
 		switch (requirement.requireType) {
 			case inventoryRemove:
 				if (ItemTypeCollection.isGoldItemType(requirement.requireID)) {
-					p.inventory.gold -= requirement.value;
+					p.getInventory().gold -= requirement.value;
 					world.model.statistics.addGoldSpent(requirement.value);
 				} else {
-					p.inventory.removeItem(requirement.requireID, requirement.value);
+					p.getInventory().removeItem(requirement.requireID, requirement.value);
 				}
 		}
 	}

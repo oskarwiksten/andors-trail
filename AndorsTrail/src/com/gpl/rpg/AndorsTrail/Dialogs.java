@@ -192,7 +192,7 @@ public final class Dialogs {
 				}
 				if (removeFromCombinedLoot) combinedLoot.items.removeItem(itemTypeID);
 				ItemType type = world.itemTypes.getItemType(itemTypeID);
-				world.model.player.inventory.addItem(type);
+				world.model.player.getInventory().addItem(type);
 				((ItemContainerAdapter) itemList.getAdapter()).notifyDataSetChanged();
 			}
 		});
