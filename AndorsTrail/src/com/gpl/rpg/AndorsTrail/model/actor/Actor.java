@@ -33,8 +33,8 @@ public class Actor {
 	private final Range damagePotential = new Range();
 	// TODO: Should be privates
 	private int blockChance;
-	public int damageResistance;
-	public ItemTraits_OnUse[] onHitEffects;
+	private int damageResistance;
+	private ItemTraits_OnUse[] onHitEffects;
 
 	public Actor(
 			Size tileSize
@@ -76,7 +76,10 @@ public class Actor {
 	public int getBlockChance() { return blockChance; }
 	public void setBlockChance(int blockChance) {this.blockChance = blockChance;}
 	public int getDamageResistance() { return damageResistance; }
+	public void setDamageResistance(int damageResistance) {this.damageResistance = damageResistance;}
 	public ItemTraits_OnUse[] getOnHitEffects() { return onHitEffects; }
+	public void setOnHitEffects(ItemTraits_OnUse[] onHitEffects) {this.onHitEffects = onHitEffects;}
+
 	public List<ItemTraits_OnUse> getOnHitEffectsAsList() { return onHitEffects == null ? null : Arrays.asList(onHitEffects); }
 
 	public boolean hasCriticalSkillEffect() { return getCriticalSkill() != 0; }

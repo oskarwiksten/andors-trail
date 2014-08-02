@@ -32,7 +32,7 @@ public final class SkillController {
 		player.getDamagePotential().addToMax(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MAX * player.getSkillLevel(SkillID.weaponDmg));
 		player.getDamagePotential().add(SkillCollection.PER_SKILLPOINT_INCREASE_WEAPON_DAMAGE_MIN * player.getSkillLevel(SkillID.weaponDmg), false);
 		player.setBlockChance(player.getBlockChance() + (SkillCollection.PER_SKILLPOINT_INCREASE_DODGE * player.getSkillLevel(SkillID.dodge)));
-		player.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN * player.getSkillLevel(SkillID.barkSkin);
+		player.setDamageResistance(player.getDamageResistance() + SkillCollection.PER_SKILLPOINT_INCREASE_BARKSKIN * player.getSkillLevel(SkillID.barkSkin));
 		if (player.hasCriticalSkillEffect()) {
 			if (player.getCriticalSkill() > 0) {
 				player.setCriticalSkill(player.getCriticalSkill() + (player.getCriticalSkill() * SkillCollection.PER_SKILLPOINT_INCREASE_MORE_CRITICALS_PERCENT * player.getSkillLevel(SkillID.moreCriticals) / 100));
@@ -213,7 +213,7 @@ public final class SkillController {
 
 		ItemType shield = player.inventory.getItemTypeInWearSlot(Inventory.WearSlot.shield);
 		if (shield != null && shield.isShield()) {
-			playerTraits.damageResistance += SkillCollection.PER_SKILLPOINT_INCREASE_SHIELD_PROF_DR * getSkillLevelForItemType(player, shield);
+			playerTraits.setDamageResistance(playerTraits.getDamageResistance() + SkillCollection.PER_SKILLPOINT_INCREASE_SHIELD_PROF_DR * getSkillLevelForItemType(player, shield));
 		}
 
 		final int unarmoredLevel = player.getSkillLevel(SkillID.armorProficiencyUnarmored);
