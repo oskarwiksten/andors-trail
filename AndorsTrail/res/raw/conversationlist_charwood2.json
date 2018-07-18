@@ -1,0 +1,155 @@
+[
+    {
+        "id": "charwoodm",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 40,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I bow to no one.",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Bow down to your own death!",
+                "nextPhraseID": "F"
+            },
+            {
+                "text": "Fight!",
+                "nextPhraseID": "F"
+            }
+        ],
+        "message": "Bow before the might of the Thukuzun!"
+    },
+    {
+        "id": "falothen0",
+        "replies": [
+            {
+                "text": "[untie the ropes]",
+                "nextPhraseID": "falothen0_1"
+            },
+            {
+                "text": "I think I'll leave you right there.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "You there, thank the Shadow you're here! Quickly, untie these ropes!"
+    },
+    {
+        "id": "falothen0_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen0_2"
+            }
+        ],
+        "message": "I'm free, thank you! I'll make my way down the hill to the Charwood cabin. Meet me back there."
+    },
+    {
+        "id": "falothen0_2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 41,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "morenavia",
+        "replies": [
+            {
+                "text": "[examine the remains]",
+                "nextPhraseID": "morenavia_1"
+            },
+            {
+                "text": "[leave it alone]",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "You see the bloody remains of what looks like a human."
+    },
+    {
+        "id": "morenavia_1",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 42,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Among the remains, you find a ring with the insignia 'Morenavia'. This must be what's left of the former leader of the Charwood hills."
+    },
+    {
+        "id": "fayvara0",
+        "replies": [
+            {
+                "text": "[untie the ropes]",
+                "nextPhraseID": "fayvara0_1"
+            },
+            {
+                "text": "I think I'll leave you right there.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "Please help me! I'm being held captive here."
+    },
+    {
+        "id": "fayvara0_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "fayvara0_2"
+            }
+        ],
+        "message": "Thank you, thank you! I'll make my way down the hill to the Charwood cabin. Meet me back there."
+    },
+    {
+        "id": "fayvara0_2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 43,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "R"
+            }
+        ]
+    },
+    {
+        "id": "ayell",
+        "replies": [
+            {
+                "text": "[examine the pile]",
+                "nextPhraseID": "ayell_1"
+            },
+            {
+                "text": "[leave it alone]",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "You see a pile of bloody body parts."
+    },
+    {
+        "id": "ayell_1",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 44,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Among the remains, you find a ring with the insignia 'Ayell'. This must be what's left of the former healer of the Charwood hills."
+    }
+]

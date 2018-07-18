@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="ConversationListView" parent="@android:style/Widget.ListView">
+		<!-- See http://community.developer.motorola.com/t5/MOTODEV-Blog/Why-Does-My-ListView-Look-Different/ba-p/17462 -->
+		<item name="android:listSelector">@null</item>
+		<item name="android:overScrollFooter">@null</item>
+	</style>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<ImageView
+		android:id="@+id/shopitem_image"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingRight="1dp"
+		android:layout_alignParentLeft="true"
+		android:layout_centerVertical="true"
+		/>
+	<Button
+		android:id="@+id/shopitem_shopbutton"
+		android:layout_width="wrap_content"
+		android:layout_height="@dimen/smalltext_buttonheight"
+		android:layout_alignParentRight="true"
+		android:layout_centerVertical="true"
+		android:text="@string/shop_buy"
+		android:textSize="@dimen/smalltext"
+		/>
+	<Button
+		android:id="@+id/shopitem_infobutton"
+		android:layout_width="wrap_content"
+		android:layout_height="@dimen/smalltext_buttonheight"
+		android:layout_toLeftOf="@id/shopitem_shopbutton"
+		android:layout_centerVertical="true"
+		android:textSize="@dimen/smalltext"
+		android:text="@string/shop_infoitem"
+		/>
+	<TextView
+		android:id="@+id/shopitem_text"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_toRightOf="@id/shopitem_image"
+		android:layout_toLeftOf="@id/shopitem_infobutton"
+		android:layout_centerVertical="true"
+		/>
+</RelativeLayout>

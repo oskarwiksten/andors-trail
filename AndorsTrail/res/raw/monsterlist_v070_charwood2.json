@@ -1,0 +1,507 @@
+[
+    {
+        "id": "mazarth1",
+        "iconID": "monsters_ld2:36",
+        "name": "Mazarth beast",
+        "spawnGroup": "mazarth1",
+        "monsterClass": "giant",
+        "maxHP": 129,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 75,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 60,
+        "damageResistance": 12,
+        "attackDamage": {
+            "max": 17
+        },
+        "droplistID": "mazarth"
+    },
+    {
+        "id": "mazarth2",
+        "iconID": "monsters_ld2:37",
+        "name": "Tough Mazarth beast",
+        "spawnGroup": "mazarth2",
+        "monsterClass": "giant",
+        "maxHP": 148,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 79,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 67,
+        "damageResistance": 12,
+        "attackDamage": {
+            "max": 20
+        },
+        "droplistID": "mazarth"
+    },
+    {
+        "id": "ashs1",
+        "iconID": "monsters_ld2:224",
+        "name": "Weeping ash spectre",
+        "spawnGroup": "ashs1",
+        "monsterClass": "ghost",
+        "maxHP": 75,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 175,
+        "blockChance": 138,
+        "attackDamage": {
+            "min": 5,
+            "max": 15
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ashs2",
+        "iconID": "monsters_ld2:224",
+        "name": "Wailing Ash spectre",
+        "spawnGroup": "ashs1",
+        "monsterClass": "ghost",
+        "maxHP": 87,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 181,
+        "blockChance": 146,
+        "attackDamage": {
+            "min": 5,
+            "max": 15
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ashs3",
+        "iconID": "monsters_ld2:220",
+        "name": "Ash spectre",
+        "spawnGroup": "ashs2",
+        "monsterClass": "ghost",
+        "maxHP": 97,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 187,
+        "blockChance": 151,
+        "attackDamage": {
+            "min": 5,
+            "max": 15
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ash1",
+        "iconID": "monsters_misc:1",
+        "name": "Young ash gargoyle",
+        "spawnGroup": "ash1",
+        "monsterClass": "construct",
+        "maxHP": 109,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 90,
+        "blockChance": 99,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 3,
+            "max": 10
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ash2",
+        "iconID": "monsters_misc:1",
+        "name": "Ash gargoyle",
+        "spawnGroup": "ash1",
+        "monsterClass": "construct",
+        "maxHP": 116,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 94,
+        "blockChance": 103,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 3,
+            "max": 10
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ash3",
+        "iconID": "monsters_misc:2",
+        "name": "Strong ash gargoyle",
+        "spawnGroup": "ash2",
+        "monsterClass": "construct",
+        "maxHP": 131,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 134,
+        "blockChance": 109,
+        "damageResistance": 6,
+        "attackDamage": {
+            "min": 3,
+            "max": 13
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ash4",
+        "iconID": "monsters_misc:2",
+        "name": "Hardened ash gargoyle",
+        "spawnGroup": "ash2",
+        "monsterClass": "construct",
+        "maxHP": 131,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 134,
+        "blockChance": 115,
+        "damageResistance": 9,
+        "attackDamage": {
+            "min": 3,
+            "max": 13
+        },
+        "droplistID": "ash"
+    },
+    {
+        "id": "ash5",
+        "iconID": "monsters_tometik2:10",
+        "name": "Young ash spawn",
+        "spawnGroup": "ash3",
+        "monsterClass": "demon",
+        "maxHP": 80,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 138,
+        "criticalSkill": 15,
+        "criticalMultiplier": 4,
+        "blockChance": 81,
+        "attackDamage": {
+            "max": 5
+        },
+        "droplistID": "ashsp"
+    },
+    {
+        "id": "ash6",
+        "iconID": "monsters_tometik2:10",
+        "name": "Ash spawn",
+        "spawnGroup": "ash3",
+        "monsterClass": "demon",
+        "maxHP": 83,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 141,
+        "criticalSkill": 15,
+        "criticalMultiplier": 4,
+        "blockChance": 86,
+        "attackDamage": {
+            "max": 5
+        },
+        "droplistID": "ashsp"
+    },
+    {
+        "id": "ash7",
+        "iconID": "monsters_tometik2:11",
+        "name": "Tough ash spawn",
+        "spawnGroup": "ash4",
+        "monsterClass": "demon",
+        "maxHP": 87,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 146,
+        "criticalSkill": 15,
+        "criticalMultiplier": 4,
+        "blockChance": 89,
+        "attackDamage": {
+            "max": 5
+        },
+        "droplistID": "ashsp"
+    },
+    {
+        "id": "fire1",
+        "iconID": "monsters_rltiles2:154",
+        "name": "Glowing abcess",
+        "spawnGroup": "fire1",
+        "monsterClass": "construct",
+        "maxHP": 91,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 149,
+        "criticalSkill": 15,
+        "criticalMultiplier": 4,
+        "blockChance": 92,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 8
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 5,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire2",
+        "iconID": "monsters_rltiles2:154",
+        "name": "Blazing abcess",
+        "spawnGroup": "fire1",
+        "monsterClass": "construct",
+        "maxHP": 95,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 152,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 96,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 8
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 5,
+                    "duration": 4,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire3",
+        "iconID": "monsters_rltiles2:24",
+        "name": "Lava Spawn",
+        "spawnGroup": "fire2",
+        "monsterClass": "construct",
+        "maxHP": 102,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 145,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 86,
+        "damageResistance": 6,
+        "attackDamage": {
+            "max": 9
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 1,
+                    "duration": 4,
+                    "chance": 10
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire4",
+        "iconID": "monsters_rltiles2:24",
+        "name": "Tough lava Spawn",
+        "spawnGroup": "fire2",
+        "monsterClass": "construct",
+        "maxHP": 107,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 149,
+        "criticalSkill": 25,
+        "criticalMultiplier": 2,
+        "blockChance": 89,
+        "damageResistance": 6,
+        "attackDamage": {
+            "max": 9
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 10
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire5",
+        "iconID": "monsters_rltiles1:2",
+        "name": "Glowing flame",
+        "spawnGroup": "fire3",
+        "monsterClass": "construct",
+        "maxHP": 112,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 153,
+        "criticalSkill": 15,
+        "criticalMultiplier": "2.5",
+        "blockChance": 94,
+        "damageResistance": 6,
+        "attackDamage": {
+            "max": 9
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire6",
+        "iconID": "monsters_rltiles1:2",
+        "name": "Flame spawn",
+        "spawnGroup": "fire3",
+        "monsterClass": "construct",
+        "maxHP": 127,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 152,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 72,
+        "damageResistance": 7,
+        "attackDamage": {
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 10
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire7",
+        "iconID": "monsters_rltiles1:2",
+        "name": "Walking flame",
+        "spawnGroup": "fire4",
+        "monsterClass": "construct",
+        "maxHP": 131,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 157,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 75,
+        "damageResistance": 7,
+        "attackDamage": {
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire8",
+        "iconID": "monsters_tometik1:36",
+        "name": "Walking inferno",
+        "spawnGroup": "fire4",
+        "monsterClass": "construct",
+        "maxHP": 135,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 161,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 78,
+        "damageResistance": 7,
+        "attackDamage": {
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "fire9",
+        "iconID": "monsters_tometik1:36",
+        "name": "Ancient walking inferno",
+        "spawnGroup": "fire5",
+        "monsterClass": "construct",
+        "maxHP": 135,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 160,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 77,
+        "damageResistance": 7,
+        "attackDamage": {
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "fire"
+    },
+    {
+        "id": "thukuzun",
+        "iconID": "monsters_rltiles1:123",
+        "name": "Thukuzun",
+        "monsterClass": "undead",
+        "unique": 1,
+        "maxHP": 193,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 136,
+        "blockChance": 140,
+        "damageResistance": 9,
+        "attackDamage": {
+            "min": 6,
+            "max": 25
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fire",
+                    "magnitude": 3,
+                    "duration": 7,
+                    "chance": 30
+                }
+            ]
+        },
+        "phraseID": "thukuzun",
+        "droplistID": "thukuzun"
+    }
+]

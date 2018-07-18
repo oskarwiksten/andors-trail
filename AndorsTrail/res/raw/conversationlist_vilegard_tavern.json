@@ -1,0 +1,72 @@
+[
+    {
+        "id": "dunla_default",
+        "message": "You look like a smart fellow. Need any supplies?",
+        "replies": [
+            {
+                "text": "Sure, let me see what you have available.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "What can you tell me about yourself?",
+                "nextPhraseID": "dunla_1"
+            }
+        ]
+    },
+    {
+        "id": "dunla_1",
+        "message": "Me? I am no one. You didn't even see me. You certainly did not talk to me."
+    },
+    {
+        "id": "tharwyn_select",
+        "replies": [
+            {
+                "nextPhraseID": "tharwyn_1",
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "vilegard",
+                        "value": "30"
+                    }
+                ]
+            },
+            {
+                "nextPhraseID": "vilegard_shop_notrust"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_1",
+        "message": "Hello there. I heard you helped Jolnor in the chapel. You have my thanks, friend.",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "tharwyn_2"
+            }
+        ]
+    },
+    {
+        "id": "tharwyn_2",
+        "message": "Have a seat anywhere. What can I get you?",
+        "replies": [
+            {
+                "text": "Show me what food you have available.",
+                "nextPhraseID": "S"
+            }
+        ]
+    },
+    {
+        "id": "vilegard_tavern_drunk_1",
+        "message": "Oh look, a lost kid. Here, have some mead kid.",
+        "replies": [
+            {
+                "text": "No thanks.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "Watch your tongue, drunkard.",
+                "nextPhraseID": "X"
+            }
+        ]
+    }
+]

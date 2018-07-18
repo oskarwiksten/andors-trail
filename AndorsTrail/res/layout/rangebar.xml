@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+	<TextView
+		android:id="@+id/rangebar_label"
+		android:layout_width="30sp"
+		android:layout_height="wrap_content"
+		android:textSize="@dimen/statusbar_text"
+		android:layout_marginRight="3sp"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:shadowRadius="1"
+		android:shadowColor="#000"
+		/>
+
+	<ProgressBar android:id="@+id/rangebar_progress"
+		style="?android:attr/progressBarStyleHorizontal"
+		android:progressDrawable="@drawable/ui_progress_health"
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/healthbar_height"
+		android:layout_toRightOf="@id/rangebar_label"
+		android:layout_centerVertical="true"
+		android:layout_marginRight="3sp"
+		/>
+
+	<TextView android:id="@+id/rangebar_text"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:paddingLeft="35sp"
+		android:textSize="@dimen/statusbar_text"
+		android:layout_centerInParent="true"
+		android:textColor="#FFF"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:shadowRadius="1"
+		android:shadowColor="#222"
+		android:paddingBottom="2sp"
+		/>
+</merge>

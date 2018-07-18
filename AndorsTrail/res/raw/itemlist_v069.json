@@ -1,0 +1,464 @@
+[
+    {
+        "id": "rapier_lifesteal",
+        "iconID": "items_weapons:71",
+        "name": "Rapier of lifesteal",
+        "category": "rapier",
+        "displaytype": "legendary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxHP": 5,
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 21,
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 6
+            }
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 0,
+                "max": 3
+            }
+        },
+        "killEffect": {
+            "increaseCurrentHP": {
+                "min": 3,
+                "max": 3
+            }
+        }
+    },
+    {
+        "id": "dagger_barbed",
+        "iconID": "items_weapons:17",
+        "name": "Barbed dagger",
+        "category": "dagger",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackCost": 4,
+            "increaseAttackChance": 15,
+            "increaseBlockChance": 5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "elytharan_redeemer",
+        "iconID": "items_weapons:70",
+        "name": "Elytharan redeemer",
+        "category": "2hsword",
+        "displaytype": "legendary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxAP": 2,
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 25,
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 8
+            },
+            "increaseBlockChance": 5,
+            "addedConditions": [
+                {
+                    "condition": "bless",
+                    "magnitude": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "clouded_rage",
+        "iconID": "items_weapons:71",
+        "name": "Sword of Shadow's rage",
+        "category": "rapier",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 21,
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 6
+            },
+            "increaseBlockChance": 5
+        },
+        "killEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "rage_minor",
+                    "magnitude": 1,
+                    "duration": 1,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "shadow_slayer",
+        "iconID": "items_weapons:60",
+        "name": "Shadow of the slayer",
+        "category": "axe2h",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxAP": 2,
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 25,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 9
+            }
+        },
+        "killEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "ring_shadow_embrace",
+        "iconID": "items_jewelry:0",
+        "name": "Ring of Shadow embrace",
+        "category": "ring",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxHP": 20,
+            "increaseAttackChance": 10,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 2
+            }
+        }
+    },
+    {
+        "id": "bwm_dagger",
+        "iconID": "items_weapons:19",
+        "name": "Blackwater dagger",
+        "category": "dagger",
+        "displaytype": "rare",
+        "hasManualPrice": 1,
+        "baseMarketCost": 539,
+        "equipEffect": {
+            "increaseAttackCost": 3,
+            "increaseAttackChance": 40,
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 1
+            },
+            "increaseBlockChance": 5,
+            "addedConditions": [
+                {
+                    "condition": "blackwater_misery",
+                    "magnitude": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "bwm_dagger_venom",
+        "iconID": "items_weapons:19",
+        "name": "Blackwater poisoned dagger",
+        "category": "dagger",
+        "displaytype": "rare",
+        "hasManualPrice": 1,
+        "baseMarketCost": 1552,
+        "equipEffect": {
+            "increaseAttackCost": 3,
+            "increaseAttackChance": 45,
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 1
+            },
+            "addedConditions": [
+                {
+                    "condition": "blackwater_misery",
+                    "magnitude": 1
+                }
+            ]
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "bwm_ironsword",
+        "iconID": "items_weapons:0",
+        "name": "Blackwater iron sword",
+        "category": "lsword",
+        "displaytype": "rare",
+        "hasManualPrice": 1,
+        "baseMarketCost": 1224,
+        "equipEffect": {
+            "increaseAttackCost": 4,
+            "increaseAttackChance": 50,
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 7
+            },
+            "increaseBlockChance": 5,
+            "addedConditions": [
+                {
+                    "condition": "blackwater_misery",
+                    "magnitude": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "bwm_leather_armour",
+        "iconID": "items_armours:15",
+        "name": "Blackwater leather armour",
+        "category": "bdy_lthr",
+        "displaytype": "rare",
+        "hasManualPrice": 1,
+        "baseMarketCost": 2551,
+        "equipEffect": {
+            "increaseBlockChance": 25,
+            "increaseDamageResistance": 1,
+            "addedConditions": [
+                {
+                    "condition": "blackwater_misery",
+                    "magnitude": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "bwm_leather_cap",
+        "iconID": "items_armours:24",
+        "name": "Blackwater leather cap",
+        "category": "hd_lthr",
+        "displaytype": "rare",
+        "hasManualPrice": 1,
+        "baseMarketCost": 722,
+        "equipEffect": {
+            "increaseMaxHP": 5,
+            "increaseBlockChance": 21,
+            "addedConditions": [
+                {
+                    "condition": "blackwater_misery",
+                    "magnitude": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "bwm_combat_ring",
+        "iconID": "items_jewelry:2",
+        "name": "Blackwater ring of combat",
+        "category": "ring",
+        "displaytype": "rare",
+        "hasManualPrice": 1,
+        "baseMarketCost": 595,
+        "equipEffect": {
+            "increaseAttackChance": 5,
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 7
+            },
+            "addedConditions": [
+                {
+                    "condition": "blackwater_misery",
+                    "magnitude": 1
+                }
+            ]
+        }
+    },
+    {
+        "id": "bwm_brew",
+        "iconID": "items_consumables:51",
+        "name": "Blackwater brew",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 57,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 15,
+                "max": 15
+            },
+            "conditionsSource": [
+                {
+                    "condition": "intoxicated",
+                    "magnitude": 1,
+                    "duration": 10,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "woodcutter_hatchet",
+        "iconID": "items_weapons:57",
+        "name": "Woodcutter's hatchet",
+        "category": "axe",
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 9,
+            "increaseAttackDamage": {
+                "min": 6,
+                "max": 12
+            }
+        }
+    },
+    {
+        "id": "woodcutter_boots",
+        "iconID": "items_armours:30",
+        "name": "Woodcutter's boots",
+        "category": "feet_lthr",
+        "baseMarketCost": 873,
+        "equipEffect": {
+            "increaseMaxHP": 1,
+            "increaseAttackChance": 3,
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "heavy_club",
+        "iconID": "items_weapons:44",
+        "name": "Heavy club",
+        "category": "mace",
+        "baseMarketCost": 1229,
+        "equipEffect": {
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 15,
+            "increaseCriticalSkill": 5,
+            "setCriticalMultiplier": 3,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 15
+            }
+        }
+    },
+    {
+        "id": "pot_speed_1",
+        "iconID": "items_consumables:41",
+        "name": "Minor potion of speed",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 261,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "speed_minor",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_poison_weak",
+        "iconID": "items_consumables:40",
+        "name": "Weak poison",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 125,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_poison_weak_antidote",
+        "iconID": "items_consumables:54",
+        "name": "Weak poison antidote",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 337,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": -99,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_bleeding_ointment",
+        "iconID": "items_consumables:35",
+        "name": "Ointment of bleeding wounds",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 310,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": -99,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_fatigue_restore",
+        "iconID": "items_consumables:41",
+        "name": "Restore fatigue",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 210,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": -99,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_blind_rage",
+        "iconID": "items_consumables:63",
+        "name": "Potion of blind rage",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 495,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "rage_minor",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 100
+                }
+            ]
+        }
+    }
+]

@@ -1,0 +1,109 @@
+[
+    {
+        "id": "traveller1",
+        "iconID": "monsters_man1:0",
+        "name": "Traveller1",
+        "spawnGroup": "debugNPC1",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 50,
+        "droplistID": "debugshop1",
+        "phraseID": "debugshop",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "traveller2",
+        "iconID": "monsters_man1:0",
+        "name": "Traveller2",
+        "spawnGroup": "debugNPC2",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 50,
+        "droplistID": "debugshop1",
+        "phraseID": "debugquest",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "black_ant",
+        "iconID": "monsters_insects:0",
+        "name": "Ant",
+        "spawnGroup": "insect",
+        "monsterClass": "insect",
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 50,
+        "droplistID": "debuglist1",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "small_wasp",
+        "iconID": "monsters_insects:1",
+        "name": "Pitiful debug bug with long name",
+        "spawnGroup": "insect",
+        "monsterClass": "insect",
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 50,
+        "droplistID": "debuglist1",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    },
+    {
+        "id": "winged_demon",
+        "iconID": "monsters_demon1:0",
+        "name": "Winged demon",
+        "spawnGroup": "demon",
+        "size": "2x2",
+        "monsterClass": "demon",
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 50,
+        "droplistID": "debuglist1",
+        "attackDamage": {
+            "min": 10,
+            "max": 20
+        }
+    },
+    {
+        "id": "troll",
+        "iconID": "monsters_misc:5",
+        "name": "Troll",
+        "spawnGroup": "troll",
+        "monsterClass": "giant",
+        "maxHP": 10,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 2,
+        "attackChance": 50,
+        "droplistID": "debuglist2",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        }
+    }
+]

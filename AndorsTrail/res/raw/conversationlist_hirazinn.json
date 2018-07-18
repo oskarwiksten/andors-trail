@@ -1,0 +1,43 @@
+[
+    {
+        "id": "hirazinn",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hirazinn_1"
+            }
+        ],
+        "message": "[The foul creature swings its many arms at you, while giving away a high-pitched shrieking sound]"
+    },
+    {
+        "id": "hirazinn_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "hirazinn_2"
+            }
+        ],
+        "message": "[The piercing noise fills your head with a mind-numbing headache]"
+    },
+    {
+        "id": "hirazinn_2",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 40,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "[Run away screaming]",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "[Attack]",
+                "nextPhraseID": "F"
+            }
+        ],
+        "message": "[You also feel a strong urge to leave this place]"
+    }
+]

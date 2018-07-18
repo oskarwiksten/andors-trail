@@ -1,0 +1,260 @@
+[
+    {
+        "id": "vilegard_smith_xul_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_2"
+            }
+        ],
+        "message": "[takes a step back] What.. is.. that? It can't be? No. Let me look at it."
+    },
+    {
+        "id": "vilegard_smith_xul_2",
+        "replies": [
+            {
+                "text": "What is it?",
+                "nextPhraseID": "vilegard_smith_xul_3"
+            }
+        ],
+        "message": "It has all the markings. But it can't be? I don't understand."
+    },
+    {
+        "id": "vilegard_smith_xul_3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_4"
+            }
+        ],
+        "message": "This thing that you have stumbled upon, my friend. This is the Xul'viir. A most foul item indeed."
+    },
+    {
+        "id": "vilegard_smith_xul_4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_5"
+            }
+        ],
+        "message": "It has been said that King Luthor destroyed the sword so that it would not fall into the wrong hands."
+    },
+    {
+        "id": "vilegard_smith_xul_5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_6"
+            }
+        ],
+        "message": "It would seem that either he, or the stories have not been telling the truth."
+    },
+    {
+        "id": "vilegard_smith_xul_6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_7"
+            }
+        ],
+        "message": "If restored, anyone wielding it would make their enemies tremble from only the sight of it."
+    },
+    {
+        "id": "vilegard_smith_xul_7",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
+                "text": "Here it is. We had better get rid of it.",
+                "nextPhraseID": "vilegard_smith_xul_8"
+            },
+            {
+                "text": "I'd like to keep it.",
+                "nextPhraseID": "vilegard_smith_xul_9"
+            }
+        ],
+        "message": "You must destroy it, of course. Here, put it into my smelting pit and we'll be rid of it."
+    },
+    {
+        "id": "vilegard_smith_xul_8",
+        "rewards": [
+            {
+                "rewardID": "xulviir",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Into the smelting pit with it. Good. See how it bubbles and flares? That's the lives of countless people thanking you for destroying it."
+    },
+    {
+        "id": "vilegard_smith_xul_9",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
+                "text": "Here it is. We had better get rid of it.",
+                "nextPhraseID": "vilegard_smith_xul_8"
+            },
+            {
+                "text": "You mentioned restoring it before, what would that entail?",
+                "nextPhraseID": "vilegard_smith_xul_10"
+            }
+        ],
+        "message": "You can't be serious. It needs to be destroyed!"
+    },
+    {
+        "id": "vilegard_smith_xul_10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_11"
+            }
+        ],
+        "message": "The original sword had ornaments of rare crystals, and a blade that was as sharp as nothing else."
+    },
+    {
+        "id": "vilegard_smith_xul_11",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
+                "text": "Here it is. We had better get rid of it.",
+                "nextPhraseID": "vilegard_smith_xul_8"
+            },
+            {
+                "text": "How about you get to work on restoring it, and I won't kill you.",
+                "nextPhraseID": "vilegard_smith_xul_12"
+            }
+        ],
+        "message": "I can't believe I'm telling you this. Give. It. Here. Now! It needs to be destroyed!"
+    },
+    {
+        "id": "vilegard_smith_xul_12",
+        "replies": [
+            {
+                "text": "You won't believe what I had to go through to get it.",
+                "nextPhraseID": "vilegard_smith_xul_13"
+            }
+        ],
+        "message": "I.. what? Are you threatening me?"
+    },
+    {
+        "id": "vilegard_smith_xul_13",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_14"
+            }
+        ],
+        "message": "Sigh. You don't know what you are getting yourself into, kid."
+    },
+    {
+        "id": "vilegard_smith_xul_14",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "vilegard_smith_xul_15"
+            }
+        ],
+        "message": "Regardless, to restore the sword to its former shape, I'd need some of those crystals that it was adorned with, and those crystals are really hard to come by."
+    },
+    {
+        "id": "vilegard_smith_xul_15",
+        "replies": [
+            {
+                "text": "Never mind. Here is the sword. We had better destroy it.",
+                "nextPhraseID": "vilegard_smith_xul_8"
+            },
+            {
+                "text": "I'll go find some of those crystals.",
+                "nextPhraseID": "vilegard_smith_xul_16"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryKeep",
+                        "requireID": "oegyth",
+                        "value": 3
+                    }
+                ],
+                "text": "I have three of those crystals right here.",
+                "nextPhraseID": "vilegard_smith_xul_17"
+            }
+        ],
+        "message": "I think they are called Oegyth or something like that. The sword had three of them on its hilt."
+    },
+    {
+        "id": "vilegard_smith_xul_16",
+        "message": "Pfft. Run along now, and don't threaten anyone else, you hear?"
+    },
+    {
+        "id": "vilegard_smith_xul_17",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 3
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
+                "text": "I'm sure. Here is the sword and three of those crystals. Restore it to how it once was.",
+                "nextPhraseID": "vilegard_smith_xul_19"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
+                "text": "Never mind. Here is the sword. We had better destroy it.",
+                "nextPhraseID": "vilegard_smith_xul_8"
+            }
+        ],
+        "message": "You continue to amaze me. Now, are you really sure that you want to do this? The lives of the people that it has slain will haunt you."
+    },
+    {
+        "id": "vilegard_smith_xul_19",
+        "rewards": [
+            {
+                "rewardID": "xulviir",
+                "value": 20,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "xulviir",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thanks.",
+                "nextPhraseID": "vilegard_smith_xul_16"
+            }
+        ],
+        "message": "Sigh. Ok, whatever you say. We just need to fit these into there, and sharpen up this bit here.\nThere. It should be almost like it once was."
+    }
+]

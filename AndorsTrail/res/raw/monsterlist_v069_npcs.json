@@ -1,0 +1,536 @@
+[
+    {
+        "id": "agent1",
+        "iconID": "monsters_men:4",
+        "name": "Agent",
+        "spawnGroup": "bwm_agent_1",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "bwm_agent_1_start"
+    },
+    {
+        "id": "agent2",
+        "iconID": "monsters_men:4",
+        "name": "Agent",
+        "spawnGroup": "bwm_agent_2",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "bwm_agent_2_start"
+    },
+    {
+        "id": "agent3",
+        "iconID": "monsters_men:4",
+        "name": "Agent",
+        "spawnGroup": "bwm_agent_3",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "bwm_agent_3_start"
+    },
+    {
+        "id": "agent4",
+        "iconID": "monsters_men:4",
+        "name": "Agent",
+        "spawnGroup": "bwm_agent_4",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "bwm_agent_4_start"
+    },
+    {
+        "id": "agent5",
+        "iconID": "monsters_men:4",
+        "name": "Agent",
+        "spawnGroup": "bwm_agent_5",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "bwm_agent_5_start"
+    },
+    {
+        "id": "agent6",
+        "iconID": "monsters_men:4",
+        "name": "Agent",
+        "spawnGroup": "bwm_agent_6",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "bwm_agent_6_start"
+    },
+    {
+        "id": "arghest",
+        "iconID": "monsters_rltiles2:81",
+        "name": "Arghest",
+        "spawnGroup": "arghest",
+        "monsterClass": "humanoid",
+        "phraseID": "arghest_start"
+    },
+    {
+        "id": "tonis",
+        "iconID": "monsters_rltiles1:67",
+        "name": "Tonis",
+        "spawnGroup": "tonis",
+        "monsterClass": "humanoid",
+        "phraseID": "tonis_start"
+    },
+    {
+        "id": "moyra",
+        "iconID": "monsters_rltiles1:74",
+        "name": "Moyra",
+        "spawnGroup": "moyra",
+        "monsterClass": "humanoid",
+        "phraseID": "moyra_1"
+    },
+    {
+        "id": "prim_citizen",
+        "iconID": "monsters_karvis2:6",
+        "name": "Prim citizen",
+        "spawnGroup": "prim_commoner1",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_commoner1"
+    },
+    {
+        "id": "prim_commoner",
+        "iconID": "monsters_rltiles1:68",
+        "name": "Prim commoner",
+        "spawnGroup": "prim_commoner2",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_commoner2"
+    },
+    {
+        "id": "prim_resident",
+        "iconID": "monsters_karvis2:2",
+        "name": "Prim resident",
+        "spawnGroup": "prim_commoner3",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_commoner3"
+    },
+    {
+        "id": "prim_evoker",
+        "iconID": "monsters_rltiles1:84",
+        "name": "Prim evoker",
+        "spawnGroup": "prim_commoner4",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_commoner4"
+    },
+    {
+        "id": "laecca",
+        "iconID": "monsters_rltiles1:72",
+        "name": "Laecca",
+        "spawnGroup": "laecca",
+        "monsterClass": "humanoid",
+        "phraseID": "laecca_1"
+    },
+    {
+        "id": "prim_cook",
+        "iconID": "monsters_karvis2:0",
+        "name": "Prim cook",
+        "spawnGroup": "prim_cook",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_cook_start"
+    },
+    {
+        "id": "prim_visitor",
+        "iconID": "monsters_rltiles1:63",
+        "name": "Prim visitor",
+        "spawnGroup": "prim_innguest",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_innguest"
+    },
+    {
+        "id": "birgil",
+        "iconID": "monsters_rltiles2:81",
+        "name": "Birgil",
+        "spawnGroup": "birgil",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_birgil",
+        "phraseID": "birgil_1"
+    },
+    {
+        "id": "prim_tavern_guest",
+        "iconID": "monsters_rltiles1:106",
+        "name": "Prim tavern guest",
+        "spawnGroup": "prim_tavern_guest1",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_tavern_guest1"
+    },
+    {
+        "id": "prim_tavern_regular",
+        "iconID": "monsters_rltiles1:106",
+        "name": "Prim tavern regular",
+        "spawnGroup": "prim_tavern_guest2",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_tavern_guest2"
+    },
+    {
+        "id": "prim_bar_guest",
+        "iconID": "monsters_rltiles1:106",
+        "name": "Prim bar guest",
+        "spawnGroup": "prim_tavern_guest3",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_tavern_guest3"
+    },
+    {
+        "id": "prim_bar_regular",
+        "iconID": "monsters_rltiles1:106",
+        "name": "Prim bar regular",
+        "spawnGroup": "prim_tavern_guest4",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_tavern_guest4"
+    },
+    {
+        "id": "prim_armorer",
+        "iconID": "monsters_rltiles1:88",
+        "name": "Prim armorer",
+        "spawnGroup": "prim_armorer",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_prim_armorer",
+        "phraseID": "prim_armorer"
+    },
+    {
+        "id": "jueth",
+        "iconID": "monsters_men2:0",
+        "name": "Jueth",
+        "spawnGroup": "prim_tailor",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_tailor"
+    },
+    {
+        "id": "bjorgur",
+        "iconID": "monsters_karvis2:7",
+        "name": "Bjorgur",
+        "spawnGroup": "bjorgur",
+        "monsterClass": "humanoid",
+        "phraseID": "bjorgur_start"
+    },
+    {
+        "id": "prim_prisoner",
+        "iconID": "monsters_rltiles2:81",
+        "name": "Prim prisoner",
+        "spawnGroup": "prim_prisoner",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_guard1"
+    },
+    {
+        "id": "fulus",
+        "iconID": "monsters_karvis2:3",
+        "name": "Fulus",
+        "spawnGroup": "fulus",
+        "monsterClass": "humanoid",
+        "phraseID": "fulus_start"
+    },
+    {
+        "id": "guthbered",
+        "iconID": "monsters_rltiles1:92",
+        "name": "Guthbered",
+        "spawnGroup": "guthbered",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "maxHP": 80,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "guthbered",
+        "phraseID": "guthbered_start",
+        "attackDamage": {
+            "min": 4,
+            "max": 9
+        }
+    },
+    {
+        "id": "guthbereds_bodyguard",
+        "iconID": "monsters_rltiles1:76",
+        "name": "Guthbered's bodyguard",
+        "spawnGroup": "guthbered_guard",
+        "monsterClass": "humanoid",
+        "phraseID": "guthbered_guard"
+    },
+    {
+        "id": "prim_weapon_guard",
+        "iconID": "monsters_rltiles1:65",
+        "name": "Prim weapon guard",
+        "spawnGroup": "prim_guard1",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_guard1"
+    },
+    {
+        "id": "prim_sentry",
+        "iconID": "monsters_rltiles3:14",
+        "name": "Prim sentry",
+        "spawnGroup": "prim_guard2",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_guard2"
+    },
+    {
+        "id": "prim_guard",
+        "iconID": "monsters_rltiles1:65",
+        "name": "Prim guard",
+        "spawnGroup": "prim_guard4",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_guard4"
+    },
+    {
+        "id": "tired_prim_guard",
+        "iconID": "monsters_rltiles1:76",
+        "name": "Tired Prim guard",
+        "spawnGroup": "prim_guard3",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_guard3"
+    },
+    {
+        "id": "prim_treasury_guard",
+        "iconID": "monsters_rltiles1:69",
+        "name": "Prim treasury guard",
+        "spawnGroup": "prim_treasury_guard",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_treasury_guard"
+    },
+    {
+        "id": "samar",
+        "iconID": "monsters_rltiles2:93",
+        "name": "Samar",
+        "spawnGroup": "prim_priest",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_samar",
+        "phraseID": "prim_priest"
+    },
+    {
+        "id": "prim_priestly_acolyte",
+        "iconID": "monsters_rltiles1:83",
+        "name": "Prim priestly acolyte",
+        "spawnGroup": "prim_acolyte",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_acolyte"
+    },
+    {
+        "id": "studying_prim_pupil",
+        "iconID": "monsters_rltiles1:74",
+        "name": "Studying Prim pupil",
+        "spawnGroup": "prim_pupil1",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_pupil1"
+    },
+    {
+        "id": "reading_prim_pupil",
+        "iconID": "monsters_rltiles1:74",
+        "name": "Reading Prim pupil",
+        "spawnGroup": "prim_pupil2",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_pupil2"
+    },
+    {
+        "id": "prim_pupil",
+        "iconID": "monsters_rltiles1:74",
+        "name": "Prim pupil",
+        "spawnGroup": "prim_pupil3",
+        "monsterClass": "humanoid",
+        "phraseID": "prim_pupil3"
+    },
+    {
+        "id": "blackwater_entrance_guard",
+        "iconID": "monsters_rltiles3:14",
+        "name": "Blackwater entrance guard",
+        "spawnGroup": "blackwater_entranceguard",
+        "monsterClass": "humanoid",
+        "maxHP": 30,
+        "maxAP": 10,
+        "phraseID": "blackwater_entranceguard"
+    },
+    {
+        "id": "blackwater_dinner_guest",
+        "iconID": "monsters_karvis2:2",
+        "name": "Blackwater dinner guest",
+        "spawnGroup": "blackwater_guest1",
+        "monsterClass": "humanoid",
+        "maxHP": 20,
+        "maxAP": 10,
+        "phraseID": "blackwater_guest1"
+    },
+    {
+        "id": "blackwater_inhabitant",
+        "iconID": "monsters_man1:0",
+        "name": "Blackwater inhabitant",
+        "spawnGroup": "blackwater_guest2",
+        "monsterClass": "humanoid",
+        "maxHP": 10,
+        "maxAP": 10,
+        "phraseID": "blackwater_guest2"
+    },
+    {
+        "id": "blackwater_cook",
+        "iconID": "monsters_karvis2:0",
+        "name": "Blackwater cook",
+        "spawnGroup": "blackwater_cook",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_cook"
+    },
+    {
+        "id": "keneg",
+        "iconID": "monsters_rltiles1:86",
+        "name": "Keneg",
+        "spawnGroup": "keneg",
+        "monsterClass": "humanoid",
+        "phraseID": "keneg"
+    },
+    {
+        "id": "mazeg",
+        "iconID": "monsters_rltiles1:85",
+        "name": "Mazeg",
+        "spawnGroup": "mazeg",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_mazeg",
+        "phraseID": "mazeg"
+    },
+    {
+        "id": "waeges",
+        "iconID": "monsters_rltiles1:88",
+        "name": "Waeges",
+        "spawnGroup": "waeges",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_waeges",
+        "phraseID": "waeges"
+    },
+    {
+        "id": "blackwater_fighter",
+        "iconID": "monsters_rltiles1:66",
+        "name": "Blackwater fighter",
+        "spawnGroup": "blackwater_fighter",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_fighter"
+    },
+    {
+        "id": "ungorm",
+        "iconID": "monsters_rltiles1:83",
+        "name": "Ungorm",
+        "spawnGroup": "ungorm",
+        "monsterClass": "humanoid",
+        "phraseID": "ungorm"
+    },
+    {
+        "id": "blackwater_pupil",
+        "iconID": "monsters_rltiles1:74",
+        "name": "Blackwater pupil",
+        "spawnGroup": "blackwater_pupil",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_pupil"
+    },
+    {
+        "id": "laede",
+        "iconID": "monsters_rltiles1:81",
+        "name": "Laede",
+        "spawnGroup": "blackwater_sleephall",
+        "monsterClass": "humanoid",
+        "phraseID": "laede"
+    },
+    {
+        "id": "herec",
+        "iconID": "monsters_men2:9",
+        "name": "Herec",
+        "spawnGroup": "herec",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_herec",
+        "phraseID": "herec_start"
+    },
+    {
+        "id": "iducus",
+        "iconID": "monsters_rltiles1:87",
+        "name": "Iducus",
+        "spawnGroup": "iducus",
+        "monsterClass": "humanoid",
+        "droplistID": "shop_iducus",
+        "phraseID": "iducus"
+    },
+    {
+        "id": "blackwater_priest",
+        "iconID": "monsters_rltiles1:80",
+        "name": "Blackwater priest",
+        "spawnGroup": "blackwater_priest",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_priest"
+    },
+    {
+        "id": "studying_blackwater_priest",
+        "iconID": "monsters_rltiles1:84",
+        "name": "Studying Blackwater priest",
+        "spawnGroup": "blackwater_pupil",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_pupil"
+    },
+    {
+        "id": "blackwater_guard",
+        "iconID": "monsters_rltiles1:76",
+        "name": "Blackwater guard",
+        "spawnGroup": "blackwater_guard1",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_guard1"
+    },
+    {
+        "id": "blackwater_border_patrol",
+        "iconID": "monsters_rltiles1:76",
+        "name": "Blackwater border patrol",
+        "spawnGroup": "blackwater_guard2",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_guard2"
+    },
+    {
+        "id": "harlenns_bodyguard",
+        "iconID": "monsters_rltiles1:76",
+        "name": "Harlenn's bodyguard",
+        "spawnGroup": "blackwater_bossguard",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_bossguard"
+    },
+    {
+        "id": "blackwater_chamber_guard",
+        "iconID": "monsters_men:3",
+        "name": "Blackwater chamber guard",
+        "spawnGroup": "blackwater_throneguard",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "blackwater_throneguard"
+    },
+    {
+        "id": "harlenn",
+        "iconID": "monsters_men2:6",
+        "name": "Harlenn",
+        "spawnGroup": "harlenn",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "maxHP": 80,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "harlenn",
+        "phraseID": "harlenn_start",
+        "attackDamage": {
+            "min": 4,
+            "max": 9
+        }
+    },
+    {
+        "id": "throdna",
+        "iconID": "monsters_men2:4",
+        "name": "Throdna",
+        "spawnGroup": "throdna",
+        "monsterClass": "humanoid",
+        "phraseID": "throdna_start"
+    },
+    {
+        "id": "throdnas_guard",
+        "iconID": "monsters_rltiles1:85",
+        "name": "Throdna's guard",
+        "spawnGroup": "throdna_guard",
+        "monsterClass": "humanoid",
+        "phraseID": "throdna_guard"
+    },
+    {
+        "id": "blackwater_mage",
+        "iconID": "monsters_rltiles1:80",
+        "name": "Blackwater mage",
+        "spawnGroup": "blackwater_acolyte",
+        "monsterClass": "humanoid",
+        "phraseID": "blackwater_acolyte"
+    }
+]

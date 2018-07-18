@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	>
+
+	<LinearLayout
+		android:id="@+id/itemeffect_onuse_list"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		>
+	</LinearLayout>
+
+	<TextView
+		android:text="@string/iteminfo_effect_works_on_source"
+		android:id="@+id/itemeffect_onuse_conditions_source_title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
+			android:id="@+id/itemeffect_onuse_conditions_source"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+
+	<TextView
+		android:text="@string/iteminfo_effect_works_on_target"
+		android:id="@+id/itemeffect_onuse_conditions_target_title"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		/>
+		<com.gpl.rpg.AndorsTrail.view.ActorConditionEffectList
+			android:id="@+id/itemeffect_onuse_conditions_target"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="10sp"
+			/>
+
+</merge>

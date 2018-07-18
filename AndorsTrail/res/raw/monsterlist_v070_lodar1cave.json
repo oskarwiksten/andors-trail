@@ -1,0 +1,40 @@
+[
+    {
+        "id": "mudfiend1",
+        "iconID": "monsters_ld2:133",
+        "name": "Mudfiend",
+        "spawnGroup": "mudfiend",
+        "droplistID": "mudfiend",
+        "monsterClass": "construct",
+        "maxHP": 37,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 75,
+        "criticalSkill": 45,
+        "criticalMultiplier": 4,
+        "blockChance": 42,
+        "attackDamage": {
+            "min": 4,
+            "max": 6
+        }
+    },
+    {
+        "id": "mudfiend2",
+        "iconID": "monsters_ld2:133",
+        "name": "Tough mudfiend",
+        "spawnGroup": "mudfiend",
+        "droplistID": "mudfiend",
+        "monsterClass": "construct",
+        "maxHP": 41,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 78,
+        "criticalSkill": 45,
+        "criticalMultiplier": 4,
+        "blockChance": 45,
+        "attackDamage": {
+            "min": 5,
+            "max": 6
+        }
+    }
+]

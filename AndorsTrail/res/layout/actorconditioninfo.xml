@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/dialog_margin"
+			>
+			<TextView
+				android:id="@+id/actorconditioninfo_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/actorinfo_currentconditions"
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/equip_weapon"
+				/>
+
+			<TextView
+				android:text="@string/actorconditioninfo_category"
+				android:id="@+id/actorconditioninfo_category"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/section_margin"
+				/>
+
+			<TextView
+				android:text="@string/actorconditioninfo_constant_effect"
+				android:id="@+id/actorconditioninfo_constant_effect_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				/>
+
+				<com.gpl.rpg.AndorsTrail.view.AbilityModifierInfoView
+					android:id="@+id/actorconditioninfo_constant_effect_abilitymodifierinfo"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10sp"
+					/>
+
+			<TextView
+				android:text="@string/actorconditioninfo_effect_every_round"
+				android:id="@+id/actorconditioninfo_everyround_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				/>
+
+				<LinearLayout
+					android:id="@+id/actorconditioninfo_everyround_list"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10sp"
+					android:orientation="vertical"
+					>
+				</LinearLayout>
+
+			<TextView
+				android:text="@string/actorconditioninfo_effect_every_full_round"
+				android:id="@+id/actorconditioninfo_everyfullround_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				/>
+
+				<LinearLayout
+					android:id="@+id/actorconditioninfo_everyfullround_list"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_marginLeft="10sp"
+					android:orientation="vertical"
+					>
+				</LinearLayout>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		style="@android:style/ButtonBar"
+		>
+
+		<Button
+			android:id="@+id/actorconditioninfo_close"
+			android:layout_width="match_parent"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/dialog_close"
+			/>
+	</LinearLayout>
+</LinearLayout>

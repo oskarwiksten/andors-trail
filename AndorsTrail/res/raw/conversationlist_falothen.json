@@ -1,0 +1,1137 @@
+[
+    {
+        "id": "falothen1",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "70"
+                    }
+                ],
+                "nextPhraseID": "falothen1_0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "71"
+                    }
+                ],
+                "nextPhraseID": "falothen1_0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "72"
+                    }
+                ],
+                "nextPhraseID": "falothen1_0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "73"
+                    }
+                ],
+                "nextPhraseID": "falothen1_0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "74"
+                    }
+                ],
+                "nextPhraseID": "falothen1_0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "75"
+                    }
+                ],
+                "nextPhraseID": "falothen1_0"
+            },
+            {
+                "nextPhraseID": "falothen1_1"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2"
+            }
+        ],
+        "message": "Hello again. Thank you for saving me from captivity up in the Charwood heights!"
+    },
+    {
+        "id": "falothen1_2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_3"
+            }
+        ],
+        "message": "I won't dare to think about what those monsters would have done to me, had you not freed me!"
+    },
+    {
+        "id": "falothen1_3",
+        "replies": [
+            {
+                "text": "What can you teach me?",
+                "nextPhraseID": "falothen1_4"
+            }
+        ],
+        "message": "In return, I am willing to teach you the things I know. I used to be a weapons trainer for the Charwood heights, before all of this started."
+    },
+    {
+        "id": "falothen1_4",
+        "replies": [
+            {
+                "text": "What weapon types can you teach me?",
+                "nextPhraseID": "falothen1_5"
+            }
+        ],
+        "message": "I can teach you how to better handle most types of weapons, so that you can get even more proficient in them."
+    },
+    {
+        "id": "falothen1_5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_6"
+            }
+        ],
+        "message": "I can teach you about swords, either one-handed or two-handed ones. I know a bit about daggers, axes and blunt weapons. I also know a fair deal about fighting with your bare fists."
+    },
+    {
+        "id": "falothen1_6",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 65,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Tell me more about fighting with your bare fists.",
+                "nextPhraseID": "falothen1_7_f"
+            },
+            {
+                "text": "Tell me more about two-handed swords.",
+                "nextPhraseID": "falothen1_7_2hs"
+            },
+            {
+                "text": "Tell me more about one-handed swords.",
+                "nextPhraseID": "falothen1_7_1hs"
+            },
+            {
+                "text": "Tell me more about daggers.",
+                "nextPhraseID": "falothen1_7_d"
+            },
+            {
+                "text": "Tell me more about axes.",
+                "nextPhraseID": "falothen1_7_a"
+            },
+            {
+                "nextPhraseID": "falothen1_7_b",
+                "text": "Tell me more about blunt weapons."
+            },
+            {
+                "text": "I'll be right back.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "I only have time to teach you about one type of weapon, so make sure you pick the one that suits you best."
+    },
+    {
+        "id": "falothen1_7_2hs",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_7_2hs1"
+            }
+        ],
+        "message": "Two handed swords are usually much heavier than their one-handed counterparts, which means that they are much harder to swing correctly."
+    },
+    {
+        "id": "falothen1_7_2hs1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me two-handed sword fighting.",
+                "nextPhraseID": "falothen1_7_2hs2"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_6"
+            }
+        ],
+        "message": "In return, they provide much deeper cuts that hurt your opponent more. I can teach you how to better handle swinging your two-handed swords."
+    },
+    {
+        "id": "falothen1_7_2hs2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 71,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiency2hsword",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_8"
+            }
+        ],
+        "message": "[Falothen teaches you the two-handed sword skill]"
+    },
+    {
+        "id": "falothen1_7_f",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_7_f1"
+            }
+        ],
+        "message": "Unarmed, now that's my kind of style! When not being hampered by either a weapon or shield, you can be a lot more flexible in your moves."
+    },
+    {
+        "id": "falothen1_7_f1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to be better at unarmed fighting.",
+                "nextPhraseID": "falothen1_7_f2"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_6"
+            }
+        ],
+        "message": "Fighting unarmed can make you land more successful punches, and will also make you quicker when dodging blows."
+    },
+    {
+        "id": "falothen1_7_f2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 75,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyUnarmed",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_8"
+            }
+        ],
+        "message": "[Falothen teaches you the unarmed fighting skill]"
+    },
+    {
+        "id": "falothen1_7_1hs",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_7_1hs1"
+            }
+        ],
+        "message": "One handed swords, now that's an art form. They have a wide range of uses, from slashing to piercing types."
+    },
+    {
+        "id": "falothen1_7_1hs1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with one-handed swords.",
+                "nextPhraseID": "falothen1_7_1hs2"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_6"
+            }
+        ],
+        "message": "I can teach you how to handle them better, so that you land your attacks more often."
+    },
+    {
+        "id": "falothen1_7_1hs2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 70,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiency1hsword",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_8"
+            }
+        ],
+        "message": "[Falothen teaches you the one-handed sword skill]"
+    },
+    {
+        "id": "falothen1_7_d",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_7_d1"
+            }
+        ],
+        "message": "Daggers, the choice of the fast fighter. Their light weight usually makes you much faster when attacking. Some of them also have nasty side effects. Nasty for your opponent, that is."
+    },
+    {
+        "id": "falothen1_7_d1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with daggers.",
+                "nextPhraseID": "falothen1_7_d2"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_6"
+            }
+        ],
+        "message": "I can teach you how to handle them better, so that you land your attacks more often."
+    },
+    {
+        "id": "falothen1_7_d2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 72,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyDagger",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_8"
+            }
+        ],
+        "message": "[Falothen teaches you the dagger skill]"
+    },
+    {
+        "id": "falothen1_7_a",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_7_a1"
+            }
+        ],
+        "message": "Oh yes. The mighty axes. You can do a lot of damage with them, if you know how to handle them correctly."
+    },
+    {
+        "id": "falothen1_7_a1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with axes.",
+                "nextPhraseID": "falothen1_7_a2"
+            },
+            {
+                "nextPhraseID": "falothen1_6",
+                "text": "Let's go back to the other types of weapons."
+            }
+        ],
+        "message": "I can teach you how to get better at fighting with all types of axes, from the small hatchet up to the larger two-handed greataxes. That way, you can be very versatile in your choice of weapons."
+    },
+    {
+        "id": "falothen1_7_a2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 74,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyAxe",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_8"
+            }
+        ],
+        "message": "[Falothen teaches you the axe skill]"
+    },
+    {
+        "id": "falothen1_7_b",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_7_b1"
+            }
+        ],
+        "message": "Now, blunt weapons is my way of categorizing everything from the simple club, to maces up to quarterstaves. The technique for using them well is mostly the same."
+    },
+    {
+        "id": "falothen1_7_b1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with blunt weapons.",
+                "nextPhraseID": "falothen1_7_b2"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_6"
+            }
+        ],
+        "message": "I can teach you how to better land your blows with all blunt weapons."
+    },
+    {
+        "id": "falothen1_7_b2",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 73,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyBlunt",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_8"
+            }
+        ],
+        "message": "[Falothen teaches you the blunt weapons skill]"
+    },
+    {
+        "id": "falothen1_8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_s"
+            }
+        ],
+        "message": "There. That wasn't so hard once you get the hang of it, now was it?"
+    },
+    {
+        "id": "falothen1_9",
+        "message": "I can help you get better in the other types of weapons as well, of course, if you want. But for that, I will have to require some form of payment.",
+        "replies": [
+            {
+                "text": "What sort of payment?",
+                "nextPhraseID": "falothen1_10"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_s"
+            }
+        ],
+        "message": "Hello again, my friend. I hope you've been using what I taught you."
+    },
+    {
+        "id": "falothen1_s",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "91"
+                    }
+                ],
+                "nextPhraseID": "falothen1_s0"
+            },
+            {
+                "nextPhraseID": "falothen1_s1"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_s1",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "92"
+                    }
+                ],
+                "nextPhraseID": "falothen1_s0"
+            },
+            {
+                "nextPhraseID": "falothen1_s2"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_s2",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "93"
+                    }
+                ],
+                "nextPhraseID": "falothen1_s0"
+            },
+            {
+                "nextPhraseID": "falothen1_s3"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_s3",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "94"
+                    }
+                ],
+                "nextPhraseID": "falothen1_s0"
+            },
+            {
+                "nextPhraseID": "falothen1_9"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_s0",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 110,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "falothen1_9"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_11"
+            }
+        ],
+        "message": "We usually don't teach anyone outside our settlement. Last time I did, I was given five Oegyth crystals and 5000 gold in return for my services."
+    },
+    {
+        "id": "falothen1_11",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 80,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I don't have that on me right now. I'll be back.",
+                "nextPhraseID": "X"
+            },
+            {
+                "text": "I'm not interested right now.",
+                "nextPhraseID": "X"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryKeep",
+                        "requireID": "oegyth",
+                        "value": 2
+                    }
+                ],
+                "text": "I think I should hold on to those crystals some more.",
+                "nextPhraseID": "falothen1_12"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryKeep",
+                        "requireID": "oegyth",
+                        "value": 2
+                    }
+                ],
+                "text": "I might be interested.",
+                "nextPhraseID": "falothen1_13"
+            }
+        ],
+        "message": "Seeing as you saved me, I think it's reasonable to only require two of those crystals from you. I still have expenses to pay, mind you, so I will require that gold."
+    },
+    {
+        "id": "falothen1_12",
+        "message": "Yes, those things sure are valuable."
+    },
+    {
+        "id": "falothen1_13",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryKeep",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_14"
+            },
+            {
+                "nextPhraseID": "falothen1_13q"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_13q",
+        "message": "It seems you do not have the gold required for it."
+    },
+    {
+        "id": "falothen1_14",
+        "message": "Which weapon type would you be interested in?",
+        "replies": [
+            {
+                "text": "Tell me more about fighting with your bare fists.",
+                "nextPhraseID": "falothen1_2nd_f"
+            },
+            {
+                "text": "Tell me more about two-handed swords.",
+                "nextPhraseID": "falothen1_2nd_2hs"
+            },
+            {
+                "text": "Tell me more about one-handed swords.",
+                "nextPhraseID": "falothen1_2nd_1hs"
+            },
+            {
+                "text": "Tell me more about daggers.",
+                "nextPhraseID": "falothen1_2nd_d"
+            },
+            {
+                "text": "Tell me more about axes.",
+                "nextPhraseID": "falothen1_2nd_a"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_b",
+                "text": "Tell me more about blunt weapons."
+            },
+            {
+                "text": "I'll be right back.",
+                "nextPhraseID": "X"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_no",
+        "replies": [
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_14"
+            }
+        ],
+        "message": "I've already taught you that skill."
+    },
+    {
+        "id": "falothen1_2nd_2hs",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "71"
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_no"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_2hs0"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_2hs0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2nd_2hs1"
+            }
+        ],
+        "message": "Two handed swords are usually much heavier than their one-handed counterparts, which means that they are much harder to swing correctly."
+    },
+    {
+        "id": "falothen1_2nd_2hs1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me two-handed sword fighting. Here are two Oegyth crystals and 5000 gold as payment.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_2hs3"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_14"
+            }
+        ],
+        "message": "In return, they provide much deeper cuts that hurt your opponent more. I can teach you how to better handle swinging your two-handed swords."
+    },
+    {
+        "id": "falothen1_2nd_2hs3",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 71,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiency2hsword",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_15"
+            }
+        ],
+        "message": "[Falothen teaches you the two-handed sword skill]"
+    },
+    {
+        "id": "falothen1_2nd_f",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "75"
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_no"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_f0"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_f0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2nd_f1"
+            }
+        ],
+        "message": "Unarmed, now that's my kind of style! When not being hampered by either a weapon or shield, you can be a lot more flexible in your moves."
+    },
+    {
+        "id": "falothen1_2nd_f1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to be better at unarmed fighting. Here are two Oegyth crystals and 5000 gold as payment.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_f3"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_14"
+            }
+        ],
+        "message": "Fighting unarmed can make you land more successful punches, and will also make you quicker when dodging blows."
+    },
+    {
+        "id": "falothen1_2nd_f3",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 75,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyUnarmed",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_15"
+            }
+        ],
+        "message": "[Falothen teaches you the unarmed fighting skill]"
+    },
+    {
+        "id": "falothen1_2nd_1hs",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "70"
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_no"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_1hs0"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_1hs0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2nd_1hs1"
+            }
+        ],
+        "message": "One handed swords, now that's an art form. They have a wide range of uses, from slashing to piercing types."
+    },
+    {
+        "id": "falothen1_2nd_1hs1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with one-handed swords. Here are two Oegyth crystals and 5000 gold as payment.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_1hs3"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_14"
+            }
+        ],
+        "message": "I can teach you how to handle them better, so that you land your attacks more often."
+    },
+    {
+        "id": "falothen1_2nd_1hs3",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 70,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiency1hsword",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_15"
+            }
+        ],
+        "message": "[Falothen teaches you the one-handed sword skill]"
+    },
+    {
+        "id": "falothen1_2nd_d",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "72"
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_no"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_d0"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_d0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2nd_d1"
+            }
+        ],
+        "message": "Daggers, the choice of the fast fighter. Their light weight usually makes you much faster when attacking. Some of them also have nasty side effects. Nasty for your opponent, that is."
+    },
+    {
+        "id": "falothen1_2nd_d1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with daggers. Here are two Oegyth crystals and 5000 gold as payment.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_d3"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_14"
+            }
+        ],
+        "message": "I can teach you how to handle them better, so that you land your attacks more often."
+    },
+    {
+        "id": "falothen1_2nd_d3",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 72,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyDagger",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_15"
+            }
+        ],
+        "message": "[Falothen teaches you the dagger skill]"
+    },
+    {
+        "id": "falothen1_2nd_a",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "74"
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_no"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_a0"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_a0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2nd_a1"
+            }
+        ],
+        "message": "Oh yes. The mighty axes. You can do a lot of damage with them, if you know how to handle them correctly."
+    },
+    {
+        "id": "falothen1_2nd_a1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with axes. Here are two Oegyth crystals and 5000 gold as payment.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_a3"
+            },
+            {
+                "nextPhraseID": "falothen1_14",
+                "text": "Let's go back to the other types of weapons."
+            }
+        ],
+        "message": "I can teach you how to get better at fighting with all types of axes, from the small hatchet up to the larger two-handed greataxes. That way, you can be very versatile in your choice of weapons."
+    },
+    {
+        "id": "falothen1_2nd_a3",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 74,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyAxe",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_15"
+            }
+        ],
+        "message": "[Falothen teaches you the axe skill]"
+    },
+    {
+        "id": "falothen1_2nd_b",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "charwood1",
+                        "value": "73"
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_no"
+            },
+            {
+                "nextPhraseID": "falothen1_2nd_b0"
+            }
+        ]
+    },
+    {
+        "id": "falothen1_2nd_b0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_2nd_b1"
+            }
+        ],
+        "message": "Now, blunt weapons is my way of categorizing everything from the simple club, to maces up to quarterstaves. The technique for using them well is mostly the same."
+    },
+    {
+        "id": "falothen1_2nd_b1",
+        "replies": [
+            {
+                "text": "Sounds good. Teach me how to fight with blunt weapons. Here are two Oegyth crystals and 5000 gold as payment.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "oegyth",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5000
+                    }
+                ],
+                "nextPhraseID": "falothen1_2nd_b3"
+            },
+            {
+                "text": "Let's go back to the other types of weapons.",
+                "nextPhraseID": "falothen1_14"
+            }
+        ],
+        "message": "I can teach you how to better land your blows with all blunt weapons."
+    },
+    {
+        "id": "falothen1_2nd_b3",
+        "rewards": [
+            {
+                "rewardID": "charwood1",
+                "value": 73,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "skillIncrease",
+                "rewardID": "weaponProficiencyBlunt",
+                "value": 1
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "falothen1_15"
+            }
+        ],
+        "message": "[Falothen teaches you the blunt weapons skill]"
+    },
+    {
+        "id": "falothen1_15",
+        "message": "Well done! You learn quickly."
+    }
+]

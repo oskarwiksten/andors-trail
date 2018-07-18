@@ -1,0 +1,646 @@
+[
+    {
+        "id": "puny_caverat",
+        "iconID": "monsters_rats:0",
+        "name": "Cave rat",
+        "spawnGroup": "puny_caverat",
+        "monsterClass": "animal",
+        "maxHP": 5,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 50,
+        "blockChance": 30,
+        "droplistID": "rat",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "rabid_hound",
+        "iconID": "monsters_rltiles2:108",
+        "name": "Rabid hound",
+        "spawnGroup": "forestwolf2",
+        "monsterClass": "animal",
+        "maxHP": 40,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 110,
+        "blockChance": 30,
+        "droplistID": "canine",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "vicious_hound",
+        "iconID": "monsters_rltiles2:110",
+        "name": "Vicious hound",
+        "spawnGroup": "forestboar4",
+        "monsterClass": "animal",
+        "maxHP": 31,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 150,
+        "blockChance": 60,
+        "damageResistance": 3,
+        "droplistID": "canineboss",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "mountain_wolf",
+        "iconID": "monsters_rltiles2:109",
+        "name": "Mountain wolf",
+        "spawnGroup": "primwolf1",
+        "monsterClass": "animal",
+        "maxHP": 49,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 150,
+        "blockChance": 60,
+        "damageResistance": 3,
+        "droplistID": "canine",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "hatchling_white_wyrm",
+        "iconID": "monsters_rltiles1:118",
+        "name": "Hatchling white wyrm",
+        "spawnGroup": "wyrm_1",
+        "monsterClass": "reptile",
+        "maxHP": 41,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 75,
+        "blockChance": 130,
+        "damageResistance": 5,
+        "droplistID": "wyrm_1",
+        "attackDamage": {
+            "min": 4,
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "young_white_wyrm",
+        "iconID": "monsters_rltiles1:118",
+        "name": "Young white wyrm",
+        "spawnGroup": "wyrm_2",
+        "monsterClass": "reptile",
+        "maxHP": 47,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 75,
+        "blockChance": 130,
+        "damageResistance": 5,
+        "droplistID": "wyrm_2",
+        "attackDamage": {
+            "min": 4,
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "white_wyrm",
+        "iconID": "monsters_rltiles1:119",
+        "name": "White wyrm",
+        "spawnGroup": "wyrm_3",
+        "monsterClass": "reptile",
+        "maxHP": 55,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 75,
+        "blockChance": 130,
+        "damageResistance": 5,
+        "droplistID": "wyrm_3",
+        "attackDamage": {
+            "min": 4,
+            "max": 10
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "young_aulaeth",
+        "iconID": "monsters_rltiles2:176",
+        "name": "Young aulaeth",
+        "spawnGroup": "wyrm_1",
+        "monsterClass": "giant",
+        "maxHP": 105,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 40,
+        "blockChance": 30,
+        "damageResistance": 5,
+        "droplistID": "aulaeth",
+        "attackDamage": {
+            "min": 0,
+            "max": 4
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "aulaeth",
+        "iconID": "monsters_rltiles2:58",
+        "name": "Aulaeth",
+        "spawnGroup": "wyrm_2",
+        "monsterClass": "giant",
+        "maxHP": 120,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 40,
+        "blockChance": 40,
+        "damageResistance": 6,
+        "droplistID": "aulaeth",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "strong_aulaeth",
+        "iconID": "monsters_rltiles2:58",
+        "name": "Strong aulaeth",
+        "spawnGroup": "wyrm_3",
+        "monsterClass": "giant",
+        "maxHP": 135,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 40,
+        "blockChance": 35,
+        "damageResistance": 6,
+        "droplistID": "aulaeth",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    },
+    {
+        "id": "wyrm_trainer",
+        "iconID": "monsters_rltiles2:0",
+        "name": "Wyrm trainer",
+        "spawnGroup": "wyrm_4",
+        "monsterClass": "undead",
+        "maxHP": 69,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "blockChance": 90,
+        "damageResistance": 4,
+        "droplistID": "wyrm_4",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 10,
+                    "chance": 70
+                }
+            ]
+        }
+    },
+    {
+        "id": "wyrm_apprentice",
+        "iconID": "monsters_rltiles2:0",
+        "name": "Wyrm apprentice",
+        "spawnGroup": "wyrm_4",
+        "monsterClass": "undead",
+        "maxHP": 69,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 140,
+        "blockChance": 90,
+        "damageResistance": 4,
+        "droplistID": "wyrm_4",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 10,
+                    "chance": 70
+                }
+            ]
+        }
+    },
+    {
+        "id": "young_gornaud",
+        "iconID": "monsters_rltiles2:29",
+        "name": "Young gornaud",
+        "spawnGroup": "gornaud_1",
+        "monsterClass": "giant",
+        "maxHP": 70,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "blockChance": 50,
+        "droplistID": "gornaud_1",
+        "attackDamage": {
+            "min": 0,
+            "max": 15
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "dazed",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "gornaud",
+        "iconID": "monsters_rltiles2:29",
+        "name": "Gornaud",
+        "spawnGroup": "gornaud_2",
+        "monsterClass": "giant",
+        "maxHP": 95,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "blockChance": 50,
+        "damageResistance": 4,
+        "droplistID": "gornaud_2",
+        "attackDamage": {
+            "min": 0,
+            "max": 15
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "dazed",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "strong_gornaud",
+        "iconID": "monsters_rltiles2:30",
+        "name": "Strong Gornaud",
+        "spawnGroup": "gornaud_3",
+        "monsterClass": "giant",
+        "maxHP": 95,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "blockChance": 50,
+        "damageResistance": 5,
+        "droplistID": "gornaud_3",
+        "attackDamage": {
+            "min": 0,
+            "max": 15
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "dazed",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 70
+                }
+            ]
+        }
+    },
+    {
+        "id": "slithering_venomfang",
+        "iconID": "monsters_snakes:2",
+        "name": "Slithering venomfang",
+        "spawnGroup": "gornaud_1",
+        "monsterClass": "reptile",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 90,
+        "damageResistance": 2,
+        "droplistID": "cave_serpent",
+        "attackDamage": {
+            "min": 1,
+            "max": 2
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 2,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "scaled_venomfang",
+        "iconID": "monsters_snakes:3",
+        "name": "Scaled venomfang",
+        "spawnGroup": "gornaud_2",
+        "monsterClass": "reptile",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 150,
+        "blockChance": 90,
+        "damageResistance": 2,
+        "droplistID": "cave_serpent",
+        "attackDamage": {
+            "min": 2,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 2,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "tough_venomfang",
+        "iconID": "monsters_snakes:3",
+        "name": "Tough venomfang",
+        "spawnGroup": "gornaud_3",
+        "monsterClass": "reptile",
+        "maxHP": 41,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 150,
+        "blockChance": 90,
+        "damageResistance": 2,
+        "droplistID": "cave_serpent",
+        "attackDamage": {
+            "min": 2,
+            "max": 5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 2,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "restless_dead",
+        "iconID": "monsters_rltiles1:47",
+        "name": "Restless dead",
+        "spawnGroup": "restless_dead_1",
+        "monsterClass": "ghost",
+        "maxHP": 25,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 50,
+        "criticalSkill": 80,
+        "criticalMultiplier": 2,
+        "blockChance": 140,
+        "damageResistance": 3,
+        "droplistID": "restless_dead_1",
+        "attackDamage": {
+            "min": 0,
+            "max": 3
+        }
+    },
+    {
+        "id": "grave_spawn",
+        "iconID": "monsters_rltiles1:49",
+        "name": "Grave spawn",
+        "spawnGroup": "restless_dead_1",
+        "monsterClass": "demon",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 110,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 35,
+        "damageResistance": 3,
+        "droplistID": "restless_dead_1",
+        "attackDamage": {
+            "min": 2,
+            "max": 5
+        }
+    },
+    {
+        "id": "restless_apparition",
+        "iconID": "monsters_rltiles1:47",
+        "name": "Restless apparition",
+        "spawnGroup": "restless_dead_2",
+        "monsterClass": "ghost",
+        "maxHP": 29,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 10,
+        "damageResistance": 1,
+        "droplistID": "restless_dead_2",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        }
+    },
+    {
+        "id": "skeletal_reaper",
+        "iconID": "monsters_rltiles1:27",
+        "name": "Skeletal reaper",
+        "spawnGroup": "restless_dead_2",
+        "monsterClass": "construct",
+        "maxHP": 15,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 150,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 110,
+        "droplistID": "restless_dead_2",
+        "attackDamage": {
+            "min": 0,
+            "max": 9
+        }
+    },
+    {
+        "id": "kazaul_spawn",
+        "iconID": "monsters_rltiles1:41",
+        "name": "Kazaul spawn",
+        "spawnGroup": "kazaul_1",
+        "monsterClass": "demon",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 70,
+        "criticalSkill": 50,
+        "criticalMultiplier": 2,
+        "blockChance": 90,
+        "damageResistance": 1,
+        "droplistID": "kazaul_1",
+        "attackDamage": {
+            "min": 3,
+            "max": 5
+        }
+    },
+    {
+        "id": "kazaul_imp",
+        "iconID": "monsters_rltiles1:45",
+        "name": "Kazaul imp",
+        "spawnGroup": "kazaul_2",
+        "monsterClass": "demon",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 70,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 105,
+        "damageResistance": 1,
+        "droplistID": "kazaul_2",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        }
+    },
+    {
+        "id": "kazaul_guardian",
+        "iconID": "monsters_rltiles1:42",
+        "name": "Kazaul guardian",
+        "spawnGroup": "kazaul_guardian",
+        "monsterClass": "demon",
+        "unique": 1,
+        "maxHP": 95,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 90,
+        "damageResistance": 3,
+        "droplistID": "kazaul_guardian",
+        "phraseID": "kazaul_guardian",
+        "attackDamage": {
+            "min": 3,
+            "max": 8
+        }
+    },
+    {
+        "id": "graverobber",
+        "iconID": "monsters_karvis2:3",
+        "name": "Graverobber",
+        "spawnGroup": "bjorgur_bandit",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "maxHP": 62,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "blockChance": 72,
+        "damageResistance": 1,
+        "droplistID": "bjorgur_bandit",
+        "phraseID": "bjorgur_bandit",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        }
+    }
+]

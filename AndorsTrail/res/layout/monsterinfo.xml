@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/dialog_margin"
+			android:id="@+id/monsterinfo_container"
+			>
+
+			<TextView
+				android:id="@+id/monsterinfo_title"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/dialog_monsterencounter_info"
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/char_hero"
+				/>
+
+			<LinearLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:orientation="horizontal"
+				android:layout_marginBottom="@dimen/section_margin"
+				>
+				<TextView
+					android:text="@string/actorinfo_difficulty"
+					android:layout_marginRight="10sp"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					/>
+				<TextView
+					android:id="@+id/monsterinfo_difficulty"
+					android:text="@string/monster_difficulty_normal"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					/>
+			</LinearLayout>
+
+			<com.gpl.rpg.AndorsTrail.view.RangeBar
+				android:id="@+id/monsterinfo_healthbar"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginBottom="@dimen/section_margin"
+				/>
+
+			<TableLayout
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:id="@+id/actorinfo_stats_table"
+				>
+				<TableRow>
+					<TextView style="@style/traitsinfo_label" android:text="@string/traitsinfo_base_max_ap" />
+					<TextView android:id="@+id/monsterinfo_max_ap" />
+				</TableRow>
+				<include layout="@layout/traitsinfoview" />
+			</TableLayout>
+
+			<com.gpl.rpg.AndorsTrail.view.ItemEffectsView
+				android:id="@+id/actorinfo_onhiteffects"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				/>
+
+			<TextView
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@string/actorinfo_currentconditions"
+				android:id="@+id/actorinfo_currentconditions_title"
+				android:layout_marginTop="@dimen/section_margin"
+				/>
+			<com.gpl.rpg.AndorsTrail.view.ActorConditionList
+				android:id="@+id/actorinfo_currentconditions"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				/>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		style="@android:style/ButtonBar"
+		>
+		<Button
+			android:id="@+id/monsterinfo_close"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/dialog_close"
+			/>
+	</LinearLayout>
+</LinearLayout>

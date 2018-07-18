@@ -1,0 +1,494 @@
+[
+    {
+        "id": "young_larval_burrower",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Young larval burrower",
+        "spawnGroup": "larva_1",
+        "monsterClass": "insect",
+        "maxHP": 30,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 35,
+        "criticalMultiplier": 3,
+        "blockChance": 25,
+        "droplistID": "larva_1",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        }
+    },
+    {
+        "id": "larval_burrower",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Larval burrower",
+        "spawnGroup": "larva_2",
+        "monsterClass": "insect",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 35,
+        "criticalMultiplier": 3,
+        "blockChance": 25,
+        "droplistID": "larva_2",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        }
+    },
+    {
+        "id": "larval_boss",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Strong larval burrower",
+        "spawnGroup": "larva_boss",
+        "monsterClass": "insect",
+        "unique": 1,
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 35,
+        "criticalMultiplier": 3,
+        "blockChance": 25,
+        "droplistID": "larva_boss",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        }
+    },
+    {
+        "id": "rivertroll",
+        "iconID": "monsters_rltiles1:104",
+        "name": "River troll",
+        "spawnGroup": "rivertroll",
+        "monsterClass": "giant",
+        "unique": 1,
+        "maxHP": 210,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "criticalSkill": 30,
+        "criticalMultiplier": 4,
+        "blockChance": 65,
+        "damageResistance": 7,
+        "droplistID": "rivertroll",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "grass_ant",
+        "iconID": "monsters_insects:0",
+        "name": "Grasslands ant",
+        "spawnGroup": "fieldcritter_0",
+        "monsterClass": "insect",
+        "maxHP": 29,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 80,
+        "droplistID": "fieldcritter_0",
+        "attackDamage": {
+            "min": 0,
+            "max": 4
+        }
+    },
+    {
+        "id": "grass_ant2",
+        "iconID": "monsters_insects:2",
+        "name": "Tough grasslands ant",
+        "spawnGroup": "fieldcritter_0",
+        "monsterClass": "insect",
+        "maxHP": 29,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "droplistID": "fieldcritter_0",
+        "attackDamage": {
+            "min": 1,
+            "max": 5
+        }
+    },
+    {
+        "id": "grass_beetle",
+        "iconID": "monsters_insects:4",
+        "name": "Grasslands beetle",
+        "spawnGroup": "fieldcritter_1",
+        "monsterClass": "insect",
+        "maxHP": 34,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 120,
+        "blockChance": 80,
+        "damageResistance": 3,
+        "droplistID": "fieldcritter_1",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        }
+    },
+    {
+        "id": "grass_beetle2",
+        "iconID": "monsters_insects:4",
+        "name": "Tough grasslands beetle",
+        "spawnGroup": "fieldcritter_1",
+        "monsterClass": "insect",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 125,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "fieldcritter_1",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        }
+    },
+    {
+        "id": "grass_snake",
+        "iconID": "monsters_rltiles2:25",
+        "name": "Grasslands snake",
+        "spawnGroup": "fieldcritter_2",
+        "monsterClass": "reptile",
+        "maxHP": 36,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 80,
+        "droplistID": "fieldcritter_2",
+        "attackDamage": {
+            "min": 0,
+            "max": 6
+        }
+    },
+    {
+        "id": "grass_snake2",
+        "iconID": "monsters_rltiles2:25",
+        "name": "Tough grasslands snake",
+        "spawnGroup": "fieldcritter_2",
+        "monsterClass": "reptile",
+        "maxHP": 38,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "droplistID": "fieldcritter_2",
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        }
+    },
+    {
+        "id": "grass_lizard",
+        "iconID": "monsters_rltiles2:114",
+        "name": "Grasslands lizard",
+        "spawnGroup": "fieldcritter_3",
+        "monsterClass": "reptile",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 80,
+        "damageResistance": 3,
+        "droplistID": "fieldcritter_3",
+        "attackDamage": {
+            "min": 0,
+            "max": 8
+        }
+    },
+    {
+        "id": "grass_lizard2",
+        "iconID": "monsters_rltiles2:117",
+        "name": "Black grasslands lizard",
+        "spawnGroup": "fieldcritter_3",
+        "monsterClass": "reptile",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "fieldcritter_3",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "keknazar",
+        "iconID": "monsters_misc:9",
+        "name": "Keknazar",
+        "spawnGroup": "keknazar",
+        "monsterClass": "reptile",
+        "unique": 1,
+        "maxHP": 90,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 50,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 70,
+        "damageResistance": 8,
+        "droplistID": "keknazar",
+        "phraseID": "keknazar",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "crossroads_rat",
+        "iconID": "monsters_rats:0",
+        "name": "Rat",
+        "spawnGroup": "crossroads_rat",
+        "monsterClass": "animal",
+        "maxHP": 5,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 50,
+        "blockChance": 30,
+        "droplistID": "rat",
+        "attackDamage": {
+            "min": 1,
+            "max": 1
+        }
+    },
+    {
+        "id": "fieldwasp_0",
+        "iconID": "monsters_insects:1",
+        "name": "Frantic forest wasp",
+        "spawnGroup": "fieldwasp_0",
+        "monsterClass": "insect",
+        "maxHP": 29,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 70,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 95,
+        "droplistID": "fieldwasp",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        }
+    },
+    {
+        "id": "fieldwasp_1",
+        "iconID": "monsters_insects:1",
+        "name": "Frantic forest wasp",
+        "spawnGroup": "fieldwasp_1",
+        "monsterClass": "insect",
+        "maxHP": 32,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 70,
+        "criticalSkill": 70,
+        "criticalMultiplier": 3,
+        "blockChance": 125,
+        "droplistID": "fieldwasp",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        }
+    },
+    {
+        "id": "fieldwasp_2",
+        "iconID": "monsters_insects:1",
+        "name": "Frantic forest wasp",
+        "spawnGroup": "fieldwasp_2",
+        "monsterClass": "insect",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 70,
+        "criticalSkill": 75,
+        "criticalMultiplier": 3,
+        "blockChance": 130,
+        "droplistID": "fieldwasp",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        }
+    },
+    {
+        "id": "izthiel_1",
+        "iconID": "monsters_rltiles2:51",
+        "name": "Young Izthiel",
+        "spawnGroup": "izthiel_1",
+        "monsterClass": "reptile",
+        "maxHP": 40,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 70,
+        "blockChance": 57,
+        "damageResistance": 5,
+        "droplistID": "izthiel",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        }
+    },
+    {
+        "id": "izthiel_2",
+        "iconID": "monsters_rltiles2:49",
+        "name": "Izthiel",
+        "spawnGroup": "izthiel_2",
+        "monsterClass": "reptile",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "blockChance": 58,
+        "damageResistance": 6,
+        "droplistID": "izthiel",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        }
+    },
+    {
+        "id": "izthiel_3",
+        "iconID": "monsters_rltiles2:48",
+        "name": "Strong Izthiel",
+        "spawnGroup": "izthiel_3",
+        "monsterClass": "reptile",
+        "maxHP": 52,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "blockChance": 60,
+        "damageResistance": 8,
+        "droplistID": "izthiel",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": 2,
+                    "duration": 4,
+                    "chance": 40
+                }
+            ]
+        }
+    },
+    {
+        "id": "izthiel_4",
+        "iconID": "monsters_rltiles2:52",
+        "name": "Izthiel Guardian",
+        "spawnGroup": "izthiel_4",
+        "monsterClass": "reptile",
+        "maxHP": 54,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 60,
+        "damageResistance": 11,
+        "droplistID": "izthiel_4",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "frog_1",
+        "iconID": "monsters_rltiles1:131",
+        "name": "River frog",
+        "spawnGroup": "frog_1",
+        "monsterClass": "reptile",
+        "maxHP": 15,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 150,
+        "blockChance": 45,
+        "droplistID": "frog",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        }
+    },
+    {
+        "id": "frog_2",
+        "iconID": "monsters_rltiles1:131",
+        "name": "Tough river frog",
+        "spawnGroup": "frog_2",
+        "monsterClass": "reptile",
+        "maxHP": 17,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 160,
+        "blockChance": 49,
+        "droplistID": "frog",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        }
+    },
+    {
+        "id": "frog_3",
+        "iconID": "monsters_rltiles1:130",
+        "name": "Poisonous river frog",
+        "spawnGroup": "frog_3",
+        "monsterClass": "reptile",
+        "maxHP": 21,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 165,
+        "blockChance": 55,
+        "droplistID": "frog_3",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        }
+    }
+]

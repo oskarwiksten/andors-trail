@@ -1,0 +1,196 @@
+[
+    {
+        "id": "slime",
+        "iconID": "actorconditions_1:56",
+        "name": "Corrosive Slime",
+        "category": "physical",
+        "isStacking": 1,
+        "roundEffect": {
+            "increaseCurrentHP": {
+                "min": -1,
+                "max": -2
+            },
+            "increaseCurrentAP": {
+                "min": -1,
+                "max": -1
+            }
+        }
+    },
+    {
+        "id": "sense_1",
+        "name": "Heightened senses",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 4
+            },
+            "increaseCriticalSkill": 10,
+            "increaseAttackChance": 5
+        },
+        "iconID": "actorconditions_1:44",
+        "category": "physical"
+    },
+    {
+        "id": "courage",
+        "name": "Courage",
+        "roundEffect": {
+            "visualEffectID": "blueSwirl",
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        },
+        "abilityEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 2
+            },
+            "increaseAttackChance": 3,
+            "increaseBlockChance": 3
+        },
+        "iconID": "actorconditions_1:92",
+        "category": "mental",
+        "isPositive": 1
+    },
+    {
+        "id": "fear",
+        "name": "Fear",
+        "abilityEffect": {
+            "increaseAttackDamage": {
+                "min": -1,
+                "max": -1
+            },
+            "increaseAttackChance": -5,
+            "increaseBlockChance": -10,
+            "increaseDamageResistance": -1
+        },
+        "iconID": "actorconditions_1:30",
+        "category": "mental"
+    },
+    {
+        "id": "def",
+        "name": "Fortified defense",
+        "abilityEffect": {
+            "increaseBlockChance": 22
+        },
+        "iconID": "actorconditions_1:47",
+        "category": "physical",
+        "isPositive": 1
+    },
+    {
+        "id": "crit_aware",
+        "name": "Vulnerability awareness",
+        "abilityEffect": {
+            "increaseCriticalSkill": 10
+        },
+        "iconID": "actorconditions_1:78",
+        "category": "physical",
+        "isPositive": 1
+    },
+    {
+        "id": "regen2",
+        "name": "Regeneration",
+        "iconID": "actorconditions_1:35",
+        "isPositive": 1,
+        "roundEffect": {
+            "visualEffectID": "blueSwirl",
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        },
+        "category": "physical"
+    },
+    {
+        "id": "barkskin",
+        "name": "Bark skin",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseDamageResistance": 1
+        },
+        "iconID": "actorconditions_1:20",
+        "category": "physical"
+    },
+    {
+        "id": "shadow_acc",
+        "name": "Shadow's accuracy",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseAttackChance": 15
+        },
+        "iconID": "actorconditions_1:101",
+        "category": "spiritual"
+    },
+    {
+        "id": "shadow_prot",
+        "name": "Shadow's protection",
+        "isPositive": 1,
+        "roundEffect": {
+            "visualEffectID": "blueSwirl",
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        },
+        "abilityEffect": {
+            "increaseBlockChance": 10,
+            "increaseDamageResistance": 2
+        },
+        "iconID": "actorconditions_1:28",
+        "category": "spiritual"
+    },
+    {
+        "id": "shadow_dmg",
+        "name": "Shadow's strength",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseAttackDamage": {
+                "max": 2
+            }
+        },
+        "iconID": "actorconditions_1:70",
+        "category": "spiritual"
+    },
+    {
+        "id": "haste",
+        "name": "Haste",
+        "isPositive": 1,
+        "abilityEffect": {
+            "increaseUseItemCost": -2,
+            "increaseMoveCost": -1,
+            "increaseReequipCost": -2,
+            "increaseMaxAP": 2
+        },
+        "iconID": "actorconditions_1:87",
+        "category": "physical"
+    },
+    {
+        "id": "fire",
+        "name": "Ablaze",
+        "roundEffect": {
+            "increaseCurrentHP": {
+                "min": -1,
+                "max": -1
+            }
+        },
+        "abilityEffect": {
+            "increaseAttackChance": -15
+        },
+        "iconID": "actorconditions_1:1",
+        "category": "physical"
+    },
+    {
+        "id": "sting_minor",
+        "name": "Minor sting",
+        "isStacking": 1,
+        "roundEffect": {
+            "increaseCurrentHP": {
+                "min": -1,
+                "max": -1
+            }
+        },
+        "iconID": "actorconditions_1:63",
+        "category": "physical"
+    }
+]

@@ -1,0 +1,1862 @@
+[
+    {
+        "id": "cbeetle_1",
+        "iconID": "monsters_rltiles2:63",
+        "name": "Young carrion beetle",
+        "spawnGroup": "scaradon_1",
+        "monsterClass": "insect",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "blockChance": 30,
+        "damageResistance": 9,
+        "droplistID": "scaradon",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        }
+    },
+    {
+        "id": "cbeetle_2",
+        "iconID": "monsters_rltiles2:63",
+        "name": "Carrion beetle",
+        "spawnGroup": "scaradon_1",
+        "monsterClass": "insect",
+        "maxHP": 51,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 75,
+        "blockChance": 30,
+        "damageResistance": 9,
+        "droplistID": "scaradon",
+        "attackDamage": {
+            "min": 0,
+            "max": 5
+        }
+    },
+    {
+        "id": "scaradon_1",
+        "iconID": "monsters_rltiles1:98",
+        "name": "Young Scaradon",
+        "spawnGroup": "scaradon_1",
+        "monsterClass": "insect",
+        "maxHP": 32,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 50,
+        "blockChance": 30,
+        "damageResistance": 15,
+        "droplistID": "scaradon",
+        "attackDamage": {
+            "min": 0,
+            "max": 4
+        }
+    },
+    {
+        "id": "scaradon_2",
+        "iconID": "monsters_rltiles1:98",
+        "name": "Small Scaradon",
+        "spawnGroup": "scaradon_2",
+        "monsterClass": "insect",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 50,
+        "blockChance": 30,
+        "damageResistance": 15,
+        "droplistID": "scaradon",
+        "attackDamage": {
+            "min": 1,
+            "max": 4
+        }
+    },
+    {
+        "id": "scaradon_3",
+        "iconID": "monsters_rltiles1:97",
+        "name": "Scaradon",
+        "spawnGroup": "scaradon_2",
+        "monsterClass": "insect",
+        "maxHP": 35,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 50,
+        "blockChance": 30,
+        "damageResistance": 17,
+        "droplistID": "scaradon",
+        "attackDamage": {
+            "min": 0,
+            "max": 4
+        }
+    },
+    {
+        "id": "scaradon_4",
+        "iconID": "monsters_rltiles1:97",
+        "name": "Tough Scaradon",
+        "spawnGroup": "scaradon_2",
+        "monsterClass": "insect",
+        "maxHP": 37,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 50,
+        "blockChance": 30,
+        "damageResistance": 17,
+        "droplistID": "scaradon",
+        "attackDamage": {
+            "min": 1,
+            "max": 4
+        }
+    },
+    {
+        "id": "scaradon_5",
+        "iconID": "monsters_rltiles1:97",
+        "name": "Hardshell Scaradon",
+        "spawnGroup": "scaradon_3",
+        "monsterClass": "insect",
+        "maxHP": 38,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 50,
+        "blockChance": 30,
+        "damageResistance": 18,
+        "droplistID": "scaradon_b",
+        "attackDamage": {
+            "min": 1,
+            "max": 5
+        }
+    },
+    {
+        "id": "mwolf_1",
+        "iconID": "monsters_dogs:3",
+        "name": "Mountain wolf pup",
+        "spawnGroup": "mwolf_1",
+        "monsterClass": "animal",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 80,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 40,
+        "damageResistance": 3,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        }
+    },
+    {
+        "id": "mwolf_2",
+        "iconID": "monsters_dogs:3",
+        "name": "Young mountain wolf",
+        "spawnGroup": "mwolf_1",
+        "monsterClass": "animal",
+        "maxHP": 52,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 80,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 44,
+        "damageResistance": 3,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        }
+    },
+    {
+        "id": "mwolf_3",
+        "iconID": "monsters_dogs:2",
+        "name": "Young mountain fox",
+        "spawnGroup": "mwolf_1",
+        "monsterClass": "animal",
+        "maxHP": 56,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 80,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 48,
+        "damageResistance": 4,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        }
+    },
+    {
+        "id": "mwolf_4",
+        "iconID": "monsters_dogs:2",
+        "name": "Mountain fox",
+        "spawnGroup": "mwolf_2",
+        "monsterClass": "animal",
+        "maxHP": 60,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 85,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 52,
+        "damageResistance": 4,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 3,
+            "max": 8
+        }
+    },
+    {
+        "id": "mwolf_5",
+        "iconID": "monsters_dogs:2",
+        "name": "Ferocious mountain fox",
+        "spawnGroup": "mwolf_2",
+        "monsterClass": "animal",
+        "maxHP": 64,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 54,
+        "damageResistance": 5,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 3,
+            "max": 8
+        }
+    },
+    {
+        "id": "mwolf_6",
+        "iconID": "monsters_dogs:4",
+        "name": "Rabid mountain wolf",
+        "spawnGroup": "mwolf_2",
+        "monsterClass": "animal",
+        "maxHP": 67,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 56,
+        "damageResistance": 5,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "mwolf_7",
+        "iconID": "monsters_dogs:4",
+        "name": "Strong mountain wolf",
+        "spawnGroup": "mwolf_3",
+        "monsterClass": "animal",
+        "maxHP": 73,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 57,
+        "damageResistance": 6,
+        "droplistID": "mwolf",
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        }
+    },
+    {
+        "id": "mwolf_8",
+        "iconID": "monsters_dogs:4",
+        "name": "Ferocious mountain wolf",
+        "spawnGroup": "mwolf_3",
+        "monsterClass": "animal",
+        "maxHP": 78,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 59,
+        "damageResistance": 6,
+        "droplistID": "mwolf_b",
+        "attackDamage": {
+            "min": 3,
+            "max": 10
+        }
+    },
+    {
+        "id": "mbrute_1",
+        "iconID": "monsters_rltiles2:35",
+        "name": "Young mountain brute",
+        "spawnGroup": "mbrute_1",
+        "monsterClass": "giant",
+        "maxHP": 148,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 14
+        }
+    },
+    {
+        "id": "mbrute_2",
+        "iconID": "monsters_rltiles2:35",
+        "name": "Weak mountain brute",
+        "spawnGroup": "mbrute_1",
+        "monsterClass": "giant",
+        "maxHP": 157,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 14
+        }
+    },
+    {
+        "id": "mbrute_3",
+        "iconID": "monsters_rltiles2:36",
+        "name": "Whitefur mountain brute",
+        "spawnGroup": "mbrute_1",
+        "monsterClass": "giant",
+        "maxHP": 166,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 14
+        }
+    },
+    {
+        "id": "mbrute_4",
+        "iconID": "monsters_rltiles2:35",
+        "name": "Mountain brute",
+        "spawnGroup": "mbrute_2",
+        "monsterClass": "giant",
+        "maxHP": 175,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 14
+        }
+    },
+    {
+        "id": "mbrute_5",
+        "iconID": "monsters_rltiles2:36",
+        "name": "Large mountain brute",
+        "spawnGroup": "mbrute_2",
+        "monsterClass": "giant",
+        "maxHP": 184,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 14
+        }
+    },
+    {
+        "id": "mbrute_6",
+        "iconID": "monsters_rltiles2:34",
+        "name": "Fast mountain brute",
+        "spawnGroup": "mbrute_2",
+        "monsterClass": "giant",
+        "maxHP": 82,
+        "maxAP": 12,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 14
+        }
+    },
+    {
+        "id": "mbrute_7",
+        "iconID": "monsters_rltiles2:34",
+        "name": "Quick mountain brute",
+        "spawnGroup": "mbrute_3",
+        "monsterClass": "giant",
+        "maxHP": 93,
+        "maxAP": 12,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 0,
+            "max": 15
+        }
+    },
+    {
+        "id": "mbrute_8",
+        "iconID": "monsters_rltiles2:34",
+        "name": "Aggressive mountain brute",
+        "spawnGroup": "mbrute_3",
+        "monsterClass": "giant",
+        "maxHP": 104,
+        "maxAP": 12,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 1,
+            "max": 15
+        }
+    },
+    {
+        "id": "mbrute_9",
+        "iconID": "monsters_rltiles2:33",
+        "name": "Strong mountain brute",
+        "spawnGroup": "mbrute_3",
+        "monsterClass": "giant",
+        "maxHP": 115,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 20,
+        "criticalMultiplier": "2.5",
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 1,
+            "max": 15
+        }
+    },
+    {
+        "id": "mbrute_10",
+        "iconID": "monsters_rltiles2:33",
+        "name": "Tough mountain brute",
+        "spawnGroup": "mbrute_4",
+        "monsterClass": "giant",
+        "maxHP": 126,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute",
+        "attackDamage": {
+            "min": 2,
+            "max": 15
+        }
+    },
+    {
+        "id": "mbrute_11",
+        "iconID": "monsters_rltiles2:33",
+        "name": "Fearless mountain brute",
+        "spawnGroup": "mbrute_4",
+        "monsterClass": "giant",
+        "maxHP": 137,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute_b",
+        "attackDamage": {
+            "min": 2,
+            "max": 15
+        }
+    },
+    {
+        "id": "mbrute_12",
+        "iconID": "monsters_rltiles2:33",
+        "name": "Enraged mountain brute",
+        "spawnGroup": "mbrute_4",
+        "monsterClass": "giant",
+        "maxHP": 148,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 3,
+        "blockChance": 60,
+        "damageResistance": 4,
+        "droplistID": "mbrute_b",
+        "attackDamage": {
+            "min": 2,
+            "max": 16
+        }
+    },
+    {
+        "id": "erumen_1",
+        "iconID": "monsters_rltiles2:114",
+        "name": "Young Erumem Lizard",
+        "spawnGroup": "erumen_1",
+        "monsterClass": "reptile",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "erumen",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "erumen_2",
+        "iconID": "monsters_rltiles2:114",
+        "name": "Spotted Erumem Lizard",
+        "spawnGroup": "erumen_1",
+        "monsterClass": "reptile",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "erumen",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "erumen_3",
+        "iconID": "monsters_rltiles2:114",
+        "name": "Erumem Lizard",
+        "spawnGroup": "erumen_2",
+        "monsterClass": "reptile",
+        "maxHP": 45,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "erumen",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "erumen_4",
+        "iconID": "monsters_rltiles2:115",
+        "name": "Strong Erumen Lizard",
+        "spawnGroup": "erumen_2",
+        "monsterClass": "reptile",
+        "maxHP": 79,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "erumen",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "erumen_5",
+        "iconID": "monsters_rltiles2:115",
+        "name": "Vile Erumen Lizard",
+        "spawnGroup": "erumen_3",
+        "monsterClass": "reptile",
+        "maxHP": 89,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 150,
+        "blockChance": 80,
+        "damageResistance": 4,
+        "droplistID": "erumen",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "erumen_6",
+        "iconID": "monsters_rltiles2:117",
+        "name": "Tough Erumen Lizard",
+        "spawnGroup": "erumen_3",
+        "monsterClass": "reptile",
+        "maxHP": 91,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 90,
+        "damageResistance": 8,
+        "droplistID": "erumen",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "erumen_7",
+        "iconID": "monsters_rltiles2:117",
+        "name": "Hardened Erumen Lizard",
+        "spawnGroup": "erumen_4",
+        "monsterClass": "reptile",
+        "maxHP": 93,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 125,
+        "blockChance": 90,
+        "damageResistance": 12,
+        "droplistID": "erumen_b",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "plaguesp_1",
+        "iconID": "monsters_rltiles2:61",
+        "name": "Puny Plaguecrawler",
+        "spawnGroup": "plaguespider_1",
+        "monsterClass": "insect",
+        "maxHP": 55,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 140,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_2",
+        "iconID": "monsters_rltiles2:61",
+        "name": "Plaguecrawler",
+        "spawnGroup": "plaguespider_1",
+        "monsterClass": "insect",
+        "maxHP": 57,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 140,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_3",
+        "iconID": "monsters_rltiles2:61",
+        "name": "Tough Plaguecrawler",
+        "spawnGroup": "plaguespider_1",
+        "monsterClass": "insect",
+        "maxHP": 59,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 140,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_4",
+        "iconID": "monsters_rltiles2:61",
+        "name": "Black Plaguecrawler",
+        "spawnGroup": "plaguespider_2",
+        "monsterClass": "insect",
+        "maxHP": 61,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 150,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 1,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_5",
+        "iconID": "monsters_rltiles2:151",
+        "name": "Plaguestrider",
+        "spawnGroup": "plaguespider_2",
+        "monsterClass": "insect",
+        "maxHP": 62,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 150,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_6",
+        "iconID": "monsters_rltiles2:151",
+        "name": "Hardshell Plaguestrider",
+        "spawnGroup": "plaguespider_2",
+        "monsterClass": "insect",
+        "maxHP": 63,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 60,
+        "criticalMultiplier": 3,
+        "blockChance": 150,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_7",
+        "iconID": "monsters_rltiles2:151",
+        "name": "Tough Plaguestrider",
+        "spawnGroup": "plaguespider_3",
+        "monsterClass": "insect",
+        "maxHP": 64,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 70,
+        "criticalMultiplier": 3,
+        "blockChance": 155,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_8",
+        "iconID": "monsters_rltiles2:153",
+        "name": "Wooly Plaguestrider",
+        "spawnGroup": "plaguespider_3",
+        "monsterClass": "insect",
+        "maxHP": 65,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 70,
+        "criticalMultiplier": 3,
+        "blockChance": 155,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 6,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_9",
+        "iconID": "monsters_rltiles2:153",
+        "name": "Tough wooly Plaguestrider",
+        "spawnGroup": "plaguespider_3",
+        "monsterClass": "insect",
+        "maxHP": 66,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 70,
+        "criticalMultiplier": 3,
+        "blockChance": 160,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 6,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_10",
+        "iconID": "monsters_rltiles2:151",
+        "name": "Vile Plaguestrider",
+        "spawnGroup": "plaguespider_4",
+        "monsterClass": "insect",
+        "maxHP": 67,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "criticalSkill": 70,
+        "criticalMultiplier": 3,
+        "blockChance": 160,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 6,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_11",
+        "iconID": "monsters_rltiles2:153",
+        "name": "Nesting Plaguestrider",
+        "spawnGroup": "plaguespider_4",
+        "monsterClass": "insect",
+        "maxHP": 68,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "criticalSkill": 70,
+        "criticalMultiplier": 3,
+        "blockChance": 165,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 6,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_12",
+        "iconID": "monsters_rltiles2:38",
+        "name": "Plaguestrider servant",
+        "spawnGroup": "plaguespider_5",
+        "monsterClass": "undead",
+        "maxHP": 65,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "criticalSkill": 120,
+        "criticalMultiplier": 3,
+        "blockChance": 165,
+        "droplistID": "plaguespider",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 7,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 6,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "plaguesp_13",
+        "iconID": "monsters_rltiles2:38",
+        "name": "Plaguestrider master",
+        "spawnGroup": "plaguespider_6",
+        "monsterClass": "undead",
+        "maxHP": 65,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "criticalSkill": 120,
+        "criticalMultiplier": 3,
+        "blockChance": 175,
+        "damageResistance": 2,
+        "droplistID": "plaguespider_b",
+        "attackDamage": {
+            "min": 2,
+            "max": 8
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "contagion",
+                    "magnitude": 7,
+                    "duration": 5,
+                    "chance": 70
+                },
+                {
+                    "condition": "blister",
+                    "magnitude": 6,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "allaceph_1",
+        "iconID": "monsters_rltiles2:101",
+        "name": "Young Allaceph",
+        "spawnGroup": "allaceph_1",
+        "monsterClass": "demon",
+        "maxHP": 90,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 105,
+        "damageResistance": 1,
+        "droplistID": "allaceph",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 4,
+                "max": 4
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "allaceph_2",
+        "iconID": "monsters_rltiles2:101",
+        "name": "Allaceph",
+        "spawnGroup": "allaceph_1",
+        "monsterClass": "demon",
+        "maxHP": 94,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 105,
+        "damageResistance": 1,
+        "droplistID": "allaceph",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 4,
+                "max": 4
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "allaceph_3",
+        "iconID": "monsters_rltiles2:102",
+        "name": "Strong Allaceph",
+        "spawnGroup": "allaceph_2",
+        "monsterClass": "demon",
+        "maxHP": 101,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 105,
+        "damageResistance": 2,
+        "droplistID": "allaceph",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 4,
+                "max": 4
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "allaceph_4",
+        "iconID": "monsters_rltiles2:102",
+        "name": "Tough Allaceph",
+        "spawnGroup": "allaceph_2",
+        "monsterClass": "demon",
+        "maxHP": 111,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 110,
+        "damageResistance": 2,
+        "droplistID": "allaceph",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 4,
+                "max": 4
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 3,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "allaceph_5",
+        "iconID": "monsters_rltiles2:103",
+        "name": "Radiant Allaceph",
+        "spawnGroup": "allaceph_3",
+        "monsterClass": "demon",
+        "maxHP": 124,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 110,
+        "damageResistance": 3,
+        "droplistID": "allaceph_b",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 6,
+                "max": 6
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 3,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "allaceph_6",
+        "iconID": "monsters_rltiles2:103",
+        "name": "Ancient Allaceph",
+        "spawnGroup": "allaceph_3",
+        "monsterClass": "demon",
+        "maxHP": 133,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 115,
+        "damageResistance": 3,
+        "droplistID": "allaceph_b",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 7,
+                "max": 7
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 3,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "vaeregh_1",
+        "iconID": "monsters_rltiles1:42",
+        "name": "Vaeregh",
+        "spawnGroup": "allaceph_4",
+        "monsterClass": "demon",
+        "maxHP": 149,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 80,
+        "criticalSkill": 40,
+        "criticalMultiplier": 2,
+        "blockChance": 120,
+        "damageResistance": 4,
+        "droplistID": "allaceph",
+        "attackDamage": {
+            "min": 2,
+            "max": 7
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 10,
+                "max": 10
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "feebleness_minor",
+                    "magnitude": 4,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "irdegh_sp_1",
+        "iconID": "monsters_rltiles2:26",
+        "name": "Irdegh spawn",
+        "spawnGroup": "irdegh_spawn",
+        "monsterClass": "reptile",
+        "maxHP": 57,
+        "maxAP": 12,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 80,
+        "droplistID": "irdegh_spawn",
+        "attackDamage": {
+            "min": 0,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_irdegh",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "irdegh_sp_2",
+        "iconID": "monsters_rltiles2:26",
+        "name": "Irdegh spawn",
+        "spawnGroup": "irdegh_spawn",
+        "monsterClass": "reptile",
+        "maxHP": 68,
+        "maxAP": 12,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 80,
+        "droplistID": "irdegh_spawn",
+        "attackDamage": {
+            "min": 0,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_irdegh",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "irdegh_1",
+        "iconID": "monsters_rltiles2:15",
+        "name": "Irdegh",
+        "spawnGroup": "irdegh_1",
+        "monsterClass": "reptile",
+        "maxHP": 115,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 60,
+        "damageResistance": 10,
+        "droplistID": "irdegh",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_irdegh",
+                    "magnitude": 3,
+                    "duration": 4,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "irdegh_2",
+        "iconID": "monsters_rltiles2:15",
+        "name": "Venomous Irdegh",
+        "spawnGroup": "irdegh_2",
+        "monsterClass": "reptile",
+        "maxHP": 120,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "blockChance": 60,
+        "damageResistance": 11,
+        "droplistID": "irdegh",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_irdegh",
+                    "magnitude": 3,
+                    "duration": 4,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "irdegh_3",
+        "iconID": "monsters_rltiles2:14",
+        "name": "Piercing Irdegh",
+        "spawnGroup": "irdegh_3",
+        "monsterClass": "reptile",
+        "maxHP": 125,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "damageResistance": 11,
+        "droplistID": "irdegh",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_irdegh",
+                    "magnitude": 3,
+                    "duration": 4,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "irdegh_4",
+        "iconID": "monsters_rltiles2:14",
+        "name": "Ancient piercing Irdegh",
+        "spawnGroup": "irdegh_4",
+        "monsterClass": "reptile",
+        "maxHP": 130,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "criticalSkill": 30,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "damageResistance": 14,
+        "droplistID": "irdegh_b",
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_irdegh",
+                    "magnitude": 3,
+                    "duration": 4,
+                    "chance": 70
+                }
+            ]
+        }
+    },
+    {
+        "id": "maonit_1",
+        "iconID": "monsters_rltiles1:104",
+        "name": "Maonit troll",
+        "spawnGroup": "maonit_1",
+        "monsterClass": "giant",
+        "maxHP": 255,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 4,
+        "droplistID": "maonit",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        }
+    },
+    {
+        "id": "maonit_2",
+        "iconID": "monsters_rltiles1:104",
+        "name": "Giant Maonit troll",
+        "spawnGroup": "maonit_1",
+        "monsterClass": "giant",
+        "maxHP": 270,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 4,
+        "droplistID": "maonit",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        }
+    },
+    {
+        "id": "maonit_3",
+        "iconID": "monsters_rltiles1:104",
+        "name": "Strong Maonit troll",
+        "spawnGroup": "maonit_2",
+        "monsterClass": "giant",
+        "maxHP": 285,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 5,
+        "droplistID": "maonit",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        }
+    },
+    {
+        "id": "maonit_4",
+        "iconID": "monsters_rltiles1:107",
+        "name": "Maonit brute",
+        "spawnGroup": "maonit_2",
+        "monsterClass": "giant",
+        "maxHP": 290,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 5,
+        "droplistID": "maonit",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        }
+    },
+    {
+        "id": "maonit_5",
+        "iconID": "monsters_rltiles1:107",
+        "name": "Tough Maonit brute",
+        "spawnGroup": "maonit_3",
+        "monsterClass": "giant",
+        "maxHP": 310,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 6,
+        "droplistID": "maonit",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "stunned",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "maonit_6",
+        "iconID": "monsters_rltiles1:107",
+        "name": "Strong Maonit brute",
+        "spawnGroup": "maonit_3",
+        "monsterClass": "giant",
+        "maxHP": 320,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 6,
+        "droplistID": "maonit",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "stunned",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "arulir_1",
+        "iconID": "monsters_rltiles1:13",
+        "name": "Arulir",
+        "spawnGroup": "arulir_1",
+        "monsterClass": "giant",
+        "maxHP": 325,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 8,
+        "droplistID": "arulir",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "stunned",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "arulir_2",
+        "iconID": "monsters_rltiles1:13",
+        "name": "Giant Arulir",
+        "spawnGroup": "arulir_1",
+        "monsterClass": "giant",
+        "maxHP": 330,
+        "maxAP": 5,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 70,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 20,
+        "damageResistance": 8,
+        "droplistID": "arulir",
+        "attackDamage": {
+            "min": 1,
+            "max": 20
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "stunned",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "burrower_1",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Larval cave burrower",
+        "spawnGroup": "burrower_1",
+        "monsterClass": "insect",
+        "maxHP": 30,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 95,
+        "blockChance": 80,
+        "damageResistance": 2,
+        "droplistID": "burrower",
+        "attackDamage": {
+            "min": 1,
+            "max": 25
+        }
+    },
+    {
+        "id": "burrower_2",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Cave burrower",
+        "spawnGroup": "burrower_1",
+        "monsterClass": "insect",
+        "maxHP": 37,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 95,
+        "blockChance": 80,
+        "damageResistance": 2,
+        "droplistID": "burrower",
+        "attackDamage": {
+            "min": 1,
+            "max": 25
+        }
+    },
+    {
+        "id": "burrower_3",
+        "iconID": "monsters_rltiles2:165",
+        "name": "Strong larval burrower",
+        "spawnGroup": "burrower_2",
+        "monsterClass": "insect",
+        "maxHP": 44,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 95,
+        "blockChance": 80,
+        "damageResistance": 2,
+        "droplistID": "burrower",
+        "attackDamage": {
+            "min": 1,
+            "max": 25
+        }
+    },
+    {
+        "id": "burrower_4",
+        "iconID": "monsters_rltiles2:165",
+        "name": "Giant larval burrower",
+        "spawnGroup": "burrower_3",
+        "monsterClass": "insect",
+        "maxHP": 75,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 95,
+        "blockChance": 80,
+        "damageResistance": 2,
+        "droplistID": "burrower",
+        "attackDamage": {
+            "min": 1,
+            "max": 25
+        }
+    }
+]

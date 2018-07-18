@@ -1,0 +1,1340 @@
+[
+    {
+        "id": "dungfly1",
+        "iconID": "monsters_rltiles2:168",
+        "name": "Giant dungfly",
+        "spawnGroup": "forestfly1",
+        "monsterClass": "insect",
+        "maxHP": 16,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 55,
+        "criticalSkill": 25,
+        "criticalMultiplier": 2,
+        "blockChance": 20,
+        "damageResistance": 1,
+        "attackDamage": {
+            "min": 4,
+            "max": 5
+        },
+        "droplistID": "wasp",
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "dungfly2",
+        "iconID": "monsters_rltiles2:168",
+        "name": "Aggressive dungfly",
+        "spawnGroup": "forestfly1",
+        "monsterClass": "insect",
+        "maxHP": 23,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 60,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 35,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 5,
+            "max": 7
+        },
+        "droplistID": "wasp",
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "dungfly3",
+        "iconID": "monsters_rltiles2:169",
+        "name": "Vicious dungfly",
+        "spawnGroup": "forestfly2",
+        "monsterClass": "insect",
+        "maxHP": 34,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 75,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 45,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 7,
+            "max": 8
+        },
+        "droplistID": "wasp",
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "brtender1",
+        "iconID": "monsters_ld2:153",
+        "name": "Branchtender",
+        "spawnGroup": "brtender1",
+        "maxHP": 57,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 135,
+        "blockChance": 75,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 5,
+            "max": 8
+        },
+        "droplistID": "brtender"
+    },
+    {
+        "id": "brtender2",
+        "iconID": "monsters_ld2:153",
+        "name": "Frantic branchtender",
+        "spawnGroup": "brtender2",
+        "maxHP": 72,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 155,
+        "blockChance": 90,
+        "damageResistance": 7,
+        "attackDamage": {
+            "min": 7,
+            "max": 11
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "brtender"
+    },
+    {
+        "id": "brtender_cr",
+        "iconID": "monsters_ld2:153",
+        "name": "Ancient branchtender",
+        "unique": 1,
+        "maxHP": 253,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 155,
+        "blockChance": 90,
+        "damageResistance": 7,
+        "attackDamage": {
+            "min": 7,
+            "max": 11
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "oegyth1"
+    },
+    {
+        "id": "anklebiter2",
+        "iconID": "monsters_tometik4:56",
+        "name": "Small horned anklebiter",
+        "spawnGroup": "hanklbit1",
+        "monsterClass": "animal",
+        "maxHP": 38,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 96,
+        "blockChance": 53,
+        "damageResistance": 1,
+        "attackDamage": {
+            "min": 3,
+            "max": 7
+        },
+        "droplistID": "anklebiter"
+    },
+    {
+        "id": "anklebiter3",
+        "iconID": "monsters_tometik4:55",
+        "name": "Young horned anklebiter",
+        "spawnGroup": "hanklbit1",
+        "monsterClass": "animal",
+        "maxHP": 46,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 112,
+        "criticalSkill": 5,
+        "criticalMultiplier": 2,
+        "blockChance": 61,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 5,
+            "max": 7
+        },
+        "droplistID": "anklebiter"
+    },
+    {
+        "id": "anklebiter4",
+        "iconID": "monsters_tometik4:55",
+        "name": "Fast horned anklebiter",
+        "spawnGroup": "hanklbit2",
+        "monsterClass": "animal",
+        "maxHP": 52,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 129,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 68,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 1,
+            "max": 9
+        },
+        "droplistID": "anklebiter"
+    },
+    {
+        "id": "anklebiter5",
+        "iconID": "monsters_tometik4:52",
+        "name": "Tough horned anklebiter",
+        "spawnGroup": "hanklbit2",
+        "monsterClass": "animal",
+        "maxHP": 64,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 137,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 76,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        },
+        "droplistID": "anklebiter"
+    },
+    {
+        "id": "anklebiter6",
+        "iconID": "monsters_tometik4:52",
+        "name": "Strong horned anklebiter",
+        "spawnGroup": "hanklbit3",
+        "monsterClass": "animal",
+        "maxHP": 76,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 151,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 85,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 1,
+            "max": 13
+        },
+        "droplistID": "anklebiter"
+    },
+    {
+        "id": "anklebiter7",
+        "iconID": "monsters_tometik4:51",
+        "name": "Steelhide horned anklebiter",
+        "spawnGroup": "hanklbit4",
+        "monsterClass": "animal",
+        "maxHP": 124,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 162,
+        "criticalSkill": 10,
+        "criticalMultiplier": 2,
+        "blockChance": 92,
+        "damageResistance": 7,
+        "attackDamage": {
+            "min": 4,
+            "max": 11
+        },
+        "droplistID": "anklebiter"
+    },
+    {
+        "id": "erumen_8",
+        "iconID": "monsters_tometik2:12",
+        "name": "Young erumem forest lizard",
+        "spawnGroup": "erumen_f1",
+        "monsterClass": "reptile",
+        "maxHP": 92,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 124,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 59,
+        "attackDamage": {
+            "min": 4,
+            "max": 7
+        },
+        "droplistID": "erumen"
+    },
+    {
+        "id": "erumen_9",
+        "iconID": "monsters_tometik2:15",
+        "name": "Erumem forest lizard",
+        "spawnGroup": "erumen_f1",
+        "monsterClass": "reptile",
+        "maxHP": 107,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 146,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 65,
+        "attackDamage": {
+            "min": 6,
+            "max": 7
+        },
+        "droplistID": "erumen"
+    },
+    {
+        "id": "erumen_10",
+        "iconID": "monsters_tometik1:79",
+        "name": "Erumem forest lizard matriarch",
+        "spawnGroup": "erumen_f2",
+        "monsterClass": "reptile",
+        "maxHP": 114,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 166,
+        "criticalSkill": 15,
+        "criticalMultiplier": 3,
+        "blockChance": 73,
+        "damageResistance": 9,
+        "attackDamage": {
+            "min": 7,
+            "max": 8
+        },
+        "droplistID": "erumen"
+    },
+    {
+        "id": "zortak1",
+        "iconID": "monsters_tometik7:83",
+        "name": "Zortak scout",
+        "spawnGroup": "zortaks",
+        "monsterClass": "giant",
+        "maxHP": 173,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 134,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 51,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 4,
+            "max": 12
+        },
+        "droplistID": "zortak",
+        "movementAggressionType": "helpOthers"
+    },
+    {
+        "id": "zortak2",
+        "iconID": "monsters_tometik7:83",
+        "name": "Zortak fighter",
+        "spawnGroup": "zortak1",
+        "monsterClass": "giant",
+        "maxHP": 189,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 144,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 63,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 4,
+            "max": 9
+        },
+        "droplistID": "zortak",
+        "movementAggressionType": "helpOthers"
+    },
+    {
+        "id": "zortak3",
+        "iconID": "monsters_tometik7:87",
+        "name": "Zortak guard",
+        "spawnGroup": "zortak1",
+        "monsterClass": "giant",
+        "maxHP": 195,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 165,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 73,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 2,
+            "max": 10
+        },
+        "droplistID": "zortak",
+        "movementAggressionType": "helpOthers"
+    },
+    {
+        "id": "zortak4",
+        "iconID": "monsters_tometik7:87",
+        "name": "Zortak barbarian",
+        "spawnGroup": "zortak2",
+        "monsterClass": "giant",
+        "maxHP": 207,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 178,
+        "criticalSkill": 25,
+        "criticalMultiplier": 3,
+        "blockChance": 79,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 3,
+            "max": 11
+        },
+        "droplistID": "zortak",
+        "movementAggressionType": "helpOthers"
+    },
+    {
+        "id": "zortakb",
+        "iconID": "monsters_tometik7:85",
+        "name": "Zortak leader",
+        "monsterClass": "giant",
+        "unique": 1,
+        "maxHP": 279,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 185,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 125,
+        "attackDamage": {
+            "min": 9,
+            "max": 9
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "dazed",
+                    "magnitude": 2,
+                    "duration": 4,
+                    "chance": 20
+                }
+            ]
+        },
+        "droplistID": "zortakb",
+        "phraseID": "zortakb"
+    },
+    {
+        "id": "yjacket1",
+        "iconID": "monsters_rltiles2:113",
+        "name": "Puny yellowjacket",
+        "spawnGroup": "yjacket1",
+        "monsterClass": "insect",
+        "maxHP": 31,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 74,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 53,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket2",
+        "iconID": "monsters_rltiles2:113",
+        "name": "Small yellowjacket",
+        "spawnGroup": "yjacket1",
+        "monsterClass": "insect",
+        "maxHP": 37,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 79,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 57,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket3",
+        "iconID": "monsters_rltiles2:112",
+        "name": "Swarming yellowjacket",
+        "spawnGroup": "yjacket1",
+        "monsterClass": "insect",
+        "maxHP": 42,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 85,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 63,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket4",
+        "iconID": "monsters_rltiles2:112",
+        "name": "Stinging yellowjacket",
+        "spawnGroup": "yjacket2",
+        "monsterClass": "insect",
+        "maxHP": 48,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 92,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 69,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket5",
+        "iconID": "monsters_rltiles2:112",
+        "name": "Quick yellowjacket",
+        "spawnGroup": "yjacket2",
+        "monsterClass": "insect",
+        "maxHP": 53,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 101,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 74,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket6",
+        "iconID": "monsters_rltiles2:172",
+        "name": "Aggressive yellowjacket",
+        "spawnGroup": "yjacket3",
+        "monsterClass": "insect",
+        "maxHP": 58,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 112,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 81,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket7",
+        "iconID": "monsters_rltiles2:171",
+        "name": "Enraged yellowjacket",
+        "spawnGroup": "yjacket3",
+        "monsterClass": "insect",
+        "maxHP": 66,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 118,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 87,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 3,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket8",
+        "iconID": "monsters_insects:5",
+        "name": "Giant yellowjacket",
+        "spawnGroup": "yjacket4",
+        "monsterClass": "insect",
+        "maxHP": 74,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 126,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 93,
+        "attackDamage": {
+            "min": 3,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "sting_minor",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "yjacket9",
+        "iconID": "monsters_rltiles2:17",
+        "name": "Yellowjacket queen",
+        "spawnGroup": "yjacket5",
+        "monsterClass": "insect",
+        "maxHP": 87,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 147,
+        "criticalSkill": 35,
+        "criticalMultiplier": 3,
+        "blockChance": 125,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 5,
+            "max": 7
+        },
+        "droplistID": "wasp"
+    },
+    {
+        "id": "vscale1",
+        "iconID": "monsters_tometik4:21",
+        "name": "Puny venomscales",
+        "spawnGroup": "vscale1",
+        "monsterClass": "reptile",
+        "maxHP": 42,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 83,
+        "criticalSkill": 100,
+        "criticalMultiplier": 4,
+        "blockChance": 103,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 2,
+            "max": 4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale2",
+        "iconID": "monsters_tometik4:21",
+        "name": "Young venomscales",
+        "spawnGroup": "vscale1",
+        "monsterClass": "reptile",
+        "maxHP": 46,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 88,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 109,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 3,
+            "max": 5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale3",
+        "iconID": "monsters_tometik4:17",
+        "name": "Gray venomscales",
+        "spawnGroup": "vscale1",
+        "monsterClass": "reptile",
+        "maxHP": 48,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 95,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 115,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 3,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale4",
+        "iconID": "monsters_tometik4:17",
+        "name": "Aggressive venomscales",
+        "spawnGroup": "vscale2",
+        "monsterClass": "reptile",
+        "maxHP": 52,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 99,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 119,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 4,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale5",
+        "iconID": "monsters_tometik4:22",
+        "name": "Quick venomscales",
+        "spawnGroup": "vscale2",
+        "monsterClass": "reptile",
+        "maxHP": 56,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 104,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 121,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 5,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale6",
+        "iconID": "monsters_tometik4:22",
+        "name": "Vicious venomscales",
+        "spawnGroup": "vscale3",
+        "monsterClass": "reptile",
+        "maxHP": 59,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 108,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 124,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 6,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale7",
+        "iconID": "monsters_tometik4:32",
+        "name": "Strong venomscales",
+        "spawnGroup": "vscale3",
+        "monsterClass": "reptile",
+        "maxHP": 63,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 112,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 128,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 6,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscale8",
+        "iconID": "monsters_tometik4:32",
+        "name": "Tough venomscales",
+        "spawnGroup": "vscale4",
+        "monsterClass": "reptile",
+        "maxHP": 67,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 116,
+        "criticalSkill": 100,
+        "criticalMultiplier": 3,
+        "blockChance": 132,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 6,
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscale"
+    },
+    {
+        "id": "vscaleb1",
+        "iconID": "monsters_tometik7:56",
+        "name": "Breeder of venomscales",
+        "spawnGroup": "vscaleb1",
+        "maxHP": 197,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 156,
+        "blockChance": 57,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 17
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscaleb"
+    },
+    {
+        "id": "vscaleb2",
+        "iconID": "monsters_tometik7:72",
+        "name": "Venomscale Master",
+        "spawnGroup": "vscaleb2",
+        "maxHP": 205,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 160,
+        "blockChance": 61,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 17
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "vscaleb"
+    },
+    {
+        "id": "morkin1",
+        "iconID": "monsters_tometik5:67",
+        "name": "Morkin lookout",
+        "spawnGroup": "morkins",
+        "maxHP": 145,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 53,
+        "blockChance": 134,
+        "attackDamage": {
+            "max": 3
+        },
+        "droplistID": "morkin"
+    },
+    {
+        "id": "morkin2",
+        "iconID": "monsters_tometik5:66",
+        "name": "Morkin scout",
+        "spawnGroup": "morkin1",
+        "maxHP": 152,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 59,
+        "blockChance": 139,
+        "attackDamage": {
+            "max": 3
+        },
+        "droplistID": "morkin"
+    },
+    {
+        "id": "morkin3",
+        "iconID": "monsters_tometik5:69",
+        "name": "Morkin fighter",
+        "spawnGroup": "morkin1",
+        "maxHP": 159,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 65,
+        "blockChance": 145,
+        "attackDamage": {
+            "max": 3
+        },
+        "droplistID": "morkin"
+    },
+    {
+        "id": "morkin4",
+        "iconID": "monsters_tometik5:70",
+        "name": "Morkin guard",
+        "spawnGroup": "morkin2",
+        "maxHP": 165,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 69,
+        "blockChance": 150,
+        "attackDamage": {
+            "max": 3
+        },
+        "droplistID": "morkin"
+    },
+    {
+        "id": "morkin5",
+        "iconID": "monsters_tometik5:70",
+        "name": "Morkin berserker",
+        "spawnGroup": "morkin3",
+        "maxHP": 171,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 74,
+        "blockChance": 155,
+        "attackDamage": {
+            "max": 3
+        },
+        "droplistID": "morkin"
+    },
+    {
+        "id": "morkin6",
+        "iconID": "monsters_tometik5:68",
+        "name": "Morkin leader",
+        "spawnGroup": "morkin4",
+        "maxHP": 175,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 79,
+        "blockChance": 163,
+        "attackDamage": {
+            "max": 3
+        },
+        "droplistID": "morkin"
+    },
+    {
+        "id": "morkin_cr",
+        "iconID": "monsters_tometik1:21",
+        "name": "Morkin elder",
+        "unique": 1,
+        "maxHP": 375,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 139,
+        "blockChance": 163,
+        "attackDamage": {
+            "max": 5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "droplistID": "oegyth1"
+    },
+    {
+        "id": "lbridge",
+        "iconID": "monsters_tometik5:23",
+        "name": "Guardian of the Bridge",
+        "monsterClass": "giant",
+        "unique": 1,
+        "maxHP": 213,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 127,
+        "criticalSkill": 35,
+        "criticalMultiplier": 2,
+        "blockChance": 153,
+        "damageResistance": 9,
+        "attackDamage": {
+            "min": 5,
+            "max": 15
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "fatigue_minor",
+                    "magnitude": 1,
+                    "duration": 7,
+                    "chance": 30
+                }
+            ]
+        },
+        "phraseID": "lbridge",
+        "droplistID": "lbridge"
+    },
+    {
+        "id": "khakin1",
+        "iconID": "monsters_rltiles1:111",
+        "name": "Khakin spawn",
+        "spawnGroup": "khakin1",
+        "monsterClass": "reptile",
+        "maxHP": 47,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 204,
+        "criticalSkill": 15,
+        "criticalMultiplier": 3,
+        "blockChance": 69,
+        "damageResistance": 6,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        },
+        "droplistID": "khakin"
+    },
+    {
+        "id": "khakin2",
+        "iconID": "monsters_rltiles1:112",
+        "name": "Aggressive Khakin beast",
+        "spawnGroup": "khakin1",
+        "monsterClass": "reptile",
+        "maxHP": 48,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 207,
+        "criticalSkill": 15,
+        "criticalMultiplier": 3,
+        "blockChance": 73,
+        "damageResistance": 6,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        },
+        "droplistID": "khakin"
+    },
+    {
+        "id": "khakin3",
+        "iconID": "monsters_rltiles1:113",
+        "name": "Tough Khakin beast",
+        "spawnGroup": "khakin2",
+        "monsterClass": "reptile",
+        "maxHP": 49,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 211,
+        "criticalSkill": 15,
+        "criticalMultiplier": 3,
+        "blockChance": 77,
+        "damageResistance": 6,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        },
+        "droplistID": "khakin"
+    },
+    {
+        "id": "khakin4",
+        "iconID": "monsters_rltiles1:114",
+        "name": "Strong Khakin beast",
+        "spawnGroup": "khakin3",
+        "monsterClass": "reptile",
+        "maxHP": 50,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 215,
+        "criticalSkill": 15,
+        "criticalMultiplier": 3,
+        "blockChance": 81,
+        "damageResistance": 6,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        },
+        "droplistID": "khakin"
+    },
+    {
+        "id": "cryptmist1",
+        "iconID": "monsters_rltiles2:142",
+        "name": "Thin mist of the crypt",
+        "spawnGroup": "cryptmist1",
+        "monsterClass": "ghost",
+        "maxHP": 162,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 64,
+        "blockChance": 87,
+        "damageResistance": 10,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "droplistID": "cryptmist"
+    },
+    {
+        "id": "cryptmist2",
+        "iconID": "monsters_rltiles2:142",
+        "name": "Clear mist of the crypt",
+        "spawnGroup": "cryptmist1",
+        "monsterClass": "ghost",
+        "maxHP": 166,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 68,
+        "blockChance": 91,
+        "damageResistance": 10,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "droplistID": "cryptmist"
+    },
+    {
+        "id": "cryptmist3",
+        "iconID": "monsters_rltiles2:142",
+        "name": "Mist of the crypt",
+        "spawnGroup": "cryptmist2",
+        "monsterClass": "ghost",
+        "maxHP": 170,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 72,
+        "blockChance": 95,
+        "damageResistance": 10,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "droplistID": "cryptmist"
+    },
+    {
+        "id": "cryptmist4",
+        "iconID": "monsters_rltiles2:142",
+        "name": "Thick mist of the crypt",
+        "spawnGroup": "cryptmist2",
+        "monsterClass": "ghost",
+        "maxHP": 174,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 76,
+        "blockChance": 99,
+        "damageResistance": 10,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "droplistID": "cryptmist"
+    },
+    {
+        "id": "cryptmist5",
+        "iconID": "monsters_rltiles1:3",
+        "name": "Bright mist of the crypt",
+        "spawnGroup": "cryptmist3",
+        "monsterClass": "ghost",
+        "maxHP": 176,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 80,
+        "blockChance": 103,
+        "damageResistance": 10,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "droplistID": "cryptmist"
+    },
+    {
+        "id": "vermin0",
+        "name": "Rat",
+        "monsterClass": "animal",
+        "attackDamage": {
+            "max": 1
+        },
+        "iconID": "monsters_rats:0",
+        "blockChance": 5,
+        "attackChance": 10,
+        "attackCost": 4,
+        "spawnGroup": "vermin",
+        "droplistID": "vermin"
+    },
+    {
+        "id": "vermin1",
+        "name": "Rat",
+        "monsterClass": "animal",
+        "attackDamage": {
+            "max": 1
+        },
+        "iconID": "monsters_rltiles2:145",
+        "blockChance": 5,
+        "attackChance": 10,
+        "attackCost": 4,
+        "spawnGroup": "vermin",
+        "droplistID": "vermin"
+    },
+    {
+        "id": "pig",
+        "name": "Pig",
+        "monsterClass": "animal",
+        "iconID": "monsters_rltiles2:106",
+        "spawnGroup": "pig",
+        "phraseID": "pig"
+    },
+    {
+        "id": "vermin2",
+        "name": "Roach",
+        "monsterClass": "insect",
+        "attackDamage": {
+            "max": 1
+        },
+        "iconID": "monsters_tometik10:43",
+        "blockChance": 5,
+        "attackChance": 10,
+        "attackCost": 4,
+        "spawnGroup": "vermin",
+        "droplistID": "vermin"
+    }
+]

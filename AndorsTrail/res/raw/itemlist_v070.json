@@ -1,0 +1,1735 @@
+[
+    {
+        "id": "ltbdy_lthr",
+        "name": "Sturdy leather cuirass",
+        "category": "bdy_lt",
+        "iconID": "items_misc_5:9",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 5
+            },
+            "increaseAttackChance": 5,
+            "increaseCriticalSkill": 10,
+            "increaseBlockChance": 12,
+            "increaseDamageResistance": 1,
+            "increaseAttackCost": 1,
+            "increaseMaxHP": 3
+        },
+        "baseMarketCost": 3436
+    },
+    {
+        "id": "ltbdy_chmail",
+        "name": "Lightweight chainmail",
+        "category": "bdy_lt",
+        "iconID": "items_tometik2:45",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 1
+            },
+            "increaseMaxHP": 7,
+            "increaseAttackChance": 10,
+            "increaseBlockChance": 13,
+            "increaseCriticalSkill": 6
+        },
+        "baseMarketCost": 4565
+    },
+    {
+        "id": "ltbdy_spmail",
+        "name": "Lightweight splint mail",
+        "category": "bdy_lt",
+        "iconID": "items_tometik2:81",
+        "equipEffect": {
+            "increaseAttackChance": 11,
+            "increaseCriticalSkill": 8,
+            "increaseBlockChance": 17,
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 1
+            },
+            "increaseMaxHP": 7
+        },
+        "baseMarketCost": 7110
+    },
+    {
+        "id": "haub_serp",
+        "name": "Serpent's hauberk",
+        "category": "bdy_lt",
+        "iconID": "items_tometik2:42",
+        "equipEffect": {
+            "increaseBlockChance": 14,
+            "increaseDamageResistance": 2,
+            "increaseAttackChance": 12,
+            "increaseMaxHP": 8,
+            "increaseCriticalSkill": 8
+        },
+        "baseMarketCost": 11077,
+        "displaytype": "extraordinary"
+    },
+    {
+        "id": "chmail2",
+        "name": "Worn chainmail",
+        "category": "chmail",
+        "iconID": "items_armours_3:9",
+        "equipEffect": {
+            "increaseBlockChance": 11,
+            "increaseAttackChance": -6,
+            "increaseAttackDamage": {
+                "min": -1,
+                "max": -1
+            }
+        },
+        "baseMarketCost": 643
+    },
+    {
+        "id": "hvbdy_rust",
+        "name": "Rusty heavy cuirass",
+        "category": "bdy_hv",
+        "iconID": "items_armours_3:17",
+        "equipEffect": {
+            "increaseBlockChance": 17,
+            "increaseAttackCost": 1,
+            "increaseMaxHP": 2,
+            "increaseAttackChance": -5
+        },
+        "baseMarketCost": 672
+    },
+    {
+        "id": "spmail2",
+        "name": "Worn splint mail",
+        "category": "spmail",
+        "iconID": "items_armours_3:17",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 2
+            },
+            "increaseAttackChance": -4,
+            "increaseBlockChance": 9,
+            "increaseDamageResistance": 1
+        },
+        "baseMarketCost": 2199
+    },
+    {
+        "id": "shdstlk",
+        "name": "Shadowstalker",
+        "category": "bdy_hv",
+        "iconID": "items_tometik2:54",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 2
+            },
+            "increaseMaxHP": 3,
+            "increaseAttackChance": -5,
+            "increaseBlockChance": 21,
+            "increaseDamageResistance": 1,
+            "increaseAttackCost": 2
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "fear",
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        },
+        "killEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        },
+        "baseMarketCost": 9354,
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "hvhead_irn",
+        "name": "Heavy iron skullcap",
+        "category": "hd_mtl_hv",
+        "iconID": "items_armours:25",
+        "equipEffect": {
+            "increaseBlockChance": 6
+        },
+        "baseMarketCost": 433
+    },
+    {
+        "id": "hvhead_stl",
+        "name": "Heavy steel skullcap",
+        "category": "hd_mtl_hv",
+        "iconID": "items_armours:25",
+        "equipEffect": {
+            "increaseBlockChance": 8
+        },
+        "baseMarketCost": 767
+    },
+    {
+        "id": "hglv_plat1",
+        "name": "Worn plated gloves",
+        "category": "hnd_mtl_hv",
+        "iconID": "items_armours:40",
+        "equipEffect": {
+            "increaseBlockChance": 7,
+            "increaseAttackChance": -4
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "dazed",
+                    "duration": 4,
+                    "chance": 20
+                }
+            ]
+        },
+        "baseMarketCost": 532,
+        "displaytype": "rare",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "hglv_irn",
+        "name": "Heavy iron gloves",
+        "category": "hnd_mtl_hv",
+        "iconID": "items_tometik3:4",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 2
+            },
+            "increaseMaxHP": 1,
+            "increaseBlockChance": 6
+        },
+        "baseMarketCost": 679
+    },
+    {
+        "id": "hglv_chml",
+        "name": "Chainmail mittens",
+        "category": "hnd_mtl_hv",
+        "iconID": "items_armours_3:36",
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 7,
+            "increaseDamageResistance": 1
+        },
+        "baseMarketCost": 1793
+    },
+    {
+        "id": "hglv_stl",
+        "name": "Reinforced steel gloves",
+        "category": "hnd_mtl_hv",
+        "iconID": "items_armours:37",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 3
+            },
+            "increaseAttackChance": -4,
+            "increaseBlockChance": 11
+        },
+        "baseMarketCost": 1463
+    },
+    {
+        "id": "hglv_plat2",
+        "name": "Heavy plated gloves",
+        "category": "hnd_mtl_hv",
+        "iconID": "items_tometik3:4",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 4
+            },
+            "increaseAttackChance": -2,
+            "increaseBlockChance": 9,
+            "increaseMaxHP": 3
+        },
+        "baseMarketCost": 1712
+    },
+    {
+        "id": "hboot_wirn",
+        "name": "Worn iron boots",
+        "category": "feet_mtl_hv",
+        "iconID": "items_tometik3:3",
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 6,
+            "increaseCriticalSkill": -1
+        },
+        "baseMarketCost": 314
+    },
+    {
+        "id": "hboot_irn",
+        "name": "Heavy iron boots",
+        "category": "feet_mtl_hv",
+        "iconID": "items_tometik3:3",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": -1,
+                "max": -1
+            },
+            "increaseMaxHP": 1,
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 8
+        },
+        "baseMarketCost": 638
+    },
+    {
+        "id": "hboot_plat",
+        "name": "Heavy plated boots",
+        "category": "feet_mtl_hv",
+        "iconID": "items_tometik2:22",
+        "equipEffect": {
+            "increaseAttackChance": -4,
+            "increaseBlockChance": 12
+        },
+        "baseMarketCost": 1579
+    },
+    {
+        "id": "clmr_dl",
+        "name": "Dull two-handed sword",
+        "category": "2hsword",
+        "iconID": "items_weapons_3:26",
+        "baseMarketCost": 38,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 4
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 8,
+            "increaseBlockChance": -2,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 1
+        }
+    },
+    {
+        "id": "clmr_rst",
+        "name": "Rusty claymore",
+        "category": "2hsword",
+        "iconID": "items_weapons_3:26",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 6
+            },
+            "addedConditions": [
+                {
+                    "magnitude": 1,
+                    "condition": "dazed"
+                }
+            ],
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 23,
+            "increaseDamageResistance": -1,
+            "setCriticalMultiplier": "1.2",
+            "increaseCriticalSkill": 4,
+            "increaseMaxHP": 2
+        },
+        "baseMarketCost": 36
+    },
+    {
+        "id": "clmr_irn1",
+        "name": "Two-handed iron sword",
+        "category": "2hsword",
+        "iconID": "items_misc_5:38",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 6
+            },
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 9,
+            "increaseBlockChance": -5,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 1
+        },
+        "baseMarketCost": 92
+    },
+    {
+        "id": "clmr_stl",
+        "name": "Two-handed steel sword",
+        "category": "2hsword",
+        "iconID": "items_weapons_2:1",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 6
+            },
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 12,
+            "increaseBlockChance": 3,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 1
+        },
+        "baseMarketCost": 466
+    },
+    {
+        "id": "clmr_irn2",
+        "name": "Two-handed iron claymore",
+        "category": "2hsword",
+        "iconID": "items_misc_5:38",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 4
+            },
+            "increaseAttackCost": 5,
+            "setCriticalMultiplier": 2,
+            "increaseCriticalSkill": 6,
+            "increaseBlockChance": -5,
+            "increaseAttackChance": 12
+        },
+        "baseMarketCost": 854
+    },
+    {
+        "id": "clmr_bers",
+        "name": "Claymore of the berserker",
+        "category": "2hsword",
+        "iconID": "items_weapons_2:1",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 8
+            },
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 12,
+            "increaseBlockChance": -5,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 1
+        },
+        "baseMarketCost": 718
+    },
+    {
+        "id": "clmr_msv",
+        "name": "Massive two-handed sword",
+        "category": "2hsword",
+        "iconID": "items_weapons:1",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 6
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 21,
+            "increaseBlockChance": -4,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 1
+        },
+        "baseMarketCost": 767
+    },
+    {
+        "id": "clmr_def1",
+        "name": "Defender's claymore",
+        "category": "2hsword",
+        "iconID": "items_weapons_2:1",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 5
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 13,
+            "increaseBlockChance": 11,
+            "increaseDamageResistance": -1,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 1
+        },
+        "baseMarketCost": 522
+    },
+    {
+        "id": "clmr_def2",
+        "name": "Superior defender's claymore",
+        "category": "2hsword",
+        "iconID": "items_weapons_3:26",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 6
+            },
+            "increaseMaxHP": 4,
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 10,
+            "increaseBlockChance": 15,
+            "increaseDamageResistance": -2,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 2
+        },
+        "baseMarketCost": 1019
+    },
+    {
+        "id": "clmr_gnt",
+        "name": "Giant's claymore",
+        "category": "2hsword",
+        "iconID": "items_weapons:7",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 7
+            },
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 28,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 7,
+            "increaseBlockChance": -6
+        },
+        "baseMarketCost": 2626
+    },
+    {
+        "id": "clmr_serp",
+        "name": "Serpent's fang",
+        "category": "2hsword",
+        "iconID": "items_weapons_2:1",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 4
+            },
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 12,
+            "increaseCriticalSkill": 13,
+            "setCriticalMultiplier": 2,
+            "increaseBlockChance": -4,
+            "increaseDamageResistance": -2
+        },
+        "baseMarketCost": 3590,
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "poison_weak",
+                    "duration": 5,
+                    "chance": 25
+                }
+            ]
+        },
+        "displaytype": "rare",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "clmr_wrld",
+        "name": "Claymore of the warlord",
+        "category": "2hsword",
+        "iconID": "items_weapons_3:26",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 9
+            },
+            "increaseMaxHP": 5,
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 19,
+            "increaseBlockChance": 5,
+            "setCriticalMultiplier": "1.5",
+            "increaseCriticalSkill": 2
+        },
+        "baseMarketCost": 2230
+    },
+    {
+        "id": "clmr_ruin",
+        "name": "Gleaming claymore of ruin",
+        "category": "2hsword",
+        "iconID": "items_weapons_3:0",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 7
+            },
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 35,
+            "increaseBlockChance": -7,
+            "increaseMaxHP": -4,
+            "increaseCriticalSkill": 5,
+            "setCriticalMultiplier": "2.5",
+            "increaseDamageResistance": -1
+        },
+        "baseMarketCost": 1887,
+        "hitEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "str",
+                    "duration": 2,
+                    "chance": 15
+                }
+            ],
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "dazed",
+                    "duration": 3,
+                    "chance": 30
+                }
+            ]
+        },
+        "displaytype": "rare",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "clmr_wrmas",
+        "name": "Wraith's massive claymore",
+        "category": "2hsword",
+        "iconID": "items_misc_5:38",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "max": 19,
+                "min": 1
+            },
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 23,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseMaxHP": -3,
+            "increaseBlockChance": -4
+        },
+        "killEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "str",
+                    "duration": 5,
+                    "chance": 55
+                }
+            ]
+        },
+        "baseMarketCost": 3900,
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "xulviir",
+        "name": "Xul'viir",
+        "category": "2hsword",
+        "iconID": "items_misc_5:40",
+        "baseMarketCost": 5045,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 15
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 32,
+            "increaseBlockChance": 12,
+            "increaseMaxHP": -2,
+            "setCriticalMultiplier": 2,
+            "increaseCriticalSkill": 3
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 3,
+                    "condition": "bleeding_wound",
+                    "duration": 3,
+                    "chance": 15
+                },
+                {
+                    "magnitude": 1,
+                    "condition": "dazed",
+                    "duration": 2,
+                    "chance": 10
+                }
+            ]
+        },
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "club_bld",
+        "name": "Spiked club of bleeding",
+        "category": "club",
+        "iconID": "items_reterski_1:18",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 5
+            },
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 5,
+            "increaseBlockChance": -2
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "bleeding_wound",
+                    "duration": 2,
+                    "chance": 15
+                }
+            ]
+        },
+        "baseMarketCost": 107,
+        "hasManualPrice": 1
+    },
+    {
+        "id": "qtrstaff",
+        "name": "Quarterstaff",
+        "category": "staff",
+        "iconID": "items_weapons_3:18",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 3
+            },
+            "increaseAttackChance": 6,
+            "increaseBlockChance": -1,
+            "increaseAttackCost": 5
+        },
+        "baseMarketCost": 10
+    },
+    {
+        "id": "mace_iron",
+        "name": "Iron mace",
+        "category": "mace",
+        "iconID": "items_weapons_3:20",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 5
+            },
+            "increaseMaxHP": 1,
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 12,
+            "increaseBlockChance": 2
+        },
+        "baseMarketCost": 614
+    },
+    {
+        "id": "hmr_iron",
+        "name": "Iron warhammer",
+        "category": "hammer",
+        "iconID": "items_weapons_3:16",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 6,
+                "max": 8
+            },
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 23,
+            "increaseCriticalSkill": 5,
+            "setCriticalMultiplier": 3,
+            "increaseBlockChance": -17,
+            "increaseDamageResistance": -1
+        },
+        "baseMarketCost": 1
+    },
+    {
+        "id": "scptr_runed",
+        "name": "Runed scepter",
+        "category": "scepter",
+        "iconID": "items_weapons:53",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 6,
+                "max": 7
+            },
+            "increaseMaxHP": 2,
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 21,
+            "increaseCriticalSkill": 5,
+            "setCriticalMultiplier": "1.5"
+        },
+        "baseMarketCost": 2234
+    },
+    {
+        "id": "hmr_olwyns",
+        "name": "Olwyn's curse",
+        "category": "hammer",
+        "iconID": "items_misc_5:36",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 10,
+                "max": 17
+            },
+            "addedConditions": [
+                {
+                    "magnitude": 1,
+                    "condition": "feebleness_minor"
+                }
+            ],
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 14,
+            "increaseBlockChance": -7,
+            "increaseDamageResistance": -1
+        },
+        "baseMarketCost": 2502,
+        "displaytype": "rare"
+    },
+    {
+        "id": "daggr_bloodlet",
+        "name": "Bloodletter",
+        "category": "dagger",
+        "iconID": "items_weapons_3:46",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 2
+            },
+            "increaseAttackCost": 4,
+            "increaseAttackChance": 8,
+            "increaseBlockChance": -7
+        },
+        "baseMarketCost": 100
+    },
+    {
+        "id": "daggr_curv",
+        "name": "Curved dagger",
+        "category": "dagger",
+        "iconID": "items_weapons_3:29",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 3
+            },
+            "increaseAttackCost": 4,
+            "increaseAttackChance": 17,
+            "increaseCriticalSkill": 8,
+            "setCriticalMultiplier": 2,
+            "increaseBlockChance": -7,
+            "increaseDamageResistance": -1
+        },
+        "baseMarketCost": 564
+    },
+    {
+        "id": "blade_defiler",
+        "name": "Blade of the defiler",
+        "category": "dagger",
+        "iconID": "items_weapons:20",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 4
+            },
+            "increaseAttackCost": 4,
+            "increaseAttackChance": 5,
+            "increaseCriticalSkill": 9,
+            "setCriticalMultiplier": 2,
+            "increaseBlockChance": -8
+        },
+        "killEffect": {
+            "increaseCurrentHP": {
+                "min": 0,
+                "max": 2
+            }
+        },
+        "displaytype": "extraordinary",
+        "baseMarketCost": 5119,
+        "hasManualPrice": 1
+    },
+    {
+        "id": "axe_black1",
+        "name": "Black axe",
+        "category": "axe",
+        "iconID": "items_weapons_3:34",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 3
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 6
+        },
+        "baseMarketCost": 73
+    },
+    {
+        "id": "graxe_fury",
+        "name": "Greataxe of fury",
+        "category": "axe2h",
+        "iconID": "items_weapons:58",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 4
+            },
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 12,
+            "increaseBlockChance": -3
+        },
+        "baseMarketCost": 110
+    },
+    {
+        "id": "axe_black2",
+        "name": "Reinforced black axe",
+        "category": "axe",
+        "iconID": "items_weapons_3:36",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 6
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 12,
+            "increaseCriticalSkill": 6,
+            "setCriticalMultiplier": "1.5",
+            "increaseBlockChance": -5
+        },
+        "baseMarketCost": 752
+    },
+    {
+        "id": "axe_fear",
+        "name": "Axe of fear",
+        "category": "axe",
+        "iconID": "items_reterski_1:16",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 2
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 7,
+            "increaseBlockChance": -5,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseDamageResistance": -1
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "fear",
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        },
+        "baseMarketCost": 1868,
+        "displaytype": "rare",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "graxe_black",
+        "name": "Black greataxe",
+        "category": "axe2h",
+        "iconID": "items_weapons_3:37",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 4
+            },
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 10,
+            "increaseBlockChance": 8
+        },
+        "baseMarketCost": 1
+    },
+    {
+        "id": "graxe_massive",
+        "name": "Massive greataxe",
+        "category": "axe2h",
+        "iconID": "items_misc_5:41",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 6,
+                "max": 13
+            },
+            "increaseAttackCost": 10,
+            "increaseAttackChance": 25,
+            "increaseBlockChance": -6,
+            "increaseDamageResistance": -1
+        },
+        "baseMarketCost": 1548
+    },
+    {
+        "id": "hatchet_sharp",
+        "name": "Sharpened hatchet",
+        "category": "axe",
+        "iconID": "items_weapons_3:34",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 3,
+                "max": 5
+            },
+            "increaseAttackCost": 6,
+            "increaseAttackChance": 10,
+            "increaseCriticalSkill": 7,
+            "setCriticalMultiplier": "1.5",
+            "increaseBlockChance": -5,
+            "increaseMaxHP": 2
+        }
+    },
+    {
+        "id": "axe_whirl",
+        "name": "Axe of whirlwind",
+        "category": "axe",
+        "iconID": "items_weapons:61",
+        "equipEffect": {
+            "increaseAttackCost": 6,
+            "increaseAttackDamage": {
+                "min": 2,
+                "max": 4
+            },
+            "increaseAttackChance": 16,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseBlockChance": -5
+        },
+        "hitEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "speed_minor",
+                    "duration": 3,
+                    "chance": 5
+                }
+            ]
+        },
+        "baseMarketCost": 3126,
+        "displaytype": "rare",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "axe_lightblack",
+        "name": "Light black axe",
+        "category": "axe",
+        "iconID": "items_weapons_3:36",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 5
+            },
+            "increaseMaxHP": 1,
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 23,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseDamageResistance": -1,
+            "increaseBlockChance": -4
+        },
+        "baseMarketCost": 2662
+    },
+    {
+        "id": "graxe_exec",
+        "name": "Executioner's greataxe",
+        "category": "axe2h",
+        "iconID": "items_weapons:69",
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 4,
+                "max": 5
+            },
+            "increaseAttackCost": 8,
+            "increaseAttackChance": 24,
+            "increaseBlockChance": 9
+        },
+        "baseMarketCost": 2290
+    },
+    {
+        "id": "graxe_shatter",
+        "name": "Greataxe of shattered hope",
+        "category": "axe2h",
+        "iconID": "items_weapons_3:1",
+        "baseMarketCost": 5478,
+        "equipEffect": {
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 8
+            },
+            "increaseAttackCost": 6,
+            "increaseMaxHP": 3,
+            "increaseAttackChance": 32,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseBlockChance": -5
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "magnitude": 1,
+                    "condition": "fatigue_minor",
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        },
+        "displaytype": "rare",
+        "hasManualPrice": 1
+    },
+    {
+        "id": "carrots",
+        "name": "Carrots",
+        "category": "food",
+        "iconID": "items_misc_2:14",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "food",
+                    "duration": 10,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 25
+    },
+    {
+        "id": "cheese",
+        "name": "Cheese",
+        "category": "food",
+        "iconID": "items_consumables:23",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "food",
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 38
+    },
+    {
+        "id": "rawperch",
+        "name": "Raw perch",
+        "category": "food",
+        "iconID": "items_consumables:24",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "food",
+                    "duration": 6,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 3,
+                    "condition": "foodp",
+                    "duration": 8,
+                    "chance": 10
+                }
+            ]
+        },
+        "baseMarketCost": 23
+    },
+    {
+        "id": "cookperch",
+        "name": "Cooked perch",
+        "category": "food",
+        "iconID": "items_consumables:26",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 4,
+                    "condition": "food",
+                    "duration": 8,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 150
+    },
+    {
+        "id": "chkn_leg",
+        "name": "Cooked chicken leg",
+        "category": "food",
+        "iconID": "items_misc_2:13",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 4,
+                    "condition": "food",
+                    "duration": 6,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 126
+    },
+    {
+        "id": "drink_applej",
+        "name": "Apple juice",
+        "category": "drink",
+        "iconID": "items_tometik1:8",
+        "baseMarketCost": 34,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "food",
+                    "duration": 15,
+                    "chance": 100
+                }
+            ]
+        },
+        "hasManualPrice": 1
+    },
+    {
+        "id": "drink_prunej",
+        "name": "Prune juice",
+        "category": "drink",
+        "iconID": "items_tometik1:9",
+        "useEffect": {
+            "increaseCurrentHP": {
+                "max": 10
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "food",
+                    "duration": 15,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 112,
+        "hasManualPrice": 1
+    },
+    {
+        "id": "drink_charwood1",
+        "name": "Sap of the charwood tree",
+        "category": "drink",
+        "iconID": "items_tometik1:2",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "food",
+                    "duration": 15,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 4,
+                    "condition": "poison_weak",
+                    "chance": 10,
+                    "duration": 10
+                }
+            ]
+        },
+        "baseMarketCost": 96
+    },
+    {
+        "id": "drink_charwood2",
+        "name": "Concentrated charwood sap",
+        "hasManualPrice": 1,
+        "category": "drink",
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "food",
+                    "duration": 15,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 4,
+                    "condition": "poison_weak",
+                    "duration": 10,
+                    "chance": 15
+                }
+            ]
+        },
+        "iconID": "items_tometik1:2",
+        "baseMarketCost": 255
+    },
+    {
+        "id": "drink_lowyn1",
+        "name": "Lowyna's foul brew",
+        "category": "drink",
+        "iconID": "items_tometik1:3",
+        "baseMarketCost": 430,
+        "hasManualPrice": 1,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 7
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "food",
+                    "duration": 5,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 1,
+                    "condition": "intoxicated",
+                    "duration": 20,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 3,
+                    "condition": "intoxicated",
+                    "duration": 20,
+                    "chance": 30
+                }
+            ]
+        }
+    },
+    {
+        "id": "drink_lowyn2",
+        "name": "Lowyna's special brew",
+        "category": "drink",
+        "iconID": "items_tometik1:3",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 9
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "food",
+                    "duration": 12,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 1,
+                    "condition": "intoxicated",
+                    "duration": 20,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 3,
+                    "condition": "intoxicated",
+                    "chance": 30,
+                    "duration": 20
+                },
+                {
+                    "magnitude": 5,
+                    "condition": "foodp",
+                    "chance": 10,
+                    "duration": 12
+                }
+            ]
+        },
+        "baseMarketCost": 580
+    },
+    {
+        "id": "drink_lowyn3",
+        "name": "Lowyna's rat poison",
+        "hasManualPrice": 1,
+        "category": "drink",
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 5,
+                "max": 10
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "food",
+                    "chance": 100,
+                    "duration": 20
+                },
+                {
+                    "magnitude": 1,
+                    "condition": "fatigue_minor",
+                    "chance": 100,
+                    "duration": 5
+                },
+                {
+                    "magnitude": 1,
+                    "condition": "dazed",
+                    "duration": 5,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 2,
+                    "condition": "poison_weak",
+                    "chance": 15,
+                    "duration": 10
+                }
+            ]
+        },
+        "iconID": "items_tometik1:12",
+        "baseMarketCost": 170
+    },
+    {
+        "id": "pot_courage",
+        "name": "Liquid courage",
+        "category": "pot",
+        "iconID": "items_tometik1:34",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "courage",
+                    "duration": 5,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 170
+    },
+    {
+        "id": "pot_aware",
+        "name": "Potion of vulnerabilities",
+        "category": "pot",
+        "iconID": "items_tometik1:19",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "crit_aware",
+                    "duration": 8,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 450
+    },
+    {
+        "id": "pot_senses",
+        "name": "Potion of heightened senses",
+        "category": "pot",
+        "iconID": "items_tometik1:56",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "sense_1",
+                    "duration": 20,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 1570,
+        "displaytype": "rare"
+    },
+    {
+        "id": "pot_bm_lodar",
+        "name": "Lodar's bonemeal potion",
+        "category": "pot",
+        "iconID": "items_tometik1:44",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 20,
+                "max": 50
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "regen2",
+                    "chance": 100,
+                    "duration": 5
+                },
+                {
+                    "magnitude": 5,
+                    "condition": "regen2",
+                    "chance": 20,
+                    "duration": 5
+                }
+            ]
+        },
+        "baseMarketCost": 79
+    },
+    {
+        "id": "pot_healthlodar",
+        "name": "Lodar's potion of health",
+        "category": "pot",
+        "iconID": "items_tometik1:36",
+        "baseMarketCost": 90,
+        "hasManualPrice": 1,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 10,
+                "max": 20
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 3,
+                    "condition": "regen2",
+                    "duration": 8,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_regen1",
+        "name": "Potion of minor regeneration",
+        "category": "pot",
+        "iconID": "items_tometik1:40",
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 5,
+                "max": 5
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "regen2",
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 80,
+        "hasManualPrice": 1
+    },
+    {
+        "id": "pot_barkskin",
+        "name": "Potion of bark skin",
+        "category": "pot",
+        "iconID": "items_tometik1:1",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "barkskin",
+                    "duration": 15,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 540
+    },
+    {
+        "id": "pot_haste",
+        "name": "Potion of haste",
+        "category": "pot",
+        "iconID": "items_tometik1:13",
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "haste",
+                    "duration": 11,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 2050,
+        "hasManualPrice": 1,
+        "displaytype": "rare"
+    },
+    {
+        "id": "pot_shadowtear",
+        "name": "Tears of the Shadow",
+        "category": "pot",
+        "iconID": "items_tometik1:48",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 5,
+                "max": 15
+            },
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "shadow_prot",
+                    "duration": 20,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 2,
+                    "condition": "shadow_acc",
+                    "duration": 16,
+                    "chance": 100
+                },
+                {
+                    "magnitude": 3,
+                    "condition": "shadow_dmg",
+                    "duration": 16,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 2700,
+        "displaytype": "rare"
+    },
+    {
+        "id": "pot_rnd",
+        "name": "Lodar's perilous concoction",
+        "category": "pot",
+        "iconID": "items_consumables:33",
+        "hasManualPrice": 1,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 2,
+                    "condition": "str",
+                    "duration": 9,
+                    "chance": 10
+                },
+                {
+                    "magnitude": 3,
+                    "condition": "def",
+                    "duration": 9,
+                    "chance": 15
+                },
+                {
+                    "magnitude": 1,
+                    "condition": "fatigue_minor",
+                    "duration": 5,
+                    "chance": 15
+                },
+                {
+                    "magnitude": 4,
+                    "condition": "poison_weak",
+                    "duration": 9,
+                    "chance": 10
+                },
+                {
+                    "magnitude": 3,
+                    "condition": "feebleness_minor",
+                    "duration": 6,
+                    "chance": 5
+                },
+                {
+                    "magnitude": 2,
+                    "condition": "rage_minor",
+                    "duration": 9,
+                    "chance": 15
+                },
+                {
+                    "magnitude": 2,
+                    "condition": "speed_minor",
+                    "duration": 4,
+                    "chance": 10
+                }
+            ]
+        },
+        "baseMarketCost": 96
+    },
+    {
+        "id": "pot_def",
+        "name": "Potion of improved defense",
+        "category": "pot",
+        "iconID": "items_tometik1:35",
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "def",
+                    "duration": 5,
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 112,
+        "hasManualPrice": 1
+    },
+    {
+        "id": "pot_str",
+        "name": "Minor potion of strength",
+        "category": "pot",
+        "iconID": "items_tometik1:21",
+        "baseMarketCost": 120,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": 1,
+                    "condition": "str",
+                    "duration": 5,
+                    "chance": 100
+                }
+            ]
+        },
+        "hasManualPrice": 1
+    },
+    {
+        "id": "redfthair",
+        "name": "Redfoot beast hair",
+        "hasManualPrice": 1,
+        "category": "animal",
+        "iconID": "items_misc:48",
+        "baseMarketCost": 15
+    },
+    {
+        "id": "junk_necklace0",
+        "iconID": "items_jewelry:7",
+        "name": "Mundane necklace",
+        "category": "neck",
+        "equipEffect": {
+            "increaseAttackChance": 3
+        }
+    },
+    {
+        "id": "junk_necklace1",
+        "iconID": "items_jewelry:7",
+        "name": "Polished necklace",
+        "category": "neck",
+        "equipEffect": {
+            "increaseAttackChance": 4
+        }
+    },
+    {
+        "id": "bat_wing",
+        "iconID": "items_misc:46",
+        "name": "Bat wing",
+        "category": "animal",
+        "hasManualPrice": 1,
+        "baseMarketCost": 2
+    },
+    {
+        "id": "mudfiend",
+        "name": "Mudfiend goo",
+        "category": "animal",
+        "iconID": "items_misc_3:126",
+        "hasManualPrice": 1,
+        "baseMarketCost": 2
+    },
+    {
+        "id": "venomscale",
+        "name": "Venomscale scales",
+        "hasManualPrice": 1,
+        "category": "animal",
+        "iconID": "items_misc_3:115",
+        "baseMarketCost": 2
+    },
+    {
+        "id": "vscale_amul",
+        "name": "Venomscale amulet",
+        "displaytype": "rare",
+        "category": "neck",
+        "equipEffect": {
+            "increaseCriticalSkill": 7
+        },
+        "iconID": "items_necklaces_1:13"
+    },
+    {
+        "id": "khakin",
+        "name": "Khakin eye",
+        "hasManualPrice": 1,
+        "category": "animal",
+        "iconID": "items_misc:45",
+        "baseMarketCost": 2
+    },
+    {
+        "id": "ash",
+        "name": "Burnt ash",
+        "hasManualPrice": 1,
+        "category": "other",
+        "iconID": "items_misc_2:124",
+        "baseMarketCost": 1
+    },
+    {
+        "id": "gem_fire",
+        "name": "Gem of warmth",
+        "hasManualPrice": 1,
+        "category": "gem",
+        "iconID": "items_misc_5:26",
+        "baseMarketCost": 25
+    },
+    {
+        "id": "antifoodp",
+        "name": "Antidote",
+        "category": "pot",
+        "iconID": "items_consumables:67",
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "magnitude": -99,
+                    "condition": "foodp",
+                    "chance": 100
+                }
+            ]
+        },
+        "baseMarketCost": 79,
+        "hasManualPrice": 1
+    }
+]

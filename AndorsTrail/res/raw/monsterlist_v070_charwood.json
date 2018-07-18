@@ -1,0 +1,369 @@
+[
+    {
+        "id": "forestfox2",
+        "iconID": "monsters_rltiles4:4",
+        "name": "Young forest fox",
+        "spawnGroup": "forestfox2",
+        "droplistID": "mwolf",
+        "monsterClass": "animal",
+        "maxHP": 31,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 72,
+        "criticalSkill": 45,
+        "criticalMultiplier": 3,
+        "blockChance": 46,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 5
+        }
+    },
+    {
+        "id": "forestfox3",
+        "iconID": "monsters_rltiles4:4",
+        "name": "Forest fox",
+        "spawnGroup": "forestfox2",
+        "droplistID": "mwolf",
+        "monsterClass": "animal",
+        "maxHP": 35,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 75,
+        "criticalSkill": 45,
+        "criticalMultiplier": 3,
+        "blockChance": 49,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 5
+        }
+    },
+    {
+        "id": "redft0",
+        "iconID": "monsters_rltiles4:9",
+        "name": "Tough redfoot beast",
+        "spawnGroup": "redft1",
+        "droplistID": "redft",
+        "monsterClass": "animal",
+        "maxHP": 39,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 78,
+        "criticalSkill": 50,
+        "criticalMultiplier": 3,
+        "blockChance": 52,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 5
+        }
+    },
+    {
+        "id": "redft1",
+        "iconID": "monsters_rltiles4:9",
+        "name": "Strong redfoot beast",
+        "spawnGroup": "redft2",
+        "droplistID": "redft",
+        "monsterClass": "animal",
+        "maxHP": 43,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 81,
+        "criticalSkill": 50,
+        "criticalMultiplier": 3,
+        "blockChance": 56,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 5
+        }
+    },
+    {
+        "id": "redft2",
+        "iconID": "monsters_rltiles4:10",
+        "name": "Bloodthirsty redfoot beast",
+        "spawnGroup": "redft2",
+        "droplistID": "redft",
+        "monsterClass": "animal",
+        "maxHP": 47,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 84,
+        "criticalSkill": 65,
+        "criticalMultiplier": 3,
+        "blockChance": 75,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 5
+        }
+    },
+    {
+        "id": "redft_cr",
+        "iconID": "monsters_rltiles4:10",
+        "name": "Vicious redfoot beast",
+        "droplistID": "oegyth1",
+        "monsterClass": "animal",
+        "maxHP": 347,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 84,
+        "criticalSkill": 65,
+        "criticalMultiplier": 3,
+        "blockChance": 75,
+        "damageResistance": 4,
+        "attackDamage": {
+            "max": 9
+        },
+        "unique": 1
+    },
+    {
+        "id": "ccentip0",
+        "iconID": "monsters_rltiles2:163",
+        "name": "Carrion centipede",
+        "spawnGroup": "ccentip",
+        "droplistID": "scaradon",
+        "monsterClass": "insect",
+        "maxHP": 54,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 48,
+        "blockChance": 132,
+        "attackDamage": {
+            "min": 6,
+            "max": 14
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "ccentip1",
+        "iconID": "monsters_rltiles2:163",
+        "name": "Ravenous carrion centipede",
+        "spawnGroup": "ccentip",
+        "droplistID": "scaradon",
+        "monsterClass": "insect",
+        "maxHP": 56,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 53,
+        "blockChance": 132,
+        "attackDamage": {
+            "min": 7,
+            "max": 14
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "ccentip2",
+        "iconID": "monsters_rltiles2:150",
+        "name": "Bloated carrion centipede",
+        "spawnGroup": "ccentip",
+        "droplistID": "scaradon",
+        "monsterClass": "insect",
+        "maxHP": 59,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 55,
+        "blockChance": 132,
+        "attackDamage": {
+            "min": 8,
+            "max": 14
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "charwdg1",
+        "iconID": "monsters_rltiles4:17",
+        "name": "Puny Charwood goblin",
+        "spawnGroup": "charwdg1",
+        "droplistID": "charwdg",
+        "maxHP": 53,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 95,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 75,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 5,
+            "max": 7
+        }
+    },
+    {
+        "id": "charwdg2",
+        "iconID": "monsters_rltiles4:17",
+        "name": "Charwood goblin scout",
+        "spawnGroup": "charwdg1",
+        "droplistID": "charwdg",
+        "maxHP": 56,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 139,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 77,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 6,
+            "max": 9
+        }
+    },
+    {
+        "id": "charwdg3",
+        "iconID": "monsters_rltiles4:18",
+        "name": "Starving Charwood goblin",
+        "spawnGroup": "charwdg1",
+        "droplistID": "charwdg",
+        "maxHP": 64,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 142,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 79,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 6,
+            "max": 9
+        }
+    },
+    {
+        "id": "charwdg4",
+        "iconID": "monsters_rltiles4:18",
+        "name": "Charwood goblin",
+        "spawnGroup": "charwdg2",
+        "droplistID": "charwdg",
+        "maxHP": 73,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 144,
+        "criticalSkill": 25,
+        "criticalMultiplier": 3,
+        "blockChance": 63,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        }
+    },
+    {
+        "id": "charwdg5",
+        "iconID": "monsters_rltiles4:21",
+        "name": "Charwood goblin fighter",
+        "spawnGroup": "charwdg2",
+        "droplistID": "charwdg",
+        "maxHP": 81,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 147,
+        "criticalSkill": 25,
+        "criticalMultiplier": 3,
+        "blockChance": 65,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        }
+    },
+    {
+        "id": "charwdg6",
+        "iconID": "monsters_rltiles4:21",
+        "name": "Tough Charwood goblin",
+        "spawnGroup": "charwdg2",
+        "droplistID": "charwdg",
+        "maxHP": 92,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 143,
+        "criticalSkill": 25,
+        "criticalMultiplier": 3,
+        "blockChance": 67,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 8,
+            "max": 9
+        }
+    },
+    {
+        "id": "charwdg7",
+        "iconID": "monsters_rltiles4:23",
+        "name": "Aggressive Charwood goblin",
+        "spawnGroup": "charwdg3",
+        "droplistID": "charwdg",
+        "maxHP": 103,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 146,
+        "criticalSkill": 30,
+        "criticalMultiplier": 3,
+        "blockChance": 64,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 8,
+            "max": 9
+        }
+    },
+    {
+        "id": "charwdg8",
+        "iconID": "monsters_rltiles4:23",
+        "name": "Strong Charwood goblin",
+        "spawnGroup": "charwdg3",
+        "droplistID": "charwdg",
+        "maxHP": 112,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 147,
+        "criticalSkill": 35,
+        "criticalMultiplier": 2,
+        "blockChance": 73,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 9,
+            "max": 11
+        }
+    },
+    {
+        "id": "charwdgg",
+        "iconID": "monsters_rltiles4:22",
+        "name": "Charwood goblin",
+        "phraseID": "charwoodm",
+        "droplistID": "charwdg",
+        "unique": 1,
+        "maxHP": 81,
+        "moveCost": 5,
+        "attackCost": 6,
+        "attackChance": 147,
+        "criticalSkill": 25,
+        "criticalMultiplier": 3,
+        "blockChance": 65,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 7,
+            "max": 9
+        }
+    }
+]

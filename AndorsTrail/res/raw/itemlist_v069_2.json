@@ -1,0 +1,38 @@
+[
+    {
+        "id": "rusted_iron_sword",
+        "iconID": "items_weapons:0",
+        "name": "Rusted iron sword",
+        "category": "lsword",
+        "baseMarketCost": 52,
+        "equipEffect": {
+            "increaseAttackCost": 5,
+            "increaseAttackChance": 10,
+            "increaseAttackDamage": {
+                "min": 1,
+                "max": 2
+            }
+        }
+    },
+    {
+        "id": "broken_buckler",
+        "iconID": "items_armours:0",
+        "name": "Broken wooden buckler",
+        "category": "buckler",
+        "baseMarketCost": 120,
+        "equipEffect": {
+            "increaseAttackChance": -5,
+            "increaseBlockChance": 1
+        }
+    },
+    {
+        "id": "used_gloves",
+        "iconID": "items_armours:35",
+        "name": "Blood-stained gloves",
+        "category": "hnd_lthr",
+        "baseMarketCost": 56,
+        "equipEffect": {
+            "increaseBlockChance": 1
+        }
+    }
+]

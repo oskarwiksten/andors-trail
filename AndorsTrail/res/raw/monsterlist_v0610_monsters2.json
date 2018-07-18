@@ -1,0 +1,450 @@
+[
+    {
+        "id": "iqhan_1a",
+        "iconID": "monsters_rltiles2:96",
+        "name": "Iqhan worker thrall",
+        "spawnGroup": "iqhan_1",
+        "monsterClass": "humanoid",
+        "maxHP": 55,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 110,
+        "blockChance": 70,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "iqhan_1b",
+        "iconID": "monsters_rltiles2:96",
+        "name": "Iqhan thrall servant",
+        "spawnGroup": "iqhan_1",
+        "monsterClass": "humanoid",
+        "maxHP": 57,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 120,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "iqhan_2a",
+        "iconID": "monsters_rltiles2:97",
+        "name": "Iqhan guard thrall",
+        "spawnGroup": "iqhan_2",
+        "monsterClass": "humanoid",
+        "maxHP": 59,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 130,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        }
+    },
+    {
+        "id": "iqhan_2b",
+        "iconID": "monsters_rltiles2:97",
+        "name": "Iqhan thrall",
+        "spawnGroup": "iqhan_2",
+        "monsterClass": "humanoid",
+        "maxHP": 62,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 130,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 10
+        }
+    },
+    {
+        "id": "iqhan_3a",
+        "iconID": "monsters_rltiles2:128",
+        "name": "Iqhan warrior thrall",
+        "spawnGroup": "iqhan_3",
+        "monsterClass": "humanoid",
+        "maxHP": 65,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 140,
+        "criticalSkill": 15,
+        "criticalMultiplier": 2,
+        "blockChance": 70,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 11
+        }
+    },
+    {
+        "id": "iqhan_3b",
+        "iconID": "monsters_rltiles2:129",
+        "name": "Iqhan master",
+        "spawnGroup": "iqhan_3",
+        "monsterClass": "humanoid",
+        "maxHP": 67,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 140,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 12
+        }
+    },
+    {
+        "id": "iqhan_4a",
+        "iconID": "monsters_rltiles2:129",
+        "name": "Iqhan master",
+        "spawnGroup": "iqhan_4",
+        "monsterClass": "humanoid",
+        "maxHP": 69,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 140,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "droplistID": "iqhan_lesser",
+        "attackDamage": {
+            "min": 2,
+            "max": 13
+        }
+    },
+    {
+        "id": "iqhan_4b",
+        "iconID": "monsters_rltiles2:133",
+        "name": "Iqhan master",
+        "spawnGroup": "iqhan_4",
+        "monsterClass": "humanoid",
+        "maxHP": 71,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 140,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "droplistID": "iqhan",
+        "attackDamage": {
+            "min": 2,
+            "max": 15
+        }
+    },
+    {
+        "id": "iqhan_ch_1a",
+        "iconID": "monsters_rltiles2:135",
+        "name": "Iqhan chaos evoker",
+        "spawnGroup": "iqhan_ch_1",
+        "monsterClass": "humanoid",
+        "maxHP": 73,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 140,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "droplistID": "iqhan",
+        "attackDamage": {
+            "min": 2,
+            "max": 15
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_ch_1b",
+        "iconID": "monsters_rltiles2:135",
+        "name": "Iqhan chaos evoker",
+        "spawnGroup": "iqhan_ch_1",
+        "monsterClass": "humanoid",
+        "maxHP": 75,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 150,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "droplistID": "iqhan",
+        "attackDamage": {
+            "min": 2,
+            "max": 14
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 2,
+                    "duration": 5,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_ch_2a",
+        "iconID": "monsters_rltiles2:134",
+        "name": "Iqhan chaos servant",
+        "spawnGroup": "iqhan_ch_2",
+        "monsterClass": "humanoid",
+        "maxHP": 78,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 150,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 60,
+        "droplistID": "iqhan",
+        "attackDamage": {
+            "min": 2,
+            "max": 14
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_ch_2b",
+        "iconID": "monsters_rltiles2:134",
+        "name": "Iqhan chaos servant",
+        "spawnGroup": "iqhan_ch_2",
+        "monsterClass": "humanoid",
+        "maxHP": 79,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 150,
+        "criticalSkill": 25,
+        "criticalMultiplier": 2,
+        "blockChance": 75,
+        "droplistID": "iqhan",
+        "attackDamage": {
+            "min": 2,
+            "max": 13
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_ch_3a",
+        "iconID": "monsters_rltiles2:136",
+        "name": "Iqhan chaos master",
+        "spawnGroup": "iqhan_ch_3",
+        "monsterClass": "humanoid",
+        "maxHP": 83,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 170,
+        "criticalSkill": 25,
+        "criticalMultiplier": 2,
+        "blockChance": 75,
+        "droplistID": "iqhan_master",
+        "attackDamage": {
+            "min": 2,
+            "max": 13
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_ch_3b",
+        "iconID": "monsters_rltiles2:137",
+        "name": "Iqhan chaos master",
+        "spawnGroup": "iqhan_ch_3",
+        "monsterClass": "humanoid",
+        "maxHP": 85,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 170,
+        "criticalSkill": 25,
+        "criticalMultiplier": 2,
+        "blockChance": 75,
+        "droplistID": "iqhan_master",
+        "attackDamage": {
+            "min": 2,
+            "max": 13
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 4,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_chb_1a",
+        "iconID": "monsters_rltiles1:19",
+        "name": "Iqhan chaos beast",
+        "spawnGroup": "iqhan_chb_1",
+        "monsterClass": "construct",
+        "maxHP": 122,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 150,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 45,
+        "damageResistance": 9,
+        "droplistID": "iqhan_beast",
+        "attackDamage": {
+            "min": 0,
+            "max": 15
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_chb_1b",
+        "iconID": "monsters_rltiles1:19",
+        "name": "Iqhan chaos beast",
+        "spawnGroup": "iqhan_chb_1",
+        "monsterClass": "construct",
+        "maxHP": 140,
+        "maxAP": 10,
+        "moveCost": 10,
+        "attackCost": 10,
+        "attackChance": 150,
+        "criticalSkill": 10,
+        "criticalMultiplier": 3,
+        "blockChance": 45,
+        "damageResistance": 9,
+        "droplistID": "iqhan_beast",
+        "attackDamage": {
+            "min": 0,
+            "max": 15
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 5,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    },
+    {
+        "id": "iqhan_greeter",
+        "iconID": "monsters_men:8",
+        "name": "Rancent",
+        "spawnGroup": "iqhan_greeter",
+        "monsterClass": "humanoid",
+        "unique": 1,
+        "phraseID": "iqhan_greeter"
+    },
+    {
+        "id": "iqhan_boss",
+        "iconID": "monsters_rltiles1:5",
+        "name": "Iqhan chaos enslaver",
+        "spawnGroup": "iqhan_boss",
+        "monsterClass": "undead",
+        "unique": 1,
+        "maxHP": 120,
+        "maxAP": 10,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 170,
+        "criticalSkill": 30,
+        "criticalMultiplier": 2,
+        "blockChance": 75,
+        "damageResistance": 2,
+        "droplistID": "iqhan_boss",
+        "phraseID": "iqhan_boss",
+        "attackDamage": {
+            "min": 2,
+            "max": 13
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "chaotic_grip",
+                    "magnitude": 7,
+                    "duration": 5,
+                    "chance": 50
+                },
+                {
+                    "condition": "chaotic_curse",
+                    "magnitude": 3,
+                    "duration": 5,
+                    "chance": 50
+                }
+            ]
+        }
+    }
+]

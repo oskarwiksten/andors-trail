@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:orientation="vertical"
+	>
+
+	<ListView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:choiceMode="none"
+		android:footerDividersEnabled="false"
+		android:id="@+id/conversation_statements"
+		android:transcriptMode="alwaysScroll"
+		android:padding="@dimen/dialog_margin"
+		style="@style/ConversationListView"
+		/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		style="@android:style/ButtonBar"
+		>
+
+		<Button
+			android:id="@+id/conversation_next"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/conversation_next"
+			/>
+
+		<Button
+			android:id="@+id/conversation_leave"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/conversation_leave"
+			/>
+	</LinearLayout>
+
+</LinearLayout>

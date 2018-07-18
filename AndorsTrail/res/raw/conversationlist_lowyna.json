@@ -1,0 +1,148 @@
+[
+    {
+        "id": "lowyna",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lowyna_1"
+            }
+        ],
+        "message": "Uh. Hello."
+    },
+    {
+        "id": "lowyna_1",
+        "replies": [
+            {
+                "text": "Who are you?",
+                "nextPhraseID": "lowyna_3"
+            },
+            {
+                "text": "What are you people doing here?",
+                "nextPhraseID": "lowyna_2"
+            },
+            {
+                "text": "What is that smell?",
+                "nextPhraseID": "lowyna_4"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lowyna",
+                        "value": "20"
+                    }
+                ],
+                "text": "Can I look at your wares again?",
+                "nextPhraseID": "S"
+            }
+        ],
+        "message": "Whoa, you look small. I must be seeing things. That last batch I did must have gotten stronger than usual."
+    },
+    {
+        "id": "lowyna_2",
+        "replies": [
+            {
+                "text": "I see a lot of potion bottles around. Is that what you do?",
+                "nextPhraseID": "lowyna_5"
+            },
+            {
+                "text": "What is that smell?",
+                "nextPhraseID": "lowyna_4"
+            }
+        ],
+        "message": "He he, this and that."
+    },
+    {
+        "id": "lowyna_3",
+        "replies": [
+            {
+                "text": "What are you people doing here?",
+                "nextPhraseID": "lowyna_2"
+            }
+        ],
+        "message": "I am Lowyna, of course. These people that you see in here and in the other huts, you could say that we're sort of in the same .. family."
+    },
+    {
+        "id": "lowyna_4",
+        "replies": [
+            {
+                "text": "What are you people doing here?",
+                "nextPhraseID": "lowyna_2"
+            },
+            {
+                "text": "Who are you?",
+                "nextPhraseID": "lowyna_3"
+            }
+        ],
+        "message": "What smell? I can't smell anything out of the ordinary. It must be you."
+    },
+    {
+        "id": "lowyna_5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lowyna_6"
+            }
+        ],
+        "message": "It's that obvious eh?"
+    },
+    {
+        "id": "lowyna_6",
+        "replies": [
+            {
+                "text": "I can handle myself!",
+                "nextPhraseID": "lowyna_7"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lowyna",
+                        "value": "10"
+                    }
+                ],
+                "text": "Two-teeth sent me to get some rat poison.",
+                "nextPhraseID": "lowyna_8"
+            }
+        ],
+        "message": "I really shouldn't be discussing this with you. You look way to inexperienced for this."
+    },
+    {
+        "id": "lowyna_7",
+        "message": "Hah! How about no?"
+    },
+    {
+        "id": "lowyna_8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lowyna_9"
+            }
+        ],
+        "message": "I'm amazed he's still around, good old two-teeth."
+    },
+    {
+        "id": "lowyna_9",
+        "rewards": [
+            {
+                "rewardID": "lowyna",
+                "value": 20,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lowyna",
+                        "value": "20"
+                    }
+                ],
+                "text": "Let's see what you have.",
+                "nextPhraseID": "S"
+            }
+        ],
+        "message": "For his sake, I'll let you browse my wares."
+    }
+]

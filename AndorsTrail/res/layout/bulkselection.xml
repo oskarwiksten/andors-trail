@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:gravity="center_horizontal"
+	>
+
+	<ScrollView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		>
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:padding="@dimen/dialog_margin"
+			>
+
+			<TextView
+				android:id="@+id/bulkselection_itemname"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_gravity="center_horizontal"
+				android:text="@string/inventory_info"
+				style="@style/titleWithIcon"
+				android:drawableLeft="@drawable/equip_weapon"
+			/>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				android:gravity="center_horizontal"
+				>
+
+				<TextView
+					android:text="@string/inventory_drop"
+					android:id="@+id/bulkselection_action_type"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					/>
+
+				<EditText
+					android:text="1"
+					android:inputType="number"
+					android:singleLine="true"
+					android:id="@+id/bulkselection_amount_taken"
+					android:layout_height="wrap_content"
+					android:layout_width="wrap_content"
+					/>
+
+				<TextView
+					android:text="/"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="10dp"
+					android:paddingRight="10dp"
+					/>
+
+				<TextView
+					android:text="250"
+					android:id="@+id/bulkselection_amount_available"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					/>
+
+			</LinearLayout>
+
+			<LinearLayout
+				android:layout_height="wrap_content"
+				android:layout_width="match_parent"
+				android:orientation="horizontal"
+				>
+
+				<Button
+					android:text="-1"
+					android:id="@+id/bulkselection_decrement_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="20dp"
+					android:paddingRight="20dp"
+					/>
+
+		 		<SeekBar
+					android:id="@+id/bulkselection_slider"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_gravity="center_vertical"
+					android:layout_weight="1"
+					/>
+
+				<Button
+					android:text="+1"
+					android:id="@+id/bulkselection_increment_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="20dp"
+					android:paddingRight="20dp"
+					/>
+
+				<Button
+					android:text="@string/bulkselection_select_all"
+					android:id="@+id/bulkselection_select_all_button"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:paddingLeft="20dp"
+					android:paddingRight="20dp"
+					/>
+
+			</LinearLayout>
+
+			<TextView
+				android:text="@string/bulkselection_totalcost_buy"
+				android:id="@+id/bulkselection_summary_totalgold"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:paddingBottom="10dp"
+				/>
+
+		</LinearLayout>
+	</ScrollView>
+
+	<!-- Workaround http://code.google.com/p/andors-trail/issues/detail?id=242 -->
+	<ListView android:layout_width="match_parent" android:layout_height="wrap_content" />
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		style="@android:style/ButtonBar"
+		>
+
+		<Button
+			android:id="@+id/bulkselection_finalize_button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@string/inventory_drop"
+			/>
+
+		<Button
+			android:id="@+id/bulkselection_cancel_button"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:text="@android:string/cancel"
+			/>
+
+	</LinearLayout>
+
+</LinearLayout>

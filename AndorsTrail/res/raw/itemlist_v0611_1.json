@@ -1,0 +1,477 @@
+[
+    {
+        "id": "pot_focus_dmg",
+        "iconID": "items_consumables:39",
+        "name": "Potion of damage focus",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 272,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "focus_dmg",
+                    "magnitude": 1,
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_focus_dmg2",
+        "iconID": "items_consumables:39",
+        "name": "Strong potion of damage focus",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 630,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "focus_dmg",
+                    "magnitude": 2,
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_focus_ac",
+        "iconID": "items_consumables:37",
+        "name": "Potion of accuracy focus",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 210,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "focus_ac",
+                    "magnitude": 1,
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_focus_ac2",
+        "iconID": "items_consumables:37",
+        "name": "Strong potion of accuracy focus",
+        "category": "pot",
+        "hasManualPrice": 1,
+        "baseMarketCost": 618,
+        "useEffect": {
+            "conditionsSource": [
+                {
+                    "condition": "focus_ac",
+                    "magnitude": 2,
+                    "duration": 4,
+                    "chance": 100
+                }
+            ]
+        }
+    },
+    {
+        "id": "pot_scaradon",
+        "iconID": "items_consumables:48",
+        "name": "Scaradon extract",
+        "category": "pot",
+        "hasManualPrice": 0,
+        "baseMarketCost": 28,
+        "useEffect": {
+            "increaseCurrentHP": {
+                "min": 5,
+                "max": 10
+            }
+        }
+    },
+    {
+        "id": "remgard_shield_1",
+        "iconID": "items_armours_3:24",
+        "name": "Remgard shield",
+        "category": "shld_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 2189,
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 9,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "remgard_shield_2",
+        "iconID": "items_armours_3:24",
+        "name": "Remgard combat shield",
+        "category": "shld_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 2720,
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 11,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "helm_combat1",
+        "iconID": "items_armours:25",
+        "name": "Combat helm",
+        "category": "hd_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 455,
+        "equipEffect": {
+            "increaseAttackChance": 5,
+            "increaseBlockChance": 6
+        }
+    },
+    {
+        "id": "helm_combat2",
+        "iconID": "items_armours:25",
+        "name": "Enhanced combat helmet",
+        "category": "hd_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 485,
+        "equipEffect": {
+            "increaseAttackChance": 7,
+            "increaseBlockChance": 6
+        }
+    },
+    {
+        "id": "helm_combat3",
+        "iconID": "items_armours:26",
+        "name": "Remgard combat helmet",
+        "category": "hd_mtl_hv",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1540,
+        "equipEffect": {
+            "increaseMaxHP": 1,
+            "increaseAttackChance": -3,
+            "increaseCriticalSkill": -5,
+            "increaseBlockChance": 12
+        }
+    },
+    {
+        "id": "helm_redeye1",
+        "iconID": "items_armours:24",
+        "name": "Cap of red eyes",
+        "category": "hd_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1,
+        "equipEffect": {
+            "increaseMaxHP": -5,
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "helm_redeye2",
+        "iconID": "items_armours:24",
+        "name": "Cap of bloody eyes",
+        "category": "hd_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1,
+        "equipEffect": {
+            "increaseMaxHP": -5,
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 1
+            },
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "helm_defend1",
+        "iconID": "items_armours_3:31",
+        "name": "Defender's helmet",
+        "category": "hd_mtl_hv",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1975,
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 8,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "helm_protector0",
+        "iconID": "items_armours_3:31",
+        "name": "Strange looking helmet",
+        "category": "hd_mtl_li",
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxHP": -9,
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 1
+            },
+            "increaseBlockChance": 5
+        }
+    },
+    {
+        "id": "helm_protector",
+        "iconID": "items_armours_3:31",
+        "name": "Dark protector",
+        "category": "hd_mtl_li",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 0,
+        "baseMarketCost": 3119,
+        "equipEffect": {
+            "increaseMaxHP": -6,
+            "increaseAttackDamage": {
+                "min": 0,
+                "max": 1
+            },
+            "increaseBlockChance": 13,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "armour_chain_remg",
+        "iconID": "items_armours_3:13",
+        "name": "Remgard chain mail",
+        "category": "chmail",
+        "hasManualPrice": 0,
+        "baseMarketCost": 8927,
+        "equipEffect": {
+            "increaseAttackChance": -7,
+            "increaseBlockChance": 25
+        }
+    },
+    {
+        "id": "armour_cvest1",
+        "iconID": "items_armours_3:5",
+        "name": "Combat vest",
+        "category": "bdy_lt",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1116,
+        "equipEffect": {
+            "increaseAttackChance": 15,
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "armour_cvest2",
+        "iconID": "items_armours_3:5",
+        "name": "Remgard combat vest",
+        "category": "bdy_lt",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1244,
+        "equipEffect": {
+            "increaseAttackChance": 17,
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "gloves_leather1",
+        "iconID": "items_armours:38",
+        "name": "Hardened leather gloves",
+        "category": "hnd_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 757,
+        "equipEffect": {
+            "increaseMaxHP": 3,
+            "increaseAttackChance": 2,
+            "increaseBlockChance": 6
+        }
+    },
+    {
+        "id": "gloves_arulir",
+        "iconID": "items_armours_2:1",
+        "name": "Arulir skin gloves",
+        "category": "hnd_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1793,
+        "equipEffect": {
+            "increaseAttackChance": -3,
+            "increaseBlockChance": 7,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "gloves_combat1",
+        "iconID": "items_armours:36",
+        "name": "Combat gloves",
+        "category": "hnd_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 956,
+        "equipEffect": {
+            "increaseMaxHP": 4,
+            "increaseAttackChance": -5,
+            "increaseBlockChance": 9
+        }
+    },
+    {
+        "id": "gloves_combat2",
+        "iconID": "items_armours:36",
+        "name": "Enhanced combat gloves",
+        "category": "hnd_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1204,
+        "equipEffect": {
+            "increaseMaxHP": 4,
+            "increaseAttackChance": -5,
+            "increaseBlockChance": 10
+        }
+    },
+    {
+        "id": "gloves_remgard1",
+        "iconID": "items_armours:37",
+        "name": "Remgard fighting gloves",
+        "category": "hnd_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1205,
+        "equipEffect": {
+            "increaseMaxHP": 4,
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "gloves_remgard2",
+        "iconID": "items_armours:37",
+        "name": "Enchanted Remgard gloves",
+        "category": "hnd_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1326,
+        "equipEffect": {
+            "increaseMaxHP": 5,
+            "increaseAttackChance": 2,
+            "increaseBlockChance": 8
+        }
+    },
+    {
+        "id": "gloves_guard1",
+        "iconID": "items_armours:38",
+        "name": "Gloves of the guardian",
+        "category": "hnd_lthr",
+        "hasManualPrice": 1,
+        "baseMarketCost": 601,
+        "equipEffect": {
+            "increaseAttackChance": -9,
+            "increaseCriticalSkill": -5,
+            "increaseBlockChance": 14
+        }
+    },
+    {
+        "id": "boots_combat1",
+        "iconID": "items_armours:30",
+        "name": "Combat boots",
+        "category": "feet_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackChance": 7,
+            "increaseBlockChance": 7
+        }
+    },
+    {
+        "id": "boots_combat2",
+        "iconID": "items_armours:30",
+        "name": "Enhanced combat boots",
+        "category": "feet_mtl_li",
+        "hasManualPrice": 0,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseAttackChance": 7,
+            "increaseBlockChance": 11
+        }
+    },
+    {
+        "id": "boots_remgard1",
+        "iconID": "items_armours:31",
+        "name": "Remgard boots",
+        "category": "feet_mtl_hv",
+        "hasManualPrice": 0,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxHP": 4,
+            "increaseBlockChance": 12
+        }
+    },
+    {
+        "id": "boots_guard1",
+        "iconID": "items_armours:31",
+        "name": "Boots of the guardian",
+        "category": "feet_mtl_hv",
+        "hasManualPrice": 0,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseBlockChance": 7,
+            "increaseDamageResistance": 1
+        }
+    },
+    {
+        "id": "boots_brawler",
+        "iconID": "items_armours_3:38",
+        "name": "Bar brawler's boots",
+        "category": "feet_lthr",
+        "hasManualPrice": 0,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxHP": 2,
+            "increaseCriticalSkill": 4,
+            "increaseBlockChance": 7
+        }
+    },
+    {
+        "id": "marrowtaint",
+        "iconID": "items_necklaces_1:9",
+        "name": "Marrowtaint",
+        "category": "neck",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 0,
+        "baseMarketCost": 4760,
+        "equipEffect": {
+            "increaseMaxHP": 5,
+            "increaseAttackCost": -1,
+            "increaseAttackChance": 9,
+            "increaseBlockChance": 9
+        }
+    },
+    {
+        "id": "valugha_gown",
+        "iconID": "items_armours_3:2",
+        "name": "Silk robe of Valugha",
+        "category": "bdy_clth",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 0,
+        "baseMarketCost": 3109,
+        "equipEffect": {
+            "increaseMaxHP": 5,
+            "increaseMoveCost": -1,
+            "increaseAttackChance": 30,
+            "increaseBlockChance": -10
+        }
+    },
+    {
+        "id": "valugha_hat",
+        "iconID": "items_armours_3:1",
+        "name": "Valugha's shimmering hat",
+        "category": "hd_cloth",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 648,
+        "equipEffect": {
+            "increaseMaxHP": 3,
+            "increaseMoveCost": -1,
+            "increaseAttackChance": 15,
+            "increaseAttackDamage": {
+                "min": -2,
+                "max": -2
+            },
+            "increaseBlockChance": -5
+        }
+    },
+    {
+        "id": "hat_crit",
+        "iconID": "items_armours_3:0",
+        "name": "Woodcutter's feathered hat",
+        "category": "hd_cloth",
+        "displaytype": "extraordinary",
+        "hasManualPrice": 0,
+        "baseMarketCost": 1,
+        "equipEffect": {
+            "increaseCriticalSkill": 4,
+            "increaseBlockChance": -5
+        }
+    }
+]

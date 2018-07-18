@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="ateditor">
+<head>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" href="http://andorstrail.com/favicon.ico"/>
+	<link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="lib/hint.min.css" />
+	<link rel="stylesheet" href="styles.css" />
+	<title>Andor's Trail Content Editor</title>
+</head>
+<body>
+
+<div id="screen">
+<div id="top">
+	<div class="andorsTrailLogo" id="title">
+		Andor's Trail Content Editor
+		<span id="version">
+			v0.7.1dev
+		</span>
+	</div>
+	<div id="buttons">
+		<a href="#import" class="btn"><i class="icon-upload"></i> Import</a>
+		<a href="#export" class="btn"><i class="icon-download"></i> Export</a>
+	</div>
+	<div class="clearfix"></div>
+</div>
+
+<div id="left" class="workarea">
+	<div id="tools" ng-controller="ATEditor.controllers.NavigationController" ng-init="$('.collapse').collapse()">
+		<div class="accordion" id="accordion-nav">
+			<div class="accordion-group" ng-show="previousItems.length > 0">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" href="#collapse-nav-previous">Recently opened</a>
+				</div>
+				<div id="collapse-nav-previous" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<ul class="itemlist">
+							<li ng-repeat="p in previousItems" ng-click="editObj(p.section, p.obj)" fadey>
+								<img ng-tile-image="p.obj.iconID" ng-tile-image-scale="0.7" ng-show="p.section.hasIcon()" />
+								{{getName(p.section, p.obj)}}
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="accordion-group" ng-repeat="section in sections">
+				<div class="accordion-heading">
+					<a class="accordion-toggle" data-toggle="collapse" ng-href="#collapse-nav-{{section.id}}">
+						{{section.name}}
+					</a>
+				</div>
+				<div id="collapse-nav-{{section.id}}" class="accordion-body collapse">
+					<div class="accordion-inner">
+						<div class="tools-buttons">
+							<button ng-click="addObj(section)" class="btn"><i class="icon-plus-sign"></i> Add</button>
+							<button ng-click="editAsTable(section)" class="btn" ng-show="supportsTableEdit(section)"><i class="icon-list"></i> Table</button>
+							<button ng-click="clear(section)" class="btn"><i class="icon-trash"></i> Clear</button>
+						</div>
+						<ul class="itemlist" ui:sortable ng:model="section.items">
+							<li ng-repeat="obj in section.items" ng-click="editObj(section, obj)" fadey>
+								<div style="float: left;">
+									<img ng-tile-image="obj.iconID" ng-tile-image-scale="0.7" ng-show="section.hasIcon()" />
+									{{getName(section, obj)}}
+								</div>
+								<div style="float: right;">
+									<a ng-click="dupObj(section, obj)" class="btn btn-mini" title="Duplicate"><i class="icon-plus"></i></a>
+									<a ng-click="delObj(section, obj)" class="btn btn-mini" title="Remove"><i class="icon-trash"></i></a>
+								</div>
+								<div style="clear: both;"> </div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<form class="form-inline">
+<div id="center" class="workarea" ng-view></div>
+	
+</div>
+</form>
+
+<div id="selectIconModal" class="modal hide fade" role="dialog" tabindex="-1" ng-controller="ATEditor.controllers.SelectIconController">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>Select icon</h3>
+	</div>
+	<div class="modal-body">
+		<div ng-repeat="section in sections">
+			<div ng-show="section.id == selectedSection">
+				<div ng-repeat="imageID in section.imageIDs" ng-tile-image="imageID" ng-click="imageSelected(imageID)" class="at-input-icon"></div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal">Cancel</button>
+	</div>
+</div>
+
+
+<script src="lib/jquery.min.js"></script>
+<script src="lib/jquery-ui.min.js"></script>
+<script src="lib/underscore-min.js"></script>
+<script src="lib/angular.min.js"></script>
+<script src="lib/ng-sortable.js"></script>
+<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/tilesets.js"></script>
+<script src="js/fieldlist.js"></script>
+<script src="js/datastore.js"></script>
+<script src="js/defaults.js"></script>
+<script src="js/importexport.js"></script>
+<script src="js/model.js"></script>
+<script src="js/exampledata.js"></script>
+<script src="js/modelfunctions.js"></script>
+<script src="js/controllers/navigation.js"></script>
+<script src="js/controllers/actorcondition.js"></script>
+<script src="js/controllers/quest.js"></script>
+<script src="js/controllers/item.js"></script>
+<script src="js/controllers/droplist.js"></script>
+<script src="js/controllers/dialogue.js"></script>
+<script src="js/controllers/dialoguetree.js"></script>
+<script src="js/controllers/monster.js"></script>
+<script src="js/controllers/itemcategory.js"></script>
+<script src="js/controllers/import.js"></script>
+<script src="js/controllers/export.js"></script>
+<script src="js/controllers/selecticon.js"></script>
+<script src="js/app.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/legacyimport.js"></script>
+
+</body>
+</html>

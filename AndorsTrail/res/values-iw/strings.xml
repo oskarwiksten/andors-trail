@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+	<string name="exit">יציאה</string>
+	<string name="exit_to_menu">יציאה לתפריט ראשי</string>
+	<string name="menu_pause">עצור</string>
+	<string name="menu_settings">העדפות</string>
+	<string name="menu_save">שמור</string>
+	<string name="menu_load">טען</string>
+	<string name="menu_save_gamesaved">המשחק נשמר לתא %1$d</string>
+	<string name="menu_save_failed">לא הצליח לשמור! Is the SD card mounted and writable?</string>
+
+	<string name="loadsave_title_save">שמור משחק</string>
+	<string name="loadsave_title_load">טען משחק שמור</string>
+	<string name="loadsave_selectslot">בחר תא</string>
+	<string name="loadsave_slot_empty">(פנוי)</string>
+	<string name="savegame_currenthero_displayinfo">דרגה %1$d, %2$d נסיון, %3$d זהב</string>
+
+	<string name="dialog_loading_message">טוען משאבם...</string>
+	<string name="dialog_loading_failed_title">נכשל בטעינה</string>
+	<string name="dialog_loading_failed_message">המשחק לא הצליח לטעון שמירה.\n\n:(\n\nהקובץ עשוי להיות פגום או לא שלם.</string>
+	<string name="dialog_loading_failed_incorrectversion">המשחק לא הצליח לטעון שמירה. השמירה נעשתה בגרסא חדשה יותר של המשחק מזו שרצה.</string>
+
+	<string name="dialog_close">סגור</string>
+
+	<string name="dialog_confirmexit_title">יציאה</string>
+	<string name="dialog_confirmexit_message">בטוח שברצונך לצאת?</string>
+
+	<string name="dialog_paused_title">עצור</string>
+	<string name="dialog_paused_message">המשחק נעצר</string>
+	<string name="dialog_paused_resume">המשך</string>
+
+	<string name="dialog_monsterencounter_title">מפגש</string>
+	<string name="dialog_monsterencounter_message">האם ברצונך לתקוף?\nדרגת קושי: %1$s</string>
+	<string name="dialog_monsterencounter_info">מידע</string>
+
+	<string name="status_hp">חיים:</string>
+	<string name="status_mp">קסם:</string>
+	<string name="status_ap">פעילות:</string>
+	<string name="status_exp">דרגה:</string>
+
+	<string name="heroinfo_char">מבט כולל</string>
+	<string name="heroinfo_inv">מלאי</string>
+	<string name="heroinfo_wear">מצוייד</string>
+	<string name="heroinfo_skill">מיומנויות</string>
+	<string name="heroinfo_spell">קסמים</string>
+	<string name="heroinfo_levelup">עלייה בדרגה</string>
+	<string name="heroinfo_level">דרגה</string>
+	<string name="heroinfo_totalexperience">נסיון כולל</string>
+	<string name="heroinfo_wornequipment">Worn equipment</string>
+	<string name="heroinfo_inventory">ציוד</string>
+	<string name="heroinfo_gold">זהב: %1$d</string>
+	<string name="heroinfo_actionpoints">נקודות פעילות (פעילות):</string>
+	<string name="heroinfo_quests">Quests</string>
+
+	<string name="combat_attack">תקיפה (%1$d פעילות)</string>
+	<string name="combat_move">תנועה (%1$d פעילות)</string>
+	<string name="combat_use">השתמש בחפץ</string>
+	<string name="combat_spell">קסם</string>
+	<string name="combat_endturn">סוף תור</string>
+	<string name="combat_flee">ברח</string>
+	<string name="combat_begin_flee">אתה יכול כעת לברוח מהקרב על ידי לחיצה בכיוון הרצוי.</string>
+	<string name="combat_flee_failed">לא הצלחת לברוח!</string>
+	<string name="combat_status_ap">פעילות: %1$d</string>
+	<string name="combat_monsterhealth">חיים:</string>
+	<string name="combat_monsteraction">%1$s תוקף.</string>
+	<string name="combat_result_monstermiss">%1$s מחטיא!</string>
+	<string name="combat_result_monsterhit">%1$s פגע בך עם נזק של %2$d חיים!</string>
+	<string name="combat_result_monsterhitcritical">%1$s פגע באופן קריטי עם נזק של %2$d חיים!</string>
+	<string name="combat_result_heromiss">התקפתך החטיאה.</string>
+	<string name="combat_result_herohit">פגעת %1$s בנזק של %2$d חיים!</string>
+	<string name="combat_result_herohitcritical">פגעת באופן קריטיב %1$s וגרמת לנזק של %2$d חיים!</string>
+	<string name="combat_result_herokillsmonster">%1$s מת!</string>
+	<string name="combat_not_enough_ap">לא מספיק נקודות פעילות בסיבוב זה.</string>
+	<string name="combat_hero_dies">אתה מאבד את ההכרה ובמזל מתעורר בחיים. הפסדת %1$d נסיון.</string>
+
+	<string name="inventory_info">מידע</string>
+	<string name="inventory_equip">צייד</string>
+	<string name="inventory_unequip">הסר ציוד</string>
+	<string name="inventory_use">השתמש</string>
+	<string name="inventory_drop">תפיל</string>
+	<string name="inventory_item_used">השתמשת ב %1$s.</string>
+	<string name="inventory_item_dropped">%1$s נפל.</string>
+	<string name="inventory_item_equipped">הציידת ב %1$s.</string>
+
+	<string name="dialog_loot_pickall">אסוף הכל</string>
+	<string name="dialog_loot_foundgold">מצאת %1$d זהב. </string>
+	<string name="dialog_loot_pickedupitems">הרמת %1$d חפצים.</string>
+	<string name="dialog_groundloot_title">חפצים</string>
+	<string name="dialog_groundloot_message">מצאת כמה חפצים. </string>
+	<string name="dialog_monsterloot_title">ניצחון</string>
+	<string name="dialog_monsterloot_message">שרדת את המפגש. </string>
+	<string name="dialog_monsterloot_gainedexp">צברת %1$d נסיון. </string>
+
+	<string name="monster_difficulty_veryeasy">קל מאוד</string>
+	<string name="monster_difficulty_easy">קל</string>
+	<string name="monster_difficulty_normal">רגיל</string>
+	<string name="monster_difficulty_hard">קשה</string>
+	<string name="monster_difficulty_veryhard">קשה מאוד</string>
+	<string name="monster_difficulty_impossible">בלתי אפשרי</string>
+
+	<string name="actorinfo_class">סוג:</string>
+	<string name="actorinfo_difficulty">קושי:</string>
+	<string name="actorinfo_health">בריאות:</string>
+	<string name="actorinfo_attacksperturn">תקיפות/סיבוב:</string>
+	<string name="actorinfo_movesperturn">תנועה/סיבוב:</string>
+	<string name="actorinfo_attack">תקיפה:</string>
+	<string name="actorinfo_criticalhit">תקיפה קריטית:</string>
+	<string name="actorinfo_defense">הגנה:</string>
+	<string name="actorinfo_movecost">עלות תנועה (פעילות):</string>
+
+</resources>

@@ -1,0 +1,161 @@
+[
+    {
+        "id": "smuggler1_0",
+        "message": "[mutter] Just one more..."
+    },
+    {
+        "id": "smuggler2_0",
+        "message": "What? No, you're not it."
+    },
+    {
+        "id": "smuggler3_0",
+        "replies": [
+            {
+                "text": "Hello?",
+                "nextPhraseID": "smuggler3_1"
+            }
+        ],
+        "message": "[drool]"
+    },
+    {
+        "id": "smuggler3_1",
+        "replies": [
+            {
+                "text": "Can you hear me?",
+                "nextPhraseID": "smuggler3_2"
+            }
+        ],
+        "message": "[wipes drool]"
+    },
+    {
+        "id": "smuggler3_2",
+        "replies": [
+            {
+                "text": "Hello?",
+                "nextPhraseID": "smuggler3_3"
+            }
+        ],
+        "message": "[blank stare]"
+    },
+    {
+        "id": "smuggler3_3",
+        "replies": [
+            {
+                "text": "Can you talk?",
+                "nextPhraseID": "smuggler3_0"
+            }
+        ],
+        "message": "[makes slurping sounds with drool still left in the corner of the mouth]"
+    },
+    {
+        "id": "smuggler4_0",
+        "replies": [
+            {
+                "text": "What does she do?",
+                "nextPhraseID": "smuggler4_1"
+            }
+        ],
+        "message": "Uhh. Lowyna sure makes the best stuff!"
+    },
+    {
+        "id": "smuggler4_1",
+        "replies": [
+            {
+                "text": "Where can I find this Lowyna?",
+                "nextPhraseID": "smuggler4_2"
+            },
+            {
+                "text": "I need to go.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "These of course! [swings his jug, nearly spilling some of it]"
+    },
+    {
+        "id": "smuggler4_2",
+        "message": "She's over there .. no. Over there .. no. Oh, she's around here somewhere."
+    },
+    {
+        "id": "smuggler5_1",
+        "replies": [
+            {
+                "text": "You're all sweaty and pale, what's wrong?",
+                "nextPhraseID": "smuggler5_2"
+            }
+        ],
+        "message": "[blank stare]"
+    },
+    {
+        "id": "smuggler5_2",
+        "message": "Um. Just one more. Please, just one more."
+    },
+    {
+        "id": "smuggler6_1",
+        "replies": [
+            {
+                "text": "Get away from me!",
+                "nextPhraseID": "X"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 5
+                    }
+                ],
+                "text": "Here's 5 gold.",
+                "nextPhraseID": "smuggler6_3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 50
+                    }
+                ],
+                "text": "Here's 50 gold.",
+                "nextPhraseID": "smuggler6_3"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 100
+                    }
+                ],
+                "text": "Here's 100 gold.",
+                "nextPhraseID": "smuggler6_2"
+            }
+        ],
+        "message": "Can you spare some gold?"
+    },
+    {
+        "id": "smuggler6_2",
+        "message": "Oh, oh! I haven't seen that much gold in my whole life. I'm finally rich!"
+    },
+    {
+        "id": "smuggler6_3",
+        "message": "Is that all you have?"
+    },
+    {
+        "id": "smuggler7_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "smuggler7_2"
+            }
+        ],
+        "message": "I've seen them. Their camps."
+    },
+    {
+        "id": "smuggler7_2",
+        "message": "The Sakul are watching us. They're coming."
+    },
+    {
+        "id": "pig",
+        "message": "[grunt]"
+    }
+]

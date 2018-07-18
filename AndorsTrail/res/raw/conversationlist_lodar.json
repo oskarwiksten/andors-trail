@@ -1,0 +1,1983 @@
+[
+    {
+        "id": "lodar",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "60"
+                    }
+                ],
+                "nextPhraseID": "lodar_d0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "51"
+                    }
+                ],
+                "nextPhraseID": "lodar_find5"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "lodar_find2"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "20"
+                    }
+                ],
+                "nextPhraseID": "lodar_find0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar",
+                        "value": "110"
+                    }
+                ],
+                "nextPhraseID": "lodar_r0"
+            },
+            {
+                "nextPhraseID": "lodar_0"
+            }
+        ]
+    },
+    {
+        "id": "lodar_0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_1"
+            }
+        ],
+        "message": "Maybe under here? No."
+    },
+    {
+        "id": "lodar_1",
+        "message": "Maybe over there .. Yikes! Who are you!?",
+        "replies": [
+            {
+                "text": "I'm $playername.",
+                "nextPhraseID": "lodar_2"
+            }
+        ]
+    },
+    {
+        "id": "lodar_r0",
+        "message": "Oh, it's you again. Now, who were you again?",
+        "replies": [
+            {
+                "text": "I'm $playername.",
+                "nextPhraseID": "lodar_2"
+            }
+        ]
+    },
+    {
+        "id": "lodar_2",
+        "message": "Well, it doesn't matter who you are anyway. I am Lodar, maker of potions.",
+        "rewards": [
+            {
+                "rewardID": "lodar",
+                "value": 110,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I was sent to find you, I'm looking for my brother, Andor - have you seen him?",
+                "nextPhraseID": "lodar_2a"
+            }
+        ]
+    },
+    {
+        "id": "lodar_2a",
+        "message": "Don't know. What difference does it make? I must get all this done before the Hira'zinn moves.",
+        "replies": [
+            {
+                "text": "The Hira'zinn?",
+                "nextPhraseID": "lodar_3"
+            }
+        ]
+    },
+    {
+        "id": "lodar_3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_4"
+            }
+        ],
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 10,
+                "rewardType": "questProgress"
+            }
+        ],
+        "message": "Yes yes, the Hira'zinn. As I said, I must find the correct mixture before it moves again."
+    },
+    {
+        "id": "lodar_4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_5"
+            }
+        ],
+        "message": "Now, where were they? Over here perhaps?"
+    },
+    {
+        "id": "lodar_5",
+        "replies": [
+            {
+                "text": "Is there anything I can do to help?",
+                "nextPhraseID": "lodar_6a"
+            },
+            {
+                "text": "What's going on here, why are you in such a hurry?",
+                "nextPhraseID": "lodar_6b"
+            }
+        ],
+        "message": "No, maybe I should add some of the .."
+    },
+    {
+        "id": "lodar_6a",
+        "replies": [
+            {
+                "text": "You are still not making any sense to me. What is this Hira'zinn that you keep mentioning?",
+                "nextPhraseID": "lodar_7"
+            },
+            {
+                "text": "Very well, I'll leave you to it. Good luck.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "Oh yes. Can you please move a bit, you are in the way. Can't you see I'm busy with finding a way to stop the spread of the Hira'zinn here?"
+    },
+    {
+        "id": "lodar_6b",
+        "replies": [
+            {
+                "text": "You are still not making any sense to me. What is this Hira'zinn that you keep mentioning?",
+                "nextPhraseID": "lodar_7"
+            },
+            {
+                "text": "Ok then. I'll leave you to it. Good luck.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "Didn't I tell you? I must find the correct mixture before the Hira'zinn spreads further."
+    },
+    {
+        "id": "lodar_7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_8"
+            }
+        ],
+        "message": "Everything was fine up until a few days ago. That's when everything started to happen."
+    },
+    {
+        "id": "lodar_8",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 15,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_9"
+            }
+        ],
+        "message": "It never used to be like this, or did it? I can't remember."
+    },
+    {
+        "id": "lodar_9",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_10"
+            }
+        ],
+        "message": "Doesn't matter. I must make it stop anyway."
+    },
+    {
+        "id": "lodar_10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_11"
+            }
+        ],
+        "message": "Maybe it was in here .."
+    },
+    {
+        "id": "lodar_11",
+        "replies": [
+            {
+                "text": "I'm up for it! What do you need help with?",
+                "nextPhraseID": "lodar_12"
+            },
+            {
+                "text": "I'm not so sure about this. What do you need done?",
+                "nextPhraseID": "lodar_12"
+            },
+            {
+                "text": "No way. You solve your own problems, old man.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "No.. Hm, wait. You! Maybe you can be of use here, if you are willing to help?"
+    },
+    {
+        "id": "lodar_12",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 20,
+                "rewardType": "questProgress"
+            },
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodarstone"
+            }
+        ],
+        "replies": [
+            {
+                "text": "You're not very good at giving directions, old man. I'll try to do what you ask.",
+                "nextPhraseID": "lodar_13"
+            },
+            {
+                "text": "No problem. I'll return soon.",
+                "nextPhraseID": "lodar_13"
+            },
+            {
+                "text": "Below? Below what? Which tomb? What are you even talking about?",
+                "nextPhraseID": "lodar_14"
+            }
+        ],
+        "message": "Good. Take this stone, it will allow you to enter the tomb. Go below. Return once you're done.\n\n[Lodar hands you an odd looking stone that seems to be glowing from within]"
+    },
+    {
+        "id": "lodar_13",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar",
+                        "value": "100"
+                    }
+                ],
+                "nextPhraseID": "lodar_13a"
+            },
+            {
+                "nextPhraseID": "lodar_13b"
+            }
+        ]
+    },
+    {
+        "id": "lodar_13a",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "lodar_13b"
+            }
+        ]
+    },
+    {
+        "id": "lodar_13b",
+        "message": "Good. Now, hurry, before the Hira'zinn moves again!"
+    },
+    {
+        "id": "lodar_14",
+        "replies": [
+            {
+                "text": "Fine. I still don't understand, but I'll try to do as you ask.",
+                "nextPhraseID": "lodar_13"
+            },
+            {
+                "text": "Oh, that makes it much clearer! I'll be right back.",
+                "nextPhraseID": "lodar_13"
+            },
+            {
+                "text": "Ok. I'll be back once I'm done with your task.",
+                "nextPhraseID": "lodar_13"
+            }
+        ],
+        "message": "I thought I make it very clear before. With the stone in your possession, you will be able to enter the tomb. Go below. Return once you're done."
+    },
+    {
+        "id": "lodar_find0",
+        "replies": [
+            {
+                "text": "What was I supposed to do again?",
+                "nextPhraseID": "lodar_14"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "hirazinn",
+                        "value": 1
+                    }
+                ],
+                "text": "I have defeated the Hira'zinn in the tomb below. Here is its heart.",
+                "nextPhraseID": "lodar_find1"
+            }
+        ],
+        "message": "Oh, it's you again. Were you successful in what I asked of you?"
+    },
+    {
+        "id": "lodar_find1",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 50,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find2"
+            }
+        ],
+        "message": "Give me that. Oh, yes.. Yes!"
+    },
+    {
+        "id": "lodar_find2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find3"
+            }
+        ],
+        "message": "Did you really defeat the Hira'zinn? It is a formidable foe. I guess you must have, since you gave me its heart."
+    },
+    {
+        "id": "lodar_find3",
+        "replies": [
+            {
+                "text": "Yes, we spoke before, but you seemed to be obsessed with the Hira'zinn and did not make much sense.",
+                "nextPhraseID": "lodar_find4"
+            },
+            {
+                "text": "Yes, but you were acting all crazy. I nearly put my sword through your throat.",
+                "nextPhraseID": "lodar_find4"
+            }
+        ],
+        "message": "What was I doing? I was searching for something. I seem to recall you being here before, is that right?"
+    },
+    {
+        "id": "lodar_find4",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 51,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find5"
+            }
+        ],
+        "message": "Well, I feel much better now."
+    },
+    {
+        "id": "lodar_find5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find6"
+            }
+        ],
+        "message": "Thank you my friend for saving not only me but all of us."
+    },
+    {
+        "id": "lodar_find6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find7"
+            }
+        ],
+        "message": "The Hira'zinn would have slowly but surely found a way to creep up on us all."
+    },
+    {
+        "id": "lodar_find7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find8"
+            }
+        ],
+        "message": "So, thank you. I am in your debt. Now, how could I repay you?"
+    },
+    {
+        "id": "lodar_find8",
+        "replies": [
+            {
+                "text": "That will do nicely. Thank you.",
+                "nextPhraseID": "lodar_find10a"
+            },
+            {
+                "text": "I killed that foul thing and saved us all, and all I get in return is a few lousy potions?",
+                "nextPhraseID": "lodar_find10b"
+            }
+        ],
+        "message": "Maybe you would be interested in purchasing some of my brews, mixtures or herbal salts? I am afraid that is the only thing of any worth that I possess. I will of course offer you a discount."
+    },
+    {
+        "id": "lodar_find10a",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find11"
+            }
+        ],
+        "message": "Good."
+    },
+    {
+        "id": "lodar_find10b",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_find11"
+            }
+        ],
+        "message": "Do not forget that you also saved yourself from the Hira'zinn by defeating it. Had you not done that, it would have crept up on you as well, sooner or later."
+    },
+    {
+        "id": "lodar_find11",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_d1"
+            }
+        ],
+        "message": "I can assure you that my mixtures are .. well .. shall we say .. not for the faint of heart. They can have quite a profound effect on you."
+    },
+    {
+        "id": "lodar_d0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_d1"
+            }
+        ],
+        "message": "Hello again."
+    },
+    {
+        "id": "lodar_d1",
+        "rewards": [
+            {
+                "rewardID": "lodar2",
+                "value": 60,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I'd like to talk about your potions.",
+                "nextPhraseID": "lodar_pots0"
+            },
+            {
+                "text": "What are you doing all by yourself out here in the forest?",
+                "nextPhraseID": "lodar_forest0"
+            },
+            {
+                "text": "On the body of the Hira'zinn, I found this peculiar sword. Do you know anything about it?",
+                "requires": [
+                    {
+                        "requireType": "inventoryKeep",
+                        "requireID": "xulviir0",
+                        "value": 1
+                    }
+                ],
+                "nextPhraseID": "lodar_xul0"
+            },
+            {
+                "text": "What was that Hira'zinn beast?",
+                "nextPhraseID": "lodar_hira0"
+            },
+            {
+                "text": "I have come to find you. I am looking for my brother Andor.",
+                "nextPhraseID": "lodar_andor0"
+            }
+        ],
+        "message": "Again, thank you for your help."
+    },
+    {
+        "id": "lodar_forest0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_forest1"
+            }
+        ],
+        "message": "I try to keep to myself. Not many people find their way to my cabin here."
+    },
+    {
+        "id": "lodar_forest1",
+        "replies": [
+            {
+                "text": "Like you used to be?",
+                "nextPhraseID": "lodar_forest2"
+            }
+        ],
+        "message": "I like that. That way, I am not bothered, like I used to be."
+    },
+    {
+        "id": "lodar_forest2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_forest3"
+            }
+        ],
+        "message": "Oh yes, I too grew up in the city. But that life is behind me."
+    },
+    {
+        "id": "lodar_forest3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_d1"
+            }
+        ],
+        "message": "Right now, this suits me well. I hope there won't be any more .. disturbances, like the one you helped with."
+    },
+    {
+        "id": "lodar_xul0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_xul1"
+            }
+        ],
+        "message": "No! Get that thing away from me, I want nothing to do with it. I can almost hear the cries of the many lives that that thing has taken."
+    },
+    {
+        "id": "lodar_xul1",
+        "replies": [
+            {
+                "text": "How can I do that?",
+                "nextPhraseID": "lodar_xul2"
+            },
+            {
+                "text": "I think I'll hold on to it a bit longer.",
+                "nextPhraseID": "lodar_xul2"
+            }
+        ],
+        "message": "I tell you - that thing should be destroyed."
+    },
+    {
+        "id": "lodar_xul2",
+        "replies": [
+            {
+                "text": "Vilegard?",
+                "nextPhraseID": "lodar_xul3"
+            }
+        ],
+        "message": "You should go see the smith in Vile .. haven? Vile .. fall? Argh, I'm not very good at names."
+    },
+    {
+        "id": "lodar_xul3",
+        "rewards": [
+            {
+                "rewardID": "xulviir",
+                "value": 10,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_xul4"
+            }
+        ],
+        "message": "Vilegard - yes, that's the place. You should go see the smith there. He might be able to guide you further."
+    },
+    {
+        "id": "lodar_xul4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_d1"
+            }
+        ],
+        "message": "Anyway, It's good that you defeated the Hira'zinn. I can't imagine what could have happened if the Hira'zinn would have given that thing into the wrong hands."
+    },
+    {
+        "id": "lodar_pots0",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar_pots",
+                        "value": "40"
+                    }
+                ],
+                "nextPhraseID": "lodar_spo0"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar_pots",
+                        "value": "30"
+                    }
+                ],
+                "nextPhraseID": "lodar_pots6"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar_pots",
+                        "value": "10"
+                    }
+                ],
+                "nextPhraseID": "lodar_pots4"
+            },
+            {
+                "nextPhraseID": "lodar_pots1"
+            }
+        ]
+    },
+    {
+        "id": "lodar_pots1",
+        "replies": [
+            {
+                "text": "Let me see the ones you have.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Special potions?",
+                "nextPhraseID": "lodar_pots2"
+            }
+        ],
+        "message": "Oh yes. These are the ones I have available right now. If you want, I can also create some other special potions for you."
+    },
+    {
+        "id": "lodar_pots2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_pots3"
+            }
+        ],
+        "message": "Yes, yes. I have some even more interesting recipes that I might be able to mix for you. However, I am all out of some of the most important ingredients for them."
+    },
+    {
+        "id": "lodar_pots3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_pq1"
+            }
+        ],
+        "message": "If you want me to mix them for you, you'll have to help me get those ingredients."
+    },
+    {
+        "id": "lodar_pots4",
+        "replies": [
+            {
+                "text": "No, not yet. I'd like to see what potions you have available right now.",
+                "nextPhraseID": "S"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "hornbeam",
+                        "value": 1
+                    }
+                ],
+                "text": "Yes, here it is.",
+                "nextPhraseID": "lodar_pots5"
+            }
+        ],
+        "message": "Yes, were you able to get some of that Spotted Hornbeam fungus from the potion-maker in Fallhaven?"
+    },
+    {
+        "id": "lodar_pots5",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 30,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_pots6"
+            }
+        ],
+        "message": "Oh yes, this will do nicely. Good, good. Thank you, my friend."
+    },
+    {
+        "id": "lodar_pots6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_pots7"
+            }
+        ],
+        "message": "The Spotted Hornbeam fungus is an excellent reagent for creating potent mixtures."
+    },
+    {
+        "id": "lodar_pots7",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 40,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "With your help, I can now create additional potions from the remains of certain animals if you would like."
+    },
+    {
+        "id": "lodar_pq1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_pq2"
+            }
+        ],
+        "message": "Actually, the most important ingredient is the one that I am out of. Most of the potent mixtures that I know of require the spores from the Spotted Hornbeam fungus."
+    },
+    {
+        "id": "lodar_pq2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_pq3"
+            }
+        ],
+        "message": "And that, my friend, is not easy to come by here in the forest. Believe me, I have scoured the nearby forest in search for it, and I have even tried to cultivate some of it myself, to no avail."
+    },
+    {
+        "id": "lodar_pq3",
+        "replies": [
+            {
+                "text": "Do you want me to find you some of that fungus?",
+                "nextPhraseID": "lodar_pq4"
+            },
+            {
+                "text": "I'll help.",
+                "nextPhraseID": "lodar_pq4"
+            }
+        ],
+        "message": "However, I can imagine that the merchants in the larger settlements might have some."
+    },
+    {
+        "id": "lodar_pq4",
+        "replies": [
+            {
+                "text": "Fallhaven? The potion maker in Fallhaven?",
+                "nextPhraseID": "lodar_pq5"
+            }
+        ],
+        "message": "Yes please. Maybe the potion-maker in that Fall-something town has some? Fall.. brim? Fall.. port?"
+    },
+    {
+        "id": "lodar_pq5",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 10,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I'll do that. Goodbye.",
+                "nextPhraseID": "X"
+            }
+        ],
+        "message": "Yes, that's what I was looking for. Fallhaven. Go visit him and ask him if he has some. I am sure he has some, if you know enough to ask."
+    },
+    {
+        "id": "lodar_spo0",
+        "replies": [
+            {
+                "text": "I'd like to see what regular potions you have available.",
+                "nextPhraseID": "S"
+            },
+            {
+                "text": "Never mind that, let's go back to the other things we were discussing.",
+                "nextPhraseID": "lodar_d1"
+            },
+            {
+                "text": "What about the strength potion?",
+                "nextPhraseID": "lodar_spo1_0"
+            },
+            {
+                "nextPhraseID": "lodar_spo2_0",
+                "text": "What about the resistance potion?"
+            },
+            {
+                "nextPhraseID": "lodar_spo3_0",
+                "text": "What about the hardening potion?"
+            }
+        ],
+        "message": "With the Spotted Hornbeam fungus that you brought, I can either do a mixture that makes you think you're stronger than you actually are, or a mixture that makes you resist attacks more. There's also the skin-hardening potion, of course."
+    },
+    {
+        "id": "lodar_spo1_0",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 42,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I'll go find some of that. Let's talk about the other potions.",
+                "nextPhraseID": "lodar_spo0"
+            },
+            {
+                "text": "I have those things on me, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "spider",
+                        "value": 1
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "insectwing",
+                        "value": 1
+                    }
+                ],
+                "nextPhraseID": "lodar_spo1_5"
+            },
+            {
+                "text": "I have enough of those things on me for five potions, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "spider",
+                        "value": 5
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "insectwing",
+                        "value": 5
+                    }
+                ],
+                "nextPhraseID": "lodar_spo1_5x5"
+            },
+            {
+                "text": "I have enough of those things on me for ten potions, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "spider",
+                        "value": 10
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "insectwing",
+                        "value": 10
+                    }
+                ],
+                "nextPhraseID": "lodar_spo1_5x10"
+            }
+        ],
+        "message": "Have you ever noticed how insects are able to lift things that are much larger than themselves? As it turns out, I have discovered that if you mix some ground up insect wings together with the dried body of a spider, you can experience that same sensation yourself."
+    },
+    {
+        "id": "lodar_spo1_5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo1_6"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo1_6",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_str"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. One mixture for you."
+    },
+    {
+        "id": "lodar_spo1_5x5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo1_6x5"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo1_6x5",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_str_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Five mixtures for you."
+    },
+    {
+        "id": "lodar_spo1_5x10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo1_6x10"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo1_6x10",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_str_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Ten mixtures for you."
+    },
+    {
+        "id": "lodar_spo2_0",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 41,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I'll go find some of that. Let's talk about the other potions.",
+                "nextPhraseID": "lodar_spo0"
+            },
+            {
+                "text": "I have those things on me, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "bwm_claws",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gem2",
+                        "value": 1
+                    }
+                ],
+                "nextPhraseID": "lodar_spo2_5"
+            },
+            {
+                "text": "I have enough of those things on me for five potions, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "bwm_claws",
+                        "value": 10
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gem2",
+                        "value": 5
+                    }
+                ],
+                "nextPhraseID": "lodar_spo2_5x5"
+            },
+            {
+                "text": "I have enough of those things on me for ten potions, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "bwm_claws",
+                        "value": 20
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gem2",
+                        "value": 10
+                    }
+                ],
+                "nextPhraseID": "lodar_spo2_5x10"
+            }
+        ],
+        "message": "I have discovered that if you mix some ground up claws from a beast called the White Wyrm, together with a slight sprinkle of the center of a ruby gem, it can have a most interesting effect on you. Two of those claws and one gem would do."
+    },
+    {
+        "id": "lodar_spo2_5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo2_6"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo2_6",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_def"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. One mixture for you."
+    },
+    {
+        "id": "lodar_spo2_5x5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo2_6x5"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo2_6x5",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_def_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Five mixtures for you."
+    },
+    {
+        "id": "lodar_spo2_5x10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo2_6x10"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo2_6x10",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_def_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Ten mixtures for you."
+    },
+    {
+        "id": "lodar_spo3_0",
+        "rewards": [
+            {
+                "rewardID": "lodar_pots",
+                "value": 43,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "I'll go find some of that. Let's talk about the other potions.",
+                "nextPhraseID": "lodar_spo0"
+            },
+            {
+                "text": "I have those things on me, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "arulir_skin",
+                        "value": 2
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "claws",
+                        "value": 1
+                    }
+                ],
+                "nextPhraseID": "lodar_spo3_5"
+            },
+            {
+                "text": "I have enough of those things on me for five potions, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "arulir_skin",
+                        "value": 10
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "claws",
+                        "value": 5
+                    }
+                ],
+                "nextPhraseID": "lodar_spo3_5x5"
+            },
+            {
+                "text": "I have enough of those things on me for ten potions, here.",
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "arulir_skin",
+                        "value": 20
+                    },
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "claws",
+                        "value": 10
+                    }
+                ],
+                "nextPhraseID": "lodar_spo3_5x10"
+            }
+        ],
+        "message": "Up in the north, I have heard tales of beast called the Arulir. Their skin is thick as bark due to the interesting oily substance that they produce. I have learned that if you extract some of that thick oily substance, and mix it with an infectious claw from some monster, you can make a potion that makes your skin almost as tough as theirs. I will require two of those skins for it to be effective, and I believe you can find the type of claws that I require on monsters that dwell underground and in caves somewhere outside Fallhaven."
+    },
+    {
+        "id": "lodar_spo3_5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo3_6"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo3_6",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_barkskin"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. One mixture for you."
+    },
+    {
+        "id": "lodar_spo3_5x5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo3_6x5"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo3_6x5",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_barkskin_x5"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Five mixtures for you."
+    },
+    {
+        "id": "lodar_spo3_5x10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_spo3_6x10"
+            }
+        ],
+        "message": "Excellent. These will do nicely. Now, we only need to mix these with some of this.. And some of.."
+    },
+    {
+        "id": "lodar_spo3_6x10",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_pot_barkskin_x10"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you. About those other potions..",
+                "nextPhraseID": "lodar_spo0"
+            }
+        ],
+        "message": "There. Ten mixtures for you."
+    },
+    {
+        "id": "lodar_hira0",
+        "replies": [
+            {
+                "text": "You seemed quite obsessed before.",
+                "nextPhraseID": "lodar_hira1"
+            },
+            {
+                "text": "You seem a bit crazy to me.",
+                "nextPhraseID": "lodar_hira1"
+            }
+        ],
+        "message": "Ah yes, the Hira'zinn. It nearly had me fully in its grasp as well."
+    },
+    {
+        "id": "lodar_hira1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira2"
+            }
+        ],
+        "message": "That's the effects of the Hira'zinn. Its desires is to consume the minds of all it finds."
+    },
+    {
+        "id": "lodar_hira2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira3"
+            }
+        ],
+        "message": "I have only heard of it through tales in books. It has been many generations ago since it last showed itself."
+    },
+    {
+        "id": "lodar_hira3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira4"
+            }
+        ],
+        "message": "Last time it crept up on the world, it got its grip on whole villages, I've read. People were fighting their own brethren, after having been consumed by the Hira'zinn."
+    },
+    {
+        "id": "lodar_hira4",
+        "replies": [
+            {
+                "text": "Let's go back to the other questions.",
+                "nextPhraseID": "lodar_d1"
+            },
+            {
+                "text": "What caused it to appear the last time?",
+                "nextPhraseID": "lodar_hira5"
+            },
+            {
+                "text": "Hah, those people seem like weaklings. That thing was no match for me, I could have defeated it while blindfolded even.",
+                "nextPhraseID": "lodar_hira4b"
+            }
+        ],
+        "message": "Imagine, sisters and brothers fighting, husbands and wives going at each others throats, all because the Hira'zinn had twisted their minds."
+    },
+    {
+        "id": "lodar_hira4b",
+        "replies": [
+            {
+                "text": "Let's go back to the other questions.",
+                "nextPhraseID": "lodar_d1"
+            },
+            {
+                "text": "What caused it to appear the last time?",
+                "nextPhraseID": "lodar_hira5"
+            }
+        ],
+        "message": "Now, don't be so quick to underestimate the Hira'zinn. It has many tricks up its sleeve."
+    },
+    {
+        "id": "lodar_hira5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira6"
+            }
+        ],
+        "message": "I do not know. The tales I have read do not tell how or why it all started - only that there was some kind of conflict going on at that time."
+    },
+    {
+        "id": "lodar_hira6",
+        "replies": [
+            {
+                "text": "What sort of signs?",
+                "nextPhraseID": "lodar_hira7"
+            }
+        ],
+        "message": "The wise men during those days also spoke of having seen some sort of signs before things got worse."
+    },
+    {
+        "id": "lodar_hira7",
+        "replies": [
+            {
+                "text": "Yes, maybe they too were affected by the Hira'zinn?",
+                "nextPhraseID": "lodar_hira7a"
+            },
+            {
+                "text": "I saw some odd looking rock formations on my way here through the forest. Some of them even seemed to have some inner glow in them.",
+                "nextPhraseID": "lodar_hira9"
+            }
+        ],
+        "message": "I don't know. Something about some rocks turning to life. Sounds like crazy-talk to me."
+    },
+    {
+        "id": "lodar_hira7a",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira8"
+            }
+        ],
+        "message": "Yes, they might have been."
+    },
+    {
+        "id": "lodar_hira8",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_d1"
+            }
+        ],
+        "message": "Anyway, it's good that you defeated that thing."
+    },
+    {
+        "id": "lodar_hira9",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira10"
+            }
+        ],
+        "message": "Formations of rocks you say? Hm. I don't recall seeing any of that the last time I ventured out."
+    },
+    {
+        "id": "lodar_hira10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira11"
+            }
+        ],
+        "message": "Could that be how the Hira'zinn extends its reach?"
+    },
+    {
+        "id": "lodar_hira11",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira12"
+            }
+        ],
+        "message": "Yes, that would explain a great deal. The tales speak of it slowly creeping up on the world."
+    },
+    {
+        "id": "lodar_hira12",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira13"
+            }
+        ],
+        "message": "It could be that those formations are the way it gets closer to the people and things that it wants to consume."
+    },
+    {
+        "id": "lodar_hira13",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_hira14"
+            }
+        ],
+        "message": "It could be that the Hira'zinn has some way of affecting the life of the forest itself, causing these formations to appear."
+    },
+    {
+        "id": "lodar_hira14",
+        "replies": [
+            {
+                "text": "You still sound a bit crazy to me.",
+                "nextPhraseID": "lodar_hira8"
+            },
+            {
+                "text": "Thanks for the explanation.",
+                "nextPhraseID": "lodar_hira8"
+            }
+        ],
+        "message": "That's what I think, at least."
+    },
+    {
+        "id": "lodar_andor0",
+        "replies": [
+            {
+                "text": "You've seen him? Andor has been here?",
+                "nextPhraseID": "lodar_andor1"
+            }
+        ],
+        "message": "Oh, you must be referring to that other boy that was here recently."
+    },
+    {
+        "id": "lodar_andor1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor2"
+            }
+        ],
+        "message": "He did not tell me his name, but he had some similarities to how you look. Yes, then he probably was the person you are looking for."
+    },
+    {
+        "id": "lodar_andor2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor3"
+            }
+        ],
+        "message": "You say his name is Andor? That's an odd name, don't you think?"
+    },
+    {
+        "id": "lodar_andor3",
+        "replies": [
+            {
+                "text": "What was he doing here?",
+                "nextPhraseID": "lodar_andor4"
+            }
+        ],
+        "message": "Anyway, enough of that. What would you like to know?"
+    },
+    {
+        "id": "lodar_andor4",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor5"
+            }
+        ],
+        "message": "Well, even from the first time I saw him, I knew something odd was going on."
+    },
+    {
+        "id": "lodar_andor5",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor6"
+            }
+        ],
+        "message": "He seemed overly friendly to me, almost like he seemed to know me already."
+    },
+    {
+        "id": "lodar_andor6",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor7"
+            }
+        ],
+        "message": "You should know that most people that stumble into my cabin here have either been lost in the maze some time, or are just happy to see another living being."
+    },
+    {
+        "id": "lodar_andor7",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor8"
+            }
+        ],
+        "message": "He showed no such signs. Almost like he knew who I was and that he expected me to be here."
+    },
+    {
+        "id": "lodar_andor8",
+        "replies": [
+            {
+                "text": "Narwood extract, what's that?",
+                "nextPhraseID": "lodar_andor9"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "loneford",
+                        "value": "54"
+                    }
+                ],
+                "text": "I recognize that name 'Narwood extract' from somewhere.",
+                "nextPhraseID": "lodar_andor9"
+            }
+        ],
+        "message": "He very kindly asked for some Narwood extract."
+    },
+    {
+        "id": "lodar_andor9",
+        "replies": [
+            {
+                "text": "Please continue.",
+                "nextPhraseID": "lodar_andor10"
+            },
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "loneford",
+                        "value": "54"
+                    }
+                ],
+                "nextPhraseID": "lodar_andor9a",
+                "text": "Oh right. I've visited a village whose town well had been poisoned with that."
+            }
+        ],
+        "message": "It can be used to make quite a nasty poison."
+    },
+    {
+        "id": "lodar_andor9a",
+        "replies": [
+            {
+                "text": "Please continue your story about Andor.",
+                "nextPhraseID": "lodar_andor10"
+            }
+        ],
+        "message": "Those poor poor people. They have my sympathies. I hope it's not my things that brought this misery upon them."
+    },
+    {
+        "id": "lodar_andor10",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor11"
+            }
+        ],
+        "message": "So, he asked for a sample of Narwood extract. Normally, I wouldn't give that out to just anyone."
+    },
+    {
+        "id": "lodar_andor11",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor12"
+            }
+        ],
+        "message": "However, as I said, there was something odd about this whole meeting. I actually felt a bit threatened, even though he was so polite and friendly."
+    },
+    {
+        "id": "lodar_andor12",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor13"
+            }
+        ],
+        "message": "Fearing something would happen to me if I rejected his request, I reluctantly gave him a small sample of the Narwood extract."
+    },
+    {
+        "id": "lodar_andor13",
+        "replies": [
+            {
+                "text": "What happened?",
+                "nextPhraseID": "lodar_andor14"
+            }
+        ],
+        "message": "He gladly accepted the sample, and left shortly after. That's when it started to get even more odd."
+    },
+    {
+        "id": "lodar_andor14",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor15"
+            }
+        ],
+        "message": "As he left, I happened to glance out the window. There, in the forest I saw the bright flash of the light from the sun hitting a blade."
+    },
+    {
+        "id": "lodar_andor15",
+        "replies": [
+            {
+                "text": "Someone was hiding in the forest?",
+                "nextPhraseID": "lodar_andor16"
+            }
+        ],
+        "message": "If I hadn't seen that light coming off the blade, I would not have spotted the person there at all. He seemed to be hiding in the forest."
+    },
+    {
+        "id": "lodar_andor16",
+        "rewards": [
+            {
+                "rewardID": "andor",
+                "value": 70,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "So, Andor was here, wanted some Narwood extract, and he was travelling with someone that did not want you to spot him?",
+                "nextPhraseID": "lodar_andor17"
+            }
+        ],
+        "message": "Yes, so it would seem. It was quite obvious that he did not want me to spot him. After your brother left, I saw them both speak some words to each other, before they both left together."
+    },
+    {
+        "id": "lodar_andor17",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor18"
+            }
+        ],
+        "message": "Yes, that's basically it. But that's not all."
+    },
+    {
+        "id": "lodar_andor18",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor19"
+            }
+        ],
+        "message": "Shortly after they left, strange things started happening in the forest."
+    },
+    {
+        "id": "lodar_andor19",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor20"
+            }
+        ],
+        "message": "I saw a pack of wolves that were fighting each other. Tearing up each others sides, and eating the remains."
+    },
+    {
+        "id": "lodar_andor20",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor21"
+            }
+        ],
+        "message": "I saw birds flying over my cabin, totally covered in red blood. Blood covered birds - now that's something that I have not even heard about."
+    },
+    {
+        "id": "lodar_andor21",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor22"
+            }
+        ],
+        "message": "I tell you, something affected the forest. Myself, I felt my stomach turning even more often that it usually does."
+    },
+    {
+        "id": "lodar_andor22",
+        "replies": [
+            {
+                "text": "What could have been causing that?",
+                "nextPhraseID": "lodar_andor23"
+            }
+        ],
+        "message": "I had this strong urge to eat more than usual. I even found myself having lapses of time where I could not remember what I had done for the past couple of hours."
+    },
+    {
+        "id": "lodar_andor23",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor24"
+            }
+        ],
+        "message": "In hindsight, I think it's pretty clear what started to happen. The Hira'zinn awoke. To make matters worse, at least for me, it awoke in the tomb beneath my cabin here."
+    },
+    {
+        "id": "lodar_andor24",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor25"
+            }
+        ],
+        "message": "What I find disturbing is that this all started to happen right after your brother and that other person were here."
+    },
+    {
+        "id": "lodar_andor25",
+        "rewards": [
+            {
+                "rewardID": "andor",
+                "value": 71,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Are you implying that Andor awoke the Hira'zinn?",
+                "nextPhraseID": "lodar_andor25a"
+            },
+            {
+                "text": "Interesting. Please go on.",
+                "nextPhraseID": "lodar_andor26"
+            },
+            {
+                "text": "I don't think I like where you're going with this. Andor is my brother, and he would never do such a thing.",
+                "nextPhraseID": "lodar_andor25a"
+            }
+        ],
+        "message": "Maybe they visited that tomb. Now, I'm not pointing any fingers here, but it certainly seems like they had something to do with this, considering that the tomb has been quiet for ages."
+    },
+    {
+        "id": "lodar_andor25a",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor26"
+            }
+        ],
+        "message": "I don't know the details of course, and I have no proof. I only know that asking for Narwood extract is an odd request, and that the Hira'zinn started to creep up on me shortly after that."
+    },
+    {
+        "id": "lodar_andor26",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor27"
+            }
+        ],
+        "message": "Now, I am no expert in these things. I have only read bits and pieces from old books. I mostly focus my thoughts on herbs, mixtures and potions."
+    },
+    {
+        "id": "lodar_andor27",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor28"
+            }
+        ],
+        "message": "But I do know other people that might be able to provide you with further guidance."
+    },
+    {
+        "id": "lodar_andor28",
+        "replies": [
+            {
+                "text": "Who do you have in mind?",
+                "nextPhraseID": "lodar_andor29"
+            }
+        ],
+        "message": "Since you defeated the Hira'zinn, I think those people would be more than happy to speak to you. I would be happy to help you in any way I can too, of course."
+    },
+    {
+        "id": "lodar_andor29",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor30s"
+            }
+        ],
+        "message": "Seek out Lady Lydalon in the Valanyr temple of the Shadow in Nor City. She is one of the wisest people I know, and an excellent mentor."
+    },
+    {
+        "id": "lodar_andor30s",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "andor",
+                        "value": "72"
+                    }
+                ],
+                "nextPhraseID": "lodar_andor31"
+            },
+            {
+                "nextPhraseID": "lodar_andor30"
+            }
+        ]
+    },
+    {
+        "id": "lodar_andor30",
+        "rewards": [
+            {
+                "rewardType": "dropList",
+                "rewardID": "lodar_letter",
+                "value": 1
+            },
+            {
+                "rewardID": "andor",
+                "value": 72,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor31"
+            }
+        ],
+        "message": "Here, take this letter."
+    },
+    {
+        "id": "lodar_andor31",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor32"
+            }
+        ],
+        "message": "Present the letter to the guards at the temple, and they will grant you an audience with Lady Lydalon."
+    },
+    {
+        "id": "lodar_andor32",
+        "replies": [
+            {
+                "text": "I will go to Nor City and visit Lady Lydalon in the Valanyr temple of the Shadow.",
+                "nextPhraseID": "lodar_andor33"
+            },
+            {
+                "text": "He he, a temple. That must mean a lot of riches in there.",
+                "nextPhraseID": "lodar_andor32a"
+            }
+        ],
+        "message": "Also, while you're there, please give her my warmest regards. It has been too long since I last visited her."
+    },
+    {
+        "id": "lodar_andor32a",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor33"
+            }
+        ],
+        "message": "Show some respect will you?"
+    },
+    {
+        "id": "lodar_andor33",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor34"
+            }
+        ],
+        "message": "Just one more thing."
+    },
+    {
+        "id": "lodar_andor34",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor35"
+            }
+        ],
+        "message": "The person that was hiding among the trees here, that your brother was travelling with - I happened to get a quick view of his cloak."
+    },
+    {
+        "id": "lodar_andor35",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_andor36"
+            }
+        ],
+        "message": "I've seen cloaks like that before. The fabric is similar to a fabric commonly used in Nor City."
+    },
+    {
+        "id": "lodar_andor36",
+        "rewards": [
+            {
+                "rewardID": "andor",
+                "value": 80,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "text": "Thank you for all the information. I will travel to Nor City.",
+                "nextPhraseID": "lodar_andor37"
+            },
+            {
+                "text": "I can handle myself.",
+                "nextPhraseID": "lodar_andor37"
+            },
+            {
+                "text": "Will you ever stop talking?",
+                "nextPhraseID": "lodar_andor37"
+            }
+        ],
+        "message": "It could mean that whatever group of people he belongs to - there might be more of them in Nor City. Either you might want to stay away from them, or seek them out. You decide."
+    },
+    {
+        "id": "lodar_andor37",
+        "message": "You have done a great deed here. Goodbye. Take care, my friend."
+    }
+]

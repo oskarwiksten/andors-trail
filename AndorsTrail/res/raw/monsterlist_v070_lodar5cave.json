@@ -1,0 +1,212 @@
+[
+    {
+        "id": "caveburr1",
+        "iconID": "monsters_rltiles2:161",
+        "name": "Young posionous cave burrower",
+        "spawnGroup": "caveburr1",
+        "droplistID": "burrower",
+        "monsterClass": "insect",
+        "maxHP": 57,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 54,
+        "blockChance": 126,
+        "attackDamage": {
+            "max": 5
+        }
+    },
+    {
+        "id": "caveburr2",
+        "iconID": "monsters_rltiles2:161",
+        "name": "Infected larval cave burrower",
+        "spawnGroup": "caveburr1",
+        "droplistID": "burrower",
+        "monsterClass": "insect",
+        "maxHP": 62,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 57,
+        "blockChance": 129,
+        "attackDamage": {
+            "max": 6
+        }
+    },
+    {
+        "id": "caveburr3",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Poisonous cave burrower",
+        "spawnGroup": "caveburr1",
+        "droplistID": "burrower",
+        "monsterClass": "insect",
+        "maxHP": 65,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 60,
+        "blockChance": 131,
+        "attackDamage": {
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 3,
+                    "chance": 20
+                }
+            ]
+        }
+    },
+    {
+        "id": "caveburr4",
+        "iconID": "monsters_rltiles2:164",
+        "name": "Strong poisonous cave burrower",
+        "spawnGroup": "caveburr2",
+        "droplistID": "burrower",
+        "monsterClass": "insect",
+        "maxHP": 67,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 64,
+        "blockChance": 134,
+        "attackDamage": {
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 1,
+                    "duration": 5,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "caveburr5",
+        "iconID": "monsters_rltiles2:165",
+        "name": "Giant poisonous cave burrower",
+        "spawnGroup": "caveburr2",
+        "droplistID": "burrower",
+        "monsterClass": "insect",
+        "maxHP": 69,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 67,
+        "blockChance": 136,
+        "attackDamage": {
+            "max": 6
+        },
+        "hitEffect": {
+            "conditionsTarget": [
+                {
+                    "condition": "poison_weak",
+                    "magnitude": 2,
+                    "duration": 3,
+                    "chance": 10
+                }
+            ]
+        }
+    },
+    {
+        "id": "cavebat1",
+        "iconID": "monsters_tometik4:0",
+        "name": "Gray cave bat",
+        "spawnGroup": "cavebat1",
+        "droplistID": "cavebat",
+        "monsterClass": "animal",
+        "maxHP": 28,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 56,
+        "criticalSkill": 75,
+        "criticalMultiplier": 3,
+        "blockChance": 32,
+        "attackDamage": {
+            "min": 3,
+            "max": 5
+        },
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "cavebat2",
+        "iconID": "monsters_tometik4:0",
+        "name": "Black cave bat",
+        "spawnGroup": "cavebat1",
+        "droplistID": "cavebat",
+        "monsterClass": "animal",
+        "maxHP": 32,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 59,
+        "criticalSkill": 75,
+        "criticalMultiplier": 3,
+        "blockChance": 35,
+        "attackDamage": {
+            "min": 2,
+            "max": 6
+        },
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "cavebat3",
+        "iconID": "monsters_tometik4:2",
+        "name": "Brown cave bat",
+        "spawnGroup": "cavebat1",
+        "droplistID": "cavebat",
+        "monsterClass": "animal",
+        "maxHP": 36,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 62,
+        "criticalSkill": 80,
+        "criticalMultiplier": 3,
+        "blockChance": 25,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "cavebat4",
+        "iconID": "monsters_tometik4:2",
+        "name": "Cave bat",
+        "spawnGroup": "cavebat2",
+        "droplistID": "cavebat",
+        "monsterClass": "animal",
+        "maxHP": 39,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 64,
+        "criticalSkill": 80,
+        "criticalMultiplier": 3,
+        "blockChance": 27,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "movementAggressionType": "protectSpawn"
+    },
+    {
+        "id": "cavebat5",
+        "iconID": "monsters_tometik4:4",
+        "name": "Aggressive cave bat",
+        "spawnGroup": "cavebat2",
+        "droplistID": "cavebat",
+        "monsterClass": "animal",
+        "maxHP": 41,
+        "moveCost": 5,
+        "attackCost": 2,
+        "attackChance": 69,
+        "criticalSkill": 80,
+        "criticalMultiplier": 3,
+        "blockChance": 32,
+        "attackDamage": {
+            "min": 1,
+            "max": 7
+        },
+        "movementAggressionType": "protectSpawn"
+    }
+]

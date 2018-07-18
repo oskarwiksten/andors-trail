@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:gravity="center_horizontal"
+	android:background="@drawable/ui_startbackground"
+	>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		>
+		<LinearLayout
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_centerInParent="true"
+			android:orientation="vertical"
+			android:gravity="center_horizontal"
+			>
+			<ImageView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:src="@drawable/andors_trail_logo"
+				/>
+			<TextView
+				android:id="@+id/startscreen_currenthero"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:text="@android:string/unknownName"
+				/>
+			<EditText
+				android:id="@+id/startscreen_enterheroname"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:visibility="gone"
+				android:inputType="textPersonName"
+				/>
+
+			<TextView
+				android:id="@+id/startscreen_dev_version"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="15dp"
+				android:textColor="#880000"
+				android:gravity="center_horizontal"
+				android:visibility="gone"
+				/>
+
+		</LinearLayout>
+
+		<TextView
+			android:id="@+id/startscreen_version"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_alignParentRight="true"
+			android:text="@android:string/unknownName"
+			/>
+	</RelativeLayout>
+
+	<Button
+		android:id="@+id/startscreen_continue"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/startscreen_continue"
+		/>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		>
+		<Button
+			android:id="@+id/startscreen_newgame"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/startscreen_newgame"
+			/>
+		<Button
+			android:id="@+id/startscreen_load"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/startscreen_load"
+			/>
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		android:gravity="center_vertical"
+		>
+		<Button
+			android:id="@+id/startscreen_preferences"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/menu_settings"
+			/>
+		<Button
+			android:id="@+id/startscreen_about"
+			android:layout_width="0dip"
+			android:layout_weight="1"
+			android:layout_height="wrap_content"
+			android:text="@string/startscreen_about"
+			/>
+	</LinearLayout>
+</LinearLayout>

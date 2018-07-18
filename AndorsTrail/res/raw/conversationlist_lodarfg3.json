@@ -1,0 +1,79 @@
+[
+    {
+        "id": "lodar_fg3",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "questProgress",
+                        "requireID": "lodar2",
+                        "value": "50"
+                    }
+                ],
+                "nextPhraseID": "lodar_fg3_a"
+            },
+            {
+                "nextPhraseID": "lodar_fg3_0"
+            }
+        ]
+    },
+    {
+        "id": "lodar_fg3_a",
+        "message": "A child, here? I must be seeing things again."
+    },
+    {
+        "id": "lodar_fg3_0",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_fg3_1"
+            }
+        ],
+        "message": "(the guard stares back at you without saying anything)"
+    },
+    {
+        "id": "lodar_fg3_1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_fg3_2"
+            }
+        ],
+        "message": "(you notice him breathing heavily, and that his hands are shaking furiously)"
+    },
+    {
+        "id": "lodar_fg3_2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "lodar_fg3_3"
+            }
+        ],
+        "message": "(you also notice that the whites in his eyes have turned red from the many pulsating veins)"
+    },
+    {
+        "id": "lodar_fg3_3",
+        "replies": [
+            {
+                "text": "Fight!",
+                "nextPhraseID": "lodar_fg3_4"
+            }
+        ],
+        "message": "(the guard launches himself at you, raising his sword)"
+    },
+    {
+        "id": "lodar_fg3_4",
+        "rewards": [
+            {
+                "rewardID": "lodar",
+                "value": 72,
+                "rewardType": "questProgress"
+            }
+        ],
+        "replies": [
+            {
+                "nextPhraseID": "F"
+            }
+        ]
+    }
+]

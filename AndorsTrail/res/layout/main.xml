@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:id="@+id/main_container"
+	>
+
+	<com.gpl.rpg.AndorsTrail.view.StatusView
+		android:id="@+id/main_statusview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.QuickitemView
+		android:id="@+id/main_quickitemview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/main_statusview"
+		android:visibility="gone"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.CombatView
+		android:id="@+id/main_combatview"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_alignParentTop="true"
+		android:visibility="gone"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.ToolboxView
+		android:id="@+id/main_toolboxview"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/main_statusview"
+		android:layout_alignParentRight="true"
+		android:visibility="gone"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.MainView
+		android:id="@+id/main_mainview"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_above="@id/main_statusview"
+		android:layout_alignParentTop="true"
+		/>
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/main_combatview"
+		android:layout_margin="5dp"
+		android:background="@drawable/ui_statustext"
+		android:id="@+id/statusview_statustext"
+		android:textSize="@dimen/statusbar_text"
+		android:paddingTop="1sp"
+		android:paddingLeft="3sp"
+		android:paddingRight="3sp"
+		android:paddingBottom="2sp"
+		android:shadowDx="1"
+		android:shadowDy="1"
+		android:shadowRadius="1"
+		android:shadowColor="#000"
+		/>
+
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_above="@id/main_statusview"
+		android:layout_margin="5dp"
+		android:id="@+id/statusview_activeconditions"
+		android:gravity="right"
+		/>
+
+	<com.gpl.rpg.AndorsTrail.view.VirtualDpadView
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:id="@+id/main_virtual_dpad"
+		android:visibility="gone"
+		/>
+
+</RelativeLayout>

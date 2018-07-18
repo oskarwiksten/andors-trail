@@ -1,0 +1,92 @@
+[
+    {
+        "id": "highwayman1",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "highwayman1_2"
+            }
+        ],
+        "message": "Hold up. What have we here? A lone traveller on the Duleian road."
+    },
+    {
+        "id": "highwayman1_2",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "highwayman1_3"
+            }
+        ],
+        "message": "Haven't you heard, travelling this road can be dangerous."
+    },
+    {
+        "id": "highwayman1_3",
+        "replies": [
+            {
+                "text": "N",
+                "nextPhraseID": "highwayman1_4"
+            }
+        ],
+        "message": "There have been reports of people being robbed of all their possessions whilst travelling down this road."
+    },
+    {
+        "id": "highwayman1_4",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 500
+                    }
+                ],
+                "text": "Sounds good. Here is 500 gold.",
+                "nextPhraseID": "highwayman1_5"
+            },
+            {
+                "text": "Hey, that sounds like robbery to me!",
+                "nextPhraseID": "highwayman1_7"
+            },
+            {
+                "text": "How about I just kill you instead?",
+                "nextPhraseID": "highwayman1_6"
+            }
+        ],
+        "message": "Tell you what, if you give me .. shall we say .. 500 gold, I can almost guarantee that you won't be robbed on this road."
+    },
+    {
+        "id": "highwayman1_5",
+        "message": "Thank you. Have a pleasant day. Watch out for those robbers!"
+    },
+    {
+        "id": "highwayman1_6",
+        "replies": [
+            {
+                "text": "Fight!",
+                "nextPhraseID": "F"
+            }
+        ],
+        "message": "Oh, I see. You are trying to rob ME instead? Well then, I will not be so easily defeated. Prepare yourself."
+    },
+    {
+        "id": "highwayman1_7",
+        "replies": [
+            {
+                "requires": [
+                    {
+                        "requireType": "inventoryRemove",
+                        "requireID": "gold",
+                        "value": 500
+                    }
+                ],
+                "text": "Ok. Here is 500 gold.",
+                "nextPhraseID": "highwayman1_5"
+            },
+            {
+                "text": "How about I just kill you instead?",
+                "nextPhraseID": "highwayman1_6"
+            }
+        ],
+        "message": "Oh no no, are you accusing me of robbing you? That's not the case at all. I'm just asking for 500 gold so that you won't be robbed of all your possessions while travelling down this road."
+    }
+]

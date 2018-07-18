@@ -1,0 +1,152 @@
+[
+    {
+        "id": "zombie1",
+        "iconID": "monsters_tometik8:25",
+        "name": "Rancid zombie",
+        "spawnGroup": "zombie2",
+        "monsterClass": "undead",
+        "maxHP": 26,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 83,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 47,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 4,
+            "max": 7
+        },
+        "droplistID": "undead1"
+    },
+    {
+        "id": "zombie2",
+        "iconID": "monsters_tometik8:25",
+        "name": "Rotting zombie",
+        "spawnGroup": "zombie2",
+        "monsterClass": "undead",
+        "maxHP": 32,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 90,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 54,
+        "damageResistance": 3,
+        "attackDamage": {
+            "min": 5,
+            "max": 8
+        },
+        "droplistID": "undead1"
+    },
+    {
+        "id": "zombie3",
+        "iconID": "monsters_tometik8:27",
+        "name": "Blighted zombie",
+        "spawnGroup": "zombie2",
+        "monsterClass": "undead",
+        "maxHP": 49,
+        "moveCost": 5,
+        "attackCost": 3,
+        "attackChance": 98,
+        "criticalSkill": 20,
+        "criticalMultiplier": 2,
+        "blockChance": 57,
+        "damageResistance": 2,
+        "attackDamage": {
+            "min": 7,
+            "max": 10
+        },
+        "droplistID": "undead1"
+    },
+    {
+        "id": "oldcaveboss",
+        "iconID": "monsters_tometik1:78",
+        "name": "Dread zombie",
+        "monsterClass": "undead",
+        "maxHP": 95,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 184,
+        "criticalSkill": 20,
+        "criticalMultiplier": 3,
+        "blockChance": 102,
+        "attackDamage": {
+            "min": 2,
+            "max": 5
+        },
+        "hitEffect": {
+            "increaseCurrentHP": {
+                "min": 2,
+                "max": 3
+            },
+            "conditionsTarget": [
+                {
+                    "condition": "bleeding_wound",
+                    "magnitude": 5,
+                    "duration": 7,
+                    "chance": 30
+                }
+            ]
+        },
+        "unique": 1,
+        "droplistID": "oldcaveboss"
+    },
+    {
+        "id": "zombie5",
+        "iconID": "monsters_zombie2:0",
+        "name": "Corrupted zombie",
+        "spawnGroup": "zombie3",
+        "monsterClass": "undead",
+        "maxHP": 42,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 127,
+        "blockChance": 56,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        },
+        "droplistID": "undead1",
+        "movementAggressionType": "helpOthers"
+    },
+    {
+        "id": "zombie6",
+        "iconID": "monsters_zombie2:0",
+        "name": "Bloodthirsty zombie",
+        "spawnGroup": "zombie3",
+        "monsterClass": "undead",
+        "maxHP": 54,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 134,
+        "blockChance": 70,
+        "damageResistance": 4,
+        "attackDamage": {
+            "min": 2,
+            "max": 9
+        },
+        "droplistID": "undead1",
+        "movementAggressionType": "helpOthers"
+    },
+    {
+        "id": "zombie7",
+        "iconID": "monsters_zombie2:0",
+        "name": "Tainted zombie",
+        "spawnGroup": "zombie4",
+        "monsterClass": "undead",
+        "maxHP": 87,
+        "moveCost": 5,
+        "attackCost": 5,
+        "attackChance": 137,
+        "blockChance": 77,
+        "damageResistance": 5,
+        "attackDamage": {
+            "min": 3,
+            "max": 9
+        },
+        "droplistID": "undead1",
+        "movementAggressionType": "helpOthers"
+    }
+]

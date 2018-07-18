@@ -1,0 +1,315 @@
+<h3>Dialogue</h3>
+
+<fieldset id="dialoguePhrase">
+	<legend>NPC phrase</legend>
+	
+	<button ng-click="showPhraseTree(phrase)" class="btn" title="Show conversation as tree">
+		<i class="icon-align-center"></i> Show as tree
+	</button>
+	<br /><br />
+	
+	<div class="fieldWithLabel">
+		<label for="id">Phrase ID:</label>
+		<input type="text" size="30" id="id" class="field at-input-id" ng-model="phrase.id" />
+	</div>
+	<div class="fieldWithLabel">
+		<label for="message">NPC says:</label>
+		<textarea rows="4" cols="40" id="message" ng-model="phrase.message"></textarea>
+		<p ng-ds-fade="!phrase.message && phrase.replies.length > 0" class="dialogueConditional">
+			Since this phrase does not have any displayed<br />
+			text, it will not be shown to the player.<br />
+			Instead, the first reply that matches all<br />
+			requirements will be automatically followed.
+		</p>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasRewards" ng-model="phrase.hasRewards" />Reaching this phrase gives rewards</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="phrase.hasRewards" ui:sortable ng:model="phrase.rewards">
+		<div ng-repeat="reward in phrase.rewards" class="phrase-reward at-box">
+			<div class="fieldWithLabel">
+				<label for="rewardType">Reward Type:</label>
+				<select class="field" id="rewardType" ng-model="reward.rewardType">
+					<option value="questProgress">Quest progress</option>
+					<option value="dropList">Droplist</option>
+					<option value="skillIncrease">Skill increase</option>
+					<option value="actorCondition">Actor condition</option>
+					<option value="alignmentChange">Alignment/faction change</option>
+					<option value="giveItem">Item</option>
+					<option value="createTimer">Create timer</option>
+					<option value="spawnAll">Spawn monsters</option>
+					<option value="removeSpawnArea">Remove monsters</option>
+					<option value="deactivateSpawnArea">Stop spawning</option>
+					<option value="activateMapChangeArea">Activate mapchange</option>
+					<option value="deactivateMapChangeArea">Deactivate mapchange</option>
+				</select>
+			</div>
+			<div ng-show="reward.rewardType=='spawnAll' || reward.rewardType=='removeSpawnArea' || reward.rewardType=='deactivateSpawnArea'">
+				<div class="fieldWithLabel">
+					<label for="mapName">Map name:</label>
+					<input type="text" size="30" id="mapName" class="field at-input-id" ng-model="reward.mapName" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardID">Monster spawngroup:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='activateMapChangeArea' || reward.rewardType=='deactivateMapChangeArea'">
+				<div class="fieldWithLabel">
+					<label for="mapName">Map name:</label>
+					<input type="text" size="30" id="mapName" class="field at-input-id" ng-model="reward.mapName" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardID">Area name:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='questProgress'">
+				<div class="fieldWithLabel">
+					<label for="rewardID">Quest ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Stage:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='dropList'">
+				<div class="fieldWithLabel">
+					<label for="rewardID">Droplist ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='skillIncrease'">
+				<div class="fieldWithLabel">
+					<label for="rewardID">Skill ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='actorCondition'">
+				<div class="fieldWithLabel">
+					<label for="rewardID">Actor Condition ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Duration:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='alignmentChange'">
+				<div class="fieldWithLabel">
+					<label for="rewardID">Faction ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Delta:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='giveItem'">
+				<div class="fieldWithLabel">
+					<label for="rewardID">Item ID:</label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="rewardvalue">Quantity:</label>
+					<input type="text" size="3" id="rewardvalue" class="field at-input-quantity" ng-model="reward.value" />
+				</div>
+			</div>
+			<div ng-show="reward.rewardType=='createTimer'">
+				<div class="fieldWithLabel">
+					<label for="rewardID"><span class="hint  hint--top" data-hint="Can be any unique string really, just something to refer to this timer in some reply requirement.">Timer ID:</span></label>
+					<input type="text" size="30" id="rewardID" class="field at-input-id" ng-model="reward.rewardID" />
+				</div>
+			</div>
+			<button ng-click="removeReward(phrase, reward)" class="btn pull-right" title="Remove reward"><i class="icon-trash"></i> Remove reward</button>
+			<div class="clearfix"></div>
+		</div>
+		<div>
+			<button ng-click="addReward(phrase)" class="btn" title="Add reward"><i class="icon-plus-sign"></i> Add reward</button>
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="showAdvanced" ng-model="phrase.showAdvanced" />Show advanced properties</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="phrase.showAdvanced">
+		<label for="switchToNPC"><span class="hint  hint--top" data-hint="Id of a NPC that speaks this phrase. All subsequent phrases will be spoken by this NPC.">Switch active NPC to:</span></label>
+		<input type="text" size="30" id="switchToNPC" class="field at-input-id" ng-model="phrase.switchToNPC" />
+	</div>
+</fieldset>
+
+<fieldset id="dialoguePhraseReplies">
+	<legend>Replies</legend>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasOnlyNextReply" ng-model="phrase.hasOnlyNextReply" />Phrase leads directly to another<br />phrase without replies</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="phrase.hasOnlyNextReply">
+		<label for="nextPhraseID">Phrase ID:</label>
+		<div class="field">
+			<input type="text" size="30" id="nextPhraseID" class="at-input-id" ng-model="phrase.nextPhraseID" placeholder="leave empty to generate id" />
+			<a ng-click="proceedToPhrase(phrase, 'nextPhraseID')" class="btn" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used.">
+				<span ng-show="phrase.nextPhraseID"><i class="icon-forward"></i> Go</span>
+				<span ng-show="!phrase.nextPhraseID"><i class="icon-star-empty"></i> Generate</span>
+			</a>
+		</div>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="!phrase.hasOnlyNextReply">
+		<label for="replies">Replies</label>
+		<table class="field" id="replies">
+			<thead><tr>
+				<th>Reply</th>
+				<th></th>
+				<th></th>
+			</tr></thead>
+			<tbody ui:sortable ng:model="phrase.replies">
+				<tr ng-repeat="reply in phrase.replies">
+					<td ng-click="selectReply(reply)" class="clickToEdit">
+						<span ng-show="reply.text">{{reply.text.substring(0, 40)}}</span>
+						<span ng-show="!reply.text" class="dialogueConditional">(conditional evaluation)</span>
+					</td>
+					<td><a ng-click="removeReply(phrase, reply)" class="btn" title="Remove reply"><i class="icon-trash"></i></a></td>
+					<td><a ng-click="proceedToPhrase(reply, 'nextPhraseID')" class="btn" title="Follow" ng-show="reply.nextPhraseID && reply.nextPhraseID.length > 1"><i class="icon-forward"></i> Go</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<button ng-click="addReply(phrase)" class="btn" title="Add reply"><i class="icon-plus-sign"></i> Add reply</button>
+	</div>
+</fieldset>
+
+<fieldset id="dialogueReply" ng-show="reply">
+	<legend>Player reply</legend>
+	<div class="fieldWithLabel">
+		<label for="text">Player says:</label>
+		<textarea rows="4" cols="40" id="text" ng-model="reply.text"></textarea>
+	</div>
+	<div class="fieldWithLabel">
+		<label for="replyLeadsTo">Reply leads to:</label>
+		<select class="field" id="replyLeadsTo" ng-model="reply.replyLeadsTo">
+			<option value="">Another phrase</option>
+			<option value="S">Trading screen</option>
+			<option value="F">Combat</option>
+			<option value="X">Conversation ends</option>
+			<option value="R">NPC is removed from map</option>
+		</select>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="!reply.replyLeadsTo">
+		<label for="nextPhraseID">Next phrase ID:</label>
+		<div class="field">
+			<input type="text" size="30" id="nextPhraseID" class="at-input-id" ng-model="reply.nextPhraseID" placeholder="leave empty to generate id" />
+			<a ng-click="proceedToPhrase(reply, 'nextPhraseID')" class="btn" title="Open editor for the indicated phrase. Leave empty to automatically generate a new phrase id based on the prefix for this phrase, or supply a new phrase id that should be used.">
+				<span ng-show="reply.nextPhraseID"><i class="icon-forward"></i> Go</span>
+				<span ng-show="!reply.nextPhraseID"><i class="icon-star-empty"></i> Generate</span>
+			</a>
+		</div>
+	</div>
+	<div class="fieldWithLabel">
+		<label class="checkbox"><input type="checkbox" id="hasRequirements" ng-model="reply.hasRequirements" />Player must fulfill requirements to select this reply</label>
+	</div>
+	<div class="fieldWithLabel" ng-ds-fade="reply.hasRequirements" ui:sortable ng:model="reply.requires">
+		<div ng-repeat="require in reply.requires" class="reply-requirement at-box">
+			<div class="fieldWithLabel">
+				<label for="requireType">Require:</label>
+				<select class="field" id="requireType" ng-model="require.requireType">
+					<option value="questProgress">Quest progress</option>
+					<option value="questLatestProgress">Exact quest progress</option>
+					<option value="inventoryRemove">Inventory &amp; item will be removed</option>
+					<option value="inventoryKeep">Inventory</option>
+					<option value="wear">Worn equipment</option>
+					<option value="skillLevel">Skill level</option>
+					<option value="killedMonster">Killed monster</option>
+					<option value="timerElapsed">Timer elapsed</option>
+					<option value="usedItem">Used items (greater or equals)</option>
+					<option value="spentGold">Gold spent (greater or equals)/option>
+					<option value="consumedBonemeals">Bonemeals consumed (greater or equals)</option>
+					<option value="hasActorCondition">Has actor condition</option>
+				</select>
+			</div>
+			<div class="filedWithLabel">
+				<label class="checkbox"><input type="checkbox" id="requirenegation" ng-model="require.negate" />Negate this requirement</label>
+			</div>
+			<div ng-show="require.requireType=='questProgress' || require.requireType=='questLatestProgress'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Quest ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Stage:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='inventoryRemove' || require.requireType=='inventoryKeep' || require.requireType=='usedItem'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Item ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='wear'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Item ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity (optional):</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='skillLevel'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Skill ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Level:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='killedMonster'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Monster ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='timerElapsed'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Timer ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Number of rounds:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='spentGold'">
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='consumedBonemeals'">
+				<div class="fieldWithLabel">
+					<label for="requirevalue">Quantity:</label>
+					<input type="text" size="3" id="requirevalue" class="field at-input-quantity" ng-model="require.value" />
+				</div>
+			</div>
+			<div ng-show="require.requireType=='hasActorCondition'">
+				<div class="fieldWithLabel">
+					<label for="requireID">Actor Condition ID:</label>
+					<input type="text" size="30" id="requireID" class="field at-input-id" ng-model="require.requireID" />
+				</div>
+			</div>
+			<button ng-click="removeRequirement(reply, require)" class="btn pull-right" title="Remove requirement"><i class="icon-trash"></i> Remove requirement</button>
+			<div class="clearfix"></div>
+		</div>
+		<button ng-click="addRequirement(reply)" class="btn" title="Add requirement"><i class="icon-plus-sign"></i> Add requirement</button>
+	</div>
+	
+</fieldset>
+<div class="endSets"> </div>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+	<PreferenceCategory
+		android:title="@string/preferences_display_category">
+		<CheckBoxPreference
+			android:title="@string/preferences_display_fullscreen_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_display_fullscreen"
+			android:key="fullscreen" />
+		<ListPreference
+			android:title="@string/preferences_display_scaling_factor_title"
+			android:summary="@string/preferences_display_scaling_factor"
+			android:key="scaling_factor"
+			android:defaultValue="1.0f"
+			android:entries="@array/preferences_display_scaling_factor"
+			android:entryValues="@array/preferences_display_scaling_factor_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_optimized_drawing_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_optimized_drawing"
+			android:key="optimized_drawing" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/preferences_dialog_category">
+		<CheckBoxPreference
+			android:title="@string/preferences_dialog_confirmrest_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_dialog_confirmrest"
+			android:key="confirm_rest" />
+		<CheckBoxPreference
+			android:title="@string/preferences_dialog_confirmattack_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_dialog_confirmattack"
+			android:key="confirm_attack" />
+		<ListPreference
+			android:title="@string/preferences_dialog_monsterloot_title"
+			android:summary="@string/preferences_dialog_monsterloot"
+			android:key="display_lootdialog"
+			android:defaultValue="0"
+			android:entries="@array/preferences_display_loot"
+			android:entryValues="@array/preferences_display_loot_values" />
+		<ListPreference
+			android:title="@string/preferences_dialog_overwrite_savegame_title"
+			android:summary="@string/preferences_dialog_overwrite_savegame"
+			android:key="display_overwrite_savegame"
+			android:defaultValue="0"
+			android:entries="@array/preferences_display_overwrite_savegame_entries"
+			android:entryValues="@array/preferences_display_overwrite_savegame_values" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/preferences_combat_category">
+		<ListPreference
+			android:title="@string/preferences_combat_speed_title"
+			android:summary="@string/preferences_combat_speed"
+			android:key="attackspeed"
+			android:defaultValue="1000"
+			android:entries="@array/preferences_attackspeed"
+			android:entryValues="@array/preferences_attackspeed_values" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/preferences_movement_category">
+		<ListPreference
+			android:title="@string/preferences_movementmethod_title"
+			android:summary="@string/preferences_movementmethod"
+			android:key="movementmethod"
+			android:defaultValue="0"
+			android:entries="@array/preferences_movementmethods"
+			android:entryValues="@array/preferences_movementmethod_values" />
+		<ListPreference
+			android:title="@string/preferences_movement_dpad_position_title"
+			android:summary="@string/preferences_movement_dpad_position"
+			android:key="dpadposition"
+			android:defaultValue="0"
+			android:entries="@array/preferences_movement_dpad_positions"
+			android:entryValues="@array/preferences_movement_dpad_positions_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_movement_dpad_minimizeable_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_movement_dpad_minimizeable"
+			android:key="dpadMinimizeable" />
+	</PreferenceCategory>
+	<PreferenceCategory
+		android:title="@string/preferences_ui_category">
+		<CheckBoxPreference
+			android:title="@string/preferences_ui_enable_animations_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_ui_enable_animations"
+			android:key="enableUiAnimations" />
+		<ListPreference
+			android:title="@string/preferences_quickslots_placement"
+			android:summary="@string/preferences_quickslots_placement_summary"
+			android:key="quickslots_placement"
+			android:defaultValue="0"
+			android:entries="@array/preferences_quickslots_placements"
+			android:entryValues="@array/preferences_quickslots_placements_values" />
+		<CheckBoxPreference
+			android:title="@string/preferences_ui_show_quickslots_when_toolbox_is_visible_title"
+			android:defaultValue="false"
+			android:summary="@string/preferences_ui_show_quickslots_when_toolbox_is_visible"
+			android:key="showQuickslotsWhenToolboxIsVisible" />
+		<CheckBoxPreference
+			android:title="@string/preferences_ui_use_localized_resources_title"
+			android:defaultValue="true"
+			android:summary="@string/preferences_ui_use_localized_resources"
+			android:key="useLocalizedResources" />
+	</PreferenceCategory>
+</PreferenceScreen>

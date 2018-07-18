@@ -1,0 +1,63 @@
+[
+    {
+        "id": "debug_dagger1",
+        "iconID": "items_weapons:20",
+        "name": "Black heart dagger",
+        "category": 0,
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 6,
+        "equipEffect": {
+            "increaseAttackCost": 2,
+            "increaseAttackChance": 100,
+            "increaseCriticalSkill": 30,
+            "setCriticalMultiplier": 3,
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 10
+            }
+        }
+    },
+    {
+        "id": "debug_ring1",
+        "iconID": "items_jewelry:4",
+        "name": "Black heart ring",
+        "category": 7,
+        "displaytype": "quest",
+        "hasManualPrice": 1,
+        "baseMarketCost": 3,
+        "equipEffect": {
+            "increaseAttackChance": 50,
+            "increaseAttackDamage": {
+                "min": 10,
+                "max": 10
+            }
+        }
+    },
+    {
+        "id": "shadow_slayer",
+        "iconID": "items_weapons:60",
+        "name": "Shadow of the slayer",
+        "category": 0,
+        "displaytype": "extraordinary",
+        "hasManualPrice": 1,
+        "baseMarketCost": 0,
+        "equipEffect": {
+            "increaseMaxAP": 2,
+            "increaseAttackCost": 7,
+            "increaseAttackChance": 25,
+            "increaseCriticalSkill": 10,
+            "setCriticalMultiplier": 2,
+            "increaseAttackDamage": {
+                "min": 5,
+                "max": 9
+            }
+        },
+        "killEffect": {
+            "increaseCurrentHP": {
+                "min": 1,
+                "max": 1
+            }
+        }
+    }
+]
